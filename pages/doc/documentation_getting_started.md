@@ -1,14 +1,33 @@
 ---
-title: "Docs & Dashboards Overview"
-keywords: dashboards
-tags: [dashboards, getting started]
+title: "Tutorials: Doc, Product, Github"
+keywords: tutorial
+tags: [getting started]
 sidebar: doc_sidebar
-published: false
-permalink: documentation_getting_started.html
-summary: Learn about the docs and in-product docs that can help get you up to speed.
+permalink: tutorial_overview.html
+summary: Come up to speed with tutorials in product, Github, and docs.
 ---
 
-Wavefront offers an onboarding workflow, tutorial and tour dashboards, in-product help, docs, and other resources.
+Wavefront offers a Getting Started workflow, tutorial and tour integrations, and tutorials in github.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">The Getting Started onboarding flow helps you get data into Wavefront, build a dashboard, and create an alert. All trial users go through this flow. All other users can click Getting Started in the task bar
+</td>
+<td width="50%"><img src="/images/v2_create_dashboard.png" alt="create dashboard"></td>
+</tr>
+
+<tr>
+<td width="50%">
+<strong>To create a dashboard</strong>:
+<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the task bar. </li>
+<li>Drag the <strong>Metrics</strong> or <strong>New Chart</strong> widget onto the canvas</li>
+<li>Select metrics, filters, and functions now or later. </li>
+<li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard. The URL field supports letters, numbers, underscores, and dashes.  The Name field supports letters, numbers, characters, and spaces.</li></ol></td>
+<td width="50%"><img src="/images/v2_create_dashboard.png" alt="create dashboard"></td>
+</tr>
+</tbody>
+</table>
 
 * The Getting Started onboarding flow gives a overview of the Wavefront architecture, and a preview of dashboards and alerts. All trial users go through this flow before they can continue using Wavefront.
 * The tutorial dashboards and the tour dashboards help you get acquainted with the query language, alerting, chart types, and other Wavefront essentials. These dashboard highlight some of the features that make Wavefront special -- and show you how to use them.

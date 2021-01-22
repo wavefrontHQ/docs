@@ -1,5 +1,5 @@
 ---
-title: Getting Started with Wavefront
+title: Get Started with Wavefront
 tags: [getting started, dashboards, charts, alerts, tutorials]
 sidebar: doc_sidebar
 permalink: tutorial_getting_started.html
