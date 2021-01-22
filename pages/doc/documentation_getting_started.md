@@ -16,26 +16,30 @@ Learn Wavefront with in-product or external resources:
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">The Getting Started onboarding flow helps you get data into Wavefront, build a dashboard, and create an alert. All trial users go through this flow. All other users can click <strong>Getting Started</strong> in the task bar.
+<td width="40%">The Getting Started onboarding flow helps you get data into Wavefront, build a dashboard, and create an alert.
+<ul><li>All trial users go through a Getting Started flow. </li>
+<li>All other users can click <strong>Getting Started</strong> in the task bar to start.</li></ul>
+You can use the customer-wide or user-level preferences to control whether <strong>Getting Started</strong> is visible in the task bar.
 </td>
 <td width="60%"><img src="/images/get_started.png" alt="screenshot of Getting Started second screen"></td>
 </tr>
 <tr>
 <td>
 The Tutorial integration allows you to experiment with charts and alerts to learn (clone the integration to save your results).
-<ul><li>In the task bar, click <strong>Integrations</strong>. </li>
+<ol><li>In the task bar, click <strong>Integrations</strong>. </li>
 <li>Click <strong>Tutorial</strong> and select <strong>Dashboards</strong>.</li>
-<li>Follow the instructions on the left to explore the charts (with sample data) on the right.</li> </ul>
-You can use the customer-wide or user-level preferences to control whether <strong>Getting Started</strong> is visible in the task bar.</td>
-
+<li>Follow the instructions on the left to explore the charts (with sample data) on the right.</li> </ol>
+</td>
 <td width="50%"><img src="/images/tutorial_integration.png" alt="all tutorial dashboards"></td>
 </tr>
 <tr>
 <td>
-The Tour integration is a deep dive into additional functionality. You can explore those dahsboards and charts, which use sample data to highlight functionality like Anomaly Detection or fine-tuning alerts. The tour also includes single-host and cluster metrics exploration dashboards.
-<ul><li>In the task bar, click <strong>Integrations</strong>. </li>
+The Tour Pro integration is a deep dive into Wavefront functionality.
+<br/><br/>
+You can explore Tour dashboards and charts, which use sample data to highlight functionality like Anomaly Detection or fine-tuning alerts. The tour also includes single-host and cluster metrics exploration dashboards.
+<ol><li>In the task bar, click <strong>Integrations</strong>. </li>
 <li>Search for and click <strong>Tour Pro</strong> and click <strong>Dashboards</strong>.</li>
-<li>Click any of the dashboards to explore -- they can be used independently.</li></ul></td>
+<li>Click any of the dashboards to explore -- they can be used independently.</li></ol></td>
 <td width="50%"><img src="/images/tour_example.png" alt="screenshot of cluster metrics exploration dashboard"></td>
 </tr>
 <tr>
