@@ -56,7 +56,7 @@ entries:
     output: web
     folderitems:
 
-    - title: Tutorials: Doc, Product, GithubTest Test
+    - title: "Learn Wavefront"
       url: /tutorial_overview.html
       output: web
 
@@ -69,15 +69,15 @@ entries:
           url: /tutorial_getting_started.html
           output: web
 
-        - title: "Query Language"
+        - title: "Query Language Tutorial"
           url: /query_language_getting_started.html
           output: web
 
-        - title: "Spring Boot"
+        - title: "Spring Boot Tutorial"
           url: /wavefront_springboot_tutorial.html
           output: web
 
-        - title: "Distributed Tracing"
+        - title: "Distributed Tracing Tutorial"
           url: /tracing_java_tutorial.html
           output: web
 

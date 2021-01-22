@@ -1,5 +1,5 @@
 ---
-title: "Tutorials: Doc, Product, Github"
+title: "Learn Wavefront"
 keywords: tutorial
 tags: [getting started]
 sidebar: doc_sidebar
@@ -7,54 +7,46 @@ permalink: tutorial_overview.html
 summary: Come up to speed with tutorials in product, Github, and docs.
 ---
 
-Wavefront offers a Getting Started workflow, tutorial and tour integrations, and tutorials in github.
+Learn Wavefront with using in-product or external resources:
+* In-product:  Getting Started workflow, tutorial and tour integrations, help panel, integration setup examples
+* External: Tutorials, github examples, FAQs and Recipes, Swagger API, videos
+
+## Learn Wavefront in Wavefront
 
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="50%">The Getting Started onboarding flow helps you get data into Wavefront, build a dashboard, and create an alert. All trial users go through this flow. All other users can click Getting Started in the task bar
+<td width="40%">The Getting Started onboarding flow helps you get data into Wavefront, build a dashboard, and create an alert. All trial users go through this flow. All other users can click Getting Started in the task bar
 </td>
-<td width="50%"><img src="/images/v2_create_dashboard.png" alt="create dashboard"></td>
+<td width="60%"><img src="/images/get_started.png" alt="screenshot of Getting Started second screen"></td>
 </tr>
-
 <tr>
-<td width="50%">
-<strong>To create a dashboard</strong>:
-<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the task bar. </li>
-<li>Drag the <strong>Metrics</strong> or <strong>New Chart</strong> widget onto the canvas</li>
-<li>Select metrics, filters, and functions now or later. </li>
-<li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard. The URL field supports letters, numbers, underscores, and dashes.  The Name field supports letters, numbers, characters, and spaces.</li></ol></td>
-<td width="50%"><img src="/images/v2_create_dashboard.png" alt="create dashboard"></td>
+<td>
+The Tutorial integration allows you to experiment with charts and alerts to learn (clone the integration to save your results).
+<ul><li>In the task bar, click <strong>Integrations</strong>. </li>
+<li>Click <strong>Tutorial</strong> and select <strong>Dashboards</strong>.</li>
+<li>Follow the instructions on the left to explore the charts (with sample data) on the right.</li> </ul>
+You can use the customer-wide or user-level preferences to control whether **Getting Started** is visible in the task bar.</td>
+
+<td width="50%"><img src="/images/tutorial_integration.png" alt="all tutorial dashboards"></td>
+</tr>
+<tr>
+<td>
+The Tour integration is a deep dive into additional functionality. You can explore those dahsboards and charts, which use sample data to highlight functionality like Anomaly Detection or fine-tuning alerts. The tour also includes single-host and cluster metrics exploration dashboards.
+<ul><li>In the task bar, click <strong>Integrations</strong>. </li>
+<li>Search for and click <strong>Tour Pro</strong> and click <strong>Dashboards</strong>.</li>
+<li>Click any of the dashboards to explore -- they can be used independently.</li></ul></td>
+<td width="50%"><img src="/images/tour_exampe.png" alt="screenshot of cluster metrics exploration dashboard"></td>
+</tr>
+<tr>
+<td>
+The Help panel is available for most screens when you click the question mark <strong>?</strong>. You'll get a brief overview and links to other information.</td>
+<td width="50%"><img src="/images/show_help.png" alt="screenshot collage: first click on ? icon, then see help in panel on the right."></td>
 </tr>
 </tbody>
 </table>
 
-* The Getting Started onboarding flow gives a overview of the Wavefront architecture, and a preview of dashboards and alerts. All trial users go through this flow before they can continue using Wavefront.
-* The tutorial dashboards and the tour dashboards help you get acquainted with the query language, alerting, chart types, and other Wavefront essentials. These dashboard highlight some of the features that make Wavefront special -- and show you how to use them.
-* The in-product help on the right of each screen introduces what you're looking at -- e.g. charts or alerts -- and has links to more info.
-* This doc set (docs.wavefront.com) has in-depth information about many different aspects of the product. The following documents are great for getting started with Wavefront. If you want a condensed set of documentation, focus on the categories and topics with a <i class="fa-check-circle fa" style="color: green;"/> icon.
-
-<a name="getting-started-tutorial"></a>
-
-## Getting Started Workflow
-
-The in-product Getting Started onboarding flow gives a overview of the Wavefront architecture, and a preview of dashboards and alerts. If you are a trial user, it leads you through the process of setting up your first [integration](integrations.html).
-
-When you log in to Wavefront the first time, the Getting Started workflow displays automatically. To access the Getting Started workflow later, click **Getting Started** in the Wavefront task bar. You can use the customer-wide or user-level preferences to control whether **Getting Started** is visible in the task bar.
-
-<a name="tutorials"></a>
-
-## Tutorials <i class="fa-check-circle fa" style="color: green;"/>
-
-You can go through the [Tutorial: Getting Started](tutorial_getting_started.html) in this doc set for the basics.
-
-Once you've signed in to Wavefront, you can go through Wavefront Tutorial -- one of the Featured integrations.
-
-![tutorial integration](images/tut_integration.png)
-
-You can also explore with the Interactive Query Language dashboard.
-![query language tutorial](images/ql_dashbrd.png)
-
+<!---
 <a name="overview-documents"></a>
 
 ## Overview Documents <i class="fa-check-circle fa" style="color: green;"/>
@@ -146,3 +138,5 @@ Tutorial dashboards illustrate how to use Wavefront features to construct querie
 - Tutorial: Creating Alerts - explains how to create an alert and configure notification of the alert.
 - Tutorial: Code Push Event - explains how to use the Wavefront Query Language to develop queries that explore the effect of a code push event on a collection of servers.
 - Tutorial: Use Case: Anomaly Detection - describes how to use the Wavefront Query Language to investigate anomalous application behavior.
+
+--->
