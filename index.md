@@ -33,8 +33,8 @@ Explore the documentation using the hierarchy on the left.</li>
 <td width="33%" align="center" >
 <img src="/images/learn_icon_100.png"/>
 </td>
-<td width="33%" align="center"><img  src="/images/api_icon_100.png" /></td>
 <td width="33%" align="center" ><img src="/images/camera_icon_100.png"/> </td>
+<td width="33%" align="center"><img  src="/images/api_icon_100.png" /></td>
 </tr>
 <tr>
 <td width="33%">Start with the basics or reference docs:
