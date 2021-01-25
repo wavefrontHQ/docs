@@ -30,11 +30,11 @@ Explore the documentation using the hierarchy on the left.</li>
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="33%" align="center" >
-<img src="/images/learn_icon_100.png"/>
+<td width="33%" align="center">
+<a href="tutorial_overview.html"><img src="/images/learn_icon_100.png" alt="icon"/></a>
 </td>
-<td width="33%" align="center" ><img src="/images/camera_icon_100.png"/> </td>
-<td width="33%" align="center"><img  src="/images/api_icon_100.png" /></td>
+<td width="33%" align="center" ><a href="tutorial_overview.html#learn-with-tutorials--videos"><img src="/images/camera_icon_100.png" alt="icon"/></a>  </td>
+<td width="33%" align="center"><a href="tutorial_overview.html#find-reference-documentation-faqs-and-best-practices"><img src="/images/api_icon_100.png" alt="icon"/></a></td>
 </tr>
 <tr>
 <td width="33%">Start with the basics or reference docs:

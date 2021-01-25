@@ -16,7 +16,7 @@ Learn Wavefront with in-product or external resources:
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">The Getting Started onboarding flow helps you get data into Wavefront, build a dashboard, and create an alert.
+<td width="40%">The <strong>Getting Started onboarding flow</strong> helps you get data into Wavefront, build a dashboard, and create an alert.
 <ul><li>All trial users go through a Getting Started flow. </li>
 <li>All other users can click <strong>Getting Started</strong> in the task bar to start.</li></ul>
 You can use the customer-wide or user-level preferences to control whether <strong>Getting Started</strong> is visible in the task bar.
@@ -25,7 +25,7 @@ You can use the customer-wide or user-level preferences to control whether <stro
 </tr>
 <tr>
 <td>
-The Tutorial integration allows you to experiment with charts and alerts to learn (clone the integration to save your results).
+The <strong>Tutorial integration</strong> allows you to experiment with charts and alerts to learn (clone the integration to save your results).
 <ol><li>In the task bar, click <strong>Integrations</strong>. </li>
 <li>Click <strong>Tutorial</strong> and select <strong>Dashboards</strong>.</li>
 <li>Follow the instructions on the left to explore the charts (with sample data) on the right.</li> </ol>
@@ -34,7 +34,7 @@ The Tutorial integration allows you to experiment with charts and alerts to lear
 </tr>
 <tr>
 <td>
-The Tour Pro integration is a deep dive into Wavefront functionality.
+The <strong>Tour Pro integration</strong> is a deep dive into Wavefront functionality.
 <br/><br/>
 You can explore Tour dashboards and charts, which use sample data to highlight functionality like Anomaly Detection or fine-tuning alerts. The tour also includes single-host and cluster metrics exploration dashboards.
 <ol><li>In the task bar, click <strong>Integrations</strong>. </li>
@@ -44,12 +44,56 @@ You can explore Tour dashboards and charts, which use sample data to highlight f
 </tr>
 <tr>
 <td>
-The Help panel is available for most screens when you click the question mark <strong>?</strong>. You'll get a brief overview and links to other information.</td>
+The <strong>Help panel</strong> is available for most screens when you click the question mark <strong>?</strong>. You'll get a brief overview and links to other information.</td>
 <td width="50%"><img src="/images/show_help.png" alt="screenshot collage: first click on ? icon, then see help in panel on the right."></td>
 </tr>
 </tbody>
 </table>
 
+## Find Reference Documentation, FAQs, and Best Practices
+
+Our docs include reference documentation for API, query language, and chart options. Our customer success team helped with FAQs and best practices.
+
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%"><strong>REST API</strong> reference documentation is available:
+<ul><li>From the gear icon in the top left inside the product (see screenshot). This option shows you the current version on your cluster.</li>
+<li>From the <a href="https://code.vmware.com/apis/714/wavefront-rest">VMware Code website</a>. This option shows the most recent version.</li>
+</ul>
+</td>
+<td width="40%"><img src="/images/api_documentation.png" alt="gear icon menu with API Documentation selected"></td>
+</tr>
+<tr>
+<td markdown="span"><strong>Query language reference</strong> documentation is available [in this doc set](query_language_reference.html). Click any link to see a function page with examples for that function, as shown in the screenshot on the right.
+</td>
+<td><a href="query_language_reference.html" target="_blank"><img src="/images/query_language_example.png"  alt="screenshot of Aggregation functions section, with 2 functions with links"/></a></td>
+</tr>
+<tr>
+<td>The <strong>Chart Reference</strong> has details for each chart type.</td>
+<td><a href="ui_chart_reference.html" target="_blank"><img src="/images/chart_reference.png"  alt="TOC of chart reference"/></a></td>
+</tr>
+<tr>
+<td>For <strong>Best Practices</strong>, our engineering and customer success teams continually update the information. Those doc pages have a label. Use the <a href="label_best%20practice.html">Best Practices tile in docs.wavefront.com</a> or pick one of these popular Best Practices pages:
+<ul><li><a href="alerts_best_practices.html">Alerts Best Practices</a> </li>
+<li><a href="alerts_recipes.html">Alerts Recipes</a> </li>
+<li><a href="query_language_recipes.html">Query Language Recipes</a> </li>
+<li><a href="wavefront_data_naming.html">Data Naming Best Practices</a> </li>
+<li><a href="tracing_best_practices.html">Tracing Best Practices</a> </li></ul></td>
+<td><a href="label_best%20practice.html" target="_blank"><img src="/images/best_practices_tile.png"  alt="screenshot of tile, best practices highlighted"/></a></td>
+</tr>
+<tr>
+<td>Our <strong>FAQ info</strong> helps both users who are new to Wavefront and users who know exactly what they want. We're updating this list as we hear from you in conversations or on Slack.
+<ul><li><a href="ui_charts_faq.html">Wavefront Charts FAQs </a>explains how to set color mapping, how to define drilldown links, and more.  </li>
+<li><a href="wavefront_kubernetes_faq.html">Wavefront and Kubernetes FAQ</a> addresses common questions like integrating with third-party applications. </li>
+<li><a href="tracing_faq.html">Tracing FAQ</a> helps with common tasks like filtering RED metrics with custom span tags.  </li>
+<li><a href="wavefront_spring_boot_faq.html">Wavefront and Spring Boot FAQ</a> explains differences between Freemium and trial clusters, how to visualize metrics and traces, and more. </li>
+</ul></td>
+<td><img src="/images/wavefront_charts_faq.png" alt="screenshot of TOC of chart FAQ"></td>
+</tr>
+</tbody>
+</table>
 
 ## Learn with Tutorials & Videos
 
@@ -60,62 +104,18 @@ This doc set includes a set of tutorials for common use cases and links to short
 <tbody>
 <tr>
 <td width="40%"><br/><br/>
-Tutorials use simple examples to get you up to speed with the different Wavefront components. <br/><br/>
+<strong>Tutorials</strong> use simple examples to get you up to speed with the different Wavefront components. <br/><br/>
 We're continually adding to this set -- let us know what else you'd like to see.
 </td>
 <td width="60%"><a href="query_language_getting_started.html"><img src="/images/query_language_tutorial.png" alt="Screenshot of QL tutorial"/></a></td>
 </tr>
 <tr><br/><br/>
-<td>Wavefront docs have included videos from the start. Different videos have different focus.
+<td><strong>Videos</strong> have been part of Wavefront learning from the start. Different videos have different focus.
 <ul><li>Lightboard videos give conceptual background</li>
 <li>Our task-focus videos show how to get things done.</li></ul>
 
 Here are some task-focus <a href="videos_howto_start.html"> intro videos</a>. Click links in that section for more. </td>
 <td width="50%"><a href="https://youtu.be/90mw6Vcmlt4" target="_blank"><img src="/images/v_intro_clement.png" alt="Introduction to Wavefront video"/></a></td>
-</tr>
-</tbody>
-</table>
-
-## Find Reference Documentation, FAQs, and Best Practices
-
-Our docs include reference documentation for API, query language, and chart options. Our customer success team helped with FAQs and best practices.
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="60%">REST API reference documentation is available:
-<ul><li>From the gear icon in the top left inside the product (see screenshot). This option shows you the current version on your cluster.</li>
-<li>From the <a href="https://code.vmware.com/apis/714/wavefront-rest">VMware Code website</a>. This option shows the most recent version.</li>
-</ul>
-</td>
-<td width="40%"><img src="/images/api_documentation.png" alt="gear icon menu with API Documentation selected"></td>
-</tr>
-<tr>
-<td markdown="span">Query language reference documentation is available [in this doc set](query_language_reference.html). Click any link to see a function page with examples for that function, as shown in the screenshot on the right.
-</td>
-<td><a href="query_language_reference.html" target="_blank"><img src="/images/query_language_example.png"  alt="screenshot of Aggregation functions section, with 2 functions with links"/></a></td>
-</tr>
-<tr>
-<td>The Chart Reference has details for each chart type.</td>
-<td><a href="ui_chart_reference.html" target="_blank"><img src="/images/chart_reference.png"  alt="TOC of chart reference"/></a></td>
-</tr>
-<tr>
-<td>Our engineering and customer success teams continually update the best practices information. Those doc pages have a label. Use the Best Practices tile in docs.wavefront.com or pick one of these popular Best Practices pages. Here's a short list
-<ul><li><a href="alerts_best_practices.html">Alerts Best Practices</a> </li>
-<li><a href="alerts_recipes.html">Alerts Recipes</a> </li>
-<li><a href="query_language_recipes.html">Query Language Recipes</a> </li>
-<li><a href="wavefront_data_naming.html">Data Naming Best Practices</a> </li>
-<li><a href="tracing_best_practices.html">Tracing Best Practices</a> </li></ul></td>
-<td><a href="label_best%20practice.html" target="_blank"><img src="/images/best_practices_tile.png"  alt="screenshot of tile, best practices highlighted"/></a></td>
-</tr>
-<tr>
-<td>Our FAQ info helps both users who are new to Wavefront and users who know exactly what they want. We're updating this list as we hear from you in conversations or on Slack.
-<ul><li><a href="ui_charts_faq.html">Wavefront Charts FAQs </a>explains how to set color mapping, how to define drilldown links, and more.  </li>
-<li><a href="wavefront_kubernetes_faq.html">Wavefront and Kubernetes FAQ</a> addresses common questions like integrating with third-party applications. </li>
-<li><a href="tracing_faq.html">Tracing FAQ</a> helps with common tasks like filtering RED metrics with custom span tags.  </li>
-<li><a href="wavefront_spring_boot_faq.html">Wavefront and Spring Boot FAQ</a> explains differences between Freemium and trial clusters, how to visualize metrics and traces, and more. </li>
-</ul></td>
-<td><img src="/images/wavefront_charts_faq.png" alt="screenshot of TOC of chart FAQ"></td>
 </tr>
 </tbody>
 </table>
