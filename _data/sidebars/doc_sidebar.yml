@@ -52,6 +52,10 @@ entries:
           url: /terms_of_service.html
           output: web
 
+        - title: Wavefront Obsolescence Policy
+          url: /wavefront_obsolescence_policy.html
+          output: web
+
         - title: Wavefront Privacy Policy
           url: /privacy.html
           output: web
@@ -90,13 +94,15 @@ entries:
       url: /2020.14.x_release_notes.html
       output: web
 
+    - title: Wavefront & Kubernetes Release Notes
+      url: /kubernetes_relnotes.html
+      output: web
+
     - title: Wavefront Proxy Release Notes
       url: /proxies_versions.html
       output: web
 
-    - title: Wavefront Obsolescence Policy
-      url: /wavefront_obsolescence_policy.html
-      output: web
+
 
   - title: Data
     output: web
@@ -596,7 +602,7 @@ entries:
 
           - title: apdex() Function
             url: /hs_apdex_function.html
-            output: web  
+            output: web
 
 
     - title: Tracing Best Practices
