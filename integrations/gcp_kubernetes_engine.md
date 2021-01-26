@@ -1,8 +1,8 @@
 ---
-title: Google BigQuery Integration
+title: Google Kubernetes Engine Integration
 tags: [integrations list]
-permalink: gcp_bigquery.html
-summary: Learn about the Wavefront Google BigQuery Integration.
+permalink: gcp_kubernetes_engine.html
+summary: Learn about the Wavefront Google Kubernetes Engine Integration.
 ---
 ## Google Cloud Platform Integration
 
@@ -63,14 +63,3 @@ See [Google Cloud Platform Overview and Permissions](http://docs.wavefront.com/i
 
 
 
-undefined
-
-
-## Metrics
-
-See [Google Cloud metrics documentation](https://cloud.google.com/monitoring/api/metrics_gcp) for Metrics descriptions.   
-
-|Metric Name|Description|
-| :--- | :--- |
-|gcp.bigquery.storage.stored_bytes| Number of bytes stored.|
-|gcp.bigquery.storage.table_count| Number of tables.|

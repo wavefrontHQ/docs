@@ -67,6 +67,12 @@ To generate an API token:
 
 ![Generate API Token](/images/generate_token.png)
 
+
+{% include warning.html content="Do not share your API token with anyone. The token provides full access to the API. Accounts that have the token can authenticate without a username/password."%}
+
+
+
+
 ### Example: Invoke the API Using curl
 
 With `curl`, you specify the API token in the `Authorization: Bearer` header. For example, to return all alerts, run the following command:

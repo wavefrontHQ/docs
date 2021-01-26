@@ -1,7 +1,7 @@
 ---
-title: Instrumenting Your OpenTracing Java Application
+title: Instrumenting An OpenTracing Java Application Tutorial
 keywords: tracing tutorial
-tags: [tracing]
+tags: [tracing, tutorials]
 sidebar: doc_sidebar
 permalink: tracing_java_tutorial.html
 summary: Configure your OpenTracing Java application to send data to Wavefront using the OpenTracing Java SDK.

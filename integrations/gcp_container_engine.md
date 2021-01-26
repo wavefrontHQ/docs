@@ -11,10 +11,10 @@ data, as well as pre-defined dashboards and alert conditions for certain GCP ser
 
 ### Metrics Configuration
 
-Wavefront ingests Google Cloud Platform metrics using the v3 Stackdriver Monitoring APIs.  For details on the metrics, see the
- [metrics documentation](https://cloud.google.com/monitoring/api/metrics).
+Wavefront ingests Google Cloud Platform metrics using the v3 Stackdriver Monitoring APIs. For details on the metrics, see the
+[metrics documentation](https://cloud.google.com/monitoring/api/metrics).
 
-Metrics originating from Google Cloud Platform are prefixed with `gcp.` within Wavefront.  Once the integration has
+Metrics originating from Google Cloud Platform are prefixed with `gcp.` within Wavefront. Once the integration has
 been set up, you can browse the available GCP metrics in the metrics browser.
 
 ### Dashboards
@@ -22,6 +22,7 @@ been set up, you can browse the available GCP metrics in the metrics browser.
 <p>Wavefront provides Google Cloud Platform dashboards for the following services:</p>
 
 - Google App Engine
+- Google BigQuery
 - Google Cloud Billing
 - Google Cloud Datastore
 - Google Cloud Functions
@@ -34,8 +35,8 @@ been set up, you can browse the available GCP metrics in the metrics browser.
 - Google Compute Engine
 - Google Container Engine
 - Google Firebase
+- Google Kubernetes Engine
 - Google ML Engine
-- Google BigQuery
 
 ### Alerts
 

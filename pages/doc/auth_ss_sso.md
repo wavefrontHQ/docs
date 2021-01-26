@@ -12,18 +12,18 @@ Wavefront supports a number of third-party authentication solutions that use SAM
 * Self Service SAML SSO is not available for customers who have set up [multi-tenant authentication](authentication.html#multi-tenant-authentication)
 * Self Service SAML SSO is not available for trial customers
 
-{% include tip.html content="If you set up SAML SSO for your environment, user accounts can no longer sign in with their user name and password. Service accounts can continue to use their authentication tokens."%}
+{% include tip.html content="If you set up SAML SSO for your environment, user accounts can no longer sign in with their username and password. Service accounts can continue to use their authentication tokens."%}
 
 
 ## Set Up SAML SSO
 
-{% include note.html content="You must have SAML IDP Admin permissions to set up SAML SSO for your Wavefront instance."%}
+{% include note.html content="You must have SAML IdP Admin permissions to set up SAML SSO for your Wavefront instance."%}
 
-1. Log in to your Wavefront instance as a user with SAML IDP Admin permissions.
-2. From the gear icon, select **Self Service SAML**
-3. From the **Identity Provider** pulldown menu, select the identity provider that is in use in your environment.
+1. Log in to your Wavefront instance as a user with SAML IdP Admin permissions.
+2. From the gear icon, select **Self Service SAML**.
+3. From the **Identity Provider** pulldown menu, select the identity provider that is used in your environment.
 4. Click the **Setup Instructions** link. The link directs you to the instructions for the provider that you selected.
-5. Follow the instructions to retrieve the IDP metadata for your identity provider.
+5. Follow the instructions to retrieve the metadata for your identity provider.
 6. In the **Configure Connection** field, paste the metadata and click **Test**.
 7. If the test was successful, the Save button becomes available and you can click **Save**.
 
