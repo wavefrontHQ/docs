@@ -97,6 +97,7 @@ For **triple exponential smoothing**, `smoothingFactor`, `trendFactor`, and `sea
 
   Like the smoothingFactor and trendFactor, this average is a weighted average, with newer offsets having higher weights.  Each time a new point is processed, it impacts the average offset from the season average by a factor of seasonalityFactor, while the old weighted average offset has a weight of `(1 – seasonalityFactor)`.  Therefore, higher values of seasonalityFactor cause the algorithm to weight newer points more, making the forecast more reactive and less stable.
 
+<!---
 ## Example Discussion
 
 **Triple Exponential Smoothing**
@@ -113,6 +114,7 @@ If your data for CPU usage is *not* seasonal, use this query:
 hw(4h, 1m, align(1m, ts(cpu.usage.idle)))
 ```
 The function runs the Holt-Winters algorithm on the series using a sampling rate of 1 minute. The example doesn't use the optional parameters to weigh smoothing and trend.
+--->
 
 
 ## Caveats
