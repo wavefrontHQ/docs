@@ -1,5 +1,5 @@
 ---
-title: Get Started with Wavefront
+title: Dashboards and Alerts Tutorial
 tags: [getting started, dashboards, charts, alerts, tutorials]
 sidebar: doc_sidebar
 permalink: tutorial_getting_started.html
@@ -25,13 +25,9 @@ To complete these tasks you need:
 
 {% include tip.html content="If you're new to Wavefront, this tutorial is for you. If you're new to the Wavefront v2 UI (and you're already familiar with Wavefront), have a look at [What's New in v2](ui_v2_faq.html)." %}
 
-## Watch Some Videos
 
-This doc set and the VMware Learning Zone include videos that help you understand basic concepts, learn the mechanics of customizing the Wavefront UI, and use advanced features.
 
-Start with [Basic Concept](videos_quickstart.html) videos and [Getting Started](videos_howto_start.html) videos that explain the basics. Then move on to learn in more detail about [dashboards and charts](videos_dashboards_charts.html), [alerts](videos_alerts.html) and more.
-
-## Review Sample Dashboards and Metrics
+## Step 1: Explore Sample Dashboards and Metrics
 
 Your Wavefront instance includes tutorial and tour dashboards that we built using sample metrics. Let's have a look at a tutorial dashboard.
 
@@ -65,20 +61,38 @@ Next, let's have a look at some metrics in the Metrics browser.
 </tbody>
 </table>
 
-## Create Dashboards and Charts With the Dashboard Builder
+## Step 2: Create a Dashboard
 
-Use our [Dashboard Builder drag-and-drop interface](ui_dashboards.html#create-a-dashboard) to quickly create a dashboard from your metrics. Start with an integration or browse all metrics, and create one or multiple charts.
+The Wavefront UI supports several ways of creating a dashboard.
 
-![create dashboard with builder](images/v2_create_dashboard.png)
+### Option 1: Use Dashboard Builder
 
-## Create Dashboards and Charts by Saving a Chart to a New Dashboard
+Use our [Dashboard Builder drag-and-drop interface](ui_dashboards.html#create-a-dashboard) to quickly create a dashboard from your metrics. You can start with metrics, charts, or integrations and create one or multiple charts.
+
+It's easy to create a dashboard from metrics or by selecting a chart.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">
+<strong>To create a dashboard</strong>:
+<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the task bar. </li>
+<li>Drag the <strong>Metrics</strong> or <strong>New Chart</strong> widget onto the canvas</li>
+<li>Select metrics, filters, and functions now or later. </li>
+<li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard. The URL field supports letters, numbers, underscores, and dashes.  The Name field supports letters, numbers, characters, and spaces.</li></ol></td>
+<td width="60%"><img src="/images/v2_create_dashboard.png" alt="create dashboard"></td>
+</tr>
+</tbody>
+</table>
+
+### Option 2: Save a Chart to a New Dashboard
 
 Saving an existing chart to a new dashboard is another easy way to create a dashboard. We create a copy of the chart, and create new dashboard with the name and URL you specify.
 
 This example uses a chart from our Tour Pro, which is a set of dashboards for exploring typical customer use cases. Tour Pro also includes a dashboard that monitors a sample cluster and one dashboard that monitors a single host.
 
 <table style="width: 100%;">
-<thead><tr><th width="50%">Step 1: Open the Sample Cluster Metrics dashboard.</th><th width="50%">&nbsp;</th></tr>
+<thead><tr><th width="50%">Task 1: Open the Sample Cluster Metrics dashboard.</th><th width="50%">&nbsp;</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -94,7 +108,7 @@ This example uses a chart from our Tour Pro, which is a set of dashboards for ex
 </table>
 
 <table style="width: 100%;">
-<thead><tr><th width="50%">Step 2: Open a chart in the dashboard.</th><th width="50%">&nbsp;</th></tr>
+<thead><tr><th width="50%">Task 2: Open a chart in the dashboard.</th><th width="50%">&nbsp;</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -110,7 +124,7 @@ This example uses a chart from our Tour Pro, which is a set of dashboards for ex
 </table>
 
 <table style="width: 100%;">
-<thead><tr><th width="50%">Step 3: Add the chart to a new dashboard.</th><th width="50%">&nbsp;</th></tr>
+<thead><tr><th width="50%">Task 3: Add the chart to a new dashboard.</th><th width="50%">&nbsp;</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -125,12 +139,12 @@ The new dashboard is created, with a clone of the chart in the chart editor. </t
 </table>
 
 <table style="width: 100%;">
-<thead><tr><th width="50%">Step 4: Edit the chart in the cloned dashboard.</th><th width="50%">&nbsp;</th></tr>
+<thead><tr><th width="50%">Task 4: Edit the chart in the cloned dashboard.</th><th width="50%">&nbsp;</th></tr>
 </thead>
 <tbody>
 <tr>
 <td width="50%">
-<p>The chart is currently using variables to determine what to display. Let's simplify the chart to show only metrics for the dev environment, and experiment with chart types.</p>
+<p>The chart is currently using variables to determine what to display. Let's simplify the chart to show only metrics for the dev environment.</p>
 <ol>
 <li>With the chart still in Edit mode, select the variables and replace them with <strong>env=dev</strong>. Auto-complete offers options as you type.</li>
 <li>Experiment with some of the chart types available from the pull-down menu on the left. </li></ol>
@@ -141,12 +155,27 @@ The new dashboard is created, with a clone of the chart in the chart editor. </t
 </tbody>
 </table>
 
-## Create an Alert
+### Dashboard Videos
+
+These two 90-second videos show how to do it:
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="30%"><strong><font color="blue">Creating Charts with Chart Builder</font></strong><br/><br/>
+<iframe src="https://bcove.video/2Xx9IPz" width="400" height="225" allowfullscreen="true" alt="create charts with chart builder video"></iframe></td>
+<td width="70%"><strong><font color="blue">Customizing Dashboards</font></strong><br/><br/>
+<iframe src="https://bcove.video/2Wux6eP" width="400" height="225" allowfullscreen="true" alt="customizing dashboards video"></iframe> </td>
+</tr>
+</tbody>
+</table>
+
+## Step 3: Create an Alert
 
 In this section you create an alert that fires when the request latency metric reaches a certain threshold. One way to create an alert is directly from a chart.
 
 <table style="width: 100%;">
-<thead><tr><th width="50%">Step 1: Create the alert.</th><th width="50%">&nbsp;</th></tr>
+<thead><tr><th width="50%">Task 1: Create the alert.</th><th width="50%">&nbsp;</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -161,7 +190,7 @@ The <strong>Create Alert</strong> page displays. </td>
 </table>
 
 <table style="width: 100%;">
-<thead><tr><th width="50%">Step 2: Customize the alert.</th><th width="50%">&nbsp;</th></tr>
+<thead><tr><th width="50%">Task 2: Customize the alert.</th><th width="50%">&nbsp;</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -180,7 +209,7 @@ The <strong>Create Alert</strong> page displays. </td>
 </table>
 
 <table style="width: 100%;">
-<thead><tr><th width="50%">Step 3: Observe and snooze the alert.</th><th width="50%">&nbsp;</th></tr>
+<thead><tr><th width="50%">Task 3: Observe and snooze the alert.</th><th width="50%">&nbsp;</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -206,7 +235,7 @@ You'll receive a second email that the alert was snoozed. </li>
 </table>
 
 
-
+<!---
 ## Videos
 
 Our doc set includes concept videos, how-to videos, and more!
@@ -373,11 +402,95 @@ Advanced users further refine charts and alerts with Wavefront Query Language. C
      </div>
  </div>
 </div>
+--->
 
-## Next Steps
+## Learn More
 
 Wavefront offers an onboarding (**Getting Started**) workflow, tutorial and tour dashboards, in-product help, videos, docs, and other resources.
 
+### Intro Videos
+
+This doc set and the VMware Learning Zone include videos that help you understand basic concepts, learn the mechanics of customizing the Wavefront UI, and use advanced features.
+
+* Start with [Basic Concept](videos_quickstart.html) videos and [Getting Started](videos_howto_start.html) videos that explain the basics.
+* Move on to learn in more detail about [dashboards and charts](videos_dashboards_charts.html), [alerts](videos_alerts.html) and more.
+
+### In-product Tutorials and More
+
+We offer in-product or external resources:
+* **[Learn Wavefront in Wavefront](tutorial_overview.html#learn-wavefront-in-wavefront)**:  Getting Started workflow, tutorial and tour integrations, help panel, integration setup examples.
+* **Tutorials, Videos, and More**: This doc set includes tutorials, reference documentation, FAQs and recipes, videos, and more. See [Learn Wavefront](tutorial_overview.html)
+
+### Getting Started Docs
+
+Click a tile for doc about integrating with Wavefront, visualizing your data, refining what you see with queries, and alerting with Wavefront.
+
+<div class="row">
+ <div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-heading">
+             <span class="fa-stack fa-1x">
+                   <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+                   <i class="fa fa-rocket fa-stack-1x fa-inverse"></i>
+             </span>
+         </div>
+         <div class="panel-body">
+             <p><a href="label_integrations%20list.html" class="btn btn-primary btn-block">Integrate</a></p>
+             <p>Explore our integrations</p>
+         </div>
+     </div>
+ </div>
+ <div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-heading">
+             <span class="fa-stack fa-1x">
+                   <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+                   <i class="fa fa-eye fa-stack-1x fa-inverse"></i>
+             </span>
+         </div>
+         <div class="panel-body">
+             <p><a href="ui_examine_data.html" class="btn btn-primary btn-block">Visualize</a></p>
+             <p>Get started with charts and dashboards</p>
+         </div>
+     </div>
+ </div>
+ <div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-heading">
+             <span class="fa-stack fa-1x">
+             <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+             <i class="fa fa-question fa-stack-1x fa-inverse"></i>
+             </span>
+         </div>
+         <div class="panel-body">
+             <p><a href="query_language_reference.html" class="btn btn-primary btn-block">Query</a></p>
+             <p>Understand Wavefront Query Language</p>
+         </div>
+     </div>
+ </div>
+ <div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-heading">
+             <span class="fa-stack fa-1x">
+             <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+             <i class="fa fa-exclamation fa-stack-1x fa-inverse"></i>
+             </span>
+         </div>
+         <div class="panel-body">
+             <p><a href="/alerts.html" class="btn btn-primary btn-block">Alert</a></p>
+             <p>Get started with alerting. </p>
+         </div>
+     </div>
+ </div>
+</div>
+
+### Release Notes
+
+Release notes summarize the features added to each release and changes to existing features.
+
+- [Wavefront Release Notes](wavefront_release_notes.html)
+
+<!---
 <table style="width: 100%;">
 <tbody>
 <tr>
@@ -409,3 +522,4 @@ Developers like the Interactive Query Language Exporer dashboard to learn about 
 </table>
 
 Once you're familiar with the basics, you can [send your own data to Wavefront](wavefront_data_ingestion.html) and start your journey!
+--->
