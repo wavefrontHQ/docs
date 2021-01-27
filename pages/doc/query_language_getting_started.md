@@ -196,7 +196,7 @@ Experiment with some of our other functions, either in Chart Builder or in Query
 
 Wavefront Query Language has a rich set of functions for many purposes. The [Query Language Reference](query_language_reference.html) has the details, here's an overview (in pictures).
 
-The following diagram shows the main function categories for examining time series metrics. We support additional functions for working with [events](query_language_reference.html#event-functions), [histograms](query_language_reference.html#histogram-functions), and with [traces and spans](query_language_reference.html#traces-function).
+The following diagram shows the main function categories for examining time series metrics. We support additional functions for working with [events](query_language_reference.html#event-functions), [histograms](query_language_reference.html#histogram-functions), and with [traces and spans](query_language_reference.html#traces-functions).
 
 <table style="width: 100%;">
 <tbody>
