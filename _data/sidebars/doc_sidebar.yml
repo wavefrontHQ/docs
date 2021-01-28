@@ -65,7 +65,7 @@ entries:
         output: web
         subfolderitems:
 
-        - title: "Hello Wavefront AWS Integration Tutorial"
+        - title: "Hello Wavefront Tutorial"
           url: /hello_wavefront_aws_tutorial.html
           output: web
         
