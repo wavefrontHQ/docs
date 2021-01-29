@@ -1,9 +1,13 @@
 ---
 title: Wavefront & Kubernetes Release Notes
 sidebar: doc_sidebar
+keywords: kubernetes
+tags: [kubernetes]
 permalink: kubernetes_relnotes.html
 summary: Release Notes for Wavefront & Kubernetes.
 ---
 This page is regularly updated with our most recent improvements to Wavefront Observability for Kubernetes.
 
 ## January 2021
+
+In January 2021, we optimized the experience on metrics collection to omit peripheral ones. No dashboard is impacted.
