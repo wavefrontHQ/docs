@@ -10,4 +10,4 @@ This page is regularly updated with our most recent improvements to Wavefront Ob
 
 ## January 2021
 
-In January 2021, we optimized the experience on metrics collection to omit peripheral ones. No dashboard is impacted.
+In January 2021, we optimized the experience on metrics collection to omit peripheral ones. No dashboard is impacted. See the [changelist](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/commit/2e9ee11ad4bb3b92f873fb062773312f75b9cd8c) for details.
