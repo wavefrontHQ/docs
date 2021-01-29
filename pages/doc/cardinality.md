@@ -18,7 +18,7 @@ Generally, timeseries data in a simple form is labeled as a name, value, and tim
 
 In Wavefront, we enhance the data with tags and indexes, so that it has more context. For example: 
 
-`cpu.usage.user.percentage <metricvalue> [<timestamp>] source="mysystem" [pintTags]"`
+`cpu.usage.user.percentage <metricvalue> [<timestamp>] source="mysystem" [pointTags]"`
 
 Kubernetes environments typically also include the pod name. For example: 
 
