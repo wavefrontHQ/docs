@@ -21,7 +21,7 @@ Wavefront supports other cloud integrations, such as Google Cloud Platform (GCP)
 
 Follow these steps:
 
-1. In your web browser, go to your Wavefront instance (https://www.&lt;enter_cluster_name&gt;.waverfront.com), and log in. <br/>If you don’t have an instance, sign up for a free trial
+1. In your web browser, go to your Wavefront cluster (https://www.&lt;enter_cluster_name&gt;.waverfront.com), and log in. <br/>If you don’t have a cluster, [sign up for a free trial](https://tanzu.vmware.com/observability).
 1. From the taskbar, click **Integrations**.
 1. Select the **Amazon Web Services (AWS)** tile.
     <!--![Highlight the AWS integration on the Wavefront Integrations page.](images/hello_tutorial_aws_integration_tile.png)-->
