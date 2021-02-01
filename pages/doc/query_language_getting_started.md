@@ -24,7 +24,7 @@ Watch these videos to get you started. The videos use the v1 UI, but the basic w
 </table>
 
 ## Step 0: What's a Query?
-
+ 
 Before you run your first query, let's examine a time series and look at the anatomy of a query.
 
 ### What's a Time Series?
