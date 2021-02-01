@@ -7,14 +7,14 @@ permalink: alerts_missing_data.html
 summary: Configure an alert to fire when a time series stops reporting.
 ---
 
-Part of monitoring a system is to configure alerts to let you know about machine or application faults. When a machine or application crashes, it stops reporting data to Wavefront. In effect, the data we expect from that source is missing.
+Wavefront enables you to configure alerts that inform you about machine or application faults. When a machine or application crashes, it stops reporting data to Wavefront -- the data from that source is missing.
 
-This page can help you understand how to configure alerts to detect missing data, so you can identify potential failures and resolve them before too much data is lost.
+This explains how to configure alerts that detect missing data, so you can identify potential failures and resolve them.
 
 
 ## What Is Missing Data?
 
-When a time series stops reporting, we see NO DATA where we expect to see data points. We refer to these expected but unreported data points as missing data.
+When a time series stops reporting, charts show NO DATA where you'd expect to see data points. These expected but unreported data points are called missing data.
 
 Missing data might result from:
 
@@ -81,7 +81,7 @@ Different amounts of missing data can indicate the severity of a fault. In gener
   ```
   mcount(5m, ts(my.metric)) <= 3
   ```
-{% include note.html content="You base the threshold on the number of points you expect the time series to report in the chosen interval. The expected count is easiest to estimate for a time series that reports regularly, such as once a minute or once every 20 seconds. " %}
+  {% include tip.html content="You base the threshold on the number of points you expect the time series to report in the chosen interval. The expected count is easiest to estimate for a time series that reports regularly, such as once a minute or once every 20 seconds. " %}
 
 * To find out whether a time series is reporting fewer and fewer points over time, compare the current moving count to a moving count from an earlier part of the same time series. See [Alert on Point Rate Drop](alerts_recipes.html#alert-on-point-rate-drop) on the recipes page.
 
