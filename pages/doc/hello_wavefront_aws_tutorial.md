@@ -46,6 +46,7 @@ Follow these steps:
     1. Enter the **Account ID**: Copy the **Account ID** value shown in the Wavefront AWS integration instructions and paste it here.
         ![A diagram that shows where the account ID is on the Wavefront integration and an arrow pointing how to copy and paste on the AWS account.](images/hello_tutorial_aws_account_ID.png)
     1. Select **Require external ID**.
+        ![A screenshot of the external ID option selected.](images/hello_tutorial_aws_external_ID_selected.png)
     1. Enter the **External ID**. Copy the **External ID** value shown in the Wavefront AWS integration instructions and paste it here.
         ![A diagram that shows where the external ID is on the Wavefront integration and an arrow pointing how to copy and paste on the AWS account.](images/hello_tutorial_aws_external_ID.png)
     1. Click **Next: Permissions**.
@@ -118,3 +119,4 @@ Wavefront includes pre-defined dashboards for AWS that help you analyze and gath
 
 * For more information on the AWS integration, see [Amazon Web Services Integration](amazon_cloudfront.html).
 * Try out the [Dashboards and Alerts Tutorial](tutorial_getting_started.html).
+* [Learn about the metrics](wavefront_monitoring.html#aws-integration) that help you monitor CloudWatch requests, API requests, the point rate, and events coming in from your AWS integration.
