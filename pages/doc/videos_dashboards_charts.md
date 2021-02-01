@@ -11,10 +11,6 @@ Learn about visualizing your metrics with dashboards and charts, and how to cust
 
 <table style="width: 100%;">
 <tbody>
-
-
-<table style="width: 100%;">
-<tbody>
 <tr>
 <td width="30%"><strong><font color="blue">Customizing Dashboards</font></strong><br>
 <iframe src="https://bcove.video/2Wux6eP" width="400" height="225" allowfullscreen="true" alt="customizing dashboards video"></iframe></td>
