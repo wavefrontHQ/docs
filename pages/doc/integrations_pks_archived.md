@@ -72,7 +72,7 @@ We support dashboards for major functionality including:
 * Pod containers dashboard
 * Services and Replication Sets dashboard
 
-To see the full set of dashboards, sign in your Wavefront instance -- or sign up for a [free trial](http://wavefront.com/sign-up/?utm_source=docs.vmware.com&utm_medium=referral&utm_campaign=docs-front-page){:target="_blank" rel="noopenner noreferrer"}.
+To see the full set of dashboards, sign in your Wavefront instance -- or sign up for a [free trial](https://tanzu.vmware.com/observability).
 
 
 ## Architecture

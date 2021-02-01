@@ -97,22 +97,23 @@ For **triple exponential smoothing**, `smoothingFactor`, `trendFactor`, and `sea
 
   Like the smoothingFactor and trendFactor, this average is a weighted average, with newer offsets having higher weights.  Each time a new point is processed, it impacts the average offset from the season average by a factor of seasonalityFactor, while the old weighted average offset has a weight of `(1 – seasonalityFactor)`.  Therefore, higher values of seasonalityFactor cause the algorithm to weight newer points more, making the forecast more reactive and less stable.
 
-## Example Discussion
+## Example
 
-**Triple Exponential Smoothing**
-If your data for CPU usage is seasonal, use this query:
-```
-hw(4h, 1h, 1m, align(1m, ts(cpu.usage.idle)))
-```
-The function runs the Holt-Winters algorithm on the series with a season length of 1 hour and a sampling rate of 1 minute. The example doesn't use the optional parameters to weigh smoothing, trend, and seasonality.
+In the following example, we've defined `original data` as a ts expression. We can fun the following query to return a smoothed version of the expression and forecasts its future points using the Holt-Winters triple exponential smoothing algorithm for seasonal data.
 
-**Double Exponential Smoothing**
+```
+hw(1d, 1h, 10m, ${original data}, 1, 0, 1)
+```
 
-If your data for CPU usage is *not* seasonal, use this query:
-```
-hw(4h, 1m, align(1m, ts(cpu.usage.idle)))
-```
-The function runs the Holt-Winters algorithm on the series using a sampling rate of 1 minute. The example doesn't use the optional parameters to weigh smoothing and trend.
+The query uses the triple exponential smoothing syntax, which includes seasonality and has these elements.
+
+* 1d - historyLength
+* 1h - seasonLength
+* 10m - samplingRate
+* ${original data} - tsExpression
+* 1 - smoothingFactor
+* 0 - trendFactor
+* 1 - seasonalityFactor
 
 
 ## Caveats
@@ -122,4 +123,4 @@ There are requirements when using the `hw()` function:
 
 ## See Also
 
-See [Expanding Wavefront Predictive Analytics - See the Future with Holt-Winters Algorithm](https://www.wavefront.com/holtwinters-predictive-algorithm/) for in-depth discussion of an example.
+See [Expanding Wavefront Predictive Analytics - See the Future with Holt-Winters Algorithm](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/expanding-wavefront-predictive-analytics-see-the-future-with-holt-winters-algorithm) for in-depth discussion of an example.

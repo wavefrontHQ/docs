@@ -208,7 +208,7 @@ Wavefront customer support engineers have found the following metrics especially
 <tr>
 <td markdown="span">~alert</td>
 <td markdown="span">~alert.checking_frequency.&lt;alert_id&gt;</td>
-<td markdown="span">Tracks how often a specified alert performs a check. See [Alert States](alerts_states_lifecycle.html#alert-states) for details.</td></tr>
+<td markdown="span">Tracks how often a specified alert performs a check. See [Alert States](alerts_states_lifecycle.html#what-are-alert-states) for details.</td></tr>
 <tr>
 <td markdown="span">~collector</td>
 <td markdown="span">~collector.points.reported <br> ~collector.histograms.reported <br>~collector.tracing.spans.reported<br>~collector.tracing.span_logs.reported <br> ~collector.tracing.span_logs.bytes_reported<br></td>

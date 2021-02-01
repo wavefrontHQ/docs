@@ -2,6 +2,14 @@
 title: Using PromQL in Wavefront
 keywords: query language
 sidebar: doc_sidebar
+permalink: wavefront_prometheus.html
+summary: Run PromQL queries in the Wavefront Query Editor
+---
+
+---
+title: Using PromQL in Wavefront
+keywords: query language
+sidebar: doc_sidebar
 published: true
 permalink: wavefront_prometheus.html
 summary: Run PromQL queries in the Wavefront Query Editor

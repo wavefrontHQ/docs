@@ -40,7 +40,7 @@ When an account is created in Wavefront, the user can perform the following task
 
 ### New User Permissions
 
-Administrators can view and modify new user default permissions and new user default groups from the gear icon (**System Preferences > New User Defaults**).
+Administrators can view and modify new user default permissions and new user default groups from the gear icon (**Organization Settings > New User Defaults**).
 
 ## Setting Default Permissions for New Users
 
@@ -52,7 +52,7 @@ Because all new users are assigned to the Everyone group, permissions change for
 
 <strong>Option 2: Create a Group for new user permissions</strong>
 1. Create a group and assign the permissions you want for each new user.
-2. From the gear icon, select **System Preferences**.
+2. From the gear icon, select **Organization Settings**.
 3. Select the **New User Defaults** tab and type the user group name in the **Default User Groups** field.
 
 ## Granting and Revoking Permissions for Groups

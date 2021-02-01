@@ -239,7 +239,7 @@ To check your proxy from the UI:
 
 You can test your proxy using `curl`. Documentation for the following curl commands can be found directly on your Wavefront server at `https://<your-server.wavefront.com>/api-docs/ui/#!/Proxy/getAllProxy`.
 
-You can run the commands [directly from the API documentation](https://www.wavefront.com/wavefront-rest-api/). This is less error prone than copy/paste of the token.
+You can run the commands [directly from the API documentation](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/did-you-know-that-our-api-docs-are-alive). This is less error prone than copy/paste of the token.
 
 For this task, you first you get the list of proxies for your Wavefront service, then you display information for just the proxy you installed.
 

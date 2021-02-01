@@ -8,7 +8,7 @@ permalink: integrations_containers.html
 summary: Learn how to monitor containers in Wavefront.
 ---
 
-Wavefront provides several options for monitoring containers. Which is best depends on whether or not you are using a Docker orchestration system. This page explains how to monitor containers in Wavefront. See our blog post [How to Monitor Containers Efficiently at Scale](https://www.wavefront.com/exclusively-dockercon-2017-wavefront-packaged-containers-dashboard-provide-instant-visibility/){:target="_blank" rel="noopenner noreferrer"} for some background info.
+Wavefront provides several options for monitoring containers. Which is best depends on whether or not you are using a Docker orchestration system. This page explains how to monitor containers in Wavefront. See our blog post [How to Monitor Containers Efficiently at Scale](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/how-to-monitor-containers-efficiently-at-scale) for some background info.
 
 <table class="layout">
 <tbody>

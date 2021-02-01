@@ -6,7 +6,7 @@ permalink: monitoring_overview.html
 summary: Understand how Wavefront dashboards and tools help you find problems
 ---
 
-Wavefront is perfect if you want to monitor lots of hosts or lots of metrics. For example, you can [monitor hundreds of thousands of Kubernetes containers](https://www.wavefront.com/wavefront-for-vmworld-us-2019/). But how well the system performs can still depend on the quality of the input:
+Wavefront is perfect if you want to monitor lots of hosts or lots of metrics. For example, you can monitor hundreds of thousands of Kubernetes containers. But how well the system performs can still depend on the quality of the input:
 
 * Are the data points you're sending easy to ingest? Too many unique combinations of metric, source, and tag slow down the environment and make it hard to understand what's going on when you look at charts.
 * Are you actually using all the data you send in? It's tempting to send all data to Wavefront, and then analyze what seems suitable. But if you examine which data your dashboards and queries actually use, you might be able to get faster query displays and more easily stay within your allocated PPS budget.
