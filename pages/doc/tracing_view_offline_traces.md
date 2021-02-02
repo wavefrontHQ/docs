@@ -26,7 +26,9 @@ Follow the steps to export traces via the traces browser or the Wavefront API:
 ## View Traces
 
 Upload the JSON file or feed the JSON response from the API to offline traces, and view trace data. You can only upload one JSON file at a time.
-    1. Click **Applications** > **Offline Traces**.
-    1. Click **Upload JSON**, select the JSON file you saved that has the imported trace data, and click **Open**.
-  <br/>Now, you see the trace data you imported. 
-  ![Shows how the offline traces look once you upload the JSOn file that has the imported trace details.](images/tracing_offline_tracing_view.png)
+
+1. Click **Applications** > **Offline Traces**.
+1. Click **Upload JSON**, select the JSON file you saved that has the imported trace data, and click **Open**.
+  
+Now, you see the trace data you imported. 
+![Shows how the offline traces look once you upload the JSOn file that has the imported trace details.](images/tracing_offline_tracing_view.png)
