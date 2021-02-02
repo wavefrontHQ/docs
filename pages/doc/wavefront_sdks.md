@@ -157,7 +157,7 @@ Wavefront provides OpenTracing SDKs for:
     </div>
   </div>
 
-  {% include tip.html content="If you need application observability, but don't want to instrument code for your Java microservices, use the [Wavefront Java Tracing Agent](https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java). For more information, see [this blog post on the Wavefront Java Tracing Agent](https://www.wavefront.com/wavefront-tracing-agent-for-java/)." %}
+  {% include tip.html content="If you need application observability, but don't want to instrument code for your Java microservices, use the [Wavefront Java Tracing Agent](https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java). For more information, see [this blog post on the Wavefront Java Tracing Agent](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/wavefront-introduces-java-tracing-agent-delivering-out-of-the-box-application-observability)." %}
 
 A Wavefront OpenTracing SDK derives [RED metrics](trace_data_details.html#red-metrics-derived-from-spans) from the spans that are sent from the instrumented application. These RED metrics show the request Rate, Errors, and Duration that are obtained from the reported spans. These out-of-the-box metrics are derived from your spans automatically, with no additional configuration or instrumentation on your part. You can view the RED metrics for each service's operations in [predefined charts](trace_data_details.html#predefined-charts).
 

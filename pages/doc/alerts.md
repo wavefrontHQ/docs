@@ -6,7 +6,13 @@ sidebar: doc_sidebar
 permalink: alerts.html
 summary: Learn how alerts work, and how to create and examine them.
 ---
-With Wavefront, you can create smart alerts that dynamically filter noise and capture true anomalies. When you create an alert, you specify one or more alert targets that receive the alert notification(s). You can view an image of the chart in the alert notification, and click a link to see the alert in context. The end result is fewer false alerts and faster remediation when real issues occur.
+With Wavefront, you can create smart alerts that dynamically filter noise and capture true anomalies.
+* Specify one or more **alert targets** that receive the alert notification(s).
+* Create a **multi-threshold alert** to notify different targets depending on alert severity.
+* View an image of the chart in the alert notification, and click a link to see the alert in context.
+* Examine firing alerts in **Alert Viewer** to get context.
+
+The end result is fewer false alerts and faster remediation when real issues occur.
 
 {% include note.html content="All users can view alerts. You need Alerts permissions to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
@@ -38,22 +44,25 @@ You can create an alert from any chart, or from the **Create Alert** page. The b
 </tbody>
 </table>
 
-The rest of this page explains how you can fine-tune the process to get just the right number of alerts to just the right people. You'll learn how alerts work, how to customize the condition and the target, and how to create multi-threshold alerts (multi-threshold alerts have different targets based on the severity of the condition).
+The rest of this page explains:
+* How you can fine-tune the process to get just the right number of alerts to just the right people.
+* How to create alerts and customize the condition and the target.
+* How to create multi-threshold alerts, which can send notifications to different targets based on the severity of the problem.
 
 ### Alert Condition
 
-The alert condition is a ts() expression that defines the threshold for an alert.
+The alert condition is a query language expression that defines the threshold for an alert.
 * If an alert's Condition field is set to a conditional expression, for example `ts("requests.latency") > 195`, then all data values that satisfy the condition are marked as `true` (1) and all data values that do not satisfy the condition are marked as `false` (0).
-* If the Condition field is set to a ts() expression, for example `ts("cpu.loadavg.1m")`, then all _non-zero_ data values are marked as `true` and all zero data values are marked as `false`. If there is _no reported data_, then values are neither true nor false.
+* If the Condition field is set to a base ts(), hs(), etc. expression, for example `ts("cpu.loadavg.1m")`, then all _non-zero_ data values are marked as `true` and all zero data values are marked as `false`. If there is _no reported data_, then values are neither true nor false.
 
-An alert [fires](alerts_states_lifecycle.html#when-alerts-fire) when a metric stays at a value that indicates a problem for the specified amount of time.
-* A **classic alert** send a notification with the specified severity to all specified targets.
+An alert [fires](alerts_states_lifecycle.html#when-do-alerts-fire) when a metric stays at a value that indicates a problem for the specified amount of time.
+* A **classic alert** sends a notification with the specified severity to all specified targets.
 * A **multi-threshold alert** allows you to specify multiple severities and a different target for each severity. Each target is notified if the condition is met when the alert changes state.
 
 ### Alert Target
 
 Each alert is associated with one or more alert targets. The alert target specifies who to notify when the alert changes state.
-* For classic alerts, you specify a severity and one or more corresponding alert targets. You can set up email, PagerDuty, and custom alert targets.
+* For classic alerts, you specify a (single) severity and one or more corresponding alert targets. You can set up email, PagerDuty, and custom alert targets.
 * For multi-threshold alerts, you can specify a different alert target for each threshold, for example, an email target when the alert reaches the INFO threshold and a PagerDuty target when the alert reaches the SEVERE threshold. You can specify only custom alert targets, but it's easy to set up a custom email or PagerDuty alert target.
 
    {% include note.html content="Alert targets subscribe to all notifications at their severity and above. For example, an alert target for an INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. Because notifications potentially go to targets of different severities, you cannot associate an alert target with more than one severity. " %}
@@ -78,22 +87,21 @@ In this video, Jason explains classic alerts while he's showing them in the UI:
 </p>
 
 
-
 ## Creating an Alert
 
-You can create a classic alert with a single severity level (e.g. SEVERE) or a multi-threshold alert, which allows you to customize alert behavior for different thresholds. For each threshold, you select a corresponding severity and one or more targets to notify in case the threshold is met.
+You can create a classic alert with a single severity level (e.g. SEVERE), or a [multi-threshold alert](#create-a-multi-threshold-alert), which allows you to customize alert behavior for different thresholds.
 
 
-### Creating a Classic Alert
+### Create a Classic Alert
 
-Required fields for a classic alert are:
+**Required fields** for a classic alert are:
 * Alert name (default is New Alert)
 * Alert condition
 * Alert severity
 
-You also specify one or more alert targets to notify when the alert fires.
+To notify alert targets when the alert changes state, you can specify targets during alert creation or later.
 
-To create a classic alert:
+**To create a classic alert:**
 
 <ol>
 
@@ -117,7 +125,7 @@ To create a classic alert:
 
 <tr>
 <td><strong>Condition</strong></td>
-<td>A conditional ts() expression that defines the threshold for the alert. The condition expression can include any valid <a href=
+<td>A conditional expression that defines the threshold for the alert. The condition expression can include any valid <a href=
 "query_language_getting_started.html">Wavefront Query Language</a> construct. The condition expression coupled with the <strong>Alert fires</strong> setting determines when the alert fires.
 <ul><li><strong>Alert fires</strong> - Length of time (in minutes) during which the <strong>Condition</strong> expression must be <em>true</em> before the alert fires. Minimum is 1.  For example, if you enter 5, the alerting engine reviews the value of the condition during the last 5 minute window to determine whether the alert should fire.</li>
 <li><strong>Alert resolves</strong> - Length of time (in minutes) during which the <strong>Condition</strong> expression must be <em>not true</em> before the alert switches to resolved. Minimum is 1.  Omit this setting or pick a value that is greater than or equal to the <strong>Alert fires</strong> value to avoid resolve-fire cycles. </li>
@@ -141,8 +149,8 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 The display expression can include any valid Wavefront Query Language construct, and typically captures the underlying time series that the condition expression is testing. The results of the display expression are:
 <ul>
 <li>Shown in the <strong>Events Display</strong> preview chart on the page for creating or editing the alert.</li>
-<li markdown="span">Shown in any [chart image](#chart-images-in-alert-notifications) that is included in a notification triggered by the alert.</li>
-<li  markdown="span">Shown in the [interactive chart](#interactive-charts-linked-by-alert-notifications) you can visit from a notification triggered by the alert.</li>
+<li markdown="span">Shown in any [chart image](alerts_notifications.html#chart-images-in-alert-notifications) that is included in a notification triggered by the alert.</li>
+<li  markdown="span">Shown in the [interactive chart](alerts_notifications.html#interactive-charts-linked-by-alert-notifications) you can visit from a notification triggered by the alert.</li>
 <li markdown="span">Used as the basis for any [statistics](alert_target_customizing.html#alert-series-statistics) that you might include in a [custom notification](alert_target_customizing.html) triggered by the alert. </li>
 </ul>
 
@@ -193,7 +201,7 @@ The display expression can include any valid Wavefront Query Language construct,
 
 
 <li>
-(Optional) If you are protecting metrics with <a href="metrics_security.html">metrics security policies</a> in your environment, check the **Secure Metrics Details** check box. A simplified alert notification is sent.
+(Optional) If you are protecting metrics with <a href="metrics_security.html">metrics security policies</a> in your environment, check the <strong>Secure Metrics Details</strong> check box. A simplified alert notification is sent.
 
 <table>
 <tbody>
@@ -226,7 +234,7 @@ The display expression can include any valid Wavefront Query Language construct,
 </tr>
 <tr>
 <td><strong>Metrics</strong></td>
-<td>Whether to include obsolete metrics. If enabled, the alert considers metrics that have not reported for 4 weeks or more. Customers who use queries that aggregate data in longer time frames sometimes want to include those older metrics.</td>
+<td>Whether to include obsolete metrics. By default, alerts don't consider data that have  not reported for 4 weeks or more. Include obsolete metrics if you use queries that aggregate data in longer time frames.</td>
 </tr>
 </tbody>
 </table>
@@ -236,28 +244,30 @@ The display expression can include any valid Wavefront Query Language construct,
 <li>Click <strong>Save</strong>.</li>
 </ol>
 
-### Video: Creating a Classic Alert
+### Video: Create a Classic Alert
 This video shows how Jason creates a classic alert:
 
 <p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6a27a841-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_alerts_creating.png" style="width: 700px;"/></a>
 </p>
 
-### Creating a Multi-Threshold Alert
+### Create a Multi-Threshold Alert
 
-Required fields for a multi-threshold alert are:
+**Required fields** for a multi-threshold alert are:
 * Alert name (defaults to New Alert)
-* Alert condition and operator (e.g. greater than>)
-* At least one severity and corresponding threshold value.
+* Alert condition and operator (e.g. greater than (**>**))
+* At least one severity/threshold value pair.
 
 For each severity, you can specify one or more alert targets to notify [when the alert changes state](alerts_states_lifecycle.html#when-threshold-alerts-notify-targets). Each target is notified if the condition is met when the alert changes state.
 
 Only custom alert targets are supported, but you can initially create the alert without specifying a target.
 
-{% include note.html content="You cannot associate an alert target with more than one severity. Alert targets subscribe to all notifications at their severity and above. For example, an alert target for an INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. Because notifications potentially go to targets of different severities, you cannot associate an alert target with more than one severity. "%}
+{% include note.html content="You cannot associate an alert target with more than one severity. Alert targets subscribe to all notifications at their severity and above.
 
-In contrast to classic alerts, Wavefront creates a display expression for a multi-threshold alert. The expression shows the alert condition.
+For example, an alert target for an INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. Because notifications potentially go to targets of different severities, you cannot associate an alert target with more than one severity. "%}
 
-To create a multi-threshold alert:
+For a multi-threshold alert, Wavefront creates a display expression that shows the alert condition.
+
+**To create a multi-threshold alert:**
 
 <ol>
 
@@ -282,7 +292,7 @@ To create a multi-threshold alert:
 
 <tr>
 <td><strong>Condition</strong></td>
-<td>A ts() expression that defines the threshold for the alert. The condition expression can include any valid <a href=
+<td>A query language expression that defines the threshold for the alert. The condition expression can include any valid <a href=
 "query_language_getting_started.html">Wavefront Query Language</a> construct. The condition expression coupled with the <strong>Alert fires</strong> setting determines when the alert fires.
 <ul><li><strong>Alert fires</strong> - Length of time (in minutes) during which the <strong>Condition</strong> expression must be <em>true</em> before the alert fires. Minimum is 1.  For example, if you enter 5, the alerting engine reviews the value of the condition during the last 5 minute window to determine whether the alert should fire.</li>
 <li><strong>Alert resolves</strong> - Length of time (in minutes) during which the <strong>Condition</strong> expression must be <em>not true</em> before the alert switches to resolved. Minimum is 1.  Omit this setting or pick a value that is greater than or equal to the <strong>Alert fires</strong> to avoid potential chains of resolve-fire cycles. </li>
@@ -292,21 +302,27 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 </td>
 </tr>
 <tr><td><strong>Operator</strong></td>
-<td>Select one of the operators, for example, greater than or . The operator determines which values are allowed for the different severity thresholds. For example, if the operator is greater than, then SEVERE must be the highest number and INFO must be the lowest number, and the numbers must increase from INFO to SEVERE. You don't have to specify all 4 severities.</td>
+<td>Select one of the operators, for example, greater than or &gt;. The operator determines which values to use for the different severity thresholds. For example, if the operator is greater than, then:
+<ul><li>You don't have to specify all 4 severities.</li>
+<li>SEVERE must be the highest number</li>
+<li>INFO must be the lowest number</li>
+<li>The numbers must increase from INFO to SEVERE. </li></ul></td>
 </tr>
 <tr>
 <td><strong>Severity</strong></td>
-<td>For multi-threshold alerts, specify more than one severity - or create a Classic alert. Associate a threshold value with each severity. The order must match the operator. For example, you can specify a Operator =>, SEVERE 6000, and WARN 5000, but you can't specify SEVERE 5000, and WARN 6000 with that operator.
+<td>For multi-threshold alerts, specify more than one severity - or create a Classic alert. Associate a threshold value with each severity. The order must match the operator.
+<br/><br/>For example, you can specify a Operator =>, SEVERE 6000, and WARN 5000, but you can't specify SEVERE 5000, and WARN 6000 with that operator.
 </td>
 </tr>
 </tbody>
 </table>
 </li>
 
-<li>(Recommended) Specify a list of alert targets for each severity. Wavefront notifies the target(s) when the alert changes state, for example, from CHECKING to FIRING, or when the alert is snoozed. You can specify up to ten different targets for each severity. Use commas to separate targets. You cannot specify an email address or PagerDuty key. Instead, you specify names of <a href="webhooks_alert_notification.html">custom alert targets</a> that you already created. <br/>
+<li>(Recommended) Specify a list of alert targets for each severity. Wavefront notifies the target(s) when the alert changes state, for example, from CHECKING to FIRING, or when the alert is snoozed. Specify names of <a href="webhooks_alert_notification.html">custom alert targets</a> that you already created. You can specify up to ten different targets for each severity. You cannot specify an email address or PagerDuty key directly.<br/>
 <br/>
-{% include note.html content="You cannot associate an alert target with more than one severity. Alert targets subscribe to all notifications at their severity and above. For example, an alert target for an INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. Because notifications potentially go to targets of different severities, you cannot associate an alert target with more than one severity." %}
+{% include note.html content="You cannot associate an alert target with more than one severity. Alert targets subscribe to **all** notifications at their severity and above.<br/> <br/>
 
+For example, an alert target for an INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. Because notifications potentially go to targets of different severities, you cannot associate an alert target with more than one severity." %}
 </li>
 
 <li>
@@ -322,14 +338,14 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 </tr>
 <tr>
 <td><strong>Tags</strong></td>
-<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing Related Alerts](alerts_manage.html#organize-related-alerts-with-alert-tags). </td>
+<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing Related Alerts with Alert Tags](alerts_manage.html#organize-related-alerts-with-alert-tags). </td>
 </tr>
 </tbody>
 </table>
 </li>
 
 <li>
-(Optional) If you are protecting metrics with <a href="metrics_security.html">metrics security policies</a> in your environment, check the **Secure Metrics Details** check box. A simplified alert notification is sent.
+(Optional) If you are protecting metrics in your environment with <a href="metrics_security.html">metrics security policies</a> , check the <strong>Secure Metrics Details</strong> check box. A simplified alert notification is sent.
 
 <table>
 <tbody>
@@ -357,7 +373,7 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 </tr>
 <tr>
 <td><strong>Metrics</strong></td>
-<td>Whether to include obsolete metrics. If enabled, the alert considers metrics that have not reports for 4 weeks or more. Customers who use queries that aggregate data in longer timeframes sometimes want to include those older metrics.</td>
+<td>Whether to include obsolete metrics. By default, alerts don't consider data that have not reported for 4 weeks or more. Include obsolete metrics if you use queries that aggregate data in longer time frames.</td>
 </tr>
 </tbody>
 </table>
@@ -367,7 +383,7 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 <li>Click <strong>Save</strong>.</li>
 </ol>
 
-### Video: Creating a Multi-Threshold Alert
+### Video: Create a Multi-Threshold Alert
 
 This video shows how to create a multi-threshold alert:
 
@@ -375,6 +391,6 @@ This video shows how to create a multi-threshold alert:
 </p>
 
 ## Do More!
-* Use Alert Viewer to drill down to the root cause.
-* Clone, delete, or edit an alert.
+* Use [Alert Viewer](alerts_manage.html#examine-an-alert-in-alert-viewer) to drill down to the root cause.
+* Clone, delete, or edit an alert, discussed in [Manage Alerts](alerts_manage.html).
 * Learn about [alert states and life-cycle](alerts_states_lifecycle.html)

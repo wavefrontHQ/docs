@@ -9,8 +9,9 @@ summary: Learn about the Wavefront Okta Integration.
 Okta is a popular identity management product that can be integrated with Wavefront to enable single sign-on.
 ## Okta Setup
 
-### Step 1. Create the Okta Application
+### Step 1. Create the Wavefront Application in Okta
 
+**Note:** Steps 1 - 12 are only required if the Wavefront application is not present in Okta. Otherwise, proceed to step 13 to copy and paste the metadata.
 1. In Okta, click **Add Applications**. 
 1. Click **Create New App**. 
 1. In the Create a New Application dialog, select **SAML 2.0** and click **Create**.
@@ -30,7 +31,7 @@ Okta is a popular identity management product that can be integrated with Wavefr
 1. In the **Are you customer or partner?** field, select **I'm an Okta customer adding an internal app**.
 1. In the **App type** field, select **This is an internal app that we have created**.
 1. Click **Finish**.
-1. In the application Sign On tab, right-click the **Identity Provider metadata** link and select **Copy Link**.
+1. In the application Sign On tab, click **View Setup Instructions** and click the **Identity Provider metadata** link to copy and paste the metadata.
 
    {% include image.md src="images/okta_metadata_url.png" width="50" %}
 

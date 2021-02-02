@@ -47,35 +47,29 @@ Customers retain control and ownership of their content. We do not replicate cus
 
 ## High Availability
 
-Wavefront is architected to be highly available. In
-the event of a hardware failure, we automatically migrate to, or restart workloads
-on, another host machine in the cluster and automatically
-restart the failed host. If the host machine fails to restart, or
-the performance of the restarted host is degraded, the service
-is capable of replacing the failed host in a cluster with an
-entirely new host within minutes.
+Wavefront is architected to be highly available. In the event of a hardware failure, we automatically migrate to or restart workloads, on another host machine in the cluster and automatically restart the failed host. If the host machine fails to restart, or the performance of the restarted host is degraded, the service is capable of replacing the failed host in a cluster with an entirely new host within minutes.
 
 ## Disaster Recovery
 
-Wavefront supports the option of DR across regions for customers. Contact your Wavefront representative for details.
+Wavefront supports the option of Disaster Recovery (DR) across regions for customers. Contact your Wavefront representative for details.
 
 ## Networking
 
-Applications send data to the Wavefront service using either the [Wavefront proxy](proxies.html) or [direct ingestion](direct_ingestion.html). We protect all data traffic with TLS (Transport Layer Security) and HTTPS. If you send data directly to the Wavefront service, we recommend TLS 1.2 connections.
+Applications send data to the Wavefront service using either the [Wavefront proxy](proxies.html) or [direct ingestion](direct_ingestion.html). We protect all data traffic with TLS (Transport Layer Security) and HTTPS. If you send data directly to the Wavefront service, we require TLS 1.2 connections.
 
 The Wavefront proxy uses HTTPS, and we offer options to secure it further:
 * Perform a manual install and place the Wavefront proxy [behind an HTTP proxy](proxies_manual_install.html#connecting-to-wavefront-through-an-http-proxy).
 
 * Use proxy [configuration properties](proxies_configuring.html#general-proxy-properties-and-examples) to set ports, connect times, and more.
 
-* Use an [allow list regx or block list regx](proxies_preprocessor_rules.html#point-filtering-rules) to control traffic to the Wavefront proxy.
+* Use an [allow list regex or block list regex](proxies_preprocessor_rules.html#point-filtering-rules) to control traffic to the Wavefront proxy.
 
 
 
 
 ## Authentication
 
-Wavefront supports both user accounts and service accounts. User accounts [must authenticate](authentication.html) with a user name and passwords, service accounts authenticate with a revokable token. Wavefront customers can use the authentication provided by Wavefront or use one of our supported authentication integration. We support several authentication solutions including AzureAD, Google ID, and Okta.
+Wavefront supports both user accounts and service accounts. User accounts [must authenticate](authentication.html) with a username and password, service accounts authenticate with a revokable token. Wavefront customers can use the authentication provided by Wavefront or use one of our supported authentication integrations. We support several authentication solutions including AzureAD, Google ID, and Okta.
 
 Starting with release 2020.38, we support [self-service SAML SSO](auth_self_service_sso.html) setup.
 
@@ -87,20 +81,20 @@ Large customers can request [multi-tenant SSO](authentication.html#multi-tenant-
 ## Authorization
 
 Wavefront supports multi-level authorization:
-* **Roles and permissions** determine which groups or users can manage which objects or perform certain tasks. For example, you could create a ReadOnly role with no permissions and assign it to a Novice group, or create a Developers role, assign Dashboards, Alerts, Proxy, Metrics, and Embed Chart permission, and assign it to a developers group.
+* **Roles and permissions** determine which groups or users can manage which objects or perform certain tasks. For example, you could create a ReadOnly role with no permissions and assign it to a Novice group, or create a Developers role, assign Dashboards, Alerts, Proxy, Metrics, and Embed Chart permission, and assign it to a developer group.
 * [**Access control**](access.html) applies to individual objects (dashboards or alerts). Privileged groups or users can revoke grant access to individual groups or users. To support this feature, Wavefront includes a [Super Admin](users_roles.html#who-is-the-super-admin-user) user.
   Wavefront supports a [high security mode](access.html#change-the-access-control-security-organization-setting) where only the object creator and Super Admin user can view and modify new dashboards.
 * [**Metrics security policy rules**](metrics_security.html) allow fine-grained control over metrics visibility in dashboards, charts, alerts, etc.
 
 
 
-If you use the REST API, you must pass in an API token and must also have the necessary permissions to perform the task, for example, Dashboard permissions to modify dashboards.
+If you use the REST API, you must pass in an API token and have the necessary permissions to perform the task, for example, Dashboard permissions to modify dashboards.
 
-If you use [direct ingestion](direct_ingestion.html) you are required to pass in an API token and most also have the Direct Data Ingestion permission.
+If you use [direct ingestion](direct_ingestion.html), you are required to pass in an API token and most also have the Direct Data Ingestion permission.
 
 ## Audit Trail
 
-You can view changes that were made to dashboards, alerts, etc. by using [versions](wavefront_monitoring.html#examining-versions-of-dashboards-and-alerts) of charts and dashboards.
+You can view changes that were made to dashboards, alerts, etc., by using [versions](wavefront_monitoring.html#examine-versions-of-dashboards-and-alerts) of charts and dashboards.
 
 ## Integrations
 

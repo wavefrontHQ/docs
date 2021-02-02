@@ -32,11 +32,9 @@ To snooze or unsnooze a single alert:
 
 ## Using Maintenance Windows
 
-You create maintenance windows to define a time window when disruptive operations occur as a result of system maintenance or testing. During such operations, it's likely that alerts will fire even--and you already know that, for example, several hosts are down. You can
+A maintenance window defines a time window when disruptive operations occur as a result of system maintenance or testing. During such operations, it's likely that alerts will fire. You can create a maintenance window to prevent alerts from firing.
 
-* Create a maintenance window to prevent alerts from firing.
-* Close (end) maintenance windows early or make them longer.
-* Extend selected maintenance windows.
+You can close (end) maintenance windows early or you can make them longer.
 
 To view and manage maintenance windows, select **Browse > Maintenance Windows**.
 
@@ -61,7 +59,7 @@ To create a maintenance window:
     <tbody>
     <tr>
     <td>Name</td>
-    <td>Name of the maintenance window.</td>
+    <td>The name of the maintenance window.</td>
     </tr>
     <tr>
     <td>Description</td>
@@ -69,24 +67,24 @@ To create a maintenance window:
     </tr>
     <tr>
     <td>Start Time</td>
-    <td>Start time of the maintenance window:
+    <td>The start time of the maintenance window:
     <ul><li><strong>Now</strong> - The maintenance window starts immediately.</li>
     <li><i class="fa fa-calendar"></i> - The maintenance window starts on the specified date and time. Click the text field and choose a date and time or type a date and time in the format MM/DD/YYYY HH:MM [AM|PM].</li></ul></td>
     </tr>
     <tr>
     <td>End Time</td>
-    <td><i class="fa fa-calendar"></i>End time of the maintenance window. The end time must be after the start time. Click the text field and choose a date and time or type a date and time in the format MM/DD/YYYY HH:MM [AM|PM].</td>
+    <td><i class="fa fa-calendar"></i> The end time of the maintenance window. The end time must be after the start time. Click the text field and choose a date and time or type a date and time in the format MM/DD/YYYY HH:MM [AM|PM].</td>
     </tr>
     <tr>
     <td>Affected Alerts and Sources</td>
-    <td>Required combination of affected alert tags, affected source tags, or affected sources. For example, you could specify a set of hosts that you plan on taking down, or a set of sources with a certain source tag, for example, if you know that an availability zone will be temporarily offline.
+    <td>The alerts to be suppressed during the maintenance window. You must specify at least one alert tag, source, or source tag.
     <ul>
-    <li>Suppress any alert that has one or more specified <a href="tags_overview.html">alert tags</a> in the <strong>Affected Alert Tags</strong> field.</li>
-    <li>Suppress any alert on a source that has a matching <a href="tags_overview.html">source tags</a> in the <strong>Affected Source Tags</strong> field.  </li>
-    <li>Suppress any alert that would meet an alert condition on a source specified in the <strong>Affected Sources</strong> field.  </li>
+    <li>Specify one or more alert tags or <a href="tags_overview.html">tag paths</a> in the <strong>Affected Alert Tags</strong> field to suppress any alert that has a matching alert tag.</li>
+    <li>Specify one or more source tags or <a href="tags_overview.html">tag paths</a> in the <strong>Affected Source Tags</strong> field to suppress any alert that would have met its alert condition on a source that has a matching source tag. </li>
+    <li>Specify one or more source names in the <strong>Affected Sources</strong> field to suppress any alert that would have met its alert condition on a matching source.  </li>
     </ul>
-    To prevent any alert from firing on a specified source, specify just the source.
-    Combine alert tags with source names and/or source tags to prevent any alert with a specified tag from firing on a specified source.
+    You can omit alert tags to prevent any alert from firing on a specified source.
+    You can combine alert tags with source names and/or source tags to prevent any alert with a specified tag from firing on a specified source.
     </td>
     </tr>
     </tbody>
@@ -113,30 +111,19 @@ To suppress the example alerts, you create a maintenance window as shown above, 
 {% include note.html content="If you wanted to suppress the alerts from firing on `app-1` only if that source also has the source tag `EastCoastSources`, you can click on **OR** and select **AND**." %}
 
 
-### Extend a Maintenance Window
 
-You can extend the duration of one or more maintenance window.
+### Extending a Maintenance Window
 
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="60%">
-<ol><li>Select <strong>Browse > Maintenance Windows</strong>. </li>
-<li>Check the checkboxes next to the maintenance windows to be extended.</li>
-<li>Click the <strong>Extend</strong> dropdown and select the desired duration and confirm.</li>
-</ol></td>
-<td width="40%"><img src="/images/extend_maintenance_window.png" alt="extend menu with extend time choices"></td>
-</tr>
-</tbody>
-</table>
+You can extend the duration of a maintenance window. To extend one or more maintenance windows:
 
+1. Select **Browse > Maintenance Windows**.
+1. Check the checkboxes next to the maintenance windows to be extended.
+1. Click the **Extend** dropdown and select the desired duration.
+1. Click the confirmation.
 
+To extend a single maintenance window, select the three dots on the left, click **Extend** and select the desired duration.
 
-
-
-
-
-### Close a Maintenance Window
+### Closing a Maintenance Window
 
 You can close the window before it is scheduled to finish. To close one or more maintenance windows:
 

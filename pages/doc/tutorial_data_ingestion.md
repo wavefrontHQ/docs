@@ -15,7 +15,7 @@ summary: Learn how to get data into Wavefront.
 - Your application sends metrics directly to a Wavefront proxy.
 - Wavefront pulls data directly from a cloud-based service (e.g. Amazon Web Services, Google Cloud Platform, Tesla).
 
-**Note:** Typical production environments have a small number of proxies, with many agents sending metrics through the proxies to Wavefront. You can ask questions on the [Wavefront public Slack channel](https://wavefront-public.slack.com) or the [Wavefront VMware Community](https://communities.vmware.com/community/vmtn/wavefront).
+**Note:** Typical production environments have a small number of proxies, with many agents sending metrics through the proxies to Wavefront. You can ask questions on the [Wavefront public Slack channel](https://www.wavefront.com/join-public-slack).
 
 The diagram below shows the different options for getting data into Wavefront.
 
@@ -38,7 +38,7 @@ Many users set up Wavefront to monitor the host on which they're working.
 
  Both types of integration include dashboards for exploring your data.
 
-**Note:** Our [Free 30-day Trial](https://www.wavefront.com/sign-up/){:target="_blank" rel="noopenner noreferrer"} steps you through setting up an integration. You learn how to get data flowing from you host or for your AWS account and can experiment with dashboards, charts, and alerts. We've included interactive tutorials and a tour so you can explore your own data or some sample data that are available for trial users.
+**Note:** Our [Free 30-day Trial](https://tanzu.vmware.com/observability) steps you through setting up an integration. You learn how to get data flowing from you host or for your AWS account and can experiment with dashboards, charts, and alerts. We've included interactive tutorials and a tour so you can explore your own data or some sample data that are available for trial users.
 
 ## Next Steps
 

@@ -88,7 +88,7 @@ After you've set up an alert with that information, we'll send alert notificatio
 
 ## How Does Wavefront Integrate With...?
 
-Wavefront includes over 200 [integrations](label_integrations%20list.html) including clud providers, DevOps tools, big data, and more.
+Wavefront includes [over 200 integrations](label_integrations%20list.html) including clud providers, DevOps tools, big data, and more.
 
 [Wavefront interfaces](wavefront_interfaces.html) include SDKs available on our Github page, the Wavefront REST API, and CLIs.
 
@@ -139,11 +139,11 @@ It's easy to monitor any of the clusters with Wavefront.
 
 Wavefront works with time-series (metric) data, and also with traces and spans, and with histograms from diverse sources.
 * **Cloud:** Perform minimal setup to let Wavefront to access the data in your cloud environment. The result is direct ingestion of cloud services data such as Amazon Web Services or Google Cloud Platform.
-* **Integrations:** For other data sources, we support over 200 integrations. You modify a simple configuration file and you’re good to go.
+* **Integrations:** For other data sources, we support [over 200 integrations](label_integrations%20list.html). You modify a simple configuration file and you’re good to go.
 * **Start Where You Are:** If your environment already has a metrics infrastructure, you can do some pre-processing on the data so they correspond to the Wavefront Data Format, and send them directly to the Wavefront proxy.
 * **Direct Ingestion:** For some use cases, [direct ingestion](direct_ingestion.html) is the best approach. Consider the [proxy benefits](proxies.html#proxy-benefits) before you select direct ingestion.
 * **Histograms:** For high-velocity metrics, [Wavefront histograms](proxies_histograms.html) might be the best solution.
-* **Traces and Spans:** For traces, we support Jaeger and Zipkin or any applications that are instrumented with the OpenTracing library. You can also send custom traces using one of our SDKs.
+* **App Monitoring with Distributed Tracing:** For traces, we support Jaeger and Zipkin or any applications that are instrumented with the OpenTracing library. You can also send custom traces using one of our SDKs. Our [Application Map](tracing_ui_overview.html) GUI supports easy exploration of trace data, RED metrics, etc. 
 
 ### Video: Getting Data Into Wavefront
 
@@ -155,7 +155,7 @@ Wavefront works with time-series (metric) data, and also with traces and spans, 
 Different users interact with Wavefront in different ways:
 
 * Most users access the **graphical user interface** (GUI) from a browser. You log in to the Wavefront UI from a standard web browser, in many cases using an SSO solution.  The UI supports different time windows -- even an entire year. Wavefront supports Chrome, Firefox, and Safari.
-* The Chart Builder (v2) and Query Builder (v2) interfaces and the Query Editor allow you to fine-tune your charts and alerts. Access function documentation from the UI or start with the [Query Language Reference](query_language_reference.html) and click any function on that page for details and examples.
+* The Chart Builder (v2) and Query Builder (v1) interfaces and the Query Editor allow you to fine-tune your charts and alerts. Access function documentation from the UI or start with the [Query Language Reference](query_language_reference.html) and click any function on that page for details and examples.
 * The [Wavefront REST API](wavefront_api.html) allows you to perform UI actions programmatically. The API is based on Swagger, so you can generate the client of your choice.
 * For **Distributed Tracing**, we make a large sets of SDKs available in Github.
 

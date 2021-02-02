@@ -131,8 +131,8 @@ Then we use the `cumulativeHisto()` function to return the cumulative histogram 
 
 ## See Also
 
-* The [Integrating Prometheus with Wavefront for Easy Scaling and Failover](https://www.wavefront.com/integrating-prometheus-with-wavefront/) blog post discusses the [Prometheus integration](prometheus.html) in some detail.
-* The [How to Make Prometheus Monitoring Enterprise Ready](https://www.wavefront.com/how-to-make-prometheus-monitoring-enterprise-ready/) blog post explores how using Prometheus for metrics collection and Wavefront for data storage and visualization can give you the best of both worlds.
+* The [Integrating Prometheus with Wavefront for Easy Scaling and Failover](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/integrating-prometheus-with-wavefront-for-easy-scaling-and-failover) blog post discusses the [Prometheus integration](prometheus.html) in some detail.
+* The [How to Make Prometheus Monitoring Enterprise Ready](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/how-to-make-prometheus-monitoring-enterprise-ready) blog post explores how using Prometheus for metrics collection and Wavefront for data storage and visualization can give you the best of both worlds.
 * Our [histogram doc page](proxies_histograms.html) gives background information about Wavefront histograms.
 
 

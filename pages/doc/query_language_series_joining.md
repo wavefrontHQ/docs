@@ -783,7 +783,7 @@ You can use the special syntax to provide whatever alternate value makes sense f
 
 ## Exclusive Join Types
 
-You can combine the Wavefront `join()` and [`removeSeries()`](ts_removeSeries.html) functions to perform exclusive join operations. An exclusive join starts with an [inclusive join type](#join-types) and then filters out any rows (time series) that satisfy the join condition. Exclusive joins are useful for finding hidden issues, as illustrated in [our blog on finding silent failures with `join()`](https://www.wavefront.com/find-silent-failures-in-cloud-services-faster-with-join-function).
+You can combine the Wavefront `join()` and [`removeSeries()`](ts_removeSeries.html) functions to perform exclusive join operations. An exclusive join starts with an [inclusive join type](#join-types) and then filters out any rows (time series) that satisfy the join condition. Exclusive joins are useful for finding hidden issues, as illustrated in [our blog on finding silent failures with `join()`](https://tanzu.vmware.com/content/blog/how-to-find-silent-failures-in-your-cloud-services-faster-with-join-function).
 
 The following table describes the types of exclusive join.
 

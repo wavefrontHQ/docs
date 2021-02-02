@@ -22,7 +22,7 @@ The current version of the REST API is v2. You can access the API at `<wavefront
 
 ## API Documentation (Wavefront Instance)
 
-Each Wavefront instance includes Swagger-generated documentation for the REST API. In our blog post [Did You Know that Our API Docs Are Alive](https://www.wavefront.com/wavefront-rest-api/) we explain how you can experiment with our API directly from this in-product documentation.
+Each Wavefront instance includes Swagger-generated documentation for the REST API. In our blog post [Did You Know that Our API Docs Are Alive](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/did-you-know-that-our-api-docs-are-alive) we explain how you can experiment with our API directly from this in-product documentation.
 
 To access the REST API documentation :
 
@@ -66,6 +66,12 @@ To generate an API token:
 4. To revoke a token, click the **Revoke** link next to the token. If you run a script that uses a revoked token, the script returns an authorization error.
 
 ![Generate API Token](/images/generate_token.png)
+
+
+{% include warning.html content="Do not share your API token with anyone. The token provides full access to the API. Accounts that have the token can authenticate without a username/password."%}
+
+
+
 
 ### Example: Invoke the API Using curl
 
