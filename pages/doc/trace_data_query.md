@@ -124,7 +124,7 @@ Example: Create an alert to get notifications when the median value of the criti
 
 ## Use Spans to Examine Applications and Services
 
-Use the following operators to get details or find the relationship between services in an application and their operations using the `[spans()` function](spans_function.html).
+Use the following operators to get details or find the relationship between services in an application and their operations using the [`spans()` function](spans_function.html).
 
 <table>
   <colgroup>
