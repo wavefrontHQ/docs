@@ -9,7 +9,7 @@ summary: Monitor and troubleshoot your Wavefront instance and see PPS info.
 You can use the Wavefront Usage integration dashboards to:
 * Get usage information for your Wavefront instance and Wavefront proxy.
 * Drill down into the metrics namespaces to discover trends.
-* Examine PPS based on predefined ingestion policies.
+* Examine PPS (points per second) based on predefined ingestion policies.
 * See whether ingested metrics are at 95% of committed rate. Optionally get alerts if that happens.
 
 In addition, you can create your own dashboards, charts, and alerts using internal metrics (discussed below) to investigate the problem.

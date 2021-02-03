@@ -36,14 +36,20 @@ Users with **Accounts, Groups & Roles** permissions can manage accounts.
       * Assign a role to the user
       * Or give the user explicit permissions
    We recommend managing permissions at the group level.
-3. To delete a user, change roles and permissions, or change group membership:
-   1. Select one or more users on the Users page.
-   2. Select the check box for one or more users.
-   3. Click one of the **Permission** or  **Group** icons or the trash can button, and confirm when prompted.
+
+   Each invited user receives an email with an account activation link that is valid for 24 hours. All new users can browse data and might have additional permissions.
+3. To change roles, permissions, or group membership:
+   1. Select the check box for one or more users on the Users page.
+   2. Click one of the icons (e.g. **+Role** or **-Permission**), and confirm when prompted.
+4. To delete a user:
+   1. Select the check box for the user on the Users page.
+   2. Click the trash can button and confirm when prompted.
 
    If you delete a user, you remove that user's access to Wavefront.
 
-Each invited user receives an email with an account activation link that is valid for 24 hours. All new users can browse data and might have additional permissions.
+   {% include tip.html content="As a safeguard, you cannot select multiple users and delete them. Delete only one user at a time." %}
+
+
 
 ### What Can a New User Do?
 
