@@ -18,8 +18,8 @@ Made improvements to the following integrations and dashboards in December 2020 
 
 * New Tracing dashboards
 * Amazon Web Services Gateway -- New API gateway types
-* Spring Cloud Data Flow –- Spring Cloud Data Flow and Spring Cloud Skipper version upgrade
-* Microsoft Azure Storage –- New chart showing used capacity
+* Spring Cloud Data Flow -- Spring Cloud Data Flow and Spring Cloud Skipper version upgrade
+* Microsoft Azure Storage -- New chart showing used capacity
 * Wavefront Usage:
   * Name changes to the dashboards
   * Now includes an **Alerts** tab with predefined alerts
