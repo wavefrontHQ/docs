@@ -31,8 +31,8 @@ Made improvements to the following integrations and dashboards in December 2020 
 * Wavefront Tutorial
 * Slack
 * Amazon Web Services: Fargate dashboard
-* Tanzu Kubernetes Grid Integration -- Updates to support Tanzu Kubernetes Grid Integration 1.10 version
-* Google Cloud Platform integration -- New dashboard to support the new Google Cloud Platform Kubernetes service
+* Tanzu Kubernetes Grid Integrated Edition -- Updated to support Tanzu Kubernetes Grid Integrated Edition 1.10
+* Google Cloud Platform -- New dashboard to support the new Google Cloud Platform Kubernetes service
 
 ## October 2020 - December 2020
  
