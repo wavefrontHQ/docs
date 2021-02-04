@@ -50,7 +50,6 @@ Users with **Accounts, Groups & Roles** permissions can manage accounts.
    {% include tip.html content="As a safeguard, you cannot select multiple users and delete them. Delete only one user at a time." %}
 
 
-
 ### What Can a New User Do?
 
 When you invite a (human) user to Wavefront, what that new user can do depends on several factors.
