@@ -35,7 +35,7 @@ Made improvements to the following integrations and dashboards in December 2020 
 * Google Cloud Platform integration -- New dashboard to support the new Google Cloud Platform Kubernetes service
 
 ## October 2020 - December 2020
-
+ 
 We added the following integrations in October 2020 - November 2020:
 
 * Concourse CI
