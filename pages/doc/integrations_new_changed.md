@@ -32,7 +32,7 @@ Made improvements to the following integrations and dashboards in December 2020 
 * Slack
 * Amazon Web Services: Fargate dashboard
 * Tanzu Kubernetes Grid Integrated Edition -- Updated to support Tanzu Kubernetes Grid Integrated Edition 1.10
-* Google Cloud Platform -- New dashboard to support the new Google Cloud Platform Kubernetes service
+* Google Cloud Platform -- New dashboard to support the new Google Cloud Platform Kubernetes metric namespace `gcp.kubernetes`
 
 ## October 2020 - December 2020
  
@@ -44,15 +44,15 @@ We added the following integrations in October 2020 - November 2020:
 
 Made improvements to the following integrations in October 2020 - December 2020:
 
-* Spring Cloud Data Flow –- New preconfigured dashboard to monitor Native Kafka client
-* Kubernetes –- New setup UI
-* Slack –- URL unfurler
+* Spring Cloud Data Flow -- New preconfigured dashboard to monitor Native Kafka client
+* Kubernetes -- New setup UI
+* Slack -- URL unfurler
 * Wavefront Usage new dashboards:
   - **Wavefront Ingestion Policy Explorer** In environments where [ingestion policies](ingestion_policies.html) have been configured, shows usage for each user and ingestion policy.
   - **Committed Rate and Monthly Usage (PPS P95)** dashboard shows Wavefront monthly usage against commited rate.
   - **Wavefront Namespace Usage Explorer**: Tracks the number of metrics received for the first 3 levels of your metric namespace.
-* Google Cloud Platform (GCP) – Fixed dashboard queries in Google Kubernetes Engine (GKE) dashboard
-* Azure Storage – Preconfigured dashboard now supports monitoring of the Classic storage type
+* Google Cloud Platform (GCP) -- Fixed dashboard queries in Google Kubernetes Engine (GKE) dashboard
+* Azure Storage -- Preconfigured dashboard now supports monitoring of the Classic storage type
 
 
 
