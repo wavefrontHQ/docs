@@ -13,7 +13,7 @@ Wavefront continuously adds new integrations to the existing set, and improves a
 We added the following integration in December 2020 - February 2021:
 
 * VMware Tanzu™ GemFire®
-
+ 
 Made improvements to the following integrations and dashboards in December 2020 - February 2021:
 
 * New Tracing dashboards
@@ -33,7 +33,7 @@ Made improvements to the following integrations and dashboards in December 2020 
 * Amazon Web Services: Fargate dashboard
 * Tanzu Kubernetes Grid Integrated Edition -- Updated to support Tanzu Kubernetes Grid Integrated Edition 1.10
 * Google Cloud Platform -- New dashboard to support the new Google Cloud Platform Kubernetes metric namespace `gcp.kubernetes`
-* Pivotal Cloud Foundry (TAS) -- The integration uses the VMware Tanzu Observability by Wavefront Nozzle tile distributed by the Pivotal network. It has been updated to use Wavefront proxy 9.2 and stem cell 621.76.
+* Pivotal Cloud Foundry (TAS) -- This integration uses the VMware Tanzu Observability by Wavefront Nozzle tile distributed by the Pivotal network. It has been updated to use Wavefront proxy 9.2 and stem cell 621.76.
 
 ## October 2020 - December 2020
  
