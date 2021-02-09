@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: cardinality.html
 summary: Learn about how Wavefront deals with cardinality.
 ---
-Wavefront supports high cardinality when dealing with timeseries data and infinite cardinality in its distributed tracing offering. The ingestion rates which Wavefront can handle can be more than 4 million metrics per second. Wavefront can handle the cardinality of more than 200,000 concurrently running containers per Kubernetes cluster. Even though Wavefront can handle much more data than other monitoring solutions, high cardinality can cause system slowdown and metrics retrieval issues. 
+Wavefront supports high cardinality when dealing with timeseries data and infinite cardinality in its distributed tracing offering.  Wavefront can handle the cardinality of more than 200,000 concurrently running containers per Kubernetes cluster. Even though Wavefront can handle high cardinality data shapes, high cardinality can cause system slowdown and metrics retrieval issues. 
 
 ## What Is Data Cardinality?
 
@@ -23,7 +23,7 @@ In Wavefront, we enhance the data with tags and indexes, so that it has more con
 Kubernetes environments typically also include the pod name. For example: 
 
 ```
-kubernetes.pod.cpu.usage_rate <val> <ts> source=ip-10-0-1-203.eu-west-1.compute.external 
+kubernetes.pod.cpu.usage_rate <metricvalue> [<timestamp>] source=ip-10-0-1-203.eu-west-1.compute.external 
 cluster="prod" label.k8s-app="kube-dns" namespace_name="kube-system" pod_name="<name-of-the-pod>"
 ```
 
@@ -49,10 +49,6 @@ When you deploy a large system, there’s a rapid burst of new index entries, wh
 
 ## Wavefront and High Cardinality
 
-
-Wavefront supports high cardinality for time series data because the data is very easily manipulated and easily retrieved. If you have event data points, which appear once or twice in the system, the database no longer stores this data as timeseries information. In such a case, or if you want to look into individual data points, for example single user requests, you should use the distributed tracing offering which allows you to drill down into such data. For more information, watch the following video, in which the Wavefront co-founder Clement Pang explains cardinality.
-
-<a href="https://youtu.be/8wKPkrIiXKw" target="_blank"><img src="/images/v_cardinality.png" style="width: 700px;" alt="about cardinality"/></a>
 
 Wavefront usually deals gracefully with high cardinality because it has the following features:
 
@@ -86,6 +82,10 @@ The dynamic query planner allows for greater query performance at a cost of more
 
 FoundationDB provides excellent performance on commodity hardware. It is an open-source key-value store that allows you to support very heavy loads.
 
+For more information, watch the following video, in which the Wavefront co-founder Clement Pang explains cardinality.
+
+<a href="https://youtu.be/8wKPkrIiXKw" target="_blank"><img src="/images/v_cardinality.png" style="width: 700px;" alt="about cardinality"/></a>
+
 ## Optimizing Your Data for Wavefront
 
 Although Wavefront supports high cardinality for time series data, to avoid high cardinality issues, consider the following recommendations:
@@ -96,8 +96,8 @@ Although Wavefront supports high cardinality for time series data, to avoid high
 
 1. The metric names are stable and do not change.
 2. You keep source names stable. Source names change over time, but make sure that they don't change frequently.
-3. Use point tags where you expect high cardinality. 
-4.  Make sure that in Kubernetes, where point tags are usually called labels, you add only the point tags that you really need.
+3. Use point tags where you expect high ephemerality. 
+4. Make sure that in Kubernetes, where point tags are usually called labels, you add only the point tags that you really need.
 
 For information about metric, source, and point tag names, see [Wavefront Data Naming Best Practices](wavefront_data_naming.html). You can also understand more about the metrics structure, sources and the sources browser, and tags, by exploring [Metrics and the Metrics Browser](metrics_managing.html), [Sources](sources_managing.html), and [Organizing with Tags](tags_overview.html).
  
