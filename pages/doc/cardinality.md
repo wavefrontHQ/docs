@@ -67,16 +67,15 @@ In Wavefront, indexes that deal with current data are kept in fast memory. Wavef
 
 Some metrics always have the same combination of tag keys and values. Data ingestion heuristics can spot when the same combination of tags is routinely indexed. Wavefront correlates tags and optimizes index creation and usage to increase the performance for metrics with the same combination of tags.
 
-**Uses a dynamic query planner**
-
+**Uses dynamic programming**
 Most queries are similar and run repeatedly, iteratively, and streaming. For example, queries such as `*.system.cpu.*, env=prod` would damage many systems when fetching proper indexes.
 
-Wavefront uses a dynamic query planner in the backend which:
+Wavefront uses a dynamic programming in the backend which:
 
 * Breaks down a complex search into simple sub-searches.
 * Solves each sub-search once and store the results.
 
-The dynamic query planner allows for greater query performance at a cost of more storage and works with metric, host, and tag values.
+The dynamic programming allows for greater query performance at a cost of more storage and works with metric, host, and tag values.
 
 **Uses FoundationDB as an underlying database**
 
