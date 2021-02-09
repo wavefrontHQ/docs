@@ -171,7 +171,7 @@ The <strong>Create Alert</strong> page displays. </td>
 <tr>
 <td width="50%">
 <ol>
-<li>To watch the alert fire, click <strong>Alerts</strong> in the task bar.
+<li>To watch the alert fire, click <strong>Alerts</strong> in the taskbar.
 <br>
 <br>
 Because your alert was the most recently created, you should see it with the state CHECKING.

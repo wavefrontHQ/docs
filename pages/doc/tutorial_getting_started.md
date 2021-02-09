@@ -76,7 +76,7 @@ It's easy to create a dashboard from metrics or by selecting a chart.
 <tr>
 <td width="40%">
 <strong>To create a dashboard</strong>:
-<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the task bar. </li>
+<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the taskbar. </li>
 <li>Drag the <strong>Metrics</strong> or <strong>New Chart</strong> widget onto the canvas</li>
 <li>Select metrics, filters, and functions now or later. </li>
 <li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard. The URL field supports letters, numbers, underscores, and dashes.  The Name field supports letters, numbers, characters, and spaces.</li></ol></td>
@@ -215,7 +215,7 @@ The <strong>Create Alert</strong> page displays. </td>
 <tr>
 <td width="50%">
 <ol>
-<li>To watch the alert fire, click <strong>Alerts</strong> in the task bar.
+<li>To watch the alert fire, click <strong>Alerts</strong> in the taskbar.
 <br>
 <br>
 Because your alert was the most recently created, you should see it with the state CHECKING.
