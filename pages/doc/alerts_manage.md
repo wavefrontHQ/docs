@@ -87,8 +87,8 @@ You can view and manage all alerts from the Alerts Browser.
 <tr>
 <td width="50%">
 <br/>
-To examine alerts in the Alerts Browser, click <strong>Alerts</strong> in the task bar. Colored numbers next to <strong>Alerts</strong> show how many alerts are currently firing at which severity.</td>
-<td width="50%"><img src="/images/alerts_taskbar.png" alt="multiple firing alert numbers in different colors next to text Alerts in task bar."></td>
+To examine alerts in the Alerts Browser, click <strong>Alerts</strong> in the taskbar. Colored numbers next to <strong>Alerts</strong> show how many alerts are currently firing at which severity.</td>
+<td width="50%"><img src="/images/alerts_taskbar.png" alt="multiple firing alert numbers in different colors next to text Alerts in taskbar."></td>
 </tr>
 <tr>
 <td width="50%">

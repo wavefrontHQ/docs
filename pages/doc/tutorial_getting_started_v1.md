@@ -113,7 +113,7 @@ In this section you create an alert that fires when the request latency metric r
     1. In the **Alert fires** field, change the value to **2** and press **Return** or **Enter**. The alert fires whenever the moving maximum of the latency is greater than 210 for 2 minutes. You can see when alerts would have been generated in the **Backtesting** option of the Events Display chart.
     1. In the Targets field, type your email address.
     1. Click **Save**.
-1.  Click **Alerts** in the task bar. The Alerts browser displays and Latency Alert displays the state CHECKING. When the alert fires, the state changes to FIRING:
+1.  Click **Alerts** in the taskbar. The Alerts browser displays and Latency Alert displays the state CHECKING. When the alert fires, the state changes to FIRING:
 
     ![firing alert](images/tutorial_get_started_alert_firing.png)
 

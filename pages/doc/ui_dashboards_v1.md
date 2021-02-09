@@ -39,7 +39,7 @@ You can create a dashboard from the All Dashboards page, from a chart, from the 
    <tr><td markdown="span">Click **Browse > All Dashboards**</td>
    <td markdown="span">Click the **Create Dashboard** button on the filter bar.</td></tr>
    <tr><td markdown="span">Select a dashboard</td>
-   <td markdown="span">Click the pencil icon on the right side of the browser window below the task bar, and select **New**. Or click **Clone** to create a new dashboard based on the existing dashboard you are currently viewing.</td></tr>
+   <td markdown="span">Click the pencil icon on the right side of the browser window below the taskbar, and select **New**. Or click **Clone** to create a new dashboard based on the existing dashboard you are currently viewing.</td></tr>
    <tr><td markdown="span">Click **Browse > Metrics**</td>
    <td markdown="span">click **Create Dashboard** in the top left corner of the page to begin creating a dashboard. Creating a dashboard this way automatically creates sections and charts based on the current set of metrics in the Metrics list. Sections are created by first-level nodes, individual charts by second-level nodes and finally all metrics on the third-level or below are rendered on a single chart. Creating a dashboard from the Metrics browser allows you to apply additional parameters such as sources and source tags.</td></tr></tbody>
    </table>
@@ -109,7 +109,7 @@ You can add newly-created charts and existing charts to a dashboard.
 1. To clone a dashboard:
   -   From the All Dashboards page, locate the dashboard, click the three dots, and select Clone.
   ![clone dashboard](images/dashboard_clone.png)
-  -   From a dashboard, click the pencil icon on the right side below the task bar, and select **Clone**.
+  -   From a dashboard, click the pencil icon on the right side below the taskbar, and select **Clone**.
 1. Specify a new URL. The URL field supports letters, numbers, underscores, and dashes. Do not include `https://`
 1.(Optional) Edit the dashboard name.
 1. Click **Clone**.
@@ -123,10 +123,10 @@ When you edit a dashboard, you can make changes to the dashboard description, na
 1. Put the dashboard into Edit mode:
 -   From the All Dashboards page, locate the dashboard, click the three dots on the left and and select **Edit**.
 ![edit dashboard](images/dashboard_edit.png)
--   From a dashboard, click the pencil icon on the right side below the task bar, and select **Edit**.
+-   From a dashboard, click the pencil icon on the right side below the taskbar, and select **Edit**.
 1. Edit the dashboard.
 
-   When you edit a dashboard, you may make several changes at a time. To remove a change, click the revert icon to the left of **Edit JSON** on the task bar. The revert icon removes changes starting with the most recent and works backwards. You can remove only changes made in the current edit mode session.
+   When you edit a dashboard, you may make several changes at a time. To remove a change, click the revert icon to the left of **Edit JSON** on the taskbar. The revert icon removes changes starting with the most recent and works backwards. You can remove only changes made in the current edit mode session.
 2. To save configuration changes, click the  **Save** button in the top right.
 
    ![save dashboard](images/save_dashboard.png)

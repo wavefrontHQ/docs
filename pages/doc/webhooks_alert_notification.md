@@ -238,7 +238,7 @@ Each custom alert target has a unique ID that the system generates when you firs
 <tr>
 <td width="60%">
 <strong>To create a dashboard</strong>:
-<ol><li>Select <strong>Browse > Alert Targets</strong> from the task bar. </li>
+<ol><li>Select <strong>Browse > Alert Targets</strong> from the taskbar. </li>
 <li>In the Name column, note the ID of the alert target under the description.</li></ol></td>
 <td width="40%"><img src="/images/webhook_id.png" alt="showing ID under alert name"></td>
 </tr>

@@ -60,7 +60,7 @@ In the example above, you can select all AWS regions (wildcard character) or one
 Many Wavefront users work in environments with many dashboards.
 
 **To find a dashboard**, you have two options:
-* From the task bar, select **Dashboards > All Dashboards** and narrow down your search using the fields on the left.
+* From the taskbar, select **Dashboards > All Dashboards** and narrow down your search using the fields on the left.
 * From within a dashboard, use the **Search Dashboards** field in the upper right to find other dashboards. The search string matches dashboard name or URL.
 
 ## Isolate Sources or Series
