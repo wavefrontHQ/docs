@@ -100,4 +100,4 @@ Although Wavefront supports high cardinality for time series data, to avoid high
 
 For information about metric, source, and point tag names, see [Wavefront Data Naming Best Practices](wavefront_data_naming.html). You can also understand more about the metrics structure, sources and the sources browser, and tags, by exploring [Metrics and the Metrics Browser](metrics_managing.html), [Sources](sources_managing.html), and [Organizing with Tags](tags_overview.html).
  
-* If you run a query of the type `ts(<metricName>, source="<sourceName>")`, make sure that the number of data points returned is less than 1000. Although Wavefront can handle more, it is best to keep in mind that more data can cause high cardinality issues.
+<!--* If you run a query of the type `ts(<metricName>, source="<sourceName>")`, make sure that the number of data points returned is less than 1000. Although Wavefront can handle more, it is best to keep in mind that more data can cause high cardinality issues.-->
