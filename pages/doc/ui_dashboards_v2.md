@@ -42,7 +42,7 @@ It's easy to create a dashboard from metrics or by selecting a chart.--->
 <tr>
 <td width="40%">
 <strong>To create a dashboard</strong>:
-<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the task bar. </li>
+<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the taskbar. </li>
 <li>Drag the <strong>Metrics</strong> or <strong>New Chart</strong> widget onto the canvas</li>
 <li>Select metrics, filters, and functions now or later. </li>
 <li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard. The URL field supports letters, numbers, underscores, and dashes.  The Name field supports letters, numbers, characters, and spaces.</li></ol></td>
@@ -61,7 +61,7 @@ With release 2019.38, you can create a dashboard by specifying an integration da
 <tr>
 <td width="40%">
 <strong>To create a dashboard</strong>:
-<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the task bar. </li>
+<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the taskbar. </li>
 <li>Drag the <strong>Templates</strong> widget onto the canvas. </li>
 <li>Select first the source integration, then the dashboard you want as a template, and then one or more charts from that dashboard.</li>
 <li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard. The URL field supports letters, numbers, underscores, and dashes.  The Name field supports letters, numbers, characters, and spaces.</li></ol></td>
@@ -156,7 +156,7 @@ When you create a dashboard or when you edit a dashboard, the dashboard is in Ed
 {% include shared/system_dashboard.html %}
 
 <!---
-To remove a change, click the revert icon to the left of **Edit JSON** on the task bar. The revert icon removes changes starting with the most recent and works backward. You can remove only changes made in the current Edit mode session.--->
+To remove a change, click the revert icon to the left of **Edit JSON** on the taskbar. The revert icon removes changes starting with the most recent and works backward. You can remove only changes made in the current Edit mode session.--->
 
 ![dashboard in edit mode](images/v2_dashboard_edit.png)
 

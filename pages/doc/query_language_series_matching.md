@@ -9,8 +9,10 @@ summary: Learn how implicit series matching lets you operate on pairs of time se
 
 Certain operators and functions apply to pairs of time series. When you specify two ts() expressions as parameters, Wavefront implicitly performs series matching across these expressions to identify meaningful pairs of individual time series to operate on. For example, implicit series matching in the following operation causes Wavefront to compare metrics for disk reads and disk writes only when they come from the same source and have common point tag values:
 
-```ts(~sample.disk.bytes.read) > ts(~sample.disk.bytes.written)```
+```
+ts(~sample.disk.bytes.read) > ts(~sample.disk.bytes.written)
 
+```
 Implicit series matching also determines whether these operators and functions return any result at all. For example, when you try to subtract one time series from another, Wavefront can't perform the operation if none of the sources match.
 
 **Note:** This page describes implicit series matching, which works well for time series that all have the same set of source tags and point tags. Consider using [`join(...INNER JOIN...)`](query_language_series_joining.html) if you need to match up series whose sources and point tags do not correspond exactly.

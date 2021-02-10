@@ -8,7 +8,7 @@ summary: Get Data into Wavefront from AWS.
 ---
 
 In this tutorial, you use the Wavefront Amazon Web Services (AWS) integration to: 
-* Send data of the applications and services that run on your AWS instance to Wavefront. 
+* Send data of the applications and services that run on your AWS account to Wavefront. 
 * Visualize the data and identify problem areas once the data is in Wavefront. 
 
 It's an easy setup. You don't have to install anything or make changes to your application code. 
@@ -71,11 +71,12 @@ Go back to the Wavefront cluster where you opened the AWS integration tile previ
 1. Click **Register**.
     ![Screenshot of the AWS integration's configure section. The Register button is highlighted in red.](images/hell_tutorial_configure_aws_integration.png)
 
-Wavefront can now connect to your AWS instance and get data. Once the data starts flowing to Wavefront, you can visualize them. It will take a few minutes for the data to show in Wavefront.
+Wavefront can now connect to your AWS account and get data. Once the data starts flowing to Wavefront, you can visualize them. It will take a few minutes for the data to show in Wavefront.
 
 ## Step 4: (Optional) Launch an EC2 Instance
 
-Don't have an application running on your AWS instance? Follow these steps given below. If you already have an application running on the AWS instance, move to the next step and see how you can visualize your data.
+Don't have an application running on your AWS account? Follow the steps given below. 
+If you already have an application running on the AWS account, move to the next step and see how you can visualize your data.
 
 1. Go back to your AWS account, search for the **EC2** service, and click it to open the service.
 1. Follow the AWS documentation on [Launching an Amazon EC2 Instance](https://docs.aws.amazon.com/quickstarts/latest/vmlaunch/step-1-launch-instance.html).
@@ -99,7 +100,7 @@ Once the data starts flowing into Wavefront, you can see metrics and visualize d
 1. On the Wavefront Cluster, go to the AWS integration.
 1. Select the **Metrics** tab.
 
-You see charts with the metrics collected from your AWS instance.
+You see charts with the metrics collected from your AWS account.
 
 Example:
 ![Screenshots of the AWS metrics once the data starts to flow to Wavefront.](images/hello_tutorial_aws_metrics.png)
@@ -110,7 +111,8 @@ Example:
 Wavefront includes pre-defined dashboards for AWS that help you analyze and gather data.
 1. Click **Dashboards**, to see a list of dashboards.
     ![Screenshot of all the predefined dashboards available for Wavefront.](images/hello_tutorial_aws_dahsboards.png)
-1. Click **AWS: Summary**. From the Summary dashboard, you can easily navigate to all other AWS dashboards. 
+1. Click **AWS: Summary**. From the Summary dashboard, you can easily navigate to all other AWS dashboards.
+    {% include note.html content="You need to configure your AWS account preferences to send billing metrics to Wavefront. See [Configuring CloudWatch Billing Metrics](integrations_aws_metrics.html#configuring-cloudwatch-billing-metrics)." %}
     ![Screenshot of the predefined AWS summary dahsboard](images/hello_tutorial_aws_summary_dashboard.png)
 {% include tip.html content="You can't edit the queries in these charts. If you want to customize the queries, you need to clone the dashboard and then update the queries in the charts. See [Edit or Clone a Dashboard](ui_dashboards.html#edit-or-clone-a-dashboard)" %}
 
