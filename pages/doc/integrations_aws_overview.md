@@ -48,7 +48,7 @@ From the page of the integration you select, you can add an AWS integration, ena
 
 ### Adding an AWS Integration
 
-1. In Wavefront, click **Integrations** in the task bar.
+1. In Wavefront, click **Integrations** in the taskbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
 1. Click the **Setup** tab.
 1. Click **Set Up Amazon Integration** and click **Add Integration**.
@@ -65,7 +65,7 @@ From the page of the integration you select, you can add an AWS integration, ena
 
 Wavefront automatically disables integrations that are experiencing errors due to invalid credentials. To enable an integration after the credential has been corrected or to manually disable an integration:
 
-1. In Wavefront, click **Integrations** in the task bar.
+1. In Wavefront, click **Integrations** in the taskbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
 1. Click the **Setup** tab.
 1. Click the **Advanced** link.
@@ -112,7 +112,7 @@ Data flows from AWS to Wavefront only if the account has the required access. Yo
    1. For Role name, enter **wavefront** and click **Create role**.
    1. Click the **wavefront** role.
    1. Copy the Role ARN value.
-1. In Wavefront, click **Integrations** in the task bar.
+1. In Wavefront, click **Integrations** in the taskbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
 1. Click the **Setup** tab.
 1. Click the **Advanced** link.

@@ -166,7 +166,7 @@ Alert checks are based on data that is summarized every minute.  Consequently, i
 
 ### Viewing Firing Alerts
 
-The alerts icon in the task bar ![number of alerts](images/alerts.png#inline) shows the number of alerts firing and their severity.
+The alerts icon in the taskbar ![number of alerts](images/alerts.png#inline) shows the number of alerts firing and their severity.
 
 <table style="width: 100%;">
 <tbody>

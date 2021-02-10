@@ -18,7 +18,7 @@ You can change your password. You can reset a forgotten password if your account
 To change your password:
 
 1. Log in to your Wavefront instance.
-1. Click the gear icon <i class="fa fa-cog"/> on the task bar and select your username.
+1. Click the gear icon <i class="fa fa-cog"/> on the taskbar and select your username.
 2. Click the **User Information** tab, click the **Change Password** link, and make the change.
 
 ### Reset a Forgotten Password
@@ -33,7 +33,7 @@ To reset a forgotten password:
 
 In your user profile, you can configure several preferences, for example, select our dark theme or chart title size.
 
-1. Click the gear icon <i class="fa fa-cog"/> on the task bar and select your username.
+1. Click the gear icon <i class="fa fa-cog"/> on the taskbar and select your username.
 1. Click the **User Information** tab and make changes as needed.
 
 
@@ -43,7 +43,7 @@ In your user profile, you can configure several preferences, for example, select
 
 If your environment has been set up to offer the v2 UI option, you can easily switch between UI versions.
 
-1. Click the gear icon <i class="fa fa-cog"/> on the task bar and select your username.
+1. Click the gear icon <i class="fa fa-cog"/> on the taskbar and select your username.
 1. Select the UI Version that you want to work in.
 
    ![select UI version](/images/ui_version_menu.png)
@@ -69,7 +69,7 @@ Permissions are additive:
 * If permissions or roles were assigned to you explicitly, you get those as well.
 
 You can check the permissions you have and see which groups you belong to.
-1. Click the gear icon <i class="fa fa-cog"/> on the task bar and select your username.
+1. Click the gear icon <i class="fa fa-cog"/> on the taskbar and select your username.
 2. Click the **Groups, Roles & Permissions** tab to display the permissions you have and why you have them.
 ![groups and permissions](images/groups_and_permissions.png)
 
@@ -81,5 +81,5 @@ You can check the permissions you have and see which groups you belong to.
 
 Wavefront allows you to interact with your Wavefront instance using the [Wavefront REST API](wavefront_api.html). When you make an API call, you have to pass in a token, which you can generate from your account page.
 
-1. Click the gear icon <i class="fa fa-cog"/> on the task bar and select your username.
+1. Click the gear icon <i class="fa fa-cog"/> on the taskbar and select your username.
 2. Click the **API Access** tab and follow the instructions.

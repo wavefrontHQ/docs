@@ -376,7 +376,7 @@ The default, read-only dashboard for a service lets you explore that service, ho
 {% include note.html content="You can add these charts to a dashboard and customize them using [Tracing Templates](ui_dashboards.html#create-a-dashboard-from-a-tracing-template). " %}
 
 On the dashboard for a particular service, you can:
-* Select the time and time zone in the task bar to customize the chart time properties.
+* Select the time and time zone in the taskbar to customize the chart time properties.
 * Use the **Jump To** pulldown to select a dashboard section:
   - Select **Overview** to examine the RED metrics that are derived from all of the spans for the service. These metrics reflect the health of the service.
   - Select an individual component to examine metrics for just that component of the service. A component could be an instrumented framework (e.g., **Jersey**) or the runtime system (e.g., **JVM**).
@@ -401,7 +401,7 @@ The standard dashboard for services is read-only. To create a customizable copy:
 1. Click **Clone** from the ellipsis menu.
 2. In the cloned dashboard, add your own charts or customize the RED metrics charts.
 
-After you save the clone, you can find it by name from the **Dashboards** menu of the task bar, and you can use it to drill down to the Traces Browser.
+After you save the clone, you can find it by name from the **Dashboards** menu of the taskbar, and you can use it to drill down to the Traces Browser.
 
 ### Save Charts in the Service Dashboard
 

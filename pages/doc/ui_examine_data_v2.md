@@ -82,7 +82,7 @@ All users can use global filters to customize their dashboard. When you set a gl
 Many Wavefront users work in environments with many dashboards.
 
 **To find a dashboard**, you have these options:
-* From the task bar, select **Dashboards > All Dashboards** and narrow down your search using the fields on the left.
+* From the taskbar, select **Dashboards > All Dashboards** and narrow down your search using the fields on the left.
 * Select **Dashboards > All Dashboards** and start typing the dashboard name in the Search field.
 * From within a dashboard, use the **Search Dashboards** field in the upper right to find other dashboards. The search string matches dashboard name or URL.
 
