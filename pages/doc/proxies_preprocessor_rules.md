@@ -702,7 +702,6 @@ The following example illustrates using a limitLength for a point tag. However, 
 
 {% include tip.html content="The span filtering rules and span altering rules apply to data coming from any supported source, including Jaeger and Zipkin." %}
 
-
 ### spanBlock
 
 Defines a regex that spans must match to be filtered out. In the example below, we don't allow spans with a source name that starts with `qa-service`.
@@ -806,6 +805,9 @@ Points must match the `spanAllow` list to be accepted. Multiple `spanAllow` rule
 Span altering rules allow you to add, remove, or update span tags.
 
 {% include tip.html content="The span filtering rules and span altering rules apply to data coming from any supported source, including Jaeger and Zipkin." %}
+
+{% include important.html content="RED metrics data is not automatically updated when you update the span data using preprocessor rules. Therefore, make sure to update the RED metrics data using the same preprocessor rules."%}
+
 
 ### spanReplaceRegex
 
@@ -939,6 +941,8 @@ Add a span tag to all spans.
 
 {% include note.html content="You can add up to 20 span tags. Contact [support@wavefront.com](mailto:support@wavefront.com) if this does not meet your requirements." %}
 
+{% include important.html content="RED metrics data is not automatically updated when you update the span data using preprocessor rules. Therefore, make sure to update the RED metrics data using the same preprocessor rules."%}
+
 <font size="3"><strong>Parameters</strong></font>
 
 <table width="100%">
@@ -1053,6 +1057,7 @@ Extract a string from a span name, source name, or a span tag value and create a
 * For `spanExtractTag`, create the new span tag.
 * For `spanExtractTagIfNotExists`, do not create the new span tag if at least one tag with this name already exists.
 
+{% include important.html content="RED metrics data is not automatically updated when you update the span data using preprocessor rules. Therefore, make sure to update the RED metrics data using the same preprocessor rules."%}
 
 <font size="3"><strong>Parameters</strong></font>
 
