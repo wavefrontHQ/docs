@@ -6,21 +6,21 @@ sidebar: doc_sidebar
 permalink: query_language_point_tags.html
 summary: Use point tags to fine tune queries.
 ---
-Point tags are key-value pairs (strings) that are associated with a point. Point tags provide additional context for your data and allow you to fine-tune your queries so the output shows just what you need.
+Point tags are key-value pairs (strings) that are associated with a point. Point tags provide additional context for your data and allow you to fine-tune your queries so that the output shows just what you need.
 
 {% include note.html content="If point tag values are blank or empty, errors can result. Point tag values can be zero." %}
 
 
 ## Point Tag Basics
 
-Point tags offer a powerful way of labeling data so that you can slice and dice it in almost any way you can imagine. For example, you can use point tags, to label a point's datacenter, version, etc. and can then group by datacenter or version.
+Point tags offer a powerful way of labeling data so that you can slice and dice it in almost any way you can imagine. For example, you can use point tags to label a point's datacenter, version, etc., and can then group by datacenter or version.
 
 Many of our cloud integrations generate point tags automatically to help you filter metrics. You add point tags explicitly using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html).
 
 
 ### Point Tag Maximum
 
-Wavefront has limited the number of point tags to 20 for most clusters. Our experience has shown that a larger number of point tags does not improve the user experience, and can lead to performance problems.
+Wavefront has limited the number of point tags to 20 for most clusters. Our experience has shown that a larger number of point tags does not improve the user experience and can lead to performance problems.
 
 {% include note.html content="If the number of point tags exceeds 20, then we drop the metrics that have those point tags." %}
 
@@ -31,7 +31,7 @@ Our ~sample metrics, included in each Wavefront instance, have two point tags, `
 
 ![time series organized by point tag](images/point_tags_simple.png)
 
-You can filter further, either by specifying another point tag or by combining a filter for a point tag filter with a source filter.
+You can filter further, either by specifying another point tag or by combining a point tag filter with a source filter.
 
 ![time series organized by point tag](images/point_tag_and_source.png)
 
@@ -45,11 +45,11 @@ To avoid performance issues, follow best practices.
 
 ### Enclose Point Tag Values in Double Quotes
 
-Double quotes are required if the point tag value includes certain characters such as spaces, but are recommended in all cases. For example, use `"my test"` instead of `my test`.
+Double quotes are required if the point tag value includes certain characters such as spaces but are recommended in all cases. For example, use `"my test"` instead of `my test`.
 
 ### Don't Use More Than 20 Point Tag Keys
 
-Each point tag key (e.g. `env` or `az`) can be associated with a high number of values, but you can't have more than 20. You'll find that working with your data shape to fall inside this limit has the side benefit of making it much easier to understand what you see.
+Each point tag key (e.g., `env` or `az`) can be associated with a high number of values, but you can't have more than 20. You'll find that working with your data shape to fall inside this limit has the side benefit of making it much easier to understand what you see.
 
 ### Watch the Number of Time Series
 
@@ -63,7 +63,7 @@ Using point tags to store highly variable data such as timestamps, login emails,
 
 ###  Don't Use Point Tags with OR Operators
 
-When you use point tags with an OR operator, Wavefront stops executing the query if the first of the ORed point tags fails. This improves efficiency but can lead to incorrect results. Use <strong>collect()</strong> with your query instead, for example, <code>collect(ts(metric, my_tag="tag1"), ts(metric, my_tag="tag2")) </code>
+When you use point tags with an OR operator, Wavefront stops executing the query if the first of the OR-ed point tags fails. This improves efficiency but can lead to incorrect results. Use <strong>collect()</strong> with your query instead, for example, <code>collect(ts(metric, my_tag="tag1"), ts(metric, my_tag="tag2")) </code>.
 
 ### More Info
 
