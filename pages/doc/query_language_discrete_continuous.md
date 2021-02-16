@@ -65,8 +65,6 @@ Here's a point plot showing a discrete series (the red dots) and the points (blu
 
 ![continuous last](images/query_language_continuous_last.png)
 
-**NB! Replace the IMAGE**
-
 Different functions use different techniques to calculate the values of interpolated points. For example:
 * When the `last()` function inserts a new point with a particular timestamp, the value assigned to that point is taken from the last actual, reported point before it.
 * When the [`interpolate()`](ts_interpolate.html) function inserts a new point with a particular timestamp, the value assigned to that point is an estimate of what the input series would have reported at that time, based on the values of the actual, reported points on either side.

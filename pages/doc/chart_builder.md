@@ -41,7 +41,7 @@ We open Chart Builder only if:
 * Chart Builder is the default in your [user preferences](users_account_managing.html).
 * The chart that you open for edit wasn't open in Query Editor before.
 
-Advanced functionionality such as chart variables, is available only in the [Query Editor](query_editor.html). Query Editor expects that you type the query using the elements of the query language.
+Advanced functionality, such as chart variables, is available only in the [Query Editor](query_editor.html). Query Editor expects that you type the query using the elements of the query language.
 
 * Switch from Chart Builder to Query Editor to use those advanced functions.
 * You **cannot** switch from Query Editor to Chart Builder.
