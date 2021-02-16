@@ -11,7 +11,7 @@ This page describes how to install Wavefront on IBM Cloud. The content was gener
 
 {% include note.html content="We've included these instructions because we believe they're useful. We have not performed independent testing of these instructions." %}
 
-This docs describes how to install Wavefront on IBM Cloud. The process consists of these steps, discussed in detail below.
+The process consists of these steps, discussed in detail below.
 
 - Step 1: Provision a Kubernetes Cluster
 - Step 2: Deploy IBM Cloud Block Storage Plug-In
@@ -65,17 +65,14 @@ To create a standard IBM Cloud Kubernetes cluster:
 
 
 1. Log in to your IBM Cloud Account, search for **Block Storage**, and select **Block Storage** from the list.
-3. On the Block Storage page, click  **Create** in the bottom right.
-
-<!---![Block storage page, create selected.](images/ibm_create_blockstorage.png)--->
-
-4. Specify the storage details. Here's an example setup:
+2. On the Block Storage page, click  **Create** in the bottom right.
+3. Specify the storage details. Here's an example setup:
     * **Location** Location of the cluster, for example, `Location > Europe > London > LON02`
     * **Billing Method** `Monthly> 20 GB`
     * **OS type** `Linux`
     * **IOPS** `2 IOPS/GB`
 
-5. Click **I have agreed to the terms and conditions listed below**. A storage plug-in becomes available in the dashboard.
+4. Click **I have agreed to the terms and conditions listed below**. A storage plug-in becomes available in the dashboard.
 
 The following example screenshot illustrates one possible configuration.
 
