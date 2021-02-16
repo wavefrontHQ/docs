@@ -72,7 +72,7 @@ You might not see search results:
 
 ## Why aren't my RED metrics updated after updating spans?
 
-RED metrics are derived automatically using the spans sent by your applications. But, RED metrics data is not automatically updated when you update the span data, such as the span name, source name, and point tags, using preprocessor rules. Therefore, you need to update the RED metrics data using a proxy rule condition and the same preprocessor rules.
+RED metrics are derived automatically using the spans sent by your applications. But, RED metrics data is not automatically updated when you update the span data, such as the span name, source name, and point tags, using preprocessor rules. You need to update the RED metrics data using a proxy rule condition and a similar point altering preprocessor rule.
 
 For example:
   * You updated the spans using the `spanAddTagIfNotExists` preprocessor rule. 
