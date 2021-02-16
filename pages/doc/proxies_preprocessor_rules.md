@@ -806,7 +806,7 @@ Span altering rules allow you to add, remove, or update span tags.
 
 {% include tip.html content="The span filtering rules and span altering rules apply to data coming from any supported source, including Jaeger and Zipkin." %}
 
-{% include important.html content="RED metrics data is not automatically updated when you update the span data using preprocessor rules. Therefore, make sure to update the RED metrics data using the same preprocessor rules."%}
+{% include important.html content="RED metrics data is not automatically updated when you update the span data, such as the span name, source name, and point tags, using preprocessor rules. Therefore, make sure to update the RED metrics data using the same preprocessor rules. See [tracing FAQs](tracing_faq.html#why-arent-my-red-metrics-updated-after-updating-spans) for details."%}
 
 
 ### spanReplaceRegex
@@ -941,8 +941,6 @@ Add a span tag to all spans.
 
 {% include note.html content="You can add up to 20 span tags. Contact [support@wavefront.com](mailto:support@wavefront.com) if this does not meet your requirements." %}
 
-{% include important.html content="RED metrics data is not automatically updated when you update the span data using preprocessor rules. Therefore, make sure to update the RED metrics data using the same preprocessor rules."%}
-
 <font size="3"><strong>Parameters</strong></font>
 
 <table width="100%">
@@ -1056,8 +1054,6 @@ Removes a span tag that matches a regex string.
 Extract a string from a span name, source name, or a span tag value and create a new span tag from that string.
 * For `spanExtractTag`, create the new span tag.
 * For `spanExtractTagIfNotExists`, do not create the new span tag if at least one tag with this name already exists.
-
-{% include important.html content="RED metrics data is not automatically updated when you update the span data using preprocessor rules. Therefore, make sure to update the RED metrics data using the same preprocessor rules."%}
 
 <font size="3"><strong>Parameters</strong></font>
 
