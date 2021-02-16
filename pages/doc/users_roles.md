@@ -36,7 +36,7 @@ To create a role:
 <li>From the gear menu, select <strong>Account Management</strong>.</li>
 <li>Click the <strong>Roles</strong> tab and select <strong>Create Role</strong>.</li>
 <li>Specify a name, description, and one or more permissions for that role.</li>
-<li>(Optional) Enter groups (or accounts) to assign the role to.</li>
+<li>(Optional) Enter groups (or accounts) to assign the role to. You an also add groups or accounts later. </li>
 <li>Click <strong>Create</strong>. </li>
 </ol></td>
 <td width="50%"><img src="/images/create_role.png" alt="create a role"/></td>
@@ -60,7 +60,7 @@ To create a group:
 <li>From the gear menu, select <strong>Account Management</strong>.</li>
 <li>Click the <strong>Groups</strong> tab and select <strong>Create Group</strong>.</li>
 <li>Specify a name and (optional) description.</li>
-<li>(Optional) Add one or more accounts to the group. You cannot add a group as a member.</li>
+<li>(Optional) Add one or more accounts to the group now or later. You cannot add a group as a member.</li>
 <li>(Optional) Add one or more roles to the group now or later. </li></ol></td>
 <td width="50%"><img src="/images/create_group.png" alt="create a group"/></td>
 </tr>
@@ -70,7 +70,7 @@ To create a group:
 
 ### Assign a Role to a Group
 
-Users with **Accounts, Groups & Roles** permission can assign roles when they create a group, or can add and remove roles later.
+Users with **Accounts, Groups & Roles** permission can assign roles to a group when they create the group, or can add and remove roles later.
 
 <table style="width: 100%;">
 <tbody>
@@ -80,8 +80,8 @@ To assign a role to a group:
 <ol><li>Log in to your Wavefront instance.</li>
 <li>From the gear menu, select <strong>Account Management</strong>.</li>
 <li>Click the <strong>Groups</strong> tab and change role assignment in one of these ways: </li>
-<ul><li>Click the group name, click <strong>+Role</strong> or <strong>-Role</strong>, and select a role to change role assignment.</li>
-<li>Select the check box for the group and click the group name. In the <strong>Edit Group</strong> dialog, make the desired changes and click <strong>Update</strong></li></ul>
+<ul><li>Click the group name, click <strong>+Role</strong> or <strong>-Role</strong>, and select a role to change role assignment (not shown).</li>
+<li>Select the check box for the group and click the group name. In the <strong>Edit Group</strong> dialog, make the desired changes and click <strong>Update</strong>, as shown on the right.</li></ul>
 </ol>
 </td>
 <td width="50%"><img src="/images/add_role_to_group.png" alt="add role to group"/></td>
@@ -92,13 +92,15 @@ To assign a role to a group:
 
 ## Grant or Revoke Account Permissions Explicitly
 
-Assigning a role to a group of users is more efficient and leaves less room for error than granting or revoking account permission or assigning a role to an account. We support those two ways of managing permissions in part for compatibility.
+The process of granting permissions is the same for users and for service accounts.
 
-The process of granting permissions is the same for users and for service accounts
+You can grant a permissions to an account when you create the account or add permissions later from the **Service Accounts** / **Users** page or from the **Edit Service Account** / **Edit User** page.
 
-You can grant a service account permissions when you create it or add permissions later from the **Service Accounts** / **Users** page or from the **Edit Service Account** / **Edit User** page.
 
-The following example shows this for service accounts.
+{% include tip.html content="Assigning a role to a group of users is more efficient and leaves less room for error than granting or revoking account permission or assigning a role to an account." %}
+
+
+The following example shows two ways of explicitly grant or revoke permissions for service accounts.
 
 <table style="width: 100%;">
 <tbody>

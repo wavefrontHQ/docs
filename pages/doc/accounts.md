@@ -11,7 +11,7 @@ You can manage authorization in your Wavefront environment by:
 * Granting and revoking access to **individual objects** (initially dashboards and alerts) for accounts and groups.
 
 Wavefront supports:
-* User accounts, discussed here, which authenticate with a user name and password.
+* User accounts, discussed here, which authenticate with a username and password.
 * Service accounts, which authenticate with a token.
 
 {% include note.html content="You must have **Accounts, Groups & Roles** permission to view and manage accounts, groups, and permissions in Wavefront. If you don't have **Accounts, Groups & Roles** permission, the UI menu selections, buttons, and links that you use to view accounts and permissions are not visible. " %}
@@ -30,12 +30,12 @@ Users with **Accounts, Groups & Roles** permissions can manage accounts.
 
 1. Click the gear icon and select **Account Management**.
 2. To add an account:
-   1. Click **Invite New Users**, and specify a comma-separated list of email addresses.
-   2. Specify user groups. You cannot remove users from the Everyone group.
+   1. Click **Invite New Users** and specify a comma-separated list of email addresses.
+   2. Specify user groups. You cannot remove users from the **Everyone** group.
    3. To grant permissions to individual users, click **Advanced**.
       * Assign a role to the user
       * Or give the user explicit permissions
-   We recommend managing permissions at the group level.
+   {% include tip.html content="We recommend managing permissions at the group level and not assigning permissions to individual users." %}
 
    Each invited user receives an email with an account activation link that is valid for 24 hours. All new users can browse data and might have additional permissions.
 3. To change roles, permissions, or group membership:
@@ -65,8 +65,8 @@ When you invite a (human) user to Wavefront, what that new user can do depends o
 {% include note.html content="It's possible that [access to dashboards and alerts](access.html#how-access-control-works) is limited." %}
 
 
-- **New User Permissions:** Users with Accounts, Groups & Roles permission can view and modify new user default permissions from the Organization Settings menu item available from gear icon. These permissions *do not* apply to service accounts.
-- **New User Default Groups:** Users with Accounts, Groups & Roles permission can set up a default groups for new users from the Organization Settings menu item available from the gear icon. All new user accounts get all permissions assigned to the default user groups. These permissions *do not* apply to service accounts.
+- **New User Permissions:** Users with Accounts, Groups & Roles permission can view and modify new user default permissions from the Organization Settings menu item that is available from gear icon. These permissions *do not* apply to service accounts.
+- **New User Default Groups:** Users with Accounts, Groups & Roles permission can set up a default groups for new users from the Organization Settings menu item that is available from the gear icon. All new user accounts get all permissions assigned to the default user groups. These permissions *do not* apply to service accounts.
 
 ## Service Accounts
 
@@ -89,7 +89,7 @@ If you build a service or tool that manages proxies or ingests data, then that t
 
    The tool authenticates seamlessly to the API without embedding secret keys or user credentials in your instance, image, or application code.
 
-You can disable a service account if you temporarily don't need it, or delete it permanently.
+You can disable a service account if you temporarily don't need it, or you can delete the account permanently.
 
 
 ### Create a Service Account
@@ -97,7 +97,7 @@ You can disable a service account if you temporarily don't need it, or delete it
 Creating a service account is different from creating a user account.
 
 1. From the gear icon, select **Account Management**.
-2. Click the **Service Accounts** tab, and click **Create New Account**.
+2. Click the **Service Accounts** tab and click **Create New Account**.
 3. On the New Service Account page, specify the account details and click **Create**.
 
 <table style="width: 100%;">
@@ -108,7 +108,7 @@ Creating a service account is different from creating a user account.
 <tr>
 <td>
 Account ID</td>
-<td>ID of the account. We prefix this ID with <strong>sa::</strong>. <p>A service account name must be unique. Wavefront converts service account ID to lower case. Users can type upper case or lower case -- this helps avoid duplicates. </p> </td>
+<td>ID of the account. We prefix this ID with <strong>sa::</strong>. <p>A service account name must be unique. Wavefront converts service account ID to lower case to avoid confusion that can result from almost identical account names (e.g. Service-1 and service-1). Users can type upper case or lower case. </p> </td>
 </tr>
 <tr>
 <td>
@@ -123,7 +123,7 @@ Tokens</td>
 <tr>
 <td>
 Groups</td>
-<td>By default, service accounts are added to the Everyone group and you cannot remove them. If you give assign roles to the Everyone group, all the service account get the permissions associated with that role. You can also add a service accounts to other groups. </td></tr>
+<td>By default, service accounts are added to the <strong>Everyone</strong> group and you cannot remove them. If you assign roles to the <strong>Everyone</strong> group, all the service accounts get the permissions associated with that role. You can also add a service accounts to other groups. </td></tr>
 <tr>
 <td>Roles</td>
 <td>Roles for the service account. Roles are sets of permissions. You could create one or two roles and use those roles only for service accounts. </td></tr>
@@ -134,7 +134,7 @@ Groups</td>
 </tbody>
 </table>
 
-After you create the account, you can change role or group assignment for individual accounts. The process is the same for user accounts and service accounts.
+After you create the account, you can change its role or group assignment. The process is the same for user accounts and service accounts.
 
 
 ### Deactivate or Activate a Service Account
