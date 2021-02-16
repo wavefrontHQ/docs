@@ -76,6 +76,6 @@ RED metrics are derived automatically using the spans sent by your applications.
 
 For example:
   * You updated the spans using the `spanAddTagIfNotExists` preprocessor rule. 
-  * Now, the spans are updated but, the span RED metrics that were propagated previously are not updated. These RED metrics have the following format: `tracing.derived.<application>.<service>.<operationName>`
-  * Define a [proxy rule condition](proxies_preprocessor_rule_conditions.html) to only update the `tracing.derived.<application>.<service>.<operationName>` RED metrics using the same preprocessor rule (e.g., `spanAddTagIfNotExists` preprocessor rule).
+  * Now, the spans are updated but, the span RED metrics that were propagated previously are not updated. These RED metrics have the following format: `tracing.derived.*` or `∆tracing.derived.*`.
+  * Define a [proxy rule condition](proxies_preprocessor_rule_conditions.html) to update the `tracing.derived.*` and `∆tracing.derived.*` RED metrics using a similar [point altering preprocessor rule](proxies_preprocessor_rules.html#point-altering-rules) (e.g., `addTagIfNotExists` preprocessor rule).
   
