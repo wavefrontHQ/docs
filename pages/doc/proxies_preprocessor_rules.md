@@ -702,7 +702,6 @@ The following example illustrates using a limitLength for a point tag. However, 
 
 {% include tip.html content="The span filtering rules and span altering rules apply to data coming from any supported source, including Jaeger and Zipkin." %}
 
-
 ### spanBlock
 
 Defines a regex that spans must match to be filtered out. In the example below, we don't allow spans with a source name that starts with `qa-service`.
@@ -806,6 +805,9 @@ Points must match the `spanAllow` list to be accepted. Multiple `spanAllow` rule
 Span altering rules allow you to add, remove, or update span tags.
 
 {% include tip.html content="The span filtering rules and span altering rules apply to data coming from any supported source, including Jaeger and Zipkin." %}
+
+{% include important.html content="RED metrics data is not automatically updated when you update the span data, such as the span name, source name, and point tags, using preprocessor rules. Therefore, make sure to update the RED metrics data similar to the span data using preprocessor rules. See [tracing FAQs](tracing_faq.html#why-arent-my-red-metrics-updated-after-updating-spans) for details."%}
+
 
 ### spanReplaceRegex
 
@@ -1052,7 +1054,6 @@ Removes a span tag that matches a regex string.
 Extract a string from a span name, source name, or a span tag value and create a new span tag from that string.
 * For `spanExtractTag`, create the new span tag.
 * For `spanExtractTagIfNotExists`, do not create the new span tag if at least one tag with this name already exists.
-
 
 <font size="3"><strong>Parameters</strong></font>
 
