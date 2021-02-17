@@ -23,14 +23,14 @@ You can use the customer-wide or user-level preferences to control whether <stro
 </td>
 <td width="60%"><img src="/images/get_started.png" alt="screenshot of Getting Started second screen"></td>
 </tr>
-<tr>
+<tr> 
 <td>
 The <strong>Tutorial integration</strong> allows you to experiment with charts and alerts to learn (clone the integration to save your results).
 <ol><li>In the taskbar, click <strong>Integrations</strong>. </li>
 <li>Click <strong>Tutorial</strong> and select <strong>Dashboards</strong>.</li>
 <li>Follow the instructions on the left to explore the charts (with sample data) on the right.</li> </ol>
 </td>
-<td width="50%"><img src="/images/tutorial_integration.png" alt="all tutorial dashboards"></td>
+<td width="50%"><img src="/images/all_tutorial_dashboards.png" alt="all tutorial dashboards"></td>
 </tr>
 <tr>
 <td>
