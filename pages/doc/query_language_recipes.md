@@ -40,7 +40,7 @@ For example, you can show all values that are greater than 70 and less than 85 w
 
 ### Show Ratio Between Two Time Series
 
-You can divide two time series to produce one series that's the ratio of the two series. This division might result in `NO DATA` if [the series dont match](query_language_series_matching.html).
+You can divide two time series to produce one series that's the ratio of the two series. This division might result in `NO DATA` if [the series don't match](query_language_series_matching.html).
 
 The following sample query gets the ratio between the bytes sent and the bytes received for `app-1`.
 ```
@@ -76,7 +76,7 @@ If you're using this query as is with our ~sample metrics, you'll see a message 
 
 You can calculate continuous aggregation:
 * Over a sliding time window using one of the [moving window functions](query_language_reference.html#moving-window-time-functions). For example, the average for the last 24 hours.
-* Over a fixed-size time window, for example, the average for each day (e.g. Jan 3, Jan 4, etc.)
+* Over a fixed-size time window, for example, the average for each day (e.g., Jan 3, Jan 4, etc.)
 
 We explain [Using Moving and Tumbling Time Windows to Highlight Trends](query_language_windows_trends.html) in some detail. The focus of this section is on examples.
 
@@ -135,7 +135,7 @@ Point rate blocked across all Wavefront proxies. Points might be blocked due to 
 
 `sum(rate(ts(~proxy.points.*.blocked)))`
 
-Total points that are collected by the Wavefront service. The `~collector` service acts as a entry point to Wavefront, and these metrics monitor the data processed at the collector.
+Total points that are collected by the Wavefront service. The `~collector` service acts as an entry point to Wavefront, and these metrics monitor the data processed at the collector.
 
 `sum(rate(ts(~collector.points.reported)))`
 
@@ -165,13 +165,13 @@ The query language includes many functions for common operations. The following 
 
 To determine whether a set of datapoints is in a specified range, use `between()`.
 
-The following query returns 1 if CPU usage percentage for `app-2` is is equal to or between the 0 and .5. If greater than .5, it returns 0.
+The following query returns 1 if CPU usage percentage for `app-2` is equal to or between the 0 and .5. If greater than .5, it returns 0.
 
 `between(ts(~sample.cpu.usage.percentage, source="app-2"),0,.5)`
 
 ### Variance
 
-To find out how how volatile your data is, use `variance()`.
+To find out how volatile your data is, use `variance()`.
 
 `variance(ts(~sample.network.bytes.sent))`
 
@@ -223,7 +223,7 @@ Displays the number of standard deviations from the group of series. (Standard d
 
 ### Interquartile Range from Self
 
-The interquartile range (IQR) is the difference between the upper (75th percentile) and lower (25th percentile) quartiles, and describes the middle 50% of values when ordered from lowest to highest. The IQR can be a better measure of spread than the range because it is not affected by outliers. Like mean and standard deviation, median and IQR measure the central tendency and spread, but are robust against outliers and non-normal data.
+The interquartile range (IQR) is the difference between the upper (75th percentile) and lower (25th percentile) quartiles and describes the middle 50% of values when ordered from lowest to highest. The IQR can be a better measure of spread than the range because it is not affected by outliers. Like mean and standard deviation, median and IQR measure the central tendency and spread, but are robust against outliers and non-normal data.
 
 The following example displays the number of IQR's each series varies from its historic self:
 
@@ -236,7 +236,7 @@ abs(ts(~sample.network.bytes.sent, source="app-10")
 
 ### Interquartile Range from All Series
 
-You can display the IQR of all series, that is, of the polulation, like this:
+You can display the IQR of all series, that is, of the population, like this:
 
 ```
 abs(ts(~sample.network.bytes.sent, env="dev")
