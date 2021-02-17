@@ -14,11 +14,11 @@ But if you want to look at the daily average for each day, you have to create fi
 
 The Wavefront [moving window time functions](query_language_reference.html#moving-window-time-functions) allow you to calculate continuous aggregation over sliding time windows. Wavefront offers functions for creating moving windows on various aggregation such as `msum()`,` mavg()`, `mmedian()`, `mcount()`, etc. These functions create continuous moving or sliding windows which can be useful for looking at moving trends.
 
-Recalculation happens at different times for [discrete and for continous time series](query_language_discrete_continuous.html):
+Recalculation happens at different times for [discrete and for continuous time series](query_language_discrete_continuous.html):
 * For discrete time series, the moving windows recalculation is done every second.
 * For continuous time series, the recalculation is done for every bucketing interval. For example, if you have a 30 second bucketing interval, then recalculation happens every 30 seconds.
 
-For example, the chart below shows the 24 hour moving average of the points received from the following queries:
+For example, the chart below shows the 24-hour moving average of the points received from the following queries:
 
 |Rate| `sum(rate(ts(~proxy.points.2878.received)))`|
 
@@ -108,7 +108,7 @@ We use the following queries:
 
 ### Get a 50th Percentile of Each 5-minute Bucket
 
-The following examples show how you can covert any moving function to a fixed or tumbling window by correctly sampling the moving window. You can use time functions the [`align()` function](query_language_align_function.html), or both.
+The following examples show how you can cover any moving function to a fixed or tumbling window by correctly sampling the moving window. You can use time functions the [`align()` function](query_language_align_function.html), or both.
 
 In the following chart, sample data is being reported every 1 minute.
 
