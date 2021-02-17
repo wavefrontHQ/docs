@@ -209,7 +209,11 @@ Wavefront uses [indexing](trace_data_details.html#indexed-and-unindexed-span-tag
 
 ### Guidelines for Defining Custom Span Tags
 
-* Keep the cardinality of custom span tags low (< 1000 values per tag) and contact Wavefront support to request indexing for those span tags. Indexing is available only for low-cardinality custom span tags.
+* Do not have more than 25 custom span tags.
+
+* Do not have more than 100 values assigned to a span tag. Keep the cardinality of custom span tags low.
+
+* Contact Wavefront support to request indexing for those span tags. Indexing is available only for low-cardinality custom span tags.
 
 * If you are using a Wavefront OpenTracing SDK, define a span tag called `component`. Wavefront uses the `component`, `application`, and `service` tags to populate the Application Services page and each service-specific page.
 

@@ -195,7 +195,11 @@ entries:
     - title: Wavefront Data Best Practices
       url: /wavefront_data_naming.html
       output: web
-
+    
+    - title: Cardinality and Wavefront
+      url: /cardinality.html
+      output: web
+    
       subfolders:
       - title: Metrics, Sources, and Tags
         output: web

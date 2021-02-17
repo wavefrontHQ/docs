@@ -37,11 +37,14 @@ Let's walk through the following scenario to get a quick overview of the applica
 </thead>
 <tbody>
   <tr>
-    <td markdown="span">
-      **Step 1:  Search for applications** <br/>
-      Click **Tag**, select **application** > **beachshirts**, and click **Search**.<br/>
+    <td>
+      <b>Step 1:  Search for applications</b> <br/>
+      Click <b>Tag</b>, select <b>application</b> > <b>beachshirts</b>, and click <b>Search</b>.<br/>
 
       You can search for applications by applying one or more filters, such as the application name, cluster, shard, or any other application tag.
+      
+      <br/><br/>You see the data that match your search filters and the nearest neighboring service. For example, if you filter for the beachshirts application's styling service, you only see the services that directly communicate with the styling service.
+      
       </td>
     <td><img src="/images/tracing_appmap_search_application.png" alt="Search for the beachshirts application using tags"/>
     <a name="appmap"></a>
