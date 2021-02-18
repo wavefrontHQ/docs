@@ -7,7 +7,7 @@ permalink: glossary.html
 summary: Learn about Wavefront terms.
 ---
 
-This glossary introduces common Wavefront terms. Click the links or search this doc set for details.
+This glossary introduces common Wavefront terms. Click the links or search this doc set for details. 
 
 <table style="width: 100%;">
 <tbody>
