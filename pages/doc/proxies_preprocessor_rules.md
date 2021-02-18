@@ -79,10 +79,10 @@ Wavefront uses Java-style regex pattern. For details see [the Java documentation
 ### Applying Rules to Multiple Ports
 
 A preprocessor rule typically specifies rules for a specific port. The example above specifies the rule for port 2878. Starting with proxy v7.x, you can:
-* Use the `global` keyword to specify rules for all ports. For example:
+* Use the `global` keyword to specify rules that should apply for all explicitly specified ports. Additionally, global rules must be specified at the bottom of the preprocessor rule file. For example:
 
 ```
-   # rules that apply to all ports
+   # rules that apply to all ports explicitly specified above. Global rules must be at the end of the file.
    'global':
 
      # Example no-op rule
