@@ -30,7 +30,7 @@ The <strong>Tutorial integration</strong> allows you to experiment with charts a
 <li>Click <strong>Tutorial</strong> and select <strong>Dashboards</strong>.</li>
 <li>Follow the instructions on the left to explore the charts (with sample data) on the right.</li> </ol>
 </td>
-<td width="50%"><img src="/images/tutorial_integration.png" alt="all tutorial dashboards"></td>
+<td width="50%"><img src="/images/all_tutorial_dashboards.png" alt="all tutorial dashboards"></td>
 </tr>
 <tr>
 <td>

@@ -7,9 +7,9 @@ permalink: wavefront_spring_boot_faq.html
 summary: Get answers to your questions about Wavefront for Spring Boot
 ---
 
-### What is the difference between the freemium cluster and a Wavefront trial?
+### What is the difference between the Wavefront for Spring Boot freemium cluster and a Wavefront trial?
 
-* **Freemium cluster** <br/>The freemium cluster supports limited data ingestion throughput with 5-day retention and no SLA guarantees. It allows developers to try out Wavefront without having to sign up or provide an email address.
+* **Wavefront for Spring Boot Freemium cluster** <br/>The freemium cluster supports limited data ingestion throughput with 5-day retention and no SLA guarantees. It allows developers to try out Wavefront without having to sign up or provide an email address.
 
 * **Wavefront trial** <br/>The Wavefront trial allows you to experience the full power of the Wavefront platform by bringing in data from your cloud environments (AWS/GCP/Azure/vSphere), Kubernetes, over 200 integrations, and large-scale service fleets into a single observability platform. You can also create smart alerts that dynamically filter noise and capture true anomalies. When you sign up for a trial, we'll ask for some (minimal) information.
 
@@ -18,7 +18,7 @@ summary: Get answers to your questions about Wavefront for Spring Boot
   management.metrics.export.wavefront.api-token=44444-34this-45is-123a-sampletoken
   ```
 
-### What is the retention and Service Level Agreement (SLA) on the freemium cluster?
+### What is the retention and Service Level Agreement (SLA) on the Wavefront for Spring Boot freemium cluster?
 
 While this is subject to changes at any time, we currently retain 5 days of data and offer no SLA on the free Wavefront cluster. Production Wavefront clusters currently offer 18 months of full-resolution (no downsampling) data retention for metrics, 6 months for histograms, and 30 days for spans. We also have a 99.95% uptime guarantee, as well as High Availability (HA) and Disaster Recovery (DR) options.
 

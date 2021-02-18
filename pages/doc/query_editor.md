@@ -13,7 +13,7 @@ Query Editor expects that you type the query using the elements of the query lan
 
 **Note:** Most functions allow you to query time series metrics. Some functions also support histograms, traces, or events.
 * [Functions for use with histograms](query_language_reference.html#histogram-functions)
-* [Functions for use with traces and spans](query_language_reference.html#tracing-functions)
+* [Functions for use with traces and spans](query_language_reference.html#traces-functions)
 * [Functions for use with events](query_language_reference.html#event-functions)
 
 ## Open Query Editor
@@ -30,7 +30,7 @@ To switch from Chart Builder to Query Editor, click the toggle.
 ## Construct Queries
 
 You construct queries using Wavefront Query language.
-1. Start with the metric you want to monitor.
+1. Start with the metric that you want to monitor.
 2. Add filters, e.g. `source=production`.
 3. Add one or more [query language functions](query_language_reference.html). Execution order makes a difference.
 4. Use [grouping](query_language_aggregate_functions.html#grouping-the-aggregation-results) if you're interested in grouping your metrics. For example, you could use the `sources` parameter one line for each source in the chart.
