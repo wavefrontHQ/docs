@@ -37,6 +37,8 @@ Wavefront supports the `spy` endpoints shown in the following table:
 </thead>
 <tr><td markdown="span">`https://<cluster>.wavefront.com/api/spy/points`</td>
 <td markdown="span">[Gets new metric data points](#get-ingested-metric-points-with-spy) that are added to existing time series.</td></tr>
+<tr><td markdown="span">`https://<cluster>.wavefront.com/api/spy/deltas`</td>
+<td markdown="span">[Gets new delta counter points](#get-ingested-delta-counters-with-spy) that are added to existing time series.</td></tr>
 <tr><td markdown="span">`https://<cluster>.wavefront.com/api/spy/histograms`</td>
 <td markdown="span">[Gets new histograms](#get-ingested-histograms-with-spy) that are added to existing time series.</td></tr>
 <tr><td markdown="span">`https://<cluster>.wavefront.com/api/spy/spans`</td>
