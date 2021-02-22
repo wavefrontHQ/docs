@@ -35,7 +35,20 @@ The following custom span tags are supported by default.
 Follow the steps given below to propagate custom span tags when sending data from your application. Once the data is in Wavefront, you can use queries to create custom dashboards that help you filter and view the information you need. Let's look at a sample scenario that adds a custom span tag where you can compare the data in the production and staging environments.
 
 1. Create a custom span-level tag. Assume you have a span that has the `env=` span tag.
-    {% include note.html content="When adding custom span-level tags, make sure that it is of low cardinality. A tag with low cardinality has comparatively few unique values that can be assigned to it." %}
+
+    {{site.data.alerts.note}}
+    <p>When adding custom span-level tags, make sure that it is of low cardinality:</p>
+      <ul>
+        <li>
+          Do not have more than 25 custom span tags.
+        </li>
+        <li>
+          Do not have more than 100 values assigned to a span tag.
+        </li>
+      </ul>
+      A tag with low cardinality has comparatively few unique values that are assigned to it.
+    
+    {{site.data.alerts.end}}
 
     <ul id="profileTabs" class="nav nav-tabs">
         <li class="active"><a href="#tracingApplication" data-toggle="tab">Wavefront OpenTracing SDK</a></li>

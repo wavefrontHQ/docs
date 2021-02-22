@@ -10,7 +10,7 @@ summary: Learn how to add and remove users, grant and revoke permissions, and se
 {% include shared/permissions_view.html entity="users and permissions" entitymgmt="User" %}
 
 ## Accessing the Users and Permissions Pages
-You access the Users and Permissions pages by clicking the gear icon <i class="fa fa-cog"/> on the task bar and selecting your username. Your user profile displays.
+You access the Users and Permissions pages by clicking the gear icon <i class="fa fa-cog"/> on the taskbar and selecting your username. Your user profile displays.
 
 The panel to the left of your profile contains the links **Users(\<CompanyName\>)** and **Permissions(\<CompanyName\>)**.
 

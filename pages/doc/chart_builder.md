@@ -41,7 +41,7 @@ We open Chart Builder only if:
 * Chart Builder is the default in your [user preferences](users_account_managing.html).
 * The chart that you open for edit wasn't open in Query Editor before.
 
-Advanced functionionality such as chart variables, is available only in the [Query Editor](query_editor.html). Query Editor expects that you type the query using the elements of the query language.
+Advanced functionality, such as chart variables, is available only in the [Query Editor](query_editor.html). Query Editor expects that you type the query using the elements of the query language.
 
 * Switch from Chart Builder to Query Editor to use those advanced functions.
 * You **cannot** switch from Query Editor to Chart Builder.
@@ -60,7 +60,7 @@ You always start by selecting a metric, and can then refine what's visible in th
 <li>Start typing a name in the search box.</li>
 <li>Select a metric type, that is, <strong>Metrics</strong>, <strong>Delta Counters</strong>, or <strong>Histograms</strong> and select from the menu. </li>
 <li>Select <strong>Integrations</strong>, pick an integration, and then select a metric. </li>
-<li>Click <strong>Browse</strong> and select from all metrics in your environment. </li></ul></td>
+<!-- There is no Browse option, so commenting this out <li>Click <strong>Browse</strong> and select from all metrics in your environment. </li>--></ul></td>
 <td width="60%"><img src="/images/v2_add_metric.png" alt="add a metric"></td>
 </tr>
 </tbody>
@@ -71,10 +71,10 @@ You always start by selecting a metric, and can then refine what's visible in th
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">Optionally specify filters to narrow down what the chart displays.
-<ul><li>Add filters using the + button.</li>
-<li>Remove any filter using the X inside the filter bubble.</li></ul> </td>
-<td width="60%">This example filters a metric that supports specifying the value of two point tags (az and env), the source, and a source tag. See <a href="tags_overview.html">Organizing with Tags</a>.<br>
+<td width="40%">Optionally, specify filters to narrow down what the chart displays.
+<ul><li>Add filters using the + icon.</li>
+<li>Remove a filter using the X inside the filter bubble.</li></ul> </td>
+<td width="60%">This example filters a metric that supports specifying the value of two point tags (<code>az</code> and <code>env</code>), the source, and a source tag. See <a href="tags_overview.html">Organizing with Tags</a>.<br>
 <img src="/images/v2_add_filter.png" alt="add a filter"></td>
 </tr>
 </tbody>
@@ -85,10 +85,10 @@ You always start by selecting a metric, and can then refine what's visible in th
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">Functions allow you to perform aggregation, scaling, or rounding, use moving time windows and more.
-<ul><li>When you select a function, help text explains how it works and a link sends you to more info.</li>,
-<li>For many functions, e.g. <strong>sum()</strong> and <strong>rawsum()</strong>, we support a raw version that does not perform <a href="query_language_aggregate_functions.html">interpolation</a></li></ul> </td>
-<td width="60%">This example filters a metric that supports specifying the value of two point tags (az and env), the source, and a source tag. See <a href="tags_overview.html">Organizing with Tags</a>.<br>
+<td width="40%">Functions allow you to perform aggregation, scaling, or rounding, use moving time windows, and more.
+<ul><li>When you select a function, help text explains how it works and a link sends you to more info.</li>
+<li>For many functions, e.g., <strong>sum()</strong> and <strong>rawsum()</strong>, we support a raw version that does not perform <a href="query_language_aggregate_functions.html">interpolation</a>.</li></ul> </td>
+<td width="60%">This example filters a metric that supports specifying the value of two point tags (<code>az</code> and <code>env</code>), the source, and a source tag. See <a href="tags_overview.html">Organizing with Tags</a>.<br>
 <img src="/images/v2_add_functions.png" alt="add a filter"></td>
 </tr>
 </tbody>
@@ -100,8 +100,8 @@ You always start by selecting a metric, and can then refine what's visible in th
 <tbody>
 <tr>
 <td width="40%">
-For certain functions, the <strong>Group By</strong> field allows you to organize your chart. For example, you can show results for each of two env tags separately.<br>
-In the example on the right, we're in the process of selecting the sum function.<br>  </td>
+For certain functions, the <strong>Group By</strong> field allows you to organize your chart. For example, you can show results for each of two <code>env</code> tags separately.<br>
+In the example on the right, we're in the process of selecting the count function.<br>  </td>
 <td width="60%">
 <img src="/images/v2_group_by.png" alt="use group by"></td>
 </tr>
@@ -110,7 +110,7 @@ In the example on the right, we're in the process of selecting the sum function.
 
 ### Example: Metric, Summed Metric, Grouped Sum
 
-The following picture shows first the original metric, then the sum, and then the sum grouped by the `env` point tag.
+The following picture shows first the original metric, then the sum, and then the sum grouped by the <code>env</code> point tag.
 <!---Review comment: You may want to crop those off the bottom, or add a head above each of the three screenshots to make it more clear.--->
 
 ![query builder results](images/query_builder_results.png)
@@ -119,10 +119,10 @@ The following picture shows first the original metric, then the sum, and then th
 
 Chart Builder lets you:
 * Replace metrics.
-* Add query lines .
-* Hide or show the resuls of selected queries in the chart.
+* Add query lines.
+* Hide or show the results of selected queries in the chart.
 * Add and remove filters.
-* Add or remove functions, or change function order.
+* Add or remove functions, or change the order of the functions.
 
 ### Add Query Lines
 
@@ -134,7 +134,7 @@ Chart Builder lets you:
 <img src="/images/add_chart_line.png" alt="add a query line"></td>
 </tr>
 <tr>
-<td width="40%">To hide or show the results of a query, click the <strong>Hide/Show</strong> button. The chart no longer shows the result of that query though the query linke is still visible in chart builder.</td>
+<td width="40%">To hide or show the results of a query, click the <strong>Hide/Show</strong> button. The chart no longer shows the result of that query though the query line is still visible in Chart Builder.</td>
 <td width="60%">
 <img src="/images/v2_hide_show.png" alt="show/hide button"></td>
 </tr>
@@ -146,7 +146,7 @@ Chart Builder lets you:
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">To add a filter, click the + next to the filter. To remove a filter, click the x on the filter bubble. </td>
+<td width="40%">To add a filter, click the + icon next to the filter. To remove a filter, click X in the filter bubble. </td>
 <td width="60%">
 <img src="/images/v2_add_filter.png" alt="show/hide button"></td>
 </tr>

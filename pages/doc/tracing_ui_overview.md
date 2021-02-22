@@ -37,11 +37,14 @@ Let's walk through the following scenario to get a quick overview of the applica
 </thead>
 <tbody>
   <tr>
-    <td markdown="span">
-      **Step 1:  Search for applications** <br/>
-      Click **Tag**, select **application** > **beachshirts**, and click **Search**.<br/>
+    <td>
+      <b>Step 1:  Search for applications</b> <br/>
+      Click <b>Tag</b>, select <b>application</b> > <b>beachshirts</b>, and click <b>Search</b>.<br/>
 
       You can search for applications by applying one or more filters, such as the application name, cluster, shard, or any other application tag.
+      
+      <br/><br/>You see the data that match your search filters and the nearest neighboring service. For example, if you filter for the beachshirts application's styling service, you only see the services that directly communicate with the styling service.
+      
       </td>
     <td><img src="/images/tracing_appmap_search_application.png" alt="Search for the beachshirts application using tags"/>
     <a name="appmap"></a>
@@ -376,7 +379,7 @@ The default, read-only dashboard for a service lets you explore that service, ho
 {% include note.html content="You can add these charts to a dashboard and customize them using [Tracing Templates](ui_dashboards.html#create-a-dashboard-from-a-tracing-template). " %}
 
 On the dashboard for a particular service, you can:
-* Select the time and time zone in the task bar to customize the chart time properties.
+* Select the time and time zone in the taskbar to customize the chart time properties.
 * Use the **Jump To** pulldown to select a dashboard section:
   - Select **Overview** to examine the RED metrics that are derived from all of the spans for the service. These metrics reflect the health of the service.
   - Select an individual component to examine metrics for just that component of the service. A component could be an instrumented framework (e.g., **Jersey**) or the runtime system (e.g., **JVM**).
@@ -401,7 +404,7 @@ The standard dashboard for services is read-only. To create a customizable copy:
 1. Click **Clone** from the ellipsis menu.
 2. In the cloned dashboard, add your own charts or customize the RED metrics charts.
 
-After you save the clone, you can find it by name from the **Dashboards** menu of the task bar, and you can use it to drill down to the Traces Browser.
+After you save the clone, you can find it by name from the **Dashboards** menu of the taskbar, and you can use it to drill down to the Traces Browser.
 
 ### Save Charts in the Service Dashboard
 

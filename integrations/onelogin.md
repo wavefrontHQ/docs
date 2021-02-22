@@ -17,11 +17,11 @@ OneLogin is a popular identity management product that can be integrated with Wa
 4. Enter the **Display Name** as `Wavefront-IdP` and click **Save**.
 5. Go to **Configuration**, enter the **Application details** as following and click **Save**.
    Currently, we do not have a **Logout URL** but it's safe to fill it with **Login URL** if it's a required field.
-  - Audience (Entity ID): `https://nimba.wavefront.com/api/saml/login`
-  - Recipient: `https://nimba.wavefront.com/api/saml/login`
-  - ACS (Consumer) URL Validator: `https://nimba.wavefront.com/api/saml/login`
-  - ACS (Consumer) URL: `https://nimba.wavefront.com/api/saml/login`
-  - Login URL: `https://nimba.wavefront.com/api/saml/login`
+  - Audience (Entity ID): `https://YOUR_CLUSTER.wavefront.com/api/saml/login`
+  - Recipient: `https://YOUR_CLUSTER.wavefront.com/api/saml/login`
+  - ACS (Consumer) URL Validator: `https://YOUR_CLUSTER.wavefront.com/api/saml/login`
+  - ACS (Consumer) URL: `https://YOUR_CLUSTER.wavefront.com/api/saml/login`
+  - Login URL: `https://YOUR_CLUSTER.wavefront.com/api/saml/login`
 6. Go to **Parameters** and click icon ![plus](https://wavefront-img.s3-us-west-2.amazonaws.com/icon-plus-16.png) to add a field.
 7. Enter the **Field name**, enable the flag **Include in SAML assertion** and click **Save**. Set **Value** to **Email** and Click **Save**.
 8. Go to **SSO**, change the **SAML Signature Algorithm** to **SHA-256**, and click **Save**.

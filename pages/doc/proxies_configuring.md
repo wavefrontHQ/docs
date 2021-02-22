@@ -678,15 +678,15 @@ Sets the headroom multiplier for traffic shaping when there's backlog.
 
 Because the proxy is running in your local network by default, communication **to** the proxy is un-authenticated. If you want to authenticate inbound traffic to the proxy, use the settings in this section.
 
-The Wavefront proxy must authenticate outbound traffic to the Wavefront service. See [Authenticate Incoming HTTP Requests at the Proxy](proxies_configuring.html#authenticate-incoming-http-requests-at-the-proxy) for step-by-step instructions. 
+The Wavefront proxy must authenticate outbound traffic to the Wavefront service. See [Authenticate Incoming HTTP Requests at the Proxy](proxies_configuring.html#authenticate-incoming-http-requests-at-the-proxy) for step-by-step instructions.
 
 <table style="width: 100%;">
 <tbody>
 <thead>
 <tr>
-<th width="10%">Property</th>
+<th width="30%">Property</th>
 <th width="50%">Purpose</th>
-<th width="30%">Format and Example </th>
+<th width="20%">Format and Example </th>
 </tr>
 </thead>
 <tr>
@@ -697,13 +697,16 @@ Ex: OAUTH2</td>
 </tr>
 <tr>
 <td>authTokenIntrospectionServiceUrl</td>
-<td>URL for the token introspection endpoint used to validate tokens for incoming HTTP requests (for example, <code>authTokenIntrospectionServiceUrl = https://auth.acme.de/api/token/&lt;token&gt;/validate</code>). Required when authMethod is OAUTH2 or HTTP_GET <br/>Default: None.</td>
+<td>URL for the token introspection endpoint used to validate tokens for incoming HTTP requests (for example, <code>authTokenIntrospectionServiceUrl = https://auth.acme.de/api/token/&lt;token&gt;/validate</code>).
+
+Required when authMethod is OAUTH2 or HTTP_GET <br/>Default: None.</td>
 <td>Valid URL</td>
 </tr>
 <tr>
 <td>authTokenIntrospectionAuthorizationHeader</td>
-<td>Optional credentials for use with the token introspection endpoint if the endpoint requires authentication.<br/>
-<code>authTokenIntrospectionAuthorizationHeader=Authorization: Bearer &lt;token&gt;</code></td>
+<td>Optional credentials for use with the token introspection endpoint if the endpoint requires authentication. For example:<br/>
+<code>authTokenIntrospectionAuthorizationHeader=
+Authorization: Bearer &lt;token&gt;</code></td>
 <td> <br/></td>
 </tr>
 <tr>

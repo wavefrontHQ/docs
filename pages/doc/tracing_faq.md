@@ -69,3 +69,13 @@ You might not see search results:
     If you use invalid query syntax.
   </li>
 </ul>
+
+## Why aren't my RED metrics updated after updating spans?
+
+RED metrics are derived automatically using the spans sent by your applications. But, RED metrics data is not automatically updated when you update the span data, such as the span name, source name, and point tags, using preprocessor rules. You need to update the RED metrics data using a proxy rule condition and a similar point altering preprocessor rule.
+
+For example:
+  * You updated the spans using the `spanAddTagIfNotExists` preprocessor rule. 
+  * Now, the spans are updated but, the span RED metrics that were propagated previously are not updated. These RED metrics have the following format: `tracing.derived.*` or `∆tracing.derived.*`.
+  * Define a [proxy rule condition](proxies_preprocessor_rule_conditions.html) to update the `tracing.derived.*` and `∆tracing.derived.*` RED metrics using a similar [point altering preprocessor rule](proxies_preprocessor_rules.html#point-altering-rules) (e.g., `addTagIfNotExists` preprocessor rule).
+  
