@@ -38,7 +38,7 @@ Wavefront allows you to share dashboards and charts with other authorized users 
 
 ## Share Access to Dashboards or Alerts
 
-If the [access control]() for an individual dashboard or alert has been set so that access is blocked by default, the following users can share access with other users and groups:
+If the [access control](access.html) for an individual dashboard or alert has been set so that access is blocked by default, the following users can share access with other users and groups:
 * The dashboard creator
 * Super Admin
 * Any user who has View & Modify access because someone already shared access to the dashboard with that user.
@@ -49,11 +49,12 @@ The process is very similar for dashboards and for alerts.
 1. Navigate to the dashboard and click the Share Dashboard icon.
 
    ![share dashboard icon](images/share_dashboard_icon.png)
-2. Click **Accounts & Groups**
+2. Click **Accounts & Groups**.
 3. To grant access:
-   1. Start typing into the **View Dashboard** or **View & Modify Dashboard** field.
-   2. Select the group or user to give access to and click **Update**
-4. To revoke access, delete the group or user and click **Update**.
+   1. Start typing an account or a group name in the **View Dashboard** or **View & Modify Dashboard** text box.
+   2. Select the group or user to give access.
+4. To revoke access, delete the group or user. 
+5. Click **Update**.
 
 <!---Not currently supported
 ## Embed a Chart in Other UIs

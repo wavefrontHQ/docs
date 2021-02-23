@@ -16,12 +16,12 @@ Wavefront charts allow you to examine data, create alerts, and more!
 <li>Create a chart and fine-tune the data it displays using filters and functions.</li>
 <li>Customize your charts.</li>
 <li>Use chart variables, set the time window, create alerts, and much more!</li></ul></td>
-<td width="20%"><a href="ui_charts_v1.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
+<td width="20%"><a href="ui_charts_v1.html"><img src="/images/classic_button.png" alt="click here for the v1 documentation"/></a></td>
 </tr>
 </tbody>
 </table>
 
-{% include shared/badge.html content="You must have [Dashboard permission](permissions_overview.html) to save a chart to a dashboard. If you do not have permission, UI menu selections and buttons required to perform the task are not visible." %}
+{% include shared/badge.html content="You must have [Dashboard permission](permissions_overview.html) to save a chart to a dashboard. If you do not have permission, the UI menu selections and buttons required to perform the task are not visible." %}
 
 ## Create a Chart
 
@@ -34,7 +34,7 @@ You can create a chart from a dashboard or from the taskbar.
 <tr>
 <td width="40%">
 <ol><li>Edit a dashboard or select <strong>Dashboards > Create Dashboard</strong> from the taskbar to create a new one. </li>
-<li>Drag the metrics or chart type widget onto the canvas</li>
+<li>Drag the metrics or chart type widget to the canvas.</li>
 <li>Select metrics, filters, and functions and click <strong>Save</strong> in the top right. </li>
 </ol></td>
 <td width="60%"><img src="/images/v2_create_dashboard.png" alt="create dashboard"></td>
@@ -49,14 +49,15 @@ You can create a chart from a dashboard or from the taskbar.
 1. Select **Dashboards > Create Chart**.
 2. (Optional) In the top left, specify a chart name.
 2. Select a metric and an optional filter and function.
-3. In the top right, click **Save** and specify the dashboard.
+3. In the top right, click **Save**. 
+4. Specify the dashboard in which you want to insert the chart, or create a new dashboard.
 
 ![create chart](/images/v2_create_chart.png)
 
 
 ## Fine-Tune Chart Metrics from the Data Tab
 
-From the Data tab, fine-tune the metrics that are displayed in the chart by customizing the query and applying filters and functions.
+From the **Data** tab, fine-tune the metrics that are displayed on the chart by customizing the query and applying filters and functions.
 
 {% include note.html content="Your user preferences and the last used UI determine whether the Data tab shows Chart Builder or the more advanced Query Editor by default." %}
 
@@ -75,7 +76,7 @@ In the image below, we selected a metric, narrowed down the source, and we're ju
 
 Instead of using [Chart Builder](chart_builder.html), you can click the toggle and explicitly enter [Wavefront Query Language](query_language_reference.html) expressions into the query field.
 
-{% include note.html content="After you switch, to Query Editor, you cannot return to Chart Builder." %}
+{% include note.html content="After you switch, to Query Editor and make changes to the query, you cannot return to Chart Builder." %}
 
 We can get the metric we selected above with the following query.
 
@@ -85,16 +86,16 @@ Many Wavefront users start with Chart Builder as the default, and set their defa
 
 ## Hide, Clone, or Delete Queries
 
-You can easily hide, clone, or delete queries from the Data tab.
+You can easily hide, clone, or delete queries from the **Data** tab.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="40%">
 <ul><li>
-To clone a query, click the Clone icon. A copy of the query appears below the query itself. </li>
-<li>To delete a query, click the Delete icon. </li>
-<li>To hide or redisplay a query, click the Hide/Show icon.  </li>
+To clone a query, click the <strong>Clone</strong> icon. A copy of the query appears below the query itself. </li>
+<li>To delete a query, click the <strong>Delete</strong> icon. </li>
+<li>To hide or redisplay a query, click the <strong>Hide/Show</strong> icon.  </li>
 </ul>Save your changes.
 </td>
 <td width="60%"><img src="/images/ui_v2_hide_show.png" alt="hide query"></td>
@@ -105,9 +106,9 @@ To clone a query, click the Clone icon. A copy of the query appears below the qu
 
 ## Customize How the Chart Looks
 
-All users can [set the chart time window](ui_examine_data.html#select-the-chart-time-window) and [isolate sources and series](ui_examine_data.html#isolate-sources-or-series) without editing the chart.
+All users can [set the chart time window](ui_examine_data.html#set-the-time-window) and [isolate sources and series](ui_examine_data.html#isolate-sources-or-series) without editing the chart.
 
-Users with Dashboard permissions can make many other changes such as selecting the chart type or customizing the axes and colors. Here are some tasks you can perform. In many cases, they're possible only for certain chart types.
+Users with **Dashboard** permissions can make many other changes, such as selecting the chart type or customizing the axes and colors. Here are some tasks you can perform. In many cases, they're possible only for certain chart types.
 
 {{site.data.alerts.note}}
 <p>Making changes to the UI, for example, changing the units, only affects the UI:</p>
@@ -142,7 +143,7 @@ For hover legends you can:
 <strong>Fixed Legend</strong> <br><br>
 For fixed legends you can:
 <ul><li>Change where the legend displays.</li>
-<li>Add more information to the legend (Mean, Median, etc.) </li>
+<li>Add more information to the legend (Mean, Median, etc.). </li>
 <li>Show only the top or bottom <emphasis>N</emphasis> series, by value. </li>
 <li>Show only the top or bottom <emphasis>N</emphasis> series, by median, mean, sum, etc. </li>
 </ul> </td>
@@ -159,7 +160,7 @@ For optimal rendering of displayed results, Wavefront does not include metrics t
 
 **To include obsolete metrics**
 1. Open the chart for edit.
-2. Select the **Advanced** tab and click **Include Obsolete Metrics**.
+2. Click the **Advanced** tab and select the **Include Obsolete Metrics** check box.
 
 ### Use a Logarithmic Y Axis for Skewed Data
 
@@ -168,14 +169,14 @@ Sometimes charts have a few outliers that make it hard to make out the main part
 
 **To change the Y axis from linear to logarithmic:**
 1. Open the chart for edit.
-2. Select the **Axis** tab and select **Logarithmic**.
+2. Click the **Axis** tab and select **Logarithmic**.
 
 
 ### Filter Out Lines with Min and Max
 
 To filter out some lines, you specify a minimum or maximum. By default, Wavefront adjusts the Y axis to show all information. The following screenshot shows the automatic Y axis on the left and a Y axis of 75 on the right to filter out all lines from the development environment.
 
-![min hides lines](images/charts_set_min.png)
+![min 75 axis hides lines](images/charts_set_min.png)
 
 ### Use IEC/Binary Prefixes in Y Axis and Legends
 
@@ -190,8 +191,8 @@ By default, charts use SI unit prefixes, but you can change that.
 **To display axes and legends with IEC/Binary unit prefixes:**
 
 1. Open the chart for edit.
-2. Select the **Axis** tab.
-3. For all applicable options (e.g. **Min** and **Max**), select **Unit > IEC/Binary** and pick the unit from the pulldown menu.
+2. Click the **Axis** tab.
+3. For all applicable options (e.g., **Min** and **Max**), select **Unit > IEC/Binary** and pick the unit from the drop-down menu.
 
 Going forward, a data point with value `1024 x 1024 = 1,048,576` displays as `1.000Mi` instead of `1.049M`.
 
@@ -267,7 +268,7 @@ The chart above has 240 point buckets and the resolution of each bucket is 30 se
 ### Factors That Affect Chart Resolution
 
 Chart resolution is determined by:
-* The chart [time window](ui_examine_data.html#select-the-chart-time-window)
+* The chart [time window](ui_examine_data.html#select-the-chart-time-window).
 * The resolution of the display on which you view the chart.
 
 Consider the following chart time window and display resolution examples, and the bucket size they typically have:
@@ -306,20 +307,23 @@ The [`align()` function](query_language_reference.html#filtering-and-comparison-
 
 ## Improve Display Speed with the Sampling Option
 
-Wavefront is very fast, but sometimes it's not necessary for the user to wait for thousands of series to be rendered. Starting with release 2019.38, you can limit the number of time series to 100 for new charts.
+Wavefront is very fast, but sometimes it's not necessary for the user to wait for thousands of series to be rendered. You can limit the number of time series to 100 for new charts.
 
-To affect all dashboards, turn on the **Sampling** default in your preferences from the gear icon.
+To affect all dashboards, turn on the **Sampling** in your preferences.  
+1. Click the gear icon in the top right corner.
+2. Click your account name.
+3. Turn **Sampling** on.
 ![sampling preference](images/sampling_preference.png)
 
 If the **Sampling** preference is **On**:
 * The maximum number of time series that's displayed during chart creation or edit is 100.
-* You're prompted whether you'd like to turn off the limitation, as shown in the following screenshot.
+* You're prompted whether you'd like to turn off the limitation, as shown in the screenshot below.
   - **Turn off Sampling** removes the limit for the current chart.
   - **Always off** removes the limit for all charts.
 
 ![sampling query during chart create](images/sampling_during_chart_create.png)
 
-To temporarily change the sampling behavior for a chart, use the **Sampling** toggle in the top right. You cannot save this change (or other changes in this Taskbar).
+To temporarily change the sampling behavior for a chart, use the **Sampling** menu in the top right. You cannot save this change (or other changes in this taskbar).
 
 ![sampling toggle during chart edit](images/sampling_toggle.png)
 
