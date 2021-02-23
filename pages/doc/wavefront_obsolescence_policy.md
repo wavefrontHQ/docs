@@ -75,7 +75,9 @@ Wavefront delta counter behavior changed with [Release 2020.26](2020.26.x_releas
 
 As of release 2020.38, any ingested [delta counters](delta_counters.html) are stored in both the previous `ts()` format as well as the new native `cs()` format.
 
-Starting in April 2021, Wavefront will no longer store delta counters in two different formats, and `ts()` queries on delta counters will no longer work. You have to revise delta counter queries.
+Starting in April 2021, Wavefront will no longer store delta counters in two different formats, and `ts()` queries on delta counters will no longer work. You have to revise delta counter queries to use `cs()` for any custom dashboard or alert which uses delta counter data.
+
+Please note that the counters [from tracing RED data](https://docs.wavefront.com/trace_data_details.html#red-metrics) and the internal `~` metrics [collected by Wavefront](https://docs.wavefront.com/wavefront_monitoring.html#internal-metrics-overview) such as `~collector.points.reported` are captured using Delta Counters. All Wavefront provided Dashboards using this data will be migrated for you but if you have cloned any of those or created any custom dashboards or alerts using that data you will need to migrate the queries.
 
 ### How to Find Queries that Might Need Modification
 
