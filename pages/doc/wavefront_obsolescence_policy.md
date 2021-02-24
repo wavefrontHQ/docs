@@ -1,7 +1,7 @@
 ---
 title: Wavefront Obsolescence and Remediation
 keywords: release notes
-tags: 
+tags:
 sidebar: doc_sidebar
 permalink: wavefront_obsolescence_policy.html
 summary: Learn about deprecated and EOL features and how to prevent potential problems.
@@ -71,11 +71,16 @@ Wavefront delta counter behavior changed with [Release 2020.26](2020.26.x_releas
 * The original delta counter implementation is now obsolete.
 * The original delta counter implementation is End of Live March 31, 2021.
 
-## Required Changes to Delta Counters
+{% include warning.html content="You have to revise delta counter queries to use `cs()` for any custom dashboard or alert which uses delta counter data." %}
 
-As of release 2020.38, any ingested [delta counters](delta_counters.html) are stored in both the previous `ts()` format as well as the new native `cs()` format.
+Starting in April 2021
+* `ts()` queries on delta counters will no longer work.
+* Wavefront will no longer store delta counters in two different formats
 
-Starting in April 2021, Wavefront will no longer store delta counters in two different formats, and `ts()` queries on delta counters will no longer work. You have to revise delta counter queries.
+### Migrations and Required Changes
+
+* The counters [from tracing RED metrics](trace_data_details.html#red-metrics) and the internal `~` metrics [collected by Wavefront](wavefront_monitoring.html#internal-metrics-overview) such as `~collector.points.reported` are captured using delta counters. All Wavefront provided Dashboards that use these data will be migrated for you.
+* If you have cloned any of those or created any custom dashboards or alerts using these data you are responsible for migrating the queries yourself.
 
 ### How to Find Queries that Might Need Modification
 
