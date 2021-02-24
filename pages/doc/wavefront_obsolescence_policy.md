@@ -68,27 +68,28 @@ The following proxy versions are scheduled to be deprecated or moved to end-of-l
 ## Delta Counters
 
 Wavefront delta counter behavior changed with [Release 2020.26](2020.26.x_release_notes.html).
-* The original delta counter implementation is now obsolete.
+* The original delta counter implementation became obsolete with [Release 2020.26](2020.26.x_release_notes.html). Wavefront changed delta counter queries to use `cs()` in the Wavefront Usage integration and tracing RED metrics.
 * The original delta counter implementation is End of Live March 31, 2021.
 
 {% include warning.html content="You have to revise delta counter queries to use `cs()` for any custom dashboard or alert which uses delta counter data." %}
 
-Starting in April 2021
+Starting in April 2021:
 * `ts()` queries on delta counters will no longer work.
 * Wavefront will no longer store delta counters in two different formats
 
-### Migrations and Required Changes
+### Automatic Migrations and Required Changes
 
-* The counters [from tracing RED metrics](trace_data_details.html#red-metrics) and the internal `~` metrics [collected by Wavefront](wavefront_monitoring.html#internal-metrics-overview) such as `~collector.points.reported` are captured using delta counters. All Wavefront provided Dashboards that use these data will be migrated for you.
-* If you have cloned any of those or created any custom dashboards or alerts using these data you are responsible for migrating the queries yourself.
+* **Automatic Migration**. Wavefront uses delta counters in [tracing RED metrics](trace_data_details.html#red-metrics) and in certain internal `~` metrics [collected by Wavefront](wavefront_monitoring.html#internal-metrics-overview) such as `~collector.points.reported`. All Wavefront-provided dashboards that use these data will be migrated for you.
+* **User Migration**. If you have cloned any Wavefront dashboards using delta counters or created any custom dashboards or alerts using these delta counters, you are responsible for migrating the queries in related charts and alerts yourself.
 
 ### How to Find Queries that Might Need Modification
 
 1. Find delta counters from the UI or using Spy.
     * From the Wavefront UI, click **Browse > Delta Counters** and examine your data.
     * From your Web browser, use [Delta Counter Spy](https://docs.wavefront.com/wavefront_monitoring_spy.html#get-ingested-delta-counters-with-spy) to view live delta counter ingestion.
-2. Search for any of those named counters on the **Alerts** page to find relevant Alerts
-3. On the **All Dashboards** page, use the Metrics Search to find relevant dashboards.
+2. [Search](wavefront_searching.html#search-field) for those named counters in alerts and dashboards.
+   * Search on the **Alerts** page to find alerts that use the counter metric.
+   * Search on the **All Dashboards** page for dashboards. You might have to select **Metrics** to get the relevant result.
 
 ### How to Modify the Queries
 
@@ -99,9 +100,9 @@ Starting in April 2021
 
    If you do want to know the per-second rate of change, divide the result by 60.
 
-3. Remove `align()` from your delta counter queries.
+3. Remove `align()` from your delta counter queries unless you picked an `align()` time window that's larger than 1 minute.
 
-   `cs()` data is always minutely aligned and [raw or standard aggregations](https://docs.wavefront.com/query_language_aggregate_functions.html#aggregating-when-data-points-do-not-line-up) give the same results.
+   `cs()` data is always minutely aligned and [raw or standard aggregations](query_language_aggregate_functions.html#aggregating-when-data-points-do-not-line-up) give the same results.
 
 ### Examples
 
@@ -125,7 +126,17 @@ In the following examples, `errors.count` is a delta counter:
 <tr>
 <td><code>ratediff(ts(errors.count))</code></td>
 <td><code>cs(errors.count)</code></td>
-<td markdown="span">In the case of <code>ratediff()</code>, no per/second conversion is done. Remove the <code>ratediff()</code> function from the query.</td>
+<td markdown="span">For <code>ratediff()</code>, no per-second conversion is done. Remove the <code>ratediff()</code> function from the query.</td>
+</tr>
+<tr>
+<td><code>rate(ts(errors.count))</code></td>
+<td><code>cs(errors.count)</code></td>
+<td markdown="span">For <code>rate()</code>, no per-second conversion is done. Remove the <code>rate()</code> function from the query.</td>
+</tr>
+<tr>
+<td><code>align(1m, ts(errors.count))</code></td>
+<td><code>cs(errors.count)</code></td>
+<td markdown="span">Remove `align()` from your query unless you picked an `align()` time window that's larger than 1 minute.</td>
 </tr>
 </tbody>
 </table>
@@ -147,10 +158,10 @@ If 5 errors were encountered during a given run, a Lambda running in the `us-wes
 
 #### Original Implementation
 
-Wavefront originally stored delta values internally as regular metrics emitted every minutes.
+Before release 2020.26, Wavefront originally stored delta values internally as regular metrics emitted every minutes.
 
 For the above example if the data measured across 3 minutes had been a total of: 10 errors in minute 1, 15 errors in minute 2, and 5 errors in minute 3 then if you queried `ts(errors.count)` for that time range you would see a monotonically increasing count showing 10, 25, 30 across those 3 minutes.
 
 #### New Implementation
 
-Now we have a new data type specifically for storing delta counters. Data ingestion of delta counters remains unchanged (∆ character indicates delta counter) but the data is now queried via `cs()` instead of `ts()`. The original delta counters still report minutely, but instead of maintaining a monotonically increasing count they report the total number of increments that occurred within each minute. In out example, `cs(errors.count)` displays values of 10, 15, and 5.
+Starting with release 2020.26, Wavefront has a new data type specifically for storing delta counters. Data ingestion of delta counters remains unchanged, and a delta (∆) is still required to indicate a delta counter, but the data is now queried via `cs()` instead of `ts()`. The original delta counters still report minutely, but instead of maintaining a monotonically increasing count they report the total number of increments that occurred within each minute. In our example, `cs(errors.count)` displays values of 10, 15, and 5. See [Counters and Delta Counters](delta_counters.html#counters-and-delta-counters-basics) for details and examples. 
