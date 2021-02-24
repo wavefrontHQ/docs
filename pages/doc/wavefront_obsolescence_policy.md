@@ -77,6 +77,8 @@ Wavefront delta counter behavior changed with [Release 2020.26](2020.26.x_releas
 
 ### Automatic Migrations and Required Changes
 
+Wavefront migrates system dashboard and integration content. However, you might have to update custom delta counters.
+
 * **Automatic Migration**. Wavefront uses delta counters in [tracing RED metrics](trace_data_details.html#red-metrics) and in certain internal `~` metrics [collected by Wavefront](wavefront_monitoring.html#internal-metrics-overview) such as `~collector.points.reported`. All Wavefront-provided dashboards that use these data will be migrated for you.
 * **User Migration**. If you have cloned any Wavefront dashboards using delta counters or created any custom dashboards or alerts using these delta counters, you are responsible for migrating the queries in related charts and alerts yourself.
 
@@ -94,9 +96,7 @@ Wavefront delta counter behavior changed with [Release 2020.26](2020.26.x_releas
 1. Replace `ts()` with `cs()` if the query targets delta counter data. Filtering works as before, so nothing within the parentheses needs to change.
 2. Remove `rate()` or `ratediff()` functions from your delta counter queries.
 
-   Any `cs()` query tracks the total increments per minute, so `cs()` data is already a 1 minute rate and doesn't require the `rate()` function.
-
-   If you do want to know the per-second rate of change, divide the result by 60.
+   Any `cs()` query tracks the total increments per minute, so `cs()` data is already a 1 minute rate and doesn't require the `rate()` function. If you do want to know the per-second rate of change, divide the result by 60.
 
 3. Remove `align()` from your delta counter queries unless you picked an `align()` time window that's larger than 1 minute.
 
