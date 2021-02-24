@@ -17,8 +17,6 @@ Sampling can give you a good idea of how your application is behaving. In additi
 * Filter out "noise" traces so you can see what's important.
 * Limit the performance impact on network bandwidth and application response times.
 
-{% include note.html content="You can configure Wavefront to keep spans in storage for 7 or 30 days. Contact [support@wavefront.com](mailto:support@wavefront.com) to configure your span storage settings."  %}
-
 ## Wavefront Intelligent Sampling
 
 Wavefront automatically performs intelligent sampling to reduce the volume of ingested traces. The goals of intelligent sampling are to retain traces that are likely to be informative, and to discard traces that are redundant or otherwise not worth inspecting. 
