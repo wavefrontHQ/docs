@@ -68,14 +68,12 @@ The following proxy versions are scheduled to be deprecated or moved to end-of-l
 ## Delta Counters
 
 Wavefront delta counter behavior changed with [Release 2020.26](2020.26.x_release_notes.html).
-* The original delta counter implementation became obsolete with [Release 2020.26](2020.26.x_release_notes.html). Wavefront changed delta counter queries to use `cs()` in the Wavefront Usage integration and tracing RED metrics.
+* The original delta counter implementation was Deprecated with [Release 2020.26](2020.26.x_release_notes.html). Wavefront changed delta counter queries to use `cs()` in the Wavefront Usage integration and tracing RED metrics.
 * The original delta counter implementation is End of Live March 31, 2021.
 
-{% include warning.html content="You have to revise delta counter queries to use `cs()` for any custom dashboard or alert which uses delta counter data." %}
+{% include warning.html content="You have to revise delta counter queries to use `cs()` for any custom dashboard or alert which uses delta counter data. Starting in April 2021 `ts()` queries on delta counters will no longer work. Wavefront will no longer store delta counters in two different formats." %}
 
-Starting in April 2021:
-* `ts()` queries on delta counters will no longer work.
-* Wavefront will no longer store delta counters in two different formats
+
 
 ### Automatic Migrations and Required Changes
 
@@ -164,4 +162,4 @@ For the above example if the data measured across 3 minutes had been a total of:
 
 #### New Implementation
 
-Starting with release 2020.26, Wavefront has a new data type specifically for storing delta counters. Data ingestion of delta counters remains unchanged, and a delta (∆) is still required to indicate a delta counter, but the data is now queried via `cs()` instead of `ts()`. The original delta counters still report minutely, but instead of maintaining a monotonically increasing count they report the total number of increments that occurred within each minute. In our example, `cs(errors.count)` displays values of 10, 15, and 5. See [Counters and Delta Counters](delta_counters.html#counters-and-delta-counters-basics) for details and examples. 
+Starting with release 2020.26, Wavefront has a new data type specifically for storing delta counters. Data ingestion of delta counters remains unchanged, and a delta (∆) is still required to indicate a delta counter, but the data is now queried via `cs()` instead of `ts()`. The original delta counters still report minutely, but instead of maintaining a monotonically increasing count they report the total number of increments that occurred within each minute. In our example, `cs(errors.count)` displays values of 10, 15, and 5. See [Counters and Delta Counters](delta_counters.html#counters-and-delta-counters-basics) for details and examples.
