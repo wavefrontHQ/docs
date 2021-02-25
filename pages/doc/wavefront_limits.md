@@ -15,7 +15,8 @@ Starting with release 2020.22x, Wavefront enforces the following concurrent quer
 {% include note.html content="If your environment exceeds any of the query limits, an error results." %}
 
 ### Per Customer Concurrent Query Limit
-Starting with release 2020.22.x, Wavefront enforces a limit on concurrent queries for each customer cluster. The default is 1000. If you are getting repeated errors that your cluster is exceeding this limit, contact us.
+
+Wavefront enforces a limit on concurrent queries for each customer cluster. The default is 1000. If you are getting repeated errors that your cluster is exceeding this limit, contact us.
 
 The following error results if your environment exceeds this limit:
 ```

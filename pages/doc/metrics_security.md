@@ -9,7 +9,7 @@ summary: Use metrics security to control access to time series, histograms, and 
 
 In a large enterprise, certain data are confidential. Wavefront allows you to limit who can see or modify data in several ways.
 * **Permissions** are **global** settings.
-  - Some permissions limit who can modify Wavefront objects. For example, only users with **Dashboards** permission can modify dashboards.
+  - Some permissions limit who can modify Wavefront objects (e.g. proxies or events). For example, users with **Dashboards** permission can modify all dashboards.
   -  Other permissions make certain information completely invisible. For example, only users with SAML IDP Admin permission can see the **Self Service SAML** menu or access that page.
 * **Access Control** allows administrators with the right permissions fine-grained control over individual dashboards or alerts. For example, it's possible to limit view and modify access to a Finance_2020 dashboard to just the Finance department.
 * **Metrics Security** supports even finer-grained control. In the example above, access to the Finance_2020 dashboard is limited to the Finance department. With metrics security, you can limit access to confidential time series, histogram and delta counter metrics to the leadership team.
@@ -30,7 +30,7 @@ Metrics security policy rules allows fine-grained support for limiting access to
 
 ### Block or Allow Access
 
-With a metrics security policy you can block or allow access:
+With a metrics security policy, you can block or allow access:
 * To metrics, optionally filtered by source and/or point tag
 * Based on groups, roles, and/or individual users.
 
@@ -66,7 +66,7 @@ After the rules are in force, only users in the Finance group can access data th
 Data protected by a metrics security policy rule can become invisible to users.
 
 * **Not visible in charts**. The chart either includes a warning that some metrics are protected, or, if all metrics are protected, the chart shows only the message.
-* **Not visible in alerts** (if **Secure Metrics Details** is checked for the alert). The alert fires based on the complete set of metrics, and the complete set is shown in notification images by default. A checkbox allows administrators to [hide alert details](alerts_notifications.html#alert-notification-with-secured-metrics-details) so that confidential metric are not shown.
+* **Not visible in alerts** (if **Secure Metrics Details** is checked for the alert). The alert fires based on the complete set of metrics, and the complete set is shown in notification images by default. A checkbox allows administrators to [hide alert details](alerts_notifications.html#alert-notification-with-secured-metrics-details) so that confidential metrics are not shown.
 * **Not visible in auto-complete** in Chart Builder, Query Editor, Metrics browser, etc.
 
 ### Rule Priority and Rule Pairs
@@ -90,7 +90,7 @@ The current implementation does not protect metrics in Derived Metrics or in Eve
 
 ### Warning Messages for Protected Metrics
 
-* **Charts in Dashboard**. If certain charts in a dashboard are protected, each chart display that information.
+* **Charts in Dashboard**. If certain charts in a dashboard include protected metrics, those charts display that information, as follows:
   * **Some metrics protected**. If some metrics in a chart are protected, the chart shows metrics but includes the following Warning message.
    ```
    Some metrics returned by this query might be excluded due to metrics security policy rules.
@@ -152,19 +152,20 @@ Before you create rules, plan your strategy.
 
 * **Metrics Dimensions** allow you to determine what to block or allow.
   - Specify one or more metric prefixes. You can specify an exact match (e.g. `requests` or `request.`) or a wildcard match (e.g. `*.cpuloadav*`, `cpu.*`).
-  - Specify a combination of metric sources or point tags to narrow down the metrics. For example, you can block visibility into production environments for some developers, or block some development environments metrics for contractors.
+  - Specify a combination of metric sources or point tags to narrow down the metrics. For example, you can block visibility into production environments for some developers, or you can block some development environments metrics for contractors.
 * **Access** allows you to allow or block access for a combination of accounts and/or groups or for roles.
 
 See the Examples further below.
 
 ### Create One or More Rules
 
+You create a metrics security policy rule following these steps. See the annotated screenshot below for an example.
+
 1. From the gear icon, select **Metrics Security Policy** and click **Create Rule**
 2. In the **Create Rule** dialog, specify the rule parameters.
   1. Specify a descriptive name. Users might later modify the rule, so a clear name is essential.
   2. Add a description. The description is visible only when you edit the rule. The name is visible on the Metrics Security Policy page.
-  3. Specify the metrics that you want to protect (or make available) by using a metrics prefix. You can specify the metric (e.g. `~sample.network.bytes.sent`) or a wildcard match (e.g. `~sample.network.bytes.*` or `~sample.network.*`)
-  4. Describe the metrics:
+  4. Specify and describe the metrics:
      * You can specify the full metric name or use a wildcard character in metric names, sources, or point tags. The wildcard character alone (`*`) means all metrics.
      * Specify key=value pairs, for example, `source="app-24"` or `env=dev`.
      * If you want to specify multiple key=value pairs, select whether you want to combine them with `and` or `or` using the dropdown menu on the right.
@@ -181,7 +182,7 @@ Here's an annotated screenshot that shows the main actions:
 
 
 
-## Manage Metrics Security Policy Rules
+## Manage Multiple Metrics Security Policy Rules
 
 The following annotated screenshot gives an overview of rule management options:
 
@@ -189,14 +190,18 @@ The following annotated screenshot gives an overview of rule management options:
 
 <!---Have to change screenshot to show Save instead of Apply--->
 
-* In the top row, you can click **Create Rule**. Each newly created rule has Priority 1 by default, which means it overrides all other rules. Drag and drop rules to change priority.
-* The **Version History** button allows you to revert to an earlier version of the policy.
-* Information on who last edited the security policy and when that happened is always included.
-* Select one or more rules by clicking the check box, then use the icons above to clone or delete selected rules. You can change several rules, and then click **Save** to commit the changes.
-* You can also hover over the six-dot icon to explicitly drag a rule where you want it.
-* If you've moved, cloned, or deleted one or more rules, use the **Undo** button to undo the change, or **Redo** to revert the undo.
-* The **Metric Prefix** column shows the metrics affected by a rule.
-* The **Access** column shows whether the rule allows or blocks access.
+Here's a tour:
+
+1. Click **Version History** to
+  * Revert to an earlier version of the policy.
+  * Look at information on who last edited the security policy and when that happened.
+1. Examine the **Metric Prefix** column to see the metrics affected by a rule.
+2. Look at the **Access** column to see whether the rule allows or blocks access.
+1. Click the check box to the left of a rule to select them, then use the icons above to clone or delete the selected rule.
+1. Click the check boxes to the left of multiple rules to select them, use the icons to indicate changes, and click **Save** to commit the changes.
+1. Select the six-dot icon to explicitly drag a rule where you want it and change rule priorities.
+1. If you've moved, cloned, or deleted one or more rules, use the **Undo** button to undo the change, or **Redo** to revert the undo.
+
 
 
 ## Example for Metrics Security Policies
@@ -207,7 +212,7 @@ Initially, a single metrics security policy rule is defined:
 
 ![screenshot of default single policy](images/metrics_security_default.png)
 
-All users can access all metrics, meaning **no** restrictions are in place.  Furthermore, if the single **Allow All Metrics** rule was deleted, all users would still have access to all metrics.
+All users can access all metrics, meaning **no** restrictions are in place.  Furthermore, if the single **Allow All Metrics** rule was deleted, all users will still have access to all metrics.
 
 ### Example: Restrict Access to Confidential Metrics
 
