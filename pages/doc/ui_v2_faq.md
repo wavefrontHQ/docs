@@ -53,7 +53,7 @@ You can now specify the data you want to display in the <strong>Data</strong> ta
 </tr>
 <tr>
 <td width="40%">
-We made usability improvements for each chart type -- and you can use delete, clone, and create alert from the icon bar.</td>
+We made usability improvements for each chart type - and you can use delete, clone, and create alert from the icon bar.</td>
 <td width="60%"><img src="images/v2_create_alert.png" alt="create an alert from the ellipsis menu"></td>
 </tr>
 </tbody>
@@ -116,17 +116,17 @@ A: Open the chart and on the **Data** tab, click the **Delete** or **Clone** ico
 
 ### Q: How can I deselect (hide) a query?
 
-A. Use the eye icon on the right of the query to hide or show the results of a query in the chart.
+A: Use the eye icon on the right of the query to hide or show the results of a query in the chart.
 
 ![v2 Hide or show query](images/v2_hide_show.png)
 
 ### Q: How can I copy/paste table chart content in v2?
 
-A. We're working on improving the copy/paste behavior. For now, please use [the third-party CLI](https://github.com/snltd/wavefront-cli) to generate a CSV file. See our [blog about using the CLI ](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/commanding-the-waves-using-the-wavefront-cli).
+A: We're working on improving the copy/paste behavior. For now, please use [the third-party CLI](https://github.com/snltd/wavefront-cli) to generate a CSV file. See our [blog about using the CLI ](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/commanding-the-waves-using-the-wavefront-cli).
 
 ### Q: How can I create an embedded chart in v2?
 
-A. Embedded charts allow you to make a chart available outside Wavefront. We temporarily don't support this functionality for v2, but all your existing embedded charts will continue to work.
+A: Embedded charts allow you to make a chart available outside Wavefront. We temporarily don't support this functionality for v2, but all your existing embedded charts will continue to work.
 
 
 

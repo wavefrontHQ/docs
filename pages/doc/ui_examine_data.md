@@ -100,7 +100,7 @@ Most dashboards have several sections. They're easy to access from the **Jump To
 <tbody>
 <tr>
 <td width="40%">
-Use the <strong>Jump To</strong> menu to go to a section</td>
+Use the <strong>Jump To</strong> menu to go to a section.</td>
 <td width="60%"><img src="/images/v2_jump_to.png" alt="jump to a section from the Jump To menu"></td>
 </tr>
 </tbody>
@@ -124,7 +124,7 @@ All users can use global filters to customize their dashboard. When you set a gl
 <tr>
 <td width="40%"><a href="ui_examine_data.html#filter-with-variables-or-filters"> Global filters</a> allow any user to:
 <ul>
-<li>Specify a key-value pair as a filter for the dashboard. <br><br>All filters show up to the right of any dashboard variables</li> <li>Remove the filter by clicking the <strong>X</strong>. </li></ul></td>
+<li>Specify a key-value pair as a filter for the dashboard. <br><br>All filters show up to the right of any dashboard variables</li> <li>Remove the filter by clicking <strong>X</strong> in the filter bubble. </li></ul></td>
 <td width="60%"><img src="/images/global_filters.png" alt="Global filter set and see"/></td></tr>
 </tbody>
 </table>
@@ -211,7 +211,7 @@ Here's a video that illustrates chart time windows. The video uses the v1 UI, bu
 
 ## Display Events on Charts
 
-The charts in your can dashboard display [events](events.html).
+The charts in your dashboard can display [events](events.html).
 * Wavefront sends system events, for example, when an alert changes state.
 * In addition, users with **Events** permission might have added user events.
 
