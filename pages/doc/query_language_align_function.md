@@ -9,7 +9,7 @@ summary: Learn where to use the align() function and why Wavefront does pre-alig
 
 In Wavefront charts, point buckets represent data that has been summarized over a certain length of time.
 
-Both the [**Summarize By**](ui_chart_reference.html#general) chart option and the [`align()` function](ts_align.html) group points into buckets and allow you to specify how those points are aggregated (e.g. averaged, counted, summed, etc.).  The `align()` function allows you to specify the desired bucket size. By default, the summarization method that aggregation functions use is based on the bucket size of the [chart resolution](ui_charts.html#chart-resolution).
+Both the [**Summarize By**](ui_chart_reference.html#general) chart option and the [`align()` function](ts_align.html) group points into buckets and allow you to specify how those points are aggregated (e.g., averaged, counted, summed, etc.).  The `align()` function allows you to specify the desired bucket size. By default, the summarization method that aggregation functions use is based on the bucket size of the [chart resolution](ui_charts.html#chart-resolution).
 
 To support bucketing, `align()` supports the value `bw` (bucket window) for the `timeWindow` parameter.
 
@@ -21,7 +21,7 @@ Wrapping a query in `align()` is often a good idea:
 - As a result, you can often speed up queries because less rendering is required.
 
 ### Reducing the Number of Data Points
-The speed at which a query is executed and displayed is partly based on how many data points have to be displayed on the chart. Consider a 60-minute chart with data values reported every 60 seconds (assume resolution is ~30s). It takes longer to render and display 60 values than it  would take to display 6 values that are aligned at 10-minute buckets. As the time window increases, the effect is more noticable.
+The speed at which a query is executed and displayed is partly based on how many data points have to be displayed on the chart. Consider a 60-minute chart with data values reported every 60 seconds (assume resolution is ~30s). It takes longer to render and display 60 values than it  would take to display 6 values that are aligned at 10-minute buckets. As the time window increases, the effect is more noticeable.
 
 ### Reducing Unnecessary Interpolation
 Using `align()` can also improve query speed if [aggregation functions](query_language_aggregate_functions.html#standard-aggregation-functions-interpolation) perform [interpolation](query_language_discrete_continuous.html#functions-that-use-interpolation-to-create-continuous-data).
@@ -29,11 +29,11 @@ Using `align()` can also improve query speed if [aggregation functions](query_la
 Here's a simple example:
 * You have 10 series that typically report every 60 seconds and that you want to average over a 2-hour window.
 * 1 of those 10 series is being reported intermittently and often reports only every 120 seconds.
-* Non-raw aggregation functions (e.g. `sum()` or `avg()`) interpolate that 1 intermittent series when at least one of the other nine series reported a value. For example, if there were 9 reported values 9:03a, then `avg()` generates an interpolated value for the 10th series before aggregating.
+* Non-raw aggregation functions (e.g., `sum()` or `avg()`) interpolate that 1 intermittent series when at least one of the other nine series reported a value. For example, if there were 9 reported values 9:03a, then `avg()` generates an interpolated value for the 10th series before aggregating.
 
 Interpolated require resources, and that can affect the speed at which the query is displayed. If a 1000+ series that reports every 5 seconds, but not always at the same 5-second interval could require a lot of interpolation and slow down the query speed.
 
-To improve query speed, align to a larger bucket (e.g. `align(1m, mean, ts("my.metric"))`. Then the number of times that an interpolated value can occur might change from 12 times a minute without `align()` to once a minute with `align()`.
+To improve query speed, align to a larger bucket (e.g., `align(1m, mean, ts("my.metric"))`. Then the number of times that an interpolated value can occur might change from 12 times a minute without `align()` to once a minute with `align()`.
 
 ## The Pre-Align Warning -- When Wavefront Applies Align
 
@@ -53,11 +53,11 @@ The pre-alignment is tied to a window of time and not to the actual unique serie
 
 ## Pre-Alignment Side Effects
 
-In most cases, prealignment improves query speed and has no undesirable side effects. However, for some very specific use cases, pre-alignment can cause undesirable side effects.  Wavefront displays the warning message if your data set is automatically pre-aligned so you're aware of the possibility of side effects.
+In most cases, pre-alignment improves query speed and has no undesirable side effects. However, for some very specific use cases, pre-alignment can cause undesirable side effects.  Wavefront displays the warning message if your data set is automatically pre-aligned so you're aware of the possibility of side effects.
 
 Here's an example:
 * You have a `http.requests.count` metric that reports values once a minute and represents the total number of HTTP requests per minute.
 * You are trying to calculate the number of HTTP requests over the 1-hour sliding window (i.e. `msum(1h, rawsum(ts(http.requests.count, source="web*")`).
-If your data set is pre-aligned to a 2-minute (120s) time window, using the default summarization method, `average`, `align(120s, mean)` averages the values for every 2-minute window. This pre-aligment cuts the number of values available to `msum()` in half&mdash;which dramatically changes the result of the calculation.
+If your data set is pre-aligned to a 2-minute (120s) time window, using the default summarization method, `average`, `align(120s, mean)` averages the values for every 2-minute window. This pre-alignment cuts the number of values available to `msum()` in half&mdash;which dramatically changes the result of the calculation.
 
 In this case, doing an explicit `align()` with the `sum` aggregation method or changing the summarization method to `sum()` avoids the side effect.

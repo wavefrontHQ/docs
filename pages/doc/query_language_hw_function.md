@@ -9,7 +9,7 @@ summary: Learn how to do Holt-Winters prediction using the hw() function.
 ---
 Wavefront includes an implementation of the Holt-Winters algorithm, which supports prediction based on existing data. It's especially useful if your data are highly seasonal. Our implementation includes parameters to specify history length, season length, and sample rate. The `alpha`, `beta`, and `gamma` parameters let you fine-tune how aggressive the smoothing is. See [Exponential Smoothing](https://en.wikipedia.org/wiki/Exponential_smoothing) and other internet resources for info about the algorithm.
 
-See [Expanding Wavefront Predictive Analytics - See the Future with Holt-Winters Algorithm](https://www.wavefront.com/holtwinters-predictive-algorithm/) for in-depth discussion of an example.
+See [Expanding Wavefront Predictive Analytics - See the Future with Holt-Winters Algorithm](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/expanding-wavefront-predictive-analytics-see-the-future-with-holt-winters-algorithm) for in-depth discussion of an example.
 
 ## Overview
 

@@ -124,7 +124,7 @@ Example: Create an alert to get notifications when the median value of the criti
 
 ## Use Spans to Examine Applications and Services
 
-Use the following operators to get details or find the relationship between services in an application and their operations using the `[spans()` function](spans_function.html).
+Use the following operators to get details or find the relationship between services in an application and their operations using the [`spans()` function](spans_function.html).
 
 <table>
   <colgroup>
@@ -472,7 +472,7 @@ Query Builder works well for many use cases, but sometimes Query Editor is your 
 <tbody>
 <tr>
 <td width="40%">
-<ol><li>Select <strong>Applications &gt; Traces</strong> in the task bar to display the Traces Browser. </li>
+<ol><li>Select <strong>Applications &gt; Traces</strong> in the taskbar to display the Traces Browser. </li>
 <li>Click the icon to toggle to Query Editor:</li>
 <li>Type a query that includes the <a href="traces_function.html">traces() function</a>.</li>
 <li>Click <strong>Search</strong> to update the list of traces.</li>

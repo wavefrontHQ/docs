@@ -4,9 +4,9 @@ keywords: query language
 tags: [query language, videos, best practice]
 sidebar: doc_sidebar
 permalink: query_language_statistical_functions_anomalies.html
-summary: Detect anomalies with simple functions, and functions for mean, median, standard deviation, and and inter-quartile range.
+summary: Detect anomalies with simple functions, and functions for mean, median, standard deviation, and inter-quartile range.
 ---
-Anomalies can indicate that something's about to go wrong in your environment. If you have a set of points, you can define which points are normal and which should be identified as abnormal. For example, points that cross a certain threshold might create an anomaly. To learn more about anomaly detection, see the blog [Why is Operational Anomaly Detection So Hard?](https://www.wavefront.com/why-is-operational-anomaly-detection-so-hard/){:target="_blank" rel="noopenner noreferrer"} and the following video:
+Anomalies can indicate that something's about to go wrong in your environment. If you have a set of points, you can define which points are normal and which should be identified as abnormal. For example, points that cross a certain threshold might create an anomaly. To learn more about anomaly detection, see the blog [Why is Operational Anomaly Detection So Hard?](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/why-is-operational-anomaly-detection-so-hard) and the following video:
 
 <p><a href="https://youtu.be/I-Z9d94Zi7Y"><img src="/images/v_anomaly.png" style="width: 700px;"/></a>
 </p>
@@ -24,7 +24,7 @@ A great way to do dynamic anomaly detection is a query like the following:
 
 `${data} / lag(10m,${data})`
 
-The result shows a 10 minute range of change as a ratio. You can change the time period to 1d or 30m to get the information you need.
+The result shows a 10-minute range of change as a ratio. You can change the time period to 1d or 30m to get the information you need.
 
 This query calculates a rate of change between the current data and data from the series’ past performance.  This results in a ratio of the current metric against the past data.  This ratio helps you detect short-term changes, day-by-day changes, or even week-by-week changes.
 
@@ -73,7 +73,7 @@ Standard deviation works well for detecting anomalies in data that is normally d
 
 The inter-quartile range (IQR) indicates the extent to which the central 50% of values within the dataset are dispersed. IQR is based on, and related to, the median. In the same way that the median divides a dataset into two halves, it can be further divided into quarters by identifying the upper and lower quartiles. The lower quartile is found one quarter of the way along a dataset when the values have been arranged in order of magnitude; the upper quartile is found three quarters along the dataset. The inter-quartile range provides a clearer picture of the overall dataset by removing or ignoring the outlying values.
 
-What function you use depends your use case. Decide which statistical function works most effectively to define the normal behavior of your system and then use that function to detect anomalies.
+What function you use depends on your use case. Decide which statistical function works most effectively to define the normal behavior of your system and then use that function to detect anomalies.
 
 Here are some examples for both Std Dev and IQR that illustrate these functions. See the [reference page for anomalous](ts_anomalous.html) for an example for that function.
 
@@ -87,7 +87,7 @@ Then we add a query that builds on `raw` to get the standard deviation for the n
 
 StandardDeviation:|`(${raw} - mavg(2h, ${raw})) / sqrt(mvar(2h, {raw}))`
 
-We use standard deviation to identify which series deviate greatly from their usual behavior, with a 2 hour moving window. When the standard deviation crosses a certain value (10 in this case), we have an anomaly. The same function is applied to different, widely scaled time series (each shown in a different color) and it identifies the spread of each series independently.
+We use standard deviation to identify which series deviate greatly from their usual behavior, with a 2-hour moving window. When the standard deviation crosses a certain value (10 in this case), we have an anomaly. The same function is applied to different, widely scaled time series (each shown in a different color) and it identifies the spread of each series independently.
 
 **Query Without Standard Deviation**
 
@@ -101,7 +101,7 @@ We use standard deviation to identify which series deviate greatly from their us
 
 If the data is always distributed asymmetrically or is skewed, and you want to find  anomalies in this skewed data, standard deviation does not work well, and you can try IQR.
 
-The time series in this example has a lot of spikes and troughs and we want to find a sustained spike in this seemingly noisy signals.
+The time series in this example has a lot of spikes and troughs and we want to find a sustained spike in these seemingly noisy signals.
 
 As you can see, standard deviation shows you the initial spike but starts decaying immediately. But if you use IQR, which has more resistance to the spikes and outliers, we see a sustained increase, making it easy to spot real outliers.
 
@@ -135,7 +135,7 @@ IQR|`({networkRate} - mmedian (480m, ${networkRate}))/(mpercentile(480m, 75, ${n
 
 ## Standard Deviation Example 3
 
-In this example, a time series deviates and continues oscillating over a day over range -- this is the normal behavior of the series). When you try to spot an anomaly in the oscillating data using std dev in a 1h or 2h window, standard deviation does not really capture the dip as well as IQR because the distribution of data in a moving 2h window is not normal. If you look at IQR, you see that it also fluctuates in the moving 2h window, but not as much as std dev, and it spikes in case of a immediate dip in the oscillating signal.
+In this example, a time series deviates and continues oscillating over a day over range -- this is the normal behavior of the series). When you try to spot an anomaly in the oscillating data using std dev in a 1h or 2h window, standard deviation does not really capture the dip as well as IQR because the distribution of data in a moving 2h window is not normal. If you look at IQR, you see that it also fluctuates in the moving 2h window, but not as much as std dev, and it spikes in case of an immediate dip in the oscillating signal.
 
 **Data**
 

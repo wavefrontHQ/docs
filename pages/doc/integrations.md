@@ -37,7 +37,7 @@ Here's a screen shot that shows the different tabs of the Apache Solr integratio
 ## Built-In and Custom Integrations
 Wavefront lets you set up many integrations directly from the product. For other integrations, we give step-by-step instructions -- or you can send your data to Wavefront in other ways, for example, using the Telegraf output plugin for Wavefront.
 
-- **Built-in integrations** provide assisted installation and configuration. Many integrations also install a dashboard for you. Access the integration by selecting **Integrations** from the task bar and clicking the **Setup** tab.
+- **Built-in integrations** provide assisted installation and configuration. Many integrations also install a dashboard for you. Access the integration by selecting **Integrations** from the taskbar and clicking the **Setup** tab.
 
 - **Customizable built-in integrations** provide a built-in integration for the initial connection, with additional customization information in this documentation.
 
@@ -91,15 +91,6 @@ You can install and uninstall dashboards from Featured and Data Collector integr
 
 You cannot modify Wavefront system dashboards. Instead, click the Edit (pen) icon, select **Clone**, and provide a URL string that's just the name (e.g. `mydashboard`) and not the URL (e.g. `http://mydashboard`). You can then customize the clone to suit your needs.
 
-=======
-Wavefront customers have started to make Open Source integrations available on GitHub!
-
-Our first external integration sends Alertsite monitoring results to Wavefront and is available at https://github.com/secureworks/AlertSite2Wavefront.
-
-We're excited about this contribution and hope to see more soon.
-
-
-
 ## Integration States
 
 The Integrations page reports integration state depending on two factors:
@@ -152,7 +143,7 @@ For example, the following integration is in the Error state because metrics hav
 
 ## More Info
 
-On our [wavefront.com](http://www.wavefront.com){:target="_blank" rel="noopenner noreferrer"} site we have several blog posts with use cases and background info:
-* [Google Cloud Monitoring Using Wavefront Metrics-Driven Analytics](https://www.wavefront.com/gcp-metrics/){:target="_blank" rel="noopenner noreferrer"}
-* [Monitor MongoDB Metrics for Better Scaling and Optimized Database Performance](https://www.wavefront.com/mongodb-metrics/){:target="_blank" rel="noopenner noreferrer"}
-* [Monitoring Apache HTTP Server with Wavefront Metrics-Driven Analytics](https://www.wavefront.com/monitoring-apache-http-server-wavefront-metrics-driven-analytics/){:target="_blank" rel="noopenner noreferrer"}
+On our [tanzu/observability](https://tanzu.vmware.com/observability) pages we have several blog posts with use cases and background info:
+* [Google Cloud Monitoring Using Wavefront Metrics-Driven Analytics](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/google-cloud-monitoring-using-wavefront-metrics-driven-analytics)
+* [Monitor MongoDB Metrics for Better Scaling and Optimized Database Performance](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitor-mongodb-metrics-for-better-scaling-and-optimized-database-performance)
+* [Monitoring Apache HTTP Server with Wavefront Metrics-Driven Analytics](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitoring-apache-http-server-with-wavefront-metrics-driven-analytics)

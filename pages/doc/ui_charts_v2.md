@@ -24,7 +24,7 @@ summary: Create charts, add and manage queries, and customize the chart.
 
 ## Create a Chart
 
-You can create a chart from a dashboard or from the task bar.
+You can create a chart from a dashboard or from the taskbar.
 
 ### Create a Chart from a Dashboard
 
@@ -32,7 +32,7 @@ You can create a chart from a dashboard or from the task bar.
 <tbody>
 <tr>
 <td width="40%">
-<ol><li>Edit a dashboard or select <strong>Dashboards > Create Dashboard</strong> from the task bar to create a new one. </li>
+<ol><li>Edit a dashboard or select <strong>Dashboards > Create Dashboard</strong> from the taskbar to create a new one. </li>
 <li>Drag the metrics or chart type widget onto the canvas</li>
 <li>Select metrics, filters, and functions and click <strong>Save</strong> in the top right. </li>
 </ol></td>
@@ -42,7 +42,7 @@ You can create a chart from a dashboard or from the task bar.
 </table>
 
 
-### Create a Chart from the Task Bar
+### Create a Chart from the Taskbar
 
 
 1. Select **Dashboards > Create Chart**.
@@ -307,7 +307,7 @@ To affect all dashboards, turn on the **Sampling** default in your preferences f
 If the **Sampling** preference is on, we limit sampling to 100 time series when you create a chart, but we prompt whether you'd like to turn off the limitation for the current chart or for all charts. For all charts affects the preference.
 ![sampling query during chart create](images/sampling_during_chart_create.png)
 
-To temporarily change the sampling behavior for a selected chart use the **Sampling** toggle in the top right. As with other items in this task bar, you cannot save this change.
+To temporarily change the sampling behavior for a selected chart use the **Sampling** toggle in the top right. As with other items in this taskbar, you cannot save this change.
   ![sampling toggle during chart edit](images/sampling_toggle.png)
 
 

@@ -98,7 +98,7 @@ Wavefront documentation includes videos, tutorials, reference, and guides on the
 
 - **[Query Language Videos](videos_query_language.html)** get you started and [Use Case Videos](wavefront_use_cases.html) show off some compelling examples.
 - **[Query builder](query_language_query_builder.html)** (for v1) and **[Chart builder](chart_builder.html)** (for v2) can help you come up to speed quickly while using the product.
-- If you're logged in to Wavefront, select **Integrations** in the task bar and find the **Tutorial** or the **Tour Pro** integration. The Tutorial includes an Interactive Query Language Explorer that shows examples for each function.
+- If you're logged in to Wavefront, select **Integrations** in the taskbar and find the **Tutorial** or the **Tour Pro** integration. The Tutorial includes an Interactive Query Language Explorer that shows examples for each function.
 - [Wavefront Query Language Reference](query_language_reference.html) lists each function and gives query language syntax element. Each function names is a link to a reference page for the function.
 - For in-depth discussions and examples, we have a **[reference page](label_query%20language.html)** for each function and some [Query Language Recipes](query_language_recipes.html).
 

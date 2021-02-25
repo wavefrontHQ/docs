@@ -15,7 +15,7 @@ Many Wavefront queries operate on and return data as one or more time series. Ea
 
 * A _continuous time series_ contains one data point per second. Because Wavefront accepts and stores data at up to 1 second resolution, a continuous time series has a data value corresponding to every moment in time that can be represented on the X-axis of a chart.
 
-{% include tip.html content="Raw aggregation functions directly applied to continuous functions (like `msum()`) can behave differently than raw aggregation functions applied directly to non-continuous functions. See the discussion below." %}
+{% include tip.html content="Raw aggregation functions directly applied to continuous functions (such as `msum()`) can behave differently than raw aggregation functions applied directly to non-continuous functions. See the discussion below." %}
 
 ## Example
 
@@ -36,7 +36,7 @@ Some functions operate on an input time series to produce a new series with the 
 * The [`floor()`](ts_floor.html) function visits each point in a given time series, rounds the point's data value down to the nearest integer, and assigns the result of that calculation to a new point with a matching timestamp.
 
 Some functions operate on an input time series to produce a new series that has fewer data points. The points in the result series might have different timestamps, different values, or both, and the series typically has wider intervals and gaps. For example:
-* The [`align()`](ts_align.html) function groups the input data points into “buckets”, and returns a new series that consists of one data point per bucket.
+* The [`align()`](ts_align.html) function groups the input data points into “buckets” and returns a new series that consists of one data point per bucket.
 * The [`lowpass()`](ts_lowpass.html) function returns a new series that consists of data points that match just the input points whose values fall below a specified threshold.
 
 
@@ -47,20 +47,19 @@ Certain query language functions and expressions return a new time series that i
 
 Some functions and expressions produce a continuous time series in which a constant value is assigned to every possible data point. For example:
 * The expression `160` assigns the value `160` to every data point in a continuous result series.
-* The [`at()`](ts_at.html) function obtains a value from a past data point in an input time series, and assigns that value to every data point in a continuous result series.
+* The [`at()`](ts_at.html) function obtains a value from a past data point in an input time series and assigns that value to every data point in a continuous result series.
 
 Some functions produce a continuous time series by calculating a value from the timestamp of each data point. For example:
 * The [`dayOfYear()`](ts_dayOfYear.html) function produces a time series by correlating every second of a time line with the day of the year it falls on.
 
 ## Functions that Use Interpolation to Create Continuous Data
 
-Certain functions produce a continuous time series by starting with data points from a discrete time series, and inserting additional points (1 per second) to fill in the intervals and gaps. You see data every second regardless of the reporting interval of the underlying input data. The process is called _interpolation_. In the following video, Wavefrount co-founder Clement Pang explains how it works:
+Certain functions produce a continuous time series by starting with data points from a discrete time series and inserting additional points (1 per second) to fill in the intervals and gaps. You see data every second regardless of the reporting interval of the underlying input data. The process is called _interpolation_. In the following video, Wavefrount co-founder Clement Pang explains how it works:
 
 <p><a href="https://youtu.be/9LnDszVrJs4" target="_blank"><img src="/images/v_interpolation.png" style="width: 700px;" alt="time series and interpolation"/></a>
 </p>
 
-For example:
-* The [`last()`](ts_last.html) function produces a new time series that consists of the actual, reported data points from the input series, plus points that are added by interpolation between them. Each interpolated point has the same value as the last reported point before it.
+For example, the [`last()`](ts_last.html) function produces a new time series that consists of the actual, reported data points from the input series, plus points that are added by interpolation between them. Each interpolated point has the same value as the last reported point before it.
 
 Here's a point plot showing a discrete series (the red dots) and the points (blue dots) produced by applying `last()`. The points of the discrete series are reported once a minute, and the points between them are all interpolated.
 
@@ -82,8 +81,8 @@ The following functions always return continuous time series, even when they ope
 
 * [Moving time windows](#moving-window-time-functions) except [`integral()`](ts_integral.html).
 * Missing data functions: [`default()`](ts_default.html), [`last()`](ts_last.html), [`next()`](ts_next.html), [`interpolate()`](ts_interpolate.html)
-* `if()` function, when `expression` is not a constant time series.
+* [`if()`](ts_if.html) function, when `expression` is not a constant time series.
 * [`between()`](ts_between.html), [`exists()`](ts_exists.html), and [`random()`](ts_random.html) functions.
 * [`ongoing()` events function](events_queries_advanced.html#event-set-to-time-series-conversion-functions).
-* Calendar/clock standard time functions: [`year()`](ts_year.html), [`month()`](ts_month.html), [`dayOfYear()`](ts_dayOfYear.html), [`day()`](ts_day.html), [`weekday()`](ts_weekday.html), [`hour()`](ts_hour.html), [`time()`](ts_time.html)
-* Constant time series functions and expressions: [`at()`](ts_at.html), [`top()`](ts_top.html), [`bottom()`](ts_bottom.html), `<number>`
+* Calendar/clock standard time functions: [`year()`](ts_year.html), [`month()`](ts_month.html), [`dayOfYear()`](ts_dayOfYear.html), [`day()`](ts_day.html), [`weekday()`](ts_weekday.html), [`hour()`](ts_hour.html), and [`time()`](ts_time.html).
+* Constant time series functions and expressions: [`at()`](ts_at.html), [`top()`](ts_top.html), [`bottom()`](ts_bottom.html), and `<number>`.

@@ -1,5 +1,5 @@
 ---
-title: Query Language Quickstart
+title: Query Language Tutorial
 keywords: query language
 tags: [query language, getting started, videos]
 sidebar: doc_sidebar
@@ -8,7 +8,7 @@ summary: Watch some videos, run a query, apply filters and functions, and more.
 ---
 
 The Wavefront Query Language lets you retrieve and display the data that has been ingested into Wavefront.
-* **Time series data** The query language is particularly well suited to time series data, because it accommodates the periodicity, potential irregularity, and streaming nature of that data type.
+* **Time series data** The query language is particularly well suited to time series data because it accommodates the periodicity, potential irregularity, and streaming nature of that data type.
 * **Histograms** The query language includes functions for [manipulating histograms](query_language_reference.html#histogram-functions).
 * **Traces and spans** Use the [tracing UI](tracing_traces_browser.html) to query traces and spans.
 
@@ -24,15 +24,15 @@ Watch these videos to get you started. The videos use the v1 UI, but the basic w
 </table>
 
 ## Step 0: What's a Query?
-
+ 
 Before you run your first query, let's examine a time series and look at the anatomy of a query.
 
 ### What's a Time Series?
 
 A time series measures a particular phenomenon over time. In the example below:
 * The time series metric is `temperature`
-* Two types are `ear` and `forehead`. In Wavefront, the types could show up as values of a `location` tag.
-* This diagram does not show sources, but in Wavefront, you could have a source associated with each time series. In this example, we could have a different time series for each patient.
+* Two types are `ear` and `forehead`. In Wavefront, the types can show up as values of a `location` tag.
+* This diagram does not show sources, but in Wavefront, you can have a source associated with each time series. In this example, we can have a different time series for each patient.
 
 ![line chart of 2 temperature time series, one for type== forehead and one for type=ear](images/time_series_basic.png)
 
@@ -42,20 +42,20 @@ Now, let's look at the anatomy of a query (shown in Chart Builder):
 
 ![annotated chart builder, items discussed below](images/query_anatomy_builder.png)
 
-Each query has the following components. Only the metric is required, the other elements are optional but help you get the information you're really interested in.
-* A **metric** (or a constant such as `10`). Above, the metric was temperature. In this example, the metric is `~sample.cpu.loadavg.1m`
-* One or more **sources**. Above, sources would have been patients. Here, sources could be the host, VM, container, etc. In this example, `app-*` -- that means metrics that come from `db-*` are ignored.
-* One or more point tags. Above, we had the `location` point tag. In this example, we have the `env` point tag with value `production`. Only valid point tags can be queried.
-* One or more functions. This example uses the `avg()` function, and the `mmedian()` function with a 10 minute time window. The [Query Language Reference](query_language_reference.html) lists each function with a short description and points to reference pages.
+Each query has the following components. Only the metric is required, the other elements are optional, but they help you get the information you're really interested in.
+* A **metric** (or a constant, such as `10`). Above, the metric is temperature. In this example, the metric is `~sample.cpu.loadavg.1m`
+* One or more **sources**. Above, sources would have been patients. Here, sources could be the host, VM, container, etc. In this example, the source is `app-*` -- that means metrics that come from `db-*` are ignored.
+* One or more point tags. Above, we have the `location` point tag - `ear` and `forehead`. In this example, we have the `env` point tag with value `production`. Only valid point tags can be queried.
+* One or more functions. This example uses the `avg()` function, and the `mmedian()` function with a 10-minute time window. The [Query Language Reference](query_language_reference.html) lists each function with a short description and points to reference pages.
 
-Here's the same query in the Query Editor.
+Here's how the same query looks in the Query Editor.
 
 ![annotated query editor, items discussed above](images/query_anatomy_editor.png)
 
 
 ## Step 1: Retrieve a Metric
 
-The Chart Builder UI makes it easy to show any metric that's currently flowing into your Wavefront instance. Follow these steps to explore sample data, included with each Wavefront instance.
+The Chart Builder UI makes it easy to show any metric that's currently flowing into your Wavefront instance. Follow these steps to explore the sample data, included with each Wavefront instance.
 
 <table style="width: 100%;">
 <tbody>
@@ -78,22 +78,22 @@ Here's an annotated screenshot of the first chart you'll see.
 * For quick zoom in/out, use the **hover time selector**, which appears when the cursor is on the chart.
 * As you zoom in or out, the [bucket size (chart resolution)](ui_charts.html#chart-resolution) changes.
 * Use **Share chart** or **Quick share** to [share with others](ui_sharing.html).
-* Use the Query Editor toggle for some advanced query functionality
-* Notice [events](events.html) that are shown on the time line. These events are often system events associated with alerts, but can be user-defined events.
-* Be sure to **Save** the chart to a new or existing dashboard.
+* Use the Query Editor toggle for some advanced query functionality.
+* Notice [events](events.html) that are shown on the time line. These events are often system events associated with alerts, but they can also be user-defined events.
+* Make sure that you **Save** the chart to a new or existing dashboard.
 
 ![First simple query shown in annotated chart. Items are explained in text above. ](images/query_quickstart_first_query.png)
 
 **Things to Try**
 
 In the chart:
-* Use the Hover Time Selector to zoom in and out. You can also select-drag to see part of the chart, then click + or - to return to default settings.
+* Use the Hover Time Selector to zoom in and out. You can also select-drag to see part of the chart, then click + or - to return to the default settings.
 * Hover over event icons in the Y axis to get details for the event.
-* Hover over a time series to see the legend. Use Shift P to pin the legend.
+* Hover over a time series to see the legend. Press Shift+P to pin the legend.
 
 In Chart Builder:
 * Query other `~sample` metrics.
-* Switch to Query Editor and add a constant (e.g. 100) -- but note that you can't switch back to Chart Builder!
+* Switch to Query Editor and add a constant (e.g., 100) -- but note that you can't switch back to Chart Builder!
 
 ## Step 2: Filter by Source and Point Tag
 
@@ -106,12 +106,17 @@ The example chart is quite busy, but we can use filters to focus in.
 1. Make sure <strong>Data</strong> is still ~sample.cpu.loadavg.1m. </td>
 <td width="40%"> </td></tr>
 <tr>
-<td>2. Click <strong>Filters</strong>, select <strong>source</strong>, and type <strong>app-&#42;</strong> to include only time series if the source name starts with <strong>app-</strong>. This query uses a wildcard character.</td>
+<td>2. Click <strong>Filters</strong>, select <strong>source</strong> and type <strong>app-&#42;</strong> to include only time series if the source name starts with <strong>app-</strong>. This query uses a wildcard character.</td>
 <td><img src="images/query_quickstart_source.png" alt="Add source to Filter"></td>
 </tr>
 <tr>
 <td>
-3. Click the <strong>Add</strong> botton and select <strong>env &gt; production</strong> as the second filter.
+3. Press Enter. 
+</td>
+</tr>
+<tr>
+<td>
+4. Click the <strong>Add</strong> button and select <strong>env &gt; production</strong> as the second filter.
 </td>
 <td width="50%">
 <img src="images/query_quickstart_env.png" alt="Select env=production">
@@ -124,7 +129,8 @@ The example chart is quite busy, but we can use filters to focus in.
 
 * Explore the effect of using different source and point tag filters.
 * Add more than one filter for each category, for example, several sources.
-* Clone a query and click the Query Editor toggle `</>` to see the results in Query Editor (you can't return to Query Builder, so using a clone helps.)
+* Click the Query Editor toggle `</>` to see the results in Query Editor.
+* Clone the query to experiment more. If you accidentally make a change in the query while you're in the Query Editor, you can't return to Chart Builder, so using a clone helps.
 * With multiple queries in place, show and hide queries, and drag them to change query order.
 
 ## Step 3: Apply an Aggregation Function
@@ -138,22 +144,33 @@ The example chart is quite busy, but we can use filters to focus in.
 1. Make sure <strong>Data</strong> is still ~sample.cpu.loadavg.1m. </td>
 <td width="40%"> </td></tr>
 <tr>
-<td>2. Click <strong>Functions</strong>, and pick <strong>Favorites &gt; avg</strong>. The result is a single aggregated time series.
-
+<td>
+2. Click <strong>Functions</strong>, and pick <strong>Favorites &gt; avg</strong>. The result is a single aggregated time series.
 In Query Editor, this query looks like this:
-<p><code>sum(ts(~sample.cpu.loadavg.1m))</code></p>
+<p><code>avg(ts(~sample.cpu.loadavg.1m, source="app-*" and env="production"))</code></p>
 </td>
 <td><img src="images/query_quickstart_avg.png">
 </td>
 </tr>
 <tr>
 <td>
-3. Click <strong>Functions &gt; Favorites &gt; avg</strong> again and select <strong>Group by</strong> and then <strong>env</strong>.
+3. Remove the `env` filter.
+</td>
+</tr>
+<tr>
+<td>
+
+4. Click <strong>Functions &gt; Favorites &gt; avg</strong> again. 
+</td>
+</tr>
+<tr>
+<td>
+5. Select <strong>Group by</strong>, then select <strong>env</strong>, and click <strong>Apply</strong>.
 
 The result is two aggregated time series. You can hover over each line to see which environment it shows.
 
 In the Query Editor, you can add the literal <strong>, pointTags</strong> (you need the comma!), so the query looks like this:
-<p><code>sum(ts(~sample.cpu.loadavg.1m), pointTags)</code></p>
+<p><code>avg(ts(~sample.cpu.loadavg.1m, source="app-*"), env, pointTags)</code></p>
 </td>
 <td>
 <img src="images/query_quickstart_group_by.png" alt="Select env=production">
@@ -161,9 +178,9 @@ In the Query Editor, you can add the literal <strong>, pointTags</strong> (you n
 </tr>
 <tr>
 <td>
-Add a second function. For example you can use the deriv() function to show the rate of change per second for the sum.
-<p><code>deriv(sum(ts(~sample.cpu.loadavg.1m))</code></p> </td>
-<td><img src="/images/v2_quickstart_deriv.png" alt="apply second function in chart builder"></td>
+6. Add a second function. For example, you can use the deriv() function to show the rate of change per second for the average.
+<p><code>deriv(avg(ts(~sample.cpu.loadavg.1m, source="app-*"), env))</code></p> </td>
+<td><img src="/images/v2_quickstart_deriv_1.png" alt="apply second function in chart builder"></td>
 </tr>
 </tbody>
 </table>
@@ -179,13 +196,13 @@ Experiment with some of our other functions, either in Chart Builder or in Query
 
 Wavefront Query Language has a rich set of functions for many purposes. The [Query Language Reference](query_language_reference.html) has the details, here's an overview (in pictures).
 
-The following diagram shows the main function categories for examining time series metrics. We support additional functions for working with [events](query_language_reference.html#event-functions) [histograms](query_language_reference.html#histogram-functions), and with [traces and spans](query_language_reference.html#traces-functions).
+The following diagram shows the main function categories for examining time series metrics. We support additional functions for working with [events](query_language_reference.html#event-functions), [histograms](query_language_reference.html#histogram-functions), and with [traces and spans](query_language_reference.html#traces-functions).
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="15%">&nbsp;</td>
-<td width="70%"><img src="images/ql_function_overview.png" alt="Diagram showing function types  aggregation, filtering, predictive,standard time, moving window time, missing data, string manipulation, math, misc"> </td>
+<td width="70%"><img src="images/ql_function_overview.png" alt="Diagram showing function types  aggregation, filtering, predictive, standard time, moving window time, missing data, string manipulation, math, misc"> </td>
 <td width="15%">&nbsp;</td>
 </tr>
 </tbody>
@@ -205,7 +222,7 @@ The following diagram shows the main function categories for examining time seri
 <td width="30%">
 <strong>Standard Time, Moving Time Window, and Missing Data Functions</strong>
 <br /><br />
-2. Next, let's look at a second set of functions. The image below shows the aggregation, filtering, and predictive functions. The <a href="query_language_reference.html">Query Language Reference</a> has the syntax for each function. The function syntax links to a reference page. </td>
+2. Next, let's look at a second set of functions. The image on the right shows the standard time, moving window time, and missing data functions. The <a href="query_language_reference.html">Query Language Reference</a> has the syntax for each function. The function syntax links to a reference page. </td>
 <td width="70%"><img src="images/ql_functions_purple.png" alt="time and missing data functions. Same lists as in QL reference"> </td>
 </tr>
 <tr>
@@ -256,8 +273,8 @@ Most Wavefront users query for time series metrics, but we support interacting w
 
 Charts for metrics also support the following types of queries:
 * **Events**: Query Wavefront events with [`events()` queries](query_language_reference.html#event-functions).
-* **Histograms**: Query histograms with [`hs() queries`](visualize_histograms.html#querying-histogram-metrics)
-* **Traces and spans**: Query trace data from the tracing UI with the [tracing Query Builder](trace_data_query.html)
+* **Histograms**: Query histograms with [`hs()` queries](visualize_histograms.html#querying-histogram-metrics).
+* **Traces and spans**: Query trace data from the tracing UI with the [tracing Query Builder](trace_data_query.html).
 
 ### Docs, Videos, and Query Language Recipes
 
@@ -265,8 +282,8 @@ Wavefront documentation includes videos, tutorials, reference, and guides on the
 
 - **[Query Language Videos](videos_query_language.html)** get you started and [Use Case Videos](wavefront_use_cases.html) show off some compelling examples.
 - **[Query builder](query_language_query_builder.html)** (for v1) and **[Chart builder](chart_builder.html)** (for v2) can help you come up to speed quickly while using the product.
-- If you're logged in to Wavefront, select **Integrations** in the task bar and find the **Tutorial** or the **Tour Pro** integration. The Tutorial includes an Interactive Query Language Explorer that shows examples for each function.
-- [Wavefront Query Language Reference](query_language_reference.html) lists each function and gives query language syntax element. Each function names is a link to a reference page for the function.
+- If you're logged in to Wavefront, select **Integrations** in the taskbar and find the **Tutorial** or the **Tour Pro** integration. The Tutorial includes an Interactive Query Language Explorer that shows examples for each function.
+- [Wavefront Query Language Reference](query_language_reference.html) lists each function and gives query language syntax element. Each function name is a link to a reference page for the function.
 - For in-depth discussions and examples, we have a **[reference page](label_query%20language.html)** for each function and some [Query Language Recipes](query_language_recipes.html).
 
 ## FAQ
@@ -284,11 +301,11 @@ This doc set includes videos and explanations from the engineering team that hel
 <td markdown="span">[Time Series and Interpolation](https://youtu.be/9LnDszVrJs4) </td></tr>
 <tr>
 <td>Why does my query return NO DATA?</td>
-<td markdown="span">Maybe the time series don't match. See [When Multiple Series Match (Or Not)](query_language_series_matching.html) </td>
+<td markdown="span">Maybe the time series don't match. See [When Multiple Series Match (Or Not)](query_language_series_matching.html). </td>
 <td> </td></tr>
 <tr>
 <td>I got a warning about pre-aligned data. Why? </td>
-<td markdown="span">Wavefront improves performance by wrapping `align()` around certain functions. See [Bucketing with align()](query_language_align_function.html) </td>
+<td markdown="span">Wavefront improves performance by wrapping `align()` around certain functions. See [Bucketing with align()](query_language_align_function.html). </td>
 <td> </td></tr>
 <tr>
 <td>How can I use Wavefront for anomaly detection?</td>
@@ -298,12 +315,12 @@ This doc set includes videos and explanations from the engineering team that hel
 <tr>
 <td>How can I improve query performance?</td>
 <td markdown="span">Consider [bucketing with align()](query_language_align_function.html).
-Investigate [slow queries](wavefront_monitoring.html#examine-slow-queries).</td> <td> </td></tr>
+Investigate [internal metrics for optimizing performance](wavefront_monitoring.html#useful-internal-metrics-for-optimizing-performance).</td> <td> </td></tr>
 
 </tbody>
 </table>
 
-<!---
+<!---s
 <tr>
 <td>How do time windows work?</td>
 <td markdown=span>Wavefront supports [moving time window functions](). </a>.

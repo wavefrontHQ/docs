@@ -122,7 +122,7 @@ A. Use the eye icon on the right to deselect (hide) or show the results of a que
 
 ### Q: How can I copy/paste table chart content in v2?
 
-A. We're working on improving the copy/paste behavior. For now, please use [the third-party CLI](https://github.com/snltd/wavefront-cli) to generate a CSV file. See our [blog about using the CLI ](https://www.wavefront.com/commanding-the-waves-using-wavefront-cli/).
+A. We're working on improving the copy/paste behavior. For now, please use [the third-party CLI](https://github.com/snltd/wavefront-cli) to generate a CSV file. See our [blog about using the CLI ](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/commanding-the-waves-using-the-wavefront-cli).
 
 ### Q: How can I create an embedded chart in v2?
 

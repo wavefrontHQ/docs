@@ -22,13 +22,13 @@ The current version of the REST API is v2. You can access the API at `<wavefront
 
 ## API Documentation (Wavefront Instance)
 
-Each Wavefront instance includes Swagger-generated documentation for the REST API. In our blog post [Did You Know that Our API Docs Are Alive](https://www.wavefront.com/wavefront-rest-api/) we explain how you can experiment with our API directly from this in-product documentation.
+Each Wavefront instance includes Swagger-generated documentation for the REST API. In our blog post [Did You Know that Our API Docs Are Alive](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/did-you-know-that-our-api-docs-are-alive) we explain how you can experiment with our API directly from this in-product documentation.
 
 To access the REST API documentation :
 
 1. Log in to your Wavefront instance.
 2. Display the doc from the UI or using a URL:
-  * From the Wavefront UI, click the gear icon <i class="fa fa-cog"/> at the top right of the task bar and select **API Documentation**.
+  * From the Wavefront UI, click the gear icon <i class="fa fa-cog"/> at the top right of the taskbar and select **API Documentation**.
   * Type `https://<your_cluster_name>.com/api-docs/ui/`
 
 
@@ -59,13 +59,19 @@ a411c16b-3cf7-4f03-bf11-8ca05aab898d
 
 To generate an API token:
 
-1. In the Wavefront UI, click the gear icon <i class="fa fa-cog"/>  at the top right of the task bar and select your username.
+1. In the Wavefront UI, click the gear icon <i class="fa fa-cog"/>  at the top right of the taskbar and select your username.
 2. At the bottom of your user profile, locate the section **API Access**.
 3. Click **Generate**. You can have up to 2 tokens at any given time.
    If you want to generate a new token but already have two tokens, then you must revoke one of the existing tokens.
 4. To revoke a token, click the **Revoke** link next to the token. If you run a script that uses a revoked token, the script returns an authorization error.
 
 ![Generate API Token](/images/generate_token.png)
+
+
+{% include warning.html content="Do not share your API token with anyone. The token provides full access to the API. Accounts that have the token can authenticate without a username/password."%}
+
+
+
 
 ### Example: Invoke the API Using curl
 

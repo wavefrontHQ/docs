@@ -1594,8 +1594,8 @@ a[data-toggle="tooltip"] {
 
 .btn-primary {
     color: #ffffff;
-    background-color: #86C042;
-    border-color: #86C042;
+    background-color: #7CBC44;
+    border-color: #7CBC44;
 }
 
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
@@ -1607,8 +1607,8 @@ a[data-toggle="tooltip"] {
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-    background-color: #86C042;
-    border-color: #86C042;
+    background-color: #7CBC44;
+    border-color: #7CBC44;
 }
 
 .printTitle {

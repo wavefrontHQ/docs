@@ -35,7 +35,7 @@ Wavefront retrieves AWS metric and dimension data from AWS services using the AW
 
 You can configure which instances and volumes to ingest metrics from, which metrics to ingest, and the rate at which Wavefront fetches metrics. To configure CloudWatch ingestion:
 
-1. In Wavefront, click **Integrations** in the task bar.
+1. In Wavefront, click **Integrations** in the taskbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
 1. Click the **Setup** tab.
 1. In the Types column, click the **CloudWatch** link in the row of the integration you want to configure.
@@ -224,7 +224,7 @@ The following chart sets up variables for on-demand instances limit and on-deman
 
 ![chart for service limits query](images/service_limit_chart.png)
 
-We can create a [multi-threshold alert](alerts.html#creating-a-multi-threshold-alert) for this query that:
+We can create a [multi-threshold alert](alerts.html#create-a-multi-threshold-alert) for this query that:
 
 * Fires if the condition has been true for the last 30 minutes.
 * Notifies `SEVERE` targets if the value is greater than 90.

@@ -38,13 +38,13 @@ Different types of dashboard variables can help in different ways:
 
 ## Access Dashboard Variables
 
-To access the variables associated with a dashboard, click the icon to the left of the pen in the top right corner of the task bar ![db_actions.png](images/db_actions.png#inline).
+To access the variables associated with a dashboard, click the icon to the left of the pen in the top right corner of the taskbar ![db_actions.png](images/db_actions.png#inline).
 
 ## Create a Dashboard Variable
 
 To create a dashboard variable:
 
-1.  Put your dashboard into edit mode by clicking the pencil icon in the top right corner of the task bar.
+1.  Put your dashboard into edit mode by clicking the pencil icon in the top right corner of the taskbar.
 
     - If no dashboard variables are defined, click **Create**.
     - If at least one variable is associated with the dashboard, click the plus (+) icon.

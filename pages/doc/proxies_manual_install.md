@@ -31,7 +31,7 @@ If your system accepts incoming traffic, you can download the proxy file as foll
 
 Before you can customize the proxy configuration, you have to find the values for your environment. You need the following information to customize the settings.
 
-{% include note.html content="To find the values for server and token, you can select **Integrations** from the task bar, select **Linux Host**, and select the **Setup** Tab."%}
+{% include note.html content="To find the values for server and token, you can select **Integrations** from the taskbar, select **Linux Host**, and select the **Setup** Tab."%}
 
 <table style="width: 100%;">
 <tbody>
@@ -186,7 +186,7 @@ You can test connectivity from the proxy host to the Wavefront server using curl
 Run this test before installing the proxy, and again after installing and configuring the proxy.
 
 1. Find the values for server and token:
-   1. Select **Integrations** from the task bar.
+   1. Select **Integrations** from the taskbar.
    2. Select **Linux Host** and click the **Setup** tab.
 2. Run the following command:
    ```
@@ -232,14 +232,14 @@ After you have started the proxy you just configured, you can verify its status 
 ### Testing From the UI
 To check your proxy from the UI:
 1. Log in to Wavefront from a browser.
-2. From the task bar, select **Browse > Proxies** to view a list of all proxies.
+2. From the taskbar, select **Browse > Proxies** to view a list of all proxies.
    If the list is long, type the proxy name as defined in `hostname=` in  `wavefront.conf` to located the proxy by name.
 
 ### Testing Using curl
 
 You can test your proxy using `curl`. Documentation for the following curl commands can be found directly on your Wavefront server at `https://<your-server.wavefront.com>/api-docs/ui/#!/Proxy/getAllProxy`.
 
-You can run the commands [directly from the API documentation](https://www.wavefront.com/wavefront-rest-api/). This is less error prone than copy/paste of the token.
+You can run the commands [directly from the API documentation](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/did-you-know-that-our-api-docs-are-alive). This is less error prone than copy/paste of the token.
 
 For this task, you first you get the list of proxies for your Wavefront service, then you display information for just the proxy you installed.
 

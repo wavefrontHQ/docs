@@ -7,9 +7,9 @@ permalink: alerts_dependencies.html
 summary: Use alert metrics to build alerts that depend on other alerts.
 ---
 
-Metrics can be related in a dependency hierarchy. For example, a login application service is dependent on a user database, and that database is dependent on a hardware host. If you have a series of different alerts that all depend, in part, on one common underlying metric, you would have to repeat the code for that common metric in each alert in the chain, which quickly becomes a maintenance burden.
+Metrics can be related in a dependency hierarchy. For example, a login application service is dependent on a user database, and that database is dependent on a hardware host.
 
-Wavefront generates _alert metrics_ for each alert, and you can use the metrics from one alert as part of another alert's condition.
+Wavefront generates _alert metrics_ for any alert. You can pass the metrics from one alert to the next in the dependency hierarchy.
 
 ## Alert Metrics
 
@@ -32,7 +32,7 @@ An alert generates three metrics (**isfiring**, **summary**, **firing**):
   - `severity` - The severity of the alert.
   - `metricName` - Name of the _first_ metric in the alert condition causing the alert to fire.
 
-{% include note.html content="We recommend that you use `last()` with the `~alert` metrics as shown in the [examples](#alerting-on-other-alerts) below." %} 
+{% include note.html content="We recommend that you use `last()` with the `~alert` metrics as shown in the [examples](#alerting-on-other-alerts) below." %}
 
 
 

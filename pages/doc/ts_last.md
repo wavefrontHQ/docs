@@ -10,7 +10,12 @@ summary: Reference to the last() function
 ```
 last([<timeWindow>,] <tsExpression>)
 ```
-Fills in gaps in each time series described by `tsExpression`, by inserting data points that have the last known value of the time series. Specify `timeWindow` to fill in data for just a limited period of time after each existing point.
+Fills in gaps in each time series described by `tsExpression`, by inserting data points that have the last known value of the time series.
+
+* If you don’t specify `timeWindow`, fills gaps of up to 4w (depending on when data started flowing) with the last know value.
+* If you specify `timeWindow`, fills any gap you specify with the last know value.
+
+See **Caveats** below for some limitations to this function.
 
 ## Parameters
 
@@ -34,6 +39,7 @@ Fills in gaps in each time series described by `tsExpression`, by inserting data
 
 The `last()` function allows you to assign the last known reported data point value to a gap of missing data. When you add `last()` to a  `tsExpression`, a solid straight line with the value of the last reported data point will be drawn in place of gaps of missing data.
 
+
 By default, `last()` applies the last reported data value to gaps of missing data for up to 4 weeks. If you’d like this window to be smaller, you can use the `timeWindow` parameter. If you use `last()` with a function that uses interpolation, we apply  `last()` to the last 15% of a chart window.
 
 ## Examples
@@ -49,6 +55,14 @@ We decide to replace the missing data with the *last* value before the gap. What
 Then we replace the missing data with the first good value after the gap using `next`.
 
 ![ts next](images/ts_next.png)
+
+## Caveats
+
+The function returns results only if:
+* the specified timeWindow is less than 4 weeks
+* the time window the function looks at is less than 4 weeks (e.g. if timeWindow is set to 1vw)
+
+For example, if you specify `last(1vw, ts(my_query)`, and if your view window is greater than 4W, the query fails with an error.
 
 ## See Also
 
