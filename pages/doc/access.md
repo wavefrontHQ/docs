@@ -14,7 +14,7 @@ Admins who need finer-grained control can manage access on a per-object basis. W
 
 {% include tip.html content="In addition to access control, we also support [metrics security policy rules](metrics_security.html) which allow fine-grained control over which users can see which metrics." %}
 
-This video shows how to limit access for a dashboard, how to give access (share) that dashboard, and how to set the Security organization setting. You can manage access for alerts the same way. The video uses the 2020 version of the UI, which doesn't include PromQL, but **Security** configuration did not change.
+This video shows how to limit access for a dashboard, how to give access (share) that dashboard, and how to set the Security organization setting. You can manage access for alerts the same way. The video uses the 2020 version of the Wavefront UI.
 
 <p><a href="https://youtu.be/45E4pkann0E"><img src="images/v_access.png" style="width: 700px;" alt="Wavefront access control"/></a>
 </p>
@@ -28,7 +28,7 @@ Wavefront supports granting and revoking access to dashboards and alerts.
 * By default, all users can view all dashboards and alerts.
 * Users with Dashboard permission can:
   - Restrict or grant access to individual dashboards from the Dashboard browser.
-  - Select the Share icon on individual dashboards to change who has access..
+  - Select the Share icon on individual dashboards to change who has access.
 * Users with Alerts permission can:
   - Restrict or grant access for individual alerts from the Alerts browser.
   - Select the Share icon on individual alerts to change who has access.
@@ -71,7 +71,7 @@ Initially, all users can *view* all dashboards and alerts. In addition, global p
 Administrators can restrict access for new dashboards and alerts:
 
 1. Click the gear icon and select **Organization Settings**.
-2. Click the **Security** tab and select **Grant Modify Access To: Creator**
+2. Click the **Security** tab and select **Grant Modify Access To: Object Creator**
 
 After the change, access to new dashboards and new alerts is initially limited to the dashboard creator and Super Admin users. Those users can share the objects with other groups or individual users by giving View access or View & Modify access.
 
