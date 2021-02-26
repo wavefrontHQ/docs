@@ -7,7 +7,7 @@ permalink: tracing_instrumenting_frameworks.html
 summary: Set up your application to send metrics, histograms, and trace data to Wavefront.
 ---
 
-You instrument your application so that [trace data](tracing_basics.html) from different parts of the stack are sent to Wavefront. Instrumentation enables you to trace a request from end to end across multiple distributed services, guided by key metrics from your application. After instrumentation, you can use our [tracing UI](tracing_ui_overview.html) to visualize a request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time and discover problems.
+You instrument your application so that trace data from different parts of the stack are sent to Wavefront. Instrumentation enables you to trace a request from end to end across multiple distributed services, guided by key metrics from your application. After instrumentation, you can use our [tracing UI](tracing_basics.html#visualize-distributed-tracing-data-in-wavefront) to visualize a request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time and discover problems.
 
 You instrument each microservice in your application with one or more [Wavefront observability SDKs](wavefront_sdks.html). This page:
 * Helps you choose the SDK(s) or corresponding integration
@@ -209,7 +209,7 @@ For maximum flexibility, you can use the Wavefront Sender SDKs. See [SDKs for Se
 
 When you use a Sender SDK, you won’t see span-level RED metrics by default. This section explains how to send span-level RED metrics using a custom tracing port.
 
-1. [Prepare to send data via the Wavefront proxy](#to-prepare-a-wavefront-proxy).
+1. [Prepare to send data via the Wavefront proxy](#to-prepare-for-using-a-wavefront-proxy).
     {% include note.html content="You need proxy version 9.0 or later."%}
 1. Configure your application to send data via the Wavefront Proxy. See the SDK’s README file for details.
 1. Specify the port or a comma-separated list of ports that you want to send the trace data using the `customTracingListenerPorts` configuration in your [`<wavefront_config_path>`](proxies_configuring.html#paths)`/wavefront.conf` file.

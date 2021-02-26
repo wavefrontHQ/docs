@@ -712,13 +712,13 @@ A typical set of helper objects includes some or all of the following:
 
 ### Wavefront Sender Object
 
-When you instrument an application, you set up a mechanism for sending metrics and trace data to the Wavefront service, as described in [Step 1, Prepare to Send Metrics to Wavefront,](#step-1-prepare-to-send-data-to-wavefront) above. Choose between:
+When you instrument an application, you set up a mechanism for sending metrics and trace data to the Wavefront service. Choose between:
 
 * Sending data directly to the Wavefront service, also called [direct ingestion](direct_ingestion.html).
 * Sending data to a [Wavefront proxy](proxies.html), which then forwards the data to the Wavefront service.
 
 Your choice is represented in your code as Wavefront Sender object.
-(Most Wavefront SDKs define objects of type `WavefrontSender` or simply `Sender`. A few SDKs define a pair of separate `Client` objects.) A Wavefront sender encapsulates the settings you supply when you instrument your microservice. The settings in your code must match the information you provided in [Step 1](#step-1-prepare-to-send-data-to-wavefront) above.
+(Most Wavefront SDKs define objects of type `WavefrontSender` or simply `Sender`. A few SDKs define a pair of separate `Client` objects.) A Wavefront sender encapsulates the settings you supply when you instrument your microservice. The settings in your code must match the information you provided in [Step 1. Prepare to Send Data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data-to-wavefront).
 
 {% include note.html content="You can use a Wavefront sender to tune performance by setting the frequency for flushing data to the Wavefront proxy or the Wavefront service. If you are using direct ingestion, you can also change the defaults for batching up the data to be sent." %}
 
