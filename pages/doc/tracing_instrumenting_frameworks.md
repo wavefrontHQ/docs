@@ -37,14 +37,19 @@ Watch [this video](https://youtu.be/Lrm8UuxrsqA) for some background on proxy vs
       </ul>
     {{site.data.alerts.end}}
 2. On the proxy host, open the proxy configuration file `wavefront.conf` for editing. The [path to the file](proxies_configuring.html#paths) depends on the host OS.
-3. In the `wavefront.conf` file, find and uncomment the [listener-port property](proxies_installing.html#set-the-listener-port-for-metrics-histograms-and-traces) for each listener port you want to enable. The following example enables the default/recommended listener ports for metrics, histogram distributions, and trace data:
-    ```
-    pushListenerPorts=2878
-    ...
-    histogramDistListenerPorts=2878
-    ...
-    traceListenerPorts=30000
-    ```
+3. In the `wavefront.conf` file, uncomment or define an HTTP listener port to send your metrics, histograms, and tracing spans.
+    {{site.data.alerts.note}}
+      <p>For proxy version before proxy 9.0, in the <code>wavefront.conf</code> file, find and uncomment each listener port you want to enable. The following example enables the default/recommended listener ports for metrics, histogram distributions, and trace data:</p>
+          <pre>
+pushListenerPorts=2878
+...
+histogramDistListenerPorts=2878
+...
+traceListenerPorts=30000
+          </pre>
+    {{site.data.alerts.end}}
+    
+
 4. Consider setting up [trace sampling](trace_data_sampling.html) by [configuring the proxy with a sampling strategy](trace_data_sampling.html#setting-up-explicit-sampling-through-the-proxy).
 5. Save the `wavefront.conf` file.
 6. [Start the proxy](proxies_installing.html#starting-and-stopping-a-proxy).
