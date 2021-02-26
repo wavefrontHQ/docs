@@ -57,7 +57,7 @@ You use the Wavefront UI to visualize the trace data that you collect from your 
 
 Get an overview of how the applications and services are linked, understand the health of each service, and troubleshoot when your applications or services run into issues. You can get an overview and see the overall health of each application using the application map, table view and grid view. See [Application Status](tracing_ui_overview.html).
 
-* [**Application Map**](tracing_ui_overview.html#application-map) map gives you an overview of how the applications and services are linked, lets you focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and the tracing traffic in the application.
+* [**Application Map**](tracing_ui_overview.html#application-map) view gives you an overview of how the applications and services are linked. You can focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and see the tracing traffic, including the traffic direction.
 
   ![application map](/images/Application_map_intro.png)
 
@@ -68,12 +68,12 @@ Get an overview of how the applications and services are linked, understand the 
   <img src="/images/tracing_grid_view_releasenotes.png" alt="grid view of the services grouped by the application"/>
 
 
-### Examine Application RED Metrics Using the Service Dashboards
+### Examine Application RED Metrics Using Service Dashboard
 
 The default, read-only [dashboard for a service](tracing_service_dashboard.html) lets you explore trace data sent by each service in your application.
 ![service dahsboard](/images/service_dashboard_intro.png)
 
-### Examine Traces Using the Traces Browser
+### Examine Traces Using Traces Browser
 
 The [Traces Browser](tracing_traces_browser.html) supports a streamlined task flow for examining traces. You can perform trace queries, view query results, expand traces to see their member spans, and expand individual spans to see their details without having to navigate between pages and pop-ups.
 ![traces browser](/images/tracing_browser_intro.png)

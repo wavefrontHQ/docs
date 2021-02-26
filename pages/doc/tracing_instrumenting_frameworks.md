@@ -7,10 +7,10 @@ permalink: tracing_instrumenting_frameworks.html
 summary: Set up your application to send metrics, histograms, and trace data to Wavefront.
 ---
 
-You instrument your application so that [trace data](tracing_basics.html) from different parts of the stack are sent to Wavefront. Instrumentation enables you to trace a request from end to end across multiple distributed services, guided by key metrics from your application. After instrumentation, you can use our [tracing UI](tracing_ui_overview.html) to visualize a request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time, and discover problems.
+You instrument your application so that [trace data](tracing_basics.html) from different parts of the stack are sent to Wavefront. Instrumentation enables you to trace a request from end to end across multiple distributed services, guided by key metrics from your application. After instrumentation, you can use our [tracing UI](tracing_ui_overview.html) to visualize a request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time and discover problems.
 
 You instrument each microservice in your application with one or more [Wavefront observability SDKs](wavefront_sdks.html). This page:
-* Helps you choose the SDK(s) or integration
+* Helps you choose the SDK(s) or corresponding integration
 * Directs you to the setup steps for each SDK or integration
 
 ## Step 1. Prepare to Send Data to Wavefront
@@ -27,7 +27,7 @@ Watch [this video](https://youtu.be/Lrm8UuxrsqA) for some background on proxy vs
 2. [Obtain an API token](wavefront_api.html#generating-an-api-token).
 
 
-### To Prepare a Wavefront Proxy
+### To Prepare for Using a Wavefront Proxy
 
 1. On the host that will run the proxy, [install the proxy](proxies_installing.html#proxy-installation).
     {{site.data.alerts.note}}
@@ -119,8 +119,8 @@ If you need application observability, but don't want to instrument code for you
 
 ### Send Trace Data to Wavefront via Applications Integrated with Jaeger or Zipkin
 
-If you have already instrumented your application with Jaeger or Zipkin follow the steps given below:
-  1. Collect traces send them to Wavefront using the following integrations.
+If you have already instrumented your application with Jaeger or Zipkin follow these steps:
+  1. Collect traces and send them to Wavefront using the following integrations.
 
       <div class="row">
        <div class="col-md-3 col-sm-6">
@@ -207,13 +207,13 @@ When you use a Sender SDK, you won’t see span-level RED metrics by default. Th
 1. [Prepare to send data via the Wavefront proxy](#to-prepare-a-wavefront-proxy).
     {% include note.html content="You need proxy version 9.0 or later."%}
 1. Configure your application to send data via the Wavefront Proxy. See the SDK’s README file for details.
-1. Specify the port or a comma-separated list of ports that you want to send the trace data using the `customTracingListenerPorts` configuration on your [`<wavefront_config_path>`](proxies_configuring.html#paths)`/wavefront.conf` file.
+1. Specify the port or a comma-separated list of ports that you want to send the trace data using the `customTracingListenerPorts` configuration in your [`<wavefront_config_path>`](proxies_configuring.html#paths)`/wavefront.conf` file.
   ```xml
   ## port for sending custom spans using the sender sdk
   ## you can use a port that you prefer. in this example port 30001 is used
   customTracingListenerPorts=30001
   ```
-1. When you configure the `wavefront sender` on your application as explained in the SDK’s README file, define the port you want to send the data so that span level RED metrics will be gathered from your application.
+1. When you configure the `wavefront sender` on your application as explained in the SDK’s README file, define the port so that span level RED metrics will be gathered from your application.
   <br/>Example: Configuring your Java application to send trace data via the `tracingPort`.
     ```java
     // set up wavefront sender for Proxy based ingestion
@@ -241,6 +241,6 @@ When you use a Sender SDK, you won’t see span-level RED metrics by default. Th
 ## Next Steps
 
 Examine traces, spans, and RED metric sent by your application.
-* See [Application Status](tracing_ui_overview.html).
-* See [Service Dashboard](tracing_service_dashboard.html).
-* See [Traces Browser](tracing_traces_browser.html).
+* See [Application Status](tracing_ui_overview.html) to get an overview of your applications.
+* See [Service Dashboard](tracing_service_dashboard.html) to see the RED metrics of an application.
+* See [Traces Browser](tracing_traces_browser.html) to examine the traces of your application.
