@@ -69,9 +69,9 @@ The following proxy versions are scheduled to be deprecated or moved to end-of-l
 
 Wavefront delta counter behavior changed with [Release 2020.26](2020.26.x_release_notes.html).
 * The original delta counter implementation was Deprecated with [Release 2020.26](2020.26.x_release_notes.html). Wavefront changed delta counter queries to use `cs()` in the Wavefront Usage integration and tracing RED metrics.
-* The original delta counter implementation is End of Live March 31, 2021.
+* The original delta counter implementation is End of Life March 31, 2021.
 
-{% include warning.html content="You have to revise delta counter queries to use `cs()` for any custom dashboard or alert which uses delta counter data. Starting in April 2021 `ts()` queries on delta counters will no longer work. Wavefront will no longer store delta counters in two different formats." %}
+{% include warning.html content="You have to revise delta counter queries to use `cs()` for any custom dashboard or alert which uses delta counter data. Starting on April 4 2021, `ts()` queries on delta counters will no longer work. Wavefront will no longer store delta counters in two different formats." %}
 
 
 
@@ -80,7 +80,8 @@ Wavefront delta counter behavior changed with [Release 2020.26](2020.26.x_releas
 Wavefront migrates system dashboard and integration content. However, you might have to update custom delta counters.
 
 * **Automatic Migration**. Wavefront uses delta counters in [tracing RED metrics](trace_data_details.html#red-metrics) and in certain internal `~` metrics [collected by Wavefront](wavefront_monitoring.html#internal-metrics-overview) such as `~collector.points.reported`. All Wavefront-provided dashboards that use these data will be migrated for you.
-* **User Migration**. If you have cloned any Wavefront dashboards using delta counters or created any custom dashboards or alerts using these delta counters, you are responsible for migrating the queries in related charts and alerts yourself.
+* **User Migration**. If you have cloned any Wavefront dashboards that use delta counters or have created any custom dashboards or alerts that use delta counters, you are responsible for migrating the queries in related charts and alerts yourself.
+
 
 ### How to Find Queries that Might Need Modification
 
@@ -127,11 +128,6 @@ In the following examples, `errors.count` is a delta counter:
 <td markdown="span">For <code>ratediff()</code>, no per-second conversion is done. Remove the <code>ratediff()</code> function from the query.</td>
 </tr>
 <tr>
-<td><code>rate(ts(errors.count))</code></td>
-<td><code>cs(errors.count)</code></td>
-<td markdown="span">For <code>rate()</code>, no per-second conversion is done. Remove the <code>rate()</code> function from the query.</td>
-</tr>
-<tr>
 <td><code>align(1m, ts(errors.count))</code></td>
 <td><code>cs(errors.count)</code></td>
 <td markdown="span">Remove `align()` from your query unless you picked an `align()` time window that's larger than 1 minute.</td>
@@ -148,7 +144,7 @@ Wavefront [delta counters](delta_counters.html) allow you to measure the number 
 
 At ingestion time, a delta counter must have a ∆ character at the beginning. Just like any other measurement data in Wavefront a delta counter series is uniquely identified by its name, source and any point tags.
 
-#### Example
+#### Example Scenario
 
 For example, imagine we are trying to track the total number of errors that occur across lambda functions running in a given AWS region. Each invocation of the function would measure how many errors occurred during that run and would emit that to Wavefront.
 
