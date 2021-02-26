@@ -489,7 +489,7 @@ entries:
 
 
       subfolders:
-      - title: Details for Built-In Integrations
+      - title: Integration Details
         output: web
         subfolderitems:
 
