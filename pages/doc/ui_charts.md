@@ -63,7 +63,7 @@ From the **Data** tab, fine-tune the metrics that are displayed on the chart by 
 
 ### Chart Builder
 
-[Wavefront Chart Builder](chart_builder.html) lets you
+[Wavefront Chart Builder](chart_builder.html) lets you:
 * Create a chart by selecting metrics or a chart type.
 * Select one or more metrics directly or start with an integration.
 * Specify filters and functions, e.g., to aggregate multiple time series.
