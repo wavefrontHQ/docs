@@ -23,7 +23,7 @@ You can use the customer-wide or user-level preferences to control whether <stro
 </td>
 <td width="60%"><img src="/images/get_started.png" alt="screenshot of Getting Started second screen"></td>
 </tr>
-<tr>
+<tr> 
 <td>
 The <strong>Tutorial integration</strong> allows you to experiment with charts and alerts to learn (clone the integration to save your results).
 <ol><li>In the taskbar, click <strong>Integrations</strong>. </li>
