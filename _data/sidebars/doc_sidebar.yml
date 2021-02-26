@@ -72,7 +72,7 @@ entries:
         - title: "Hello Wavefront Tutorial"
           url: /hello_wavefront_aws_tutorial.html
           output: web
-        
+
         - title: "Dashboards & Alerts Tutorial"
           url: /tutorial_getting_started.html
           output: web
@@ -195,11 +195,11 @@ entries:
     - title: Wavefront Data Best Practices
       url: /wavefront_data_naming.html
       output: web
-    
+
     - title: Cardinality and Wavefront
       url: /cardinality.html
       output: web
-    
+
       subfolders:
       - title: Metrics, Sources, and Tags
         output: web
@@ -519,6 +519,10 @@ entries:
 
           - title: Log Data Metrics Integration
             url: /integrations_log_data.html
+            output: web
+
+          - title: IBM Cloud Integration (Third-Party Content)
+            url: /integrations_ibmcloud_thirdparty.html
             output: web
 
 
