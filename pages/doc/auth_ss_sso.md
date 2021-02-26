@@ -1,5 +1,5 @@
 ---
-title: Set Up Self-Service SAML SSO
+title: Set Up or Update Self-Service SAML SSO
 keywords:
 tags: [integrations, administration]
 sidebar: doc_sidebar
@@ -28,3 +28,15 @@ Wavefront supports a number of third-party authentication solutions that use SAM
 7. If the test was successful, the Save button becomes available and you can click **Save**.
 
 ![screenshot with fields filled in & blurred out](images/self_service_sso.png)
+
+<!---
+## Update SAML SSO
+
+If the certificate that's used in your setup needs to be replaced, you can delete the existing setup and add a set up SAML SSO again.
+
+1. Log in to your Wavefront instance as a user with SAML IdP Admin permissions.
+2. From the gear icon, select **Self Service SAML**.
+3. Click the **Click Here** link to delete the existing key pair.
+4. Repeat the setup process.
+
+---!>
