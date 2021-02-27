@@ -734,7 +734,7 @@ entries:
             url: /authentication.html
             output: web
 
-          - title: Set Up Self-Service SAML SSO
+          - title: Self-Service SAML SSO
             url: /auth_self_service_sso.html
             output: web
 
