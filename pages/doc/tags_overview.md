@@ -203,7 +203,7 @@ sum(ts(dataingester.report-points AND source="dev-2b-*"), pointTags)
 When you want to group by source tag, however, you have to include the source tag name in the query, as shown in this example:
 
 ```
-sum(ts(dataingester.report-points, source="dev-2b-*" and tag=mySourceTag)), sourcetags)
+sum(ts(dataingester.report-points, source="dev-2b-*" and tag=mySourceTag), sourcetags)
 ```
 
 
