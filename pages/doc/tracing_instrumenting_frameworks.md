@@ -29,7 +29,7 @@ Watch [this video](https://youtu.be/Lrm8UuxrsqA) for some background on proxy vs
 
 ### To Prepare for Using a Wavefront Proxy
 
-1. On the host that will run the proxy, [install the proxy](proxies_installing.html#proxy-installation).
+1. On the host that will run the proxy, [install the proxy](proxies_installing.html#install-a-proxy).
     {{site.data.alerts.note}}
       <ul>
       <li>If you want to use span logs, you need proxy version 5.0 or later.</li>
@@ -52,7 +52,7 @@ traceListenerPorts=30000
 
 4. Consider setting up [trace sampling](trace_data_sampling.html) by [configuring the proxy with a sampling strategy](trace_data_sampling.html#setting-up-explicit-sampling-through-the-proxy).
 5. Save the `wavefront.conf` file.
-6. [Start the proxy](proxies_installing.html#starting-and-stopping-a-proxy).
+6. [Start the proxy](proxies_installing.html#start-and-stop-a-proxy).
 
 
 ## Step 2. Get Data Flowing into Wavefront
@@ -153,7 +153,7 @@ If you have already instrumented your application with Jaeger or Zipkin follow t
 
  2. Optionally, add custom tags, applications names, or use an alternative for the Jaeger or Zipkin integration. See [Using Jaeger or Zipkin with Wavefront](tracing_integrations.html) for details.
 
-After your recompiled application starts running, start [exploring your custom trace data](tracing_traces_browser.html) and the [metrics and histograms that are automatically derived](trace_data_details.html#red-metrics) from your trace data.
+After your recompiled application starts running, start [exploring your custom trace data on the Traces Browser](tracing_traces_browser.html) and [exploring the RED metrics and histograms that are automatically derived on the Service Dashboard](tracing_service_dashboard.html) from your trace data.
 
 ### Instrument Your Application with Wavefront Sender SDKs
 
