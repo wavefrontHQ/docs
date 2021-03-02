@@ -12,7 +12,7 @@ Get in touch using **Slack**: [Wavefront public Slack channel](https://www.wavef
 
 ## Support
 
-You can:
+To get support you can:
 
 * Get in touch with Wavefront by VMware Support from inside the product:
   1. Log in to Wavefront. 
