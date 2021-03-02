@@ -232,6 +232,9 @@ The display expression can include any valid Wavefront Query Language construct,
 <td><strong>Resend Notifications</strong></td>
 <td>Whether to resend notification of a firing alert. If enabled, you can specify the number of minutes to wait before resending the notification.</td>
 </tr>
+<td><strong>Unique PagerDuty Incidents</strong></td>
+<td>Select this option to receive separate PagerDuty notifications for each source that meets the alert conditions.</td>
+</tr>
 <tr>
 <td><strong>Metrics</strong></td>
 <td>Whether to include obsolete metrics. By default, alerts don't consider data that have  not reported for 4 weeks or more. Include obsolete metrics if you use queries that aggregate data in longer time frames.</td>
@@ -370,6 +373,10 @@ For example, an alert target for an INFO severity receives all notifications for
 </tr><tr>
 <td><strong>Resend Notifications</strong></td>
 <td>Whether to resend notification of a firing alert. If enabled, you can specify the number of minutes to wait before resending the notification.</td>
+</tr>
+<tr>
+<td><strong>Unique PagerDuty Incidents</strong></td>
+<td>Select this option to receive separate PagerDuty notifications for each source that meets the alert conditions.</td>
 </tr>
 <tr>
 <td><strong>Metrics</strong></td>
