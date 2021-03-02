@@ -56,14 +56,16 @@ The process is very similar for dashboards and for alerts.
 4. To revoke access, delete the group or user. 
 5. Click **Update**.
 
-<!---Not currently supported
 ## Embed a Chart in Other UIs
 
 Wavefront supports the ability to embed an interactive chart outside of Wavefront. You must have [Embed Charts Permission](permissions_overview.html#embed-charts-permission) to create embedded charts.
 
 To embed a chart:
 
-1. Open the chart you want to embed in the chart editor and click the embed icon (`<\>`).
+1. Open the chart that you want to embed in the chart editor.
+    1. Navigate to the dashboard in which your chart is included, click the ellipsis icon, and select **Edit**.
+    2. Click the ellipsis icon of the chart you want to embed, and select **Edit**.
+2. Click the embed icon (`<\>`).
 
     ![embed_chart_icon](images/embed_chart_icon.png)
 
@@ -71,4 +73,4 @@ To embed a chart:
 
     ![embed_chart_snippet](images/embed_chart_snippet.png)
 
-1. Copy the snippet and paste it into the desired location. You can adjust the `width` and `height` parameters.--->
+3. Copy the snippet and paste it into the desired location. You can adjust the `width` and `height` parameters.

@@ -332,5 +332,4 @@ To temporarily change the sampling behavior for a chart, use the **Sampling** me
 
 * Customize your chart. See the [Chart Reference](ui_chart_reference.html) for details.
 * [Share a chart](ui_sharing.html#share-a-link-to-a-dashboard-or-chart) with a coworker (or with the customer success team if you need help).
-<!---Chart embedding not currently supported for v2--->
-<!---* [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) outside Wavefront.--->
+* [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) outside Wavefront.
