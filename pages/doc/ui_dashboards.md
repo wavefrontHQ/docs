@@ -51,7 +51,7 @@ It's easy to create a dashboard from metrics data or by selecting a chart.
 <td width="40%">
 <strong>To create a dashboard</strong>:
 <ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the taskbar. </li>
-<li>Drag the <strong>Data</strong> or <strong>New Chart</strong> widget onto the canvas</li>
+<li>Drag the <strong>Data</strong> or <strong>New Chart</strong> widget to the canvas</li>
 <li>Select metrics, filters, and functions now or later. </li>
 <li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard.
 <ul>
@@ -73,7 +73,7 @@ With release 2019.46, you can create a dashboard by specifying an integration da
 <td width="40%">
 <strong>To create a dashboard</strong>:
 <ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the taskbar. </li>
-<li>Drag the <strong> Integration Templates</strong> widget onto the canvas. </li>
+<li>Drag the <strong> Integration Templates</strong> widget to the canvas. </li>
 <li>Select first the source integration, then the dashboard you want as a template, and then one or more charts from that dashboard.</li>
 <li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard. 
 <ul>
@@ -98,7 +98,7 @@ The Wavefront service dashboard includes a set of charts to monitor the trace da
 <td width="40%">
 <strong>To create a dashboard</strong>:
 <ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the taskbar. </li>
-<li>Drag the <strong>Tracing Templates</strong> widget onto the canvas. </li>
+<li>Drag the <strong>Tracing Templates</strong> widget to the canvas. </li>
 <li>Select the charts to import and click <strong>Import Charts</strong>.</li>
 <li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard.
   <ul>
@@ -129,7 +129,7 @@ The dashboard menu allows you to create a dashboard, edit a dashboard, clone a d
 <tr>
 <td width="40%">
 <strong>To edit a dashboard</strong>:
-<ol><li>Click the ellipsis icon in the top right of the dashboard, and select <strong>Edit</strong>. </li>
+<ol><li>Click the ellipsis icon in the top right of the dashboard and select <strong>Edit</strong>. </li>
 <li>Make changes to the dashboard in edit mode.</li>
 <li>Save the dashboard.</li></ol></td>
 <td width="60%"><img src="/images/v2_edit_dashboard.png" alt="edit a dashboard"></td>
@@ -138,7 +138,7 @@ The dashboard menu allows you to create a dashboard, edit a dashboard, clone a d
 <td width="40%">
 <strong>To clone a dashboard</strong>:
 <ol><li>Click the ellipsis icon in the top right of the dashboard and select <strong>Clone</strong>. </li>
-<li>Accept the suggested URL and dashboard name, or specify a new URL and dashboard name. Specify only the URL string. Do not include <code>https://</code>.  </li>
+<li>Accept the suggested URL and dashboard name or specify new ones. Do not include <code>https://</code> in the URL string.  </li>
 <li>Save the cloned dashboard.</li></ol></td>
 <td width="60%"><img src="/images/v2_clone_dashboard.png" alt="clone a dashboard"></td>
 </tr>
@@ -149,7 +149,7 @@ The dashboard menu allows you to create a dashboard, edit a dashboard, clone a d
 
 All users can examine metrics, set the time window, and make temporary changes to dashboards. See [Examine Data](ui_examine_data.html) for details.
 
-![annotated screenshot with the activities listed below, which users can do perform on a dashboard](images/v2_dashboard_elements.png)
+![annotated screenshot with the activities below that users can do with a dashboard](images/v2_dashboard_elements.png)
 
 Here are some examples of what [all users can do](ui_examine_data.html):
 * Set the dashboard time window
@@ -177,7 +177,7 @@ To remove a change, click the revert icon to the left of **Edit JSON** on the ta
 <tbody>
 <tr>
 <td width="50%">
-<ol><li>Drag and drop widgets onto the dashboard canvas. </li>
+<ol><li>Drag and drop widgets to the dashboard canvas. </li>
 <li>(Optional) Select metrics, filters, and functions.  </li>
 <li>Scroll up and click <strong>Save</strong></li>
 </ol></td>
@@ -214,8 +214,8 @@ Editing a chart is different in View mode and in Edit mode:
 With the dashboard in Edit mode:
 <ol>
 <li>Scroll up to the Variables bar.  </li>
-<li>Click the Edit icon to edit a variable.</li>
-<li>Click the Add button to <a href="dashboards_variables.html">add a variable</a>.</li>
+<li>Click the <strong>Edit</strong> icon next to a variable to edit the variable.</li>
+<li>Click the <strong>Add</strong> button to <a href="dashboards_variables.html">add a variable</a>.</li>
 </ol>
 </td>
 <td width="50%">
@@ -235,7 +235,7 @@ With the dashboard in Edit mode:
 <li>Delete or move a section using the icons on the right of the section bar.</li>
 </ul>
 </td>
-<td width="50%"><img src="/images/v2_add_section.png" alt="add section"></td>
+<td width="50%"><img src="/images/v2_add_section.png" alt="add a section"></td>
 </tr>
 </tbody>
 </table>
@@ -250,9 +250,9 @@ When you create a chart using **Dashboards > Create Chart**, you're prompted to 
 <tr>
 <td width="50%">
 <ol><li>With the dashboard in View mode, create or edit a chart. </li>
-<li>Select the <strong>v</strong> next to <strong>Save</strong> and make a selection:
-<ul><li>To save to an existing dashboard, start typing the name of the dashboard, select a dashboard, and click <strong>Insert</strong></li>
-<li>Click <strong>Save to New Dashboard</strong>, enter the dashboard name and URL, and click <strong>Create</strong>. Specify only the URL string; do not include https://. </li> </ul></li>
+<li>Click the <strong>v</strong> icon next to the <strong>Save</strong> button and make a choice:
+<ul><li>To save to an existing dashboard, start typing the name of the dashboard, select the dashboard, and click <strong>Insert</strong>.</li>
+<li>To save to a new dashboard, click <strong>Save to New Dashboard</strong>, enter the dashboard name and URL, and click <strong>Create</strong>. Specify only the URL string and do not include <code>https://</code>. </li> </ul></li>
 <li>When the target dashboard opens in Edit mode, click and drag the chart to the location of your choice and click <strong>Save</strong> at the top.</li></ol></td>
 <td width="50%">
 <img src="/images/v2_save_chart_to_new.png " alt="save to dashboard"></td>
@@ -262,14 +262,14 @@ When you create a chart using **Dashboards > Create Chart**, you're prompted to 
 
 ### Undo and Revert Undo Operations
 
-Starting with release 2018.46.x, you can undo dashboard changes.
+You can undo dashboard changes.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="40%">
 <ol><li>Edit the dashboard and make one or more changes.</li>
-<li>Click the icons to undo and to revert the undo. </li> </ol></td>
+<li>Click the icons to undo and to redo the operations. </li> </ol></td>
 <td width="60%"><img src="/images/v2_undo.png" alt="Undo and redo icons"/></td>
 </tr>
 </tbody>
@@ -286,15 +286,15 @@ For each dashboard, you can customize display preferences.
 <tr>
 <td width="40%">
 <strong>To set the dashboard display preferences</strong>:
-<ol><li>Navigate to a dashboard, click the ellipsis menu in the top right corner of the dashboard.</li>
-<li>Click <strong>Edit</strong>. </li>
+<ol><li>Navigate to a dashboard and click the ellipsis icon in the top right corner of the dashboard.</li>
+<li>Select <strong>Edit</strong>. </li>
 <li>Click <strong>Settings</strong>.</li>
 <li>Make selections in the dialog:
 <ul><li>Set the default time window. You can later override the time window.  </li>
 <li>Hide the variables for the dashboard by default. Users can still show the variables bar using the <img src="/images/show_hide_variable_icon.png"
-style="vertical-align:text-bottom;width:25px" alt="show hide variable icon" /> icon.  </li>
+style="vertical-align:text-bottom;width:25px" alt="show or hide variable icon" /> icon.  </li>
 <li>Display the <a href="events.html">Events</a> on charts using the Show Events dropdown.<br>
-For more information on the options listed in the Show Events dropdown, see <a href="charts_events_displaying.html#specify-an-events-query-for-a-dashboard">Specify an Events() Query for a Dashboard</a>
+For more information on the options listed in the Show Events dropdown, see <a href="charts_events_displaying.html#specify-an-events-query-for-a-dashboard">Specify an Events() Query for a Dashboard</a>.
 </li>
 </ul>
 </li>
@@ -317,8 +317,8 @@ Most users create and edit dashboards by using the Wavefront UI or automate the 
 <tbody>
 <tr>
 <td width="50%">
-<ol><li>To put the dashboard in Edit mode, click the three dots and select <strong>Edit</strong>, and then click <strong>JSON</strong>. </li>
-<li>Consider selecting Code view from the pull-down menu. Code view supports adding information. </li>
+<ol><li>To put the dashboard in Edit mode, click the ellipsis icon, select <strong>Edit</strong>, and then click <strong>JSON</strong>. </li>
+<li>Consider selecting <strong>Code</strong> from the pull-down menu. Code view supports adding information. </li>
 <li>Consider a select all/copy/paste into a JSON editor for full validation. </li>
 <li>Add condition information, as shown in the example below, paste the revised content back into the dashboard editor, and click <strong>Accept</strong></li></ol></td>
 <td width="50%"><img src="images/dashboard_code_view.png" alt="Switch from Tree view to Code view"/></td>
@@ -328,10 +328,10 @@ Most users create and edit dashboards by using the Wavefront UI or automate the 
 
 ## Conditional Dashboard Sections
 
-Starting with release 2020.38, you can make dashboard sections conditional by using the JSON editor. If a dashboard has conditional sections:
-* Each section is shown only if the condition is met, and invisible in the Jump To menu and the dashboard.
+You can make dashboard sections conditional by using the JSON editor. If a dashboard has conditional sections:
+* Each section is shown only if the condition is met, and invisible in the <strong>Jump To</strong> menu and the dashboard.
 * If the condition is met:
-  - The Jump To menu shows a number to indicate how many conditional sections are displayed. Default color is grey.
+  - The <strong>Jump To</strong> menu shows a number to indicate how many conditional sections are displayed. Default color is grey.
   - A customizable tooltip indicates that the section is conditional.
   - The number and tooltip also display next to the conditional section.
 
@@ -431,9 +431,9 @@ After you've saved these changes:
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="50%">The Jump To menu uses the NEW LABEL text and shows 1 to indicate there's one conditional section, in red (SEVERE).
+<td width="50%">The <strong>Jump To</strong> menu uses the NEW LABEL text and shows 1 to indicate there's one conditional section, in red (SEVERE).
 <img src="images/condition_label.png" alt="Jump to menu with highlighted number and Proxy Troubleshooting highlighted."/></td>
-<td width="50%">Hover text alerts the user that the section is conditional -- you can change the text as appropriate.
+<td width="50%">Hover text alerts the user that the section is conditional - you can change the text as appropriate.
 <img src="images/condition_hover_text.png" alt="Hover text indicates condition has been met."/></td>
 </tr>
 </tbody>

@@ -50,7 +50,7 @@ You can create a chart from a dashboard or from the taskbar.
 2. (Optional) In the top left, specify a chart name.
 2. Select a metric and an optional filter and function.
 3. In the top right, click **Save**. 
-4. Specify the dashboard in which you want to insert the chart, or create a new dashboard.
+4. Specify the dashboard in which you want to insert the chart or create a new dashboard.
 
 ![create chart](/images/v2_create_chart.png)
 
@@ -76,13 +76,13 @@ In the image below, we selected a metric, narrowed down the source, and we're ju
 
 Instead of using [Chart Builder](chart_builder.html), you can click the toggle and explicitly enter [Wavefront Query Language](query_language_reference.html) expressions into the query field.
 
-{% include note.html content="After you switch, to Query Editor and make changes to the query, you cannot return to Chart Builder." %}
+{% include note.html content="After you switch to Query Editor and make changes to the query, you cannot return to Chart Builder." %}
 
 We can get the metric we selected above with the following query.
 
 `max(ts(~sample.db.queries.duration, source="db-1" OR source="db-5"))`
 
-Many Wavefront users start with Chart Builder as the default, and set their default to Query Editor later for more fine-grained control (including chart variables).
+Many Wavefront users start with Chart Builder as the default and set their default to Query Editor later for more fine-grained control (including chart variables).
 
 ## Hide, Clone, or Delete Queries
 
@@ -98,7 +98,7 @@ To clone a query, click the <strong>Clone</strong> icon. A copy of the query app
 <li>To hide or redisplay a query, click the <strong>Hide/Show</strong> icon.  </li>
 </ul>Save your changes.
 </td>
-<td width="60%"><img src="/images/ui_v2_hide_show.png" alt="hide query"></td>
+<td width="60%"><img src="/images/ui_v2_hide_show.png" alt="query in Chart Builder with the cursor over the Hide icon "></td>
 </tr>
 </tbody>
 </table>
@@ -135,7 +135,7 @@ Wavefront renders the lines or points for different time series in different col
 For hover legends you can:
 <ul><li>Disable the legend.</li>
 <li>Limit the number of point tags or specify point tags to show in the legend. </li>
-<li>Press Shift-P to pin the legend. You can move the pinned legend</li></ul>
+<li>Press <strong>Shift+P</strong> to pin the legend. You can move the pinned legend.</li></ul>
 </td>
 <td width="40%"><img src="/images/hover_legend.png" alt="hover legend"></td></tr>
 <tr>
@@ -160,7 +160,7 @@ For optimal rendering of displayed results, Wavefront does not include metrics t
 
 **To include obsolete metrics**
 1. Open the chart for edit.
-2. Click the **Advanced** tab and select the **Include Obsolete Metrics** check box.
+2. Click the **Advanced** tab, select the **Include Obsolete Metrics** check box, and click **Save**.
 
 ### Use a Logarithmic Y Axis for Skewed Data
 
@@ -263,7 +263,7 @@ Wavefront accepts and stores data at up to 1 second resolution. Wavefront charts
 
 
 
-The chart above has 240 point buckets and the resolution of each bucket is 30 sec. If a source is sending 1 point per second, each bucket summarizes 30 points. On the other hand, if the source is sending 1 point every minute, no summarization occurs. If you choose the **Count** summarization method you can see how many points are in each bucket.
+The chart above has 240 point buckets and the resolution of each bucket is 30 sec. If a source is sending 1 point per second, each bucket summarizes 30 points. On the other hand, if the source is sending 1 point every minute, no summarization occurs. If you choose the **Count** summarization method, you can see how many points are in each bucket.
 
 ### Factors That Affect Chart Resolution
 
@@ -287,11 +287,11 @@ Here is a series of charts with increasing time window for the _same_ display re
 * When the time window increases from 10 minutes to 2 hours (12 fold), the bucket size increases from 1 sec to 12 sec and the number of buckets remains the same.
 * In contrast, when the time window increases from 2 to 6 hours (3 fold), the bucket intervals increase from 12 to 60 sec (5 fold) and the number of buckets is reduced proportionately: 600 * 3/5 = 360.
 
-  - 10-minute window: 600 point buckets across, with ~1 sec buckets
+  - 10-minute window: 600 point buckets across, with ~1 sec buckets.
 
     ![10 m resolution](images/chart_resolution_10m.png)
 
-  - 2-hour window: 600 point buckets across, with ~12 sec buckets
+  - 2-hour window: 600 point buckets across, with ~12 sec buckets.
 
     ![2h resolution](images/chart_resolution_2h.png)
 
