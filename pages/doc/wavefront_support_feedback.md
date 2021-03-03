@@ -12,14 +12,11 @@ Get in touch using **Slack**: [Wavefront public Slack channel](https://www.wavef
 
 ## Support
 
-To get support, you can:
-
-* Get in touch with Wavefront by VMware Support from inside the product:
+* Get in touch with Technical Support and create a support ticket. See [How to Engage Technical Support](https://help.wavefront.com/hc/en-us/articles/360057219171-How-to-Engage-Technical-Support).
+* Get support from within the product:
   1. Log in to Wavefront. 
   1. Select <strong>Support</strong> from the gear icon.
     <br/>![support menu item](images/get_support.png)
-  
-* Get in touch with Technical Support and create a support ticket. See [How to Engage Technical Support](https://help.wavefront.com/hc/en-us/articles/360057219171-How-to-Engage-Technical-Support).
 
 
 ## Documentation Feedback
