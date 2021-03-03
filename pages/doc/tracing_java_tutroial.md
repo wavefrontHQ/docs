@@ -1,5 +1,5 @@
 ---
-title: Instrumenting An OpenTracing Java Application Tutorial
+title: Tutorial For Instrumenting An OpenTracing Java Application 
 keywords: tracing tutorial
 tags: [tracing, tutorials]
 sidebar: doc_sidebar
@@ -50,7 +50,7 @@ In this tutorial, you configure a sample application with the Wavefront OpenTrac
         {%include tip.html content="If you are not sure of your cluster name or token, open the Wavefront application UI, click **Browse** > **Proxies** > **Add New Proxy**, and click the **Docker** tab. Copy the command on the tab and run it."%}
     
     1. Open the <code>common/src/main/java/com/wfsample/common/Tracing.java</code> file and update the following:
-        * Make the following dependencies are set.
+        * Make sure the following dependencies are set.
           ```
           import com.wavefront.opentracing.WavefrontTracer;
           import com.wavefront.opentracing.reporting.Reporter;
@@ -118,8 +118,7 @@ style="vertical-align:text-bottom;width:28px" alt="icon to click to get the appl
   * Component metrics data sent by each service in your application. 
 1. Click **See All styling Traces**.
   ![The screenshot shows the service dashboard for the styling service. The See all styling traces just below Overview is highlighted.](images/tracing_java_tutorial_drilldown_to_traces_bowser.png)
-1. You are taken to the [Traces Browser](tracing_traces_browser.html). 
-    The Traces browser supports a streamlined task flow for examining traces. You can perform trace queries, view query results, expand traces to see their member spans, and expand individual spans to see their details without having to navigate between pages and pop-ups.
+1. You are taken to the [Traces Browser](tracing_traces_browser.html), which supports a streamlined task flow for examining traces. You can perform trace queries, view query results, expand traces to see their member spans, and expand individual spans to see their details without having to navigate between pages and pop-ups.
   ![The screenshot shows the traces browser.](images/tracing_java_tutorial_traces_browser.png)
 1. Optionally, you can download the traces, and view them later using [Offline Traces](tracing_view_offline_traces.html).
 
