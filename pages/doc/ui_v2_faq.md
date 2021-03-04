@@ -8,7 +8,7 @@ summary: Main improvements in the v2 UI and some FAQs.
 If you're migrating from v1 dashboards and charts to v2, you'll find most of the changes intuitive. This page highlights new features and has some FAQs.
 
 
-{% include shared/badge.html content="Every Wavefront user can view dashboards and make temporary changes. You must have Dashboard permission to save dashboards and charts." %}
+{% include shared/badge.html content="Every Wavefront user can view dashboards and make temporary changes. You must have the Dashboard permission to save dashboards and charts." %}
 
 ## Main Improvements
 
@@ -53,7 +53,7 @@ You can now specify the data you want to display in the <strong>Data</strong> ta
 </tr>
 <tr>
 <td width="40%">
-We made usability improvements for each chart type--and you can use delete, clone, create alert from the icon bar.</td>
+We made usability improvements for each chart type - and you can use delete, clone, and create alert from the icon bar.</td>
 <td width="60%"><img src="images/v2_create_alert.png" alt="create an alert from the ellipsis menu"></td>
 </tr>
 </tbody>
@@ -86,7 +86,7 @@ We've updated the doc for dashboards and charts. From each doc page, you can acc
 ## Chart FAQs from v2 Users
 
 ### Q: How do I add an alert from a chart?
-A: Open the chart, click the **Data** tab, and select **Create Alert** from the ellipsis menu on the far right.
+A: Open the chart, click the **Data** tab, click the ellipsis icon next to the query, and select **Create Alert**.
 
 ![v2 Create Alert](images/v2_create_alert.png)
 
@@ -104,29 +104,29 @@ A: The goal of this UI revision is parity, but we've made a few changes:
 
 ### Q: How does the new time window selector work?
 
-A: Our new time window selector supports a selection of preset times, or you can specify a custome time frame. 4 weeks is not the same as 1 month -- use the custom time window selector to select a full month.
+A: Our new time window selector supports a selection of preset times, or you can specify a custom time frame. 4 weeks is not the same as 1 month -- use the custom time window selector to select a full month.
 
 ![v2 time picker](images/v2_time_picker.png)
 
 ### Q: How do I clone or delete a chart?
 
-A: Open the chart, click the **Data** tab, and select an icon on the right.
+A: Open the chart and on the **Data** tab, click the **Delete** or **Clone** icon on the right of the query.
 
 ![v2 Clone Query](images/v2_clone.png)
 
 ### Q: How can I deselect (hide) a query?
 
-A. Use the eye icon on the right to deselect (hide) or show the results of a query in the chart.
+A: Use the eye icon on the right of the query to hide or show the results of a query in the chart.
 
 ![v2 Hide or show query](images/v2_hide_show.png)
 
 ### Q: How can I copy/paste table chart content in v2?
 
-A. We're working on improving the copy/paste behavior. For now, please use [the third-party CLI](https://github.com/snltd/wavefront-cli) to generate a CSV file. See our [blog about using the CLI ](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/commanding-the-waves-using-the-wavefront-cli).
+A: We're working on improving the copy/paste behavior. For now, please use [the third-party CLI](https://github.com/snltd/wavefront-cli) to generate a CSV file. See our [blog about using the CLI ](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/commanding-the-waves-using-the-wavefront-cli).
 
 ### Q: How can I create an embedded chart in v2?
 
-A. Embedded charts allow you to make a chart available outside Wavefront. We temporarily don't support this functionality for v2, but all your existing embedded charts will continue to work.
+A: Embedded charts allow you to make a chart available outside Wavefront. We temporarily don't support this functionality for v2, but all your existing embedded charts will continue to work.
 
 
 
@@ -142,19 +142,19 @@ A: Use the **Jump To** menu to select a section.
 ### Q: Where's the wrench icon (Dashboard display preferences)?
 
 A: We've consolidated the UI for customizing dashboards.
-1. Select **Edit**
+1. Select **Edit**.
 2. Click **Settings** in the top right.
 3. Set your preferences for the dashboard, click **Accept**, and click **Save** to save the dashboard and your preferences.
 
 ![v2 dashboard preferences](images/v2_dashboard_settings.png)
 
-### Q:Several of my charts now have warnings. What's going on?
+### Q: Several of my charts now have warnings. What's going on?
 
 A: We've moved the warning icon from the bottom right of a chart to the top left to make it more visible. Here's an example with v2 on the left and the same chart in v1 on the right:
 
 ![v2 warnings](images/v2_warning.png)
 
-Wavefront currently doesn't distinguish between warnings and info messages. For example, if a query specifies a time window but doesn't specify d, m, s, etc, we default to m (minutes) and show a warning. Expect an update in an upcoming release.
+Wavefront currently doesn't distinguish between warnings and info messages. For example, if a query specifies a time window but doesn't specify d, m, s, etc., we default to m (minutes) and show a warning. Expect an update in an upcoming release.
 
 ### Q: Dashboard variables have changed. Where do I find out more?
 
