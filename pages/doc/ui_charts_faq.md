@@ -8,7 +8,7 @@ summary: Learn chart customization from the experts.
 
 [Create and Customize Charts](ui_charts.html) describes most of the things you need to know to get started. This page has some special tips and tricks to help you create the user experience you're after.
 
-{% include shared/badge.html content="You must have [Dashboard permission](permissions_overview.html) to save a chart to a dashboard. If you do not have permission, UI menu selections and buttons required to perform the task are not visible." %}
+{% include shared/badge.html content="You must have [Dashboard permission](permissions_overview.html) to save a chart to a dashboard. If you do not have permission, the UI menu selections and buttons required to perform the task are not visible." %}
 
 <!--- Consider including Improve Display Speed with Sampling Option here --->
 
@@ -27,13 +27,13 @@ The following example shows how to use color mapping with a single stat chart.
 <tr>
 <td width="50%">
 <ol>
-<li>In the Data tab, specify the metrics to monitor and give a subtitle. </li>
+<li>On the <strong>Data</strong> tab, specify the metrics to monitor and give a subtitle. </li>
 <li>In the Sparkline tab:</li>
 <ol><li>Select whether to apply the color to the Text or the Background and change <strong>Show Sparkline</strong> to <strong>No Line</strong> if you want a solid color chart. </li>
-<li>Click the <strong>+</strong> next to <strong>Color to Value Mapping</strong> and change the values and colors to fit your use case. In the example on the right, we show green for values under 75, yellow for values under 80, and red for values over 80. </li>
+<li>Click the <strong>+</strong>  icon next to <strong>Color to Value Mapping</strong> and change the values and colors to fit your use case. In the example on the right, we show green for values under 75, yellow for values under 80, and red for values over 80. </li>
 <li>Save your chart. </li></ol>
 </ol></td>
-<td width="50%"><img src="/images/color_mapping_faq.png" alt="create dashboard"></td>
+<td width="50%"><img src="/images/color_mapping_faq.png" alt="create a dashboard and change values and colors"></td>
 </tr>
 </tbody>
 </table>
@@ -48,14 +48,14 @@ A drilldown link sends users to a target dashboard when they click on a chart.
   - Topk
   - Node map
 * For all other chart types, drilldown is available from the ellipsis menu in the top right.
-![drilldown example](images/drilldown_ellipsis.png)
+![drilldown example by selecting an option from the ellipsis menu](images/drilldown_ellipsis.png)
 
 ### Simple Drilldown
 
 In most cases, you want to send users from a chart to another dashboard.
 1. Open the chart for edit and click the **Drilldown Link** tab.
 2. Start typing the name of the target dashboard, select from the options, and save the chart.
-   ![simple drilldown](images/simple_drilldown.png)
+   ![simple drilldown to send users from a chart to another dashboard](images/simple_drilldown.png)
 
 ### Drilldown Using Local Settings
 
@@ -75,9 +75,9 @@ You can set this up as follows:
 1. Inside dashboard 1, define a drilldown link for each single stat chart that:
   - Goes to dashboard 2 when the user clicks one of the single-stat charts.
   - Passes the value of the `az` point tag in as the value of the `az` variable.
-  ![drilldown_definition](images/drilldown_1.png)
+  ![drilldown definition](images/drilldown_1.png)
 2. When a user sees a critical value on a chart and clicks on that chart in dashboard 1, the user is redirected to dashboard 2, and the variable is preset to show the environment that has the problem.
-  ![drilldown_target](images/drilldown_2.png)
+  ![drilldown target](images/drilldown_2.png)
 
 
 ## Why Doesn't the Outer Ring of My Gauge Change?
