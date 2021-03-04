@@ -32,11 +32,11 @@ The best practices on this page help you get optimal results from instrumenting 
 
 ## Best Practices for Sending Trace Data Through a Wavefront Proxy
 
-For reliable performance, use a Wavefront proxy to send trace data to Wavefront. A proxy is required with the Jaeger and Zipkin integrations. [Direct ingestion](direct_ingestion.html#proxy-or-direct-ingestion) might seem like an easy way to get results quickly, but the buffering and queing that the proxy performs is especially useful with trace data.
+For reliable performance, use a Wavefront proxy to send trace data to Wavefront. A proxy is required with the Jaeger and Zipkin integrations. [Direct ingestion](direct_ingestion.html#proxy-or-direct-ingestion) might seem like an easy way to get results quickly, but the buffering and queuing that the proxy performs is especially useful with trace data.
 
 ### Best Practices for Wavefront Observability SDKs
 
-1. [Install and configure the Wavefront proxy](tracing_instrumenting_frameworks.html#to-prepare-a-wavefront-proxy) with listener ports for metrics, histograms, and trace data. All three types of data are necessary for displaying RED metrics derived from spans.
+1. [Install and configure the Wavefront proxy](tracing_instrumenting_frameworks.html#to-prepare-for-using-a-wavefront-proxy) with listener ports for metrics, histograms, and trace data. All three types of data are necessary for displaying RED metrics derived from spans.
 
     **Note:** Configure the proxy with the `histogramDistListener=` property. You might overlook this property if you are already using a proxy that is configured for metrics.
 
