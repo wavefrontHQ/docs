@@ -831,6 +831,10 @@ These functions output continuous time series, with the exception of `integral()
 </thead>
 <tbody>
 <tr>
+<td><a href="ts_mvalues.html">mvalue(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the number of unique values over the specified time window.</td>
+</tr>
+<tr>
 <td><a href="ts_mslope.html">mslope(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the per-second derivative of the linear regression of the time series over the specified time window.</td>
 </tr>
