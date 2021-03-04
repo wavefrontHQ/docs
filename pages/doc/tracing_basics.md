@@ -11,7 +11,7 @@ Distributed tracing enables you to track the flow of work that is performed by a
 
 In an application that consists of multiple services, an incoming request typically starts a chain of requests that are propagated from one service to the next.  Distributed tracing gives you end-to-end visibility into that chain across services, even when those services are running in different environments.
 
-You can use Wavefront charts and dashboards for tasks such as the following:
+You can use Wavefront tracing dashboards and browsers to:
 
 * Monitor your application to make sure its response times are as expected.
 * Troubleshoot and analyze reported errors.
@@ -19,7 +19,9 @@ You can use Wavefront charts and dashboards for tasks such as the following:
 
 ## Distributed Tracing Videos
 
-Watch this video to listen to our Co-founder Clement Pang introduce distributed tracing with Wavefront, and give updates including improved ingestion options and intelligent sampling:
+Watch these videos to listen to our Co-founder Clement Pang introduce distributed tracing with Wavefront, and give updates including improved ingestion options and intelligent sampling:
+
+{% include shared/badge.html content="You need either [Proxy Management permission](permissions_overview.html) or [Direct Data Ingestion permission](permissions_overview.html) to send trace data from your application to Wavefront." %}
 
 <table style="width: 100%;">
 <tbody>
@@ -29,21 +31,19 @@ Watch this video to listen to our Co-founder Clement Pang introduce distributed 
 </tbody>
 </table>
 
-{% include shared/badge.html content="You need either [Proxy Management permission](permissions_overview.html) or [Direct Data Ingestion permission](permissions_overview.html) to send trace data from your application to Wavefront." %}
-
 ## Instrument Your Application
 
 An application must be instrumented for tracing before it can send trace data to Wavefront. Wavefront supports several options. Here's the big picture:
 
 ![tracing architecture](images/tracing_send_data_to_wavefront.png)
 
-### Already Instrumented
+### Configure Your Already Instrumented Applications
 If you have already instrumented your code with Jaeger or Zipkin, you can forward the trace data to Wavefront using an integration. The integration sends the data through a Wavefront proxy.
 
 * You can use OpenTelemetry (OpenTracing and OpenCensus have merged to form OpenTelemetry) to send traces to Wavefront using the Jaeger or Zipkin integration. See [OpenTelemetry](opentelemetry.html#sending-trace-data-to-wavefront) for details.
-* If you have configured your applications using OpenTracing instrument your code with [Jaeger](jaeger.html) or [Zipkin](zipkin.html), you can set up a [tracing integration](tracing_integrations.html) to forward the trace data to Wavefront.
+* If you have configured your applications using OpenTracing instrument your code with Jaeger or Zipkin, you can set up a [tracing integration](tracing_integrations.html) to forward the trace data to Wavefront.
 
-### Not Instrumented
+### Configure Applications That are Not Instrumented
 If you have not yet instrumented your code, you can add instrumentation by using [Wavefront OpenTracing SDKs or the Wavefront Java Tracing Agent](tracing_instrumenting_frameworks.html#step-2-get-data-flowing-into-wavefront).
 The Wavefront OpenTracing SDKs let you to [choose how to send trace data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data-to-wavefront) -- through a Wavefront proxy or directly to the Wavefront service. Using a Wavefront proxy is generally recommended. <!--- See XX for guidelines for choosing a proxy vs. direct ingestion. --->
 
@@ -53,11 +53,11 @@ You use the Wavefront UI to visualize the trace data that you collect from your 
 
 <img src="images/tracing_ui.png" alt="tracing user interfaces"/>
 
-### Application Status
+### Examine Applications Using Application Status
 
 Get an overview of how the applications and services are linked, understand the health of each service, and troubleshoot when your applications or services run into issues. You can get an overview and see the overall health of each application using the application map, table view and grid view. See [Application Status](tracing_ui_overview.html).
 
-* [**Application Map**](tracing_ui_overview.html#application-map) map gives you an overview of how the applications and services are linked, lets you focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and the tracing traffic in the application.
+* [**Application Map**](tracing_ui_overview.html#application-map) view gives you an overview of how the applications and services are linked. You can focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and see the tracing traffic, including the traffic direction.
 
   ![application map](/images/Application_map_intro.png)
 
@@ -68,28 +68,28 @@ Get an overview of how the applications and services are linked, understand the 
   <img src="/images/tracing_grid_view_releasenotes.png" alt="grid view of the services grouped by the application"/>
 
 
-### Service Dashboard
+### Examine Application RED Metrics Using Service Dashboard
 
 The default, read-only [dashboard for a service](tracing_service_dashboard.html) lets you explore trace data sent by each service in your application.
 ![service dahsboard](/images/service_dashboard_intro.png)
 
-### Operations Dashboard
+### Examine Operation RED Metrics Using Operation Dashboard
 
-The [Operations Dashboard](tracing_operation_dashboard.html) shows the RED metrics for each operation. You can view data for each operations using the filters and drill down to the traces browser.
-![operations dashboard](images/tracing_operations_dashboard_intro.png)
+The [Operation Dashboard](tracing_operation_dashboard.html) shows the RED metrics for each operation. You can view data for each operations using the filters and drill down to the traces browser.
+![operation dashboard](images/tracing_operations_dashboard_intro.png)
 
-### Traces Browser
+### Examine Traces Using Traces Browser
 
 The [Traces Browser](tracing_traces_browser.html) supports a streamlined task flow for examining traces. You can perform trace queries, view query results, expand traces to see their member spans, and expand individual spans to see their details without having to navigate between pages and pop-ups.
 ![traces browser](/images/tracing_browser_intro.png)
 
-### Offline Traces
+### Examine Downloaded Traces Using Offline Traces
 
 You can export traces from Wavefront, save them locally as JSON files, and view them later using [Offline Traces](tracing_view_offline_traces.html).
 
 ![Shows how the offline traces look once you upload the JSOn file that has the imported trace details.](images/tracing_offline_tracing_view.png)
 
-### Application Configuration
+### Configure Applications Using Application Configuration
 
 The Apdex score helps you compare the response time of a service based on the response time threshold that you define. Define the response time threshold for each service using the <a href="tracing_apdex.html">Application Configuration page</a>.
 
