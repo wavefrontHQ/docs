@@ -34,14 +34,14 @@ Let's take a look at how you can configure your Spring Boot application with Wav
 
 ## Send Data to Wavefront
 
-1. Open the sample pet clinic application using an IDE and add the following code:
+1. Open the sample pet clinic application using an IDE and add the following code to the `pom.xml` file:
     ```
     <dependency>
       <groupId>com.wavefront</groupId>
       <artifactId>wavefront-spring-boot-starter</artifactId>
     </dependency>
     ```
-1. Import the Wavefront for Spring Boot Bill of Materials (BOM) to your project.
+1. Import the Wavefront for Spring Boot Bill of Materials (BOM) to your project. Add the following code to the `pom.xml` file:
     {{site.data.alerts.tip}}
       <p> Spring Boot version 2.3.4 is used for this tutorial. If you are using another version make sure the Wavefront for Spring Boot dependency is compatible with the Spring Boot release version. See <a href="wavefront_springboot.html#versionCompatibility">System Requirements</a> to get the correct dependency version.</p>
     {{site.data.alerts.end}}
@@ -95,8 +95,8 @@ Let's take a look at how you can configure your Spring Boot application with Wav
 &lt;scope&gt;import&lt;/scope&gt;
 &lt;/dependency&gt;
 .....
-&lt;dependencies&gt;
-&lt;dependencyManagement&gt;
+&lt;/dependencies&gt;
+&lt;/dependencyManagement&gt;
             </pre>
 
             </li>
