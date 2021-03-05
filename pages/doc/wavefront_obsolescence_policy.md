@@ -80,7 +80,7 @@ Wavefront delta counter behavior changed with [Release 2020.26](2020.26.x_releas
 Wavefront updates system dashboard and integration content. However, you might have to update custom delta counters.
 
 * **Automatic Updates**. Wavefront uses delta counters in [tracing RED metrics](trace_data_details.html#red-metrics) and in certain internal `~` metrics [collected by Wavefront](wavefront_monitoring.html#internal-metrics-overview) such as `~collector.points.reported`. All Wavefront-provided dashboards that use these data will be updated for you.
-* **User Updates**. If you have cloned any Wavefront dashboards that use delta counters or have created any custom dashboards or alerts that use delta counters, you are responsible for updating the queries in related charts and alerts yourself.
+* **User Updates**. If you have cloned any Wavefront dashboards that use delta counters or have created any custom dashboards, charts, or alerts, you are responsible for updating the queries in related charts and alerts yourself.
 
 
 ### How to Find Queries that Might Need Modification
