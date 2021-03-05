@@ -56,11 +56,11 @@ The process is very similar for dashboards and for alerts.
 4. To revoke access, delete the group or user. 
 5. Click **Update**.
 
-## Embed a Chart in Other UIs
+## Embed a Chart in Other UIs and Allow or Restrict Access
 
 Wavefront supports the ability to embed an interactive chart outside of Wavefront. You must have [Embed Charts Permission](permissions_overview.html#embed-charts-permission) to create embedded charts.
 
-To embed a chart:
+### Embed a Chart in Other UIs
 
 1. Open the chart that you want to embed in the chart editor.
     1. Navigate to the dashboard in which your chart is included, click the ellipsis icon, and select **Edit**.
@@ -74,3 +74,39 @@ To embed a chart:
     ![embed_chart_snippet](images/embed_chart_snippet.png)
 
 3. Copy the snippet and paste it into the desired location. You can adjust the `width` and `height` parameters.
+
+### Allow or Deny Access to Embedded Charts
+
+You can apply access policies and deny or allow access to the embedded charts by using the Wavefront REST API. The `Access Policy` controls which IP addresses can access the embedded charts and doesn't affect any other URLs or Wavefront functionality. Learn more about the [categories in the Wavefront API](wavefront_api.html#wavefront-rest-api-categories).
+
+When you apply an access policy rule, take in mind the following:
+
+* When you apply an `Access Policy` rule, it may take up to 10 minutes to take effect.
+* If you want to remove the rules at a later point, you can set the policy to `{"policyRules": []}”`.
+* Only IPv4 subnet masks are supported.
+* You should put any DENY rules at the end.
+
+The following snippet provides with access a single IPv4 address, namely `192.168.1.2`. The IPv4 addresses that you provide when you apply Access Policy rules, must be in CIDR format to match an IP address range. All other IP addresses will be denied. 
+
+When a request comes in, the rules are checked in the order in which you entered them and exited as soon as a matching rule is found. You must specify all of your ALLOW rules first and the DENY rules at the end to catch any additional IP addresses. 
+
+```
+
+{
+ "policyRules": [
+ {
+   "name": "allow-single-ip",
+   "description": "Allow a single IP address.",
+   "action": "ALLOW",
+   "subnet": "192.168.1.2/32"
+ },
+ {
+   "name": "default-deny",
+   "description": "Deny All.",
+   "action": "DENY",
+   "subnet": "0.0.0.0/0"
+ }
+ ]
+}
+
+```
