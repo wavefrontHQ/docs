@@ -39,22 +39,28 @@ The `mvalues()` function counts the number of the unique values over a shifting 
 
 ## Example
 
-The following example returns the CPU percentage processor time on a Windows host, filtered by host name.
+The following query returns the number of product versions over time for points that are tagged with `prod`.
 
 ```
-ts(win.cpu.Percent.Processor.Time, source="my-host-name")
-
-```
-![Windows host CPU percent processor time before applying the mvalues function](images/ts_mvalues_before.png)
-
-If you only want to see the unique results over the last five minutes, apply the `mvalues ()` function.
-
-```
-mvalues(5m, ts(win.cpu.Percent.Processor.Time, source="my-host-name"))
+ts(build.version, tag=prod)
 
 ```
 
-![Windows host CPU percent processor time after applying the mvalues function](images/ts_mvalues_after.png)
+You can see the result under in the top right corner of the chart, under Value.
+
+To narrow down the search and see the current number of product versions running across your environment, apply the `mvalues ()` function.
+
+```
+mvalues(5m, ts(build.version, tag=prod))
+
+```
+
+You can also see the current number of product versions running across your environment for points that are tagged with `prod`, contain `primary` and are grouped by `sourcetags`.
+
+```
+mvalues(5m, ts(build.version, tag=prod and tag="*primary"), sourcetags)
+
+```
 
 ## See Also
 
