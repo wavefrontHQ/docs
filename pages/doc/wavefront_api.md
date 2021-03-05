@@ -110,7 +110,7 @@ Here's an example for generating a Java client:
 
 The REST API supports the following objects corresponding to different categories of management tasks:
 
-- **Access Policy** - Lets you allow or deny access to embedded charts. For information see, [Embed a Chart in Other UIs](ui_sharing.html#embed-a-chart-in-other-uis-and-allow-or-restrict-access).
+- **Access Policy** - Lets you allow or deny access to embedded charts. For information, see [Allow or Deny Access to Embedded Charts](ui_sharing.html#ui_sharing.html#allow-or-deny-access-to-embedded-charts).
 - **Access** - Provides information on the access level of an entity. See [Notes on the Access Category](#access) below.
 - **Account (User and Service Account)** - Allows users with [Accounts, Groups & Roles permission](permissions_overview.html) to retrieve a list of all [accounts](users_roles.html), create, update, and delete accounts and manage permissions and groups associated with accounts.
 - **Alert** - Retrieve active, snoozed, in-maintenance, and invalid alerts. Users with [Alert permission](permissions_overview.html) can create and update alerts.
