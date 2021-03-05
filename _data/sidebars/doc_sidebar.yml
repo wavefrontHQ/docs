@@ -650,6 +650,10 @@ entries:
           - title: Service Dashboard
             url: /tracing_service_dashboard.html
             output: web
+            
+          - title: Operation Dashboard
+            url: /tracing_operation_dashboard.html
+            output: web
 
           - title: Traces Browser
             url: /tracing_traces_browser.html
