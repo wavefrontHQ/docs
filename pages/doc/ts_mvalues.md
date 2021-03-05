@@ -36,7 +36,6 @@ Returns the number of unique values over the specified time window.
 
 The `mvalues()` function counts the number of the unique values over a shifting time window. For example, `mvalues(5m, ts(~sample.db.bytes.sent), env)` returns the number of unique bytes sent to and from the database, grouped by environment over a 5-minute time window.
 
-
 ## Example
 
 The following query returns the number of product versions over time for points that are tagged with `prod`.
