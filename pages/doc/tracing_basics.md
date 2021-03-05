@@ -67,7 +67,6 @@ Get an overview of how the applications and services are linked, understand the 
 * [**Grid view**](tracing_ui_overview.html#grid-view) lists the application and services in a grid. You can see the RED metrics for each of the application’s services.
   <img src="/images/tracing_grid_view_releasenotes.png" alt="grid view of the services grouped by the application"/>
 
-
 ### Examine Application RED Metrics Using Service Dashboard
 
 The default, read-only [dashboard for a service](tracing_service_dashboard.html) lets you explore trace data sent by each service in your application.

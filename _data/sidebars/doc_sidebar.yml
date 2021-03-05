@@ -146,6 +146,10 @@ entries:
       url: /wavefront_release_notes.html
       output: web
 
+    - title: 2021-08.x Release Notes
+      url: /2021.08.x_release_notes.html
+      output: web
+      
     - title: 2020-42.x Release Notes
       url: /2020.42.x_release_notes.html
       output: web
@@ -164,10 +168,6 @@ entries:
 
     - title: 2020-22.x Release Notes
       url: /2020.22.x_release_notes.html
-      output: web
-
-    - title: 2020-14.x Release Notes
-      url: /2020.14.x_release_notes.html
       output: web
 
     - title: Wavefront & Kubernetes Release Notes

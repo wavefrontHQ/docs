@@ -147,7 +147,7 @@ sum(ts(~sample.cpu.loadavg.1m), az, sources)
 sum(ts(~sample.cpu.loadavg.1m) by (az, sources))
 ```
 
-* The `without` keyword allows you to group by all possible group by parameters except for those listed. The following example groups by all available grouping parameters *except for* sources and source tags. In this case, that means grouping by the two point tag keys `az` and `env`.
+* The `without` keyword allows you to group all possible group parameters except for those listed. The following example groups all available grouping parameters *except for* sources and source tags. In this case, that means grouping by the two point tag keys `az` and `env`.
 
 ![group without example](images/group_without.png)
 
