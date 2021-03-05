@@ -6,30 +6,17 @@ permalink: wavefront_support_feedback.html
 summary: Get help with Wavefront and give feedback.
 ---
 
-
-## Slack
-Get in touch using **Slack**: [Wavefront public Slack channel](https://www.wavefront.com/join-public-slack)
-
 ## Support
-Get in touch with Wavefront by VMware Support from inside the product:
 
-<table style="width: 100%;">
-<tbody>
-<thead>
-<tr><th width="50"> </th><th width="50%"> </th></tr>
-</thead>
-<tr><td>
-<ol>
-<li>Log in to Wavefront. </li>
-<li>Select <strong>Support</strong> from the gear icon. </li>
-</ol>
-</td>
-<td>
-<img src="/images/get_support.png" alt="support menu item">
-</td></tr>
-</tbody>
-</table>
+* Get in touch with Technical Support and create a support ticket. See [How to Engage Technical Support](https://help.wavefront.com/hc/en-us/articles/360057219171-How-to-Engage-Technical-Support).
+* Get support from within the product:
+  1. Log in to Wavefront. 
+  1. Select <strong>Support</strong> from the gear icon.
+    <br/>![support menu item](images/get_support.png)
 
 
 ## Documentation Feedback
 To give feedback on the documentation, click the <span style="color:#337AB7"><i class="fa fa-envelope-o"></i> Send Feedback</span> link in the footer or post an issue in our <a href="{{site.github_issues_path}}">GitHub repo</a>.
+
+## Slack
+Discuss Wavefront on **Slack**: [Wavefront public Slack channel](https://www.wavefront.com/join-public-slack)

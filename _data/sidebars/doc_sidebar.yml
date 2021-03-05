@@ -627,7 +627,7 @@ entries:
             url: /tracing_instrumenting_frameworks.html
             output: web
 
-          - title: Obtain 3rd Party Traces
+          - title: Jaeger or Zipkin
             url: /tracing_integrations.html
             output: web
 

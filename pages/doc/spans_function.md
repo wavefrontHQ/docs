@@ -65,18 +65,24 @@ limit(100, traces(spans("beachshirts.styling.makeShirts")))   //  spans() is exp
 
 ## Examples
 
-Assume your team has instrumented an application called `beachshirts` for tracing. This application has a service called `styling` that executes an operation called `makeShirts`. The application is deployed on several hosts in each of several clusters.
+Assume your team has instrumented an application called `beachshirts` for tracing. This application has a service called `styling` that executes an operation called `makeShirts`. The application is deployed on several hosts in each of the several clusters.
 
 **Note:** To keep query execution manageable, these examples use `traces()` with the `limit()` function.
 
-To display the traces that include long spans for calls to `makeShirt`:
-- `limit(100, traces(highpass(11s, spans("beachshirts.styling.makeShirts"))))`
+* To display the traces that include long spans for calls to `makeShirt`:
+  ```
+  limit(100, traces(highpass(11s, spans("beachshirts.styling.makeShirts"))))
+  ```
 
-To display the traces that include short spans for any operation in the `styling` service:
-- `limit(100, traces(lowpass(3ms, spans("beachshirts.styling.*"))))`
+* To display the traces that include short spans for any operation in the `styling` service:
+  ```
+  limit(100, traces(lowpass(3ms, spans("beachshirts.styling.*"))))
+  ```
 
-To display the traces that include spans for any operation in the `beachshirts` application executing on either of two specified hosts:
-- `limit(100, traces(spans("beachshirts.*.*" and (source="prod-app1" or source="prod-app10"))))`
+* To display the traces that include spans for any operation in the `beachshirts` application executing on either of two specified hosts:
+  ```
+  limit(100, traces(spans("beachshirts.*.*" and (source="prod-app1" or source="prod-app10"))))
+  ```
 
 
 <a name="filters"></a>
