@@ -11,7 +11,7 @@ summary: Chart types and configuration options for each chart type.
 <tbody>
 <tr>
 <td width="80%">
-Charts allow you to view and examine your metrics. You can <a href="ui_examine_data.html">interact directly with charts in real time</a>--zoom in, zoom out, change the time window, and so on.
+Charts allow you to view and examine your metrics. You can <a href="ui_examine_data.html">interact directly with charts in real time</a> -- zoom in, zoom out, change the time window, and so on.
 <br>
 Users with dashboard permission can customize many aspects of the chart and save their changes. This page is a detailed reference to the tabs in the different chart types. We repeat tab reference for each chart type.</td>
 <td width="20%"><a href="ui_chart_reference_v1.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
@@ -26,7 +26,7 @@ Users with dashboard permission can customize many aspects of the chart and save
 
 For each chart (with the exception of a Markdown chart) you specify one or more queries.
 
-When you select **Data**, you can:
+When you click **Data**, you can:
 * View queries for the chart and add lines.
 * Use [Chart Builder](chart_builder.html) or [Query Editor](query_editor.html).
 * Clone, delete, or hide one or more lines.
@@ -151,7 +151,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 <td>Offers these options:
 <ul><li>
 <strong>Show All</strong></li>
-<li><strong>Top X </strong>: Shows the top X (e.g. top 5) point tags.
+<li><strong>Top X</strong>: Shows the top X (e.g., top 5) point tags.
 </li>
 <li><strong>Custom</strong>: Allows you to specify selected point tags.
 </li>
@@ -269,7 +269,7 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 Controls the legend displayed for the chart by default. The options are the same for line plot and point plot charts.
 
 When you look at the chart, you can also control the legend with these keyboard shortcuts:
-* **Shift-P** -- Pin the legend.
+* **Shift+P** -- Pin the legend.
 * **Shift** -- Show detailed units in the legend.
 
 <table>
@@ -311,7 +311,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 <td>Offers these options:
 <ul><li>
 <strong>Show All</strong></li>
-<li><strong>Top X </strong>: Shows the top X (e.g. top 5) point tags.
+<li><strong>Top X</strong>: Shows the top X (e.g., top 5) point tags.
 </li>
 <li><strong>Custom</strong>: Allows you to specify selected point tags.
 </li>
@@ -492,7 +492,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 <td>Offers these options:
 <ul><li>
 <strong>Show All</strong></li>
-<li><strong>Top X </strong>: Shows the top X (e.g. top 5) point tags.
+<li><strong>Top X</strong>: Shows the top X (e.g., top 5) point tags.
 </li>
 <li><strong>Custom</strong>: Allows you to specify selected point tags.
 </li>
@@ -646,7 +646,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 </tr>
 <tr>
 <td>Filter</td>
-<td>The value and number of metrics displayed in the legend. Specify <strong>Top</strong> or <strong>Bottom</strong> and then select the number (e.g. 5 to show the top 5 time series) and, optionally, an evaluation filter.
+<td>The value and number of metrics displayed in the legend. Specify <strong>Top</strong> or <strong>Bottom</strong> and then select the number (e.g., 5 to show the top 5 time series) and, optionally, an evaluation filter.
 </td>
 </tr>
 <tr>
@@ -654,7 +654,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 <td>Offers these options:
 <ul><li>
 <strong>Show All</strong></li>
-<li><strong>Top X </strong>: Shows the top X (e.g. top 5) point tags.
+<li><strong>Top X</strong>: Shows the top X (e.g., top 5) point tags.
 </li>
 <li><strong>Custom</strong>: Allows you to specify selected point tags.
 </li>
@@ -736,7 +736,7 @@ A **table** chart allows fine-grained customization in the Format tab but doesn'
 </tr>
 <tr>
 <td>Show Raw Values</td>
-<td>Check to display the raw metric values (e.g. 212.00 milliseconds) or values using scientific notation (SI), e.g. 212 milliseconds.
+<td>Check to display the raw metric values (e.g., 212.00 milliseconds) or values using scientific notation (SI), e.g., 212 milliseconds.
 </td>
 </tr>
 <tr>
@@ -1530,7 +1530,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 <td>Offers these options:
 <ul><li>
 <strong>Show All</strong></li>
-<li><strong>Top X </strong>: Shows the top X (e.g. top 5) point tags.
+<li><strong>Top X</strong>: Shows the top X (e.g., top 5) point tags.
 </li>
 <li><strong>Custom</strong>: Allows you to specify selected point tags.
 </li>
