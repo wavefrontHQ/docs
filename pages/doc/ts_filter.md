@@ -59,10 +59,10 @@ sum(ts(collector.points.reported, tag=prod and (tag=sf or tag=ny)), sourcetags)
 
 This query returns the sum for all time series with points that are tagged with `prod` and also with either `sf` or `la`, and groups the result by source tag, so you see 3 lines, one for each tag.
 
-If you only want to see the `sf` and `la` line (don't want to see the `prod` tag) you can fine-tune the query by using `filter()` and including `not` with the `sourcetags` filter:
+If you only want to see the `sf` and `la` lines (don't want to see the `prod` tag) you can fine-tune the query by using `filter()` and including `not` with the `sourcetags` filter:
 
 ```
-filter(sum(ts(collector.points.reported, tag=prod and (tag=sf or tag=ny)), sourcetags), not prod)
+filter(sum(ts(collector.points.reported, tag=prod and (tag=sf or tag=ny)), sourcetags), not tag=prod)
 ```
 
 

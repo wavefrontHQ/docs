@@ -104,7 +104,7 @@ Span details include:
 
 * Application tags. These are the application, service, cluster, and shard, as selected by the trace query.
 * Other tags, including the trace ID.
-* A clickable link to the corresponding dashboard that lets you examine the metrics associated with the call.
+* A clickable link to the corresponding Operation Dashboard that lets you examine the RED metrics associated with the call.
 
 If your spans have been instrumented to show span logs, you can click **Logs** to fetch the logs and drill down to examine them. We don't show span logs by default for better browser performance.
 

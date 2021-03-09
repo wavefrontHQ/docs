@@ -91,7 +91,6 @@ The following snippet provides with access a single IPv4 address, namely `192.16
 When a request comes in, the rules are checked in the order in which you entered them and exited as soon as a matching rule is found. You must specify all of your ALLOW rules first and the DENY rules at the end to catch any additional IP addresses. 
 
 ```
-
 {
  "policyRules": [
  {
@@ -108,5 +107,4 @@ When a request comes in, the rules are checked in the order in which you entered
  }
  ]
 }
-
 ```
