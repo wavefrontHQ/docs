@@ -39,9 +39,9 @@ Let's walk through the following scenario to get a quick overview of the applica
   <tr>
     <td>
       <b>Step 1:  Search for applications</b> <br/>
-      Click <b>Tag</b>, select <b>application</b> > <b>beachshirts</b>, and click <b>Search</b>.<br/>
+      Click <b>Application/Service</b>, select <b>beachshirts</b>, and click <b>Search</b>.<br/>
 
-      You can search for applications by applying one or more filters, such as the application name, cluster, shard, or any other application tag.
+      You can refine your search further by applying one or more filters, such as the cluster, shard, or span.kind.
       
       <br/><br/>You see the data that match your search filters and the nearest neighboring service. For example, if you filter for the beachshirts application's styling service, you only see the services that directly communicate with the styling service.
       
@@ -169,7 +169,8 @@ style="vertical-align:text-bottom;width:28px" alt="icon to click to get the tabl
 ![the image shows the table view of all the applications that send data to Wavefront. It has helpers to show you what to do with each UI section. For example, how to filter applications or services, change the table settings or the legend settings, and how to change back to the application map view or the grid view](images/tracing_table_view.png)
 
 Using the table view, you can:
-* Examine the applications and services, or search for a particular application or service by applying filters.
+* Examine the applications and services, or search for a particular application or service by applying filters. 
+  <br/>You can refine your search further by applying one or more filters, such as the cluster, shard, or span.kind.
 * Click the name of the service to [drill down to the Service Dashboard](#explore-the-default-service-dashboard).
 * Sort data:
   - Sort the application and service names alphabetically.
@@ -334,6 +335,7 @@ style="vertical-align:text-bottom;width:28px" alt="icon to click to get the tabl
 
 On the page for a particular application, you can:
 * Examine the services in the application, or search for a particular service by applying filters.
+  <br/>You can refine your search further by applying one or more filters, such as the cluster, shard, or span.kind.
 * View the inventory of component frameworks that each service is built on.
 * Inspect RED metrics to obtain a status summary for a service:
   - The request rate of the service.
