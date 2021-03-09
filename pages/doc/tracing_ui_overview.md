@@ -55,14 +55,30 @@ Let's walk through the following scenario to get a quick overview of the applica
       <b>Step 2:  Customize the application map view</b> <br/>
       You can customize how you see your applications and services on the application map using the settings icon.
       <ul>
-      <li><b>Service layout</b>: View the services in the default, concentric, circle, or grid layout. Choose the layout that helps you understand how your services are linked.</li>
-      <li><b>Isolated Services</b>: These are services that don't interact with any other services or applications.</li>
-      <li><b>External Service</b>: These are external applications or services, such as AWS services or Database services, your application communicates with. You can group these services too. If you want to group all the database services and view it as a single external service, select <b>Group External Services</b>.</li>
-      <li><b>Show Service Labels</b>: When you have many services in an application, the service names on the application map look cluttered. To get a clear view of your application and services, disable the <b>Show Service Labels</b> option.</li>
+        <li>
+          <b>Service layout</b>: View the services in the default, concentric, circle, or grid layout. Choose the layout that helps you understand how your services are linked.
+        </li>
+        <li>
+          <b>Isolated Services</b>: These are services that don't interact with any other services or applications.
+        </li>
+        <li>
+          <b>External Service</b>: These are external applications or services, such as AWS services or Database services, your application communicates with. You can group these services too.
+        </li>
+          <ul>
+            <li>
+              <b>Group External Services</b>: Select this setting if you want to group services. For example, group all the database services and view it as a single external service.
+            </li>
+          </ul>
+        <li><b>Show Service Labels</b>: When you have many services in an application, the service names on the application map look cluttered. To get a clear view of your application and services, disable the <b>Show Service Labels</b> option or select <b>Fade Labels on Zoom</b>. </li>
+          <ul>
+            <li>
+              <b>Fade Labels on Zoom</b>: Hide labels of small services and gradually expose them as you zoom in on the application map. You always see the labels of the services in red, based on the legend settings you select.
+            </li>
+          </ul>
       </ul>
       </td>
     <td>
-      <iframe src="https://bcove.video/34vKPYb" width="400" height="275" allowfullscreen="true" alt="application map settings"></iframe>
+      <img src="images/tracing_application_map_settings.png" alt="screenshot of the application map settings. The settings are explained on the left side."/>
     </td>
   </tr>
   <tr>
@@ -110,7 +126,9 @@ Let's walk through the following scenario to get a quick overview of the applica
       <b>Step 7: Click on a tracing traffic</b>
       <br/>When you click on the tracing traffic between the styling and printing service, you can:
         <ul><li>View Request, Error, and Duration (RED) metrics for the specific edge.</li>
-        <li> Navigate to the Traces Browser when you click <b>View traces for this traffic</b>.</li></ul>
+        <li> Navigate to the Traces Browser when you click <b>View traces for this traffic</b>.</li>
+        <li> Navigate to the Operation Dashboard to view RED metrics of the inbound and outbound operations when you click <b>View styling dashboard (outbound)</b> or <b>View printing dashboard (inbound)</b>.</li>
+        </ul>
       </td>
     <td><img src="/images/tracing_application_map_edge.png" alt="The pop up when you click a tracing traffic that is bidirectional"/></td>
   </tr>
