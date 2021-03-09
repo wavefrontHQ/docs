@@ -380,7 +380,7 @@ management.metrics.export.wavefront.uri=$wavefront_instance
 ```
 
 * `$API_Token` is a valid [API token for your Wavefront instance](users_account_managing.html#generate-an-api-token).
-* `$wavefront_instance` is the name of your Wavefront instance, for example, `example.wavefront.com`.
+* `$wavefront_instance` is the name of your Wavefront instance, for example, `https://example.wavefront.com`.
 
 
 ### Step 3:  View Your Data on Wavefront
