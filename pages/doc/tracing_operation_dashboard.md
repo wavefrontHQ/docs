@@ -25,7 +25,7 @@ See the Operation Dashboard:
 ![examine services](images/tracing_operations_dashboard.png)
 
 On the dashboard for a particular service, you can:
-* Select the time and time zone in the task bar to customize the chart time properties.
+* Select the time and time zone in the taskbar to customize the chart time properties.
 * Filter the metrics based on the operation, application, service, spankind, HTTP status code, cluster, shard, or source.
 * Select **Detailed View** or **Summarized View** to change the level of detail for charts.
 * Use <img src="images/tracing_link_icon.png"
@@ -45,7 +45,7 @@ The standard dashboard for operations is read-only. To create a customizable cop
 1. Click **Clone** from the ellipsis menu.
 2. In the cloned dashboard, add your own charts or customize the RED metrics charts. 
 
-After you save the clone, you can find it by name from the **Dashboards** menu of the task bar, and you can use it to drill down to the Traces Browser.
+After you save the clone, you can find it by name from the **Dashboards** menu of the taskbar, and you can use it to drill down to the Traces Browser.
 
 ## Save Charts in the Operation Dashboard
 
