@@ -38,26 +38,26 @@ The `mvalues()` function counts the number of the unique values over a shifting 
 
 ## Example
 
-The following query returns the number of product versions over time for points that are tagged with `prod`.
+The following query returns the number of product versions over time.
 
 ```
-ts(build.version, tag=prod)
+ts(build.version)
+
+```
+
+To narrow down the search and see the current number of product versions running across your environment, apply the `mvalues ()` function.
+
+```
+mvalues(5m, ts(build.version))
 
 ```
 
 You can see the result under in the top right corner of the chart, under Value.
 
-To narrow down the search and see the current number of product versions running across your environment, apply the `mvalues ()` function.
+You can also see the current number of product versions running across your environment for points that are tagged with `primary` and are grouped by `sourcetags`.
 
 ```
-mvalues(5m, ts(build.version, tag=prod))
-
-```
-
-You can also see the current number of product versions running across your environment for points that are tagged with `prod`, contain `primary` and are grouped by `sourcetags`.
-
-```
-mvalues(5m, ts(build.version, tag=prod and tag="*primary"), sourcetags)
+mvalues(5m, ts(build.version, tag="*-primary"), sourcetags)
 
 ```
 
