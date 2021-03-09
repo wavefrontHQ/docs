@@ -52,90 +52,8 @@ Let's walk through the following scenario to get a quick overview of the applica
   </tr>
   <tr>
     <td>
-      <b>Step 2:  Customize the application map view</b> <br/>
-      You can customize how you see your applications and services on the application map using the settings icon.
-      <ul>
-        <li>
-          <b>Service layout</b>: View the services in the default, concentric, circle, or grid layout. Choose the layout that helps you understand how your services are linked.
-        </li>
-        <li>
-          <b>Isolated Services</b>: These are services that don't interact with any other services or applications.
-        </li>
-        <li>
-          <b>External Service</b>: These are external applications or services, such as AWS services or Database services, your application communicates with. You can group these services too.
-        </li>
-          <ul>
-            <li>
-              <b>Group External Services</b>: Select this setting if you want to group services. For example, group all the database services and view it as a single external service.
-            </li>
-          </ul>
-        <li><b>Show Service Labels</b>: When you have many services in an application, the service names on the application map look cluttered. To get a clear view of your application and services, disable the <b>Show Service Labels</b> option or select <b>Fade Labels on Zoom</b>. </li>
-          <ul>
-            <li>
-              <b>Fade Labels on Zoom</b>: Hide labels of small services and gradually expose them as you zoom in on the application map. You always see the labels of the services in red, based on the legend settings you select.
-            </li>
-          </ul>
-      </ul>
-      </td>
-    <td>
-      <img src="images/tracing_application_map_settings.png" alt="screenshot of the application map settings. The settings are explained on the left side."/>
-    </td>
-  </tr>
-  <tr>
-    <td markdown="span">
-      **Step 3: Hover over a service** <br/>
-      Hover over the styling service of the beachshirts application. It highlights how the styling service communicates with the other services in the application.
-      </td>
-    <td><img src="/images/tracing_appmap_hover_over_service.png" alt="Hover over the styling service"/></td>
-  </tr>
-  <tr>
-    <td>
-      <b>Step 4: Click on a service</b>
-      <br/>Click on the styling service. Now, you can:
-        <ul>
-          <li>View Request, Error, and Duration (RED) metrics of the specific service.</li>
-          <li>See how the service is performing using the Apdex score.</li>
-          <li> View how a specific service communicates with the other services in an application when you click <b>Focus</b>.</li>
-          <li> Navigate to the Service Dashboard when you click <b>Dashboard</b>.</li>
-          <li> Navigate to the Traces Browser when you click <b>Traces</b>.</li>
-          <li> See the components used by the service. The styling service uses the OpenTracing, Java, Dropwizard, and Jersey components.</li>
-        </ul>
-      </td>
-    <td><img src="/images/tracing_application_map_service.png" alt="Popup when you click on a service"/></td>
-  </tr>
-  <tr>
-    <td markdown="span">
-      **Step 5: Focus on a service**<br/>
-      Click on a service and then click <b>Focus on service</b> to focus on the styling service of the beachshirts application.<br/>
-
-      This will help you focus on a specific service when you have many services in your application.
-      </td>
-    <td><img src="/images/tracing_appmap_focus_service.png" alt="Focus on the styling service"/></td>
-  </tr>
-  <tr>
-    <td markdown="span">
-      **Step 6: Hover over a tracing traffic** <br/>
-      Hover over the tracing traffic between the styling and shopping service. You see that they send requests to each other.
-
-      <br/>When you hover over a tracing traffic (the arrow that goes from one service to the other). It highlights the direction of the requests between the two services. <br/>Tracing traffic is bidirectional if the two services send requests to each other.
-      </td>
-    <td><img src="/images/tracing_appmap_bidirectional_edge.png" alt="Hover over the styling service"/></td>
-  </tr>
-  <tr>
-    <td>
-      <b>Step 7: Click on a tracing traffic</b>
-      <br/>When you click on the tracing traffic between the styling and printing service, you can:
-        <ul><li>View Request, Error, and Duration (RED) metrics for the specific edge.</li>
-        <li> Navigate to the Traces Browser when you click <b>View traces for this traffic</b>.</li>
-        <li> Navigate to the Operation Dashboard to view RED metrics of the inbound and outbound operations when you click <b>View styling dashboard (outbound)</b> or <b>View printing dashboard (inbound)</b>.</li>
-        </ul>
-      </td>
-    <td><img src="/images/tracing_application_map_edge.png" alt="The pop up when you click a tracing traffic that is bidirectional"/></td>
-  </tr>
-  <tr>
-    <td>
-    <b>Step 8: Update the legend</b> <br/>
-    Click the settings icon and select Error or Duration. These settings can be configured by each user and apply to the table view, and grid view too.
+    <b>Step 2: Update the legend</b> <br/>
+    Click the settings icon and select Apdex, Error, or Duration. These settings can be configured by each user and apply to the table view, and grid view too.
       <ul>
         <li>
           Error Percentage: Update the legend to highlight the data based on the error percentage. Select <b>Error 	&#37;</b> from the dropdown and customize the values. The values need to be in ascending order.
@@ -151,6 +69,91 @@ Let's walk through the following scenario to get a quick overview of the applica
     <td markdown="span">
       ![Shows the settings to update the legend for the error %. You need to select error % from the drop down and then add the values in ascending order.](images/tracing_legend_settings_app_map.png)
     </td>
+  </tr>
+  <tr>
+    <td>
+      <b>Step 3:  Customize the application map view</b> <br/>
+      You can customize how you see your applications and services on the application map using the settings icon.
+      <ul>
+        <li>
+          <b>Service layout</b>: View the services in the default, concentric, circle, or grid layout. Choose the layout that helps you understand how your services are linked.
+        </li>
+        <li>
+          <b>Show Isolated Services</b>: These are services that don't interact with any other services or applications.
+        </li>
+        <li>
+          <b>Show External Service</b>: These are external applications or services, such as AWS services or Database services, your application communicates with. You can group these services too.
+        </li>
+          <ul>
+            <li>
+              <b>Group External Services</b>: Select this setting if you want to group services. For example, group all the database services and view it as a single external service.
+            </li>
+          </ul>
+        <li><b>Show Service Labels</b>: When you have many services in an application, the service names on the application map look cluttered. To get a clear view of your application and services, disable the <b>Show Service Labels</b> option or select <b>Fade Labels on Zoom</b>. </li>
+          <ul>
+            <li>
+              <b>Fade Labels on Zoom</b>: Hide labels of small services and gradually expose them as you zoom in on the application map. You always see the labels of the services in red, based on the legend settings you select.
+            </li>
+            <li>
+              <b>Show Node Counts</b>: Shows the number of instances of a service running on an application. For example, <b>shopping (5)</b> shows you that five shopping service instances are running on the beachshirts application. 
+            </li>
+          </ul>
+      </ul>
+      </td>
+    <td>
+      <img src="images/tracing_application_map_settings.png" alt="screenshot of the application map settings. The settings are explained on the left side."/>
+    </td>
+  </tr>
+  <tr>
+    <td markdown="span">
+      **Step 4: Hover over a service** <br/>
+      Hover over the styling service of the beachshirts application. It highlights how the styling service communicates with the other services in the application.
+      </td>
+    <td><img src="/images/tracing_appmap_hover_over_service.png" alt="Hover over the styling service"/></td>
+  </tr>
+  <tr>
+    <td>
+      <b>Step 5: Click on a service</b>
+      <br/>Click on the styling service. Now, you can:
+        <ul>
+          <li>View Request, Error, and Duration (RED) metrics of the specific service.</li>
+          <li>See how the service is performing using the Apdex score.</li>
+          <li> View how a specific service communicates with the other services in an application when you click <b>Focus</b>.</li>
+          <li> Navigate to the Service Dashboard when you click <b>Dashboard</b>.</li>
+          <li> Navigate to the Traces Browser when you click <b>Traces</b>.</li>
+          <li> See the components used by the service. The styling service uses the OpenTracing, Java, Dropwizard, and Jersey components.</li>
+        </ul>
+      </td>
+    <td><img src="/images/tracing_application_map_service.png" alt="Popup when you click on a service"/></td>
+  </tr>
+  <tr>
+    <td markdown="span">
+      **Step 6: Focus on a service**<br/>
+      Click on a service and then click <b>Focus on service</b> to focus on the styling service of the beachshirts application.<br/>
+
+      This will help you focus on a specific service when you have many services in your application.
+      </td>
+    <td><img src="/images/tracing_appmap_focus_service.png" alt="Focus on the styling service"/></td>
+  </tr>
+  <tr>
+    <td markdown="span">
+      **Step 7: Hover over a tracing traffic** <br/>
+      Hover over the tracing traffic between the styling and shopping service. You see that they send requests to each other.
+
+      <br/>When you hover over a tracing traffic (the arrow that goes from one service to the other). It highlights the direction of the requests between the two services. <br/>Tracing traffic is bidirectional if the two services send requests to each other.
+      </td>
+    <td><img src="/images/tracing_appmap_bidirectional_edge.png" alt="Hover over the styling service"/></td>
+  </tr>
+  <tr>
+    <td>
+      <b>Step 8: Click on a tracing traffic</b>
+      <br/>When you click on the tracing traffic between the styling and printing service, you can:
+        <ul><li>View Request, Error, and Duration (RED) metrics for the specific edge.</li>
+        <li> Navigate to the Traces Browser when you click <b>View traces for this traffic</b>.</li>
+        <li> Navigate to the Operation Dashboard to view RED metrics of the inbound and outbound operations when you click <b>View styling dashboard (outbound)</b> or <b>View printing dashboard (inbound)</b>.</li>
+        </ul>
+      </td>
+    <td><img src="/images/tracing_application_map_edge.png" alt="The pop up when you click a tracing traffic that is bidirectional"/></td>
   </tr>
 </tbody>
 </table>
