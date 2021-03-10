@@ -4,13 +4,13 @@ keywords: query language reference
 tags: [reference page]
 sidebar: doc_sidebar
 permalink: ts_mvalues.html
-summary: Reference to the mvalues() function
+summary: Reference to the mvalues() function.
 ---
 
 ## Summary
 
 ```
-mvalues(<timeWindow>, <tsExpression>)
+mvalues(<timeWindow>, <tsExpression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 
 ```
 Returns the number of unique values over the specified time window.
@@ -27,7 +27,11 @@ Returns the number of unique values over the specified time window.
 <td>Amount of time in the moving time window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.</td></tr>
 <tr>
 <td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
-<td>Expression that describes the time series you want moving variances for. </td>
+<td>Expression that describes the time series for which you want to see the number of unique values. </td>
+</tr>
+<tr><td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
+<td>Optional 'group by' parameter for organizing the time series into subgroups and then returning a count for each subgroup.
+Use one or more parameters to group by metric names, source names, source tag names, point tag names, values for a particular point tag key, or any combination of these items. Specify point tag keys by name.</td>
 </tr>
 </tbody>
 </table>

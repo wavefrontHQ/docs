@@ -831,7 +831,7 @@ These functions output continuous time series, with the exception of `integral()
 </thead>
 <tbody>
 <tr>
-<td><a href="ts_mvalues.html">mvalues(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
+<td><a href="ts_mvalues.html">mvalues(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt; &lbrack;,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;&rbrack;</strong>)</a></td>
 <td>Returns the number of unique values over the specified time window.</td>
 </tr>
 <tr>
