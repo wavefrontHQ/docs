@@ -6,26 +6,20 @@ permalink: wavefront_usage_info.html
 summary: Monitor usage info for your Wavefront instance.
 ---
 
-Wavefront includes tools and dashboards for examining usage. This page helps administrators learn how much data is coming in, who is sending the data, and how to get alerted if ingested data get close to monthly usage.
-
-* Use the dashboards in the **Wavefront Usage** integration to see what's going on and how usage evolved over time. Zoom in on the timeframe of your choice, or clone and customize one of the dashboards to get the information you need.
-* Dig deep into the data that are flowing right now with the [Wavefront Top GUI and with Wavefront Spy](wavefront_monitoring_spy.html).
-
-
+Wavefront includes tools and dashboards for examining usage. This page helps administrators learn how much data is coming in, who is sending the data, and how to get alerted if ingested data get close to monthly contracted usage.
 
 ## Why Is Usage Information Important?
 
-Each customer has a contract with VMware that allows them to send a predetermined amount of data that to their Wavefront instance. That is, billing depends entirely on the points per seconds (PPS) that the customer sends.
+Each customer has a contract with VMware that allows them to send a predetermined amount of data to their Wavefront instance. That is, billing depends on the points per seconds (PPS) that the customer sends.
 
-If the customer uses more than the contracted rate, VMware bills for those additional data. Because VMware has to pay the cloud provides for data consumed by the Wavefront instances, we have to make sure that customers pay for the data they consume. But we're interested in having our customers get the best possible results from their data. Some things to consider.
+If a customer uses more than the contracted rate, VMware bills for those additional data. If the customer uses more than the contracted rate, VMware bills for those additional data. Because VMware has to pay the cloud provides for data consumed by the Wavefront instances, we have to make sure that customers pay for the data they consume. But we're interested in having our customers get the best possible results from their data.
 
-* If some teams at the customer site send a lot of data to Wavefront but don't use those ingested data anywhere (e.g. in alerts, dashboards, etc.) nobody benefits.
-* If several teams at a customer site use Wavefront, it might be useful to know which team send in most data.
-* If customers are clear about how they're using the contracted PPS, they can budget well.
+
+* **Send data, use data**. If some teams at the customer site send a lot of data to Wavefront but don't use those ingested data anywhere (e.g. in alerts, dashboards, etc.) nobody benefits.
+* **Team responsibility**. If several teams at a customer site use Wavefront, it might be useful to know which team send in most data.
+* **Know PPS and limits**. If customers are clear about how they're using the contracted PPS, they can budget well.
   - Learn how different metric types (histograms, metrics, spans, etc.) contribute to the overall ingest rate.
   - Understand how you can be smart about sending only data that are useful for you.
-
-This page explains how you can monitor usage with predefined dashboards and tools. The information helps you use Wavefront efficiently and take action before billing becomes a problem.
 
 ## How Can I Learn About Ingested Data?
 
@@ -66,7 +60,7 @@ This page explains how you can monitor usage with predefined dashboards and tool
 
 ## Which Teams Are Responsible for How Much Ingested Data?
 
-When you want to explore which teams are using the most data, follow these exploration steps.
+When you want to find out which teams are using the most data, follow these steps.
 
 ### Step 1: Examine Ingestion with the Namespace Usage Explorer
 
@@ -79,11 +73,12 @@ The screenshot below shows an example from our demo server. The data are prefixe
 
 ![Metrics namespace dashboard screenshot](images/metrics_namespace_dashboard.png)
 
-The Namespace Usage Explorer is especially useful if your metrics use hierarchical name spaces of up to 3 levels that help identify who sends which metrics. For example, some Wavefront customers use namespaces that show the Business Unit (Level 1), team (Level 2), and data source. For example, you might have `monitoring.dev.kubernetes` and `monitoring.sales.kubernetes` for kubernetes data coming from the dev and sales time in the monitoring Business Unit.
+The Namespace Usage Explorer is especially useful if your metrics use hierarchical name spaces of up to 3 levels that identify who sends which metrics. For example, some Wavefront customers use namespaces that show the Business Unit (Level 1), team (Level 2), and data source. For example, you might have `monitoring.dev.kubernetes` and `monitoring.sales.kubernetes` for kubernetes data coming from the dev and sales time in the monitoring Business Unit.
+
 
 ### (Optional) Create Custom Charts with Namespace Delta Counters
 
-If you don't see the information you need, clone the **Namespace Usage Explorer** dashboard and modify existing charts or create custom charts that use delta counters. For example, the default dasbhaord examines `~metric` information, but you can also examine counters, histograms, and spans using the following format:
+If you don't see the information you need, for example if need to look at histogram ingestion, clone the **Namespace Usage Explorer** dashboard. You can then modify existing charts or create custom charts. Wavefront supports delta counters that return information about counters, histograms, and spans. For example, the default dashbaord examines `~metric` information, but you can also examine other data using the following format:
 
 ```
 cs(~<data_type>.global.namespace.<namespace>.pps, source=<depth_number>)
@@ -95,25 +90,28 @@ Here's an example query that returns the top 10 Level 1 metrics:
 rawsum(align(1m, taggify(cs("~metric.global.namespace.*.ppm", source="depth_1"), metric, Name, 3)), Name) / 60
 ```
 
-A period is the default delimiter for namespaces. [Contact Customer Success](wavefront_support_feedback.html#support) to request a custom delimiter.
+The default delimiter for namespaces is a period. [Contact Customer Success](wavefront_support_feedback.html#support) to request a custom delimiter.
+
 
 ### Step 2: Drill Down Deeper with Wavefront Top and Wavefront Spy API
 
-If you need more than 3 levels of namespaces or there are other reasons why the dashboard doesn't answer your questions, Wavefront Top shows in detail what’s happening right now. Wavefront Top supports points, delta counters, histograms, spans, spanlogs, and IDs. For example, you can:
-* Dive into deeper levels of the namespace than with the Namespace Explorer dashboard
-* View ingestion rate by source, point tag, or ingestion source
-* See what percentage of currently ingested data within a namespace is actually accessed in queries over X days
-* See what range of values is sent in for a particular namespace
+If you need more than 3 levels of namespaces or if the dashboard doesn't answer your questions for other reasons, Wavefront Top shows in detail what’s happening right now. Wavefront Top supports points, delta counters, histograms, spans, spanlogs, and IDs.
+
+For example, with Wavefront Top you can:
+* Dive into deeper levels of the namespace than with the Namespace Explorer dashboard.
+* View ingestion rate by source, point tag, or ingestion source.
+* See what percentage of currently ingested data within a namespace is actually accessed in queries over X days.
+* See what range of values is sent in for a particular namespace.
 * See the data lag for a particular namespace.
 You cannot see the information over time from Wavefront Top.
 
-The [Wavefront Spy API](wavefront_monitoring_spy.html) gives even more detail, but in most cases Wavefront Top offers sufficient detail.
+The [Wavefront Spy API](wavefront_monitoring_spy.html) gives even more detail, but in most cases Wavefront Top is suffient.
 
 ## How Close Am I To Exceeding My Contracted Rate?
 
 Each Wavefront customer has a contracted rate, but different customers have different contracts. For example, some customers requested hard caps on ingestion and their Wavefront instance is set up that way.
 
-Many customers use the **Committed Rate and Monthly Usage (PPS P95)** dashboard that's part of the **Wavefront Usage** integration helps you determine whether you're getting close to meeting the limit. After the limit is reached Wavefront will still ingest data, but the customer has to pay overage.
+Many customers use the Committed Rate and Monthly Usage (PPS P95) dashboard that’s part of the Wavefront Usage integration helps you determine whether you’re getting close to meeting the limit. For most Wavefront instances, Wavefront continues to ingest data after the limit is reached Wavefront, but the customer has to pay overage.
 
 The charts in the dashboard show this information:
 
