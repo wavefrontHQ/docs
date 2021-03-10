@@ -8,12 +8,9 @@ summary: Learn about the Wavefront RabbitMQ Integration.
 
 RabbitMQ is a popular open source message broker. This integration installs and configures Telegraf to send RabbitMQ metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
-In addition to setting up the metrics flow, this integration also installs a dashboard. Here's the node section of a dashboard displaying RabbitMQ metrics:
+In addition to setting up the metrics flow, this integration also installs a dashboard. Here's a preview of the dashboard:
 
-{% include image.md src="images/rabbitmq_node-1.png" width="80" %}
-{% include image.md src="images/rabbitmq_node-2.png" width="80" %}
-{% include image.md src="images/rabbitmq_node-3.png" width="80" %}
-
+{% include image.md src="images/rabbitmq_dashboard.png" width="80" %}
 
 To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
 ## RabbitMQ Setup
