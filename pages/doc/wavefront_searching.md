@@ -41,7 +41,7 @@ You can select each item in the list individually. The dropdown list also contai
 
 Search fields support multi-word searches. If you type **cpu usage** in any browser or autocompleted text field, the dropdown list includes all matches for both **cpu** and **usage**.
 
-If you want to explicitly exclude a keyword from the search results, type the keyword you want to exclude, press Enter, and click the equal sign in front of it so that it changes to a not equal sign (**&#8800;**). For example, if you want to exclude all results containing **cpu**, and see only the results that contain **usage**: 
+If you want to explicitly exclude a keyword or a phrase from the search results, type the keyword or phrase that you want to exclude, press Enter, and click the equal sign in front of it so that it changes to a not equal sign (**&#8800;**). For example, if you want to exclude all results containing **cpu**, and see only the results that contain **usage**: 
 
 1. Enter **cpu** and press Enter. 
 2. Enter **usage** in the search field and press Enter. 
