@@ -136,6 +136,16 @@ You will see external database services on the application map if the spans have
       Example: `db.instance=stylingDB`
     </td>
   </tr>
+  <tr>
+    <td markdown="span">
+      `span.kind`
+    </td>
+    <td markdown="span">
+      The value `client` is assigned by the SDK to indicate that the client (your application or service) is sending a request to an external service.
+
+      Example: `span.kind=client`
+    </td>
+  </tr>
 </table>
 
 You can also see the above span tags on the Trace Browser for any span without errors.
