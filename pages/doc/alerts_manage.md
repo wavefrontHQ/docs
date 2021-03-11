@@ -24,7 +24,7 @@ Alerts notify when there's a problem, and support finding the root cause of a pr
 
 When you receive an alert notification, it includes a link to the alert in Alert Viewer. The related information in Alert Viewer can help you determine what's going on.
 
-![annotated alert viewer](images/alert_viewer.png)
+![annotated alert viewer allowing you to solve the problems listed below](images/alert_viewer.png)
 
 ### Solve Problems with Alert Viewer
 
@@ -45,7 +45,7 @@ Get a 10-second briefing in the Alert description including:
 <tr>
 <td width="50%">
 Examine <strong>Related Firing Alerts</strong>. When an alert fires, Wavefront scans all the other alerts that have fired within 30 minutes and correlates them with the initial event using AI/ML algorithms. You can filter by alert severity.</td>
-<td width="50%"><img src="/images/alert_viewer_related.png" alt="Related Firing Alerts section supports filters"></td>
+<td width="50%"><img src="/images/alert_viewer_related.png" alt="Related Firing Alerts section supports filters, such as severe, warn, smoke and info."></td>
 </tr>
 <tr>
 <td width="50%">
@@ -56,12 +56,12 @@ When an alert fires, Wavefront analyzes the point tags that are most likely to b
 <tr>
 <td width="50%"><strong>Other Firings</strong> shows past firings of the same alert with a link to the corresponding firing in the Alert Viewer. For multi-threshold alerts, you can see the severity. Click the links to see details.
 </td>
-<td width="50%"><img src="/images/alert_viewer_past_firings.png" alt="Data section"></td>
+<td width="50%"><img src="/images/alert_viewer_past_firings.png" alt="Other Firings list with links to the past firings"></td>
 </tr>
 <tr>
 <td width="50%">In the <strong>Data</strong> section, examine the query (or queries), filter what's displayed, and open the alert query in Chart Editor.
 </td>
-<td width="50%"><img src="/images/alert_viewer_data.png" alt="Data section"></td>
+<td width="50%"><img src="/images/alert_viewer_data.png" alt="Data section displaying the alert query and condition"></td>
 </tr>
 </tbody>
 </table>
@@ -87,13 +87,13 @@ You can view and manage all alerts from the Alerts Browser.
 <tr>
 <td width="50%">
 <br/>
-To examine alerts in the Alerts Browser, click <strong>Alerts</strong> in the taskbar. Colored numbers next to <strong>Alerts</strong> show how many alerts are currently firing at which severity.</td>
-<td width="50%"><img src="/images/alerts_taskbar.png" alt="multiple firing alert numbers in different colors next to text Alerts in taskbar."></td>
+To examine alerts in the Alerts Browser, click <strong>Alerting</strong> in the taskbar. A colored dot next to <strong>Alerting</strong> indicates that there are firing alerts. Hover over the clock next to <strong>Alerting</strong> to see how many alerts are currently firing.</td>
+<td width="50%"><img src="/images/alerts_taskbar.png" alt="multiple firing alerts on the clock icon next to text Alerting in taskbar."></td>
 </tr>
 <tr>
 <td width="50%">
 <br/>
-To find exactly the alert(s) you need you can:
+To find exactly the alerts that you need you can:
 <ul><li>Type the alert name in the search field</li>
 <li>Use a filter, for example, select <strong>State</strong>, <strong>Severity</strong>, or alert tag. </li></ul>
 For example, you could show alerts that are both FIRING and SEVERE.</td>
@@ -108,10 +108,10 @@ For example, you could show alerts that are both FIRING and SEVERE.</td>
 
 The Alerts Browser shows the properties and current state of an alert. For example, an alert that is firing looks like this:
 
-![Screenshot with speech bubbles highlighting UI element - text below describes](images/alert_firing.png)
+![Annotated screenshot highlighting the UI elements which are described in the text below](images/alert_firing.png)
 
 Here's a summary of what you can do:
-* Click the ellipsis (three dots) for a menu.
+* Click the ellipsis icon for a menu.
 * Click the chart icon next to the status for alert details. If the alert is firing, the Alert Viewer displays.
 * View the alert condition and points.
 * Below the severity:
@@ -164,32 +164,18 @@ You can revert back to a past alert version or clone a past alert version.
 
 To make copies of an existing alert, then change the copy, you can clone an alert.
 
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="60%">
-<br/>
-<ol>
-<li>Cick the <strong>Alerts</strong> button to display the Alerts page. </li>
-<li>Click the 3 dots to the left of the alert.</li>
-<ul>
-<li>To clone an alert, click <strong>Clone</strong>, make changes when prompted, and click <strong>Save</strong>. </li>
-<li>To delete an alert, click <strong>Delete</strong> and confirm the deletion. </li>
-</ul>
-</ol>
-</td>
-<td width="40%"><img src="images/clone_alert.png" alt="ellipsis menu with Clone selected"></td>
-</tr>
-</tbody>
-</table>
+1. Click **Alerting** in the taskbar to display the Alerts browser.
+2. Click the ellipsis icon next to the alert.
+3. To clone the alert, select **Clone**, make changes when prompted, and click **Save**.
+3. To delete an alert, select **Delete** and confirm the deletion.
 
 
 ## Edit an Alert
 
 You can change an alert at any time.
 
-1. Click the **Alerts** button to display the Alerts browser.
-2. Click the name of the alert you want to change to display the Edit Alert page.
+1. Click **Alerting** in the taskbar to display the Alerts browser.
+2. Click the name of the alert you want to edit to display the Edit Alert page.
 3. Update the properties you want to change, and click **Save**.
 
 ## Organize Related Alerts With Alert Tags
@@ -233,12 +219,12 @@ To manage these alerts, you assign the tag paths `example.network.prod`, `exampl
 
 ![Alert tag path](images/alert_tag_path.png)
 
-Use a wildcard to match tag path components, for example, when creating a maintenance window:
+When you create a maintenance window, you can use a wildcard to match tag path components:
 * `example.*.*` matches the entire group of demo alerts.
 * `example.latency.*` matches all of the alerts that monitor request latency.
 * `example.*.prod` matches all of the production alerts.
 
-
+When you have many and complex tag paths, you can search them by parent. For example, if you have the tag paths `example.network.prod`, `example.network.dev`, `example.latency.prod`, and `example.latency.dev`, you can perform a search by example and the search returns all of its children.
 
 ## Alert Events
 
@@ -267,4 +253,5 @@ Backtesting does not always exactly match the actual alert firing. For example, 
 
 * Read the [blog about Alert Viewer](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/faster-ai-driven-incident-triaging-wavefront-alert-viewer) from December 2019
 * Create a [classic alert](alerts.html#create-a-classic-alert) or a [multi-threshold alert](alerts.html#create-a-multi-threshold-alert).
-* Learn about [alert states and life-cycle](alerts_states_lifecycle.html)
+* Learn about [alert states and life-cycle](alerts_states_lifecycle.html).
+* Share access to an [individual alert](access.html#changing-access-for-individual-dashboards-or-alerts).

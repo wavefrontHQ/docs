@@ -40,7 +40,7 @@ When you select **Create Alert** and **Edit Alert** you can select a **Secure Me
   - Metrics protected by metrics security policy rules are not displayed.
   - A notification that some metrics are hidden due to metrics security policies is shown on the chart.
 
-{% include tip.html content="If you environment protects some metrics using metrics security policy rules, then the user experience is much better if you select the check box." %}
+{% include tip.html content="If your environment protects some metrics using metrics security policy rules, then the user experience is much better if you select the check box." %}
 
 ![alert email screenshot without metrics image](images/alert_email_protected.png)
 

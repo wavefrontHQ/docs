@@ -159,7 +159,7 @@ The process for creating an alert target is similar for the different types of t
       <table>
       <tbody>
       <thead>
-      <tr><th width="20%">Pagerduty Property</th><th width="80%">Description</th></tr>
+      <tr><th width="20%">PagerDuty Property</th><th width="80%">Description</th></tr>
       </thead>
       <tr>
         <td><strong>PagerDuty Key</strong> </td>
@@ -276,7 +276,7 @@ Consider this example:
 
 ## Query Responses of Webhook Alert Targets
 
-Wavefront exposes response codes from webooks alert target calls as metrics:
+Wavefront exposes response codes from webhooks alert target calls as metrics:
 
 ```
 ~alert.webhooks.<webhook_id>.1xx
@@ -299,11 +299,11 @@ If the response code of the webhook is anything other than 2xx, Wavefront create
 
 * [Customize the contents](alert_target_customizing.html) of the alert notifications using Moustache syntax.
 
-* Follow the steps in one of our integrations to set set up a custom alert target. Log in to your Wavefront instance or look at the following doc pages:
+* Follow the steps in one of our integrations to set up a custom alert target. Log in to your Wavefront instance or look at the following doc pages:
   - [PagerDuty Integration](pagerduty.html)
   - [VictorOps Integration](victorops.html)
   - [Slack Integration](slack.html)
   - [HipChat Integration](hipchat.html)
 
 
-* Read our blog post [Engineering Tips Series: How Wavefront's Devops Team Uses Alert Targets to Provide Exceptional Quality of Services to Customers](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/engineering-tips-series-how-wavefront-s-devops-team-uses-alert-targets-to-provide-exceptional-quality-of-services-to-customers) to learn how alert targets help Wavefront to keep things running smoothly.
+* Read our blog post [Engineering Tips Series: How Wavefront's DevOps Team Uses Alert Targets to Provide Exceptional Quality of Services to Customers](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/engineering-tips-series-how-wavefront-s-devops-team-uses-alert-targets-to-provide-exceptional-quality-of-services-to-customers) to learn how alert targets help Wavefront to keep things running smoothly.

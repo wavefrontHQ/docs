@@ -17,18 +17,18 @@ You can prevent alerts from firing by using one of the following techniques:
 
 ## Snoozing and Unsnoozing Alerts
 
-You can snooze an alert so it doesn't fire even if the condition is met. Wavefront allows you to snooze one or more alerts for 30 minutes, 1 hour, 6 hours, 1 day, 1 week, or Forever. If you choose Forever, the alert is snoozed until it is unsnoozed.
+You can snooze an alert, so it doesn't fire even if the condition is met. Wavefront allows you to snooze one or more alerts for 30 minutes, 1 hour, 6 hours, 1 day, 1 week, or Forever. If you choose Forever, the alert is snoozed until it is unsnoozed.
 
 To snooze one or more alerts:
 
-1. Check the check boxes next to the desired alert(s).
-  * To snooze the alerts, click the **Snooze** dropdown, select the desired duration, and click **OK**.
-  * To unsnooze the alerts, click **Snooze > Unsnooze**.
+1. Select the check boxes next to the desired alert(s).
+  * To snooze the alerts, click the **Snooze** drop-down menu and select the desired duration.
+  * To unsnooze the alerts, click **Unsnooze**.
 
 To snooze or unsnooze a single alert:
 
-* Select **Snooze > \<Duration\>** at the far left of the alert to snooze it.
-* Select **Snooze > Unsnooze** at the far left of the alert to unsnooze it.
+* Click the ellipsis icon on the left of the alert and select **Snooze > \<Duration\>**.
+* To unsnooze the alert, click the ellipsis icon on the left of the alert and select **Unsnooze**.
 
 ## Using Maintenance Windows
 
@@ -36,7 +36,7 @@ A maintenance window defines a time window when disruptive operations occur as a
 
 You can close (end) maintenance windows early or you can make them longer.
 
-To view and manage maintenance windows, select **Browse > Maintenance Windows**.
+To view and manage maintenance windows, from the taskbar select **Browse > Maintenance Windows**.
 
 <div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view maintenance windows, you must have [Alert Management permission](permissions_overview.html) to [manage](maintenance_windows_managing.html) maintenance windows. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
@@ -48,9 +48,9 @@ Watch this video for an introduction to maintenance windows:
 
 To create a maintenance window:
 
-1. Click **Alerts** or **Browse > Maintenance Windows**.
-1. Click the **Create Maintenance Window** button at the top of the filter bar.
-1. Fill in the maintenance window properties:
+1. From the taskbar, click **Alerting** or **Browse > Maintenance Windows**.
+2. Click the **Create Maintenance Window** button at the top of the filter bar.
+3. Fill in the maintenance window properties:
 
     <table>
     <thead>
@@ -117,26 +117,24 @@ To suppress the example alerts, you create a maintenance window as shown above, 
 You can extend the duration of a maintenance window. To extend one or more maintenance windows:
 
 1. Select **Browse > Maintenance Windows**.
-1. Check the checkboxes next to the maintenance windows to be extended.
-1. Click the **Extend** dropdown and select the desired duration.
-1. Click the confirmation.
+2. Select the check boxes next to the maintenance windows to be extended.
+3. Click the **Extend** drop-down menu and select the desired duration.
 
-To extend a single maintenance window, select the three dots on the left, click **Extend** and select the desired duration.
+To extend a single maintenance window, click the ellipsis icon on the left of the window, click **Extend** and select the desired duration.
 
 ### Closing a Maintenance Window
 
 You can close the window before it is scheduled to finish. To close one or more maintenance windows:
 
 1. Select **Browse > Maintenance Windows**.
-1. Check the checkboxes next to the maintenance windows to be closed.
-1. Click the **Close** button.
-1. Click the confirmation.
+2. Select the check boxes next to the maintenance windows to be closed.
+3. Click the **Close** button and confirm.
 
-To close a single maintenance window, select the three dots on the left, and click **Close**.
+To close a single maintenance window, click the ellipsis icon on the left of the window and click **Close**.
 
 ### Editing or Deleting a Maintenance Window
 
-To edit or delete a maintenance window, select the three dots on the left and click **Edit** or **Delete**.
+To edit or delete a maintenance window, click the ellipsis icon on the left of the window and click **Edit** or **Delete**.
 
 ## Excluding Sources from an Alert
 
