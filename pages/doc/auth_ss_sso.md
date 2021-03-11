@@ -29,7 +29,7 @@ Wavefront supports a number of third-party authentication solutions that use SAM
 
 ![screenshot with fields filled in & blurred out](images/self_service_sso.png)
 
-<!---
+
 ## Update SAML SSO
 
 If the certificate that's used in your setup needs to be replaced, you can delete the existing setup and add a set up SAML SSO again.
@@ -39,4 +39,4 @@ If the certificate that's used in your setup needs to be replaced, you can delet
 3. Click the **Click Here** link to delete the existing key pair.
 4. Repeat the setup process.
 
----!>
+{% include tip.html content="If the certificate that is used in the SSO setup has expired and you are unable to authenticate to perform the required changes, [engage Support](wavefront_support_feedback.html#support) to request that the SSO integration be deactivated. After that, authenticate using username and password to set up SSO again with the updated metadata."%}
