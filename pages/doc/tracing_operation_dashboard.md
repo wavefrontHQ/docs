@@ -21,6 +21,9 @@ See the Operation Dashboard:
   
 * Option 2:
   Drill down to the Operation Dashboard from the tracing traffic on the application map.
+  
+* Option 3: 
+  Drill down to the Operation Dashboard from the traces browser, click on a trace, click on a span from a specific operation, and click **Go to Operation Dashboard**.
 
 ![examine services](images/tracing_operations_dashboard.png)
 
@@ -32,9 +35,7 @@ On the dashboard for a particular service, you can:
 style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link"/> to get a link and share what you’re seeing right now (NON-LIVE display) with other users.
 * Navigate to the Traces Browser.
   * Click **See all operation traces**.
-  * Click a bar on a histogram.
   * Select a region of the histogram chart and click **Search Traces** to view the traces for the selected duration.
-  * Click a bar on a TopK chart.
   * Click the vertical ellipsis in the top right of any chart, click **Traces**, and click a service.
     {% include note.html content="If you don’t see **Traces**, check whether your metrics include `application` and `service point` tags.<br/><br/> These tags are defined when you instrument your application for tracing via [Application tags](trace_data_details.html#application-tags). If your application is already sending this data into Wavefront via the Wavefront proxy, you can add point tags using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html#addtag-and-addtagifnotexists)." %}
 
