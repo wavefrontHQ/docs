@@ -12,10 +12,10 @@ Wavefront continuously adds new integrations to the existing set, and improves a
 
 Made improvements to the following integrations in March 2021
 
-* Tanzu Kubernetes Grid Integrated Edition -- Now includes an **Alerts** tab with predefined alerts
+* Tanzu Kubernetes Grid Integrated Edition -- Fixes to the queries in alerts
 * OneLogin -- Updates to the integration setup instructions
 * vSphere -- Fixes to the out of the box dashboards
-* RabbitMQ 
+* RabbitMQ -- Fixes to the out of the box dashboards
 * Kubernetes -- Now includes an **Alerts** tab with predefined alerts
 * Wavefront Usage -- Added new alerts to the Wavefront usage integration
 
