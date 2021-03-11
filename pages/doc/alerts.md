@@ -232,6 +232,7 @@ The display expression can include any valid Wavefront Query Language construct,
 <td><strong>Resend Notifications</strong></td>
 <td>Whether to resend notification of a firing alert. If enabled, you can specify the number of minutes to wait before resending the notification.</td>
 </tr>
+<tr>
 <td><strong>Unique PagerDuty Incidents</strong></td>
 <td>
   Select this option to receive separate PagerDuty notifications for each series that meets the alert conditions.
@@ -386,19 +387,18 @@ For example, an alert target for an INFO severity receives all notifications for
 <td>Whether to resend notification of a firing alert. If enabled, you can specify the number of minutes to wait before resending the notification.</td>
 </tr>
 <tr>
-<td>
-  Select this option to receive separate PagerDuty notifications for each series that meets the alert conditions.
-  <br/>For example, you get separate PagerDuty notifications for both the following series because the <code>env</code> tag is different.
+  <td><strong>Unique PagerDuty Incidents</strong></td>
+  <td>Select this option to receive separate PagerDuty notifications for each series that meets the alert conditions.
+    <br/>For example, you get separate PagerDuty notifications for both the following series because the <code>env</code> tag is different.
 
-  <pre>
+<pre>
 #first series
 app.errors source=machine env=prod
 
 #second series
 app.errors source=machine env=stage
-  </pre>
-</td>
-<td>Select this option to receive separate PagerDuty notifications for each source that meets the alert conditions.</td>
+</pre>
+  </td>
 </tr>
 <tr>
 <td><strong>Metrics</strong></td>
