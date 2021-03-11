@@ -3,7 +3,7 @@ title: Find Actionable Usage Information
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: wavefront_usage_info.html
-summary: Monitor usage info for your Wavefront instance.
+summary: Monitor usage information for your Wavefront instance.
 ---
 
 Wavefront includes tools and dashboards for examining usage. This page helps administrators learn how much data is coming in, who is sending the data, and how to get alerted if ingested data get close to monthly contracted usage.
