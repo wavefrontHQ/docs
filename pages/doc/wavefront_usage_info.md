@@ -44,15 +44,17 @@ If a customer uses more than the contracted rate, VMware bills for those additio
 </tr>
 <tr>
 <td>What are current usage details?</td>
-<td>Use the <a href="wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy">Wavefront Top GUI</a> for a detailed view of where points are coming from. </td>
+<td>Start with the dashboards in the **Wavefront Usage** integration. The dashboards allow you to look at both current usage and usage over time. If you need to drill down more, use the <a href="wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy">Wavefront Top GUI</a> for a detailed view of current spikes. </td>
 </tr>
 <tr>
 <td>Why do I have cardinality problems?</td>
-<td>Use the <a href="wavefront_monitoring_spy.html">Wavefront Spy utility </a> to drill down into individual data points and tag values. That helps you find sudden bursts of data (for example too many new IDs). </td>
+<td>If you know there's been a spike in data (for example an ID burst), you can use the <a href="wavefront_monitoring_spy.html">Wavefront Spy utility </a> to drill down into individual data points and tag values. </td>
 </tr>
 <tr>
 <td>How much data is coming from my source?</td>
-<td>Use the <a href="wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy">Wavefront Top GUI</a> to filter by source and examine what's coming from the selected source.  </td>
+<td>You have several options:<ol><li>Use the <a href="sources_managing.html#examine-sources-in-the-source-browser">Source Browser</a> for a first look.</li>
+<li>Look at the last section in the Wavefront Service and Proxy Data to see the top sources listed by PPS. </li>
+<li>Use the <a href="wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy">Wavefront Top GUI</a> to filter by source and examine what's coming from the selected source.</li></ol> </td>
 </tr>
 </tbody>
 </table>
@@ -90,28 +92,31 @@ Here's an example query that returns the top 10 Level 1 metrics:
 rawsum(align(1m, taggify(cs("~metric.global.namespace.*.ppm", source="depth_1"), metric, Name, 3)), Name) / 60
 ```
 
-The default delimiter for namespaces is a period. [Contact Customer Success](wavefront_support_feedback.html#support) to request a custom delimiter.
+{% include tip.html content="The default delimiter for namespaces is a period. [Contact Customer Success](wavefront_support_feedback.html#support) to request a custom delimiter." %}
+
 
 
 ### Step 2: Drill Down Deeper with Wavefront Top and Wavefront Spy API
 
-If you need more than 3 levels of namespaces or if the dashboard doesn't answer your questions for other reasons, Wavefront Top shows in detail what’s happening right now. Wavefront Top supports points, delta counters, histograms, spans, spanlogs, and IDs.
+If you need more than 3 levels of namespaces or if the dashboard doesn't answer your questions for other reasons, Wavefront Top and the Spy API show in detail what’s happening right now.
+* Wavefront Top supports metrics and IDs.
+* The Wavefront Spy API also supports delta counters, histograms, spans, and spanlogs.
 
 For example, with Wavefront Top you can:
 * Dive into deeper levels of the namespace than with the Namespace Explorer dashboard.
 * View ingestion rate by source, point tag, or ingestion source.
-* See what percentage of currently ingested data within a namespace is actually accessed in queries over X days.
+* See what percentage of currently ingested data within a namespace is actually accessed in queries over X days. The number of days defaults to 7 and is configurable.
 * See what range of values is sent in for a particular namespace.
 * See the data lag for a particular namespace.
-You cannot see the information over time from Wavefront Top.
+
+{% include tip.html content="You cannot see the information over time from Wavefront Top. Use one of the Wavefront Usage dashboards instead if possible." %}
+
 
 The [Wavefront Spy API](wavefront_monitoring_spy.html) gives even more detail, but in most cases Wavefront Top is suffient.
 
 ## How Close Am I To Exceeding My Contracted Rate?
 
-Each Wavefront customer has a contracted rate, but different customers have different contracts. For example, some customers requested hard caps on ingestion and their Wavefront instance is set up that way.
-
-Many customers use the Committed Rate and Monthly Usage (PPS P95) dashboard that’s part of the Wavefront Usage integration helps you determine whether you’re getting close to meeting the limit. For most Wavefront instances, Wavefront continues to ingest data after the limit is reached Wavefront, but the customer has to pay overage.
+The Committed Rate and Monthly Usage (PPS P95) dashboard that’s part of the Wavefront Usage integration helps you determine whether you’re getting close to meeting the limit. For most Wavefront instances, Wavefront continues to ingest data after the limit is reached Wavefront, but the customer has to pay overage.
 
 The charts in the dashboard show this information:
 
@@ -122,7 +127,7 @@ The charts in the dashboard show this information:
 
 ## Which Metrics Are Ingested But Not Used?
 
-The easiest way to improve Wavefront ingestion rates is to tell your teams to stop sending data that aren't used.
+The easiest way to improve Wavefront ingestion rates is to send only data that you actually use.
 
 * Use Wavefront Top to examine which percentage of ingested metrics are accessed.
 * See which metrics are ingested.
