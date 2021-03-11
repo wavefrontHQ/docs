@@ -171,5 +171,3 @@ This GET endpoint has the following parameters:
 </td></tr>
 </tbody>
 </table>
-
-### Access Policies Example and Caveats
