@@ -71,7 +71,7 @@ When an alert fires, Wavefront analyzes the point tags that are most likely to b
 The alert target mustache syntax supports a `url` variable and a  `charturl`.
 
 * Simple notification **emails** include a **View Alert Chart** link that takes you to the chart view.
-* For Pagerduty, alert target (webhook), and  templated email notifications:
+* For PagerDuty, alert target (webhook), and  templated email notifications:
   - The link  target of the `url` mustache template variable directs to the Alert Viewer. 
   - The mustache context variable `chartUrl` takes you directly to the chart view. 
 
@@ -111,7 +111,7 @@ The Alerts Browser shows the properties and current state of an alert. For examp
 ![Screenshot with speech bubbles highlighting UI element - text below describes](images/alert_firing.png)
 
 Here's a summary of what you can do:
-* Click the ellipsis (three dots) for a menu.
+* Click the ellipsis icon for a menu.
 * Click the chart icon next to the status for alert details. If the alert is firing, the Alert Viewer displays.
 * View the alert condition and points.
 * Below the severity:
@@ -146,7 +146,7 @@ For example, for the `Latency Dev Alert` shown above, the chart looks like this:
 <br/>
 Alert history shows the changes that have been made to an alert over time.<br/><br/>
 
-To access the alert history, click the three dots to the left of the alert in the Alerts browser and click <strong>Versions</strong>.
+To access the alert history, click the ellipsis icon on the left of the alert in the Alerts browser and click <strong>Versions</strong>.
 </td>
 <td width="40%"><img src="images/alert_history.png" alt="alert history selected in menu"></td>
 </tr>
@@ -170,8 +170,8 @@ To make copies of an existing alert, then change the copy, you can clone an aler
 <td width="60%">
 <br/>
 <ol>
-<li>Cick the <strong>Alerts</strong> button to display the Alerts page. </li>
-<li>Click the 3 dots to the left of the alert.</li>
+<li>Click the <strong>Alerts</strong> button to display the Alerts page. </li>
+<li>Click the ellipsis icon on the left of the alert.</li>
 <ul>
 <li>To clone an alert, click <strong>Clone</strong>, make changes when prompted, and click <strong>Save</strong>. </li>
 <li>To delete an alert, click <strong>Delete</strong> and confirm the deletion. </li>
@@ -233,12 +233,13 @@ To manage these alerts, you assign the tag paths `example.network.prod`, `exampl
 
 ![Alert tag path](images/alert_tag_path.png)
 
-Use a wildcard to match tag path components, for example, when creating a maintenance window:
+When you create a maintenance window, you can use a wildcard to match tag path components:
+
 * `example.*.*` matches the entire group of demo alerts.
 * `example.latency.*` matches all of the alerts that monitor request latency.
 * `example.*.prod` matches all of the production alerts.
 
-
+When you have many and complex tag paths, you can search them by parent. For example, if you have the tag paths `example.network.prod`, `example.network.dev`, `example.latency.prod`, and `example.latency.dev`, you can perform a search by **example** and the search returns all of its children.
 
 ## Alert Events
 
@@ -267,4 +268,4 @@ Backtesting does not always exactly match the actual alert firing. For example, 
 
 * Read the [blog about Alert Viewer](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/faster-ai-driven-incident-triaging-wavefront-alert-viewer) from December 2019
 * Create a [classic alert](alerts.html#create-a-classic-alert) or a [multi-threshold alert](alerts.html#create-a-multi-threshold-alert).
-* Learn about [alert states and life-cycle](alerts_states_lifecycle.html)
+* Learn about [alert states and life-cycle](alerts_states_lifecycle.html).
