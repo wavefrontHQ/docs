@@ -71,7 +71,7 @@ When an alert fires, Wavefront analyzes the point tags that are most likely to b
 The alert target mustache syntax supports a `url` variable and a  `charturl`.
 
 * Simple notification **emails** include a **View Alert Chart** link that takes you to the chart view.
-* For Pagerduty, alert target (webhook), and  templated email notifications:
+* For PagerDuty, alert target (webhook), and  templated email notifications:
   - The link  target of the `url` mustache template variable directs to the Alert Viewer. 
   - The mustache context variable `chartUrl` takes you directly to the chart view. 
 
@@ -146,7 +146,7 @@ For example, for the `Latency Dev Alert` shown above, the chart looks like this:
 <br/>
 Alert history shows the changes that have been made to an alert over time.<br/><br/>
 
-To access the alert history, click the three dots to the left of the alert in the Alerts browser and click <strong>Versions</strong>.
+To access the alert history, click the ellipsis icon on the left of the alert in the Alerts browser and click <strong>Versions</strong>.
 </td>
 <td width="40%"><img src="images/alert_history.png" alt="alert history selected in menu"></td>
 </tr>
@@ -164,10 +164,31 @@ You can revert back to a past alert version or clone a past alert version.
 
 To make copies of an existing alert, then change the copy, you can clone an alert.
 
+<<<<<<< HEAD
 1. Click **Alerting** in the taskbar to display the Alerts browser.
 2. Click the ellipsis icon next to the alert.
 3. To clone the alert, select **Clone**, make changes when prompted, and click **Save**.
 3. To delete an alert, select **Delete** and confirm the deletion.
+=======
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+<br/>
+<ol>
+<li>Click the <strong>Alerts</strong> button to display the Alerts page. </li>
+<li>Click the ellipsis icon on the left of the alert.</li>
+<ul>
+<li>To clone an alert, click <strong>Clone</strong>, make changes when prompted, and click <strong>Save</strong>. </li>
+<li>To delete an alert, click <strong>Delete</strong> and confirm the deletion. </li>
+</ul>
+</ol>
+</td>
+<td width="40%"><img src="images/clone_alert.png" alt="ellipsis menu with Clone selected"></td>
+</tr>
+</tbody>
+</table>
+>>>>>>> 4eb13f09ff12735bbab26646acad347fd919e5d9
 
 
 ## Edit an Alert
@@ -220,11 +241,19 @@ To manage these alerts, you assign the tag paths `example.network.prod`, `exampl
 ![Alert tag path](images/alert_tag_path.png)
 
 When you create a maintenance window, you can use a wildcard to match tag path components:
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4eb13f09ff12735bbab26646acad347fd919e5d9
 * `example.*.*` matches the entire group of demo alerts.
 * `example.latency.*` matches all of the alerts that monitor request latency.
 * `example.*.prod` matches all of the production alerts.
 
+<<<<<<< HEAD
 When you have many and complex tag paths, you can search them by parent. For example, if you have the tag paths `example.network.prod`, `example.network.dev`, `example.latency.prod`, and `example.latency.dev`, you can perform a search by example and the search returns all of its children.
+=======
+When you have many and complex tag paths, you can search them by parent. For example, if you have the tag paths `example.network.prod`, `example.network.dev`, `example.latency.prod`, and `example.latency.dev`, you can perform a search by **example** and the search returns all of its children.
+>>>>>>> 4eb13f09ff12735bbab26646acad347fd919e5d9
 
 ## Alert Events
 
@@ -254,4 +283,7 @@ Backtesting does not always exactly match the actual alert firing. For example, 
 * Read the [blog about Alert Viewer](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/faster-ai-driven-incident-triaging-wavefront-alert-viewer) from December 2019
 * Create a [classic alert](alerts.html#create-a-classic-alert) or a [multi-threshold alert](alerts.html#create-a-multi-threshold-alert).
 * Learn about [alert states and life-cycle](alerts_states_lifecycle.html).
+<<<<<<< HEAD
 * Share access to an [individual alert](access.html#changing-access-for-individual-dashboards-or-alerts).
+=======
+>>>>>>> 4eb13f09ff12735bbab26646acad347fd919e5d9

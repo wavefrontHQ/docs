@@ -62,7 +62,7 @@ Get an overview of how the applications and services are linked, understand the 
   ![application map](/images/Application_map_intro.png)
 
 * [**Table view**](tracing_ui_overview.html#table-view) lists the applications and services in the form of a table. You can see the Request, Error, and Duration (RED) metrics at a glance and sort the data.
-  <img src="/images/tracing_table_view_releasnotes.png" alt="the image shows the table view of all the applications that send data to Wavefront. It has helpers to show you what to do with each UI section. For example, how to filter applications or services, change the table settings or the legend settings, and how to change back to the application map view or the grid view"/>
+  <img src="/images/tracing_table_view_intro.png" alt="the image shows the table view of all the applications that send data to Wavefront. It has helpers to show you what to do with each UI section. For example, how to filter applications or services, change the table settings or the legend settings, and how to change back to the application map view or the grid view"/>
 
 * [**Grid view**](tracing_ui_overview.html#grid-view) lists the application and services in a grid. You can see the RED metrics for each of the application’s services.
   <img src="/images/tracing_grid_view_releasenotes.png" alt="grid view of the services grouped by the application"/>
