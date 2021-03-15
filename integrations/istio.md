@@ -33,7 +33,7 @@ Follow these [steps](https://github.com/wavefrontHQ/wavefront-kubernetes#wavefro
 
 #### Step 2. Deploy and Configure the Wavefront by VMware Adapter for Istio
 
-You can deploy the adapter using helm or kubectl. See the [reference documentation](https://istio.io/docs/reference/config/policy-and-telemetry/adapters/wavefront/) for available configuration parameters.
+You can deploy the adapter using helm or kubectl. See the [reference documentation](https://istio.io/v1.6/docs/reference/config/policy-and-telemetry/adapters/wavefront/) for available configuration parameters.
 
 * Helm: The preferred way to deploy the adapter. See the [Helm Hub](https://hub.helm.sh/charts/wavefront/wavefront-adapter-for-istio) for details.
 * kubectl: See the [standard installation](https://github.com/vmware/wavefront-adapter-for-istio#standard-installation) instructions.
