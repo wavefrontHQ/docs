@@ -200,7 +200,7 @@ Test your alert target to ensure that it works properly.
 <td width="60%">
 <strong>To create a dashboard</strong>:
 <ol><li>Select <strong>Browse > Alert Targets</strong> and find the target on the Alert Targets page. </li>
-<li>Click the ellipsis (three dots) to the left of the alert target and select <strong>Test</strong>.</li></ol></td>
+<li>Click the ellipsis icon to the left of the alert target and select <strong>Test</strong>.</li></ol></td>
 <td width="40%"><img src="images/alert_target_test.png" alt="ellipsis menu, test selected"></td>
 </tr>
 </tbody>
@@ -221,13 +221,13 @@ To add a custom alert target to a new or existing alert:
 
 You can change a custom alert target at any time.
 
-To edit a alert, click the alert target name in the Alert Targets browser or click the three dots to the left of the alert target and select **Edit**.
+To edit an alert, click the alert target name in the Alert Targets browser or click the ellipsis icon on the left of the alert target and select **Edit**.
 
 ## Delete Custom Alert Targets
 
 You can delete one or more custom alert targets by checking the checkboxes next to the alert targets and clicking the Trash icon <i class="fa fa-trash"/> at the top of the Alert Targets page. The trash icon is grayed out if you don't have permission to delete any of the selected alert targets.
 
-To delete a single alert target, use the trash icon or click the three dots to the left of the alert target and select **Delete**.
+To delete a single alert target, use the trash icon or click the ellipsis icon to the left of the alert target and select **Delete**.
 
 ## Find an Alert Target ID
 

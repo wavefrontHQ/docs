@@ -107,7 +107,7 @@ To notify alert targets when the alert changes state, you can specify targets du
 
 <li>Do one of the following:
 <ul>
-<li markdown="span"><strong>Alerts Browser</strong> - Click <strong>Alerts</strong> from the taskbar and click the <strong>Create Alert</strong> button located above the filter bar.</li>
+<li markdown="span"><strong>Alerts Browser</strong> - Click <strong>Alerting</strong> from the taskbar and click the <strong>Create Alert</strong> button located above the filter bar.</li>
 <li markdown="span">**Chart** - Click the ellipsis icon on the right of the query and select **Create Alert**.
 ![create_alert](images/v2_create_alert.png)</li>
 </ul></li>
@@ -157,7 +157,7 @@ The display expression can include any valid Wavefront Query Language construct,
 </li>
 
 <li>
-(Optional) To help you find the alert and information about it in the Alerts browser, specify <strong>Additional Information</strong> and <strong>Tags</strong>.
+(Optional) To help you find the alert and information about it in the Alerts Browser, specify <strong>Additional Information</strong> and <strong>Tags</strong>.
 <table id="alert-tags">
 <tbody>
 <thead>
@@ -201,7 +201,7 @@ The display expression can include any valid Wavefront Query Language construct,
 
 
 <li>
-(Optional) If you are protecting metrics with <a href="metrics_security.html">metrics security policies</a> in your environment, check the <strong>Secure Metrics Details</strong> check box. A simplified alert notification is sent.
+(Optional) If you are protecting metrics with <a href="metrics_security.html">metrics security policies</a> in your environment, select the <strong>Secure Metrics Details</strong> check box. A simplified alert notification is sent.
 
 <table>
 <tbody>
@@ -210,7 +210,7 @@ The display expression can include any valid Wavefront Query Language construct,
 </thead>
 <tr>
 <td><strong>Secure Metric Details</strong></td>
-<td>If checked, alert notifications do not show metric details and alert images. </td>
+<td>If selected, alert notifications do not show metric details and alert images. </td>
 </tr>
 </tbody>
 </table>
@@ -288,7 +288,7 @@ For a multi-threshold alert, Wavefront creates a display expression that shows t
 
 <li>Do one of the following:
 <ul>
-<li markdown="span"><strong>Alerts Browser</strong> - Click <strong>Alerts</strong> from the taskbar and click the <strong>Create Alert</strong> button located above the filter bar.</li>
+<li markdown="span"><strong>Alerts Browser</strong> - Click <strong>Alerting</strong> from the taskbar and click the <strong>Create Alert</strong> button located above the filter bar.</li>
 <li markdown="span">**Chart** - Click the ellipsis icon on the right of the query and select **Create Alert**.
 ![create_alert](images/v2_create_alert.png)</li>
 </ul></li>
@@ -359,8 +359,7 @@ For example, an alert target for an INFO severity receives all notifications for
 </table>
 </li>
 
-<li>
-(Optional) If you are protecting metrics in your environment with <a href="metrics_security.html">metrics security policies</a>, select the <strong>Secure Metrics Details</strong> check box. A simplified alert notification is sent.
+<li>(Optional) If you are protecting metrics in your environment with <a href="metrics_security.html">metrics security policies</a>, select the <strong>Secure Metrics Details</strong> check box. A simplified alert notification is sent.
 
 <table>
 <tbody>
@@ -382,31 +381,33 @@ For example, an alert target for an INFO severity receives all notifications for
 <tr>
 <td><strong>Checking Frequency</strong></td>
 <td markdown="span">Number of minutes between checking whether <strong>Condition</strong> is true. Minimum and default is 1. When an alert is in the [INVALID state](alerts_states_lifecycle.html), it is checked approximately every 15 minutes, instead of the specified checking frequency.</td>
-</tr><tr>
+</tr>
 <tr>
 <td><strong>Evaluation Strategy</strong></td>
-<td markdown="span">Allows you to select <strong>Real-time Alerting</strong>. By default, Wavefront ignores values for the last 1 minutes to account for delays. Many data sources are updated only at certain points in time, so using the default evaluation strategy prevents spurious firings.  If you select this check box, we include values for the last 1 minute. The alert is evaluated strictly on the ingested data. See <a href="alerts_delayed_data.html">Limiting the Effects of Data Delays</a>. </td></tr>
+<td markdown="span">Allows you to select <strong>Real-time Alerting</strong>. By default, Wavefront ignores values for the last 1 minutes to account for delays. Many data sources are updated only at certain points in time, so using the default evaluation strategy prevents spurious firings.  If you select this check box, we include values for the last 1 minute. The alert is evaluated strictly on the ingested data. See <a href="alerts_delayed_data.html">Limiting the Effects of Data Delays</a>. </td>
+</tr>
 <tr>
 <td><strong>Resend Notifications</strong></td>
 <td>Whether to resend notification of a firing alert. If enabled, you can specify the number of minutes to wait before resending the notification.</td>
 </tr>
 <tr>
-  <td><strong>Unique PagerDuty Incidents</strong></td>
-  <td>Select this option to receive separate PagerDuty notifications for each series that meets the alert conditions.
-    <br/>For example, you get separate PagerDuty notifications for both the following series because the <code>env</code> tag is different.
+<td><strong>Unique PagerDuty Incidents</strong></td>
+<td>
+  Select this option to receive separate PagerDuty notifications for each series that meets the alert conditions.
+  <br/>For example, you get separate PagerDuty notifications for both the following series because the <code>env</code> tag is different.
 
-<pre>
+  <pre>
 #first series
 app.errors source=machine env=prod
 
 #second series
 app.errors source=machine env=stage
-</pre>
-  </td>
+  </pre>
+</td>
 </tr>
 <tr>
 <td><strong>Metrics</strong></td>
-<td>Whether to include obsolete metrics. By default, alerts don't consider data that have not reported for 4 weeks or more. Include obsolete metrics if you use queries that aggregate data in longer time frames.</td>
+<td>Whether to include obsolete metrics. By default, alerts don't consider data that have  not reported for 4 weeks or more. Include obsolete metrics if you use queries that aggregate data in longer time frames.</td>
 </tr>
 </tbody>
 </table>
@@ -415,6 +416,7 @@ app.errors source=machine env=stage
 
 <li>Click <strong>Save</strong>.</li>
 </ol>
+
 
 ### Video: Create a Multi-Threshold Alert
 
