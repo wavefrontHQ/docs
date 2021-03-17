@@ -118,7 +118,7 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 Controls the legend displayed for the chart by default. The options are the same for line plot and point plot charts.
 
 When you look at the chart, you can also control the legend with these keyboard shortcuts:
-* **Shift-P** -- Pin the legend.
+* **Shift+P** -- Pin the legend.
 * **Shift** -- Show detailed units in the legend.
 
 <table>
@@ -130,7 +130,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 <td>Options</td>
 <td>You can select all or none of the Legend options.
 <ul>
-<li>Fixed Legend -- Even if you don't select this option, you can use Shift-P with the mouse cursor in the chart to add a fixed legend.  </li>
+<li>Fixed Legend -- Even if you don't select this option, you can use Shift+P with the mouse cursor in the chart to add a fixed legend.  </li>
 <li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the <strong>Summarization</strong> setting. </li>
 <li>Disable Legend on Hover -- Select to disable the legend on hover.   </li>
 </ul>
@@ -290,7 +290,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 <td>Options</td>
 <td>Supports these options:
 <ul>
-<li>Fixed Legend -- Displays a fixed legend. Even if you don't select this option, you can use Shift-P with the mouse cursor in the chart to add a fixed legend.  </li>
+<li>Fixed Legend -- Displays a fixed legend. Even if you don't select this option, you can use Shift+P with the mouse cursor in the chart to add a fixed legend.  </li>
 <li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the <strong>Summarization</strong> setting. </li>
 <li>Disable Legend on Hover -- Select to disable the legend on hover.   </li>
 </ul>
@@ -459,7 +459,7 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 Controls the legend displayed for the chart by default. The options are the same for line plot and point plot charts.
 
 When you look at the chart, you can also control the legend with these keyboard shortcuts:
-* **Shift-P** -- Pin the legend.
+* **Shift+P** -- Pin the legend.
 * **Shift** -- Show detailed units in the legend.
 
 <table>
@@ -471,7 +471,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 <td>Options</td>
 <td>Supports these options:
 <ul>
-<li>Fixed Legend -- Displays a fixed legend. Even if you don't select this option, you can use Shift-P with the mouse cursor in the chart to add a fixed legend.  </li>
+<li>Fixed Legend -- Displays a fixed legend. Even if you don't select this option, you can use Shift+P with the mouse cursor in the chart to add a fixed legend.  </li>
 <li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the <strong>Summarization</strong> setting. </li>
 <li>Disable Legend on Hover -- Select to disable the legend on hover.   </li>
 </ul>
@@ -626,7 +626,7 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 Controls the legend displayed for the chart by default. The options are the same for line plot and point plot charts.
 
 When you look at the chart, you can also control the legend with these keyboard shortcuts:
-* **Shift-P** -- Pin the legend.
+* **Shift+P** -- Pin the legend.
 * **Shift** -- Show detailed units in the legend.
 
 <table>
@@ -638,7 +638,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 <td>Options</td>
 <td>Supports these options:
 <ul>
-<li>Fixed Legend -- Displays a fixed legend. Even if you don't select this option, you can use Shift-P with the mouse cursor in the chart to add a fixed legend.  </li>
+<li>Fixed Legend -- Displays a fixed legend. Even if you don't select this option, you can use Shift+P with the mouse cursor in the chart to add a fixed legend.  </li>
 <li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the <strong>Summarization</strong> setting. </li>
 <li>Disable Legend on Hover -- Select to disable the legend on hover.   </li>
 </ul>
@@ -1293,7 +1293,7 @@ One easy way to show which histograms are on your cluster is from the **Histogra
 </tr>
 <tr>
 <td>Color</td>
-<td>Base color for the heat map. The saturation of the color indicates the count for the selected field. Hover over any field to see a vertical histogram as a legend that you can pin with Shift-P. The histogram highlights the vertical line that corresponds to the grid cell you've selected.<img src="/images/heatmap_legend.png" alt="legend for a single heatmap field"> </td>
+<td>Base color for the heat map. The saturation of the color indicates the count for the selected field. Hover over any field to see a vertical histogram as a legend that you can pin with Shift+P. The histogram highlights the vertical line that corresponds to the grid cell you've selected.<img src="/images/heatmap_legend.png" alt="legend for a single heatmap field"> </td>
 </tr>
 </tbody>
 </table>
@@ -1503,7 +1503,7 @@ us to aggregate the raw data values reported in each 30 second interval, and dis
 Controls the legend displayed for the chart.
 
 When you look at the chart, you can also control the legend with these keyboard shortcuts:
-* **Shift-P** -- Pin the legend.
+* **Shift+P** -- Pin the legend.
 * **Shift** -- Show detailed units in the legend.
 
 <table>
@@ -1515,7 +1515,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 <td>Options</td>
 <td>You can select all or none of the Legend options.
 <ul>
-<li>Fixed Legend -- Even if you don't select this option, you can use Shift-P with the mouse cursor in the chart to add a fixed legend.  </li>
+<li>Fixed Legend -- Even if you don't select this option, you can use Shift+P with the mouse cursor in the chart to add a fixed legend.  </li>
 <li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the <strong>Summarization</strong> setting. </li>
 <li>Disable Legend on Hover -- Select to disable the legend on hover.   </li>
 </ul>
