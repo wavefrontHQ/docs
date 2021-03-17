@@ -123,7 +123,7 @@ Here's a summary of what you can do:
 
 ### View Alert Details
 
-To view alert details, click the chart icon in the State column in the Alerts browser.
+To view alert details, click the chart icon in the State column in the Alerts Browser.
 * If the alert is in FIRING state, the Alert Viewer displays
 * If the alert is not in FIRING state, a chart displays with these queries:
 
@@ -146,7 +146,7 @@ For example, for the `Latency Dev Alert` shown above, the chart looks like this:
 <br/>
 Alert history shows the changes that have been made to an alert over time.<br/><br/>
 
-To access the alert history, click the ellipsis icon on the left of the alert in the Alerts browser and click <strong>Versions</strong>.
+To access the alert history, click the ellipsis icon on the left of the alert in the Alerts Browser and click <strong>Versions</strong>.
 </td>
 <td width="40%"><img src="images/alert_history.png" alt="alert history selected in menu"></td>
 </tr>
@@ -164,7 +164,7 @@ You can revert back to a past alert version or clone a past alert version.
 
 To make copies of an existing alert, then change the copy, you can clone an alert.
 
-1. Click **Alerting** in the taskbar to display the Alerts browser.
+1. Click **Alerting** in the taskbar to display the Alerts Browser.
 2. Click the ellipsis icon next to the alert.
 3. To clone the alert, select **Clone**, make changes when prompted, and click **Save**.
 3. To delete an alert, select **Delete** and confirm the deletion.
@@ -174,14 +174,14 @@ To make copies of an existing alert, then change the copy, you can clone an aler
 
 You can change an alert at any time.
 
-1. Click **Alerting** in the taskbar to display the Alerts browser.
+1. Click **Alerting** in the taskbar to display the Alerts Browser.
 2. Click the name of the alert you want to edit to display the Edit Alert page.
 3. Update the properties you want to change, and click **Save**.
 
 ## Organize Related Alerts With Alert Tags
 
 You can use alert tags to organize related alerts into categories. Alert tags are especially useful for setting up [maintenance  windows](maintenance_windows_managing.html#using-maintenance-windows). You can:
-* [Search or filter](wavefront_searching.html) the list of alerts in the Alerts browser to show only a category of alerts.
+* [Search or filter](wavefront_searching.html) the list of alerts in the Alerts Browser to show only a category of alerts.
 * Suppress a category of alerts during a [maintenance window](maintenance_windows_managing.html#using-maintenance-windows).
 * [Reference a group of alert metrics](alerts_dependencies.html#referencing-alert-metrics) in a single expression.
 
