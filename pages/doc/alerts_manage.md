@@ -252,7 +252,7 @@ Backtesting does not always exactly match the actual alert firing. For example, 
 
 ## Do More!
 
-* Read the [blog about Alert Viewer](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/faster-ai-driven-incident-triaging-wavefront-alert-viewer) from December 2019
+* Read the [blog about Alert Viewer](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/faster-ai-driven-incident-triaging-wavefront-alert-viewer) from December 2019.
 * Create a [classic alert](alerts.html#create-a-classic-alert) or a [multi-threshold alert](alerts.html#create-a-multi-threshold-alert).
 * Learn about [alert states and life-cycle](alerts_states_lifecycle.html).
 * Share access to an [individual alert](access.html#changing-access-for-individual-dashboards-or-alerts).
