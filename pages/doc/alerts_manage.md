@@ -87,7 +87,7 @@ You can view and manage all alerts from the Alerts Browser.
 <tr>
 <td width="50%">
 <br/>
-To examine alerts in the Alerts Browser, click <strong>Alerting</strong> in the taskbar. A colored dot next to <strong>Alerting</strong> indicates that there are firing alerts. Hover over the clock next to <strong>Alerting</strong> to see how many alerts are currently firing.</td>
+To examine alerts in the Alerts Browser, click <strong>Alerting</strong> in the taskbar. A colored dot next to <strong>Alerting</strong> indicates that there are firing alerts. Hover over the <strong>Alerting</strong> button in the taskbar to see how many alerts are currently firing.</td>
 <td width="50%"><img src="/images/alerts_taskbar.png" alt="multiple firing alerts on the clock icon next to text Alerting in taskbar."></td>
 </tr>
 <tr>
