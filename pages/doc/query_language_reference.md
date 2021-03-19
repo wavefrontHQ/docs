@@ -189,7 +189,7 @@ lowpass(12ms, spans("beachshirts.styling.makeShirts"))
 
 ## Common Parameters
 
-Query expressions use a number of common parameters to specify names and values that describe the data of interest. You can use [wildcards](#wildcards-aliases-and-variables) to match multiple names or values.
+Query expressions use a number of common parameters to specify names and values that describe the data of interest. You can use [wildcards or partial regex](#wildcards-aliases-and-variables) to match multiple names or values.
 
 * Rules for valid names are here: [Wavefront Data Format](wavefront_data_format.html#wavefront-data-format-fields).
 * Enclose a metric, source, or tag name, or a tag value, in double quotes if it is also a Wavefront reserved word, such as a function name or keyword. For example, if you're using a point tag named `default`, use `"default"`.
@@ -213,6 +213,7 @@ Query expressions use a number of common parameters to specify names and values 
 cpu.load.metric
 cpu.*.metric
 cpu.load.metric or cpu.idle.metric
+/(cpu\.load\.metric|cpu\.idle\.metric)/
 </pre>
 </td></tr>
 <tr>
@@ -232,6 +233,7 @@ Examples:
 source="appServer15"
 source="app-1*"
 source="app-10" or source="app-20"
+source=/(app-10|app-20)/
 </pre>
 </td></tr>
 <tr>
@@ -242,6 +244,7 @@ Examples:
 tag="appServers"
 tag="env.cluster.role.*"
 tag="appServer" and tag="local"
+tag=/(appServer|local)/
 </pre>
 </td></tr>
 
@@ -253,6 +256,7 @@ Examples:
 region="us-west-2a"
 region="us-west*"
 region="us-west-2a" or region="us-west-2b"
+region=/(us-west-2a|us-west-2b)/
 </pre>
 
 </td></tr>
@@ -330,6 +334,58 @@ You can combine wildcards, aliases, query line variables, and dashboard variable
 </thead>
 <tbody>
 
+<!--- Partial Regex -------->
+
+  <tr>
+    <td>
+      <span style="color:#3a0699;font-weight:bold">partial regex</span>
+    </td>
+    <td>
+      Filter metrics, sources, source tags, or point tag values using a subset of regular expressions. You write regular expressions between <code>/ /</code> chars.
+      
+      <br/><br/>The list of supported regular expressions:
+      <pre>
+.     : any character (but newline)
+*     : previous character or group, repeated 0 or more times
++     : previous character or group, repeated 1 or more times
+?     : previous character or group, repeated 0 or 1 times
+[...] : any character between brackets
+[a-z] : any character between a and z
+\     : prevents interpretation of the special character that follows
+|     : or
+(  )  : start/end of group
+      </pre>
+      
+      {{site.data.alerts.important}}
+      <ul> 
+        <li>
+          Characters <code><b>~</b>, <b>^</b>, <b>{ }</b>, and <b>$</b></code> are not supported. You need to escape them if used within a regular expression filter.
+        </li>
+        <li>
+          All existing queries that use the <code>*</code> glob wildcard syntax continue to work as normal.
+        </li>
+      </ul>
+      {{site.data.alerts.end}}
+      
+      Examples:
+      
+      <ul>
+        <li>
+          Get data that match <code>~wavefront.alert.active</code> or <code>~wavefront.alert.active_info</code> and has the point tag <code>mon</code>:
+          <pre>
+ts(/\~wavefront\.alert\.(active|active_info)/, tag=mon) 
+          </pre>
+        </li>
+        <li>
+          Get data that match <code>build.version</code> or <code>build.</code> and has the point tag <code>mon</code>.
+          <pre>
+ts(/build\.(version)?/, tag=mon)
+          </pre>
+        </li>
+      </ul>
+    </td>
+  </tr>
+
 <!--- Wildcard ------------->
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">wildcard</span></td>
@@ -385,7 +441,7 @@ join(ts(cpu.load) AS ts1 JOIN ts(request.rate) AS ts2 ON ts1.env = ts2.env, ... 
   <li>An <a href="https://en.wikipedia.org/wiki/Allen%27s_interval_algebra">Allen's interval algebra operator</a>. For example: m, mi, o, s, d, f are not valid.</li>
   </ul>
 </li>
-<li>Alias names are case sensitive. For example, <strong>Sum</strong> is valid.</li>
+<li>Alias names are case-sensitive. For example, <strong>Sum</strong> is valid.</li>
 <li markdown="span">Put any numeric characters at the end of the alias name. For example, <strong>test123</strong> is valid, but <strong>1test</strong> and <strong>test4test</strong> are not valid.</li>
 </ul>
 </td></tr>
@@ -393,7 +449,7 @@ join(ts(cpu.load) AS ts1 JOIN ts(request.rate) AS ts2 ON ts1.env = ts2.env, ... 
 <!--- Query line variable ------------->
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">query line variable</span></td>
-<td>Lets one query line refer to another for the same chart.
+<td>Let's use one query line refer to another for the same chart.
 The referenced query line must be named and must contain a complete <strong>tsExpression</strong>.
 <ul>
 <li>Use the chart UI to name a query: <strong>myQuery</strong> </li>
