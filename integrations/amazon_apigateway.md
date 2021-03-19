@@ -77,6 +77,7 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+
 undefined
 
 
@@ -96,3 +97,4 @@ See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/moni
 |aws.apigateway.count.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.apigateway.integrationlatency.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.apigateway.latency.*|Statistics: average, maximum, minimum, samplecount, sum|
+

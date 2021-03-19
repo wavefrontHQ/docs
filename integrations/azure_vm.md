@@ -52,6 +52,7 @@ The process first creates an Azure Active Directory application that represents 
 
 
 
+
 undefined
 
 
@@ -96,3 +97,4 @@ See [Azure documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/p
 |azure.compute.vm.premium.data.disk.cache.read.miss.*| Premium data disk cache read miss. <br/>Statistics: count|
 |azure.compute.vm.premium.os.disk.cache.read.hit.*| Premium OS disk cache read hit. <br/>Statistics: count|
 |azure.compute.vm.premium.os.disk.cache.read.miss.*| Premium OS disk cache read miss. <br/>Statistics: count|
+

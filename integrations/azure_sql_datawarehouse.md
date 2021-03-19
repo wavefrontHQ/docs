@@ -52,6 +52,7 @@ The process first creates an Azure Active Directory application that represents 
 
 
 
+
 undefined
 
 
@@ -71,3 +72,4 @@ See [Azure documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/p
 |azure.sql.servers.databases.sessions_percent.*| <br/>Statistics: count|
 |azure.sql.servers.databases.workers_percent.*| <br/>Statistics: count|
 |azure.sql.servers.databases.xtp_storage_percent.*| <br/>Statistics: count|
+

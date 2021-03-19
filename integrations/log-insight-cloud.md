@@ -37,3 +37,4 @@ Follow the Setup steps to configure metric extraction from logs in VMware vReali
 10. Click **Save** to save the configuration.
 
 
+

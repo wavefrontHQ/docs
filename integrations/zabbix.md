@@ -141,3 +141,4 @@ The script saves the latest clock interval that it has processed in the files `l
 |zabbix.wcache.values.str||
 |zabbix.wcache.values.text||
 |zabbix.wcache.values.uint||
+

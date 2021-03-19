@@ -28,3 +28,4 @@ This integration explains how to configure Uptime.com to push response time metr
 7. After you have assigned your integration to a contact in Uptime.com, you will receive Uptime.com metrics from checks. Initially, the metric data may take up to 10 minutes to appear in Wavefront.
 
 
+

@@ -73,3 +73,4 @@ The Workspace ONE catalog is a repository of resources. After you add an applica
 Going forward, users who attempt to log in to Wavefront are redirected to Workspace ONE. If a user can authenticate to Workspace ONE but is not currently a Wavefront user, that user is auto-created on the Wavefront side. Password authentication is no longer supported.
 
 
+

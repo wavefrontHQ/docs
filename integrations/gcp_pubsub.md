@@ -63,6 +63,7 @@ See [Google Cloud Platform Overview and Permissions](http://docs.wavefront.com/i
 
 
 
+
 undefined
 
 
@@ -77,3 +78,4 @@ See [Google Cloud metrics documentation](https://cloud.google.com/monitoring/api
 |gcp.pubsub.topic.message_sizes.count| Distribution of publish message sizes (in bytes).|
 |gcp.pubsub.topic.send_message_operation_count_rate| Cumulative count of publish message operations, grouped by result. |
 |gcp.pubsub.topic.send_request_count_rate| Cumulative count of publish requests, grouped by result. |
+

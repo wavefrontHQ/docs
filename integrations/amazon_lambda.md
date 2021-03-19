@@ -77,6 +77,7 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+
 undefined
 
 
@@ -97,3 +98,4 @@ See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/moni
 |aws.lambda.iteratorage.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.lambda.throttles.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.lambda.unreservedconcurrentexecutions.*|Statistics: average, maximum, minimum, samplecount, sum|
+

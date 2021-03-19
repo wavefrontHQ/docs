@@ -26,3 +26,4 @@ Follow the steps given below to give Wavefront access to AppDynamics account:
 
 Now, you see the metrics from your AppDynamics account in Wavefront.
 
+

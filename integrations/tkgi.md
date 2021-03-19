@@ -40,3 +40,5 @@ In addition to setting up the metrics flow, this integration also installs a das
 Wavefront monitoring will be active for any cluster that is created after you have saved the configuration settings and applied the changes.
 
 
+
+<h2>Alerts</h2>  <ul><li markdown="span"><b>Node memory usage high</b>:Alert for high usage of node memory</li><li markdown="span"><b>Node memory usage too high</b>:Alert for very high usage of node memory</li><li markdown="span"><b>Node CPU usage high</b>:Alert for high usage of node CPU</li><li markdown="span"><b>Node CPU usage too high</b>:Alert for very high usage of node CPU</li><li markdown="span"><b>Node storage usage high</b>:Alert for high usage of node storage</li><li markdown="span"><b>Node storage usage too high</b>:Alert for very high usage of node storage</li><li markdown="span"><b>Too many containers not running</b>:Alert for very high number of containers not running</li><li markdown="span"><b>Node unhealthy</b>:Alert for unhealthy node</li></ul>

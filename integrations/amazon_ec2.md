@@ -77,6 +77,7 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+
 undefined
 
 
@@ -113,3 +114,4 @@ See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/moni
 |aws.ec2.statuscheckfailed.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.ec2.statuscheckfailed_instance.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.ec2.statuscheckfailed_system.*|Statistics: average, maximum, minimum, samplecount, sum|
+

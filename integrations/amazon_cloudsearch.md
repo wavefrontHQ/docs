@@ -77,6 +77,7 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+
 undefined
 
 
@@ -94,3 +95,4 @@ See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/moni
 |aws.cloudsearch.partitions| Number of partitions the index is distributed across.|
 |aws.cloudsearch.searchabledocuments| Number of searchable documents in the domain's search index. |
 |aws.cloudsearch.successfulrequests| number of search requests successfully processed by a search instance. |
+

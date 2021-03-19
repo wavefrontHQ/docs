@@ -36,3 +36,4 @@ An [Azure AD Premium subscription](https://www.microsoft.com/en-us/cloud-platfor
 After we've completed the setup, users can authenticate to Wavefront through Azure AD instead of using a password. New Azure AD users are auto-created on the Wavefront side when they authenticate for the first time.
 
 
+

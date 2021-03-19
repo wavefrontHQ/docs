@@ -58,3 +58,4 @@ After you've completed the Wavefront integration for PingOne for Enterprise setu
 Going forward, users who attempt to log in to Wavefront are redirected to PingOne. If a user can authenticate to PingOne but is not currently a Wavefront user, that user is auto-created on the Wavefront side. Password authentication is no longer supported.
 
 
+

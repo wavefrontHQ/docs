@@ -52,6 +52,7 @@ The process first creates an Azure Active Directory application that represents 
 
 
 
+
 undefined
 
 
@@ -65,3 +66,4 @@ See [Azure documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/p
 |azure.containerinstance.containergroups.memoryusage.*| Total memory usage in byte. <br/>Statistics: count|
 |azure.containerinstance.containergroups.networkbytesreceivedpersecond.*| The network bytes received per second. <br/>Statistics: count|
 |azure.containerinstance.containergroups.networkbytestransmittedpersecond.*| The network bytes transmitted per second. <br/>Statistics: count|
+

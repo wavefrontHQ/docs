@@ -63,6 +63,7 @@ See [Google Cloud Platform Overview and Permissions](http://docs.wavefront.com/i
 
 
 
+
 undefined
 
 
@@ -82,3 +83,4 @@ See [Google Cloud metrics documentation](https://cloud.google.com/monitoring/api
 |gcp.storage.storage.object_count| Total number of objects per bucket, grouped by storage class.|
 |gcp.storage.storage.total_byte_seconds| Total daily storage in byte*seconds used by the bucket, grouped by storage class.|
 |gcp.storage.storage.total_bytes| Total size of all objects in the bucket, grouped by storage class.|
+

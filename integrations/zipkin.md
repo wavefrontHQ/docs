@@ -44,3 +44,4 @@ The order of precedence is span level > proxy level.
 
 The [documentation](https://docs.wavefront.com/tracing_integrations.html) explains integration requirements, how to specify custom tags for RED metrics and more.
 
+

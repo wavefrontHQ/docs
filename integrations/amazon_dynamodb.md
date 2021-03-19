@@ -77,6 +77,7 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+
 undefined
 
 
@@ -111,3 +112,4 @@ See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/moni
 |aws.dynamodb.systemerrors.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.dynamodb.throttledrequests.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.dynamodb.usererrors.*|Statistics: average, maximum, minimum, samplecount, sum|
+
