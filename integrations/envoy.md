@@ -758,3 +758,4 @@ Run `sudo service telegraf restart` to restart your Telegraf agent.
 |envoy.update.rejected.counter||
 |envoy.update.success.counter||
 |envoy.version.gauge|Envoy version.|
+

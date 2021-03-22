@@ -52,6 +52,7 @@ The process first creates an Azure Active Directory application that represents 
 
 
 
+
 undefined
 
 
@@ -102,3 +103,4 @@ See [Azure documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/p
 |azure.storage.storageaccounts.tableservices.transactions.*|Statistics: average, count, maximum, minimum|
 |azure.storage.storageaccounts.transactions.*|Statistics: average, count, maximum, minimum|
 |azure.storage.storageaccounts.usedcapacity.*|Statistics: average, count, maximum, minimum|
+

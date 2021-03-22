@@ -128,3 +128,4 @@ For details about these metrics, see the [PostgreSQL Statistics Collector](https
 |postgresql.tup.updated||
 |postgresql.xact.commit|Number of committed transactions.|
 |postgresql.xact.rollback|Number of rolled back transactions. |
+

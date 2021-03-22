@@ -63,6 +63,7 @@ See [Google Cloud Platform Overview and Permissions](http://docs.wavefront.com/i
 
 
 
+
 undefined
 
 
@@ -85,3 +86,4 @@ See [Google Cloud metrics documentation](https://cloud.google.com/monitoring/api
 |gcp.vpn.network.sent_packets_count_count| Egress (directed to peer VPN) packets for tunnel. |
 |gcp.vpn.network.sent_packets_count_rate| Rate at which Egress (directed to peer VPN) packets for tunnel. |
 |gcp.vpn.tunnel_established| Indicates successful tunnel establishment if > 0. |
+

@@ -63,6 +63,7 @@ See [Google Cloud Platform Overview and Permissions](http://docs.wavefront.com/i
 
 
 
+
 undefined
 
 
@@ -74,3 +75,4 @@ See [Google Cloud metrics documentation](https://cloud.google.com/monitoring/api
 | :--- | :--- |
 |gcp.bigquery.storage.stored_bytes| Number of bytes stored.|
 |gcp.bigquery.storage.table_count| Number of tables.|
+

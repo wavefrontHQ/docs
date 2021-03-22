@@ -52,6 +52,7 @@ The process first creates an Azure Active Directory application that represents 
 
 
 
+
 undefined
 
 
@@ -96,3 +97,4 @@ See [Azure documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/p
 |azure.cache.redis.usedmemorypercentage.*|Statistics: average, count, maximum, minimum|
 |azure.cache.redis.usedmemoryrss.*|Statistics: average, count, maximum, minimum|
 |azure.cache.redis.usedmemoryrss0.*|Statistics: average, count, maximum, minimum|
+

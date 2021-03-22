@@ -75,3 +75,4 @@ The rule sends an email address claim in the SAML response. The new rule transfo
 Going forward, users who attempt to log in to Wavefront are redirected to ADFS. If a user can authenticate to ADFS but is not currently a Wavefront user, that user is auto-created on the Wavefront side. Password authentication is no longer supported.
 
 
+

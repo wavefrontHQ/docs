@@ -186,3 +186,4 @@ Run `sudo service telegraf restart` to restart your agent.
 |nginx.vts.exporter.build.info||
 |nginx.waiting|Number of keep-alive connections waiting for work.|
 |nginx.writing|Number of connections that are waiting for upstream responses and/or writing responses.|
+

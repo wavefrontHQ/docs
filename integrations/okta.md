@@ -57,3 +57,4 @@ Okta is a popular identity management product that can be integrated with Wavefr
 Going forward, users who attempt to log in to Wavefront are redirected to Okta. If a user can authenticate to Okta but is not currently a Wavefront user, that user is auto-created on the Wavefront side. Password authentication is no longer supported.
 
 
+

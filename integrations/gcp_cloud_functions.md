@@ -63,6 +63,7 @@ See [Google Cloud Platform Overview and Permissions](http://docs.wavefront.com/i
 
 
 
+
 undefined
 
 
@@ -77,3 +78,4 @@ See [Google Cloud metrics documentation](https://cloud.google.com/monitoring/api
 |gcp.cloudfunctions.function.execution_times.*|Distribution of functions execution times in nanoseconds. <br/>Statistics: count, mean, sumOfSquaredDeviation|
 |gcp.cloudfunctions.function.network_egress_rate| Outgoing network traffic of function, in bytes.|
 |gcp.cloudfunctions.function.user_memory_bytes.*|Distribution of maximum function's memory usage during execution, in bytes. <br/>Statistics: count|
+

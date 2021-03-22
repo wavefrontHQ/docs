@@ -77,6 +77,7 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+
 undefined
 
 
@@ -106,3 +107,4 @@ See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/moni
 |aws.dms.writeiops| Average number of disk write I/O operations per second.|
 |aws.dms.writelatency| Average amount of time taken per disk I/O (output) operation.|
 |aws.dms.writethroughput| Average number of bytes written to disk per second.|
+
