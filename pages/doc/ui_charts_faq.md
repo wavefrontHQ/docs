@@ -30,7 +30,7 @@ The following example shows how to use color mapping with a single stat chart.
 <li>On the <strong>Data</strong> tab, specify the metrics to monitor and give a subtitle. </li>
 <li>In the Sparkline tab:</li>
 <ol><li>Select whether to apply the color to the Text or the Background and change <strong>Show Sparkline</strong> to <strong>No Line</strong> if you want a solid color chart. </li>
-<li>Click the <strong>+</strong>  icon next to <strong>Color to Value Mapping</strong> and change the values and colors to fit your use case. In the example on the right, we show green for values under 75, yellow for values under 80, and red for values over 80. </li>
+<li>Click the <strong>+</strong>  icon next to <strong>Color to Value Mapping</strong> and change the values and colors to fit your use case. In the example on the right, we show red for values under 65, yellow for values under 80, and green for values over 80. </li>
 <li>Save your chart. </li></ol>
 </ol></td>
 <td width="50%"><img src="/images/color_mapping_faq.png" alt="create a dashboard and change values and colors"></td>

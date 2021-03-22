@@ -159,7 +159,7 @@ The process for creating an alert target is similar for the different types of t
       <table>
       <tbody>
       <thead>
-      <tr><th width="20%">Pagerduty Property</th><th width="80%">Description</th></tr>
+      <tr><th width="20%">PagerDuty Property</th><th width="80%">Description</th></tr>
       </thead>
       <tr>
         <td><strong>PagerDuty Key</strong> </td>
@@ -200,7 +200,7 @@ Test your alert target to ensure that it works properly.
 <td width="60%">
 <strong>To create a dashboard</strong>:
 <ol><li>Select <strong>Browse > Alert Targets</strong> and find the target on the Alert Targets page. </li>
-<li>Click the ellipsis (three dots) to the left of the alert target and select <strong>Test</strong>.</li></ol></td>
+<li>Click the ellipsis icon to the left of the alert target and select <strong>Test</strong>.</li></ol></td>
 <td width="40%"><img src="images/alert_target_test.png" alt="ellipsis menu, test selected"></td>
 </tr>
 </tbody>
@@ -221,13 +221,13 @@ To add a custom alert target to a new or existing alert:
 
 You can change a custom alert target at any time.
 
-To edit a alert, click the alert target name in the Alert Targets browser or click the three dots to the left of the alert target and select **Edit**.
+To edit an alert, click the alert target name in the Alert Targets browser or click the ellipsis icon on the left of the alert target and select **Edit**.
 
 ## Delete Custom Alert Targets
 
 You can delete one or more custom alert targets by checking the checkboxes next to the alert targets and clicking the Trash icon <i class="fa fa-trash"/> at the top of the Alert Targets page. The trash icon is grayed out if you don't have permission to delete any of the selected alert targets.
 
-To delete a single alert target, use the trash icon or click the three dots to the left of the alert target and select **Delete**.
+To delete a single alert target, use the trash icon or click the ellipsis icon to the left of the alert target and select **Delete**.
 
 ## Find an Alert Target ID
 
@@ -276,7 +276,7 @@ Consider this example:
 
 ## Query Responses of Webhook Alert Targets
 
-Wavefront exposes response codes from webooks alert target calls as metrics:
+Wavefront exposes response codes from webhooks alert target calls as metrics:
 
 ```
 ~alert.webhooks.<webhook_id>.1xx
@@ -299,11 +299,11 @@ If the response code of the webhook is anything other than 2xx, Wavefront create
 
 * [Customize the contents](alert_target_customizing.html) of the alert notifications using Moustache syntax.
 
-* Follow the steps in one of our integrations to set set up a custom alert target. Log in to your Wavefront instance or look at the following doc pages:
+* Follow the steps in one of our integrations to set up a custom alert target. Log in to your Wavefront instance or look at the following doc pages:
   - [PagerDuty Integration](pagerduty.html)
   - [VictorOps Integration](victorops.html)
   - [Slack Integration](slack.html)
   - [HipChat Integration](hipchat.html)
 
 
-* Read our blog post [Engineering Tips Series: How Wavefront's Devops Team Uses Alert Targets to Provide Exceptional Quality of Services to Customers](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/engineering-tips-series-how-wavefront-s-devops-team-uses-alert-targets-to-provide-exceptional-quality-of-services-to-customers) to learn how alert targets help Wavefront to keep things running smoothly.
+* Read our blog post [Engineering Tips Series: How Wavefront's DevOps Team Uses Alert Targets to Provide Exceptional Quality of Services to Customers](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/engineering-tips-series-how-wavefront-s-devops-team-uses-alert-targets-to-provide-exceptional-quality-of-services-to-customers) to learn how alert targets help Wavefront to keep things running smoothly.
