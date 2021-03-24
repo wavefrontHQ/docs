@@ -116,18 +116,18 @@ management:
 
 Spring Cloud Data Flow provides a [Docker Compose Installation](https://dataflow.spring.io/docs/installation/local/docker/) to let you quickly install Spring Cloud Data Flow, Skipper, MySQL and Apache Kafka on your local machine and to [configure Wavefront monitoring](https://dataflow.spring.io/docs/installation/local/docker-customize/#wavefront).
 
- 1. Download the [docker-compose.yml](https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/master/spring-cloud-dataflow-server/docker-compose.yml) and [docker-compose-wavefront.yml](https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/master/spring-cloud-dataflow-server/docker-compose-wavefront.yml) files.
+ 1. Download the [docker-compose.yml](https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/master/src/docker-compose/docker-compose.yml) and [docker-compose-wavefront.yml](https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/master/src/docker-compose/docker-compose-wavefront.yml) files.
  2. Follow the [Data Flow with Wavefront metrics collection](https://dataflow.spring.io/docs/installation/local/docker-customize/#wavefront) installation instructions.
  3. When you stop seeing additional log messages on the command prompt, open the Spring Cloud Data Flow dashboard at http://localhost:9393/dashboard.
 
 Here is a quick start, single-line command:
 {% raw %}
 ```
-wget -O docker-compose.yml https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/master/spring-cloud-dataflow-server/docker-compose.yml 
-wget -O docker-compose-wavefront.yml https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/master/spring-cloud-dataflow-server/docker-compose-wavefront.yml 
+wget -O docker-compose.yml https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/master/src/docker-compose/docker-compose.yml
+wget -O docker-compose-wavefront.yml https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/master/src/docker-compose/docker-compose-wavefront.yml
 
-export DATAFLOW_VERSION=2.7.0 \
-export SKIPPER_VERSION=2.6.0 \
+export DATAFLOW_VERSION=2.7.1 \
+export SKIPPER_VERSION=2.6.1 \
 export WAVEFRONT_KEY=YOUR_API_TOKEN \
 export WAVEFRONT_URI=https://YOUR_CLUSTER.wavefront.com \
 export WAVEFRONT_SOURCE=scdf-docker-compose \
@@ -135,12 +135,7 @@ docker-compose -f ./docker-compose.yml -f ./docker-compose-wavefront.yml up
 ```
 {% endraw %}
 
-**Note**: The Kafka Stream dashboard requires Spring Boot 2.3.4 (or newer) streaming applications. To test this dashboard at the moment you need to switch to the latest streaming apps:
-{% raw %}
-```
-export STREAM_APPS_URI=https://repo.spring.io/libs-snapshot-local/org/springframework/cloud/stream/app/stream-applications-descriptor/2020.0.0-SNAPSHOT/stream-applications-descriptor-2020.0.0-SNAPSHOT.stream-apps-kafka-maven
-```
-{% endraw %} 
+**Note**: The Kafka Stream dashboard requires Spring Boot 2.3.4 (or newer) streaming applications.
 
 Use the following environment variables to configure the Wavefront endpoint, before you start the `docker-compose`:
 
@@ -363,4 +358,5 @@ The `server.tomcat.mbeanregistry.enabled` must be set to true for all Tomcat met
 | tomcat.sessions.created |  |
 | tomcat.sessions.expired |  |
 | tomcat.sessions.rejected |  |
+
 

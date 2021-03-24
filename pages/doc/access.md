@@ -28,10 +28,10 @@ Wavefront supports granting and revoking access to dashboards and alerts.
 * By default, all users can view all dashboards and alerts.
 * Users with Dashboard permission can:
   - Restrict or grant access to individual dashboards from the Dashboard browser.
-  - Select the Share icon on individual dashboards to change who has access.
+  - Click the Share icon on individual dashboards to change who has access.
 * Users with Alerts permission can:
   - Restrict or grant access for individual alerts from the Alerts browser.
-  - Select the Share icon on individual alerts to change who has access.
+  - Click the Share icon on individual alerts to change who has access.
 
 In high-security environments, administrators change a security organization setting. After that change:
 * Each *new* object (dashboard or alert) is visible only to the creator and to Super Admin users.

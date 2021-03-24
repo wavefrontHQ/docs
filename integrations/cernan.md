@@ -105,3 +105,4 @@ It may take up to a minute for a brand new metric to appear in Wavefront. If you
 - The console output from Cernan - it will display an error if it cannot connect to the Wavefront proxy.
 - The Wavefront proxy logs - if Cernan is sending any bad lines to the Wavefront proxy, the proxy will block the lines and display error messages in the logs.
 
+

@@ -259,3 +259,4 @@ Run `sudo service telegraf restart` to restart your agent.
 |redis.used.memory.rss||
 |redis.used.memory.scripts||
 |redis.used.memory.startup||
+

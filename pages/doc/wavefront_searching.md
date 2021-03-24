@@ -41,13 +41,21 @@ You can select each item in the list individually. The dropdown list also contai
 
 Search fields support multi-word searches. If you type **cpu usage** in any browser or autocompleted text field, the dropdown list includes all matches for both **cpu** and **usage**.
 
+If you want to explicitly exclude a keyword or a phrase from the search results, type the keyword or phrase that you want to exclude, press Enter, and click the equal sign in front of it so that it changes to a not equal sign (**&#8800;**). For example, if you want to exclude all results containing **cpu**, and see only the results that contain **usage**: 
+
+1. Enter **cpu** and press Enter. 
+2. Enter **usage** in the search field and press Enter. 
+3. Click the equal sign in front of cpu, so that it turns to a not equal sign (**&#8800;**).
+
+![exclude search results](images/not_in_search.png)
+
 ### Filter Bar
 
-In the filter bar on the left you search by selecting facets, such as **State** and **Severity** for alerts, and by typing in Search fields. Some facets one some pages have their own Search field to limit the displayed facet values. Most pages support the standard facets Tag Paths, Tags, and Updated By.
+In the filter bar on the left you search by selecting facets, such as **State** and **Severity** for alerts, and by typing in Search fields. Some facets on some pages have their own Search field to limit the displayed facet values. Most pages support the standard facets Tag Paths, Tags, and Updated By.
 
 ### Saved Searches
 
-Most filter bars contain a set of commonly used saved searches (e.g. Favorites, Last Updated, Recently Updated, My <XXX>) and you can save your own searches.
+Most filter bars contain a set of commonly used saved searches (e.g., Favorites, Last Updated, Recently Updated, My <XXX>) and you can save your own searches.
 
 Once you press **Return** or **Enter** after typing a search string, the icons ![search icons](images/searchicons.png#inline) display at the top right, allowing you to share a link to, save, and clear the search. Your saved searches appear below the commonly used searches, and have a dropdown menu for renaming, cloning, and deleting the search.
 
@@ -59,7 +67,7 @@ Once you press **Return** or **Enter** after typing a search string, the icons !
 The Wavefront UI supports tagging and other actions.
 
 -   **Tagging** - Make a selection and click the tag buttons to create, add, and remove tags.
--   **Actions** - Perform actions (clone, delete, edit, rename, etc.) on an individual object (e.g. an alert) by clicking the three dots to the far left of the object, for example, to the left of an alert. Actions are different for different objects but might include Clone, Delete, or Test (for alerts). Here's an example for the Actions menu for dashboards:
+-   **Actions** - Perform actions (clone, delete, edit, rename, etc.) on an individual object (e.g., an alert) by clicking the ellipsis icon on the left of the object, for example, to the left of an alert. Actions are different for different objects but might include Clone, Delete, or Test (for alerts). Here's an example for the Actions menu for dashboards:
 
     ![dashboard clone](/images/dashboard_clone.png)
 

@@ -253,6 +253,7 @@ To query traces, select **Applications > Traces** and navigate to the Traces Bro
 **Query traces using a trace ID**:
 1. Click **Trace ID** and enter the ID of the trace or traces you want to query.
     ![query traces by trace ID](images/tracing_query_by_trace_id.png)
+    {% include note.html content="Your trace ID needs to be in the UUID format (example: `00000000-0000-0000-1111-111111111111`). If you copy-paste a trace ID that is not in the UUID format, Wavefront transforms it for you." %}
 2. Click **Search** in the query bar.
 
 {{site.data.alerts.note}}

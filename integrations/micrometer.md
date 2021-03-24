@@ -214,3 +214,4 @@ new JvmThreadMetrics().bindTo(registry); (5)
   5. Gauges thread peak, number of daemon threads, and live threads.
 
 
+

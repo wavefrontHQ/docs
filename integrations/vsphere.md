@@ -1042,3 +1042,4 @@ If your environment is set up to use vSAN, you might see the following metrics. 
 |vsphere.vsan.performance.vscsi.throughput.read| |
 |vsphere.vsan.performance.vscsi.throughput.write| |
 |vsphere.vsan.performance.vscsi.write.count| |
+

@@ -224,3 +224,4 @@ This information is summarized from [https://docs.microsoft.com/en-us/dotnet/fra
 |dotnet.thread.Priority.Base|Scheduling priority of a thread.|
 |dotnet.thread.Priority.Current|Current thread scheduling priority.|
 |dotnet.thread.Thread.State|Thread state.|
+

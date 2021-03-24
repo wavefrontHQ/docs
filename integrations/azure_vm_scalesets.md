@@ -52,6 +52,7 @@ The process first creates an Azure Active Directory application that represents 
 
 
 
+
 undefined
 
 
@@ -98,3 +99,4 @@ See [Azure documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/p
 |azure.compute.virtualmachinescalesets.percentage.cpu.*|Statistics: average, count, maximum, minimum|
 |azure.compute.virtualmachinescalesets.premium.os.disk.cache.read.hit.*|Statistics: average, count, maximum, minimum|
 |azure.compute.virtualmachinescalesets.premium.os.disk.cache.read.miss.*|Statistics: average, count, maximum, minimum|
+

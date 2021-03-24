@@ -77,6 +77,7 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+
 undefined
 
 
@@ -97,3 +98,4 @@ See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/moni
 |aws.dx.connectionppsegress| Packet rate for outbound data from the AWS side of the connection.|
 |aws.dx.connectionppsingress| Packet rate for inbound data to the AWS side of the connection.|
 |aws.dx.connectionstate| State of the connection.1 indicates up and 0 indicates down.|
+

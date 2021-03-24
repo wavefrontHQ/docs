@@ -77,6 +77,7 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+
 undefined
 
 
@@ -106,3 +107,4 @@ See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/moni
 |aws.opsworks.memory_total| Total amount of memory.|
 |aws.opsworks.memory_used| Amount of memory in use.|
 |aws.opsworks.procs| Number of active processes.|
+

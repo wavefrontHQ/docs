@@ -82,7 +82,7 @@ After you've performed the setup, you can view and examine the data in our AWS F
 				"command": [
 					"-port=8000",
 					"-storage_driver=wavefront",
-					"-storage_driver_options=storage_driver_wf_proxy_host=YOUR_PROXY_ADDRESS storage_driver_wf_metric_prefix=aws.fargate.ecs."
+					"-storage_driver_options=storage_driver_wf_proxy_host=YOUR_PROXY_ADDRESS storage_driver_wf_metric_port=PORT_NUMBER storage_driver_wf_metric_prefix=aws.fargate.ecs."
 				]
 			}
         ],
@@ -93,7 +93,7 @@ After you've performed the setup, you can view and examine the data in our AWS F
         "memory": "512"
   }
    ```
-1. In the JSON form, set the `storage_driver_wf_proxy_host` property to the proxy address. If you want to use a custom port, set the `storage_driver_wf_metric_port` to the port of your Wavefront instance. Use the format `<wavefront_proxy_IP>:<port>` and click **Save**.
+1. In the JSON form, set the `storage_driver_wf_proxy_host` property to the proxy address. If you want to use a custom port, set the `storage_driver_wf_metric_port` to the port number of your Wavefront instance and click **Save**.
 1. Click **Create** at the bottom of the Task Definition form.
 2. After the task is created, click **View Task Definition**, select **Actions > Run Task** and specify the task information. Most fields are self-evident, here are a few.
   * **Cluster**--Select the cluster on which your task has to run.
@@ -119,7 +119,7 @@ After you've performed the setup, you can view and examine the data in our AWS E
    ![select launch type](images/select_launch_type.png)
 1. Scroll to the bottom of the new Task Definition form and click the **Configure via JSON** button.
    1. Delete the content and paste the [JSON example](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/aws-ecs/example-task-definition.json) into the JSON form field.
-   1. In the JSON form, set the `-storage_driver_wf_proxy_host` property  to `<wavefront_proxy_ip_address>:<port>` and click **Save**.
+   1. In the JSON form, set the `-storage_driver_wf_proxy_host` property and click **Save**.
 1. Click the **Create** button at the bottom of the Task Definition form.
 1. Select **Actions > Run Task** and specify the task information:
    ![actions menu](images/actions_run_task.png)

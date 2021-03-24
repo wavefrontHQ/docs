@@ -63,6 +63,7 @@ See [Google Cloud Platform Overview and Permissions](http://docs.wavefront.com/i
 
 
 
+
 undefined
 
 
@@ -73,3 +74,4 @@ See [Google Cloud metrics documentation](https://cloud.google.com/monitoring/api
 |Metric Name|Description|
 | :--- | :--- |
 |gcp.datastore.api.request_count_rate| Rate of the Datastore API calls.|
+

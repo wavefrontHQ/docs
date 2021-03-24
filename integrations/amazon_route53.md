@@ -77,6 +77,7 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+
 undefined
 
 
@@ -93,3 +94,4 @@ See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/moni
 |aws.route53.dnsqueries.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.route53.healthcheckpercentagehealthy.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.route53.healthcheckstatus.*|Statistics: average, maximum, minimum, samplecount, sum|
+
