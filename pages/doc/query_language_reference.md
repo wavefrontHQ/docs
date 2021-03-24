@@ -335,7 +335,7 @@ You can:
 </thead>
 <tbody>
 
-<!--- Partial Regex --------->
+<!--- Partial Regex -------->
 
   <tr>
     <td>
