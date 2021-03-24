@@ -53,7 +53,7 @@ The process of backfilling data values causes Wavefront to revise the affected t
 
 After backfilling takes place, you can see only the revised view in a Wavefront chart.
 
-If an alert has fired when you did't expect it, you can examine an alert notification to help you determine whether a data delay was the cause:
+If an alert has fired when you didn't expect it, you can examine an alert notification to help you determine whether a data delay was the cause:
 
 1. Obtain an alert notification that was triggered by the alert.
 2. Check whether the alert notification includes a [chart image](alerts_notifications.html#chart-images-in-alert-notifications). A chart image shows the original view of the data at the time the alert fired.
@@ -102,7 +102,7 @@ You can correct for the data delay by applying `lag()` to the current request co
 lag(15m, sum(ts("aws.elb.requestcount"))) < 1000
 ```
 
-By setting the lag time to `15m`, you tell the alert condition to return data values whose timestamps are 15 minutes earlier than the alert check time. The alert checking process evaluates 2 minutes' worth of these older values (from 15 to 17 minutes before checking occurs). The 15 minute lag gives Wavefront a chance to backfill the delayed values into the alert check time window.
+By setting the lag time to `15m`, you tell the alert condition to return data values whose timestamps are 15 minutes earlier than the alert check time. The alert checking process evaluates 2 minutes' worth of these older values (from 15 to 17 minutes before checking occurs). The 15-minute lag gives Wavefront a chance to backfill the delayed values into the alert check time window.
 
 {% include note.html content="If a data delay lasts longer than 15 minutes, the sample alert condition will return data values before backfilling has a chance take place." %}
 

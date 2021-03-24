@@ -178,11 +178,11 @@ Wavefront defines variables for obtaining information about the alert as a whole
 </tr>
 <tr>
 <td markdown="span">`reason`</td>
-<td>Trigger that caused the alert target to send the notification, e.g. Alert Opened or Alert Snoozed.</td>
+<td>Trigger that caused the alert target to send the notification, e.g., Alert Opened or Alert Snoozed.</td>
 </tr>
 <tr>
 <td markdown="span">`severity`</td>
-<td>Alert severity (e.g. INFO, SMOKE, WARN, SEVERE).</td>
+<td>Alert severity (e.g., INFO, SMOKE, WARN, SEVERE).</td>
 </tr>
 <tr>
 <td markdown="span">`severityInfo`</td>
@@ -623,7 +623,7 @@ The template explicitly includes literal text for enclosing the overall list of 
 ## Access a Custom Group of Time Series Details
 
 You can access a custom combination of details for the time series that contributed to the alert's state change. To do so:
-1. Use an [alert-series iterator](#alert-series-iterators) to visit each each time series in the indicated [category](#series-category).
+1. Use an [alert-series iterator](#alert-series-iterators) to visit each time series in the indicated [category](#series-category).
 2. Use variable within the iterator section to access the [alert-series details](#alert-series-details) you want to include.
 
 This technique gives you complete control over the formatting of the returned information, and allows you to access [statistics](#accessing-series-statistics) from each visited time series.
@@ -735,7 +735,7 @@ The preceding template might yield the following message:
 
 ### Alert-Series Statistics
 
-Statistics provide a profile of the values in a time series during the checking time window immediately preceding a notification. For example, the alert might be set up to fire when a condition is true for 10 minutes. During a 10 minute period where the condition is true, a time series likely have multiple values. You can use statistics to find out, e.g., the largest of these values, or the last value to be reported during the **Alert fires** time window.
+Statistics provide a profile of the values in a time series during the checking time window immediately preceding a notification. For example, the alert might be set up to fire when a condition is true for 10 minutes. During a 10-minute period where the condition is true, a time series likely have multiple values. You can use statistics to find out, e.g., the largest of these values, or the last value to be reported during the **Alert fires** time window.
 
 For classic alerts, statistics are normally useful only if you have set the alert's [**Display Expression** field](alerts.html#alert-properties) with a display expression that captures the underlying time series being tested by the condition expression. If the alert has no display expression, statistics are based on the values that are returned by the alert's condition expression. Because the condition expression returns either 0 or not 0, that information is not useful.
 
@@ -905,7 +905,7 @@ The `failingLimit` property applies to all iterators in the `failing` category: 
 
 See [Setting and Testing Iteration Limits](#example-setting-and-testing-iteration-limits) for an example.
 
-{% include note.html content="If the application that is being integrated requires the full list of items (e.g. `failingHosts`) you can retrieve the `alertId` from the notification and use the Wavefront API to get the full list of items." %}
+{% include note.html content="If the application that is being integrated requires the full list of items (e.g., `failingHosts`) you can retrieve the `alertId` from the notification and use the Wavefront API to get the full list of items." %}
 
 
 <table>

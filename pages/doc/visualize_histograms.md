@@ -109,6 +109,6 @@ The heatmap is interactive and lets you examine the histogram in detail.
 * Hover over any field to bring up a legend. The legend:
   - Shows how this histogram bar fits in with the rest of the histogram using a contrasting color.
   - Includes information about the range, count, and percentile.
-  Use Shift-P to pin the legend.
+  Use Shift+P to pin the legend.
 * Click the ellipsis in the to right to go to the Traces browser for this histogram distribution.
 * Change the time, X axis, or Y axis to customize what you see.

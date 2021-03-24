@@ -29,7 +29,7 @@ Before creating queries and alerts, make sure you understand the following aspec
 
 ### Fixed Interval?
 
-**Question:** Does the metric report regularly, i.e. at a fixed interval?
+**Question:** Does the metric report regularly, i.e., at a fixed interval?
 
 For metrics that do not report at a fixed interval, alerts are only useful if you select the appropriate aggregation method.
 
@@ -59,7 +59,7 @@ If you know your data, you can pick a suitable metric to get the best results fo
 
 ### Danger of Becoming Obsolete? 
 
-**Question:** Might this metric become obsolete because it doesn't report values (e.g. no failures) for more than 4 weeks?
+**Question:** Might this metric become obsolete because it doesn't report values (e.g., no failures) for more than 4 weeks?
 
 Wavefront considers a metric obsolete after it hasn't reported any values for 4 weeks. For example, if you monitor `http.failures`, the metric becomes obsolete if no failures occurred for 4 weeks. In contrast, if you monitor `http.failures.count`, or if you wrap `count` around the `http.failures` metric, the metric is cumulative and does not become obsolete.
 
@@ -84,7 +84,7 @@ Don't use interpolation if metrics show deltas to avoid results like `4.5 proces
 
 **Question:** Is this metric aligned to the minute (or any other interval)? 
 
-By default, alert checking frequency is 1 minute, and alert condition queries are evaluated with 1 minute granularity. If more than 1 data point comes in per minute, consider explicitly aligning your data to 1 minute using the summarization strategy appropriate for your use case (e.g. `sum`, `max`, `last` etc). If you don't specify a summarization strategy, Wavefront uses `avg`, which computes the mean. If your data points are coming in much less frequently than once a minute, consider adjusting the alert's checking frequency advanced option. 
+By default, alert checking frequency is 1 minute, and alert condition queries are evaluated with 1 minute granularity. If more than 1 data point comes in per minute, consider explicitly aligning your data to 1 minute using the summarization strategy appropriate for your use case (e.g., `sum`, `max`, `last` etc). If you don't specify a summarization strategy, Wavefront uses `avg`, which computes the mean. If your data points are coming in much less frequently than once a minute, consider adjusting the alert's checking frequency advanced option. 
 
 ### Near Real Time or Back-Filled?
 
@@ -96,7 +96,7 @@ For some data sources, for example AWS, the metric is backfilled in chunks, and 
 
 Effective alerts require planning and testing. Here are some things to keep in mind to avoid unexpected problems:
 
-**Compose the query carefully**. You can create alerts directly from the **Alerts** page or by selecting **Create Alert** from the Ellipsis to the right of a query.
+**Compose the query carefully**. You can create alerts directly from the **Alerts Browser** page or by selecting **Create Alert** from the ellipsis icon menu on the right of a query.
 
 ![create alert](images/v2_create_alert.png)
 
@@ -127,7 +127,7 @@ If you use 1vw in a chart, the query applies to the time window selected for the
 
 ### Consider Data Delays
 
-Data coming from certain sources, such as cloud applications, are often batched and arrive at your alert at unpredictible times. You can [Limit the Impact of Data Delays](alerts_delayed_data.html) by making sure you understand the issue and by fine-tuning the query and time window.
+Data coming from certain sources, such as cloud applications, are often batched and arrive at your alert at unpredictable times. You can [Limit the Impact of Data Delays](alerts_delayed_data.html) by making sure you understand the issue and by fine-tuning the query and time window.
 
 
 ## Follow Alert Settings Recommendations
@@ -135,7 +135,7 @@ Data coming from certain sources, such as cloud applications, are often batched 
 Consider carefully which values are best suited for the settings you specify in the **Alerts** UI.
 
 - **Minutes to Fire** - Alerts with very short **Minutes to Fire** time windows can jump over a problem spot and not fire. This might happen in case of delays in the metric pipeline or if **Alert Check Frequency** is higher than **Minutes to Fire**.
-  For example, if **Minutes to Fire** is  5m, and the **Checking Frequency** is 10m, data might meet the condition within the 5 minute time interval, but the alert never fires because the checking frequency is too high.
+  For example, if **Minutes to Fire** is  5m, and the **Checking Frequency** is 10m, data might meet the condition within the 5-minute time interval, but the alert never fires because the checking frequency is too high.
 
   <!---(picture here!)-->
   To trigger an alert with a single value, instead of `ts(critical.event.count) > 0` with 1 minute to fire and 30 minutes to resolve, use `highpass(0, ts(critical.event.count))` with 30 minutes to fire and 30 minutes to resolve. The alert still fires immediately when the first non-zero value is encountered.
