@@ -376,7 +376,7 @@ ts(customer.report.count, tag=/mon-(primary|secondary)/)
 # add / after the = character
 ts(customer.report.count, tag=mon-/(primary|secondary)/) 
 
-# do no add quotes when using the // character
+# do not add quotes when using the // character
 ts(customer.report.count, tag="/mon-(primary|secondary)/")
 </pre>
         </li>
@@ -387,13 +387,13 @@ ts(customer.report.count, tag="/mon-(primary|secondary)/")
       
       <ul>
         <li>
-          Get data that match <code>~wavefront.alert.active</code> or <code>~wavefront.alert.active_info</code> and has the point tag <code>data</code>:
+          Get data that match <code>~wavefront.alert.active</code> or <code>~wavefront.alert.active_info</code> and has the source tag <code>data</code>:
 <pre>
 ts(/\~wavefront\.alert\.(active|active_info)/, tag=data) 
 </pre>
         </li>
         <li>
-          Get data that match <code>build.version</code> or <code>build.</code> and has the point tag <code>data</code>:
+          Get data that match <code>build.version</code> or <code>build.</code> and has the source tag <code>data</code>:
 <pre>
 ts(/build\.(version)?/, tag=data)
 </pre>
