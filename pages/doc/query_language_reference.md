@@ -189,7 +189,7 @@ lowpass(12ms, spans("beachshirts.styling.makeShirts"))
 
 ## Common Parameters
 
-Query expressions use a number of common parameters to specify names and values that describe the data of interest. You can use [wildcards or partial regex](#wildcards-aliases-and-variables) to match multiple names or values.
+Query expressions use a number of common parameters to specify names and values that describe the data of interest. You can use [wildcards or partial regex](#partial-regex-wildcards-aliases-and-variables) to match multiple names or values.
 
 * Rules for valid names are here: [Wavefront Data Format](wavefront_data_format.html#wavefront-data-format-fields).
 * Enclose a metric, source, or tag name, or a tag value, in double quotes if it is also a Wavefront reserved word, such as a function name or keyword. For example, if you're using a point tag named `default`, use `"default"`.
@@ -314,12 +314,13 @@ The default unit is minutes if the unit is not specified.
 </tbody>
 </table>
 
-## Wildcards, Aliases, and Variables
+## Partial Regex, Wildcards, Aliases, and Variables
 
-You can use wildcards as shortcuts for specifying multiple names or values.
-You can use query line variables, aliases, and dashboard variables as shortcuts for building queries out of other expressions or predefined strings.
-
-You can combine wildcards, aliases, query line variables, and dashboard variables in the same query line.
+You can:
+* Use partial regex to specify patterns that need to be matched when building a query.
+* Use wildcards as shortcuts for specifying multiple names or values.
+* Use query line variables, aliases, and dashboard variables as shortcuts for building queries out of other expressions or predefined strings.
+* Combine wildcards, aliases, query line variables, and dashboard variables in the same query line.
 
 <table style="width: 100%;" id="wildcardAliasVariable">
 <colgroup>
@@ -344,17 +345,17 @@ You can combine wildcards, aliases, query line variables, and dashboard variable
       Filter metrics, sources, source tags, or point tag values using a subset of regular expressions. You write regular expressions between <code>/ /</code> chars.
       
       <br/><br/>The list of supported regular expressions:
-      <pre>
+<pre>
 .     : any character (but newline)
 *     : previous character or group, repeated 0 or more times
 +     : previous character or group, repeated 1 or more times
 ?     : previous character or group, repeated 0 or 1 times
-[...] : any character between brackets
-[a-z] : any character between a and z
+[xyz] : any character between brackets
+[a-z] : any character between a and z. You can specify a range of characters using a hyphen
 \     : prevents interpretation of the special character that follows
 |     : or
 (  )  : start/end of group
-      </pre>
+</pre>
       
       {{site.data.alerts.important}}
       <ul> 
@@ -362,7 +363,22 @@ You can combine wildcards, aliases, query line variables, and dashboard variable
           Characters <code><b>~</b>, <b>^</b>, <b>{ }</b>, and <b>$</b></code> are not supported. You need to escape them if used within a regular expression filter.
         </li>
         <li>
-          All existing queries that use the <code>*</code> glob wildcard syntax continue to work as normal.
+          All existing queries that use the <code>*</code> glob wildcard syntax continue to work as before.
+        </li>
+        <li>
+          If you use a regular expression in metric, tags, and host, you need to write it between <code>/ /</code> chars.<br/>
+          <b>supported</b>
+<pre>
+ts(customer.report.count, tag=/mon-(primary|secondary)/)
+</pre>
+          <b>Not supported</b>
+<pre>
+# add / after the = character
+ts(customer.report.count, tag=mon-/(primary|secondary)/) 
+
+# do no add quotes when using the // character
+ts(customer.report.count, tag="/mon-(primary|secondary)/")
+</pre>
         </li>
       </ul>
       {{site.data.alerts.end}}
@@ -371,16 +387,28 @@ You can combine wildcards, aliases, query line variables, and dashboard variable
       
       <ul>
         <li>
-          Get data that match <code>~wavefront.alert.active</code> or <code>~wavefront.alert.active_info</code> and has the point tag <code>mon</code>:
-          <pre>
-ts(/\~wavefront\.alert\.(active|active_info)/, tag=mon) 
-          </pre>
+          Get data that match <code>~wavefront.alert.active</code> or <code>~wavefront.alert.active_info</code> and has the point tag <code>data</code>:
+<pre>
+ts(/\~wavefront\.alert\.(active|active_info)/, tag=data) 
+</pre>
         </li>
         <li>
-          Get data that match <code>build.version</code> or <code>build.</code> and has the point tag <code>mon</code>.
-          <pre>
-ts(/build\.(version)?/, tag=mon)
-          </pre>
+          Get data that match <code>build.version</code> or <code>build.</code> and has the point tag <code>data</code>:
+<pre>
+ts(/build\.(version)?/, tag=data)
+</pre>
+        </li>
+        <li>
+          Get data of all the sources that follow the given pattern, e.g., app-0, app-12, app-30, and more:
+<pre>
+ts(~sample.cpu.usage.percentage, source=/app-[0-9]+/)
+</pre>
+        </li>
+        <li>
+          Get data from the metrics that have <code>request.latency</code> as the common prefix and has the tag <code>env=prod</code>:
+<pre>
+ts(/request\.latency.*/, env=prod)
+</pre>
         </li>
       </ul>
     </td>
