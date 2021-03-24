@@ -52,6 +52,7 @@ The process first creates an Azure Active Directory application that represents 
 
 
 
+
 undefined
 
 
@@ -66,3 +67,4 @@ See [Azure documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/p
 |azure.containerservice.managedclusters.kube_node_status_condition.*|Statistics: average, count, maximum, minimum|
 |azure.containerservice.managedclusters.kube_pod_status_phase.*|Statistics: average, count, maximum, minimum|
 |azure.containerservice.managedclusters.kube_pod_status_ready.*|Statistics: average, count, maximum, minimum|
+

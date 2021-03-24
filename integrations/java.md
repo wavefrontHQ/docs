@@ -344,3 +344,4 @@ metricRegistry.register("jvm.thread-states", new ThreadStatesGaugeSet());
 |jvm.threads.timed_waiting.count||
 |jvm.threads.waiting.count||
 |jvm.uptime||
+

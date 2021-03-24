@@ -77,6 +77,7 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+
 undefined
 
 
@@ -92,3 +93,4 @@ See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/moni
 | :--- | :--- |
 |aws.efs.burstcreditbalance.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.efs.permittedthroughput.*|Statistics: average, maximum, minimum, samplecount, sum|
+

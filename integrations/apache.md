@@ -134,3 +134,4 @@ Information about server activity and performance. Metrics descriptions are coll
 |apache.up.gauge|Shows whether server could be reached.|
 |apache.uptime.seconds.total.counter|Total uptime, in seconds.|
 |apache.workers.gauge|Apache worker status.|
+

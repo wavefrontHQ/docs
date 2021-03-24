@@ -234,3 +234,4 @@ Use the `Windows Services Management Console` or execute the following from the 
 |iis.websvc.cache.URI.Cache.Hits||
 |iis.websvc.cache.URI.Cache.Hits.Percent||
 |iis.websvc.cache.URI.Cache.Misses||
+

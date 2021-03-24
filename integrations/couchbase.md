@@ -64,3 +64,4 @@ To monitor multiple Couchbase server instances, configure the `servers` paramete
 Run `sudo service telegraf restart` to restart your Telegraf agent.
 
 
+

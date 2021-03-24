@@ -77,6 +77,7 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+
 undefined
 
 
@@ -194,3 +195,4 @@ See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/moni
 |aws.fargate.precpu_stats.throttling_data.periods| |
 |aws.fargate.precpu_stats.throttling_data.throttled_periods| |
 |aws.fargate.precpu_stats.throttling_data.throttled_time| |
+

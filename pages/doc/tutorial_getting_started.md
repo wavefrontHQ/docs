@@ -182,7 +182,7 @@ In this section you create an alert that fires when the request latency metric r
 <td width="50%">
 <ol>
 <li>In the App Server section of the dashboard, click the <strong>Request Latencies</strong> chart title to open the chart.  </li>
-<li>Select <strong>Create Alert</strong> from the menu on the far right. </li></ol>
+<li>Click the ellipsis icon on the right of the query and select <strong>Create Alert</strong>. </li></ol>
 The <strong>Create Alert</strong> page displays. </td>
 <td width="50%"><img src="/images/v2_create_alert.png" alt="Create Alert menu item"/></td>
 </tr>
@@ -215,7 +215,7 @@ The <strong>Create Alert</strong> page displays. </td>
 <tr>
 <td width="50%">
 <ol>
-<li>To watch the alert fire, click <strong>Alerts</strong> in the taskbar.
+<li>To watch the alert fire, click <strong>Alerting</strong> in the taskbar.
 <br>
 <br>
 Because your alert was the most recently created, you should see it with the state CHECKING.

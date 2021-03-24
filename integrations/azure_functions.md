@@ -52,6 +52,7 @@ The process first creates an Azure Active Directory application that represents 
 
 
 
+
 undefined
 
 
@@ -77,3 +78,4 @@ See [Azure documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/p
 |azure.web.sites.privatebytes.*|Statistics: average, count, maximum, minimum|
 |azure.web.sites.threads.*|Statistics: average, count, maximum, minimum|
 |azure.web.sites.totalappdomains.*|Statistics: average, count, maximum, minimum|
+

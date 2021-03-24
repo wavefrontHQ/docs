@@ -359,3 +359,4 @@ The `server.tomcat.mbeanregistry.enabled` must be set to true for all Tomcat met
 | tomcat.sessions.expired |  |
 | tomcat.sessions.rejected |  |
 
+

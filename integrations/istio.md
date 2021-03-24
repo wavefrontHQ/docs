@@ -91,3 +91,4 @@ Follow these [steps](https://github.com/wavefrontHQ/wavefront-kubernetes/tree/ma
 |istio.tcpconnectionsopened.*|Statistics: 50-percentile, 75-percentile, 95-percentile, 99-percentile, 999-percentile, count, max, mean, min, std-dev|
 |istio.tcpreceivedbytes.*|Statistics: 50-percentile, 75-percentile, 95-percentile, 99-percentile, 999-percentile, count, max, mean, min, std-dev|
 |istio.tcpsentbytes.*|Statistics: 50-percentile, 75-percentile, 95-percentile, 99-percentile, 999-percentile, count, max, mean, min, std-dev|
+

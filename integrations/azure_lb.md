@@ -52,6 +52,7 @@ The process first creates an Azure Active Directory application that represents 
 
 
 
+
 undefined
 
 
@@ -70,3 +71,4 @@ See [Azure documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/p
 |azure.network.loadbalancers.syncount.*|Statistics: average, count|
 |azure.network.loadbalancers.usedsnatports.*|Statistics: average, count, maximum, minimum|
 |azure.network.loadbalancers.vipavailability.*|Statistics: average, count|
+

@@ -39,3 +39,4 @@ cp -R grafana-wavefront-datasource/dist/* /var/lib/grafana/plugins/wavefront-dat
 1. Restart Grafana.
 
 
+
