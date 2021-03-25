@@ -8,24 +8,20 @@ summary: New and changed Wavefront integrations.
 ---
 Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
-## 23 March 2021
+## March 2021
 
-Made improvements to the following integrations:
+Made improvements to the following integrations in March 2021:
 
 * OpenTelemetry -- Fixed broken links in the setup instructions
 * Istio -- Fixed broken links in the setup instructions
+* Kubernetes:
+  * Updated the out of the box dashboards
+  * Now includes an **Alerts** tab with predefined alerts
 * Spring Cloud Data Flow -- Upgraded the integration to support Spring Cloud Data Flow 2.7.1 and Spring Cloud Skipper 2.6.1
-* Kubernetes -- Updated the out of the box dashboards
-
-## 10 March 2021
-
-Made improvements to the following integrations:
-
 * Tanzu Kubernetes Grid Integrated Edition -- Fixes to the queries in alerts
 * OneLogin -- Updates to the integration setup instructions
 * vSphere -- Fixes to the out of the box dashboards
 * RabbitMQ -- Fixes to the out of the box dashboards
-* Kubernetes -- Now includes an **Alerts** tab with predefined alerts
 * Wavefront Usage -- Added new alerts to the Wavefront usage integration
 
 ## December 2020 - February 2021

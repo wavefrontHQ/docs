@@ -263,7 +263,6 @@ dependencies {
             </div>
 
             <div role="tabpanel" class="tab-pane" id="gradlebom">
-            <p><b>Maven</b>: <br/>Open your application and add the following code to your <code>pom.xml</code> file. </p>
               <pre>
 dependencyManagement {
   imports {
