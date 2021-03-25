@@ -84,7 +84,7 @@ You can install and uninstall dashboards from Featured and Data Collector integr
 
 1. Click **Integrations**.
 1. Click the integration tile.
-1. Click the **Content** tab.
+1. Click the **Dashboards** tab.
 1. Click **\[Install \| Uninstall\] Dashboards**.
 
 ## Cloning and Customizing Dashboards

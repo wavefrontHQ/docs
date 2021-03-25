@@ -88,7 +88,7 @@ After you've set up an alert with that information, we'll send alert notificatio
 
 ## How Does Wavefront Integrate With...?
 
-Wavefront includes [over 200 integrations](label_integrations%20list.html) including clud providers, DevOps tools, big data, and more.
+Wavefront includes [over 200 integrations](label_integrations%20list.html) including cloud providers, DevOps tools, big data, and more.
 
 [Wavefront interfaces](wavefront_interfaces.html) include SDKs available on our Github page, the Wavefront REST API, and CLIs.
 
@@ -110,7 +110,7 @@ In addition, tight integrations with Spring Boot, Kubernetes, and Tanzu Mission 
 <table style="width: 100%;">
 <tbody>
 <tr><td width="50%">Use our one-click install of the <strong><a href="kubernetes.html"> Wavefront Collector for Kubernetes</a></strong> to collect real-time metrics from all layers of a Kubernetes environment (clusters, nodes, pods, containers and the Kubernetes control plane). You can visualize the metrics in a rich set of predefined dashboards. </td>
-<td width="50%"><a href="https://youtu.be/Lrm8UuxrsqA" target="_blank"><img src="/images/v_kubernetes_lightboard.png" alt="Kubernetes and Wavefront with Clement Pang"/></a> </td>
+<td width="50%"><a href="https://youtu.be/jbmUKPSIguQ" target="_blank"><img src="/images/v_kubernetes_lightboard.png" alt="Kubernetes and Wavefront with Clement Pang"/></a> </td>
 </tr>
 </tbody>
 </table>
