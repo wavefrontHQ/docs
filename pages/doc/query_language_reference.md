@@ -342,16 +342,16 @@ You can:
       <span style="color:#3a0699;font-weight:bold">partial regex</span>
     </td>
     <td>
-      Filter metrics, sources, source tags, or point tag values using a subset of regular expressions. You write regular expressions between <code>/ /</code> chars.
+      Filter metrics, sources, source tags, or point tag values using a subset of regular expressions. You wrap regular expressions in <code>/ /</code> characters. For example, <code>/&lt;regular_expression&gt;/</code>.
       
-      <br/><br/>The list of supported regular expressions:
+      <br/><br/>The list of supported regular expression characters and quantifiers:
 <pre>
 .     : any character (but newline)
 *     : previous character or group, repeated 0 or more times
 +     : previous character or group, repeated 1 or more times
 ?     : previous character or group, repeated 0 or 1 times
-[xyz] : any character between brackets
-[a-z] : any character between a and z. You can specify a range of characters using a hyphen
+[xyz] : any character contained within the brackets
+[a-z] : characters between a and z. Specify a range of characters using a hyphen
 \     : prevents interpretation of the special character that follows
 |     : or
 (  )  : start/end of group
@@ -360,23 +360,27 @@ You can:
       {{site.data.alerts.important}}
       <ul> 
         <li>
-          Characters <code><b>~</b>, <b>^</b>, <b>{ }</b>, and <b>$</b></code> are not supported. You need to escape them if used within a regular expression filter.
+          Characters, such as <code><b>~</b>, <b>^</b>, <b>{ }</b>, and <b>$</b></code> are not supported regular expression characters. Therefore, you need to escape these characters if they are present in the string you are trying to match. 
+          <br/>Example: You need to escape the <code>~</code> character.
+<pre>
+ts(/\~sample\.cpu.usage.*/)
+</pre>
         </li>
         <li>
           All existing queries that use the <code>*</code> glob wildcard syntax continue to work as before.
         </li>
         <li>
-          If you use a regular expression in metric, tags, and host, you need to write it between <code>/ /</code> chars.<br/>
-          <b>supported</b>
+          If you use a regular expression in metric, tags, and host, wrap the whole expression in <code>/ /</code> characters.<br/>
+          <b>Supported</b>
 <pre>
 ts(customer.report.count, tag=/mon-(primary|secondary)/)
 </pre>
           <b>Not supported</b>
 <pre>
-# add / after the = character
+# a mixture in which part of the regular expression is wrapped in //
 ts(customer.report.count, tag=mon-/(primary|secondary)/) 
 
-# do not add quotes when using the // character
+# quotes when using the // characters
 ts(customer.report.count, tag="/mon-(primary|secondary)/")
 </pre>
         </li>
