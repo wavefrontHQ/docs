@@ -6,14 +6,13 @@ sidebar: doc_sidebar
 permalink: wavefront_kubernetes.html
 summary: Monitor Kubernetes infrastructure and applications. Scale Kubernetes workloads based on metrics in Wavefront.
 ---
-*Monitor* your Kubernetes environment at the infrastructure level and at the applications level with Wavefront Collector for Kubernetes.
+**Monitor** your Kubernetes environment at the infrastructure level and at the applications level with Wavefront Collector for Kubernetes.
 
 * Monitor Kubernetes infrastructure metrics (containers, pods, etc.) from Wavefront dashboards -- and create alerts from those dashboards.
 * Automatically collect metrics from applications and workloads using built-in plug-ins such as Prometheus, Telegraf, etc.
 
-*Scale* your Kubernetes environment based on any metrics that are available in Wavefront with the Wavefront Horizontal Pod Autoscaler Adapter.
+**Scale** your Kubernetes environment based on any metrics that are available in Wavefront with the Wavefront Horizontal Pod Autoscaler Adapter.
 
-Log in to your Wavefront instance to try the integration, or [see it on github here](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes)!
 
 ## Videos
 
@@ -28,6 +27,34 @@ The following two videos get you started.
 </tr>
 </tbody>
 </table>
+
+
+## Send Data From Your Kubernetes Environment o Tanzu Observability 
+
+You can send data:
+* Directly from your Kubernetes Cluster using the Tanzu Observability by Wavefront Kubernetes collector.
+* If you are already using Prometheus to monitor your data and want to monitor data with Tanzu Observability, send data to the Tanzu Observability by Wavefront Kubernetes collector.
+* If you are already using Istio Service Mesh, you can push your data to Prometheus, and then send data to the Tanzu Observability by Wavefront Kubernetes collector.
+
+![The diagram shows the different components and ways you can send data to Wavefront from your Kubernetes environment. The details are explained above.](images/kubernetes_overview_diagram.png)
+
+To use the Kubernetes collector, you need to install the Tanzu Observability by Wavefront's Kubernetes integration. You can install the integration using any of the following options:
+* [Recommended] Directly through Tanzu Observability by Wavefront's user interface.
+* [Optional] Follow the guidelines given on the [Bitnami guide](https://bitnami.com/stack/wavefront/helm).
+* [Optional] Follow the guidelines given on the [Helm guide](https://artifacthub.io/packages/helm/wavefront/wavefront)
+
+![The diagram highlights how to install the Kubernetes integration as mentioned above.](images/kubernetes_overview_ways_to_install_integration.png)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
