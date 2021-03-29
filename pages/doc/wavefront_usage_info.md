@@ -80,7 +80,7 @@ The Namespace Usage Explorer is especially useful if your metrics use hierarchic
 
 ### (Optional) Create Custom Charts with Namespace Delta Counters
 
-If you don't see the information you need, for example if need to look at histogram ingestion, clone the **Namespace Usage Explorer** dashboard. You can then modify existing charts or create custom charts. Wavefront supports delta counters that return information about counters, histograms, and spans. For example, the default dashbaord examines `~metric` information, but you can also examine other data using the following format:
+If you don't see the information you need, for example if need to look at histogram ingestion, clone the **Namespace Usage Explorer** dashboard. You can then modify existing charts or create custom charts. Wavefront supports delta counters that return information about counters, histograms, and spans. For example, the default dashboard examines `~metric` information, but you can also examine other data using the following format:
 
 ```
 cs(~<data_type>.global.namespace.<namespace>.pps, source=<depth_number>)
