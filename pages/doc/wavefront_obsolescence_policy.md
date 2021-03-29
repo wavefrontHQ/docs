@@ -98,6 +98,8 @@ Wavefront updates system dashboard and integration content. However, you might h
 2. Remove `rate()` or `ratediff()` functions from your delta counter queries.
 
    Any `cs()` query tracks the total increments per minute, so `cs()` data is already a 1 minute rate and doesn't require the `rate()` function. If you do want to know the per-second rate of change, divide the result by 60.
+   
+   You do not need to do anything differently if you are using a `timeWindow` parameter in your `rate()` function. The purpose of that parameter is to account for cumulative counter resets but delta counters do not have resets.
 
 3. Remove `align()` from your delta counter queries unless you picked an `align()` time window that's larger than 1 minute.
 
