@@ -566,12 +566,12 @@ entries:
     output: web
     folderitems:
 
+      - title: Overview
+        url: /wavefront_kubernetes.html
+        output: web
+      
       - title: Kubernetes Integration
         url: /kubernetes.html
-        output: web
-
-      - title: Monitor and Scale Kubernetes
-        url: /wavefront_kubernetes.html
         output: web
 
       - title: Kubernetes FAQ
