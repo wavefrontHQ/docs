@@ -105,7 +105,7 @@ The [Tanzu Observability by Wavefront Horizontal Pod Autoscaler Adapter](https:/
 
 For example, you could scale based on networking or disk metrics, or any application metrics that are available to Tanzu Observability by Wavefront. The Autoscaler Adapter sends the recommendation to the Horizontal Pod Autoscaler, and the Kubernetes environment is kept healthy as a result.
 
-![kubernetes scaling](/images/kubernetes_scaling.png)
+![kubernetes scaling diagram](/images/kubernetes_scaling.png)
 
 ## Next Steps
 
