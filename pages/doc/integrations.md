@@ -56,7 +56,7 @@ This table provides links to the documentation pages for many of the custom and 
 <tbody>
 <tr>
 <td>Customizable built-in integrations</td>
-<td markdown="span">[AWS Metrics Integration](integrations_aws_metrics.html),[Amazon Web Services ECS](integrations_aws_ecs.html), [AWS Lambda Functions](integrations_aws_lambda.html), [Log Data -- FileBeat and TCP](integrations_log_data.html)
+<td markdown="span">[AWS Metrics Integration](integrations_aws_metrics.html), [Amazon Web Services ECS](integrations_aws_ecs.html), [AWS Lambda Functions](integrations_aws_lambda.html), [Log Data -- FileBeat and TCP](integrations_log_data.html)
 </td>
 </tr>
 <tr>
@@ -69,7 +69,7 @@ This table provides links to the documentation pages for many of the custom and 
 
 ## External (Open Source) Integrations
 
-Wavefront customers have started to make Open Source integrations available on GitHub.
+Wavefront customers have started to make open source integrations available on GitHub.
 
 Our first external integration sends Alertsite monitoring results to Wavefront and is available at [https://github.com/secureworks/AlertSite2Wavefront](https://github.com/secureworks/AlertSite2Wavefront).
 
@@ -89,7 +89,22 @@ You can install and uninstall dashboards from Featured and Data Collector integr
 
 ## Cloning and Customizing Dashboards
 
-You cannot modify Wavefront system dashboards. Instead, click the Edit (pen) icon, select **Clone**, and provide a URL string that's just the name (e.g. `mydashboard`) and not the URL (e.g. `http://mydashboard`). You can then customize the clone to suit your needs.
+You cannot modify Wavefront system dashboards. Instead, click the **Edit** (pencil) icon, select **Clone**, and provide a URL string that's just the name (e.g., `mydashboard`) and not the URL (e.g., `http://mydashboard`). You can then customize the clone to suit your needs.
+
+## Install and Uninstall Alerts
+
+Some integrations contain predefined alerts. When you set up an integration, the alerts are automatically installed. 
+
+You can install and uninstall the predefined alerts.
+
+{% include note.html content="All users can view alerts. You need Alerts permissions to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
+
+1. Click **Integrations**.
+1. Click the integration tile.
+1. Click the **Alerts** tab.
+1. Click **\[Install \| Uninstall\] Alerts**.
+
+If you have the Alerts permissions, you can [edit and clone the predefined alerts](alerts.html) . 
 
 ## Integration States
 
@@ -140,6 +155,7 @@ When you hover over an integration, Wavefront colors the integration border and 
 For example, the following integration is in the Error state because metrics have reported within the last 7 days but have stopped reporting in the past 2 hours and content is installed.
 
 ![integration state](images/integration_state.png)
+
 
 ## More Info
 

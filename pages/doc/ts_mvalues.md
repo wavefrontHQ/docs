@@ -56,7 +56,7 @@ mvalues(5m, ts(build.version))
 
 ```
 
-You can see the result under in the top right corner of the chart, under Value.
+You can see the result in the top right corner of the chart, under Value.
 
 You can also see the current number of product versions running across your environment for points that are tagged with `primary` and are grouped by `sourcetags`.
 
