@@ -27,7 +27,7 @@ This section explains how to further troubleshoot issues with your Kubernetes in
 
 Troubleshooting data collection is most easily approached by following the data flow from the source to Tanzu Observability (Wavefront) to find where the flow is broken. Individual processes in the flow can cause problems, or connections between processes can cause problems. Identifying what metrics are and aren’t coming through generally helps identify where to look.
 
-Data Flow Diagram Here - https://miro.com/app/board/o9J_lMZP5mk=/
+![Kubernetes Collector Data Flow Diagram](images/kubernetes_collector_dfd.png)
 
 ## Symptom: No Data Flowing into Wavefront
 
