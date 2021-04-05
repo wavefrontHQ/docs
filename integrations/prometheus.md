@@ -39,17 +39,33 @@ Create a file called `prometheus.conf` in `/etc/telegraf/telegraf.d` and enter t
   ## An array of urls to scrape metrics from.
   urls = ["http://localhost:9100/metrics"]
 
-  ## Use bearer token for authorization
-  # bearer_token = /path/to/bearer/token
+  ## Metric version controls the mapping from Prometheus metrics into
+  ## Telegraf metrics.  When using the prometheus_client output, use the same
+  ## value in both plugins to ensure metrics are round-tripped without
+  ## modification.
+  ##
+  ##   example: metric_version = 1; deprecated in 1.13
+  ##            metric_version = 2; recommended version
+  metric_version = 2
+
+  ## Use bearer token for authorization. ('bearer_token' takes priority)
+  # bearer_token = "/path/to/bearer/token"
+  ## OR
+  # bearer_token_string = "abc_123"
+
+  ## HTTP Basic Authentication username and password. ('bearer_token' and
+  ## 'bearer_token_string' take priority)
+  # username = ""
+  # password = ""
 
   ## Specify timeout duration for slower prometheus clients (default is 3s)
   # response_timeout = "3s"
 
-  ## Optional SSL Config
-  # ssl_ca = /path/to/cafile
-  # ssl_cert = /path/to/certfile
-  # ssl_key = /path/to/keyfile
-  ## Use SSL but skip chain & host verification
+  ## Optional TLS Config
+  # tls_ca = /path/to/cafile
+  # tls_cert = /path/to/certfile
+  # tls_key = /path/to/keyfile
+  ## Use TLS but skip chain & host verification
   # insecure_skip_verify = false
 ```
 {% endraw %}
