@@ -25,38 +25,55 @@ The Wavefront Collector metrics dashboard in the Kubernetes integration shows th
 
 This section explains how to further troubleshoot issues with your Kubernetes integration based on the symptoms you see.
 
+Troubleshooting data collection is most easily approached by following the data flow from the source to Tanzu Observability (Wavefront) to find where the flow is broken. Individual processes in the flow can cause problems, or connections between processes can cause problems. Identifying what metrics are and aren’t coming through generally helps identify where to look.
+
+Data Flow Diagram Here - https://miro.com/app/board/o9J_lMZP5mk=/
+
 ## Symptom: No Data Flowing into Wavefront
 
-Likely Causes:
-1. The Wavefront Collector is not running
-2. The Wavefront Proxy is not running or cannot connect to Wavefront
-3. The Wavefront Collector cannot connect to the Wavefront Proxy
+### Step 1: Verify that the collector is running. (node g)
+* Run `kubectl get pods -l k8s-app=wavefront-collector -n <NAMESPACE>` to verify all collector instances are ready and available.
+* If any pods show as not ready, investigate the cause with:
+  * To check kubernetes for errors starting the pods, run `kubectl describe pod podname` and check the events section for errors. Common errors include:
+    * Some general kubernetes error states are described here: https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/
+  * If the collector is running but has frequent restarts, that usually lets some data through, see below in section X
 
-Follow the steps below to troubleshoot.
-
-### Verify the Wavefront Collector Is Running
-
-* Run `kubectl get daemonset wavefront-collector -n NAMESPACE` to verify all collector instances are ready and available.
-* Run `kubectl get pods -l app.kubernetes.io/component=collector -n <NAMESPACE>` to verify there are no restarts amongst the Collector pods.
-* Check the logs for the Collector pods to troubleshoot further.
-
-### Verify the Wavefront Proxy Deployment
-
+### Step 2: Verify that the proxy is running (node i)
 * Run `kubectl get deployment wavefront-proxy -n NAMESPACE` to verify the proxy instances are ready and available.
-* Run `kubectl get pods -l app.kubernetes.io/component=proxy -n <NAMESPACE>` to verify there are no pod restarts etc.
-* Check the proxy logs to check if there are errors in connecting to the Wavefront SaaS service.
+* Run `kubectl get pods -l app=wavefront-proxy -n <NAMESPACE>` to verify there are no pod restarts etc.
+* Run `kubectl logs pod_name` to check the proxy logs for errors connecting to the Wavefront SaaS service.
 
-Refer to this [documentation](https://docs.wavefront.com/monitoring_proxies.html) for monitoring and troubleshooting the proxy.
+### Step 3: Verify that the collector can connect to the proxy (line h)
+* List collector pods with `kubectl get pods -l k8s-app=wavefront-collector -n <NAMESPACE>`
+* Check the collector logs for errors sending points to the proxy with `kubectl logs pod_name`
+* To make sure that the collector can communicate with the proxy:
+  * Verify the `proxyAddress` on the Collector sink configuration is correct.
+  * Verify the proxy service exposes the correct ports (typically 2878).
 
-### Verify the Collector Can Connect to the Proxy
+### Step 4: Verify that the proxy can connect to Wavefront (line j)
+* Refer to this [documentation](https://docs.wavefront.com/monitoring_proxies.html) for monitoring and troubleshooting the proxy.
 
-Check the Collector logs for any errors when sending points to the Proxy.
+## Symptom: Data in Wavefront is Incomplete
 
-To troubleshoot further:
-1. Verify the `proxyAddress` on the Collector sink configuration is correct.
-2. Verify the proxy service exposes the correct ports (typically 2878).
+### Step 1: Verify the Collection Source is configured correctly (box e)
 
-## Symptom: Partial Data Flowing into Wavefront
+### Step 2: Verify Filter Configuration
+
+Data flowing into wavefront can be filtered out at multiple points:
+* The monitored application can, in some cases, filter what metrics it makes available to collect. (box a) The primary example of this is kube state metrics. See here for configuration options at https://github.com/kubernetes/kube-state-metrics/blob/master/docs/cli-arguments.md
+* The Kubernetes collector allows two levels of filtering internally. The first is filtering metrics out at a per source level (box e). The second level is filtering on all metrics sent from the collector out to wavefront (box f). Run ```kubectl get configmap collector-config -n <YOUR_NAMESPACE> -o yaml``` and check both your source configuration and sink configuration for filters. Filters are configured as described at https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#prefix-tags-and-filters
+* The Wavefront Proxy also allows filtering and/or renaming of metrics before they are sent to wavefront. (box i) Proxy filter configuration is described here: https://docs.wavefront.com/proxies_preprocessor_rules.html
+
+### Step 3: Verify Metric Naming Configuration
+* Metric prefixes can be configured to values that do not match the expected outputs in the collector config (boxes e&f)
+* Metrics can be renamed to different names in the proxy configuration. (box i)
+
+
+### Step 4: check and see if the collector is restarting frequently
+* Run `kubectl get pods -l app.kubernetes.io/component=collector -n <NAMESPACE>` to verify there are no restarts amongst the Collector pods.
+  * If the collector is showing frequent restarts, check the termination reason by running `kubectl describe pod podname`
+    * OOM errors can show that the collector has insufficient resources to run. See new section X link on tuning resources.
+  * check the collector logs for runtime errors by running `kubectl logs podname`
 
 Likely causes:
 1. Issues with a few isolated Collector instances
