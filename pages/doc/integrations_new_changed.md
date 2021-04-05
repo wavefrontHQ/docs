@@ -12,6 +12,9 @@ Wavefront continuously adds new integrations to the existing set, and improves a
 
 Made improvements to the following integrations in March 2021:
 
+* Catchpoint:
+  * Labels in Catchpoint are available as point tags in Wavefront.
+  * Insight Settings in Catchpoint, such as tracepoints and indicators, are available as metrics in Wavefront.
 * OpenTelemetry -- Fixed broken links in the setup instructions
 * Istio -- Fixed broken links in the setup instructions
 * Kubernetes:
