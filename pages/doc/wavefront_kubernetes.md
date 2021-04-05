@@ -33,13 +33,11 @@ The following two videos get you started.
 
 You can send data to Wavefront in several ways:
 *	**Direct**: Use the Wavefront Kubernetes collector to send data directly from your Kubernetes cluster to the Wavefront proxy or the Wavefront service (direct ingestion)
-*	**Prometheus**: If you are already using Prometheus to monitor your data and want to monitor data with Tanzu Observability, send data to the Wavefront Kubernetes collector.
-*	**Istio Mesh**: If you are already using Istio Service Mesh, you can push your data to Prometheus and send those data to the Wavefront Kubernetes collector from Prometheus.
-
+*	**Prometheus**: If you are already using Prometheus to view your data and want to monitor your Kubernetes data with Tanzu Observability, send data to the Wavefront Kubernetes collector.
 
 ![The diagram shows the different components and ways you can send data to Wavefront from your Kubernetes environment. The details are explained above.](images/kubernetes_overview_diagram.png)
 
-To use the Kubernetes collector, you need to install the Wavefront's Kubernetes integration. Use of the following options:
+To use the Kubernetes collector, you need to install Wavefront's Kubernetes integration. Use of the following options:
 * [**Recommended**] Directly through Wavefront's user interface.
   1. Log in to your Wavefront instance and click **Integrations** from the taskbar.
   1. Search for the Kubernetes integration and click it.
@@ -134,7 +132,7 @@ The out-of-the-box dashboards:
         **Kubernetes Clusters**
     </td>
     <td width="80%">
-      Detailed health of your clusters and its nodes, namespaces, pods and containers.
+      Detailed health of your clusters and their nodes, namespaces, pods, and containers.
       <img src="images/kubernetes_cluster_dahsboard.png" alt="a screenshot of the Kubernetes cluster dashboard with charts."/>
     </td>
   </tr> 
@@ -161,7 +159,7 @@ The out-of-the-box dashboards:
       **Kubernetes Containers**
     </td>
     <td width="80%">
-      Detailed health of your containers broken down by namespace, node and pod.
+      Detailed health of your containers broken down by namespace, node, and pod.
       <img src="images/kubernetes_container_dahsboard.png" alt="a screenshot of the Kubernetes container dashboard with charts."/>
     </td>
   </tr>
@@ -170,7 +168,7 @@ The out-of-the-box dashboards:
       **Kubernetes Namespaces**
     </td>
     <td width="80%">
-      Details of your pods/containers broken down by namespace.
+      Details of your pods or containers broken down by namespace.
       <img src="images/kubernetes_namespaces_dahsboard.png" alt="a screenshot of the Kubernetes namespaces dashboard with charts."/>
     </td>
   </tr>
@@ -184,8 +182,6 @@ The out-of-the-box dashboards:
     </td>
   </tr>
 </table>
-
-*[Place holder for a video here that explains the health of the cluster and how to drill down.]*
 
 
 ## Scale Kubernetes with Wavefront
