@@ -12,7 +12,7 @@ Wavefront includes tools and dashboards for examining usage. This page helps adm
 
 Each customer has a contract with VMware that allows them to send a predetermined amount of data to their Wavefront instance. That is, billing depends on the points per seconds (PPS) that the customer sends.
 
-If a customer uses more than the contracted rate, VMware bills for those additional data. If the customer uses more than the contracted rate, VMware bills for those additional data. Because VMware has to pay the cloud provides for data consumed by the Wavefront instances, we have to make sure that customers pay for the data they consume. But we're interested in having our customers get the best possible results from their data.
+If the customer uses more than the contracted rate, VMware bills for those additional data. Because VMware has to pay the cloud provides for data consumed by the Wavefront instances, we have to make sure that customers pay for the data they consume. But we're interested in having our customers get the best possible results from their data.
 
 
 * **Send data, use data**. If some teams at the customer site send a lot of data to Wavefront but don't use those ingested data anywhere (e.g. in alerts, dashboards, etc.) nobody benefits.
@@ -80,7 +80,7 @@ The Namespace Usage Explorer is especially useful if your metrics use hierarchic
 
 ### (Optional) Create Custom Charts with Namespace Delta Counters
 
-If you don't see the information you need, for example if need to look at histogram ingestion, clone the **Namespace Usage Explorer** dashboard. You can then modify existing charts or create custom charts. Wavefront supports delta counters that return information about counters, histograms, and spans. For example, the default dashbaord examines `~metric` information, but you can also examine other data using the following format:
+If you don't see the information you need, for example if need to look at histogram ingestion, clone the **Namespace Usage Explorer** dashboard. You can then modify existing charts or create custom charts. Wavefront supports delta counters that return information about counters, histograms, and spans. For example, the default dashboard examines `~metric` information, but you can also examine other data using the following format:
 
 ```
 cs(~<data_type>.global.namespace.<namespace>.pps, source=<depth_number>)

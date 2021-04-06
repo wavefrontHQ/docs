@@ -57,3 +57,4 @@ Run `sudo service collectd start`.
 You can alternatively use a Wavefront plugin that allows you to add point tags to metrics. For more information, see [Wavefront collectd plugin](https://github.com/wavefrontHQ/collectd-python-write-wavefront).
 
 
+

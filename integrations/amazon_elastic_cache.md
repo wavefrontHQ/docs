@@ -77,6 +77,7 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+
 undefined
 
 
@@ -118,3 +119,4 @@ See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/moni
 |aws.elasticache.sortedsetbasedcmds.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.elasticache.stringbasedcmds.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.elasticache.swapusage.*|Statistics: average, maximum, minimum, samplecount, sum|
+

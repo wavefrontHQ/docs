@@ -8,7 +8,7 @@ summary: Learn how to search for objects in the Wavefront UI.
 ---
 To help you find exactly what you need, Wavefront supports tags and a variety of search features.
 
-Here's a video to get your started:
+Here's a video to get you started:
 
 <p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5468d6de-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_searching.png" style="width: 700px;"/></a>
 </p>
@@ -67,7 +67,7 @@ Once you press **Return** or **Enter** after typing a search string, the icons !
 The Wavefront UI supports tagging and other actions.
 
 -   **Tagging** - Make a selection and click the tag buttons to create, add, and remove tags.
--   **Actions** - Perform actions (clone, delete, edit, rename, etc.) on an individual object (e.g., an alert) by clicking the three dots to the far left of the object, for example, to the left of an alert. Actions are different for different objects but might include Clone, Delete, or Test (for alerts). Here's an example for the Actions menu for dashboards:
+-   **Actions** - Perform actions (clone, delete, edit, rename, etc.) on an individual object (e.g., an alert) by clicking the ellipsis icon on the left of the object, for example, to the left of an alert. Actions are different for different objects but might include Clone, Delete, or Test (for alerts). Here's an example for the Actions menu for dashboards:
 
     ![dashboard clone](/images/dashboard_clone.png)
 

@@ -63,6 +63,7 @@ See [Google Cloud Platform Overview and Permissions](http://docs.wavefront.com/i
 
 
 
+
 undefined
 
 
@@ -81,3 +82,4 @@ See [Google Cloud metrics documentation](https://cloud.google.com/monitoring/api
 |gcp.container.container.memory.bytes_used|Memory usage in bytes, broken down by type: evictable and non-evictable. |
 |gcp.container.container.memory.page_fault_count_rate| Number of page faults, broken down by type: major and minor.|
 |gcp.container.container.uptime|Number of seconds since the container started. |
+

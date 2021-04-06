@@ -69,3 +69,4 @@ Configure the Telegraf tcp_listener input plugin to receive the Puppet Server me
 Run `sudo service telegraf restart` to restart your agent.
 
 
+

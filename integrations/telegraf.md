@@ -90,3 +90,4 @@ This table has Telegraf integration metrics with its description. You can also s
 |telegraf.internal.write.metrics.filtered|Aggregate stats about the metrics dropped for all output plugins that are of the same input type. |
 |telegraf.internal.write.metrics.written|Aggregate stats about the metrics written for all output plugins that are of the same input type. |
 |telegraf.internal.write.write.time.ns|Aggregate stats about the write time for all output plugins that are of the same input type. |
+

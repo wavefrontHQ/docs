@@ -25,3 +25,4 @@ Once installed, the collector pods will collect your GemFire metrics and push th
 Within about a minute you will be able to use the dashboards on the Dashboards tab above to see our default metrics sent from any GemFire clusters created in that Kubernetes cluster.
 
 
+

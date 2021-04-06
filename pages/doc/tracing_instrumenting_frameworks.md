@@ -219,29 +219,6 @@ When you use a Sender SDK, you won’t see span-level RED metrics by default. Th
   customTracingListenerPorts=30001
   ```
 1. When you configure the `wavefront sender` on your application as explained in the SDK’s README file, define the port so that span level RED metrics will be gathered from your application.
-  <br/>Example: Configuring your Java application to send trace data via the `tracingPort`.
-    ```java
-    // set up wavefront sender for Proxy based ingestion
-    WavefrontSender wavefrontSender = new WavefrontClient.Builder(proxyHost).
-            tracingPort(30001). // customTracingListenerPorts configured in your wavefront.conf file
-            metricsPort(metricsPort).
-            distributionPort(distributionPort).
-            messageSizeBytes(messageSizeInBytes).
-            batchSize(batchSize).
-            flushIntervalSeconds(flushIntervalSeconds).
-            maxQueueSize(queueSize).
-            build(); // Returns a WavefrontClient
-
-    // now send distributed tracing spans as below
-    wavefrontSender.sendSpan("getAllUsers", 1552949776000L, 343, "localhost",
-          UUID.fromString(UUID.randomUUID()),
-          UUID.fromString(UUID.randomUUID()),
-          ImmutableList.<UUID>builder().add(UUID.fromString(
-            "2f64e538-9457-11e8-9eb6-529269fb1459")).build(), null,
-          ImmutableList.<Pair<String, String>>builder().
-            add(new Pair<>("application", "Wavefront")).
-            add(new Pair<>("http.method", "GET")).build(), null);
-    ```
 
 ## Next Steps
 

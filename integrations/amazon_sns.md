@@ -77,6 +77,7 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+
 undefined
 
 
@@ -95,3 +96,4 @@ See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/moni
 |aws.sns.numberofnotificationsdelivered.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.sns.numberofnotificationsfailed.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.sns.publishsize.*|Statistics: average, maximum, minimum, samplecount, sum|
+

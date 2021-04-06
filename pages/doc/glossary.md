@@ -7,7 +7,7 @@ permalink: glossary.html
 summary: Learn about Wavefront terms.
 ---
 
-This glossary introduces common Wavefront terms. Click the links or search this doc set for details. 
+This glossary introduces common Wavefront terms. Click the links or search this doc set for details.
 
 <table style="width: 100%;">
 <tbody>
@@ -213,6 +213,11 @@ You can manage authorization with user-level permissions or user and group-level
 <td>&nbsp;</td>
 <td markdown="span">[**Point tag**](query_language_point_tags.html)</td>
 <td>Point tags are key-value pairs (strings) that are associated with a point. Point tags allow you to fine-tune your queries so the output shows only the information you're interested in.</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td markdown="span">**PPS**</td>
+<td markdown="span">Points per Seconds. Telemetry data points per second ingested by the Wavefront Service. All customers are billed based on their PPS. We support dashboards and tools to <a href="https://docs.wavefront.com/wavefront_usage_info.html">Find Actionable Usage Information</a>  </td>
 </tr>
 <tr>
 <td>&nbsp;</td>

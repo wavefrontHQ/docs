@@ -154,7 +154,7 @@ Now consider what happens if the time series stops reporting at 10:30 (and does 
 
 ### Option 2: Configure the Alert to Keep Firing
 
-You can configure the alert so it continues to fire unless the time series starts reporting normally again.
+You can configure the alert, so it continues to fire unless the time series starts reporting normally again.
 
 **Example**
 

@@ -47,3 +47,4 @@ You do not need the optional Attribute Mapping.
 Going forward, users who attempt to log in to Wavefront are redirected to Google. If a user can authenticate to Google but is not currently a Wavefront user, that user is auto-created on the Wavefront side. Password authentication is no longer supported.
 
 
+

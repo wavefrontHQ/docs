@@ -797,3 +797,4 @@ Run `sudo service telegraf restart` to restart your agent.
 |elasticsearch.transport.server.open||
 |elasticsearch.transport.tx.count||
 |elasticsearch.transport.tx.size.in.bytes||
+

@@ -77,6 +77,7 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+
 undefined
 
 
@@ -94,3 +95,4 @@ See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/moni
 |aws.ecs.cpuutilization.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.ecs.memoryreservation.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.ecs.memoryutilization.*|Statistics: average, maximum, minimum, samplecount, sum|
+

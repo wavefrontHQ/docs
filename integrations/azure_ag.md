@@ -52,6 +52,7 @@ The process first creates an Azure Active Directory application that represents 
 
 
 
+
 undefined
 
 
@@ -70,3 +71,4 @@ See [Azure documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/p
 |azure.network.applicationgateways.throughput.*| Number of bytes per second the Application Gateway has served. <br/>Statistics: count|
 |azure.network.applicationgateways.totalrequests.*| Count of successful requests that Application Gateway has served. <br/>Statistics: count|
 |azure.network.applicationgateways.unhealthyhostcount.*| Number of unhealthy backend hosts. <br/>Statistics: count|
+

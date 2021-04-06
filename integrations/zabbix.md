@@ -45,7 +45,7 @@ The `SEND_TO_WF` parameter is set to `False` which causes the script to print th
 
 Set `WAVEFRONT_PROXY_HOST` to the address of the proxy you installed in Step 1.
 
-Modify the `DB_` properties as appropriate for your Zabbix database. Other options can be left with their defaults.
+Modify the `DB_` properties as appropriate for your Zabbix database. The user credentials that you provide can be of a DB user with read-only permission or `SELECT` privilege. Other options can be left with their defaults.
 
 The script pulls up to `LIMIT` values from your **history** and **history_uint** tables every `POLL_INTERVAL` seconds, set to 60 seconds by default. If you modify the `LIMIT` parameter, it limits the reads from both tables.
 
@@ -141,3 +141,4 @@ The script saves the latest clock interval that it has processed in the files `l
 |zabbix.wcache.values.str||
 |zabbix.wcache.values.text||
 |zabbix.wcache.values.uint||
+

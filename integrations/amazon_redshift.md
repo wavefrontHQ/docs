@@ -77,6 +77,7 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+
 undefined
 
 
@@ -108,3 +109,4 @@ See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/moni
 |aws.redshift.writeiops| Average number of write operations per second.|
 |aws.redshift.writelatency| Average amount of time taken for disk write I/O operations.|
 |aws.redshift.writethroughput| Average number of bytes written to disk per second.|
+

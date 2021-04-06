@@ -10,13 +10,21 @@ Wavefront continuously adds new integrations to the existing set, and improves a
 
 ## March 2021
 
-Made improvements to the following integrations in March 2021
+Made improvements to the following integrations in March 2021:
 
+* Catchpoint:
+  * Labels in Catchpoint are available as point tags in Wavefront.
+  * Insight Settings in Catchpoint, such as tracepoints and indicators, are available as metrics in Wavefront.
+* OpenTelemetry -- Fixed broken links in the setup instructions
+* Istio -- Fixed broken links in the setup instructions
+* Kubernetes:
+  * Updated the out of the box dashboards
+  * Now includes an **Alerts** tab with predefined alerts
+* Spring Cloud Data Flow -- Upgraded the integration to support Spring Cloud Data Flow 2.7.1 and Spring Cloud Skipper 2.6.1
 * Tanzu Kubernetes Grid Integrated Edition -- Fixes to the queries in alerts
 * OneLogin -- Updates to the integration setup instructions
 * vSphere -- Fixes to the out of the box dashboards
 * RabbitMQ -- Fixes to the out of the box dashboards
-* Kubernetes -- Now includes an **Alerts** tab with predefined alerts
 * Wavefront Usage -- Added new alerts to the Wavefront usage integration
 
 ## December 2020 - February 2021

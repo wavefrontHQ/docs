@@ -52,6 +52,7 @@ The process first creates an Azure Active Directory application that represents 
 
 
 
+
 undefined
 
 
@@ -89,3 +90,4 @@ See [Azure documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/p
 |azure.eventhub.namespaces.succreq.*|Statistics: average, count, maximum, minimum|
 |azure.eventhub.namespaces.svrbsy.*|Statistics: average, count, maximum, minimum|
 |azure.eventhub.namespaces.usererrors.*|Statistics: average, count, maximum, minimum|
+

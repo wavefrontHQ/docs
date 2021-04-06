@@ -82,3 +82,4 @@ Use `dtcollector.conf` to manage the log and other settings.
 Log file will be located at `/var/log/wavefront/dynatrace/dynatrace.log`.
 
 
+
