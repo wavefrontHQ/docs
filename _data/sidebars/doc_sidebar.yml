@@ -391,7 +391,10 @@ entries:
           url: /query_language_recipes.html
           output: web
 
-
+        - title: Using PromQL in Wavefront
+          url: /wavefront_prometheus.html
+          output: web
+    
   - title: "Alerts & Events"
     output: web
     folderitems:
