@@ -132,7 +132,6 @@ Wavefront supports most PromQL functions and operators out of the box. There are
 * The Wavefront query language supports [using a query name as a chart variable](query_editor.html#use-chart-variables) in other queries for the same chart.
   - You can use a query name as a chart variable in a PromQL query if the named query was also a PromQL query.
   - You cannot use a query name as a chart variable if the named query is a Wavefront QL query.
-* If an alert uses a PromQL query, the [Backtesting option](alerts_manage.html#backtesting) currently doesn't work correctly.
 
 ## How Wavefront Executes PromQL Queries
 
