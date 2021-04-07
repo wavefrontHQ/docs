@@ -181,7 +181,7 @@ Using the table view, you can:
 * See the change (Δ value) in the RED metrics based on the time you selected for **Compare**.
 <br/>For example, if you select **week ago** from the **Compare** drop-down, the Δ value indicate the change in RED metrics since the data was recorded a week ago.
   <br/>![shows the compare option on the table view. The drop down has the values, off (if selected doesn't show the change in value), 2 hours ago, day ago, week ago, and month ago. ](images/tracing_compare_table_view.png)
-* Inspect the Adex score and RED metrics to obtain a status summary of a service.
+* Inspect the Apdex score and RED metrics to obtain a status summary of a service.
   <table style = "width: 100%;">
     <tr>
       <th width = "20%">Table Data</th>
@@ -320,6 +320,7 @@ Using the table view, you can:
       </td>
     </tr>
   </table>
+* Click the vertical ellipsis to drill down to the Service Dashboard, Operation Dashboard, or Traces Browser.
 * Use <img src="images/tracing_link_icon.png"
 style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link"/> to get a link and share what you’re seeing right now (NON-LIVE display) with other users.
 
