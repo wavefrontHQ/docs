@@ -37,17 +37,16 @@ You can send data to Wavefront in several ways:
 
 ![The diagram shows the different components and ways you can send data to Wavefront from your Kubernetes environment. The details are explained above.](images/kubernetes_overview_diagram.png)
 
-To use the Kubernetes collector, you need to install Wavefront's Kubernetes integration. Use of the following options:
+To use the Kubernetes collector, you need to install Wavefront's Kubernetes integration. Use one of the following options:
 * [**Recommended**] Directly through Wavefront's user interface.
   1. Log in to your Wavefront instance and click **Integrations** from the taskbar.
   1. Search for the Kubernetes integration and click it.
-  1. Install the integration using a preferred method. You can [preview the setup steps here](kubernetes.html).
+  1. Install the integration using Helm (Tanzu cluster or Kubernetes cluster) or OpenShift. You can [preview the setup steps here](kubernetes.html).
+    ![Shows the three options to install the Kuberntes collector](images/kubernetes_installing_options.png)
 * Or follow the guidelines given in the [Bitnami guide](https://bitnami.com/stack/wavefront/helm).
-* Or follow the guidelines given in the [Helm guide](https://artifacthub.io/packages/helm/wavefront/wavefront).
 
-{% include tip.html content="After installing the Kubernetes Collector via the Kubernetes integration, you can customize it to fit the needs of your environment and use case. See the [docs on GitHub](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/tree/master/docs) and examples for different use cases. " %}
+{% include tip.html content="After installing the Kubernetes Collector via the Kubernetes integration, you can customize it to fit the needs of your environment and use case. See the [docs on GitHub](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes#configuration) and examples for different use cases. " %}
 
-![The diagram highlights how to install the Kubernetes integration as mentioned above.](images/kubernetes_overview_ways_to_install_integration.png)
 
 
 ## Monitor Kubernetes with Wavefront
