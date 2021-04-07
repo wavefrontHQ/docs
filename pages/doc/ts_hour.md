@@ -32,7 +32,7 @@ String identifier or alias for a time zone, such as `"US/Pacific"`. Names are ca
 
 ## Description
 
-The `hour()` standard time function returns the hours within a day for the specified time zone, represented as decimal values on a 24-hour clock. For example, 12am is represented as 0.000, 2pm is represented as 14.000, 2:30pm is represented as 14.5, and 2:32pm is represented as 14.533.
+The `hour()` standard time function returns the hours within a day for the specified time zone, represented as decimal values on a 24-hour clock. For example, 12am is represented as 0.000, 2pm is represented as 14.000 and 2:30pm is represented as 14.5.
 
 The returned values are plotted against the corresponding hours of the day shown in the time zone that is currently set for the dashboard. `hour()` automatically adjusts its return values for daylight savings time.
 
