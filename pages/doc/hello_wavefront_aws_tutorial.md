@@ -9,7 +9,7 @@ summary: Get Data into Wavefront from a Windows host or AWS.
 
 Learn how to easily set up a Windows or AWS integration so that you can send data from your system to Wavefront.
 
-## Video
+## Video: Windows Integration
 
 Watch the following video to learn how to ingest Windows host metrics into Wavefront. 
 
@@ -18,7 +18,7 @@ Watch the following video to learn how to ingest Windows host metrics into Wavef
 </p>
 
 
-## Tutorial
+## Tutorial: AWS Integration
 
 In this tutorial, you use the Wavefront Amazon Web Services (AWS) integration to: 
 * Send data of the applications and services that run on your AWS account to Wavefront. 
