@@ -32,7 +32,7 @@ Several Wavefront customers have asked for an environment that supports separate
     - are directed to the last tenant they used
     - can switch to other tenants from the gear icon menu without having to log in again.
 
-Administrators can [Set Up or Update Self-Service SAML SSO](auth_self_service_sso.html) for their environment. Users will then log in to the identity provider that administrators set up. 
+Administrators can [Set Up or Update Self-Service SAML SSO](auth_self_service_sso.html) for their environment. Users will then log in to the identity provider that administrators set up.
 
 ## How to Set Up Multi-Tenancy
 
