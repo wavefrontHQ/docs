@@ -36,7 +36,7 @@ The `hour()` standard time function returns the hours within a day for the speci
 
 The returned values are plotted against the corresponding hours of the day shown in the time zone that is currently set for the dashboard. `hour()` automatically adjusts its return values for daylight savings time.
 
-`hour()` is particularly useful when you want to define an alert that fires only during specific times of day. For example, you could use an expression such as `between(hour("US/Pacific"), 22, 8)` in an alert condition to ensure that the alert fires only between 10pm and 8am Pacific Time.
+`hour()` is particularly useful when you want to define an alert that fires only during specific times of day. For example, you could use an expression such as `between(hour("US/Pacific"),22,8)` in an alert condition to ensure that the alert fires only between 10pm and 8am Pacific Time.
 
 ## Examples
 
@@ -48,7 +48,7 @@ The returned values are plotted against the corresponding hours of the day shown
 
 **Example 2: Defining an Alert that Fires in Particular Hours**
 
-Here, we include `between(hour("Europe/London"), 22, 8)` in a conditional expression to define an alert that fires when the CPU load average rises above 1.5 between the hours of 10pm and 8am in the Europe/London time zone.
+Here, we include `between(hour("Europe/London"),22,8)` in a conditional expression to define an alert that fires when the CPU load average rises above 1.5 between the hours of 10pm and 8am in the Europe/London time zone.
 ![hour alert](images/ts_hour_alert.png)
 
 **Example 3: Defining an Alert that Fires at a Particular Minute**
