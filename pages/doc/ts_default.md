@@ -8,7 +8,7 @@ summary: Reference to the default() function
 ---
 ## Summary
 ```
-default([<timeWindow>,] [<delayTime>,] <defaultValue>, <tsExpression> [.orElse<defaultIfNoData])
+default([<timeWindow>,] [<delayTime>,] <defaultValue>, <tsExpression> [.orElse<defaultIfNoData>])
 ```
 
 Fills in gaps in the time series described by `tsExpression`, by inserting data points with the value `defaultValue`. Specify `timeWindow` to fill in data for just a limited period of time after each existing point. Specify `delayTime` to allow a gap before the inserted data.
@@ -40,7 +40,7 @@ Fills in gaps in the time series described by `tsExpression`, by inserting data 
 </tr>
 <tr>
 <td markdown="span">.orElse</td>
-<td>Operator that allows you to specify a default value even if the time series did not report any data in the specified time window. </td>
+<td>An optional operator that allows you to specify a default value even if the time series did not report any data in the specified time window. </td>
 </tr>
 </tbody>
 </table>
@@ -82,7 +82,7 @@ If we wrap `default()` and specify 0 as the default, missing data are replaced w
 
 * If the time series exists in the time window, `default()` fills in the values and `.orElse` is not needed (does nothing).
   ```
-  default(100, ts(&lt;mymetric&gt;).orElse(25))
+  default(100, ts('mymetric).orElse(25))
   ```
 * If the time series does **not** exist in the time window, NO DATA is shown by default. However, `.orElse` specifies a value of 25, which is shown for the time series.
   ```
