@@ -24,7 +24,7 @@ User accounts log in with a username and password.
 * **Roles** determine what users can do globally. Each role has one or more permissions. For example, assume an **Interns** role that has **Dashboard** permissions. All users with the **Interns** role can view and manage all dashboards.
 * **[Access](access.html)** applies to individual objects. For example, some users don't have access to a dashboard with financial data. Users who have modify access for a dashboard or alert can grant or revoke access for that object.
 
-### Create and Manage User Accounts
+### Create, Edit, and Delete User Accounts
 
 Users with **Accounts, Groups & Roles** permissions can manage accounts.
 
@@ -49,6 +49,11 @@ Users with **Accounts, Groups & Roles** permissions can manage accounts.
 
    {% include tip.html content="As a safeguard, you cannot select multiple users and delete them. Delete only one user at a time." %}
 
+### Sign Out a User
+
+As a user with **Accounts, Groups & Roles** permissions, you can sign out other users by using the Wavefront REST API. Learn more about the [categories in the Wavefront API](wavefront_api.html#wavefront-rest-api-categories). 
+
+To sign out a user, simply run a POST request with the `logout` API call under the `Access (User and Service Account)` category. You must specify the `{id}`, which is the email address of the user that you want to log out.
 
 ### What Can a New User Do?
 
