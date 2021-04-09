@@ -20,7 +20,7 @@ The Wavefront Collector emits [internal metrics](https://github.com/wavefrontHQ/
 
 The Wavefront Collector metrics dashboard in the Kubernetes integration shows these metrics.
 
-{% include image.md src="images/kubernetes_monitoring.png" width="50" %}
+![screenshot of Kubernetes metrics](images/kubernetes_monitoring.png)
 
 ## Troubleshooting Using the Data Collection Flow
 
