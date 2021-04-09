@@ -20,8 +20,7 @@ The Wavefront Collector emits [internal metrics](https://github.com/wavefrontHQ/
 
 The Wavefront Collector metrics dashboard in the Kubernetes integration shows these metrics.
 
-![screenshot of Kubernetes metrics](images/kubernetes_monitoring.png)
-
+{% include image.md src="images/kubernetes_monitoring.png" width="50" %}
 
 ## Troubleshooting Using the Data Collection Flow
 
@@ -32,6 +31,10 @@ This section helps you troubleshoot issues that you run into when Configuring th
 You run into issues when data doesn't flow from one component to another or due to a configuration issue. The sections below explain how to troubleshoot.
 
 For example, identifying the metrics that come into Wavefront and the metrics that don't go into Wavefront help you know where to look.
+
+Troubleshooting data collection is most easily approached by following the data flow from the source to Tanzu Observability (Wavefront) to find where the flow is broken. Individual processes in the flow can cause problems, or connections between processes can cause problems. Identifying what metrics are and aren’t coming through generally helps identify where to look.
+
+Data Flow Diagram Here - https://miro.com/app/board/o9J_lMZP5mk=/
 
 ## Symptom: No Data Flowing into Wavefront
 
@@ -114,7 +117,99 @@ Likely causes:
 3. [Issues with leader election or the leader Collector instance](#check-for-leader-election-issues).
 4. [Points blocked at the Wavefront Proxy](#check-for-proxy-blocked-points).
 
-#### Check for Collector Instance Issues
+### Step 4: Check Collector Health
+
+#### Leader Health
+Leader health problems can create odd and inconsistent gaps in almost any metric coming out of a cluster.
+
+##### Step 4.1
+The easiest way to check for a leader health problem is to check the Wavefront Collector Metrics dashboard in the Kubernetes integration. On that page, leader problems would be highlighted here:
+
+![Leadership Election in a good state on the Collector Troubleshooting Dashboard](images/kubernetes_leader_ok.png)
+
+If this is red or showing leadership changes, it is likely that the leader is crashing.
+
+The “leader” Wavefront Collector pod is responsible for collecting all metrics that cannot be made specific to a local node as well as for collecting from the node it is on. For example, that would include cluster metrics, service monitoring, and applications configured by explicit rule definitions. If a leader pod crashes due to insufficient resources, another pod should pick up the leader role automatically. That pod would then, of course, face whatever problem the last leader had and could crash itself. That leads to odd and inconsistent gaps in data collection while one pod after another is restarting.
+
+If there are no problems with leadership election, you’ll still want to work through Steps 4.2 and 4.3 to determine if there are any memory or cpu issues affecting collectors other than the leader. 
+If the leader is continually crashing, there is most likely a large source overwhelming each leader as they are elected and the issue is ultimately insufficient memory. Jump to 
+Step 4.3 for how to dig in.
+
+##### Step 4.2
+Checking for symptoms of insufficient CPU
+
+Check the collector restarts graph on the Wavefront Collector Metrics dashboard to find a good timeframe to investigate for collector restarts.
+
+![Collector restarts happening on the Collector Troubleshooting Dashboard](images/kubernetes_restarts.png)
+
+Check the collection latency for the timeframe around the collector restarts on this graph:
+
+![Collector Latency Graph on the Collector Troubleshooting Dashboard](images/kubernetes_latency.png)
+
+Latency should be a much smaller value than the collection intervals you have collected on your metric sources. If the latency is high (seconds to minutes), likely your collectors have insufficient CPU to process the metrics that they are collecting and that is causing them to stack up in memory and will cause an Out Of Memory error (OOM).
+
+To remedy this, the collector either needs higher cpu limits on the collector pods, or to reduce the collection load. See the sections below for details on how to do this (link to below sections)
+
+##### Step 4.3
+Checking for symptoms of insufficient memory
+
+* Run `kubectl get pods -l app.kubernetes.io/component=collector -n <NAMESPACE>` to find collector pods that have been restarting.
+    * If the collector is showing frequent restarts, check the termination reason by running `kubectl describe pod podname`
+        * OOM errors show that the collector has insufficient memory resources to run. 
+
+* If your collector does not show OOM as its termination reason, you can check the logs for other errors by running `kubectl logs podname`
+
+Any memory issues can be resolved through the remedies below. See for more details.
+
+### Remedies
+
+#### Increasing Limits
+
+The easiest thing to do to resolve memory or cpu issues and get things reporting again is to increase the memory and/or cpu limits. To determine the cpu/memory limit to set, you can use a few helpful graphs on the collector troubleshooting dashboard.
+
+##### Determining CPU Limit
+
+If you’re seeing high collector latencies, you should adjust the cpu limits first. When the collector is throttled because of lack of cpu availability, it leads to memory issues as well. The process of increasing cpu is one of trial and error. You’ll need to adjust the limit and then monitor the collector latency graph after the update. Once you see the latencies level out, it's a good indication that you’ve found the right limit.
+
+##### Determining Memory Limit
+
+The “Collector Memory Usage (Top 20)” dashboard can give you an idea of what limits you need but remember that those values are sampled and may not show the peak memory usage. This can found by going to the dashboards for the Kubernetes Integration. Set the time frame to 2-4 days and look for any spikes. You’ll want to start your limit at a little over whatever that max you find is. This will most likely be the elected leader and you should set your limit to 110% of that max.
+
+![Collector Memory Usage Graph on the Collector Troubleshooting Dashboard](images/kubernetes_collector_memory.png)
+
+The method for changing the cpu or memory limits depends on the way the collector was installed. See the method you used below for how to update the limits.
+
+##### Changing in Helm Deploys
+For a helm chart, this can be configured as described [here](https://github.com/wavefrontHQ/helm/tree/master/wavefront#parameters)
+
+You can update the limits [in the values.yaml](https://github.com/wavefrontHQ/helm/blob/master/wavefront/values.yaml#L184) for convenience
+
+##### Changing Manual Deploys
+In a manual deployment, the container settings need to be updated in the daemonset definition. The existing limits would look something like this:
+``` 
+resources:
+    limits:
+      cpu: 1000m
+      memory: 1024Mi
+```
+
+#### Reduce the Collection Load
+
+Another way to resolve cpu and/or memory issues is to reduce the amount of metrics being collected. You’ll want to reduce load as close to the source as possible. This grants the largest reduction in overall load on the system. Removing a source all together takes much less resources than having to filter downstream at the collector. 
+
+##### Remove sources or filter what they’re sending
+A lot of sources scraped by the collector have a way of filtering out metrics built in. Consider removing sources you don’t need, like kube-state metrics, or at least filtering metrics with configuration of those individual sources if possible.
+
+##### Remove Sources using Collector Configuration
+If you have any statically defined sources in your configuration file, you can remove them, especially any you think would emit a large amount of metrics. More information on this here: 
+
+##### Disable Auto Discovery
+If you’re still seeing too much of a load, you may be scraping pods based on annotations that the collector is finding. These are usually standard for helm charts or widely used containers. You can disable autodiscovery to see if this is the case and consider removing the annotations if you don’t want these scraped in the future.
+
+##### Filter Metrics using Collector Configuration
+You can also filter the metrics you’re getting from individual sources. More information on that here. This adds a lot of load to the collector, so this should only be used if the methods above aren’t effective.
+
+### Other Collector Instance Issues
 
 The behavior of individual Collector instances (memory usage etc.) can differ based on how much data they are collecting, whether it's a leader instance etc.
 
@@ -127,10 +222,10 @@ To troubleshoot:
 Use these metrics to help troubleshoot issues with data collection:
 
 <table>
-<tbody>
 <thead>
 <tr><th width="40%">Metric</th><th width="60%">Description</th></tr>
 </thead>
+<tbody>
 <tr><td markdown="span">kubernetes.collector.target.collect.errors</td>
 <td>Counter showing the number of errors collecting data from a target pod or service etc.</td></tr>
 <tr>
@@ -155,15 +250,16 @@ If you're noticing issues with collecting data from such components:
 Use these metrics to help troubleshoot issues with leader election:
 
 <table>
-<tbody>
 <thead>
 <tr><th width="40%">Metric</th><th width="60%">Description</th></tr>
 </thead>
+<tbody>
 <tr><td markdown="span">kubernetes.collector.leaderelection.leading</td>
-<td>A value of 1 indicates the leader instance.</td></tr>
+<td>A value of 1 indicates the leader instance. Only a single collector should have this value set to 1 if there are none or anymore than that, it signals an issue with leadership election</td>
+</tr>
 <tr>
 <td markdown="span">kubernetes.collector.leaderelection.error</td>
-<td>Counter showing errors encountered in election a leader. </td></tr>
+<td>Counter showing errors encountered in the leader election process. </td></tr>
 </tbody>
 </table>
 
