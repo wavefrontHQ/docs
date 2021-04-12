@@ -75,7 +75,11 @@ You can [filter the metrics](https://github.com/wavefrontHQ/wavefront-kubernetes
 
 ### Application Monitoring
 
-The Wavefront Collector for Kubernetes automatically starts collecting metrics from many commonly used applications. It also scrapes Prometheus metric endpoints such as API server, etcd, and NGINX. The following diagram illustrates this.
+The Wavefront Collector for Kubernetes automatically starts collecting metrics from many commonly used applications: 
+* The collector has a telegraf plugin to collect data from telegraf application sources, such as Redis, RabbitMQ. etc.,
+* The collector also scrapes Prometheus metric endpoints such as API server, etcd, and NGINX.
+
+The following diagram illustrates this:
 
 ![kubernetes application monitoring](/images/kubernetes_apps.png)
 

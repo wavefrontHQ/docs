@@ -207,14 +207,15 @@ To solve this, See the remedies section.
 * **Remove sources or filter metrics**: 
   Sources scraped by the collector have a way of filtering out metrics. You can remove sources you don’t need, like kube-state metrics, or configure the Wavefront collector using the [`configuration.md`](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration) file to filter metrics of the sources you don't need.
 
-* **Configuration the Wavefront Collector to remove sources**:
-  If you have statically defined sources in your configuration file, you can remove them, especially those that emit a large number of metrics. More information on this here: 
+* **Configure the Wavefront Collector to remove sources**:
+  If you have statically defined sources in your configuration file, comment out or remove sources listed under `sources` in the collector [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration-file) file, especially sources that emit a large number of metrics. 
+    {% include important.html content="Do not remove `kubernetes_source` under the `sources` list." %}
 
 * **Disable Auto-Discovery**:
   If the load is still high, you may be scraping pods based on annotations that the collector finds, which is standard for helm charts or widely used containers. Disable autodiscovery and see if the load reduces. If this works and you don't want the pods to be scrapped in the future, remove the annotations.
 
 * **Filter Metrics using Wavefront Collector configurations**: 
-  You can filter the metrics that come from individual sources. More information on that here.
+  You can filter the metrics that come from individual sources. See [Filtering](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/filtering.md).
     {% include note.html content="This option adds a lot of load to the collector, so use it only if the above methods are not effective." %}
 
 ### Other Collector Instance Issues
