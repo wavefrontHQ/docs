@@ -104,54 +104,62 @@ You can filter out data flowing into Wavefront at multiple points:
 * Rename metrics to different names in the proxy configuration. See [Wavefront proxy preprocessor rules](https://docs.wavefront.com/proxies_preprocessor_rules.html).
   ![Highlights arrow from the sinker to the wavefront proxy on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_step_2.png)
 
-
-### Step 4: Check If the Collector Restarts Frequently
-* Run `kubectl get pods -l app.kubernetes.io/component=collector -n <NAMESPACE>` to verify there are no restarts amongst the Collector pods.
-  * If the Collector is showing frequent restarts, check the termination reason by running `kubectl describe pod podname`.
-    * Out Of Memory (OOM) errors can show that the Collector has insufficient resources to run. See new section X link on tuning resources.
-  * Check the Collector logs for runtime errors by running `kubectl logs podname`.
-
-Likely causes:
-1. [Issues with a few isolated Collector instances](l#check-for-collector-instance-issues).
-2. [Data collection errors caused by erroneous discovery rules or data sources](#check-for-data-collection-errors).
-3. [Issues with leader election or the leader Collector instance](#check-for-leader-election-issues).
-4. [Points blocked at the Wavefront Proxy](#check-for-proxy-blocked-points).
-
 ### Step 4: Check Collector Health
 
-#### Leader Health
-Leader health problems can create odd and inconsistent gaps in almost any metric coming out of a cluster.
 
-##### Step 4.1
-The easiest way to check for a leader health problem is to check the Wavefront Collector Metrics dashboard in the Kubernetes integration. On that page, leader problems would be highlighted here:
+#### Check for Leader Health Problems 
+
+The **leader Wavefront collector pod** collects the metrics from its node and the metrics that are not specific to the local node. For example, cluster metrics, service monitoring metrics, and metrics from applications configured using explicit rule definitions. If a leader pod crashes due to insufficient resources, another pod picks up the leader role automatically. The new leader pod also faces the same problem and crash, just like the previous leader pod, and this cycle continues. This problem leads to inconsistent gaps in data collection.
+
+Open the Wavefront Collector Metrics dashboard in the Kubernetes integration. In the Troubleshooting section, if you see the Leader Election in red or the chart has spikes with the number of times the leadership changed, there are leader health problems.
+
+Example: The screenshot below shows that there are no leader health problems
 
 ![Leadership Election in a good state on the Collector Troubleshooting Dashboard](images/kubernetes_leader_ok.png)
 
-If this is red or showing leadership changes, it is likely that the leader is crashing.
+{{site.data.alerts.tip}}
+  <ul>
+    <li>
+      If the leader has no health problem, check the memory or CPU issues affecting the other collector pods.
+    </li>
+    <li>
+      If the leader is continually crashing, this can be due to insufficient memory. See the section on Check for Insufficient Memory Symptoms.
+    </li>
+  </ul>
+{{site.data.alerts.end}}
+    
 
-The “leader” Wavefront Collector pod is responsible for collecting all metrics that cannot be made specific to a local node as well as for collecting from the node it is on. For example, that would include cluster metrics, service monitoring, and applications configured by explicit rule definitions. If a leader pod crashes due to insufficient resources, another pod should pick up the leader role automatically. That pod would then, of course, face whatever problem the last leader had and could crash itself. That leads to odd and inconsistent gaps in data collection while one pod after another is restarting.
+#### Check for Insufficient CPU Symptoms
 
-If there are no problems with leadership election, you’ll still want to work through Steps 4.2 and 4.3 to determine if there are any memory or cpu issues affecting collectors other than the leader. 
-If the leader is continually crashing, there is most likely a large source overwhelming each leader as they are elected and the issue is ultimately insufficient memory. Jump to 
-Step 4.3 for how to dig in.
+Follow these steps:
 
-##### Step 4.2
-Checking for symptoms of insufficient CPU
+1. Open the Wavefront Collector Metrics dashboard in the Kubernetes integration. In the Troubleshooting section, see the Collector Restarts chart. If the chart is in red, or if there are spikes on the chart, there are memory or CPU issues.
+  See [Fine-Tune the Time Window](ui_examine_data.html#fine-tune-the-time-window) to customize the time window on the chart.
 
-Check the collector restarts graph on the Wavefront Collector Metrics dashboard to find a good timeframe to investigate for collector restarts.
+    Example: The screenshot below shows that there are collector restarts.
+    ![Collector restarts happening on the Collector Troubleshooting Dashboard](images/kubernetes_restarts.png)
 
-![Collector restarts happening on the Collector Troubleshooting Dashboard](images/kubernetes_restarts.png)
+2. In the Wavefront Collector Metrics dashboard's Data Collection section, check the Collection Latency chart. If you customized the time window for the above steps, make sure the same time window is selected for this chart too.
 
-Check the collection latency for the timeframe around the collector restarts on this graph:
+    ![Collector Latency Graph on the collector Troubleshooting Dashboard](images/kubernetes_latency.png) 
+    
+    {{site.data.alerts.tip}}
+      <ul>
+        <li>
+          Latency should be less than the collection intervals you configure. The <code>defaultCollectionInterval</code> is set to 60 seconds. You configure it on the <a href="https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration-file"><code>configration.md</code></a> file.
+        </li>
+        <li>
+          If the latency is high, the collector has insufficient CPU to process the metrics, and the collectors stack up in memory and cause an Out Of Memory error (OOM).
+        </li>
+        <li>
+          To solve this, the collector needs higher CPU limits on the collector pods, or you need to reduce the collection load. See the remedies section.
+        </li>
+      </ul>
+    {{site.data.alerts.end}}
 
-![Collector Latency Graph on the Collector Troubleshooting Dashboard](images/kubernetes_latency.png)
+#### Check for Insufficient Memory Symptoms
 
-Latency should be a much smaller value than the collection intervals you have collected on your metric sources. If the latency is high (seconds to minutes), likely your collectors have insufficient CPU to process the metrics that they are collecting and that is causing them to stack up in memory and will cause an Out Of Memory error (OOM).
-
-To remedy this, the collector either needs higher cpu limits on the collector pods, or to reduce the collection load. See the sections below for details on how to do this (link to below sections)
-
-##### Step 4.3
-Checking for symptoms of insufficient memory
+Follow these steps:
 
 * Run `kubectl get pods -l app.kubernetes.io/component=collector -n <NAMESPACE>` to find collector pods that have been restarting.
     * If the collector is showing frequent restarts, check the termination reason by running `kubectl describe pod podname`
@@ -159,62 +167,62 @@ Checking for symptoms of insufficient memory
 
 * If your collector does not show OOM as its termination reason, you can check the logs for other errors by running `kubectl logs podname`
 
-Any memory issues can be resolved through the remedies below. See for more details.
+To solve this, See the remedies section.
 
-### Remedies
+#### Remedies
 
-#### Increasing Limits
+* **Increase CPU or memory limits**: 
+  The easiest way to resolve memory or CPU issues is to increase the memory and CPU limits. To determine the CPU or memory limit, see the charts in the Wavefront Collector Metrics dashboard's Troubleshooting section.
 
-The easiest thing to do to resolve memory or cpu issues and get things reporting again is to increase the memory and/or cpu limits. To determine the cpu/memory limit to set, you can use a few helpful graphs on the collector troubleshooting dashboard.
+* **Determine CPU limit**: 
+  If you’re seeing high collector latencies, you need to adjust the CPU limit. When the collector is throttled due to lack of CPU availability, it leads to memory issues too. 
+  The process of increasing CPU is trial and error. You need to adjust the limit and monitor the collector latency graph after the update. If the latencies level out, you have found the correct CPU limit.
 
-##### Determining CPU Limit
+* **Determine memory limit** <br/> 
+  Follow these steps:
+  1. Open the Wavefront Collector Metrics dashboard, and see Collector Memory Usage (Top 20) chart on the Troubleshooting section. This chart giveS you an idea of the limits you need.
+      {% include note.html content="The limit values on the chart are sampled and do not show the peak memory usage." %}
+  2. Customize the time frame on the chart to 2-4 days using the (-) icon on the chart and look for any spikes. The spikes are most likely created by the elected leader.
+  3. Start to set the limit 10% over the max value you find and monitor the changes. For example, based on the screenshot below, the max value is 43.5 Mi. Therefore, you can start to set your limit at 47.85 Mi (43.5 x 1.10) and monitor the progress.
 
-If you’re seeing high collector latencies, you should adjust the cpu limits first. When the collector is throttled because of lack of cpu availability, it leads to memory issues as well. The process of increasing cpu is one of trial and error. You’ll need to adjust the limit and then monitor the collector latency graph after the update. Once you see the latencies level out, it's a good indication that you’ve found the right limit.
+    ![Collector Memory Usage Graph on the Collector Troubleshooting Dashboard](images/kubernetes_collector_memory.png)
 
-##### Determining Memory Limit
+* **Change the CPU or memory limit based on how the Wavefront Collector is installed**:
+  * Helm Deployments
+    * Option 1: For details on updating the CPU and memory limit on helm charts, see [Parameters](https://github.com/wavefrontHQ/helm/tree/master/wavefront#parameters).
+    * Option 2: Update the `cpu` and `memory` limits in the [`values.yaml`](https://github.com/wavefrontHQ/helm/blob/master/wavefront/values.yaml#L184) file.
+    
+  * Manual Deployments <br/>
+    Update the container settings in the `daemonset` definition. The default limits are:
+    ``` 
+    resources:
+        limits:
+          cpu: 1000m
+          memory: 1024Mi
+    ```
 
-The “Collector Memory Usage (Top 20)” dashboard can give you an idea of what limits you need but remember that those values are sampled and may not show the peak memory usage. This can found by going to the dashboards for the Kubernetes Integration. Set the time frame to 2-4 days and look for any spikes. You’ll want to start your limit at a little over whatever that max you find is. This will most likely be the elected leader and you should set your limit to 110% of that max.
+* **Reduce the Collection Load**: 
+  Reduce the number of metrics that are collected and reduce the collector CPU and memory load as close to the source as possible. It grants the largest reduction in overall load on the system. Fewer resources are required to remove a source than to filter downstream at the collector. 
 
-![Collector Memory Usage Graph on the Collector Troubleshooting Dashboard](images/kubernetes_collector_memory.png)
+* **Remove sources or filter metrics**: 
+  Sources scraped by the collector have a way of filtering out metrics. You can remove sources you don’t need, like kube-state metrics, or configure the Wavefront collector using the [`configuration.md`](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration) file to filter metrics of the sources you don't need.
 
-The method for changing the cpu or memory limits depends on the way the collector was installed. See the method you used below for how to update the limits.
+* **Configuration the Wavefront Collector to remove sources**:
+  If you have statically defined sources in your configuration file, you can remove them, especially those that emit a large number of metrics. More information on this here: 
 
-##### Changing in Helm Deploys
-For a helm chart, this can be configured as described [here](https://github.com/wavefrontHQ/helm/tree/master/wavefront#parameters)
+* **Disable Auto-Discovery**:
+  If the load is still high, you may be scraping pods based on annotations that the collector finds, which is standard for helm charts or widely used containers. Disable autodiscovery and see if the load reduces. If this works and you don't want the pods to be scrapped in the future, remove the annotations.
 
-You can update the limits [in the values.yaml](https://github.com/wavefrontHQ/helm/blob/master/wavefront/values.yaml#L184) for convenience
-
-##### Changing Manual Deploys
-In a manual deployment, the container settings need to be updated in the daemonset definition. The existing limits would look something like this:
-``` 
-resources:
-    limits:
-      cpu: 1000m
-      memory: 1024Mi
-```
-
-#### Reduce the Collection Load
-
-Another way to resolve cpu and/or memory issues is to reduce the amount of metrics being collected. You’ll want to reduce load as close to the source as possible. This grants the largest reduction in overall load on the system. Removing a source all together takes much less resources than having to filter downstream at the collector. 
-
-##### Remove sources or filter what they’re sending
-A lot of sources scraped by the collector have a way of filtering out metrics built in. Consider removing sources you don’t need, like kube-state metrics, or at least filtering metrics with configuration of those individual sources if possible.
-
-##### Remove Sources using Collector Configuration
-If you have any statically defined sources in your configuration file, you can remove them, especially any you think would emit a large amount of metrics. More information on this here: 
-
-##### Disable Auto Discovery
-If you’re still seeing too much of a load, you may be scraping pods based on annotations that the collector is finding. These are usually standard for helm charts or widely used containers. You can disable autodiscovery to see if this is the case and consider removing the annotations if you don’t want these scraped in the future.
-
-##### Filter Metrics using Collector Configuration
-You can also filter the metrics you’re getting from individual sources. More information on that here. This adds a lot of load to the collector, so this should only be used if the methods above aren’t effective.
+* **Filter Metrics using Wavefront Collector configurations**: 
+  You can filter the metrics that come from individual sources. More information on that here.
+    {% include note.html content="This option adds a lot of load to the collector, so use it only if the above methods are not effective." %}
 
 ### Other Collector Instance Issues
 
-The behavior of individual Collector instances (memory usage etc.) can differ based on how much data they are collecting, whether it's a leader instance etc.
+The behavior of individual collector instances (memory usage etc.) can differ based on how much data they are collecting, whether it's a leader instance etc.
 
 To troubleshoot:
-* Check if there are any restarts amongst the relevant Collector pods.
+* Check if there are any restarts amongst the relevant collector pods.
 * Run `kubectl describe POD_NAME -n NAMESPACE` to check if there are any OOM issues.
 
 #### Check for Data Collection Errors
@@ -237,11 +245,11 @@ Use these metrics to help troubleshoot issues with data collection:
 </tbody>
 </table>
 
-Check the source of these metrics to identify the specific Kubernetes node on which the Collector is running. Then check the logs for that Collector instance for further troubleshooting.
+Check the source of these metrics to identify the specific Kubernetes node on which the collector is running. Then check the logs for that collector instance for further troubleshooting.
 
 #### Check for Leader Election Issues
 
-Because the Wavefront Collector runs as a DaemonSet, leader election is used to select a single instance for collecting data from cluster-level components (non pod related) such as service endpoints, [object states](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/metrics.md#kubernetes-state-source), static sources (not configured via auto discovery), and events.
+Because the Wavefront collector runs as a DaemonSet, leader election is used to select a single instance for collecting data from cluster-level components (non pod related) such as service endpoints, [object states](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/metrics.md#kubernetes-state-source), static sources (not configured via auto discovery), and events.
 
 If you're noticing issues with collecting data from such components:
 1. Verify a leader instance exists
