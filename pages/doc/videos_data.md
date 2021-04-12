@@ -45,6 +45,15 @@ Learn about getting data into Wavefront and get background info on time series a
 </td>
 </tr>
 <tr>
+<td><strong><font color="blue">Getting Windows Host Metrics Into Wavefront</font></strong><br>
+<br>
+<iframe src="https://bcove.video/3rXZ1RY" width="400" height="225" allowfullscreen="true" alt="Setting up a Windows integration"></iframe>
+</td>
+<td><br>
+<p>Watch this video to learn how to send metrics data from a Windows host machine to Wavefront by using the Wavefront proxy.</p>
+</td>
+</tr>
+<tr>
 <td><strong><font color="blue">Tagging Your Data with Wavefront</font></strong><br>
 <a href="https://www.youtube.com/watch?v=9tt4orZHQts&index=3&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K" target="_blank"><img src="/images/v_tagging_clement.png"  alt="Tagging in Wavefront"/></a></td>
 <td><br>

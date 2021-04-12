@@ -7,7 +7,7 @@ permalink: hs_apdex_latency_function.html
 summary: Learn how to use the apdexLatency() function.
 ---
 
-The `apdexLatency()` function gets you the Apdex threshold defined for the service, also known as the satisfied threshold (T), and the tolerating threshold, which is four times the satisfied threshold (4T).
+The `apdexLatency()` function gets you the Apdex threshold defined for the service, also known as the satisfied threshold (T), and the tolerating threshold, which is four times the satisfied threshold (4T). The thresholds are measured in milliseconds.
 
 ## Summary
 
@@ -46,7 +46,7 @@ apdexLatency(application=<application_name>, service=<service_name>, [satisfied 
       `satisfied`
     </td>
     <td markdown="span">
-      Get the satisfied threshold. It is the threshold value (T) defined for your application. See [Configure the Threshold (T) Value](tracing_apdex.html#configure-the-threshold-t-value).
+      Get the satisfied threshold in milliseconds. It is the threshold value (T) defined for your application. See [Configure the Threshold (T) Value](tracing_apdex.html#configure-the-threshold-t-value).
     </td>
   </tr>
   <tr>
@@ -54,7 +54,7 @@ apdexLatency(application=<application_name>, service=<service_name>, [satisfied 
       `tolerating`
     </td>
     <td markdown="span">
-      Get the tolerating threshold. It is the satisfied threshold value (T) times 4.
+      Get the tolerating threshold in milliseconds. It is the satisfied threshold value (T) times 4.
     </td>
   </tr>
 
