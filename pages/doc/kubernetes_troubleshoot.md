@@ -190,7 +190,7 @@ To solve this, See the remedies section.
 * **Change the CPU or memory limit based on how the Wavefront Collector is installed**:
   * Helm Deployments
     * Option 1: For details on updating the CPU and memory limit on helm charts, see [Parameters](https://github.com/wavefrontHQ/helm/tree/master/wavefront#parameters).
-    * Option 2: Update the `cpu` and `memory` limits in the [`values.yaml`](https://github.com/wavefrontHQ/helm/blob/master/wavefront/values.yaml#L184) file.
+    * Option 2: Update the `cpu` and `memory` limits in the [values.yaml](https://github.com/wavefrontHQ/helm/blob/master/wavefront/values.yaml#L184) file.
     
   * Manual Deployments <br/>
     Update the container settings in the `daemonset` definition. The default limits are:
@@ -205,10 +205,10 @@ To solve this, See the remedies section.
   Reduce the number of metrics that are collected and reduce the collector CPU and memory load as close to the source as possible. It grants the largest reduction in overall load on the system. Fewer resources are required to remove a source than to filter downstream at the collector. 
 
 * **Remove sources or filter metrics**: 
-  Sources scraped by the collector have a way of filtering out metrics. You can remove sources you don’t need, like kube-state metrics, or configure the Wavefront collector using the [`configuration.md`](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration) file to filter metrics of the sources you don't need.
+  Sources scraped by the collector have a way of filtering out metrics. You can remove sources you don’t need, like kube-state metrics, or configure the Wavefront collector using the [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration) file to filter metrics of the sources you don't need.
 
 * **Configure the Wavefront Collector to remove sources**:
-  If you have statically defined sources in your configuration file, comment out or remove sources listed under `sources` in the collector [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration-file) file, especially sources that emit a large number of metrics. 
+  If you have statically defined sources, comment out or remove sources that emit a large number of metric from the `sources` list in the collector [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration-file) file. 
     {% include important.html content="Do not remove `kubernetes_source` under the `sources` list." %}
 
 * **Disable Auto-Discovery**:
