@@ -208,7 +208,7 @@ To solve this, See the remedies section.
   Sources scraped by the collector have a way of filtering out metrics. You can remove sources you don’t need, like kube-state metrics, or configure the Wavefront collector using the [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration) file to filter metrics of the sources you don't need.
 
 * **Configure the Wavefront Collector to remove sources**:
-  If you have statically defined sources, comment out or remove sources that emit a large number of metric from the `sources` list in the collector [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration-file) file. 
+  If you have statically defined sources, comment out or remove sources that emit a large number of metrics from the `sources` list in the collector [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration-file) file. 
     {% include important.html content="Do not remove `kubernetes_source` under the `sources` list." %}
 
 * **Disable Auto-Discovery**:
