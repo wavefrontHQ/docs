@@ -1147,7 +1147,7 @@ Chart description which shows up as hover text when users move the mouse over th
 <a id="node_map_drilldown_link_tab">
 <p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
 
-If you [specify a drilldown link], end users are directed to a target dashboard when they click this chart. You can optionally pass a point tag, variable, or other value into the target dashboard to customize it for the user ahead of time. See [How Do Drilldown Links Work](ui_charts_faq.html#how-do-drilldown-links-work) for details.
+If you specify a drilldown link, end users are directed to a target dashboard when they click this chart. You can optionally pass a point tag, variable, or other value into the target dashboard to customize it for the user ahead of time. See [How Do Drilldown Links Work](ui_charts_faq.html#how-do-drilldown-links-work) for details.
 
 <table style="width: 100%;">
 <tbody>
@@ -1195,13 +1195,16 @@ You must make sure you're looking at a metric -- it doesn't make sense to select
 </tr>
 <tr>
 <td>Percentile Markers</td>
-<td>Display predefined percentile makers as numbers on the chart. You can also </td>
+<td>Display predefined percentile makers as numbers on the chart. </td>
 </tr>
-<tr><td>Gap Threshold</td>
-<td>Controls when data is considered missing when there are gaps in the reporting of the data. The gap threshold is expressed in seconds and defaults to 60 seconds. </td>
+<tr><td>Threshold</td>
+<td>A threshold marker. Can be either a constant value or a variable that is defined by a query. For example, you can add two apdex query thresholds, for the histogram query of the type: <p><code>merge(hs(tracing.aggregated.derived.*.duration.micros.m, ${aggregated_filters}))</code></p>
+</td>
 </tr>
 </tbody>
 </table>
+
+![A histogram example with thresholds defined by query expressions](images/histogram_query_threshold.png)
 
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
@@ -1294,6 +1297,10 @@ One easy way to show which histograms are on your cluster is from the **Histogra
 <tr>
 <td>Color</td>
 <td>Base color for the heat map. The saturation of the color indicates the count for the selected field. Hover over any field to see a vertical histogram as a legend that you can pin with Shift+P. The histogram highlights the vertical line that corresponds to the grid cell you've selected.<img src="/images/heatmap_legend.png" alt="legend for a single heatmap field"> </td>
+</tr>
+<tr>
+<td>Threshold</td>
+<td>A threshold marker. Can be either a constant value or a variable that is defined by a query.</td>
 </tr>
 </tbody>
 </table>
