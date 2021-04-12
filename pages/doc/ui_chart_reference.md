@@ -1198,7 +1198,7 @@ You must make sure you're looking at a metric -- it doesn't make sense to select
 <td>Display predefined percentile makers as numbers on the chart. </td>
 </tr>
 <tr><td>Threshold</td>
-<td>A threshold marker. Can be either a constant value or a variable that is defined by a query. For example, you can add two <code>apdexlatency</code> query thresholds, for the histogram query of the type: <p><code>merge(hs(tracing.aggregated.derived.*.duration.micros.m, ${aggregated_filters}))</code></p>
+<td>A threshold marker for the data represented by the chart. Can be either a constant value or a variable that is defined by a query. For example, you can add two <code>apdexLatency</code> query thresholds, for the histogram query of the type: <p><code>merge(hs(tracing.aggregated.derived.*.duration.micros.m, ${aggregated_filters}))</code></p>
 </td>
 </tr>
 </tbody>
@@ -1300,7 +1300,7 @@ One easy way to show which histograms are on your cluster is from the **Histogra
 </tr>
 <tr>
 <td>Threshold</td>
-<td>A threshold marker. Can be either a constant value or a variable that is defined by a query.</td>
+<td>A threshold marker for the data represented by the chart. Can be either a constant value or a variable that is defined by a query.</td>
 </tr>
 </tbody>
 </table>
