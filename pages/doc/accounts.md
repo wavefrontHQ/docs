@@ -51,9 +51,13 @@ Users with **Accounts, Groups & Roles** permissions can manage accounts.
 
 ### Sign Out a User
 
-As a [super admin user](authorization.html#who-is-the-super-admin-user), you can sign out other users by using the Wavefront REST API. Learn more about the [categories in the Wavefront API](wavefront_api.html#wavefront-rest-api-categories). 
+As a [super admin user](authorization.html#who-is-the-super-admin-user), you can sign out other users by using the Wavefront REST API. To sign out a user while you are logged in as a super admin user, simply run a POST request with the `logout` API call. For example:
 
-To sign out a user, simply run a POST request with the `logout` API call under the `Account (User and Service Account)` category. You must specify the `{id}`, which is the email address of the user that you want to log out.
+```
+POST https://<your_wavefront_cluster>.wavefront.com/api/logout/{identifier}
+```
+
+You must specify the `{identifier}`, which is the email address of the user that you want to log out. If you are not logged in to your Wavefront cluster, when you run the POST request, you must also provide a valid [API token](wavefront_api.html#generating-an-api-token).
 
 ### What Can a New User Do?
 
