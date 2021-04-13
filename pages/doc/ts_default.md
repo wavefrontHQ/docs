@@ -40,7 +40,7 @@ Fills in gaps in the time series described by `tsExpression`, by inserting data 
 </tr>
 <tr>
 <td markdown="span">.orElse</td>
-<td>An optional operator that allows you to specify a default value even if the time series did not report any data in the specified time window. </td>
+<td>An optional operator that allows you to specify a default value even if the time series did not report any data in the specified time window. You can enter a constant value wrapped in brackets, such as <code>orElse(5)</code>. You can also enter a timeseries for chained .orElse statements, for example <code>.orElse(ts('my.metric'))</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -165,4 +165,4 @@ If you still think that `default()` is needed, limit the time window to reduce p
 Other missing data functions include:
 * [interpolate](ts_interpolate.html)
 * [next](ts_next.html)
-* [last](ts_last.html).
+* [last](ts_last.html)
