@@ -20,8 +20,7 @@ To see a list of the metrics for this integration, select the integration from <
 This integration uses various Telegraf input plugins and offers several setup options
 
 * Use a proxy already running in your environment (preferred) or create a new proxy. 
-* Install the Wavefront proxy and Telegraf agent on the same host or on separate hosts. 
-* Choose automatic installation or manual installation and configuration.
+* Install the Wavefront proxy and Telegraf agent on the same host or on separate hosts.
 
 {% include telegraf.md %}
 
