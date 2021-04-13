@@ -82,7 +82,7 @@ If we wrap `default()` and specify 0 as the default, missing data are replaced w
 
 * If the time series exists in the time window, `default()` fills in the values and `.orElse` is not needed (does nothing).
   ```
-  default(100, ts('mymetric).orElse(25))
+  default(100, ts('my.metric').orElse(25))
   ```
 * If the time series does **not** exist in the time window, NO DATA is shown by default. However, `.orElse` specifies a value of 25, which is shown for the time series.
   ```
