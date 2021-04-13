@@ -50,13 +50,13 @@ You can apply threshold markers for the data represented by histogram and heat m
     merge(hs(tracing.aggregated.derived.*.duration.micros.m, ${aggregated_filters}))
     ```
 
-2. On the **Format** tab select the color gradient, specify the percentile markers, and click **Add Threshold**. You can:
+2. On the **Format** tab select the color gradient, specify the percentile markers, and click **Add Threshold**. You can do one of the following, or both:
 
 * Enter a constant value as a threshold, for example `100`.
 
 ![A histogram example with a threshold defined by a constant value](images/histogram_value_threshold.png)
 
-* Enter two `apexLatency` query expressions as thresholds.
+* Enter two `apdexLatency` query expressions as thresholds.
 
 ![A histogram example with thresholds defined by query expressions](images/histogram_query_threshold.png)
 
