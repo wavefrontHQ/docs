@@ -55,7 +55,7 @@ Missing data is represented by a dashed line. The dashed line only gives a visua
 <td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
 
 Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
+us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
 </tr>
 
 <tr>
@@ -227,7 +227,7 @@ A **point plot** chart displays point buckets *without* any interpolation. Like 
 <td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
 
 Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
+us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
 </tr>
 <tr>
 <td>Display Source Events</td>
@@ -389,7 +389,7 @@ The stacked area chart can help you determine at a glance which queries have the
 <td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
 
 Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
+us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
 </tr>
 <tr>
 <td>Display Source Events</td>
@@ -570,7 +570,7 @@ This chart supports the same tabs and options as the Stacked Area Chart discusse
 <td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
 
 Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
+us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
 </tr>
 <tr>
 <td>Display Source Events</td>
@@ -868,7 +868,7 @@ By default, a **single stat** chart plots a single series on a chart and display
 <td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
 
 Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
+us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
 </tr>
 <tr>
 <td>Display Value</td>
@@ -1023,7 +1023,7 @@ The color mapping tab lets you define which set of values maps to which colors. 
 <td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
 
 Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
+us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
 </tr>
 <tr>
 <td>Number of Bars</td>
@@ -1378,7 +1378,7 @@ A gauge chart displays a single value, in a default color. You can optionally ad
 <td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
 
 Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
+us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
 </tr>
 <tr>
 <td>Decimal Precision</td>
@@ -1480,7 +1480,7 @@ The collage above shows both a pie chart and a donut chart for the same data.
 <td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
 
 Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
+us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
 </tr>
 <tr>
 <td>Show Percentage</td>
