@@ -52,21 +52,21 @@ You can apply threshold markers for the data represented by histogram and heat m
 
 2. On the **Format** tab select the color gradient, specify the percentile markers, and click **Add Threshold**. You can do one of the following, or both:
 
-* Enter a constant value as a threshold, for example `100us`. 
+  * Enter a constant value as a threshold, for example `100us`. 
 
 ![A histogram example with a threshold defined by a constant value](images/histogram_value_threshold.png)
 
-* Enter a query expression for a threshold. The query must be in [Wavefront Query Language](query_language_reference.html). For example, enter the following queries:
+  * Enter a query expression as a threshold. The query must be in [Wavefront Query Language](query_language_reference.html). For example, you can enter the following queries as thresholds:
 
-  ```
-  apdexLatency(application=${application}, service=${service}, satisfied)
-  ```
-  
-  ```
-  apdexLatency(application=${application}, service=${service}, tolerating)
-  ```
+    ```
+    apdexLatency(application=${application}, service=${service}, satisfied)
+    ```
+    
+    ```
+    apdexLatency(application=${application}, service=${service}, tolerating)
+    ```
 
-  {% include note.html content ="Make sure that the query returns a single stat series and that the query output can be captured as a threshold value."%}   
+    {% include note.html content ="You must make sure that the query that you enter returns a single stat series and that the query output can be captured as a threshold value."%}   
 
 ![A histogram example with thresholds defined by query expressions](images/histogram_query_threshold.png)
 
