@@ -102,7 +102,7 @@ You can filter out data flowing into Wavefront at multiple points:
 
 ### Step 3: Verify Metric Naming Configuration
 
-* Check the metric prefixes on the source and sink configurations. You can update the metric prefixes so that it is different expected.
+* Check the metric prefixes on the source and sink configurations. You can update the metric prefixes in the [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#common-properties) file.
   
   ![Highlights arrow from the sinker to the wavefront proxy on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_metric_name_step_1.png)
   
@@ -213,7 +213,7 @@ To solve this, See the remedies section.
     ```
 
 * **Reduce the collection load**: 
-  Reduce the number of metrics that are collected and reduce the collector CPU and memory load limit as close to the source as possible. It grants the largest reduction in overall load on the system. Fewer resources are required to remove a source than to filter downstream at the collector. 
+  Reduce the number of metrics that are collected and reduce the collector CPU and memory load limit from the start. For example, reduce the load at the application pod or source level. It grants the largest reduction in overall load on the system. Fewer resources are required to remove a source than to filter downstream at the collector. 
 
   * **Configure the Wavefront Collector to remove sources**:
     If you have statically defined sources, comment out or remove sources that emit a large number of metrics from the `sources` list in the collector [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration-file) file.

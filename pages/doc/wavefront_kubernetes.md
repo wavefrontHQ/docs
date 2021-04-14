@@ -29,10 +29,11 @@ The following two videos get you started.
 </table>
 
 
-## Send Data From Your Kubernetes Environment to Wavefront 
+## Send Data from Your Kubernetes Environment to Wavefront 
 
 You can send data to Wavefront in several ways:
-*	**Direct**: Use the Wavefront Kubernetes collector to send data directly from your Kubernetes cluster to the Wavefront proxy or the Wavefront service (direct ingestion)
+*	**Direct**: Use the Wavefront Kubernetes collector to send data directly from your Kubernetes cluster to the Wavefront proxy. The Collector can collect metrics from Prometheus compatible applications and support a number of Telegraf plugins.
+
 *	**Prometheus**: If you are already using Prometheus to view your data and want to monitor your Kubernetes data with Tanzu Observability, send data to the Wavefront Kubernetes collector.
 
 ![The diagram shows the different components and ways you can send data to Wavefront from your Kubernetes environment. The details are explained above.](images/kubernetes_overview_diagram.png)
@@ -61,7 +62,7 @@ The Wavefront Collector for Kubernetes supports monitoring for your Kubernetes i
 
 Our Collector for Kubernetes collects metrics to give comprehensive insight into all layers of your Kubernetes environment, such as nodes, pods, services, and config maps.
 
-Depending on the selected setup, metrics are sent to a Wavefront proxy and from there to the Wavefront service. It's possible to send metrics using direct ingestion, but the Wavefront proxy is preferred for most cases.
+Depending on the selected setup, metrics are sent to the Wavefront proxy and from there to the Wavefront service. It's possible to send metrics using direct ingestion, but the Wavefront proxy is preferred for most cases.
 
 ![kubernetes core monitoring](/images/kubernetes_core.png)
 
@@ -76,7 +77,8 @@ You can [filter the metrics](https://github.com/wavefrontHQ/wavefront-kubernetes
 ### Application Monitoring
 
 The Wavefront Collector for Kubernetes automatically starts collecting metrics from many commonly used applications: 
-* The collector has a telegraf plugin to collect data from telegraf application sources, such as Redis, RabbitMQ. etc.,
+* The collector has a Telegraf plugin to collect data from Telegraf application sources, such as Redis, RabbitMQ. etc.,
+* The collector auto-discovers endpoints using labels. See [Auto Discovery](auto-discover" endpoints scrape using labels).
 * The collector also scrapes Prometheus metric endpoints such as API server, etcd, and NGINX.
 
 The following diagram illustrates this:
@@ -200,4 +202,3 @@ For example, you could scale based on networking or disk metrics, or any applica
 ## Next Steps
 
 * To use the Kubernetes collector, install the [Wavefront's Kubernetes integration](kubernetes.html).
-* Customize the Wavefront Collector for your use case. *[Place holder for an advance tutorial]*
