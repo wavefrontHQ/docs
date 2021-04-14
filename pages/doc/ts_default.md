@@ -57,7 +57,7 @@ For the simplest case, you can use `default()` to set the default value of a que
 
 {% include note.html content="In certain situations we don't recommend using `default()`. See the list of **Caveats** below. In that case, use the following query instead." %}
 
-`if(exists(ts(my.metric)), ts(my.metric), 0)`
+`ts(my.metric).orElse(0)`
 
 ### Using default() With .orElse
 
