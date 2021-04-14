@@ -107,7 +107,7 @@ The Kubernetes Summary dashboard gives details on the health of your infrastruct
     In the cloned dashboard, add your own charts or customize the RED metrics charts.
   </li>
 </ol>
-After you save the clone, click **Dashboard** on the taskbar and search for your dashboard by its  name.
+After you save the clone, click <b>Dashboard</b> on the taskbar and search for your dashboard by its  name.
 {{site.data.alerts.end}}
 
 The out-of-the-box dashboards:
