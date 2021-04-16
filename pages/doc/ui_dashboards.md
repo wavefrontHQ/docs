@@ -21,7 +21,7 @@ summary: Create dashboards, add charts, and customize dashboard layout.
 
 [Examine Data with Dashboards and Charts](ui_examine_data.html) explains how to set dashboard preferences, set the dashboard time window, isolate sources and series, and more.
 
-{% include shared/badge.html content="Every Wavefront user can view dashboards and make some changes such as setting the time window. You must have the **Dashboard** permission and Modify access to save changes you make to dashboards." %}
+{% include shared/badge.html content="Every Wavefront user can view dashboards and make some changes such as setting the time window. You must have the [Dashboard permission](permissions_overview.html) and Modify access to save changes you make to dashboards." %}
 
 ## Video
 
