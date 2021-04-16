@@ -4,8 +4,21 @@ keywords:
 tags: [tutorials]
 sidebar: doc_sidebar
 permalink: hello_wavefront_aws_tutorial.html
-summary: Get Data into Wavefront from AWS.
+summary: Get Data into Wavefront from a Windows host or AWS.
 ---
+
+Learn how to easily set up a Windows or AWS integration so that you can send data from your system to Wavefront.
+
+## Video: Windows Integration
+
+Watch the following video to learn how to ingest Windows host metrics into Wavefront. 
+
+<p>
+<iframe src="https://bcove.video/3rXZ1RY" width="700" height="400" allowfullscreen="true" alt="Setting up a Windows integration"></iframe>
+</p>
+
+
+## Tutorial: AWS Integration
 
 In this tutorial, you use the Wavefront Amazon Web Services (AWS) integration to: 
 * Send data of the applications and services that run on your AWS account to Wavefront. 
@@ -17,7 +30,7 @@ Wavefront supports other cloud integrations, such as Google Cloud Platform (GCP)
 
 {% include tip.html content="If you are trying this tutorial to understand how to send data to Wavefront using an integration and don't have an application deployed on AWS, follow the optional step." %}
 
-## Step 1: Log In To Wavefront
+### Step 1: Log In To Wavefront
 
 Follow these steps:
 
@@ -30,7 +43,7 @@ Follow these steps:
 
 You need the **Account ID** and **External ID** printed under **How to get Role ARN** for the next step. 
 
-## Step 2: Create a Wavefront ReadOnly Role in Your AWS Account
+### Step 2: Create a Wavefront ReadOnly Role in Your AWS Account
 
 {{site.data.alerts.note}}
 <p>For this step, you need to log in to your <a href="https://aws.amazon.com/">AWS account</a>. Create a new AWS account if you don’t have one.</p>
@@ -63,7 +76,7 @@ Follow these steps:
 
 {% include note.html content="See [Giving Wavefront Limited Access](integrations_aws_overview.html#giving-wavefront-limited-access) if you want to specify a more restrictive IAM policy for Wavefront." %}
 
-## Step 3: Configure the Wavefront AWS Integration
+### Step 3: Configure the Wavefront AWS Integration
 
 Go back to the Wavefront cluster where you opened the AWS integration tile previously, and follow these steps:
 
@@ -73,7 +86,7 @@ Go back to the Wavefront cluster where you opened the AWS integration tile previ
 
 Wavefront can now connect to your AWS account and get data. Once the data starts flowing to Wavefront, you can visualize them. It will take a few minutes for the data to show in Wavefront.
 
-## Step 4: (Optional) Launch an EC2 Instance
+### Step 4: (Optional) Launch an EC2 Instance
 
 Don't have an application running on your AWS account? Follow the steps given below. 
 If you already have an application running on the AWS account, move to the next step and see how you can visualize your data.
@@ -92,7 +105,7 @@ If you already have an application running on the AWS account, move to the next 
 -->
 Once the instance is launched, you start to see the data in Wavefront after a few minutes.
 
-## Step 5: See Metrics and Visualize Data
+### Step 5: See Metrics and Visualize Data
 
 Once the data starts flowing into Wavefront, you can see metrics and visualize data on dashboards:
 

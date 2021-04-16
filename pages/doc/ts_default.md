@@ -8,7 +8,7 @@ summary: Reference to the default() function
 ---
 ## Summary
 ```
-default([<timeWindow>,] [<delayTime>,] <defaultValue>, <tsExpression> [.orElse<defaultIfNoData])
+default([<timeWindow>,] [<delayTime>,] <defaultValue>, <tsExpression> [.orElse<defaultIfNoData>])
 ```
 
 Fills in gaps in the time series described by `tsExpression`, by inserting data points with the value `defaultValue`. Specify `timeWindow` to fill in data for just a limited period of time after each existing point. Specify `delayTime` to allow a gap before the inserted data.
@@ -40,7 +40,7 @@ Fills in gaps in the time series described by `tsExpression`, by inserting data 
 </tr>
 <tr>
 <td markdown="span">.orElse</td>
-<td>Operator that allows you to specify a default value even if the time series did not report any data in the specified time window. </td>
+<td>An optional operator that allows you to specify a default value even if the time series did not report any data in the specified time window. You can enter a constant value wrapped in brackets, such as <code>orElse(5)</code>. You can also enter a timeseries for chained .orElse statements, for example <code>.orElse(ts('my.metric'))</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -57,7 +57,7 @@ For the simplest case, you can use `default()` to set the default value of a que
 
 {% include note.html content="In certain situations we don't recommend using `default()`. See the list of **Caveats** below. In that case, use the following query instead." %}
 
-`if(exists(ts(my.metric)), ts(my.metric), 0)`
+`ts(my.metric).orElse(0)`
 
 ### Using default() With .orElse
 
@@ -82,7 +82,7 @@ If we wrap `default()` and specify 0 as the default, missing data are replaced w
 
 * If the time series exists in the time window, `default()` fills in the values and `.orElse` is not needed (does nothing).
   ```
-  default(100, ts(&lt;mymetric&gt;).orElse(25))
+  default(100, ts('my.metric').orElse(25))
   ```
 * If the time series does **not** exist in the time window, NO DATA is shown by default. However, `.orElse` specifies a value of 25, which is shown for the time series.
   ```
@@ -165,4 +165,4 @@ If you still think that `default()` is needed, limit the time window to reduce p
 Other missing data functions include:
 * [interpolate](ts_interpolate.html)
 * [next](ts_next.html)
-* [last](ts_last.html).
+* [last](ts_last.html)
