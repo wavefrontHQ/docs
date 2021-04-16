@@ -42,7 +42,7 @@ If an administrator has enabled PromQL Support (discussed above), each user can 
 
 {% include note.html content="If you can only choose between Query Editor and Chart Builder, PromQL is not supported on your Wavefront instance. Contact a site administrator with **Accounts, Groups, and Roles** permission." %}
 
-1. From the gear icon, select your user name.
+1. From the gear icon, select your username.
 2. Under the **Query Settings** section, select:
     * The default query language.
     * The default way of building queries. If your default language is set to **PromQL**, you can build your queries only in the Query Editor. Chart Builder was designed for Wavefront query language and doesn't support PromQL.
@@ -81,7 +81,7 @@ Next, you can make changes to the visualization.
 
 ![Prometheus query](images/prometheus_sample.png)
 
-## How PromQL Queries Can Differ in Wavefront.
+## How PromQL Queries Can Differ in Wavefront
 
 Wavefront supports most PromQL functions and operators out of the box. There are a small number of differences.
 
