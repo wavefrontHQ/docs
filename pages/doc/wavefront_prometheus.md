@@ -46,7 +46,9 @@ If an administrator has enabled PromQL Support (discussed above), each user can 
 2. Under the **Query Settings** section, select:
     * The default query language.
     * The default way of building queries. If your default language is set to **PromQL**, you can build your queries only in the Query Editor. Chart Builder was designed for Wavefront query language and doesn't support PromQL.
-    * Whether to show the translation to Wavefront query language when you click inside the Query Editor.
+    * Whether to show the translation to Wavefront query language when you click inside the Query Editor. 
+    
+
 
 <!---## Video: Wavefront and PromQL
 
@@ -59,7 +61,9 @@ This video shows how to enable PromQL and then create a chart and an alert:
 
 ## Use PromQL in Charts and Alerts
 
-This example shows how to use PromQL.
+This example shows how to use PromQL, when PromQL is enabled and the default query language is set to be WQL. 
+
+If your preferred language is PromQL, and you have selected PromQL as the default language, you won't see the translation to Wavefront query language and the button for converting to Wavefront query language is not available.
 
 <table style="width: 100%;">
 <tbody>
@@ -68,7 +72,7 @@ This example shows how to use PromQL.
 <ol><li>Create or edit a chart or alert.</li>
 <li>Enter a PromQL query in the Query Editor.</li>
 <li>Click inside the Query Editor to see the translation to Wavefront query language.</li>
-<li>Finally, click the <strong>Convert</strong> icon to return to Wavefront query language if that's your primary mode. The query is translated to Wavefront query language. A small number of PromQL constructs are not supported, as discussed below. </li></ol></td>
+<li>Finally, click the <strong>Convert</strong> button to return to Wavefront query language if that's your primary mode. The query is translated to Wavefront query language. A small number of PromQL constructs are not supported, as discussed below. </li></ol></td>
 <td width="60%"><img src="/images/promql_hover1.png" alt="query line in PromQL, with hover text that tells you can't switch the language without clearing the query">
 </td>
 </tr>
