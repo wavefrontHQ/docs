@@ -10,9 +10,10 @@ Starting with release 2020.26, Wavefront has supported PromQL queries. In releas
 * Administrators have control over user defaults:
   - On the Organization Settings page (New User Defaults) administrators can enable users to write queries in PromQL.
   - If queries in PromQL are enabled, administrators can also set other options.
-* Users can then type either PromQL or Wavefront query language (WQL) queries into the Query Editor.
-  - The Query Editor parses the query correctly depending on the syntax elements (PromQL or Wavefront query language) it encounters. The corresponding chart shows the information you'd expect.
-  - If the Query Editor encounters a new PromQL query, users can click a button to be in PromQL mode. In PromQL mode, users can see the translation to Wavefront query language and translate the query if they want.
+* Users can then type either PromQL or Wavefront query language queries into the Query Editor.
+  - The Query Editor parses the query correctly depending on the selection (PromQL or Wavefront query language). The corresponding chart shows the information you'd expect.
+  - If users enter a PromQL query when WQL is selected, or the reverse, the Query Editor doesn't parse the query and displays a syntax error.
+  - In PromQL mode, users can see the translation to Wavefront query language and translate the query if they want.
   - Users can add charts that use PromQL to dashboards, create alerts from charts that use PromQL, and use PromQL queries in the query line of a Create Alert page.
 
 {% include note.html content="Your Wavefront site administrator controls PromQL behavior. If you don't have some of the features, get in touch with the site administrator." %}
@@ -28,10 +29,10 @@ To set PromQL settings for your organization:
 
 1. From the gear icon, select **Organization Settings**.
 2. Under **Query Settings**, select the **Users can write queries in PromQL** check box.
-3. Select the default query language for new users.
-4. Enable **Always save queries as WQL** if you expect that some users prefer Wavefront query language. The queries will be always translated and saved in Wavefront query language.
-5. Enable **Show WQL translation** to show a translation hint for all PromQL queries. Select this check box if you expect users want to learn Wavefront query language. The translation hint appears only if:
-   * The user is in the Query Editor.
+3. Select the default query language for new users. 
+4. Select the default way for building queries. If your default language is set to **PromQL**, the only way to build queries is to use the Query Editor.
+5. Enable **Always save queries as WQL** if you expect that some users prefer Wavefront query language. The queries will be always translated and saved in Wavefront query language.
+6. Enable **Show WQL translation** to show a translation hint for all PromQL queries. Select this check box if you expect that users want to learn Wavefront query language. The translation hint appears only if:
    * The Query Editor is in PromQL mode.
    * The query is valid PromQL syntax.
 
@@ -41,35 +42,34 @@ If an administrator has enabled PromQL Support (discussed above), each user can 
 
 {% include note.html content="If you can only choose between Query Editor and Chart Builder, PromQL is not supported on your Wavefront instance. Contact a site administrator with **Accounts, Groups, and Roles** permission." %}
 
-1. From the gear icon, select your name.
-2. In the **Query Settings** section, select:
+1. From the gear icon, select your user name.
+2. Under the **Query Settings** section, select:
     * The default query language.
-    * The default way of building queries. Select Query Editor if you expect to user PromQL frequently. Chart Builder was designed for Wavefront query language and doesn't support PromQL.
-    * Whether to show a translation to Wavefront query language when you click inside the Query Editor.
+    * The default way of building queries. If your default language is set to **PromQL**, you can build your queries only in the Query Editor. Chart Builder was designed for Wavefront query language and doesn't support PromQL.
+    * Whether to show the translation to Wavefront query language when you click inside the Query Editor.
 
-## Video: Wavefront and PromQL
+<!---## Video: Wavefront and PromQL
 
 This video shows how to enable PromQL and then create a chart and an alert:
 
 <p>
 <iframe src="https://bcove.video/3tLRB6l" width="700" height="400" allowfullscreen="true" alt="Wavefront and PromQL"></iframe>
 </p>
-
+--->
 
 ## Use PromQL in Charts and Alerts
 
-This example shows how the Query Editor detects PromQL.
+This example shows how to use PromQL.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="40%">
 <ol><li>Create or edit a chart or alert.</li>
-<li>Enter a PromQL query in the Query Editor -- that could just be a metric name. When WQL is selected, Query Editor detects the PromQL query (ts() is not part of the query) and highlights the <strong>WQL</strong> button to let you switch the language. </li>
-<li>Switch to PromQL mode and click inside the Query Editor to see the translation to Wavefront query language.</li>
-<li>Finally, click <strong>Convert</strong> to return to Wavefront query language if that's your primary mode of working. The query is translated to Wavefront query language unless there's a syntax error. A small number of PromQL constructs are not supported, as discussed below. </li></ol></td>
-<td width="60%"><img src="/images/promql_button.png" alt="metric only in query line, WQL is highlighted">
-<img src="/images/promql_hover.png" alt="query line in promql, with hover text ">
+<li>Enter a PromQL query in the Query Editor.</li>
+<li>Click inside the Query Editor to see the translation to Wavefront query language.</li>
+<li>Finally, click the <strong>Convert</strong> icon to return to Wavefront query language if that's your primary mode. The query is translated to Wavefront query language. A small number of PromQL constructs are not supported, as discussed below. </li></ol></td>
+<td width="60%"><img src="/images/promql_hover1.png" alt="query line in PromQL, with hover text that tells you can't switch the language without clearing the query">
 </td>
 </tr>
 </tbody>
@@ -137,7 +137,7 @@ Wavefront supports most PromQL functions and operators out of the box. There are
 
 The following diagram shows how Wavefront handles a Wavefront QL (`ts()`) query and a PromQL query.
 
-![Image showing Wavefront query language (ts) and PromQL execution paths, explained in text](images/ts_and_promql.png)
+![Image showing Wavefront query language (ts) and PromQL execution paths, explained in the text below](images/ts_and_promql.png)
 
 The top row shows the `ts()` query execution:
 
