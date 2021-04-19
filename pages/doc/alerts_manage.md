@@ -17,7 +17,7 @@ Alerts notify when there's a problem, and support finding the root cause of a pr
   - Clone, edit, or delete one or more alerts.
   - Snooze alerts or put them in [maintenance mode](maintenance_windows_managing.html)
 
-{% include note.html content="All users can view alerts. You need Alerts permissions to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you.  " %}
+{% include note.html content="All users can view alerts. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you.  " %}
 
 
 ## Examine an Alert in Alert Viewer
