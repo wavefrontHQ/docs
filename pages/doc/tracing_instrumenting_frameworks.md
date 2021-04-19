@@ -59,13 +59,25 @@ traceListenerPorts=30000
 
 Wavefront provides SDKs that implement the [OpenTracing](https://opentracing.io) specification in many languages. You can use a Wavefront OpenTracing SDK to collect custom trace data that you define for your service, for example, to augment an auto-instrumented framework or to replace a 3rd party OpenTracing-compliant library.
 
-{% include note.html content="If you can not find the SDK you were looking for, see all the [SDKs provided by Wavefront](wavefront_sdks.html#what-do-you-want-to-collect)." %}
-
 {% include tip.html content="Wavefront can only retrieve up to 1000 spans for a given trace, and you only see up to 1000 spans when you [drill down into spans](tracing_traces_browser.html#drill-down-into-spans-and-view-metrics-and-span-logs) via the Traces Browser. Therefore, as a best practice and for optimal performance, configure your application to have less than 1000 spans in a trace." %}
+
+{{site.data.alerts.note}}
+<p>You can use OpenTracing or OpenTelemetry (OpenTracing and OpenCensus have merged to form OpenTelemetry) to send traces to Wavefront. </p>
+  <ul>
+    <li>
+      To learn about the specification that works for you, see <a href="https://help.wavefront.com/hc/en-us/articles/360058140212-OpenTracing-or-OpenTelemetry-Which-specification-to-select-for-instrumenting-applications-for-tracing-">OpenTracing or OpenTelemetry</a>.
+    </li>
+    <li>
+      If your application uses OpenTelemetry, send trace data to Wavefront using the Jaeger or Zipkin integration. See <a href="opentelemetry.html#sending-trace-data-to-wavefront">OpenTelemetry</a>.
+    </li>
+  </ul>
+{{site.data.alerts.end}}
 
 ### Instrument Your Application with OpenTracing SDKs
 
 Choose the Wavefront OpenTracing SDK for your microservice's programming language, and click the link to go to its `README` file on GitHub:
+
+{% include note.html content="If you can not find the SDK you were looking for, see all the [SDKs provided by Wavefront](wavefront_sdks.html#what-do-you-want-to-collect)." %}
 
 <div class="row">
  <div class="col-md-3 col-sm-6">
@@ -148,8 +160,6 @@ If you have already instrumented your application with Jaeger or Zipkin follow t
        </div>
      </div>
 
-
-     {% include note.html content="You can use OpenTracing or OpenTelemetry (OpenTracing and OpenCensus have merged to form OpenTelemetry) to send traces to Wavefront using the Jaeger or Zipkin integration. See [OpenTelemetry](opentelemetry.html#sending-trace-data-to-wavefront) for details." %}
 
  2. Optionally, add custom tags, applications names, or use an alternative for the Jaeger or Zipkin integration. See [Using Jaeger or Zipkin with Wavefront](tracing_integrations.html) for details.
 
