@@ -745,7 +745,7 @@ A **table** chart allows fine-grained customization in the Format tab but doesn'
 </tr>
 <tr>
 <td>Show Raw Values</td>
-<td>Check to display the raw metric values (e.g., 212.00 milliseconds) or values using scientific notation (SI), e.g., 212 milliseconds.
+<td>Select to display the raw metric values (e.g., 212.00 milliseconds) or values using scientific notation (SI), e.g., 212 milliseconds.
 </td>
 </tr>
 <tr>
@@ -910,7 +910,10 @@ us to aggregate the raw data values reported in each 30 second interval, and dis
 <td>Controls when data is considered missing when there are gaps in the reporting of the data. The gap threshold is expressed in seconds and defaults to 60 seconds. </td>
 </tr>
 <tr><td>Display Raw Value</td>
-<td>Check this checkbox if you've selected a unit and you want to display, for example, `10k` instead of `10000`. Checked by default. </td>
+<td>Select this check box if you've selected a unit and you want to display, for example, <code>10k</code> instead of <code>10000</code>. Selected by default. </td>
+</tr>
+<tr><td>Comma Delimited</td>
+<td>Select this check box if you've selected a unit and you want to display, for example, <code>1,000</code> instead of <code>1000</code>. Works only for values higher than or equal to 1000 and is selected by default. </td>
 </tr>
 </tbody>
 </table>
@@ -1401,7 +1404,7 @@ By default, the gauge displays color information for 0-100 even if you define a 
 <td>Maximum value to use for the outer ring of the gauge. If no color mapping is defined, the gauge ranges from Min to Max. With color mapping defined, the outer ring is also affected.</td>
 </tr>
 <tr><td>Display Raw Value</td>
-<td>Check this checkbox if you've selected a unit and you want to display, for example, `10k` instead of `10000` </td>
+<td>Select this check box if you've selected a unit and you want to display, for example, <code>10k</code> instead of <code>10000</code>. Selected by default.</td>
 </tr>
 </tbody>
 </table>

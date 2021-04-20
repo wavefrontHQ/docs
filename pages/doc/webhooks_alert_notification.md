@@ -225,7 +225,7 @@ To edit an alert, click the alert target name in the Alert Targets browser or cl
 
 ## Delete Custom Alert Targets
 
-You can delete one or more custom alert targets by checking the checkboxes next to the alert targets and clicking the Trash icon <i class="fa fa-trash"/> at the top of the Alert Targets page. The trash icon is grayed out if you don't have permission to delete any of the selected alert targets.
+You can delete one or more custom alert targets by selecting the check boxes next to the alert targets and clicking the Trash icon <i class="fa fa-trash"/> at the top of the Alert Targets page. The trash icon is grayed out if you don't have permission to delete any of the selected alert targets.
 
 To delete a single alert target, use the trash icon or click the ellipsis icon to the left of the alert target and select **Delete**.
 

@@ -60,7 +60,7 @@ Because all new users are assigned to the Everyone group, permissions change for
 To manage permissions for groups:
 1. Click the gear icon and select **User Group Management**.
 2. Click the group you want to change.
-3. Select or deselect checkboxes for the permissions you want to change and click **Save**.
+3. Select or deselect check boxes for the permissions you want to change and click **Save**.
 
 
 ## Granting and Revoking Permissions for Users
@@ -68,6 +68,6 @@ To manage permissions for groups:
 To manage permissions for users:
 1. Click the gear icon and select **Account Management**.
 2. Click the user you want to change.
-3. Select or deselect checkboxes for the permissions you want to change and click **Update**.
+3. Select or deselect check boxes for the permissions you want to change and click **Update**.
 
 **Note:** If a user has a permission because of group membership, the check box for that permission is disabled for edit. Remove the user from the group that granted that permission to revoke the permission.
