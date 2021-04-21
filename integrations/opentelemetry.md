@@ -116,6 +116,8 @@ Once you have configured your OpenTelemetry Collector to send metric data to Wav
 
 If your application uses OpenTelemetry, you can configure the application to send trace data to Wavefront using the Jaeger or Zipkin integration. When the data is in Wavefront, you can use our tracing dashboards to visualize any request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time, and discover problems.
 
+**Note**: To learn about the specification that works for you, see [OpenTracing or OpenTelemetry](https://help.wavefront.com/hc/en-us/articles/360058140212-OpenTracing-or-OpenTelemetry-Which-specification-to-select-for-instrumenting-applications-for-tracing-).
+
 Here's how it works:
 {% include image.md src="images/tracing_opentelemetry_trace_data.png" width="100" %}
 
