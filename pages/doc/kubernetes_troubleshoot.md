@@ -30,7 +30,7 @@ All the Pods the Wavefront collector collects metrics from are considered a Sour
 
 Next, the Source sends metrics to the Wavefront Sink and then to the Wavefront Service through the Wavefront proxy.
 
-Since the Wavefront collector runs on each node, metrics common to the Kubernetes environment or cluster can be repeated, such as the cluster metrics, are reported multiple times. To avoid the same metric being reported several times, one Wavefront collector is elected as the leader to perform tasks that only need to be done once, such as sending the cluster metrics to Wavefront.
+Since the Wavefront collector runs on each Node, metrics common to the Kubernetes environment or cluster can be repeated, such as the cluster metrics, which are reported multiple times. To avoid the same metric being reported several times, one Wavefront collector is elected as the leader to perform tasks that only need to be done once.
 
 The following diagram shows how the data flows from your Kubernetes environment to Wavefront. 
 
