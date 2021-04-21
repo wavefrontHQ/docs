@@ -24,9 +24,22 @@ The Wavefront Collector metrics dashboard in the Kubernetes integration shows th
 
 ## Troubleshooting Using the Data Collection Flow
 
+In Kubernetes, a Node can be considered a virtual machine, and can have several applications and services running on it. These applications and services are referred to as Pods. The Wavefront collector deploys itself on each Node to collect metrics from the Pods.
+
+You can configure the Wavefront collector to find Pods by: 
+* Defining a name or annotation.
+* Creating specific rules to find metrics. 
+
+All the Pods the Wavefront collector collects metrics from are considered a Source. 
+
+Next, the Source sends metrics to the Wavefront Sink and then to the Wavefront Service through the Wavefront proxy.
+
+Some of the metrics that the Wavefront collector pods collect can be the same. Example: cluster metrics. You don't need each Wavefront collector pod to report the same set of metrics. Therefore, one Wavefront collector pod is elected as the leader to perform tasks that only need to be done once, such as sending the cluster metrics to Wavefront.
+
 The following diagram shows how the data flows from your Kubernetes environment to Wavefront. 
 
 ![Kubernetes Collector Data Flow Diagram](images/kubernetes_collector_troubleshooting_flow_diagram.png)
+
 
 You run into issues when data doesn't flow from one component to another or when there are configuration issues.
 
@@ -138,6 +151,9 @@ The following screenshot shows that there are no leader health problems.
     <li>
       If the leader is continually crashing, insufficient memory might be the cause. See the section on <a href="#check-for-insufficient-memory-symptoms">Check for Insufficient Memory Symptoms</a>.
     </li>
+    <li>
+      See the <a href="#remedies-for-cpu-or-memory-problems">Remedies for CPU or Memory Problems</a>.
+    </li>
   </ul>
 {{site.data.alerts.end}}
     
@@ -165,7 +181,7 @@ To check for Insufficient CPU, follow these steps:
       </p>
       <p>  
           If the latency is high, the collector might have insufficient CPU to process the metrics, and the collectors stack up in memory and cause an Out Of Memory (OOM) error.
-          To solve this, the collector needs higher CPU limits on the collector pods, or you need to reduce the collection load. See the remedies section.
+          To solve this, the collector needs higher CPU limits on the collector pods, or you need to reduce the collection load. See the <a href="#remedies-for-cpu-or-memory-problems">Remedies for CPU or Memory Problems</a>.
       </p>  
     {{site.data.alerts.end}}
 
@@ -215,19 +231,19 @@ To solve this, See the remedies section.
 * **Reduce the collection load**: 
   Reduce the number of metrics that are collected and reduce the collector CPU and memory load limit from the start. For example, reduce the load at the application pod or source level. It grants the largest reduction in overall load on the system. Fewer resources are required to remove a source than to filter downstream at the collector. 
 
-  * **Configure the Wavefront Collector to remove sources**:
-    If you have statically defined sources, comment out or remove sources that emit a large number of metrics from the `sources` list in the collector [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration-file) file.
-    {% include important.html content="Do not remove `kubernetes_source` from the `sources` list." %}
-
-  * **Filter metrics from sources**: 
-    Sources scraped by the collector have a way of filtering out metrics. You can remove sources you don’t need, like kube-state metrics, or configure the Wavefront collector using the [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration) file to filter metrics of the sources you don't need.
-
+  * **Filter metrics**: 
+  
+    * **Configure the Wavefront collector to remove sources**:
+      If you have statically defined sources, comment out or remove sources that emit a large number of metrics from the `sources` list in the collector [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration-file) file. This method removes metrics that are minimally processed, reducing the CPU and memory load on the collector.
+      {% include important.html content="Do not remove `kubernetes_source` from the `sources` list." %}
+      
+    * **Filter metrics at the source**: Sources scraped by the collector have a way of filtering out metrics. You can filter the metrics on the source or from the Wavefront collector:
+      * Remove sources you don’t need, like kube-state metrics.
+        {% include note.html content = "Only some sources let you filter metrics. Example: kube-state metrics" %}
+      * Configure the Wavefront collector using the [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration) file to filter metrics of the sources you don't need.
+    
   * **Disable Auto-Discovery**:
     If the load is still high, you might be scraping pods based on annotations that the collector finds, which is standard for helm charts or widely used containers. Disable autodiscovery and see if the load reduces. If this works and you don't want the pods to be scrapped in the future, remove the annotations.
-
-  * **Filter metrics using Wavefront Collector sink configuration**: 
-    You can filter the metrics that come from individual sources. See [Filtering](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/filtering.md).
-      {% include note.html content="This option adds a lot of load to the collector, so use it only if the above methods are not effective." %}
 
 
 ### Step 5: Check for Data Collection Errors
@@ -240,13 +256,13 @@ Use these metrics to help troubleshoot issues with data collection:
 </thead>
 <tbody>
 <tr><td markdown="span">kubernetes.collector.target.collect.errors</td>
-<td>Counter showing the number of errors collecting data from a target pod or service etc.</td></tr>
+<td>Counter showing the number of errors collecting data from a target pod or service etc. <br/>You can see this data on the Collection Errors Per Endpoint chart under the Troubleshooting section of the Kubernetes Collector Metrics Dashboard.</td></tr>
 <tr>
 <td markdown="span">kubernetes.collector.source.collect.errors</td>
-<td>Counter showing the number of errors per plugin type (prometheus, telegraf etc.) </td></tr>
+<td>Counter showing the number of errors per plugin type (prometheus, telegraf etc.) <br/>You can see this data on the Collection Errors Per Type chart under the Troubleshooting section of the Kubernetes Collector Metrics Dashboard.</td></tr>
 <tr>
 <td markdown="span">kubernetes.collector.target.points.collected</td>
-<td>Counter showing the number of points collected from a single target (pod, service etc.) as a per-second rate </td></tr>
+<td>Counter showing the number of points collected from a single target (pod, service etc.) as a per-second rate. <br/>You can see this data on the Points Collected Per Target (Top 20) chart under the Data Collection section of the Kubernetes Collector Metrics Dashboard.</td></tr>
 </tbody>
 </table>
 
