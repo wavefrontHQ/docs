@@ -14,7 +14,7 @@ With Wavefront, you can create smart alerts that dynamically filter noise and ca
 
 The end result is fewer false alerts and faster remediation when real issues occur.
 
-{% include note.html content="All users can view alerts. You need Alerts permissions to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
+{% include note.html content="All users can view alerts. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
 
 ## Wavefront Alerts

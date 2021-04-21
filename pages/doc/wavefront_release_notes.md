@@ -9,6 +9,7 @@ summary: Learn about new and updated features in Wavefront.
 
 These pages list new and updated features in the Wavefront service.
 
+- [2021-14.x Release Notes](2021.14.x_release_notes.html)
 - [2021-08.x Release Notes](2021.08.x_release_notes.html)
 - [2020-42.x Release Notes](2020.42.x_release_notes.html)
 - [2020-38.x Release Notes](2020.38.x_release_notes.html)
