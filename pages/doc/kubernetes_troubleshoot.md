@@ -26,15 +26,11 @@ The Wavefront Collector metrics dashboard in the Kubernetes integration shows th
 
 In Kubernetes, a Node can be considered a virtual machine, and can have several applications and services running on it. These applications and services are referred to as Pods. The Wavefront collector deploys itself on each Node to collect metrics from the Pods.
 
-You can configure the Wavefront collector to find Pods by: 
-* Defining a name or annotation.
-* Creating specific rules to find metrics. 
-
 All the Pods the Wavefront collector collects metrics from are considered a Source. 
 
 Next, the Source sends metrics to the Wavefront Sink and then to the Wavefront Service through the Wavefront proxy.
 
-Some of the metrics that the Wavefront collector pods collect can be the same. Example: cluster metrics. You don't need each Wavefront collector pod to report the same set of metrics. Therefore, one Wavefront collector pod is elected as the leader to perform tasks that only need to be done once, such as sending the cluster metrics to Wavefront.
+Since the Wavefront collector runs on each node, metrics common to the cluster, or Kubernetes environment, such as the cluster metrics, are reported multiple times. To avoid the same metric being reported several times, one Wavefront collector is elected as the leader to perform tasks that only need to be done once, such as sending the cluster metrics to Wavefront.
 
 The following diagram shows how the data flows from your Kubernetes environment to Wavefront. 
 
