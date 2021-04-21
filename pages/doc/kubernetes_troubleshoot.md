@@ -47,6 +47,12 @@ To troubleshooting data collection, follow the data flow from the source to Wave
 
 Identifying what metrics are and aren’t coming through can help identify where to look.
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
 ## Symptom: No Data Flowing into Wavefront
 
 ### Step 1: Verify that the Collector is Running. 
@@ -58,6 +64,12 @@ Identifying what metrics are and aren’t coming through can help identify where
   * If there are errors with starting pods, run `kubectl describe pod podname`, and check the events section for errors. For details on errors, see [Troubleshoot Applications on Kubernetes documentation](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/).
   * If the collector is running but has frequent restarts, only part of the data goes through. See [Check If the Collector Restarts Frequently](#step-4-check-if-the-collector-restarts-frequently) below.
 
+  <table style="width: 100%;">
+  <tbody>
+  <tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+  </tbody>
+  </table>
+
 ### Step 2: Verify that the Proxy is Running
 
 ![Highlights Wavefront proxy on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_step_2.png)
@@ -65,6 +77,12 @@ Identifying what metrics are and aren’t coming through can help identify where
 * Run `kubectl get deployment wavefront-proxy -n NAMESPACE` to verify the proxy instances are ready and available.
 * Run `kubectl get pods -l app=wavefront-proxy -n <NAMESPACE>` to verify there are no pod restarts.
 * Run `kubectl logs pod_name` to check the proxy logs for errors connecting to the Wavefront service.
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ### Step 3: Verify that the Collector Can Connect to the Proxy
 
@@ -75,12 +93,24 @@ Identifying what metrics are and aren’t coming through can help identify where
 * To make sure that the collector can communicate with the proxy:
   * Verify that the `proxyAddress` on the [collector sink configuration on the configuration.md file](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#wavefront-sink) is correct.
   * Verify that the proxy service exposes the correct port (typically 2878).
+  
+  <table style="width: 100%;">
+  <tbody>
+  <tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+  </tbody>
+  </table>
 
 ### Step 4: Verify that the Proxy Can Connect to Wavefront
 
 ![Highlights arrow from the wavefront proxy to the wavefront service on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_step_4.png)
 
 See [Monitor Wavefront Proxies](https://docs.wavefront.com/monitoring_proxies.html) for monitoring and troubleshooting the proxy.
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ## Symptom: Incomplete Data in Wavefront
 
@@ -89,6 +119,12 @@ See [Monitor Wavefront Proxies](https://docs.wavefront.com/monitoring_proxies.ht
 ![Highlights the source box on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom-Incomplete_step_1.png)
 
 See the [Wavefront Collector Configurations]( https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md) to verify that the collector is configured correctly.
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ### Step 2: Verify Filter Configuration
 
@@ -109,6 +145,12 @@ You can filter out data flowing into Wavefront at multiple points:
   
   ![Highlights arrow from the sinker to the wavefront proxy on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_step_2.png)
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
 ### Step 3: Verify Metric Naming Configuration
 
 * Check the metric prefixes on the source and sink configurations. You can update the metric prefixes in the [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#common-properties) file.
@@ -118,6 +160,12 @@ You can filter out data flowing into Wavefront at multiple points:
 * Rename metrics to different names in the proxy configuration. See [Wavefront proxy preprocessor rules](https://docs.wavefront.com/proxies_preprocessor_rules.html).
   
   ![Highlights arrow from the sinker to the wavefront proxy on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_step_2.png)
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ### Step 4: Check Collector Health
 
@@ -152,7 +200,12 @@ The following screenshot shows that there are no leader health problems.
     </li>
   </ul>
 {{site.data.alerts.end}}
-    
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>    
 
 #### Check for Insufficient CPU Symptoms
 
@@ -180,6 +233,12 @@ To check for Insufficient CPU, follow these steps:
           To solve this, the collector needs higher CPU limits on the collector pods, or you need to reduce the collection load. See the <a href="#remedies-for-cpu-or-memory-problems">Remedies for CPU or Memory Problems</a>.
       </p>  
     {{site.data.alerts.end}}
+    
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 #### Check for Insufficient Memory Symptoms
 
@@ -192,6 +251,12 @@ To check for insufficient memory, follow these steps:
 * If your collector does not show OOM as its termination reason, check the logs for other errors by running `kubectl logs podname`
 
 To solve this, See the remedies section.
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 #### Remedies for CPU or Memory Problems
 
@@ -234,13 +299,19 @@ To solve this, See the remedies section.
       {% include important.html content="Do not remove `kubernetes_source` from the `sources` list." %}
       
     * **Filter metrics at the source**: Sources scraped by the collector have a way of filtering out metrics. You can filter the metrics on the source or from the Wavefront collector:
-      * Remove sources you don’t need, like kube-state metrics.
+      * Some applications let you configure the metrics they produce. If your application can do that, you can reduce the metrics collected before the metrics are sent to the collector.
         {% include note.html content = "Only some sources let you filter metrics. Example: kube-state metrics" %}
-      * Configure the Wavefront collector using the [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration) file to filter metrics of the sources you don't need.
+      * Change the [Wavefront collector source configuration](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration) to filter out metrics you don’t need. Note: 
+        {% include note.html content = "Filtering metrics in the source configuration, reduces the collector load. Filtering metrics in the sink configuration will not reduce the collector load." %}
     
   * **Disable Auto-Discovery**:
     If the load is still high, you might be scraping pods based on annotations that the collector finds, which is standard for helm charts or widely used containers. Disable autodiscovery and see if the load reduces. If this works and you don't want the pods to be scrapped in the future, remove the annotations.
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ### Step 5: Check for Data Collection Errors
 
@@ -263,3 +334,9 @@ Use these metrics to help troubleshoot issues with data collection:
 </table>
 
 Check the source of these metrics to identify the specific Kubernetes node on which the collector is running. Then check the logs for that collector instance for further troubleshooting.
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>

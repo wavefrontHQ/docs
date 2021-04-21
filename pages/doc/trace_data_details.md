@@ -29,6 +29,12 @@ You can think of the trace as a tree of related spans. The trace has a unique tr
 
 * Different traces have the same label if they represent different calls to the same operation. For example, a new, separate trace begins every time the Shopping service’s orderShirts API is called. The trace in our example is just one of potentially thousands of traces that start with a call to orderShirts. Each such trace has a unique trace ID, and normally has a different start time and duration.
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="trace_data_details.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
 ## Spans
 
 A Wavefront trace consists of one or more spans, which are the individual segments of work in the trace. Each span represents time spent by an operation in a service (often a microservice).
@@ -46,6 +52,12 @@ Most use cases do not require you to know exactly how Wavefront expects a span t
 
 It is possible to manually construct a well-formed span and send it either [directly to the Wavefront service](direct_ingestion.html#trace-data-spans) or to a TCP port that the Wavefront proxy is listening on for trace data. You might want to do this if you instrumented your application with a proprietary distributed tracing system.
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="trace_data_details.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
 ### Span Syntax
 
 ```
@@ -57,6 +69,12 @@ For example:
 ```
 getAllUsers source=localhost traceId=7b3bf470-9456-11e8-9eb6-529269fb1459 spanId=0313bafe-9457-11e8-9eb6-529269fb1459 parent=2f64e538-9457-11e8-9eb6-529269fb1459 application=Wavefront service=auth cluster=us-west-2 shard=secondary http.method=GET 1552949776000 343
 ```
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="trace_data_details.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ### Span Fields
 
@@ -106,6 +124,12 @@ getAllUsers source=localhost traceId=7b3bf470-9456-11e8-9eb6-529269fb1459 spanId
 <td>Duration of the span.</td>
 <td markdown="span">Whole number of milliseconds [or other units (see below)](#time-value-precision-in-spans). Must be greater than or equal to 0. </td>
 </tr>
+</tbody>
+</table>
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="trace_data_details.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>
 
@@ -235,6 +259,12 @@ For example, a span with two span tags `service=notify` and `service=backend` is
 Because operations are normally composed of other operations, each span is normally related to other spans -  a parent span and children spans.
 --->
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="trace_data_details.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
 ### Time-Value Precision in Spans
 
 A span has two time-value fields for specifying the start time (`start_milliseconds`) and duration (`duration_milliseconds`). Express these values in milliseconds, because Wavefront uses milliseconds for span storage and visualization. For convenience, you can specify time values in other units. Wavefront converts the values to milliseconds.
@@ -290,6 +320,12 @@ Wavefront requires that you use the same precision for _both_ time values. Wavef
 | `1533529977` | `3` | (both values in seconds) |
 | `1533529977627` | `3000` | (both values in milliseconds) |
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="trace_data_details.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
 ### Indexed and Unindexed Span Tags
 
 Wavefront uses indexes to optimize the performance of queries that filter on certain span tags. For example, Wavefront indexes the application tags (`application`, `service`, `cluster`, `shard`) so you can quickly query for spans that represent operations from a particular application, service, cluster, or shard. Wavefront also indexes certain built-in span tags that conform to the OpenTracing standard, such as `span.kind`, `component`, `http.method`, and `error`.
@@ -297,6 +333,12 @@ Wavefront uses indexes to optimize the performance of queries that filter on cer
 For performance reasons, Wavefront automatically indexes built-in span tags with low cardinality. (A tag with low cardinality has comparatively few unique values that can be assigned to it.) So, for example, a tag like `spanId` is not indexed.
 
 **Note:** Wavefront does not automatically index any custom span tags that you might have added when you instrumented your application. If you plan to use a low-cardinality custom span tag in queries, contact [support@wavefront.com](mailto:support@wavefront.com) to request indexing for that span tag.
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="trace_data_details.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ## Tracing Traffic
 
@@ -306,6 +348,12 @@ In the image shown below each arrow shows tracing traffic between application co
 ![an image that shows how each service communicates with each other using arrows. These arrows are called tracing traffic in wavefront.](images/tracing_edges_concept.png)
 
 To understand how to query for tracing traffic in the tracing browser, see [Use Spans to Examine Applications and Services](trace_data_query.html#use-spans-to-examine-applications-and-services).
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="trace_data_details.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ## RED Metrics
 
@@ -330,6 +378,12 @@ Wavefront uses ingested spans to derive RED metrics for two kinds of request:
   Wavefront derives trace RED metrics from each trace's root span and end span. If a trace has multiple root spans, the earliest is used. You need to [query for trace metrics](#red-metrics-queries) to visualize them.
 
 {% include note.html content="For traces that consist entirely of synchronous member spans, trace RED metrics are equivalent to the corresponding span RED metrics. For traces that have asynchronous member spans, trace RED metrics provide more accurate measures of trace duration, especially when a trace's root span ends before a child span." %}
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="trace_data_details.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ### RED Metric Counters and Histograms
 
@@ -397,6 +451,12 @@ Wavefront constructs the names of the underlying delta counters and histograms a
 </tbody>
 </table>
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="trace_data_details.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
 ### RED Metrics Queries
 
 You can perform queries over [RED metric counters and histograms](#red-metric-counters-and-histograms) and visualize the results in your own charts, just as you would do for any other metrics in Wavefront. You can use RED metrics in query conditions when you create alerts on trace data. 
@@ -434,6 +494,12 @@ Wavefront supports 2 alternatives for specifying the RED metric counters and his
   ```
 
 The point tag technique is useful when the metric name contains string values for `<application>`, `<service>`, and `<operationName>` that have been modified to comply with the Wavefront [metric name format](wavefront_data_format.html#wavefront-data-format-fields). The point tag value always corresponds exactly to the span tag values.
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="trace_data_details.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ### Aggregated RED Metrics
 
@@ -492,6 +558,12 @@ Wavefront constructs the names of the underlying aggregated delta counters, and 
   ```
   alignedSummary(95, merge(hs(tracing.aggregated.derived.beachshirts.delivery.duration.micros.m)))
   ```
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="trace_data_details.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ### RED Metrics for Tracing Traffic
 
@@ -637,9 +709,21 @@ You can visualize tracing traffic data in charts using tracing traffic derived m
   hs(tracing.edge.derived.beachshirts.shopping.duration.millis.m, to.service=delivery)
   ```
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="trace_data_details.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
 ### Tracing Critical Path Data
 
 The Wavefront tracing browser shows you all the spans that make up a trace and the critical path. The trace details panel uses an orange line to show the critical path through a trace. You can view the critical path data in Wavefront as metrics and query them using the [`hs()` function](hs_function.html). See [View Tracing Critical Path Data in Charts](trace_data_query.html#view-tracing-critical-path-data-in-charts) for details.
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="trace_data_details.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ### Trace Sampling and Derived RED Metrics
 
@@ -647,12 +731,24 @@ If you have instrumented your application with a Wavefront observability SDK, Wa
 
 If you have instrumented your application using a 3rd party distributed tracing system, Wavefront derives the RED metrics _after_ sampling has occurred. The Wavefront proxy receives only a subset of the generated spans, and the derived RED metrics will reflect just that subset. See [Trace Sampling and RED Metrics from an Integration](tracing_integrations.html#trace-sampling-and-red-metrics-from-an-integration).
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="trace_data_details.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
 ## External Services
 
 On the application map, external applications or services are highlighted with special icons. For example, in the screenshot below, the application communicates with AWS Lambda,
 Amazon Simple Notification Service (SNS), and external databases. For details, see [Configure External Services](tracing_external_services.html).
 
 ![Shows the application map view that has two external AWS services.](images/tracing_key_concepts_external_nodes.png)
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="trace_data_details.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ## Apdex
 
@@ -665,6 +761,12 @@ For details on the Apdex score and configuring the response time threshold (T), 
 --->
 
 ![The image shows the setting and the legend setting with apdex selected from the drop down.](images/apdex_score_legend_colors.png)
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="trace_data_details.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ## Application Tags
 
@@ -690,6 +792,12 @@ Wavefront uses application tags to aggregate and filter data at different levels
   - `shard` - Name of a mirror or other subgroup of hosts within a cluster, for example, `primary`.
 
   ![tracing service filter](images/tracing_service_filter_page.png)
+  
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="trace_data_details.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ## Span Logs
 
@@ -702,6 +810,12 @@ You can instrument your application to emit one or more logs with a span, and ex
 Here's an example that adds span logs to [the best Wavefront practices example](tracing_best_practices.html#best-practices-for-wavefront-observability-sdks-3) to emit a span log in case of an exception:
 
 ![span log example](images/span_log_example.png)
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="trace_data_details.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ## Helper Objects That Collect and Transfer Data
 
@@ -724,6 +838,12 @@ Your choice is represented in your code as Wavefront Sender object.
 
 <!--- change links when proxy/dir ing decision is in a single section --->
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="trace_data_details.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
 ### WavefrontTracer and WavefrontSpanReporter
 
 Wavefront uses a pair of objects to create and report trace data:
@@ -737,6 +857,12 @@ Trace data is reported automatically whenever spans are complete, so a `Wavefron
 
 {% include note.html content="If you need to debug issues with spans, you can set up a `CompositeReporter` to combine a `WavefrontSpanReporter` with a `ConsoleReporter`. A `ConsoleReporter` sends trace data to your console." %}
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="trace_data_details.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
 ### Wavefront Metrics Reporter Objects
 
 Wavefront uses one or more reporter objects to gather metrics and histograms and forward that data to the Wavefront sender. Different Wavefront reporter objects gather data from different components of your application. For example, a `WavefrontJvmReporter` reports runtime data from the JVM.
@@ -747,3 +873,9 @@ A Wavefront reporter object specifies:
 * The source of the reported metrics and histograms -- by default, the host that the code is running on. You can optionally specify a more useful source name explicitly during setup, for example, an IP address, a container or instance name, or some other unique data source. All reporter objects for a particular microservice must specify the same source.
 
 {% include note.html content="You can use a Wavefront reporter object to set a nondefault reporting interval." %}
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="trace_data_details.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
