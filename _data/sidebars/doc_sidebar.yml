@@ -141,9 +141,13 @@ entries:
   - title: Release Notes
     output: web
     folderitems:
-
+      
     - title: Wavefront Release Notes
       url: /wavefront_release_notes.html
+      output: web
+
+    - title: 2021-14.x Release Notes
+      url: /2021.14.x_release_notes.html
       output: web
 
     - title: 2021-08.x Release Notes
