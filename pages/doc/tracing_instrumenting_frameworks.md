@@ -73,6 +73,8 @@ Wavefront provides SDKs that implement the [OpenTracing](https://opentracing.io)
   </ul>
 {{site.data.alerts.end}}
 
+{% include important.html content="Do not add the `$` character to the application or service name. These spans are rejected by Wavefront." %}
+
 ### Instrument Your Application with OpenTracing SDKs
 
 Choose the Wavefront OpenTracing SDK for your microservice's programming language, and click the link to go to its `README` file on GitHub:
