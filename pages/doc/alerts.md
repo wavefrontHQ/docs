@@ -190,7 +190,7 @@ The display expression can include any valid Wavefront Query Language construct,
 <td>Names of <a href="webhooks_alert_notification.html">custom alert targets</a> that you have previously created to:
 
 <ul>
-<li  markdown="span">Configure webhook notifications for pager services and communication channels. Follow the steps for the [VictorOps integration](victorops.html), [Slack integration](slack.html), or [HipChat integration](hipchat.html) for notifications on these popular messaging platforms. </li>
+<li  markdown="span">Configure webhook notifications for pager services and communication channels. Follow the steps for the [VictorOps integration](victorops.html) or [Slack integration](slack.html) for notifications on these popular messaging platforms. </li>
 <li>Configure email or PagerDuty notifications with nondefault content or triggers. </li>
 </ul>
 </td>
