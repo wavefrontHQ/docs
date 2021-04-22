@@ -28,15 +28,48 @@ The following example shows how to use color mapping with a single stat chart.
 <td width="50%">
 <ol>
 <li>On the <strong>Data</strong> tab, specify the metrics to monitor and give a subtitle. </li>
-<li>In the Sparkline tab:</li>
+<li>On the Sparkline tab:</li>
 <ol><li>Select whether to apply the color to the Text or the Background and change <strong>Show Sparkline</strong> to <strong>No Line</strong> if you want a solid color chart. </li>
-<li>Click the <strong>+</strong>  icon next to <strong>Color to Value Mapping</strong> and change the values and colors to fit your use case. In the example on the right, we show red for values under 65, yellow for values under 80, and green for values over 80. </li>
+<li>Click the <strong>+</strong> icon next to <strong>Color to Value Mapping</strong> and change the values and colors to fit your use case. In the example on the right, we show red for values under 65, yellow for values under 80, and green for values over 80. </li>
 <li>Save your chart. </li></ol>
 </ol></td>
 <td width="50%"><img src="/images/color_mapping_faq.png" alt="create a dashboard and change values and colors"></td>
 </tr>
 </tbody>
 </table>
+
+## How Do I Set Up Thresholds for Histograms and Heat Map Charts?
+
+[Wavefront histograms](ui_chart_reference.html#histogram-chart) let you compute, store, and use distributions of metrics rather than single metrics. [Heat map charts](ui_chart_reference.html#heat-map-chart) add another dimension to the information about histograms that you see in a histogram chart.
+
+You can apply threshold markers for the data represented by histogram and heat map charts. The markers that you provide can be either a constant value or a variable that is defined by a query expression. The following examples show how to set up thresholds for a histogram chart. 
+
+1. On the **Data** tab, specify the metrics to monitor. For example:
+
+    ```
+    merge(hs(tracing.aggregated.derived.*.duration.micros.m, ${aggregated_filters}))
+    ```
+
+2. On the **Format** tab select the color gradient, specify the percentile markers, and click **Add Threshold**. You can do one of the following, or both:
+
+  * Enter a constant value as a threshold, for example `100us`. 
+
+![A histogram example with a threshold defined by a constant value](images/histogram_value_threshold.png)
+
+  * Enter a query expression as a threshold. The query must be in [Wavefront Query Language](query_language_reference.html). For example, you can enter the following queries as thresholds:
+
+    ```
+    apdexLatency(application=${application}, service=${service}, satisfied)
+    ```
+    
+    ```
+    apdexLatency(application=${application}, service=${service}, tolerating)
+    ```
+
+    {% include note.html content ="You must make sure that the query that you enter returns a single stat series and that the query output can be captured as a threshold value."%}   
+
+![A histogram example with thresholds defined by query expressions](images/histogram_query_threshold.png)
+
 
 ## How Do Drilldown Links Work?
 
@@ -112,5 +145,4 @@ us to aggregate the raw data values reported in each 30 second interval, and dis
 
 * Get the details about each chart type from the [Chart Reference](ui_chart_reference.html).
 * Send [a link to a chart](ui_sharing.html#share-a-link-to-a-dashboard-or-chart) to a coworker (or to the customer success team if you need help).
-
-<!-- * [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) outside Wavefront. -->
+* [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) outside Wavefront.

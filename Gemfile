@@ -8,3 +8,4 @@ end
 
 gem 'jekyll-sitemap'
 gem 'jekyll-extlinks'
+gem "kramdown-parser-gfm"

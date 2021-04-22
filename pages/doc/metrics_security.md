@@ -66,7 +66,7 @@ After the rules are in force, only users in the Finance group can access data th
 Data protected by a metrics security policy rule can become invisible to users.
 
 * **Not visible in charts**. The chart either includes a warning that some metrics are protected, or, if all metrics are protected, the chart shows only the message.
-* **Not visible in alerts** (if **Secure Metrics Details** is checked for the alert). The alert fires based on the complete set of metrics, and the complete set is shown in notification images by default. A checkbox allows administrators to [hide alert details](alerts_notifications.html#alert-notification-with-secured-metrics-details) so that confidential metrics are not shown.
+* **Not visible in alerts** (if **Secure Metrics Details** is checked for the alert). The alert fires based on the complete set of metrics, and the complete set is shown in notification images by default. A check box allows administrators to [hide alert details](alerts_notifications.html#alert-notification-with-secured-metrics-details) so that confidential metrics are not shown.
 * **Not visible in auto-complete** in Chart Builder, Query Editor, Metrics browser, etc.
 
 ### Rule Priority and Rule Pairs

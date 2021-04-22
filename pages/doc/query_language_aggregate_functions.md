@@ -47,7 +47,7 @@ Wavefront provides two kinds of aggregation functions for handling this situatio
 
 Standard aggregation functions fill in the gaps in each input series by interpolating values.
 
-For example, let's start with a pair of series with reporting intervals that do not line up. In the following chart, `series 1` reports once a minute. We use `downsample` to have `series 2` report only every 150 seconds (2.5 minutes). Both series have data points aligned at the 5 minute marks, but the points in between are not aligned.
+For example, let's start with a pair of series with reporting intervals that do not line up. In the following chart, `series 1` reports once a minute. We can use `align()` or `downsample()` to have `series 2` report only every 150 seconds (2.5 minutes). Both series have data points aligned at the 5 minute marks, but the points in between are not aligned. 
 
 ![agg mismatch](images/query_language_agg_mismatch.png)
 

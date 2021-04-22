@@ -10,6 +10,9 @@ summary: Come up to speed with tutorials in product, Github, and docs.
 Learn Wavefront with in-product or external resources:
 * **Learn Wavefront in Wavefront**:  Getting Started workflow, tutorial and tour integrations, help panel, integration setup examples.
 * **Tutorials, Videos, and More**: Tutorials, Reference documentation, FAQs and Recipes, videos, and more.
+  - Start with the [Hello Wavefront!](hello_wavefront_aws_tutorial.html) tutorial.
+  - To do something, check out the [How-to Get Started videos](videos_howto_start.html).
+  - To get some big picture background, watch some [Basic Concepts Videos](videos_quickstart.html).
 
 ## Learn Wavefront in Wavefront
 
@@ -23,7 +26,7 @@ You can use the customer-wide or user-level preferences to control whether <stro
 </td>
 <td width="60%"><img src="/images/get_started.png" alt="screenshot of Getting Started second screen"></td>
 </tr>
-<tr> 
+<tr>
 <td>
 The <strong>Tutorial integration</strong> allows you to experiment with charts and alerts to learn (clone the integration to save your results).
 <ol><li>In the taskbar, click <strong>Integrations</strong>. </li>

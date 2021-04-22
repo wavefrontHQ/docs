@@ -9,15 +9,15 @@ summary: Learn how to examine and fine-tune alerts.
 
 Alerts notify when there's a problem, and support finding the root cause of a problem quickly. Wavefront has two GUIs:
 * **Alert Viewer:** When you receive an alert notification, the notification includes a link to the Alert Viewer.
-  - Drill down into the alert cause (source, point tags, etc.)
+  - Drill down into the alert cause (source, point tags, etc.).
   - Examine related information.
 
 * **Alerts Browser:** Allows you to investigate and manage all alerts.
   - Investigate all alerts and their state, history, and more.
   - Clone, edit, or delete one or more alerts.
-  - Snooze alerts or put them in [maintenance mode](maintenance_windows_managing.html)
+  - Snooze alerts or put them in [maintenance mode](maintenance_windows_managing.html).
 
-{% include note.html content="All users can view alerts. You need Alerts permissions to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you.  " %}
+{% include note.html content="All users can view alerts. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you.  " %}
 
 
 ## Examine an Alert in Alert Viewer

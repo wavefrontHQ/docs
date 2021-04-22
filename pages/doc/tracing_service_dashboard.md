@@ -52,7 +52,7 @@ The standard dashboard for services is read-only. To create a customizable copy:
 1. Click **Clone** from the ellipsis menu.
 2. In the cloned dashboard, add your own charts or customize the RED metrics charts. 
 
-After you save the clone, you can find it by name from the **Dashboards** menu of the taskbar, and you can use it to drill down to the Traces Browser.
+After you save the clone, click **Dashboard** on the taskbar and search for your dashboard by its  name. You can use it to drill down to the Traces Browser.
 
 ## Save Charts in the Service Dashboard
 
