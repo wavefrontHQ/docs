@@ -6,7 +6,7 @@ tags: [kubernetes]
 permalink: kubernetes_relnotes.html
 summary: Release Notes for Wavefront & Kubernetes.
 ---
-This page is updated with our most recent improvements to Wavefront Observability for Kubernetes. For up to date information, see the **[release notes on Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases)**. 
+This page is updated with our most recent improvements to Wavefront Observability for Kubernetes. For up-to-date information, see the **[release notes on Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases)**. 
 
 ## January 2021
 
