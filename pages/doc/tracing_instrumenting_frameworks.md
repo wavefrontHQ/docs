@@ -73,7 +73,7 @@ Wavefront provides SDKs that implement the [OpenTracing](https://opentracing.io)
   </ul>
 {{site.data.alerts.end}}
 
-{% include important.html content="Do not add the `$` character to the application or service name of a span. Wavefront rejects these spans." %}
+{% include important.html content="Spans that have the `$` character in the application or service name are rejected by Wavefront." %}
 
 ### Instrument Your Application with OpenTracing SDKs
 
