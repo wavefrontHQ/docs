@@ -1,11 +1,11 @@
 ---
-title: orElse Function
+title: orElse Operator
 keywords: query language reference
 tags: [reference page]
 sidebar: doc_sidebar
-published: false
+published: true
 permalink: ts_orelse.html
-summary: Reference to the orElse function
+summary: Reference to the orElse operator
 ---
 ## Summary
 
@@ -13,8 +13,7 @@ summary: Reference to the orElse function
 .orElse(<tsExpression>)
 ```
 
-You can use the `.orElse()` operator to force the query to return a default value.
-
+You can use the `.orElse()` operator to force a query to return a default value.
 
 
 ## Parameters
@@ -31,43 +30,52 @@ You can use the `.orElse()` operator to force the query to return a default valu
 
 ## Description
 
-You can use the `.orElse()` operator to force the query to return a default value even if the time series did not report any data in the specified time window. You can enter a constant value wrapped in brackets, such as `orElse(5)`. You can also enter a timeseries for chained `.orElse` statements, for example `.orElse(ts('my.metric'))`. 
+You can use the `.orElse()` operator to force the query to return a default value even if the time series is obsolete or nonexistent. You can enter a constant value wrapped in brackets, such as `orElse(5)`. You can also enter a timeseries for chained `.orElse` statements, for example `.orElse(ts('my.metric'))`. 
 
 
 ## Examples
 
-When a query returns data, you can use the following query to return the same data:
+When a query returns some data, you can use a query of the type to return the same data:
 
 ```
 ts(~sample.disk.bytes.read, source="app-1").orElse(1)
 ```
 
-When a query returns data and you want to return some other time series, use the following query:
+When a query returns some data and you want to return some other time series, use a query of the type:
 
 ```
 if(ts(~sample.disk.bytes.read, source="app-1"), ts(~sample.mem.page.reads, source="app-1*")).orElse(1)
 ```
 
-Considering you don't know query {hasData} returns data and you want to return some other value in the gaps use
+Considering you don't know whether the query returns data, and you want to return some other value in the gaps, use a query of the type:
 
 ```
 default(0, ts(~sample.mem.page.reads, source="app-1*")).orElse(0)
 ```
 
-The default portion takes care of when {hasData} returns values and the orElse portion takes care of when {hasData} returns NO DATA.
+The `default(0,<tsExpression>)` part of the query returns the values when the query has reported them. The `.orElse` portion takes care of the time series when the query returns NO DATA.
 
-Considering a query {hasData} returns no data, and you want to display a constant
+Considering the query returns no data, and you want to display a constant, use a query of the type:
 
 ```
 ts(nonexistent).orElse(0)
 ```
 
-and if you want to display another series, use
+If you want to display another series, use a query of the type:
 
 ```
 ts(nonexistent).orElse(ts(~sample.disk.bytes.read, source=app-1))
-
 ```
+
+You can chain multiple `.orElse` operators. For example:
+```
+ts(<metric_not_there>).orElse(ts(<metric_sometimes_there>)).orElse(25)
+```
+For this example:
+* If `metric_not_there` has no value, the function returns the value of `(ts(<metric_sometimes_there>))`.
+* If `(ts(<metric_sometimes_there>))` also has no value, the function returns 25.
+
+
 
 ## See Also
 
