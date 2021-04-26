@@ -72,7 +72,7 @@ If your preferred language is PromQL, and you have selected PromQL as the defaul
 <ol><li>Create or edit a chart or alert.</li>
 <li>Enter a PromQL query in the Query Editor.</li>
 <li>Click inside the Query Editor to see the translation to Wavefront query language.</li>
-<li>Finally, click the <strong>Convert</strong> button to return to Wavefront query language if that's your primary mode. The query is translated to Wavefront query language. A small number of PromQL constructs are not supported, as discussed below. </li></ol></td>
+<li>Finally, click the <strong>Convert to WQL</strong> button to return to Wavefront query language if that's your primary mode. The query is translated to Wavefront query language. A small number of PromQL constructs are not supported, as discussed below. </li></ol></td>
 <td width="60%"><img src="/images/promql_hover1.png" alt="query line in PromQL, with hover text that tells you can't switch the language without clearing the query">
 </td>
 </tr>
