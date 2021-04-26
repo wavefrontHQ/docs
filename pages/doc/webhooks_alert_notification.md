@@ -87,7 +87,7 @@ The process for creating an alert target is similar for the different types of t
     </thead>
     <tr>
     <td><strong>Webhook</strong></td>
-    <td>Alert target for sending notifications to messaging platforms such as Slack, VictorOps, or HipChat. This alert target defines the HTTP callback (POST request and URL) that is triggered when an alert changes state. </td>
+    <td>Alert target for sending notifications to messaging platforms such as Slack or VictorOps. This alert target defines the HTTP callback (POST request and URL) that is triggered when an alert changes state. </td>
     </tr>
     <tr>
     <td><strong>Email</strong></td>
@@ -109,7 +109,7 @@ The process for creating an alert target is similar for the different types of t
       </thead>
       <tr>
       <td><strong>URL</strong> </td>
-      <td markdown="span">REST endpoint of the messaging platform to receive the alert notification. You can follow the setup steps in [Slack Integration](slack.html), [VictorOps Integration](victorops.html), or [HipChat Integration](hipchat.html) to obtain a notification URL. The notification URL must be publicly accessible. </td>
+      <td markdown="span">REST endpoint of the messaging platform to receive the alert notification. You can follow the setup steps in [Slack Integration](slack.html) or [VictorOps Integration](victorops.html) to obtain a notification URL. The notification URL must be publicly accessible. </td>
       </tr>
       <tr>
         <td><strong>Content Type</strong></td>
@@ -127,7 +127,7 @@ The process for creating an alert target is similar for the different types of t
       </tr>
       <tr>
         <td><strong>Body Template</strong> </td>
-        <td markdown="span">Template describing the contents of the alert notification. Click **Template** and select the template that corresponds your messaging platform: **Slack**, **VictorOps**, or **HipChat**. Or, select **Generic Webhook** to see all of the available content options combined in a single template.</td>
+        <td markdown="span">Template describing the contents of the alert notification. Click **Template** and select the template that corresponds your messaging platform: **Slack** or **VictorOps**. Or, select **Generic Webhook** to see all of the available content options combined in a single template.</td>
       </tr>
       </tbody>
       </table>
@@ -303,7 +303,6 @@ If the response code of the webhook is anything other than 2xx, Wavefront create
   - [PagerDuty Integration](pagerduty.html)
   - [VictorOps Integration](victorops.html)
   - [Slack Integration](slack.html)
-  - [HipChat Integration](hipchat.html)
 
 
 * Read our blog post [Engineering Tips Series: How Wavefront's DevOps Team Uses Alert Targets to Provide Exceptional Quality of Services to Customers](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/engineering-tips-series-how-wavefront-s-devops-team-uses-alert-targets-to-provide-exceptional-quality-of-services-to-customers) to learn how alert targets help Wavefront to keep things running smoothly.

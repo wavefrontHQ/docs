@@ -9,6 +9,12 @@ summary: Explore traces and spans from the Wavefront UI
 
 In the Traces Browser, you can explore the context and the details of your application's traces.
 
+## Video
+
+This video highlights the Traces Browser features and settings:
+
+<iframe src="https://bcove.video/3vaNJM7" width="700" height="400" allowfullscreen="true" alt="Highlights the Wavefront traces browser features."></iframe>
+
 ## Explore the Traces Browser
 
 See the Traces Browser:

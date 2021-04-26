@@ -16,7 +16,7 @@ It is important to get an overview of the services and applications that send da
 
 ## Application Map
 
-The application map gives you an overview of how the applications and services are linked, lets you focus on a specific service, view Request, Error, and Duration (RED) metrics for each service, and the tracing traffic in the application. You can also, drill down to the Service Dashboard and Tracing Browser.
+The application map gives you an overview of how the applications and services are linked, lets you focus on a specific service, view Request, Error, and Duration (RED) metrics for each service, and the tracing traffic in the application. You can also drill down to the Service Dashboard and Tracing Browser.
 
 This video highlights the application map features and settings:
 
@@ -95,7 +95,7 @@ Let's walk through the following scenario to get a quick overview of the applica
               <b>Fade Labels on Zoom</b>: Hide labels of small services and gradually expose them as you zoom in on the application map. You always see the labels of the services in red, based on the legend settings you select.
             </li>
             <li>
-              <b>Show Node Counts</b>: Shows the number of instances of a service running on an application. For example, <b>shopping (5)</b> shows you that five shopping service instances are running on the beachshirts application. 
+              <b>Show Node Counts</b>: Shows the number of instances of a service running in an application. For example, <b>shopping (5)</b> shows you that there are five instances of the shopping service in the beachshirts application.
             </li>
           </ul>
       </ul>

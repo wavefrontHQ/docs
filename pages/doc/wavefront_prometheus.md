@@ -60,7 +60,7 @@ Wavefront supports most PromQL functions and operators out of the box. There are
 <tr>
 <td><strong>=~, !~</strong>
 </td>
-<td markdown="span">Wavefront does not support instant vector selectors (=~, !~) for regex matching in labels. However, you can use [wildcard characters](query_language_reference.html#wildcards-aliases-and-variables) in PromQL queries.
+<td markdown="span">Wavefront does not support instant vector selectors (=~, !~) for regex matching in labels. However, you can use [wildcard characters](query_language_reference.html#partial-regex-wildcards-aliases-and-variables) in PromQL queries.
 </td></tr>
 <tr>
 <td><strong>subquery</strong>

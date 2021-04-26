@@ -189,7 +189,7 @@ lowpass(12ms, spans("beachshirts.styling.makeShirts"))
 
 ## Common Parameters
 
-Query expressions use a number of common parameters to specify names and values that describe the data of interest. You can use [wildcards](#wildcards-aliases-and-variables) to match multiple names or values.
+Query expressions use a number of common parameters to specify names and values that describe the data of interest. You can use [wildcards or partial regex](#partial-regex-wildcards-aliases-and-variables) to match multiple names or values.
 
 * Rules for valid names are here: [Wavefront Data Format](wavefront_data_format.html#wavefront-data-format-fields).
 * Enclose a metric, source, or tag name, or a tag value, in double quotes if it is also a Wavefront reserved word, such as a function name or keyword. For example, if you're using a point tag named `default`, use `"default"`.
@@ -213,6 +213,7 @@ Query expressions use a number of common parameters to specify names and values 
 cpu.load.metric
 cpu.*.metric
 cpu.load.metric or cpu.idle.metric
+/(cpu\.load\.metric|cpu\.idle\.metric)/
 </pre>
 </td></tr>
 <tr>
@@ -232,6 +233,7 @@ Examples:
 source="appServer15"
 source="app-1*"
 source="app-10" or source="app-20"
+source=/(app-10|app-20)/
 </pre>
 </td></tr>
 <tr>
@@ -242,6 +244,7 @@ Examples:
 tag="appServers"
 tag="env.cluster.role.*"
 tag="appServer" and tag="local"
+tag=/(appServer|local)/
 </pre>
 </td></tr>
 
@@ -253,6 +256,7 @@ Examples:
 region="us-west-2a"
 region="us-west*"
 region="us-west-2a" or region="us-west-2b"
+region=/(us-west-2a|us-west-2b)/
 </pre>
 
 </td></tr>
@@ -310,12 +314,13 @@ The default unit is minutes if the unit is not specified.
 </tbody>
 </table>
 
-## Wildcards, Aliases, and Variables
+## Partial Regex, Wildcards, Aliases, and Variables
 
-You can use wildcards as shortcuts for specifying multiple names or values.
-You can use query line variables, aliases, and dashboard variables as shortcuts for building queries out of other expressions or predefined strings.
-
-You can combine wildcards, aliases, query line variables, and dashboard variables in the same query line.
+You can:
+* Use partial regex to specify patterns that need to be matched when building a query.
+* Use wildcards as shortcuts for specifying multiple names or values.
+* Use query line variables, aliases, and dashboard variables as shortcuts for building queries out of other expressions or predefined strings.
+* Combine wildcards, aliases, query line variables, and dashboard variables in the same query line.
 
 <table style="width: 100%;" id="wildcardAliasVariable">
 <colgroup>
@@ -329,6 +334,89 @@ You can combine wildcards, aliases, query line variables, and dashboard variable
 </tr>
 </thead>
 <tbody>
+
+<!--- Partial Regex -------->
+
+  <tr>
+    <td>
+      <span style="color:#3a0699;font-weight:bold">partial regex</span>
+    </td>
+    <td>
+      Filter metrics, sources, source tags, or point tag values using a subset of regular expressions. You wrap regular expressions in <code>/ /</code> characters. For example, <code>/&lt;regular_expression&gt;/</code>.
+      
+      <br/><br/>The list of supported regular expression characters and quantifiers:
+<pre>
+.     : any character (but newline)
+*     : previous character or group, repeated 0 or more times
++     : previous character or group, repeated 1 or more times
+?     : previous character or group, repeated 0 or 1 times
+[xyz] : any character contained within the brackets
+[a-z] : characters between a and z. Specify a range of characters using a hyphen
+\     : prevents interpretation of the special character that follows
+|     : or
+(  )  : start/end of group
+</pre>
+      
+      {{site.data.alerts.important}}
+      <ul> 
+        <li>
+          Characters, such as <code><b>~</b>, <b>^</b>, <b>{ }</b>, and <b>$</b></code> are not supported regular expression characters. Therefore, you need to escape these characters if they are present in the string you are trying to match. 
+          <br/>Example: You need to escape the <code>~</code> character.
+<pre>
+ts(/\~sample\.cpu.usage.*/)
+</pre>
+        </li>
+        <li>
+          All existing queries that use the <code>*</code> glob wildcard syntax continue to work as before.
+        </li>
+        <li>
+          If you use a regular expression in metric, tags, and host, wrap the whole expression in <code>/ /</code> characters.<br/>
+          <b>Supported</b>
+<pre>
+ts(customer.report.count, tag=/mon-(primary|secondary)/)
+</pre>
+          <b>Not supported</b>
+<pre>
+# a mixture in which part of the regular expression is wrapped in //
+ts(customer.report.count, tag=mon-/(primary|secondary)/) 
+
+# quotes when using the // characters
+ts(customer.report.count, tag="/mon-(primary|secondary)/")
+</pre>
+        </li>
+      </ul>
+      {{site.data.alerts.end}}
+      
+      Examples:
+      
+      <ul>
+        <li>
+          Get data that match <code>~wavefront.alert.active</code> or <code>~wavefront.alert.active_info</code> and has the source tag <code>data</code>:
+<pre>
+ts(/\~wavefront\.alert\.(active|active_info)/, tag=data) 
+</pre>
+        </li>
+        <li>
+          Get data that match <code>build.version</code> or <code>build.</code> and has the source tag <code>data</code>:
+<pre>
+ts(/build\.(version)?/, tag=data)
+</pre>
+        </li>
+        <li>
+          Get data of all the sources that follow the given pattern, e.g., app-0, app-12, app-30, and more:
+<pre>
+ts(~sample.cpu.usage.percentage, source=/app-[0-9]+/)
+</pre>
+        </li>
+        <li>
+          Get data from the metrics that have <code>request.latency</code> as the common prefix and has the tag <code>env=prod</code>:
+<pre>
+ts(/request\.latency.*/, env=prod)
+</pre>
+        </li>
+      </ul>
+    </td>
+  </tr>
 
 <!--- Wildcard ------------->
 <tr>
@@ -385,7 +473,7 @@ join(ts(cpu.load) AS ts1 JOIN ts(request.rate) AS ts2 ON ts1.env = ts2.env, ... 
   <li>An <a href="https://en.wikipedia.org/wiki/Allen%27s_interval_algebra">Allen's interval algebra operator</a>. For example: m, mi, o, s, d, f are not valid.</li>
   </ul>
 </li>
-<li>Alias names are case sensitive. For example, <strong>Sum</strong> is valid.</li>
+<li>Alias names are case-sensitive. For example, <strong>Sum</strong> is valid.</li>
 <li markdown="span">Put any numeric characters at the end of the alias name. For example, <strong>test123</strong> is valid, but <strong>1test</strong> and <strong>test4test</strong> are not valid.</li>
 </ul>
 </td></tr>
@@ -393,7 +481,7 @@ join(ts(cpu.load) AS ts1 JOIN ts(request.rate) AS ts2 ON ts1.env = ts2.env, ... 
 <!--- Query line variable ------------->
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">query line variable</span></td>
-<td>Lets one query line refer to another for the same chart.
+<td>Let's use one query line refer to another for the same chart.
 The referenced query line must be named and must contain a complete <strong>tsExpression</strong>.
 <ul>
 <li>Use the chart UI to name a query: <strong>myQuery</strong> </li>
@@ -634,10 +722,6 @@ Filtering functions help you select a subset of the time series that are returne
 <tr>
 <td><a href="ts_between.html">between(<strong>&lt;tsExpression&gt;</strong>, <strong>&lt;lower&gt;</strong>, <strong>&lt;upper&gt;</strong>)</a></td>
 <td>Returns 1 if <strong>tsExpression</strong> is &gt;= <strong>lower</strong> and &lt;= <strong>upper</strong>. Otherwise, returns 0. This function outputs continuous time series.</td>
-</tr>
-<tr>
-<td><a href="ts_downsample.html">downsample(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>)</a></td>
-<td>Returns the values in <strong>tsExpression</strong> that occur in each time window. For example: <strong>downsample(30m, ts(my.metric))</strong> returns the values of <strong>my.metric</strong> every half hour.</td>
 </tr>
 <tr>
 <td markdown="span"><a href="ts_align.html"> align(<strong>&lt;timeWindow&gt;</strong>,<strong>[mean|median|min|max|first|last|sum|count,]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>

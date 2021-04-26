@@ -14,7 +14,7 @@ With Wavefront, you can create smart alerts that dynamically filter noise and ca
 
 The end result is fewer false alerts and faster remediation when real issues occur.
 
-{% include note.html content="All users can view alerts. You need Alerts permissions to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
+{% include note.html content="All users can view alerts. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
 
 ## Wavefront Alerts
@@ -190,7 +190,7 @@ The display expression can include any valid Wavefront Query Language construct,
 <td>Names of <a href="webhooks_alert_notification.html">custom alert targets</a> that you have previously created to:
 
 <ul>
-<li  markdown="span">Configure webhook notifications for pager services and communication channels. Follow the steps for the [VictorOps integration](victorops.html), [Slack integration](slack.html), or [HipChat integration](hipchat.html) for notifications on these popular messaging platforms. </li>
+<li  markdown="span">Configure webhook notifications for pager services and communication channels. Follow the steps for the [VictorOps integration](victorops.html) or [Slack integration](slack.html) for notifications on these popular messaging platforms. </li>
 <li>Configure email or PagerDuty notifications with nondefault content or triggers. </li>
 </ul>
 </td>
