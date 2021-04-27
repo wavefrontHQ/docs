@@ -8,6 +8,24 @@ summary: New and changed Wavefront integrations.
 ---
 Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
+## April 2021
+
+Made improvements to the following integrations and dashboards in April 2021:
+
+* Zabbix -- Updates to the integration setup instructions and to the out of the box dashboards.
+* Prometheus -- Updated the Prometheus integration to support metric version 2 as default metric format.
+* Tracing dashboard -- Fixed slow Apdex per operation query.
+* Elasticsearch -- Updates to the queries in the dashboards.
+* Linux -- Updates to the integration setup instructions.
+* Pivotal Cloud Foundry:
+  * Fixed charts in the PCF: MySQL dashboard.
+  * Added the VMware Tanzu Application Services tile to the Pivotal Cloud Foundry integration.
+* Istio -- Deprecated the Wavefront Istio adapter and added support to monitor Istio 1.8.
+* Jaeger -- Updates to the integration setup instructions to send data to the Wavefront proxy through gRPC.
+* HipChat -- Removed the HipChat integration.
+* OpenTelemetry -- Updates to the integration setup instructions.
+
+
 ## March 2021
 
 Made improvements to the following integrations in March 2021:
