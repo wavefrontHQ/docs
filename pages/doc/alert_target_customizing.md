@@ -43,7 +43,7 @@ You can [inspect](#display-and-edit-predefined-templates) a predefined template 
 
 * The structural elements in which the extracted information is embedded. These are JSON attributes, HTML elements, or plain text, depending on the  messaging platform to which notifications will be sent.
 
-The predefined Slack, HipChat, and VictorOps templates contain JSON attributes defined by the messaging platform. See the product documentation for the platform for details.
+The predefined Slack and VictorOps templates contain JSON attributes defined by the messaging platform. See the product documentation for the platform for details.
 
 {% include note.html content="The predefined Webhook Generic template contains JSON attributes that do not conform to any particular message platform's Webhook endpoint specification. This template simply demonstrates how to access the different kinds of alert information for a Webhook endpoint." %}
 
@@ -282,15 +282,15 @@ Here is sample alert target output generated with the preceding template:
   "severitySevere": false,
   "condition": "rate(ts(~proxy.points.2878.received)) > 4",
   "url": "https://yourcompany.wavefront.com/u/LPc1zR8k9X",
-  "createdTime": "04/15/2016 23:11:22 0000",
-  "startedTime": "09/12/2016 21:47:39 0000",
-  "sinceTime": "09/12/2016 21:45:39 0000",
+  "createdTime": "04/15/2020 23:11:22 +0000",
+  "startedTime": "09/12/2020 21:47:39 +0000",
+  "sinceTime": "09/12/2020 21:45:39 +0000",
   "endedTime": "",
   "snoozedUntilTime": "",
-  "subject": "[SMOKE] OPENED: Alert on Data rate ( Test)",
+  "subject": "[SMOKE] OPENED: Alert on Data rate (Test)",
   "hostsFailingMessage": "localhost (~proxy.points.2878.received)",
   "errorMessage": "",
-  "additionalInformation": "An alert to test a webhook integration with HipChat"
+  "additionalInformation": "An alert to test a Webhook integration with Slack Light"
   }
 ```
 {% endraw %}

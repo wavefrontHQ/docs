@@ -8,7 +8,7 @@ permalink: integrations_pcf_alerts.html
 summary: Details for Pivotal Cloud Foundry Alerts
 ---
 
-The Pivotal Cloud Foundry (PCF) integration includes a a rich set of alerts out of the box. You can preview the alerts in the **Alerts** tab of the integration. This page gives details for each alert.
+The Pivotal Cloud Foundry (PCF) integration includes a rich set of alerts out of the box. You can preview the alerts in the **Alerts** tab of the integration. This page gives details for each alert.
 
 {% include tip.html content="This functionality will be available for all Wavefront instances soon." %}
 
@@ -68,7 +68,7 @@ Total number of LRP instances that have crashed. Indicates how many instances in
 
 ## PAS BBS Fewer App Instances Than Expected
 
-Total number of LRP instances that are desired but have no record in the BBS. When Diego wants to add more apps, the BBS sends a request to the Auctioneer to spin up additional LRPs. `LRPsMissing` is the total number of LRP instances that are desired but have no BBS record. If Diego has less LRP running than expected, there may be problems with the BBS. An app push with many instances can temporarily spike this metric. However, a sustained spike in bbs.`LRPsMissing` is unusual and should be investigated. Frequency: 30 s
+Total number of LRP instances that are desired but have no record in the BBS. When Diego wants to add more apps, the BBS sends a request to the Auctioneer to spin up additional LRPs. `LRPsMissing` is the total number of LRP instances that are desired but have no BBS record. If Diego has less LRP running than expected, there may be problems with the BBS. An app push with many instances can temporarily spike this metric. However, a sustained spike in `bbs.LRPsMissing` is unusual and should be investigated. Frequency: 30 s
 
 1. Review the BBS logs for proper operation or errors, looking for detailed error messages.
 2. If the condition persists, pull the BBS logs and contact Pivotal Support.
@@ -126,7 +126,7 @@ This partition should not typically fill because BOSH deploys jobs to use epheme
 
 Percentage of the ephemeral disk used on the VM. Set an alert and investigate if the ephemeral disk usage is too high for a job over an extended period.
 
-1. Run bosh vms --details to view jobs on affected deployments.
+1. Run bosh `vms --details` to view jobs on affected deployments.
 2. Determine the cause of the data consumption, and, if appropriate, increase disk space or scale out the affected jobs.
 
 This partition should not typically fill because BOSH deploys jobs to use ephemeral and persistent disks.
@@ -154,11 +154,11 @@ This partition should not typically fill because BOSH deploys jobs to use epheme
 
 ## PAS Cloud Controller and Diego Not in Sync
 
-Indicates if the `cf-apps` Domain is up-to-date, meaning that PAS app requests from Cloud Controller are synchronized to bbs.LRPsDesired (Diego-desired AIs) for execution.
+Indicates if the `cf-apps` Domain is up-to-date, meaning that PAS app requests from Cloud Controller are synchronized to `bbs.LRPsDesired` (Diego-desired AIs) for execution.
 * 1 means cf-apps Domain is up-to-date
 * No data received means cf-apps Domain is not up-to-date: If the cf-apps Domain does not stay up-to-date, changes requested in the Cloud Controller are not guaranteed to propagate throughout the system. If the Cloud Controller and Diego are out of sync, then apps running could vary from those desired.
-  - 1. Check the BBS and Clock Global (Cloud Controller clock) logs.
-  - 2. If the problem continues, pull the BBS logs and Clock Global (Cloud Controller clock) logs and contact Pivotal Support to say that the `cf-apps` domain is not being kept fresh.
+   1. Check the BBS and Clock Global (Cloud Controller clock) logs.
+   2. If the problem continues, pull the BBS logs and Clock Global (Cloud Controller clock) logs and contact Pivotal Support to say that the `cf-apps` domain is not being kept fresh.
 
 ## PAS Diego Cell Container Capacity
 

@@ -135,7 +135,7 @@ To add tags to one or more objects:
     - For some objects, you select **Browse &gt; &lt;object&gt;**, where **&lt;object&gt;** is **Sources** or **Events**.
     - For other objects, such as Alerts, you click the object.
 2.  Choose which objects to tag:
-    -   Check the checkboxes next to the object and click the **+ Tag** button.
+    -   Select the check boxes next to the object and click the **+ Tag** button.
     -   Click **+** at the bottom and select a tag or click **Create New Tag**.
 
         ![source tags](images/source_tags.png)

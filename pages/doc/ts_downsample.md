@@ -4,8 +4,11 @@ keywords: query language reference
 tags: [reference page]
 sidebar: doc_sidebar
 permalink: ts_downsample.html
+published: false
 summary: Reference to the downsample() function
 ---
+<!---Removing this page from the doc. The align() function does the same thing with more options.--->
+
 ## Summary
 ```
 downsample(<timeWindow>, <tsExpression>)

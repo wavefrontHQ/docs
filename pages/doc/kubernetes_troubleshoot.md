@@ -8,11 +8,11 @@ summary: Get help when you have problems with your Kubernetes setup.
 ---
 
 
-Depending on your setup, you typically deploy the following into your Kubernetes cluster:
+Depending on your setup, you typically deploy the following components into your Kubernetes cluster:
 * **[Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes)** -- runs as a DaemonSet
-* **[Wavefront Proxy](proxies.html)** -- runs as a Deployment fronted by a Kubernetes Service
+* **[Wavefront Proxy](proxies.html)** -- runs as a deployment fronted by a Kubernetes Service
 
-Once deployed, the Collector instances gather data at regular intervals from various sources and send the data to Wavefront via the Proxy.
+Once deployed, the collector instances gather data at regular intervals from various sources and send the data to Wavefront via the Wavefront proxy.
 
 ## Troubleshoot Using the Wavefront Collector Dashboard
 
@@ -22,102 +22,321 @@ The Wavefront Collector metrics dashboard in the Kubernetes integration shows th
 
 ![screenshot of Kubernetes metrics](images/kubernetes_monitoring.png)
 
+## Troubleshooting Using the Data Collection Flow
 
-This section explains how to further troubleshoot issues with your Kubernetes integration based on the symptoms you see.
+In Kubernetes, a Node can be considered a virtual machine, and can have several applications and services running on it. These applications and services are referred to as Pods. The Wavefront collector deploys itself on each Node to collect metrics from the Pods.
+
+All the Pods the Wavefront collector collects metrics from are considered a Source. 
+
+Next, the Source sends metrics to the Wavefront Sink and then to the Wavefront Service through the Wavefront proxy.
+
+Since the Wavefront collector runs on each Node, metrics common to the Kubernetes environment or cluster can be repeated, such as the cluster metrics, which are reported multiple times. To avoid the same metric being reported several times, one Wavefront collector is elected as the leader to perform tasks that only need to be done once.
+
+The following diagram shows how the data flows from your Kubernetes environment to Wavefront. 
+
+![Kubernetes Collector Data Flow Diagram](images/kubernetes_collector_troubleshooting_flow_diagram.png)
+
+
+You run into issues when data doesn't flow from one component to another or when there are configuration issues.
+
+For example, identifying the metrics that come into Wavefront and the metrics that don't go into Wavefront help you know where to look.
+
+To troubleshooting data collection, follow the data flow from the source to Wavefront to find where the flow is broken. 
+* Individual processes in the flow can cause problems.
+* Connections between processes can cause problems. 
+
+Identifying what metrics are and aren’t coming through can help identify where to look.
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ## Symptom: No Data Flowing into Wavefront
 
-Likely Causes:
-1. The Wavefront Collector is not running
-2. The Wavefront Proxy is not running or cannot connect to Wavefront
-3. The Wavefront Collector cannot connect to the Wavefront Proxy
+### Step 1: Verify that the Collector is Running. 
 
-Follow the steps below to troubleshoot.
+![Highlights Kubernetes collector on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_step_1.png)
 
-### Verify the Wavefront Collector Is Running
+* Run `kubectl get pods -l k8s-app=wavefront-collector -n <NAMESPACE>` to verify all collector instances are ready and available.
+* Pods are marked as not ready:
+  * If there are errors with starting pods, run `kubectl describe pod podname`, and check the events section for errors. For details on errors, see [Troubleshoot Applications on Kubernetes documentation](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/).
+  * If the collector is running but has frequent restarts, only part of the data goes through. See [Check If the Collector Restarts Frequently](#step-4-check-if-the-collector-restarts-frequently) below.
 
-* Run `kubectl get daemonset wavefront-collector -n NAMESPACE` to verify all collector instances are ready and available.
-* Run `kubectl get pods -l app.kubernetes.io/component=collector -n <NAMESPACE>` to verify there are no restarts amongst the Collector pods.
-* Check the logs for the Collector pods to troubleshoot further.
+  <table style="width: 100%;">
+  <tbody>
+  <tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+  </tbody>
+  </table>
 
-### Verify the Wavefront Proxy Deployment
+### Step 2: Verify that the Proxy is Running
+
+![Highlights Wavefront proxy on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_step_2.png)
 
 * Run `kubectl get deployment wavefront-proxy -n NAMESPACE` to verify the proxy instances are ready and available.
-* Run `kubectl get pods -l app.kubernetes.io/component=proxy -n <NAMESPACE>` to verify there are no pod restarts etc.
-* Check the proxy logs to check if there are errors in connecting to the Wavefront SaaS service.
+* Run `kubectl get pods -l app=wavefront-proxy -n <NAMESPACE>` to verify there are no pod restarts.
+* Run `kubectl logs pod_name` to check the proxy logs for errors connecting to the Wavefront service.
 
-Refer to this [documentation](https://docs.wavefront.com/monitoring_proxies.html) for monitoring and troubleshooting the proxy.
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
-### Verify the Collector Can Connect to the Proxy
+### Step 3: Verify that the Collector Can Connect to the Proxy
 
-Check the Collector logs for any errors when sending points to the Proxy.
+![Highlights arrow from the sinker to the wavefront proxy on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_step_3.png)
 
-To troubleshoot further:
-1. Verify the `proxyAddress` on the Collector sink configuration is correct.
-2. Verify the proxy service exposes the correct ports (typically 2878).
+* List collector pods with `kubectl get pods -l k8s-app=wavefront-collector -n <NAMESPACE>`.
+* Check the collector logs for errors sending points to the proxy with `kubectl logs pod_name`.
+* To make sure that the collector can communicate with the proxy:
+  * Verify that the `proxyAddress` on the [collector sink configuration on the configuration.md file](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#wavefront-sink) is correct.
+  * Verify that the proxy service exposes the correct port (typically 2878).
+  
+  <table style="width: 100%;">
+  <tbody>
+  <tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+  </tbody>
+  </table>
 
-## Symptom: Partial Data Flowing into Wavefront
+### Step 4: Verify that the Proxy Can Connect to Wavefront
 
-Likely causes:
-1. Issues with a few isolated Collector instances
-2. Data collection errors caused by erroneous discovery rules or data sources
-3. Issues with leader election or the leader Collector instance
-4. Points being blocked at the Wavefront Proxy
+![Highlights arrow from the wavefront proxy to the wavefront service on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_step_4.png)
 
-### Collector Instance Issues
+See [Monitor Wavefront Proxies](https://docs.wavefront.com/monitoring_proxies.html) for monitoring and troubleshooting the proxy.
 
-The behavior of individual Collector instances (memory usage etc.) can differ based on how much data they are collecting, whether it's a leader instance etc.
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
-To troubleshoot:
-* Check if there are any restarts amongst the relevant Collector pods.
-* Run `kubectl describe POD_NAME -n NAMESPACE` to check if there are any OOM's etc.
+## Symptom: Incomplete Data in Wavefront
 
-### Data Collection Errors
+### Step 1: Verify Collection Source Configurations
+
+![Highlights the source box on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom-Incomplete_step_1.png)
+
+See the [Wavefront Collector Configurations]( https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md) to verify that the collector is configured correctly.
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
+### Step 2: Verify Filter Configuration
+
+You can filter out data flowing into Wavefront at multiple points:
+* In some cases, the application (App Pod) can filter metrics and decide on the metrics are available to collect. 
+  A common example of this is kube-state-metrics. See [kube-state-metrics documentation](https://github.com/kubernetes/kube-state-metrics/blob/master/docs/cli-arguments.md) for configuration options.
+  ![Highlights the app pod on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom-Incomplete_step_2.1.png)
+
+* The Wavefront Kubernetes collector allows two levels of filtering internally, shown in the picture below.  
+  1. Filter metrics at the source level. 
+  2. Filter all metrics sent from the collector to Wavefront. 
+  
+  Run ```kubectl get configmap collector-config -n <YOUR_NAMESPACE> -o yaml``` and check both your source configuration and sink configuration for filters. See [Prefix, tags, and filter configurations for the Wavefront Collector](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#prefix-tags-and-filters).
+  
+  ![Highlights the source and sink the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom-Incomplete_step_2.2.png)
+
+* Filter or rename metrics at the Proxy before sending them to Wavefront. See [Wavefront proxy preprocessor rules](https://docs.wavefront.com/proxies_preprocessor_rules.html). More information can be found in [Monitoring Wavefront Proxies](monitoring_proxies.html).
+  
+  ![Highlights arrow from the sinker to the wavefront proxy on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_step_2.png)
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
+### Step 3: Verify Metric Naming Configuration
+
+* Check the metric prefixes on the source and sink configurations. You can update the metric prefixes in the [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#common-properties) file.
+  
+  ![Highlights arrow from the sinker to the wavefront proxy on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_metric_name_step_1.png)
+  
+* Rename metrics to different names in the proxy configuration. See [Wavefront proxy preprocessor rules](https://docs.wavefront.com/proxies_preprocessor_rules.html).
+  
+  ![Highlights arrow from the sinker to the wavefront proxy on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_step_2.png)
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
+### Step 4: Check Collector Health
+
+
+#### Check for Leader Health Problems 
+
+The **leader Wavefront collector pod** collects the metrics from its node and the metrics that are not specific to the local node. Example: cluster metrics, service monitoring metrics, and metrics from applications that use explicit rule definitions. 
+
+If a leader pod crashes due to insufficient resources, another pod picks up the leader role automatically. If the new leader pod also faces the same problem and crashes as well, just like the previous leader pod, the cycle continues. This problem leads to inconsistencies in data collection.
+
+To check for leader health problems:
+
+1.	Open the Wavefront Collector Metrics dashboard in the Kubernetes integration. 
+2.	In the Troubleshooting section, check if the Leader Election is red or if the chart has spikes with the number of times the leadership changed, 
+
+If you see these symptoms, then there are leader health problems.
+
+The following screenshot shows that there are no leader health problems.
+
+![Leadership Election in a good state on the Collector Troubleshooting Dashboard](images/kubernetes_leader_ok.png)
+
+{{site.data.alerts.tip}}
+  <ul>
+    <li>
+      If the leader has no health problem, check the memory or CPU issues affecting the other collector pods.
+    </li>
+    <li>
+      If the leader is continually crashing, insufficient memory might be the cause. See the section on <a href="#check-for-insufficient-memory-symptoms">Check for Insufficient Memory Symptoms</a>.
+    </li>
+    <li>
+      See the <a href="#remedies-for-cpu-or-memory-problems">Remedies for CPU or Memory Problems</a>.
+    </li>
+  </ul>
+{{site.data.alerts.end}}
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>    
+
+#### Check for Insufficient CPU Symptoms
+
+To check for Insufficient CPU, follow these steps:
+
+1. Open the Wavefront Collector Metrics dashboard in the Kubernetes integration. 
+
+1. In the Troubleshooting section, see the Collector Restarts chart. 
+    If the chart is in red, or if there are spikes on the chart, there are memory or CPU issues.
+    See [Fine-Tune the Time Window](ui_examine_data.html#fine-tune-the-time-window) to customize the time window on the chart.
+
+    The following screenshot shows that there are collector restarts.
+    ![Collector restarts happening on the Collector Troubleshooting Dashboard](images/kubernetes_restarts.png)
+
+1. In the Wavefront Collector Metrics dashboard's Data Collection section, check the Collection Latency chart. If you customized the time window for the above steps, use the same time window is selected for this chart.
+
+    ![Collector Latency Graph on the collector Troubleshooting Dashboard](images/kubernetes_latency.png) 
+    
+    {{site.data.alerts.tip}}
+      <p>
+          Latency should be less than the collection intervals you configure. The <code>defaultCollectionInterval</code> is set to 60 seconds. You configure it on the <a href="https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration-file"><code>configration.md</code></a> file.
+      </p>
+      <p>  
+          If the latency is high, the collector might have insufficient CPU to process the metrics, and the collectors stack up in memory and cause an Out Of Memory (OOM) error.
+          To solve this, the collector needs higher CPU limits on the collector pods, or you need to reduce the collection load. See the <a href="#remedies-for-cpu-or-memory-problems">Remedies for CPU or Memory Problems</a>.
+      </p>  
+    {{site.data.alerts.end}}
+    
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
+#### Check for Insufficient Memory Symptoms
+
+To check for insufficient memory, follow these steps:
+
+* Run `kubectl get pods -l app.kubernetes.io/component=collector -n <NAMESPACE>` to find collector pods that have been restarting.
+    * If the collector is showing frequent restarts, check the termination reason by running `kubectl describe pod podname`
+    * OOM errors show that the collector has insufficient memory resources to run. 
+
+* If your collector does not show OOM as its termination reason, check the logs for other errors by running `kubectl logs podname`
+
+To solve this, See the remedies section.
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
+#### Remedies for CPU or Memory Problems
+
+* **Increase CPU or memory limits**: 
+  The easiest way to resolve memory or CPU issues is to increase the memory and CPU limits. To determine the CPU or memory limit, see the charts in the Wavefront Collector Metrics dashboard's Troubleshooting section.
+
+* **Determine CPU limit**: 
+  If you see high collector latencies, you need to adjust the CPU limit. When the collector is throttled due to lack of CPU availability, it leads to memory issues too. 
+  The process of increasing CPU is trial and error. Adjust the limit and monitor the collector latency graph after the update. If the latencies level out, you have found the correct CPU limit.
+
+* **Determine memory limit by following these steps**: 
+  1. Open the Wavefront Collector Metrics dashboard and see Collector Memory Usage (Top 20) chart on the Troubleshooting section. This chart gives you an idea of the limits you need.
+      {% include note.html content="The limit values on the chart are sampled and do not show the peak memory usage." %}
+  2. Customize the time frame on the chart to 2-4 days using the (-) icon on the chart and look for spikes. The spikes are most likely created by the elected leader.
+  3. Start to set the limit 10% over the max value you find and monitor the changes. For example, based on the screenshot below, the max value is 43.5 Mi. Therefore, you can start to set your limit at 47.85 Mi (43.5 x 1.10) and monitor the progress.
+
+    ![Collector Memory Usage Graph on the Collector Troubleshooting Dashboard](images/kubernetes_collector_memory.png)
+
+* **Change the CPU or memory limit based on how the Wavefront Collector is installed**:
+  * Helm Deployments
+    * Option 1: For details on updating the CPU and memory limit on helm charts, see [Parameters](https://github.com/wavefrontHQ/helm/tree/master/wavefront#parameters).
+    * Option 2: Update the `cpu` and `memory` limits in the [values.yaml](https://github.com/wavefrontHQ/helm/blob/master/wavefront/values.yaml#L184) file.
+    
+  * Manual Deployments <br/>
+    Update the container settings in the `daemonset` definition. The default limits are:
+    ``` 
+    resources:
+        limits:
+          cpu: 1000m
+          memory: 1024Mi
+    ```
+
+* **Reduce the collection load**: 
+  Reduce the number of metrics that are collected and reduce the collector CPU and memory load limit from the start. For example, reduce the load at the application pod or source level. It grants the largest reduction in overall load on the system. Fewer resources are required to remove a source than to filter downstream at the collector. 
+
+  * **Filter metrics**: 
+  
+    * **Configure the Wavefront collector to remove sources**:
+      If you have statically defined sources, comment out or remove sources that emit a large number of metrics from the `sources` list in the collector [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration-file) file. This method removes metrics that are minimally processed, reducing the CPU and memory load on the collector.
+      {% include important.html content="Do not remove `kubernetes_source` from the `sources` list." %}
+      
+    * **Filter metrics at the source**: Sources scraped by the collector have a way of filtering out metrics. You can filter the metrics on the source or from the Wavefront collector:
+      * Some applications let you configure the metrics they produce. If your application can do that, you can reduce the metrics collected before the metrics are sent to the collector.
+        {% include note.html content = "Only some sources let you filter metrics. Example: kube-state metrics" %}
+      * Change the [Wavefront collector source configuration](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration) to filter out metrics you don’t need. Note: 
+        {% include note.html content = "Filtering metrics in the source configuration, reduces the collector load. Filtering metrics in the sink configuration will not reduce the collector load." %}
+    
+  * **Disable Auto-Discovery**:
+    If the load is still high, you might be scraping pods based on annotations that the collector finds, which is standard for helm charts or widely used containers. Disable autodiscovery and see if the load reduces. If this works and you don't want the pods to be scrapped in the future, remove the annotations.
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
+### Step 5: Check for Data Collection Errors
 
 Use these metrics to help troubleshoot issues with data collection:
 
 <table>
-<tbody>
 <thead>
 <tr><th width="40%">Metric</th><th width="60%">Description</th></tr>
 </thead>
+<tbody>
 <tr><td markdown="span">kubernetes.collector.target.collect.errors</td>
-<td>Counter showing the number of errors collecting data from a target pod or service etc.</td></tr>
+<td>Counter showing the number of errors collecting data from a target pod or service etc. <br/>You can see this data on the Collection Errors Per Endpoint chart under the Troubleshooting section of the Kubernetes Collector Metrics Dashboard.</td></tr>
 <tr>
 <td markdown="span">kubernetes.collector.source.collect.errors</td>
-<td>Counter showing the number of errors per plugin type (prometheus, telegraf etc.) </td></tr>
+<td>Counter showing the number of errors per plugin type (prometheus, telegraf etc.) <br/>You can see this data on the Collection Errors Per Type chart under the Troubleshooting section of the Kubernetes Collector Metrics Dashboard.</td></tr>
 <tr>
 <td markdown="span">kubernetes.collector.target.points.collected</td>
-<td>Counter showing the number of points collected from a single target (pod, service etc.) as a per-second rate </td></tr>
+<td>Counter showing the number of points collected from a single target (pod, service etc.) as a per-second rate. <br/>You can see this data on the Points Collected Per Target (Top 20) chart under the Data Collection section of the Kubernetes Collector Metrics Dashboard.</td></tr>
 </tbody>
 </table>
 
-Check the source of these metrics to identify the specific Kubernetes node on which the Collector is running. Then check the logs for that Collector instance for further troubleshooting.
+Check the source of these metrics to identify the specific Kubernetes node on which the collector is running. Then check the logs for that collector instance for further troubleshooting.
 
-### Leader Election Issues
-
-Because the Wavefront Collector runs as a DaemonSet, leader election is used to select a single instance for collecting data from cluster-level components (non pod related) such as service endpoints, [object states](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/metrics.md#kubernetes-state-source), static sources (not configured via auto discovery) and events.
-
-If you're noticing issues with collecting data from such components:
-1. Verify a leader instance exists
-2. Verify the leader is not changing or restarting often (could indicate memory issues etc.)
-
-Use these metrics to help troubleshoot issues with leader election:
-
-<table>
+<table style="width: 100%;">
 <tbody>
-<thead>
-<tr><th width="40%">Metric</th><th width="60%">Description</th></tr>
-</thead>
-<tr><td markdown="span">kubernetes.collector.leaderelection.leading</td>
-<td>A value of 1 indicates the leader instance.</td></tr>
-<tr>
-<td markdown="span">kubernetes.collector.leaderelection.error</td>
-<td>Counter showing errors encountered in election a leader. </td></tr>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>
-
-
-### Proxy Blocked Points
-
-The [Monitoring Wavefront Proxies](monitoring_proxies.html) document explains how to use the Wavefront Usage dashboard to monitor and troubleshoot the Proxy.

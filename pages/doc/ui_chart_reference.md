@@ -55,7 +55,7 @@ Missing data is represented by a dashed line. The dashed line only gives a visua
 <td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
 
 Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
+us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
 </tr>
 
 <tr>
@@ -227,7 +227,7 @@ A **point plot** chart displays point buckets *without* any interpolation. Like 
 <td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
 
 Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
+us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
 </tr>
 <tr>
 <td>Display Source Events</td>
@@ -389,7 +389,7 @@ The stacked area chart can help you determine at a glance which queries have the
 <td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
 
 Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
+us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
 </tr>
 <tr>
 <td>Display Source Events</td>
@@ -570,7 +570,7 @@ This chart supports the same tabs and options as the Stacked Area Chart discusse
 <td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
 
 Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
+us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
 </tr>
 <tr>
 <td>Display Source Events</td>
@@ -745,7 +745,7 @@ A **table** chart allows fine-grained customization in the Format tab but doesn'
 </tr>
 <tr>
 <td>Show Raw Values</td>
-<td>Check to display the raw metric values (e.g., 212.00 milliseconds) or values using scientific notation (SI), e.g., 212 milliseconds.
+<td>Select to display the raw metric values (e.g., 212.00 milliseconds) or values using scientific notation (SI), e.g., 212 milliseconds.
 </td>
 </tr>
 <tr>
@@ -868,7 +868,7 @@ By default, a **single stat** chart plots a single series on a chart and display
 <td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
 
 Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
+us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
 </tr>
 <tr>
 <td>Display Value</td>
@@ -910,7 +910,10 @@ us to aggregate the raw data values reported in each 30 second interval, and dis
 <td>Controls when data is considered missing when there are gaps in the reporting of the data. The gap threshold is expressed in seconds and defaults to 60 seconds. </td>
 </tr>
 <tr><td>Display Raw Value</td>
-<td>Check this checkbox if you've selected a unit and you want to display, for example, `10k` instead of `10000`. Checked by default. </td>
+<td>Select this check box if you've selected a unit and you want to display, for example, <code>10k</code> instead of <code>10000</code>. Selected by default. </td>
+</tr>
+<tr><td>Comma Delimited</td>
+<td>Select this check box if you've selected a unit and you want to display, for example, <code>1,000</code> instead of <code>1000</code>. Works only for values higher than or equal to 1000 and is selected by default. </td>
 </tr>
 </tbody>
 </table>
@@ -1023,7 +1026,7 @@ The color mapping tab lets you define which set of values maps to which colors. 
 <td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
 
 Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
+us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
 </tr>
 <tr>
 <td>Number of Bars</td>
@@ -1147,7 +1150,7 @@ Chart description which shows up as hover text when users move the mouse over th
 <a id="node_map_drilldown_link_tab">
 <p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
 
-If you [specify a drilldown link], end users are directed to a target dashboard when they click this chart. You can optionally pass a point tag, variable, or other value into the target dashboard to customize it for the user ahead of time. See [How Do Drilldown Links Work](ui_charts_faq.html#how-do-drilldown-links-work) for details.
+If you specify a drilldown link, end users are directed to a target dashboard when they click this chart. You can optionally pass a point tag, variable, or other value into the target dashboard to customize it for the user ahead of time. See [How Do Drilldown Links Work](ui_charts_faq.html#how-do-drilldown-links-work) for details.
 
 <table style="width: 100%;">
 <tbody>
@@ -1162,7 +1165,8 @@ If you [specify a drilldown link], end users are directed to a target dashboard 
 Histogram charts have two main uses:
 * Visualize [Wavefront Histograms](proxies_histograms.html). Wavefront histograms let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure – particularly those gathered across many distributed sources.
 * Display a histogram visualization of a time series. That makes it possible, for example, to easily see query results above a certain percentile.
-* Zoom in to the histogram as needed by selecting a region. 
+
+You can zoom in to the histogram as needed by selecting a region. 
 
 The histogram chart shows the aggregate view of the entire window. For both histogram data and time series data, you can visualize the amount of data in a certain percentile, specify color gradient and axis information, and, most importantly, get details about your histogram data by looking at hover text on each bar.
 
@@ -1195,13 +1199,15 @@ You must make sure you're looking at a metric -- it doesn't make sense to select
 </tr>
 <tr>
 <td>Percentile Markers</td>
-<td>Display predefined percentile makers as numbers on the chart. You can also </td>
+<td>Display predefined percentile makers as numbers on the chart. </td>
 </tr>
-<tr><td>Gap Threshold</td>
-<td>Controls when data is considered missing when there are gaps in the reporting of the data. The gap threshold is expressed in seconds and defaults to 60 seconds. </td>
+<tr><td>Threshold</td>
+<td>A <a href="ui_charts_faq.html#how-do-i-set-up-thresholds-for-histograms-and-heat-map-charts">threshold marker</a> for the data represented by the chart. Can be either a constant value or a variable that is defined by a query. 
+</td>
 </tr>
 </tbody>
 </table>
+
 
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
@@ -1295,6 +1301,10 @@ One easy way to show which histograms are on your cluster is from the **Histogra
 <td>Color</td>
 <td>Base color for the heat map. The saturation of the color indicates the count for the selected field. Hover over any field to see a vertical histogram as a legend that you can pin with Shift+P. The histogram highlights the vertical line that corresponds to the grid cell you've selected.<img src="/images/heatmap_legend.png" alt="legend for a single heatmap field"> </td>
 </tr>
+<tr>
+<td>Threshold</td>
+<td>A <a href="ui_charts_faq.html#how-do-i-set-up-thresholds-for-histograms-and-heat-map-charts">threshold marker</a> for the data represented by the chart. Can be either a constant value or a variable that is defined by a query.</td>
+</tr>
 </tbody>
 </table>
 
@@ -1372,7 +1382,7 @@ A gauge chart displays a single value, in a default color. You can optionally ad
 <td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
 
 Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
+us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
 </tr>
 <tr>
 <td>Decimal Precision</td>
@@ -1401,7 +1411,7 @@ By default, the gauge displays color information for 0-100 even if you define a 
 <td>Maximum value to use for the outer ring of the gauge. If no color mapping is defined, the gauge ranges from Min to Max. With color mapping defined, the outer ring is also affected.</td>
 </tr>
 <tr><td>Display Raw Value</td>
-<td>Check this checkbox if you've selected a unit and you want to display, for example, `10k` instead of `10000` </td>
+<td>Select this check box if you've selected a unit and you want to display, for example, <code>10k</code> instead of <code>10000</code>. Selected by default.</td>
 </tr>
 </tbody>
 </table>
@@ -1474,7 +1484,7 @@ The collage above shows both a pie chart and a donut chart for the same data.
 <td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
 
 Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
+us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
 </tr>
 <tr>
 <td>Show Percentage</td>
