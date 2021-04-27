@@ -48,6 +48,7 @@ For example, you could use a custom alert target to:
 * Configure different contents for notifications triggered by different events.
 * Associate a short name with a long list of email addresses or a lengthy PagerDuty key.
 ​
+
 ## View Custom Alert Targets
 ​
 To view alert targets, select **Browse > Alert Targets**.
