@@ -7,7 +7,7 @@ permalink: wavefront_release_notes.html
 summary: Learn about new and updated features in Wavefront.
 ---
 
-These pages list new and updated features in the Wavefront service.
+These page lists new and updated features in the Wavefront service.
 
 ## 2021-15.x Release Notes
 
