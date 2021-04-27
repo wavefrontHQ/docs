@@ -867,11 +867,11 @@ Standard time functions can help you:
 </tr>
 <tr>
 <td><a href="ts_hour.html">hour(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
-<td>Returns the hour in the day in the specified timeZome. The values returned are integer only and are in the range 0-23. </td>
+<td>Returns the hour in the day in the specified timeZone. The values returned are integer only and are in the range 0-23. </td>
 </tr>
 <tr>
 <td><a href="ts_minute.html">minute(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
-<td>Returns the minute of the hour for the timestamp specified by timeZome. The values returned are integer only and are in the range 0-59. </td>
+<td>Returns the minute of the hour for the timestamp specified by timeZone. The values returned are integer only and are in the range 0-59. </td>
 </tr>
 <tr>
 <td><a href="ts_isToday.html">isToday(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
@@ -1023,7 +1023,7 @@ Missing data functions allow you to interpolate data points in time series that 
 <br><strong>&lt;defaultValue&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>&lbrack;<strong>.orElse(&lt;defaultIfNoData&gt;)</strong>&rbrack;)</a>
 </td>
 <td>Fills in gaps in each time series described by <strong>tsExpression</strong>, by inserting data points with the value <strong>defaultValue</strong>. Specify <strong>timeWindow</strong> to insert data for just a limited period of time after each existing point. Specify <strong>delayTime</strong> to allow a gap before the inserted data.<br /><br />
-Use the <strong>.orElse</strong> operator to specify a default value even if the time series did not report any values in the time window. </td>
+Use the <a href="ts_orelse.html"><strong>.orElse</strong> operator</a> to specify a default value even if the time series is obsolete or nonexistent. </td>
 </tr>
 <tr>
 <td><a href="ts_last.html">last(&lbrack;<strong>&lt;timeWindow&gt;,</strong>&rbrack; <strong>&lt;tsExpression&gt;</strong>)</a>
@@ -1039,9 +1039,13 @@ Use the <strong>.orElse</strong> operator to specify a default value even if the
 <td><a href="ts_interpolate.html">interpolate(<strong>&lt;tsExpression&gt;</strong>)</a></td>
 <td>Fills in gaps in the time series described by <strong>tsExpression</strong>, by inserting a continuous linear interpolation of data points.</td>
 </tr>
+<tr>
+<td><a href="ts_orelse.html">.orElse(<strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>You can use the <code>.orElse()</code> operator to force the query to return a default value even if the time series is obsolete or nonexistent. You can enter a constant value wrapped in brackets, such as <code>orElse(5)</code>. You can also enter a timeseries for chained <code>.orElse()</code> statements, for example <code>.orElse(ts('my.metric'))</code>. 
+</td>
+</tr>
 </tbody>
 </table>
-
 
 <table style="width: 100%;">
 <tbody>
@@ -1449,7 +1453,7 @@ Predictive functions enable you to forecast data values and find outlier data va
 <td>
 <a href="ts_exists.html">exists(<strong>&lt;tsExpression&gt;</strong>)</a>
 </td>
-<td>Returns 1 if any time series described by the expression exists. Othrwise, returns 0.
+<td>Returns 1 if any time series described by the expression exists. Otherwise, returns 0.
 A time series exists if it has reported a data value in the last 4 weeks.  </td>
 </tr>
 <tr>
