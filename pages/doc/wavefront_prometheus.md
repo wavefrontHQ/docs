@@ -61,9 +61,11 @@ This video shows how to enable PromQL and then create a chart and an alert:
 
 ## Use PromQL in Charts and Alerts
 
-This example shows how to use PromQL, when PromQL is enabled and the default query language is set to be WQL. 
+This example shows how to use PromQL, when PromQL is enabled, and the default query language is set to be WQL: 
 
-If your preferred language is PromQL, and you have selected PromQL as the default language, you won't see the translation to Wavefront query language and the button for converting to Wavefront query language is not available.
+![Query settings when PromQL is enabled, WQL is the default language and translation to WQL is also available.](images/promql_query_settings.png)
+
+If your preferred language is PromQL, and you have selected to not see the translation to Wavefront query language, the button for converting to Wavefront query language is not available.
 
 <table style="width: 100%;">
 <tbody>
@@ -73,7 +75,8 @@ If your preferred language is PromQL, and you have selected PromQL as the defaul
 <li>Enter a PromQL query in the Query Editor.</li>
 <li>Click inside the Query Editor to see the translation to Wavefront query language.</li>
 <li>Finally, click the <strong>Convert to WQL</strong> button to return to Wavefront query language if that's your primary mode. The query is translated to Wavefront query language. A small number of PromQL constructs are not supported, as discussed below. </li></ol></td>
-<td width="60%"><img src="/images/promql_hover1.png" alt="query line in PromQL, with hover text that tells you can't switch the language without clearing the query">
+<td width="60%"><img src="/images/promql_hover1.png" alt="query line in PromQL, with hover text that tells you can't switch the language without clearing the query"><p></p>
+<img src="/images/promql_convert_button.png" alt="Button to convert to WQL.">
 </td>
 </tr>
 </tbody>
