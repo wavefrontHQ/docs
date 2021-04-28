@@ -8,38 +8,50 @@ summary: Create custom alert targets to receive alert notifications on different
 ---
 
 You can create custom alert targets to configure alert notifications for a variety of messaging platforms (email, pager services) and communication channels. You can route notifications for the same alert to different targets based on a point tag.
-
-To view alert targets, select **Browse > Alert Targets**.
-
+​
+​
 {% include note.html content="While every Wavefront user can view alert targets, you must have [Alert Management permission](permissions_overview.html) to create and manage alert targets. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible." %}
+​
+​
+## Learn About Alert Targets
+​
+This page explains how to create and manage a custom alert target.
+​
+* You can further [customize the contents](alert_target_customizing.html) of the alert notifications using Moustache syntax.
+​
+* Our blog post [Engineering Tips Series: How Wavefront's Devops Team Uses Alert Targets to Provide Exceptional Quality of Services to Customers](https://www.wavefront.com/engineering-tips-series-wavefronts-devops-team-uses-alert-targets-provide-exceptional-quality-services-customers/) explains how alert targets help Wavefront to keep things running smoothly.
+​
+* For the following integrations, you can follow the steps in the integration. Log in to your Wavefront instance or look at the following pages:
+  - [PagerDuty Integration](pagerduty.html)
+  - [VictorOps Integration](victorops.html)
+  - [Slack Integration](slack.html)
 
+​
+## Why Alert Targets?
+​
+Alert targets specify when and how to send notifications.
+​
+During alert creation, you can specify an email address or a PagerDuty key in the target list. You implicitly use  built-in Wavefront alert targets. These simple alert targets:
+​
+* Cause notifications to be sent whenever the alert is firing, updated, resolved, snoozed, or in a maintenance window.
+* Provide internal templates for the notification contents. These internal templates are maintained by Wavefront, and may change from release to release.
+​
+For more flexibility, you can create custom alert targets that specify.
+* Where to send notifications
+* What kind of information
+* Notification format
+* Which alert events should trigger notifications.
+​
+For example, you could use a custom alert target to:
+​
+* Expand (or limit) the set of triggering events for notifications.
+* Configure different contents for notifications triggered by different events.
+* Associate a short name with a long list of email addresses or a lengthy PagerDuty key.
+​
 
-
-## What Are Alert Targets?
-
-Alert targets specify when and how to send notifications. Wavefront supports simple and custom targets.
-
-- **Simple alert target**: During alert creation, you can specify an email address or a PagerDuty key in the target list. You implicitly use  built-in Wavefront alert targets. These simple alert targets:
-
-  - Cause notifications to be sent whenever the alert is firing, updated, resolved, snoozed, or in a maintenance window.
-  - Provide internal templates for the notification contents. These internal templates are maintained by Wavefront, and may change from release to release.
-
-  Simple alert targets are supported only for classic alerts.
-
-
-- **Custom alert targets**: Custom alert targets support specifying:
-  - Where to send notifications
-  - What kind of information
-  - Notification format
-  - Which alert events should trigger notifications.
-
-  For example, you could use a custom alert target to:
-
-  - Expand (or limit) the set of triggering events for notifications.
-  - Configure different contents for notifications triggered by different events.
-  - Associate a short name with a long list of email addresses or a lengthy PagerDuty key.
-
-  Custom alert targets are supported for classic and for multi-threshold alerts.
+## View Custom Alert Targets
+​
+To view alert targets, select **Browse > Alert Targets**.
 
 
 ## Create a Custom Alert Target
@@ -47,7 +59,7 @@ Alert targets specify when and how to send notifications. Wavefront supports sim
 The process for creating an alert target is similar for the different types of targets. Setting the **Type** changes which fields are displayed.
 
 1.  Select **Browse > Alert Targets**.
-1.  Select an existing alert target to edit or click the **Create Alert Target** button.
+1.  Click the **Create Alert Target** button.
 1.  Fill in the properties that are common to all alert targets.
     <table>
     <tbody>
@@ -79,7 +91,7 @@ The process for creating an alert target is similar for the different types of t
     </tbody>
     </table>
 
-1.  From the **Type** pull-down menu, select the alert target type:
+1.  From the **Type** drop-down menu, select the alert target type:
     <table>
     <tbody>
     <thead>
@@ -181,11 +193,13 @@ The process for creating an alert target is similar for the different types of t
         |metric|&lt;metric name&gt;|
         |&lt;point tag name&gt;|&lt;point tag value&gt;|
 
-  {% include note.html content="You must specify either default recipients or recipients determined by routing." %}
+    {% include note.html content="You must specify either default recipients or recipients determined by routing." %}
 
-  The screenshot below shows this for alert targets of type email.
-  ![alert route example](images/alert_route_example.png)
-1. Optionally customize the **Body Template** using the variables and functions described in [Customizing Alert Notifications](alert_target_customizing.html).
+    The screenshot below shows this for alert targets of type email.
+    
+    ![alert route example](images/alert_route_example.png)
+    
+1. Optionally, customize the **Body Template** using the variables and functions described in [Customizing Alert Notifications](alert_target_customizing.html).
 1. Click **Save** to add the alert target and make it visible on the Alert Targets page.
 1. Test your new alert target, and then [add it to an alert](#add-a-custom-alert-target-to-a-wavefront-alert).
 
@@ -213,7 +227,7 @@ To add a custom alert target to a new or existing alert:
 
 1. Display the [Create Alert](alerts.html#creating-an-alert) page or the [Edit Alert](alerts.html#editing-an-alert) page.
 1. Scroll down to the **Target List** section.
-1. In the **Alert Target** field, start typing. A dropdown list appears that contains all available Wavefront alert targets that can be integrated to your alert.
+1. Start typing in the **Alert Target** field. A drop-down list appears. This list contains all available Wavefront alert targets that can be integrated to your alert.
 1. Select the alert target that you want to add, and click **Save**.
 
 
@@ -294,15 +308,3 @@ ts(~alert.webhooks.*.*, name=<webhook_name>)
 ```
 
 If the response code of the webhook is anything other than 2xx, Wavefront creates an event with the name `<webhook_id>.<webhook_name>.<response_code>`.
-
-## Do More
-
-* [Customize the contents](alert_target_customizing.html) of the alert notifications using Moustache syntax.
-
-* Follow the steps in one of our integrations to set up a custom alert target. Log in to your Wavefront instance or look at the following doc pages:
-  - [PagerDuty Integration](pagerduty.html)
-  - [VictorOps Integration](victorops.html)
-  - [Slack Integration](slack.html)
-
-
-* Read our blog post [Engineering Tips Series: How Wavefront's DevOps Team Uses Alert Targets to Provide Exceptional Quality of Services to Customers](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/engineering-tips-series-how-wavefront-s-devops-team-uses-alert-targets-to-provide-exceptional-quality-of-services-to-customers) to learn how alert targets help Wavefront to keep things running smoothly.

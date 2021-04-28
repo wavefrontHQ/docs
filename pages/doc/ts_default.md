@@ -84,18 +84,10 @@ If we wrap `default()` and specify 0 as the default, missing data are replaced w
   ```
   default(100, ts('my.metric').orElse(25))
   ```
-* If the time series does **not** exist in the time window, NO DATA is shown by default. However, `.orElse` specifies a value of 25, which is shown for the time series.
+* If the time series does **not** exist in the time window, i.e. is not reporting in the past four weeks, NO DATA is shown by default. However, `.orElse` specifies a value of 25, which is shown for the time series.
   ```
   default(100, ts('metric_not_there').orElse(25))
   ```
-
-You can use `.orElse` without `default()` and you can chain multiple `.orElse` operators. In the following example:
-```
-ts(<metric_not_there>).orElse(ts(<metric_sometimes_there>)).orElse(25)
-```
-For this example:
-* If `metric_not_there` has no value, the function returns the value of `(ts(<metric_sometimes_there>))`
-* If `(ts(<metric_sometimes_there>))` also has no value, the function returns 25.
 
 
 ## Caveats
