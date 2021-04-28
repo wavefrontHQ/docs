@@ -1197,3 +1197,38 @@ To update the template for a custom Slack alert target that was created before 2
     {% endraw %}
 
 4. Paste the copied section into template of the pre-existing alert target.
+
+## Link to the Tracing Service Dashboard From an Alert Target 
+
+If your alert has an application or service name and it meets a specific alert target, you get a link to drill down to the [service dashboard](tracing_service_dashboard.html). The service dashboard lets you see RED metrics of the application or service, and find out the root cause. 
+
+Let's walk through the following scenario and see how it works:
+
+1. Create an alert target. Let's use the Generic Webhook alert target template because it includes the required settings by default:
+    {% include note.html content="If you want to add this to your slack notifications, emails, or pager duty notifications, you need to copy the code snippet above and add it to the respective template." %}
+    
+    <pre>
+    "notificationId": "&#123;&#123;&#123;notificationId&#125;&#125;&#125;",
+    "tracingDashboardLinks": [
+      &#123;&#123;#trimTrailingComma&#125;&#125;
+        &#123;&#123;&#35;tracingPageLinks&#125;&#125;
+          "&#123;&#123;&#123;.&#125;&#125;&#125;",
+        &#123;&#123;/tracingPageLinks&#125;&#125;
+    </pre>
+    
+1. [Create an alert](alerts.html) that would fire for a specific application or service and set the alert target you created.
+    For example, you can create an alert that fires when the request rate is greater than 3 for the beachshirts application's delivery service.
+    ```
+    cs(tracing.derived.*.invocation.count, application="beachshirts" and service="delivery")
+    ```
+    
+Once the alert you created moves to the firing stage, you get a notification with a link to service dashboard. For example, in this scenario the JSON output of your notification would be:
+```
+"alertId": "1619577500306",
+  "alertTags": [],
+  "notificationId": "90d70904-85da-4ec3-8e46-b1df2035021c",
+  "tracingDashboardLinks": [
+    "https://<cluster_name>.wavefront.com/tracing/service/details#_v01(g:(d:1500,s:1619576595),p:(application:(v:beachshirts),service:(v:delivery)))"
+  ]
+```
+The link takes you to the service dashboard of the beachshirts application's delivery service.
