@@ -1200,7 +1200,7 @@ To update the template for a custom Slack alert target that was created before 2
 
 ## Link to the Tracing Service Dashboard 
 
-If the Wavefront Query Language (WQL) in an alert has an application or service name and when it meets a specific alert target, you get a link to drill down to the [service dashboard](tracing_service_dashboard.html). The service dashboard lets you see RED metrics of the application or service and identify potential hot spots. 
+If the Wavefront query in an alert has an application or service name and it meets a specific alert target, you get a link to drill down to the [service dashboard](tracing_service_dashboard.html). The service dashboard lets you see RED metrics of the application or service and identify potential hot spots. 
 
 Let's walk through the following scenario and see how it works:
 
