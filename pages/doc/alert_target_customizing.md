@@ -1200,7 +1200,7 @@ To update the template for a custom Slack alert target that was created before 2
 
 ## Include a Link to a Tracing Service Dashboard 
 
-If the Wavefront query in an alert has an application or service name and meets a specific alert target, you get a link to drill down to the [service dashboard](tracing_service_dashboard.html). The service dashboard lets you see RED metrics of the application or service and identify potential hot spots. 
+If the Wavefront query in an alert has an application and service name and meets a specific alert target, you get a link to drill down to the [service dashboard](tracing_service_dashboard.html). The service dashboard lets you see RED metrics of the application or service and identify potential hot spots. 
 
 Let's walk through a scenario:
 
@@ -1211,7 +1211,6 @@ Let's walk through a scenario:
     {% include note.html content="If you want to include a service dashboard link in a Slack notification, email, or Pager Duty notification, you need to copy the code snippet below and add it to the respective template." %}
     
     <pre>
-    "notificationId": "&#123;&#123;&#123;notificationId&#125;&#125;&#125;",
     "tracingDashboardLinks": [
       &#123;&#123;#trimTrailingComma&#125;&#125;
         &#123;&#123;&#35;tracingPageLinks&#125;&#125;
@@ -1225,12 +1224,9 @@ Let's walk through a scenario:
     
 If the alert you created moves to the firing stage, Wavefront sends a notification to the users specified in the alert target. The notification includes a link to the service dashboard. For example, in this scenario, the JSON output of your notification looks like this:
 ```
-"alertId": "1619577500306",
-  "alertTags": [],
-  "notificationId": "90d70904-85da-4ec3-8e46-b1df2035021c",
-  "tracingDashboardLinks": [
-    "https://<cluster_name>.wavefront.com/tracing/service/details#_v01(g:(d:1500,s:1619576595),p:(application:(v:beachshirts),service:(v:delivery)))"
-  ]
+"tracingDashboardLinks": [
+  "https://<cluster_name>.wavefront.com/tracing/service/details#_v01(g:(d:1500,s:1619576595),p:(application:(v:beachshirts),service:(v:delivery)))"
+]
 ```
 The link takes you to the service dashboard of the `beachshirts` application's `delivery` service.
 
