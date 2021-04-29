@@ -1221,9 +1221,7 @@ Let's walk through a scenario:
     
 1. [Create an alert](alerts.html) that would fire for a specific application or service and set the alert target you created.
     Here we create an alert that fires when the request rate is greater than 3 for the `beachshirts` application's `delivery` service.
-    ```
-    cs(tracing.derived.*.invocation.count, application="beachshirts" and service="delivery")
-    ```
+    ![a screenshot of the alert.](images/alert_tracing_service_dashboard.png)
     
 If the alert you created moves to the firing stage, Wavefront sends a notification to the users specified in the alert target. The notification includes a link to the service dashboard. For example, in this scenario, the JSON output of your notification looks like this:
 ```
