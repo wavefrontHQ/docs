@@ -46,22 +46,7 @@ exists(ts(inv_1_get_count, status="7**" and operation="*" and cname="${environme
 This query returns 1 if at least one time series has a value reported within the 1d (24 hours). Otherwise, the query returns 0 if the values of all of the time series are older than 1d (24 hours).
 Because this query returns either 1 or 0, it is useful as a conditional expression in an `if()` function.
 
-For clarity, we'll name this query `hasData` so we can easily refer to it in the following examples.
-
-### Example 1
-
-This example tests `hasData` to see whether its underlying metrics are reporting data, and if so, returns that data:
-
-```
-if(${hasData}, ts(inv_1_get_count, status="7**" and operation="*" and cname="${environment}"), 100)
-```
-
-In this example,
-* `hasData` evaluates to 1 (true) if its underlying metrics are reporting, so `if()` returns that time series.
-* `hasData` evaluates to 0 (false) if its underlying metrics are not reporting, so `if()` returns the constant 100.
-
-
-### Example 2
+For clarity, we'll name this query `hasData` so we can easily refer to it in the example below.
 
 This example tests `hasData` to see whether its underlying metrics are reporting data, and uses the result to choose between two other previously defined queries named `queryOfInterest` and `substituteQuery`:
 
