@@ -1198,14 +1198,14 @@ To update the template for a custom Slack alert target that was created before 2
 
 4. Paste the copied section into template of the pre-existing alert target.
 
-## Link to the Tracing Service Dashboard From an Alert Target 
+## Link to the Tracing Service Dashboard 
 
-If your alert has an application or service name and it meets a specific alert target, you get a link to drill down to the [service dashboard](tracing_service_dashboard.html). The service dashboard lets you see RED metrics of the application or service, and find out the root cause. 
+If the Wavefront Query Language (WQL) in an alert has an application or service name and when it meets a specific alert target, you get a link to drill down to the [service dashboard](tracing_service_dashboard.html). The service dashboard lets you see RED metrics of the application or service and identify potential hot spots. 
 
 Let's walk through the following scenario and see how it works:
 
 1. Create an alert target. Let's use the Generic Webhook alert target template because it includes the required settings by default:
-    {% include note.html content="If you want to add this to your slack notifications, emails, or pager duty notifications, you need to copy the code snippet above and add it to the respective template." %}
+    {% include note.html content="If you want to add this to your slack notifications, emails, or pager duty notifications, you need to copy the code snippet below and add it to the respective template." %}
     
     <pre>
     "notificationId": "&#123;&#123;&#123;notificationId&#125;&#125;&#125;",
@@ -1222,7 +1222,7 @@ Let's walk through the following scenario and see how it works:
     cs(tracing.derived.*.invocation.count, application="beachshirts" and service="delivery")
     ```
     
-Once the alert you created moves to the firing stage, you get a notification with a link to service dashboard. For example, in this scenario the JSON output of your notification would be:
+Once the alert you created moves to the firing stage, you get a notification with a link to the service dashboard. For example, in this scenario, the JSON output of your notification looks like this:
 ```
 "alertId": "1619577500306",
   "alertTags": [],
