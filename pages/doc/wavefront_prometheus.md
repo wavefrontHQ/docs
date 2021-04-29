@@ -33,13 +33,9 @@ To set PromQL settings for your organization:
 3. Select the default query language for new users. 
 4. Select the default way for building queries. 
    
-   If the default language is set to **PromQL**, the only way to build queries is to use the Query Editor.
+   If the default language is set to **PromQL**, the only way to build queries is to use the Query Editor.<!---5. Enable **Always save queries as WQL** if you expect that some users prefer Wavefront query language.The queries will be always translated and saved in Wavefront query language.--->
    
-5. Enable **Always save queries as WQL** if you expect that some users prefer Wavefront query language. 
-   
-   The queries will be always translated and saved in Wavefront query language.
-   
-6. Enable **Show WQL translation** to show the translation for all PromQL queries. 
+5. Enable **Show WQL translation** to show the translation for all PromQL queries. 
 
    Select this check box if you expect that users want to learn Wavefront query language. The translation appears only if .
 
