@@ -7,7 +7,18 @@ permalink: wavefront_release_notes.html
 summary: Learn about new and updated features in Wavefront.
 ---
 
-These pages list new and updated features in the Wavefront service.
+This page lists new and updated features in the Wavefront service.
+
+## 2021-15.x Release Notes
+
+* **Product improvements**: Going forward, spans that have the `$` character in the application or service name are rejected by Wavefront.
+* **Documentation improvements**: 
+  * A new video that highlights the features of the Traces Browser.
+    <iframe src="https://bcove.video/3vaNJM7" width="700" height="400" allowfullscreen="true" alt="Highlights the Wavefront traces browser features."></iframe>
+  * In response to user feedback, we updated the [Kubernetes Troubleshooting guide](wf_kubernetes_troubleshooting.html).
+
+
+## Past Release Notes
 
 - [2021-14.x Release Notes](2021.14.x_release_notes.html)
 - [2021-08.x Release Notes](2021.08.x_release_notes.html)
