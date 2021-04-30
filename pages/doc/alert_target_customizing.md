@@ -1197,3 +1197,39 @@ To update the template for a custom Slack alert target that was created before 2
     {% endraw %}
 
 4. Paste the copied section into template of the pre-existing alert target.
+
+## Include a Link to a Tracing Service Dashboard 
+
+If the Wavefront query in an alert has an application and service name and meets a specific alert target, you get a link to drill down to the [service dashboard](tracing_service_dashboard.html). The service dashboard lets you see RED metrics of the application or service and identify potential hot spots. 
+
+Let's walk through a scenario:
+
+1. Create an alert target. Let's use the Generic Webhook alert target template because it includes the required settings by default:
+
+    ![a screenshot of the Generic Webhook alert target template. The tracing dahsboard section is highlighted in red.](images/alert_target_tracing_dahsboard.png)
+    
+    {% include note.html content="If you want to include a service dashboard link in a Slack notification, email, or Pager Duty notification, you need to copy the code snippet below and add it to the respective template." %}
+    
+    <pre>
+    "tracingDashboardLinks": [
+      &#123;&#123;#trimTrailingComma&#125;&#125;
+        &#123;&#123;&#35;tracingPageLinks&#125;&#125;
+          "&#123;&#123;&#123;.&#125;&#125;&#125;",
+        &#123;&#123;/tracingPageLinks&#125;&#125;
+    </pre>
+    
+1. [Create an alert](alerts.html) that would fire for a specific application or service and set the alert target you created.
+    Here we create an alert that fires when the request rate is greater than 3 for the `beachshirts` application's `delivery` service.
+    ![a screenshot of the alert.](images/alert_tracing_service_dashboard.png)
+    
+If the alert you created moves to the firing stage, Wavefront sends a notification to the users specified in the alert target. The notification includes a link to the service dashboard. For example, in this scenario, the JSON output of your notification looks like this:
+```
+"tracingDashboardLinks": [
+  "https://<cluster_name>.wavefront.com/tracing/service/details#_v01(g:(d:1500,s:1619576595),p:(application:(v:beachshirts),service:(v:delivery)))"
+]
+```
+The link takes you to the service dashboard of the `beachshirts` application's `delivery` service.
+
+You also see the dashboard link in the alert. Click on the image icon to go to the service dashboard of the `beachshirts` application's `delivery` service.
+
+![A screenshot of the alert with the tracing service dashboard icon](images/alert_with_tracing_service_dashboard_link.png)
