@@ -1,7 +1,7 @@
 ---
 title: Wavefront Release Notes
 keywords:
-tags: 
+tags:
 sidebar: doc_sidebar
 permalink: wavefront_release_notes.html
 summary: Learn about new and updated features in Wavefront.
@@ -9,10 +9,17 @@ summary: Learn about new and updated features in Wavefront.
 
 This page lists new and updated features in the Wavefront service.
 
+## 2021-16.x Release Notes
+
+* **Alert Notifications to Tracing Dashboard**. Customize your alert notification to [include a link to a Tracing dashboard](alert_target_customizing.html#include-a-link-to-a-tracing-service-dashboard).
+* **Deprecation of Hipchat Integration**. The Hipchat integration is no longer available in the product or the documentation.
+* **Trace Search Now Ignores Selected Time Window**. When you search for a Trace ID, the search now returns results regardless of the selected time window. 
+
+
 ## 2021-15.x Release Notes
 
 * **Product improvements**: Going forward, spans that have the `$` character in the application or service name are rejected by Wavefront.
-* **Documentation improvements**: 
+* **Documentation improvements**:
   * A new video that highlights the features of the Traces Browser.
     <iframe src="https://bcove.video/3vaNJM7" width="700" height="400" allowfullscreen="true" alt="Highlights the Wavefront traces browser features."></iframe>
   * In response to user feedback, we updated the [Kubernetes Troubleshooting guide](wf_kubernetes_troubleshooting.html).
