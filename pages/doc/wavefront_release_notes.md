@@ -13,7 +13,7 @@ This page lists new and updated features in the Wavefront service.
 
 * **Alert Notifications to Tracing Dashboard**. Customize your alert notification to [include a link to a Tracing Service dashboard](alert_target_customizing.html#include-a-link-to-a-tracing-service-dashboard).
 * **Deprecation of Hipchat Integration**. The Hipchat integration is no longer available in the product or the documentation.
-* **Trace Search Now Ignores Selected Time Window**. When you search for a Trace ID, the search now returns results regardless of the selected time window.
+* **Trace ID Search Ignores Selected Time Window**. When you search for a Trace ID, the search now returns results regardless of the selected time window.
 
 
 ## 2021-15.x Release Notes
