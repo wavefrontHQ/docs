@@ -315,6 +315,9 @@ Using the table view, you can:
     </tr>
 
   </table>
+  
+* Use <img src="images/tracing_link_icon.png"
+  style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link"/> to get a link and share what you’re seeing right now (NON-LIVE display) with other users.
 
 * Update the legend by clicking the settings icon. These settings can be configured by each user and apply to the application map, and grid view too.
   <table style = "width: 100;">
@@ -360,9 +363,21 @@ Using the table view, you can:
       </td>
     </tr>
   </table>
-* Click the vertical ellipsis to drill down to the Service Dashboard, Operation Dashboard, or Traces Browser.
-* Use <img src="images/tracing_link_icon.png"
-style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link"/> to get a link and share what you’re seeing right now (NON-LIVE display) with other users.
+* Click the vertical ellipsis to drill down to the Service Dashboard, Operation Dashboard, Traces Browser, create alerts, or configure configure the apdex settings (you see this setting only if you are a Super Admin user or users with Applications permissions).
+* Create an alert:
+  * Click the vertical ellipsis > **Create Alert**.
+    <br/>![A screenshot of how to click alert as explained in the step](images/trace_table_view_create_alert.png)
+  * Update the alert settings:
+    * You can set the alert conditions based on your data. For example, let's create an alert that fires in the:
+      * Severe state for the shopping service when the error percentage is greater than 6%
+      * and in the Warn state when it is greater than 3%.
+    * Optionally, [create an alert target](webhooks_alert_notification.html) to receive alert notifications for a variety of messaging platforms (email, pager services) and communication channels. 
+      <br/>You can also customize your alert targets to [include a link to a service dashboard when the alert fires](alert_target_customizing.html#include-a-link-to-a-tracing-service-dashboard).
+    * Optionally, [use alert tags](alerts_manage.html#organize-related-alerts-with-alert-tags) to organize related alerts into categories.
+  * Click **Create Alert**.
+  ![Create an alert from the table view page.](images/tracing_creating_an_alert_app_map.png)
+ 
+ For details, see [Create a Multi-Threshold Alert](alerts.html#create-a-multi-threshold-aler). Once the alert is created, click **Alerting** and search for the alert you created on the alert browser.
 
 <a name="grid_view"></a>
 
@@ -418,6 +433,21 @@ On the page for a particular application, you can:
         </td>
       </tr>
     </table>
+* Create an alert:
+  * Click the vertical ellipsis > **Create Alert**.
+    <br/>![A screenshot of how to click alert as explained in the step](images/tracing_grid_view_create_alert.png)
+  * Update the alert settings:
+    * You can set the alert conditions based on your data. For example, let's create an alert that fires in the:
+      * Severe state for the shopping service when the error percentage is greater than 6%
+      * and in the Warn state when it is greater than 3%.
+    * Optionally, [create an alert target](webhooks_alert_notification.html) to receive alert notifications for a variety of messaging platforms (email, pager services) and communication channels. 
+      <br/>You can also customize your alert targets to [include a link to a service dashboard when the alert fires](alert_target_customizing.html#include-a-link-to-a-tracing-service-dashboard).
+    * Optionally, [use alert tags](alerts_manage.html#organize-related-alerts-with-alert-tags) to organize related alerts into categories.
+  * Click **Create Alert**.
+    ![Create an alert from the table view page.](images/tracing_creating_an_alert_app_map.png)
+       
+  For details, see [Create a Multi-Threshold Alert](alerts.html#create-a-multi-threshold-aler). Once the alert is created, click **Alerting** and search for the alert you created on the alert browser.
+)
 
 <!--
 
