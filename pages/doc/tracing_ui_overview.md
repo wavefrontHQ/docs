@@ -434,7 +434,7 @@ On the page for a particular application, you can:
       </tr>
     </table>
 * Create an alert:
-  * Click the vertical ellipsis > **Create Alert**.
+  * Click **Actions** > **Create Alert**.
     <br/>![A screenshot of how to click alert as explained in the step](images/tracing_grid_view_create_alert.png)
   * Update the alert settings:
     * You can set the alert conditions based on your data. For example, let's create an alert that fires in the:
