@@ -62,7 +62,7 @@ Let's walk through the following scenario to get a quick overview of the applica
           Duration: Update the legend to highlight the data based on the duration. Select <b>Duration</b> from the dropdown menu and customize the values. The values need to be in ascending order and in milliseconds.
         </li>
         <li>
-          Apdex: Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only <a href="authorization.html#who-is-the-super-admin-user">Super Admin users</a> can configure the threshold (T).
+          Apdex: Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only <a href="authorization.html#who-is-the-super-admin-user">Super Admin users</a> or users with <a href="permissions_overview.html">Applications permissions</a> can configure the threshold (T).
         </li>
       </ul>
     </td>
@@ -119,16 +119,56 @@ Let's walk through the following scenario to get a quick overview of the applica
           <li>View Request, Error, and Duration (RED) metrics of the specific service.</li>
           <li>See how the service is performing using the Apdex score.</li>
           <li> View how a specific service communicates with the other services in an application when you click <b>Focus</b>.</li>
-          <li> Navigate to the Service Dashboard when you click <b>Dashboard</b>.</li>
-          <li> Navigate to the Traces Browser when you click <b>Traces</b>.</li>
+          <li> Navigate to the Traces Browser when you click <b>View Traces</b>.</li>
+          <li>Click <b>Actions</b> to:</li>
+          <ul>
+            <li> Navigate to the Service Dashboard when you click <b>Dashboard</b>.</li>
+            <li>Create an alert as explained in the next step.</li>
+            <li>Click <b>Configure</b> to <a href="tracing_apdex.html">configure the apdex settings</a>. You see this setting only if you are a Super Admin user or users with Applications permissions</li>
+          </ul>
           <li> See the components used by the service. The styling service uses the OpenTracing, Java, Dropwizard, and Jersey components.</li>
         </ul>
       </td>
     <td><img src="/images/tracing_application_map_service.png" alt="Popup when you click on a service"/></td>
   </tr>
   <tr>
+    <td>
+      <b>Step 6: Create an Alert</b><br/>
+        With Wavefront, you can <a href="alerts.html#how-alerts-work-video">create smart alerts</a> that filter noise and capture true anomalies.
+        
+        <ul>
+        <li>
+          Click on a service > <b>Actions</b> > <b>Create Alert</b> to create an alert for the shopping service:
+        </li>
+        <li>
+          Update the alert settings:
+        </li>
+        <ul>
+          <li>
+            You can set the alert conditions based on your data. For example, let's create an alert that fires in the:
+              <ul>
+                <li> Severe state for the shopping service when the error percentage is greater than 6%</li>
+                <li>and in the Warn state when it is greater than 3%.</li>
+              </ul> 
+          </li>
+          <li>
+            Optionally, <a href="webhooks_alert_notification.html">create an alert target</a> to receive alert notifications for a variety of messaging platforms (email, pager services) and communication channels. <br/>You can also customize your alert targets to <a href="alert_target_customizing.html#include-a-link-to-a-tracing-service-dashboard">include a link to a service dashboard when the alert fires</a>.
+          </li>
+          <li>
+            Optionally, <a href="alerts_manage.html#organize-related-alerts-with-alert-tags">use alert tags</a> to organize related alerts into categories.
+          </li>
+        </ul>
+        <li>
+          Click <b>Create Alert</b>.
+        </li>
+      </ul>
+       For details, see <a href="alerts.html#create-a-multi-threshold-alert">Create a Multi-Threshold Alert</a>. Once the alert is created, click <b>Alerting</b> and search for the alert you created on the alert browser.
+      </td>
+    <td><img src="/images/tracing_creating_an_alert_app_map.png" alt="Create an alert from the app map page."/></td>
+  </tr>
+  <tr>
     <td markdown="span">
-      **Step 6: Focus on a service**<br/>
+      **Step 7: Focus on a service**<br/>
       Click on a service and then click <b>Focus on service</b> to focus on the styling service of the beachshirts application.<br/>
 
       This will help you focus on a specific service when you have many services in your application.
@@ -137,7 +177,7 @@ Let's walk through the following scenario to get a quick overview of the applica
   </tr>
   <tr>
     <td markdown="span">
-      **Step 7: Hover over a tracing traffic** <br/>
+      **Step 8: Hover over a tracing traffic** <br/>
       Hover over the tracing traffic between the styling and shopping service. You see that they send requests to each other.
 
       <br/>When you hover over a tracing traffic (the arrow that goes from one service to the other). It highlights the direction of the requests between the two services. <br/>Tracing traffic is bidirectional if the two services send requests to each other.
@@ -146,7 +186,7 @@ Let's walk through the following scenario to get a quick overview of the applica
   </tr>
   <tr>
     <td>
-      <b>Step 8: Click on a tracing traffic</b>
+      <b>Step 9: Click on a tracing traffic</b>
       <br/>When you click on the tracing traffic between the styling and printing service, you can:
         <ul><li>View Request, Error, and Duration (RED) metrics for the specific edge.</li>
         <li> Navigate to the Traces Browser when you click <b>View traces for this traffic</b>.</li>
@@ -200,7 +240,7 @@ Using the table view, you can:
         Apdex Threshold
       </td>
       <td markdown="span">
-        The threshold Apdex threshold of the service. The default threshold value is set to 100ms, and only [Super Admin users](authorization.html#who-is-the-super-admin-user) can configure the threshold.
+        The threshold Apdex threshold of the service. The default threshold value is set to 100ms, and only a [Super Admin user](authorization.html#who-is-the-super-admin-user) or users with [Applications permissions](permissions_overview.html) can configure the threshold (T).
       </td>
     </tr>
     <tr>
@@ -299,7 +339,7 @@ Using the table view, you can:
     <tr>
       <td markdown="span">
         **Apdex** <br/>
-        Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only [Super Admin users](authorization.html#who-is-the-super-admin-user) can configure the threshold (T).
+        Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only [Super Admin user](authorization.html#who-is-the-super-admin-user) or users with [Applications permissions](permissions_overview.html) can configure the threshold (T).
       </td>
       <td markdown ="span">
         ![The image shows the setting and the legend setting with apdex selected from the drop down.](images/apdex_score_legend_colors.png)
