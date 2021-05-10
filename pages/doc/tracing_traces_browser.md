@@ -30,6 +30,19 @@ See the Traces Browser:
 
 From the Traces Browser, you can:
 * Query for traces and view the query results in the [traces list](#query-for-a-list-of-traces).
+    {{site.data.alerts.note}}
+    <ul>
+      <li>
+        When you query traces, the query results include traces that match your search from the time you start the search to the past 7 days.<br/>
+        If you want to get traces for a specific time period from your query results, use the time window.
+        <img src="images/traces_browser_time_window.png" alt="shows a screenshot of the time window on the traces browser screen."/>
+      </li>
+      <li>
+        If you enabled the traces browser to show live (<img src="images/traces_browser_live.png"
+        style="vertical-align:text-bottom;width:60px" alt="a screenshot fo the live button on the traces browser."/>) results, the results get updated every 5 minutes with the latest traces.
+      </li>
+    </ul>
+    {{site.data.alerts.end}}
 * Select a trace in the list and:
   - Use the [service map panel](#investigate-the-service-map-for-a-trace) to investigate the services that contribute spans to the trace.
   - Use the [trace details panel](#examine-trace-details) to examine the individual spans in the trace.
