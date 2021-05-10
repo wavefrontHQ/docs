@@ -29,24 +29,30 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
 
 Create a file called `consul.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
 {% raw %}
-   ```
-   # # Gather health check statuses from services registered in Consul
-   [[inputs.consul]]
-   #   ## Most of these values default to the value configured at the Consul agent level.
-   #   ## Optional Consul server address (default: "localhost")
-   #   # address = "localhost"
-   #   ## Optional URI scheme for the Consul server (default: "http")
-   #   # scheme = "http"
-   #   ## Optional ACL token used in every request (default: "")
-   #   # token = ""
-   #   ## Optional username used for request HTTP Basic Authentication (default: "")
-   #   # username = ""
-   #   ## Optional password used for HTTP Basic Authentication (default: "")
-   #   # password = ""
-   #   ## Optional data center to query (default: "")
-   #   # datacentre = ""
-
-   ```
+```
+# # Gather health check statuses from services registered in Consul
+[[inputs.consul]]
+  ## Most of these values default to the value configured at the Consul agent level.
+  ## Optional Consul server address (default: "localhost")
+  # address = "localhost"
+  ## Optional URI scheme for the Consul server (default: "http")
+  # scheme = "http"
+  ## Metric version controls the mapping from Consul metrics into
+  ## Telegraf metrics. Version 2 moved all fields with string values
+  ## to tags.
+  ##
+  ##   example: metric_version = 1; deprecated in 1.16
+  ##            metric_version = 2; recommended version
+  metric_version = 2
+  ## Optional ACL token used in every request (default: "")
+  # token = ""
+  ## Optional username used for request HTTP Basic Authentication (default: "")
+  # username = ""
+  ## Optional password used for HTTP Basic Authentication (default: "")
+  # password = ""
+  ## Optional data center to query (default: "")
+  # datacentre = ""
+```
 {% endraw %}
 ### Step 3. Restart Telegraf
 
