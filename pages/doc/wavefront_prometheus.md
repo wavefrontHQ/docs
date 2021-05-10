@@ -6,7 +6,7 @@ permalink: wavefront_prometheus.html
 summary: Run PromQL queries in the Wavefront Query Editor
 ---
 
-Starting with release 2020-26.x, Wavefront has supported PromQL queries. With the 2021-16.x release, we add admin-level organization settings and a query line GUI that includes a translation option.
+Starting with release 2020-26.x, Wavefront has supported PromQL queries. With the 2021-17.x release, we add admin-level organization settings and a query line GUI that includes a translation option.
 
 * Administrators have control over user defaults:
   - On the Organization Settings page (New User Defaults) administrators can enable users to write queries in PromQL.
@@ -37,7 +37,7 @@ To set PromQL settings for your organization:
    
 5. Enable **Show WQL translation** to show the translation for all PromQL queries. 
 
-   Select this check box if you expect that users want to learn Wavefront query language. The translation appears only if .
+   Select this check box if you expect that users want to learn Wavefront query language. The translation appears only if the query is with a valid PromQL syntax. Otherwise, you see an error.
 
 ## Set PromQL User Preferences (All Users)
 
