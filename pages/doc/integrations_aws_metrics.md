@@ -33,7 +33,10 @@ Wavefront retrieves AWS metric and dimension data from AWS services using the AW
 
 ### Configuring CloudWatch Data Ingestion
 
-You can configure which instances and volumes to ingest metrics from, which metrics to ingest, and the rate at which Wavefront fetches metrics. To configure CloudWatch ingestion:
+You can configure which instances and volumes to ingest metrics from, which metrics to ingest, and the rate at which Wavefront fetches metrics.
+{% include tip.html content="The following &lt;key&gt;=&lt;value&gt; pairs are supported only for EC2 and EBS metrics." %}
+
+To configure CloudWatch ingestion:
 
 1. In Wavefront, click **Integrations** in the taskbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
