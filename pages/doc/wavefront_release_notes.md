@@ -12,9 +12,17 @@ This page lists new and updated features in the Wavefront service.
 ## 2021-17.x Release Notes
 
 * **Create Alerts for Your Services**: Now, you can [create alerts for your services](tracing_ui_overview.html#create-alerts) from the tracing application status page. 
-* **PromQL Support**: You can now create charts and alerts by using PromQL. Administrators can enable users to write queries in PromQL. Users for whom PromQL is enabled can also set additional settings. See [Using PromQL in Wavefront](wavefront_prometheus.html) for information about enabling PromQL and how to use PromQL in charts and alerts.
+* **Full PromQL Support in the UI**: We've expanded the limited PromQL support and we added:
+ 
+  * Full support for creating charts and alerts with PromQL queries.
+  * Admin-level setting that determines whether users can write queries in PromQL. 
+  * Additional user-level settings for PromQL behavior. For example, you can display the translation to Wavefront query language for any PromQL query, by default.  
+
+  See [Using PromQL in Wavefront](wavefront_prometheus.html) for information about enabling PromQL and how to use PromQL in charts and alerts.
 
    ![Prometheus query](images/prometheus_sample.png)
+
+* **UI Updates**: The **System Preferences** option that Administrators can access from the gear icon, is now renamed to **Organization Settings**.
 
 * **Pass a Time Window in Markdown Charts**: You can now pass a time window in a markdown chart, so that the dynamic link to a chart or a dashboard in the markdown chart respectively opens a chart or a dashboard within the current time range. For details, see [Markdown Chart](ui_chart_reference.html#markdown-chart).
 
