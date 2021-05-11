@@ -11,19 +11,24 @@ This page lists new and updated features in the Wavefront service.
 
 ## 2021-17.x Release Notes
 
-* **Create alerts for your services**: Now, you can [create alerts for your services](tracing_ui_overview.html#create-alerts) from the tracing application status page. 
+* **Create Alerts for Your Services**: Now, you can [create alerts for your services](tracing_ui_overview.html#create-alerts) from the tracing application status page. 
+* **PromQL Support**: You can now create charts and alerts by using PromQL. Administrators can enable users to write queries in PromQL. Users for whom PromQL is enabled can also set additional settings. See [Using PromQL in Wavefront](wavefront_prometheus.html) for information about enabling PromQL and how to use PromQL in charts and alerts.
+
+   ![Prometheus query](images/prometheus_sample.png)
+
+* **Pass a Time Window in Markdown Charts**: You can now pass a time window in a markdown chart, so that the dynamic link to a chart or a dashboard in the markdown chart respectively opens a chart or a dashboard within the current time range. For details, see [Markdown Chart](ui_chart_reference.html#markdown-chart).
 
 ## 2021-16.x Release Notes
 
-* **Alert Notifications to Tracing Dashboard**. Customize your alert notification to [include a link to a Tracing Service dashboard](alert_target_customizing.html#include-a-link-to-a-tracing-service-dashboard).
-* **Deprecation of Hipchat Integration**. The Hipchat integration is no longer available in the product or the documentation.
-* **Trace ID Search Ignores Selected Time Window**. When you search for a Trace ID, the search now returns results regardless of the selected time window.
+* **Alert Notifications to Tracing Dashboard**: Customize your alert notification to [include a link to a Tracing Service dashboard](alert_target_customizing.html#include-a-link-to-a-tracing-service-dashboard).
+* **Deprecation of HipChat Integration**: The HipChat integration is no longer available in the product or the documentation.
+* **Trace ID Search Ignores Selected Time Window**: When you search for a Trace ID, the search now returns results regardless of the selected time window.
 
 
 ## 2021-15.x Release Notes
 
-* **Product improvements**: Going forward, spans that have the `$` character in the application or service name are rejected by Wavefront.
-* **Documentation improvements**:
+* **Product Improvements**: Going forward, spans that have the `$` character in the application or service name are rejected by Wavefront.
+* **Documentation Improvements**:
   * A new video that highlights the features of the Traces Browser.
     <iframe src="https://bcove.video/3vaNJM7" width="700" height="400" allowfullscreen="true" alt="Highlights the Wavefront traces browser features."></iframe>
   * In response to user feedback, we updated the [Kubernetes Troubleshooting guide](wf_kubernetes_troubleshooting.html).
