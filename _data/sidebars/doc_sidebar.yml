@@ -542,7 +542,7 @@ entries:
         url: /wavefront_kubernetes.html
         output: web
 
-      - title: Kubernetes Integration
+      - title: Set Up Kubernetes Integration
         url: /kubernetes.html
         output: web
 
