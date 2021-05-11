@@ -8,6 +8,16 @@ summary: New and changed Wavefront integrations.
 ---
 Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
+## May 2021
+
+Made improvements to the following integrations and dashboards in May 2021:
+
+* Kubernetes -- Fixed the Memory usage chart in the Troubleshooting dashboard.
+* Consul -- Made the new metric version 2 as the default metric format.
+* MySQL -- Made the new metric version 2 as the default metric format.
+* Pivotal Cloud Foundry -- Added new out of the box alerts based on the Tanzu Application Services KPIs.
+* Wavefront Usage -- Updates to the out of the box dashboards to use new delta counters. 
+
 ## April 2021
 
 Made improvements to the following integrations and dashboards in April 2021:
