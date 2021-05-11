@@ -11,7 +11,7 @@ This page lists new and updated features in the Wavefront service.
 
 ## 2021-17.x Release Notes
 
-* **Create alerts for your services**: Now you can [create alerts for your services](tracing_ui_overview.html#create-alerts) from the application status page. 
+* **Create alerts for your services**: Now, you can [create alerts for your services](tracing_ui_overview.html#create-alerts) from the tracing application status page. 
 
 ## 2021-16.x Release Notes
 
