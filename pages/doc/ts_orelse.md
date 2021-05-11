@@ -30,7 +30,7 @@ You can use the `.orElse()` operator to force a query to return a default value.
 
 ## Description
 
-You can use the `.orElse()` operator to force the query to return a default value even if the time series is obsolete or nonexistent. You can enter a constant value wrapped in brackets, such as `orElse(5)`. You can also enter a timeseries for chained `.orElse` statements, for example `.orElse(ts('my.metric'))`. 
+You can use the `.orElse()` operator to force the query to return a default value even if the time series is obsolete or nonexistent. You can enter a constant value, for example `orElse(5)`. You can also enter a timeseries for chained `.orElse` statements, for example `.orElse(ts('my.metric'))`. 
 
 
 ## Examples
