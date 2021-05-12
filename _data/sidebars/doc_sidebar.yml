@@ -141,7 +141,7 @@ entries:
   - title: Release Notes
     output: web
     folderitems:
-      
+
     - title: Wavefront Release Notes
       url: /wavefront_release_notes.html
       output: web
@@ -253,11 +253,7 @@ entries:
     output: web
     folderitems:
 
-    - title: "What's New in v2"
-      url: /ui_v2_faq.html
-      output: web
-
-    - title: "Examine Data"
+    - title: "Explore Your Data"
       url: /ui_examine_data.html
       output: web
 
@@ -545,7 +541,7 @@ entries:
       - title: Overview
         url: /wavefront_kubernetes.html
         output: web
-      
+
       - title: Kubernetes Integration
         url: /kubernetes.html
         output: web

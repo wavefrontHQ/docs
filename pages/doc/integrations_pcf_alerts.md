@@ -3,7 +3,6 @@ title: Pivotal Cloud Foundry Alerts
 keywords:
 tags: [integrations, proxies]
 sidebar: doc_sidebar
-published: false
 permalink: integrations_pcf_alerts.html
 summary: Details for Pivotal Cloud Foundry Alerts
 ---
