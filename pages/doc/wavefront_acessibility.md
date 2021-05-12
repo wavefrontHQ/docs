@@ -6,7 +6,15 @@ permalink: wavefront_keyboard_shortcuts.html
 summary: Use the keyboard shortcuts to navigate through pages and menus.
 ---
 
-Wavefront allows you to use keyboard shortcuts to navigate through pages and menus instead of using the mouse.
+With the 2021-19.x release, Wavefront addresses accessibility issues and now includes level-A accessibility fixes for keyboard navigation and colorblind support. There are also a few level-AA issues addressed as well. Wavefront now allows you to use keyboard shortcuts to navigate through pages and menus instead of using the mouse. Some of the UI elements are also with changed color. 
+
+The end-to-end keyboard navigation is fully supported in the following list of Wavefront UI pages:
+
+* Dashboards Browser page
+* Dashboard page
+* Alerts Browser page
+* Alert Viewer page
+* Events list page
 
 ## Keyboard Shortcuts and Their Usage
 
@@ -20,11 +28,11 @@ Wavefront allows you to use keyboard shortcuts to navigate through pages and men
 <td>Navigate forward and backward through the UI elements on a page level.</td>
 </tr>
 <tr>
-<td><strong>Arrows</strong></td>
+<td><strong>Arrow keys</strong></td>
 <td>Navigate between items in a list such as a drop-down menu or any other menu.</td>
 </tr>
 <tr>
-<td><strong>Home</strong> and <strong>End</strong> keys or <strong>Cmd+up</strong> and <strong>Cmd+down</strong> for Safari</td>
+<td><strong>Home</strong> and <strong>End</strong> keys or <strong>Cmd+Up</strong> and <strong>Cmd+Down</strong> for Safari</td>
 <td>Navigate to the first and last main menu item, respectively, when the focus is on any main menu item.</td>
 </tr>
 <tr>
