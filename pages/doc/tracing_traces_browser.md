@@ -24,7 +24,8 @@ See the Traces Browser:
   1. From the taskbar, click **Applications** > **Traces**.
   
 * Option 2:
-  Drill down to the Traces Browser from the Service Dashboard, application map, table view, or grid view.
+  1. In your web browser, go to your Wavefront cluster and log in.
+  1. Drill down to the Traces Browser from the Service Dashboard, application map, table view, or grid view.
 
 ![explore trace browser](images/tracing_traces_browser.png)
 
@@ -33,9 +34,7 @@ From the Traces Browser, you can:
     {{site.data.alerts.note}}
     <ul>
       <li>
-        When you query traces, the query results include traces that match your search from the time you start the search to the past 7 days.<br/>
-        If you want to get traces for a specific time period from your query results, use the time window.
-        <img src="images/traces_browser_time_window.png" alt="shows a screenshot of the time window on the traces browser screen."/>
+        When you search for a Trace ID, the search now returns results regardless of the selected time window.
       </li>
       <li>
         If you enabled the traces browser to show live (<img src="images/traces_browser_live.png"
