@@ -1,12 +1,14 @@
 ---
 title: Wavefront Keyboard Navigation
-tags: [administration, dashboards]
+tags: [accessibility, keyboard navigation, keyboard shortcuts]
 sidebar: doc_sidebar
 permalink: wavefront_keyboard_shortcuts.html
 summary: Use the keyboard shortcuts to navigate through pages and menus.
 ---
 
 With the 2021-19.x release, Wavefront addresses accessibility issues and now includes level-A accessibility fixes for keyboard navigation and colorblind support. There are also a few level-AA issues addressed as well. Wavefront now allows you to use keyboard shortcuts to navigate through pages and menus instead of using the mouse. Some of the UI elements are also with changed color. 
+
+## Wavefront UI Pages With End-to-End Keyboard Navigation Support
 
 The end-to-end keyboard navigation is fully supported in the following list of Wavefront UI pages:
 
@@ -29,7 +31,7 @@ The end-to-end keyboard navigation is fully supported in the following list of W
 </tr>
 <tr>
 <td><strong>Arrow keys</strong></td>
-<td>Navigate between items in a list such as a drop-down menu or any other menu.</td>
+<td>Navigate between items in a list, such as a drop-down menu or any other menu.</td>
 </tr>
 <tr>
 <td><strong>Home</strong> and <strong>End</strong> keys or <strong>Cmd+Up</strong> and <strong>Cmd+Down</strong> for Safari</td>
@@ -49,7 +51,7 @@ The end-to-end keyboard navigation is fully supported in the following list of W
 </tr>
 <tr>
 <td><strong>Space</strong></td>
-<td>Select or deselect a check box. <p>Alternatively, you can do this by pressing Enter, but it is not mandatory.</p></td>
+<td>Select or deselect a check box. <p>Alternatively, you can do this by pressing <strong>Enter</strong>, but it is not mandatory.</p></td>
 </tr>
 </tbody>
 </table>
