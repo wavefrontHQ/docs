@@ -33,12 +33,12 @@ An example rule file could look like this:
 ```yaml
 # rules for port 2878
 '2878':
-  # replace bad characters ("&", "$", "!", "@") with underscores in the entire point line string
-  ################################################################
-  - rule    : replace-badchars
+  ## replace bad characters ("&", "$", "*") with underscores in the entire point line string
+  #################################################################
+  - rule    : example-replace-badchars
     action  : replaceRegex
     scope   : pointLine
-    search  : "[&\\$!@]"
+    search  : "[&\\$\\*]"
     replace : "_"
 
   #  remove "az" point tag if its value starts with "dev"
@@ -327,12 +327,12 @@ Replaces arbitrary text in the point line or any of its components:
     search  : "-"
     replace : "."
 
-  # replace bad characters ("&", "$", "!") with underscores in the entire point line string
-  ################################################################
+  # replace bad characters ("&", "$", "*") with underscores in the entire point line string
+  #################################################################
   - rule    : example-replace-badchars
     action  : replaceRegex
     scope   : pointLine
-    search  : "[&\\$!]"
+    search  : "[&\\$\\*]"
     replace : "_"
 ```
 
