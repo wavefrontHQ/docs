@@ -12,7 +12,7 @@ In a large enterprise, certain data are confidential. Wavefront allows you to li
   - Some permissions limit who can modify Wavefront objects (e.g. proxies or events). For example, users with **Dashboards** permission can modify all dashboards.
   -  Other permissions make certain information completely invisible. For example, only users with SAML IDP Admin permission can see the **Self Service SAML** menu or access that page.
 * **Access Control** allows administrators with the right permissions fine-grained control over individual dashboards or alerts. For example, it's possible to limit view and modify access to a Finance_2020 dashboard to just the Finance department.
-* **Metrics Security** supports even finer-grained control. In the example above, access to the Finance_2020 dashboard is limited to the Finance department. With metrics security, you can limit access to confidential time series, histogram and delta counter metrics to the leadership team.
+* **Metrics Security** supports even finer-grained control. In the example above, access to the Finance_2020 dashboard is limited to the Finance department. With metrics security, you can limit access to confidential time series, histogram, and delta counter metrics to the leadership team.
 
 {% include note.html content="Only a Super Admin user or users with **Metrics** permission can view, create, and manage metrics security policy. " %}
 
@@ -32,7 +32,7 @@ Metrics security policy rules allows fine-grained support for limiting access to
 
 With a metrics security policy, you can block or allow access:
 * To metrics, optionally filtered by source and/or point tag
-* Based on groups, roles, and/or individual users.
+* Based on groups, roles, and individual users.
 
 When an account attempts to access metrics, the backend looks at the rules in priority order. Higher priority rules overwrite lower priority rules.
 
@@ -144,16 +144,16 @@ Consider this simple example:
 
 Privileged users can create rules, change rule priority, and change the scope of each rule.
 
-{% include note.html content="Only a Super Admin user or users with **Metrics** permission can view, create, and manage metrics security policy. " %}
+{% include note.html content="Only a Super Admin user or users with **Metrics** permission can view, create, and manage a metrics security policy. " %}
 
 ### Plan Your Strategy
 
 Before you create rules, plan your strategy.
 
 * **Metrics Dimensions** allow you to determine what to block or allow.
-  - Specify one or more metric prefixes. You can specify an exact match (e.g. `requests` or `request.`) or a wildcard match (e.g. `*.cpuloadav*`, `cpu.*`).
+  - Specify one or more metric prefixes. You can specify an exact match (e.g. `requests` or `request.`) or a wildcard match (e.g. `*.cpuloadavg*`, `cpu.*`).
   - Specify a combination of metric sources or point tags to narrow down the metrics. For example, you can block visibility into production environments for some developers, or you can block some development environments metrics for contractors.
-* **Access** allows you to allow or block access for a combination of accounts and/or groups or for roles.
+* **Access** allows you to allow or block access for a combination of accounts, groups, or roles.
 
 See the Examples further below.
 
@@ -171,7 +171,7 @@ You create a metrics security policy rule following these steps. See the annotat
      * If you want to specify multiple key=value pairs, select whether you want to combine them with `and` or `or` using the dropdown menu on the right.
   5. Specify the Access definition for the rule.
      1. Select **Allow** or **Block** from the menu.
-     2. Specifying accounts, groups, or roles.
+     2. Specify accounts, groups, or roles.
   3. Click **OK.**
 
 
@@ -192,14 +192,14 @@ The following annotated screenshot gives an overview of rule management options:
 
 Here's a tour:
 
-1. Click **Version History** to
+1. Click **Version History** to:
   * Revert to an earlier version of the policy.
   * Look at information on who last edited the security policy and when that happened.
 1. Examine the **Metric Prefix** column to see the metrics affected by a rule.
 2. Look at the **Access** column to see whether the rule allows or blocks access.
-1. Click the check box to the left of a rule to select them, then use the icons above to clone or delete the selected rule.
-1. Click the check boxes to the left of multiple rules to select them, use the icons to indicate changes, and click **Save** to commit the changes.
-1. Select the six-dot icon to explicitly drag a rule where you want it and change rule priorities.
+1. Select the check box to the left of a rule to select it, then use the icons above to clone or delete the selected rule.
+1. Select the check boxes to the left of multiple rules to select them, use the icons to indicate changes, and click **Save** to commit the changes.
+1. Click the six-dot icon to explicitly drag a rule where you want it and change the rule prioritization.
 1. If you've moved, cloned, or deleted one or more rules, use the **Undo** button to undo the change, or **Redo** to revert the undo.
 
 
@@ -222,9 +222,9 @@ This example restricts access to specific ranges of highly-sensitive metrics, sa
 
 The image above shows how to restrict metrics starting with `revenue.*` to  be accessible only by members of the group `Finance`. The policy grants all users access to all other metrics.
 
-* When the metric `revenue.saas` is queried by a user in the `Finance` group, this access matches Rule 1 (**Finance Group can access Revenue**).  The rule grants the access, so the metric is shown to the user and no other rules are consulted.
+* When the metric `revenue.saas` is queried by a user in the `Finance` group, this access matches Rule 1 (**Finance Group can access Revenue**). The rule grants the access, so the metric is shown to the user and no other rules are consulted.
 
-* When the metric `revenue.saas` is queried by a user **not** in the `Finance` group, the access does **not** match Rule 1.  The engine moves on to Rule 2 (**No one else can access Revenue**), which matches because all users belong to the Everyone group.  Because the rule denies the access, the metric is not shown to the user. No other rules are consulted.
+* When the metric `revenue.saas` is queried by a user **not** in the `Finance` group, the access does **not** match Rule 1. The engine moves on to Rule 2 (**No one else can access Revenue**), which matches because all users belong to the Everyone group. Because the rule denies the access, the metric is not shown to the user. No other rules are consulted.
 
 ### Example: Restrict Access for a Group of Users
 
