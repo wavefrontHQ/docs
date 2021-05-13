@@ -77,9 +77,9 @@ You can use tags to filter alerts, dashboards, events, and sources from the Wave
 
 ### Supported Characters
 
-Tag keys can contain alphanumeric (a-z, A-Z, 0-9), dash (-), underscore (_), dot (.). and forward slash (/) characters. The space character is not supported. 
+Tag keys can contain alphanumeric (a-z, A-Z, 0-9), dash (-), underscore (_), dot (.), and forward slash (/) characters. The space character is not supported. 
 
-When you construct a Wavefront query, you can use a colon (:) in a tag name, only if the tag name is in quotes. For example: `ts(<metricName>,"t:m"=tag-with-colon)`.
+When you construct a Wavefront query, you can use a colon (:) in a tag key, only if the tag key is in quotes. For example: `ts(<metricName>,"t:m"=tag-with-colon)`.
 
 ### Tags in the UI
 
