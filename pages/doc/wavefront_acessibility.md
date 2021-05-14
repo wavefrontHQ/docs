@@ -42,7 +42,7 @@ The end-to-end keyboard navigation is fully supported in the following list of W
 <td>Perform the action the element is meant to do. For example, if the element is a button, pressing <strong>Enter</strong> is the same as clicking the button.</td>
 </tr>
 <tr>
-<td><strong>Esc</strong> or <strong>Cmd+Esc</strong> for Safari</td>
+<td><strong>Esc</strong> or <strong>Opt+Esc</strong> for Safari</td>
 <td>Perform different actions depending on the current selection:
 <ul>
 <li>Exit from current selection or active state, such as a text editor. </li>
