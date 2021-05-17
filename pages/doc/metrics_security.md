@@ -243,12 +243,12 @@ This example restricts access for a specific user when the restrict rule is appl
 
 ![screenshot of the single user restrictions](images/metrics-security-policy-retail.png)
 
-The image above shows how to restrict access for a user with the role `Operator`. Although the user is a member of the `retail` group, this user cannot access any metrics.
+The image above shows how to restrict access for a user with the role `Operator`. The user cannot access any metrics.
 
 By applying the above security policy:
 
 * When a user who is in the `retail` group runs a query for metrics tagged with the `env=retail` point tag, access is granted.
-* A user who is assigned with the `Operator` role, despite being part of the `retail` group, cannot access any metrics at all, because Rule 2 (**Block all data**) is applied.
+* A user who is assigned with the `Operator` role cannot access any metrics at all, because Rule 2 (**Block all data**) is applied.
 
 ### Example: Strictly Limit Access on a Need-to-Know Basis
 
