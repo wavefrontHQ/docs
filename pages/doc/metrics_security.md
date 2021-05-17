@@ -237,52 +237,18 @@ The image above shows how to restricts access for users in the group `Contractor
 * When a user belonging to group `Contractors` runs a query for `cpu.usage` tagged with `env=dev`, this access matches Rule 1 (**Contractors can access dev environment metrics**) and access is granted.
 * But when the user issues a query for `cpu.usage` tagged with `env=prod`, this access does not match Rule 1. Rule 2 (**Contractors cannot access any other metrics**) acts as a catch-all for users of group `Contractors` and denies them access to this metric.
 
-### Example: Restrict Access for a User 
+### Example: Restrict Access for a User Role
 
-In this example, you create and apply security rules to restrict access to the metrics for a specific user when the restrict rule is applied to a user role. 
+This example restricts access for a specific user when the restrict rule is applied to a user role. The metrics security rules take into account both direct and indirect roles.
 
-#### Step 1: Create a User Group
-
-Create a user group, such as `retail` and add a user, e.g., `retail@store.com` to the group.
-  
-1. Click the gear icon and select **Account Management**.
-2. On the **Groups** tab, click the **Create group** button and create the `retail` group.
-  * In the **Name** text box, enter `retail`.
-  * In the **Description** text box, enter `Retail user group`.  
-  * In the **Members** text box, enter `retail@store.com`.
-
-#### Step 2: Create a User Role
-
-Create a role `user` and associate the role to the `retail@store.com` user, by assigning the group `retail` to this role.
-1. Click the **Roles** tab.
-2. Click the **Create role** button.
-  * In the **Name** text box, enter `user`.
-  * Select the **Chart Embedding** and **Dashboards** permissions.  
-  * Assign the `retail` group to the role.
-  
-#### Step 3: Create the Metrics Security Rules
-
-Create a metrics security rule, which allows access to a certain metric. For example, any metric having the `env=retail` tag to the group retail. And then create another rule, that blocks all access to the data on the role `user`.
-
-1. Click the gear icon and select **Metrics Security Policy**.
-2. Click the **Create rule** button and create the `Retail rule`.
-    ![New rule screen. Rule name is set to retail rule, the Metric Dimensions source and point tags is set to env=retail, Access is set to Allow to the retail and business group.](images/create-new-rule-retail.png)
-3. Click the **Create rule** button and create the `block all data` rule.
-  * Enter `block all data` in the **Name** text box.
-  * Enter wildcard (*) as a prefix.
-  * From the **Access** menu select **Block** and in the **Role** text box enter `user`.
-  
 ![screenshot of the single user restrictions](images/metrics-security-policy-retail.png)
 
-The metrics security rules take into account only direct roles, which means that the role has to be assigned to a specific user. Roles coming from user groups are also considered for matching logic.
+The image above shows how to restrict access for a user with the role `Operator`. Although the user is a member of the `retail` group, this user cannot access any metrics.
 
 By applying the above security policy:
 
-* Any user who *is* in the `business` group can access the `env=retail` and `env=business` metrics.
-* A user who *is* in the `retail` group can access the `env=retail` metrics.
-* A user who *is* in the `datacenter` group can access the `env=datacenter` metrics. 
-* Any user who *is not* in the `retail` or `business` group cannot access the `env=retail` metrics.
-* Any user who *is* assigned with the `user` role, in this example `retail@store.com`, cannot access any metrics at all.
+* When a user who is in the `retail` group runs a query for metrics tagged with the `env=retail` point tag, access is granted.
+* A user who is assigned with the `Operator` role, despite being part of the `retail` group, cannot access any metrics at all, because Rule 2 (**Block all data**) is applied.
 
 ### Example: Strictly Limit Access on a Need-to-Know Basis
 
