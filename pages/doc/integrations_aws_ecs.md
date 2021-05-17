@@ -49,7 +49,7 @@ After you've performed the setup, you can view and examine the data in our AWS F
 ![fargate launch type](images/aws_fargate.png)
 
 1. Scroll to the bottom of the new Task Definition form and click **Configure via JSON**.
-  1. Delete the content and paste the following snippet into the JSON form field:
+  1. Delete the content and paste the JSON example into the JSON form field.
   ```
   {
         "family": "wavefront-task-def",
@@ -107,29 +107,44 @@ After you've performed the setup, you can view and examine the data in our AWS F
 
 ## Create AWS ECS EC2 Task Definition for Wavefront
 
-Wavefront maintains an image of cAdvisor that includes a Wavefront storage driver. These steps create an ECS task definition that ensures the Wavefront cAdvisor container automatically runs on each EC2 instance in your ECS cluster.
+Wavefront maintains an image of Telegraf (telegraf-ecs) that enables Wavefront to ,onitor Amazon ECS service. These steps create an ECS task definition that ensures that the Wavefront Telegraf ECS container automatically runs on each EC2 instance in your ECS cluster.
 
-After you've performed the setup, you can view and examine the data in our AWS EC2 dashboard in your Wavefront instance. The screenshots at the bottom of this page show the AWS EC2 dashboard and the AWS Fargate dashboard.
+After you've performed the setup, you can view and examine the data in our AWS EC2 dashboard in your Wavefront instance. The screenshots at the bottom of this page show the AWS EC2 dashboard.
 
 1. Within AWS Services, navigate to **ECS**.
 1. Click **Task Definitions**, then **Create new Task Definition**.
   ![create task def](images/create_new_task_definition.png)
-1. Select the launch type that you want your task to be compatible with and click **Next Step**.
+1. Select the EC2 launch type and click **Next Step**.
 
    ![select launch type](images/select_launch_type.png)
 1. Scroll to the bottom of the new Task Definition form and click the **Configure via JSON** button.
-   1. Delete the content and paste the [JSON example](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/aws-ecs/example-task-definition.json) into the JSON form field.
-   1. In the JSON form, set the `-storage_driver_wf_proxy_host` property and click **Save**.
+   1. Delete the content and paste the [JSON example](https://github.com/wavefrontHQ/integrations/blob/master/aws-ecs/telegraf-example-task-definition.json) into the JSON form field.
+   1. In the JSON form, set the `WAVEFRONT_PROXY` and `WAVEFRONT_PROXY_PORT` and click **Save**.
 1. Click the **Create** button at the bottom of the Task Definition form.
 1. Select **Actions > Run Task** and specify the task information:
    ![actions menu](images/actions_run_task.png)
-   1. In the **Cluster** dropdown, select the cluster on which your task has to run.
+   1. From the **Cluster** drop-down menu, select the cluster on which your task has to run.
    2. Enter the number of tasks (minimum 1) of same definition you want to run.
    3. (Optional) Enter the Task Group name to identify a set of related tasks.
-1. In the **Placement Templates** dropdown select **One Task Per Host**. This ensures that each EC2 instance in your ECS cluster has a Wavefront cAdvisor task.
+1. From the **Placement Templates** drop-down menu, select **One Task Per Host**. This ensures that each EC2 instance in your ECS cluster has a Wavefront Telegraf task.
 
    ![actions menu](images/one_task_per_host.png)
 1. Click **Run Task**.
+
+**NOTE**: The task metadata endpoint is enabled by default on Amazon ECS EC2 instance based on the Amazon ECS container agent version. To enforce the task metadata v2 endpoint, the endpoint URL should be mentioned in the Task Definition as below.
+
+Configuration (enforce v2 metadata):
+
+```
+
+{
+    "name": "ECS_CONTAINER_METADATA_ENDPOINT",
+    "value": "http://169.254.170.2"
+}
+
+```
+
+The amazon-ecs-agent (though it is a container running on the host) is not present in the metadata/stats endpoints.
 
 ## View ECS Container Metrics
 
