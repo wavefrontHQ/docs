@@ -361,7 +361,7 @@ Check the source of these metrics to identify the specific Kubernetes node on wh
    
    ![Example of the Points Collected Per Type graph](images/k8s-top-twenty.png)
    
-3. Check the Wavefront collector logs for indications of what can be wrong with your configuration.
+3. You may have a configuration problem. You can check the Wavefront collector logs for indications of what can be wrong.
    
    Run `kubectl logs wavefront-collector-kw4bl -n 1-3-5-wavefront-collector` to check the collector logs for errors in parsing the configuration and to see whether the source got scraped. 
    
@@ -387,7 +387,7 @@ Check the source of these metrics to identify the specific Kubernetes node on wh
   * The configuration for your metric source is correct.
   * The configuration for your Wavefront sink is correct.
 
-### Step 4: Try to Debug the Source
+### Step 4: Verify That the Metric Source Is Working
 
 1. Run `kubectl logs` to check the logs of the container that you're trying to scrape.
 2. Try running `kubectl restart` to restart the pod you're trying to scrape.
