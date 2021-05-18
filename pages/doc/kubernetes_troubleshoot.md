@@ -61,7 +61,7 @@ Identifying what metrics are and aren’t coming through can help identify where
 
 * Run `kubectl get pods -l k8s-app=wavefront-collector -n <NAMESPACE>` to verify all collector instances are ready and available.
 * Pods are marked as not ready:
-  * If there are errors with starting pods, run `kubectl describe pod podname`, and check the events section for errors. For details on errors, see [Troubleshoot Applications on Kubernetes documentation](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/).
+  * If there are errors with starting pods, run `kubectl describe pod pod_name`, and check the events section for errors. For details on errors, see [Troubleshoot Applications on Kubernetes documentation](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/).
   * If the collector is running but has frequent restarts, only part of the data goes through. See [Check If the Collector Restarts Frequently](#step-4-check-if-the-collector-restarts-frequently) below.
 
   <table style="width: 100%;">
@@ -245,10 +245,10 @@ To check for Insufficient CPU, follow these steps:
 To check for insufficient memory, follow these steps:
 
 * Run `kubectl get pods -l app.kubernetes.io/component=collector -n <NAMESPACE>` to find collector pods that have been restarting.
-    * If the collector is showing frequent restarts, check the termination reason by running `kubectl describe pod podname`
+    * If the collector is showing frequent restarts, check the termination reason by running `kubectl describe pod pod_name`
     * OOM errors show that the collector has insufficient memory resources to run. 
 
-* If your collector does not show OOM as its termination reason, check the logs for other errors by running `kubectl logs podname`
+* If your collector does not show OOM as its termination reason, check the logs for other errors by running `kubectl logs pod_name`
 
 To solve this, See the remedies section.
 
@@ -361,7 +361,7 @@ Check the source of these metrics to identify the specific Kubernetes node on wh
    
    ![Example of the Points Collected Per Type graph](images/k8s-top-twenty.png)
    
-3. You may have a configuration problem. You can check the Wavefront collector logs for indications of what can be wrong.
+3. Because you may have a configuration problem, check the Wavefront collector logs for indications of what can be wrong.
    
    Run `kubectl logs wavefront-collector-kw4bl -n 1-3-5-wavefront-collector` to check the collector logs for errors in parsing the configuration and to see whether the source got scraped. 
    
@@ -393,6 +393,11 @@ Check the source of these metrics to identify the specific Kubernetes node on wh
 2. Try running `kubectl restart` to restart the pod you're trying to scrape.
 3. Use a cloud provider console to run a `curl` command in the container and see if you get a good result back.
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ## Symptom: Kubernetes Dashboards Do Not Show Any Data
   
