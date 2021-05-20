@@ -343,24 +343,24 @@ Check the source of these metrics to identify the specific Kubernetes node on wh
 
 ## Symptom: Missing Metrics from a Single Source
 
-### Step 1: Verify That Metric Data Is Sent to Wavefront
+### Verify That Metric Data Is Sent to Wavefront
 
 1. Click **Browse > Metrics** to navigate to the metrics screen.
 2. Look for your metric data.
    * If your metric data is listed on the Metrics page, investigate the chart or query that you use to monitor your data. 
    * If your metric data is missing, the issue is somewhere else.
 
-### Step 2: Check for a Missing Metric Collection Target
+### Check for a Missing Metric Collection Target
 
 1. Open the Troubleshooting dashboard.
 2. Locate the Points Collected Per Type graph and see whether your source is sending metrics.
    
-   If your source is missing, the Wavefront collector cannot collect data from your application. It might be not running, or your configuration might be incorrect.
+   * If your particular source is not in the top 20, you should either modify the query to remove the top 20 limit or limit to your particular missing pod. 
+   
+     ![Example of the Points Collected Per Type graph](images/k8s-top-twenty.png)
 
-   If your particular source is not in the top 20, you should either modify the query to remove the top 20 limit or limit to your particular missing pod. 
-   
-   ![Example of the Points Collected Per Type graph](images/k8s-top-twenty.png)
-   
+   * If your source is missing, the Wavefront collector cannot collect data from your application. It might be not running, or your configuration might be incorrect. Proceed with the steps below to check for configuration problems. 
+ 
 3. Because you may have a configuration problem, check the Wavefront collector logs for indications of what can be wrong.
    
    Run `kubectl logs wavefront-collector-kw4bl -n 1-3-5-wavefront-collector` to check the collector logs for errors in parsing the configuration and to see whether the source got scraped. 
@@ -375,7 +375,7 @@ Check the source of these metrics to identify the specific Kubernetes node on wh
   * The formatting is correct.
   * There are no errors in the endpoints, ports, or other configuration information.
  
-### Step 3: Check for Metric Filtering
+### Check for Metric Filtering
 
 1. Open the Troubleshooting dashboard.
 2. Locate the Points Filtered Per Type graph and see whether your source is sending metrics.
@@ -387,7 +387,7 @@ Check the source of these metrics to identify the specific Kubernetes node on wh
   * The configuration for your metric source is correct.
   * The configuration for your Wavefront sink is correct.
 
-### Step 4: Verify That the Metric Source Is Working
+### Verify That the Metric Source Is Working
 
 1. Run `kubectl logs` to check the logs of the container that you're trying to scrape.
 2. Try running `kubectl restart` to restart the pod you're trying to scrape.
