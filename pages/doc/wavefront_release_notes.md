@@ -11,7 +11,12 @@ This page lists new and updated features in the Wavefront service.
 
 ## 2021-17.x Release Notes
 
-* **Create Alerts for Your Services**: Now, you can [create alerts for your services](tracing_ui_overview.html#create-alerts) from the tracing application status page. 
+* **Create Alerts for Your Services**: Now, you can [create alerts for your services](tracing_ui_overview.html#create-alerts) from the tracing application status page.
+
+  * The threshold in the alert that you create is based on the current view and the service that you selected. You can change which RED metrics or Apdex to use for a threshold.
+  * You can define and set the alert either for the selected service or for all services.
+  * You can also switch to advanced mode and fine-tune the alert.
+ 
 * **Full PromQL Support in the UI**: We've expanded the limited PromQL support and we added:
  
   * Full support for creating charts and alerts with PromQL queries.
