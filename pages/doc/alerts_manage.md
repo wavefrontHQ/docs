@@ -95,7 +95,7 @@ To examine alerts in the Alerts Browser, click <strong>Alerting</strong> in the 
 <br/>
 To find exactly the alerts that you need you can:
 <ul><li>Type the alert name in the search field</li>
-<li>Use a filter, for example, select <strong>State</strong>, <strong>Severity</strong>, or alert tag. </li></ul>
+<li>Use a filter, for example, select <strong>State</strong>, <strong>Severity</strong>, <strong>Services</strong>, <strong>Applications</strong>, or alert tag. </li></ul>
 For example, you could show alerts that are both FIRING and SEVERE.</td>
 <td width="50%"><img src="/images/alert_firing_severe.png" alt="Firing and Severe selected in filter bar on left."></td>
 </tr>

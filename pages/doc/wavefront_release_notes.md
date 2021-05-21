@@ -21,6 +21,8 @@ This page lists new and updated features in the Wavefront service.
 
   For the list of keyboard shortcuts, see [Wavefront Keyboard Navigation](wavefront_keyboard_shortcuts.html).
 
+* **New Filters in the Alerts Browser**: In the Alerts Browser, you can now also use a **Services** or **Applications** filter.
+
 ## 2021-17.x Release Notes
 
 * **Create Alerts for Your Services**: Now, you can [create alerts for your services](tracing_ui_overview.html#create-alerts) from the tracing application status page.
