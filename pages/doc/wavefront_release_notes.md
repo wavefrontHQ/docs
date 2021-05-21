@@ -9,6 +9,18 @@ summary: Learn about new and updated features in Wavefront.
 
 This page lists new and updated features in the Wavefront service.
 
+## 2021-19.x Release x_release_notes
+
+* **Level-A Accessibility Improvements**: Wavefront now includes level-A accessibility fixes for keyboard navigation and colorblind support. With this release a few level-AA issues are addressed as well. Wavefront uses color contrast to support colorblind accessibility and allows you to use keyboard shortcuts to navigate through the menus and options of the following list of pages:
+
+  * Dashboards Browser page
+  * Dashboard page
+  * Alerts Browser page
+  * Alert Viewer page
+  * Events list page
+
+  For the list of keyboard shortcuts, see [Wavefront Keyboard Navigation](wavefront_keyboard_shortcuts.html).
+
 ## 2021-17.x Release Notes
 
 * **Create Alerts for Your Services**: Now, you can [create alerts for your services](tracing_ui_overview.html#create-alerts) from the tracing application status page.

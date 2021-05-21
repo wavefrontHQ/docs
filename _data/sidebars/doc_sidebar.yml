@@ -17,6 +17,10 @@ entries:
     - title: Searching Wavefront
       url: /wavefront_searching.html
       output: web
+      
+    - title: Wavefront Keyboard Navigation
+      url: /wavefront_keyboard_shortcuts.html
+      output: web
 
     - title: Your Wavefront Account
       url: /users_account_managing.html

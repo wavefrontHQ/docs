@@ -6,7 +6,7 @@ permalink: wavefront_keyboard_shortcuts.html
 summary: Use the keyboard shortcuts to navigate through pages and menus.
 ---
 
-With the 2021-19.x release, Wavefront addresses accessibility issues and now includes level-A accessibility fixes for keyboard navigation and colorblind support. There are also a few level-AA issues addressed as well. Wavefront now allows you to use keyboard shortcuts to navigate through pages and menus instead of using the mouse. Some of the UI elements are also with changed color. 
+With the 2021-19.x release, Wavefront addresses accessibility issues and now includes level-A accessibility fixes for keyboard navigation and colorblind support. There are also a few level-AA issues addressed as well. Wavefront now allows you to use keyboard shortcuts to navigate through pages and menus instead of using the mouse. Some of the UI elements are also with changed color so that the color contrast supports colorblind accessibility. 
 
 ## Wavefront UI Pages With End-to-End Keyboard Navigation Support
 
