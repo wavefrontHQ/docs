@@ -61,7 +61,7 @@ Identifying what metrics are and aren’t coming through can help identify where
 
 * Run `kubectl get pods -l k8s-app=wavefront-collector -n <NAMESPACE>` to verify all collector instances are ready and available.
 * Pods are marked as not ready:
-  * If there are errors with starting pods, run `kubectl describe pod podname`, and check the events section for errors. For details on errors, see [Troubleshoot Applications on Kubernetes documentation](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/).
+  * If there are errors with starting pods, run `kubectl describe pod pod_name`, and check the events section for errors. For details on errors, see [Troubleshoot Applications on Kubernetes documentation](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/).
   * If the collector is running but has frequent restarts, only part of the data goes through. See [Check If the Collector Restarts Frequently](#step-4-check-if-the-collector-restarts-frequently) below.
 
   <table style="width: 100%;">
@@ -245,10 +245,10 @@ To check for Insufficient CPU, follow these steps:
 To check for insufficient memory, follow these steps:
 
 * Run `kubectl get pods -l app.kubernetes.io/component=collector -n <NAMESPACE>` to find collector pods that have been restarting.
-    * If the collector is showing frequent restarts, check the termination reason by running `kubectl describe pod podname`
+    * If the collector is showing frequent restarts, check the termination reason by running `kubectl describe pod pod_name`
     * OOM errors show that the collector has insufficient memory resources to run. 
 
-* If your collector does not show OOM as its termination reason, check the logs for other errors by running `kubectl logs podname`
+* If your collector does not show OOM as its termination reason, check the logs for other errors by running `kubectl logs pod_name`
 
 To solve this, See the remedies section.
 
@@ -340,3 +340,70 @@ Check the source of these metrics to identify the specific Kubernetes node on wh
 <tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>
+
+## Symptom: Missing Metrics from a Single Source
+
+### Step 1: Verify That Metric Data Is Sent to Wavefront
+
+1. Click **Browse > Metrics** to navigate to the metrics screen.
+2. Look for your metric data.
+   * If your metric data is listed on the Metrics page, investigate the chart or query that you use to monitor your data. 
+   * If your metric data is missing, the issue is somewhere else.
+
+### Step 2: Check for a Missing Metric Collection Target
+
+1. Open the Troubleshooting dashboard.
+2. Locate the Points Collected Per Type graph and see whether your source is sending metrics.
+   
+   * If your particular source is not in the top 20, you should either modify the query to remove the top 20 limit or limit your particular missing pod. 
+   * If your source is missing, the Wavefront collector cannot collect data from your application. The source might not be running, or your configuration might be incorrect. Check for configuration problems. 
+
+   ![Example of the Points Collected Per Type graph](images/k8s-top-twenty.png)
+   
+3. Because you may have a configuration problem, check the Wavefront collector logs for indications of what can be wrong.
+   
+   Run `kubectl logs daemonset/wavefront-collector -n wavefront` to check the collector logs for errors in parsing the configuration and to see whether the source got scraped. 
+   
+   If something such as the below line is missing for the source that you’re debugging, the configuration for that source might be incorrect.
+   
+   ```
+   time="2021-04-27T14:28:04Z" level=info msg="Finished querying source" latency=42.6569ms name="prometheus_source: http://10.244.0.5:8443/metrics" total_metrics=2938
+   ```
+   
+4. Look through the [configuration file](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration-file) and for each source verify that:
+  * The formatting is correct.
+  * There are no errors in the endpoints, ports, or other configuration information.
+ 
+### Step 3: Check for Metric Filtering
+
+1. Open the Troubleshooting dashboard.
+2. Locate the Points Filtered Per Type graph and see whether your source is sending metrics.
+   Look for filtering of the source that you’re missing. If your source is sending metrics, your metric can be filtered out. For example, if the source you're missing is a prometheus endpoint, look whether any points of type `prometheus` are listed:
+   
+   ![Example of the Points Filtered Per Type graph](images/k8s_points_filter_per_type.png)
+   
+3. Look at the filtering in your [configuration file](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration-file) and for each source verify that:
+  * The configuration for your metric source is correct.
+  * The configuration for your Wavefront sink is correct.
+
+### Step 4: Verify That the Metric Source Is Working
+
+1. Run `kubectl logs` to check the logs of the container that you're trying to scrape.
+2. Try running `kubectl restart` to restart the pod you're trying to scrape.
+3. Use a cloud provider console to run a `curl` command in the container and see if you get a good result back.
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="wf_kubernetes_troubleshooting.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
+## Symptom: Kubernetes Dashboards Do Not Show Any Data
+  
+  ![Kubernetes Dashboards tab](images/k8s-dashboards.png)
+  
+The most common cause for the Kubernetes dashboards to not show any data is a problem with sending data to Wavefront. See [Symptom: No Data Flowing into Wavefront](#symptom-no-data-flowing-into-wavefront).
+
+Another reason for missing data can be a change in the prefix of the Kubernetes sources in the Wavefront Collector for Kubernetes. By default, the dashboards rely on a prefix, such as `kubernetes.`, in the configured collector sources. For more information, see the [sources section of the collector configuration file](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/395df1b533b01b43961641b1a03134481cf89609/deploy/kubernetes/4-collector-config.yaml#L52).
+
+If you want to use the Kubernetes dashboards with a custom prefix, [clone the dashboards](ui_dashboards.html#edit-or-clone-a-dashboard) and update the prefix in all of the charts.
