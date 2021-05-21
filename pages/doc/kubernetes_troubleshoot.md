@@ -362,7 +362,7 @@ Check the source of these metrics to identify the specific Kubernetes node on wh
    
 3. Because you may have a configuration problem, check the Wavefront collector logs for indications of what can be wrong.
    
-   Run `kubectl logs wavefront-collector-kw4bl -n 1-3-5-wavefront-collector` to check the collector logs for errors in parsing the configuration and to see whether the source got scraped. 
+   Run `kubectl logs daemonset/wavefront-collector -n wavefront` to check the collector logs for errors in parsing the configuration and to see whether the source got scraped. 
    
    If something such as the below line is missing for the source that you’re debugging, the configuration for that source might be incorrect.
    
