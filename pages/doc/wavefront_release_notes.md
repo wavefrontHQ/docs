@@ -9,7 +9,7 @@ summary: Learn about new and updated features in Wavefront.
 
 This page lists new and updated features in the Wavefront service.
 
-## 2021-19.x Release x_release_notes
+## 2021-19.x Release Notes
 
 * **Level-A Accessibility Improvements**: Wavefront now includes level-A accessibility fixes for keyboard navigation and colorblind support. With this release a few level-AA issues are addressed as well. Wavefront uses color contrast to support colorblind accessibility and allows you to use keyboard shortcuts to navigate through the menus and options of the following list of pages:
 
