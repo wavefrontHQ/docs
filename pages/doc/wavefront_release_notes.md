@@ -21,7 +21,11 @@ This page lists new and updated features in the Wavefront service.
 
   For the list of keyboard shortcuts, see [Wavefront Keyboard Navigation](wavefront_keyboard_shortcuts.html).
 
-* **New Filters in the Alerts Browser**: In the Alerts Browser, you can now also use a **Services** or **Applications** filter.
+* **New Filters in the Alerts Browser**: In the Alerts Browser, you can now also use a **Services** or **Applications** filter, so that you can filter for Applications-related alerts that you have [created and defined within Distributed Tracing](tracing_ui_overview.html#create-alerts). 
+
+## 2021-18.x Release Notes
+
+No user-visible changes.
 
 ## 2021-17.x Release Notes
 
