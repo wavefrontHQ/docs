@@ -25,6 +25,11 @@ This page lists new and updated features in the Wavefront service.
 
 * **Ability to Update Apdex Threshold of Multiple Services**: With this release, you can update the Apdex Threshold of multiple Application Services at once. For information, see [Configure the Threshold Value](tracing_apdex.html#configure-the-threshold-t-value).
 
+* **Documentation Improvements**:
+  * A new video that explains how to create charts and alerts using PromQL.
+    <iframe src="https://bcove.video/3tLRB6l" width="700" height="400" allowfullscreen="true" alt="Wavefront and PromQL"></iframe>
+  * Two new sections to the [Kubernetes Troubleshooting guide](wf_kubernetes_troubleshooting.html#symptom-missing-metrics-from-a-single-source)
+
 ## 2021-18.x Release Notes
 
 No user-visible changes.
