@@ -23,6 +23,8 @@ This page lists new and updated features in the Wavefront service.
 
 * **New Filters in the Alerts Browser**: In the Alerts Browser, you can now also use a **Services** or **Applications** filter, so that you can filter for Applications-related alerts that you have [created and defined within Distributed Tracing](tracing_ui_overview.html#create-alerts). 
 
+* **Ability to Update Apdex Threshold of Multiple Services**: With this release, you can update the Apdex Threshold of multiple Application Services at once. For information, see [Configure the Threshold Value](tracing_apdex.html#configure-the-threshold-t-value).
+
 ## 2021-18.x Release Notes
 
 No user-visible changes.
