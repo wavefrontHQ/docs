@@ -33,5 +33,12 @@ The following videos, available from  VMware Learning Zone, discuss the Wavefron
 </ul></p>
 </td>
 </tr>
+<tr>
+<td><strong><font color="blue">Wavefront and Prometheus Query Language</font></strong><br>
+<iframe src="https://bcove.video/3tLRB6l" width="400" height="225" allowfullscreen="true" alt="Wavefront and PromQL"></iframe></td>
+<td><br>
+<p>With the 2021-17.x release, we've expanded the limited PromQL support and we've added admin-level organization setting to determine whether a user can write in PromQL. We have also added full support for creating charts and alerts with PromQL queries.</p>
+</td>
+</tr>
 </tbody>
 </table>
