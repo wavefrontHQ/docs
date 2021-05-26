@@ -28,7 +28,7 @@ This page lists new and updated features in the Wavefront service.
 * **Documentation Improvements**:
   * A new video that explains how to create charts and alerts using PromQL.
     <iframe src="https://bcove.video/3tLRB6l" width="700" height="400" allowfullscreen="true" alt="Wavefront and PromQL"></iframe>
-  * Added two new sections to the [Kubernetes Troubleshooting guide](wf_kubernetes_troubleshooting.html#symptom-missing-metrics-from-a-single-source)
+  * Added two new sections to the [Kubernetes Troubleshooting guide](wf_kubernetes_troubleshooting.html#symptom-missing-metrics-from-a-single-source).
 
 ## 2021-18.x Release Notes
 
