@@ -352,8 +352,8 @@ Check the source of these metrics to identify the specific Kubernetes node on wh
 
 ### Step 2: Check for a Missing Metric Collection Target
 
-1. Open the Kubernetes Troubleshooting dashboard.
-2. Locate the **Points Collected Per Type** graph and check whether your source is sending metrics.
+1. Open the Wavefront Collector Metrics dashboard in the Kubernetes integration.
+2. Find the Data Collection section, go to the **Points Collected Per Type** graph and check whether your source is sending metrics.
 
    * If your source is not in the top 20, modify the query to remove the top 20 limit or limit your particular missing pod.
    * If your source is missing, the Wavefront collector cannot collect data from your application. The source might not be running, or your configuration might be incorrect. Check for configuration problems.
