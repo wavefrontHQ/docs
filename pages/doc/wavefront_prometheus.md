@@ -55,14 +55,13 @@ If an administrator has enabled PromQL support (discussed above), each user can 
     
 
 
-<!---## Video: Wavefront and PromQL
+## Video: Wavefront and PromQL
 
-This video shows how to enable PromQL and then create a chart and an alert:
+This short video shows how you can create a PromQL chart and an alert:
 
 <p>
 <iframe src="https://bcove.video/3tLRB6l" width="700" height="400" allowfullscreen="true" alt="Wavefront and PromQL"></iframe>
 </p>
---->
 
 ## Use PromQL in Charts and Alerts
 
