@@ -1,9 +1,9 @@
 ---
-title: Vector Matching Functions (retainDimension, removeDimension)
+title: Matching Functions (retainDimension, removeDimension)
 keywords: query language reference
 tags: [reference page]
 sidebar: doc_sidebar
-published: false
+published: true
 permalink: ts_vector_matching.html
 summary: Reference to the retainDimension and removeDimension functions
 ---
@@ -16,7 +16,7 @@ removeDimension(<tsExpression>, <pointTag1>, <pointTag2>,... operator <tsExpress
 
 ```
 
-Functions that let you perform vector matching operations, similar to the PromQL [PromQL Operators/Vector Matching Operators]https://prometheus.io/docs/prometheus/latest/querying/operators/#vector-matching)
+Functions that let you perform matching operations, similar to the PromQL [PromQL Operators/Vector Matching Operators]https://prometheus.io/docs/prometheus/latest/querying/operators/#vector-matching)
 
 * `retainDimension()` is similar to the ON operator.
 * `removeDimension()` is similar to the IGNORING operator.

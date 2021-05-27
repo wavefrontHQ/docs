@@ -11,7 +11,9 @@ This page lists new and updated features in the Wavefront service.
 
 ## 2021-20.x Release Notes
 
+* **Performance Improvements**: This release includes a lot of performance improvements. Learn more how you can be more successful with Wavefront from our blog post: [How Tanzu Observability Continuous Improvement Makes You More Successful](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/how-tanzu-observability-continuous-improvement-make-you-more-successful).
 
+* **New Functions**: With this release, we add the `retainDimension` and `removeDimension` functions that allow you to perform matching operations, similar to the PromQL [PromQL Operators/Vector Matching Operators]https://prometheus.io/docs/prometheus/latest/querying/operators/#vector-matching). For information see [Matching Functions](ts_vector_matching.html).
 
 ## Past Release Notes
 
