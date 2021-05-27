@@ -118,12 +118,16 @@ You will see external database services on the application map if the spans have
     <td markdown="span">
       `db.type`
     </td>
-    <td markdown="span">
+    <td>
       The type of the database that you configure your application, such as MySQL, Oracle, is assigned by the library. The value assigned here determines the component icon you see when you click on the external database service.
+      
+      {{site.data.alerts.note}}
+      The values are not case sensitive.
+      {{site.data.alerts.end}}
 
-      Example: `db.type=postgresql`
+      Example: <code>db.type=postgresql</code><br/>
 
-      ![A screenshot that shows what you see when click on an external database service on the application map. There is a blue box around the component to highlight it. The components arethe icons shown after DB or the database name.](images/tracing_external_database_components.png)
+      <img src="images/tracing_external_database_components.png" alt="A screenshot that shows what you see when click on an external database service on the application map. There is a blue box around the component to highlight it. The components are the icons shown after DB or the database name." />
     </td>
   </tr>
   <tr>

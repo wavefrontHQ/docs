@@ -40,7 +40,7 @@ Fills in gaps in the time series described by `tsExpression`, by inserting data 
 </tr>
 <tr>
 <td markdown="span">.orElse</td>
-<td>An optional operator that allows you to specify a default value even if the time series did not report any data in the specified time window. You can enter a constant value wrapped in brackets, such as <code>orElse(5)</code>. You can also enter a timeseries for chained .orElse statements, for example <code>.orElse(ts('my.metric'))</code>.</td>
+<td>An optional operator that allows you to specify a default value even if the time series did not report any data in the specified time window. You can enter a constant value, for example <code>orElse(5)</code>. You can also enter a timeseries for chained .orElse statements, for example <code>.orElse(ts('my.metric'))</code>.</td>
 </tr>
 </tbody>
 </table>

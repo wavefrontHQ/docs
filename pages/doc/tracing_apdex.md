@@ -17,7 +17,7 @@ When you send your applications trace data to Wavefront, the application data is
 
 The default threshold value (T) is set to 100ms, and only a [Super Admin user](authorization.html#who-is-the-super-admin-user) or users with [Applications permissions](permissions_overview.html) can configure the threshold (T).
 
-### Apdex score
+### Apdex Score
 
 The Apdex score is calculated using the following equation:
 
@@ -179,32 +179,30 @@ A Super Admin user or users with Applications permissions can change the respons
 
 {% include note.html  content="When the response time threshold (T) of a service is updated, the Apdex score is recalculated using the new T."%}
 
-### Update the Application Configuration Page
+### Update the Threshold from the Application Configuration Page
 
-Follow these steps:
+From the Application Configuration page, you can update the threshold value of multiple services at once. Follow these steps:
 
-1. Click **Applications** > **Application Configurations**. You see a list of the applications that send trace data to Wavefront.
-1. Click on the application that has the services you want to configure. Now, you see a list of all the services in the application.
-1. Click the icon with the three vertical dots next to the service name and click **Edit**.
+1. Click **Applications** > **Application Configuration**. You see a list of the applications that send trace data to Wavefront.
+1. Click the application that has the services you want to configure. Now, you see a list of all the services in the application.
+1. Select the check boxes next to the services that you want to edit and click the **Edit Settings** button on the top of the list.
     {% include note.html content="Only a Super Admin user or users with Applications permissions can configure the Apdex threshold. If you are not a Super Admin user, you see the following message: **You don't have permission to update this page**."%}
-    ![The image shows where to click to edit the threshold value.](images/tracing_apdex_configuration_edit_service.png)
-1. Update the **Threshold** value and click **Save**.
+1. Update the **Apdex Threshold** value and click **Save**.
     ![The image shows where to update the threshold value. It has a blue outline to highlight the threshold value.](images/tracing_configure_apdex_threshold.png)
 
-### Update the Legend on the Application Status Page
+### Update the Threshold from the Legend on the Application Status Page
 
 You can update the response time threshold (T) using the Settings icon on the app map, table view, or grid view on the Application Status page.
 
 1. Click **Applications** > **Application Status**.
 1. Click the settings icon on the app map, table view, or grid view.
-1. Under **Legend Settings**, select **Apdex**.
+1. From the drop-down menu under **Legend Settings**, select **Apdex**.
 1. Click **Configure Apdex**. <br/>
     {% include note.html content="Only a Super Admin user or users with Applications permissions can configure the threshold (T). If you are not a Super Admin user, you don't see **Configure Apdex**."%}
     ![The image the setting and the legend setting with Apdex selected from the drop down. The configure apdex section is highlighted with a blue box. You need to click it to update the threshold value.](images/tracing_apdex_legeng_configure_apdex.png)
-    <br/>Now, you see a list of all the services that send trace data to Wavefront. You can sort the table by the service name, application name, service status (active or inactive), Apdex score, and the threshold (T) value.
-1. Click the icon with the three vertical dots next to the service name and click **Edit**.
-    ![The image shows where to click to edit the threshold value.](images/tracing_edit_service_legend_settings.png)
-1. Update the **Threshold** value and click **Save**.
+    <br/>Now, you see a list of all the services that send trace data to Wavefront. You can sort the table by the service name, application name, service status (active or inactive), and the threshold (T) value.
+1. Select the check boxes next to the services that you want to edit and click the **Edit Settings** button on the top of the list.
+1. Update the **Apdex Threshold** value and click **Save**.
     ![The image shows where to update the threshold value. It has a blue outline to highlight the threshold value.](images/tracing_configure_apdex_threshold.png)
 
 ## See Also

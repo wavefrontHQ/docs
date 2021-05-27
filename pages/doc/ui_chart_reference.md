@@ -843,6 +843,10 @@ A **Markdown** chart allows you to provide in-depth text descriptions of a dashb
 
 In addition to Markdown formatted text, you can use links, images hosted outside Wavefront, and [dashboard variables](dashboards_variables.html). You can refer to the value of a dashboard variable with the query variable syntax **${var_name}** and the label of the variable using **%{var_name}**. Using a label instead of the variable value could be useful for list variables that might show the dropdown labels such as: Any, 1 Year, 3 Years which could map to opaque values such as -1, 1, 3.
 
+You can pass a time window as a parameter in markdown. For example, when you create a dynamic link in a markdown chart, from the time selector you can pick a specific time window. When you click the link on the markdown chart, you will see the chart within the current time range that you’ve selected. 
+
+When you add a markdown chart with a dashboard dynamic link to an existing dashboard, for example, `[[dashboardURLWithCurrentTimeRange url=/tracing/service/details title=MyChart]]`, clicking the link on the markdown chart, will open a dashboard within the time range that is specified in the parent dashboard, i.e. the dashboard to which you've added the markdown chart.
+
 <table style="width: 100%;">
 <tbody>
 <tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>

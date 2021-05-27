@@ -77,7 +77,7 @@ You can [filter the metrics](https://github.com/wavefrontHQ/wavefront-kubernetes
 ### Application Monitoring
 
 The Wavefront Collector for Kubernetes automatically starts collecting metrics from many commonly used applications: 
-* The collector auto-discovers endpoints using labels. See [Auto Discovery](auto-discover" endpoints scrape using labels).
+* The collector auto-discovers endpoints using labels. See [Auto Discovery](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/discovery.md#auto-discovery).
 * The collector also scrapes Prometheus metric endpoints such as API server, etcd, and NGINX.
 
 You can also configure the collector to collect data from Telegraf application sources, such as Redis, RabbitMQ. etc., using the [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#telegraf_source) file.

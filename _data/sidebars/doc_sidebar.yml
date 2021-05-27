@@ -17,6 +17,10 @@ entries:
     - title: Searching Wavefront
       url: /wavefront_searching.html
       output: web
+      
+    - title: Wavefront Keyboard Navigation
+      url: /wavefront_keyboard_shortcuts.html
+      output: web
 
     - title: Your Wavefront Account
       url: /users_account_managing.html
@@ -141,37 +145,9 @@ entries:
   - title: Release Notes
     output: web
     folderitems:
-      
+
     - title: Wavefront Release Notes
       url: /wavefront_release_notes.html
-      output: web
-
-    - title: 2021-14.x Release Notes
-      url: /2021.14.x_release_notes.html
-      output: web
-
-    - title: 2021-08.x Release Notes
-      url: /2021.08.x_release_notes.html
-      output: web
-
-    - title: 2020-42.x Release Notes
-      url: /2020.42.x_release_notes.html
-      output: web
-
-    - title: 2020-38.x Release Notes
-      url: /2020.38.x_release_notes.html
-      output: web
-
-    - title: 2020-30.x Release Notes
-      url: /2020.30.x_release_notes.html
-      output: web
-
-    - title: 2020-26.x Release Notes
-      url: /2020.26.x_release_notes.html
-      output: web
-
-    - title: 2020-22.x Release Notes
-      url: /2020.22.x_release_notes.html
       output: web
 
     - title: Wavefront & Kubernetes Release Notes
@@ -281,11 +257,7 @@ entries:
     output: web
     folderitems:
 
-    - title: "What's New in v2"
-      url: /ui_v2_faq.html
-      output: web
-
-    - title: "Examine Data"
+    - title: "Explore Your Data"
       url: /ui_examine_data.html
       output: web
 
@@ -395,7 +367,10 @@ entries:
           url: /query_language_recipes.html
           output: web
 
-
+    - title: Using PromQL in Wavefront
+      url: /wavefront_prometheus.html
+      output: web
+    
   - title: "Alerts & Events"
     output: web
     folderitems:
@@ -573,8 +548,8 @@ entries:
       - title: Overview
         url: /wavefront_kubernetes.html
         output: web
-      
-      - title: Kubernetes Integration
+
+      - title: Set Up Kubernetes Integration
         url: /kubernetes.html
         output: web
 

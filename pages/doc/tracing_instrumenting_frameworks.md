@@ -73,6 +73,15 @@ Wavefront provides SDKs that implement the [OpenTracing](https://opentracing.io)
   </ul>
 {{site.data.alerts.end}}
 
+{{site.data.alerts.important}}
+<p>Spans that have special characters in the application or service name are rejected by Wavefront and are not supported by the tracing user interfaces.
+</p>
+Example:
+<pre>
+!"#$%&'()*+,-./:;<=>?@[&#92;]^_&#96;{|}~
+</pre>
+{{site.data.alerts.end}}
+
 ### Instrument Your Application with OpenTracing SDKs
 
 Choose the Wavefront OpenTracing SDK for your microservice's programming language, and click the link to go to its `README` file on GitHub:
