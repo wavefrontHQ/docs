@@ -105,35 +105,99 @@ After you've performed the setup, you can view and examine the data in our AWS F
 9. Click **Run Task**.
 
 
-## Create AWS ECS EC2 Task Definition for Wavefront
+## Create an AWS ECS EC2 Task Definition for Wavefront
 
-Wavefront maintains an image of Telegraf (telegraf-ecs) that enables Wavefront to ,onitor Amazon ECS service. These steps create an ECS task definition that ensures that the Wavefront Telegraf ECS container automatically runs on each EC2 instance in your ECS cluster.
+A Telegraf (telegraf-ecs) image enables Wavefront to monitor Amazon ECS service. The Telegraf container must run in the same Task as the workload it is inspecting. The below steps to create an ECS task definition ensure that the Telegraf ECS container automatically runs on each task in your ECS cluster.
 
-After you've performed the setup, you can view and examine the data in our AWS EC2 dashboard in your Wavefront instance. The screenshots at the bottom of this page show the AWS EC2 dashboard.
+After you perform the setup, you can view and examine the data in the AWS ECS dashboard of your Wavefront instance. The screenshots at the bottom of this page show the AWS ECS dashboard.
 
-1. Within AWS Services, navigate to **ECS**.
-1. Click **Task Definitions**, then **Create new Task Definition**.
+1. Within AWS Services, navigate to **Elastic Container Service (ECS)**.
+1. Click **Task Definitions**, then click **Create new Task Definition**.
   ![create task def](images/create_new_task_definition.png)
 1. Select the EC2 launch type and click **Next Step**.
 
    ![select launch type](images/select_launch_type.png)
 1. Scroll to the bottom of the new Task Definition form and click the **Configure via JSON** button.
-   1. Delete the content and paste the [JSON example](https://github.com/wavefrontHQ/integrations/blob/master/aws-ecs/telegraf-example-task-definition.json) into the JSON form field.
-   1. In the JSON form, set the `WAVEFRONT_PROXY` and `WAVEFRONT_PROXY_PORT` and click **Save**.
+1. Delete the content and paste the following snippet into the JSON form field.
+   ```
+   {
+    "ipcMode": null,
+    "executionRoleArn": "<create_new>",
+    "containerDefinitions": [
+        {
+            "dnsSearchDomains": null,
+            "environmentFiles": [],
+            "logConfiguration": null,
+            "entryPoint": null,
+            "portMappings": [
+                {
+                    "hostPort": "80",
+                    "protocol": "tcp",
+                    "containerPort": 8080
+                }
+            ],
+            "cpu": 512,
+            "memory": 512,
+            "image": "tomcat",
+            "essential": true,
+            "name": "Tomcat",
+            "repositoryCredentials": {
+                "credentialsParameter": ""
+            }
+        },
+        {
+            "environmentFiles": [],
+            "portMappings": [],
+            "cpu": 1024,
+            "environment": [
+                {
+                    "name": "ECS_CONTAINER_METADATA_ENDPOINT",
+                    "value": ""
+                },
+                {
+                    "name": "WAVEFRONT_PROXY",
+                    "value": ""
+                },
+                {
+                    "name": "WAVEFRONT_PROXY_PORT",
+                    "value": "2878"
+                }
+            ],
+            "memory": 512,
+            "image": "projects.registry.vmware.com/tanzu_observability/telegraf-ecs:latest",
+            "essential": true,
+            "name": "Telegraf",
+            "repositoryCredentials": {
+                "credentialsParameter": ""
+            }
+        }
+    ],
+    "memory": null,
+    "taskRoleArn": "",
+    "family": "Tomcat-Telegraf",
+    "pidMode": null,
+    "requiresCompatibilities": [
+        "EC2"
+    ],
+    "networkMode": "bridge",
+    "volumes": [],
+    "placementConstraints": [],
+    "tags": []
+}
+
+   ```
+1. In the JSON form, set the `WAVEFRONT_PROXY` and `WAVEFRONT_PROXY_PORT` and click **Save**.
 1. Click the **Create** button at the bottom of the Task Definition form.
 1. Select **Actions > Run Task** and specify the task information:
    ![actions menu](images/actions_run_task.png)
    1. From the **Cluster** drop-down menu, select the cluster on which your task has to run.
    2. Enter the number of tasks (minimum 1) of same definition you want to run.
    3. (Optional) Enter the Task Group name to identify a set of related tasks.
-1. From the **Placement Templates** drop-down menu, select **One Task Per Host**. This ensures that each EC2 instance in your ECS cluster has a Wavefront Telegraf task.
 
-   ![actions menu](images/one_task_per_host.png)
 1. Click **Run Task**.
 
-**NOTE**: The task metadata endpoint is enabled by default on Amazon ECS EC2 instance based on the Amazon ECS container agent version. To enforce the task metadata v2 endpoint, the endpoint URL should be mentioned in the Task Definition as below.
+**NOTE**: The task metadata endpoint is enabled by default on the Amazon ECS EC2 instance, based on the version of Amazon ECS container agent. The amazon-ecs-agent (though it is a container running on the host) is not present in the metadata/stats endpoints. To enforce the task metadata v2 endpoint, include the endpoint URL in the Task Definition:
 
-Configuration (enforce v2 metadata):
 
 ```
 
@@ -143,8 +207,6 @@ Configuration (enforce v2 metadata):
 }
 
 ```
-
-The amazon-ecs-agent (though it is a container running on the host) is not present in the metadata/stats endpoints.
 
 ## View ECS Container Metrics
 
