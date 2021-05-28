@@ -275,6 +275,27 @@ With this addition, the query returns the following 6 series, joined with the el
 </tbody>
 </table>
 
+## Series Matching with "groupLeft" and "groupRight" Construct
+
+You can use `groupRight` and `groupLeft` modifiers to achieve many-to-one and one-to-many series matching, similar to the [Many-to-one and one-to-many PromQL vector matches](https://prometheus.io/docs/prometheus/latest/querying/operators/#many-to-one-and-one-to-many-vector-matches).
+
+For example, when we use the `groupRight` modifier in the query below, we indicate that the right part of the query contains more results. Therefore, we see results with the `processId` tag.
+
+```
+sum(ts(~agent.listeners.connections.*), port, processId) + by(processId) groupRight sum(ts(~agent.points.2878.blocked), processId)
+```
+
+![A chart created with the above query with one dimension shown in the pinned legend - processId.](images/groupRight.png)
+
+In the example below, we use the `groupLeft` modifier and therefore we claim that the left part of the query contains more results. We'll see results with the `port` and `processId` tags.
+
+```
+sum(ts(~agent.listeners.connections.*), port, processId) + by (processId) groupLeft sum(ts(~agent.points.2878.blocked), processId)
+```
+
+![A chart created with the above query with two dimensions shown in the pinned legend - port and processId.](images/groupLeft.png)
+
+
 ## Automatic Query Flip
 
 Wavefront automatically flips the query to have the more detailed side of the join be the driver. In the example above, that is the `cpu.idle` part of the query.
