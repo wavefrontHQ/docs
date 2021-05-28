@@ -237,6 +237,19 @@ The image above shows how to restricts access for users in the group `Contractor
 * When a user belonging to group `Contractors` runs a query for `cpu.usage` tagged with `env=dev`, this access matches Rule 1 (**Contractors can access dev environment metrics**) and access is granted.
 * But when the user issues a query for `cpu.usage` tagged with `env=prod`, this access does not match Rule 1. Rule 2 (**Contractors cannot access any other metrics**) acts as a catch-all for users of group `Contractors` and denies them access to this metric.
 
+### Example: Restrict Access for a User Role
+
+This example restricts access for a specific user when the restrict rule is applied to a user role. The metrics security rules take into account both direct and indirect roles.
+
+![screenshot of the single user restrictions](images/metrics-security-policy-retail.png)
+
+The image above shows how to restrict access for a user with the role `Operator`. The user cannot access any metrics.
+
+By applying the above security policy:
+
+* When a user who is in the `retail` group runs a query for metrics tagged with the `env=retail` point tag, access is granted.
+* A user who is assigned with the `Operator` role (either directly or indirectly, coming from other user groups) cannot access any metrics at all, because Rule 2 (**Block all data**) is applied.
+
 ### Example: Strictly Limit Access on a Need-to-Know Basis
 
 Some companies want to make metric accessible only to the team that needs to know about it. Access to metrics outside a team’s scope of work is disabled.  Only administrators are allowed access to all metrics.

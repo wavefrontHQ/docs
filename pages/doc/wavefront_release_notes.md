@@ -9,9 +9,39 @@ summary: Learn about new and updated features in Wavefront.
 
 This page lists new and updated features in the Wavefront service.
 
+## 2021-19.x Release Notes
+
+* **Level-A Accessibility Improvements**: Wavefront now includes level-A accessibility fixes for keyboard navigation and colorblind support. With this release, a few level-AA issues are addressed as well. Wavefront uses color contrast to support colorblind accessibility and allows you to use keyboard shortcuts to navigate through the menus and options of the following list of pages:
+
+  * Dashboards Browser page
+  * Dashboard page
+  * Alerts Browser page
+  * Alert Viewer page
+  * Events list page
+
+  For the list of keyboard shortcuts, see [Wavefront Keyboard Navigation](wavefront_keyboard_shortcuts.html).
+
+* **New Filters in the Alerts Browser**: In the Alerts Browser, you can now also use a **Services** or **Applications** filter, so that you can filter for Applications-related alerts that you have [created and defined within Distributed Tracing](tracing_ui_overview.html#create-alerts). 
+
+* **Ability to Update Apdex Threshold of Multiple Services**: With this release, you can update the Apdex Threshold of multiple Application Services at once. For information, see [Configure the Threshold Value](tracing_apdex.html#configure-the-threshold-t-value).
+
+* **Documentation Improvements**:
+  * A new video that explains how to create charts and alerts using PromQL.
+    <iframe src="https://bcove.video/3tLRB6l" width="700" height="400" allowfullscreen="true" alt="Wavefront and PromQL"></iframe>
+  * Added two new sections to the [Kubernetes Troubleshooting guide](wf_kubernetes_troubleshooting.html#symptom-missing-metrics-from-a-single-source).
+
+## 2021-18.x Release Notes
+
+No user-visible changes.
+
 ## 2021-17.x Release Notes
 
-* **Create Alerts for Your Services**: Now, you can [create alerts for your services](tracing_ui_overview.html#create-alerts) from the tracing application status page. 
+* **Create Alerts for Your Services**: Now, you can [create alerts for your services](tracing_ui_overview.html#create-alerts) from the tracing application status page.
+
+  * The threshold in the alert that you create is based on the current view and the service that you selected. You can change which RED metrics or Apdex to use for a threshold.
+  * You can define and set the alert either for the selected service or for all services.
+  * You can also switch to advanced mode and fine-tune the alert.
+ 
 * **Full PromQL Support in the UI**: We've expanded the limited PromQL support and we added:
  
   * Full support for creating charts and alerts with PromQL queries.
