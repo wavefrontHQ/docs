@@ -107,7 +107,7 @@ After you've performed the setup, you can view and examine the data in our AWS F
 
 ## Create an AWS ECS EC2 Task Definition for Wavefront
 
-A Telegraf (telegraf-ecs) image enables Wavefront to monitor Amazon ECS service. The Telegraf container must run in the same Task as the workload it is inspecting. The below steps to create an ECS task definition ensure that the Telegraf ECS container automatically runs on each task in your ECS cluster.
+A Telegraf (telegraf-ecs) image enables Wavefront to monitor Amazon ECS service. The Telegraf container must run in the same Task as the workload it is inspecting. Below are the steps to create an example ECS task definition and run the Telegraf container along with other containers in the task.  In the Telegraf container, the ECS input plugin is enabled to gather stats on running containers in a Task and the Wavefront output plugin is enabled to send ECS metrics to Wavefront.
 
 After you perform the setup, you can view and examine the data in the AWS ECS dashboard of your Wavefront instance. The screenshots at the bottom of this page show the AWS ECS dashboard.
 
