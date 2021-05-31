@@ -49,8 +49,9 @@ After you've performed the setup, you can view and examine the data in our AWS F
 ![fargate launch type](images/aws_fargate.png)
 
 1. Scroll to the bottom of the new Task Definition form and click **Configure via JSON**.
-  1. Delete the content and paste the JSON example into the JSON form field.
-  ```
+1. Delete the content and paste the following snippet into the JSON form field.
+
+   ```
   {
         "family": "wavefront-task-def",
         "networkMode": "awsvpc",
@@ -92,6 +93,7 @@ After you've performed the setup, you can view and examine the data in our AWS F
         "cpu": "256",
         "memory": "512"
   }
+   
    ```
 1. In the JSON form, set the `storage_driver_wf_proxy_host` property to the proxy address. If you want to use a custom port, set the `storage_driver_wf_metric_port` to the port number of your Wavefront instance and click **Save**.
 1. Click **Create** at the bottom of the Task Definition form.
