@@ -11,12 +11,20 @@ Wavefront continuously adds new integrations to the existing set, and improves a
 ## May 2021
 
 Made improvements to the following integrations and dashboards in May 2021:
-
-* Kubernetes -- Fixed the Memory usage chart in the Troubleshooting dashboard.
+* AWS -- Updated the AWS summary dashboard to use Delta Counters
+* Linux -- Updated the Linux integration to list all collected metrics
+* Wavefront Usage:
+  * The out of the box dashboards are updated to use new delta counters. 
+  * The integration out of the box alerts are updated to use delta counters.
+* Kubernetes:
+  * Fixed node and pod memory usage charts in the out of the box Kubernetes Dashboards
+  * Fixed the Memory usage chart in the Troubleshooting dashboard.
+* vSphere -- Documentation fixes for vSphere integration. 
+* AWS ECS EC2 Integration -- The integration is updated to use a Telegraf agent to gather stats on running containers in a Task.
 * Consul -- Made the new metric version 2 as the default metric format.
 * MySQL -- Made the new metric version 2 as the default metric format.
 * Pivotal Cloud Foundry -- Added new out of the box alerts based on the Tanzu Application Services KPIs.
-* Wavefront Usage -- Updates to the out of the box dashboards to use new delta counters. 
+
 
 ## April 2021
 
