@@ -1,10 +1,10 @@
 ---
-title: Matching Functions (retainDimension, removeDimension)
+title: retainDimension and removeDimension Functions
 keywords: query language reference
 tags: [reference page]
 sidebar: doc_sidebar
 published: true
-permalink: ts_vector_matching.html
+permalink: ts_retainDimension_removeDimension.html
 summary: Reference to the retainDimension and removeDimension functions
 ---
 ## Summary
@@ -16,12 +16,10 @@ removeDimension(<tsExpression>, <pointTag1>, <pointTag2>,...)
 
 ```
 
-Functions that let you perform matching operations, similar to the [PromQL Operators/Vector Matching Operators](https://prometheus.io/docs/prometheus/latest/querying/operators/#vector-matching)
+Functions that let you retain or remove dimensions from the query results. 
 
-* `retainDimension()` is similar to the ON operator.
-* `removeDimension()` is similar to the IGNORING operator.
-
-Two entries match if they have the exact same set of labels and corresponding values. The `removeDimension()` function allows ignoring certain point tags when matching, while the `retainDimension()` function allows reducing the set of considered point tags to a provided list.
+* `retainDimension()` allows to explicitly state which dimensions you want to see in the query output.
+* `removeDimension()` allows to explicitly state which dimensions you want to remove from the query output.
 
 For each function, you have to specify at least one `ts()` expression and at least one point tag value as a dimension. 
 
@@ -46,46 +44,35 @@ For each function, you have to specify at least one `ts()` expression and at lea
 
 ## Description 
 
-Allow you to perform vector matching operations, similar to the PromQL [PromQL Operators/Vector Matching Operators](https://prometheus.io/docs/prometheus/latest/querying/operators/#vector-matching).
-
+Functions that let you retain or remove dimensions (point tags) from the query results.
 
 ## Examples
 
-You can remove the `processId` related results from a query of the type:
+You can remove the `env` dimension from a query of the type:
 
 ```
-sum(ts(~agent.listeners.connections.*, processId=3912), port, processId)
-
-```
-
-![A chart created with the above query with two dimensions shown in the pinned legend - port and process ID.](images/before-applying-remove-retaindimension.png)
-
-To do that, use the `removeDimension()` function and include the `processId` tag, which is the dimension that will be removed:
-
-```
-removeDimension(sum(ts(~agent.listeners.connections.*, processId=3912), port, processId), "processId")
+ts(~sample.cpu.usage.*)
 
 ```
 
-To retain only the `port` dimension in the same query, use the `retainDimension()` function and include the `port` tag, which is the dimension that will be explicitly kept:
+This sample query has 4 dimensions, such as source, metric, availability zone, and environment.
+
+![A chart created with the sample query with 4 dimensions shown in the pinned legend - source, metric, availability zone and environment.](images/before-applying-remove-retaindimension.png)
+
+To do that, use the `removeDimension()` function and include the `env` tag, which is the dimension that you want to be removed:
 
 ```
-retainDimension(sum(ts(~agent.listeners.connections.*, processId=3912), port, processId), "port")
+removeDimension(ts(~sample.cpu.usage.*), env)
+
+```
+![A chart created with the above query after applying the removeDimension function with the environment dimension removed from the pinned legend.](images/after-applying-removedimension.png)
+
+
+To retain only the source and metrics dimensions in the query, and remove the `env` and `az` dimensions, use the `retainDimension()` function and include the `hosts` and `metrics` tags, which are the dimensions that will be explicitly kept:
+
+```
+retainDimension(ts(~sample.cpu.usage.*), hosts, metrics)
 
 ```
 
-The resulting chart is one and the same - the `processId` tag is the removed dimension and only the `port` tag is kept in the chart.
-
-![A chart created with the above queries after applying the removeDimension and retainDimenstion functions with one dimension shown in the pinned legend - port.](images/after-applying-remove-retaindimension.png)
-
-You can also use more complex queries with the `by` construct. For example, the query below, keeps the `processId` dimension.
-
-```
-retainDimension(sum(ts(~agent.listeners.connections.*, port=2878), port, processId) + by ("processId") sum(ts(~agent.points.2878.blocked), processId), processId)
-
-```
-
-## See also
-
-* [Pairing Up Matching Series](query_language_series_matching.html)
-* [Logical Set and Binary Functions (union, intersect, complement)](ts_logicalSet.html)
+![A chart created with the above query after applying the retainDimension function with the environment and availability zone dimensions removed from the pinned legend.](images/after-applying-retaindimension.png)

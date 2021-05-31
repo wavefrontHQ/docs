@@ -13,9 +13,9 @@ This page lists new and updated features in the Wavefront service.
 
 * **Performance Improvements**: This release includes a lot of performance improvements. Learn more how you can be more successful with Wavefront from our blog post: [How Tanzu Observability Continuous Improvement Makes You More Successful](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/how-tanzu-observability-continuous-improvement-make-you-more-successful).
 
-* **New Functions**: With this release, we add the `retainDimension` and `removeDimension` functions that allow you to perform matching operations, similar to the  [PromQL Operators/Vector Matching Operators](https://prometheus.io/docs/prometheus/latest/querying/operators/#vector-matching). For information, see [Matching Functions](ts_vector_matching.html).
+* **New Functions**: With this release, we add the [`retainDimension` and `removeDimension` functions](ts_retainDimension_removeDimension.html) that allow you to keep or remove dimensions (point tags) from the results of your queries.
 
-* **New Modifiers**: We add the `groupLeft` and `groupRight` modifiers that let you achieve many-to-one and one-to-many series matching, similar to the [Many-to-one and one-to-many PromQL vector matches](https://prometheus.io/docs/prometheus/latest/querying/operators/#many-to-one-and-one-to-many-vector-matches). See, [Pairing Up Matching Series](query_language_series_matching.html).
+* **New Operators**: We add the `groupLeft` and `groupRight` modifiers that let you achieve many-to-one and one-to-many series matching, similar to the [Many-to-one and one-to-many PromQL vector matches](https://prometheus.io/docs/prometheus/latest/querying/operators/#many-to-one-and-one-to-many-vector-matches). See, [Pairing Up Matching Series](query_language_series_matching.html#processing-output-metadata-from-a-series-match).
 
 
 ## Past Release Notes
