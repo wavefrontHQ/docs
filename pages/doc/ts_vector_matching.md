@@ -5,7 +5,7 @@ tags: [reference page]
 sidebar: doc_sidebar
 published: true
 permalink: ts_retainDimension_removeDimension.html
-summary: Reference to the retainDimension and removeDimension functions
+summary: Reference to the retainDimension() and removeDimension() functions
 ---
 ## Summary
 
