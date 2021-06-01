@@ -288,7 +288,7 @@ Unless you use an operator, Wavefront automatically flips the query to have the 
 
 You can use `groupRight` and `groupLeft` operators to achieve many-to-one and one-to-many series matching, similarly to the [Many-to-one and one-to-many PromQL vector matches](https://prometheus.io/docs/prometheus/latest/querying/operators/#many-to-one-and-one-to-many-vector-matches).
 
-For example, when we use the `groupRight` modifier in the query below, we see results with the `processId` tag which is on the right side of the operator.
+For example, when we use the `groupRight` operator in the query below, we see results with the `processId` tag which is on the right side of the operator.
 
 ```
 sum(ts(~agent.listeners.connections.*), port, processId) + by(processId) groupRight sum(ts(~agent.points.2878.blocked), processId)
