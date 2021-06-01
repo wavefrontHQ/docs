@@ -50,4 +50,5 @@ Here we see the result (in orange) of using `log()` to take the natural log of a
 ![ts log ts](images/ts_log_time_series.png)
 
 ## See also
-[log10()](ts_log10.html)
+* [log10()](ts_log10.html)
+* [log2()](ts_log2.html)
