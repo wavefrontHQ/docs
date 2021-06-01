@@ -335,8 +335,8 @@ entries:
           url: /query_editor.html
           output: web
 
-        - title: AI Genie
-          url: /ai_genie.html
+        - title: Anomaly Detection on Charts
+          url: /anomaly_detection.html
           output: web
 
       - title: Query Language Tips and Tricks
