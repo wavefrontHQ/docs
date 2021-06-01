@@ -278,7 +278,7 @@ With this addition, the query returns the following 6 series, joined with the el
 
 ## Processing Output Metadata From a Series Match
 
-If you don't specify an operator in your query, Wavefront automatically flips the query to the side with more dimensions. To achieve many-to-one and one-to-many series matching and specify which side of a query metadata to have in your query results, use the `groupRight` and `groupLeft` modifiers.
+If you don't specify an operator in your query, Wavefront automatically flips the query to the side with more dimensions. To achieve many-to-one and one-to-many series matching and specify which side of a query metadata to have in your query results, use the `groupRight` and `groupLeft` operators.
 
 ### Automatic Query Flip
 

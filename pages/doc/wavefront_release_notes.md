@@ -15,7 +15,7 @@ This page lists new and updated features in the Wavefront service.
 
 * **New Functions**: With this release, we add the [`retainDimension` and `removeDimension` functions](ts_retainDimension_removeDimension.html) that allow you to keep or remove dimensions (point tags) from the results of your queries.
 
-* **New Operators**: We add the `groupLeft` and `groupRight` modifiers that let you achieve many-to-one and one-to-many series matching, similar to the [Many-to-one and one-to-many PromQL vector matches](https://prometheus.io/docs/prometheus/latest/querying/operators/#many-to-one-and-one-to-many-vector-matches). See, [Pairing Up Matching Series](query_language_series_matching.html#processing-output-metadata-from-a-series-match).
+* **New Operators**: We add the `groupLeft` and `groupRight` operators that let you achieve many-to-one and one-to-many series matching, similar to the [Many-to-one and one-to-many PromQL vector matches](https://prometheus.io/docs/prometheus/latest/querying/operators/#many-to-one-and-one-to-many-vector-matches). See, [Processing Output Metadata from a Series Match](query_language_series_matching.html#processing-output-metadata-from-a-series-match).
 
 
 ## Past Release Notes
