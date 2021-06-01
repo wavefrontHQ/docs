@@ -29,14 +29,14 @@ All Wavefront browsers (**All Dashboards**, **Alerts**, **Integrations**, and so
 
 The search field at the top of every Wavefront browser page supports both autocomplete and search. We support autocomplete for many searches.
 
-For example, in the All Dashboards browser page, searching for an incomplete term, returns a drop-down list that displays a list of items that contain the search string, such as:
+For example, in the **All Dashboards** page, searching for an incomplete term, returns a drop-down list that displays a list of items that contain the search string, such as:
 
 * metrics queried in dashboards
 * dashboard names
 * dashboard URLs
 * tags
 
-You can select an item from the list individually. The drop-down list also contains a link to the search for _all_ items that contain the string. For example:
+You can select an item from the list individually. The drop-down list also contains a link to the search for _All_ items that contain the string. For example:
 
 ![search auto](images/search_auto.png)
 
