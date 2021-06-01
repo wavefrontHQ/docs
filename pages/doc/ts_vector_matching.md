@@ -55,11 +55,11 @@ ts(~sample.cpu.usage.*)
 
 ```
 
-This sample query has 4 dimensions, such as source, metric, availability zone, and environment.
+This sample query has 4 dimensions, such as source, metric, availability zone (`az`), and environment (`env`).
 
 ![A chart created with the sample query with 4 dimensions shown in the pinned legend - source, metric, availability zone and environment.](images/before-applying-remove-retaindimension.png)
 
-To remove the `env` dimension, use the `removeDimension()` function and include the `env` tag, which is the dimension that you want to be removed:
+To remove the `env` dimension, use the `removeDimension()` function and include the `env` tag:
 
 ```
 removeDimension(ts(~sample.cpu.usage.*), env)
