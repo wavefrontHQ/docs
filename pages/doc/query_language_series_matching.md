@@ -282,7 +282,7 @@ If you don't specify an operator in your query, Wavefront automatically flips th
 
 ### Automatic Query Flip
 
-Unless you use an operator, Wavefront automatically flips the query to have the more detailed side of the join be the driver. In the example above, that is the `cpu.idle` part of the query.
+Unless you use an operator, such as such as `groupRight` and `groupLeft`, Wavefront automatically flips the query to have the more detailed side of the join be the driver. In the example above, that is the `cpu.idle` part of the query.
 
 ### Series Matching with "groupLeft" and "groupRight" Construct
 
