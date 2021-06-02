@@ -9,76 +9,18 @@ summary: Learn about new and updated features in Wavefront.
 
 This page lists new and updated features in the Wavefront service.
 
-## 2021-19.x Release Notes
+## 2021-20.x Release Notes
 
-* **Level-A Accessibility Improvements**: Wavefront now includes level-A accessibility fixes for keyboard navigation and colorblind support. With this release, a few level-AA issues are addressed as well. Wavefront uses color contrast to support colorblind accessibility and allows you to use keyboard shortcuts to navigate through the menus and options of the following list of pages:
+* **Performance Improvements**: This release includes significant performance improvements for the query language. As part of this project, our engineers added single-side join improvements, strategy improvements for TopK, and more. Read our blog post: [How Tanzu Observability Continuous Improvement Makes You More Successful](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/how-tanzu-observability-continuous-improvement-make-you-more-successful) for details.
 
-  * Dashboards Browser page
-  * Dashboard page
-  * Alerts Browser page
-  * Alert Viewer page
-  * Events list page
+* **New Functions**: We added the [`retainDimension()` and `removeDimension()` functions](ts_retainDimension_removeDimension.html), which allow you to keep or remove dimensions (point tags) from the results of your queries.
 
-  For the list of keyboard shortcuts, see [Wavefront Keyboard Navigation](wavefront_keyboard_shortcuts.html).
-
-* **New Filters in the Alerts Browser**: In the Alerts Browser, you can now also use a **Services** or **Applications** filter, so that you can filter for Applications-related alerts that you have [created and defined within Distributed Tracing](tracing_ui_overview.html#create-alerts). 
-
-* **Ability to Update Apdex Threshold of Multiple Services**: With this release, you can update the Apdex Threshold of multiple Application Services at once. For information, see [Configure the Threshold Value](tracing_apdex.html#configure-the-threshold-t-value).
-
-* **Documentation Improvements**:
-  * A new video that explains how to create charts and alerts using PromQL.
-    <iframe src="https://bcove.video/3tLRB6l" width="700" height="400" allowfullscreen="true" alt="Wavefront and PromQL"></iframe>
-  * Added two new sections to the [Kubernetes Troubleshooting guide](wf_kubernetes_troubleshooting.html#symptom-missing-metrics-from-a-single-source).
-
-## 2021-18.x Release Notes
-
-No user-visible changes.
-
-## 2021-17.x Release Notes
-
-* **Create Alerts for Your Services**: Now, you can [create alerts for your services](tracing_ui_overview.html#create-alerts) from the tracing application status page.
-
-  * The threshold in the alert that you create is based on the current view and the service that you selected. You can change which RED metrics or Apdex to use for a threshold.
-  * You can define and set the alert either for the selected service or for all services.
-  * You can also switch to advanced mode and fine-tune the alert.
- 
-* **Full PromQL Support in the UI**: We've expanded the limited PromQL support and we added:
- 
-  * Full support for creating charts and alerts with PromQL queries.
-  * Admin-level setting that determines whether users can write queries in PromQL. 
-  * Additional user-level settings for PromQL behavior. For example, you can display the translation to Wavefront query language for any PromQL query, by default.  
-
-  See [Using PromQL in Wavefront](wavefront_prometheus.html) for information about enabling PromQL and how to use PromQL in charts and alerts.
-
-   ![Prometheus query](images/prometheus_sample.png)
-
-* **UI Updates**: The **System Preferences** option that Administrators can access from the gear icon, is now renamed to **Organization Settings**.
-
-* **Pass a Time Window in Markdown Charts**: You can now pass a time window in a markdown chart, so that the dynamic link to a chart or a dashboard in the markdown chart respectively opens a chart or a dashboard within the current time range. For details, see [Markdown Chart](ui_chart_reference.html#markdown-chart).
-
-## 2021-16.x Release Notes
-
-* **Alert Notifications to Tracing Dashboard**: Customize your alert notification to [include a link to a Tracing Service dashboard](alert_target_customizing.html#include-a-link-to-a-tracing-service-dashboard).
-* **Deprecation of HipChat Integration**: The HipChat integration is no longer available in the product or the documentation.
-* **Trace ID Search Ignores Selected Time Window**: When you search for a Trace ID, the search now returns results regardless of the selected time window.
-
-
-## 2021-15.x Release Notes
-
-* **Product Improvements**: Going forward, Spans that have special characters in the application or service name are rejected by Wavefront and are not supported by the tracing user interfaces.
-  
-  Example:
-  ```
-  !"#$%&'()*+,-./:;<=>?@[&#92;]^_&#96;{|}~
-  ```
-* **Documentation Improvements**:
-  * A new video that highlights the features of the Traces Browser.
-    <iframe src="https://bcove.video/3vaNJM7" width="700" height="400" allowfullscreen="true" alt="Highlights the Wavefront traces browser features."></iframe>
-  * In response to user feedback, we updated the [Kubernetes Troubleshooting guide](wf_kubernetes_troubleshooting.html).
+* **New Operators**: We add the `groupLeft` and `groupRight` operators, which let you achieve many-to-one and one-to-many series matching, similar to the [Many-to-one and one-to-many PromQL vector matches](https://prometheus.io/docs/prometheus/latest/querying/operators/#many-to-one-and-one-to-many-vector-matches). To learn more about how to use these operators and how Wavefront processes output metadata from a series match, see [Processing Output Metadata from a Series Match](query_language_series_matching.html#processing-output-metadata-from-a-series-match).
 
 
 ## Past Release Notes
 
+- [2021-19.x Release Notes](2021.19.x_release_notes.html)
 - [2021-14.x Release Notes](2021.14.x_release_notes.html)
 - [2021-08.x Release Notes](2021.08.x_release_notes.html)
 - [2020-42.x Release Notes](2020.42.x_release_notes.html)
