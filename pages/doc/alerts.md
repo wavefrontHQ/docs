@@ -426,6 +426,12 @@ This video shows how to create a multi-threshold alert:
 </p>
 
 ## Do More!
+
 * Use [Alert Viewer](alerts_manage.html#examine-an-alert-in-alert-viewer) to drill down to the root cause.
 * Clone, delete, or edit an alert, discussed in [Manage Alerts](alerts_manage.html).
 * Learn about [alert states and life-cycle](alerts_states_lifecycle.html).
+* For troubleshooting, read the following KBs:
+   - [Unable to Create Alerts. Cannot Save Alerts Error](https://help.wavefront.com/hc/en-us/articles/360057759372-Unable-to-create-Alerts-error-message-Cannot-Save-alert-400-)
+   - [Why Did My Alert Fire or Not Fire](https://help.wavefront.com/hc/en-us/articles/360049071471-Why-did-my-alert-fire-or-not-fire-)
+* If you want to update multiple alerts using API or CLI, see the KB [How Do I Bulk Update Multiple Alerts?](https://help.wavefront.com/hc/en-us/articles/360057895291-How-Do-I-Bulk-Update-Multiple-Alerts-)
+   {% include note.html content="The CLI is not maintained by VMware and is not officially supported." %}
