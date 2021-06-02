@@ -1475,6 +1475,19 @@ A time series exists if it has reported a data value in the last 4 weeks.  </td>
 <td>Wrapping any query expression in <strong>bestEffort()</strong> tells Wavefront to use conservative targets for scheduling workloads. That means we limit thread use and asynchronous operations.
 </td>
 </tr>
+<tr>
+<td><a href="ts_retainDimension_removeDimension.html">removeDimension(<strong>&lt;tsExpression&gt;, &lt;pointTag1&gt;, &lt;pointTag2&gt;, ... &lt;pointTagN&gt;</strong>)</a>
+</td>
+<td>Allows you to explicitly state which dimensions you want to remove from the query output.
+</td>
+</tr>
+<tr>
+<td><a href="ts_retainDimension_removeDimension.html">retainDimension(<strong>&lt;tsExpression&gt;, &lt;pointTag1&gt;, &lt;pointTag2&gt;, ... &lt;pointTagN&gt;</strong>)</a>
+</td>
+<td>Allows you to explicitly state which dimensions you want to see in the query output.
+</td>
+</tr>
+
 </tbody>
 </table>
 
