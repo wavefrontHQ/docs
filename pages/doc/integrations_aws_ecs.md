@@ -4,7 +4,7 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_aws_ecs.html
-summary: Send AWS ECS data to Wavefront using cAdvisor or AWS Fargate.
+summary: Send AWS ECS data to Wavefront using Telegraf agent or AWS Fargate.
 ---
 [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/) is Amazon's Docker container orchestration system. From the Amazon ECS website:
 
@@ -18,7 +18,7 @@ Wavefront supports an Amazon Web Services [built-in integration](amazon_ecs.html
 
 The integration basics are covered in our [AWS ECS Integration](amazon_ecs.html) page.
 
-This page provides detailed steps on how to install and configure the Wavefront ECS integration either by creating a cAdvisor task definition or by creating an AWS Fargate task definition. After you complete these steps, the integration provides:
+This page provides detailed steps on how to install and configure the Wavefront ECS integration either by adding a Telegraf agent container to the task definition or by creating an AWS Fargate task definition. After you complete these steps, the integration provides:
 
 - Monitoring of important CloudWatch metrics related to Amazon ECS.
 - Monitoring of detailed metrics about individual containers, services, and clusters running in your AWS ECS environment.
