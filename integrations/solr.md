@@ -46,3 +46,41 @@ Run `sudo service telegraf restart` to restart your Telegraf agent.
 
 
 
+
+
+
+## Metrics
+  
+
+|Metric Name|Description|
+| :--- | :--- |
+|solr.admin.deleted.docs||
+|solr.admin.max.docs||
+|solr.admin.num.docs||
+|solr.admin.size.in.bytes||
+|solr.cache.cumulative.evictions||
+|solr.cache.cumulative.hitratio||
+|solr.cache.cumulative.hits||
+|solr.cache.cumulative.inserts||
+|solr.cache.cumulative.lookups||
+|solr.cache.evictions||
+|solr.cache.hitratio||
+|solr.cache.hits||
+|solr.cache.inserts||
+|solr.cache.lookups||
+|solr.cache.size||
+|solr.cache.warmup.time||
+|solr.core.deleted.docs||
+|solr.core.max.docs||
+|solr.core.num.docs||
+|solr.queryhandler.requests||
+|solr.queryhandler.timeouts||
+|solr.queryhandler.errors||
+|solr.queryhandler.avg.requests.per.second||
+|solr.queryhandler.avg.time.per.request||
+|solr.queryhandler.total.time||
+|solr.queryhandler.75th.pc.request.time||
+|solr.queryhandler.95th.pc.request.time||
+|solr.queryhandler.99th.pc.request.time||
+|solr.updatehandler.docs.pending||
+|solr.updatehandler.errors||
