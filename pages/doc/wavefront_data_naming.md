@@ -1,5 +1,5 @@
 ---
-title: Wavefront Data Naming Best Practices
+title: Wavefront Data Best Practices
 keywords: data
 tags: [data, best practice]
 sidebar: doc_sidebar
@@ -48,3 +48,12 @@ Tag names can contain alphanumeric (a-z, A-Z, 0-9), dash (-), underscore (_), an
 Wavefront does not retain the history of alert, event, and source tags. For example, the machine `web004.pax.wavefront.com` might have the source tags `java-17`, `build-24`, and `dc-pax`. If you remove the `build-24` tag from `web004.pax.wavefront.com` and replace it with `build-25`, queries filtered by `build-24` no longer match `web004.pax.wavefront.com.` In other words, only current alert, event, and source tags affect queries because these tags are tied only to those objects, not to data.
 
 For more information on tags, see [Organizing with Tags](tags_overview.html).
+
+## Other Data Best Practices
+
+* [Wavefront and Cardinality](cardinality.html) explores how you can optimize query performance by selecting the best data dimensions.
+
+The following KB articles provide details on data best practices:
+
+* [Where is my old data](https://help.wavefront.com/hc/en-us/articles/360051131032-Where-is-my-Old-Data-) explains how to toggle the Obsolete Metrics settings to see data that's older than 4 weeks.
+* [Common Time Limits and Best Practices] (https://help.wavefront.com/hc/en-us/articles/360058716512-Common-Tanzu-Observability-time-limits-and-best-practices) shows limits, for example, when a query times out.
