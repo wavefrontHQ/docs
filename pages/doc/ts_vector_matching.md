@@ -10,9 +10,9 @@ summary: Reference to the retainDimension() and removeDimension() functions
 ## Summary
 
 ```
-retainDimension(<tsExpression>, <pointTag1>, <pointTag2>,...)
+retainDimension(<tsExpression>, <pointTag1>, <pointTag2>,...<pointTagN>)
 
-removeDimension(<tsExpression>, <pointTag1>, <pointTag2>,...)
+removeDimension(<tsExpression>, <pointTag1>, <pointTag2>,...<pointTagN>)
 
 ```
 
@@ -21,7 +21,7 @@ Functions that let you retain or remove dimensions from the query results.
 * `retainDimension()` allows to explicitly state which dimensions you want to see in the query output.
 * `removeDimension()` allows to explicitly state which dimensions you want to remove from the query output.
 
-For each function, you have to specify at least one `ts()` expression and at least one point tag value as a dimension. 
+For each function, you have to specify at least one `ts()` expression and at least one point tag value as a dimension. If dropping the dimension is impossible, you will see an error message, such as `Data not unique after dropping dimension`.
 
 
 ## Parameters
