@@ -23,6 +23,7 @@ Wavefront provides Amazon Web Services overview dashboards **Summary**, **Pricin
 - AWS: DynamoDB
 - AWS: EBS
 - AWS: EC2
+- AWS: ECS (cAdvisor)
 - AWS: ECS
 - AWS: ECS (Fargate)
 - AWS: EFS
