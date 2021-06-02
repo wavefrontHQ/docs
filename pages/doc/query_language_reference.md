@@ -1171,6 +1171,10 @@ Exponential and trigonometric functions enable you to perform mathematical trans
 <td>Returns the natural log of each data value described by the expression.</td>
 </tr>
 <tr>
+<td><a href="ts_log2.html">log2(<strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the log base 2 of each data value described by the expression.</td>
+</tr>
+<tr>
 <td><a href="ts_log10.html">log10(<strong>&lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the log base 10 of each data value described by the expression.</td>
 </tr>
