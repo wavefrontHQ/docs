@@ -24,6 +24,8 @@ Assume that SRE Robin has received an alert that an application is slow.
 
 ## How to Use Anomaly Detection
 
+Currently, Anomaly Detection is available for Line Plot charts.
+
 1. Enable Anomaly Detection from two places:
 
    1. By turning Anomaly Detection on from the top-right menu, under the Wavefront toolbar.
