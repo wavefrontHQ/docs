@@ -91,4 +91,4 @@ Our Customer Success team has put together a set of KB articles for troubleshoot
 * [How to Enable Proxy Health Checks for Tanzu Observability by Wavefront](https://help.wavefront.com/hc/en-us/articles/360058952572-How-to-enable-Tanzu-Observability-Proxy-Health-Checks-)
 * [How to Chain Proxies](https://help.wavefront.com/hc/en-us/articles/360056083472-How-to-Proxy-Chain)
 * [Validating Metrics Received at the Proxy](https://help.wavefront.com/hc/en-us/articles/360054622132-Validating-metrics-received-at-the-proxy)
-* [Common Tanzu Observability by Wavefront Proxy Log Messages]https://help.wavefront.com/hc/en-us/articles/360050483312-Common-Tanzu-Observability-by-Wavefront-Proxy-Log-Messages
+* [Common Tanzu Observability by Wavefront Proxy Log Messages](https://help.wavefront.com/hc/en-us/articles/360050483312-Common-Tanzu-Observability-by-Wavefront-Proxy-Log-Messages)
