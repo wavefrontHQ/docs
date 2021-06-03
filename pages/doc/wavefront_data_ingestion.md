@@ -140,3 +140,4 @@ Our Customer Success team has put together a set of KBs that help you troublesho
 * [Telegraf Agent Tuning for Tanzu Observability by Wavefront](https://help.wavefront.com/hc/en-us/articles/360060992792-Tanzu-Observability-Telegraf-agent-tuning)
 * [Telegraf Agent Installation and Upgrade](https://help.wavefront.com/hc/en-us/articles/360059527011-Telegraf-agent-installation-upgrade-path)
 * [Telegraf connection errors when using load balancer with proxy](https://help.wavefront.com/hc/en-us/articles/360057617732-Telegraf-connection-errors-when-using-load-balancer-with-Tanzu-Observability-proxy)
+* [Troubleshooting for Missing Data](https://help.wavefront.com/hc/en-us/articles/360055706512-Where-s-My-Data-Troubleshooting-for-Missing-Data)

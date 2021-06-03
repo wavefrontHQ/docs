@@ -138,3 +138,10 @@ The easiest way to improve Wavefront ingestion rates is to send only data that y
 * See which dashboards are not used in the Dashboards browser.
 
 ![Dashboard browser with Sort menu](images/dashboard_views.png)
+
+## Learn More!
+
+Our Customer Success Team has put together KB articles that drill down into adoption info.
+* [How to Track Adoption in Your Company with Usage Metadata](https://help.wavefront.com/hc/en-us/articles/360058526192-How-to-Track-Tanzu-Observability-Adoption-with-Usage-Metadata)
+* [How to Identify Unused Data](https://help.wavefront.com/hc/en-us/articles/360058084372-How-to-Identify-Unused-Data)
+* [How to Optimize Your Ingestion Rate PPS](https://help.wavefront.com/hc/en-us/articles/360057995092-How-to-Optimize-Your-Ingestion-Rate-PPS-)
