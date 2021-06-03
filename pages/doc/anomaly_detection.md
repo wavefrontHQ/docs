@@ -53,12 +53,12 @@ On the chart, the anomalies are highlighted with a square purple border or a cyc
 
 ![Anomalies highlighted with square purple borders for large anomalies and cycle purple borders for the small anomalies](images/anomaly_hightlighting.png)
 
-In anomaly detection mode, you can highlighting an anomaly. On top of the chart, you can see the amount of the anomalies on the current chart. When you click it, a drop-down menu appears. This drop-down menu contains the series with anomalies, where each series contains anomalies sorted by time in that series.
+In anomaly detection mode, you can highlight an anomaly. On top of the chart, you can see the amount of the anomalies on the current chart. When you click it, a drop-down menu appears. This drop-down menu contains the series with anomalies, where each series contains anomalies sorted by time in that series.
 
 ![Anomaly highlighting and drop-down menu available for selecting a certain anomaly or a series.](images/single_anomaly_highlighting.png)
 
 When you select a series, you will filter out all other series and the chart shrinks for better visualization of the anomalies.
 
-If you selecting a specific anomaly, the anomaly is highlighted red on the chart. 
+If you select a specific anomaly, the anomaly is highlighted red on the chart. 
 
 ![Anomaly highlighted in red](images/anomaly_hightlighted_red.png)
