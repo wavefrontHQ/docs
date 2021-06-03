@@ -133,3 +133,10 @@ The real power of Wavefront comes from alerts and special features such as anoma
 * Have a look at [some of our intro videos](videos_quickstart.html)
 * Learn more about [histogram](proxies_histograms.html) or [distributed tracing](tracing_basics.html) capabilities.
 * Have a look at some details about [Wavefront proxies](proxies.html)
+
+## Troubleshooting
+
+Our Customer Success team has put together a set of KBs that help you troubleshoot data ingestion issues. Here are some links:
+* [Telegraf Agent Tuning for Tanzu Observability by Wavefront](https://help.wavefront.com/hc/en-us/articles/360060992792-Tanzu-Observability-Telegraf-agent-tuning)
+* [Telegraf Agent Installation and Upgrade](https://help.wavefront.com/hc/en-us/articles/360059527011-Telegraf-agent-installation-upgrade-path)
+* [Telegraf connection errors when using load balancer with proxy](https://help.wavefront.com/hc/en-us/articles/360057617732-Telegraf-connection-errors-when-using-load-balancer-with-Tanzu-Observability-proxy)
