@@ -32,16 +32,6 @@ When you click **Data**, you can:
 * Clone, delete, or hide one or more lines.
 * Create an alert based on a chart.
 
-## Anomaly Detection Tab (All Charts)
-
-For each chart (ARE There any exceptions, e.g. Markdown chart) you can click the Anomaly Detection tab and turn on anomaly detection. You can:
-
-* Filter out all the series that don’t have anomalies. This is useful for visualizing series with anomalies better.
-* Define the size of the history window where chart forecasting is done, such as one day, one week or a month.
-* Filter out anomalies that are lower or higher than expected, or both.
-* Define the sensitivity, where high sensitivity means that there’s a 67% chance that the data is anomalous, medium means there’s a 95% chance, and low means there’s a 99.7% chance.
-
-For more information about anomaly detection, see [Anomaly Detection on Charts](anomaly_detection.html)
 
 ## Line Plot Chart
 
@@ -208,6 +198,36 @@ Chart description which shows up as hover text when users move the mouse over th
 <tr>
 <td>Include Obsolete Metrics</td>
 <td>Select this check box to display metrics that have not reported data values in the last 4 weeks. Selecting this option is useful if you are looking at data from 4 or more weeks ago; however, performance is slower when this option is turned on.</td>
+</tr>
+</tbody>
+</table>
+
+
+<a id="line_plot_anomaly_detection_tab">
+<p><span style="font-size: large; font-weight: 600">Anomaly Detection Tab</span></p>
+
+<p>For more information about anomaly detection, see <a href="anomaly_detection.html">Anomaly Detection on Charts</a></p>
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>Display Settings</td>
+<td>Filter out all the series that don’t have anomalies. This is useful for visualizing series with anomalies better.</td>
+</tr>
+<tr>
+<td>Historical Sample Size</td>
+<td>Define the size of the history window where chart forecasting is done, such as one day, one week or a month.</td>
+</tr>
+<tr>
+<td>Anomaly Type</td>
+<td>Filter out anomalies that are lower or higher than expected, or both.</td>
+</tr>
+<tr>
+<td>Sensitivity</td>
+<td>Define the sensitivity, where high sensitivity means that there’s a 67% chance that the data is anomalous, medium means there’s a 95% chance, and low means there’s a 99.7% chance.</td>
 </tr>
 </tbody>
 </table>
