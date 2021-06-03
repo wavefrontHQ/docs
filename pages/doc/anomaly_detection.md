@@ -26,16 +26,16 @@ Assume that SRE Robin has received an alert that an application is slow.
 
 1. Enable Anomaly Detection from two places:
 
-   1. By turning Anomaly Detection on from the Wavefront toolbar.
+   1. By turning Anomaly Detection on from the top-right menu, under the Wavefront toolbar.
 
       ![Turn on anomaly detection from the Wavefront toolbar](images/turn-on-anomaly-detection-toolbar.png)
    
-   2. By clicking the **Anomaly Detection** tab in the Chart Editor and turning anomaly detection **on**.
+   2. By clicking the **Anomaly Detection** tab in the Chart Editor and turning anomaly detection **On**.
   
       ![Anomaly detection tab is selected from in the Chart Editor](images/anomaly-detection-tab.png)
 
 
-2. With **Anomaly Detection** turned on, you can customize the Display Settings, Historical Sample Size, Anomaly Type, and Sensitivity. 
+2. On the **Anomaly Detection** tab, with **Anomaly Detection** turned on, you can customize the Display Settings, Historical Sample Size, Anomaly Type, and Sensitivity. 
 
    * **Display Settings** -- Select this option to filter out all the series that don’t have anomalies. 
        This option is useful for visualizing series with anomalies better.
@@ -47,4 +47,16 @@ Assume that SRE Robin has received an alert that an application is slow.
 
 ## Anomaly Highlighting
 
-Anomalies will be highlighted on the chart with a square purple border for large anomalies or a cycle purple border for the small anomalies. 
+On the chart, the anomalies are highlighted with a square purple border or a cycle purple border. Square purple borders are used to highlight large anomalies and  cycle purple borders are used to highlight small anomalies. 
+
+![Anomalies highlighted with square purple borders for large anomalies and cycle purple borders for the small anomalies](images/anomaly_hightlighting.png)
+
+In anomaly detection mode, you can highlighting an anomaly. On top of the chart, you can see the amount of the anomalies on the current chart. When you click it, a drop-down menu appears. This drop-down menu contains the series with anomalies, where each series contains anomalies sorted by time in that series.
+
+![Anomaly highlighting and drop-down menu available for selecting a certain anomaly or a series.](images/single_anomaly_highlighting.png)
+
+When you select a series, you will filter out all other series and the chart shrinks for better visualization of the anomalies.
+
+If you selecting a specific anomaly, the anomaly is highlighted red on the chart. 
+
+![Anomaly highlighted in red](images/anomaly_hightlighted_red.png)
