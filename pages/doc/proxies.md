@@ -81,7 +81,7 @@ Wavefront proxies support:
 * Histograms
 * Traces/spans
 
-Each type of data uses a different data format. See [Wavefront Data Format](wavefront_data_format.html) for details and links. 
+Each type of data uses a different data format. See [Wavefront Data Format](wavefront_data_format.html) for details and links.
 
 ## Proxies Troubleshooting & Advanced Configuration
 
