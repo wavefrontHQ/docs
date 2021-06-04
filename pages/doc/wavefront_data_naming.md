@@ -56,4 +56,4 @@ For more information on tags, see [Organizing with Tags](tags_overview.html).
 The following KB articles provide details on data best practices:
 
 * [Where is my old data](https://help.wavefront.com/hc/en-us/articles/360051131032-Where-is-my-Old-Data-) explains how to toggle the Obsolete Metrics settings to see data that's older than 4 weeks.
-* [Common Time Limits and Best Practices] (https://help.wavefront.com/hc/en-us/articles/360058716512-Common-Tanzu-Observability-time-limits-and-best-practices) shows limits, for example, when a query times out.
+* [Common Time Limits and Best Practices](https://help.wavefront.com/hc/en-us/articles/360058716512-Common-Tanzu-Observability-time-limits-and-best-practices) shows limits, for example, when a query times out.
