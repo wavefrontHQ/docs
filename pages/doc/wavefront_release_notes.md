@@ -9,6 +9,24 @@ summary: Learn about new and updated features in Wavefront.
 
 This page lists new and updated features in the Wavefront service.
 
+## 2021-21.x Release Notes
+
+* **PromQL Improvements**.  We made the following improvements to our PromQL implementation:
+  - Regular expression filters in PromQL are now supported.
+  - Regular subquery expressions in PromQL are now supported.
+  The earlier limitations have been removed from our [PromQL doc page](wavefront_prometheus.html).
+* **New Functions**. New Function. We now support a [log2() function](ts_log2.html) in addition to the existing log() and log10() functions.
+* **Alert API Change**. Performing a PUT with no changes against `/api/v2/alert/{id}` no longer marks the alert as edited/auto resolved.
+* **Search UI Improvements**.
+  - You can explicitly exclude a keyword or a phrase from the search results by changing the equal sign to a not equal sign (≠). See [Searching Wavefront](wavefront_searching.html) for an example.
+
+  ![exclude search results](images/not_in_search.png)
+  - When you search, we now show results that contain the current text string, as shown in the following screenshot.
+
+  ![search has results of full string and results that include the text string, starting with Contains](images/contains.png)
+
+
+
 ## 2021-20.x Release Notes
 
 * **Performance Improvements**: This release includes significant performance improvements for the query language. As part of this project, our engineers added single-side join improvements, strategy improvements for TopK, and more. Read our blog post: [How Tanzu Observability Continuous Improvement Makes You More Successful](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/how-tanzu-observability-continuous-improvement-make-you-more-successful) for details.
