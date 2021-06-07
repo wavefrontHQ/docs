@@ -11,7 +11,8 @@ This page lists new and updated features in the Wavefront service.
 
 ## 2021-21.x Release Notes
 
-* **OpenTelemetry Exporter**. The [Tanzu Observability (Wavefront) exporter for OpenTelemetry](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/exporter/tanzuobservabilityexporter/README.md) allows you to send traces to Wavefront and use our [comprehensive DT GUI](tracing_ui_overview.html) to visualize trace data. The KB [OpenTracing or OpenTelemetry- Which to select for instrumenting applications for tracing](https://help.wavefront.com/hc/en-us/articles/360058140212-OpenTracing-or-OpenTelemetry-Which-specification-to-select-for-instrumenting-applications-for-tracing-) gives an introduction. 
+* **OpenTelemetry Exporter**. The [Tanzu Observability (Wavefront) exporter for OpenTelemetry](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/exporter/tanzuobservabilityexporter/README.md) allows you to send traces to Wavefront and use our [comprehensive DT GUI](tracing_ui_overview.html) to visualize trace data.
+<!---The KB [OpenTracing or OpenTelemetry- Which to select for instrumenting applications for tracing](https://help.wavefront.com/hc/en-us/articles/360058140212-OpenTracing-or-OpenTelemetry-Which-specification-to-select-for-instrumenting-applications-for-tracing-) gives an introduction.---> 
 * **PromQL Improvements**.  We made the following improvements to our PromQL implementation:
   - Regular expression filters in PromQL are now supported.
   - Regular subquery expressions in PromQL are now supported.
