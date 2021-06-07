@@ -81,7 +81,7 @@ If the range is narrow, many points lie outside it, and the reported percentages
 
 By default, the history window is one day long. You can fine tune the forecast by adding an optional `historyWindow` parameter to specify a longer or shorter history window. A longer history window supports more accurate prediction, although the query might take longer.
 
-For example, `anomalous(5m, 2w, 1m, ts(my.metric))` predicts the expected values based on 2 weeks's worth of actual data points in addition to the data shown in the chart, and aligns the input and output data points at 1-minute intervals.
+For example, `anomalous(5m, 2w, ts(my.metric))` predicts the expected values based on 2 weeks’s worth of actual data points in addition to the data shown in the chart.
 
 <!---  9/30/18-10/08/18 sum(rate(ts(dataingester.report-points, tag=${cluster}))) --->
 ## Example
