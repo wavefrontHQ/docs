@@ -11,11 +11,11 @@ This page lists new and updated features in the Wavefront service.
 
 ## 2021-20.x Release Notes
 
-* **Performance Improvements**: This release includes a lot of performance improvements. Learn more how you can be more successful with Wavefront from our blog post: [How Tanzu Observability Continuous Improvement Makes You More Successful](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/how-tanzu-observability-continuous-improvement-make-you-more-successful).
+* **Performance Improvements**: This release includes significant performance improvements for the query language. As part of this project, our engineers added single-side join improvements, strategy improvements for TopK, and more. Read our blog post: [How Tanzu Observability Continuous Improvement Makes You More Successful](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/how-tanzu-observability-continuous-improvement-make-you-more-successful) for details.
 
-* **New Functions**: With this release, we add the [`retainDimension` and `removeDimension` functions](ts_retainDimension_removeDimension.html) that allow you to keep or remove dimensions (point tags) from the results of your queries.
+* **New Functions**: We added the [`retainDimension()` and `removeDimension()` functions](ts_retainDimension_removeDimension.html), which allow you to keep or remove dimensions (point tags) from the results of your queries.
 
-* **New Operators**: We add the `groupLeft` and `groupRight` operators that let you achieve many-to-one and one-to-many series matching, similar to the [Many-to-one and one-to-many PromQL vector matches](https://prometheus.io/docs/prometheus/latest/querying/operators/#many-to-one-and-one-to-many-vector-matches). See, [Processing Output Metadata from a Series Match](query_language_series_matching.html#processing-output-metadata-from-a-series-match).
+* **New Operators**: We add the `groupLeft` and `groupRight` operators, which let you achieve many-to-one and one-to-many series matching, similar to the [Many-to-one and one-to-many PromQL vector matches](https://prometheus.io/docs/prometheus/latest/querying/operators/#many-to-one-and-one-to-many-vector-matches). To learn more about how to use these operators and how Wavefront processes output metadata from a series match, see [Processing Output Metadata from a Series Match](query_language_series_matching.html#processing-output-metadata-from-a-series-match).
 
 
 ## Past Release Notes
