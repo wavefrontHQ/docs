@@ -6,24 +6,24 @@ sidebar: doc_sidebar
 permalink: cardinality.html
 summary: Learn about how Wavefront deals with cardinality.
 ---
-Wavefront supports high cardinality when dealing with timeseries data and infinite cardinality in its distributed tracing offering.  Wavefront can handle the cardinality of more than 200,000 concurrently running containers per Kubernetes cluster. Even though Wavefront can handle high cardinality data shapes, high cardinality can cause system slowdown and metrics retrieval issues. 
+Wavefront supports high cardinality when dealing with timeseries data and infinite cardinality in its distributed tracing offering.  Wavefront can handle the cardinality of more than 200,000 concurrently running containers per Kubernetes cluster. Even though Wavefront can handle high cardinality data shapes, high cardinality can cause system slowdown and metrics retrieval issues.
 
 ## What Is Data Cardinality?
 
 Data cardinality is the number of values in a set. For example, in a database, data cardinality is the number of distinct values in a table column, relative to the number of rows in the table. The more distinct values that you have, the higher cardinality is. In monitoring, data cardinality refers to the number of series in a timeseries.
 
-Generally, timeseries data in a simple form is labeled as a name, value, and timestamp. For example:  
+Generally, timeseries data in a simple form is labeled as a name, value, and timestamp. For example:
 
 `cpu.usage.user.percentage <metricvalue> [<timestamp>]`
 
-In Wavefront, we enhance the data with tags and indexes, so that it has more context. For example: 
+In Wavefront, we enhance the data with tags and indexes, so that it has more context. For example:
 
 `cpu.usage.user.percentage <metricvalue> [<timestamp>] source="mysystem" [pointTags]`
 
-Kubernetes environments typically also include the pod name. For example: 
+Kubernetes environments typically also include the pod name. For example:
 
 ```
-kubernetes.pod.cpu.usage_rate <metricvalue> [<timestamp>] source=ip-10-0-1-203.eu-west-1.compute.external 
+kubernetes.pod.cpu.usage_rate <metricvalue> [<timestamp>] source=ip-10-0-1-203.eu-west-1.compute.external
 cluster="prod" label.k8s-app="kube-dns" namespace_name="kube-system" pod_name="<name-of-the-pod>"
 ```
 
@@ -42,7 +42,7 @@ For more information about point tags, see [Fine Tune Queries with Point Tags](q
 
 ## What Is Timeseries Data Cardinality?
 
-Almost all timeseries databases are key-value systems and each unique combination of metric and point tags requires an index entry. When the number of index entries increases, the ingestion and query performance suffer because the read and write operations require scanning larger spaces. 
+Almost all timeseries databases are key-value systems and each unique combination of metric and point tags requires an index entry. When the number of index entries increases, the ingestion and query performance suffer because the read and write operations require scanning larger spaces.
 
 When you deploy a large system, there’s a rapid burst of new index entries, which can lead to high cardinality issues, such as slowdown or unresponsiveness of the monitoring system.
 
@@ -91,13 +91,21 @@ Although Wavefront supports high cardinality for time series data, to avoid high
 
 * Do not use Wavefront for monitoring individual event data points. If you want to monitor such data, use the distributed tracing offering. See [Distributed Tracing Overview](tracing_basics.html) and [Tracing Best Practices](tracing_best_practices.html).
 
-* Ensure that:
+* Follow best practices:
 
-1. The metric names are stable and do not change.
-2. You keep source names stable. Source names change over time, but make sure that they don't change frequently.
-3. Use point tags where you expect high ephemerality. 
-4. Make sure that in Kubernetes, where point tags are usually called labels, you add only the point tags that you really need.
+   1. Ensure that the metric names are stable and do not change.
+   2. Keep source names stable. Source names change over time, but make sure that they don't change frequently.
+   3. Use point tags for data that are emphemeral.
+   4. In Kubernetes, where point tags are usually called labels, add only the point tags that you really need.
 
 For information about metric, source, and point tag names, see [Wavefront Data Naming Best Practices](wavefront_data_naming.html). You can also understand more about the metrics structure, sources and the sources browser, and tags, by exploring [Metrics and the Metrics Browser](metrics_managing.html), [Sources](sources_managing.html), and [Organizing with Tags](tags_overview.html).
 
 <!--* If you run a query of the type `ts(<metricName>, source="<sourceName>")`, make sure that the number of data points returned is less than 1000. Although Wavefront can handle more, it is best to keep in mind that more data can cause high cardinality issues.-->
+
+## Learn More!
+
+Our Customer Success team has prepared several KB articles that give additional detail.
+* [How to optimize and format the shape of your data for query performance](https://help.wavefront.com/hc/en-us/articles/360061261412-How-to-optimize-and-format-the-shape-of-your-Data-for-query-performance-)
+* [Common time limits and best practices](https://help.wavefront.com/hc/en-us/articles/360058716512-Common-Tanzu-Observability-time-limits-and-best-practices)
+* [Understand your time series data shape](https://help.wavefront.com/hc/en-us/articles/360050098952-Understand-your-time-series-data-shape)
+* [Monitoring Metric Data Quality](https://help.wavefront.com/hc/en-us/articles/360055613191-Monitoring-metric-data-quality)

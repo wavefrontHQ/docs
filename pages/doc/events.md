@@ -168,6 +168,7 @@ To delete one or more user events:
 
 If the Trash icon is grayed out, you don't have permission delete the selected events.
 
-## Managing Event Tags
+## Learn More!
 
-See [Organizing with Tags](tags_overview.html).
+* See [Organizing with Tags](tags_overview.html) for details on managing event tags.
+* See our KB article [How to set Show Events setting on a dashboard permanently](https://help.wavefront.com/hc/en-us/articles/360058262552-How-to-set-Show-Events-setting-on-a-dashboard-permanently).
