@@ -95,3 +95,35 @@ We'd like to know whether the actual fluctuation deviates from the expected fluc
 The orange line in the following chart suggests that the spikes in data ingestion on the afternoons of October 1, 3, 4, and 5 may be anomalous because they fall outside the range of 99% of expected values. In contrast, the behavior on the afternoon of October 2 seems right in line with expectations -- the percentage of anomalous points here is 0.
 
 ![anomalous after](images/ts_anomalous_after_new.png)
+
+## Using the `anomalous()` Function in Alerts
+
+Queries with the `anomalous()` function are resource intensive and need to be used carefully. Otherwise, they can cause high loading on the Wavefront system.
+
+### History Size and Test Window Size
+
+When you use the `anomalous()` function in alerts, you must adjust some parameters. The most important ones are history window(`historyWindow`) and test window (`testWindow`). 
+
+To understand what's the best value to use for `historyWindow`, you must answer the simple questions: What type of anomalies am I looking for? Am I interested in daily, weekly, or monthly anomalies?
+
+After you decide what history window to use, you must select the test window. The test window value is based on the history window parameter, as those two parameters are interconnected. The ratio between the test window and history window is recommended to be more than 1:500, so if the selected value is too small to run the algorithm optimally, it will be tweaked by the system, and you'll see the following warning message:
+
+```
+The ratio between history window and test window is not optimal and will result in bad performance. History window has been optimized to …
+```
+
+### Alert Firing Window and Checking Frequency
+
+To minimize the load on the system, you may want to tweak the **Alert fires** window and **Checking Frequency** parameters based on the history window and the test window values that you choose. 
+
+You can set the **Alert fires** window parameter under **Condition** and the **Checking Frequency** parameter when you click the **Advanced** link.
+
+For optimal and effective execution of the alerts that are based on anomaly detection, update the default values for the **Alert Fires** window and alert **Checking Frequency**.
+
+Choose an **Alert fires** window based on the following equation:
+
+```
+Alert fires window = Test window / 10 * K, where K = 1, …, 10
+```
+
+Choose an alert **Checking Frequency** that is more than `Test window/10`, as the execution of the anomaly detection algorithm with lower values will take as an input the same historical duration, which will cause redundancy.
