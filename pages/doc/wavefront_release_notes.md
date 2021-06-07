@@ -9,46 +9,37 @@ summary: Learn about new and updated features in Wavefront.
 
 This page lists new and updated features in the Wavefront service.
 
-## 2021-17.x Release Notes
+## 2021-21.x Release Notes
 
-* **Create Alerts for Your Services**: Now, you can [create alerts for your services](tracing_ui_overview.html#create-alerts) from the tracing application status page. 
-* **Full PromQL Support in the UI**: We've expanded the limited PromQL support and we added:
- 
-  * Full support for creating charts and alerts with PromQL queries.
-  * Admin-level setting that determines whether users can write queries in PromQL. 
-  * Additional user-level settings for PromQL behavior. For example, you can display the translation to Wavefront query language for any PromQL query, by default.  
+* **OpenTelemetry Exporter**. The [Tanzu Observability (Wavefront) exporter for OpenTelemetry](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/exporter/tanzuobservabilityexporter/README.md) allows you to send traces to Wavefront and use our [comprehensive DT GUI](tracing_ui_overview.html) to visualize trace data. The KB [OpenTracing or OpenTelemetry- Which to select for instrumenting applications for tracing](https://help.wavefront.com/hc/en-us/articles/360058140212-OpenTracing-or-OpenTelemetry-Which-specification-to-select-for-instrumenting-applications-for-tracing-) gives an introduction. 
+* **PromQL Improvements**.  We made the following improvements to our PromQL implementation:
+  - Regular expression filters in PromQL are now supported.
+  - Regular subquery expressions in PromQL are now supported.
+  The earlier limitations have been removed from our [PromQL doc page](wavefront_prometheus.html).
+* **New Functions**. New Function. We now support a [log2() function](ts_log2.html) in addition to the existing log() and log10() functions.
+* **Alert API Change**. Performing a PUT with no changes against `/api/v2/alert/{id}` no longer marks the alert as edited/auto resolved.
+* **Search UI Improvements**.
+  - You can explicitly exclude a keyword or a phrase from the search results by changing the equal sign to a not equal sign (≠). See [Searching Wavefront](wavefront_searching.html) for an example.
 
-  See [Using PromQL in Wavefront](wavefront_prometheus.html) for information about enabling PromQL and how to use PromQL in charts and alerts.
+  ![exclude search results](images/not_in_search.png)
+  - When you search, we now show results that contain the current text string, as shown in the following screenshot.
 
-   ![Prometheus query](images/prometheus_sample.png)
-
-* **UI Updates**: The **System Preferences** option that Administrators can access from the gear icon, is now renamed to **Organization Settings**.
-
-* **Pass a Time Window in Markdown Charts**: You can now pass a time window in a markdown chart, so that the dynamic link to a chart or a dashboard in the markdown chart respectively opens a chart or a dashboard within the current time range. For details, see [Markdown Chart](ui_chart_reference.html#markdown-chart).
-
-## 2021-16.x Release Notes
-
-* **Alert Notifications to Tracing Dashboard**: Customize your alert notification to [include a link to a Tracing Service dashboard](alert_target_customizing.html#include-a-link-to-a-tracing-service-dashboard).
-* **Deprecation of HipChat Integration**: The HipChat integration is no longer available in the product or the documentation.
-* **Trace ID Search Ignores Selected Time Window**: When you search for a Trace ID, the search now returns results regardless of the selected time window.
+  ![search has results of full string and results that include the text string, starting with Contains](images/contains.png)
 
 
-## 2021-15.x Release Notes
 
-* **Product Improvements**: Going forward, Spans that have special characters in the application or service name are rejected by Wavefront and are not supported by the tracing user interfaces.
-  
-  Example:
-  ```
-  !"#$%&'()*+,-./:;<=>?@[&#92;]^_&#96;{|}~
-  ```
-* **Documentation Improvements**:
-  * A new video that highlights the features of the Traces Browser.
-    <iframe src="https://bcove.video/3vaNJM7" width="700" height="400" allowfullscreen="true" alt="Highlights the Wavefront traces browser features."></iframe>
-  * In response to user feedback, we updated the [Kubernetes Troubleshooting guide](wf_kubernetes_troubleshooting.html).
+## 2021-20.x Release Notes
+
+* **Performance Improvements**: This release includes significant performance improvements for the query language. As part of this project, our engineers added single-side join improvements, strategy improvements for TopK, and more. Read our blog post: [How Tanzu Observability Continuous Improvement Makes You More Successful](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/how-tanzu-observability-continuous-improvement-make-you-more-successful) for details.
+
+* **New Functions**: We added the [`retainDimension()` and `removeDimension()` functions](ts_retainDimension_removeDimension.html), which allow you to keep or remove dimensions (point tags) that are in the results of your queries.
+
+* **New Operators**: We add the `groupLeft` and `groupRight` operators, which let you achieve many-to-one and one-to-many series matching, similar to the [Many-to-one and one-to-many PromQL vector matches](https://prometheus.io/docs/prometheus/latest/querying/operators/#many-to-one-and-one-to-many-vector-matches). To learn more about how to use these operators and how Wavefront processes output metadata from a series match, see [Processing Output Metadata from a Series Match](query_language_series_matching.html#processing-output-metadata-from-a-series-match).
 
 
 ## Past Release Notes
 
+- [2021-19.x Release Notes](2021.19.x_release_notes.html)
 - [2021-14.x Release Notes](2021.14.x_release_notes.html)
 - [2021-08.x Release Notes](2021.08.x_release_notes.html)
 - [2020-42.x Release Notes](2020.42.x_release_notes.html)

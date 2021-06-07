@@ -55,14 +55,13 @@ If an administrator has enabled PromQL support (discussed above), each user can 
     
 
 
-<!---## Video: Wavefront and PromQL
+## Video: Wavefront and PromQL
 
-This video shows how to enable PromQL and then create a chart and an alert:
+This short video shows how you can create a PromQL chart and an alert:
 
 <p>
 <iframe src="https://bcove.video/3tLRB6l" width="700" height="400" allowfullscreen="true" alt="Wavefront and PromQL"></iframe>
 </p>
---->
 
 ## Use PromQL in Charts and Alerts
 
@@ -127,16 +126,6 @@ Wavefront supports most PromQL functions and operators out of the box. There are
 <td width="25%"><strong>ignore, on, group_left, group_right</strong>
 </td>
 <td width="75%">Wavefront does not support ignore, on, group_left, group_right for vector matching with Prometheus queries.
-</td></tr>
-<tr>
-<td><strong>=~, !~</strong>
-</td>
-<td markdown="span">Wavefront does not support instant vector selectors (=~, !~) for regex matching in labels. However, you can use [wildcard characters](query_language_reference.html#partial-regex-wildcards-aliases-and-variables) in PromQL queries.
-</td></tr>
-<tr>
-<td><strong>subquery</strong>
-</td>
-<td>Wavefront does not support the PromQL subquery feature.
 </td></tr>
 </tbody>
 </table>

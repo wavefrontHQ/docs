@@ -343,7 +343,7 @@ You can:
     </td>
     <td>
       Filter metrics, sources, source tags, or point tag values using a subset of regular expressions. You wrap regular expressions in <code>/ /</code> characters. For example, <code>/&lt;regular_expression&gt;/</code>.
-      
+
       <br/><br/>The list of supported regular expression characters and quantifiers:
 <pre>
 .     : any character (but newline)
@@ -356,11 +356,11 @@ You can:
 |     : or
 (  )  : start/end of group
 </pre>
-      
+
       {{site.data.alerts.important}}
-      <ul> 
+      <ul>
         <li>
-          Characters, such as <code><b>~</b>, <b>^</b>, <b>{ }</b>, and <b>$</b></code> are not supported regular expression characters. Therefore, you need to escape these characters if they are present in the string you are trying to match. 
+          Characters, such as <code><b>~</b>, <b>^</b>, <b>{ }</b>, and <b>$</b></code> are not supported regular expression characters. Therefore, you need to escape these characters if they are present in the string you are trying to match.
           <br/>Example: You need to escape the <code>~</code> character.
 <pre>
 ts(/\~sample\.cpu.usage.*/)
@@ -378,7 +378,7 @@ ts(customer.report.count, tag=/mon-(primary|secondary)/)
           <b>Not supported</b>
 <pre>
 # a mixture in which part of the regular expression is wrapped in //
-ts(customer.report.count, tag=mon-/(primary|secondary)/) 
+ts(customer.report.count, tag=mon-/(primary|secondary)/)
 
 # quotes when using the // characters
 ts(customer.report.count, tag="/mon-(primary|secondary)/")
@@ -386,14 +386,14 @@ ts(customer.report.count, tag="/mon-(primary|secondary)/")
         </li>
       </ul>
       {{site.data.alerts.end}}
-      
+
       Examples:
-      
+
       <ul>
         <li>
           Get data that match <code>~wavefront.alert.active</code> or <code>~wavefront.alert.active_info</code> and has the source tag <code>data</code>:
 <pre>
-ts(/\~wavefront\.alert\.(active|active_info)/, tag=data) 
+ts(/\~wavefront\.alert\.(active|active_info)/, tag=data)
 </pre>
         </li>
         <li>
@@ -557,8 +557,8 @@ All operations between `tsExpression`s are subject to the matching processes des
 <li markdown="span">`ts(db.query.rate, tag=db and not source="db5.wavefront.com")` returns `db.query.rate` for all sources tagged with `db`, except for the `db5.wavefront.com` source.</li>
 <li markdown="span">`ts("smp-fax*.count" AND NOT "smp-fax*.metrics.wavefront.*", source="-eq*"` returns all metrics that match `"smp-fax*.count"` except for those matching `"smp-fax*.metrics.wavefront.*"` for any sources that start with `-eq`.</li>
 </ul>
+<p markdown="span">For additional examples, see the KB article [Using the AND and OR operators in queries](https://help.wavefront.com/hc/en-us/articles/360058973671-Using-the-AND-and-OR-operators-in-queries)</p>
 </ul>
-
 
 
 <table style="width: 100%;">
@@ -1041,7 +1041,7 @@ Use the <a href="ts_orelse.html"><strong>.orElse</strong> operator</a> to specif
 </tr>
 <tr>
 <td><a href="ts_orelse.html">.orElse(<strong>&lt;tsExpression&gt;</strong>)</a></td>
-<td>You can use the <code>.orElse()</code> operator to force the query to return a default value even if the time series is obsolete or nonexistent. You can enter a constant value wrapped in brackets, such as <code>orElse(5)</code>. You can also enter a timeseries for chained <code>.orElse()</code> statements, for example <code>.orElse(ts('my.metric'))</code>. 
+<td>You can use the <code>.orElse()</code> operator to force the query to return a default value even if the time series is obsolete or nonexistent. You can enter a constant value wrapped in brackets, such as <code>orElse(5)</code>. You can also enter a timeseries for chained <code>.orElse()</code> statements, for example <code>.orElse(ts('my.metric'))</code>.
 </td>
 </tr>
 </tbody>
@@ -1169,6 +1169,10 @@ Exponential and trigonometric functions enable you to perform mathematical trans
 <tr>
 <td><a href="ts_log.html">log(<strong>&lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the natural log of each data value described by the expression.</td>
+</tr>
+<tr>
+<td><a href="ts_log2.html">log2(<strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the log base 2 of each data value described by the expression.</td>
 </tr>
 <tr>
 <td><a href="ts_log10.html">log10(<strong>&lt;tsExpression&gt;</strong>)</a></td>
@@ -1475,6 +1479,19 @@ A time series exists if it has reported a data value in the last 4 weeks.  </td>
 <td>Wrapping any query expression in <strong>bestEffort()</strong> tells Wavefront to use conservative targets for scheduling workloads. That means we limit thread use and asynchronous operations.
 </td>
 </tr>
+<tr>
+<td><a href="ts_retainDimension_removeDimension.html">removeDimension(<strong>&lt;tsExpression&gt;, &lt;pointTag1&gt;, &lt;pointTag2&gt;, ... &lt;pointTagN&gt;</strong>)</a>
+</td>
+<td>Allows you to explicitly state which dimensions you want to remove from the query output.
+</td>
+</tr>
+<tr>
+<td><a href="ts_retainDimension_removeDimension.html">retainDimension(<strong>&lt;tsExpression&gt;, &lt;pointTag1&gt;, &lt;pointTag2&gt;, ... &lt;pointTagN&gt;</strong>)</a>
+</td>
+<td>Allows you to explicitly state which dimensions you want to see in the query output.
+</td>
+</tr>
+
 </tbody>
 </table>
 
