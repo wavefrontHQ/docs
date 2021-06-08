@@ -30,7 +30,7 @@ Returns the percentage of anomalous points in each time series described by the 
 Default is 0.99 if this parameter is not specified.
 </td></tr>
 <tr><td markdown="span">historyWindow</td>
-<td markdown="span">Optional mount of time in the _history window_, which is the [time window](query_language_reference.html#common-parameters) that immediately precedes the chart window. Default is 1 day (1d) if this parameter is not specified. Points in the chart window and the history window are the basis for computing the expected values in the test window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart.
+<td markdown="span">Optional amount of time in the _history window_, which is the [time window](query_language_reference.html#common-parameters) that immediately precedes the chart window. Default is 1 day (1d) if this parameter is not specified. Points in the chart window and the history window are the basis for computing the expected values in the test window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart.
 </td></tr>
 <tr>
 <td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
@@ -81,7 +81,7 @@ If the range is narrow, many points lie outside it, and the reported percentages
 
 By default, the history window is one day long. You can fine tune the forecast by adding an optional `historyWindow` parameter to specify a longer or shorter history window. A longer history window supports more accurate prediction, although the query might take longer.
 
-For example, `anomalous(5m, 2w, ts(my.metric))` predicts the expected values based on 2 weeks’s worth of actual data points in addition to the data shown in the chart.
+For example, `anomalous(5m, 2w, ts(my.metric))` predicts the expected values based on 2 weeks’ worth of actual data points in addition to the data shown in the chart.
 
 <!---  9/30/18-10/08/18 sum(rate(ts(dataingester.report-points, tag=${cluster}))) --->
 ## Example
