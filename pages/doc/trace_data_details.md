@@ -53,7 +53,7 @@ Most use cases do not require you to know exactly how Wavefront expects a span t
 It is possible to manually construct a well-formed span and send it either [directly to the Wavefront service](direct_ingestion.html#trace-data-spans) or to a TCP port that the Wavefront proxy is listening on for trace data. You might want to do this if you instrumented your application with a proprietary distributed tracing system.
 
 {{site.data.alerts.important}}
-<p>Spans that have special characters in the application or service name are rejected by Wavefront and are not supported by the tracing user interfaces.
+<p>Application or service names that have special characters are rejected by Wavefront and are not supported by the tracing user interfaces.
 </p>
 Example:
 <pre>

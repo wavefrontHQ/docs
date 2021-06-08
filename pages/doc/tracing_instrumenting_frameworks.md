@@ -74,7 +74,7 @@ Wavefront provides SDKs that implement the [OpenTracing](https://opentracing.io)
 {{site.data.alerts.end}}
 
 {{site.data.alerts.important}}
-<p>Spans that have special characters in the application or service name are rejected by Wavefront and are not supported by the tracing user interfaces.
+<p>Application or service names that have special characters are rejected by Wavefront and are not supported by the tracing user interfaces.
 </p>
 Example:
 <pre>
