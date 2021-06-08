@@ -402,7 +402,7 @@ Create an alert from the application status page:
           **App map view**: <br/>Click on a service and select **Actions** > **Create Alert**, for example, to create an alert for the shopping service:
         </td>  
         <td markdown ="span" width="40%">
-          ![A screenshot of how to click create alert as explained in the step](images/tracing_app_map_create_alaert.png)
+          ![A screenshot of how to click create alert as explained in the step](images/tracing_app_map_create_alert.png)
         </td>
       </tr>
       <tr>
