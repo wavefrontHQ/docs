@@ -17,7 +17,7 @@ This page lists new and updated features in the Wavefront service.
   - Regular expression filters in PromQL are now supported.
   - Regular subquery expressions in PromQL are now supported.
   The earlier limitations have been removed from our [PromQL doc page](wavefront_prometheus.html).
-* **New Function**. New Function. We now support a [log2() function](ts_log2.html) in addition to the existing log() and log10() functions.
+* **New Function**: We now support a [log2() function](ts_log2.html) in addition to the existing log() and log10() functions.
 * **Alert API Change**: Performing a PUT request with no changes against `/api/v2/alert/{id}` no longer marks the alert as edited/auto resolved.
 * **Search UI Improvements**:
   - You can explicitly exclude a keyword or a phrase from the search results by changing the equal sign to a not equal sign (≠). See [Searching Wavefront](wavefront_searching.html) for an example.
