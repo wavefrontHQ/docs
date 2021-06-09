@@ -352,6 +352,7 @@ You can:
 ?     : previous character or group, repeated 0 or 1 times
 [xyz] : any character contained within the brackets
 [a-z] : characters between a and z. Specify a range of characters using a hyphen
+^     : a character not in the range: a-z [^a-z]
 \     : prevents interpretation of the special character that follows
 |     : or
 (  )  : start/end of group
