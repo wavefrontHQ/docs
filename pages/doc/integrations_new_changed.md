@@ -8,6 +8,22 @@ summary: New and changed Wavefront integrations.
 ---
 Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
+## June 2021
+
+We added the following integration: 
+
+* VMware tc Server 4.x 
+
+Made improvements to the following integrations and dashboards in June 2021:
+
+* Windows -- Updated the out of the box dashboard to use the correct metrics to calculate Physical Memory.
+* Pivotal Cloud Foundry -- Doppler health chart in the Pivotal Cloud Foundry summary dashboard is updated to show correct health status.
+* Amazon Web Services:
+  * AWS Kinesis Data stream dashboard has been updated to use correct metric to compute stream throughput.
+  * AWS Dynamo DB dashboard now supports monitoring of on-demand Dynamo DB.
+* PagerDuty -- Updated the setup instructions.
+
+
 ## May 2021
 
 Made improvements to the following integrations and dashboards in May 2021:
