@@ -24,7 +24,7 @@ Made improvements to the following integrations and dashboards in June 2021:
   
      ```
      [[inputs.mem]]
-     name_prefix="win." 
+       name_prefix="win." 
      ```
     
   2. Replace the line starting with Counters under `[[inputs.win_perf_counters.object]]`, with the following line:
