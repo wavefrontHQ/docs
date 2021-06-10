@@ -16,7 +16,24 @@ We added the following integration:
 
 Made improvements to the following integrations and dashboards in June 2021:
 
-* Windows -- Updated the out of the box dashboard to use the correct metrics to calculate Physical Memory.
+* Windows -- Updated the out of the box dashboard to use the correct metrics to calculate Physical Memory. 
+
+  **Note**: In an existing Windows integration, you must update the `telegraf.conf` file for the changes to take effect.
+  
+  1. Enable the memory plugin by adding it at the end of the `telegraf.conf` file:
+  
+     ```
+     [[inputs.mem]]
+     name_prefix="win." 
+     ```
+    
+  2. Replace the line starting with Counters under `[[inputs.win_perf_counters.object]]`, with the following line:
+   
+     ``` 
+     Counters = ["Available Bytes", "Cache Bytes", "Committed Bytes", "Commit Limit", "Cache Faults/sec", "Demand Zero Faults/sec", "Page Faults/sec", "Pages/sec", "Transition Faults/sec", "Pool Nonpaged Bytes", "Pool Paged Bytes", "Modified Page List Bytes", "Standby Cache Reserve Bytes", "Standby Cache Normal Priority Bytes", "Standby Cache Core Bytes"]
+    
+     ```
+
 * Pivotal Cloud Foundry -- Doppler health chart in the Pivotal Cloud Foundry summary dashboard is updated to show correct health status.
 * Amazon Web Services:
   * AWS Kinesis Data stream dashboard has been updated to use correct metric to compute stream throughput.
