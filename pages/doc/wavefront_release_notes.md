@@ -9,17 +9,17 @@ summary: Learn about new and updated features in Wavefront.
 
 This page lists new and updated features in the Wavefront service.
 
-## 2021-21.x Release Notes
+## 2021-21.x Release Notes 
 
-* **OpenTelemetry Exporter**. The [Tanzu Observability (Wavefront) exporter for OpenTelemetry](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/exporter/tanzuobservabilityexporter/README.md) allows you to send traces to Wavefront and use our [comprehensive DT GUI](tracing_ui_overview.html) to visualize trace data.
-<!---The KB [OpenTracing or OpenTelemetry- Which to select for instrumenting applications for tracing](https://help.wavefront.com/hc/en-us/articles/360058140212-OpenTracing-or-OpenTelemetry-Which-specification-to-select-for-instrumenting-applications-for-tracing-) gives an introduction.---> 
-* **PromQL Improvements**.  We made the following improvements to our PromQL implementation:
+* **OpenTelemetry Exporter**: The [Tanzu Observability (Wavefront) exporter for OpenTelemetry](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/exporter/tanzuobservabilityexporter/README.md) allows you to send traces to Wavefront and use our [comprehensive DT GUI](tracing_ui_overview.html) to visualize trace data.
+<!---The KB [OpenTracing or OpenTelemetry- Which to select for instrumenting applications for tracing](https://help.wavefront.com/hc/en-us/articles/360058140212-OpenTracing-or-OpenTelemetry-Which-specification-to-select-for-instrumenting-applications-for-tracing-) gives an introduction.--->
+* **PromQL Improvements**:  We made the following improvements to our PromQL implementation:
   - Regular expression filters in PromQL are now supported.
   - Regular subquery expressions in PromQL are now supported.
   The earlier limitations have been removed from our [PromQL doc page](wavefront_prometheus.html).
-* **New Functions**. New Function. We now support a [log2() function](ts_log2.html) in addition to the existing log() and log10() functions.
-* **Alert API Change**. Performing a PUT with no changes against `/api/v2/alert/{id}` no longer marks the alert as edited/auto resolved.
-* **Search UI Improvements**.
+* **New Function**: We now support a [log2() function](ts_log2.html) in addition to the existing log() and log10() functions.
+* **Alert API Change**: Performing a PUT request with no changes against `/api/v2/alert/{id}` no longer marks the alert as edited/auto resolved.
+* **Search UI Improvements**:
   - You can explicitly exclude a keyword or a phrase from the search results by changing the equal sign to a not equal sign (≠). See [Searching Wavefront](wavefront_searching.html) for an example.
 
   ![exclude search results](images/not_in_search.png)
