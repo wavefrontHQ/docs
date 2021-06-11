@@ -3,10 +3,10 @@ repository: WavefrontHQ/docs
 output: web
 # this property is useful for conditional filtering of content that is separate from the PDF.
 
-topnav_title: Tanzu Observability
+topnav_title: Tanzu Observability Documentation
 # this appears on the top navigation bar next to the home button
 
-site_title: Tanzu Observability 
+site_title: Tanzu Observability Documentation
 # this appears in the html browser tab for the site title (seen mostly by search engines, not users)
 
 github_editme_path:
