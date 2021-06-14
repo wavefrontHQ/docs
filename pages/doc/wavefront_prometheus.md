@@ -134,6 +134,7 @@ Wavefront supports most PromQL functions and operators out of the box. There are
 
 
 * Autocomplete is not currently supported for PromQL functions and operators. However, autocomplete for metrics that you use inside your query continues to be supported.
+* Using global filters (key-value pairs for filtering results) is not currently supported for charts created with PromQL queries.
 * The Wavefront query language supports [using a query name as a chart variable](query_editor.html#use-chart-variables) in other queries for the same chart.
   - You can use a query name as a chart variable in a PromQL query if the named query was also a PromQL query.
   - You cannot use a query name as a chart variable if the named query is a Wavefront QL query.
