@@ -50,5 +50,8 @@ This page lists new and updated features in the Wavefront service.
 - [2020-22.x Release Notes](2020.22.x_release_notes.html)
 - [2020-14.x Release Notes](2020.14.x_release_notes.html)
 
+## Release Notes of Other Wavefront Components
 
-For Wavefront Proxy, your go-to place is the [Wavefront proxy github page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
+* For Wavefront Proxy, your go-to place is the [Wavefront proxy github page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
+
+* For the latest changes and releases of the Wavefront Integrations, see [New and Changed Integrations](integrations_new_changed.html).

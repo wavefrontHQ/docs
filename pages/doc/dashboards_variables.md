@@ -14,7 +14,7 @@ Dashboard variables and global filters are excellent ways of focusing the metric
 <ul>
 <li>A user with Dashboard permissions can <strong>add or edit variables</strong> for a dashboard and save the changes.  </li>
 <li>All users can <strong>set variables</strong> for a dashboard. The change applies to all charts in that dashboard.</li>
-<li>All users can create <strong>global filters</strong>; key value pairs for filtering dashboard results. </li>
+<li>All users can create <strong>global filters</strong> - key-value pairs for filtering dashboard results. </li>
 <li> All users can include dashboard variables in queries. The query uses the current value of the variable.</li>
 </ul>
 {% include note.html content="All Wavefront users can examine all dashboards and charts unless an individual dashboard is protected through access control. All users can make temporary changes. To save changes to dashboards and charts you must have [Dashboard permission](permissions_overview.html)."%}
@@ -186,7 +186,7 @@ All users can set the value of the list variable:
 
 The values of a dynamic dashboard variable are dynamically determined by a query. You use a dynamic variable if you can't predict ahead of time what the available choices are. For example, if you know that the datacenter is development or production, you can use a list variable. But if you want to allow users to select from a list of hosts, and the actual hosts change, you use a dynamic variable.
 
-{% include note.html content="Starting with release 2020.14, you can specify a string or a wildchard character (`*`) for each option. That means users can limit the display or show results for all values of the variable." %}
+{% include note.html content="Starting with release 2020.14, you can specify a string or a wildcard character (`*`) for each option. That means users can limit the display or show results for all values of the variable." %}
 
 ### Dynamic Dashboard Variable Field Options
 
