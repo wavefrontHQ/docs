@@ -36,7 +36,7 @@ Let's look at a trace expression that asks Wavefront to store traces if the appl
       <b>Source</b>
     </td>
     <td width="80%">
-      A source needs to be defined between <code>&#123;&#123;&#125;&#125</code> . The source you define is considered a <a href="trace_data_details.html#span-tags">span tag key</a>.
+      A source needs to be defined between <code>&#123;&#123;&#125;&#125;</code> . The source you define is considered a <a href="trace_data_details.html#span-tags">span tag key</a>.
       
       <br/>For example, you can pass the following values as a source and any span tag key: <code>&#123;&#123;spanName&#125;&#125;</code>, <code>&#123;&#123;sourceName&#125;&#125;</code>, <code>&#123;&#123;startMillis&#125;&#125;</code>, <code>&#123;&#123;durationMillis&#125;&#125;</code>, and more.
     </td>
