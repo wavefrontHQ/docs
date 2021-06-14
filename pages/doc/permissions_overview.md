@@ -18,7 +18,7 @@ The following list gives an overview of permissions. To learn more, click the li
 - **[Accounts, Groups & Roles](users_roles.html)** - Users with Accounts, Groups & Roles permission can manage user and service accounts. They can create groups and add accounts to groups, create roles and assign permissions to those roles, and assign roles to groups.
 - **[Alerts](alerts.html)** - Users with Alerts permission can create, edit, and delete alerts as well as maintenance windows, manage alert tags and view alert history, and create, edit, and delete alert targets.
   {% include note.html content="If the **Security** organization setting is set to Creator, **View** access or **View & Modify** access to new alerts has to be granted explicitly." %}
-- **[Applications](tracing_apdex.html)** - Users with Applications permission, can update the threshold (T) of the Application Performance Index (Apdex) score.
+- **[Applications](tracing_apdex.html)** - Users with Applications permission, can [update the threshold (T)](tracing_apdex.html) of the Application Performance Index (Apdex) score and [create trace sampling policies](trace_sampling_policies.html).
 - Batch Query Priority - When an account with Batch Query Priority permission runs queries, Wavefront treats every query executed by that account as if it was wrapped in the [`bestEffort()` function](ts_bestEffort.html).
 - **[Dashboard](ui_dashboards.html)** - Users with Dashboard permission can create, manage, and delete all dashboards and charts and manage dashboard tags.
    {% include note.html content="If the **Security** organization setting is set to Creator, **View** access or **View & Modify** access to new dashboards has to be granted explicitly." %}
