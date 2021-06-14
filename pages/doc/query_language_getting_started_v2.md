@@ -125,7 +125,7 @@ This doc set includes videos and explanations from the engineering team that hel
 <td> </td></tr>
 <tr>
 <td>How can I use Wavefront for anomaly detection?</td>
-<td markdown="span">You can use [AI Genie](ai_genie.html) or [detect anomalies with functions and statistical functions](query_language_statistical_functions_anomalies.html). </td>
+<td markdown="span">You can use [Anomaly Detection](anomaly-detection.html) or [detect anomalies with functions and statistical functions](query_language_statistical_functions_anomalies.html). </td>
 <td><ul><li><a href="https://youtu.be/XiSkNETTfCI">AI Genie Anomaly Detection</a></li>
 <li><a href="https://youtu.be/I-Z9d94Zi7Y">Anomaly Detection with Functions</a></li></ul> </td></tr>
 <tr>
