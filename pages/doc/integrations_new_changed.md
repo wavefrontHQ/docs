@@ -10,8 +10,9 @@ Wavefront continuously adds new integrations to the existing set, and improves a
 
 ## June 2021
 
-We added the following integration: 
+We added the following integrations: 
 
+* Data Platforms
 * VMware tc Server 4.x 
 
 Made improvements to the following integrations and dashboards in June 2021:
