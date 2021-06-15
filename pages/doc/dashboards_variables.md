@@ -153,17 +153,17 @@ A list dashboard variable allows users to pick a value from a list.
 1. In the top right corner, select **Edit** from the ellipsis icon to put your dashboard into edit mode.
 1. Click the **Add** icon in the variables bar.
 1. Enter a variable name (case sensitive). Keep the name short - this is what you'll use in queries.
-2. Select **Variable Type > List**. Each row lets you specify a display name and variable value. When the user selects the item from the menu, we use the specified value in all queries that use the variable.
+1. Select **Variable Type > List**. Each row lets you specify a display name and variable value. When the user selects the item from the menu, we use the specified value in all queries that use the variable.
 ![list_variable](images/list_variable_example.png)
-   1. Add, remove, or clone fields by using the icons on the right
+   1. Add, remove, or clone fields by using the icons on the right.
    2. (Optional) Set the default.
-4. Click **Accept** and click **Save** to save your dashboard.
+1. Click **Accept** and click **Save** to save your dashboard.
 
 ### Use a List Dashboard Variable
 
 All users can set the value of the list variable:
 1. Find the variable in the variables bar at the top of the dashboard.
-2. Select the variable value from the dropdown.
+2. Select the variable value from the drop-down menu.
 
    ![Varible list.png](images/db_var_list.png)
 
@@ -179,6 +179,10 @@ All users can set the value of the list variable:
 
 3. Users who edit charts can use the variable in queries as `${env}`.
 4. All users can select **Production** or **Development** from the **Datacenter** menu in the variables bar to set the value of `${env}` to `prod` or `dev`
+
+### Supported Characters
+
+List values can contain alphanumerical characters (a-z, A-Z, 0-9), underscore (_), greater than (>), less than (<), parenthesis (()), minus (-), period (.), and space.
 
 <span id="dynamic"></span>
 
@@ -224,7 +228,7 @@ This example uses a point tag dynamic variable. Starting with release 2020.14, u
 ### Use the Dynamic Variable
 
 1. Find the variable in the variables bar at the top of the dashboard.
-2. Select the variable value from the dropdown.
+2. Select the variable value from the drop-down menu.
 
 In this example, we can filter the dashboard to set the point tag `env` to `prod`, to `dev`, or to allow both values.
 
