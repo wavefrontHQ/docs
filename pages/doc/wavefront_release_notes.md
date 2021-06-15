@@ -11,7 +11,7 @@ This page lists new and updated features in the Wavefront service.
 
 ## 2021-22.x Release Notes
 
-* **CSV Export Improvements**. Significant improvements to the [CSV Export functionality](ui_examine_data.html#export-to-csv-or-pdf) for table charts make it easy to open the exported data in a spreadsheet.
+* **CSV Export Improvements**. Significant improvements to the [CSV Export functionality](ui_examine_data.html#export-to-csv-or-pdf) for table charts make it easy to open the exported data in a spreadsheet. 
 
 ## 2021-21.x Release Notes
 
