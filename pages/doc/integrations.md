@@ -102,7 +102,7 @@ Some integrations contain predefined alerts. You can install and uninstall the p
 1. Click the **Alerts** tab.
 1. Click **\[Install All\| Uninstall All\] Alerts**.
 
-If you have the Alerts permissions, you can [edit the alert thresholds and targets, and clone the predefined alerts](alerts_manage.html). 
+If you have the Alerts permissions, you can [edit the targets of the alerts](webhooks_alert_notification.html#learn-about-alert-targets). If you want to make further customizations, clone the alert first. For information about cloning and editing alerts, see [Manage Alerts](alerts_manage.html). 
 
 
 ## Integration States
