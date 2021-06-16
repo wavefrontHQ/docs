@@ -4,52 +4,27 @@ keywords: alerts
 tags: [alerts, events, videos]
 sidebar: doc_sidebar
 permalink: alerts.html
-summary: Learn how alerts work, and how to create and examine them.
+summary: Learn how alerts work, examine and organize them.
 ---
 Tanzu Observability supports smart alerts that dynamically filter noise and capture true anomalies.
-* Alerts notify one or more **alert targets** that receive the alert notification(s).
-* You can set up the alert to notify different targets depending on alert severity.
+* When the alert condition is met, an alert notifies one or more **alert targets**, which receive the alert notification(s).
 * The **alert notification** includes an image and a link to see the alert in context.
 * Look all alerts in the **Alert Browser** or examine a single firing alert in the **Alert Viewer**.
 
 {% include note.html content="All users can view alerts and perform the tasks on this page. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
 
-## Wavefront Alerts
-
-An alert defines:
-* The condition under which metric values indicate a system problem, for example, CPU is over 5000.
-* One or more targets to notify when the condition evaluates to true or false for a specified period of time, for example, 3 email addresses or Pagerduty keys.
-
-Wavefront supports:
-* Alerts with one preset severity (classic alerts). When the condition is met, a notification with that severity is sent to the target(s)
-* Alerts with multiple severities and associated targets. For example, if CPU is over 35000, send a WARN notification to an on-call person. If CPU is over 50000, send a SEVERE notification to the whole team.
-
 ## How Alerts Work Videos
 
-In this video, Clement explains how classic alerts work:
+In this video, Clement explains how single-threshold alerts work:
 
 <p><a href="https://www.youtube.com/watch?v=VjmWExKiYYg&index=1&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_alerting_clement.png" style="width: 700px;"/></a>
 </p>
 
 
-In this video, Jason explains classic alerts while he's showing them in the UI:
+In this video, Jason explains single-threshold alerts while he's showing them in the UI:
 <p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=68cd255b-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_monitor_with_alerts.png" style="width: 700px;"/></a>
 </p>
-
-## Examine Alerts and Drill Down
-
-Alerts notify when there's a problem, and support finding the root cause of a problem quickly. Wavefront has two GUIs:
-* **Alert Viewer:** When you receive an alert notification, the notification includes a link to the Alert Viewer.
-  - Drill down into the alert cause (source, point tags, etc.).
-  - Examine related information.
-
-* **Alerts Browser:** Allows you to investigate and manage all alerts.
-  - Investigate all alerts and their state, history, and more.
-  - Clone, edit, or delete one or more alerts.
-  - Snooze alerts or put them in [maintenance mode](maintenance_windows_managing.html).
-
-{% include note.html content="All users can view alerts. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you.  " %}
 
 
 ## Examine an Alert in Alert Viewer
@@ -98,17 +73,6 @@ When an alert fires, Wavefront analyzes the point tags that are most likely to b
 </tbody>
 </table>
 
-### How Alert Notifications Include Links
-
-The alert target mustache syntax supports a `url` variable and a  `charturl`.
-
-* Simple notification **emails** include a **View Alert Chart** link that takes you to the chart view.
-* For PagerDuty, alert target (webhook), and  templated email notifications:
-  - The link  target of the `url` mustache template variable directs to the Alert Viewer. 
-  - The mustache context variable `chartUrl` takes you directly to the chart view. 
-
-{% include note.html content="Alert targets created before release 2020.22 will use `url` instead of `chartUrl`. Edit the alert target to use `chartUrl` to send users to the chart editor." %} 
-
 
 ## Examine and Manage All Alerts in Alerts Browser
 
@@ -136,7 +100,7 @@ For example, you could show alerts that are both FIRING and SEVERE.</td>
 
 
 
-### Examine an Alert
+### Examine an Alert in Alerts Browser
 
 The Alerts Browser shows the properties and current state of an alert. For example, an alert that is firing looks like this:
 

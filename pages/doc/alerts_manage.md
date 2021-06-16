@@ -9,7 +9,7 @@ summary: Learn how to examine and fine-tune alerts.
 
 Most Wavefront users [examine alerts and drill down to find the problem](alerts.html). A subset of Wavefront users create and manage alerts. 
 
-{% include note.html content="All users can view alerts and perform the tasks on this page. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}Create, edit, manage
+{% include note.html content="All users can view and examine alerts to find problems. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
 ## How to Create an Alert -- The Basics
 

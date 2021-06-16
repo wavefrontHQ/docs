@@ -70,7 +70,22 @@ If you want to exclude chart images:
 
 ## Interactive Charts Linked by Alert Notifications
 
-An alert notification includes a URL that links to an interactive chart showing data at the time the alert was triggered. The [sample email notification](#sample-alert-notification) above displays the URL as a **View Alert** button that you can click to see an interactive chart like the following:
+Each alert notification includes a link to an interactive chart. When you create an alert, you can include a variable that determines what the user sees.
+
+### Link Variables in Alert Notifications
+The alert target mustache syntax supports a `url` variable and a  `charturl`.
+
+* Simple notification **emails** include a **View Alert Chart** link that takes you to the chart view.
+* For PagerDuty, alert target (webhook), and  templated email notifications:
+  - The link  target of the `url` mustache template variable directs to the Alert Viewer. 
+  - The mustache context variable `chartUrl` takes you directly to the chart view. 
+
+{% include note.html content="Alert targets created before release 2020.22 will use `url` instead of `chartUrl`. Edit the alert target to use `chartUrl` to send users to the chart editor." %} 
+
+### Link Details
+<!---Need to update this for multi-threshold and other changes--->
+
+An alert notification includes a URL that links to an interactive chart showing data at the time the alert was triggered. The [sample email notification](#sample-alert-notification) above displays the URL as a **View Alert** button that users can click to see an interactive chart like the following:
 
 ![alert_interactive_chart](images/alert_interactive_chart.png)
 
