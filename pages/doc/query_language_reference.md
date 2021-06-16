@@ -1643,7 +1643,7 @@ Each histogram output conversion function in the following table takes a time se
 </tr>
 <tr>
 <td><a href="ts_cumulativePercentile.html">cumulativePercentile(<strong>&lt;percentage&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>)</a></td>
-<td>Calculates the percentile value directly that comes, for example, from Prometheus, in Wavefront. Returns the &lt;percentage&gt; percentiles from the histogram distributions described by the &lt;tsExpression&gt;.
+<td>Calculates the percentile value directly that comes from a Prometheus cumulative histogram in Wavefront. Returns the <strong>percentage</strong> percentiles from the histogram distribution described by the &lt;tsExpression&gt;.
 </td>
 </tr>
 <tr>
