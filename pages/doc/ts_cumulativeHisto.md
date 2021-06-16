@@ -66,7 +66,7 @@ When you use Prometheus, you run queries like this:
 histogram_quantile(0.90, sum(rate(req_latency_bucket[5m])) by (le))
 ```
 
-This query displays the 90th quantile of a cumulative histogram that corresponds to the `req_latency_bucket` metric. The `le` parameter means `less than or equal.
+This query displays the 90th quantile of a cumulative histogram that corresponds to the `req_latency_bucket` metric. The `le` parameter means less than or equal.
 
 The corresponding Wavefront query looks like this:
 ```
@@ -89,7 +89,7 @@ See [Standard Versus Raw Aggregation Functions](query_language_aggregate_functio
 
 ### Using taggify() with Prometheus Metrics from Telegraf
 
-When you use telegraf to collect Prometheus histogram metrics, the metrics include the bucket bounds as part of the metric names. For example:
+When you use Telegraf to collect Prometheus histogram metrics, the metrics include the bucket bounds as part of the metric names. For example:
 
 ```
 source.source_http_requests_latency_including_all_seconds.2.5
@@ -105,7 +105,7 @@ If you want to use these metrics inside Wavefront:
 For example:
 1. You start with data metrics like this:
 
-   **data:**`mavg(5m, rate(ts(“metric1_seconds.*" and not “metric1_seconds.count" and not “metric1_seconds.sum" )))`
+   **data:** `mavg(5m, rate(ts(“metric1_seconds.*" and not “metric1_seconds.count" and not “metric1_seconds.sum" )))`
 2. You use `taggify()` to extract the bucket information.
 
    **taggify**: `sum(taggify(${data}, metric, le, "^metric1_seconds.(.*)$", "$1"), le)`
@@ -134,7 +134,7 @@ Then we use the `cumulativeHisto()` function to return the cumulative histogram 
 * The [Integrating Prometheus with Wavefront for Easy Scaling and Failover](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/integrating-prometheus-with-wavefront-for-easy-scaling-and-failover) blog post discusses the [Prometheus integration](prometheus.html) in some detail.
 * The [How to Make Prometheus Monitoring Enterprise Ready](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/how-to-make-prometheus-monitoring-enterprise-ready) blog post explores how using Prometheus for metrics collection and Wavefront for data storage and visualization can give you the best of both worlds.
 * Our [histogram doc page](proxies_histograms.html) gives background information about Wavefront histograms.
-
+* The [cumulativePercentile function doc page](ts_cumulativePercentile.html) that explains how to calculate the cumulative percentile without the need to convert the cumulative Prometheus histogram to a Wavefront ordinary histogram.
 
 ## Caveats
 
