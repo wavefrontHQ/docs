@@ -79,7 +79,9 @@ You can check the permissions you have and see which groups you belong to.
 
 ## Generate an API Token
 
-Wavefront allows you to interact with your Wavefront instance using the [Wavefront REST API](wavefront_api.html). When you make an API call, you have to pass in a token, which you can generate from your account page.
+Wavefront allows user accounts and service accounts to interact with your Wavefront instance using the [Wavefront REST API](wavefront_api.html).
+
+Before you or a service acount that you manage can make an API call, you generate an API token.
 
 1. Click the gear icon <i class="fa fa-cog"/> on the taskbar and select your username.
-2. Click the **API Access** tab and follow the instructions.
+2. Click the **API Access** tab and follow the instructions. See [Generating an API Token](wavefront_api.html#generating-an-api-token) for details. 
