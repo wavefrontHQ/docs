@@ -99,7 +99,7 @@ Editing a dashboard variable is similar to creating a dashboard variable.
 
 To clone or delete a dashboard variable:
 1. In the top right corner, select **Edit** from the ellipsis icon to put your dashboard into edit mode.
-2. Select **Clone** or **Delete** from the pencil icon pull-down menu.
+2. Select **Clone** or **Delete** from the pencil icon drop-down menu.
 
 ## Use Dashboard Variables in Queries
 
@@ -129,7 +129,7 @@ A simple dashboard variable maps a single variable to a single value. Simple var
 1. In the top right corner, select **Edit** from the ellipsis icon to put your dashboard into edit mode.
 1. Click the **Add** icon in the variables bar.
 1. Enter a variable name (case sensitive). Keep the name short - this is what you'll use in queries.
-1. Select **Simple** from the pull-down menu.
+1. Select **Simple** from the drop-down menu.
 1. (Optional) Enter an initial value for the variable.
 1. (Optional) Change the display name if you want to show something different in the Variables bar.
 1. Click **Accept** to save the dashboard variable, the **Save** again to save the dashboard.
@@ -183,7 +183,7 @@ All users can set the value of the list variable:
    * Label **Datacenter**
 
 3. Users who edit charts can use the variable in queries as `${env}`.
-4. All users can select **Production** or **Development** from the **Datacenter** menu in the variables bar to set the value of `${env}` to `prod` or `dev`
+4. All users can select **Production** or **Development** from the **Datacenter** menu in the variables bar to set the value of `${env}` to `prod` or `dev`.
 
 <span id="dynamic"></span>
 
