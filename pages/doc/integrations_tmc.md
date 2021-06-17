@@ -20,7 +20,7 @@ You can set up seamless authentication from Tanzu Mission Control to Tanzu Obser
 
 Tanzu Observability by Wavefront supports user accounts and service accounts. We recommend that you create a service account API token to use with Tanzu Mission Control.
 
-1. Log in to your Wavefront instance (`&lt;instance_name&gt;.wavefront.com`) as a user with **Accounts, Groups & Roles** permission.
+1. Log in to your Wavefront instance (`<instance_name>.wavefront.com`, for example, `company1.wavefront.com`, as a user with **Accounts, Groups & Roles** permission.
 2. From the gear icon in the top right, select **Account Management** and provide your password again when prompted.
 3. Click **Service Accounts** and click **Create New Account**.
 4. Specify the service account name and select the **Proxies** and **Integrations** permissions and click **Create**.
