@@ -9,11 +9,11 @@ summary: Learn about Tanzu Mission Control and How to Generate a Token
 
 [VMware Tanzu Mission Control](https://docs.vmware.com/en/VMware-Tanzu-Mission-Control/services/tanzumc-concepts/GUID-E2B5BE05-596E-4999-9B21-1CDB875A1BBF.html) provides a centralized management platform for consistently operating and securing your Kubernetes infrastructure and modern applications across multiple teams and clouds.
 
-You can set up seamless authentication from Tanzu Mission Control to Tanzu Observability from the Tanzu Mission Control UI. Follow these high-level steps:
+You can set up seamless authentication from Tanzu Mission Control to Tanzu Observability from the Tanzu Mission Control console. Follow these high-level steps:
 1. Inside Tanzu Observability by Wavefront, generate an API token (discussed below).
 2. From the Tanzu Mission Control console, create a [Tanzu Observability credential]( https://docs.vmware.com/en/VMware-Tanzu-Mission-Control/services/tanzumc-using/GUID-A70E57A8-2C45-46D4-8E1F-6D5E7026473F.html) and paste the token into the credential.
 
-{% include tip.html content="The account associated with the Wavefront token must have **Proxies** and **Integrations** permission. To avoid problems when a (human) user leaves, use a service account." %}
+{% include tip.html content="The account associated with the Wavefront token must have **Proxies** and **Integrations** permission. To avoid problems, for example when a (human) user leaves or is not available, use a service account." %}
 
 
 ## Generate a Service Account API Token for Tanzu Mission Control
