@@ -131,10 +131,11 @@ Then we use the `cumulativeHisto()` function to return the cumulative histogram 
 
 ## See Also
 
+* The [cumulativePercentile function doc page](ts_cumulativePercentile.html) that explains how to calculate the cumulative percentile without the need to convert the cumulative Prometheus histogram to a Wavefront ordinary histogram.
 * The [Integrating Prometheus with Wavefront for Easy Scaling and Failover](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/integrating-prometheus-with-wavefront-for-easy-scaling-and-failover) blog post discusses the [Prometheus integration](prometheus.html) in some detail.
 * The [How to Make Prometheus Monitoring Enterprise Ready](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/how-to-make-prometheus-monitoring-enterprise-ready) blog post explores how using Prometheus for metrics collection and Wavefront for data storage and visualization can give you the best of both worlds.
 * Our [histogram doc page](proxies_histograms.html) gives background information about Wavefront histograms.
-* The [cumulativePercentile function doc page](ts_cumulativePercentile.html) that explains how to calculate the cumulative percentile without the need to convert the cumulative Prometheus histogram to a Wavefront ordinary histogram.
+
 
 ## Caveats
 

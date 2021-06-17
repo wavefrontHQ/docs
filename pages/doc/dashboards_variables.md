@@ -159,6 +159,11 @@ A list dashboard variable allows users to pick a value from a list.
    2. (Optional) Set the default.
 1. Click **Accept** and click **Save** to save your dashboard.
 
+### Supported Characters
+
+List values can contain alphanumerical characters (a-z, A-Z, 0-9), underscore (_), greater than (>), less than (<), parenthesis (()), minus (-), period (.), and space.
+
+
 ### Use a List Dashboard Variable
 
 All users can set the value of the list variable:
@@ -179,10 +184,6 @@ All users can set the value of the list variable:
 
 3. Users who edit charts can use the variable in queries as `${env}`.
 4. All users can select **Production** or **Development** from the **Datacenter** menu in the variables bar to set the value of `${env}` to `prod` or `dev`
-
-### Supported Characters
-
-List values can contain alphanumerical characters (a-z, A-Z, 0-9), underscore (_), greater than (>), less than (<), parenthesis (()), minus (-), period (.), and space.
 
 <span id="dynamic"></span>
 
