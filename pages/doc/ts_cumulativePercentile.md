@@ -8,7 +8,8 @@ summary: Reference to the cumulativePercentile() function.
 ---
 ## Summary
 ```
-cumulativePercentile(<percentage>, <tsExpression>)
+cumulativePercentile(<percentage>, [<bucketName>,] <tsExpression>
+   [,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
 
 Calculates the cumulative percentile value for a histogram coming from Prometheus cumulative histograms.
@@ -23,10 +24,19 @@ Calculates the cumulative percentile value for a histogram coming from Prometheu
 </thead>
 <tr>
 <td>percentage</td>
-<td>A number greater than 0 and less than or equal to 100 that specifies the percentile of interest.</td></tr>
+<td>A number greater than 0 and less than or equal to 100 that specifies the percentile of interest.</td>
+</tr>
+<tr>
+<td>bucketName</td>
+<td markdown="span">Optional string that describes the bucket. Default is <strong>le</strong>, that is, less than or equal. If your source histogram uses a different tag key to specify the buckets, specify that tag key here.  </td></tr>
 <tr>
 <td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>A Prometheus cumulative histogram.</td></tr>
+<tr>
+<td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
+<td>Optional 'group by' parameter for organizing the time series into subgroups and then returning each histogram subgroup.
+Use one or more parameters to group by metric names, source names, source tag names, point tag names, values for a particular point tag key, or any combination of these items. Specify point tag keys by name.</td>
+</tr>
 </tbody>
 </table>
 
@@ -42,8 +52,9 @@ When a chart displays the result of this function, it shows the cumulative perce
 
 This example shows how to use the `cumulativePercentile()` function to return the cumulative percentile value for the histogram.
 
-Margarita: [Need a nice example of a cumulative percentile histogram]
-
+```
+cumulativePercentile(95, mavg(1m, rate(ts(demo_api_request_duration_seconds_bucket, path="/api/foo" and status="500" and method="GET" and host="demo.promlabs.com:10000"))))
+```
 
 
 ## See Also
