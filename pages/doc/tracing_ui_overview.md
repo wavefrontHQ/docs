@@ -42,9 +42,9 @@ Let's walk through the following scenario to get a quick overview of the applica
       Click <b>Application/Service</b>, select <b>beachshirts</b>, and click <b>Search</b>.<br/>
 
       You can refine your search further by applying one or more filters, such as the cluster, shard, or span.kind.
-      
+
       <br/><br/>You see the data that match your search filters and the nearest neighboring service. For example, if you filter for the beachshirts application's styling service, you only see the services that directly communicate with the styling service.
-      
+
       </td>
     <td><img src="/images/tracing_appmap_search_application.png" alt="Search for the beachshirts application using tags"/>
     <a name="appmap"></a>
@@ -177,7 +177,7 @@ style="vertical-align:text-bottom;width:28px" alt="icon to click to get the tabl
 ![the image shows the table view of all the applications that send data to Wavefront. It has helpers to show you what to do with each UI section. For example, how to filter applications or services, change the table settings or the legend settings, and how to change back to the application map view or the grid view](images/tracing_table_view.png)
 
 Using the table view, you can:
-* Examine the applications and services, or search for a particular application or service by applying filters. 
+* Examine the applications and services, or search for a particular application or service by applying filters.
   <br/>You can refine your search further by applying one or more filters, such as the cluster, shard, or span.kind.
 * Click the name of the service to [drill down to the Service Dashboard](#explore-the-default-service-dashboard).
 * Sort data:
@@ -280,7 +280,7 @@ Using the table view, you can:
     </tr>
 
   </table>
-  
+
 * Use <img src="images/tracing_link_icon.png"
   style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link"/> to get a link and share what you’re seeing right now (NON-LIVE display) with other users.
 
@@ -384,7 +384,7 @@ On the page for a particular application, you can:
       </tr>
     </table>
 
-## Create Alerts 
+## Create Alerts
 
 With Wavefront, you can [create smart alerts](alerts.html#how-alerts-work-video) that filter noise and capture true anomalies. You can:
 
@@ -393,14 +393,14 @@ With Wavefront, you can [create smart alerts](alerts.html#how-alerts-work-video)
 * View an image of the chart in the alert notification and click a link to see the alert in context.
 * Examine firing alerts in Alert Viewer to get context.
 
-Create an alert from the application status page: 
+Create an alert from the application status page:
 
 1. Navigate to the app map, table view, or grid view:
     <table style = "width: 100;">
       <tr>
         <td markdown ="span">
           **App map view**: <br/>Click on a service and select **Actions** > **Create Alert**, for example, to create an alert for the shopping service:
-        </td>  
+        </td>
         <td markdown ="span" width="40%">
           ![A screenshot of how to click create alert as explained in the step](images/tracing_app_map_create_alaert.png)
         </td>
@@ -408,7 +408,7 @@ Create an alert from the application status page:
       <tr>
         <td markdown="span">
           **Table view**: <br/>Click the vertical ellipsis > **Create Alert**.
-          
+
         </td>
         <td markdown ="span" width="40%">
           ![A screenshot of how to click create alert as explained in the step](images/trace_table_view_create_alert.png)
@@ -429,10 +429,10 @@ Create an alert from the application status page:
     1. You can set the alert conditions based on your data. For example, let's create an alert that fires in the:
       * Severe state for the shopping service when the error percentage is greater than 6%
       * and in the Warn state when it is greater than 3%.
-    1. [Create an alert target](webhooks_alert_notification.html) to receive alert notifications for a variety of messaging platforms (email, pager services) and communication channels. 
+    1. [Create an alert target](webhooks_alert_notification.html) to receive alert notifications for a variety of messaging platforms (email, pager services) and communication channels.
       <br/>You can also customize your alert targets to [include a link to a service dashboard when the alert fires](alert_target_customizing.html#include-a-link-to-a-tracing-service-dashboard).
-    1. Optionally, [use alert tags](alerts_manage.html#organize-related-alerts-with-alert-tags) to organize related alerts into categories.
+    1. Optionally, [use alert tags](alerts.html#step-5-organize-related-alerts-with-tags) to organize related alerts into categories.
 1. Click **Create Alert**.
   ![Create an alert from the table view page.](images/tracing_creating_an_alert_app_map.png)
-   
+
 Once the alert is created, click **Alerting** and search for the alert you created on the alert browser.

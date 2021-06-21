@@ -1,5 +1,5 @@
 ---
-title: Manage Alerts
+title: Create and Manage Alerts
 keywords: alerts
 tags: [alerts]
 sidebar: doc_sidebar
@@ -7,9 +7,9 @@ permalink: alerts_manage.html
 summary: Learn how to examine and fine-tune alerts.
 ---
 
-Most Wavefront users [examine alerts and drill down to find the problem](alerts.html). A subset of Wavefront users create and manage alerts. 
+Most Wavefront users [examine alerts and drill down to find the problem](alerts.html). A subset of Wavefront users create and manage alerts.
 
-{% include note.html content="All users can view and examine alerts to find problems. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
+{% include note.html content="All users can view and examine. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
 ## How to Create an Alert -- The Basics
 
@@ -57,12 +57,10 @@ The **maximum number** of email alert targets is 10 for classic alerts and 10 pe
 
 `{"status":{"result":"ERROR","message":"Invalid notification specified: null","code":400}}`
 
-## Creating an Alert
 
-You can create a classic alert with a single severity level (e.g., SEVERE), or a [multi-threshold alert](#create-a-multi-threshold-alert), which allows you to customize alert behavior for different thresholds.
+## Create a Classic Alert
 
-
-### Create a Classic Alert
+### Prerequisites
 
 **Required fields** for a classic alert are:
 * Alert name (default is New Alert)
@@ -71,7 +69,7 @@ You can create a classic alert with a single severity level (e.g., SEVERE), or a
 
 To notify alert targets when the alert changes state, you can specify targets during alert creation or later.
 
-**To create a classic alert:**
+### Procedure
 
 <ol>
 
@@ -139,7 +137,7 @@ The display expression can include any valid Wavefront Query Language construct,
 </tr>
 <tr>
 <td><strong>Tags</strong></td>
-<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing Related Alerts](alerts_manage.html#organize-related-alerts-with-alert-tags). </td>
+<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing Related Alerts](alerts.html#step-5-organize-related-alerts-with-tags). </td>
 </tr>
 </tbody>
 </table>
@@ -235,9 +233,11 @@ This video shows how Jason creates a classic alert:
 <p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6a27a841-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_alerts_creating.png" style="width: 700px;"/></a>
 </p>
 
-### Create a Multi-Threshold Alert
+## Create a Multi-Threshold Alert
 
-**Required fields** for a multi-threshold alert are:
+### Prerequisites
+
+Ensure that you have the information for the **required fields** for your multi-threshold alert:
 * Alert name (defaults to New Alert)
 * Alert condition and operator (e.g., greater than (**>**))
 * At least one severity/threshold value pair.
@@ -252,7 +252,7 @@ For example, an alert target for an INFO severity receives all notifications for
 
 For a multi-threshold alert, Wavefront creates a display expression that shows the alert condition.
 
-**To create a multi-threshold alert:**
+### Procedure
 
 <ol>
 
@@ -323,7 +323,7 @@ For example, an alert target for an INFO severity receives all notifications for
 </tr>
 <tr>
 <td><strong>Tags</strong></td>
-<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing Related Alerts with Alert Tags](alerts_manage.html#organize-related-alerts-with-alert-tags). </td>
+<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing Related Alerts with Alert Tags](alerts.html#step-5-organize-related-alerts-with-tags). </td>
 </tr>
 </tbody>
 </table>
@@ -397,14 +397,13 @@ This video shows how to create a multi-threshold alert:
 
 
 
-## Clone or Delete an Alert
+## Delete an Alert
 
-To make copies of an existing alert, then change the copy, you can clone an alert.
+Users with **Alerts** permissions can delete an alert.
 
 1. Click **Alerting** in the taskbar to display the Alerts Browser.
 2. Click the ellipsis icon next to the alert.
-3. To clone the alert, select **Clone**, make changes when prompted, and click **Save**.
-3. To delete an alert, select **Delete** and confirm the deletion.
+3. Select **Delete** and confirm the deletion.
 
 
 ## Edit an Alert
@@ -415,11 +414,11 @@ You can change an alert at any time.
 2. Click the name of the alert you want to edit to display the Edit Alert page.
 3. Update the properties you want to change, and click **Save**.
 
-## Backtesting
+## Use Backtesting to Fine-Tune Conditions
 
-Wavefront can display actual firings or hypothetical alert-generated events using backtesting. Backtesting enables you to fine tune new or existing alert conditions before you save them.
+Wavefront can show hypothetical alert-generated events using backtesting. Backtesting enables you to fine tune new or existing alert conditions before you save them.
 
-When you create an alert, the Events Display is set to **Backtesting**. You can later edit the alert.
+When you create a classic alert, the Events Display is set to **Backtesting**. You can later edit the alert.
 
 To change the events display:
 
@@ -428,11 +427,14 @@ To change the events display:
    - **Actual Firings**  - Displays past alert-generated event icons on the chart. You will see how often the alert actually fired within the given chart time window.
    - **Backtesting** - Displays hypothetical alert-generated event icons on the chart. You can see how often an alert  would fire within the chart time window based on the condition and the **Alert Fires** field.
 
-Backtesting does not always exactly match the actual alert firing. For example, if data comes in late, backtest events won't match the actual alert firing. Even if data are meeting the alert condition for the "condition is true for x mins" amount of time, the alert itself might not fire because the alert check, determined by the alert check interval, happens too soon or too late. For both cases, backtesting shows the alert as firing while the actual alert might not show as firing.
+Backtesting does not always exactly match the actual alert firing. For example:
+* If data comes in late, backtesting won't match the actual alert firing.
+* If data are meeting the alert condition for the "condition is true for x mins" amount of time, the actual alert might not fire because the alert check, determined by the alert check interval, happens too soon or too late.
+For both cases, backtesting shows the alert as firing while the actual alert might not show as firing.
 
 ## Do More!
 
-* Read the [blog about Alert Viewer](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/faster-ai-driven-incident-triaging-wavefront-alert-viewer) from December 2019.
-* Create a [classic alert](alerts.html#create-a-classic-alert) or a [multi-threshold alert](alerts.html#create-a-multi-threshold-alert).
+* The [Alert Viewer Tutorial](alerts.html#alert-viewer-tutorial) shows how to examine a single alert.
+* The [Alerts Browser Tutorial](alerts.html#alerts-browser-tutorial)
 * Learn about [alert states and life-cycle](alerts_states_lifecycle.html).
 * Share access to an [individual alert](access.html#changing-access-for-individual-dashboards-or-alerts).
