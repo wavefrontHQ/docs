@@ -1642,12 +1642,15 @@ Each histogram output conversion function in the following table takes a time se
 </td>
 </tr>
 <tr>
+<td><a href="ts_cumulativePercentile.html">cumulativePercentile(<strong>&lt;percentage&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Calculates the percentile value directly that comes from a Prometheus cumulative histogram in Wavefront. Returns the <strong>percentage</strong> percentile from the histogram distribution described by the &lt;tsExpression&gt;.
+</td>
+</tr>
+<tr>
 <td><a href="ts_frequencyHisto.html">frequencyHisto(&lbrack;<strong>timeWindow</strong>&rbrack;, &lbrack;<strong>&lt;bucketName&gt;, </strong> &rbrack; <strong>&lt;tsExpression&gt;</strong> &lbrack;<strong>,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong> &rbrack;)</a></td>
 <td>Converts a histogram coming from Google Cloud Platform(GCP) to Wavefront histogram format. When GCP Detailed Histogram Metrics is enabled, Wavefront will additionally ingest bucket counts for GCP distributions, with metric namegcp.&lt;metric&gt;.bucket. Enabling this increases ingestion rate and cost.
 </td>
 </tr>
-
-
 </tbody>
 </table>
 
