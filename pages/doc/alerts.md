@@ -35,12 +35,12 @@ When you receive an alert notification, it includes a link to the alert in Alert
 
 ![annotated alert viewer allowing you to solve the problems listed below](images/alert_viewer.png)
 
-
+### Step 1: Connect and Get the Big Picture
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="50%">
-<strong>Step 1: Click the link in the alert notification and start with the 10-second briefing in the top left.</strong> <br /><br/>
+Click the link in the alert notification and start with the 10-second briefing in the top left. <br /><br/>
 Learn about:
 <ul>
 <li>Alert status and description </li>
@@ -51,25 +51,48 @@ Learn about:
 </td>
 <td width="50%"><img src="/images/alert_viewer_description.png" alt="Description of the alert"></td>
 </tr>
+</tbody>
+</table>
+
+### Step 2: Examine Related Firing Alerts
+<table style="width: 100%;">
+<tbody>
 <tr>
-<td width="50%">
-<strong>Step 2: In the top right, examine Related Firing Alerts</strong>. <br /><br/>
+<td width="50%">In the top right, examine Related Firing Alerts. <br /><br/>
 When an alert fires, Wavefront scans all the other alerts that have fired within 30 minutes and correlates them with the initial event using AI/ML algorithms. You can filter by alert severity.</td>
 <td width="50%"><img src="/images/alert_viewer_related.png" alt="Related Firing Alerts section supports filters, such as severe, warn, smoke and info."></td>
 </tr>
+</tbody>
+</table>
+
+### Step 3: Investigate Affected Point Tags and Sources
+<table style="width: 100%;">
+<tbody>
 <tr>
 <td width="50%">
-<strong>Step 3: Scroll down and examine the Affected section on the left.</strong> <br/><br/>
+Scroll down and examine the Affected section on the left.<br/><br/>
 When an alert fires, Wavefront analyzes the point tags that are most likely to be related to the firing alert and displays them in ranked order in the Alert Viewer. These point tags are a list of suspects for why the alert is firing. For example, if the alert is caused by an outage in region=us-west-2, Wavefront ranks this tag higher than other tags.</td>
 <td width="50%"><img src="/images/alert_viewer_point_tags.png" alt="Affected point tags example"></td>
 </tr>
+</tbody>
+</table>
+
+### Step 4: Learn From Other Firings
+<table style="width: 100%;">
+<tbody>
 <tr>
 <td width="50%"><strong>Other Firings</strong> shows past firings of the same alert with a link to the corresponding firing in the Alert Viewer. For multi-threshold alerts, you can see the severity. Click the links to see details.
 </td>
 <td width="50%"><img src="/images/alert_viewer_past_firings.png" alt="Other Firings list with links to the past firings"></td>
 </tr>
+</tbody>
+</table>
+
+### Step 5: Explore Alert Data
+<table style="width: 100%;">
+<tbody>
 <tr>
-<td width="50%"><strong>Step 4: Scroll to the Data section.</strong><br /><br /> You can have a first look at the alert query, filter what's displayed, and open the alert query.
+<td width="50%">Scroll to the Data section.<br /><br /> You can have a first look at the alert query, filter what's displayed, and open the alert query.
 </td>
 <td width="50%"><img src="/images/alert_viewer_data.png" alt="Data section displaying the alert query and condition"></td>
 </tr>
