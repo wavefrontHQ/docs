@@ -114,22 +114,19 @@ Once you have configured your OpenTelemetry Collector to send metric data to Wav
 
 ## Sending Trace Data to Wavefront
 
-If your application uses OpenTelemetry, you can configure the application to send trace data to Wavefront using the Jaeger or Zipkin integration. When the data is in Wavefront, you can use our tracing dashboards to visualize any request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time, and discover problems.
+If your application uses OpenTelemetry, you can configure the application to send trace data to Wavefront using the Tanzu Observability (Wavefront) trace exporter. When the data is in Wavefront, you can use our tracing dashboards to visualize any request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time, and discover problems.
 
 **Note**: To learn about the specification that works for you, see [OpenTracing or OpenTelemetry](https://help.wavefront.com/hc/en-us/articles/360058140212-OpenTracing-or-OpenTelemetry-Which-specification-to-select-for-instrumenting-applications-for-tracing-).
 
 Here's how it works:
-{% include image.md src="images/tracing_opentelemetry_trace_data.png" width="100" %}
+{% include image.md src="images/tracing_opentelemetry_trace_exporter_data.png" width="100" %}
 
 Follow these steps:
 
 1. [Install the Wavefront Proxy](https://docs.wavefront.com/proxies_installing.html)
 1. Configure your application to sends the trace data to the OpenTelemetry Collector. See the [OpenTelemetry documentation](https://opentelemetry.io/docs/collector/) for details.
-1. Export the data from the OpenTelemetry Collector to the Wavefront Jaeger or Zipkin integration. 
-  See the Jaeger or Zipkin integration on how to configure the Wavefront proxy and send data to Wavefront.
-    * [Jaeger integration](https://docs.wavefront.com/jaeger.html)
-    * [Zipkin integration](https://docs.wavefront.com/zipkin.html)
-1. Explore the trace data that was sent to Wavefront using the [tracing dashboards](https://docs.wavefront.com/tracing_ui_overview.html).
+1. Export the data from the OpenTelemetry Collector to the [Tanzu Observability (Wavefront) trace exporter](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/tanzuobservabilityexporter).
+1. Explore the trace data that was sent to Wavefront using the [tracing dashboards](https://docs.wavefront.com/tracing_basics.html#visualize-distributed-tracing-data-in-wavefront).
     
 
 

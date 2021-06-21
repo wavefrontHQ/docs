@@ -85,6 +85,8 @@ Each type of data uses a different data format. See [Wavefront Data Format](wave
 
 ## Proxies Troubleshooting & Advanced Configuration
 
+* See [Monitor Wavefront Proxies](monitoring_proxies.html) to learn about proxy information in the Wavefront Usage dashboard and about `~proxy` internal metrics.
+
 Our Customer Success team has put together a set of KB articles for troubleshooting proxy issues.
 
 * [Orphaned Proxy Instances in Tanzu Observability by Wavefront UI](https://help.wavefront.com/hc/en-us/articles/360060591732-Orphaned-Proxy-instances-in-Tanzu-Observability-UI)
