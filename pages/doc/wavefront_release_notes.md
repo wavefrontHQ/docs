@@ -13,7 +13,8 @@ This page lists new and updated features in the Wavefront service.
 
 * **cumulativePercentile() Function**. For histograms that come from Prometheus, you can now use [`cumulativePercentile()`](ts_cumulativePercentile.html) to calculate the cumulative percentile value.
 * **Documentation Update**. Added information about [supported characters in list dashboard variables](dashboards_variables.html#supported-characters)
-* **Alert Status in Application Map**. Active alerts are now shown on the status page in all formats (grid, table, map) of the application map.
+* **Alert Status for services**. Active alerts are now shown on the [Application Status page](tracing_ui_overview.html) in all formats (grid view, table view, app map).
+  ![Shows the red dot on a service on the app map view. This indicates that an alert is firing for that service. To see the alert, click actions and view alerts. ](images/tracing_alerts_on_app_map_release_notes.png)
 
 ## 2021-22.x Release Notes
 
