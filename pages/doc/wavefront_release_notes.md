@@ -9,9 +9,19 @@ summary: Learn about new and updated features in Wavefront.
 
 This page lists new and updated features in the Wavefront service.
 
+## 2021-23.x Release Notes
+
+* **cumulativePercentile() Function**. For histograms that come from Prometheus, you can now use [`cumulativePercentile()`](ts_cumulativePercentile.html) to calculate the cumulative percentile value.
+* **Documentation Update**. Added information about [supported characters in list dashboard variables](dashboards_variables.html#supported-characters)
+* **Alert Status in Application Map**. Active alerts are now shown on the status page in all formats (grid, table, map) of the application map.
+
 ## 2021-22.x Release Notes
 
-* **CSV Export Improvements**. Significant improvements to the [CSV Export functionality](ui_examine_data.html#export-to-csv-or-pdf) for table charts make it easy to open the exported data in a spreadsheet. 
+* **CSV Export Improvements**. Significant improvements to the [CSV Export functionality](ui_examine_data.html#export-to-csv-or-pdf) for table charts make it easy to open the exported data in a spreadsheet.
+
+## 2021-22.x Release Notes
+
+* **CSV Export Improvements**. Significant improvements to the [CSV Export functionality](ui_examine_data.html#export-to-csv-or-pdf) for table charts make it easy to open the exported data in a spreadsheet.
 
 ## 2021-21.x Release Notes
 
