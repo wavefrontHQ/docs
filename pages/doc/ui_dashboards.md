@@ -3,7 +3,7 @@ title: Create and Customize Dashboards
 tags: [getting started, dashboards, charts]
 sidebar: doc_sidebar
 permalink: ui_dashboards.html
-summary: Create dashboards, add charts, and customize dashboard layout.
+summary: Create dashboards, add charts, customize dashboard layout, and troubleshoot dashboards.
 ---
 
 <table style="width: 100%;">
@@ -75,10 +75,10 @@ With release 2019.46, you can create a dashboard by specifying an integration da
 <ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the taskbar. </li>
 <li>Drag the <strong> Integration Templates</strong> widget to the canvas. </li>
 <li>Select first the source integration, then the dashboard you want as a template, and then one or more charts from that dashboard.</li>
-<li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard. 
+<li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard.
 <ul>
 <li>The Name field supports letters, numbers, characters, and spaces.</li>
-<li>The URL field supports letters, numbers, underscores, and dashes. </li> 
+<li>The URL field supports letters, numbers, underscores, and dashes. </li>
 </ul>
 </li></ol></td>
 <td width="60%"><img src="/images/v2_create_dashboard_template.png" alt="create a dashboard from a template"></td>
@@ -440,27 +440,10 @@ After you've saved these changes:
 </table>
 
 
-<!---
+## Troubleshooting
 
-
-
-<tr>
-<td width="40%">Then we edit the JSON to show the <strong>Proxies overview</strong> section as well. </td>
-<td width="60%"><img src="images/condition_not_met.png" alt="Proxies overview is in menu again."/></td>
-</tr>
-
-The following JSON snippet allows you to Modify the Jump To label in case a condition specified by `sectionFilter` has been met. Badge colors correspond to colors used by alerts.
-
-```
-dashboardAttributes: {
-  // Text to replace the "Jump To" label on the dashboard view page.
-  // This property is optional.
-  jumpToLabel: string
-  // When section conditions are met, a count badge is rendered to the right of the "Jump To"
-  // dropdown control.  The default badge style is SMOKE.  Users can customize this style by setting
-  // the badge color here.  Valid values are SEVERE, WARN, INFO, SUCCESS, and SMOKE.
-  // This property is optional.
-  conditionBadgeColor: string
-}
-```
---->
+The Customer Success team prepared these KB articles to troubleshoot problems with dashboards.
+* [How to Recover an Inaccessible Dashboard](https://help.wavefront.com/hc/en-us/articles/360055292751-How-to-Recover-an-Inaccessible-Dashboard)
+* [How to Improve Dashboard Performance](https://help.wavefront.com/hc/en-us/articles/360050810991-How-to-improve-dashboard-performance)
+* [How to Identify Unused Dashboards](https://help.wavefront.com/hc/en-us/articles/360060967432-How-to-Identify-Unused-Dashboards)
+* [How to Audit Dashboard Changes](https://help.wavefront.com/hc/en-us/articles/360055676911-How-to-Audit-Dashboard-and-Alert-Changes)

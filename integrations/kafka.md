@@ -198,3 +198,45 @@ Run `sudo service telegraf restart` to restart your agent.
 
 
 
+
+
+
+## Metrics
+  
+
+|Metric Name|Description|
+| :--- | :--- |
+|kafka.controller.activecontrollers.Value||
+|kafka.controller.offlinepartitions.Value||
+|kafka.controller.stats.leaderelectionrateandtime.*|Statistics: 50thPercentile, 75thPercentile, 95thPercentile, 98thPercentile, 999thPercentile, 99thPercentile, Count, FifteenMinuteRate, FiveMinuteRate, Max, Mean, MeanRate, Min, OneMinuteRate, StdDev|
+|kafka.controller.stats.uncleanleaderelections.*|Statistics: Count, FifteenMinuteRate, FiveMinuteRate, MeanRate, OneMinuteRate|
+|kafka.garbage.collector.CollectionCount||
+|kafka.garbage.collector.CollectionTime||
+|kafka.heap.memory.usage.HeapMemoryUsage.*|Statistics: committed, init, max, used|
+|kafka.network.processor.avgidlepct.Value||
+|kafka.network.requestmetrics.totaltime.fetch.consumer.*|Statistics: 50thPercentile, 75thPercentile, 95thPercentile, 98thPercentile, 999thPercentile, 99thPercentile, Count, Max, Mean, Min, StdDev|
+|kafka.network.requestmetrics.totaltime.fetch.follower.*|Statistics: 50thPercentile, 75thPercentile, 95thPercentile, 98thPercentile, 999thPercentile, 99thPercentile, Count, Max, Mean, Min, StdDev|
+|kafka.network.requestmetrics.totaltime.produce.*|Statistics: 50thPercentile, 75thPercentile, 95thPercentile, 98thPercentile, 999thPercentile, 99thPercentile, Count, Max, Mean, Min, StdDev|
+|kafka.server.brokertopics.bytesinpersec.*|Statistics: Count, FifteenMinuteRate, FiveMinuteRate, MeanRate, OneMinuteRate|
+|kafka.server.brokertopics.bytesoutpersec.*|Statistics: Count, FifteenMinuteRate, FiveMinuteRate, MeanRate, OneMinuteRate|
+|kafka.server.brokertopics.messagesinpersec.*|Statistics: Count, FifteenMinuteRate, FiveMinuteRate, MeanRate, OneMinuteRate|
+|kafka.server.delayedoperationpugatory.fetch.Value||
+|kafka.server.delayedoperationpugatory.produce.Value||
+|kafka.server.replicafetchmanager.maxlag.Value||
+|kafka.server.replicamanager.isrexpandspersec.*|Statistics: Count, FifteenMinuteRate, FiveMinuteRate, MeanRate, OneMinuteRate|
+|kafka.server.replicamanager.isrshrinkspersec.*|Statistics: Count, FifteenMinuteRate, FiveMinuteRate, MeanRate, OneMinuteRate|
+|kafka.server.replicamanager.leadercount.Value||
+|kafka.server.replicamanager.partitioncount.Value||
+|kafka.server.replicamanager.underreplicated.Value||
+|kafka.server.requesthandler.avgidlepct.*|Statistics: Count, FifteenMinuteRate, FiveMinuteRate, MeanRate, OneMinuteRate|
+|kafka.thread.count.DaemonThreadCount||
+|kafka.thread.count.PeakThreadCount||
+|kafka.thread.count.ThreadCount||
+|kafka.thread.count.TotalStartedThreadCount||
+|kafka.zookeeper.auth.failures.*|Statistics: Count, FifteenMinuteRate, FiveMinuteRate, MeanRate, OneMinuteRate|
+|kafka.zookeeper.authentications.*|Statistics: Count, FifteenMinuteRate, FiveMinuteRate, MeanRate, OneMinuteRate|
+|kafka.zookeeper.disconnects.*|Statistics: Count, FifteenMinuteRate, FiveMinuteRate, MeanRate, OneMinuteRate|
+|kafka.zookeeper.expires.*|Statistics: Count, FifteenMinuteRate, FiveMinuteRate, MeanRate, OneMinuteRate|
+|kafka.zookeeper.readonly.connects.*|Statistics: Count, FifteenMinuteRate, FiveMinuteRate, MeanRate, OneMinuteRate|
+|kafka.zookeeper.sync.connects.*|Statistics: Count, FifteenMinuteRate, FiveMinuteRate, MeanRate, OneMinuteRate|
+

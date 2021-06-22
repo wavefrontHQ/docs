@@ -96,6 +96,10 @@ The AWS Billing and Cost Management service sends [billing metrics](http://docs.
 
 Wavefront reports the single metric `aws.billing.estimatedcharges`. The `source` field and `ServiceName` point tag identify the AWS services. For the total estimated charge metric, `source` is set to `usd` and `ServiceName` is empty. Wavefront also provides the point tags `accountId`, `Currency`, `LinkedAccount`, and `Region`. Billing metrics are typically reported every 4 hours.
 
+### Retrieve AWS Service Metrics from the API
+
+Our Customer Success team has prepared a KB article that explains how to [Update the CloudWatch integration to retrieve services from the API](https://help.wavefront.com/hc/en-us/articles/360059699691-Updating-Cloudwatch-Integration-to-retrieve-AWS-service-metrics-from-the-API)
+
 ## CloudTrail Events, Metrics, and Point Tags
 
 Wavefront retrieves CloudTrail event information stored in JSON-formatted log files in an S3 bucket. The CloudTrail integration parses the files for all events that result from an operation that is not a describe, get, or list, and creates a Wavefront [System event](events.html).

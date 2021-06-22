@@ -42,7 +42,7 @@ The following example shows how to use color mapping with a single stat chart.
 
 [Wavefront histograms](ui_chart_reference.html#histogram-chart) let you compute, store, and use distributions of metrics rather than single metrics. [Heat map charts](ui_chart_reference.html#heat-map-chart) add another dimension to the information about histograms that you see in a histogram chart.
 
-You can apply threshold markers for the data represented by histogram and heat map charts. The markers that you provide can be either a constant value or a variable that is defined by a query expression. The following examples show how to set up thresholds for a histogram chart. 
+You can apply threshold markers for the data represented by histogram and heat map charts. The markers that you provide can be either a constant value or a variable that is defined by a query expression. The following examples show how to set up thresholds for a histogram chart.
 
 1. On the **Data** tab, specify the metrics to monitor. For example:
 
@@ -52,7 +52,7 @@ You can apply threshold markers for the data represented by histogram and heat m
 
 2. On the **Format** tab select the color gradient, specify the percentile markers, and click **Add Threshold**. You can do one of the following, or both:
 
-  * Enter a constant value as a threshold, for example `100us`. 
+  * Enter a constant value as a threshold, for example `100us`.
 
 ![A histogram example with a threshold defined by a constant value](images/histogram_value_threshold.png)
 
@@ -61,12 +61,12 @@ You can apply threshold markers for the data represented by histogram and heat m
     ```
     apdexLatency(application=${application}, service=${service}, satisfied)
     ```
-    
+
     ```
     apdexLatency(application=${application}, service=${service}, tolerating)
     ```
 
-    {% include note.html content ="You must make sure that the query that you enter returns a single stat series and that the query output can be captured as a threshold value."%}   
+    {% include note.html content ="You must make sure that the query that you enter returns a single stat series and that the query output can be captured as a threshold value."%}
 
 ![A histogram example with thresholds defined by query expressions](images/histogram_query_threshold.png)
 
@@ -146,3 +146,4 @@ us to aggregate the raw data values reported in each 30 second interval, and dis
 * Get the details about each chart type from the [Chart Reference](ui_chart_reference.html).
 * Send [a link to a chart](ui_sharing.html#share-a-link-to-a-dashboard-or-chart) to a coworker (or to the customer success team if you need help).
 * [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) outside Wavefront.
+* See the  KB article [Chart Legend: Sources do not display in the legend](https://help.wavefront.com/hc/en-us/articles/360057842692-Chart-Legend-Sources-do-not-display-in-the-legend) for troubleshooting info.

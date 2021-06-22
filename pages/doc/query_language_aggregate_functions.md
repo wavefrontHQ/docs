@@ -47,7 +47,7 @@ Wavefront provides two kinds of aggregation functions for handling this situatio
 
 Standard aggregation functions fill in the gaps in each input series by interpolating values.
 
-For example, let's start with a pair of series with reporting intervals that do not line up. In the following chart, `series 1` reports once a minute. We can use `align()` or `downsample()` to have `series 2` report only every 150 seconds (2.5 minutes). Both series have data points aligned at the 5 minute marks, but the points in between are not aligned. 
+For example, let's start with a pair of series with reporting intervals that do not line up. In the following chart, `series 1` reports once a minute. We can use `align()` or `downsample()` to have `series 2` report only every 150 seconds (2.5 minutes). Both series have data points aligned at the 5 minute marks, but the points in between are not aligned.
 
 ![agg mismatch](images/query_language_agg_mismatch.png)
 
@@ -208,3 +208,7 @@ approximately 2/3 of the `sum()` value (2 of 3 series reported values).
 Note that the gap between 9:27a and 9:30a is exactly the same regardless of which aggregation function type we use. None of the series included in the aggregation reported a data value during this time. As a result, the standard aggregation function does not apply interpolated values during this gap, and the result of aggregation looks the same for `sum()` and `rawsum()`.
 
 The behavior differences between standard and raw apply to all aggregation functions (sum, avg, min, max, count, variance, percentile).
+
+## Learn More!
+
+The KB article [When to use raw vs. non-raw aggregation](https://help.wavefront.com/hc/en-us/articles/360048430731-When-to-use-raw-vs-non-raw-aggregation) gives additional detail.

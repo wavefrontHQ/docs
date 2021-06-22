@@ -17,7 +17,7 @@ You can create custom alert targets to configure alert notifications for a varie
 ​
 This page explains how to create and manage a custom alert target.
 ​
-* You can further [customize the contents](alert_target_customizing.html) of the alert notifications using Moustache syntax.
+* You can further [customize the contents](alert_target_customizing.html) of the alert notifications using Mustache syntax.
 ​
 * Our blog post [Engineering Tips Series: How Wavefront's Devops Team Uses Alert Targets to Provide Exceptional Quality of Services to Customers](https://www.wavefront.com/engineering-tips-series-wavefronts-devops-team-uses-alert-targets-provide-exceptional-quality-services-customers/) explains how alert targets help Wavefront to keep things running smoothly.
 ​
@@ -196,9 +196,9 @@ The process for creating an alert target is similar for the different types of t
     {% include note.html content="You must specify either default recipients or recipients determined by routing." %}
 
     The screenshot below shows this for alert targets of type email.
-    
+
     ![alert route example](images/alert_route_example.png)
-    
+
 1. Optionally, customize the **Body Template** using the variables and functions described in [Customizing Alert Notifications](alert_target_customizing.html).
 1. Click **Save** to add the alert target and make it visible on the Alert Targets page.
 1. Test your new alert target, and then [add it to an alert](#add-a-custom-alert-target-to-a-wavefront-alert).

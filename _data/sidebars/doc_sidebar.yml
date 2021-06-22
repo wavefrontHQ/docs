@@ -149,6 +149,10 @@ entries:
     - title: Wavefront Release Notes
       url: /wavefront_release_notes.html
       output: web
+      
+    - title: New and Changed Integrations
+      url: /integrations_new_changed.html
+      output: web
 
     - title: Wavefront & Kubernetes Release Notes
       url: /kubernetes_relnotes.html

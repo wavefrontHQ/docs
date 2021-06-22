@@ -23,6 +23,7 @@ Wavefront provides Amazon Web Services overview dashboards **Summary**, **Pricin
 - AWS: DynamoDB
 - AWS: EBS
 - AWS: EC2
+- AWS: ECS (cAdvisor)
 - AWS: ECS
 - AWS: ECS (Fargate)
 - AWS: EFS
@@ -86,8 +87,10 @@ undefined
 
 
 ## Metrics
-  
+
 See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) for Metrics descriptions.
+
+See [Telegraf documentation](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/ecs/README.md) for Metrics.
 
 |Metric Name|Description|
 | :--- | :--- |
@@ -95,4 +98,67 @@ See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/moni
 |aws.ecs.cpuutilization.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.ecs.memoryreservation.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.ecs.memoryutilization.*|Statistics: average, maximum, minimum, samplecount, sum|
+|telegraf.ecs.container.blkio.io.service.bytes.recursive.async||
+|telegraf.ecs.container.blkio.io.service.bytes.recursive.read||
+|telegraf.ecs.container.blkio.io.service.bytes.recursive.sync||
+|telegraf.ecs.container.blkio.io.service.bytes.recursive.total||
+|telegraf.ecs.container.blkio.io.service.bytes.recursive.write||
+|telegraf.ecs.container.blkio.io.serviced.recursive.async||
+|telegraf.ecs.container.blkio.io.serviced.recursive.read||
+|telegraf.ecs.container.blkio.io.serviced.recursive.sync||
+|telegraf.ecs.container.blkio.io.serviced.recursive.total||
+|telegraf.ecs.container.blkio.io.serviced.recursive.write||
+|telegraf.ecs.container.cpu.throttling.periods||
+|telegraf.ecs.container.cpu.throttling.throttled.periods||
+|telegraf.ecs.container.cpu.throttling.throttled.time||
+|telegraf.ecs.container.cpu.usage.in.kernelmode||
+|telegraf.ecs.container.cpu.usage.in.usermode||
+|telegraf.ecs.container.cpu.usage.percent||
+|telegraf.ecs.container.cpu.usage.system||
+|telegraf.ecs.container.cpu.usage.total||
+|telegraf.ecs.container.mem.active.anon||
+|telegraf.ecs.container.mem.active.file||
+|telegraf.ecs.container.mem.cache||
+|telegraf.ecs.container.mem.hierarchical.memory.limit||
+|telegraf.ecs.container.mem.inactive.anon||
+|telegraf.ecs.container.mem.inactive.file||
+|telegraf.ecs.container.mem.limit||
+|telegraf.ecs.container.mem.mapped.file||
+|telegraf.ecs.container.mem.max.usage||
+|telegraf.ecs.container.mem.pgfault||
+|telegraf.ecs.container.mem.pgmajfault||
+|telegraf.ecs.container.mem.pgpgin||
+|telegraf.ecs.container.mem.pgpgout||
+|telegraf.ecs.container.mem.rss||
+|telegraf.ecs.container.mem.rss.huge||
+|telegraf.ecs.container.mem.total.active.anon||
+|telegraf.ecs.container.mem.total.active.file||
+|telegraf.ecs.container.mem.total.cache||
+|telegraf.ecs.container.mem.total.inactive.anon||
+|telegraf.ecs.container.mem.total.inactive.file||
+|telegraf.ecs.container.mem.total.mapped.file||
+|telegraf.ecs.container.mem.total.pgfault||
+|telegraf.ecs.container.mem.total.pgmajfault||
+|telegraf.ecs.container.mem.total.pgpgin||
+|telegraf.ecs.container.mem.total.pgpgout||
+|telegraf.ecs.container.mem.total.rss||
+|telegraf.ecs.container.mem.total.rss.huge||
+|telegraf.ecs.container.mem.total.unevictable||
+|telegraf.ecs.container.mem.total.writeback||
+|telegraf.ecs.container.mem.unevictable||
+|telegraf.ecs.container.mem.usage||
+|telegraf.ecs.container.mem.usage.percent||
+|telegraf.ecs.container.mem.writeback||
+|telegraf.ecs.container.meta.limit.cpu||
+|telegraf.ecs.container.meta.limit.mem||
+|telegraf.ecs.container.net.rx.bytes||
+|telegraf.ecs.container.net.rx.dropped||
+|telegraf.ecs.container.net.rx.errors||
+|telegraf.ecs.container.net.rx.packets||
+|telegraf.ecs.container.net.tx.bytes||
+|telegraf.ecs.container.net.tx.dropped||
+|telegraf.ecs.container.net.tx.errors||
+|telegraf.ecs.container.net.tx.packets||
+|telegraf.ecs.task.limit.cpu||
+|telegraf.ecs.task.limit.mem||
 
