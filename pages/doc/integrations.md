@@ -93,18 +93,17 @@ You cannot modify Wavefront system dashboards. Instead, click the **Edit** (penc
 
 ## Installing and Uninstalling Integration Alerts
 
-Some integrations contain predefined alerts. When you set up an integration, the alerts are automatically installed. 
-
-You can install and uninstall the predefined alerts or preview them before setting up the integration.
+Some integrations contain predefined alerts. You can install and uninstall the predefined alerts or preview them before setting up the integration.
 
 {% include note.html content="All users can view alerts. You need Alerts permissions to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
 1. Click **Integrations**.
 1. Click the integration tile.
 1. Click the **Alerts** tab.
-1. Click **\[Install \| Uninstall\] Alerts**.
+1. Click **\[Install All\| Uninstall All\]**.
 
-If you have the Alerts permissions, you can [edit the alert thresholds and targets, and clone the predefined alerts](alerts_manage.html). 
+If you have the Alerts permissions, you can [edit the targets of the alerts](webhooks_alert_notification.html#learn-about-alert-targets). If you edit the system alerts and then reinstall them, all of the changes that you've made are reverted back to their original state. If you want to make further customizations, clone the alert first. After you clone an alert, snooze the original system alert to avoid running a duplicate version of the alert. For information about cloning and editing alerts, see [Manage Alerts](alerts_manage.html). 
+
 
 ## Integration States
 
