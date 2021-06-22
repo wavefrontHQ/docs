@@ -9,6 +9,12 @@ summary: Explore traces and spans from the Wavefront UI
 
 In the Traces Browser, you can explore the context and the details of your application's traces.
 
+## Video
+
+This video highlights the Traces Browser features and settings:
+
+<iframe src="https://bcove.video/3vaNJM7" width="700" height="400" allowfullscreen="true" alt="Highlights the Wavefront traces browser features."></iframe>
+
 ## Explore the Traces Browser
 
 See the Traces Browser:
@@ -18,12 +24,24 @@ See the Traces Browser:
   1. From the taskbar, click **Applications** > **Traces**.
   
 * Option 2:
-  Drill down to the Traces Browser from the Service Dashboard, application map, table view, or grid view.
+  1. In your web browser, go to your Wavefront cluster and log in.
+  1. Drill down to the Traces Browser from the Service Dashboard, application map, table view, or grid view.
 
 ![explore trace browser](images/tracing_traces_browser.png)
 
 From the Traces Browser, you can:
 * Query for traces and view the query results in the [traces list](#query-for-a-list-of-traces).
+    {{site.data.alerts.note}}
+    <ul>
+      <li>
+        When you search for a Trace ID, the search now returns results regardless of the selected time window.
+      </li>
+      <li>
+        If you enabled the traces browser to show live (<img src="images/traces_browser_live.png"
+        style="vertical-align:text-bottom;width:60px" alt="a screenshot fo the live button on the traces browser."/>) results, the results get updated every 5 minutes with the latest traces.
+      </li>
+    </ul>
+    {{site.data.alerts.end}}
 * Select a trace in the list and:
   - Use the [service map panel](#investigate-the-service-map-for-a-trace) to investigate the services that contribute spans to the trace.
   - Use the [trace details panel](#examine-trace-details) to examine the individual spans in the trace.

@@ -14,7 +14,7 @@ With Wavefront, you can create smart alerts that dynamically filter noise and ca
 
 The end result is fewer false alerts and faster remediation when real issues occur.
 
-{% include note.html content="All users can view alerts. You need Alerts permissions to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
+{% include note.html content="All users can view alerts. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
 
 ## Wavefront Alerts
@@ -190,7 +190,7 @@ The display expression can include any valid Wavefront Query Language construct,
 <td>Names of <a href="webhooks_alert_notification.html">custom alert targets</a> that you have previously created to:
 
 <ul>
-<li  markdown="span">Configure webhook notifications for pager services and communication channels. Follow the steps for the [VictorOps integration](victorops.html), [Slack integration](slack.html), or [HipChat integration](hipchat.html) for notifications on these popular messaging platforms. </li>
+<li  markdown="span">Configure webhook notifications for pager services and communication channels. Follow the steps for the [VictorOps integration](victorops.html) or [Slack integration](slack.html) for notifications on these popular messaging platforms. </li>
 <li>Configure email or PagerDuty notifications with nondefault content or triggers. </li>
 </ul>
 </td>
@@ -426,6 +426,13 @@ This video shows how to create a multi-threshold alert:
 </p>
 
 ## Do More!
+
 * Use [Alert Viewer](alerts_manage.html#examine-an-alert-in-alert-viewer) to drill down to the root cause.
 * Clone, delete, or edit an alert, discussed in [Manage Alerts](alerts_manage.html).
 * Learn about [alert states and life-cycle](alerts_states_lifecycle.html).
+* For troubleshooting, read the following KBs:
+   - [Unable to Create Alerts. Cannot Save Alerts Error](https://help.wavefront.com/hc/en-us/articles/360057759372-Unable-to-create-Alerts-error-message-Cannot-Save-alert-400-)
+   - [Why Did My Alert Fire or Not Fire](https://help.wavefront.com/hc/en-us/articles/360049071471-Why-did-my-alert-fire-or-not-fire-)
+   - [How to Audit Alert Changes](https://help.wavefront.com/hc/en-us/articles/360055676911-How-to-Audit-Dashboard-and-Alert-Changes)
+* If you want to update multiple alerts using API or CLI, see the KB [How Do I Bulk Update Multiple Alerts?](https://help.wavefront.com/hc/en-us/articles/360057895291-How-Do-I-Bulk-Update-Multiple-Alerts-)
+   {% include note.html content="The CLI is not maintained by VMware and is not officially supported." %}

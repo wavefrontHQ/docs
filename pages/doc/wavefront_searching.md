@@ -29,17 +29,18 @@ All Wavefront browsers (**All Dashboards**, **Alerts**, **Integrations**, and so
 
 The search field at the top of every Wavefront browser page supports both autocomplete and search. We support autocomplete for many searches.
 
-For example, in the All Dashboards browser page, searching returns a dropdown list that displays:
+For example, in the **All Dashboards** page, searching for an incomplete term, returns a drop-down list that displays a list of items that contain the search string, such as:
 
-* autocompleted sources and metrics queried in dashboards
+* metrics queried in dashboards
 * dashboard names
-* tags containing the search string
+* dashboard URLs
+* tags
 
-You can select each item in the list individually. The dropdown list also contains links to searches for _all_ tags and dashboard content containing the string. For example:
+You can select an item from the list individually. The drop-down list also contains a link to the search for _All_ items that contain the string. For example:
 
 ![search auto](images/search_auto.png)
 
-Search fields support multi-word searches. If you type **cpu usage** in any browser or autocompleted text field, the dropdown list includes all matches for both **cpu** and **usage**.
+Search fields support multi-word searches. If you type **cpu usage** in any browser or autocompleted text field, the drop-down list includes all matches for both **cpu** and **usage**.
 
 If you want to explicitly exclude a keyword or a phrase from the search results, type the keyword or phrase that you want to exclude, press Enter, and click the equal sign in front of it so that it changes to a not equal sign (**&#8800;**). For example, if you want to exclude all results containing **cpu**, and see only the results that contain **usage**: 
 
@@ -57,7 +58,7 @@ In the filter bar on the left you search by selecting facets, such as **State** 
 
 Most filter bars contain a set of commonly used saved searches (e.g., Favorites, Last Updated, Recently Updated, My <XXX>) and you can save your own searches.
 
-Once you press **Return** or **Enter** after typing a search string, the icons ![search icons](images/searchicons.png#inline) display at the top right, allowing you to share a link to, save, and clear the search. Your saved searches appear below the commonly used searches, and have a dropdown menu for renaming, cloning, and deleting the search.
+Once you press **Return** or **Enter** after typing a search string, the icons ![search icons](images/searchicons.png#inline) display at the top right, allowing you to share a link to, save, and clear the search. Your saved searches appear below the commonly used searches, and have a drop-down menu for renaming, cloning, and deleting the search.
 
 
 

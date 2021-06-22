@@ -77,7 +77,7 @@ Any Super Admin user or users with **Metrics** permission can view, create, and 
 
 Data protected by a metrics security policy rule can become completely invisible to users.
 * **Not visible in charts**. The chart either includes a warning that some metrics are protected, or, if all metrics are protected, the chart shows only the message.
-* **Not visible in alerts** (if **Secure Metrics Details** is checked for the alert). The alert fires based on the complete set of metrics, and the complete set is shown in notification images by default. A checkbox allows administrators to [hide alert details](alerts_notifications.html#alert-notification-with-secured-metrics-details) so that confidential metric are not shown.
+* **Not visible in alerts** (if **Secure Metrics Details** is checked for the alert). The alert fires based on the complete set of metrics, and the complete set is shown in notification images by default. A check box allows administrators to [hide alert details](alerts_notifications.html#alert-notification-with-secured-metrics-details) so that confidential metric are not shown.
 * **Not visible in auto-complete** in Chart Builder, Query Editor, Metrics browser, etc.
 
 ## Authorization FAQs

@@ -108,7 +108,7 @@ Data flows from AWS to Wavefront only if the account has the required access. Yo
       - Account ID - Account ID.
       - Require MFA - unchecked
    1. Click **Next Step**.
-   1. On the Attach Policy screen, select the **ReadOnlyAccess** checkbox and click **Next Step**.
+   1. On the Attach Policy screen, select the **ReadOnlyAccess** check box and click **Next Step**.
    1. For Role name, enter **wavefront** and click **Create role**.
    1. Click the **wavefront** role.
    1. Copy the Role ARN value.

@@ -4,7 +4,7 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_aws_ecs.html
-summary: Send AWS ECS data to Wavefront using cAdvisor or AWS Fargate.
+summary: Send AWS ECS data to Wavefront using Telegraf agent or AWS Fargate.
 ---
 [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/) is Amazon's Docker container orchestration system. From the Amazon ECS website:
 
@@ -18,7 +18,7 @@ Wavefront supports an Amazon Web Services [built-in integration](amazon_ecs.html
 
 The integration basics are covered in our [AWS ECS Integration](amazon_ecs.html) page.
 
-This page provides detailed steps on how to install and configure the Wavefront ECS integration either by creating a cAdvisor task definition or by creating an AWS Fargate task definition. After you complete these steps, the integration provides:
+This page provides detailed steps on how to install and configure the Wavefront ECS integration either by adding a Telegraf agent container to the task definition or by creating an AWS Fargate task definition. After you complete these steps, the integration provides:
 
 - Monitoring of important CloudWatch metrics related to Amazon ECS.
 - Monitoring of detailed metrics about individual containers, services, and clusters running in your AWS ECS environment.
@@ -49,8 +49,9 @@ After you've performed the setup, you can view and examine the data in our AWS F
 ![fargate launch type](images/aws_fargate.png)
 
 1. Scroll to the bottom of the new Task Definition form and click **Configure via JSON**.
-  1. Delete the content and paste the following snippet into the JSON form field:
-  ```
+1. Delete the content and paste the following snippet into the JSON form field.
+
+   ```
   {
         "family": "wavefront-task-def",
         "networkMode": "awsvpc",
@@ -92,6 +93,7 @@ After you've performed the setup, you can view and examine the data in our AWS F
         "cpu": "256",
         "memory": "512"
   }
+   
    ```
 1. In the JSON form, set the `storage_driver_wf_proxy_host` property to the proxy address. If you want to use a custom port, set the `storage_driver_wf_metric_port` to the port number of your Wavefront instance and click **Save**.
 1. Click **Create** at the bottom of the Task Definition form.
@@ -105,31 +107,108 @@ After you've performed the setup, you can view and examine the data in our AWS F
 9. Click **Run Task**.
 
 
-## Create AWS ECS EC2 Task Definition for Wavefront
+## Create an AWS ECS EC2 Task Definition for Wavefront
 
-Wavefront maintains an image of cAdvisor that includes a Wavefront storage driver. These steps create an ECS task definition that ensures the Wavefront cAdvisor container automatically runs on each EC2 instance in your ECS cluster.
+A Telegraf (telegraf-ecs) image enables Wavefront to monitor Amazon ECS service. The Telegraf container must run in the same Task as the workload it is inspecting. Below are the steps to create an example ECS task definition and run the Telegraf container along with other containers in the task.  In the Telegraf container, the ECS input plugin is enabled to gather stats on running containers in a Task and the Wavefront output plugin is enabled to send ECS metrics to Wavefront.
 
-After you've performed the setup, you can view and examine the data in our AWS EC2 dashboard in your Wavefront instance. The screenshots at the bottom of this page show the AWS EC2 dashboard and the AWS Fargate dashboard.
+After you perform the setup, you can view and examine the data in the AWS ECS dashboard of your Wavefront instance. The screenshots at the bottom of this page show the AWS ECS dashboard.
 
-1. Within AWS Services, navigate to **ECS**.
-1. Click **Task Definitions**, then **Create new Task Definition**.
+1. Within AWS Services, navigate to **Elastic Container Service (ECS)**.
+1. Click **Task Definitions**, then click **Create new Task Definition**.
   ![create task def](images/create_new_task_definition.png)
-1. Select the launch type that you want your task to be compatible with and click **Next Step**.
+1. Select the EC2 launch type and click **Next Step**.
 
    ![select launch type](images/select_launch_type.png)
 1. Scroll to the bottom of the new Task Definition form and click the **Configure via JSON** button.
-   1. Delete the content and paste the [JSON example](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/aws-ecs/example-task-definition.json) into the JSON form field.
-   1. In the JSON form, set the `-storage_driver_wf_proxy_host` property and click **Save**.
+1. Delete the content and paste the following snippet into the JSON form field.
+   ```
+   {
+    "ipcMode": null,
+    "executionRoleArn": "<create_new>",
+    "containerDefinitions": [
+        {
+            "dnsSearchDomains": null,
+            "environmentFiles": [],
+            "logConfiguration": null,
+            "entryPoint": null,
+            "portMappings": [
+                {
+                    "hostPort": "80",
+                    "protocol": "tcp",
+                    "containerPort": 8080
+                }
+            ],
+            "cpu": 512,
+            "memory": 512,
+            "image": "tomcat",
+            "essential": true,
+            "name": "Tomcat",
+            "repositoryCredentials": {
+                "credentialsParameter": ""
+            }
+        },
+        {
+            "environmentFiles": [],
+            "portMappings": [],
+            "cpu": 1024,
+            "environment": [
+                {
+                    "name": "ECS_CONTAINER_METADATA_ENDPOINT",
+                    "value": ""
+                },
+                {
+                    "name": "WAVEFRONT_PROXY",
+                    "value": ""
+                },
+                {
+                    "name": "WAVEFRONT_PROXY_PORT",
+                    "value": "2878"
+                }
+            ],
+            "memory": 512,
+            "image": "projects.registry.vmware.com/tanzu_observability/telegraf-ecs:latest",
+            "essential": true,
+            "name": "Telegraf",
+            "repositoryCredentials": {
+                "credentialsParameter": ""
+            }
+        }
+    ],
+    "memory": null,
+    "taskRoleArn": "",
+    "family": "Tomcat-Telegraf",
+    "pidMode": null,
+    "requiresCompatibilities": [
+        "EC2"
+    ],
+    "networkMode": "bridge",
+    "volumes": [],
+    "placementConstraints": [],
+    "tags": []
+}
+
+   ```
+1. In the JSON form, set the `WAVEFRONT_PROXY` and `WAVEFRONT_PROXY_PORT` and click **Save**.
 1. Click the **Create** button at the bottom of the Task Definition form.
 1. Select **Actions > Run Task** and specify the task information:
    ![actions menu](images/actions_run_task.png)
-   1. In the **Cluster** dropdown, select the cluster on which your task has to run.
+   1. From the **Cluster** drop-down menu, select the cluster on which your task has to run.
    2. Enter the number of tasks (minimum 1) of same definition you want to run.
    3. (Optional) Enter the Task Group name to identify a set of related tasks.
-1. In the **Placement Templates** dropdown select **One Task Per Host**. This ensures that each EC2 instance in your ECS cluster has a Wavefront cAdvisor task.
 
-   ![actions menu](images/one_task_per_host.png)
 1. Click **Run Task**.
+
+**NOTE**: The task metadata endpoint is enabled by default on the Amazon ECS EC2 instance, based on the version of Amazon ECS container agent. The amazon-ecs-agent (though it is a container running on the host) is not present in the metadata/stats endpoints. To enforce the task metadata v2 endpoint, include the endpoint URL in the Task Definition:
+
+
+```
+
+{
+    "name": "ECS_CONTAINER_METADATA_ENDPOINT",
+    "value": "http://169.254.170.2"
+}
+
+```
 
 ## View ECS Container Metrics
 

@@ -256,3 +256,7 @@ You can average the results by tag like this:
 `avg(ts(...), <myrtag)`
 
 See [Point Tags in Queries](query_language_point_tags.html) for details.
+
+## How to Account for Known Downtimes or Events in Uptime Queries
+
+There are times when there are known and expected downtime periods such as maintenance or testing windows. Our Customer Success team created [this KB article](https://help.wavefront.com/hc/en-us/articles/360058534192-How-to-Account-for-Known-Downtimes-or-Events-in-Uptime-Queries), which discusses one of the ways to approach this.

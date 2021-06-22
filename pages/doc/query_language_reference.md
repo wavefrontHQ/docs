@@ -189,7 +189,7 @@ lowpass(12ms, spans("beachshirts.styling.makeShirts"))
 
 ## Common Parameters
 
-Query expressions use a number of common parameters to specify names and values that describe the data of interest. You can use [wildcards](#wildcards-aliases-and-variables) to match multiple names or values.
+Query expressions use a number of common parameters to specify names and values that describe the data of interest. You can use [wildcards or partial regex](#partial-regex-wildcards-aliases-and-variables) to match multiple names or values.
 
 * Rules for valid names are here: [Wavefront Data Format](wavefront_data_format.html#wavefront-data-format-fields).
 * Enclose a metric, source, or tag name, or a tag value, in double quotes if it is also a Wavefront reserved word, such as a function name or keyword. For example, if you're using a point tag named `default`, use `"default"`.
@@ -213,6 +213,7 @@ Query expressions use a number of common parameters to specify names and values 
 cpu.load.metric
 cpu.*.metric
 cpu.load.metric or cpu.idle.metric
+/(cpu\.load\.metric|cpu\.idle\.metric)/
 </pre>
 </td></tr>
 <tr>
@@ -232,6 +233,7 @@ Examples:
 source="appServer15"
 source="app-1*"
 source="app-10" or source="app-20"
+source=/(app-10|app-20)/
 </pre>
 </td></tr>
 <tr>
@@ -242,6 +244,7 @@ Examples:
 tag="appServers"
 tag="env.cluster.role.*"
 tag="appServer" and tag="local"
+tag=/(appServer|local)/
 </pre>
 </td></tr>
 
@@ -253,6 +256,7 @@ Examples:
 region="us-west-2a"
 region="us-west*"
 region="us-west-2a" or region="us-west-2b"
+region=/(us-west-2a|us-west-2b)/
 </pre>
 
 </td></tr>
@@ -310,12 +314,13 @@ The default unit is minutes if the unit is not specified.
 </tbody>
 </table>
 
-## Wildcards, Aliases, and Variables
+## Partial Regex, Wildcards, Aliases, and Variables
 
-You can use wildcards as shortcuts for specifying multiple names or values.
-You can use query line variables, aliases, and dashboard variables as shortcuts for building queries out of other expressions or predefined strings.
-
-You can combine wildcards, aliases, query line variables, and dashboard variables in the same query line.
+You can:
+* Use partial regex to specify patterns that need to be matched when building a query.
+* Use wildcards as shortcuts for specifying multiple names or values.
+* Use query line variables, aliases, and dashboard variables as shortcuts for building queries out of other expressions or predefined strings.
+* Combine wildcards, aliases, query line variables, and dashboard variables in the same query line.
 
 <table style="width: 100%;" id="wildcardAliasVariable">
 <colgroup>
@@ -329,6 +334,90 @@ You can combine wildcards, aliases, query line variables, and dashboard variable
 </tr>
 </thead>
 <tbody>
+
+<!--- Partial Regex -------->
+
+  <tr>
+    <td>
+      <span style="color:#3a0699;font-weight:bold">partial regex</span>
+    </td>
+    <td>
+      Filter metrics, sources, source tags, or point tag values using a subset of regular expressions. You wrap regular expressions in <code>/ /</code> characters. For example, <code>/&lt;regular_expression&gt;/</code>.
+
+      <br/><br/>The list of supported regular expression characters and quantifiers:
+<pre>
+.     : any character (but newline)
+*     : previous character or group, repeated 0 or more times
++     : previous character or group, repeated 1 or more times
+?     : previous character or group, repeated 0 or 1 times
+[xyz] : any character contained within the brackets
+[a-z] : characters between a and z. Specify a range of characters using a hyphen
+^     : a character not in the range: a-z [^a-z]
+\     : prevents interpretation of the special character that follows
+|     : or
+(  )  : start/end of group
+</pre>
+
+      {{site.data.alerts.important}}
+      <ul>
+        <li>
+          Characters, such as <code><b>~</b>, <b>^</b>, <b>{ }</b>, and <b>$</b></code> are not supported regular expression characters. Therefore, you need to escape these characters if they are present in the string you are trying to match.
+          <br/>Example: You need to escape the <code>~</code> character.
+<pre>
+ts(/\~sample\.cpu.usage.*/)
+</pre>
+        </li>
+        <li>
+          All existing queries that use the <code>*</code> glob wildcard syntax continue to work as before.
+        </li>
+        <li>
+          If you use a regular expression in metric, tags, and host, wrap the whole expression in <code>/ /</code> characters.<br/>
+          <b>Supported</b>
+<pre>
+ts(customer.report.count, tag=/mon-(primary|secondary)/)
+</pre>
+          <b>Not supported</b>
+<pre>
+# a mixture in which part of the regular expression is wrapped in //
+ts(customer.report.count, tag=mon-/(primary|secondary)/)
+
+# quotes when using the // characters
+ts(customer.report.count, tag="/mon-(primary|secondary)/")
+</pre>
+        </li>
+      </ul>
+      {{site.data.alerts.end}}
+
+      Examples:
+
+      <ul>
+        <li>
+          Get data that match <code>~wavefront.alert.active</code> or <code>~wavefront.alert.active_info</code> and has the source tag <code>data</code>:
+<pre>
+ts(/\~wavefront\.alert\.(active|active_info)/, tag=data)
+</pre>
+        </li>
+        <li>
+          Get data that match <code>build.version</code> or <code>build.</code> and has the source tag <code>data</code>:
+<pre>
+ts(/build\.(version)?/, tag=data)
+</pre>
+        </li>
+        <li>
+          Get data of all the sources that follow the given pattern, e.g., app-0, app-12, app-30, and more:
+<pre>
+ts(~sample.cpu.usage.percentage, source=/app-[0-9]+/)
+</pre>
+        </li>
+        <li>
+          Get data from the metrics that have <code>request.latency</code> as the common prefix and has the tag <code>env=prod</code>:
+<pre>
+ts(/request\.latency.*/, env=prod)
+</pre>
+        </li>
+      </ul>
+    </td>
+  </tr>
 
 <!--- Wildcard ------------->
 <tr>
@@ -385,7 +474,7 @@ join(ts(cpu.load) AS ts1 JOIN ts(request.rate) AS ts2 ON ts1.env = ts2.env, ... 
   <li>An <a href="https://en.wikipedia.org/wiki/Allen%27s_interval_algebra">Allen's interval algebra operator</a>. For example: m, mi, o, s, d, f are not valid.</li>
   </ul>
 </li>
-<li>Alias names are case sensitive. For example, <strong>Sum</strong> is valid.</li>
+<li>Alias names are case-sensitive. For example, <strong>Sum</strong> is valid.</li>
 <li markdown="span">Put any numeric characters at the end of the alias name. For example, <strong>test123</strong> is valid, but <strong>1test</strong> and <strong>test4test</strong> are not valid.</li>
 </ul>
 </td></tr>
@@ -393,7 +482,7 @@ join(ts(cpu.load) AS ts1 JOIN ts(request.rate) AS ts2 ON ts1.env = ts2.env, ... 
 <!--- Query line variable ------------->
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">query line variable</span></td>
-<td>Lets one query line refer to another for the same chart.
+<td>Let's use one query line refer to another for the same chart.
 The referenced query line must be named and must contain a complete <strong>tsExpression</strong>.
 <ul>
 <li>Use the chart UI to name a query: <strong>myQuery</strong> </li>
@@ -469,8 +558,8 @@ All operations between `tsExpression`s are subject to the matching processes des
 <li markdown="span">`ts(db.query.rate, tag=db and not source="db5.wavefront.com")` returns `db.query.rate` for all sources tagged with `db`, except for the `db5.wavefront.com` source.</li>
 <li markdown="span">`ts("smp-fax*.count" AND NOT "smp-fax*.metrics.wavefront.*", source="-eq*"` returns all metrics that match `"smp-fax*.count"` except for those matching `"smp-fax*.metrics.wavefront.*"` for any sources that start with `-eq`.</li>
 </ul>
+<p markdown="span">For additional examples, see the KB article [Using the AND and OR operators in queries](https://help.wavefront.com/hc/en-us/articles/360058973671-Using-the-AND-and-OR-operators-in-queries)</p>
 </ul>
-
 
 
 <table style="width: 100%;">
@@ -636,10 +725,6 @@ Filtering functions help you select a subset of the time series that are returne
 <td>Returns 1 if <strong>tsExpression</strong> is &gt;= <strong>lower</strong> and &lt;= <strong>upper</strong>. Otherwise, returns 0. This function outputs continuous time series.</td>
 </tr>
 <tr>
-<td><a href="ts_downsample.html">downsample(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>)</a></td>
-<td>Returns the values in <strong>tsExpression</strong> that occur in each time window. For example: <strong>downsample(30m, ts(my.metric))</strong> returns the values of <strong>my.metric</strong> every half hour.</td>
-</tr>
-<tr>
 <td markdown="span"><a href="ts_align.html"> align(<strong>&lt;timeWindow&gt;</strong>,<strong>[mean|median|min|max|first|last|sum|count,]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
 <td>Groups the data values of a time series into buckets of size <strong>timeWindow</strong> and returns one displayed value per bucket. Each returned value is the result of combining the data values in a bucket using the specified summarization method.</td>
 </tr>
@@ -783,11 +868,11 @@ Standard time functions can help you:
 </tr>
 <tr>
 <td><a href="ts_hour.html">hour(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
-<td>Returns the hour in the day in the specified timeZome. The values returned are integer only and are in the range 0-23. </td>
+<td>Returns the hour in the day in the specified timeZone. The values returned are integer only and are in the range 0-23. </td>
 </tr>
 <tr>
 <td><a href="ts_minute.html">minute(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
-<td>Returns the minute of the hour for the timestamp specified by timeZome. The values returned are integer only and are in the range 0-59. </td>
+<td>Returns the minute of the hour for the timestamp specified by timeZone. The values returned are integer only and are in the range 0-59. </td>
 </tr>
 <tr>
 <td><a href="ts_isToday.html">isToday(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
@@ -939,7 +1024,7 @@ Missing data functions allow you to interpolate data points in time series that 
 <br><strong>&lt;defaultValue&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>&lbrack;<strong>.orElse(&lt;defaultIfNoData&gt;)</strong>&rbrack;)</a>
 </td>
 <td>Fills in gaps in each time series described by <strong>tsExpression</strong>, by inserting data points with the value <strong>defaultValue</strong>. Specify <strong>timeWindow</strong> to insert data for just a limited period of time after each existing point. Specify <strong>delayTime</strong> to allow a gap before the inserted data.<br /><br />
-Use the <strong>.orElse</strong> operator to specify a default value even if the time series did not report any values in the time window. </td>
+Use the <a href="ts_orelse.html"><strong>.orElse</strong> operator</a> to specify a default value even if the time series is obsolete or nonexistent. </td>
 </tr>
 <tr>
 <td><a href="ts_last.html">last(&lbrack;<strong>&lt;timeWindow&gt;,</strong>&rbrack; <strong>&lt;tsExpression&gt;</strong>)</a>
@@ -955,9 +1040,13 @@ Use the <strong>.orElse</strong> operator to specify a default value even if the
 <td><a href="ts_interpolate.html">interpolate(<strong>&lt;tsExpression&gt;</strong>)</a></td>
 <td>Fills in gaps in the time series described by <strong>tsExpression</strong>, by inserting a continuous linear interpolation of data points.</td>
 </tr>
+<tr>
+<td><a href="ts_orelse.html">.orElse(<strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>You can use the <code>.orElse()</code> operator to force the query to return a default value even if the time series is obsolete or nonexistent. You can enter a constant value wrapped in brackets, such as <code>orElse(5)</code>. You can also enter a timeseries for chained <code>.orElse()</code> statements, for example <code>.orElse(ts('my.metric'))</code>.
+</td>
+</tr>
 </tbody>
 </table>
-
 
 <table style="width: 100%;">
 <tbody>
@@ -1081,6 +1170,10 @@ Exponential and trigonometric functions enable you to perform mathematical trans
 <tr>
 <td><a href="ts_log.html">log(<strong>&lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the natural log of each data value described by the expression.</td>
+</tr>
+<tr>
+<td><a href="ts_log2.html">log2(<strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the log base 2 of each data value described by the expression.</td>
 </tr>
 <tr>
 <td><a href="ts_log10.html">log10(<strong>&lt;tsExpression&gt;</strong>)</a></td>
@@ -1365,7 +1458,7 @@ Predictive functions enable you to forecast data values and find outlier data va
 <td>
 <a href="ts_exists.html">exists(<strong>&lt;tsExpression&gt;</strong>)</a>
 </td>
-<td>Returns 1 if any time series described by the expression exists. Othrwise, returns 0.
+<td>Returns 1 if any time series described by the expression exists. Otherwise, returns 0.
 A time series exists if it has reported a data value in the last 4 weeks.  </td>
 </tr>
 <tr>
@@ -1387,6 +1480,19 @@ A time series exists if it has reported a data value in the last 4 weeks.  </td>
 <td>Wrapping any query expression in <strong>bestEffort()</strong> tells Wavefront to use conservative targets for scheduling workloads. That means we limit thread use and asynchronous operations.
 </td>
 </tr>
+<tr>
+<td><a href="ts_retainDimension_removeDimension.html">removeDimension(<strong>&lt;tsExpression&gt;, &lt;pointTag1&gt;, &lt;pointTag2&gt;, ... &lt;pointTagN&gt;</strong>)</a>
+</td>
+<td>Allows you to explicitly state which dimensions you want to remove from the query output.
+</td>
+</tr>
+<tr>
+<td><a href="ts_retainDimension_removeDimension.html">retainDimension(<strong>&lt;tsExpression&gt;, &lt;pointTag1&gt;, &lt;pointTag2&gt;, ... &lt;pointTagN&gt;</strong>)</a>
+</td>
+<td>Allows you to explicitly state which dimensions you want to see in the query output.
+</td>
+</tr>
+
 </tbody>
 </table>
 

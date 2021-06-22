@@ -31,11 +31,24 @@ Wavefront supports distributed tracing with third-party apps such as Jaeger or y
 </p> </td>
 </tr>
 <tr>
-<td><strong><font color="blue">Distributed Tracing How To (Beta)</font></strong><br>
-<a href="https://youtu.be/OI75w0dFs-U" target="_blank"><img src="/images/v_tracing_howto.png" alt="Distributed tracing how-to"/></a></td>
-<td><br>
-<p>This short demo of the Beta version of the feature illustrates how you find a problem with our tracing UI. You start looking at services, and then drill down to charts that show, for example, the slowest operations. You can select potential problems in the chart, and then select a trace and examine individual calls from there. We're continuously improving the UI and will post new videos over time.  </p>
-</td>
+  <td><strong><font color="blue"> Traces Browser Features</font></strong><br>
+    <a href="https://bcove.video/3vaNJM7" target="_blank"><img src="/images/traces_browser_video_section.png" alt="Highlights the traces browser features."/></a></td>
+  <td>
+    <br>
+    <p>
+      This short video highlights the features of the Traces Browser. You can query traces, filter traces, examine Request, Error, and Duration (RED) metrics of a service on the service map, identify the critical path, see span logs, and much more using the Traces Browser.
+    </p>
+  </td>
+</tr>
+<tr>
+  <td><strong><font color="blue"> Application Map Features and Settings </font></strong><br>
+    <a href="https://bcove.video/3oDxXaa" target="_blank"><img src="/images/application_map_video_section.png" alt="Highlights the application map features."/></a></td>
+  <td>
+    <br>
+    <p>
+      This video highlights the application map features and settings. The application map gives you an overview of how the applications and services are linked, lets you focus on a specific service, view Request, Error, and Duration (RED) metrics for each service, and the tracing traffic in the application. You can also drill down to the Service Dashboard and Tracing Browser.
+    </p>
+  </td>
 </tr>
 </tbody>
 </table>

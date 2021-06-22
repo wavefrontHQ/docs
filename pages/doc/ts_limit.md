@@ -36,6 +36,7 @@ You can use `limit()` with time series, histograms, or traces.
 </tbody>
 </table>
 
+<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i><b>Note:</b> It is possible that the <code>limit()</code> function returns NO DATA even if there are time-series reporting values within the time window of your chart. This can happen because the limit is applied to all non-obsolete time series matched by the query and it is possible that all of the ones selected by <code>limit()</code> are not currently reporting.</div>
 
 ## Parameters
 

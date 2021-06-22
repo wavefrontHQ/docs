@@ -5,7 +5,7 @@ sidebar: doc_sidebar
 permalink: wavefront_introduction.html
 summary: Learn about Wavefront, its architecture, and its interfaces.
 ---
-Wavefront is a high-performance streaming analytics platform that supports 3D observability (metrics, histograms, traces/spans). Wavefront is unique because it can scale to very high data ingestion rates and query loads. You can collect data from many services and sources across your entire application stack, and can look at details for earlier data collected by Wavefront.
+Wavefront is a high-performance streaming analytics platform that supports observability for metrics, counters, histograms, and traces/spans. Wavefront is unique because it scales to very high data ingestion rates and query loads. You can collect data from many services and sources across your entire application stack, and can look at details for earlier data that were ingested earlier.
 
 ## Intro Videos
 
@@ -18,7 +18,7 @@ The first video is a 90 second overview of **how you can use** Wavefront.
 </p>
 --->
 
-In the second video, Wavefront co-founder Clement Pang explains:
+In the second **conceptual** video, Wavefront co-founder Clement Pang explains:
 * How you get data into Wavefront
 * How dashboards, charts, and alerts allow you to monitor your environment
 * How our histogram and tracing features can give you the full picture of what's going on.
@@ -143,7 +143,7 @@ Wavefront works with time-series (metric) data, and also with traces and spans, 
 * **Start Where You Are:** If your environment already has a metrics infrastructure, you can do some pre-processing on the data so they correspond to the Wavefront Data Format, and send them directly to the Wavefront proxy.
 * **Direct Ingestion:** For some use cases, [direct ingestion](direct_ingestion.html) is the best approach. Consider the [proxy benefits](proxies.html#proxy-benefits) before you select direct ingestion.
 * **Histograms:** For high-velocity metrics, [Wavefront histograms](proxies_histograms.html) might be the best solution.
-* **App Monitoring with Distributed Tracing:** For traces, we support Jaeger and Zipkin or any applications that are instrumented with the OpenTracing library. You can also send custom traces using one of our SDKs. Our [Application Map](tracing_ui_overview.html) GUI supports easy exploration of trace data, RED metrics, etc. 
+* **App Monitoring with Distributed Tracing:** For traces, we support Jaeger and Zipkin or any applications that are instrumented with the OpenTracing library. You can also send custom traces using one of our SDKs. Our [Application Map](tracing_ui_overview.html) GUI supports easy exploration of trace data, RED metrics, etc.
 
 ### Video: Getting Data Into Wavefront
 

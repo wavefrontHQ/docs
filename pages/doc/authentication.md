@@ -32,7 +32,7 @@ Several Wavefront customers have asked for an environment that supports separate
     - are directed to the last tenant they used
     - can switch to other tenants from the gear icon menu without having to log in again.
 
-Users log in to an identity provider that administrators specify when they first get their Wavefront account. For multi-tenant authentication, we support Okta and Google IdP.
+Administrators can [Set Up or Update Self-Service SAML SSO](auth_self_service_sso.html) for their environment. Users will then log in to the identity provider that administrators set up.
 
 ## How to Set Up Multi-Tenancy
 
@@ -75,10 +75,10 @@ If your environment is set up to support multi-tenant SSO, you log in to Wavefro
    * If you've been invited to only one tenant, then you are logged in to that tenant after authentication.
    * If you've been invited to more than one tenant, you are logged in to the last tenant you logged in. You can switch to the other tenant(s) by selecting the tenant from the gear icon.
    * For each tenant, you have specific permissions. That means, for example, if you have the **Accounts, Groups & Roles** permission on Tenant A, you don't necessarily have that permission for Tenant B. See [permissions](permissions_overview.html) for details.
-   
-   
+
+
       {% include note.html content="You can have different sets of permissions on different tenants because each tenant administrator controls the permissions for that tenant for each user." %}
-   
+
    * When you log out, the logout applies to *all* tenants.
 
 ## Switching Tenants in Multi-Tenant Environments

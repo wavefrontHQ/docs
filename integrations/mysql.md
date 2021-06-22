@@ -40,6 +40,18 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
       #
       ## CHANGE THE SERVERS FIELD HERE
       servers                                   = ["mysql_user:password@tcp(127.0.0.1:3306)/"]
+      ## Selects the metric output format.
+      ##
+      ## This option exists to maintain backwards compatibility, if you have
+      ## existing metrics do not set this value until you are ready to
+      ## migrate to the new format.
+      ##
+      ## If you do not have existing metrics from this plugin set to the latest
+      ## version.
+      ##
+      ## Telegraf >=1.6: metric_version = 2
+      ##           <1.6: metric_version = 1 (or unset to maintain backwards compatibility)
+      metric_version = 2
       #
       ## the limits for metrics form perf_events_statements
       perf_events_statements_digest_text_limit  = 120

@@ -9,15 +9,15 @@ summary: Learn how to examine and fine-tune alerts.
 
 Alerts notify when there's a problem, and support finding the root cause of a problem quickly. Wavefront has two GUIs:
 * **Alert Viewer:** When you receive an alert notification, the notification includes a link to the Alert Viewer.
-  - Drill down into the alert cause (source, point tags, etc.)
+  - Drill down into the alert cause (source, point tags, etc.).
   - Examine related information.
 
 * **Alerts Browser:** Allows you to investigate and manage all alerts.
   - Investigate all alerts and their state, history, and more.
   - Clone, edit, or delete one or more alerts.
-  - Snooze alerts or put them in [maintenance mode](maintenance_windows_managing.html)
+  - Snooze alerts or put them in [maintenance mode](maintenance_windows_managing.html).
 
-{% include note.html content="All users can view alerts. You need Alerts permissions to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you.  " %}
+{% include note.html content="All users can view alerts. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you.  " %}
 
 
 ## Examine an Alert in Alert Viewer
@@ -95,7 +95,7 @@ To examine alerts in the Alerts Browser, click <strong>Alerting</strong> in the 
 <br/>
 To find exactly the alerts that you need you can:
 <ul><li>Type the alert name in the search field</li>
-<li>Use a filter, for example, select <strong>State</strong>, <strong>Severity</strong>, or alert tag. </li></ul>
+<li>Use a filter, for example, select <strong>State</strong>, <strong>Severity</strong>, <strong>Services</strong>, <strong>Applications</strong>, or alert tag. </li></ul>
 For example, you could show alerts that are both FIRING and SEVERE.</td>
 <td width="50%"><img src="/images/alert_firing_severe.png" alt="Firing and Severe selected in filter bar on left."></td>
 </tr>

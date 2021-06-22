@@ -33,7 +33,10 @@ Wavefront retrieves AWS metric and dimension data from AWS services using the AW
 
 ### Configuring CloudWatch Data Ingestion
 
-You can configure which instances and volumes to ingest metrics from, which metrics to ingest, and the rate at which Wavefront fetches metrics. To configure CloudWatch ingestion:
+You can configure which instances and volumes to ingest metrics from, which metrics to ingest, and the rate at which Wavefront fetches metrics.
+{% include tip.html content="The following &lt;key&gt;=&lt;value&gt; pairs are supported only for EC2 and EBS metrics." %}
+
+To configure CloudWatch ingestion:
 
 1. In Wavefront, click **Integrations** in the taskbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
@@ -87,11 +90,15 @@ By default, on a new Wavefront trial, Wavefront limits the number of unique metr
 
 ### Configuring CloudWatch Billing Metrics
 
-The AWS Billing and Cost Management service sends [billing metrics](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/billing-metricscollected.html) to CloudWatch. You configure AWS to produce `aws.billing.*` metrics by checking the **Receive Billing Alerts** checkbox on the **Preferences** tab in the [AWS Billing and Cost Management console](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/monitor-charges.html):
+The AWS Billing and Cost Management service sends [billing metrics](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/billing-metricscollected.html) to CloudWatch. You configure AWS to produce `aws.billing.*` metrics by selecting the **Receive Billing Alerts** check box on the **Preferences** tab in the [AWS Billing and Cost Management console](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/monitor-charges.html):
 
 ![aws billing](images/aws_billing.png)
 
 Wavefront reports the single metric `aws.billing.estimatedcharges`. The `source` field and `ServiceName` point tag identify the AWS services. For the total estimated charge metric, `source` is set to `usd` and `ServiceName` is empty. Wavefront also provides the point tags `accountId`, `Currency`, `LinkedAccount`, and `Region`. Billing metrics are typically reported every 4 hours.
+
+### Retrieve AWS Service Metrics from the API
+
+Our Customer Success team has prepared a KB article that explains how to [Update the CloudWatch integration to retrieve services from the API](https://help.wavefront.com/hc/en-us/articles/360059699691-Updating-Cloudwatch-Integration-to-retrieve-AWS-service-metrics-from-the-API)
 
 ## CloudTrail Events, Metrics, and Point Tags
 

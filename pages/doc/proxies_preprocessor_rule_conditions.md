@@ -16,11 +16,11 @@ For example, you might want to block list spans only if it
 * has span tags that match both `"span.kind"="server"` and (`"http.status_code"="302"` or `"http.status_code"="404"`)
 * and has no span tags that match `debug=true`
 
-You can use the `if` parameter to fine-tune when a rule applies. For the example above, you can create a rule like this:
+You can use the `if` parameter to fine-tune when a rule applies. For the example above, you can create a rule like this.
 
 <ul id="profileTabs" class="nav nav-tabs">
     <li class="active"><a href="#current" data-toggle="tab">Current Format</a></li>
-    <li><a href="#beta" data-toggle="tab">Proxy 9 and Later (BETA)</a></li>
+    <li><a href="#beta" data-toggle="tab">Proxy 9 and Later</a></li>
 </ul>
 <div class="tab-content">
   <div role="tabpanel" class="tab-pane active" id="current">

@@ -69,7 +69,7 @@ Run the following commands on the proxy host:
 <td markdown="span">Windows</td>
 <td><code>
 cd C:\Program Files (x86)\Wavefront\bin
-./nssm.exe [start | stop] WavefrontProxy
+.\nssm.exe [start | stop] WavefrontProxy
 </code> </td></tr>
 
 <tr><td>Mac OS</td>
@@ -96,7 +96,7 @@ To check if the proxy is running, run the following commands on the proxy host:
 <td markdown="span">Windows</td>
 <td><code>
 cd C:\Program Files (x86)\Wavefront\bin
-./nssm.exe status WavefrontProxy</code>
+.\nssm.exe status WavefrontProxy</code>
 <p>Proxy log at <code>Program Files (x86)\Wavefront\wavefront.log</code>.</p></td></tr>
 <tr><td>Mac OS</td>
 <td><code>brew services list</code>
@@ -122,7 +122,7 @@ cd C:\Program Files (x86)\Wavefront\bin
 
   ```
   $ cd C:\Program Files (x86)\Wavefront\bin
-  $ ./nssm.exe status WavefrontProxy
+  $ .\nssm.exe status WavefrontProxy
   ```
   You can view the proxy log at `Program Files (x86)\Wavefront\wavefront.log`.
 
@@ -208,7 +208,7 @@ sudo yum remove telegraf</code></td></tr>
 
 ## See Also
 
-Advanced users can export proxy data to a file and perform other customizations. 
+Advanced users can export proxy data to a file and perform other customizations.
 * [Export Data Queued at the Proxy](https://help.wavefront.com/hc/en-us/articles/360052251811-How-to-export-data-queued-at-the-Proxy)
 * [Install a Proxy in Non-Default Environments](proxies_manual_install.html)
 * Use the [proxy configuration file](proxies_configuring.html) to customize proxy behavior for metrics, histograms, and traces.

@@ -17,4 +17,4 @@ The Wavefront 6.x release provides a number of UI and documentation improvements
 ## Documentation
 - More clearly documented hot-loading of groks for parsing log data.
 - Better documentation for [AWS metrics and metrics tagging](integrations_aws_metrics.html#cloudwatch-integration).
-- Added document on how to install proxies using [Ansible](proxies_installing.html#ansible).
+- Added a document on how to install proxies using [Ansible](proxies_installing.html#ansible).

@@ -45,4 +45,5 @@ Here we see the result (in orange) of using `log10()` to take the decimal log of
 
 
 ## See also
-[log()](ts_log.html)
+* [log()](ts_log.html)
+* [log2()](ts_log2.html)

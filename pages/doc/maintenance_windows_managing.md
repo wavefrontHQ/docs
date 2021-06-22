@@ -47,7 +47,7 @@ To snooze or unsnooze a single alert:
 
 ## Using Maintenance Windows
 
-You can create maintenance windows to temporarily prevent alerts from firing when disruptive operations occur as a result of system maintenance or testing. During such operations, you know it's likely that alerts will fire. 
+You can create maintenance windows to temporarily prevent alerts from firing when disruptive operations occur as a result of system maintenance or testing. During such operations, you know it's likely that alerts will fire.
 
 You can:
 
@@ -168,3 +168,7 @@ Suppose an alert condition tests the metrics that flow from sources `app-1`, `ap
 1. [Add a source tag](tags_overview.html#add-source-tags) such as `decommissioned` to `app-2` when you are ready to take that source out of service.
 2. Modify the alert condition to include `and not tag=decommissioned`, for example:
   ```ts(~sample.cpu.usage.percentage, source=app-* and not tag=decommissioned) > .5 ```
+
+## Learn More!
+
+* To learn how to use point tags for maintenance windows, see [this KB article](https://help.wavefront.com/hc/en-us/articles/360058003411-How-to-Use-Point-Tags-for-Maintenance-Windows)  

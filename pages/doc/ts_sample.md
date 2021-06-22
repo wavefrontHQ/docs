@@ -32,7 +32,6 @@ Returns `numberOfTimeSeries` non-random time series based on the expression. Thi
 
 Returns `numberOfTimeSeries` non-random time series based on the expression. This function is deterministic as long as the underlying set of time series stays the same. The returned values might change, for example, if a new source starts reporting the metric.
 
-Don't confuse `sample()` with  [`downsample()`](ts_downsample.html), which returns the values in the expression that occur in each time window.
 
 ## Examples
 
@@ -40,7 +39,7 @@ The following example shows first the result of a query that returns a fairly la
 
 ![metric for sample function](images/ts_sample_before.png)
 
-We can use `sample()` to return 10% the time series, in this example, 3.  
+We can use `sample()` to return 10% the time series, in this example, 3.
 
 ![sample cpu load average](images/ts_sample.png)
 

@@ -77,7 +77,9 @@ You can use tags to filter alerts, dashboards, events, and sources from the Wave
 
 ### Supported Characters
 
-Tag names can contain alphanumeric (a-z, A-Z, 0-9), dash (-), underscore (_), and colon (:) characters. The space character is not supported.
+Tag keys can contain alphanumeric (a-z, A-Z, 0-9), dash (-), underscore (_), dot (.), and forward slash (/) characters. The space character is not supported. 
+
+When you construct a Wavefront query, you can use a colon (:) in a tag key, only if the tag key is in quotes. For example: `ts(<metricName>,"t:m"=tag-with-colon)`.
 
 ### Tags in the UI
 
@@ -135,7 +137,7 @@ To add tags to one or more objects:
     - For some objects, you select **Browse &gt; &lt;object&gt;**, where **&lt;object&gt;** is **Sources** or **Events**.
     - For other objects, such as Alerts, you click the object.
 2.  Choose which objects to tag:
-    -   Check the checkboxes next to the object and click the **+ Tag** button.
+    -   Select the check boxes next to the object and click the **+ Tag** button.
     -   Click **+** at the bottom and select a tag or click **Create New Tag**.
 
         ![source tags](images/source_tags.png)

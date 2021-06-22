@@ -215,7 +215,7 @@ The charts in your dashboard can display [events](events.html).
 * Wavefront sends system events, for example, when an alert changes state.
 * In addition, users with **Events** permission might have added user events.
 
-All users can select which events are displayed for all charts. 
+All users can select which events are displayed for all charts.
 
 <table style="width: 100%;">
 <tbody>
@@ -268,7 +268,8 @@ The <strong>Show Events</strong> drop-down menu in the upper right of the taskba
 
 In addition to examining time series data, drilling down on exactly the information you need, creating alerts, etc., you can also
 * View [histogram metrics in charts](proxies_histograms.html#viewing-histogram-metrics).
-* Examine traces, spans, and RED metric sent by your application. 
+* Examine traces, spans, and RED metric sent by your application.
   * See [Application Status](tracing_ui_overview.html).
   * See [Service Dashboard](tracing_service_dashboard.html).
   * See [Traces Browser](tracing_traces_browser.html).
+* For troubleshooting, see the KB article [Where's My Data: Troubleshooting for Missing Data](https://help.wavefront.com/hc/en-us/articles/360055706512-Where-s-My-Data-Troubleshooting-for-Missing-Data).
