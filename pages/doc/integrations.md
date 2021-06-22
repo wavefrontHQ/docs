@@ -100,9 +100,9 @@ Some integrations contain predefined alerts. You can install and uninstall the p
 1. Click **Integrations**.
 1. Click the integration tile.
 1. Click the **Alerts** tab.
-1. Click **\[Install All\| Uninstall All\] Alerts**.
+1. Click **\[Install All\| Uninstall All\]**.
 
-If you have the Alerts permissions, you can [edit the targets of the alerts](webhooks_alert_notification.html#learn-about-alert-targets). If you want to make further customizations, clone the alert first. For information about cloning and editing alerts, see [Manage Alerts](alerts_manage.html). 
+If you have the Alerts permissions, you can [edit the targets of the alerts](webhooks_alert_notification.html#learn-about-alert-targets). If you edit the system alerts and then reinstall them, all of the changes that you've made are reverted back to their original state. If you want to make further customizations, clone the alert first. After you clone an alert, snooze the original system alert to avoid running a duplicate version of the alert. For information about cloning and editing alerts, see [Manage Alerts](alerts_manage.html). 
 
 
 ## Integration States
