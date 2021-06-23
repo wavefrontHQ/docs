@@ -123,7 +123,8 @@ Let's walk through the following scenario to get a quick overview of the applica
           <li>Click <b>Actions</b> to:</li>
           <ul>
             <li> Navigate to the Service Dashboard when you click <b>Dashboard</b>.</li>
-            <li>Create an alert as explained in the next step.</li>
+            <li>Click <b>Create Alerts</b> to create smart alerts that filter noise and capture true anomalies. See <a href="#create-alerts">Create an alert</a>.</li>
+            <li>If an alert you created is firing, you see a red dot with a number on the service. The number indicates how many alerts are firing for a specific service. To see the alerts, click <b>view alerts</b>.</li>
             <li>Click <b>Configure</b> to <a href="tracing_apdex.html">configure the apdex settings</a>. You see this setting only if you are a Super Admin user or users with Applications permissions</li>
           </ul>
           <li> See the components used by the service. The styling service uses the OpenTracing, Java, Dropwizard, and Jersey components.</li>
@@ -186,6 +187,8 @@ Using the table view, you can:
 * See the change (Δ value) in the RED metrics based on the time you selected for **Compare**.
 <br/>For example, if you select **week ago** from the **Compare** drop-down, the Δ value indicate the change in RED metrics since the data was recorded a week ago.
   <br/>![shows the compare option on the table view. The drop down has the values, off (if selected doesn't show the change in value), 2 hours ago, day ago, week ago, and month ago. ](images/tracing_compare_table_view.png)
+* Click the vertical ellipsis > **Create Alerts** to create smart alerts that filter noise and capture true anomalies. See [Create an alert](#create-alerts).
+* Click the vertical ellipsis > **View Alerts** to view alerts that are firing for the service. The number of alerts firing for the service are shown on the **Alerts** column.
 * Inspect the Apdex score and RED metrics to obtain a status summary of a service.
   <table style = "width: 100%;">
     <tr>
@@ -350,6 +353,8 @@ On the page for a particular application, you can:
   - The request rate of the service.
   - The percentage of the service's spans that contain errors.
   - The span duration at the 95th percentile across the service.
+* Click **Actions** > **Create Alerts** to create smart alerts that filter noise and capture true anomalies. See [Create an alert](#create-alerts).
+* Click **Actions** > **View Alerts** to view alerts that are firing for the service. The number of alerts firing for the service are shown on the red circle next to the service name.
 * Drill down from a service box:
   - Click the name of the service or **Details** to [explore the dashboard for that service](#explore-the-default-service-dashboard).
   - Click **All Traces** to [explore the traces](#explore-traces) that originate in that service.
@@ -402,7 +407,7 @@ Create an alert from the application status page:
           **App map view**: <br/>Click on a service and select **Actions** > **Create Alert**, for example, to create an alert for the shopping service:
         </td>
         <td markdown ="span" width="40%">
-          ![A screenshot of how to click create alert as explained in the step](images/tracing_app_map_create_alaert.png)
+          ![A screenshot of how to click create alert as explained in the step](images/tracing_app_map_create_alert.png)
         </td>
       </tr>
       <tr>
