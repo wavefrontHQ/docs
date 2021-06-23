@@ -17,7 +17,7 @@ Sampling can give you a good idea of how your application is behaving. In additi
 * Filter out "noise" traces so you can see what's important.
 * Limit the performance impact on network bandwidth and application response times.
 
-{% include important.html content=" If you don't want traces sampled out using intelligent sampling, you can create trace sampling policies and let Wavefront know that you want to keep specific traces. See, [Trace Sampling Policy](trace_sampling_policies.html) " %}
+{% include important.html content=" If you don't want traces sampled out using intelligent sampling, you can create sampling policies and let Wavefront know that you want to keep specific traces. See, [Sampling Policy](trace_sampling_policies.html) " %}
 
 ## Wavefront Intelligent Sampling
 
