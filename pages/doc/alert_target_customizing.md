@@ -166,7 +166,7 @@ Wavefront defines variables for obtaining information about the alert as a whole
 </tr>
 <tr>
 <td markdown="span">`imageLinks`</td>
-<td markdown="span">Iterator returning URLs to [chart images](alerts_notificatons.html#chart-images-in-alert-notifications). Currently returns 1 URL to the chart image that shows the alert's display expression at the time the alert fired or was updated.</td>
+<td markdown="span">Iterator returning URLs to [chart images](alerts_notifications.html#chart-images-in-alert-notifications). Currently returns 1 URL to the chart image that shows the alert's display expression at the time the alert fired or was updated.</td>
 </tr>
 <tr>
 <td markdown="span">`name`</td>
