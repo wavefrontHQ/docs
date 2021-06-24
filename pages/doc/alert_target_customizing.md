@@ -166,7 +166,7 @@ Wavefront defines variables for obtaining information about the alert as a whole
 </tr>
 <tr>
 <td markdown="span">`imageLinks`</td>
-<td markdown="span">Iterator returning URLs to [chart images](alerts.html#chart-images-in-alert-notifications). Currently returns 1 URL to the chart image that shows the alert's display expression at the time the alert fired or was updated.</td>
+<td markdown="span">Iterator returning URLs to [chart images](alerts_notificatons.html#chart-images-in-alert-notifications). Currently returns 1 URL to the chart image that shows the alert's display expression at the time the alert fired or was updated.</td>
 </tr>
 <tr>
 <td markdown="span">`name`</td>
@@ -218,7 +218,7 @@ Wavefront defines variables for obtaining information about the alert as a whole
 </tr>
 <tr>
 <td markdown="span">`url`</td>
-<td markdown="span">Link to an [interactive chart](alerts.html#interactive-charts-linked-by-alert-notifications) that shows alert firing events or resolved events along with the alert condition.</td>
+<td markdown="span">Link to an [interactive chart](alerts_notifications.html#interactive-charts-linked-by-alert-notifications) that shows alert firing events or resolved events along with the alert condition.</td>
 </tr>
 </tbody>
 </table>
@@ -737,7 +737,7 @@ The preceding template might yield the following message:
 
 Statistics provide a profile of the values in a time series during the checking time window immediately preceding a notification. For example, the alert might be set up to fire when a condition is true for 10 minutes. During a 10-minute period where the condition is true, a time series likely have multiple values. You can use statistics to find out, e.g., the largest of these values, or the last value to be reported during the **Alert fires** time window.
 
-For classic alerts, statistics are normally useful only if you have set the alert's [**Display Expression** field](alerts.html#alert-properties) with a display expression that captures the underlying time series being tested by the condition expression. If the alert has no display expression, statistics are based on the values that are returned by the alert's condition expression. Because the condition expression returns either 0 or not 0, that information is not useful.
+For classic alerts, statistics are normally useful only if you have set the alert's **Display Expression** field with a display expression that captures the underlying time series being tested by the condition expression. If the alert has no display expression, statistics are based on the values that are returned by the alert's condition expression. Because the condition expression returns either 0 or not 0, that information is not useful.
 
 Multi-threshold alerts include a predefined display expression.
 
@@ -1157,7 +1157,7 @@ Output:1600273622
 
 ## Add Chart Images to Older Custom Alert Targets
 
-The predefined template for a custom HTML email target or a custom Slack target automatically includes the `imageLinks` variable for producing a [chart image](alerts.html#chart-images-in-alert-notifications) in alert notifications. However, if you created a custom email alert target or a custom Slack alert target before 2018-26.x, you must explicitly update the alert target's template to include a chart image in the alert notifications.
+The predefined template for a custom HTML email target or a custom Slack target automatically includes the `imageLinks` variable for producing a [chart image](alerts_notifications.html#chart-images-in-alert-notifications) in alert notifications. However, if you created a custom email alert target or a custom Slack alert target before 2018-26.x, you must explicitly update the alert target's template to include a chart image in the alert notifications.
 
 {% include note.html content="You do not need to update pre-existing custom alert targets of type PagerDuty. All PagerDuty notifications sent in 2018-26.x or later will include chart images." %}
 
@@ -1198,18 +1198,18 @@ To update the template for a custom Slack alert target that was created before 2
 
 4. Paste the copied section into template of the pre-existing alert target.
 
-## Include a Link to a Tracing Service Dashboard 
+## Include a Link to a Tracing Service Dashboard
 
-If the Wavefront query in an alert has an application and service name and meets a specific alert target, you get a link to drill down to the [service dashboard](tracing_service_dashboard.html). The service dashboard lets you see RED metrics of the application or service and identify potential hot spots. 
+If the Wavefront query in an alert has an application and service name and meets a specific alert target, you get a link to drill down to the [service dashboard](tracing_service_dashboard.html). The service dashboard lets you see RED metrics of the application or service and identify potential hot spots.
 
 Let's walk through a scenario:
 
 1. Create an alert target. Let's use the Generic Webhook alert target template because it includes the required settings by default:
 
     ![a screenshot of the Generic Webhook alert target template. The tracing dahsboard section is highlighted in red.](images/alert_target_tracing_dahsboard.png)
-    
+
     {% include note.html content="If you want to include a service dashboard link in a Slack notification, email, or Pager Duty notification, you need to copy the code snippet below and add it to the respective template." %}
-    
+
     <pre>
     "tracingDashboardLinks": [
       &#123;&#123;#trimTrailingComma&#125;&#125;
@@ -1217,11 +1217,11 @@ Let's walk through a scenario:
           "&#123;&#123;&#123;.&#125;&#125;&#125;",
         &#123;&#123;/tracingPageLinks&#125;&#125;
     </pre>
-    
-1. [Create an alert](alerts.html) that would fire for a specific application or service and set the alert target you created.
+
+1. [Create an alert](alerts_manage.html) that would fire for a specific application or service and set the alert target you created.
     Here we create an alert that fires when the request rate is greater than 3 for the `beachshirts` application's `delivery` service.
     ![a screenshot of the alert.](images/alert_tracing_service_dashboard.png)
-    
+
 If the alert you created moves to the firing stage, Wavefront sends a notification to the users specified in the alert target. The notification includes a link to the service dashboard. For example, in this scenario, the JSON output of your notification looks like this:
 ```
 "tracingDashboardLinks": [

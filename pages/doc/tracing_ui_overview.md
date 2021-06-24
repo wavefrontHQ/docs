@@ -430,7 +430,7 @@ Create an alert from the application status page:
     </table>
 
 1. Configure the alert:
-    {% include note.html content="Wavefront has two templates to create an alert. The [classic alert](alerts.html#create-a-classic-alert) is simple to use and the [multi-threshold alert](alerts.html#create-a-multi-threshold-alert) lets you add advanced settings. On the App status page, you get the multi-threshold alert template." %}
+    {% include note.html content="Wavefront has two templates to create an alert. The [classic alert](alerts_manage.html#create-a-classic-alert) is simple to use and the [multi-threshold alert](alerts_manage.html#create-a-multi-threshold-alert) lets you add advanced settings. On the App status page, you get the multi-threshold alert template." %}
     1. You can set the alert conditions based on your data. For example, let's create an alert that fires in the:
       * Severe state for the shopping service when the error percentage is greater than 6%
       * and in the Warn state when it is greater than 3%.
