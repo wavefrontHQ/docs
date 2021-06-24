@@ -62,8 +62,8 @@ You can use tags to filter alerts, dashboards, events, and sources from the Wave
 <tr>
 <td>alert tag</td>
 <td markdown="span">
-[Organize related alerts](alerts_manage.html#organize-related-alerts-with-alert-tags). <br> Suppress tagged alerts during a [maintenance window](maintenance_windows_managing.html#creating-a-maintenance-window).</td>
-<td markdown="span">[Create or add alert tags](alerts.html#creating-an-alert).</td>
+[Organize related alerts](alerts.html#step-5-organize-related-alerts-with-tags). <br> Suppress tagged alerts during a [maintenance window](maintenance_windows_managing.html#creating-a-maintenance-window).</td>
+<td markdown="span">[Create or add alert tags](alerts.html#step-5-organize-related-alerts-with-tags).</td>
 <td markdown="span">[Reference alert metrics by tag](alerts_dependencies.html#referencing-alert-metrics).</td>
 </tr>
 <tr>
@@ -77,7 +77,7 @@ You can use tags to filter alerts, dashboards, events, and sources from the Wave
 
 ### Supported Characters
 
-Tag keys can contain alphanumeric (a-z, A-Z, 0-9), dash (-), underscore (_), dot (.), and forward slash (/) characters. The space character is not supported. 
+Tag keys can contain alphanumeric (a-z, A-Z, 0-9), dash (-), underscore (_), dot (.), and forward slash (/) characters. The space character is not supported.
 
 When you construct a Wavefront query, you can use a colon (:) in a tag key, only if the tag key is in quotes. For example: `ts(<metricName>,"t:m"=tag-with-colon)`.
 
@@ -125,7 +125,7 @@ You use point tags to add extra dimensions to your data, and can then focus your
 <a name="entity_tags"></a>
 ## Object Tags: Tags on Alerts, Dashboards, Events, and Sources
 
-Object tags include [alert tags](alerts_manage.html#organize-related-alerts-with-alert-tags), dashboard tags, event tags, and [source tags](tags_overview.html#source-tags).
+Object tags include alert tags, dashboard tags, event tags, and source tags.
 
 {% include note.html content="While every Wavefront user can view Wavefront objects, you must have [Alert, Dashboard, Event, or Source Tag Management permission](permissions_overview.html) to manage those objects and related object tags. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible." %}
 

@@ -70,14 +70,29 @@ If you want to exclude chart images:
 
 ## Interactive Charts Linked by Alert Notifications
 
-An alert notification includes a URL that links to an interactive chart showing data at the time the alert was triggered. The [sample email notification](#sample-alert-notification) above displays the URL as a **View Alert** button that you can click to see an interactive chart like the following:
+Each alert notification includes a link to an interactive chart. When you create an alert, you can include a variable that determines what the user sees.
+
+### Link Variables in Alert Notifications
+The alert target mustache syntax supports a `url` variable and a  `charturl`.
+
+* Simple notification **emails** include a **View Alert Chart** link that takes you to the chart view.
+* For PagerDuty, alert target (webhook), and  templated email notifications:
+  - The link  target of the `url` mustache template variable directs to the Alert Viewer. 
+  - The mustache context variable `chartUrl` takes you directly to the chart view. 
+
+{% include note.html content="Alert targets created before release 2020.22 will use `url` instead of `chartUrl`. Edit the alert target to use `chartUrl` to send users to the chart editor." %} 
+
+### Link Details
+<!---Need to update this for multi-threshold and other changes--->
+
+An alert notification includes a URL that links to an interactive chart showing data at the time the alert was triggered. The [sample email notification](#sample-alert-notification) above displays the URL as a **View Alert** button that users can click to see an interactive chart like the following:
 
 ![alert_interactive_chart](images/alert_interactive_chart.png)
 
 The interactive chart viewed through an alert notification shows the results of the alert's display expression. If you have set the alert's [**Display Expression** field](#alert-properties), the interactive chart shows the time series being tested by the alert. Depending on the state change that triggered the alert, the interactive chart can display additional queries for alert events and alert metrics:
 
-* **&lt;Alert name&gt;** - The display expression if one was specified. Otherwise, the [condition](alerts.html#alert-properties) expression.
-* **Alert Condition** - The [alert condition](alerts.html#alert-condition)
+* **&lt;Alert name&gt;** - The display expression if one was specified. Otherwise, the [condition](alerts_manage.html#alert-condition) expression.
+* **Alert Condition** - The [alert condition](alerts_manage.html#alert-condition)
 * **Alert Firings** - An [events() query](events_queries.html) that shows events of type `alert` for the alert. These system events occur whenever the alert is opened. The query shows both the current firing (an ongoing event) and any past firings (ended events).
 * **Alert Details** - An [events() query](events_queries.html) that shows events of type `alert-detail` for the alert. These system events occur whenever the alert is updated (continues firing while an individual time series changes from recovered to failing, or from failing to recovered).
 

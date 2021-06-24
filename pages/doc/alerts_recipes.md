@@ -42,7 +42,7 @@ For example, here's the query for an alert that fires if the number of sample pr
 
 `(ts(~sample.process.num, source="app-5")) > 100`
 
-You can use a query like this with a classic alert or with threshold alert. A [threshold alert](alerts.html#creating-a-threshold-alert) allows you to set multiple thresholds associated with different severities.
+You can use a query like this with a classic alert or with threshold alert. A [threshold alert](alerts_manage.html#create-a-multi-threshold-alert) allows you to set multiple thresholds associated with different severities.
 
 ## Alert Only Between Specific Times
 

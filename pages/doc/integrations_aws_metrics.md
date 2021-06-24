@@ -231,7 +231,7 @@ The following chart sets up variables for on-demand instances limit and on-deman
 
 ![chart for service limits query](images/service_limit_chart.png)
 
-We can create a [multi-threshold alert](alerts.html#create-a-multi-threshold-alert) for this query that:
+We can create a [multi-threshold alert](alerts_manage.html#create-a-multi-threshold-alert) for this query that:
 
 * Fires if the condition has been true for the last 30 minutes.
 * Notifies `SEVERE` targets if the value is greater than 90.
