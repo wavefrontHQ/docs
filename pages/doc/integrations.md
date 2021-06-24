@@ -91,20 +91,19 @@ You can install and uninstall dashboards from Featured and Data Collector integr
 
 You cannot modify Wavefront system dashboards. Instead, click the **Edit** (pencil) icon, select **Clone**, and provide a URL string that's just the name (e.g., `mydashboard`) and not the URL (e.g., `http://mydashboard`). You can then customize the clone to suit your needs.
 
-## Install and Uninstall Alerts
+## Installing and Uninstalling Integration Alerts
 
-Some integrations contain predefined alerts. When you set up an integration, the alerts are automatically installed. 
-
-You can install and uninstall the predefined alerts.
+Some integrations contain predefined alerts. You can install and uninstall the predefined alerts or preview them before setting up the integration.
 
 {% include note.html content="All users can view alerts. You need Alerts permissions to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
 1. Click **Integrations**.
 1. Click the integration tile.
 1. Click the **Alerts** tab.
-1. Click **\[Install \| Uninstall\] Alerts**.
+1. Click **\[Install All\| Uninstall All\]**.
 
-If you have the Alerts permissions, you can [edit and clone the predefined alerts](alerts.html) . 
+If you have the Alerts permissions, you can [edit the targets of the alerts](webhooks_alert_notification.html#learn-about-alert-targets). If you edit the system alerts and then reinstall them, all of the changes that you've made are reverted back to their original state. If you want to make further customizations, clone the alert first. After you clone an alert, snooze the original system alert to avoid running a duplicate version of the alert. For information about cloning and editing alerts, see [Manage Alerts](alerts_manage.html).
+
 
 ## Integration States
 
@@ -159,7 +158,8 @@ For example, the following integration is in the Error state because metrics hav
 
 ## More Info
 
-On our [tanzu/observability](https://tanzu.vmware.com/observability) pages we have several blog posts with use cases and background info:
-* [Google Cloud Monitoring Using Wavefront Metrics-Driven Analytics](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/google-cloud-monitoring-using-wavefront-metrics-driven-analytics)
-* [Monitor MongoDB Metrics for Better Scaling and Optimized Database Performance](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitor-mongodb-metrics-for-better-scaling-and-optimized-database-performance)
-* [Monitoring Apache HTTP Server with Wavefront Metrics-Driven Analytics](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitoring-apache-http-server-with-wavefront-metrics-driven-analytics)
+* Don't see the integration you are looking for? Have a look at [Getting Data Into Wavefront](wavefront_data_ingestion.html) and at [Wavefront Data Format](wavefront_data_format.html)
+* On our [tanzu/observability](https://tanzu.vmware.com/observability) pages we have several blog posts with use cases and background info:
+  - [Google Cloud Monitoring Using Wavefront Metrics-Driven Analytics](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/google-cloud-monitoring-using-wavefront-metrics-driven-analytics)
+  - [Monitor MongoDB Metrics for Better Scaling and Optimized Database Performance](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitor-mongodb-metrics-for-better-scaling-and-optimized-database-performance)
+  - [Monitoring Apache HTTP Server with Wavefront Metrics-Driven Analytics](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitoring-apache-http-server-with-wavefront-metrics-driven-analytics)
