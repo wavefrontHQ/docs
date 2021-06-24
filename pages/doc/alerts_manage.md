@@ -4,7 +4,7 @@ keywords: alerts
 tags: [alerts]
 sidebar: doc_sidebar
 permalink: alerts_manage.html
-summary: Learn how to examine and fine-tune alerts.
+summary: Learn how to create and manage alerts.
 ---
 
 Most Wavefront users [examine alerts and drill down to find the problem](alerts.html). A subset of Wavefront users create and manage alerts.
