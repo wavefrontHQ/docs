@@ -15,7 +15,7 @@ The **Wavefront Namespace Usage Explorer** dashboard breaks down metrics usage b
 
 The **Committed Rate and Monthly Usage (PPS P95)** displays a detailed breakdown of your Wavefront monthly usage. This enables you to take appropriate action when your Wavefront usage reaches around 95% of your target/committed usage.
 
-Wavefront internal metrics have the following [prefixes](https://docs.wavefront.com/wavefront_monitoring.html#using-internal-metrics-to-optimize-performance)
+Wavefront internal metrics have the following [prefixes](https://docs.wavefront.com/wavefront_monitoring.html#useful-internal-metrics-for-optimizing-performance).
 
 To modify the **Wavefront Usage alerts**, install them and clone them. You must update the required fields in cloned alerts.
 
