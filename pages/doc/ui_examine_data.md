@@ -93,6 +93,8 @@ Regardless of selection, you can click the time selector for a fine-grained time
 
 ![time bar with turned off live data](images/time_bar_v2.png)
 
+{% include tip.html content="Live dashboards and charts display data on days in the future as black points. This might happen, for example, if you select **1 week** under **Live**.  " %}
+
 ## Use the Jump To Menu to Find a Section
 Most dashboards have several sections. They're easy to access from the **Jump To** menu.
 
