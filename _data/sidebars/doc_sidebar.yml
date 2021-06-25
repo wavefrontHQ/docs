@@ -17,7 +17,7 @@ entries:
     - title: Searching Wavefront
       url: /wavefront_searching.html
       output: web
-      
+
     - title: Wavefront Keyboard Navigation
       url: /wavefront_keyboard_shortcuts.html
       output: web
@@ -149,7 +149,7 @@ entries:
     - title: Wavefront Release Notes
       url: /wavefront_release_notes.html
       output: web
-      
+
     - title: New and Changed Integrations
       url: /integrations_new_changed.html
       output: web
@@ -297,84 +297,6 @@ entries:
       url: /log_integration.html
       output: web
 
-  - title: Query Language
-    output: web
-    folderitems:
-
-    - title: Query Language Quickstart
-      url: /query_language_getting_started.html
-      output: web
-
-    - title: Query Language Reference
-      url: /query_language_reference.html
-      output: web
-
-      subfolders:
-      - title: Understanding WQL
-        output: web
-        subfolderitems:
-
-        - title: Discrete and Continuous Time Series
-          url: /query_language_discrete_continuous.html
-          output: web
-
-        - title: Pairing Up Matching Series
-          url: /query_language_series_matching.html
-          output: web
-
-        - title: Point Tags in Queries
-          url: /query_language_point_tags.html
-          output: web
-
-
-      - title: Interacting with WQL
-        output: web
-        subfolderitems:
-
-        - title: "Chart Builder"
-          url: /chart_builder.html
-          output: web
-
-        - title: Query Editor
-          url: /query_editor.html
-          output: web
-
-        - title: Anomaly Detection on Charts
-          url: /anomaly_detection.html
-          output: web
-
-      - title: Query Language Tips and Tricks
-        output: web
-        subfolderitems:
-
-        - title: Aggregating Time Series
-          url: /query_language_aggregate_functions.html
-          output: web
-
-        - title: Bucketing with align()
-          url: /query_language_align_function.html
-          output: web
-
-        - title: Combining Series With join()
-          url: /query_language_series_joining.html
-          output: web
-
-        - title: Highlighting Trends
-          url: /query_language_windows_trends.html
-          output: web
-
-        - title: Detecting Anomalies
-          url: /query_language_statistical_functions_anomalies.html
-          output: web
-
-        - title: Query Language Recipes
-          url: /query_language_recipes.html
-          output: web
-
-    - title: Using PromQL in Wavefront
-      url: /wavefront_prometheus.html
-      output: web
-    
   - title: "Alerts & Events"
     output: web
     folderitems:
@@ -383,7 +305,7 @@ entries:
       url: /alerts.html
       output: web
 
-    - title: Manage Alerts
+    - title: "Create & Manage Alerts"
       url: /alerts_manage.html
       output: web
 
@@ -453,6 +375,83 @@ entries:
           url: /events_queries.html
           output: web
 
+  - title: Query Language
+    output: web
+    folderitems:
+
+    - title: Query Language Quickstart
+      url: /query_language_getting_started.html
+      output: web
+
+    - title: Query Language Reference
+      url: /query_language_reference.html
+      output: web
+
+      subfolders:
+      - title: Understanding WQL
+        output: web
+        subfolderitems:
+
+        - title: Discrete and Continuous Time Series
+          url: /query_language_discrete_continuous.html
+          output: web
+
+        - title: Pairing Up Matching Series
+          url: /query_language_series_matching.html
+          output: web
+
+        - title: Point Tags in Queries
+          url: /query_language_point_tags.html
+          output: web
+
+
+      - title: Interacting with WQL
+        output: web
+        subfolderitems:
+
+        - title: "Chart Builder"
+          url: /chart_builder.html
+          output: web
+
+        - title: Query Editor
+          url: /query_editor.html
+          output: web
+
+        - title: AI Genie
+          url: /ai_genie.html
+          output: web
+
+      - title: Query Language Tips and Tricks
+        output: web
+        subfolderitems:
+
+        - title: Aggregating Time Series
+          url: /query_language_aggregate_functions.html
+          output: web
+
+        - title: Bucketing with align()
+          url: /query_language_align_function.html
+          output: web
+
+        - title: Combining Series With join()
+          url: /query_language_series_joining.html
+          output: web
+
+        - title: Highlighting Trends
+          url: /query_language_windows_trends.html
+          output: web
+
+        - title: Detecting Anomalies
+          url: /query_language_statistical_functions_anomalies.html
+          output: web
+
+        - title: Query Language Recipes
+          url: /query_language_recipes.html
+          output: web
+
+    - title: Using PromQL in Wavefront
+      url: /wavefront_prometheus.html
+      output: web
 
   - title: Integrations
     output: web
