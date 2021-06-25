@@ -15,7 +15,7 @@ summary: Use Chart Builder to display the data you're interested in.
 <li>Construct queries from building blocks</li>
 <li>Show or hide individual queries</li>
 <li>Clone or delete a line</li>
-<li>Create alerts or open AI Genie for forecasting or anomaly detection. </li></ul></td>
+<li>Create alerts or turn **Anomaly Detection** on for forecasting or anomaly detection on Line Plot charts. </li></ul></td>
 <td width="20%"><a href="query_language_query_builder.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
 </tr>
 </tbody>
