@@ -9,10 +9,16 @@ summary: Learn about new and updated features in Wavefront.
 
 This page lists new and updated features in the Wavefront service. 
 
+## 2021-24.x Release Notes
+
+* **PromQL Improvement**: Using global filters (key-value pairs for filtering results) is now supported for charts created with PromQL queries.
+* **Documentation Improvements**: Reorganized the information about [alerts](alerts.html).
+
+
 ## 2021-23.x Release Notes
 
 * **cumulativePercentile() Function**: For histograms that come from Prometheus, you can now use [the `cumulativePercentile()` function](ts_cumulativePercentile.html) to calculate the cumulative percentile value.
-* **List Variables**: List variables now support [non-alphanumeric characters](dashboards_variables.html#supported-characters)
+* **List Variables**: List variables now support [non-alphanumeric characters](dashboards_variables.html#supported-characters).
 * **Alert Status for services**: Active alerts are now shown on the [Application Status page](tracing_ui_overview.html) in all formats (grid view, table view, app map).
   ![Shows the red dot on a service on the app map view. This indicates that an alert is firing for that service. To see the alert, click actions and view alerts. ](images/tracing_alerts_on_app_map_release_notes.png)
 
@@ -30,7 +36,7 @@ This page lists new and updated features in the Wavefront service.
   - Regular expression filters in PromQL are now supported.
   - Regular subquery expressions in PromQL are now supported.
   The earlier limitations have been removed from our [PromQL doc page](wavefront_prometheus.html).
-* **New Function**. We now support a [log2() function](ts_log2.html) in addition to the existing log() and log10() functions.
+* **New Function**: We now support a [log2() function](ts_log2.html) in addition to the existing log() and log10() functions.
 * **Alert API Change**: Performing a PUT request with no changes against `/api/v2/alert/{id}` no longer marks the alert as edited/auto resolved.
 * **Search UI Improvements**:
   - You can explicitly exclude a keyword or a phrase from the search results by changing the equal sign to a not equal sign (≠). See [Searching Wavefront](wavefront_searching.html) for an example.

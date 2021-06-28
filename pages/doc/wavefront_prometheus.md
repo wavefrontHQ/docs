@@ -30,12 +30,12 @@ To set PromQL settings for your organization:
 
 1. From the gear icon, select **Organization Settings**.
 2. Under **Query Settings**, select the **Users can write queries in PromQL** check box.
-3. Select the default query language for new users. 
-4. Select the default way for building queries. 
-   
+3. Select the default query language for new users.
+4. Select the default way for building queries.
+
    If the default language is set to **PromQL**, the only way to build queries is to use the Query Editor.<!---5. Enable **Always save queries as WQL** if you expect that some users prefer Wavefront query language.The queries will be always translated and saved in Wavefront query language.--->
-   
-5. Enable **Show WQL translation** to show the translation for all PromQL queries. 
+
+5. Enable **Show WQL translation** to show the translation for all PromQL queries.
 
    Select this check box if you expect that users want to learn Wavefront query language. The translation appears only if the query is with a valid PromQL syntax. Otherwise, you see an error.
 
@@ -48,11 +48,11 @@ If an administrator has enabled PromQL support (discussed above), each user can 
 1. From the gear icon, select your username.
 2. Under **Query Settings**, select:
     * The default query language.
-    * The default way of building queries. 
-      
+    * The default way of building queries.
+
       If your default language is set to **PromQL**, you can build your queries only in the Query Editor. Chart Builder was designed for Wavefront query language and doesn't support PromQL.
-    * Whether to show the translation to Wavefront query language when you click inside the Query Editor. 
-    
+    * Whether to show the translation to Wavefront query language when you click inside the Query Editor.
+
 
 
 ## Video: Wavefront and PromQL
@@ -65,7 +65,7 @@ This short video shows how you can create a PromQL chart and an alert:
 
 ## Use PromQL in Charts and Alerts
 
-This example shows how to use PromQL, when: 
+This example shows how to use PromQL, when:
 
 * An administrator has enabled PromQL support.
 * The default query language is set to be Wavefront query language.
@@ -134,7 +134,6 @@ Wavefront supports most PromQL functions and operators out of the box. There are
 
 
 * Autocomplete is not currently supported for PromQL functions and operators. However, autocomplete for metrics that you use inside your query continues to be supported.
-* Using global filters (key-value pairs for filtering results) is not currently supported for charts created with PromQL queries.
 * The Wavefront query language supports [using a query name as a chart variable](query_editor.html#use-chart-variables) in other queries for the same chart.
   - You can use a query name as a chart variable in a PromQL query if the named query was also a PromQL query.
   - You cannot use a query name as a chart variable if the named query is a Wavefront QL query.
@@ -159,6 +158,8 @@ The bottom row shows the PromQL query execution:
 ## More Info
 
 New to Wavefront? Here are some links to get you started:
-* [Creating an Alert](alerts.html#creating-an-alert)
+* [Getting Started Videos](videos_howto_start.html)
+* [Dashboards and Alerts Tutorials](tutorial_getting_started.html)
+* [Alerts](alerts.html)
 * [Query Language Quickstart](query_language_getting_started.html)
 * [Query Language Videos](videos_query_language.html)
