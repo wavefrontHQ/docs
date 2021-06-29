@@ -390,7 +390,7 @@ ts(customer.report.count, tag="/mon-(primary|secondary)/")
         <li>
           Get data that match <code>~wavefront.alert.active</code> or <code>~wavefront.alert.active_info</code> and has the source tag <code>data</code>:
 <pre>
-ts(/\~wavefront\.alert\.(active|active_info)/, tag=data)
+ts(/~wavefront\.alert\.(active|active_info)/, tag=data)
 </pre>
         </li>
         <li>
