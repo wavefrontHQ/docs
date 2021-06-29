@@ -12,6 +12,7 @@ This page lists new and updated features in the Wavefront service.
 ## 2021-24.x Release Notes
 
 * **PromQL Improvement**: Using global filters (key-value pairs for filtering results) is now supported for charts created with PromQL queries.
+* **Accessibility Improvements**: We have made a number of keyboard navigation and focus indicator fixes.
 * **Documentation Improvements**: Reorganized the information about [alerts](alerts.html).
 
 
