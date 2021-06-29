@@ -361,11 +361,7 @@ You can:
       {{site.data.alerts.important}}
       <ul>
         <li>
-          Characters, such as <code><b>~</b>, <b>^</b>, <b>{ }</b>, and <b>$</b></code> are not supported regular expression characters. Therefore, you need to escape these characters if they are present in the string you are trying to match.
-          <br/>Example: You need to escape the <code>~</code> character.
-<pre>
-ts(/\~sample\.cpu.usage.*/)
-</pre>
+          Characters, such as <code><b>^</b>, <b>{ }</b>, and <b>$</b></code> are not supported regular expression characters. Therefore, you need to escape these characters if they are present in the string you are trying to match.
         </li>
         <li>
           All existing queries that use the <code>*</code> glob wildcard syntax continue to work as before.
