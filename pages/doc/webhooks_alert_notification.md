@@ -225,7 +225,7 @@ Test your alert target to ensure that it works properly.
 
 To add a custom alert target to a new or existing alert:
 
-1. Display the [Create Alert](alerts.html#creating-an-alert) page or the [Edit Alert](alerts.html#editing-an-alert) page.
+1. Go to the [**Create Alert** or **Edit Alert** page](alerts_manage.html) page.
 1. Scroll down to the **Target List** section.
 1. Start typing in the **Alert Target** field. A drop-down list appears. This list contains all available Wavefront alert targets that can be integrated to your alert.
 1. Select the alert target that you want to add, and click **Save**.

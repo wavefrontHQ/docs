@@ -30,7 +30,7 @@ Returns the percentage of anomalous points in each time series described by the 
 Default is 0.99 if this parameter is not specified.
 </td></tr>
 <tr><td markdown="span">historyWindow</td>
-<td markdown="span">Optional mount of time in the _history window_, which is the [time window](query_language_reference.html#common-parameters) that immediately precedes the chart window. Default is 1 day (1d) if this parameter is not specified. Points in the chart window and the history window are the basis for computing the expected values in the test window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart.
+<td markdown="span">Optional amount of time in the _history window_, which is the [time window](query_language_reference.html#common-parameters) that immediately precedes the chart window. Default is 1 day (1d) if this parameter is not specified. Points in the chart window and the history window are the basis for computing the expected values in the test window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart.
 </td></tr>
 <tr>
 <td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
@@ -81,7 +81,7 @@ If the range is narrow, many points lie outside it, and the reported percentages
 
 By default, the history window is one day long. You can fine tune the forecast by adding an optional `historyWindow` parameter to specify a longer or shorter history window. A longer history window supports more accurate prediction, although the query might take longer.
 
-For example, `anomalous(5m, 2w, 1m, ts(my.metric))` predicts the expected values based on 2 weeks's worth of actual data points in addition to the data shown in the chart, and aligns the input and output data points at 1-minute intervals.
+For example, `anomalous(5m, 2w, ts(my.metric))` predicts the expected values based on 2 weeks’ worth of actual data points in addition to the data shown in the chart.
 
 <!---  9/30/18-10/08/18 sum(rate(ts(dataingester.report-points, tag=${cluster}))) --->
 ## Example
@@ -95,3 +95,35 @@ We'd like to know whether the actual fluctuation deviates from the expected fluc
 The orange line in the following chart suggests that the spikes in data ingestion on the afternoons of October 1, 3, 4, and 5 may be anomalous because they fall outside the range of 99% of expected values. In contrast, the behavior on the afternoon of October 2 seems right in line with expectations -- the percentage of anomalous points here is 0.
 
 ![anomalous after](images/ts_anomalous_after_new.png)
+
+## Using the `anomalous()` Function in Alerts
+
+{% include note.html content="Queries with the `anomalous()` function are resource intensive and need to be used carefully. Otherwise, they can cause high loading on the Wavefront system." %}
+
+### History Size and Test Window Size
+
+When you use the `anomalous()` function in alerts, you must adjust some parameters. The most important ones are history window(`historyWindow`) and test window (`testWindow`). 
+
+To understand what's the best value to use for `historyWindow`, you must answer the simple questions: What type of anomalies am I looking for? Am I interested in daily, weekly, or monthly anomalies?
+
+After you decide what history window to use, you must select the test window. The test window value is based on the history window parameter, as those two parameters are interconnected. The ratio between the test window and history window is recommended to be more than 1:500, so if the selected value is too small to run the algorithm optimally, it will be tweaked by the system, and you'll see the following warning message:
+
+```
+The ratio between history window and test window is not optimal and will result in bad performance. History window has been optimized to …
+```
+
+### Alert Firing Window and Checking Frequency
+
+To minimize the load on the system, you may want to tweak the **Alert fires** window and **Checking Frequency** parameters based on the history window and the test window values that you choose. 
+
+You can set the **Alert fires** window parameter under **Condition** and the **Checking Frequency** parameter when you click the **Advanced** link.
+
+For optimal and effective execution of the alerts that are based on anomaly detection, update the default values for the **Alert Fires** window and alert **Checking Frequency**.
+
+Choose an **Alert fires** window based on the following equation:
+
+```
+Alert fires window = Test window / 10 * K, where K = 1, …, 10
+```
+
+Choose an alert **Checking Frequency** that is more than `Test window/10`, as the execution of the anomaly detection algorithm with lower values will take as an input the same historical duration, which will cause redundancy.

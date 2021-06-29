@@ -107,7 +107,7 @@ By default, no alert notifications are sent during the maintenance window. The a
 
 ### Maintenance Window Example
 
-Suppose you have a group of alerts that are used primarily as demo examples. These alerts have [alert tag paths](alerts_manage.html#organize-related-alerts-with-alert-tags) like `example.latency.dev`, `example.latency.prod`, `example.network.dev`, `example.network.prod`, and so on.
+Suppose you have a group of alerts that are used primarily as demo examples. These alerts have [alert tag paths](alerts.html#step-5-organize-related-alerts-with-tags) like `example.latency.dev`, `example.latency.prod`, `example.network.dev`, `example.network.prod`, and so on.
 
 To suppress the example alerts, you create a maintenance window as shown above, and fill in `Affected Alerts and Sources` according to your use case:
 
@@ -171,4 +171,4 @@ Suppose an alert condition tests the metrics that flow from sources `app-1`, `ap
 
 ## Learn More!
 
-* To learn how to use point tags for maintenance windows, see [this KB article](https://help.wavefront.com/hc/en-us/articles/360058003411-How-to-Use-Point-Tags-for-Maintenance-Windows)  
+* To learn how to use point tags for maintenance windows, see [this KB article](https://help.wavefront.com/hc/en-us/articles/360058003411-How-to-Use-Point-Tags-for-Maintenance-Windows)
