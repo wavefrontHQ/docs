@@ -6,17 +6,66 @@ permalink: wavefront_keyboard_shortcuts.html
 summary: Use the keyboard shortcuts to navigate through pages and menus.
 ---
 
-With the 2021-19.x release, Wavefront addresses accessibility issues and now includes level-A accessibility fixes for keyboard navigation and colorblind support. There are also a few level-AA issues addressed as well. Wavefront now allows you to use keyboard shortcuts to navigate through pages and menus instead of using the mouse. Some of the UI elements are also with changed color so that the color contrast supports colorblind accessibility. 
+With the 2021-19.x release, Wavefront addressed accessibility issues and now includes level-A accessibility fixes for keyboard navigation and colorblind support. There were a few level-AA issues addressed as well. Wavefront now allows you to use keyboard shortcuts to navigate through pages and menus instead of using the mouse. Some of the UI elements are also with changed color so that the color contrast supports colorblind accessibility. 
+
+With the 2021-26.x release, Wavefront supports keyboard navigation in more UI pages and also supports drag-and-drop functionality when you create or edit charts.
 
 ## Wavefront UI Pages With End-to-End Keyboard Navigation Support
 
-The end-to-end keyboard navigation is fully supported in the following list of Wavefront UI pages:
+The end-to-end keyboard navigation is fully supported in the Wavefront UI pages listed below. Accessing these pages can be done in multiple ways, the documented way for navigating to the respective page is provided as an example.
 
 * Dashboards Browser page
+
+  You can access it by navigating to **Dashboards > All Dashboards** from the toolbar.
+  
 * Dashboard page
+
+  You can access it by navigating to a specific dashboard from the Dashboards Browser page.
+  
+* Dashboard editor to create a new dashboard
+  
+  You can access it by navigating to **Dashboards > Create Dashboard** from the toolbar.
+  
 * Alerts Browser page
+  
+  You can access it by navigating to **Alerting** from the toolbar.
+  
 * Alert Viewer page
+
+  You can access it by navigating to a specific alert from the Alerts Browser page.
+  
 * Events list page
+
+  You can access it by navigating to **Browse > Events** from the toolbar.
+  
+* Chart page
+
+  You can access it by navigating to a specific chart from the Dashboard page or by navigating to **Dashboards > Create Chart** from the toolbar.
+  
+* Integrations list page
+
+  You can access it by navigating to **Integrations** from the toolbar.
+  
+* Kubernetes integration page
+
+  You can access it by navigating to **Kubernetes** from the Integrations list page.
+  
+* Sources Browser page
+
+  You can access it by navigating to **Browse > Sources** from the toolbar.
+  
+* Maintenance Windows page
+
+  You can access it by navigating to **Browse > Maintenance Windows** from the toolbar.
+  
+* User profile page
+
+  You can access it by navigating to your profile from the gear icon.
+  
+* Metrics Browser page
+
+  You can access it by navigating to **Browse > Metrics** from the toolbar.
+
 
 ## Keyboard Shortcuts and Their Usage
 
@@ -46,12 +95,13 @@ The end-to-end keyboard navigation is fully supported in the following list of W
 <td>Perform different actions depending on the current selection:
 <ul>
 <li>Exit from current selection or active state, such as a text editor. </li>
-<li>Close a pop-up window or any opened menu, such as a drop-down menu, or an ellipsis icon menu. Returns you to the parent or closest interactive element, if the current component disappears. Always orients you on the page post an action.</li>
+<li>Close a pop-up window or any opened menu, such as a drop-down menu, or an ellipsis icon menu. Returns you to the parent or closest interactive element if the current component disappears. Always orients you on the page post an action.</li>
 </ul></td>
 </tr>
 <tr>
 <td><strong>Space</strong></td>
-<td>Select or deselect a check box. <p>Alternatively, you can do this by pressing <strong>Enter</strong>, but it is not mandatory.</p></td>
+<td>Select or deselect a check box and enter drag-and-drop mode. <p>You can select or deselect check boxes by pressing <strong>Enter</strong>, but it is not mandatory.</p>
+<p>Drag-and-drop functionality is supported when you create or edit charts. To enter drag-and-drop mode, press <strong>Space</strong>, use the arrow keys to rearrange, and press <strong>Space</strong> again to drop the item in its new position.</p></td>
 </tr>
 </tbody>
 </table>
