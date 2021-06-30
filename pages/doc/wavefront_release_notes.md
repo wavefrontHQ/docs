@@ -9,58 +9,33 @@ summary: Learn about new and updated features in Wavefront.
 
 This page lists new and updated features in the Wavefront service. 
 
-## 2021-24.x Release Notes
+## 2021-25.x Release Notes
 
-* **PromQL Improvement**: Using global filters (key-value pairs for filtering results) is now supported for charts created with PromQL queries.
-* **Accessibility Improvements**: We have made a number of keyboard navigation and focus indicator fixes.
-* **Documentation Improvements**: Reorganized the information about [alerts](alerts.html).
+* **Anomaly Detection on Charts**: With this release, we deprecate the support of AI Genie and replace it with new functionality. You can now use the [**Anomaly Detection**](anomaly_detection.html), which is available for Line Plot chats and turn anomaly detection on. You can investigate the anomalies, which are highlighted in a different manner depending on their size, you can also select a specific anomaly. You can also [create alerts by using the `anomalous ()` function](ts_anomalous.html#using-the-anomalous-function-in-alerts), but note, that you must do that with caution.
 
+![Anomalies highlighted with purple square and purple circle](images/anomaly_hightlighting.png)
 
-## 2021-23.x Release Notes
+* **Accessibility Improvements**: 
 
-* **cumulativePercentile() Function**: For histograms that come from Prometheus, you can now use [the `cumulativePercentile()` function](ts_cumulativePercentile.html) to calculate the cumulative percentile value.
-* **List Variables**: List variables now support [non-alphanumeric characters](dashboards_variables.html#supported-characters).
-* **Alert Status for services**: Active alerts are now shown on the [Application Status page](tracing_ui_overview.html) in all formats (grid view, table view, app map).
-  ![Shows the red dot on a service on the app map view. This indicates that an alert is firing for that service. To see the alert, click actions and view alerts. ](images/tracing_alerts_on_app_map_release_notes.png)
+  In addition to the already existing keyboard navigation for some of the Wavefront UI pages, now we add [support for end-to-end keyboard navigation](wavefront_keyboard_shortcuts.html) for the following UI pages:
 
+  * Dashboard editor to create a new dashboard page
+  * Chart page
+  * Integrations list page
+  * Kubernetes integration page
+  * Sources Browser pages
+  * Maintenance Windows page
+  * User profile page
+  * Metrics Browser page
 
+  We also include drag-and-drop keyboard navigation when you create or edit charts. To enter drag mode, press **Space**, use the arrow keys to move the item, for example a query line, and press **Space** to drop it in its new position. You can rearrange query lines, functions within a query line in Query Builder, variables, and so on.
 
-## 2021-22.x Release Notes
-
-* **CSV Export Improvements**: Significant improvements to the [CSV Export functionality](ui_examine_data.html#export-to-csv-or-pdf) for table charts make it easy to open the exported data in a spreadsheet.
-
-## 2021-21.x Release Notes
-
-* **OpenTelemetry Exporter**: The [Tanzu Observability (Wavefront) exporter for OpenTelemetry](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/exporter/tanzuobservabilityexporter/README.md) allows you to send traces to Wavefront and use our [comprehensive DT GUI](tracing_ui_overview.html) to visualize trace data.
-<!---The KB [OpenTracing or OpenTelemetry- Which to select for instrumenting applications for tracing](https://help.wavefront.com/hc/en-us/articles/360058140212-OpenTracing-or-OpenTelemetry-Which-specification-to-select-for-instrumenting-applications-for-tracing-) gives an introduction.--->
-* **PromQL Improvements**:  We made the following improvements to our PromQL implementation:
-  - Regular expression filters in PromQL are now supported.
-  - Regular subquery expressions in PromQL are now supported.
-  The earlier limitations have been removed from our [PromQL doc page](wavefront_prometheus.html).
-* **New Function**: We now support a [log2() function](ts_log2.html) in addition to the existing log() and log10() functions.
-* **Alert API Change**: Performing a PUT request with no changes against `/api/v2/alert/{id}` no longer marks the alert as edited/auto resolved.
-* **Search UI Improvements**:
-  - You can explicitly exclude a keyword or a phrase from the search results by changing the equal sign to a not equal sign (≠). See [Searching Wavefront](wavefront_searching.html) for an example.
-
-  ![exclude search results](images/not_in_search.png)
-  - When you search, we now show results that contain the current text string, as shown in the following screenshot.
-
-  ![search has results of full string and results that include the text string, starting with Contains](images/contains.png)
-
-
-
-
-## 2021-20.x Release Notes
-
-* **Performance Improvements**: This release includes significant performance improvements for the query language. As part of this project, our engineers added single-side join improvements, strategy improvements for TopK, and more. Read our blog post: [How Tanzu Observability Continuous Improvement Makes You More Successful](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/how-tanzu-observability-continuous-improvement-make-you-more-successful) for details.
-
-* **New Functions**: We added the [`retainDimension()` and `removeDimension()` functions](ts_retainDimension_removeDimension.html), which allow you to keep or remove dimensions (point tags) that are in the results of your queries.
-
-* **New Operators**: We add the `groupLeft` and `groupRight` operators, which let you achieve many-to-one and one-to-many series matching, similar to the [Many-to-one and one-to-many PromQL vector matches](https://prometheus.io/docs/prometheus/latest/querying/operators/#many-to-one-and-one-to-many-vector-matches). To learn more about how to use these operators and how Wavefront processes output metadata from a series match, see [Processing Output Metadata from a Series Match](query_language_series_matching.html#processing-output-metadata-from-a-series-match).
+* **Azure AD Integration Improvements**: Updated the setup and the [setup instructions in the Azure AD Integration](azure_ad.html). Now you can easily set up the Azure AD integration without the need to contact our support team so that users can authenticate to Wavefront through Azure AD instead of using a password.  
 
 
 ## Past Release Notes
 
+- [2021-24.x Release Notes](2021.24.x_release_notes.html)
 - [2021-19.x Release Notes](2021.19.x_release_notes.html)
 - [2021-14.x Release Notes](2021.14.x_release_notes.html)
 - [2021-08.x Release Notes](2021.08.x_release_notes.html)
