@@ -28,11 +28,11 @@ The Wavefront Usage integration includes the following dashboards:
 <tr>
 <td><strong>Wavefront Service and Proxy Data</strong></td>
 <td>Examine <strong>usage data</strong>.</td>
-<td>Provides visibility into your use of the Wavefront service via internal metrics that Wavefront collects automatically. Preconfigured charts monitor the data ingestion rate for points, spans and distributions, the data scan rate, and different proxy metrics.</td></tr>
+<td>Provides visibility into your use of the Wavefront service via internal metrics that Wavefront collects automatically. Preconfigured charts monitor the data ingestion rate for points, spans, and distributions, the data scan rate, and different proxy metrics.</td></tr>
 <tr>
 <td><strong>Wavefront Namespace Usage Explorer</strong></td>
 <td>Explore metrics namespaces to see the <strong>trend</strong> of your metrics ingestion rate.</td>
-<td>Tracks the number of time series metrics received for the first 3 levels of your metric namespace. Also tracks the breakdown of histograms, spans and delta counters.</td></tr>
+<td>Tracks the number of time series metrics received for the first 3 levels of your metric namespace. Also tracks the breakdown of histograms, spans, and delta counters.</td></tr>
 <tr>
 <td><strong>Wavefront Ingestion Policy Explorer</strong></td>
 <td>In environments where ingestion policies are defined, investigate usage for <strong>each account and ingestion policy</strong>.</td>
@@ -95,11 +95,11 @@ If you have an [AWS integration](integrations_aws_metrics.html) and are ingestin
 
 The available metrics for the AWS integration are:
 
-- `~externalservices.cloudwatch.api-requests` - number of CloudWatch API requests
-- `~externalservices.cloudwatch.points`- number of CloudWatch metrics returned
-- `~externalservices.ec2.points` - number of AWS Metrics+ metrics returned
-- `~externalservices.cloudtrail.events` - number of CloudTrail events returned
-- `~externalservices.cloudwatch-cycle-timer` - time in milliseconds CloudWatch requests take to complete
+- `~externalservices.cloudwatch.api-requests` - number of CloudWatch API requests.
+- `~externalservices.cloudwatch.points`- number of CloudWatch metrics returned.
+- `~externalservices.ec2.points` - number of AWS Metrics+ metrics returned.
+- `~externalservices.cloudtrail.events` - number of CloudTrail events returned.
+- `~externalservices.cloudwatch-cycle-timer` - time in milliseconds CloudWatch requests take to complete.
 
 #### Ingest Rate by Source
 
@@ -144,17 +144,17 @@ For example:
 * Examine who is using a high percentage of the PPS in the  **Wavefront Ingestion Policy Explorer** dashboard.
 * Implement [ingestion policies](ingestion_policies.html).
 
-{% include note.html content="The information contained in this dashboard has a 24 hour latency."%}
+{% include note.html content="The information contained in this dashboard has a 24-hour latency."%}
 
 ![screenshot of part of the dashboard](/images/p95_dashboard.png)
 
 ## Scenario: Avoid Exceeding the Committed Rate
 
-Customers often tell us that they want to make sure they don't exceen their committed monthly PPS (points per second). Follow these steps to monitor usage and take corrective action.
+Customers often tell us that they want to make sure they don't exceed their committed monthly PPS (points per second). Follow these steps to monitor usage and take corrective action.
 
-1. The new `Committed Rate and Monthy Usage (PPS P95) vs. Committed` dashboard includes charts that show how close you are to consuming 95% of your contracted rate. You can add alerts to charts in this dashboard to get notifications.
+1. The new `Committed Rate and Monthly Usage (PPS P95) vs. Committed` dashboard includes charts that show how close you are to consuming 95% of your contracted rate. You can add alerts to charts in this dashboard to get notifications.
 2. If you need to reduce usage, you have several options:
-   * Start examining ingestion from the Wavefront Service and Proxy Data dashboard. The [internal metrics](wavefront_monitoring.html#internal-metrics-overview) shown in this dashboard highlight
+   * Start examining ingestion from the Wavefront Service and Proxy Data dashboard. The [internal metrics](wavefront_monitoring.html#internal-metrics-overview) shown in this dashboard highlight.
    * Use the **Wavefront Namespace Usage Explorer** dashboard to drill down into the metrics. Wavefront automatically tracks the number of metrics received for the first 3 levels of your metric namespace as delta counters, and this dashboard presents the metrics in an easy-to-use way.
    * Finally, if you suspect that much of your usage comes from certain accounts (human or service accounts) consider setting up one or more ingestion policies. With these policies in place, each account cannot consume more than the rate that is preset in the policy.
 
@@ -163,7 +163,7 @@ Customers often tell us that they want to make sure they don't exceen their comm
 
 Wavefront collects several categories of internal metrics. They are used extensively in the different dashboards of the Wavefront Usage integration. You can:
 
-* Clone and modify one of the Wavefront Usage integration dashboards
+* Clone and modify one of the Wavefront Usage integration dashboards.
 * Create your own dashboard, query these metrics in charts, and create alerts for these metrics.
 
 
