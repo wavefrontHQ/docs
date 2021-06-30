@@ -10,7 +10,7 @@ Wavefront includes tools and dashboards for examining usage. This page helps adm
 
 ## Why Is Usage Information Important?
 
-Each customer has a contract with VMware that allows them to send a predetermined amount of data to their Wavefront instance. That is, billing depends on the points per seconds (PPS) that the customer sends.
+Each customer has a contract with VMware that allows them to send a predetermined amount of data to their Wavefront instance. That is, billing depends on the points per second (PPS) that the customer sends.
 
 If the customer uses more than the contracted rate, VMware bills for those additional data. Because VMware has to pay the cloud provides for data consumed by the Wavefront instances, we have to make sure that customers pay for the data they consume. But we're interested in having our customers get the best possible results from their data.
 
@@ -44,7 +44,7 @@ If the customer uses more than the contracted rate, VMware bills for those addit
 </tr>
 <tr>
 <td>What are current usage details?</td>
-<td>Start with the dashboards in the **Wavefront Usage** integration. The dashboards allow you to look at both current usage and usage over time. If you need to drill down more, use the <a href="wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy">Wavefront Top GUI</a> for a detailed view of current spikes. </td>
+<td>Start with the dashboards in the <strong>Wavefront Usage</strong> integration. The dashboards allow you to look at both current usage and usage over time. If you need to drill down more, use the <a href="wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy">Wavefront Top GUI</a> for a detailed view of current spikes. </td>
 </tr>
 <tr>
 <td>Why do I have cardinality problems?</td>
@@ -71,7 +71,7 @@ The **Wavefront Namespace Usage Explorer** dashboard can help you pinpoint where
 * What are my top namespaces?
 * Top 10 and trends over time at each level
 
-The screenshot below shows an example from our demo server. The data are prefixed with the data source. In the pie chart, we can see that the top namespaces include `pcf` and `kubernetes`
+The screenshot below shows an example from our demo server. The data are prefixed with the data source. In the pie chart, we can see that the top namespaces include `pcf` and `kubernetes`.
 
 ![Metrics namespace dashboard screenshot](images/metrics_namespace_dashboard.png)
 
@@ -100,7 +100,7 @@ rawsum(align(1m, taggify(cs("~metric.global.namespace.*.ppm", source="depth_1"),
 
 If you need more than 3 levels of namespaces or if the dashboard doesn't answer your questions for other reasons, Wavefront Top and the Spy API show in detail what’s happening right now.
 * Wavefront Top supports metrics and IDs.
-* The Wavefront Spy API also supports delta counters, histograms, spans, and spanlogs.
+* The Wavefront Spy API also supports delta counters, histograms, spans, and span logs.
 
 For example, with Wavefront Top you can:
 * Dive into deeper levels of the namespace than with the Namespace Explorer dashboard.
@@ -112,7 +112,7 @@ For example, with Wavefront Top you can:
 {% include tip.html content="You cannot see the information over time from Wavefront Top. Use one of the Wavefront Usage dashboards instead if possible." %}
 
 
-The [Wavefront Spy API](wavefront_monitoring_spy.html) gives even more detail, but in most cases Wavefront Top is suffient.
+The [Wavefront Spy API](wavefront_monitoring_spy.html) gives even more detail, but in most cases Wavefront Top is sufficient.
 
 ## How Close Am I To Exceeding My Contracted Rate?
 
