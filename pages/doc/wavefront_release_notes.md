@@ -13,7 +13,7 @@ This page lists new and updated features in the Wavefront service.
 
 * **Anomaly Detection on Charts**: With this release, we deprecate the support of AI Genie and replace it with new functionality. You can now use the [**Anomaly Detection**](anomaly_detection.html), which is available for Line Plot chats and turn anomaly detection on. You can investigate the anomalies, which are highlighted in a different manner depending on their size, you can also select a specific anomaly. You can also [create alerts by using the `anomalous ()` function](ts_anomalous.html#using-the-anomalous-function-in-alerts), but note, that you must do that with caution.
 
-![Anomalies highlighted with purple square and purple circle](images/anomaly_hightlighting.png)
+  ![Anomalies highlighted with purple square and purple circle](images/anomaly_hightlighting.png)
 
 * **Accessibility Improvements**: 
 
