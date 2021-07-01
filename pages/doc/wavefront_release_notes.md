@@ -28,7 +28,11 @@ This page lists new and updated features in the Wavefront service.
   * User profile page
   * Metrics Browser page
 
-  We also include drag-and-drop keyboard navigation when you create or edit charts. To enter drag mode, press **Space**, use the arrow keys to move the item, for example a query line, and press **Space** to drop it in its new position. You can rearrange query lines, functions within a query line in Query Builder, variables, and so on.
+  We have also included drag-and-drop keyboard navigation when you create or edit charts. To enter drag mode, press **Space**, use the arrow keys to move the item, for example a query line, and press **Space** to drop it in its new position. You can rearrange query lines, functions within a query line in Query Builder, variables, and so on.
+  
+  Colors in dashboards, charts, service and operational dashboards, as well as Amazon Web Services dashboards are updated to support colorblind accessibility. We also redesigned the color picker with a new color palette that is different for dark and light UI theme.
+  
+    ![Color picker for light theme](images/color-picker.png)
 
 * **Azure AD Integration Improvements**: Updated the setup and the [setup instructions in the Azure AD Integration](azure_ad.html). Now you can easily set up the Azure AD integration without the need to contact our support team so that users can authenticate to Wavefront through Azure AD instead of using a password.  
 

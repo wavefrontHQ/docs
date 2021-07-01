@@ -8,7 +8,13 @@ summary: Use the keyboard shortcuts to navigate through pages and menus.
 
 With the 2021-19.x release, Wavefront addressed accessibility issues and now includes level-A accessibility fixes for keyboard navigation and colorblind support. There were a few level-AA issues addressed as well. Wavefront now allows you to use keyboard shortcuts to navigate through pages and menus instead of using the mouse. Some of the UI elements are also with changed color so that the color contrast supports colorblind accessibility. 
 
-With the 2021-26.x release, Wavefront includes more color contrast improvements, supports keyboard navigation in more UI pages, and also supports drag-and-drop functionality when you create or edit charts.
+With the 2021-26.x release, Wavefront addresses more accessibility issues. It now includes:
+* More color contrast improvements, for example in charts and dashboards. 
+* A redesigned color picker with a new color palette that is different for dark and light UI theme. 
+  ![Color picker for light theme](images/color-picker.png)
+* Keyboard navigation support in more UI pages.
+* Drag-and-drop functionality when you create or edit charts.
+
 
 ## Wavefront UI Pages With End-to-End Keyboard Navigation Support
 
