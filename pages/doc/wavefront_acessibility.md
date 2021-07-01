@@ -112,8 +112,9 @@ The end-to-end keyboard navigation is fully supported in the Wavefront UI pages 
 </tr>
 <tr>
 <td><strong>Space</strong></td>
-<td>Select or deselect a check box and enter drag-and-drop mode. <p>You can select or deselect check boxes by pressing <strong>Enter</strong>, but it is not mandatory.</p>
-<p>Drag-and-drop functionality is supported, for example, when you create or edit charts, when you add list variables, on the Metrics Security Policy page, and so on. To enter drag mode, press <strong>Space</strong>, use the arrow keys to rearrange the items, and press <strong>Space</strong> again to drop an item in its new position.</p></td>
+<td>Select or deselect a check box and enter drag-and-drop mode. <ul>
+<li>You can select or deselect check boxes by pressing <strong>Enter</strong>, but it is not mandatory.</li>
+<li>Drag-and-drop functionality is supported, for example, when you create or edit charts, when you add list variables, on the Metrics Security Policy page, and so on. To enter drag mode, press <strong>Space</strong>, use the arrow keys to rearrange the items, and press <strong>Space</strong> again to drop an item in its new position.</li></ul></td>
 </tr>
 </tbody>
 </table>
