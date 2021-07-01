@@ -100,7 +100,7 @@ The end-to-end keyboard navigation is fully supported in the Wavefront UI pages 
 </tr>
 <tr>
 <td><strong>Enter</strong></td>
-<td>Perform the action the element is meant to do. For example, if the element is a button, pressing <strong>Enter</strong> is the same as clicking the button. <p> Pressing <strong>Enter</strong> in the Query Editor, enters edit mode, so that you can type a new query or edit the existing one.</p></td>
+<td>Perform the action the element is meant to do. For example, if the element is a button, pressing <strong>Enter</strong> is the same as clicking the button. Pressing <strong>Enter</strong> when the element is a link, opens the link. <p> Pressing <strong>Enter</strong> in the Query Editor, enters edit mode, so that you can type a new query or edit the existing one.</p></td>
 </tr>
 <tr>
 <td><strong>Esc</strong> or <strong>Opt+Esc</strong> for Safari</td>
@@ -111,10 +111,10 @@ The end-to-end keyboard navigation is fully supported in the Wavefront UI pages 
 </ul></td>
 </tr>
 <tr>
-<td><strong>Space</strong></td>
-<td>Select or deselect a check box and enter drag-and-drop mode. <ul>
-<li>You can select or deselect check boxes by pressing <strong>Enter</strong>, but it is not mandatory.</li>
-<li>Drag-and-drop functionality is supported, for example, when you create or edit charts, when you add list variables, on the Metrics Security Policy page, and so on. To enter drag mode, press <strong>Space</strong>, use the arrow keys to rearrange the items, and press <strong>Space</strong> again to drop an item in its new position.</li></ul></td>
+<td><strong>Spacebar</strong></td>
+<td>Select or deselect a check box, click a button, and enter drag-and-drop mode. <ul>
+<li>You can also select or deselect check boxes and click buttons by pressing <strong>Enter</strong>, but it is not mandatory.</li>
+<li>Drag-and-drop functionality is supported, for example, when you create or edit charts, when you add list variables, on the Metrics Security Policy page, and so on. To enter drag mode, press <strong>spacebar</strong>, use the arrow keys to rearrange the items, and press <strong>spacebar</strong> again to drop an item in its new position.</li></ul></td>
 </tr>
 </tbody>
 </table>

@@ -28,7 +28,7 @@ This page lists new and updated features in the Wavefront service.
   * User profile page
   * Metrics Browser page
 
-  We have also included reordering drag-and-drop keyboard navigation when you create or edit charts, create of edit metrics security policy. To enter drag mode, press **Space**, use the arrow keys to move the item, for example a query line, and press **Space** to drop it in its new position. You can rearrange:
+  We have also included reordering drag-and-drop keyboard navigation when you create or edit charts, create of edit metrics security policy. To enter drag mode, press **spacebar**, use the arrow keys to move the item, for example a query line, and press **spacebar** to drop it in its new position. You can rearrange:
   
   * Query lines
   * Functions within a query line in Query Builder 
