@@ -30,7 +30,7 @@ This page lists new and updated features in the Wavefront service.
 
   We have also included drag-and-drop keyboard navigation when you create or edit charts. To enter drag mode, press **Space**, use the arrow keys to move the item, for example a query line, and press **Space** to drop it in its new position. You can rearrange query lines, functions within a query line in Query Builder, variables, and so on.
   
-  Colors in dashboards, charts, service and operational dashboards, as well as Amazon Web Services dashboards are updated to support colorblind accessibility. We also redesigned the color picker with a new color palette that is different for dark and light UI theme.
+  Colors in all charts and dashboards, including service and operational dashboards, as well as Amazon Web Services dashboards are updated to support colorblind accessibility. We also redesigned the color picker with a new color palette that is different for dark and light UI theme.
   
     ![Color picker for light theme](images/color-picker.png)
 
