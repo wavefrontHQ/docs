@@ -9,6 +9,7 @@ summary: Learn about new and updated features in Wavefront.
 
 This page lists new and updated features in the Wavefront service. 
 
+
 ## 2021-24.x Release Notes
 
 * **PromQL Improvement**: Using global filters (key-value pairs for filtering results) is now supported for charts created with PromQL queries.
