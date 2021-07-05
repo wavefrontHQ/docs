@@ -1,5 +1,5 @@
 ---
-title: New and Changed Integrations
+title: Integrations Release Notes
 keywords: integrations
 tags: [integrations]
 sidebar: doc_sidebar
