@@ -15,7 +15,7 @@ lowpass(<traceDuration>, <tracesExpression>)
 lowpass(<spanDuration>, <spansExpression>)
 ```
 
-You can use `lowpass()` with time series, with traces, and with spans. Multiple operators can be used at the same time. 
+You can use `lowpass()` with time series, with traces, and with spans. Multiple operators can be used at the same time.
 
 <table style="width: 100%;">
 <colgroup>
@@ -147,3 +147,4 @@ The resulting Stacked Area chart shows results only where the data are less than
 ## See Also
 
 * [Series Matching](query_language_series_matching.html)
+* [Queries for Comparing Time Series](query_language_recipes.html#queries-for-comparing-time-series)

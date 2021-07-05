@@ -680,6 +680,9 @@ The results are computed from real reported data values only, with no interpolat
 
 Filtering functions help you select a subset of the time series that are returned by a `tsExpression`.
 
+{% include tip.html content="In addition to the functions below, you can also use the operators `.lt`, `.gt`, `.le`, `.ge`, `.eq`, and `.ne`. See [Queries for Comparing Time Series](query_language_recipes.html#queries-for-comparing-time-series)." %}
+
+
 <table style="width: 100%;">
 <colgroup>
 <col width="45%" />

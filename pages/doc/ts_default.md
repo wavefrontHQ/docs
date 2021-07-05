@@ -158,3 +158,4 @@ Other missing data functions include:
 * [interpolate](ts_interpolate.html)
 * [next](ts_next.html)
 * [last](ts_last.html)
+* [orElse Operator](ts_orelse.html)
