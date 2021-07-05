@@ -41,7 +41,7 @@ This page lists new and updated features in the Wavefront service.
   
     ![Color picker for light theme](images/color-picker.png)
 
-* **Azure AD Integration Improvements**: Updated the setup and the [setup instructions of the Azure AD Integration](azure_ad.html). You can now easily set up the Azure AD integration without the need to contact our support team, so that users can authenticate to Wavefront through Azure AD instead of using a password.  
+* **Azure AD Integration Improvements**: Updated the setup and the [setup instructions of the Azure AD Integration](azure_ad.html). You can now easily set up the Azure AD integration yourself without the need to contact our support team, so that users can authenticate to Wavefront through Azure AD instead of using a password.  
 
 
 ## Past Release Notes
