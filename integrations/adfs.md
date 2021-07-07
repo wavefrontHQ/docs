@@ -9,6 +9,9 @@ summary: Learn about the Wavefront ADFS Integration.
 ADFS is a popular identity management product that can be integrated with Wavefront to enable single sign-on.
 ## ADFS Setup
 
+After setting up the ADFS integration, users can authenticate to Wavefront through ADFS instead of using a password.  New users who did not exist in Wavefront are auto-created on the Wavefront side when they authenticate for the first time.
+
+
 ### Step 1. Run the Wizard
 
 To add the ADFS integration to Wavefront, follow these steps:
@@ -53,26 +56,18 @@ The rule sends an email address claim in the SAML response. The new rule transfo
 {% include image.md src="images/sso_adfs_11.png" width="65" %}
 
 
-### Step 3. Download Identity Provider Metadata and Send to Wavefront
+### Step 3. Send the Identity Provider Metadata to Wavefront and Complete the Setup
 
-**Wavefront version 2020.30 and earlier**
-
-1. Open `https://<FQDN of ADFS>/FederationMetadata/2007-06/FederationMetadata.xml` to retrieve the identify provider metadata file.
-1. Send the metadata file to [support@wavefront.com](mailto:support@wavefront.com) with a request to set up ADFS SSO integration for Wavefront and we'll activate the integration on our end. We'll notify you as soon as we've done this. At that point the users would authenticate to Wavefront through ADFS instead of using a password. Any new user that comes along that did not yet exist in Wavefront is auto-created on the Wavefront side on first authentication.
-
-**Wavefront version 2020.34 and later**
-
-1. Log in to Wavefront with a user account for which `SAML IDP Admin` permission is enabled.
-2. Click on the gear icon on top right corner and navigate to **Self Service SAML**.
-3. Select **Identity Provider** as **ADFS** from the list.
-4. Copy the downloaded metadata from Step 2 into the **Configure Connection** text box.
-5. Click **Test** to test the validity of metadata. A new browser window opens with ADFS login page.
+1. Download `https://<FQDN of ADFS>/FederationMetadata/2007-06/FederationMetadata.xml` identity provider metadata file.
+1. Log in to your Wavefront instance as a user with `SAML IdP Admin` permissions.
+1. From the gear icon in the top right corner, select **Self Service SAML**.
+1. From the **Identity Provider** drop-down menu, select **ADFS**.
+1. Paste the downloaded metadata into the **Configure Connection** text box.
+1. To validate the metadata, click **Test**. The **ADFS** login page opens in a new browser window.
+1. Log in to **ADFS**.
+1. After the login is successful, click the **Save** button.
 
    **Note:** The **Save** button is disabled until you've completed a test successfully.
-
-6. Log in to ADFS. After the login is successful, click **Save**.
-
-Going forward, users who attempt to log in to Wavefront are redirected to ADFS. If a user can authenticate to ADFS but is not currently a Wavefront user, that user is auto-created on the Wavefront side. Password authentication is no longer supported.
 
 
 
