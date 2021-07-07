@@ -146,7 +146,7 @@ When you click the link in the Wavefront Spring Boot starter, you are taken to t
 * Status of hosts, applications, and services.
 * Request rate
 * Inventory details
-* Hosts. Use the pulldown menus to group the hosts.
+* Hosts. Use the drop-down menus to group the hosts.
 
 If one or more applications are enabled for tracing, click the link in the Tracing section to be directed to the Tracing dashboard.
 
