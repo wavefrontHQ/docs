@@ -50,7 +50,7 @@ After you've sent your data to Wavefront, you can view them in custom dashboards
 
 <table style="width: 100%;">
 <tbody>
-<tr><td width="50%">To detect problems, you can <a href="alerts.html"> <strong>create alerts</strong></a> directly from charts and specify.
+<tr><td width="50%">To detect problems, you can <a href="alerts_manage.html"> <strong>create alerts</strong></a> directly from charts and specify.
 <p>For example, assume in your environment you need to know:</p>
 <ul>
 <li>When the CPU reaches a certain threshold. </li>

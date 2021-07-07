@@ -7,23 +7,40 @@ permalink: wavefront_release_notes.html
 summary: Learn about new and updated features in Wavefront.
 ---
 
-This page lists new and updated features in the Wavefront service.
+This page lists new and updated features in the Wavefront service. 
+
+
+## 2021-24.x Release Notes
+
+* **PromQL Improvement**: Using global filters (key-value pairs for filtering results) is now supported for charts created with PromQL queries.
+* **Accessibility Improvements**: We have made a number of keyboard navigation and focus indicator fixes.
+* **Documentation Improvements**: Reorganized the information about [alerts](alerts.html).
+
+
+## 2021-23.x Release Notes
+
+* **cumulativePercentile() Function**: For histograms that come from Prometheus, you can now use [the `cumulativePercentile()` function](ts_cumulativePercentile.html) to calculate the cumulative percentile value.
+* **List Variables**: List variables now support [non-alphanumeric characters](dashboards_variables.html#supported-characters).
+* **Alert Status for services**: Active alerts are now shown on the [Application Status page](tracing_ui_overview.html) in all formats (grid view, table view, app map).
+  ![Shows the red dot on a service on the app map view. This indicates that an alert is firing for that service. To see the alert, click actions and view alerts. ](images/tracing_alerts_on_app_map_release_notes.png)
+
+
 
 ## 2021-22.x Release Notes
 
-* **CSV Export Improvements**. Significant improvements to the [CSV Export functionality](ui_examine_data.html#export-to-csv-or-pdf) for table charts make it easy to open the exported data in a spreadsheet. 
+* **CSV Export Improvements**: Significant improvements to the [CSV Export functionality](ui_examine_data.html#export-to-csv-or-pdf) for table charts make it easy to open the exported data in a spreadsheet.
 
 ## 2021-21.x Release Notes
 
-* **OpenTelemetry Exporter**. The [Tanzu Observability (Wavefront) exporter for OpenTelemetry](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/exporter/tanzuobservabilityexporter/README.md) allows you to send traces to Wavefront and use our [comprehensive DT GUI](tracing_ui_overview.html) to visualize trace data.
+* **OpenTelemetry Exporter**: The [Tanzu Observability (Wavefront) exporter for OpenTelemetry](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/exporter/tanzuobservabilityexporter/README.md) allows you to send traces to Wavefront and use our [comprehensive DT GUI](tracing_ui_overview.html) to visualize trace data.
 <!---The KB [OpenTracing or OpenTelemetry- Which to select for instrumenting applications for tracing](https://help.wavefront.com/hc/en-us/articles/360058140212-OpenTracing-or-OpenTelemetry-Which-specification-to-select-for-instrumenting-applications-for-tracing-) gives an introduction.--->
-* **PromQL Improvements**.  We made the following improvements to our PromQL implementation:
+* **PromQL Improvements**:  We made the following improvements to our PromQL implementation:
   - Regular expression filters in PromQL are now supported.
   - Regular subquery expressions in PromQL are now supported.
   The earlier limitations have been removed from our [PromQL doc page](wavefront_prometheus.html).
-* **New Function**. We now support a [log2() function](ts_log2.html) in addition to the existing log() and log10() functions.
-* **Alert API Change**. Performing a PUT request with no changes against `/api/v2/alert/{id}` no longer marks the alert as edited/auto resolved.
-* **Search UI Improvements**.
+* **New Function**: We now support a [log2() function](ts_log2.html) in addition to the existing log() and log10() functions.
+* **Alert API Change**: Performing a PUT request with no changes against `/api/v2/alert/{id}` no longer marks the alert as edited/auto resolved.
+* **Search UI Improvements**:
   - You can explicitly exclude a keyword or a phrase from the search results by changing the equal sign to a not equal sign (≠). See [Searching Wavefront](wavefront_searching.html) for an example.
 
   ![exclude search results](images/not_in_search.png)
@@ -59,4 +76,4 @@ This page lists new and updated features in the Wavefront service.
 
 * For Wavefront Proxy, your go-to place is the [Wavefront proxy github page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
 
-* For the latest changes and releases of the Wavefront Integrations, see [New and Changed Integrations](integrations_new_changed.html).
+* For the latest changes and releases of the Wavefront Integrations, see the [Integrations Release Notes](integrations_new_changed.html).

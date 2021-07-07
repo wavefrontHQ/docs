@@ -8,8 +8,8 @@ summary: New and changed Wavefront integrations released in 2018
 ---
 Wavefront continuously adds new integrations to the existing set, and improves available integrations.
 
-This document lists new and changed integrations for 2018 (and December 2017). For the 2019-2020 releases, see [New and Changed Integrations in 2019-2020](integrations_new_changed_2020.html).
-* We have a separate document for [New and Changed Integrations](integrations_new_changed.html).
+This document lists the new and changed integrations for 2018 (and December 2017). For the 2019-2020 releases, see [New and Changed Integrations in 2019-2020](integrations_new_changed_2020.html).
+* We have a separate document for [Integrations Release Notes](integrations_new_changed.html).
 * We update our [list of all integrations](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
 ## December 2018

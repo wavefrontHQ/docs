@@ -17,7 +17,7 @@ entries:
     - title: Searching Wavefront
       url: /wavefront_searching.html
       output: web
-      
+
     - title: Wavefront Keyboard Navigation
       url: /wavefront_keyboard_shortcuts.html
       output: web
@@ -149,8 +149,8 @@ entries:
     - title: Wavefront Release Notes
       url: /wavefront_release_notes.html
       output: web
-      
-    - title: New and Changed Integrations
+
+    - title: Integrations Release Notes
       url: /integrations_new_changed.html
       output: web
 
@@ -297,6 +297,84 @@ entries:
       url: /log_integration.html
       output: web
 
+  - title: "Alerts & Events"
+    output: web
+    folderitems:
+
+    - title: Alerts
+      url: /alerts.html
+      output: web
+
+    - title: "Create & Manage Alerts"
+      url: /alerts_manage.html
+      output: web
+
+    - title: Alert States and Lifecycle
+      url: /alerts_states_lifecycle.html
+      output: web
+
+      subfolders:
+      - title: Alert Targets and Notifications
+        output: web
+        subfolderitems:
+
+        - title: Alert Notifications
+          url: /alerts_notifications.html
+          output: web
+
+        - title: Custom Alert Targets
+          url: /webhooks_alert_notification.html
+          output: web
+
+        - title: Customizing Alert Notifications
+          url: /alert_target_customizing.html
+          output: web
+
+      - title: Alerts Tips and Tricks
+        output: web
+        subfolderitems:
+
+        - title: Alert Recipes
+          url: /alerts_recipes.html
+          output: web
+
+        - title: Alerting on Missing Data
+          url: /alerts_missing_data.html
+          output: web
+
+        - title: Limiting the Impact of Data Delays
+          url: /alerts_delayed_data.html
+          output: web
+
+        - title: Building Linked Alerts
+          url: /alerts_dependencies.html
+          output: web
+
+        - title: Preventing Alerts from Firing
+          url: /maintenance_windows_managing.html
+          output: web
+
+        - title: Alerts Best Practices
+          url: /alerts_best_practices.html
+          output: web
+
+
+      - title: Events
+        output: web
+        subfolderitems:
+
+        - title: Events Overview
+          url: /events.html
+          output: web
+
+        - title: Displaying Events in Charts
+          url: /charts_events_displaying.html
+          output: web
+
+        - title: events() Queries
+          url: /events_queries.html
+          output: web
+
   - title: Query Language
     output: web
     folderitems:
@@ -374,91 +452,12 @@ entries:
     - title: Using PromQL in Wavefront
       url: /wavefront_prometheus.html
       output: web
-    
-  - title: "Alerts & Events"
-    output: web
-    folderitems:
-
-    - title: Alerts
-      url: /alerts.html
-      output: web
-
-    - title: Manage Alerts
-      url: /alerts_manage.html
-      output: web
-
-    - title: Alert States and Lifecycle
-      url: /alerts_states_lifecycle.html
-      output: web
-
-      subfolders:
-      - title: Alert Targets and Notifications
-        output: web
-        subfolderitems:
-
-        - title: Alert Notifications
-          url: /alerts_notifications.html
-          output: web
-
-        - title: Custom Alert Targets
-          url: /webhooks_alert_notification.html
-          output: web
-
-        - title: Customizing Alert Notifications
-          url: /alert_target_customizing.html
-          output: web
-
-      - title: Alerts Tips and Tricks
-        output: web
-        subfolderitems:
-
-        - title: Alert Recipes
-          url: /alerts_recipes.html
-          output: web
-
-        - title: Alerting on Missing Data
-          url: /alerts_missing_data.html
-          output: web
-
-        - title: Limiting the Impact of Data Delays
-          url: /alerts_delayed_data.html
-          output: web
-
-        - title: Building Linked Alerts
-          url: /alerts_dependencies.html
-          output: web
-
-        - title: Preventing Alerts from Firing
-          url: /maintenance_windows_managing.html
-          output: web
-
-        - title: Alerts Best Practices
-          url: /alerts_best_practices.html
-          output: web
-
-
-      - title: Events
-        output: web
-        subfolderitems:
-
-        - title: Events Overview
-          url: /events.html
-          output: web
-
-        - title: Displaying Events in Charts
-          url: /charts_events_displaying.html
-          output: web
-
-        - title: events() Queries
-          url: /events_queries.html
-          output: web
-
 
   - title: Integrations
     output: web
     folderitems:
 
-    - title: New and Changed Integrations
+    - title: Integrations Release Notes
       url: /integrations_new_changed.html
       output: web
 

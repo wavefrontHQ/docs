@@ -151,3 +151,4 @@ The resulting Stacked Area chart shows results only where the data exceeds 120.
 ## See Also
 
 * [Series Matching](query_language_series_matching.html)
+* [Queries for Comparing Time Series](query_language_recipes.html#queries-for-comparing-time-series)

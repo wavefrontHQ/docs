@@ -13,11 +13,11 @@ After your application sends [trace data](tracing_basics.html#wavefront-trace-da
 
 The Wavefront Traces Browser shows you all the spans that make up a trace. By examining the critical path, you can find operations that took a long time, decide which operations to optimize, and then examine optimization results. See [Traces Browser](tracing_traces_browser.html) for details.
 
-Starting with release 2020-38.x, you can view critical path data in Wavefront as histogram metrics and query them using the [`hs()` function](hs_function.html). 
+Starting with release 2020-38.x, you can view critical path data in Wavefront as histogram metrics and query them using the [`hs()` function](hs_function.html).
 
 ### View Critical Path Data in Charts
 
-Charts help you view the data trends and grasp data faster. 
+Charts help you view the data trends and grasp data faster.
 * Use critical path raw metrics or the critical path aggregated metrics, which are metrics aggregated beforehand to reduce the compute time when running queries.
 
     <table style="width: 100%;">
@@ -35,7 +35,7 @@ Charts help you view the data trends and grasp data faster.
         </td>
         <td markdown = "span">
           Get specific metrics data for a critical path. Filter the query using the `application`, `cluster`, `shard`, `service`, `operationName`, `error`, and `source` point tags.
-          <br/><br/>Example: 
+          <br/><br/>Example:
           <code>
 tracing.critical_path.<b>derived</b>.*.total_time.millis.m
           </code>
@@ -54,7 +54,7 @@ tracing.critical_path.<b>aggregated</b>.<b>derived</b>.*.time_percent.m
         </td>
       </tr>
     </table>
-    
+
 * Get the time spent on the critical path as an absolute value or as a percentage.
     <table style="width: 100%;">
       <tr>
@@ -67,7 +67,7 @@ tracing.critical_path.<b>aggregated</b>.<b>derived</b>.*.time_percent.m
       </tr>
       <tr>
         <td width="20%">
-          Absolute time 
+          Absolute time
         </td>
         <td markdown = "span" width="80%">
           Get the total time spent on a critical path using `.total_time.millis.m`.
@@ -75,10 +75,10 @@ tracing.critical_path.<b>aggregated</b>.<b>derived</b>.*.time_percent.m
       </tr>
       <tr>
         <td>
-          Relative time 
+          Relative time
         </td>
         <td markdown = "span">
-          Get the total time spent on a critical path as a percentage when compared to the end to end trace duration using `.time_percent.m`. 
+          Get the total time spent on a critical path as a percentage when compared to the end to end trace duration using `.time_percent.m`.
           <br/>Let's look at a scenario where all the traces have the same critical path duration, but the time spent by the operations vary on the critical path. Now, you can visualize this data as a percentage using `time_percent.m` and compare how an operation/s performed on each trace.
         </td>
       </tr>
@@ -89,21 +89,21 @@ Examples:
 The screenshot below shows you the critical path for the `beachshirts` application's `shopping` service.
 ![the image shows how the trace browser shows the critical path along the span view.](images/tracing_critical_path_break_down.png)
 
-*  **Granular metrics**: Using granular metrics, let's filter the query to get critical path data for the `ordershirts` operation. 
+*  **Granular metrics**: Using granular metrics, let's filter the query to get critical path data for the `ordershirts` operation.
 
     * **Absolute time**: Let's assume the `ordershirts` operation spends 0.1 seconds or 100 milliseconds on the critical path.
       ```
       hs(tracing.critical_path.derived.beachshirts.shopping.total_time.millis.m, operationName=ShoppingWebResource.orderShirts)
       ```
-      
+
     * **Relative time**: When compared to the total trace duration, which is 1.73 seconds, the `ordershirts` operation spends 5.8% of the time on the critical path.
       ```
       hs(tracing.critical_path.derived.beachshirts.shopping.time_percent.m, operationName=ShoppingWebResource.orderShirts)
       ```
 
-* **Aggregated metrics**: Using aggregated metrics, let's find out the time taken by the shopping service on the critical path. Aggregated metrics give you the total time taken by each service on the critical path. 
-  <br/>Let's assume that the operations of the shopping service spend time as follows: `ordershirts` - 0.1 seconds, `GET-style/{id}/make` - 0.02 seconds, and `POST-delivery/{orderNum}`- 0.03 seconds. 
-  
+* **Aggregated metrics**: Using aggregated metrics, let's find out the time taken by the shopping service on the critical path. Aggregated metrics give you the total time taken by each service on the critical path.
+  <br/>Let's assume that the operations of the shopping service spend time as follows: `ordershirts` - 0.1 seconds, `GET-style/{id}/make` - 0.02 seconds, and `POST-delivery/{orderNum}`- 0.03 seconds.
+
     * **Absolute time**: The shopping service spends 0.15 (0.1 + 0.02 + 0.03) seconds on the critical path.
       ```
       hs(tracing.critical_path.aggregated.derived.beachshirts.shopping.total_time.millis.m)
@@ -115,9 +115,9 @@ The screenshot below shows you the critical path for the `beachshirts` applicati
 
 ### Create Alerts for Critical Path Data
 
-You can query the data of a critical path, view this data in charts, and create alerts. 
+You can query the data of a critical path, view this data in charts, and create alerts.
 
-Example: Create an alert to get notifications when the median value of the critical path exceeds 60. You need to query the data and create the alert. See [Creating Alerts](alerts.html#creating-an-alert) for details.
+Example: Create an alert to get notifications when the median value of the critical path exceeds 60. You need to query the data and create the alert. See [Creating Alerts](alerts_manage.html) for details.
 
 ![Shows a chart that is derived from query that shows the data where the critical path is longer than 60s. When you click the three dotted icon next to the query, you can see a list that has create alert on it. Click create alert and you are taken to the create alert dashboard.](images/tracing_critical_path_create_alerts.png)
 
@@ -273,7 +273,7 @@ To query traces, select **Applications > Traces** and navigate to the Traces Bro
 
 {% include tip.html content="To get the ID of a trace, go to the trace details panel, expand a service, and click **Tags**. See [Drill Down Into Spans and View Metrics and Span Logs](tracing_traces_browser.html#drill-down-into-spans-and-view-metrics-and-span-logs)." %}
 
-**Query traces using an operation**: 
+**Query traces using an operation**:
 1. Click **Operation** and select an operation.
 2. Optionally, [add one or more filters](#add-filters) to refine your query.
   ![tracing query builder](images/tracing_query_builder_filter.png)
@@ -361,7 +361,7 @@ Use this type for indexed tags that your application uses, typically `cluster`, 
 </tr>
 <tr>
 <td markdown="span">**TraceId**</td>
-<td>The trace or traces that match the trace ID or trace IDs. 
+<td>The trace or traces that match the trace ID or trace IDs.
 {% include note.html content="If you select **TraceId** you can only search by the trace ID. You cannot filter an operation by a trace ID."%}
 </td>
 </tr>

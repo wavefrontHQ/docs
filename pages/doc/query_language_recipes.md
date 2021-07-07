@@ -197,9 +197,9 @@ The following example compares the bytes sent with the bytes sent 15 minutes ago
 (ts(~sample.network.bytes.sent, env="dev"))/lag(15m, (ts(~sample.network.bytes.sent, env="dev")))
 ~~~
 
-## Queries for Standard Deviation and IQR.
+## Queries for Standard Deviation and IQR
 
-Wavefront supports [AI Genie](ai_genie.html) for automatic anomaly detection based on a machine learning algorithm. You can instead perform [anomaly detection with functions and statistical functions](query_language_statistical_functions_anomalies.html). This page gives some examples.
+Wavefront supports [Anomaly Detection](anomaly_detection.html) for automatic anomaly detection. You can instead perform [anomaly detection with functions and statistical functions](query_language_statistical_functions_anomalies.html). This page gives some examples.
 
 ### Standard Deviation from Self
 

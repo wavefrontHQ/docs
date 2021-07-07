@@ -1,173 +1,409 @@
 ---
-title: Manage Alerts
+title: Create and Manage Alerts
 keywords: alerts
 tags: [alerts]
 sidebar: doc_sidebar
 permalink: alerts_manage.html
-summary: Learn how to examine and fine-tune alerts.
+summary: Learn how to create and manage alerts.
 ---
 
-Alerts notify when there's a problem, and support finding the root cause of a problem quickly. Wavefront has two GUIs:
-* **Alert Viewer:** When you receive an alert notification, the notification includes a link to the Alert Viewer.
-  - Drill down into the alert cause (source, point tags, etc.).
-  - Examine related information.
+Most Wavefront users [examine alerts and drill down to find the problem](alerts.html). A subset of Wavefront users create and manage alerts.
 
-* **Alerts Browser:** Allows you to investigate and manage all alerts.
-  - Investigate all alerts and their state, history, and more.
-  - Clone, edit, or delete one or more alerts.
-  - Snooze alerts or put them in [maintenance mode](maintenance_windows_managing.html).
+{% include note.html content="All users can view and examine. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
-{% include note.html content="All users can view alerts. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you.  " %}
+## How to Create an Alert -- The Basics
 
-
-## Examine an Alert in Alert Viewer
-
-When you receive an alert notification, it includes a link to the alert in Alert Viewer. The related information in Alert Viewer can help you determine what's going on.
-
-![annotated alert viewer allowing you to solve the problems listed below](images/alert_viewer.png)
-
-### Solve Problems with Alert Viewer
+You can create an alert from any chart, or from the **Create Alert** page. The basic process is the same.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="50%">
-Get a 10-second briefing in the Alert description including:
+<ol>
+<li>Specify the alert condition, for example, CPU utilization is less than 70%. </li>
+<li>Optionally use backtesting to see how often the alert fires and adjust the threshold. </li>
+<li>Add an alert target, that is, specify who will receive the alert and how (e.g., email or PagerDuty), then save the alert. </li></ol></td>
+<td width="50%"><a href="https://youtu.be/CDqUWDA9NBM
+"><img src="/images/v_alert_creation_overview.png" alt="Video of alert creation overview"/></a></td>
+</tr>
+</tbody>
+</table>
+
+The rest of this page explains:
+* How you can fine-tune the process to get just the right number of alerts to just the right people.
+* How to create alerts and customize the condition and the target.
+* How to create multi-threshold alerts, which can send notifications to different targets based on the severity of the problem.
+
+### Alert Condition
+
+The alert condition is a query language expression that defines the threshold for an alert.
+* If an alert's Condition field is set to a conditional expression, for example `ts("requests.latency") > 195`, then all data values that satisfy the condition are marked as `true` (1) and all data values that do not satisfy the condition are marked as `false` (0).
+* If the Condition field is set to a base ts(), hs(), etc. expression, for example `ts("cpu.loadavg.1m")`, then all _non-zero_ data values are marked as `true` and all zero data values are marked as `false`. If there is _no reported data_, then values are neither true nor false.
+
+An alert [fires](alerts_states_lifecycle.html#when-do-alerts-fire) when a metric stays at a value that indicates a problem for the specified amount of time.
+* A **classic alert** sends a notification with the specified severity to all specified targets.
+* A **multi-threshold alert** allows you to specify multiple severities and a different target for each severity. Each target is notified if the condition is met when the alert changes state.
+
+### Alert Target
+
+Each alert is associated with one or more alert targets. The alert target specifies who to notify when the alert changes state.
+* For classic alerts, you specify a (single) severity and one or more corresponding alert targets. You can set up email, PagerDuty, and custom alert targets.
+* For multi-threshold alerts, you can specify a different alert target for each threshold, for example, an email target when the alert reaches the INFO threshold and a PagerDuty target when the alert reaches the SEVERE threshold. You can specify only custom alert targets, but it's easy to set up a custom email or PagerDuty alert target.
+
+   {% include note.html content="Alert targets subscribe to all notifications at their severity and above. For example, an alert target for an INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. Because notifications potentially go to targets of different severities, you cannot associate an alert target with more than one severity. " %}
+
+The **maximum number** of email alert targets is 10 for classic alerts and 10 per severity for multi-threshold alerts. If you exceed the number, you receive a message like the following:
+
+
+`{"status":{"result":"ERROR","message":"Invalid notification specified: null","code":400}}`
+
+
+## Create a Classic Alert
+
+### Prerequisites
+
+**Required fields** for a classic alert are:
+* Alert name (default is New Alert)
+* Alert condition
+* Alert severity
+
+To notify alert targets when the alert changes state, you can specify targets during alert creation or later.
+
+### Procedure
+
+<ol>
+
+<li>Do one of the following:
 <ul>
-<li>Alert description </li>
-<li>Alert settings </li>
-<li>Alert targets</li>
-<li>When the alert ended (if applicable)</li>
+<li markdown="span"><strong>Alerts Browser</strong> - Click <strong>Alerting</strong> from the taskbar and click the <strong>Create Alert</strong> button located above the filter bar.</li>
+<li markdown="span">**Chart** - Click the ellipsis icon on the right of the query and select **Create Alert**.
+![create_alert](images/v2_create_alert.png)</li>
+</ul></li>
+
+<li>Specify the following required alert properties.
+<table id="alert-properties">
+<tbody>
+<thead>
+<tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td><strong>Name</strong></td>
+<td>Name of the alert. 1-255 characters. </td>
+</tr>
+
+<tr>
+<td><strong>Condition</strong></td>
+<td>A conditional expression that defines the threshold for the alert. The condition expression can include any valid <a href=
+"query_language_getting_started.html">Wavefront Query Language</a> construct. The condition expression coupled with the <strong>Alert fires</strong> setting determines when the alert fires.
+<ul><li><strong>Alert fires</strong> - Length of time (in minutes) during which the <strong>Condition</strong> expression must be <em>true</em> before the alert fires. Minimum is 1.  For example, if you enter 5, the alerting engine reviews the value of the condition during the last 5-minute window to determine whether the alert should fire.</li>
+<li><strong>Alert resolves</strong> - Length of time (in minutes) during which the <strong>Condition</strong> expression must be <em>not true</em> before the alert switches to resolved. Minimum is 1.  Omit this setting or pick a value that is greater than or equal to the <strong>Alert fires</strong> value to avoid resolve-fire cycles. </li>
+</ul>
+
+For details and examples, see <a href="alerts_states_lifecycle.html">Alert States and Lifecycle</a>.
+</td>
+</tr>
+
+<tr>
+<td><strong>Severity</strong></td>
+<td>How important the alert is. In decreasing importance:  SEVERE, WARN, SMOKE, and INFO.</td>
+</tr>
+
+</tbody>
+</table>
+</li>
+
+<li>(Recommended) Specify a <strong>Display Expression</strong>. Defaults to the value of the condition expression, either 0 or 1. Specify a display expression to get more details when the alert changes state.
+
+The display expression can include any valid Wavefront Query Language construct, and typically captures the underlying time series that the condition expression is testing. The results of the display expression are:
+<ul>
+<li>Shown in the <strong>Events Display</strong> preview chart on the page for creating or editing the alert.</li>
+<li markdown="span">Shown in any [chart image](alerts_notifications.html#chart-images-in-alert-notifications) that is included in a notification triggered by the alert.</li>
+<li  markdown="span">Shown in the [interactive chart](alerts_notifications.html#interactive-charts-linked-by-alert-notifications) you can visit from a notification triggered by the alert.</li>
+<li markdown="span">Used as the basis for any [statistics](alert_target_customizing.html#alert-series-statistics) that you might include in a [custom notification](alert_target_customizing.html) triggered by the alert. </li>
+</ul>
+
+</li>
+
+<li>
+(Optional) To help you find the alert and information about it in the Alerts Browser, specify <strong>Additional Information</strong> and <strong>Tags</strong>.
+<table id="alert-tags">
+<tbody>
+<thead>
+<tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td><strong>Additional Information</strong></td>
+<td>Any additional information, such as a link to a run book.</td>
+</tr>
+<tr>
+<td><strong>Tags</strong></td>
+<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing Related Alerts](alerts.html#step-5-organize-related-alerts-with-tags). </td>
+</tr>
+</tbody>
+</table>
+</li>
+
+<li>(Recommended) Specify a list of alert targets to notify when the alert changes state, for example, from CHECKING to FIRING, or when the alert is snoozed. You can specify up to ten different targets across the following types. Use commas to separate targets of the same type.
+<table id="alert-targets">
+<tbody>
+<thead>
+<tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+</thead>
+<tr><td><strong>Email</strong></td> <td>Valid email addresses. Alert notifications are sent to these addresses in response to a default set of triggering events, and contain default HTML-formatted content. You can specify up to 10 valid email addresses. </td></tr>
+
+<tr><td><strong>PagerDuty Key</strong></td>
+<td markdown="span">PagerDuty keys obtained by following the steps for the [PagerDuty integration](pagerduty.html). Alert notifications that use these keys are sent in response to a default set of triggering events, and contain default content.</td></tr>
+
+<tr><td><strong>Alert Target</strong></td>
+<td>Names of <a href="webhooks_alert_notification.html">custom alert targets</a> that you have previously created to:
+
+<ul>
+<li  markdown="span">Configure webhook notifications for pager services and communication channels. Follow the steps for the [VictorOps integration](victorops.html) or [Slack integration](slack.html) for notifications on these popular messaging platforms. </li>
+<li>Configure email or PagerDuty notifications with nondefault content or triggers. </li>
 </ul>
 </td>
-<td width="50%"><img src="/images/alert_viewer_description.png" alt="Description of the alert"></td>
-</tr>
-<tr>
-<td width="50%">
-Examine <strong>Related Firing Alerts</strong>. When an alert fires, Wavefront scans all the other alerts that have fired within 30 minutes and correlates them with the initial event using AI/ML algorithms. You can filter by alert severity.</td>
-<td width="50%"><img src="/images/alert_viewer_related.png" alt="Related Firing Alerts section supports filters, such as severe, warn, smoke and info."></td>
-</tr>
-<tr>
-<td width="50%">
-Use the <strong>Affected</strong> section to determine what is failing. <br/><br/>
-When an alert fires, Wavefront analyzes the point tags that are most likely to be related to the firing alert and displays them in ranked order in the Alert Viewer. These point tags are a list of suspects for why the alert is firing. For example, if the alert is caused by an outage in region=us-west-2, Wavefront ranks this tag higher than other tags.</td>
-<td width="50%"><img src="/images/alert_viewer_point_tags.png" alt="Affected point tags example"></td>
-</tr>
-<tr>
-<td width="50%"><strong>Other Firings</strong> shows past firings of the same alert with a link to the corresponding firing in the Alert Viewer. For multi-threshold alerts, you can see the severity. Click the links to see details.
-</td>
-<td width="50%"><img src="/images/alert_viewer_past_firings.png" alt="Other Firings list with links to the past firings"></td>
-</tr>
-<tr>
-<td width="50%">In the <strong>Data</strong> section, examine the query (or queries), filter what's displayed, and open the alert query in Chart Editor.
-</td>
-<td width="50%"><img src="/images/alert_viewer_data.png" alt="Data section displaying the alert query and condition"></td>
 </tr>
 </tbody>
 </table>
-
-### How Alert Notifications Include Links
-
-The alert target mustache syntax supports a `url` variable and a  `charturl`.
-
-* Simple notification **emails** include a **View Alert Chart** link that takes you to the chart view.
-* For PagerDuty, alert target (webhook), and  templated email notifications:
-  - The link  target of the `url` mustache template variable directs to the Alert Viewer. 
-  - The mustache context variable `chartUrl` takes you directly to the chart view. 
-
-{% include note.html content="Alert targets created before release 2020.22 will use `url` instead of `chartUrl`. Edit the alert target to use `chartUrl` to send users to the chart editor." %} 
+</li>
 
 
-## Examine and Manage All Alerts in Alerts Browser
+<li>
+(Optional) If you are protecting metrics with <a href="metrics_security.html">metrics security policies</a> in your environment, select the <strong>Secure Metrics Details</strong> check box. A simplified alert notification is sent.
 
-You can view and manage all alerts from the Alerts Browser.
-
-<table style="width: 100%;">
+<table>
 <tbody>
+<thead>
+<tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+</thead>
 <tr>
-<td width="50%">
-<br/>
-To examine alerts in the Alerts Browser, click <strong>Alerting</strong> in the taskbar. A colored dot next to <strong>Alerting</strong> indicates that there are firing alerts. Hover over the <strong>Alerting</strong> button in the taskbar to see how many alerts are currently firing.</td>
-<td width="50%"><img src="/images/alerts_taskbar.png" alt="multiple firing alerts on the clock icon next to text Alerting in taskbar."></td>
-</tr>
-<tr>
-<td width="50%">
-<br/>
-To find exactly the alerts that you need you can:
-<ul><li>Type the alert name in the search field</li>
-<li>Use a filter, for example, select <strong>State</strong>, <strong>Severity</strong>, <strong>Services</strong>, <strong>Applications</strong>, or alert tag. </li></ul>
-For example, you could show alerts that are both FIRING and SEVERE.</td>
-<td width="50%"><img src="/images/alert_firing_severe.png" alt="Firing and Severe selected in filter bar on left."></td>
+<td><strong>Secure Metric Details</strong></td>
+<td>If selected, alert notifications do not show metric details and alert images. </td>
 </tr>
 </tbody>
 </table>
+</li>
 
-
-
-### Examine an Alert
-
-The Alerts Browser shows the properties and current state of an alert. For example, an alert that is firing looks like this:
-
-![Annotated screenshot highlighting the UI elements which are described in the text below](images/alert_firing.png)
-
-Here's a summary of what you can do:
-* Click the ellipsis icon for a menu.
-* Click the chart icon next to the status for alert details. If the alert is firing, the Alert Viewer displays.
-* View the alert condition and points.
-* Below the severity:
-  - View the last affected series, including the affected sources and point tags.
-  - View the targets.
-  For multi-threshold alerts, you see this information for each severity.
-* Examine [alert tags](alerts_manage.html#organize-related-alerts-with-alert-tags) or add a tag to make filtering for the alert easier.
-
-
-### View Alert Details
-
-To view alert details, click the chart icon in the State column in the Alerts Browser.
-* If the alert is in FIRING state, the Alert Viewer displays
-* If the alert is not in FIRING state, a chart displays with these queries:
-
-- **&lt;Alert name&gt;** - the alert's Display Expression, if there is one. Otherwise, the alert condition.
-- **Past Firings** - an [events() query](events_queries.html) that shows past firings of the alert.
-
-For example, for the `Latency Dev Alert` shown above, the chart looks like this:
-
-![Chart with 2 queries corresponding to alert shown in first section](images/v2_alert_queries.png)
-
-
-### View Alert History
-
-
-
-<table style="width: 100%;">
+<li>(Optional) Click the <strong>Advanced</strong> link to configure the following alert properties. The defaults for those properties are often appropriate.
+<table>
 <tbody>
+<thead><tr><th width="20%">Property</th><th width="80%">Description</th></tr></thead>
 <tr>
-<td width="60%">
-<br/>
-Alert history shows the changes that have been made to an alert over time.<br/><br/>
+<td><strong>Checking Frequency</strong></td>
+<td markdown="span">Number of minutes between checking whether <strong>Condition</strong> is true. Minimum and default is 1. When an alert is in the [INVALID state](alerts_states_lifecycle.html), it is checked approximately every 15 minutes, instead of the specified checking frequency.</td>
+</tr>
+<tr>
+<td><strong>Evaluation Strategy</strong></td>
+<td markdown="span">Allows you to select <strong>Real-time Alerting</strong>. By default, Wavefront ignores values for the last 1 minutes to account for delays. Many data sources are updated only at certain points in time, so using the default evaluation strategy prevents spurious firings.  If you select this check box, we include values for the last 1 minute. The alert is evaluated strictly on the ingested data. See <a href="alerts_delayed_data.html">Limiting the Effects of Data Delays</a>. </td>
+</tr>
+<tr>
+<td><strong>Resend Notifications</strong></td>
+<td>Whether to resend notification of a firing alert. If enabled, you can specify the number of minutes to wait before resending the notification.</td>
+</tr>
+<tr>
+<td><strong>Unique PagerDuty Incidents</strong></td>
+<td>
+  Select this option to receive separate PagerDuty notifications for each series that meets the alert conditions.
+  <br/>For example, you get separate PagerDuty notifications for both the following series because the <code>env</code> tag is different.
 
-To access the alert history, click the ellipsis icon on the left of the alert in the Alerts Browser and click <strong>Versions</strong>.
+  <pre>
+#first series
+app.errors source=machine env=prod
+
+#second series
+app.errors source=machine env=stage
+  </pre>
 </td>
-<td width="40%"><img src="images/alert_history.png" alt="alert history selected in menu"></td>
+</tr>
+<tr>
+<td><strong>Metrics</strong></td>
+<td>Whether to include obsolete metrics. By default, alerts don't consider data that have  not reported for 4 weeks or more. Include obsolete metrics if you use queries that aggregate data in longer time frames.</td>
 </tr>
 </tbody>
 </table>
 
-Alert history shows:
-* Which user made the changes.
-* The date and time the changes were made.
-* A description of the changes.
-You can revert back to a past alert version or clone a past alert version.
+</li>
+
+<li>Click <strong>Save</strong>.</li>
+</ol>
+
+### Video: Create a Classic Alert
+This video shows how Jason creates a classic alert:
+
+<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6a27a841-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_alerts_creating.png" style="width: 700px;"/></a>
+</p>
+
+## Create a Multi-Threshold Alert
+
+### Prerequisites
+
+Ensure that you have the information for the **required fields** for your multi-threshold alert:
+* Alert name (defaults to New Alert)
+* Alert condition and operator (e.g., greater than (**>**))
+* At least one severity/threshold value pair.
+
+For each severity, you can specify one or more alert targets to notify [when the alert changes state](alerts_states_lifecycle.html#when-threshold-alerts-notify-targets). Each target is notified if the condition is met when the alert changes state.
+
+Only custom alert targets are supported, but you can initially create the alert without specifying a target.
+
+{% include note.html content="You cannot associate an alert target with more than one severity. Alert targets subscribe to all notifications at their severity and above.
+
+For example, an alert target for an INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. Because notifications potentially go to targets of different severities, you cannot associate an alert target with more than one severity. "%}
+
+For a multi-threshold alert, Wavefront creates a display expression that shows the alert condition.
+
+### Procedure
+
+<ol>
+
+<li>Do one of the following:
+<ul>
+<li markdown="span"><strong>Alerts Browser</strong> - Click <strong>Alerting</strong> from the taskbar and click the <strong>Create Alert</strong> button located above the filter bar.</li>
+<li markdown="span">**Chart** - Click the ellipsis icon on the right of the query and select **Create Alert**.
+![create_alert](images/v2_create_alert.png)</li>
+</ul></li>
+<li markdown="span">Next to **Type**, select **Threshold**.
+</li>
+<li>Fill in the following required alert properties.
+<table id="alert-properties">
+<tbody>
+<thead>
+<tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td><strong>Name</strong></td>
+<td>Name of the alert. 1-255 characters. </td>
+</tr>
+
+<tr>
+<td><strong>Condition</strong></td>
+<td>A query language expression that defines the threshold for the alert. The condition expression can include any valid <a href=
+"query_language_getting_started.html">Wavefront Query Language</a> construct. The condition expression coupled with the <strong>Alert fires</strong> setting determines when the alert fires.
+<ul><li><strong>Alert fires</strong> - Length of time (in minutes) during which the <strong>Condition</strong> expression must be <em>true</em> before the alert fires. Minimum is 1.  For example, if you enter 5, the alerting engine reviews the value of the condition during the last 5 minute window to determine whether the alert should fire.</li>
+<li><strong>Alert resolves</strong> - Length of time (in minutes) during which the <strong>Condition</strong> expression must be <em>not true</em> before the alert switches to resolved. Minimum is 1.  Omit this setting or pick a value that is greater than or equal to the <strong>Alert fires</strong> to avoid potential chains of resolve-fire cycles. </li>
+</ul>
+
+For details and examples, see <a href="alerts_states_lifecycle.html">Alert States and Lifecycle</a>.
+</td>
+</tr>
+<tr><td><strong>Operator</strong></td>
+<td>Select one of the operators, for example, greater than or &gt;. The operator determines which values to use for the different severity thresholds. For example, if the operator is greater than, then:
+<ul><li>You don't have to specify all 4 severities.</li>
+<li>SEVERE must be the highest number</li>
+<li>INFO must be the lowest number</li>
+<li>The numbers must increase from INFO to SEVERE. </li></ul></td>
+</tr>
+<tr>
+<td><strong>Severity</strong></td>
+<td>For multi-threshold alerts, specify more than one severity - or create a Classic alert. Associate a threshold value with each severity. The order must match the operator.
+<br/><br/>For example, you can specify an Operator >=, SEVERE 6000, and WARN 5000, but you can't specify SEVERE 5000, and WARN 6000 with that operator.
+</td>
+</tr>
+</tbody>
+</table>
+</li>
+
+<li>(Recommended) Specify a list of alert targets for each severity. Wavefront notifies the targets when the alert changes state, for example, from CHECKING to FIRING, or when the alert is snoozed. Specify names of <a href="webhooks_alert_notification.html">custom alert targets</a> that you already created. You can specify up to ten different targets for each severity. You cannot specify an email address or PagerDuty key directly.<br/>
+<br/>
+{% include note.html content="You cannot associate an alert target with more than one severity. Alert targets subscribe to **all** notifications at their severity and above.<br/> <br/>
+
+For example, an alert target for an INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. Because notifications potentially go to targets of different severities, you cannot associate an alert target with more than one severity." %}
+</li>
+
+<li>
+(Optional) To help you find the alert and information about it, specify <strong>Additional Information</strong> and <strong>Tags</strong>.
+<table id="alert-tags">
+<tbody>
+<thead>
+<tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td><strong>Additional Information</strong></td>
+<td>Any additional information, such as a link to a run book.</td>
+</tr>
+<tr>
+<td><strong>Tags</strong></td>
+<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing Related Alerts with Alert Tags](alerts.html#step-5-organize-related-alerts-with-tags). </td>
+</tr>
+</tbody>
+</table>
+</li>
+
+<li>(Optional) If you are protecting metrics in your environment with <a href="metrics_security.html">metrics security policies</a>, select the <strong>Secure Metrics Details</strong> check box. A simplified alert notification is sent.
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td><strong>Secure Metric Details</strong></td>
+<td>If checked, alert notifications do not show metric details and alert images. </td>
+</tr>
+</tbody>
+</table>
+</li>
+
+<li>(Optional) Click the <strong>Advanced</strong> link to configure the following alert properties. The defaults for those properties are often appropriate.
+<table>
+<tbody>
+<thead><tr><th width="20%">Property</th><th width="80%">Description</th></tr></thead>
+<tr>
+<td><strong>Checking Frequency</strong></td>
+<td markdown="span">Number of minutes between checking whether <strong>Condition</strong> is true. Minimum and default is 1. When an alert is in the [INVALID state](alerts_states_lifecycle.html), it is checked approximately every 15 minutes, instead of the specified checking frequency.</td>
+</tr>
+<tr>
+<td><strong>Evaluation Strategy</strong></td>
+<td markdown="span">Allows you to select <strong>Real-time Alerting</strong>. By default, Wavefront ignores values for the last 1 minutes to account for delays. Many data sources are updated only at certain points in time, so using the default evaluation strategy prevents spurious firings.  If you select this check box, we include values for the last 1 minute. The alert is evaluated strictly on the ingested data. See <a href="alerts_delayed_data.html">Limiting the Effects of Data Delays</a>. </td>
+</tr>
+<tr>
+<td><strong>Resend Notifications</strong></td>
+<td>Whether to resend notification of a firing alert. If enabled, you can specify the number of minutes to wait before resending the notification.</td>
+</tr>
+<tr>
+<td><strong>Unique PagerDuty Incidents</strong></td>
+<td>
+  Select this option to receive separate PagerDuty notifications for each series that meets the alert conditions.
+  <br/>For example, you get separate PagerDuty notifications for both the following series because the <code>env</code> tag is different.
+
+  <pre>
+#first series
+app.errors source=machine env=prod
+
+#second series
+app.errors source=machine env=stage
+  </pre>
+</td>
+</tr>
+<tr>
+<td><strong>Metrics</strong></td>
+<td>Whether to include obsolete metrics. By default, alerts don't consider data that have  not reported for 4 weeks or more. Include obsolete metrics if you use queries that aggregate data in longer time frames.</td>
+</tr>
+</tbody>
+</table>
+
+</li>
+
+<li>Click <strong>Save</strong>.</li>
+</ol>
 
 
-## Clone or Delete an Alert
+### Video: Create a Multi-Threshold Alert
 
-To make copies of an existing alert, then change the copy, you can clone an alert.
+This video shows how to create a multi-threshold alert:
+
+<p><a href=" https://youtu.be/qWBP6PrkUrU"><img src="/images/v_threshold_alerts.png" style="width: 700px;" alt="threshold alerts"/></a>
+</p>
+
+
+
+## Delete an Alert
+
+Users with **Alerts** permissions can delete an alert.
 
 1. Click **Alerting** in the taskbar to display the Alerts Browser.
 2. Click the ellipsis icon next to the alert.
-3. To clone the alert, select **Clone**, make changes when prompted, and click **Save**.
-3. To delete an alert, select **Delete** and confirm the deletion.
+3. Select **Delete** and confirm the deletion.
 
 
 ## Edit an Alert
@@ -178,68 +414,11 @@ You can change an alert at any time.
 2. Click the name of the alert you want to edit to display the Edit Alert page.
 3. Update the properties you want to change, and click **Save**.
 
-## Organize Related Alerts With Alert Tags
+## Use Backtesting to Fine-Tune Conditions
 
-You can use alert tags to organize related alerts into categories. Alert tags are especially useful for setting up [maintenance  windows](maintenance_windows_managing.html#using-maintenance-windows). You can:
-* [Search or filter](wavefront_searching.html) the list of alerts in the Alerts Browser to show only a category of alerts.
-* Suppress a category of alerts during a [maintenance window](maintenance_windows_managing.html#using-maintenance-windows).
-* [Reference a group of alert metrics](alerts_dependencies.html#referencing-alert-metrics) in a single expression.
+Wavefront can show hypothetical alert-generated events using backtesting. Backtesting enables you to fine tune new or existing alert conditions before you save them.
 
-### Manage Alert Tags
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="70%">
-<br/>
-You can add a new or existing alert tag at any time:
-<ul>
-<li>Set the <strong>Tags</strong> property when you create or edit the alert. </li>
-<li>Click plus (<strong>+</strong>) at the bottom of the alert in the Alerts Browser.</li>
-<li>Select one or more alerts in the Alerts Browser and click <strong>+Tag</strong> or <strong>-Tag</strong></li>
-</ul>
-<p>For example, you might assign tags like networkOps, underDevelopment, and eastCoast. All users can later search for one or more of these tags to find any other alerts that are in the same category or combination of categories.</p>
-</td>
-<td width="30%"><img src="images/alert_tag_add.png" alt="Alerts Browser, + selected for single alert, Add Existing Tag and Create New Tag options"></td>
-</tr>
-</tbody>
-</table>
-
-
-
-{% include tip.html content="Read the blog post [Skyline Resolves Production Incidents Faster with Alert-Based Health Dashboards](https://tanzu.vmware.com/content/blog/skyline-resolves-production-incidents-faster-with-alert-based-health-dashboards) for a discussion of a real-world example." %}
-
-### Use Multi-Level Alert Tags
-
-If your environment has a nested set of categories, you can use alert tag paths. For example, suppose you have created a group of alerts that you use as demo examples, and:
-* Within the demo group, some alerts monitor network activity, while others monitor request latency.
-* Within each subgroup, some alerts monitor production applications, while others monitor development applications.
-
-To manage these alerts, you assign the tag paths `example.network.prod`, `example.network.dev`, `example.latency.prod`, and `example.latency.dev`. The Alerts Browser below shows the tag paths as a hierarchy under **Tag Paths** on the left. You can click **example** and then **network** to view all alerts that have a tag path that starts with `example.network`.
-
-![Alert tag path](images/alert_tag_path.png)
-
-When you create a maintenance window, you can use a wildcard to match tag path components:
-
-* `example.*.*` matches the entire group of demo alerts.
-* `example.latency.*` matches all of the alerts that monitor request latency.
-* `example.*.prod` matches all of the production alerts.
-
-When you have many and complex tag paths, you can search them by parent. For example, if you have the tag paths `example.network.prod`, `example.network.dev`, `example.latency.prod`, and `example.latency.dev`, you can perform a search by **example** and the search returns all of its children.
-
-## Alert Events
-
-Wavefront creates [events](events.html) as alerts fire, update, and resolve. You can optionally [display those events](charts_events_displaying.html) as icons on a chart's X-axis:
-
-![event icons](images/event_icons.png)
-
-{% include note.html content="If you don't have [access](access.html) to an alert, you also won't see the corresponding alert events." %}
-
-## Backtesting
-
-Wavefront can display actual firings or hypothetical alert-generated events using backtesting. Backtesting enables you to fine tune new or existing alert conditions before you save them.
-
-When you create an alert, the Events Display is set to **Backtesting**. You can later edit the alert.
+When you create a classic alert, the Events Display is set to **Backtesting**. You can later edit the alert.
 
 To change the events display:
 
@@ -248,11 +427,14 @@ To change the events display:
    - **Actual Firings**  - Displays past alert-generated event icons on the chart. You will see how often the alert actually fired within the given chart time window.
    - **Backtesting** - Displays hypothetical alert-generated event icons on the chart. You can see how often an alert  would fire within the chart time window based on the condition and the **Alert Fires** field.
 
-Backtesting does not always exactly match the actual alert firing. For example, if data comes in late, backtest events won't match the actual alert firing. Even if data are meeting the alert condition for the "condition is true for x mins" amount of time, the alert itself might not fire because the alert check, determined by the alert check interval, happens too soon or too late. For both cases, backtesting shows the alert as firing while the actual alert might not show as firing.
+Backtesting does not always exactly match the actual alert firing. For example:
+* If data comes in late, backtesting won't match the actual alert firing.
+* If data are meeting the alert condition for the "condition is true for x mins" amount of time, the actual alert might not fire because the alert check, determined by the alert check interval, happens too soon or too late.
+For both cases, backtesting shows the alert as firing while the actual alert might not show as firing.
 
 ## Do More!
 
-* Read the [blog about Alert Viewer](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/faster-ai-driven-incident-triaging-wavefront-alert-viewer) from December 2019.
-* Create a [classic alert](alerts.html#create-a-classic-alert) or a [multi-threshold alert](alerts.html#create-a-multi-threshold-alert).
+* The [Alert Viewer Tutorial](alerts.html#alert-viewer-tutorial) shows how to examine a single alert.
+* The [Alerts Browser Tutorial](alerts.html#alerts-browser-tutorial)
 * Learn about [alert states and life-cycle](alerts_states_lifecycle.html).
 * Share access to an [individual alert](access.html#changing-access-for-individual-dashboards-or-alerts).
