@@ -28,7 +28,7 @@ See the Service Dashboard:
 
 On the dashboard for a particular service, you can:
 * Select the time and time zone in the taskbar to customize the chart time properties.
-* Use the **Jump To** pulldown to select a dashboard section:
+* Use the **Jump To** drop-down menu to select a dashboard section:
   - Select **Overview** to examine the RED metrics that are derived from all of the spans for the service. These metrics reflect the health of the service.
   - Select an individual component to examine metrics for just that component of the service. A component could be an instrumented framework (e.g., **Jersey**) or the runtime system (e.g., **JVM**).
   - Select **System** if your environment uses Telegraf and you want to view CPU usage, memory usage, and disk usage.

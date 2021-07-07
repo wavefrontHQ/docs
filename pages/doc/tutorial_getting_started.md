@@ -147,7 +147,7 @@ The new dashboard is created, with a clone of the chart in the chart editor. </t
 <p>The chart is currently using variables to determine what to display. Let's simplify the chart to show only metrics for the dev environment.</p>
 <ol>
 <li>With the chart still in Edit mode, select the variables and replace them with <strong>env=dev</strong>. Auto-complete offers options as you type.</li>
-<li>Experiment with some of the chart types available from the pull-down menu on the left. </li></ol>
+<li>Experiment with some of the chart types available from the drop-down menu on the left. </li></ol>
 <p>For an introduction, see the <a href="chart_builder.html"> Chart Builder page</a>.</p> </td>
 <td width="50%"><img src="/images/select_env.png" alt="select environment"/>
 <img src="/images/v2_chart_builder_select.png" alt="select chart type"/></td>

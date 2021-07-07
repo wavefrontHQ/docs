@@ -218,7 +218,7 @@ This example uses a point tag dynamic variable. Starting with release 2020.14, u
 1. In the top right corner, select **Edit** from the ellipsis icon to put your dashboard into edit mode.
 1. Click the **Add** icon in the variables bar.
 2. Select the Variable Type **Dynamic**.
-3. In the Field pulldown menu, select one of the options, for example, **Point Tag**.
+3. From the Field drop-down menu, select one of the options, for example, **Point Tag**.
 5. Type a query that has results.
 6. Select a default value and click **Accept**.
 4. Click **Save** in the top right to save your dashboard and the dashboard variable.

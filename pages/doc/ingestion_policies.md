@@ -36,7 +36,7 @@ The Ingestion Breakdown dashboard includes an **Unassigned** policy that shows t
    2. Specify users, service accounts, or both.
    3. Click **Create**.
 
-Each account can only belong to one policy. If an account is greyed out in the pulldown menu, it already belongs to another policy.
+Each account can only belong to one policy. If an account is greyed out in the drop-down menu, it already belongs to another policy.
 
 ## Examine Usage
 

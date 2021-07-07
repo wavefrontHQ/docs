@@ -318,7 +318,7 @@ Most users create and edit dashboards by using the Wavefront UI or automate the 
 <tr>
 <td width="50%">
 <ol><li>To put the dashboard in Edit mode, click the ellipsis icon, select <strong>Edit</strong>, and then click <strong>JSON</strong>. </li>
-<li>Consider selecting <strong>Code</strong> from the pull-down menu. Code view supports adding information. </li>
+<li>Consider selecting <strong>Code</strong> from the drop-down menu. Code view supports adding information. </li>
 <li>Consider a select all/copy/paste into a JSON editor for full validation. </li>
 <li>Add condition information, as shown in the example below, paste the revised content back into the dashboard editor, and click <strong>Accept</strong></li></ol></td>
 <td width="50%"><img src="images/dashboard_code_view.png" alt="Switch from Tree view to Code view"/></td>
