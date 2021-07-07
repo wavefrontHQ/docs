@@ -56,7 +56,7 @@ You can change access for an individual dashboard or alert from the Edit page of
 ![share dashboard icon](images/share_dashboard.png)
 3. In the dialog, select **Accounts & Groups**:
    * To grant View Access or View & Modify access, type the name(s) of groups or users
-   * To revoke View Access or View & Modify access, click the `x` next to the group or user name.
+   * To revoke View Access or View & Modify access, click the `x` next to the group or username.
 4. Click **Update**.
 ![share dashboard dialog](images/share_dashboard_dialog.png)
 

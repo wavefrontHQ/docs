@@ -87,7 +87,7 @@ Before you start, here are some FAQs:
 ### What are User Accounts & Service Accounts?
 
 Wavefront supports two [account types](accounts.html):
-* **User accounts** are for human users who work with Wavefront. A user account authenticates with a user name and password.
+* **User accounts** are for human users who work with Wavefront. A user account authenticates with a username and password.
 * **Service accounts** are for services that interact with Wavefront through an API and use a **token** to authenticate. Service accounts:
   - Don't have **default permissions** (unless one or more roles with permissions are assigned to the **Everyone** group.).
   - Can't perform the **UI operations** that user accounts can perform by default.
@@ -104,7 +104,7 @@ When your company signs up with Wavefront, we ask you which user(s) you want to 
 Any existing Super Admin user can add other Super Admin users:
 
 1. Click the gear icon and select **Super Admin**.
-2. Enter the user name of a user you want to add as Super Admin.
+2. Enter the username of a user you want to add as Super Admin.
 
 ### Why Roles?
 
