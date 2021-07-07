@@ -29,7 +29,7 @@ No user-visible changes.
     * Select a specific anomaly. 
     * [Create alerts by using the `anomalous ()` function](ts_anomalous.html#using-the-anomalous-function-in-alerts), but note, that you must do that with caution, because queries with the `anomalous()` function are resource intensive.
 
-  For example, in the line plot below you can see big and small anomalies. Large anomalies are highlighted with square purple borders and small anomalies are highlighted with cycle purple borders.  
+  For example, in the line plot below you can see large and small anomalies. Large anomalies are highlighted with square purple borders and small anomalies are highlighted with cycle purple borders.  
 
    ![Anomalies highlighted with purple square and purple circle](images/anomaly_hightlighting.png)
 
