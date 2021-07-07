@@ -46,7 +46,7 @@ No user-visible changes.
   * User profile page
   * Metrics Browser page
 
-  We have also improved **drag-and-drop keyboard** navigation when you create or edit charts, create or edit metrics security policy. To use the drag-and-drop navigation:
+  We have also improved **drag-and-drop keyboard** navigation when you create or edit charts, or when you create or edit a metrics security policy. To use the drag-and-drop navigation:
   
   1. To enter drag mode, press **spacebar**. 
   2. Use the arrow keys to move the item, for example a query line. 
