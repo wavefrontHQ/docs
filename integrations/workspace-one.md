@@ -12,9 +12,13 @@ After you've completed the Wavefront integration for Workspace ONE Access setup,
 
 ## VMware Workspace ONE Access Setup
 
+After setting up the VMware Workspace ONE integration, users can authenticate to Wavefront through VMware Workspace ONE instead of using a password.  New users who did not exist in Wavefront are auto-created on the Wavefront side when they authenticate for the first time.
+
+
 ### Prerequisites
 
 If you do not want to use the default VMware Workspace ONE Access default access policy, create an access policy in VMware Workspace One Access (Identity & Access Management console).
+
  
 ### Step 1. Adding a Web Application to Workspace ONE Catalog
 
@@ -51,26 +55,17 @@ The Workspace ONE catalog is a repository of resources. After you add an applica
 2. Download metadata from **SaaS Apps > SAML metadata > Identity Provider metadata**.
 
 
-### Step 3. Upload Identity Provider Metadata into Wavefront
+### Step 3. Send the Identity Provider Metadata to Wavefront and Complete the Setup
 
-**Wavefront version 2020.30 and earlier**
-
-1. Send the downloaded metadata from Step 2 to support@wavefront.com with a request to set up the Workspace ONE integration for Wavefront. We'll activate the integration on our end and will notify you as soon as we've done this.
-
-
-**Wavefront version 2020.34 and later**
-
-1. Log in to Wavefront with a user account for which `SAML IDP Admin` permission is enabled.
-2. Click on the gear icon on top right corner and navigate to **Self Service SAML**.
-3. Select **Identity Provider** as **Workspace ONE** from the list.
-4. Copy the downloaded metadata from Step 2 into the **Configure Connection** text box.
-5. Click **Test** to test the validity of metadata. A new browser window opens with Workspace ONE login page.
+1. Log in to your Wavefront instance as a user with `SAML IdP Admin` permissions.
+1. From the gear icon in the top right corner, select **Self Service SAML**.
+1. From the **Identity Provider** drop-down menu, select **WorkspaceOne**.
+1. Paste the downloaded metadata from **Step 2** into the **Configure Connection** text box.
+1. To validate the metadata, click **Test**. The **WorkspaceOne** login page opens in a new browser window.
+1. Log in to **WorkspaceOne**.
+1. After the login is successful, click the **Save** button.
 
    **Note:** The **Save** button is disabled until you've completed a test successfully.
-
-6. Log in to Workspace ONE. After the login is successful, click **Save**.
-
-Going forward, users who attempt to log in to Wavefront are redirected to Workspace ONE. If a user can authenticate to Workspace ONE but is not currently a Wavefront user, that user is auto-created on the Wavefront side. Password authentication is no longer supported.
 
 
 
