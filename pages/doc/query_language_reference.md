@@ -361,11 +361,7 @@ You can:
       {{site.data.alerts.important}}
       <ul>
         <li>
-          Characters, such as <code><b>~</b>, <b>^</b>, <b>{ }</b>, and <b>$</b></code> are not supported regular expression characters. Therefore, you need to escape these characters if they are present in the string you are trying to match.
-          <br/>Example: You need to escape the <code>~</code> character.
-<pre>
-ts(/\~sample\.cpu.usage.*/)
-</pre>
+          Characters, such as <code><b>^</b>, <b>{ }</b>, and <b>$</b></code> are not supported regular expression characters. Therefore, you need to escape these characters if they are present in the string you are trying to match.
         </li>
         <li>
           All existing queries that use the <code>*</code> glob wildcard syntax continue to work as before.
@@ -394,7 +390,7 @@ ts(customer.report.count, tag="/mon-(primary|secondary)/")
         <li>
           Get data that match <code>~wavefront.alert.active</code> or <code>~wavefront.alert.active_info</code> and has the source tag <code>data</code>:
 <pre>
-ts(/\~wavefront\.alert\.(active|active_info)/, tag=data)
+ts(/~wavefront\.alert\.(active|active_info)/, tag=data)
 </pre>
         </li>
         <li>
