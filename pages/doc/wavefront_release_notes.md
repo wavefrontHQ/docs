@@ -13,10 +13,6 @@ This page lists new and updated features in the Wavefront service.
 
 * For the latest changes and releases of the **Wavefront Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 
-## 2021-25.x Release Notes
-
-No user-visible changes.
-
 ## 2021-26.x Release Notes
 
 * **Anomaly Detection on Charts**: With this release, we deprecate the support of AI Genie and replace it with the new [**Anomaly Detection**](anomaly_detection.html) feature, which is available for Line Plot chats. 
@@ -67,6 +63,9 @@ No user-visible changes.
 
 * **Azure AD Integration Improvements**: Updated the setup and the [setup instructions of the Azure AD Integration](azure_ad.html). You can now easily set up the Azure AD integration yourself without the need to contact our support team, so that users can authenticate to Wavefront through Azure AD instead of using a password.  
 
+## 2021-25.x Release Notes
+
+No user-visible changes.
 
 ## Past Release Notes
 
