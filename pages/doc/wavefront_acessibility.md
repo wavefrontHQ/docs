@@ -19,7 +19,7 @@ With the 2021-26.x release, Wavefront addresses more accessibility issues. It no
 * A redesigned color picker with a new color palette that is different for dark and light UI theme. 
   ![Color picker for light theme](images/color-picker.png)
 * Keyboard navigation support in more UI pages.
-* Drag-and-drop functionality to allow you to rearrange items.
+* Drag-and-drop functionality that allows you to rearrange items.
 
 
 ## Wavefront UI Pages With End-to-End Keyboard Navigation Support
@@ -78,6 +78,23 @@ The end-to-end keyboard navigation is fully supported in the Wavefront UI pages 
 
   You can access it by navigating to **Browse > Metrics** from the toolbar.
 
+## Drag-and-Drop Keyboard Navigation
+
+The drag-and-drop keyboard navigation is available when you create or edit charts and when you create or edit metrics security policies. 
+
+To use the drag-and-drop navigation:
+
+1. To enter drag mode, press **spacebar**. 
+2. Use the arrow keys to move the item, for example a query line. 
+3. Press **spacebar** to drop the item in its new position. 
+
+With the drag-and-drop keyboard navigation you can rearrange:
+
+* Query lines
+* Functions within a query line in Query Builder 
+* Variables
+* List values when you add variables to a dashboard
+* Metrics Security Policy rules
 
 ## Keyboard Shortcuts and Their Usage
 
