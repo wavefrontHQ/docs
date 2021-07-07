@@ -9,17 +9,35 @@ summary: Learn about new and updated features in Wavefront.
 
 This page lists new and updated features in the Wavefront service. 
 
+* For **Wavefront Proxy**, your go-to place is the [Wavefront proxy github page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
+
+* For the latest changes and releases of the **Wavefront Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
+
+## 2021-25.x Release Notes
+
+No user-visible changes.
+
 ## 2021-26.x Release Notes
 
-* **Anomaly Detection on Charts**: With this release, we deprecate the support of AI Genie and replace it with new functionality. You can now use the [**Anomaly Detection**](anomaly_detection.html), which is available for Line Plot chats and turn anomaly detection on. You can investigate the anomalies, which are highlighted in a different manner depending on their size, you can also select a specific anomaly. You can also [create alerts by using the `anomalous ()` function](ts_anomalous.html#using-the-anomalous-function-in-alerts), but note, that you must do that with caution.
+* **Anomaly Detection on Charts**: With this release, we deprecate the support of AI Genie and replace it with the new [**Anomaly Detection**](anomaly_detection.html) feature, which is available for Line Plot chats. 
 
-  ![Anomalies highlighted with purple square and purple circle](images/anomaly_hightlighting.png)
+  {% include note.html content="We will enable anomaly detection for all customers over the course of the coming releases." %}
+
+  You can:
+    * Turn anomaly detection on and off. 
+    * Explore all anomalies, which are highlighted in a different manner depending on their size.
+    * Select a specific anomaly. 
+    * [Create alerts by using the `anomalous ()` function](ts_anomalous.html#using-the-anomalous-function-in-alerts), but note, that you must do that with caution, because queries with the `anomalous()` function are resource intensive.
+
+  For example, in the line plot below you can see big and small anomalies. Large anomalies are highlighted with square purple borders and small anomalies are highlighted with cycle purple borders.  
+
+   ![Anomalies highlighted with purple square and purple circle](images/anomaly_hightlighting.png)
 
 * **Accessibility Improvements**: 
 
-  In addition to the already existing keyboard navigation for some of the Wavefront UI pages, now we add [support for end-to-end keyboard navigation](wavefront_keyboard_shortcuts.html) for the following UI pages:
+  In addition to the already existing keyboard navigation for some of the Wavefront UI pages, now we have [**support for end-to-end keyboard navigation**](wavefront_keyboard_shortcuts.html) for the following UI pages:
 
-  * Dashboard editor to create a new dashboard page
+  * [Create a dashboard wizard](ui_dashboards.html#create-a-dashboard)
   * Chart page
   * Integrations list page
   * Kubernetes integration page
@@ -28,7 +46,13 @@ This page lists new and updated features in the Wavefront service.
   * User profile page
   * Metrics Browser page
 
-  We have also included reordering drag-and-drop keyboard navigation when you create or edit charts, create of edit metrics security policy. To enter drag mode, press **spacebar**, use the arrow keys to move the item, for example a query line, and press **spacebar** to drop it in its new position. You can rearrange:
+  We have also improved **drag-and-drop keyboard** navigation when you create or edit charts, create or edit metrics security policy. To use the drag-and-drop navigation:
+  
+  1. To enter drag mode, press **spacebar**. 
+  2. Use the arrow keys to move the item, for example a query line. 
+  3. Press **spacebar** to drop the item in its new position. 
+  
+  You can rearrange:
   
   * Query lines
   * Functions within a query line in Query Builder 
@@ -37,7 +61,7 @@ This page lists new and updated features in the Wavefront service.
   * Metrics Security Policy rules
   
   
-  Colors in all charts and dashboards, including service and operational dashboards, as well as Amazon Web Services dashboards are updated to support colorblind accessibility. Random chart colors are theme-specific. We also redesigned the color picker with a new color palette that is different for dark and light UI theme.
+  **Colors** in all charts and dashboards, including service and operational dashboards, as well as Amazon Web Services dashboards, now support colorblind accessibility. Random chart colors are theme-specific. We also redesigned the color picker with a new color palette that is different for dark and light UI theme.
   
     ![Color picker for light theme](images/color-picker.png)
 
@@ -56,9 +80,3 @@ This page lists new and updated features in the Wavefront service.
 - [2020-26.x Release Notes](2020.26.x_release_notes.html)
 - [2020-22.x Release Notes](2020.22.x_release_notes.html)
 - [2020-14.x Release Notes](2020.14.x_release_notes.html)
-
-## Release Notes of Other Wavefront Components
-
-* For Wavefront Proxy, your go-to place is the [Wavefront proxy github page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
-
-* For the latest changes and releases of the Wavefront Integrations, see the [Integrations Release Notes](integrations_new_changed.html).

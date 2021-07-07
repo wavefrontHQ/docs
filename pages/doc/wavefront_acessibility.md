@@ -34,7 +34,7 @@ The end-to-end keyboard navigation is fully supported in the Wavefront UI pages 
 
   You can access it by navigating to a specific dashboard from the Dashboards Browser page.
   
-* Dashboard editor to create a new dashboard
+* Create a dashboard wizard
   
   You can access it by navigating to **Dashboards > Create Dashboard** from the toolbar.
   
