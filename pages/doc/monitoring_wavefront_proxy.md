@@ -22,7 +22,7 @@ The Proxy Health section of the System Usage dashboard includes commonly used in
 
   - The total point rate being collected at Wavefront has reached the maximum capacity. The Wavefront service is pushing back, causing data to buffer at the proxy and causing the proxy to queue points.
 
-  - The proxy has reached the threshold of number of points it can process in each batch. The maximum number of points that a proxy an process and push to Wavefront is determined by these factors:
+  - The proxy has reached the threshold of number of points it can process in each batch. The maximum number of points that a proxy can process and push to Wavefront is determined by these factors:
     - Number of cores on the machine on which the proxy is running
     - `pushFlushMaxPoints` - batch size the proxy sends every second. This value is configurable.
 
@@ -32,7 +32,7 @@ The Proxy Health section of the System Usage dashboard includes commonly used in
     number of cores * pushFlushMaxPoints
     ```
 
-    The default [setting](proxies_configuring.html) for `pushFlushMaxPoints` is 40,000. If you are running the proxy on a 4 core machine, the maximum number of points the proxy can send is 160k per second.
+    The default [setting](proxies_configuring.html) for `pushFlushMaxPoints` is 40,000. If you are running the proxy on a 4-core machine, the maximum number of points the proxy can send is 160k per second.
 
 - `~proxy.buffer.task-count` - Gauge of the amount of data that the proxy currently has queued.
 - `~proxy.buffer.points-count` - Gauge of the number of points currently in the queue.
@@ -56,7 +56,7 @@ These metrics are displayed in a tabular chart:
 You can also investigate second-level metrics that give you insight into questions, for example:
 * Why are some points blocked?
 * What's the file descriptor usage on the proxy JVM?
-* How long does it take for points to be pushed from the proxy to the Wavefront service.
+* How long does it take for points to be pushed from the proxy to the Wavefront service?
 
 The metrics used in this section are:
 
