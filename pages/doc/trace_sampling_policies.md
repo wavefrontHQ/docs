@@ -109,7 +109,6 @@ The policy expression creates a sampling policy to keep all spans from the `beac
 &#123;&#123;http.status_code&#125;&#125; in ("400", "404")
 </pre>
 
-
 ## Edit Sampling Policy
 
 ## Deactivate or Activate Sampling Policy
