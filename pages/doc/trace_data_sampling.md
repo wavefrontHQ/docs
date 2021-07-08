@@ -55,7 +55,7 @@ Let's look at the following scenarios to understand how sampling works in Wavefr
       
       <br/><br/>Creating a sampling policy affects your cost as you store more data within Wavefront. Therefore, only a <a href="authorization.html#who-is-the-super-admin-user">Super Admin user</a> or users with <a href="permissions_overview.html">Applications permissions</a> can create sampling policies.
       
-      <br/><br/>To see the number of spans stored per second after a span policy is created, see <a href="#track-volume-of-trace-data-stored-in-wavefront">Track Volume of Trace Data Stored in Wavefront</a>
+      <br/><br/>To see the number of spans stored per second after a sampling policy is created, see <a href="#track-volume-of-trace-data-stored-in-wavefront">Track Volume of Trace Data Stored in Wavefront</a>
       
       {% include tip.html content="If you already have an explicit sampling strategy in place and the data you retain through the explicit sampling strategy is greater than the sampling policy you created, Wavefront gives prominence to the explicit sampling strategy. " %}
       
