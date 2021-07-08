@@ -79,7 +79,7 @@ When you invite a (human) user to Wavefront, what that new user can do depends o
 
 ## Service Accounts
 
-A service account can be used to automate management of objects like dashboard, alerts, etc. A service account can't perform the **UI operations** that all user accounts can [perform by default](accounts.html#what-can-a-new-user-do). There's no limit on the number of service accounts you can create in your organisation. 
+A service account can be used to automate management of objects like dashboard, alerts, etc. A service account can't perform the **UI operations** that all user accounts can [perform by default](accounts.html#what-can-a-new-user-do). There's no limit on the number of service accounts you can create in your organization. 
 
 {% include note.html content="A service account must have **permissions** to perform tasks. To run queries, a service account must have **Metrics** permission. To manage dashboards and alerts, the service account might need both permissions and [access](access.html)." %}
 

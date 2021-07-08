@@ -36,7 +36,7 @@ To create a role:
 <li>From the gear menu, select <strong>Account Management</strong>.</li>
 <li>Click the <strong>Roles</strong> tab and select <strong>Create Role</strong>.</li>
 <li>Specify a name, description, and one or more permissions for that role.</li>
-<li>(Optional) Enter groups (or accounts) to assign the role to. You an also add groups or accounts later. </li>
+<li>(Optional) Enter groups (or accounts) to assign the role to. You can also add groups or accounts later. </li>
 <li>Click <strong>Create</strong>. </li>
 </ol></td>
 <td width="50%"><img src="/images/create_role.png" alt="create a role"/></td>

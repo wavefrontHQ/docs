@@ -134,7 +134,7 @@ The dashboard includes a link to the **Ingestion Policies** page so you can crea
 
 ![screenshot of part of the dashboard](/images/ingestion_pps_usage_breakdown.png)
 
-### Committed Rate and Monthy Usage (PPS P95) vs. Committed Dashboard
+### Committed Rate and Monthly Usage (PPS P95) vs. Committed Dashboard
 
 This dashboards helps you monitor your **monthly usage** and ensure that you're not ingesting more PPS than your contracted rate allows.
 
