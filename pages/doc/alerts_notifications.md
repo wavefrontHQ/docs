@@ -4,103 +4,103 @@ keywords: alerts
 tags: [alerts, events]
 sidebar: doc_sidebar
 permalink: alerts_notifications.html
-summary: Learn about alert notifications and images in notifications.
+summary: Learn about alert notifications and some special notification use cases.
 ---
 
-An alert reports state changes by sending notifications to one or more alert targets. Each notification contains information extracted from the alert about its state change.
+When an alert changes state, it sends notifications to one or more alert targets. Each notification contains information extracted from the alert about its state change. By default, the notification includes a static alert image and a link to the alert chart in Alert Viewer.
 
-The timing of an alert notification depends on the alert target:
+
+## Where and When Notifications Are Sent
+
+The type of alert (classic or multi-threshold) and the type of alert target (simple or webhook-based) determine the notification behavior.
+
+**Where** the notification is sent depends on the type of alert.
+* For classic alerts, the notification is sent to all targets and includes the severity that is associated with the change.
+* For multi-threshold alerts, each alert target has an associated severity. The notification is sent to the target(s) that were associated with that severity and all higher severities.
+
+   {% include note.html content="Alert targets subscribe to all notifications at their severity and above. For example, an alert target for an INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. Because notifications potentially go to targets of different severities, you cannot associate an alert target with more than one severity. " %}
+
+**When** the notification is sent depends on the type of alert target:
 
 * For simple targets (email addresses and PagerDuty keys added directly in the alert's **Target List**), a notification is sent whenever the alert is firing, updated, resolved, snoozed or in a maintenance window.
   {% include note.html content="A maximum of 10 email targets is supported. For  multi-threshold alerts, the maximum is 10 email targets per severity. " %}
 * For [custom alert targets](webhooks_alert_notification.html), a notification is sent in response to each triggering event that is specified for the target.
 
 
-## Sample Alert Notification
+## What's in an Alert Notification
 
-How an alert notification looks depends on the setting of the **Secure Metric Details** check box.
+How an alert notification looks depends on where you look at it. This section discusses the basics by looking at an email alert notification as an example.
 
-### Default Alert Notification
-
-If you have specified your email address as the alert target, you receive an email like the following whenever the alert fires:
-
-![alert_email](images/alert_email.png)
-
-### Alert Notification with Secured Metrics Details
-
-If an alert has **Secure Metrics Details** selected, the email or Slack notification:
-
-* Includes the text **Metrics Security Enabled** at the top.
-* Does **not** include metric details and alert images.
-
-When you select **Create Alert** and **Edit Alert** you can select a **Secure Metrics Details** check box. Here's how it works:
-
-* Alerts always check the complete set of metrics.
-* When a user opens alert-related charts,
-  - Metrics protected by metrics security policy rules are not displayed.
-  - A notification that some metrics are hidden due to metrics security policies is shown on the chart.
-
-{% include tip.html content="If your environment protects some metrics using metrics security policy rules, then the user experience is much better if you select the check box." %}
-
-![alert email screenshot without metrics image](images/alert_email_protected.png)
+![screenshot of alert with image, and below that status, condition, created, Affected Since, Event Started, Sources/Labels Affected plus a View Alert button](images/alert_email.png)
 
 
-## Chart Images in Alert Notifications
+### Link to Interactive Chart in Alert Viewer
 
-When an alert starts firing or is updated, the resulting alert notification can include an image of a chart showing data at the time the alert was triggered. The [sample email notification](#sample-alert-notification) above includes the following chart image:
+Each alert notification includes a link to an interactive chart, usually through a **View Alert** button. Interactive charts enable you to investigate your data by performing additional queries, changing the time window, and so on.
 
-![alert_chart_only](images/alert_chart_only.png)
+* Simple notification **emails** include a **View Alert Chart** link that takes you to the chart view.
+* For PagerDuty, alert target (webhook), and templated email notifications:
+  - The link  target of the `url` mustache template variable directs to the Alert Viewer. 
+  - The mustache context variable `chartUrl` takes you directly to the chart view.
 
-A chart image is a static snapshot that captures the state of the data at the time the alert was triggered. Such a snapshot can be helpful for diagnosing a possible [misfiring alert](alerts_states_lifecycle.html#did-my-alert-misfire), because the chart image can show you the exact state of the data that caused the alert to fire. (In contrast, an [interactive chart](#interactive-charts-linked-by-alert-notifications) viewed through the notification shows the data at the time you bring up the chart, which might include data that was backfilled after a delay.)
+The sample email notification above includes a **View Alert** button that users can click to go to the URL and see an interactive chart in [Alert Viewer](alerts.html#alert-viewer-tutorial)
 
-For performance reasons, a chart image is included only if the alert's conditional query takes a minute or less to return. The chart image can take a few seconds to create, so you might briefly see a placeholder image in the notification.
 
-Chart images are automatically included in notifications for:
+#### Alert Condition Information
+
+The interactive chart shows the alert condition or display expression:
+
+* For a classic alert, the condition is usually not meaningful. However, if the alert's [**Display Expression** field](#alert-properties) is set, the interactive chart shows the time series being tested by the alert.
+* For a multi-threshold alert, the interactive chart shows the alert condition.
+
+
+#### Time Window Considerations and Delayed Data
+
+The presence of delayed and then backfilled data in the interactive chart can obscure why the alert fired or did not fire.
+
+The interactive chart is set to a custom date showing the time window in which the alert was triggered. However, the data in the chart might have been backfilled with data values that were **reported** during that time window, but were not **ingested** until later.  If you suspect a [misfiring alert](alerts_states_lifecycle.html#did-my-alert-misfire), inspect the chart image included in the notification, which shows the state when the alert fired.
+
+#### Optional Information in the Interactive Chart
+
+Depending on the state change that triggered the alert, the interactive chart might display additional information:
+
+* **&lt;Alert name&gt;** - The display expression if one was specified. Otherwise, the [condition](alerts_manage.html#alert-condition) expression.
+* **Alert Condition** - The [alert condition](alerts_manage.html#alert-condition)
+* **Alert Firings** - An [events() query](events_queries.html) that shows system events of type `alert` for the alert. These events occur whenever the alert is opened. The query shows both the current firing (an ongoing event) and any past firings (ended events).
+* **Alert Details** - An [events() query](events_queries.html) that shows events of type `alert-detail` for the alert. These system events occur whenever the alert is updated (continues firing while an individual time series changes from recovered to failing, or from failing to recovered).
+
+### Static Chart Image
+
+When an alert starts firing or is updated, the resulting alert notification includes a snapshot of the chart that shows data at the time the alert was triggered. Chart image creation usually takes a few seconds, so you might briefly see a placeholder in the notification. For performance reasons, a chart image is included only if the alert condition query takes a minute or less.
+
+{% include note.html content="The static chart image is included only in notifications where that makes sense, for example, an email notification." %}
+
+In the sample email notification above the following chart image is at the top:
+
+![screenshot of chart image only](images/alert_chart_only.png)
+
+The alert chart image is different from what you see in Alert Viewer when you click **View Alert** because the time is different.
+* The chart image shows the state of the data that caused the alert to fire. This snapshot might be helpful for diagnosing a [misfiring alert](alerts_states_lifecycle.html#did-my-alert-misfire).
+* The interactive chart that the notification links to shows the data at the time you bring up the chart. This chart might include data that was backfilled after a delay.
+
+See [Limiting the Impact of Data Delays](alerts_delayed_data.html) for some background.
+
+#### Automatic and Explicit Chart Image Inclusion
+
+Chart images are **automatically** included in notifications for:
 * Simple alert targets (email addresses and PagerDuty keys that are added directly in the alert's target list).
 * [Custom alert targets](webhooks_alert_notification.html) for PagerDuty notifications.
 * Predefined templates for custom HTML email targets and for Slack targets.
 
-You can optionally include chart images in notifications for [custom alert targets](webhooks_alert_notification.html) for other messaging platforms.
+You can **explicitly** include chart images in notifications for [custom alert targets](webhooks_alert_notification.html).
 
-{% include note.html content="If you created a custom alert target before 2018-26.x and you want to include chart images in notifications to that target, you must edit the alert target's template.  See [Adding Chart Images to Older Custom Alert Targets](alert_target_customizing.html#adding-chart-images-to-older-custom-alert-targets) for sample setup instructions for updating an email alert target." %}
+For custom alert targets created **before release 2018-26.x** you must edit the alert target's template to include chart images in notifications.  See [Adding Chart Images to Older Custom Alert Targets](alert_target_customizing.html#add-chart-images-to-older-custom-alert-targets) for sample setup instructions for updating an email alert target.
+
+#### How to Exclude Chart Images
 
 If you want to exclude chart images:
 * Remove the corresponding variable from the templates for custom HTML email or Slack targets.
-*  You cannot remove chart images for custom PagerDuty alert targets.
-
-## Interactive Charts Linked by Alert Notifications
-
-Each alert notification includes a link to an interactive chart. When you create an alert, you can include a variable that determines what the user sees.
-
-### Link Variables in Alert Notifications
-The alert target mustache syntax supports a `url` variable and a  `charturl`.
-
-* Simple notification **emails** include a **View Alert Chart** link that takes you to the chart view.
-* For PagerDuty, alert target (webhook), and  templated email notifications:
-  - The link  target of the `url` mustache template variable directs to the Alert Viewer. 
-  - The mustache context variable `chartUrl` takes you directly to the chart view. 
-
-{% include note.html content="Alert targets created before release 2020.22 will use `url` instead of `chartUrl`. Edit the alert target to use `chartUrl` to send users to the chart editor." %} 
-
-### Link Details
-<!---Need to update this for multi-threshold and other changes--->
-
-An alert notification includes a URL that links to an interactive chart showing data at the time the alert was triggered. The [sample email notification](#sample-alert-notification) above displays the URL as a **View Alert** button that users can click to see an interactive chart like the following:
-
-![alert_interactive_chart](images/alert_interactive_chart.png)
-
-The interactive chart viewed through an alert notification shows the results of the alert's display expression. If you have set the alert's [**Display Expression** field](#alert-properties), the interactive chart shows the time series being tested by the alert. Depending on the state change that triggered the alert, the interactive chart can display additional queries for alert events and alert metrics:
-
-* **&lt;Alert name&gt;** - The display expression if one was specified. Otherwise, the [condition](alerts_manage.html#alert-condition) expression.
-* **Alert Condition** - The [alert condition](alerts_manage.html#alert-condition)
-* **Alert Firings** - An [events() query](events_queries.html) that shows events of type `alert` for the alert. These system events occur whenever the alert is opened. The query shows both the current firing (an ongoing event) and any past firings (ended events).
-* **Alert Details** - An [events() query](events_queries.html) that shows events of type `alert-detail` for the alert. These system events occur whenever the alert is updated (continues firing while an individual time series changes from recovered to failing, or from failing to recovered).
-
-Interactive charts enable you to investigate your data by performing additional queries, changing the time window, and so on.
-
-Interactive charts always show the **current state** of your data at the time you bring up the chart. That could be somewhat later than the event that triggered the alert.
-
-Although the interactive chart is set to a custom date showing the time window in which the alert was triggered, it might have been backfilled with data values that were reported during that time window, but were not ingested until later. The presence of delayed and then backfilled data can obscure why the alert fired. If you suspect a [misfiring alert](alerts_states_lifecycle.html#did-my-alert-misfire), inspect the chart image included in the notification, which shows the state when the alert fired.
+* You cannot remove chart images for custom PagerDuty alert targets.
 
 ## PagerDuty Notifications
 
@@ -114,3 +114,21 @@ If you use the out-of-the-box PagerDuty alert target, and you resolve the incide
 - If all affected sources are no longer affected and the alert is resolved in Wavefront, then no new incident is logged into PagerDuty.
 
 You can customize this behavior by creating a custom PagerDuty [alert target](webhooks_alert_notification.html) with different triggers.
+
+## Alert Notification with Secured Metrics Details
+
+{% include tip.html content="If your environment protects some metrics using metrics security policy rules, then the user experience is much better if you select the check box." %}
+
+If **Secure Metrics Details** is selected for an alert, the email or Slack notification:
+
+* Includes the text **Metrics Security Enabled** at the top.
+* Does **not** include metric details and alert images.
+
+When you select **Create Alert** and **Edit Alert** you can select a **Secure Metrics Details** check box. Here's how it works:
+
+* Alerts always check the complete set of metrics.
+* When a user opens alert-related charts,
+  - Metrics protected by metrics security policy rules are not displayed.
+  - A notification that some metrics are hidden due to metrics security policies is shown on the chart.
+
+![alert email screenshot without metrics image](images/alert_email_protected.png)
