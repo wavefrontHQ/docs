@@ -1,5 +1,5 @@
 ---
-title: Sampling Policy
+title: Managing Sampling Policies
 keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
@@ -7,27 +7,31 @@ permalink: trace_sampling_policies.html
 summary: Learn how to sample your trace data and see them in Wavefront using sampling policies.
 ---
 
-Couldn't find traces in Wavefront because it was sampled out due to [intelligent sampling](trace_data_sampling.html)? Now, You can create a sampling policy and let Wavefront know that you want to keep specific traces in wavefront. Creating a sampling policy affects your costs as you store more data within Wavefront. See the [Service Description](https://www.vmware.com/download/eula/wavefront-terms-of-service.html) for cost details. 
+Couldn't find traces in Wavefront because it was sampled out due to [intelligent sampling](trace_data_sampling.html)? Now, You can create a sampling policy and let Wavefront know that you want to keep specific traces in Wavefront. Creating a sampling policy affects your costs as you store more data within Wavefront. See the [Service Description](https://www.vmware.com/download/eula/wavefront-terms-of-service.html) for cost details. 
 Let's look at how you can create a sampling policy and get familiar with the policy expressions.
 
 {% include note.html content="Only a [Super Admin user](authorization.html#who-is-the-super-admin-user) or users with [Applications permissions](permissions_overview.html) can create sampling policies." %}
 
+## Create Sampling policy
+
 ## Add a Policy Expression
 
-Define a policy expression to let Wavefront know about the traces you want to keep. This expression needs to be in the YAML format and includes the following attributes.
+When you [create a sampling policy](trace_sampling_policies.html), you need to define a policy expression to let Wavefront know about the traces you want to keep. This expression needs to be in the YAML format and includes the following attributes.
 
 Let's look at a trace expression that asks Wavefront to store traces if the application name is beachshirts.
 ![](images/trace_sampling_expression.png)
 
 <table style="width: 100%;">
-  <th>
-    <tr>
+  <thead>
+  <tr>
+    <th>
       Attribute
-    </tr>
-    <tr>
+    </th>
+    <th>
       Description
-    </tr>
-  </th>
+    </th>
+  </tr>
+  </thead>
   <tr>
     <td width="20%">
       <b>Key</b>
@@ -95,7 +99,7 @@ Let's look at a trace expression that asks Wavefront to store traces if the appl
   </tr>
 </table>
 
-<p><span style="font-size: large; font-weight: 500">Example</span></p>
+<p><span style="font-size: large; font-weight: 500">Advanced Example</span></p>
 
 The policy expression creates a sampling policy to keep all spans from the `beachshirts` application where the operation starts with `Shopping`, the source contains `prod`, and the status code is `400` or `404`.
 <pre>
@@ -104,3 +108,12 @@ The policy expression creates a sampling policy to keep all spans from the `beac
 &#123;&#123;sourceName&#125;&#125; contains "prod" and 
 &#123;&#123;http.status_code&#125;&#125; in ("400", "404")
 </pre>
+
+
+## Edit Sampling Policy
+
+## Deactivate or Activate Sampling Policy
+
+## Delete Sampling Policy
+
+## Restore Sampling Policy

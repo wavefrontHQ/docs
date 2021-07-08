@@ -7,17 +7,70 @@ permalink: trace_data_sampling.html
 summary: Learn about sampling for Wavefront trace data.
 ---
 
-A cloud-scale web application generates a very large number of [traces](tracing_basics.html#wavefront-trace-data). Wavefront supports sampling to reduce the volume of stored trace data: 
+A cloud-scale web application generates a very large number of [traces](tracing_basics.html#wavefront-trace-data). Wavefront supports sampling to reduce the volume of stored trace data:
 
-* Wavefront automatically performs intelligent sampling on the traces that it receives, and retains only those traces that are most likely to be informative.  
-* You can further reduce the trace data that Wavefront receives by adding explicit sampling strategies.
+![a flow diagram of how sampling takes place in wavefront.](images/tracing_sampling_overview.png)
+
+Let's look at the following scenarios to understand how sampling works in Wavefront:
+
+<table style="width: 100%;">
+  <thead>
+    <tr>
+      <th width="20%">
+        Scenario
+      </th>
+      <th width="80%">
+        Description
+      </th>
+    </tr>
+  </thead>
+  <tr>
+  <td markdown=span>
+    [**Explicit Sampling**](#explicit-sampling-strategies)
+  </td>
+  <td>
+    Storing all your trace data in Wavefront can be too expensive. Therefore, you can have Explicit Sampling Strategies and control the amount of data you want your application to send to Wavefront.
+    <li markdown="span">If you are sending data via the proxy, implement [explicit sampling at the Wavefront proxy level](#setting-up-explicit-sampling-through-the-proxy).</li>
+    <li markdown="span">If you are sending data via direct ingestion, [contact Customer Support](wavefront_support_feedback.html#support) to set up the sampling rate.</li>
+    
+    {% include note.html content="Once an explicit sampling strategy is in place, you won't see certain trace data in Wavefront as they are discarded before they are stored in Wavefront. " %}
+  </td>
+  </tr>
+  <tr>
+    <td markdown=span>
+      [**Intelligent Sampling**](#wavefront-intelligent-sampling)
+    </td>
+    <td markdown=span>
+      The trace data that you sent to Wavefront may not be informative. Therefore, Wavefront automatically discards redundant traces or traces that don't add value and only keeps traces that are informative. This process is known as [Intelligent Sampling](#wavefront-intelligent-sampling).
+      
+      <br/>Due to intelligent sampling, you might not see some traces when you search for them on the traces browser. If you want to have specific trace data in Wavefront and don't want the traces to be discarded, use sampling policies.
+    </td>
+  </tr>
+  <tr>
+    <td markdown=span>
+      [**Sampling Policies**](#sampling-policies)
+    </td>
+    <td>
+      You can create a sampling policy and let Wavefront know that you want to keep specific traces in Wavefront. If you have a sampling policy in place, Wavefront does not perform intelligent sampling on the data. 
+      
+      <br/><br/>Creating a sampling policy affects your cost as you store more data within Wavefront. Therefore, only a <a href="authorization.html#who-is-the-super-admin-user">Super Admin user</a> or users with <a href="permissions_overview.html">Applications permissions</a> can create sampling policies.
+      
+      <br/><br/>To see the number of spans stored per second after a span policy is created, see <a href="#track-volume-of-trace-data-stored-in-wavefront">Track Volume of Trace Data Stored in Wavefront</a>
+      
+      {% include tip.html content="If you already have an explicit sampling strategy in place and the data you retain through the explicit sampling strategy is greater than the sampling policy you created, Wavefront gives prominence to the explicit sampling strategy. " %}
+      
+    </td>
+  </tr>
+
+</table>
+
+## Benefits of Sampling Data
 
 Sampling can give you a good idea of how your application is behaving. In addition, sampling can: 
 * Reduce the amount of storage required for trace data, and lowering your monthly costs.
 * Filter out "noise" traces so you can see what's important.
 * Limit the performance impact on network bandwidth and application response times.
 
-{% include important.html content=" If you don't want traces sampled out using intelligent sampling, you can create sampling policies and let Wavefront know that you want to keep specific traces. See, [Sampling Policy](trace_sampling_policies.html) " %}
 
 ## Wavefront Intelligent Sampling
 
@@ -57,6 +110,26 @@ You can [monitor](wavefront_monitoring.html#using-internal-metrics-to-optimize-p
 </tr>
 </tbody>
 </table>
+
+## Sampling policies
+
+Couldn't find traces in Wavefront because it was sampled out due to intelligent sampling? You can create a sampling policy and let Wavefront know that you want to keep specific traces in Wavefront. Creating a sampling policy affects your costs as you store more data within Wavefront. See the [Service Description](https://www.vmware.com/download/eula/wavefront-terms-of-service.html) for cost details.
+
+For details on creating and managing Sampling Policies, see [Managing Sampling Policies](trace_sampling_policies.html).
+
+{% include note.html content="Only a [Super Admin user](authorization.html#who-is-the-super-admin-user) or users with [Applications permissions](permissions_overview.html) can create sampling policies." %}
+
+### Track Volume of Trace Data Stored in Wavefront
+
+A sampling policy affects your costs. Follow these steps to see the number of traces you store in Wavefront with the sampling policies:
+
+1. Click **Dashboards** > **All Dashboards**.
+1. Search for the **Wavefront Service and Proxy Data** dashboard and click it to navigate to the dashboard.
+1. Once on the dashboard, search for the **Spans Sampled by Policies Per Second** chart under **Proxies overview**.
+
+You see the number of spans stored per second.
+
+[Add mage of the graph as an example]
 
 
 ## Explicit Sampling Strategies
@@ -148,6 +221,8 @@ You can set up explicit sampling strategies through a [Wavefront proxy](proxies.
 4. [Start the proxy](proxies_installing.html#starting-and-stopping-a-proxy).
 
 ## Setting Up Explicit Sampling in Your Code
+
+{% include warning.html content="OpenTracing and OpenCensus have merged to form OpenTelemetry. Therefore, this option will be deprecated in the future." %}
 
 You can set up explicit sampling strategies in application code that is built with one of the following [Wavefront observability SDKs](wavefront_sdks.html):
 
