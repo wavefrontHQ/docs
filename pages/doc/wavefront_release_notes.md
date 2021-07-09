@@ -15,7 +15,8 @@ This page lists new and updated features in the Wavefront service.
 
 ## 2021-26.x Release Notes
 
-* **Anomaly Detection on Charts**: With this release, we deprecate the support of AI Genie and replace it with the new [**Anomaly Detection**](anomaly_detection.html) feature, which is available for Line Plot chats. 
+<!---Release Delayed
+ * **Anomaly Detection on Charts**: With this release, we deprecate the support of AI Genie and replace it with the new [**Anomaly Detection**](anomaly_detection.html) feature, which is available for Line Plot chats. 
 
   {% include note.html content="We will enable anomaly detection for all customers over the course of the coming releases." %}
 
@@ -28,7 +29,7 @@ This page lists new and updated features in the Wavefront service.
   For example, in the line plot below you can see large and small anomalies. Large anomalies are highlighted with square purple borders and small anomalies are highlighted with cycle purple borders.  
 
    ![Anomalies highlighted with purple square and purple circle](images/anomaly_hightlighting.png)
-
+--->
 * **Accessibility Improvements**: 
 
   In addition to the already existing keyboard navigation for some of the Wavefront UI pages, now we have [**support for end-to-end keyboard navigation**](wavefront_keyboard_shortcuts.html) for the following UI pages:
