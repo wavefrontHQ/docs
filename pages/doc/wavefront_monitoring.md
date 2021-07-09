@@ -228,6 +228,15 @@ Wavefront customer support engineers have found the following metrics especially
 <td markdown="span">Points, histogram points, spans, or span logs that the collector receives but cannot report to Wavefront because the input is not in the right format.<br>
 <br>
 **Note:** We have a corresponding direct ingestion metric for each metric. For example, corresponding to `collector.points.undecodable` we have `collector.direct-ingestion.points.undecodable`.</td></tr>
+
+<tr>
+<td markdown="span">~collector</td>
+<td markdown="span">~collector.delta_points.tracing_red.reported<br> ~collector.histograms.tracing_red.reported<br> ~collector.points.tracing_red.reported</td>
+<td markdown="span">Delta counters, histograms, and points, which include RED metrics that the collector receives.<br>
+<br>
+**Note:** We have a corresponding direct ingestion metric for each metric. For example, corresponding to `collector.delta_points.tracing_red.reported` we have
+`collector.direct-ingestion.delta_points.tracing_red.reported`.</td></tr>
+
 <tr>
 <td markdown="span">~metric</td>
 <td>~metric.new_host_ids</td>
