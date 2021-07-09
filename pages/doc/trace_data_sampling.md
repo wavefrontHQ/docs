@@ -115,7 +115,7 @@ You can [monitor](wavefront_monitoring.html#using-internal-metrics-to-optimize-p
 
 Couldn't find traces in Wavefront because it was sampled out due to intelligent sampling? You can create a sampling policy and let Wavefront know that you want to keep specific traces in Wavefront. Creating a sampling policy affects your costs as you store more data within Wavefront. See the [Service Description](https://www.vmware.com/download/eula/wavefront-terms-of-service.html) for cost details.
 
-For details on creating and managing Sampling Policies, see [Managing Sampling Policies](trace_sampling_policies.html).
+For details on creating and managing Sampling Policies, see [Manage Sampling Policies](trace_sampling_policies.html).
 
 {% include note.html content="Only a [Super Admin user](authorization.html#who-is-the-super-admin-user) or users with [Applications permissions](permissions_overview.html) can create sampling policies." %}
 

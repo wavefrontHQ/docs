@@ -1,5 +1,5 @@
 ---
-title: Managing Sampling Policies
+title: Manage Sampling Policies
 keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
