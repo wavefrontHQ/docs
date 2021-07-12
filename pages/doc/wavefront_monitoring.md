@@ -232,7 +232,7 @@ Wavefront customer support engineers have found the following metrics especially
 <tr>
 <td markdown="span">~collector</td>
 <td markdown="span">~collector.delta_points.tracing_red.reported<br> ~collector.histograms.tracing_red.reported<br> ~collector.points.tracing_red.reported</td>
-<td markdown="span">Delta counters, histograms, and points, which include RED metrics that the collector receives.<br>
+<td markdown="span">Delta counters, histograms, and points derived as [Tracing RED metrics](trace_data_details.html#red-metrics) that the collector receives.<br>
 <br>
 **Note:** We have a corresponding direct ingestion metric for each metric. For example, corresponding to `collector.delta_points.tracing_red.reported` we have
 `collector.direct-ingestion.delta_points.tracing_red.reported`.</td></tr>

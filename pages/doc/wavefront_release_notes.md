@@ -62,7 +62,7 @@ This page lists new and updated features in the Wavefront service.
 
 * **Azure AD Integration Improvements**: Updated the setup and the [setup instructions of the Azure AD Integration](azure_ad.html). You can now easily set up the Azure AD integration yourself without the need to contact our support team, so that users can authenticate to Wavefront through Azure AD instead of using a password.  
 
-* **New Metrics to Track RED Metrics**: The following metrics track RED metrics for delta counters, histograms, and points, that the collector receives. For details, see [Monitor Your Wavefront Service](wavefront_monitoring.html).
+* **New Metrics to Track RED Metrics**: Tracks delta counters, histograms, and points derived as [Tracing RED metrics](trace_data_details.html#red-metrics) that the collector receives. For details, see [Monitor Your Wavefront Service](wavefront_monitoring.html).
   * ~collector.delta_points.tracing_red.reported
   * ~collector.histograms.tracing_red.reported
   * ~collector.points.tracing_red.reported
