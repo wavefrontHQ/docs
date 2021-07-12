@@ -117,10 +117,23 @@ TBD. Can I do this with Kubernetes alerts?
 
 ## Troubleshooting
 
-If the integration wasn’t set up successfully, it would be indicated by the TMC Adapter icon as it requires attention or the wavefront-extension icon.
+For some general recommendations,  [Kubernetes Troubleshooting](wf_kubernetes_troubleshooting.html). The following causes for failure and remediation steps are especially useful for Tanzu Mission Control troubleshooting.
 
-### Causes for Failures
-Failure reasons could be due to a number of issues including
+### Symptom
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%" markdown="span">
+If the integration wasn’t set up successfully, the icon in the Integrations tile shows <strong>Needs Attention</strong>.  </td>
+<td width="50%"><img src="/images/tmc_needs_attention.png " alt="Integrations tile shows Needs Attention "></td></tr>
+</tbody>
+</table>
+
+### Causes
+
+Failure might be caused by a number of issues including:
+
 * Policy restrictions (access permission for pod)
 * Nodes are not available for scheduling
 * Required Memory / CPU are not available
@@ -129,5 +142,13 @@ Failure reasons could be due to a number of issues including
 
 ### Remediation
 Follow these steps to remediate problems:
-* Ensure that the cluster you want to connect to isn't protected by an SSO solution. If it is, you might have to explicitly log in to the cluster as a user before you can display the Wavefront dashboard.
-* Ensure that the Wavefront API key is active and correctly entered. If the key was revoked, it's not longer valid.
+1. Ensure that the cluster you want to connect to isn't protected by an SSO solution. If it is, you might have to explicitly log in to the cluster as a user before you can display the Wavefront dashboard.
+2. Ensure that the Wavefront API key is active and correctly entered. If the key was revoked, it's not longer valid.
+
+## Learn More
+
+* Get started with some of our [conceptual videos](videos_quickstart.html) or some of our [hands-on videos](videos_how_to_start.html).
+* [Explore Your Data](ui_examine_data.html) in the predefined Kubernetes dashboards.
+* [Clone any of the predefined dashboards](ui_dashboards.html#edit-or-clone-a-dashboard) and customize them.
+* [Examine Alerts](alerts.html) if any are predefined for your cluster. 
+* See [Kubernetes Troubleshooting](wf_kubernetes_troubleshooting.html)
