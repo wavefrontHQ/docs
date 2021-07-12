@@ -69,7 +69,7 @@ The Wavefront proxy uses HTTPS, and we offer options to secure it further:
 
 ## Authentication
 
-Wavefront supports both user accounts and service accounts. User accounts [must authenticate](authentication.html) with a username and password, service accounts authenticate with a revokable token. Wavefront customers can use the authentication provided by Wavefront or use one of our supported authentication integrations. We support several authentication solutions including AzureAD, Google ID, and Okta.
+Wavefront supports both user accounts and service accounts. User accounts [must authenticate](authentication.html) with a username and password, service accounts authenticate with a revokable token. Wavefront customers can use the authentication provided by Wavefront or use one of our supported authentication integrations. We support several authentication solutions including Azure AD, Google ID, and Okta.
 
 Starting with release 2020.38, we support [self-service SAML SSO](auth_self_service_sso.html) setup.
 

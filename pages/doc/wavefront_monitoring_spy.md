@@ -15,7 +15,7 @@ Your Wavefront instance includes HTTP `spy` endpoints for sampling the data that
 
 Use spy to extract information programmatically. This page gives details on the available endpoints and associated parameters.
 
-Use Wavefront top if you want a keyboard-driven UI that's similar to the Linux top UI. The tool is open source and on [Github](https://github.com/wavefrontHQ/wftop). You can also read [the blog that Joanna prepared](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitor-and-optimize-data-ingestion-by-wavefront-across-your-organization-introducing-wavefront-top), or watch a short video.
+Use Wavefront top if you want a keyboard-driven UI that's similar to the Linux top UI. The tool is open source and on [GitHub](https://github.com/wavefrontHQ/wftop). You can also read [the blog that Joanna prepared](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitor-and-optimize-data-ingestion-by-wavefront-across-your-organization-introducing-wavefront-top), or watch a short video.
 
 <p><a href="https://youtu.be/XROitQwFCJs"><img src="/images/v_wftop.png" style="width: 700px;"/></a>
 </p>
@@ -60,7 +60,7 @@ Each endpoint displays a header that describes your request, and then lists the 
 Your Wavefront instance includes an HTTP endpoint that returns a sampling of the ingested metric points that have specified characteristics. You can use the returned list of points to help you answer questions like:
 
 * Show me some ingested points with metric names that start with the prefix `Cust`.
-* How many pps come from hosts with names that start with the prefix `web`?
+* How many PPS come from hosts with names that start with the prefix `web`?
 * What are some points that are tagged with `env=prod`?
 
 ### Endpoint and Parameters for Metric Points
