@@ -15,7 +15,7 @@ This page lists new and updated features in the Wavefront service.
 
 ## 2021-27.x Release Notes
 
-* **PromQL Compatibility Improvements**: Miscellaneous improvements. For example, the `percentile()`, `mpercentile()` and `variance()` functions now work as expected. 
+* **PromQL Compatibility Improvements**: Miscellaneous improvements. For example, the `percentile()`, `mpercentile()` and `variance()` functions now work as expected.
 <!---Release Delayed
  * **Anomaly Detection on Charts**: With this release, we deprecate the support of AI Genie and replace it with the new [**Anomaly Detection**](anomaly_detection.html) feature, which is available for Line Plot chats.
 
@@ -29,7 +29,6 @@ This page lists new and updated features in the Wavefront service.
 
    ![Anomalies highlighted with purple square and purple circle](images/anomaly_hightlighting.png)
 --->
-
 
 ## 2021-26.x Release Notes
 
