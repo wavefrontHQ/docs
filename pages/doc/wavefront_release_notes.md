@@ -9,59 +9,71 @@ summary: Learn about new and updated features in Wavefront.
 
 This page lists new and updated features in the Wavefront service. 
 
+* For **Wavefront Proxy**, your go-to place is the [Wavefront proxy github page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
 
-## 2021-24.x Release Notes
+* For the latest changes and releases of the **Wavefront Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 
-* **PromQL Improvement**: Using global filters (key-value pairs for filtering results) is now supported for charts created with PromQL queries.
-* **Accessibility Improvements**: We have made a number of keyboard navigation and focus indicator fixes.
-* **Documentation Improvements**: Reorganized the information about [alerts](alerts.html).
+## 2021-26.x Release Notes
 
+<!---Release Delayed
+ * **Anomaly Detection on Charts**: With this release, we deprecate the support of AI Genie and replace it with the new [**Anomaly Detection**](anomaly_detection.html) feature, which is available for Line Plot chats. 
 
-## 2021-23.x Release Notes
+  You can:
+    * Turn anomaly detection on and off. 
+    * Explore all anomalies, which are highlighted in a different manner depending on their size.
+    * Select a specific anomaly. 
+    * [Create alerts by using the `anomalous ()` function](ts_anomalous.html#using-the-anomalous-function-in-alerts), but note, that you must do that with caution, because queries with the `anomalous()` function are resource intensive.
 
-* **cumulativePercentile() Function**: For histograms that come from Prometheus, you can now use [the `cumulativePercentile()` function](ts_cumulativePercentile.html) to calculate the cumulative percentile value.
-* **List Variables**: List variables now support [non-alphanumeric characters](dashboards_variables.html#supported-characters).
-* **Alert Status for services**: Active alerts are now shown on the [Application Status page](tracing_ui_overview.html) in all formats (grid view, table view, app map).
-  ![Shows the red dot on a service on the app map view. This indicates that an alert is firing for that service. To see the alert, click actions and view alerts. ](images/tracing_alerts_on_app_map_release_notes.png)
+  For example, in the line plot below you can see large and small anomalies. Large anomalies are highlighted with square purple borders and small anomalies are highlighted with cycle purple borders.  
 
+   ![Anomalies highlighted with purple square and purple circle](images/anomaly_hightlighting.png)
+--->
+* **Accessibility Improvements**: 
 
+  In addition to the already existing keyboard navigation for some of the Wavefront UI pages, now we have [**support for end-to-end keyboard navigation**](wavefront_keyboard_shortcuts.html) for the following UI pages:
 
-## 2021-22.x Release Notes
+  * [Create a dashboard wizard](ui_dashboards.html#create-a-dashboard)
+  * Chart page
+  * Integrations list page
+  * Kubernetes integration page
+  * Sources Browser pages
+  * Maintenance Windows page
+  * User profile page
+  * Metrics Browser page
 
-* **CSV Export Improvements**: Significant improvements to the [CSV Export functionality](ui_examine_data.html#export-to-csv-or-pdf) for table charts make it easy to open the exported data in a spreadsheet.
+  We have also improved **drag-and-drop keyboard** navigation when you create or edit charts, or when you create or edit a metrics security policy. To use the drag-and-drop navigation:
+  
+  1. To enter drag mode, press **spacebar**. 
+  2. Use the arrow keys to move the item, for example a query line. 
+  3. Press **spacebar** to drop the item in its new position. 
+  
+  You can rearrange:
+  
+  * Query lines
+  * Functions within a query line in Query Builder 
+  * Variables
+  * List values when you add variables to a dashboard
+  * Metrics Security Policy rules
+  
+  
+  **Colors** in all charts and dashboards, including service and operational dashboards, as well as Amazon Web Services dashboards, now support colorblind accessibility. Random chart colors are theme-specific. We also redesigned the color picker with a new color palette that is different for dark and light UI theme.
+  
+    ![Color picker for light theme](images/color-picker.png)
 
-## 2021-21.x Release Notes
+* **Azure AD Integration Improvements**: Updated the setup and the [setup instructions of the Azure AD Integration](azure_ad.html). You can now easily set up the Azure AD integration yourself without the need to contact our support team, so that users can authenticate to Wavefront through Azure AD instead of using a password.  
 
-* **OpenTelemetry Exporter**: The [Tanzu Observability (Wavefront) exporter for OpenTelemetry](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/exporter/tanzuobservabilityexporter/README.md) allows you to send traces to Wavefront and use our [comprehensive DT GUI](tracing_ui_overview.html) to visualize trace data.
-<!---The KB [OpenTracing or OpenTelemetry- Which to select for instrumenting applications for tracing](https://help.wavefront.com/hc/en-us/articles/360058140212-OpenTracing-or-OpenTelemetry-Which-specification-to-select-for-instrumenting-applications-for-tracing-) gives an introduction.--->
-* **PromQL Improvements**:  We made the following improvements to our PromQL implementation:
-  - Regular expression filters in PromQL are now supported.
-  - Regular subquery expressions in PromQL are now supported.
-  The earlier limitations have been removed from our [PromQL doc page](wavefront_prometheus.html).
-* **New Function**: We now support a [log2() function](ts_log2.html) in addition to the existing log() and log10() functions.
-* **Alert API Change**: Performing a PUT request with no changes against `/api/v2/alert/{id}` no longer marks the alert as edited/auto resolved.
-* **Search UI Improvements**:
-  - You can explicitly exclude a keyword or a phrase from the search results by changing the equal sign to a not equal sign (≠). See [Searching Wavefront](wavefront_searching.html) for an example.
-
-  ![exclude search results](images/not_in_search.png)
-  - When you search, we now show results that contain the current text string, as shown in the following screenshot.
-
-  ![search has results of full string and results that include the text string, starting with Contains](images/contains.png)
-
-
-
-
-## 2021-20.x Release Notes
-
-* **Performance Improvements**: This release includes significant performance improvements for the query language. As part of this project, our engineers added single-side join improvements, strategy improvements for TopK, and more. Read our blog post: [How Tanzu Observability Continuous Improvement Makes You More Successful](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/how-tanzu-observability-continuous-improvement-make-you-more-successful) for details.
-
-* **New Functions**: We added the [`retainDimension()` and `removeDimension()` functions](ts_retainDimension_removeDimension.html), which allow you to keep or remove dimensions (point tags) that are in the results of your queries.
-
-* **New Operators**: We add the `groupLeft` and `groupRight` operators, which let you achieve many-to-one and one-to-many series matching, similar to the [Many-to-one and one-to-many PromQL vector matches](https://prometheus.io/docs/prometheus/latest/querying/operators/#many-to-one-and-one-to-many-vector-matches). To learn more about how to use these operators and how Wavefront processes output metadata from a series match, see [Processing Output Metadata from a Series Match](query_language_series_matching.html#processing-output-metadata-from-a-series-match).
+* **New Metrics to Track RED Metrics**: Tracks delta counters, histograms, and points derived as [Tracing RED metrics](trace_data_details.html#red-metrics) that the collector receives. For details, see [Monitor Your Wavefront Service](wavefront_monitoring.html).
+  * ~collector.delta_points.tracing_red.reported
+  * ~collector.histograms.tracing_red.reported
+  * ~collector.points.tracing_red.reported
+  
+  {% include note.html content="We have a corresponding direct ingestion metric for each metric. For example, corresponding to `collector.delta_points.tracing_red.reported` we have
+  `collector.direct-ingestion.delta_points.tracing_red.reported`."%}
 
 
 ## Past Release Notes
 
+- [2021-24.x Release Notes](2021.24.x_release_notes.html)
 - [2021-19.x Release Notes](2021.19.x_release_notes.html)
 - [2021-14.x Release Notes](2021.14.x_release_notes.html)
 - [2021-08.x Release Notes](2021.08.x_release_notes.html)
@@ -71,9 +83,3 @@ This page lists new and updated features in the Wavefront service.
 - [2020-26.x Release Notes](2020.26.x_release_notes.html)
 - [2020-22.x Release Notes](2020.22.x_release_notes.html)
 - [2020-14.x Release Notes](2020.14.x_release_notes.html)
-
-## Release Notes of Other Wavefront Components
-
-* For Wavefront Proxy, your go-to place is the [Wavefront proxy github page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
-
-* For the latest changes and releases of the Wavefront Integrations, see the [Integrations Release Notes](integrations_new_changed.html).
