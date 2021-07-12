@@ -98,7 +98,7 @@ Wavefront reports the single metric `aws.billing.estimatedcharges`. The `source`
 
 ### Retrieve AWS Service Metrics from the API
 
-Our Customer Success team has prepared a KB article that explains how to [Update the CloudWatch integration to retrieve services from the API](https://help.wavefront.com/hc/en-us/articles/360059699691-Updating-Cloudwatch-Integration-to-retrieve-AWS-service-metrics-from-the-API)
+The following KB article explains how to [Update the CloudWatch integration to retrieve services from the API](https://help.wavefront.com/hc/en-us/articles/360059699691-Updating-Cloudwatch-Integration-to-retrieve-AWS-service-metrics-from-the-API)
 
 ## CloudTrail Events, Metrics, and Point Tags
 

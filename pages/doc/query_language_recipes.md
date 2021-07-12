@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: query_language_recipes.html
 summary: Recipes for Common Queries
 ---
-The Wavefront Customer Success team has found that customers want certain information from their data. For example, customers are interested in the point rate received or queued, or in the moving average or moving median.
+Customers want certain information from their data, for example, customers are often in the point rate received or queued, or in the moving average or moving median.
 
 We have a separate set of [Alert Recipes](alerts_recipes.html) but you can use many of queries in the recipes here in alerts.
 
@@ -259,4 +259,4 @@ See [Point Tags in Queries](query_language_point_tags.html) for details.
 
 ## How to Account for Known Downtimes or Events in Uptime Queries
 
-There are times when there are known and expected downtime periods such as maintenance or testing windows. Our Customer Success team created [this KB article](https://help.wavefront.com/hc/en-us/articles/360058534192-How-to-Account-for-Known-Downtimes-or-Events-in-Uptime-Queries), which discusses one of the ways to approach this.
+There are times when there are known and expected downtime periods such as maintenance or testing windows. [This KB article](https://help.wavefront.com/hc/en-us/articles/360058534192-How-to-Account-for-Known-Downtimes-or-Events-in-Uptime-Queries) discusses one of the ways to approach this.

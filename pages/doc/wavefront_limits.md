@@ -37,7 +37,7 @@ HTTP 429 TOO_MANY_REQUESTS
 
 ## Default Customer-Specific Limits
 
-You can start with Wavefront either as part of a free trial or as a new customer. In both cases, a set of out-of-the-box limits applies to that customer account. You can contact our customer success team to request changes. In some cases, a change might involve additional costs.
+You can start with Wavefront either as part of a free trial or as a new customer. In both cases, a set of out-of-the-box limits applies to that customer account. You can [contact our tech support team](wavefront_support_feedback.html) to request changes. In some cases, a change might involve additional costs.
 
 <table>
 <tbody>
