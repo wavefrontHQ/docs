@@ -77,7 +77,7 @@ Any Super Admin user or users with **Metrics** permission can view, create, and 
 
 Data protected by a metrics security policy rule can become completely invisible to users.
 * **Not visible in charts**. The chart either includes a warning that some metrics are protected, or, if all metrics are protected, the chart shows only the message.
-* **Not visible in alerts** (if **Secure Metrics Details** is checked for the alert). The alert fires based on the complete set of metrics, and the complete set is shown in notification images by default. A check box allows administrators to [hide alert details](alerts_notifications.html#alert-notification-with-secured-metrics-details) so that confidential metric are not shown.
+* **Not visible in alerts** (if **Secure Metrics Details** is checked for the alert). The alert fires based on the complete set of metrics, and the complete set is shown in notification images by default. A check box allows administrators to [hide alert details](alerts_notifications.html#alert-notification-with-secured-metrics-details) so that confidential metrics are not shown.
 * **Not visible in auto-complete** in Chart Builder, Query Editor, Metrics browser, etc.
 
 ## Authorization FAQs
@@ -87,7 +87,7 @@ Before you start, here are some FAQs:
 ### What are User Accounts & Service Accounts?
 
 Wavefront supports two [account types](accounts.html):
-* **User accounts** are for human users who work with Wavefront. A user account authenticates with a user name and password.
+* **User accounts** are for human users who work with Wavefront. A user account authenticates with a username and password.
 * **Service accounts** are for services that interact with Wavefront through an API and use a **token** to authenticate. Service accounts:
   - Don't have **default permissions** (unless one or more roles with permissions are assigned to the **Everyone** group.).
   - Can't perform the **UI operations** that user accounts can perform by default.
@@ -104,7 +104,7 @@ When your company signs up with Wavefront, we ask you which user(s) you want to 
 Any existing Super Admin user can add other Super Admin users:
 
 1. Click the gear icon and select **Super Admin**.
-2. Enter the user name of a user you want to add as Super Admin.
+2. Enter the username of a user you want to add as Super Admin.
 
 ### Why Roles?
 

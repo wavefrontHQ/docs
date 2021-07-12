@@ -21,11 +21,11 @@ Wavefront supports a number of third-party authentication solutions that use SAM
 
 1. Log in to your Wavefront instance as a user with SAML IdP Admin permissions.
 2. From the gear icon, select **Self Service SAML**.
-3. From the **Identity Provider** pulldown menu, select the identity provider that is used in your environment.
+3. From the **Identity Provider** drop-down menu, select the identity provider that is used in your environment.
 4. Click the **Setup Instructions** link. The link directs you to the instructions for the provider that you selected.
 5. Follow the instructions to retrieve the metadata for your identity provider.
 6. In the **Configure Connection** field, paste the metadata and click **Test**.
-7. If the test was successful, the Save button becomes available and you can click **Save**.
+7. If the test was successful, the **Save** button becomes available and you can click **Save**.
 
 ![screenshot with fields filled in & blurred out](images/self_service_sso.png)
 
