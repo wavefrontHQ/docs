@@ -44,7 +44,7 @@ The Google Cloud Platform integration dashboard contains predefined alert condit
 
 {% include image.md src="images/alert_condition.png" width="50" %}
 
-To create the alert, click the **Create Alert** link under the query and configure the [alert properties](https://docs.wavefront.com/alerts.html#creating-an-alert) (notification targets, condition checking frequency, etc.).
+To create the alert, click the **Create Alert** link under the query and configure the [alert properties](https://docs.wavefront.com/alerts_manage.html) (notification targets, condition checking frequency, etc.).
 
 ## Google Cloud Platform Integration
 
