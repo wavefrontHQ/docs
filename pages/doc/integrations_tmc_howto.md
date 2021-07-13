@@ -1,5 +1,5 @@
 ---
-title: Monitor Tanzu Mission Control with Tanzu Observability
+title: Monitor Tanzu Mission Control Clusters with Tanzu Observability
 keywords:
 tags: [integrations, kubernetes]
 sidebar: doc_sidebar
@@ -59,11 +59,11 @@ To get started, you set up the integration from Tanzu Mission Control to Wavefro
 
 {% include tip.html content="For details, see the [Tanzu Mission Control documentation](https://docs.vmware.com/en/VMware-Tanzu-Mission-Control/services/tanzumc-using/GUID-A70E57A8-2C45-46D4-8E1F-6D5E7026473F.html)" %}
 
-## Use Dashboards to Monitor Tanzu Mission Control Clusters
+## Enable Wavefront for a Tanzu Mission Control Cluster
 
 After you have set up the integration from Tanzu Mission control, you can start visualizing data for any clusters using predefined dashboard.
 
-### Display Dashboards
+
 
 <table style="width: 100%;">
 <tbody>
@@ -72,7 +72,7 @@ After you have set up the integration from Tanzu Mission control, you can start 
 <ol>
 <li>In Tanzu Mission Control, select <strong>Clusters</strong> and pick the cluster that you want to monitor. </li>
 <li>In the <strong>Integrations</strong> tile, click <strong>Add Integration</strong> and select <strong>Tanzu Observability</strong>. </li>
-<li>In the <strong>Add Tanzu Observability</strong> dialog, select the credention that is associated with the Wavefront instance that you want to use for monitoring.</li>
+<li>In the <strong>Add Tanzu Observability</strong> dialog, select the credential that is associated with the Wavefront instance that you want to use for monitoring.</li>
 <li>After a few minutes, the <strong>Integrations</strong> tile shows the TMC Adapter status <strong>OK</strong></li>
 <li>Click the link to Tanzu Observability. The cluster metrics appear in a Wavefront dashboard. </li>
 </ol> </td>
@@ -83,7 +83,7 @@ After you have set up the integration from Tanzu Mission control, you can start 
 
 ![Large screenshot of TMC UI with Clusters selected and Integrations tile visible](/images/tmc_cluster_integrated.png)
 
-### Examine Your Data
+## Examine Your Cluster's Data in Dashboards
 
 Dashboards allow you to drill down into your data, change the time window, click on individual charts, use filters, and much more. See [Examine Data with Dashboards and Charts](ui_examine_data.html) or watch this short video for an overview.
 
@@ -150,5 +150,5 @@ Follow these steps to remediate problems:
 * Get started with some of our [conceptual videos](videos_quickstart.html) or some of our [hands-on videos](videos_how_to_start.html).
 * [Explore Your Data](ui_examine_data.html) in the predefined Kubernetes dashboards.
 * [Clone any of the predefined dashboards](ui_dashboards.html#edit-or-clone-a-dashboard) and customize them.
-* [Examine Alerts](alerts.html) if any are predefined for your cluster. 
+* [Examine Alerts](alerts.html) if any are predefined for your cluster.
 * See [Kubernetes Troubleshooting](wf_kubernetes_troubleshooting.html)
