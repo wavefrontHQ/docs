@@ -8,31 +8,46 @@ summary: New and changed Wavefront integrations.
 ---
 Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
+## July 2021
+
+Made improvement to the following integrations:
+
+* OpenTelemetry --  Updated steps for configuring the application to send trace data to Wavefront using the Tanzu Observability by Wavefront trace exporter.
+* Wavefront Usage -- Added new charts to **Proxies Overview** section in the **Wavefront Service and Proxy Data** dashboard to show **Spans Sampled By Policies**.
+* Azure AD -- Added steps to configure Azure AD using Self Service SAML.
+* Data Platforms -- Added new dashboard  **Data Platform Blueprint2 - Kafka-Spark-Elasticsearch**
+* Kubernetes
+  - Updates to Kubernetes out-of-the-box alert conditions
+  - Added charts to **Kubernetes Collector Troubleshooting** (Wavefront Collector Metrics) dashboard to monitor collector performance.
+  - Updates to the following alerts:
+    - K8s node memory usage too high
+    - K8s pod memory usage too high
+
 ## June 2021
 
-We added the following integrations: 
+We added the following integrations:
 
 * Data Platforms
-* VMware tc Server 4.x 
+* VMware tc Server 4.x
 
 Made improvements to the following integrations and dashboards in June 2021:
 
-* Windows -- Updated the out of the box dashboard to use the correct metrics to calculate Physical Memory. 
+* Windows -- Updated the out of the box dashboard to use the correct metrics to calculate Physical Memory.
 
   **Note**: In an existing Windows integration, you must update the `telegraf.conf` file for the changes to take effect.
-  
+
   1. Enable the memory plugin by adding it at the end of the `telegraf.conf` file:
-  
+
      ```
      [[inputs.mem]]
-       name_prefix="win." 
+       name_prefix="win."
      ```
-    
+
   2. Replace the line starting with Counters under `[[inputs.win_perf_counters.object]]`, with the following line:
-   
-     ``` 
+
+     ```
      Counters = ["Available Bytes", "Cache Bytes", "Committed Bytes", "Commit Limit", "Cache Faults/sec", "Demand Zero Faults/sec", "Page Faults/sec", "Pages/sec", "Transition Faults/sec", "Pool Nonpaged Bytes", "Pool Paged Bytes", "Modified Page List Bytes", "Standby Cache Reserve Bytes", "Standby Cache Normal Priority Bytes", "Standby Cache Core Bytes"]
-    
+
      ```
 
 * Pivotal Cloud Foundry -- Doppler health chart in the Pivotal Cloud Foundry summary dashboard is updated to show correct health status.
@@ -48,12 +63,12 @@ Made improvements to the following integrations and dashboards in May 2021:
 * AWS -- Updated the AWS summary dashboard to use Delta Counters.
 * Linux -- Updated the Linux integration to list all collected metrics.
 * Wavefront Usage:
-  * The out of the box dashboards are updated to use new delta counters. 
+  * The out of the box dashboards are updated to use new delta counters.
   * The integration out of the box alerts are updated to use delta counters.
 * Kubernetes:
   * Fixed node and pod memory usage charts in the out of the box Kubernetes Dashboards.
   * Fixed the Memory usage chart in the Troubleshooting dashboard.
-* vSphere -- Documentation fixes for vSphere integration. 
+* vSphere -- Documentation fixes for vSphere integration.
 * AWS ECS EC2 Integration -- The integration is updated to use a Telegraf agent to gather stats on running containers in a Task.
 * Consul -- Made the new metric version 2 as the default metric format.
 * MySQL -- Made the new metric version 2 as the default metric format.
@@ -102,7 +117,7 @@ Made improvements to the following integrations in March 2021:
 We added the following integration in December 2020 - February 2021:
 
 * VMware Tanzu™ GemFire®
- 
+
 Made improvements to the following integrations and dashboards in December 2020 - February 2021:
 
 * New Tracing dashboards
