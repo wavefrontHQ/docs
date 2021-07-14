@@ -11,7 +11,7 @@ Tanzu Observability supports smart alerts that dynamically filter noise and capt
 * The **alert notification** includes an image and a link to see the alert in context.
 * Look all alerts in the **Alert Browser** or examine a single firing alert in the **Alert Viewer**.
 
-{% include note.html content="All users can view alerts and perform the tasks on this page. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %} 
+{% include note.html content="All users can view alerts and perform the tasks on this page. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
 
 ## How Alerts Work Videos
@@ -98,6 +98,14 @@ When an alert fires, Wavefront analyzes the point tags that are most likely to b
 </tr>
 </tbody>
 </table>
+
+### Alert Viewer Video
+
+In this video, Pierre gives a 2-minute tour of Alert Viewer:
+
+<p>
+<iframe src="https://bcove.video/3r3PRVe" width="700" height="400" allowfullscreen="true" alt="intro to alert viewer"></iframe>
+</p>
 
 
 ## Alerts Browser Tutorial
