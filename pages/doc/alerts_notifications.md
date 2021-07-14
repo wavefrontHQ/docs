@@ -40,8 +40,8 @@ Each alert notification includes a link to an interactive chart, usually through
 
 * Simple notification **emails** include a **View Alert Chart** link that takes you to the chart view.
 * For PagerDuty, alert target (webhook), and templated email notifications:
-  - The link  target of the `url` mustache template variable directs to the Alert Viewer. 
-  - The mustache context variable `chartUrl` takes you directly to the chart view.
+  - The `url` mustache template variable directs to the Alert Viewer. 
+  - The `chartUrl` mustache template variable directs to the chart view.
 
 The sample email notification above includes a **View Alert** button that users can click to go to the URL and see an interactive chart in [Alert Viewer](alerts.html#alert-viewer-tutorial)
 
@@ -58,7 +58,9 @@ The interactive chart shows the alert condition or display expression:
 
 The presence of delayed and then backfilled data in the interactive chart can obscure why the alert fired or did not fire.
 
-The interactive chart is set to a custom date showing the time window in which the alert was triggered. However, the data in the chart might have been backfilled with data values that were **reported** during that time window, but were not **ingested** until later.  If you suspect a [misfiring alert](alerts_states_lifecycle.html#did-my-alert-misfire), inspect the chart image included in the notification, which shows the state when the alert fired.
+The interactive chart is set to the time window in which the alert was triggered. However, the data in the chart might have been backfilled with data values that were **reported** during that time window, but were not **ingested** until later.
+
+If you suspect a [misfiring alert](alerts_states_lifecycle.html#did-my-alert-misfire), inspect the chart image included in the notification, which shows a snapshot of the state when the alert fired, instead of the chart image.
 
 #### Optional Information in the Interactive Chart
 
