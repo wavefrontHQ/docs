@@ -134,7 +134,7 @@ The dashboard includes a link to the **Ingestion Policies** page so you can crea
 
 ![screenshot of part of the dashboard](/images/ingestion_pps_usage_breakdown.png)
 
-### Committed Rate and Monthy Usage (PPS P95) vs. Committed Dashboard
+### Committed Rate and Monthly Usage (PPS P95) vs. Committed Dashboard
 
 This dashboards helps you monitor your **monthly usage** and ensure that you're not ingesting more PPS than your contracted rate allows.
 
@@ -228,6 +228,15 @@ Wavefront customer support engineers have found the following metrics especially
 <td markdown="span">Points, histogram points, spans, or span logs that the collector receives but cannot report to Wavefront because the input is not in the right format.<br>
 <br>
 **Note:** We have a corresponding direct ingestion metric for each metric. For example, corresponding to `collector.points.undecodable` we have `collector.direct-ingestion.points.undecodable`.</td></tr>
+
+<tr>
+<td markdown="span">~collector</td>
+<td markdown="span">~collector.delta_points.tracing_red.reported<br> ~collector.histograms.tracing_red.reported<br> ~collector.points.tracing_red.reported</td>
+<td markdown="span">Delta counters, histograms, and points derived as [Tracing RED metrics](trace_data_details.html#red-metrics) that the collector receives.<br>
+<br>
+**Note:** We have a corresponding direct ingestion metric for each metric. For example, corresponding to `collector.delta_points.tracing_red.reported` we have
+`collector.direct-ingestion.delta_points.tracing_red.reported`.</td></tr>
+
 <tr>
 <td markdown="span">~metric</td>
 <td>~metric.new_host_ids</td>

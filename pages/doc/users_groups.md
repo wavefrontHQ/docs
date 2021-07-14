@@ -28,7 +28,7 @@ Before you start with accounts and groups, here's what you need to know.
 ### What's the Difference Between User Accounts and Service Accounts?
 
 Starting in summer 2019, Wavefront supports two account types:
-* **[User accounts](user_accounts.html)** are for  users who work with Wavefront. A user account authenticates with a user name and password.
+* **[User accounts](user_accounts.html)** are for  users who work with Wavefront. A user account authenticates with a username and password.
 * **[Service accounts](service_accounts.html)** are for services that interact with Wavfront through an API and use a **token** to authenticate. Service accounts:
   - Don't have **default permissions** (unless the Everyone group has default permissions).
   - Can't perform the **UI operations** that user accounts can perform by default.
@@ -84,7 +84,7 @@ New Wavefront customers specify Super Admin users during account setup. Any exis
 **To add a Super Admin user:**
 
 1. Click the gear icon and select **Super Admin**.
-2. Enter the user name of a user you want to add as Super Admin.
+2. Enter the username of a user you want to add as Super Admin.
 
 Going forward, that user can perform Super Admin tasks.
 
