@@ -59,10 +59,9 @@ To get started, you set up the integration from Tanzu Mission Control to Wavefro
 
 {% include tip.html content="For details, see the [Tanzu Mission Control documentation](https://docs.vmware.com/en/VMware-Tanzu-Mission-Control/services/tanzumc-using/GUID-A70E57A8-2C45-46D4-8E1F-6D5E7026473F.html)" %}
 
-## Enable Wavefront for a Tanzu Mission Control Cluster
+## Enable Tanzu Observability for a Tanzu Mission Control Cluster
 
-After you have set up the integration from Tanzu Mission control, you can start visualizing data for any clusters using predefined dashboard.
-
+After you have set up the credential from Tanzu Mission Control, you can start enabling Tanzu Observability by Wavefront for individual clusters that are managed by Tanzu Mission Control.
 
 
 <table style="width: 100%;">
