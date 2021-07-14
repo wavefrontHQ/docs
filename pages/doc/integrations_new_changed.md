@@ -14,14 +14,14 @@ Made improvement to the following integrations:
 
 * OpenTelemetry --  Updated steps for configuring the application to send trace data to Wavefront using the Tanzu Observability by Wavefront trace exporter.
 * Wavefront Usage -- Added new charts to **Proxies Overview** section in the **Wavefront Service and Proxy Data** dashboard to show **Spans Sampled By Policies**.
-* Azure AD -- Added steps to configure Azure AD using Self Service SAML.
+* Azure AD -- Added steps to configure Azure AD using Self-Service SAML.
 * Data Platforms -- Added new dashboard  **Data Platform Blueprint2 - Kafka-Spark-Elasticsearch**
 * Kubernetes
-  - Updates to Kubernetes out-of-the-box alert conditions
   - Added charts to **Kubernetes Collector Troubleshooting** (Wavefront Collector Metrics) dashboard to monitor collector performance.
-  - Updates to the following alerts:
+  - Changed the metrics in the alert condition of the following out-of-the-box alerts:
     - K8s node memory usage too high
     - K8s pod memory usage too high
+      {% include tip.html content="If you already cloned and customized one of these alerts, you have to clone and customize it again to use the improved alert condition. " %}
 
 ## June 2021
 
