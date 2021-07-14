@@ -46,7 +46,7 @@ If the certificate that's used in your setup needs to be replaced, you can delet
 The different SAML providers have the following FedRAMP certification:
 
 * ADFS – FedRAMP High.
-* G-Suite – FedRAMP Moderate which some agencies/contractors may be okay with.  We’d need to provide a banner or something similar to notify federal agencies that it’s hosted at FedRAMP Moderate.
+* G-Suite – FedRAMP Moderate.
 * Okta – FedRAMP Moderate.
 * WorkSpaceOne - FedRAMP Moderate.
 * OneLogin – No FedRAMP compliance.
