@@ -126,7 +126,7 @@ You must have <strong>Dashboards</strong> permission inside Wavefront to clone o
 
 For some general recommendations,  [Kubernetes Troubleshooting](wf_kubernetes_troubleshooting.html). The following causes for failure and remediation steps are especially useful for Tanzu Mission Control troubleshooting.
 
-### Symptom
+### Symptoms
 
 <table style="width: 100%;">
 <tbody>
