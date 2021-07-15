@@ -41,6 +41,7 @@ If the certificate that's used in your setup needs to be replaced, you can delet
 
 {% include tip.html content="If the certificate that is used in the SSO setup has expired and you are unable to authenticate to perform the required changes, [engage Support](wavefront_support_feedback.html#support) to request that the SSO integration be deactivated. After that, authenticate using username and password to set up SSO again with the updated metadata."%}
 
+<!---
 ## FedRAMP Certification of Different Providers
 
 The different SAML providers have the following FedRAMP certification:
@@ -50,3 +51,5 @@ The different SAML providers have the following FedRAMP certification:
 * Okta – FedRAMP Moderate.
 * WorkSpaceOne - FedRAMP Moderate.
 * OneLogin – No FedRAMP compliance.
+
+--->
