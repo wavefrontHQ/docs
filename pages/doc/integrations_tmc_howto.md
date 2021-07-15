@@ -132,8 +132,10 @@ For some general recommendations,  [Kubernetes Troubleshooting](wf_kubernetes_tr
 <tbody>
 <tr>
 <td width="50%" markdown="span">
-If the integration wasn’t set up successfully, the icon in the Integrations tile shows <strong>Needs Attention</strong>.  </td>
-<td width="50%"><img src="/images/tmc_needs_attention.png " alt="Integrations tile shows Needs Attention "></td></tr>
+If the integration wasn’t set up successfully, the icon in the Integrations tile shows <strong>Needs Attention</strong> and the wavefront-extension icon in the Agent and extensions health tile shows Unhealthy. <br/>
+<img src="/images/tmc_needs_attention.png " alt="Integrations tile shows Needs Attention">
+</td>
+<td width="50%"><img src="/images/tmc_wavefront_extension_bad.png" alt="wavefront-extension icon shows Unhealthy"></td></tr>
 </tbody>
 </table>
 
@@ -150,6 +152,7 @@ Failures might be caused by several issues including the following:
 * Issue with credential, for example, the API token might have been revoked on the Wavefront side.
 
 ### Remediation
+
 Follow these steps to remediate problems:
 1. Ensure that the cluster you want to connect to isn't protected by an SSO solution. If it is, you might have to explicitly log in to the cluster as a user before you can display the Wavefront dashboard.
 2. Ensure that the Wavefront API key is active and correctly entered. If the key was revoked, it's no longer valid.
