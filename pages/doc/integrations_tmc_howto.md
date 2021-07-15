@@ -132,8 +132,10 @@ For some general recommendations,  [Kubernetes Troubleshooting](wf_kubernetes_tr
 <tbody>
 <tr>
 <td width="50%" markdown="span">
-If the integration wasn’t set up successfully, the icon in the Integrations tile shows <strong>Needs Attention</strong>.  </td>
-<td width="50%"><img src="/images/tmc_needs_attention.png " alt="Integrations tile shows Needs Attention "></td></tr>
+If the integration wasn’t set up successfully, the icon in the Integrations tile shows <strong>Needs Attention</strong> and the wavefront-extension icon in the Agent and extensions health tile shows Unhealthy. <br/>
+<img src="/images/tmc_needs_attention.png " alt="Integrations tile shows Needs Attention">
+</td>
+<td width="50%"><img src="/images/tmc_wavefront_extension_bad.png" alt="wavefront-extension icon shows Unhealthy"></td></tr>
 </tbody>
 </table>
 
