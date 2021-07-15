@@ -150,6 +150,7 @@ Failures might be caused by several issues including the following:
 * Issue with credential, for example, the API token might have been revoked on the Wavefront side.
 
 ### Remediation
+
 Follow these steps to remediate problems:
 1. Ensure that the cluster you want to connect to isn't protected by an SSO solution. If it is, you might have to explicitly log in to the cluster as a user before you can display the Wavefront dashboard.
 2. Ensure that the Wavefront API key is active and correctly entered. If the key was revoked, it's no longer valid.
