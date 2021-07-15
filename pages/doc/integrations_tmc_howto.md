@@ -19,7 +19,7 @@ If you want to monitor Tanzu Mission Control with Wavefront, you have two option
 * Set up an integration from Tanzu Mission Control (preferred). The integrations establishes a credentials exchange and makes it easy to monitor any cluster that Tanzu Mission Control manages.
 * Monitor individual clusters by using the Wavefront integration with Kubernetes.--->
 
-## Getting Started
+## Create the Credential
 
 To get started, you set up the integration from Tanzu Mission Control to Wavefront:
 
@@ -50,14 +50,14 @@ To get started, you set up the integration from Tanzu Mission Control to Wavefro
 <tr>
 <td width="50%">On the <strong>Create Tanzu Observability credential</strong> page, specify credential attributes:
 <ul>
-<li><strong>Credential Name</strong>. Name that starts and ends with a letter and contains only lowercase letters, numbers, and hyphens. Best practice is to include the name of the Wavefront instance in the credential name. NOT the name of the service account. </li>
+<li><strong>Credential Name</strong>. Name that starts and ends with a letter and contains only lowercase letters, numbers, and hyphens. Best practice is to include the name of the Wavefront instance in the credential name. Do NOT use the name of the service account. </li>
 <li><strong>Tanzu Observability URL</strong>. The URL of the Wavefront instance, for example, <code>https://demo.wavefront.com</code></li>
 <li><strong>Tanzu Observability API Token</strong>. The API token that you generated inside the Wavefront instance. </li>
 </ul> </td>
 <td width="50%"><img src="/images/tmc_create_credential_page.png" alt="Create Tanzu Observability page with 3 fields filled in"></td>
 </tr>
 <tr>
-<td width="50%">Still in Tanzu Mission Control, click the <strong>Integrations</strong> tab and verify that Tanzu Observability by Wavefront is enabled. If you don't see the integration as enabled after a few minutes, see the Troubleshooting section below.
+<td width="50%">Click the <strong>Integrations</strong> tab and verify that Tanzu Observability by Wavefront is enabled. If you don't see the integration as enabled after a few minutes, see the Troubleshooting section below.
 </td>
 <td width="50%"><img src="/images/tmc_enabled.png" alt="Screenshot shows Tanzu Observability is enabled."></td>
 </tr>
@@ -89,7 +89,7 @@ After you have set up the credential from Tanzu Mission Control, you can start e
 
 ![Large screenshot of TMC UI with Clusters selected and Integrations tile visible](/images/tmc_cluster_integrated.png)
 
-You can now click the link to Tanzu Observability. You are redirected to a dashboard in the Wavefront instance that shows the metrics for the Tanzu Mission Control cluster. </li>
+You can now click the link to Tanzu Observability. You are redirected to a dashboard in the Wavefront instance that shows the metrics for the Tanzu Mission Control cluster.
 
 ## Examine Your Cluster's Data in Dashboards
 
@@ -139,11 +139,11 @@ If the integration wasn’t set up successfully, the icon in the Integrations ti
 
 ### Causes
 
-Failure might be caused by a number of issues including:
+Failures might be caused by several issues including the following:
 
 * Policy restrictions (access permission for pod)
 * Nodes are not available for scheduling
-* Required Memory / CPU are not available
+* Not enough memory or CPU is available
 * Image cannot be pulled
 * Pod crash due to internal access logic error
 * General issue on the Tanzu Mission Control side
@@ -152,7 +152,7 @@ Failure might be caused by a number of issues including:
 ### Remediation
 Follow these steps to remediate problems:
 1. Ensure that the cluster you want to connect to isn't protected by an SSO solution. If it is, you might have to explicitly log in to the cluster as a user before you can display the Wavefront dashboard.
-2. Ensure that the Wavefront API key is active and correctly entered. If the key was revoked, it's not longer valid.
+2. Ensure that the Wavefront API key is active and correctly entered. If the key was revoked, it's no longer valid.
 
 ## Learn More
 
