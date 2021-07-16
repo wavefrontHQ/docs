@@ -1,10 +1,10 @@
 ---
-title: Monitor Tanzu Mission Control Clusters with Tanzu Observability
+title: Monitor Tanzu Mission Control with Tanzu Observability
 keywords:
 tags: [integrations, kubernetes]
 sidebar: doc_sidebar
 permalink: integrations_tmc_howto.html
-summary: Monitor Tanzu Mission Control clusters using Tanzu Observability by Wavefront
+summary: Monitor clusters in Tanzu Mission Control using Tanzu Observability by Wavefront
 ---
 
 [VMware Tanzu Mission Control](https://docs.vmware.com/en/VMware-Tanzu-Mission-Control/services/tanzumc-concepts/GUID-E2B5BE05-596E-4999-9B21-1CDB875A1BBF.html) provides a centralized management platform for consistently operating and securing your Kubernetes infrastructure and modern applications across multiple teams and clouds.
@@ -67,7 +67,7 @@ To get started, you set up the integration from Tanzu Mission Control to Wavefro
 
 {% include tip.html content="For details, see the [Tanzu Mission Control documentation](https://docs.vmware.com/en/VMware-Tanzu-Mission-Control/services/tanzumc-using/GUID-A70E57A8-2C45-46D4-8E1F-6D5E7026473F.html)" %}
 
-## Enable Tanzu Observability for a Tanzu Mission Control Cluster
+## Enable Tanzu Observability for a cluster in Tanzu Mission Control
 
 After you have set up the credential from Tanzu Mission Control, you can start enabling Tanzu Observability by Wavefront for individual clusters that are managed by Tanzu Mission Control.
 
@@ -89,7 +89,7 @@ After you have set up the credential from Tanzu Mission Control, you can start e
 
 ![Large screenshot of TMC UI with Clusters selected and Integrations tile visible](/images/tmc_cluster_integrated.png)
 
-You can now click the link to Tanzu Observability. You are redirected to a dashboard in the Wavefront instance that shows the metrics for the Tanzu Mission Control cluster.
+You can now click the link to Tanzu Observability. You are redirected to a dashboard in the Wavefront instance that shows the metrics for the cluster. 
 
 ## Examine Your Cluster's Data in Dashboards
 
