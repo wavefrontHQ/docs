@@ -556,6 +556,10 @@ entries:
         url: /kubernetes.html
         output: web
 
+      - title: Monitor TMC Clusters 
+        url: /integrations_tmc_howto.html
+        output: web
+
       - title: Kubernetes FAQ
         url: /wavefront_kubernetes_faq.html
         output: web
