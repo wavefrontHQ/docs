@@ -649,7 +649,7 @@ entries:
             url: /tracing_view_offline_traces.html
             output: web
             
-          - title: Sampling Policy
+          - title: Sampling Policies
             url: /trace_sampling_policies.html
             output: web
 
