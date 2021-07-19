@@ -136,7 +136,7 @@ The real power of Wavefront comes from alerts and special features such as anoma
 
 ## Troubleshooting
 
-The following KB articles help you troubleshoot data ingestion issues:
+Our Customer Success team has put together a set of KBs that help you troubleshoot data ingestion issues. Here are some links:
 * [Telegraf Agent Tuning for Tanzu Observability by Wavefront](https://help.wavefront.com/hc/en-us/articles/360060992792-Tanzu-Observability-Telegraf-agent-tuning)
 * [Telegraf Agent Installation and Upgrade](https://help.wavefront.com/hc/en-us/articles/360059527011-Telegraf-agent-installation-upgrade-path)
 * [Telegraf connection errors when using load balancer with proxy](https://help.wavefront.com/hc/en-us/articles/360057617732-Telegraf-connection-errors-when-using-load-balancer-with-Tanzu-Observability-proxy)

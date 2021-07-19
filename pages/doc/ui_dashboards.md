@@ -442,7 +442,7 @@ After you've saved these changes:
 
 ## Troubleshooting
 
-The following KB articles address troubleshooting problems with dashboards.
+The Customer Success team prepared these KB articles to troubleshoot problems with dashboards.
 * [How to Recover an Inaccessible Dashboard](https://help.wavefront.com/hc/en-us/articles/360055292751-How-to-Recover-an-Inaccessible-Dashboard)
 * [How to Improve Dashboard Performance](https://help.wavefront.com/hc/en-us/articles/360050810991-How-to-improve-dashboard-performance)
 * [How to Identify Unused Dashboards](https://help.wavefront.com/hc/en-us/articles/360060967432-How-to-Identify-Unused-Dashboards)
