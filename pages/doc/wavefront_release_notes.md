@@ -16,6 +16,7 @@ This page lists new and updated features in the Wavefront service.
 ## 2021-27.x Release Notes
 
 * **PromQL Compatibility Improvements**: Miscellaneous improvements. For example, the `percentile()`, `mpercentile()` and `variance()` functions now work as expected.
+* **New Doc Page**: [Monitor Tanzu Mission Control with Tanzu Observability](integrations_tmc_howto.html)
 
 
 <!---Release Delayed
