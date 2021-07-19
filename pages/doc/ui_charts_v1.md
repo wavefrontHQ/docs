@@ -183,5 +183,5 @@ The same chart with the millisecond values in the hundred thousands displays as 
 ## Do More!
 
 * Customize your chart. See the [Chart Reference](ui_chart_reference.html) for details on options.
-* Send [a link to a chart](ui_sharing.html#share-a-link-to-a-dashboard-or-chart) to a coworker (or to the customer success team if you need help).
+* Send [a link to a chart](ui_sharing.html#share-a-link-to-a-dashboard-or-chart) to a coworker (or to the tech support team if you need help).
 * [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) outside Wavefront.

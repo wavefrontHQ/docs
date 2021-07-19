@@ -55,7 +55,7 @@ The <strong>Help panel</strong> is available for most screens when you click the
 
 ## Find Reference Documentation, FAQs, and Best Practices
 
-Our docs include reference documentation for API, query language, and chart options. Our customer success team helped with FAQs and best practices.
+Our docs include reference documentation for API, query language, and chart options.
 
 
 <table style="width: 100%;">
@@ -78,7 +78,7 @@ Our docs include reference documentation for API, query language, and chart opti
 <td><a href="ui_chart_reference.html" target="_blank"><img src="/images/chart_reference.png"  alt="TOC of chart reference"/></a></td>
 </tr>
 <tr>
-<td>For <strong>Best Practices</strong>, our engineering and customer success teams continually update the information. Those doc pages have a label. Use the <a href="label_best%20practice.html">Best Practices tile in docs.wavefront.com</a> or pick one of these popular Best Practices pages:
+<td>For <strong>Best Practices</strong>, our engineers and tech support engineers continually update the information. Those doc pages have a label. Use the <a href="label_best%20practice.html">Best Practices tile in docs.wavefront.com</a> or pick one of these popular Best Practices pages:
 <ul><li><a href="alerts_best_practices.html">Alerts Best Practices</a> </li>
 <li><a href="alerts_recipes.html">Alerts Recipes</a> </li>
 <li><a href="query_language_recipes.html">Query Language Recipes</a> </li>

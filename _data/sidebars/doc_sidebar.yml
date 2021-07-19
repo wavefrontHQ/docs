@@ -552,8 +552,12 @@ entries:
         url: /wavefront_kubernetes.html
         output: web
 
-      - title: Set Up Kubernetes Integration
+      - title: Set Up Kubernetes
         url: /kubernetes.html
+        output: web
+
+      - title: Monitor Tanzu Mission Control
+        url: /integrations_tmc_howto.html
         output: web
 
       - title: Kubernetes FAQ
