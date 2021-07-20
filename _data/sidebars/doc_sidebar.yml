@@ -416,6 +416,10 @@ entries:
         - title: Query Editor
           url: /query_editor.html
           output: web
+          
+        - title: Anomaly Detection on Charts
+          url: /anomaly_detection.html
+          output: web
 
       - title: Query Language Tips and Tricks
         output: web
