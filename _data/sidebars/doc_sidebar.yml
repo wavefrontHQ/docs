@@ -14,37 +14,45 @@ entries:
       url: /wavefront_introduction.html
       output: web
 
-    - title: Searching Wavefront
-      url: /wavefront_searching.html
-      output: web
-
-    - title: Wavefront Keyboard Navigation
-      url: /wavefront_keyboard_shortcuts.html
-      output: web
-
     - title: Your Wavefront Account
       url: /users_account_managing.html
       output: web
 
-    - title: "Intro Videos"
-      url: /videos_quickstart.html
-      output: web
-
-    - title: Wavefront Documentation
-      url: /index.html
-      output: web
-      type: homepage
-
       subfolders:
+      - title: Reference
+        output: web
+        subfolderitems:
+
+        - title: Query Language Reference
+          url: /query_language_reference.html
+          output: web
+
+        - title: Chart Reference
+          url: /ui_chart_reference.html
+          output: web
+
+        - title: REST API
+          url: /wavefront_api.html
+          output: web
+
+        - title: All Integrations
+          url: /label_integrations%20list.html
+          output: web
+
+
       - title: Misc.
         output: web
         subfolderitems:
 
-        - title: Wavefront Glossary
-          url: /glossary.html
+        - title: Searching Wavefront
+          url: /wavefront_searching.html
           output: web
 
-        - title: Getting Help and Giving Feedback
+        - title: Accessibility & Keyboard Navigation
+          url: /wavefront_keyboard_shortcuts.html
+          output: web
+
+        - title: Get Help & Give Feedback
           url: /wavefront_support_feedback.html
           output: web
 
@@ -59,6 +67,10 @@ entries:
         - title: Wavefront Privacy Policy
           url: /privacy.html
           output: web
+
+    - title: Wavefront Glossary
+      url: /glossary.html
+      output: web
 
   - title: Tutorials & Videos
     output: web
@@ -164,7 +176,7 @@ entries:
 
 
 
-  - title: Data
+  - title: "Data & Proxy"
     output: web
     folderitems:
 
