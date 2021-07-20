@@ -34,6 +34,7 @@ For example, in the **All Dashboards** page, searching for an incomplete term, r
 * metrics queried in dashboards
 * dashboard names
 * dashboard URLs
+* source names
 * tags
 
 You can select an item from the list individually. The drop-down list also contains a link to the search for _All_ items that contain the string. For example:

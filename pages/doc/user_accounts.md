@@ -12,7 +12,7 @@ You can manage authorization in your Wavefront environment by:
 * Granting and revoking access to **individual objects** (initially dashboards and alerts) for accounts and groups
 
 Wavefront supports:
-* User accounts, discussed here, which authenticate with a user name and password.
+* User accounts, discussed here, which authenticate with a username and password.
 * [Service accounts](service_accounts.html), which authenticate with a token.
 
 {% include note.html content="You must have **Accounts, Groups & Roles** permission to view and manage accounts, groups, and permissions in Wavefront. If you don't have **Accounts, Groups & Roles** permission, the UI menu selections, buttons, and links that you use to view accounts and permissions are not visible. " %}

@@ -25,7 +25,7 @@ The built-in Log Data integration guides you through installing a Wavefront prox
 
 ## Configuring the Wavefront Proxy to Ingest Log Data
 
-In this example, we configure Wavefront to parse [Combined Apache Logs](http://httpd.apache.org/docs/1.3/logs.html#combined), which is a common logging format for many web services (for example, NGiNX). The example is merely a starting point&mdash; so you understand how to ingest metrics from any log format.
+In this example, we configure Wavefront to parse [Combined Apache Logs](http://httpd.apache.org/docs/2.4/logs.html#combined), which is a common logging format for many web services (for example, NGiNX). The example is merely a starting point&mdash; so you understand how to ingest metrics from any log format.
 
 ### Configuring the Wavefront Proxy to Listen for Log Data
 

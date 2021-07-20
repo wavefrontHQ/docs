@@ -20,9 +20,10 @@ Use the Blueprint-specific links below to enable metrics ingestion to Tanzu Obse
 
 The image below is a sample of the Kafka-Spark-Solr Blueprint dashboard, that is provided as part of this integration. Some important sections in the dashboard are: 
 
-1. ***Data Platform***: This section gives you a one-shot view of the data platform cluster including Health, Utilization, and Applications that form the cluster.
-2. ***Kubernetes Platform***: This section gives you a detailed overview of the underlying Kubernetes cluster and the Node to pod mapping of the applications.
-3. ***Individual Applications***: This section gives you a detailed view of the individual application metrics.
+1. ***Mission Control***: This is the mission critical section that displays the high-level health and utilization of your data platform.
+2. ***Data Platforms***: This section gives you a single shot view of the applications that form the data platform cluster together with their individual resource utilization.
+3. ***Kubernetes Platform***: This section gives you a detailed overview of the underlying Kubernetes cluster and the Node to Pod mapping of the applications.
+4. ***Individual Applications***: This section gives you a detailed view of the individual application metrics.
 
 {% include image.md src="images/dashboard.png" width="80" %}
 ### Data Platform Blueprints Setup

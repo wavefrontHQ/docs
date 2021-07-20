@@ -9,6 +9,9 @@ summary: Learn about the Wavefront Okta Integration.
 Okta is a popular identity management product that can be integrated with Wavefront to enable single sign-on.
 ## Okta Setup
 
+After setting up the Okta integration, users can authenticate to Wavefront through Okta instead of using a password.  New users who did not exist in Wavefront are auto-created on the Wavefront side when they authenticate for the first time.
+
+
 ### Step 1. Create the Wavefront Application in Okta
 
 **Note:** Steps 1 - 12 are only required if the Wavefront application is not present in Okta. Otherwise, proceed to step 13 to copy and paste the metadata.
@@ -36,25 +39,17 @@ Okta is a popular identity management product that can be integrated with Wavefr
    {% include image.md src="images/okta_metadata_url.png" width="50" %}
 
 
-### Step 2. Send Identity Provider Metadata to Wavefront
+### Step 2. Send the Identity Provider Metadata to Wavefront and Complete the Setup 
 
-**Wavefront version 2020.30 and earlier**
-
-1. Send the link to [support@wavefront.com](mailto:support@wavefront.com) with a request to set up Okta integration for Wavefront. We'll notify you as soon as we've done this. At that point the users would authenticate to Wavefront through Okta instead of using a password. Any new user that comes along that did not yet exist in Wavefront would just get auto-created on the Wavefront side on first authentication.
-
-**Wavefront version 2020.34 and later**
-
-1. Log in to Wavefront with a user account for which `SAML IDP Admin` permission is enabled.
-2. Click on the gear icon on top right corner and navigate to **Self Service SAML**.
-3. Select **Identity Provider** as **Okta** from the list.
-4. Copy the downloaded metadata from Step 2 into the **Configure Connection** text box.
-5. Click **Test** to test the validity of metadata. A new browser window opens with Okta login page.
+1. Log in to your Wavefront instance as a user with `SAML IdP Admin` permissions.
+1. From the gear icon in the top right corner, select **Self Service SAML**.
+1. From the **Identity Provider** drop-down menu, select **Okta**.
+1. Paste the downloaded metadata from **Step 1** into the **Configure Connection** text box.
+1. To validate the metadata, click **Test**. The **Okta** login page opens in a new browser window.
+1. Log in to **Okta**.
+1. After the login is successful, click the **Save** button.
 
    **Note:** The **Save** button is disabled until you've completed a test successfully.
-
-6. Log in to Okta. After the login is successful, click **Save**.
-
-Going forward, users who attempt to log in to Wavefront are redirected to Okta. If a user can authenticate to Okta but is not currently a Wavefront user, that user is auto-created on the Wavefront side. Password authentication is no longer supported.
 
 
 
