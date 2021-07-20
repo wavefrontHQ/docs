@@ -417,10 +417,6 @@ entries:
           url: /query_editor.html
           output: web
 
-        - title: Anomaly Detection on Charts
-          url: /anomaly_deyection.html
-          output: web
-
       - title: Query Language Tips and Tricks
         output: web
         subfolderitems:

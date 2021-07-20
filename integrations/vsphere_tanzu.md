@@ -1,8 +1,8 @@
 ---
-title: VMware Cloud PKS Integration
+title: vSphere with Tanzu Integration
 tags: [integrations list]
-permalink: vmware_cloud_pks.html
-summary: Learn about the Wavefront VMware Cloud PKS Integration.
+permalink: vsphere_tanzu.html
+summary: Learn about the Wavefront vSphere with Tanzu Integration.
 ---
 ## Kubernetes Integration
 

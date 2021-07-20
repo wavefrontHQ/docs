@@ -144,6 +144,6 @@ us to aggregate the raw data values reported in each 30 second interval, and dis
 ## Any Other Doc (or Videos)?
 
 * Get the details about each chart type from the [Chart Reference](ui_chart_reference.html).
-* Send [a link to a chart](ui_sharing.html#share-a-link-to-a-dashboard-or-chart) to a coworker (or to our tech support team if you need help).
+* Send [a link to a chart](ui_sharing.html#share-a-link-to-a-dashboard-or-chart) to a coworker (or to the customer success team if you need help).
 * [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) outside Wavefront.
 * See the  KB article [Chart Legend: Sources do not display in the legend](https://help.wavefront.com/hc/en-us/articles/360057842692-Chart-Legend-Sources-do-not-display-in-the-legend) for troubleshooting info.

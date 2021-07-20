@@ -89,7 +89,7 @@ After you have set up the credential from Tanzu Mission Control, you can start e
 
 ![Large screenshot of TMC UI with Clusters selected and Integrations tile visible](/images/tmc_cluster_integrated.png)
 
-You can now click the link to Tanzu Observability. You are redirected to a dashboard in the Wavefront instance that shows the metrics for the cluster. 
+You can now click the link to Tanzu Observability. You are redirected to a dashboard in the Wavefront instance that shows the metrics for the cluster.
 
 ## Examine Your Cluster's Data in Dashboards
 
@@ -160,7 +160,7 @@ Follow these steps to remediate problems:
 ## Learn More
 
 
-* Get started with some of our [conceptual videos](videos_quickstart.html) or some of our [hands-on videos](videos_how_to_start.html).
+* Get started with some of our [conceptual videos](videos_quickstart.html) or some of our [hands-on videos](videos_howto_start.html).
 * [Explore Your Data](ui_examine_data.html) in the predefined Kubernetes dashboards.
 * [Clone any of the predefined dashboards](ui_dashboards.html#edit-or-clone-a-dashboard) and customize them.
 * Learn how to [Monitor and Scale Kubernetes with Wavefront](wavefront_kubernetes.html).
