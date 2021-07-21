@@ -154,15 +154,9 @@ entries:
       url: /integrations_new_changed.html
       output: web
 
-    - title: Wavefront & Kubernetes Release Notes
-      url: /kubernetes_relnotes.html
-      output: web
-
     - title: Wavefront Proxy Release Notes
       url: /proxies_versions.html
       output: web
-
-
 
   - title: Data
     output: web
