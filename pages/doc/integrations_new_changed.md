@@ -12,9 +12,9 @@ Wavefront continuously adds new integrations to the existing set, and improves a
 
 Made improvement to the following integrations and dashboards in July 2021:
 
-* Project Pacific Integration -- Rebranded the integration from Project Pacific Integration to vSphere with Tanzu Integration.
+* Project Pacific -- Renamed the integration from Project Pacific Integration to vSphere with Tanzu Integration.
 * VMware Cloud PKS -- Removed the VMware Cloud PKS integration.
-* OpenTelemetry --  Updated steps for configuring the application to send trace data to Wavefront using the Tanzu Observability by Wavefront trace exporter.
+* OpenTelemetry --  Updated the steps for configuring the application to send trace data to Wavefront using the Tanzu Observability by Wavefront trace exporter.
 * Wavefront Usage -- Added new charts to **Proxies Overview** section in the **Wavefront Service and Proxy Data** dashboard to show **Spans Sampled By Policies**.
 * Azure AD -- Added steps to configure Azure AD using Self-Service SAML.
 * Data Platforms -- Added new dashboard  **Data Platform Blueprint2 - Kafka-Spark-Elasticsearch**.
