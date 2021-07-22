@@ -207,10 +207,6 @@ An explicit sampling strategy is a mechanism for selecting which traces to forwa
 <td markdown="span">Duration-based sampling</td>
 <td markdown="span"> Sends spans to Wavefront only if they are longer than N milliseconds. For example, a sampling duration of 45 sends spans to Wavefront only if they are longer than 45 milliseconds.</td>
 </tr>
-<tr>
-<td markdown="span">Error-based sampling</td>
-<td markdown="span"> Sends a span to Wavefront if it contains an error. A span contains an error if it is associated with the span tag `error=true`. </td>
-</tr>
 </tbody>
 </table>
 
