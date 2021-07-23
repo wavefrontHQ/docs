@@ -393,8 +393,24 @@ entries:
       url: /query_language_reference.html
       output: web
 
+    - title: Query Examples
+      url: /query_language_recipes.html
+      output: web
+
       subfolders:
-      - title: Understanding WQL
+      - title: Build Queries
+        output: web
+        subfolderitems:
+
+        - title: "Chart Builder"
+          url: /chart_builder.html
+          output: web
+
+        - title: Query Editor
+          url: /query_editor.html
+          output: web
+
+      - title: Learn More About WQL
         output: web
         subfolderitems:
 
@@ -410,21 +426,7 @@ entries:
           url: /query_language_point_tags.html
           output: web
 
-
-      - title: Interacting with WQL
-        output: web
-        subfolderitems:
-
-        - title: "Chart Builder"
-          url: /chart_builder.html
-          output: web
-
-        - title: Query Editor
-          url: /query_editor.html
-          output: web
-
-
-      - title: Query Language Tips and Tricks
+      - title: WQL Tips and Tricks
         output: web
         subfolderitems:
 
@@ -446,10 +448,6 @@ entries:
 
         - title: Detecting Anomalies
           url: /query_language_statistical_functions_anomalies.html
-          output: web
-
-        - title: Query Language Recipes
-          url: /query_language_recipes.html
           output: web
 
     - title: Using PromQL in Wavefront
