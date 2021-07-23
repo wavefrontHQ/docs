@@ -62,7 +62,7 @@ helm repo update
     ```
 {% endraw %}
 
-**Note:** The `clusterName` property refers to the Kubernetes cluster, for example, `dev-cluster`. You must set this property. For Project Pacific, add `--set projectPacific.enabled=true` along with helm install command.
+**Note:** The `clusterName` property refers to the Kubernetes cluster, for example, `dev-cluster`. You must set this property. For vSphere Tanzu, add `--set vspheretanzu.enabled=true` along with helm install command.
 
 Refer to the Wavefront [helm chart](https://github.com/wavefrontHQ/helm/tree/master/wavefront) for further options.
 ## Kubernetes Manual Install
@@ -85,6 +85,9 @@ The Wavefront proxy and a `wavefront-proxy` service should now be running in Kub
   * [3-collector-service-account.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes-collector/master/deploy/kubernetes/3-collector-service-account.yaml)
   * [4-collector-config.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/master/deploy/kubernetes/4-collector-config.yaml)
   * [5-collector-daemonset.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/master/deploy/kubernetes/5-collector-daemonset.yaml)
+
+  **NOTE**: Download the following file only for vSphere Tanzu environment.
+  * [0-vsphere-tanzu-rolebinding.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/master/deploy/vsphere-tanzu/0-vsphere-tanzu-rolebinding.yaml)
 
 2. Edit `4-collector-config.yaml` and replace `clusterName: k8s-cluster` with the name of your Kubernetes cluster.
 
