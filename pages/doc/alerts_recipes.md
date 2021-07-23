@@ -19,7 +19,7 @@ For example, here's the query for an alert that fires if the number of processes
 
 ```
 mcount(30m, (ts(~sample.process.num, source="app-5"))) <
-mcount(30m,lag(30m,(ts(~sample.process.num, source="app-5")))) * 5/100
+mcount(30m,lag(30m,(ts(~sample.process.num, source="app-5")))) * 95/100
 ```
 
 ## Alert on Missing Data

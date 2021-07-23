@@ -166,15 +166,9 @@ entries:
       url: /integrations_new_changed.html
       output: web
 
-    - title: Wavefront & Kubernetes Release Notes
-      url: /kubernetes_relnotes.html
-      output: web
-
     - title: Wavefront Proxy Release Notes
       url: /proxies_versions.html
       output: web
-
-
 
   - title: "Data & Proxy"
     output: web
@@ -428,6 +422,7 @@ entries:
         - title: Query Editor
           url: /query_editor.html
           output: web
+
 
       - title: Query Language Tips and Tricks
         output: web
