@@ -17,7 +17,16 @@ Most Wavefront customers use single-tenant authentication. If your company wants
 
 ## Single-Tenant Authentication
 
-Most Wavefront administrators set up authentication in their environment by setting up SSO using an identity provider (IdP). We support predefined integrations with [ADFS](adfs.html), [Azure AD](azure_ad.html), [Google](google.html), [OneLogin](onelogin.html), and [Okta](okta.html). SSO setup with other IdPs is also possible.
+Most Wavefront administrators set up authentication in their environment by setting up SSO using an identity provider (IdP). Authentication integrations with the following IdPs are predifined:
+* [ADFS](adfs.html)
+* [Azure AD](azure_ad.html)
+* [Google](google.html)
+* [OneLogin](onelogin.html)
+* [Okta](okta.html)
+* [PingOne](pingone.html)
+* [VMware Workspace ONE Access](workspace-one.html).
+
+SSO setup with other IdPs is also possible.
 
 After a user has been successfully authenticated, administrators set the permissions for that user. [Permissions](permissions_overview.html) determine what the user can do in Wavefront.
 

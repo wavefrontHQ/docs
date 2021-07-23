@@ -3,7 +3,7 @@ title: Forecasting and Anomaly Detection with AI Genie
 keywords: machine learning, ai
 tags: [charts]
 sidebar: doc_sidebar
-published: true
+published: false
 permalink: ai_genie.html
 summary: Learn how to use AI Genie for forecasting and anomaly detection
 ---
