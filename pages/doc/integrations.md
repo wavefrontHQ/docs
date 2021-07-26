@@ -78,7 +78,7 @@ We're excited about this contribution and hope to see more soon!
 
 ## Installing and Uninstalling Integration Dashboards
 
-You can install and uninstall dashboards from Featured and Data Collector integrations.
+You can install and uninstall the Wavefront system integration dashboards.
 
 <div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view integrations, you must have [Integration Management permission](permissions_overview.html) to install and uninstall integration dashboards. If you do not have permission, buttons to perform these tasks are not visible.</div>
 
@@ -89,20 +89,32 @@ You can install and uninstall dashboards from Featured and Data Collector integr
 
 ## Cloning and Customizing Dashboards
 
-You cannot modify Wavefront system dashboards. Instead, click the **Edit** (pencil) icon, select **Clone**, and provide a URL string that's just the name (e.g., `mydashboard`) and not the URL (e.g., `http://mydashboard`). You can then customize the clone to suit your needs.
+You cannot modify the Wavefront system dashboards. Instead, you must clone the dashboards.
+1. Click the ellipsis icon in the top right corner of the dashboard.
+2. Select **Clone**. 
+3. Provide a URL string that's just the name (e.g., `mydashboard` or `dashboard-name-clone`) and not the URL (e.g., `http://mydashboard`). 
+4. Customize the clone to suit your needs.
 
 ## Installing and Uninstalling Integration Alerts
 
-Some integrations contain predefined alerts. You can install and uninstall the predefined alerts or preview them before setting up the integration.
+Some integrations contain system alerts. You can install and uninstall the predefined integration alerts or preview them before setting up the integration.
 
-{% include note.html content="All users can view alerts. You need Alerts permissions to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
+{% include note.html content="All users can view alerts. You need **Alerts** permissions to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
 1. Click **Integrations**.
 1. Click the integration tile.
 1. Click the **Alerts** tab.
 1. Click **\[Install All\| Uninstall All\]**.
 
-If you have the Alerts permissions, you can [edit the targets of the alerts](webhooks_alert_notification.html#learn-about-alert-targets). If you edit the system alerts and then reinstall them, all of the changes that you've made are reverted back to their original state. If you want to make further customizations, clone the alert first. After you clone an alert, snooze the original system alert to avoid running a duplicate version of the alert. For information about cloning and editing alerts, see [Manage Alerts](alerts_manage.html).
+## Cloning and Customizing Alerts
+
+If you have the **Alerts** permissions, you can [edit the targets of the integration alerts](webhooks_alert_notification.html#learn-about-alert-targets). If you edit the system integration alerts and then reinstall them, all of the changes that you've made are reverted back to their original state. If you want to make further customizations, clone the alert first. 
+
+1. Click **Alerting** in the toolbar.
+2. Click the ellipsis icon next to the alert that you want to clone, and select **Clone**.
+3. Enter a name of the new alert and click **Clone**.
+
+After you clone an alert, snooze the original system integration alert to avoid running a duplicate version of the alert. For more information about cloning and editing alerts, see [Manage Alerts](alerts_manage.html).
 
 
 ## Integration States
