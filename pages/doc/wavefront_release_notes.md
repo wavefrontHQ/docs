@@ -11,8 +11,27 @@ This page lists new and updated features in the Wavefront service.
 
 * For **Wavefront Proxy**, your go-to place is the [Wavefront proxy github page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
 * For the latest changes and releases of the **Wavefront Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
-* For  **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases). 
+* For  **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+
+## 2021-28.x Release Notes
+
+ * **Anomaly Detection on Charts**: With this release, we deprecate the support of AI Genie and replace it with the new [**Anomaly Detection**](anomaly_detection.html) feature, which is available for Line Plot chats.
+   {% include note.html content="This feature is rolled out to customers incrementally in the next few weeks"%}
+
+   You can:
+     * Turn anomaly detection on and off.
+     * Explore all anomalies, which are highlighted in a different manner depending on their size.
+     * Select a specific anomaly.
+     * [Create alerts by using the `anomalous ()` function](ts_anomalous.html#using-the-anomalous-function-in-alerts), but note, that you must do that with caution, because queries with the `anomalous()` function are resource intensive.
+
+   For example, in the line plot below you can see large and small anomalies. Large anomalies are highlighted with square purple borders and small anomalies are highlighted with cycle purple borders.
+
+   ![Anomalies highlighted with purple square and purple circle](images/anomaly_hightlighting.png)
+
+
+* **Delete Alert Target Improvements**: Previously, alert targets could not be deleted if alert target was in used by an alert. Users can now click **Delete Notificant** to delete the alert target even if it is in use by alerts. That action removes the target from any alerts.
+* **Accessibility Improvements**: Additional improvements to color selector options on different product pages.
 
 ## 2021-27.x Release Notes
 
@@ -21,20 +40,6 @@ This page lists new and updated features in the Wavefront service.
 
 ## 2021-26.x Release Notes
 
-
-<!---Release Delayed
- * **Anomaly Detection on Charts**: With this release, we deprecate the support of AI Genie and replace it with the new [**Anomaly Detection**](anomaly_detection.html) feature, which is available for Line Plot chats.
-
-  You can:
-    * Turn anomaly detection on and off.
-    * Explore all anomalies, which are highlighted in a different manner depending on their size.
-    * Select a specific anomaly.
-    * [Create alerts by using the `anomalous ()` function](ts_anomalous.html#using-the-anomalous-function-in-alerts), but note, that you must do that with caution, because queries with the `anomalous()` function are resource intensive.
-
-  For example, in the line plot below you can see large and small anomalies. Large anomalies are highlighted with square purple borders and small anomalies are highlighted with cycle purple borders.
-
-   ![Anomalies highlighted with purple square and purple circle](images/anomaly_hightlighting.png)
---->
 * **Accessibility Improvements**:
 
   In addition to the already existing keyboard navigation for some of the Wavefront UI pages, now we have [**support for end-to-end keyboard navigation**](wavefront_keyboard_shortcuts.html) for the following UI pages:
