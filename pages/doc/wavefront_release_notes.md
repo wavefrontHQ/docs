@@ -33,7 +33,6 @@ This page lists new and updated features in the Wavefront service.
 * **Delete Alert Target Improvements**: Previously, alert targets could not be deleted if alert target was in used by an alert. Users can now click **Delete Notificant** to delete the alert target even if it is in use by alerts. That action removes the target from any alerts.
 * **Accessibility Improvements**: Additional improvements to color selector options on different product pages.
 
-
 ## 2021-27.x Release Notes
 
 * **PromQL Compatibility Improvements**: Miscellaneous improvements. For example, the `percentile()`, `mpercentile()` and `variance()` functions now work as expected.
