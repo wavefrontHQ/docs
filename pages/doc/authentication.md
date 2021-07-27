@@ -7,17 +7,18 @@ permalink: authentication.html
 summary: Learn how to enable authentication and multi-tenant authentication.
 ---
 
-Wavefront supports authentication through your identity provider (IdP).
+Wavefront supports authentication through many identity provider (IdP).
 * For several popular IdPs, we support integrations.
-* Starting with release 2020.38, the integration includes steps for setting up [self-service SAML SSO](auth_self_service_sso.html).
+* The integrations include steps for setting up [self-service SAML SSO](auth_self_service_sso.html).
 
 Most Wavefront customers use single-tenant authentication. If your company wants to set up different tenants for different teams, a multi-tenant setup might make sense.
 
-{% include note.html content="Switching tenants in multi-tenant environments require the extra steps listed below." %}
+{% include note.html content="Switching tenants in multi-tenant environments require [the extra steps listed below](#switching-tenants-in-multi-tenant-environments)." %}
 
 ## Single-Tenant Authentication
 
-Most Wavefront administrators set up authentication in their environment by setting up SSO using an identity provider (IdP). Authentication integrations with the following IdPs are predifined:
+Most Wavefront administrators set up authentication in their environment by setting up SSO using an identity provider (IdP). Authentication integrations with the following IdPs are predefined. SSO setup with other IdPs is also possible.
+
 * [ADFS](adfs.html)
 * [Azure AD](azure_ad.html)
 * [Google](google.html)
@@ -26,7 +27,7 @@ Most Wavefront administrators set up authentication in their environment by sett
 * [PingOne](pingone.html)
 * [VMware Workspace ONE Access](workspace-one.html).
 
-SSO setup with other IdPs is also possible.
+In single-tenant authentication environments, administrators can [Set Up or Update Self-Service SAML SSO](auth_self_service_sso.html). Users will then log in to the identity provider that administrators set up.
 
 After a user has been successfully authenticated, administrators set the permissions for that user. [Permissions](permissions_overview.html) determine what the user can do in Wavefront.
 
@@ -41,7 +42,7 @@ Several Wavefront customers have asked for an environment that supports separate
     - are directed to the last tenant they used
     - can switch to other tenants from the gear icon menu without having to log in again.
 
-Administrators can [Set Up or Update Self-Service SAML SSO](auth_self_service_sso.html) for their environment. Users will then log in to the identity provider that administrators set up.
+Multi-tenancy must be set up in collaboration with the Wavefront team, as discussed next.
 
 ## How to Set Up Multi-Tenancy
 
