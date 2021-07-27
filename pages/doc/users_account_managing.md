@@ -11,7 +11,7 @@ You manage your Wavefront account from the gear icon in the top right corner. Fr
 
 You can change your password. You can reset a forgotten password if your account is managed by Wavefront, for example, during a trial.
 
-{% include note.html content="If your company has an [SSO integration](integrations_authentication.html) enabled, you cannot update your password following these instructions. To update your password, contact your account administrator." %}
+{% include note.html content="If your company has an [SSO integration](authentication.html) enabled, you cannot update your password following these instructions. To update your password, contact your account administrator." %}
 
 ### Change Your Password
 

@@ -9,7 +9,6 @@ summary: Learn how you can detect anomalies with Wavefront
 
 Wavefront users are responsible for finding anomalies in their data. That task becomes harder as the amount of data increases. Wavefront already includes [anomaly detection based on statistical functions](query_language_statistical_functions_anomalies.html), such as standard deviation. Anomaly detection takes a different approach, offering anomaly detection based on neural network powered [forecasting](ts_nnforecast.html) methodology.
 
-{% include note.html content="We will enable anomaly detection for all customers over the course of the coming releases." %}
   
 ## Anomaly Detection Use Case
 
