@@ -102,6 +102,10 @@ The **basic queries** use `hs(tracing.aggregated.derived.*.duration.micros.m)` a
 
 The **advanced queries** let you customize the `hs()` functions. You can get the Apdex score for more than one application using the advanced queries. Therefore, you can create alerts to find out when the Apdex score of the services in an application are below a [specific range](tracing_apdex.html#interpreting-the-apdex-score).
 
+{% include note.html content="The thresholds (T and 4T) used to compute the apdex score are in microseconds. Therefore, you need to make sure that your histogram data is in microseconds.
+
+<br/><br/>If histogram data is in milliseconds, you need to add the threshold value to the apdex function and divide them by 1000 to ensure they are in milliseconds." %}
+
 ## Examples
 Here's how you can use these queries:
 
