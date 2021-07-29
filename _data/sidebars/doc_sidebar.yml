@@ -769,10 +769,3 @@ entries:
           - title: Use Wavefront Top or Spy to Investigate Traffic
             url: /wavefront_monitoring_spy.html
             output: web
-  - title: Hackathon 2021
-    output: web
-    folderitems:
-
-      - title: Safe Landing
-        url: /hackathon.html
-        output: web
