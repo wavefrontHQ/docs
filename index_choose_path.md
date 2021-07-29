@@ -1,6 +1,10 @@
 <div class="choose-path-container">
     <div class="row section-header">
         <h2>Choose Your Path</h2>
+        <div class="aa-input-container desktop" id="aa-input-container"></div>
+        <div class="container mobile-search">
+            <div class="aa-input-container mobile" id="aa-input-container-mobile"></div>
+        </div>
     </div>
     <div class="row choose-path-card-wrapper">
         <div class="choose-path-card col-md-4 col-sm-12">

@@ -6,6 +6,22 @@
     display: none;
 }
 
+.index-page-content .aa-dropdown-menu {
+    width: 650px !important;
+    margin-top: 8px !important;
+}
+
+.index-page-content .aa-input-container {
+    width: 650px;
+}
+
+.index-page-content .aa-search-input {
+    height: 40px;
+    padding-left: 10px;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+}
+
 /*Header Title Styles*/
 .index-header {
     display: flex;
@@ -72,11 +88,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 0 20px;
 }
 
 .choose-path-card-wrapper {
-    margin: 0 40px;
+    margin: 20px 40px 0 40px;
+}
+
+.choose-path-card-wrapper:last-child {
+    margin-bottom: 40px;
+}
+
+.choose-path-card-wrapper:first-child {
+    margin-top: 40px;
 }
 
 .choose-path-card-title {
