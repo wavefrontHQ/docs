@@ -2,7 +2,7 @@
 
 ## Install Required Software
 
-1. Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/) if you don't have it already.
+1. Follow the instructions to [install Jekyll](https://jekyllrb.com/docs/installation/).
 1. `cd` to the repository directory and run the following commands:
     ```shell
     $ cd docs

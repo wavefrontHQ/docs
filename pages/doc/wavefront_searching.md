@@ -19,7 +19,7 @@ Tags allow you to flexibly manage and organize your Wavefront content.
 * Tag paths allow you to organize your content in hierarchies that best suit your particular use of Wavefront.
 * You can include content in multiple hierarchies to suit the needs of different groups of users.
 
-We support several different types of tags that you can leverage when searching. See [Organizing with Tags](tags_overview.html)
+We support several different types of tags that you can leverage when searching. See [Organizing with Tags](tags_overview.html).
 
 ## Searching
 
@@ -39,7 +39,7 @@ For example, in the **All Dashboards** page, searching for an incomplete term, r
 
 You can select an item from the list individually. The drop-down list also contains a link to the search for _All_ items that contain the string. For example:
 
-![search auto](images/search_auto.png)
+![Search of "me" in the search box, returns a list of items that contain the term. Includes metrics, name, URL, and all items.](images/search_auto.png)
 
 Search fields support multi-word searches. If you type **cpu usage** in any browser or autocompleted text field, the drop-down list includes all matches for both **cpu** and **usage**.
 
@@ -59,8 +59,7 @@ In the filter bar on the left you search by selecting facets, such as **State** 
 
 Most filter bars contain a set of commonly used saved searches (e.g., Favorites, Last Updated, Recently Updated, My <XXX>) and you can save your own searches.
 
-Once you press **Return** or **Enter** after typing a search string, the icons ![search icons](images/searchicons.png#inline) display at the top right, allowing you to share a link to, save, and clear the search. Your saved searches appear below the commonly used searches, and have a drop-down menu for renaming, cloning, and deleting the search.
-
+Once you press **Return** or **Enter** after typing a search string, the buttons ![share, save, and clear search buttons](images/searchicons.png#inline) display at the top right. These buttons allow you to share a link to, save, and clear the search. Your saved searches appear below the commonly used searches (**Saved Searches**), and have a drop-down menu for renaming, cloning, and deleting the search.
 
 
 
@@ -68,9 +67,9 @@ Once you press **Return** or **Enter** after typing a search string, the icons !
 
 The Wavefront UI supports tagging and other actions.
 
--   **Tagging** - Make a selection and click the tag buttons to create, add, and remove tags.
--   **Actions** - Perform actions (clone, delete, edit, rename, etc.) on an individual object (e.g., an alert) by clicking the ellipsis icon on the left of the object, for example, to the left of an alert. Actions are different for different objects but might include Clone, Delete, or Test (for alerts). Here's an example for the Actions menu for dashboards:
+-   **Tagging** -- Select at least one item from the list and click the tag buttons to create, add, and remove tags.
+-   **Actions** -- Perform different actions, such as clone, delete, edit, rename, etc., on an individual object. Select the object, click the ellipsis icon on the left of the object, for example, on the left of an alert. The actions that you can perform are different for different types of objects but might include clone, edit, manage access, delete, or snooze (for alerts). Here's an example for the **Actions** menu for dashboards:
 
-    ![dashboard clone](/images/dashboard_clone.png)
+    ![Dashboard Actions menu that contains the options View, Versions, Clone, Access, Edit, and Delete ](/images/dashboard_clone.png)
 
--   **Trash** - Click the trash toggle to view deleted objects.
+-   View deleted and orphaned objects -- From the **All** drop-down menu on the top right corner of the list, select **Deleted** to view deleted objects or **Orphan** to see the orphaned objects.

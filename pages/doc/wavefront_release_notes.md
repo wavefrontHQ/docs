@@ -13,7 +13,6 @@ This page lists new and updated features in the Wavefront service.
 * For the latest changes and releases of the **Wavefront Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For  **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
-
 ## 2021-28.x Release Notes
 
  * **Anomaly Detection on Charts**: With this release, we deprecate the support of AI Genie and replace it with the new [**Anomaly Detection**](anomaly_detection.html) feature, which is available for Line Plot chats.
