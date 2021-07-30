@@ -89,8 +89,8 @@ entries:
           url: /hello_wavefront_aws_tutorial.html
           output: web
 
-        - title: "Dashboards & Alerts Tutorial"
-          url: /tutorial_getting_started.html
+        - title: "Dashboards & Charts Tutorial"
+          url: /tutorial_dashboards.html
           output: web
 
         - title: "Query Language Tutorial"
