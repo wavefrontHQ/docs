@@ -11,6 +11,8 @@ Want to learn some tips and tricks for exploring your data in dashboards? This t
 
 We're only exploring in this tutorial, so you don't need any permissions to go through these tasks.
 
+{% include tip.html content="We'll explore making changes to a dashboard and chart, but unless you explicitly save those changes, they are only temporary. " %}
+
 
 ## Task 1: Find a Sample Dashboard in the Dashboards Browser
 
@@ -79,3 +81,39 @@ When you select one filter, other filters become available below. Explore how yo
 
 
 ## Task 3: Drill Down Into Charts
+
+To edit dashboards and charts, you need **Dashboards** permission. But even without those permissions, you can learn a lot from drilling down into a chart.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+1. In the <strong>Latency by AZ Test</strong> chart, hover over one of the dots at the bottom. Each dot represents an event. When you hover over it, you learn more about the event. Many events are system events that are triggered by alerts.
+</td>
+<td width="50%"><img src="/images/tutorial_alert_event.png" alt="Hover menu of event shows Info: Alert Recovered."/></td>
+</tr>
+<tr>
+<td width="50%">
+2. Move to the right and explore changing the time window, then select <strong>Edit</strong> from the ellipsis menu.<br><br>
+You can instead click the name of the chart to put it in edit mode.
+</td><td width="50%"><img src="/images/tutorial_select_edit.png" alt="Screenshot with time selectors and open ellipsis menu that shows Edit and Export CSV"/></td></tr>
+<tr>
+<td width="50%">
+3. Select the chart type pulldown, which shows <strong>Line Plot</strong> initially, and select <strong>Stacked Area</strong>. If the filter is still set to us-west-2, consider removing it for a more interesting chart.
+</td>
+<td width="50%"><img src="/images/tutorial_select_chart_type.png" alt="Chart type menu, with Stacked Area selected"/></td>
+</tr>
+<tr>
+<td width="50%">
+4. Next, explore the chart options to examine how you can adjust the view of your data. Each chart type has chart-specific options. See <a href="ui_chart_reference.html">Chart Reference</a> for details.<br/><br/>
+5. Finally, click <strong>Back</strong> to return to the dashboard to continue exploring. </td>
+<td width="50%"><img src="/images/tutorial_chart_options.png" alt="Screenshot of chart options, with Legend selected."/></td>
+</tr>
+</tbody>
+</table>
+
+## Learn More
+
+* Even if you don't have **Dashboards** permissions, you can do in-depth analysis of your data. See [Examine Data with Dashboards and Charts](ui_examine_data.html), which includes an intro video.
+* If you have permissions to edit and save dashboards and charts:
+  - Look at the other  
