@@ -12,10 +12,8 @@ summary: Get help with Wavefront and give feedback.
 * Get in touch with Technical Support and create a support ticket. See the [How to Engage Technical Support](https://help.wavefront.com/hc/en-us/articles/360057219171-How-to-Engage-Technical-Support) KB.
 * Get support from within the product:
   1. Log in to Wavefront.
-  1. Select <strong>Support</strong> from the gear icon.
+  1. Click the gear icon <i class="fa fa-cog"/> in the top right corner of the taskbar and select <strong>Support</strong>.
     <br/>![support menu item](images/get_support.png)
-
-The [How to Engage Technical Support](https://help.wavefront.com/hc/en-us/articles/360057219171-How-to-Engage-Technical-Support) KB has details on ticket creation. 
 
 
 ## Documentation Feedback

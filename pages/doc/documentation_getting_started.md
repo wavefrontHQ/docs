@@ -4,7 +4,7 @@ keywords: tutorial
 tags: [getting started]
 sidebar: doc_sidebar
 permalink: tutorial_overview.html
-summary: Come up to speed with tutorials in product, Github, and docs.
+summary: Come up to speed with tutorials in product, GitHub, and docs.
 ---
 
 Learn Wavefront with in-product or external resources:
@@ -30,8 +30,8 @@ You can use the customer-wide or user-level preferences to control whether <stro
 <td>
 The <strong>Tutorial integration</strong> allows you to experiment with charts and alerts to learn (clone the integration to save your results).
 <ol><li>In the taskbar, click <strong>Integrations</strong>. </li>
-<li>Click <strong>Tutorial</strong> and select <strong>Dashboards</strong>.</li>
-<li>Follow the instructions on the left to explore the charts (with sample data) on the right.</li> </ol>
+<li>Click <strong>Wavefront Tutorial</strong> and click the <strong>Dashboards</strong> tab.</li>
+<li>Click a dashboard and follow the instructions on the left to explore the charts (with sample data) on the right.</li> </ol>
 </td>
 <td width="50%"><img src="/images/all_tutorial_dashboards.png" alt="all tutorial dashboards"></td>
 </tr>
@@ -41,8 +41,8 @@ The <strong>Tour Pro integration</strong> is a deep dive into Wavefront function
 <br/><br/>
 You can explore Tour dashboards and charts, which use sample data to highlight functionality like Anomaly Detection or fine-tuning alerts. The tour also includes single-host and cluster metrics exploration dashboards.
 <ol><li>In the taskbar, click <strong>Integrations</strong>. </li>
-<li>Search for and click <strong>Tour Pro</strong> and click <strong>Dashboards</strong>.</li>
-<li>Click any of the dashboards to explore -- they can be used independently.</li></ol></td>
+<li>Search for and click <strong>Tour Pro</strong> and click the <strong>Dashboards</strong> tab.</li>
+<li>Click any of the dashboards to explore - they can be used independently.</li></ol></td>
 <td width="50%"><img src="/images/tour_example.png" alt="screenshot of cluster metrics exploration dashboard"></td>
 </tr>
 <tr>
@@ -62,7 +62,7 @@ Our docs include reference documentation for API, query language, and chart opti
 <tbody>
 <tr>
 <td width="60%"><strong>REST API</strong> reference documentation is available:
-<ul><li>From the gear icon in the top left inside the product (see screenshot). This option shows you the current version on your cluster.</li>
+<ul><li>From the gear icon in the top right on the taskbar inside the product (see screenshot). This option shows you the current version on your cluster.</li>
 <li>From the <a href="https://code.vmware.com/apis/714/wavefront-rest">VMware Code website</a>. This option shows the most recent version.</li>
 </ul>
 </td>
@@ -89,7 +89,7 @@ Our docs include reference documentation for API, query language, and chart opti
 <tr>
 <td>Our <strong>FAQ info</strong> helps both users who are new to Wavefront and users who know exactly what they want. We're updating this list as we hear from you in conversations or on Slack.
 <ul><li><a href="ui_charts_faq.html">Wavefront Charts FAQs </a>explains how to set color mapping, how to define drilldown links, and more.  </li>
-<li><a href="wavefront_kubernetes_faq.html">Wavefront and Kubernetes FAQ</a> addresses common questions like integrating with third-party applications. </li>
+<li><a href="wavefront_kubernetes_faq.html">Wavefront and Kubernetes FAQ</a> addresses common questions, such as integrating with third-party applications. </li>
 <li><a href="tracing_faq.html">Tracing FAQ</a> helps with common tasks like filtering RED metrics with custom span tags.  </li>
 <li><a href="wavefront_spring_boot_faq.html">Wavefront and Spring Boot FAQ</a> explains differences between Freemium and trial clusters, how to visualize metrics and traces, and more. </li>
 </ul></td>
@@ -108,7 +108,7 @@ This doc set includes a set of tutorials for common use cases and links to short
 <tr>
 <td width="40%"><br/><br/>
 <strong>Tutorials</strong> use simple examples to get you up to speed with the different Wavefront components. <br/><br/>
-We're continually adding to this set -- let us know what else you'd like to see.
+We're continually adding to this set - let us know what else you'd like to see.
 </td>
 <td width="60%"><a href="query_language_getting_started.html"><img src="/images/query_language_tutorial.png" alt="Screenshot of QL tutorial"/></a></td>
 </tr>
