@@ -159,7 +159,7 @@ The bottom row shows the PromQL query execution:
 
 New to Wavefront? Here are some links to get you started:
 * [Getting Started Videos](videos_howto_start.html)
-* [Dashboards and Alerts Tutorials](tutorial_getting_started.html)
+* [Dashboards Tutorials](tutorial_dashboards.html)
 * [Alerts](alerts.html)
 * [Query Language Quickstart](query_language_getting_started.html)
 * [Query Language Videos](videos_query_language.html)

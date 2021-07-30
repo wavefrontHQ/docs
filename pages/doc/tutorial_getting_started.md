@@ -3,6 +3,7 @@ title: Dashboards and Alerts Tutorial
 tags: [getting started, dashboards, charts, alerts, tutorials]
 sidebar: doc_sidebar
 permalink: tutorial_getting_started.html
+published: false
 summary: Build dashboards and charts with sample data, create an alert, and get pointers to more info.
 ---
 
