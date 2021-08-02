@@ -3,7 +3,7 @@ title: Use Wavefront Top or Spy to Investigate Traffic
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: wavefront_monitoring_spy.html
-summary: Use HTTP endpoints to get samples data or IDs, or use wftop to examine them with a keyboard-driven UI.
+summary: Use HTTP endpoints to get samples data or IDs, or use `wftop` to examine them with a keyboard-driven UI.
 ---
 
 Your Wavefront instance includes HTTP `spy` endpoints for sampling the data that your Wavefront instance is currently ingesting. Examining these endpoints helps you understand the data shape and avoid slowdown or other problems.
@@ -94,13 +94,13 @@ To get a sampling of points with specific characteristics, add one or more of th
 <td>string, optional</td>
 <td markdown="span">Filter for only points that are ingested through a particular proxy or user's token. To filter for a certain proxy, use this syntax: <code>proxy::&lt;proxy_source&gt;</td></tr>
 <tr><td markdown="span">**usage**</td>
-<td>boolean, optional</td>
+<td>Boolean, optional</td>
 <td markdown="span">Flag that determines whether usage information is shown. </td></tr>
 <tr><td markdown="span">**usageThresholdDays**</td>
 <td>integer, optional</td>
 <td markdown="span">If **usage** is set to true, specifies the number of days to look back to determine whether data has been accessed; defaults to 7</td></tr>
 <tr><td markdown="span">**includeScalingFactor**</td>
-<td>boolean, optional</td>
+<td>Boolean, optional</td>
 <td markdown="span">Flag that determines whether the number of data ingesters is included in the output.</td></tr>
 </tbody>
 </table>
@@ -180,13 +180,13 @@ To get a sample of delta counters with specific characteristics, add one or more
 <td>string, optional</td>
 <td markdown="span">Filter for only points that are ingested through a particular proxy or user's token. To filter for a certain proxy, use this syntax: <code>proxy::&lt;proxy_source&gt;</td></tr>
 <tr><td markdown="span">**usage**</td>
-<td>boolean, optional</td>
+<td>Boolean, optional</td>
 <td markdown="span">Flag that determines whether usage information is shown. </td></tr>
 <tr><td markdown="span">**usageThresholdDays**</td>
 <td>integer, optional</td>
 <td markdown="span">If **usage** is set to true, specifies the number of days to look back to determine whether data has been accessed; defaults to 7</td></tr>
 <tr><td markdown="span">**includeScalingFactor**</td>
-<td>boolean, optional</td>
+<td>Boolean, optional</td>
 <td markdown="span">Flag that determines whether the number of data ingesters is included in the output.</td></tr>
 </tbody>
 </table>
@@ -266,13 +266,13 @@ To get a sampling of spans with specific characteristics, add one or more of the
 <td>string, optional</td>
 <td markdown="span">Filter for only points that are ingested through a particular proxy or user's token. To filter for a certain proxy, use this syntax: <code>proxy::&lt;proxy_source&gt;</td></tr>
 <tr><td markdown="span">**usage**</td>
-<td>boolean, optional</td>
+<td>Boolean, optional</td>
 <td markdown="span">Flag that determines whether usage information is shown. </td></tr>
 <tr><td markdown="span">**usageThresholdDays**</td>
 <td>integer, optional</td>
 <td markdown="span">If **usage** is set to true, specifies the number of days to look back to determine whether data has been accessed; defaults to 7</td></tr>
 <tr><td markdown="span">**includeScalingFactor**</td>
-<td>boolean, optional</td>
+<td>Boolean, optional</td>
 <td markdown="span">Flag that determines whether the number of data ingesters is included in the output.</td></tr>
 </tbody>
 </table>
@@ -473,7 +473,7 @@ STRING - Point tags or span tags, represented as a single string containing a un
 <td>decimal, optional </td>
 <td markdown="span">0 to .05, with 0.05 being 5%</td></tr>
 <tr><td markdown="span">**includeScalingFactor**</td>
-<td>boolean, optional</td>
+<td>Boolean, optional</td>
 <td markdown="span">Flag that determines whether the number of data ingesters is included in the output.</td></tr>
 </tbody>
 </table>

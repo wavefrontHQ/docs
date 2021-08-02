@@ -4,16 +4,16 @@ keywords: administration
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: wavefront_monitoring.html
-summary: Monitor and troubleshoot your Wavefront instance and see PPS info.
+summary: Monitor and troubleshoot your Wavefront instance and see points per second information.
 ---
 
 You can use the Wavefront Usage integration dashboards to:
 * Get usage information for your Wavefront instance and Wavefront proxy.
 * Drill down into the metrics namespaces to discover trends.
-* Examine PPS (points per second) based on predefined ingestion policies.
-* See whether ingested metrics are at 95% of committed rate. Optionally get alerts if that happens.
+* Examine the points per second (PPS) based on predefined ingestion policies.
+* See whether the ingested metrics are at 95% of committed rate. Optionally, get alerts if that happens.
 
-In addition, you can create your own dashboards, charts, and alerts using internal metrics (discussed below) to investigate the problem.
+In addition, you can create your own dashboards, charts, and alerts by using the [internal metrics](wavefront-internal-metrics.html) to investigate the problem.
 
 See [Monitoring Wavefront Proxies](monitoring_proxies.html) for details on investigating proxy usage.
 
@@ -182,6 +182,6 @@ The process is the same for alerts.
 
 
 Our Customer Success Team has put together KB articles that drill down into adoption info.
-* [How to Track Adoption in Your Company with Usage Metadata](https://help.wavefront.com/hc/en-us/articles/360058526192-How-to-Track-Tanzu-Observability-Adoption-with-Usage-Metadata)
-* [How to Identify Unused Data](https://help.wavefront.com/hc/en-us/articles/360058084372-How-to-Identify-Unused-Data)
-* [How to Optimize Your Ingestion Rate PPS](https://help.wavefront.com/hc/en-us/articles/360057995092-How-to-Optimize-Your-Ingestion-Rate-PPS-)
+* [How to Track Adoption in Your Company with Usage Metadata](https://help.wavefront.com/hc/en-us/articles/360058526192-How-to-Track-Tanzu-Observability-Adoption-with-Usage-Metadata).
+* [How to Identify Unused Data](https://help.wavefront.com/hc/en-us/articles/360058084372-How-to-Identify-Unused-Data).
+* [How to Optimize Your Ingestion Rate PPS](https://help.wavefront.com/hc/en-us/articles/360057995092-How-to-Optimize-Your-Ingestion-Rate-PPS-).

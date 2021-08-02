@@ -3,8 +3,7 @@ title: Set Up or Update Self-Service SAML SSO
 keywords:
 tags: [integrations, administration]
 sidebar: doc_sidebar
-permalink: auth_self_service_sso.html
-summary: Set up a SAML SSO provider for your environment
+permalink: auth_self_service_sso.html.
 ---
 
 Wavefront supports a number of third-party authentication solutions that use SAML. The SAML (Security Assertion Markup Language) standard enables an identity provider (IdP) to pass authorization credentials to service providers (SP). In environments that use SAML, users log in once and authenticate to many different services.

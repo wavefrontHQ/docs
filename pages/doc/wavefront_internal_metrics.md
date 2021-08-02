@@ -4,7 +4,7 @@ keywords: administration
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: wavefront-internal-metrics.html
-summary: Wavefront collects internal metrics that are are used extensively in the different dashboards of the Wavefront Usage integration. 
+summary: Wavefront collects internal metrics that are used extensively in the different dashboards of the Wavefront Usage integration. 
 ---
 
 You can:

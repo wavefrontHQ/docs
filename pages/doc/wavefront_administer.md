@@ -29,7 +29,7 @@ You can set up authentication in your environment by setting up single sign-on u
 
 ## Monitor and Troubleshoot
 
-You can use the Wavefront Usage integration dashboards to monito rand troubleshoot your Wavefront environment. By using the dashboards in this integration, you can:
+You can use the Wavefront Usage integration dashboards to monitor and troubleshoot your Wavefront environment. By using the dashboards in this integration, you can:
 
 * Get usage information for your Wavefront instance and Wavefront proxy.
 * Drill down into the metrics namespaces to discover trends.

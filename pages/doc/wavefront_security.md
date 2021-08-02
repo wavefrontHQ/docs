@@ -81,7 +81,7 @@ Large customers can request [multi-tenant SSO](authentication.html#multi-tenant-
 ## Authorization
 
 Wavefront supports multi-level authorization:
-* **Roles and permissions** determine which groups or users can manage which objects or perform certain tasks. For example, you could create a ReadOnly role with no permissions and assign it to a Novice group, or create a Developers role, assign Dashboards, Alerts, Proxy, Metrics, and Embed Chart permission, and assign it to a developer group.
+* **Roles and permissions** determine which groups or users can manage which objects or perform certain tasks. For example, you could create a read-only role with no permissions and assign it to a Novice group, or create a Developers role, assign Dashboards, Alerts, Proxy, Metrics, and Embed Chart permission, and assign it to a developer group.
 * [**Access control**](access.html) applies to individual objects (dashboards or alerts). Privileged groups or users can revoke grant access to individual groups or users. To support this feature, Wavefront includes a [Super Admin](users_roles.html#who-is-the-super-admin-user) user.
   Wavefront supports a [high security mode](access.html#change-the-access-control-security-organization-setting) where only the object creator and Super Admin user can view and modify new dashboards.
 * [**Metrics security policy rules**](metrics_security.html) allow fine-grained control over metrics visibility in dashboards, charts, alerts, etc.
