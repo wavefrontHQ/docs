@@ -1,10 +1,10 @@
 ---
-title: Roles, Groups, and Permissions
+title: Manage Roles, Groups, and Permissions
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: users_roles.html
-summary: Manage global permissions with roles
+summary: Manage global permissions with roles.
 ---
 
 Administrators use roles to fine-tune authorization in the Wavefront environment:

@@ -712,12 +712,58 @@ entries:
     output: web
     folderitems:
 
+      - title: Administer Wavefront
+        url: /wavefront_administer.html
+        output: web
+        
       - title: Wavefront Security
         url: /wavefront_security.html
         output: web
 
         subfolders:
-        - title: Authentication
+        - title: Authorization and User Management
+          output: web
+          subfolderitems:
+
+          - title: Wavefront Authorization Model
+            url: /authorization.html
+            output: web
+
+          - title: Authorization FAQ
+            url: /authorization-faq.html
+            output: web
+
+          - title: Manage Roles, Groups, and Permissions
+            url: /users_roles.html
+            output: web
+
+          - title: Permissions Reference
+            url: /permissions_overview.html
+            output: web
+
+          - title: Manage User Accounts
+            url: /user-accounts.html
+            output: web
+            
+          - title: Manage Service Accounts
+            url: /service-accounts.html
+            output: web
+
+        
+        - title: Manage Access to Wavefront Objects
+          output: web
+          subfolderitems:
+                
+          - title: Manage Access to Dashboards and Alerts
+            url: /access.html
+            output: web
+
+          - title: Metrics Security Policy Rules
+            url: /metrics_security.html
+            output: web
+
+
+        - title: Authentication in Wavefront
           output: web
           subfolderitems:
 
@@ -728,35 +774,7 @@ entries:
           - title: Self-Service SAML SSO
             url: /auth_self_service_sso.html
             output: web
-
-        - title: Authorization
-          output: web
-          subfolderitems:
-
-          - title: Authorization in Wavefront
-            url: /authorization.html
-            output: web
-
-          - title: Roles, Groups, and Permissions
-            url: /users_roles.html
-            output: web
-
-          - title: User Accounts and Service Accounts
-            url: /accounts.html
-            output: web
-
-          - title: Access
-            url: /access.html
-            output: web
-
-          - title: Metrics Security
-            url: /metrics_security.html
-            output: web
-
-          - title: Permissions Reference
-            url: /permissions_overview.html
-            output: web
-
+            
         - title: Monitoring & Troubleshooting
           output: web
           subfolderitems:
@@ -764,7 +782,11 @@ entries:
           - title: Monitor the Wavefront Service
             url: /wavefront_monitoring.html
             output: web
-
+          
+          - title: Wavefront Service Internal Metrics
+            url: /wavefront-internal-metrics.html
+            output: web
+            
           - title: Monitor Wavefront Proxies
             url: /monitoring_proxies.html
             output: web
@@ -776,3 +798,16 @@ entries:
           - title: Use Wavefront Top or Spy to Investigate Traffic
             url: /wavefront_monitoring_spy.html
             output: web
+            
+        - title: Best Practices
+          output: web
+          subfolderitems:
+
+          - title: Cardinality and Wavefront
+            url: /cardinality.html
+            output: web
+                  
+          - title: Obsolescence and Remediation
+            url: /wavefront_obsolescence_policy.html
+            output: web
+          

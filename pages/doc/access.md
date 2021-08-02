@@ -1,5 +1,5 @@
 ---
-title: Managing Access
+title: Managing Access to Dashboards and Alerts
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
