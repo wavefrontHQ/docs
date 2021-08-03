@@ -9,15 +9,17 @@ summary: Understand what you can do as a Wavefront administrator.
 
 As a Wavefront administrator you can perform a variety of tasks, such as:
 
-* Manage the authorization and access in the Wavefront environment.
-* Set up the authentication in your environment by setting up SSO using an identity provider (IdP).
+* Manage the authorization and access to the Wavefront environment.
+* Select the authentication model in your environment. For example by setting up SSO using an identity provider (IdP).
 * Monitor and troubleshoot the Wavefront environment and usage.
 
 ## Authorization
 
 As an administrator, you can:
 
-* Create roles with permissions and assign roles to users or groups.
+* Invite users, assign roles to users or add the users to groups to grant permissions. 
+* Create roles that are set of permissions and assign the role to one or more users.
+* Create groups and give all members of the group a set of permissions by assigning a role.
 * Manage user and service accounts.
 * Protect individual dashboards or alerts and grant access only to selected groups or accounts.
 * Protect metrics or groups of metrics using metrics security policy rules.
@@ -25,7 +27,7 @@ As an administrator, you can:
 
 ## Authentication
 
-You can set up authentication in your environment by setting up single sign-on using an identity provider (IdP), so that users log in by using SSO instead of a username and password. In single-tenant authentication environment, you can set up or update self-service SAML SSO. You can also set up multi-tenancy, which is configured jointly by you -- the Wavefront administrator at the customer site, and the Wavefront team.
+You can select your preferred authentication method for your environment by setting up single sign-on using an identity provider (IdP), so that users can log in by using SSO instead of a user name and password. Wavefront authentication integrations use SAML and fully support two-factor authentication (managed by individual identity providers).  In single-tenant authentication environment, you can set up or update self-service SAML SSO. You can also set up multi-tenancy, which is configured jointly by you -- the Wavefront administrator at the customer site, and the Wavefront team. 
 
 ## Monitor and Troubleshoot
 

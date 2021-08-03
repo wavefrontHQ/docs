@@ -7,7 +7,7 @@ permalink: authorization.html
 summary: Learn about authorization of Wavefront groups and users.
 ---
 
-Wavefront supports both role-based controls that use global permissions and object-based access control for individual dashboards and alerts.
+Wavefront supports both role-based control that use global permissions and object-based access control for individual dashboards and alerts.
 
 Administrators can
 * Create **[roles](users_roles.html)** with permissions and assign roles to users or groups.
@@ -46,7 +46,7 @@ A user with Accounts, Groups & Roles permission manages authorization:
 <p>Management at the role and group level is less error prone, for example, it's easier to remove a role from a group than from 15 individual users.
 <br>
 <br>
-In this example, we could assign the Demo role to the Admin Group. Or we could create a separate group only for users that need the set of permissions. In production environments, that's the only way to follow the principle of least privilege.</p></td>
+In this example, we can assign the Demo role to the Admin Group. Or, we can create a separate group only for users that need the set of permissions. In production environments, that's the only way to follow the principle of least privilege.</p></td>
 <td width="50%">
 <img src="/images/two_roles_one_group.png" alt="one group gets two roles"/></td>
 </tr>
@@ -57,7 +57,7 @@ In this example, we could assign the Demo role to the Admin Group. Or we could c
 <p>Assigning roles or permissions to individual users is also supported.
 <br>
 <br>
-For example, assume the marketing team asks Pat to give a demo, and Pat is assigned the Demo role and now has Dashboards permission.</p></td>
+For example, assume the marketing team asks Pat to give a demo, and Pat is assigned the Demo role and now has **Dashboards** permission.</p></td>
 <td width="50%">
 <img src="/images/permissions_user_level.png" alt="permissions user level"/></td>
 </tr>
@@ -69,7 +69,7 @@ For example, assume the marketing team asks Pat to give a demo, and Pat is assig
 Our fine-grained **[access control](access.html)** allows administrators to protect sensitive information, for example, to restrict access to certain dashboards to the Finance team.
 
 * **Access control on individual objects** -- While permissions are global and apply, for example, to all dashboards, access control allows you to restrict who can view or view and modify individual objects (initially dashboards and alerts).
-* **Security setting for new objects** -- In high security environments, administrators can set a security setting so that all new dashboards and new alerts are accessible only to the creator and to Super Admin users.
+* **Security setting for new objects** -- In high security environments, administrators can set a security setting so that all new dashboards and new alerts are accessible only to the creator and to the Super Admin users.
 
 ## Metrics Security Policy Rules
 

@@ -29,7 +29,7 @@ Before you start with accounts and groups, here's what you need to know.
 
 Starting in summer 2019, Wavefront supports two account types:
 * **[User accounts](user_accounts.html)** are for  users who work with Wavefront. A user account authenticates with a username and password.
-* **[Service accounts](service_accounts.html)** are for services that interact with Wavfront through an API and use a **token** to authenticate. Service accounts:
+* **[Service accounts](service_accounts.html)** are for services that interact with Wavefront through an API and use a **token** to authenticate. Service accounts:
   - Don't have **default permissions** (unless the Everyone group has default permissions).
   - Can't perform the **UI operations** that user accounts can perform by default.
 
@@ -65,7 +65,7 @@ Here's what you need to know:
 
 Users who have Accounts, Groups & Roles permission can create groups, change groups by adding and removing accounts, and grant and revoke permissions.
 
-1. Click the gear icon and select **Group Management**.
+1. Click the gear icon <i class="fa fa-cog"/> on the taskbar and select **Group Management**.
 2. To create a group:
    1. Click **New Group**, and specify the group name.
    2. Add group members (optional). You can add and remove group members later.
@@ -83,7 +83,7 @@ New Wavefront customers specify Super Admin users during account setup. Any exis
 
 **To add a Super Admin user:**
 
-1. Click the gear icon and select **Super Admin**.
+1. Click the gear icon <i class="fa fa-cog"/> on the taskbar and select **Super Admin**.
 2. Enter the username of a user you want to add as Super Admin.
 
 Going forward, that user can perform Super Admin tasks.

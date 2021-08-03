@@ -10,7 +10,7 @@ summary: Use metrics security to control access to time series, histograms, and 
 In a large enterprise, certain data are confidential. Wavefront allows you to limit who can see or modify data in several ways.
 * **Permissions** are **global** settings.
   - Some permissions limit who can modify Wavefront objects (e.g. proxies or events). For example, users with **Dashboards** permission can modify all dashboards.
-  -  Other permissions make certain information completely invisible. For example, only users with SAML IDP Admin permission can see the **Self Service SAML** menu or access that page.
+  -  Other permissions make certain information completely invisible. For example, only users with **SAML IdP Admin** permission can see the **Self Service SAML** menu or access that page.
 * **Access Control** allows administrators with the right permissions fine-grained control over individual dashboards or alerts. For example, it's possible to limit view and modify access to a Finance_2020 dashboard to just the Finance department.
 * **Metrics Security** supports even finer-grained control. In the example above, access to the Finance_2020 dashboard is limited to the Finance department. With metrics security, you can limit access to confidential time series, histogram, and delta counter metrics to the leadership team.
 
@@ -31,7 +31,7 @@ Metrics security policy rules allows fine-grained support for limiting access to
 ### Block or Allow Access
 
 With a metrics security policy, you can block or allow access:
-* To metrics, optionally filtered by source and/or point tag
+* To metrics, optionally filtered by source or point tag
 * Based on groups, roles, and individual users.
 
 When an account attempts to access metrics, the backend looks at the rules in priority order. Higher priority rules overwrite lower priority rules.
@@ -161,7 +161,7 @@ See the Examples further below.
 
 You create a metrics security policy rule following these steps. See the annotated screenshot below for an example.
 
-1. From the gear icon, select **Metrics Security Policy** and click **Create Rule**
+1. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Metrics Security Policy** and click **Create Rule**
 2. In the **Create Rule** dialog, specify the rule parameters.
   1. Specify a descriptive name. Users might later modify the rule, so a clear name is essential.
   2. Add a description. The description is visible only when you edit the rule. The name is visible on the Metrics Security Policy page.
@@ -210,7 +210,7 @@ Before you start, plan your strategy. Here are some common scenarios.
 
 Initially, a single metrics security policy rule is defined:
 
-![screenshot of default single policy](images/metrics_security_default.png)
+![Screenshot of a single metrics security policy rule allowing all metrics to everyone.](images/metrics_security_default.png)
 
 All users can access all metrics, meaning **no** restrictions are in place.  Furthermore, if the single **Allow All Metrics** rule was deleted, all users will still have access to all metrics.
 
@@ -218,7 +218,7 @@ All users can access all metrics, meaning **no** restrictions are in place.  Fur
 
 This example restricts access to specific ranges of highly-sensitive metrics, say revenue numbers, to select groups of users.
 
-![screenshot of default single policy](images/metrics_security_restrict.png)
+![Screenshot of policy rules, where the finance group can access revenue numbers.](images/metrics_security_restrict.png)
 
 The image above shows how to restrict metrics starting with `revenue.*` to  be accessible only by members of the group `Finance`. The policy grants all users access to all other metrics.
 
@@ -230,7 +230,7 @@ The image above shows how to restrict metrics starting with `revenue.*` to  be a
 
 This example restricts access for a group of users, making only a subset of the metrics in the system available to them.
 
-![screenshot of default single policy](images/metrics_security_group.png)
+![Screenshot of policy rules making only a subset of the metrics available to a group of users.](images/metrics_security_group.png)
 
 The image above shows how to restricts access for users in the group `Contractors`. Those users can only query metrics tagged with the point tag `env=dev`. This policy imposes no restrictions on any other groups.
 
@@ -241,7 +241,7 @@ The image above shows how to restricts access for users in the group `Contractor
 
 This example restricts access for a specific user when the restrict rule is applied to a user role. The metrics security rules take into account both direct and indirect roles.
 
-![screenshot of the single user restrictions](images/metrics-security-policy-retail.png)
+![Screenshot of a policy rule restricting access for a single user](images/metrics-security-policy-retail.png)
 
 The image above shows how to restrict access for a user with the role `Operator`. The user cannot access any metrics.
 
@@ -254,7 +254,7 @@ By applying the above security policy:
 
 Some companies want to make metric accessible only to the team that needs to know about it. Access to metrics outside a team’s scope of work is disabled.  Only administrators are allowed access to all metrics.
 
-![screenshot of default single policy](images/metrics_security_need_to_know.png)
+![Screenshot of policy rules making a metric accessible only to the team that needs to know about it](images/metrics_security_need_to_know.png)
 
 The image above shows how to use a set of rules to accomplish this.
 

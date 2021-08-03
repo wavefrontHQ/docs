@@ -15,7 +15,7 @@ A service account can be used to automate management of objects like dashboard, 
 * By default, service accounts do not get any **individual permission**
   - Each account is automatically added to the **Everyone**  group. If a role is assigned to that group, the service account gets the permissions from that role.
   - Service account can be added to any group to get that group's role (and permissions).
-* A service account can't perform the **UI operations** that all user accounts can [perform by default](accounts.html#what-can-a-new-user-do).
+* A service account can't perform the **UI operations** that all user accounts can [perform by default](user-accounts.html#what-can-a-new-user-do).
 
 
 ## Service Accounts Basics
@@ -35,7 +35,7 @@ You can disable a service account if you temporarily don't need it, or delete it
 
 Creating a service account is different from creating a user account.
 
-1. From the gear icon, select **Account Management**.
+1. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Account Management**.
 2. Click the **Service Accounts** tab, and click **Create New Account**
 3. On the New Service Account page, specify the account details and click **Create**.
 

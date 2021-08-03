@@ -31,8 +31,8 @@ Reach out to us on [Slack](https://www.wavefront.com/join-public-slack) and join
 * If you have a web application, expose the Wavefront actuator endpoint to easily access your dashboard.
 
 ### How do I ensure I send data to the same account all the time (across multiple machines and deployments)?
-* If you are just trying out Wavefront, see [Manage Service Accounts](accounts.html#service-accounts) to create a service account that has a static token for reporting. Once you have the token, add it to the `application.properties` file.
-* If you want to use Wavefront in a larger deployment, sign up for [a Wavefront trial] (https://tanzu.vmware.com/observability) and see [Manage Service Accounts](accounts.html#service-accounts) to learn how to create a service account. Next, add the token and URL to the `application.properties` file. We can help you with sizing and designing large-scale collection architectures for metrics, histograms, and traces. Reach out to us on [Slack](https://www.wavefront.com/join-public-slack) and join the #springboot public channel for more information.
+* If you are just trying out Wavefront, see [Manage Service Accounts](service-accounts.html) to create a service account that has a static token for reporting. Once you have the token, add it to the `application.properties` file.
+* If you want to use Wavefront in a larger deployment, sign up for [a Wavefront trial] (https://tanzu.vmware.com/observability) and see [Manage Service Accounts](service-accounts.html) to learn how to create a service account. Next, add the token and URL to the `application.properties` file. We can help you with sizing and designing large-scale collection architectures for metrics, histograms, and traces. Reach out to us on [Slack](https://www.wavefront.com/join-public-slack) and join the #springboot public channel for more information.
 
 ### How do I set up an email/password login to the account?
 
