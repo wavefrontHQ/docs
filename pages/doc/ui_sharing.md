@@ -58,7 +58,7 @@ The process is very similar for dashboards and for alerts.
 
 ## Embed a Chart in Other UIs and Allow or Restrict Access
 
-Wavefront supports the ability to embed an interactive chart outside of Wavefront. You must have [Embed Charts Permission](permissions_overview.html#embed-charts-permission) to create embedded charts.
+Wavefront supports the ability to embed an interactive chart outside of Wavefront. You must have [**Chart Embedding** Permission](permissions_overview.html) to create embedded charts.
 
 ### Embed a Chart in Other UIs
 
