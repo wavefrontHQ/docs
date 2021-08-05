@@ -19,7 +19,7 @@ You start with a Linux VM with the following characteristics:
 * Outbound access to the Internet (but doesn't need inbound access)
 * Internal DNS
 
-On the Linux VM, you need one account, preferably a [service account](accounts.html#service_accounts). You'll use the token of the account in the NGINX config file, as shown below.
+On the Linux VM, you need one account, preferably a [service account](service-accounts.html). You'll use the token of the account in the NGINX config file, as shown below.
 
 We tested the process with an Ubuntu VM with a service account that had the default permissions.
 

@@ -71,7 +71,7 @@ Wavefront delta counter behavior changed with [Release 2020.26](2020.26.x_releas
 * The original delta counter implementation was Deprecated with [Release 2020.26](2020.26.x_release_notes.html). Wavefront changed delta counter queries to use `cs()` in the Wavefront Usage integration and tracing RED metrics.
 * The original delta counter implementation is End of Life March 31, 2021.
 
-{% include warning.html content="You have to revise delta counter queries to use `cs()` for any custom dashboard or alert which uses delta counter data. Starting on April 4 2021, `ts()` queries on delta counters will no longer work. Wavefront will no longer store delta counters in two different formats." %}
+{% include warning.html content="You have to revise delta counter queries to use `cs()` for any custom dashboard or alert which uses delta counter data. Starting on April 4, 2021, `ts()` queries on delta counters will no longer work. Wavefront will no longer store delta counters in two different formats." %}
 
 
 
@@ -97,9 +97,9 @@ Wavefront updates system dashboard and integration content. However, you might h
 1. Replace `ts()` with `cs()` if the query targets delta counter data. Filtering works as before, so nothing within the parentheses needs to change.
 2. Remove `rate()` or `ratediff()` functions from your delta counter queries.
 
-   Any `cs()` query tracks the total increments per minute, so `cs()` data is already a 1 minute rate and doesn't require the `rate()` function. If you do want to know the per-second rate of change, divide the result by 60.
+   Any `cs()` query tracks the total increments per minute, so `cs()` data is already a 1-minute rate and doesn't require the `rate()` function. If you do want to know the per-second rate of change, divide the result by 60.
    
-   You do not need to do anything differently if you are using a `timeWindow` parameter in your `rate()` function. The purpose of that parameter is to account for cumulative counter resets but delta counters do not have resets.
+   You do not need to do anything differently if you are using a `timeWindow` parameter in your `rate()` function. The purpose of that parameter is to account for cumulative counter resets, but delta counters do not have resets.
 
 3. Remove `align()` from your delta counter queries unless you picked an `align()` time window that's larger than 1 minute.
 
@@ -144,7 +144,7 @@ In the following examples, `errors.count` is a delta counter:
 
 Wavefront [delta counters](delta_counters.html) allow you to measure the number of times something occurred over time without needing to keep track of the number of occurrences to date yourself.
 
-At ingestion time, a delta counter must have a ∆ character at the beginning. Just like any other measurement data in Wavefront a delta counter series is uniquely identified by its name, source and any point tags.
+At ingestion time, a delta counter must have a ∆ character at the beginning. Just like any other measurement data in Wavefront a delta counter series is uniquely identified by its name, source, and any point tags.
 
 #### Example Scenario
 

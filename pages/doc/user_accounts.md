@@ -32,7 +32,7 @@ User accounts log in with a username and password.
 
 Users with **Accounts, Groups & Roles** permissions can manage accounts. This section discusses user account management. We discuss [service accounts](service_accounts.html) separately.
 
-1. Click the gear icon and select **Account Management**.
+1. Click the gear icon <i class="fa fa-cog"/> on the taskbar and select **Account Management**.
 2. To add an account:
    1. Click **Invite New Users**, and specify a comma-separated list of email addresses.
    2. Specify user groups. You cannot remove users from the Everyone group.
