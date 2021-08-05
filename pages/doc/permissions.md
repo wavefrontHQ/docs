@@ -58,7 +58,7 @@ Because all new users are assigned to the Everyone group, permissions change for
 ## Granting and Revoking Permissions for Groups
 
 To manage permissions for groups:
-1. Click the gear icon <i class="fa fa-cog"/> on the taskbarand select **User Group Management**.
+1. Click the gear icon <i class="fa fa-cog"/> on the taskbar and select **User Group Management**.
 2. Click the group you want to change.
 3. Select or deselect check boxes for the permissions you want to change and click **Save**.
 

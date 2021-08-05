@@ -46,7 +46,7 @@ A user with Accounts, Groups & Roles permission manages authorization:
 <p>Management at the role and group level is less error prone, for example, it's easier to remove a role from a group than from 15 individual users.
 <br>
 <br>
-In this example, we can assign the Demo role to the Admin Group. Or, we can create a separate group only for users that need the set of permissions. In production environments, that's the only way to follow the principle of least privilege.</p></td>
+In this example, we can assign the Demo role to the Admin Group. Or we can create a separate group only for users that need the set of permissions. In production environments, that's the only way to follow the principle of least privilege.</p></td>
 <td width="50%">
 <img src="/images/two_roles_one_group.png" alt="one group gets two roles"/></td>
 </tr>

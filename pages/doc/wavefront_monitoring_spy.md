@@ -3,7 +3,7 @@ title: Use Wavefront Top or Spy to Investigate Traffic
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: wavefront_monitoring_spy.html
-summary: Use HTTP endpoints to get samples data or IDs, or use `wftop` to examine them with a keyboard-driven UI.
+summary: Use HTTP endpoints to get samples data or IDs, or use wftop to examine them with a keyboard-driven UI.
 ---
 
 Your Wavefront instance includes HTTP `spy` endpoints for sampling the data that your Wavefront instance is currently ingesting. Examining these endpoints helps you understand the data shape and avoid slowdown or other problems.
@@ -172,7 +172,7 @@ To get a sample of delta counters with specific characteristics, add one or more
 <td>List a delta counter only if its source name starts with the specified case-sensitive prefix. </td></tr>
 <tr><td markdown="span">**counterTagKey**</td>
 <td>string, optional</td>
-<td markdown="span">List a delta counter only if it has the specified tag key. Add this parameter multiple times to specify multiple point tags, e.g., `counteragKey=env&counterTagKey=datacenter` </td></tr>
+<td markdown="span">List a delta counter only if it has the specified tag key. Add this parameter multiple times to specify multiple point tags, e.g., `counterTagKey=env&counterTagKey=datacenter` </td></tr>
 <tr><td markdown="span">**sampling**</td>
 <td>decimal, optional</td>
 <td markdown="span">0 to .05, with 0.05 being 5%  </td></tr>

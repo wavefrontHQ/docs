@@ -26,7 +26,7 @@ The following list gives an overview of permissions. To learn more, click the li
     
 - **[Applications](tracing_apdex.html)** 
 
-    Users with **Applications** permission, can update the threshold (T) of the Application Performance Index (Apdex) score.
+    Users with **Applications** permission can update the threshold (T) of the Application Performance Index (Apdex) score.
     
 - **Batch Query Priority** 
 

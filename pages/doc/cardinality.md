@@ -95,7 +95,7 @@ Although Wavefront supports high cardinality for time series data, to avoid high
 
    1. Ensure that the metric names are stable and do not change.
    2. Keep source names stable. Source names change over time, but make sure that they don't change frequently.
-   3. Use point tags for data that are emphemeral.
+   3. Use point tags for data that are ephemeral.
    4. In Kubernetes, where point tags are usually called labels, add only the point tags that you really need.
 
 For information about metric, source, and point tag names, see [Wavefront Data Naming Best Practices](wavefront_data_naming.html). You can also understand more about the metrics structure, sources and the sources browser, and tags, by exploring [Metrics and the Metrics Browser](metrics_managing.html), [Sources](sources_managing.html), and [Organizing with Tags](tags_overview.html).

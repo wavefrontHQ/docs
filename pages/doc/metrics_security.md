@@ -151,7 +151,7 @@ Privileged users can create rules, change rule priority, and change the scope of
 Before you create rules, plan your strategy.
 
 * **Metrics Dimensions** allow you to determine what to block or allow.
-  - Specify one or more metric prefixes. You can specify an exact match (e.g. `requests` or `request.`) or a wildcard match (e.g. `*.cpuloadavg*`, `cpu.*`).
+  - Specify one or more metric prefixes. You can specify an exact match (e.g. `requests` or `request.`) or a wildcard match (e.g. `*.cpu.loadavg*`, `cpu.*`).
   - Specify a combination of metric sources or point tags to narrow down the metrics. For example, you can block visibility into production environments for some developers, or you can block some development environments metrics for contractors.
 * **Access** allows you to allow or block access for a combination of accounts, groups, or roles.
 
