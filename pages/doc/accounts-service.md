@@ -12,6 +12,11 @@ A service account can be used to automate management of objects such as dashboar
 
 {% include note.html content="A service account must have **permissions** to perform tasks. To run queries, a service account must have **Metrics** permission. To manage dashboards and alerts, the service account might need both permissions and [access](access.html)." %}
 
+
+## What Are Service Accounts?
+
+Service accounts are used for automating management tasks.
+
 * A service account uses a **token** to authenticate.
 * Each account is automatically added to the **Everyone** group. If a role is assigned to that group, the service account gets the permissions from that role.
 * Service account can be added to any group to get that group's role (and permissions).

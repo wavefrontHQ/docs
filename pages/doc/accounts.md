@@ -12,19 +12,19 @@ You can manage authorization in your Wavefront environment by:
 
 Wavefront supports:
 * User accounts, discussed here, which authenticate with a username and password.
-* Service accounts, which authenticate with a token.
+* [Service accounts](service-accounts.html), which authenticate with a token.
 
 {% include note.html content="You must have **Accounts, Groups & Roles** permission to view and manage accounts, groups, and permissions in Wavefront. If you don't have **Accounts, Groups & Roles** permission, the UI menu selections, buttons, and links that you use to view accounts and permissions are not visible. " %}
 
 
-## User Accounts
+## What Are User Accounts?
 
 User accounts log in with a user name and password.
 * All authenticated users can perform certain tasks such as viewing dashboards and charts or sharing links to charts.
 * **Roles** determine what users can do globally. Each role has one or more permissions. For example, assume that you have created an **Interns** role that has **Dashboard** permissions. All users with the **Interns** role can view and manage all dashboards.
 * **[Access](access.html)** applies to individual objects. For example, some users don't have access to a dashboard with financial data. Users who have modify access for a dashboard or alert can grant or revoke access for that object.
 
-### Create, Edit, and Delete User Accounts
+## Create, Edit, and Delete User Accounts
 
 Users with **Accounts, Groups & Roles** permissions can manage accounts.
 
@@ -49,7 +49,7 @@ Users with **Accounts, Groups & Roles** permissions can manage accounts.
 
    {% include tip.html content="As a safeguard, you cannot select multiple users and delete them. You can delete only one user at a time." %}
 
-### Sign Out a User
+## Sign Out a User
 
 As a [super admin user](authorization.html#who-is-the-super-admin-user), you can sign out other users by using the Wavefront REST API. To sign out a user while you are logged in as a Super Admin user, simply run a POST request with the `logout` API call. For example:
 
@@ -59,7 +59,7 @@ POST https://<your_wavefront_cluster>.wavefront.com/api/logout/{identifier}
 
 You must specify the `{identifier}`, which is the email address of the user that you want to log out. If you are not logged in to your Wavefront cluster, when you run the POST request, you must also provide a valid [API token](wavefront_api.html#generating-an-api-token).
 
-### What Can a New User Do?
+## What Can a New User Do?
 
 When you invite a new (human) user to Wavefront, what that new user can do depends on several factors.
 
