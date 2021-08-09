@@ -98,6 +98,9 @@ Let's walk through the following scenario to get a quick overview of the applica
               <b>Show Node Counts</b>: Shows the number of instances of a service running in an application. For example, <b>shopping (5)</b> shows you that there are five instances of the shopping service in the beachshirts application.
             </li>
           </ul>
+          <li>
+            <b>Alert Settings</b>: Select the severity of the alert you want to see on the application map. For example, if you select <b>Severe</b>, you see the alerts that have the severity status set to severe marked with a red dot on the application map.
+          </li>
       </ul>
       </td>
     <td>
