@@ -8,6 +8,8 @@ summary: Learn about the Wavefront Java Integration.
 
 This Wavefront Java integration explains how to send Java application metrics to Wavefront.
 
+### Java SDKs
+
 Wavefront provides several Java SDKs for different purposes on Github:
 
 - **[wavefront-sdk-java](https://github.com/wavefrontHQ/wavefront-sdk-java)**: Core SDK for sending different telemetry data to Wavefront. Data include metrics, delta counters, distributions, and spans.
@@ -21,9 +23,17 @@ Wavefront provides several Java SDKs for different purposes on Github:
 
 In the Setup tab, the integration includes sample code based on `wavefront-dropwizard-metrics-sdk-java` for sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html) or using [direct ingestion](https://docs.wavefront.com/direct_ingestion.html).
 
-The steps in the Setup tab start the metrics flow and also set up a dashboard. Here's a screenshot of a dashboard with metrics collected from JVM by the wavefront-dropwizard-metrics-sdk-java.
+### Dashboards
+
+In addition to setting up the metrics flow, this integration also installs dashboards:
+
+* Java 
+* Java on Kubernetes
+
+Here's a screenshot of Java on Kubernetes dashboard with metrics collected from JVM by the wavefront-dropwizard-metrics-sdk-java.
 
 {% include image.md src="images/dropwizard-dashboard.png" width="80" %}
+
 ## Java Setup
 
 The Wavefront plugin for [Dropwizard Metrics](https://metrics.dropwizard.io) adds [Wavefront reporters](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java) and an abstraction that supports tagging at the reporter level. The reporters support sending metrics to Wavefront using the [Wavefront proxy](https://docs.wavefront.com/proxies.html) or using [direct ingestion](https://docs.wavefront.com/direct_ingestion.html).
@@ -62,6 +72,8 @@ import com.wavefront.dropwizard.metrics.DropwizardMetricsReporter;
 import com.wavefront.sdk.common.clients.WavefrontClientFactory;
 import com.wavefront.sdk.common.WavefrontSender;
 import java.util.concurrent.TimeUnit;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 MetricRegistry metricRegistry = new MetricRegistry();
 Counter evictions = metricRegistry.counter("cache-evictions");
@@ -74,14 +86,19 @@ wavefrontClientFactory.addClient(wavefrontURL);
 
 WavefrontSender wavefrontSender = wavefrontClientFactory.getClient();
 
-DropwizardMetricsReporter reporter = DropwizardMetricsReporter.forRegistry(metricRegistry).
-    withSource("app-1.company.com").
-    prefixedWith("service").
-    withReporterPointTag("dc", "us-west-2").
-    withReporterPointTag("env", "staging").
-    build(wavefrontSender);
+try {
+    DropwizardMetricsReporter reporter = DropwizardMetricsReporter.forRegistry(metricRegistry).
+        withSource(InetAddress.getLocalHost().getHostName()).
+        prefixedWith("service"). // Prefix is optional
+        withReporterPointTag("dc", "us-west-2").
+        withReporterPointTag("env", "staging"). // Mandatory fields for K8s
+        withReporterPointTag("service", "service-name"). // Mandatory fields for K8s
+        build(wavefrontSender);
 
-reporter.start(5, TimeUnit.SECONDS);
+    reporter.start(5, TimeUnit.SECONDS);
+} catch (UnknownHostException e) {
+    e.printStackTrace();
+}
 ```
 {% endraw %}
 
@@ -94,6 +111,8 @@ import com.wavefront.dropwizard.metrics.DropwizardMetricsReporter;
 import com.wavefront.sdk.common.clients.WavefrontClientFactory;
 import com.wavefront.sdk.common.WavefrontSender;
 import java.util.concurrent.TimeUnit;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 MetricRegistry metricRegistry = new MetricRegistry();
 Counter evictions = metricRegistry.counter("cache-evictions");
@@ -101,7 +120,7 @@ evictions.inc();
 
 WavefrontClientFactory wavefrontClientFactory = new WavefrontClientFactory();
 
-// Create a factory and add a client with the following URL format: "http://TOKEN@DOMAIN.wavefront.com"
+// Create a factory and add a client with the following URL format: "https://TOKEN@DOMAIN.wavefront.com"
 // and a Wavefront API token with direct ingestion permission
 wavefrontClientFactory.addClient(wavefrontURL,
   20_000,           // This is the max batch of data sent per flush interval
@@ -112,14 +131,19 @@ wavefrontClientFactory.addClient(wavefrontURL,
 
 WavefrontSender wavefrontSender = wavefrontClientFactory.getClient();
 
-DropwizardMetricsReporter reporter = DropwizardMetricsReporter.forRegistry(metricRegistry).
-    withSource("app-1.company.com").
-    prefixedWith("service").
-    withReporterPointTag("dc", "us-west-2").
-    withReporterPointTag("env", "staging").
-    build(wavefrontSender);
+try {
+    DropwizardMetricsReporter reporter = DropwizardMetricsReporter.forRegistry(metricRegistry).
+        withSource(InetAddress.getLocalHost().getHostName()).
+        prefixedWith("service"). // Prefix is optional
+        withReporterPointTag("dc", "us-west-2").
+        withReporterPointTag("env", "staging"). // Mandatory fields for K8s
+        withReporterPointTag("service", "service-name"). // Mandatory fields for K8s
+        build(wavefrontSender);
 
-reporter.start(5, TimeUnit.SECONDS);
+    reporter.start(5, TimeUnit.SECONDS);
+} catch (UnknownHostException e) {
+    e.printStackTrace();
+}
 ```
 {% endraw %}
 

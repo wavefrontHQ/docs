@@ -78,7 +78,7 @@ The end-to-end keyboard navigation is fully supported in the Wavefront UI pages 
   
 * User profile page
 
-  You can access it by navigating to your profile from the gear icon.
+  You can access it by navigating to your profile from the gear icon <i class="fa fa-cog"/> on the taskbar.
   
 * Metrics Browser page
 

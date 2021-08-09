@@ -44,7 +44,9 @@ Many users set up Wavefront to monitor the host on which they're working.
 
 After you have data flowing into Wavefront, you can use the in-product tutorial and tour dashboards and the documentation to learn more.
 
- - Learn how to develop charts and dashboards to visualize data and how to set up alerts that notify you when anomalous values occur. See the in-product tutorial dashboards, or see [Tutorial: Getting Started](tutorial_getting_started.html).
+- Watch some [Wavefront and Data Videos](videos_data.html).
+
+- Learn how to examine charts and dashboards to visualize data. See the in-product tutorial dashboards, or see [Dashboards and Charts Tutorial](tutorial_dashboards.html).
 
 - Explore the full range of integrations from the **Integrations** menu and see [integrations](integrations.html) for details about some of them.
 

@@ -18,7 +18,7 @@ Ingestion policies allow you to group accounts and then examine their usage in t
 
 ### Permissions
 
-Users with **Accounts&Groups** permissions can create ingestion policies and add user accounts or service accounts.
+Users with **Accounts, Groups & Roles** permission can create ingestion policies and add user accounts or service accounts.
 * Each account can belong to only one policy at a time. That way, you never count usage of a account twice.
 * You can add user accounts and service accounts to the same policy.
 
@@ -29,7 +29,7 @@ The Ingestion Breakdown dashboard includes an **Unassigned** policy that shows t
 ## Create an Ingestion Policy
 
 1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon, select **Ingestion Policies**
+2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Ingestion Policies**
 3. Click **Create Policy**.
 4. In the dialog:
    1. Specify the name and optionally a description.
@@ -44,7 +44,7 @@ You examine usage for accounts in different policies or for individual accounts 
 
 ### Administrators
 
-Administrators with **Accounts&Groups** permissions can go the Ingestion Breakdown dashboard directy from the Ingestion Policies page.
+Administrators with **Accounts, Groups & Roles** permission can go the Ingestion Breakdown dashboard directly from the Ingestion Policies page.
 
 ![ingestion breakdown link](images/ingestion_breakdown_dashboard_link.png)
 
