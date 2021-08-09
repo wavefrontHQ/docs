@@ -6,7 +6,7 @@ summary: Learn about the Wavefront Catchpoint Integration.
 ---
 ## Catchpoint Integration
 
-The Catchpoint unified end-user monitoring platform combines proactive and real user monitoring to provide total visibility into every layer of the digital delivery chain, including Networks, Code, CDNs, DNS, Services, APIs, SaaS services and more.
+Catchpoint is a unified end-user monitoring platform which combines proactive and real user monitoring to provide total visibility into every layer of the digital delivery chain, including Networks, Code, CDNs, DNS, Services, APIs, SaaS services, and more.
 
 This integration configures Catchpoint `Test data webhook` to send metrics to the Wavefront service.
 
@@ -24,7 +24,7 @@ Wavefront provides Catchpoint Tests dashboard for detailed monitoring:
 This integration configures Catchpoint `Test Data Webhook` to publish `JSON` output data to the Wavefront service.
 
 ### Create Test Data Webhook
-1. Login in to Catchpoint.
+1. Log in to Catchpoint.
 2. Navigate to **Settings > API > Test Data Webhook > Add URL**.
 3. Specify the URL as `https://cps.wavefront.com/report` and the format as `JSON`.
 4. Optionally, you can specify a list of `Email Addresses` to notify in case an agent fails to post data.
