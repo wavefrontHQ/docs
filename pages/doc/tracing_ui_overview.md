@@ -284,7 +284,6 @@ Using the table view, you can:
         See the components used by the service. For example, the beachshirts application's styling service uses the OpenTracing, Java, Dropwizard, and Jersey components.
       </td>
     </tr>
-
   </table>
 
 * Use <img src="images/tracing_link_icon.png"
@@ -331,6 +330,18 @@ Using the table view, you can:
       </td>
       <td markdown="span">
         ![Shows the settings to customize the table view. Select or deselect the settings to customize the table.](images/tracing_table_view_table_settings.png)
+      </td>
+    </tr>
+  </table>
+  
+* View specific alerts for a service:
+  <table style="width: 100%;">
+    <tr>
+      <td width="60%" markdown="span">
+        Click the settings icons and select the severity of the alert you want to see on the application map under **Alert Settings**. For example, if you select **Severe**, you see the alerts that have the severity status set to severe marked with a red dot on the application map.
+      </td>
+      <td width="40%" markdown="span">
+        ![shows the alert settings that has server, warn, smoke, and info listed. You can select one or more severity state to see alerts on the application map.](images/tracing_app_map_alert_settings.png)
       </td>
     </tr>
   </table>
@@ -391,6 +402,18 @@ On the page for a particular application, you can:
         </td>
       </tr>
     </table>
+    
+* View specific alerts for a service:
+  <table style="width: 100%;">
+    <tr>
+      <td width="60%" markdown="span">
+        Click the settings icons and select the severity of the alert you want to see on the application map under **Alert Settings**. For example, if you select **Severe**, you see the alerts that have the severity status set to severe marked with a red dot on the application map.
+      </td>
+      <td width="40%" markdown="span">
+        ![shows the alert settings that has server, warn, smoke, and info listed. You can select one or more severity state to see alerts on the application map.](images/tracing_app_map_alert_settings.png)
+      </td>
+    </tr>
+  </table>
 
 ## Create Alerts
 
