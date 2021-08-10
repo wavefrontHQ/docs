@@ -80,7 +80,7 @@ See [Managing Sampling Policies](trace_sampling_policies.html) for details.
 
 ### Track the Volume of Trace Data Stored in Wavefront
 
-A sampling policy affects your costs by increasing the volume of data sent to Wavefront. To see the number of traces you store in Wavefront with the sampling policies:
+A sampling policy affects your costs by increasing the volume of data sent to Wavefront. To see the number of spans you store in Wavefront with the sampling policies:
 
 1. Click **Dashboards** > **All Dashboards**.
 1. Search for the **Wavefront Service and Proxy Data** dashboard and click it to navigate to the dashboard.
