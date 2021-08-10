@@ -14,37 +14,45 @@ entries:
       url: /wavefront_introduction.html
       output: web
 
-    - title: Searching Wavefront
-      url: /wavefront_searching.html
-      output: web
-
-    - title: Wavefront Keyboard Navigation
-      url: /wavefront_keyboard_shortcuts.html
-      output: web
-
     - title: Your Wavefront Account
       url: /users_account_managing.html
       output: web
 
-    - title: "Intro Videos"
-      url: /videos_quickstart.html
-      output: web
-
-    - title: Wavefront Documentation
-      url: /index.html
-      output: web
-      type: homepage
-
       subfolders:
+      - title: Reference
+        output: web
+        subfolderitems:
+
+        - title: Query Language Reference
+          url: /query_language_reference.html
+          output: web
+
+        - title: Chart Reference
+          url: /ui_chart_reference.html
+          output: web
+
+        - title: REST API
+          url: /wavefront_api.html
+          output: web
+
+        - title: All Integrations
+          url: /label_integrations%20list.html
+          output: web
+
+
       - title: Misc.
         output: web
         subfolderitems:
 
-        - title: Wavefront Glossary
-          url: /glossary.html
+        - title: Searching Wavefront
+          url: /wavefront_searching.html
           output: web
 
-        - title: Getting Help and Giving Feedback
+        - title: Accessibility & Keyboard Navigation
+          url: /wavefront_keyboard_shortcuts.html
+          output: web
+
+        - title: Get Help & Give Feedback
           url: /wavefront_support_feedback.html
           output: web
 
@@ -59,6 +67,10 @@ entries:
         - title: Wavefront Privacy Policy
           url: /privacy.html
           output: web
+
+    - title: Wavefront Glossary
+      url: /glossary.html
+      output: web
 
   - title: Tutorials & Videos
     output: web
@@ -77,8 +89,8 @@ entries:
           url: /hello_wavefront_aws_tutorial.html
           output: web
 
-        - title: "Dashboards & Alerts Tutorial"
-          url: /tutorial_getting_started.html
+        - title: "Dashboards & Charts Tutorial"
+          url: /tutorial_dashboards.html
           output: web
 
         - title: "Query Language Tutorial"
@@ -158,7 +170,7 @@ entries:
       url: /proxies_versions.html
       output: web
 
-  - title: Data
+  - title: "Data & Proxy"
     output: web
     folderitems:
 
@@ -381,8 +393,24 @@ entries:
       url: /query_language_reference.html
       output: web
 
+    - title: Query Examples
+      url: /query_language_recipes.html
+      output: web
+
       subfolders:
-      - title: Understanding WQL
+      - title: Build Queries
+        output: web
+        subfolderitems:
+
+        - title: "Chart Builder"
+          url: /chart_builder.html
+          output: web
+
+        - title: Query Editor
+          url: /query_editor.html
+          output: web
+
+      - title: Learn More About WQL
         output: web
         subfolderitems:
 
@@ -398,24 +426,7 @@ entries:
           url: /query_language_point_tags.html
           output: web
 
-
-      - title: Interacting with WQL
-        output: web
-        subfolderitems:
-
-        - title: "Chart Builder"
-          url: /chart_builder.html
-          output: web
-
-        - title: Query Editor
-          url: /query_editor.html
-          output: web
-          
-        - title: Anomaly Detection on Charts
-          url: /anomaly_detection.html
-          output: web
-
-      - title: Query Language Tips and Tricks
+      - title: WQL Tips and Tricks
         output: web
         subfolderitems:
 
@@ -437,10 +448,6 @@ entries:
 
         - title: Detecting Anomalies
           url: /query_language_statistical_functions_anomalies.html
-          output: web
-
-        - title: Query Language Recipes
-          url: /query_language_recipes.html
           output: web
 
     - title: Using PromQL in Wavefront
@@ -705,12 +712,58 @@ entries:
     output: web
     folderitems:
 
+      - title: Administer Wavefront
+        url: /wavefront_administer.html
+        output: web
+        
       - title: Wavefront Security
         url: /wavefront_security.html
         output: web
 
         subfolders:
-        - title: Authentication
+        - title: Authorization and User Management
+          output: web
+          subfolderitems:
+
+          - title: Wavefront Authorization Model
+            url: /authorization.html
+            output: web
+
+          - title: Authorization FAQ
+            url: /authorization-faq.html
+            output: web
+
+          - title: Manage Roles, Groups, and Permissions
+            url: /users_roles.html
+            output: web
+
+          - title: Permissions Reference
+            url: /permissions_overview.html
+            output: web
+
+          - title: Manage User Accounts
+            url: /user-accounts.html
+            output: web
+            
+          - title: Manage Service Accounts
+            url: /service-accounts.html
+            output: web
+
+        
+        - title: Manage Access to Wavefront Objects
+          output: web
+          subfolderitems:
+                
+          - title: Manage Access to Dashboards and Alerts
+            url: /access.html
+            output: web
+
+          - title: Metrics Security Policy Rules
+            url: /metrics_security.html
+            output: web
+
+
+        - title: Authentication in Wavefront
           output: web
           subfolderitems:
 
@@ -721,35 +774,7 @@ entries:
           - title: Self-Service SAML SSO
             url: /auth_self_service_sso.html
             output: web
-
-        - title: Authorization
-          output: web
-          subfolderitems:
-
-          - title: Authorization in Wavefront
-            url: /authorization.html
-            output: web
-
-          - title: Roles, Groups, and Permissions
-            url: /users_roles.html
-            output: web
-
-          - title: User Accounts and Service Accounts
-            url: /accounts.html
-            output: web
-
-          - title: Access
-            url: /access.html
-            output: web
-
-          - title: Metrics Security
-            url: /metrics_security.html
-            output: web
-
-          - title: Permissions Reference
-            url: /permissions_overview.html
-            output: web
-
+            
         - title: Monitoring & Troubleshooting
           output: web
           subfolderitems:
@@ -757,7 +782,11 @@ entries:
           - title: Monitor the Wavefront Service
             url: /wavefront_monitoring.html
             output: web
-
+          
+          - title: Wavefront Service Internal Metrics
+            url: /wavefront-internal-metrics.html
+            output: web
+            
           - title: Monitor Wavefront Proxies
             url: /monitoring_proxies.html
             output: web
@@ -769,3 +798,16 @@ entries:
           - title: Use Wavefront Top or Spy to Investigate Traffic
             url: /wavefront_monitoring_spy.html
             output: web
+            
+        - title: Best Practices
+          output: web
+          subfolderitems:
+
+          - title: Cardinality and Wavefront
+            url: /cardinality.html
+            output: web
+                  
+          - title: Obsolescence and Remediation
+            url: /wavefront_obsolescence_policy.html
+            output: web
+          

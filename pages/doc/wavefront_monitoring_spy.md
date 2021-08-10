@@ -94,13 +94,13 @@ To get a sampling of points with specific characteristics, add one or more of th
 <td>string, optional</td>
 <td markdown="span">Filter for only points that are ingested through a particular proxy or user's token. To filter for a certain proxy, use this syntax: <code>proxy::&lt;proxy_source&gt;</td></tr>
 <tr><td markdown="span">**usage**</td>
-<td>boolean, optional</td>
+<td>Boolean, optional</td>
 <td markdown="span">Flag that determines whether usage information is shown. </td></tr>
 <tr><td markdown="span">**usageThresholdDays**</td>
 <td>integer, optional</td>
 <td markdown="span">If **usage** is set to true, specifies the number of days to look back to determine whether data has been accessed; defaults to 7</td></tr>
 <tr><td markdown="span">**includeScalingFactor**</td>
-<td>boolean, optional</td>
+<td>Boolean, optional</td>
 <td markdown="span">Flag that determines whether the number of data ingesters is included in the output.</td></tr>
 </tbody>
 </table>
@@ -172,7 +172,7 @@ To get a sample of delta counters with specific characteristics, add one or more
 <td>List a delta counter only if its source name starts with the specified case-sensitive prefix. </td></tr>
 <tr><td markdown="span">**counterTagKey**</td>
 <td>string, optional</td>
-<td markdown="span">List a delta counter only if it has the specified tag key. Add this parameter multiple times to specify multiple point tags, e.g., `counteragKey=env&counterTagKey=datacenter` </td></tr>
+<td markdown="span">List a delta counter only if it has the specified tag key. Add this parameter multiple times to specify multiple point tags, e.g., `counterTagKey=env&counterTagKey=datacenter` </td></tr>
 <tr><td markdown="span">**sampling**</td>
 <td>decimal, optional</td>
 <td markdown="span">0 to .05, with 0.05 being 5%  </td></tr>
@@ -180,13 +180,13 @@ To get a sample of delta counters with specific characteristics, add one or more
 <td>string, optional</td>
 <td markdown="span">Filter for only points that are ingested through a particular proxy or user's token. To filter for a certain proxy, use this syntax: <code>proxy::&lt;proxy_source&gt;</td></tr>
 <tr><td markdown="span">**usage**</td>
-<td>boolean, optional</td>
+<td>Boolean, optional</td>
 <td markdown="span">Flag that determines whether usage information is shown. </td></tr>
 <tr><td markdown="span">**usageThresholdDays**</td>
 <td>integer, optional</td>
 <td markdown="span">If **usage** is set to true, specifies the number of days to look back to determine whether data has been accessed; defaults to 7</td></tr>
 <tr><td markdown="span">**includeScalingFactor**</td>
-<td>boolean, optional</td>
+<td>Boolean, optional</td>
 <td markdown="span">Flag that determines whether the number of data ingesters is included in the output.</td></tr>
 </tbody>
 </table>
@@ -266,13 +266,13 @@ To get a sampling of spans with specific characteristics, add one or more of the
 <td>string, optional</td>
 <td markdown="span">Filter for only points that are ingested through a particular proxy or user's token. To filter for a certain proxy, use this syntax: <code>proxy::&lt;proxy_source&gt;</td></tr>
 <tr><td markdown="span">**usage**</td>
-<td>boolean, optional</td>
+<td>Boolean, optional</td>
 <td markdown="span">Flag that determines whether usage information is shown. </td></tr>
 <tr><td markdown="span">**usageThresholdDays**</td>
 <td>integer, optional</td>
 <td markdown="span">If **usage** is set to true, specifies the number of days to look back to determine whether data has been accessed; defaults to 7</td></tr>
 <tr><td markdown="span">**includeScalingFactor**</td>
-<td>boolean, optional</td>
+<td>Boolean, optional</td>
 <td markdown="span">Flag that determines whether the number of data ingesters is included in the output.</td></tr>
 </tbody>
 </table>
@@ -473,7 +473,7 @@ STRING - Point tags or span tags, represented as a single string containing a un
 <td>decimal, optional </td>
 <td markdown="span">0 to .05, with 0.05 being 5%</td></tr>
 <tr><td markdown="span">**includeScalingFactor**</td>
-<td>boolean, optional</td>
+<td>Boolean, optional</td>
 <td markdown="span">Flag that determines whether the number of data ingesters is included in the output.</td></tr>
 </tbody>
 </table>

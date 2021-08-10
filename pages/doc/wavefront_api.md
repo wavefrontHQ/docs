@@ -56,7 +56,7 @@ A Wavefront API token is a string of hexadecimal characters and dashes. For exam
 ```
 a411c16b-3cf7-4f03-bf11-8ca05aab898d
 ```
-Wavefront allows [user accounts and service accounts](accounts.html) to use the [Wavefront REST API](wavefront_api.html).
+Wavefront allows [user accounts](user-accounts.html) and [service accounts](service-accounts.html) to use the [Wavefront REST API](wavefront_api.html).
 
 {% include tip.html content="You generate user account tokens explicitly, discussed below. For service accounts, you can generate tokens with the specified permissions from the Service Accounts page. " %}
 

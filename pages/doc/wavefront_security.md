@@ -22,13 +22,13 @@ Wavefront has successfully completed all requirements for the following certific
 
 ## Privacy
 
-Wavefront is used for monitoring applications. Wavefront securely stores username/password information but does not collect information about individual users. We do not install agents that collect user information.
+Wavefront is used for monitoring applications. Wavefront securely stores user name and password information, but does not collect information about individual users. We do not install agents that collect user information.
 
 None of the built-in integrations collect user information. However, Wavefront customers can set up Wavefront to collect any type of information they want.
 
 ## Data Protection
 
-Wavefront currently uses AWS to run the Wavefront service and to store customer application data.
+Currently, Wavefront uses AWS to run the Wavefront service and to store customer application data.
 
 * The service is served from a single AWS region spread across multiple availability zones for failover.
 * All incoming and outgoing traffic is encrypted.
@@ -41,8 +41,7 @@ access the AWS ISO27001 report, see [https://aws.amazon.com/compliance](https://
 For more information on AWS controls, visit:
 [https://cloudsecurityalliance.org/star-registrant/amazon-aws/](https://cloudsecurityalliance.org/star-registrant/amazon-aws/)
 
-Wavefront development, QA, and production use separate equipment and
-environments and are managed by separate teams.
+Wavefront development, QA, and production use separate equipment and environments, and are managed by separate teams.
 Customers retain control and ownership of their content. We do not replicate customer content unless the customer asks for it explicitly.
 
 ## High Availability
@@ -69,9 +68,9 @@ The Wavefront proxy uses HTTPS, and we offer options to secure it further:
 
 ## Authentication
 
-Wavefront supports both user accounts and service accounts. User accounts [must authenticate](authentication.html) with a username and password, service accounts authenticate with a revokable token. Wavefront customers can use the authentication provided by Wavefront or use one of our supported authentication integrations. We support several authentication solutions including Azure AD, Google ID, and Okta.
+Wavefront supports both user accounts and service accounts. User accounts [must authenticate](authentication.html) with a user name and password, service accounts authenticate with a revokable token. Wavefront customers can use the authentication provided by Wavefront or use one of our supported authentication integrations. We support several authentication solutions including Azure AD, Google ID, and Okta.
 
-Starting with release 2020.38, we support [self-service SAML SSO](auth_self_service_sso.html) setup.
+We also support [self-service SAML SSO](auth_self_service_sso.html) setup.
 
 If a customer's chosen authentication solution supports two-factor authentication, Wavefront requires two-factor authentication for login.
 
@@ -81,16 +80,16 @@ Large customers can request [multi-tenant SSO](authentication.html#multi-tenant-
 ## Authorization
 
 Wavefront supports multi-level authorization:
-* **Roles and permissions** determine which groups or users can manage which objects or perform certain tasks. For example, you could create a ReadOnly role with no permissions and assign it to a Novice group, or create a Developers role, assign Dashboards, Alerts, Proxy, Metrics, and Embed Chart permission, and assign it to a developer group.
+* **Roles and permissions** determine which groups or users can manage which objects or perform certain tasks. For example, you could create a read-only role with no permissions and assign it to a Novice group, or create a Developers role, assign **Dashboards**, **Alerts**, **Proxy**, **Metrics**, and **Chart Embedding** permissions, and assign it to a developer group.
 * [**Access control**](access.html) applies to individual objects (dashboards or alerts). Privileged groups or users can revoke grant access to individual groups or users. To support this feature, Wavefront includes a [Super Admin](users_roles.html#who-is-the-super-admin-user) user.
-  Wavefront supports a [high security mode](access.html#change-the-access-control-security-organization-setting) where only the object creator and Super Admin user can view and modify new dashboards.
+  Wavefront supports a [high security mode](access.html#change-the-access-control-security-organization-setting) where only the object creator and the Super Admin user can view and modify new dashboards.
 * [**Metrics security policy rules**](metrics_security.html) allow fine-grained control over metrics visibility in dashboards, charts, alerts, etc.
 
 
 
-If you use the REST API, you must pass in an API token and have the necessary permissions to perform the task, for example, Dashboard permissions to modify dashboards.
+If you use the REST API, you must pass in an API token and have the necessary permissions to perform the task, for example, **Dashboards** permission to modify dashboards.
 
-If you use [direct ingestion](direct_ingestion.html), you are required to pass in an API token and most also have the Direct Data Ingestion permission.
+If you use [direct ingestion](direct_ingestion.html), you are required to pass in an API token and must also have the **Direct Data Ingestion** permission.
 
 ## Audit Trail
 

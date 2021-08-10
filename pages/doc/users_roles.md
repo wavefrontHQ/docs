@@ -1,10 +1,10 @@
 ---
-title: Roles, Groups, and Permissions
+title: Manage Roles, Groups, and Permissions
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: users_roles.html
-summary: Manage global permissions with roles
+summary: Manage global permissions with roles.
 ---
 
 Administrators use roles to fine-tune authorization in the Wavefront environment:
@@ -19,7 +19,7 @@ In addition to the global roles and permissions model, Wavefront also supports [
 
 ## Manage Roles and Permissions
 
-The Wavefront roles and permissions model allows you to make sure nobody can perform tasks without the corresponding permission -- and this doc set lists the required permissions for most tasks.
+The Wavefront roles and permissions model allows you to make sure nobody can perform tasks without the corresponding permission -- and here we list the required permissions for most tasks.
 
 Creating roles and assigning them to groups of users is most efficient and least error prone. It's possible to grant permissions or assign a role to an individual account -- that might make sense during a POC.
 
@@ -32,10 +32,10 @@ All users with **Accounts, Groups & Roles** permission can create roles.
 <tr>
 <td width="50%">
 To create a role:
-<ol><li>Log in to your Wavefront instance.</li>
-<li>From the gear menu, select <strong>Account Management</strong>.</li>
-<li>Click the <strong>Roles</strong> tab and select <strong>Create Role</strong>.</li>
-<li>Specify a name, description, and one or more permissions for that role.</li>
+<ol><li>Log in to your Wavefront cluster.</li>
+<li>Click the gear icon on the taskbar and select <strong>Account Management</strong>.</li>
+<li>On the <strong>Roles</strong> tab, click <strong>Create Role</strong>.</li>
+<li>Specify a name, an optional description, and one or more permissions for that role.</li>
 <li>(Optional) Enter groups (or accounts) to assign the role to. You can also add groups or accounts later. </li>
 <li>Click <strong>Create</strong>. </li>
 </ol></td>
@@ -56,12 +56,13 @@ All users with **Accounts, Groups & Roles** permission can create groups and add
 <tr>
 <td width="50%">
 To create a group:
-<ol><li>Log in to your Wavefront instance.</li>
-<li>From the gear menu, select <strong>Account Management</strong>.</li>
-<li>Click the <strong>Groups</strong> tab and select <strong>Create Group</strong>.</li>
-<li>Specify a name and (optional) description.</li>
+<ol><li>Log in to your Wavefront cluster.</li>
+<li>Click the gear icon on the taskbar and select <strong>Account Management</strong>.</li>
+<li>On the <strong>Groups</strong> tab, click <strong>Create Group</strong>.</li>
+<li>Specify a name and, optionally, a description.</li>
 <li>(Optional) Add one or more accounts to the group now or later. You cannot add a group as a member.</li>
-<li>(Optional) Add one or more roles to the group now or later. </li></ol></td>
+<li>(Optional) Add one or more roles to the group now or later. </li>
+<li>Click <strong>Create</strong>. </li></ol></td>
 <td width="50%"><img src="/images/create_group.png" alt="create a group"/></td>
 </tr>
 </tbody>
@@ -77,14 +78,14 @@ Users with **Accounts, Groups & Roles** permission can assign roles to a group w
 <tr>
 <td width="50%">
 To assign a role to a group:
-<ol><li>Log in to your Wavefront instance.</li>
-<li>From the gear menu, select <strong>Account Management</strong>.</li>
-<li>Click the <strong>Groups</strong> tab and change role assignment in one of these ways: </li>
-<ul><li>Click the group name, click <strong>+Role</strong> or <strong>-Role</strong>, and select a role to change role assignment (not shown).</li>
-<li>Select the check box for the group and click the group name. In the <strong>Edit Group</strong> dialog, make the desired changes and click <strong>Update</strong>, as shown on the right.</li></ul>
+<ol><li>Log in to your Wavefront cluster.</li>
+<li>Click the gear icon on the taskbar and select <strong>Account Management</strong>.</li>
+<li>On the <strong>Groups</strong> tab, change role assignment in one of these ways: </li>
+<ul><li>Select the group check box, click <strong>+Role</strong> or <strong>-Role</strong>, and select a role to change role assignment (not shown on  the right).</li>
+<li>Click the group name. In the <strong>Edit Group</strong> page, make the desired changes and click <strong>Update</strong>, as shown on the right.</li></ul>
 </ol>
 </td>
-<td width="50%"><img src="/images/add_role_to_group.png" alt="add role to group"/></td>
+<td width="50%"><img src="/images/add_role_to_group.png" alt="add a role to group"/></td>
 </tr>
 </tbody>
 </table>
@@ -106,7 +107,7 @@ The following example shows two ways of explicitly grant or revoke permissions f
 <tbody>
 <tr>
 <td width="50%">
-To grant or revoke permissions from the Service Accounts page:
+To grant or revoke permissions from the <strong>Service Accounts</strong> page:
 <ol><li>Select one or more service accounts. </li>
 <li>Click <strong>+Permissions</strong> or <strong>-Permissions</strong> and select the permission to add or remove.</li>
 </ol></td>
@@ -115,8 +116,8 @@ To grant or revoke permissions from the Service Accounts page:
 <tr>
 <td width="50%">
 To grant or revoke permissions from the <strong>Edit Service Account</strong> page:
-<ol><li>Click the service account name to open the Edit Service Account page. </li>
-<li>Select the permission(s) that you want to grant or revoke in the Permissions field.</li>
+<ol><li>Click the service account name to open the <strong>Edit Service Account</strong> page. </li>
+<li>Select the permissions that you want to grant or revoke.</li>
 </ol></td>
 <td width="50%"><img src="/images/sa_add_permission_single.png" alt="add or remove service account permissions"/></td>
 </tr>
