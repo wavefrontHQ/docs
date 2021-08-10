@@ -426,7 +426,7 @@ With Wavefront, you can [create smart alerts](alerts.html#how-alerts-work-video)
 
 Create an alert from the application status page:
 
-1. Navigate to the app map, table view, or grid view: 
+1. Navigate to the app map, table view, or grid view:  
     <table style = "width: 100;">
       <tr>
         <td markdown ="span">
