@@ -8,6 +8,14 @@ summary: New and changed Wavefront integrations.
 ---
 Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
+## August 2021
+
+* Java -- Added out-of-the-box dashboard to monitor Java applications that are running in a Kubernetes cluster.
+* Kubernetes (vSphere with Tanzu) -- Added Setup steps for configuring Kubernetes collector to monitor vSphere with Tanzu.
+* Catchpoint -- Added an SLO chart to **Catchpoint: API** and **Catchpoint: DNS** dashboards.
+
+![4 chart, SLO chart on right](/images/int_slo.png)
+
 ## July 2021
 
 Made improvement to the following integrations and dashboards in July 2021:
