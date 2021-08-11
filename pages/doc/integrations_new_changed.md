@@ -20,7 +20,7 @@ Made improvements to the following integrations and dashboards in August 2021:
 
 ## July 2021
 
-Made improvements to the following integrations and dashboards in July 2021:
+Made improvements to the following integrations and dashboards in July 2021: 
 
 * Project Pacific -- Renamed the integration from Project Pacific Integration to vSphere with Tanzu Integration.
 * VMware Cloud PKS -- Removed the VMware Cloud PKS integration.
