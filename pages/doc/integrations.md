@@ -9,7 +9,7 @@ summary: Learn how to customize a built-in integration and how to set up a custo
 
 Integrations are one easy way to get data from external systems into Wavefront. Use one of the [built-in integrations](label_integrations%20list.html) and customize it as needed.
 
-We update our list of [new and updated built-in integrations](integrations_new_changed.html) monthly.
+We update our [integrations release notes](integrations_new_changed.html) on a monthly basis.
 
 ## Watch a Video
 
@@ -25,17 +25,18 @@ Sign up for a Wavefront trial to try integrations. Detailed setup steps for each
 Here's a sample of what you see when you select one of the Wavefront integrations:
 * The **Overview** tab explains how the integration works and what's included, often a sample dashboard with commonly used charts.
 * The **Setup** tab has instructions for configuring the integration.
-* The **Metrics** and **Dashboard** tabs are preconfigured to show your metrics after you've set up the integration. You can [clone and customize our dashboards](integrations.html#cloning-and-customizing-dashboards)
+* The **Metrics** and **Dashboard** tabs are preconfigured to show your metrics after you've set up the integration. You can [clone and customize our dashboards](integrations.html#cloning-and-customizing-dashboards).
+* The **Alerts** tab is an optional one. It contains a list of preconfigured integration alerts.
 
-Here's a screen shot that shows the different tabs of the Apache Solr integration.
+Here's a screenshot that shows the different tabs of the Apache Solr integration.
 
-![sample_integration](images/integrations_example.png)
+![An image of the Apache Solr integration showing the Overview, Setup, Metrics, and Dashboards tabs.](images/integrations_example.png)
 
 
 **Note** Even if we don't have an integration for you data source, you can send your data directly to the [Wavefront proxy](proxies.html) in one of the [supported data formats](proxies.html#supported-data-formats).
 
 ## Built-In and Custom Integrations
-Wavefront lets you set up many integrations directly from the product. For other integrations, we give step-by-step instructions -- or you can send your data to Wavefront in other ways, for example, using the Telegraf output plugin for Wavefront.
+Wavefront lets you set up many integrations directly from the product. For other integrations, we give step-by-step instructions -- or you can send your data to Wavefront in other ways, for example, using the Telegraf output plug-in for Wavefront.
 
 - **Built-in integrations** provide assisted installation and configuration. Many integrations also install a dashboard for you. Access the integration by selecting **Integrations** from the taskbar and clicking the **Setup** tab.
 
@@ -67,20 +68,20 @@ This table provides links to the documentation pages for many of the custom and 
 </tbody>
 </table>
 
-## External (Open Source) Integrations
+## External (Open-Source) Integrations
 
-Wavefront customers have started to make open source integrations available on GitHub.
+Wavefront customers have started to make open-source integrations available on GitHub.
 
-Our first external integration sends Alertsite monitoring results to Wavefront and is available at [https://github.com/secureworks/AlertSite2Wavefront](https://github.com/secureworks/AlertSite2Wavefront).
+Our first external integration sends AlertSite monitoring results to Wavefront and is available at [https://github.com/secureworks/AlertSite2Wavefront](https://github.com/secureworks/AlertSite2Wavefront).
 
 We're excited about this contribution and hope to see more soon!
 
 
 ## Installing and Uninstalling Integration Dashboards
 
-You can install and uninstall dashboards from Featured and Data Collector integrations.
+You can install and uninstall the Wavefront system integration dashboards.
 
-<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view integrations, you must have [Integration Management permission](permissions_overview.html) to install and uninstall integration dashboards. If you do not have permission, buttons to perform these tasks are not visible.</div>
+<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view integrations, you must have [Integration Management permission](permissions_overview.html) to install and uninstall integration dashboards. If you do not have this permission, buttons to perform these tasks are not visible.</div>
 
 1. Click **Integrations**.
 1. Click the integration tile.
@@ -89,20 +90,32 @@ You can install and uninstall dashboards from Featured and Data Collector integr
 
 ## Cloning and Customizing Dashboards
 
-You cannot modify Wavefront system dashboards. Instead, click the **Edit** (pencil) icon, select **Clone**, and provide a URL string that's just the name (e.g., `mydashboard`) and not the URL (e.g., `http://mydashboard`). You can then customize the clone to suit your needs.
+You cannot modify the Wavefront system dashboards. Instead, you must clone the dashboards.
+1. Click the ellipsis icon in the top right corner of the dashboard.
+2. Select **Clone**. 
+3. Provide a URL string that's just the name (e.g., `mydashboard` or `dashboard-name-clone`) and not the URL (e.g., `http://mydashboard`). 
+4. Customize the clone to suit your needs.
 
 ## Installing and Uninstalling Integration Alerts
 
-Some integrations contain predefined alerts. You can install and uninstall the predefined alerts or preview them before setting up the integration.
+Some integrations contain system alerts. You can install and uninstall the predefined integration alerts or preview them before setting up the integration.
 
-{% include note.html content="All users can view alerts. You need Alerts permissions to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
+{% include note.html content="All users can view alerts. You must have the **Alerts** permission to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
 1. Click **Integrations**.
 1. Click the integration tile.
 1. Click the **Alerts** tab.
 1. Click **\[Install All\| Uninstall All\]**.
 
-If you have the Alerts permissions, you can [edit the targets of the alerts](webhooks_alert_notification.html#learn-about-alert-targets). If you edit the system alerts and then reinstall them, all of the changes that you've made are reverted back to their original state. If you want to make further customizations, clone the alert first. After you clone an alert, snooze the original system alert to avoid running a duplicate version of the alert. For information about cloning and editing alerts, see [Manage Alerts](alerts_manage.html).
+## Cloning and Customizing Alerts
+
+If you have the **Alerts** permission, you can [edit the targets of the integration alerts](webhooks_alert_notification.html#learn-about-alert-targets). If you edit the system integration alerts and then reinstall them, all of the changes that you've made are reverted back to their original state. If you want to make further customizations, clone the alert first. 
+
+1. Click **Alerting** in the toolbar.
+2. Click the ellipsis icon next to the alert that you want to clone, and select **Clone**.
+3. Enter a name of the new alert and click **Clone**.
+
+After you clone an alert, snooze the original system integration alert to avoid running a duplicate version of the alert. For more information about cloning and editing alerts, see [Manage Alerts](alerts_manage.html).
 
 
 ## Integration States
@@ -153,13 +166,13 @@ When you hover over an integration, Wavefront colors the integration border and 
 
 For example, the following integration is in the Error state because metrics have reported within the last 7 days but have stopped reporting in the past 2 hours and content is installed.
 
-![integration state](images/integration_state.png)
+![RabbitMQ integration state with an error sign next to metrics](images/integration_state.png)
 
 
 ## More Info
 
-* Don't see the integration you are looking for? Have a look at [Getting Data Into Wavefront](wavefront_data_ingestion.html) and at [Wavefront Data Format](wavefront_data_format.html)
-* On our [tanzu/observability](https://tanzu.vmware.com/observability) pages we have several blog posts with use cases and background info:
+* Don't see the integration you are looking for? Have a look at [Getting Data Into Wavefront](wavefront_data_ingestion.html) and at [Wavefront Data Format](wavefront_data_format.html).
+* On our [Tanzu Observability](https://tanzu.vmware.com/observability) pages we have several blog posts with use cases and background info:
   - [Google Cloud Monitoring Using Wavefront Metrics-Driven Analytics](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/google-cloud-monitoring-using-wavefront-metrics-driven-analytics)
   - [Monitor MongoDB Metrics for Better Scaling and Optimized Database Performance](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitor-mongodb-metrics-for-better-scaling-and-optimized-database-performance)
   - [Monitoring Apache HTTP Server with Wavefront Metrics-Driven Analytics](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitoring-apache-http-server-with-wavefront-metrics-driven-analytics)

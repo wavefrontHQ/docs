@@ -29,7 +29,7 @@ The Ingestion Breakdown dashboard includes an **Unassigned** policy that shows t
 ## Create an Ingestion Policy
 
 1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon, select **Ingestion Policies**
+2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Ingestion Policies**
 3. Click **Create Policy**.
 4. In the dialog:
    1. Specify the name and optionally a description.

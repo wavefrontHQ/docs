@@ -8,14 +8,26 @@ summary: New and changed Wavefront integrations.
 ---
 Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
+## August 2021
+
+Made improvements to the following integrations and dashboards in August 2021:
+
+* Java -- Added out-of-the-box dashboard to monitor Java applications that are running in a Kubernetes cluster.
+* Kubernetes (vSphere with Tanzu) -- Added Setup steps for configuring Kubernetes collector to monitor vSphere with Tanzu.
+* Catchpoint -- Added an SLO chart to **Catchpoint: API** and **Catchpoint: DNS** dashboards.
+
+![4 chart, SLO chart on right](/images/int_slo.png)
+
 ## July 2021
 
-Made improvement to the following integrations:
+Made improvements to the following integrations and dashboards in July 2021: 
 
-* OpenTelemetry --  Updated steps for configuring the application to send trace data to Wavefront using the Tanzu Observability by Wavefront trace exporter.
+* Project Pacific -- Renamed the integration from Project Pacific Integration to vSphere with Tanzu Integration.
+* VMware Cloud PKS -- Removed the VMware Cloud PKS integration.
+* OpenTelemetry --  Updated the steps for configuring the application to send trace data to Wavefront using the Tanzu Observability by Wavefront trace exporter.
 * Wavefront Usage -- Added new charts to **Proxies Overview** section in the **Wavefront Service and Proxy Data** dashboard to show **Spans Sampled By Policies**.
 * Azure AD -- Added steps to configure Azure AD using Self-Service SAML.
-* Data Platforms -- Added new dashboard  **Data Platform Blueprint2 - Kafka-Spark-Elasticsearch**
+* Data Platforms -- Added new dashboard  **Data Platform Blueprint2 - Kafka-Spark-Elasticsearch**.
 * Kubernetes
   - Added charts to **Kubernetes Collector Troubleshooting** (Wavefront Collector Metrics) dashboard to monitor collector performance.
   - Changed the metrics in the alert condition of the following out-of-the-box alerts:

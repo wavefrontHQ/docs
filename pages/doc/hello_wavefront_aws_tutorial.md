@@ -11,7 +11,7 @@ Learn how to easily set up a Windows or AWS integration so that you can send dat
 
 ## Video: Windows Integration
 
-Watch the following video to learn how to ingest Windows host metrics into Wavefront. 
+Watch the following video to learn how to ingest Windows host metrics into Wavefront.
 
 <p>
 <iframe src="https://bcove.video/3rXZ1RY" width="700" height="400" allowfullscreen="true" alt="Setting up a Windows integration"></iframe>
@@ -20,11 +20,11 @@ Watch the following video to learn how to ingest Windows host metrics into Wavef
 
 ## Tutorial: AWS Integration
 
-In this tutorial, you use the Wavefront Amazon Web Services (AWS) integration to: 
-* Send data of the applications and services that run on your AWS account to Wavefront. 
-* Visualize the data and identify problem areas once the data is in Wavefront. 
+In this tutorial, you use the Wavefront Amazon Web Services (AWS) integration to:
+* Send data of the applications and services that run on your AWS account to Wavefront.
+* Visualize the data and identify problem areas once the data is in Wavefront.
 
-It's an easy setup. You don't have to install anything or make changes to your application code. 
+It's an easy setup. You don't have to install anything or make changes to your application code.
 
 Wavefront supports other cloud integrations, such as Google Cloud Platform (GCP), Microsoft Azure, and many other integrations. See [List of Wavefront Integrations](label_integrations%20list.html).
 
@@ -41,7 +41,7 @@ Follow these steps:
 1. Click the **Setup** tab and click **Add Integration**.
     ![Highlights the Add Integration button on the AWS integration's Setup tab.](images/hello_tutorial_aws_add_integration.png)
 
-You need the **Account ID** and **External ID** printed under **How to get Role ARN** for the next step. 
+You need the **Account ID** and **External ID** printed under **How to get Role ARN** for the next step.
 
 ### Step 2: Create a Wavefront ReadOnly Role in Your AWS Account
 
@@ -67,8 +67,8 @@ Follow these steps:
     1. Search for the **ReadOnlyAccess** permission and select it.
         {% include note.html content="You get many results when you search for ReadOnlyAccess. Scroll down until you find ReadOnlyAccess, as shown in the screenshot below."%}
         ![A screenshot that shows the ReadOnlyAccess permission selected.](images/hello_tutorial_readonly_permission.png)
-    1. Click **Next: Tags**. You don't have to set any tags. 
-  
+    1. Click **Next: Tags**. You don't have to set any tags.
+
 1. Click **Next: Review**.
 1. Set the **Role Name** as wavefront.
 1. Click **Create role**.
@@ -88,7 +88,7 @@ Wavefront can now connect to your AWS account and get data. Once the data starts
 
 ### Step 4: (Optional) Launch an EC2 Instance
 
-Don't have an application running on your AWS account? Follow the steps given below. 
+Don't have an application running on your AWS account? Follow the steps given below.
 If you already have an application running on the AWS account, move to the next step and see how you can visualize your data.
 
 1. Go back to your AWS account, search for the **EC2** service, and click it to open the service.
@@ -133,5 +133,5 @@ Wavefront includes pre-defined dashboards for AWS that help you analyze and gath
 ## Next Steps
 
 * For more information on the AWS integration, see [Amazon Web Services Integration](amazon_cloudfront.html).
-* Try out the [Dashboards and Alerts Tutorial](tutorial_getting_started.html).
+* Try out the [DashboardsTutorial](tutorial_dashboards.html).
 * [Learn about the metrics](wavefront_monitoring.html#aws-integration) that help you monitor CloudWatch requests, API requests, the point rate, and events coming in from your AWS integration.

@@ -1,5 +1,5 @@
 ---
-title: Wavefront Keyboard Navigation
+title: Wavefront Keyboard Shortcuts and Accessibility Improvements
 tags: [accessibility, keyboard navigation, keyboard shortcuts]
 sidebar: doc_sidebar
 permalink: wavefront_keyboard_shortcuts.html
@@ -16,8 +16,14 @@ Wavefront allows you to use keyboard shortcuts to navigate through pages and men
 With the 2021-26.x release, Wavefront addresses more accessibility issues. It now includes:
 
 * More color contrast improvements to support colorblind accessibility, for example in all charts and dashboards, including operational and service dashboards. 
-* A redesigned color picker with a new color palette that is different for dark and light UI theme. 
-  ![Color picker for light theme](images/color-picker.png)
+* A redesigned color picker with a new color palette.
+  * Light UI theme:
+  
+    ![Color picker for light theme](images/color-picker.png)
+  
+  * Dark UI theme:
+   
+    ![Color picker for dark theme](images/color-picker-dark.png)
 * Keyboard navigation support in more UI pages.
 * Drag-and-drop functionality that allows you to rearrange items.
 
@@ -72,7 +78,7 @@ The end-to-end keyboard navigation is fully supported in the Wavefront UI pages 
   
 * User profile page
 
-  You can access it by navigating to your profile from the gear icon.
+  You can access it by navigating to your profile from the gear icon <i class="fa fa-cog"/> on the taskbar.
   
 * Metrics Browser page
 

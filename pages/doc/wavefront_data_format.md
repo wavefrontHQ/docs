@@ -57,7 +57,9 @@ Fields must be space separated and each line must be terminated with the newline
 <ul>
 <li markdown="span">Points with invalid characters in metricName are rejected and [logged by the Wavefront proxy](proxies_configuring.html#blocked-point-log). For information on how to configure the proxy to rewrite invalid metric names, see [​Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules.html).</li>
 <li>Metric searches are case sensitive; ts("my.metric") does not find a metric "my.Metric".</li>
-</ul></td>
+</ul>
+Maximum length for metricName is 256. 
+</td>
 </tr>
 <tr>
 <td>metricValue</td>
