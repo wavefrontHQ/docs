@@ -68,7 +68,7 @@ Before you can customize the proxy configuration, you have to find the values fo
 </tr>
 <tr>
 <td markdown="span">**privateCertPath**</td>
-<td markdown="span">Path to X.509 certifivate chain file in PEM format. Incoming HTTPS connections access this certificate. </td>
+<td markdown="span">Path to X.509 certificate chain file in PEM format. Incoming HTTPS connections access this certificate. </td>
 </tr>
 </tbody>
 </table>
@@ -174,7 +174,7 @@ The following parameters support TLS/SS. You can specify those parameters in the
 </tr>
 <tr>
 <td markdown="span">**privateCertPath**</td>
-<td markdown="span">Path to X.509 certifivate chain file in PEM format. Incoming TLS/SSL connections access this certificate. </td>
+<td markdown="span">Path to X.509 certificate chain file in PEM format. Incoming TLS/SSL connections access this certificate. </td>
 </tr>
 </tbody>
 </table>
