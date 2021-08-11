@@ -21,7 +21,7 @@ However, when intelligent sampling is on, you might not see some traces when you
 
 Creating a sampling policy affects your cost as you store more data within Wavefront. Therefore, only a <a href="authorization.html#who-is-the-super-admin-user">Super Admin user</a> or users with <a href="permissions_overview.html">Applications permissions</a> can create sampling policies.
 
-To see the number of spans stored per second after a sampling policy is created, see <a href="#track-volume-of-trace-data-stored-in-wavefront">Track Volume of Trace Data Stored in Wavefront</a>
+To see the number of spans stored per second after a sampling policy is created, see <a href="#track-the-volume-of-trace-data-stored-in-wavefront"> Track Volume of Trace Data Stored in Wavefront</a>
 
 ## Benefits of Sampling Data
 
