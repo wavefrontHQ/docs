@@ -375,7 +375,7 @@ Default: &lt;cfg_path&gt;/logsIngestion.yaml.</td>
 </tr>
 <tr>
 <td markdown="span">privateCertPath</td>
-<td markdown="span">Path to X.509 certifivate chain file in PEM format. Incoming TLS/SSL connections access this certificate. </td>
+<td markdown="span">Path to X.509 certificate chain file in PEM format. Incoming TLS/SSL connections access this certificate. </td>
 <td> </td>
 <td>8.0</td>
 </tr>
