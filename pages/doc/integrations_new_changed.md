@@ -10,7 +10,7 @@ Wavefront continuously adds new integrations to the existing set, and improves a
 
 ## August 2021
 
-Made improvement to the following integrations and dashboards in August 2021:
+Made improvements to the following integrations and dashboards in August 2021:
 
 * Java -- Added out-of-the-box dashboard to monitor Java applications that are running in a Kubernetes cluster.
 * Kubernetes (vSphere with Tanzu) -- Added Setup steps for configuring Kubernetes collector to monitor vSphere with Tanzu.
@@ -20,7 +20,7 @@ Made improvement to the following integrations and dashboards in August 2021:
 
 ## July 2021
 
-Made improvement to the following integrations and dashboards in July 2021:
+Made improvements to the following integrations and dashboards in July 2021:
 
 * Project Pacific -- Renamed the integration from Project Pacific Integration to vSphere with Tanzu Integration.
 * VMware Cloud PKS -- Removed the VMware Cloud PKS integration.
