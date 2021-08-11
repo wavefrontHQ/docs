@@ -15,7 +15,7 @@ Let's look at the following scenarios to understand how sampling works in Wavefr
 
 ![The diagram shows intelligent sampling and span policy sampling. Intelligent sampling is the default sampling strategy. Sampling policies give users more control over the sample strategy.](images/tracing_simple_sampling_diagram.png)
     
-Not all the trace data that you send to Wavefront is useful.  Therefore, Wavefront automatically discards redundant traces or traces that don't add value and only keeps traces that are informative. This process is known as [Intelligent Sampling](#wavefront-intelligent-sampling).
+Not all the trace data that you send to Wavefront are useful. Once traces are sent to Wavefront, Wavefront identifies the important traces and those that add value to you and retains them. This process is known as Intelligent Sampling.
 
 However, when intelligent sampling is on, you might not see some traces when you search for them on the traces browser. If you want to have specific trace data in Wavefront and don't want the traces to be discarded, use [Sampling Policies](#sampling-policies). With a sampling policy in place, Wavefront does not perform intelligent sampling on the data.
 
@@ -26,8 +26,8 @@ To see the number of spans stored per second after a sampling policy is created,
 ## Benefits of Sampling Data
 
 Sampling has the following advantages:  
-* Reduce the amount of storage required for trace data, and lowering your monthly costs.
-* Filter out redundant traces so you can see what's important.
+* Reduce the amount of storage required for trace data, and lower your monthly costs.
+* Only see traces that add value to you.
 * Limit the performance impact on network bandwidth and application response times.
 
 

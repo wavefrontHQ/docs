@@ -7,7 +7,8 @@ permalink: trace_sampling_policies.html
 summary: Learn how to sample your trace data and see them in Wavefront using sampling policies.
 ---
 
-Couldn't find traces in Wavefront because it was sampled out due to [intelligent sampling](trace_data_sampling.html)? Now, You can create a sampling policy and let Wavefront know that you want to keep specific traces in Wavefront. Creating a sampling policy affects your costs as you store more data within Wavefront. See the [Service Description](https://www.vmware.com/download/eula/wavefront-terms-of-service.html) for cost details. 
+Wavefront [intelligent sampling](trace_data_sampling.html) reduces the volume of ingested traces. The goals of intelligent sampling are to retain traces that are likely to be informative. But sometimes intelligent sampling discards traces that you want to keep. You can create a sampling policy to fine-tune intelligent sampling and let Wavefront know that you want to keep certain traces. 
+Creating a sampling policy affects your costs as you store more data within Wavefront. 
 
 You can create a sampling policy, edit, delete, restore, deactivate, and see the version history of the policy you created:
 
@@ -16,11 +17,11 @@ You can create a sampling policy, edit, delete, restore, deactivate, and see the
 
 Let's look at how you can create a sampling policy and get familiar with the policy expressions.
 
-## Create Sampling policy
-
-To create a sampling policy: 
+## Create a Sampling Policy
 
 {% include note.html content="Only a [Super Admin user](authorization.html#who-is-the-super-admin-user) or users with [Applications permissions](permissions_overview.html) can create sampling policies." %}
+
+To create a sampling policy: 
 
 1. In your web browser, go to your Wavefront cluster and log in.
 1. From the taskbar, click **Applications** > **Sampling Policies**.
@@ -49,7 +50,7 @@ To create a sampling policy:
           **Description**
         </td>
         <td>
-          Add a description to explain what the policy does. It helps the administrators understand why the policy is in place.
+          Add a description to explain what the policy does. It helps administrators understand why the policy is in place.
         </td>
       </tr>
       <tr>
@@ -74,7 +75,7 @@ To create a sampling policy:
           **Status**
         </td>
         <td markdown="span">
-          The policy is in effect when it is in the active state. Once the policy is active, it affects your costs as you store more data within Wavefront. See the [Service Description](https://www.vmware.com/download/eula/wavefront-terms-of-service.html) for cost details.
+          The policy is in effect when it is in the active state. Once the policy is active, it affects your costs as you store more data within Wavefront. 
           
           <br/>To see the number of spans stored per second after a sampling policy is created, see <a href="#track-volume-of-trace-data-stored-in-wavefront">Track Volume of Trace Data Stored in Wavefront</a>.
         </td>
@@ -88,7 +89,7 @@ Now, you see the policy you created listed under sampling policies.
 
 ## Add a Policy Expression
 
-When you [create a sampling policy](trace_sampling_policies.html), you need to define a policy expression to let Wavefront know about the spans you want to keep. This expression needs to be in the YAML format and includes the following attributes.
+When you [create a sampling policy](trace_sampling_policies.html), you need to define a policy expression that specifies the spans you want to keep. This expression needs to be in the YAML format.
 
 Let's look at a policy expression that asks Wavefront to store traces if the application name is beachshirts.
 ![](images/trace_sampling_expression.png)
@@ -109,7 +110,7 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
       <b>Key</b>
     </td>
     <td width="80%">
-      A source needs to be defined between <code>&#123;&#123;&#125;&#125;</code> . The source you define is considered a <a href="trace_data_details.html#span-tags">span tag key</a>.
+      A source needs to be defined between (<code>&#123;&#123;&#125;&#125;</code>). The source you define is considered a <a href="trace_data_details.html#span-tags">span tag key</a>.
       
       <br/>For example, you can pass the following values as a source and any span tag key: <code>&#123;&#123;spanName&#125;&#125;</code>, <code>&#123;&#123;sourceName&#125;&#125;</code>, <code>&#123;&#123;startMillis&#125;&#125;</code>, <code>&#123;&#123;duration&#125;&#125;</code>, and more.
     </td>
@@ -118,10 +119,10 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
     <td width="20%">
       <b>Operation</b>
     </td>
-    <td width="80%">
-      The following operations are supported:
+    <td width="80%"> 
+      Policy expressions can contain operations that are cases sensitive, and operations that are not case sensitive:
       
-      <br/><br/><b>Operations that are case sensitive:</b> These operations consider the case sensitivity in the values you provide.
+      <br/><br/><b>Operations that are case sensitive:</b> These operations match only if the case is the same. For example, <code>&#123;&#123;application&#125;&#125; = "beachshirts"</code> matches <code>beachshirts</code> but not <code>beachShirts</code>.
         <ul>
           <li>
             <code>=</code>, <code>></code>, <code><</code>, <code><=</code>, <code>>=</code>, <code>!=</code>
@@ -140,7 +141,7 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
           </li>
         </ul>
         
-      <b>Operations that are not case sensitive:</b> These operations ignore the case sensitivity in the values you provide.
+      <b>Operations that are not case sensitive:</b> These operations match even if the case is not the same. For example, <code>&#123;&#123;application&#125;&#125; equalsIgnoreCase "beachshirts"</code> matches <code>beachshirts</code> and <code>beachShirts</code>.
         <ul>
           <li>
             <code>equalsIgnoreCase</code>
@@ -166,14 +167,14 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
       <b>Value</b>
     </td>
     <td width="80%">
-      The value needs to be defined between <code>""</code>.
+      Surround the value with double quotes (<code>""</code>).
     </td>
   </tr>
 </table>
 
 <p><span style="font-size: large; font-weight: 500">Advanced Example</span></p>
 
-The policy expression creates a sampling policy to keep all spans from the `beachshirts` application where the operation starts with `Shopping`, the source contains `prod`, and the status code is `400` or `404`.
+The following policy expression creates a sampling policy to keep all spans from the `beachshirts` application where the operation starts with `Shopping`, the source contains `prod`, and the status code is `400` or `404`.
 <pre>
 &#123;&#123;application&#125;&#125; = "beachshirts" and 
 &#123;&#123;spanName&#125;&#125; startsWith "Shopping." and 
@@ -181,7 +182,7 @@ The policy expression creates a sampling policy to keep all spans from the `beac
 &#123;&#123;http.status_code&#125;&#125; in ("400", "404")
 </pre>
 
-## Edit Sampling Policy
+## Edit a Sampling Policy
 
 To edit a sampling policy:
 
@@ -190,13 +191,13 @@ To edit a sampling policy:
     
 1. Update the details, and click **Update Policy**.
 
-## Delete Sampling Policy
+## Delete a Sampling Policy
 
-To delete a sampling policy, Click the vertical ellipsis next to the policy name and click **Delete**.
+To delete a sampling policy, click the vertical ellipsis next to the policy name and click **Delete**.
 
 To see the policies you deleted, click **View Deleted Policies**.
 
-## Restore Sampling Policy
+## Restore a Sampling Policy
 
 To restore a deleted policy:
 
@@ -209,7 +210,7 @@ To restore a deleted policy:
 
 To deactivate a sampling policy, Click the vertical ellipsis next to the policy name and click **Deactivate**.
 
-Once the policy is deactivated, it will move into an inactive state. You don't see inactive policies by default. Enable the **Show Inactive** toggle to see the deactivate policies in the sampling policies list.
+When the policy is deactivated, it changes to an inactive state. By default, you don't see inactive policies. Enable the **Show Inactive** toggle to see the deactivate policies in the sampling policies list.
 
 Example:
 ![Shows the how inactive sampling policies toggle is enabled and as a result how you see the inactive sampling policy in the list of policies.](images/tracing_incative_sampling_policies.png)
@@ -221,6 +222,6 @@ To activate a sampling policy:
 1.  Enable the **Show Inactive** toggle to see the deactivate policies.
 1.  Click the vertical ellipsis next to the inactive policy name, and click **Activate**.
 
-## See Also
+## Learn More
 
 To learn more about the Wavefront's trace data sampling strategies, see [Trace Sampling](trace_data_sampling.html).
