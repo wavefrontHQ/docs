@@ -3,6 +3,7 @@ title: Query Language Videos
 keywords: videos
 tags: [videos]
 sidebar: doc_sidebar
+published: false
 permalink: videos_query_language.html
 summary: Learn about query language basics and advanced functions
 ---

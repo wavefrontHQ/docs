@@ -9,7 +9,7 @@ summary: Learn how to search for objects in the Wavefront UI.
 To help you find exactly what you need, Wavefront supports tags and a variety of search features.
 
 Here's a video to get you started:
-
+<!---Need Brightcove link for Margarita's new video--->
 <p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5468d6de-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_searching.png" style="width: 700px;"/></a>
 </p>
 
@@ -43,10 +43,10 @@ You can select an item from the list individually. The drop-down list also conta
 
 Search fields support multi-word searches. If you type **cpu usage** in any browser or autocompleted text field, the drop-down list includes all matches for both **cpu** and **usage**.
 
-If you want to explicitly exclude a keyword or a phrase from the search results, type the keyword or phrase that you want to exclude, press Enter, and click the equal sign in front of it so that it changes to a not equal sign (**&#8800;**). For example, if you want to exclude all results containing **cpu**, and see only the results that contain **usage**: 
+If you want to explicitly exclude a keyword or a phrase from the search results, type the keyword or phrase that you want to exclude, press Enter, and click the equal sign in front of it so that it changes to a not equal sign (**&#8800;**). For example, if you want to exclude all results containing **cpu**, and see only the results that contain **usage**:
 
-1. Enter **cpu** and press Enter. 
-2. Enter **usage** in the search field and press Enter. 
+1. Enter **cpu** and press Enter.
+2. Enter **usage** in the search field and press Enter.
 3. Click the equal sign in front of cpu, so that it turns to a not equal sign (**&#8800;**).
 
 ![exclude search results](images/not_in_search.png)
