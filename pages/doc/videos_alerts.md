@@ -21,7 +21,7 @@ The following videos explain how alerts work and how to configure them.
 <td><strong><font color="blue">Creating Multi-Threshold Alerts</font></strong><br>
 <a href=" https://youtu.be/qWBP6PrkUrU"><img src="/images/v_threshold_alerts.png" style="width: 700px;" alt="threshold alerts"/></a></td>
 <td><br>
-<p>Watch the creation of a multi-threshold alert, which will send notifications to different alert targets depending on the severity. Learn also about the alert firing behavior of a multi-threshold alert. </p>
+<p>Watch the creation of a multi-threshold alert, which will send notifications to different alert targets depending on the severity. Learn also about the alert firing behavior of a multi-threshold alert.</p>
 </td>
 </tr>
 </tbody>
