@@ -207,9 +207,12 @@ You can move the time window into the future. However, unless you are using one 
 </tbody>
 </table>
 
+<!---Reshoot me!
 Here's a video that illustrates chart time windows. The video uses the v1 UI, but most of the information is still accurate:
-<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5925769f-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_charts_time_window.png" style="width: 700px;"/></a>
+<p><a href="disappearing, internal sharepoint link instead. "><img src="/images/v_charts_time_window.png" style="width: 700px;"/></a>
 </p>
+https://onevmw.sharepoint.com/:v:/r/teams/VLZContentDumpforRPA/Shared%20Documents/General/vlz_Existing%20Courses/Wavefront%20Course%20Content/VLZ-2266%20V02.mp4?csf=1&web=1&e=3fmiRw
+--->
 
 ## Display Events on Charts
 

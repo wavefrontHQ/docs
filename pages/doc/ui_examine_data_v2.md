@@ -130,9 +130,6 @@ You can move the time window into the future, however, unless you are using one 
 </tbody>
 </table>
 
-Here's a video that illustrates chart time windows. The video uses the v1 UI, but most of the information is still accurate:
-<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5925769f-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_charts_time_window.png" style="width: 700px;"/></a>
-</p>
 
 ## Display Events on Charts
 
@@ -141,7 +138,7 @@ The **Show Events** dropdown (with **From Chart** <i class="fa fa-caret-down"/> 
 ![time window](images/display_events_v2.png)
 
 See [Displaying Event Overlays in Charts](charts_events_displaying.html#controlling-events-overlays) for details.
- 
+
 ## Do More!
 
 In addition to examining time series data, drilling down on exactly the information you need, creating alerts, etc, you can also

@@ -14,6 +14,7 @@ The Wavefront Query Language lets you retrieve and display the data that has bee
 
 This page uses the v2 UI, which allows you to examine your data with [chart builder](chart_builder.html) and perform advanced exploration with [query editor](query_editor.html).
 
+<!---REBRAND ME
 Watch these videos to get you started. The videos use the v1 UI, but the basic workflow remains the same in the v2 UI.
 
 <table style="width: 100%;">
@@ -22,9 +23,10 @@ Watch these videos to get you started. The videos use the v1 UI, but the basic w
 <td width="50%"><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=61f9391c-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_ql_basics.png"/></a></td></tr>
 </tbody>
 </table>
+--->
 
 ## Step 0: What's a Query?
- 
+
 Before you run your first query, let's examine a time series and look at the anatomy of a query.
 
 ### What's a Time Series?
@@ -111,7 +113,7 @@ The example chart is quite busy, but we can use filters to focus in.
 </tr>
 <tr>
 <td>
-3. Press Enter. 
+3. Press Enter.
 </td>
 </tr>
 <tr>
@@ -160,7 +162,7 @@ In Query Editor, this query looks like this:
 <tr>
 <td>
 
-4. Click <strong>Functions &gt; Favorites &gt; avg</strong> again. 
+4. Click <strong>Functions &gt; Favorites &gt; avg</strong> again.
 </td>
 </tr>
 <tr>
@@ -276,13 +278,14 @@ Charts for metrics also support the following types of queries:
 * **Histograms**: Query histograms with [`hs()` queries](visualize_histograms.html#querying-histogram-metrics).
 * **Traces and spans**: Query trace data from the tracing UI with the [tracing Query Builder](trace_data_query.html).
 
-### Docs, Videos, and Query Language Recipes
+### Docs, Learning Dashboards, and More!
 
-Wavefront documentation includes videos, tutorials, reference, and guides on the query language.
+Wavefront documentation includes tutorials, reference, and guides on the query language. In addition, your Wavefront instance includes an **Interactice Query Language Explorer** dashboard.
 
-- **[Query Language Videos](videos_query_language.html)** get you started and [Use Case Videos](wavefront_use_cases.html) show off some compelling examples.
+<!---
+- **[Query Language Videos](videos_query_language.html)** get you started and [Use Case Videos](wavefront_use_cases.html) show off some compelling examples.--->
 - **[Query builder](query_language_query_builder.html)** (for v1) and **[Chart builder](chart_builder.html)** (for v2) can help you come up to speed quickly while using the product.
-- If you're logged in to Wavefront, select **Integrations** in the taskbar and find the **Tutorial** or the **Tour Pro** integration. The Tutorial includes an Interactive Query Language Explorer that shows examples for each function.
+- If you're logged in to Wavefront, select **Integrations** in the taskbar and find the **Tutorial** or the **Tour Pro** integration. The Tutorial includes an **Interactive Query Language Explorer** dashboars that shows examples for most functions.
 - [Wavefront Query Language Reference](query_language_reference.html) lists each function and gives query language syntax element. Each function name is a link to a reference page for the function.
 - For in-depth discussions and examples, we have a **[reference page](label_query%20language.html)** for each function and some [Query Language Recipes](query_language_recipes.html).
 
