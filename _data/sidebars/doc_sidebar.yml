@@ -592,15 +592,19 @@ entries:
     - title: Key Concepts
       url: /trace_data_details.html
       output: web
-
-    - title: Tutorial
-      url: /tracing_java_tutorial.html
+      
+    - title: OpenTelemetry
+      url: /opentelemetry.html
       output: web
 
       subfolders:
-      - title: Send Data To Wavefront
+      - title: OpenTracing
         output: web
         subfolderitems:
+          
+          - title: OpenTracing Tutorial
+            url: /tracing_java_tutorial.html
+            output: web
 
           - title: Instrument Your App
             url: /tracing_instrumenting_frameworks.html
@@ -609,15 +613,7 @@ entries:
           - title: Jaeger or Zipkin
             url: /tracing_integrations.html
             output: web
-
-          - title: Customize Spans and Alerts for RED Metrics
-            url: /tracing_customize_spans_and_alerts.html
-            output: web
-
-          - title: Configure External Services
-            url: /tracing_external_services.html
-            output: web
-
+      
       - title: Visualize Trace Data
         output: web
         subfolderitems:
@@ -653,12 +649,24 @@ entries:
     - title: Trace Sampling
       url: /trace_data_sampling.html
       output: web
-
+      
     - title: Query Trace Data
       url: /trace_data_query.html
       output: web
-
+      
       subfolders:
+      - title: Customize and Configure
+        output: web
+        subfolderitems:
+
+          - title: Customize Spans and Alerts for RED Metrics
+            url: /tracing_customize_spans_and_alerts.html
+            output: web
+
+          - title: Configure External Services
+            url: /tracing_external_services.html
+            output: web
+             
       - title: Trace Functions
         output: web
         subfolderitems:
