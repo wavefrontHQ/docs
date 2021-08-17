@@ -12,6 +12,7 @@ By default, events are displayed as small dots on the X axis of most charts. You
 
 {% include shared/permissions.html entity="events" entitymgmt="Event" %}
 
+<!---Rebrand me
 To learn about events, watch the following videos:
 
 <table style="width: 100%;">
@@ -21,6 +22,11 @@ To learn about events, watch the following videos:
 <td width="33%"><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=71ef27f0-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_events_control.png" alt="controlling events"/></a></td></tr>
 </tbody>
 </table>
+Use these Sharepoint links instead. 3rd video has changed too much, let's not use it.
+https://onevmw.sharepoint.com/:v:/r/teams/VLZContentDumpforRPA/Shared%20Documents/General/vlz_Existing%20Courses/Wavefront%20Course%20Content/VLZ-2285%20V02.mp4?csf=1&web=1&e=THNi2M
+https://onevmw.sharepoint.com/:v:/r/teams/VLZContentDumpforRPA/Shared%20Documents/General/vlz_Existing%20Courses/Wavefront%20Course%20Content/VLZ-2286%20V02.mp4?csf=1&web=1&e=N1zhNR
+--->
+
 
 ## Event Sources and Types
 
@@ -87,7 +93,7 @@ The chart includes information about the alert associated with the event, and ab
 
 ## Creating a User Event
 
-Wavefront creates many events for you, but you can also create an event explicitly. Watch the [Creating an Event video](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=709ca1a8-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true) or follow these steps:
+Wavefront creates many events for you, but you can also create an event explicitly:
 
 1. Do one of the following:
    - Select **Browse > Events** and click the <strong>Create Event</strong> button at the top of the filter bar.

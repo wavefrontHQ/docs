@@ -226,12 +226,8 @@ app.errors source=machine env=stage
 
 <li>Click <strong>Save</strong>.</li>
 </ol>
-
-### Video: Create a Classic Alert
-This video shows how Jason creates a classic alert:
-
-<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6a27a841-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_alerts_creating.png" style="width: 700px;"/></a>
-</p>
+<!---
+### Video: Create a Classic Alert. TBD --->
 
 ## Create a Multi-Threshold Alert
 

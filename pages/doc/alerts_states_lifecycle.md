@@ -5,10 +5,14 @@ sidebar: doc_sidebar
 permalink: alerts_states_lifecycle.html
 summary: Learn about alert conditions and states, when alerts fire, and how alerts resolve.
 ---
+
+<!--GIVE ME NEW BUMPERS
 Here's a video to get you started:
 
 <p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6cb2ac52-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_alerts_lifecycle.png" style="width: 700px;"/></a>
 </p>
+Learning Zone videos disappear. Use internal Sharepoint link instead. https://onevmw.sharepoint.com/:v:/r/teams/VLZContentDumpforRPA/Shared%20Documents/General/vlz_Existing%20Courses/Wavefront%20Course%20Content/VLZ-2282%20V02.mp4?csf=1&web=1&e=buyWrn
+--->
 
 ## What's the Alert Lifecycle?
 

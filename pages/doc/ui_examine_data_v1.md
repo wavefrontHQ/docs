@@ -112,9 +112,6 @@ You can move the time window into the future, however, unless you are using one 
 </tbody>
 </table>
 
-Here's a video that illustrates chart time windows:
-<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5925769f-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_charts_time_window.png" style="width: 700px;"/></a>
-</p>
 
 ## Display Events on Charts
 
