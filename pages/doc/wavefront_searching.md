@@ -9,6 +9,11 @@ summary: Learn how to search for objects in the Wavefront UI.
 To help you find exactly what you need, Wavefront supports tags and a variety of search features.
 
 Here's a video to get you started:
+
+<p>
+<iframe src="https://bcove.video/2UnQFZ0" width="700" height="400" allowfullscreen="true" alt="creating dashboards video"></iframe>
+</p>
+
 <!---Need Brightcove link for Margarita's new video--->
 <p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5468d6de-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_searching.png" style="width: 700px;"/></a>
 </p>

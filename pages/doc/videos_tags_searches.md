@@ -8,14 +8,13 @@ summary: Use tags and searches to quickly find what you need.
 ---
 Jason's videos show how you use tags and searches in the UI to find what you need. Clement's video explains how to use tagging in Wavefront.
 
-<!---need new searching video uploaded--->
-
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td><strong><font color="blue">Searching in Wavefront</font></strong><br>
-<a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5468d6de-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true" target="_blank"><img src="/images/v_searching.png" alt="searching"/></a></td>
-<td><br>
+<td width="50%"><strong><font color="blue">Searching in Wavefront</font></strong><br><br>
+<iframe src="https://bcove.video/2UnQFZ0" width="550" height="275" allowfullscreen="true" alt="browse metrics from source browser or metrics browser"></iframe>
+</td>
+<td width="50%"><br>
 <p>Learn how to do sophisticated and fine-grained searches in the Wavefront GUI.  </p>
 </td>
 </tr>
