@@ -88,6 +88,13 @@ You can export traces from Wavefront, save them locally as JSON files, and view 
 
 ![Shows how the offline traces look once you upload the JSOn file that has the imported trace details.](images/tracing_offline_tracing_view.png)
 
+### Create a Sampling policy
+
+Wavefront intelligent sampling reduces the volume of ingested traces. The goals of intelligent sampling are to retain traces that are likely to be informative. But sometimes intelligent sampling discards traces that you want to keep. You can [create a sampling policy](trace_sampling_policies.html) to fine-tune intelligent sampling and let Wavefront know that you want to keep certain traces.
+
+![Shows a screenshot of the sampling polices user interface](images/tracing_sampling_policies.png)
+
+
 ### Configure Applications Using Application Configuration
 
 The Apdex score helps you compare the response time of a service based on the response time threshold that you define. Define the response time threshold for each service using the <a href="tracing_apdex.html">Application Configuration page</a>.
