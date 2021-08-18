@@ -24,6 +24,14 @@ The following videos explain how alerts work and how to configure them.
 <p>Watch the creation of a multi-threshold alert, which will send notifications to different alert targets depending on the severity. Learn also about the alert firing behavior of a multi-threshold alert.</p>
 </td>
 </tr>
+<tr>
+<td><strong><font color="blue">Using Maintenance Windows</font></strong><br><br>
+<iframe src="https://bcove.video/3m7AM4x" width="550" height="275" allowfullscreen="true" alt="create a maintenance window video by Jason"></iframe>
+</td>
+<td><br>
+<p>Maintenance windows stop alerts from firing, reducing distraction for recipients and resulting an faster problem resolution. Watch Jason set a maintenance window so that an alert won't send notifications when you're in the process of doing an upgrade or solving a problem.</p>
+</td>
+</tr>
 </tbody>
 </table>
 
