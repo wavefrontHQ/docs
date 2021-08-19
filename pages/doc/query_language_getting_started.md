@@ -34,6 +34,13 @@ Watch these videos to get you started. The videos use the v1 UI, but the basic w
 <p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. </p>
 </td>
 </tr>
+<tr>
+<td><strong><font color="blue">Advanced Query Language Functions</font></strong><br><br>
+<iframe src="https://bcove.video/3zckmeE" width="400" height="225" allowfullscreen="true" alt="Advanced Query Language Functions"></iframe></td>
+<td><br><br>
+<p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. </p>
+</td>
+</tr>
 </tbody>
 </table>
 
