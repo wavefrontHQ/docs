@@ -19,14 +19,12 @@ summary: Examine data with dashboards and charts
 
 ## Video
 
-All users can customize their dashboards. Learn how to find a section, filter using variables or filters, set the time for the dashboard, and share the dashboard with others.
+All users can customize their dashboards to drill down into data. Learn how to find a section, filter using variables or filters, set the time for the dashboard, and share the dashboard with others. You need Dashboards permissions to save your changes. 
 
 
 <p>
 <iframe src="https://bcove.video/2Wux6eP" width="700" height="400" allowfullscreen="true" alt="customizing dashboards video"></iframe>
 </p>
-
-
 
 
 ## Get Started: Dashboard Browser
@@ -207,12 +205,12 @@ You can move the time window into the future. However, unless you are using one 
 </tbody>
 </table>
 
-<!---Reshoot me!
+
 Here's a video that illustrates chart time windows. The video uses the v1 UI, but most of the information is still accurate:
-<p><a href="disappearing, internal sharepoint link instead. "><img src="/images/v_charts_time_window.png" style="width: 700px;"/></a>
+
+<p>
+<iframe src="https://bcove.video/3sweZ7W" width="700" height="400" allowfullscreen="true" alt="Video of Jason how to set, sync, and reset time windows"></iframe>
 </p>
-https://onevmw.sharepoint.com/:v:/r/teams/VLZContentDumpforRPA/Shared%20Documents/General/vlz_Existing%20Courses/Wavefront%20Course%20Content/VLZ-2266%20V02.mp4?csf=1&web=1&e=3fmiRw
---->
 
 ## Display Events on Charts
 

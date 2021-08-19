@@ -7,14 +7,31 @@ summary: Learn how to use tags to focus and speed up queries display and to uncl
 ---
 A tag is custom metadata that adds application-specific meaning to Wavefront objects such alerts, dashboards, events, and sources and metrics.
 
-Watch the following video for an introduction to point tags and source tags:
+## Videos
 
-<p><a href="https://www.youtube.com/watch?v=9tt4orZHQts&index=3&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_tagging_clement.png" style="width: 700px;" alt="tagging"/></a>
-</p>
+Watch these videos to get started: 
 
-See [Wavefront Data Naming](wavefront_data_naming.html) for examples of tags and tag naming.
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td><strong><font color="blue">Tagging Your Data with Wavefront </font></strong><br>
+<a href="https://www.youtube.com/watch?v=9tt4orZHQts&index=3&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K" target="_blank"><img src="/images/v_tagging_clement.png"  alt="Tagging in Wavefront"/></a></td>
+<td><br>
+<p>Understand how tagging can help you get the results that you need. By default, data include the metric name and the source. Cloud integrations include additional dimensions such as the AWS region, as point tags. You can add point tags to any data source from the UI or the API. Source tags are different. They allow you to group machines, for example, into db machines and web machines. You can then customize your queries to pull out just the data you need.</p>
+</td>
+</tr>
+<tr>
+<td><strong><font color="blue">Organizing with Tags</font></strong><br><br>
+<iframe src="https://bcove.video/3APZACf" width="550" height="275" allowfullscreen="true" alt="Jason shows how to organize data with tags"></iframe></td>
+<td><br>
+<p>Want to learn how to organize information in Wavefront? Jason shows an example of assigning a tag (e.g. training) to several dashboards and how the tag can be used for filtering. He then uses additional tags in a hierarchy of tags (e.g. training.attendee and training.trainer) to support more fine-grained filtering using tag paths. Tag paths are available for dashboards, alerts, and events. Finally, for sources, Jason shows you can add source tags and filter directly from a query. </p>
+</td>
+</tr>
+</tbody>
+</table>
 
-{% include tip.html content="Read the blog post [Skyline Resolves Production Incidents Faster with Alert-Based Health Dashboards](https://tanzu.vmware.com/content/blog/skyline-resolves-production-incidents-faster-with-alert-based-health-dashboards) for a discussion of a real-world example that uses alert tags." %}
+
+
 
 ## Tags Basics
 
@@ -123,6 +140,7 @@ You use point tags to add extra dimensions to your data, and can then focus your
 * [Pairing Up Matching Series](query_language_series_matching.html) discusses how implicit series matching lets you operate on pairs of time series that have corresponding sources and point tags.
 
 <a name="entity_tags"></a>
+
 ## Object Tags: Tags on Alerts, Dashboards, Events, and Sources
 
 Object tags include alert tags, dashboard tags, event tags, and source tags.
@@ -261,3 +279,9 @@ The syntax is the same for both the SourceTag and the SourceDescription property
 </tr>
 </tbody>
 </table>
+
+## Learn More!
+
+* See [Wavefront Data Naming](wavefront_data_naming.html) for examples of tags and tag naming.
+
+* Read the blog post [Skyline Resolves Production Incidents Faster with Alert-Based Health Dashboards](https://tanzu.vmware.com/content/blog/skyline-resolves-production-incidents-faster-with-alert-based-health-dashboards) for a discussion of a real-world example that uses alert tags.

@@ -12,8 +12,36 @@ By default, events are displayed as small dots on the X axis of most charts. You
 
 {% include shared/permissions.html entity="events" entitymgmt="Event" %}
 
+## Videos
+
+Watch these videos to get you started!
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td><strong><font color="blue">Introduction to Events</font></strong><br>
+<br>
+<iframe src="https://bcove.video/3iZdNql" width="550" height="275" allowfullscreen="true" alt="Jason discusses system events and user-created events. "></iframe></td>
+<td><br><br>
+<p>Events let you know that something important just happened. Jason shows the Events page and discusses the 3 types of event sources: System, Alert, and User. He then uses filters to drill down on certain events.</p>
+</td>
+</tr>
+<tr>
+<td><strong><font color="blue">Creating an Event</font></strong><br>
+<br>
+<iframe src="https://bcove.video/3AURJU0" width="550" height="275" allowfullscreen="true" alt="Jason explains how to create an event"></iframe></td>
+<td><br><br>
+<p>
+Wavefront creates System and Alert events for you. You can create User events via the UI or API to signal that something of interest has happened. Jason demos how to create an event from a chart and shows how it immediately appears in the UI.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
 <!---Rebrand me
 To learn about events, watch the following videos:
+
+2 in, 1 to go! 
 
 <table style="width: 100%;">
 <tbody>
