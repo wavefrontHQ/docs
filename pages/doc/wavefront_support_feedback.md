@@ -1,5 +1,5 @@
 ---
-title: Getting Help and Giving Feedback
+title: Support and Feedback
 sidebar: doc_sidebar
 tags: [getting started]
 permalink: wavefront_support_feedback.html
