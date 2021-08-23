@@ -111,7 +111,7 @@ With the drag-and-drop keyboard navigation you can rearrange:
 </thead>
 <tr>
 <td><strong>Tab</strong> or <strong>Shift+Tab</strong></td>
-<td>Navigate forward and backward through the UI elements on a page level.</td>
+<td>Navigate forward and backward through the UI elements on a page level. Also applies for UI elements such as text boxes, for example, the Query Editor.</td>
 </tr>
 <tr>
 <td><strong>Arrow keys</strong></td>
@@ -127,10 +127,7 @@ With the drag-and-drop keyboard navigation you can rearrange:
 </tr>
 <tr>
 <td><strong>Esc</strong> or <strong>Opt+Esc</strong> for Safari</td>
-<td>Perform different actions depending on the current selection:
-<ul>
-<li>Exit from current selection or active state, such as a text editor. </li>
-<li>Close a pop-up window or any opened menu, such as a drop-down menu, or an ellipsis icon menu. Returns you to the parent or closest interactive element if the current component disappears. Always orients you on the page post an action.</li>
+<td>Close a pop-up window or any opened menu, such as a drop-down menu, or an ellipsis icon menu. Returns you to the parent or closest interactive element if the current component disappears. Always orients you on the page post an action.
 </ul></td>
 </tr>
 <tr>
