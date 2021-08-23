@@ -1,5 +1,5 @@
 ---
-title: Preventing Alerts from Firing
+title: Maintenance Windows and Snoozing Alerts
 keywords: alerts
 tags: [alerts, videos]
 sidebar: doc_sidebar
@@ -60,8 +60,11 @@ To view and manage maintenance windows, select **Browse > Maintenance Windows**.
 
 <div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view maintenance windows, you must have [Alert Management permission](permissions_overview.html) to [manage](maintenance_windows_managing.html) maintenance windows. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
+
 Watch this video for an introduction to maintenance windows:
-<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6b704f39-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_maintenance.png" style="width: 700px;"/></a>
+
+<p>
+<iframe src="https://bcove.video/3m7AM4x" width="700" height="400" allowfullscreen="true" alt="Video of Jason explaining maintenance windows"></iframe>
 </p>
 
 ### Creating a Maintenance Window

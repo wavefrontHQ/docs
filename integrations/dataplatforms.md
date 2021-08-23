@@ -22,8 +22,9 @@ The image below is a sample of the Kafka-Spark-Solr Blueprint dashboard, that is
 
 1. ***Mission Control***: This is the mission critical section that displays the high-level health and utilization of your data platform.
 2. ***Data Platforms***: This section gives you a single shot view of the applications that form the data platform cluster together with their individual resource utilization.
-3. ***Kubernetes Platform***: This section gives you a detailed overview of the underlying Kubernetes cluster and the Node to Pod mapping of the applications.
-4. ***Individual Applications***: This section gives you a detailed view of the individual application metrics.
+3. ***ESXi Host***: This section gives you an overview of the ESXi Hosts underlying the Kubernetes cluster. It is rendered only when the ESXi metrics are flowing to Tanzu Observability.
+4. ***Kubernetes Platform***: This section gives you a detailed overview of the underlying Kubernetes cluster and the Node to Pod mapping of the applications.
+5. ***Individual Applications***: This section gives you a detailed view of the individual application metrics.
 
 {% include image.md src="images/dashboard.png" width="80" %}
 ### Data Platform Blueprints Setup

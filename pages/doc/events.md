@@ -12,15 +12,40 @@ By default, events are displayed as small dots on the X axis of most charts. You
 
 {% include shared/permissions.html entity="events" entitymgmt="Event" %}
 
-To learn about events, watch the following videos:
+## Videos
+
+Watch these videos to get you started!
 
 <table style="width: 100%;">
 <tbody>
-<tr><td width="33%"><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6f470b3e-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_events_intro.png" alt="intro to events"/></a></td>
-<td width="33%"><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=709ca1a8-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_event_creating.png" alt="creating events"></a></td>
-<td width="33%"><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=71ef27f0-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_events_control.png" alt="controlling events"/></a></td></tr>
+<tr>
+<td><strong><font color="blue">Introduction to Events</font></strong><br>
+<br>
+<iframe src="https://bcove.video/3iZdNql" width="550" height="275" allowfullscreen="true" alt="Jason discusses system events and user-created events. "></iframe></td>
+<td><br><br>
+<p>Events let you know that something important just happened. Jason shows the Events page and discusses the 3 types of event sources: System, Alert, and User. He then uses filters to drill down on certain events.</p>
+</td>
+</tr>
+<tr>
+<td><strong><font color="blue">Creating an Event</font></strong><br>
+<br>
+<iframe src="https://bcove.video/3AURJU0" width="550" height="275" allowfullscreen="true" alt="Jason explains how to create an event"></iframe></td>
+<td><br><br>
+<p>
+Wavefront creates System and Alert events for you. You can create User events via the UI or API to signal that something of interest has happened. Jason demos how to create an event from a chart and shows how it immediately appears in the UI.</p>
+</td>
+</tr>
+<tr>
+<td><strong><font color="blue">Controlling Event Displays</font></strong><br>
+<br>
+<iframe src="https://bcove.video/3AY5jFY" width="550" height="275" allowfullscreen="true" alt="Jason explains how to get the most out of event displays"></iframe></td>
+<td><br><br>
+<p>Jason demos how to display or hide source events in charts. Then he shows an example of adding an events query to a chart to display only selected events. He customizes the query to also show events when a specific user receives an email alert.</p>
+</td>
+</tr>
 </tbody>
 </table>
+
 
 ## Event Sources and Types
 
@@ -87,7 +112,7 @@ The chart includes information about the alert associated with the event, and ab
 
 ## Creating a User Event
 
-Wavefront creates many events for you, but you can also create an event explicitly. Watch the [Creating an Event video](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=709ca1a8-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true) or follow these steps:
+Wavefront creates many events for you, but you can also create an event explicitly:
 
 1. Do one of the following:
    - Select **Browse > Events** and click the <strong>Create Event</strong> button at the top of the filter bar.

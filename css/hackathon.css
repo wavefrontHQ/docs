@@ -1,0 +1,238 @@
+body.hackathon {
+    background-color: white;
+    font-family: Metropolis, "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+}
+
+.hackathon .navbar {
+    margin-bottom: 0;
+}
+
+.hackathon h2:before {
+    display: none;
+    height: 0;
+    margin-right: 0;
+    margin-left: 0;
+    content: none;
+    border: none;
+}
+
+.hackathon .container {
+    padding-top: 0;
+    max-width: none;
+}
+
+.hackathon .navbar-inverse {
+    border: none;
+}
+
+.hackathon .container > .row {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: -32px;
+}
+
+.hackathon #mysidebar {
+    width: auto;
+    margin-top: 20px;
+}
+
+.hackathon #tg-sb-sidebar {
+    padding: 0;
+}
+
+.hackathon #mysidebar > li {
+    border: none;
+    box-shadow: none;
+    margin: 0;
+    border-left: 3px solid #EEEEEE;
+}
+
+.hackathon #mysidebar li a {
+    color: #565656;
+}
+
+.hackathon #mysidebar > li.active > a {
+    color: black;
+    border: none;
+}
+
+.hackathon #mysidebar > li li {
+    margin-left: 8px;
+}
+
+.hackathon #mysidebar > li li.active > a {
+    background-color: #D9E4EA;
+    border: none;
+}
+
+.hackathon #mysidebar a {
+    padding: 6px 10px;
+}
+
+.hackathon #tg-sb-content {
+    margin-top: -21px;
+    padding: 0;
+    border-left: 2px solid black;
+}
+
+.hackathon-wrapper .panel-heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (min-width: 1000px) {
+    .hackathon .navbar-collapse .navbar-nav.navbar-right:last-child {
+        margin-right: 0;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .hackathon .container {
+        max-width: none;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .hackathon .container {
+        max-width: none;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .hackathon .container {
+        max-width: none;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .aa-input-container.mobile {
+        margin-bottom: 20px;
+    }
+
+    .hackathon #tg-sb-content {
+        margin-top: 20px;
+    }
+}
+
+.section-header-h2 {
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 36px;
+}
+
+/*Header Title Styles*/
+.hackathon-header {
+    display: flex;
+    flex-direction: row;
+    background-color: #28333C;
+    padding: 32px 42px;
+    justify-content: space-between;
+}
+
+.hackathon-header > *:not(:last-child) {
+    margin-right: 20px;
+}
+
+.hackathon-header li {
+    text-decoration: none;
+}
+
+.hackathon-header img {
+    height: 200px;
+    margin: 0;
+}
+
+.hackathon-header p, .hackathon-header h1 {
+    color: white;
+}
+
+.hackathon-header h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/*End of Header Title Styles*/
+
+/* Choose Path styles */
+.hackathon-choose-path-container {
+    background-color: #f4f8fa;
+}
+
+.hackathon-choose-path-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.hackathon-choose-path-card-wrapper {
+    margin: 0 40px;
+}
+
+.hackathon-choose-path-card-title {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: normal;
+}
+
+.hackathon-choose-path-card a {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color: #0079AD;
+}
+
+.hackathon-choose-path-card-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hackathon-choose-path-card img {
+    height: 88px;
+    width: 88px;
+}
+
+.hackathon-choose-path-card > * {
+    margin-bottom: 8px !important;
+}
+
+/* End Choose Path styles */
+
+/* Quick Links Styles */
+.hackathon-quick-links-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.hackathon-quick-links-title > * {
+    margin-bottom: 8px;
+}
+
+.hackathon-quick-links-card-wrapper {
+    margin: 0 40px;
+}
+
+.hackathon-quick-links-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    border: 1px solid #d7d7d7;
+    box-shadow: 0 3px 4px #d7d7d7;
+    margin: 20px 0;
+}
+
+.hackathon-quick-links-card > * {
+    margin-bottom: 8px !important;
+    margin-top: 0 !important;
+}
+
+.hackathon-quick-links-card img {
+    height: 48px;
+    width: 48px;
+}
+
+/* End Quick Links Styles */

@@ -16,15 +16,6 @@ Our v2 UI supports [Chart Builder](chart_builder.html) to build queries interact
 
 **Note**: If your cluster has been upgraded to v2, you can [select your UI version](users_account_managing.html#switch-between-ui-versions) from the gear icon.
 
-Watch these videos to get you started. The videos use the v1 UI, but the basic workflow remains the same.
-
-<table style="width: 100%;">
-<tbody>
-<tr><td width="50%"><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=60b992dc-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_ql_intro.png" alt="introduction to query language"/></a></td>
-<td width="50%"><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=61f9391c-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_ql_basics.png"/></a></td></tr>
-</tbody>
-</table>
-
 ## Basic Query
 
 A simple query retrieves an individual metric:
@@ -92,11 +83,10 @@ Charts for metrics also support the following types of queries:
 * **Histograms**: Query histograms with [`hs() queries`](visualize_histograms#querying-histogram-metrics)
 * **Traces and spans**: Query trace data from the tracing UI with the [tracing Query Builder](trace_data_query.html)
 
-### Docs, Videos, and Wizards
+### Docs, Videos, and More!
 
 Wavefront documentation includes videos, tutorials, reference, and guides on the query language.
 
-- **[Query Language Videos](videos_query_language.html)** get you started and [Use Case Videos](wavefront_use_cases.html) show off some compelling examples.
 - **[Query builder](query_language_query_builder.html)** (for v1) and **[Chart builder](chart_builder.html)** (for v2) can help you come up to speed quickly while using the product.
 - If you're logged in to Wavefront, select **Integrations** in the taskbar and find the **Tutorial** or the **Tour Pro** integration. The Tutorial includes an Interactive Query Language Explorer that shows examples for each function.
 - [Wavefront Query Language Reference](query_language_reference.html) lists each function and gives query language syntax element. Each function names is a link to a reference page for the function.
