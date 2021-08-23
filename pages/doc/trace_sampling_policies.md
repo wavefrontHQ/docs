@@ -110,7 +110,7 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
       <b>Key</b>
     </td>
     <td width="80%">
-      A source needs to be defined between (<code>&#123;&#123;&#125;&#125;</code>). The source you define is considered a <a href="trace_data_details.html#span-tags">span tag key</a>.
+      A source needs to be defined between <code>&#123;&#123;&#125;&#125;</code>. The source you define is considered a <a href="trace_data_details.html#span-tags">span tag key</a>.
       
       <br/>For example, you can pass the following values as a source and any span tag key: <code>&#123;&#123;spanName&#125;&#125;</code>, <code>&#123;&#123;sourceName&#125;&#125;</code>, <code>&#123;&#123;startMillis&#125;&#125;</code>, <code>&#123;&#123;duration&#125;&#125;</code>, and more.
     </td>
@@ -122,13 +122,16 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
     <td width="80%"> 
       Policy expressions can contain operations that are cases sensitive, and operations that are not case sensitive:
       
-      <br/><br/><b>Operations that are case sensitive:</b> These operations match only if the case is the same. For example, <code>&#123;&#123;application&#125;&#125; = "beachshirts"</code> matches <code>beachshirts</code> but not <code>beachShirts</code>.
+      <br/><br/><b>Operations that are case sensitive:</b> These operations match only if the case is the same. For example, <code>&#123;&#123;application&#125;&#125; = "beachshirts"</code> is equal to <code>beachshirts</code> but not <code>beachShirts</code>.
         <ul>
           <li>
             <code>=</code>, <code>></code>, <code><</code>, <code><=</code>, <code>>=</code>, <code>!=</code>
           </li>
           <li>
             <code>equals</code>, <code>startsWith</code>, <code>contains</code>, <code>endsWith</code>, <code>matches</code>
+            <br/>For example, <code>equals</code> checks if the specified metadata string is equal to the comparison string (both strings must match exactly) and <code>matches</code> checks if the string you provide matches the comparison string (the comparison string can be a regular expression.
+
+).
           </li>
           <li>
             <code>and</code>, <code>or</code>
@@ -141,7 +144,7 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
           </li>
         </ul>
         
-      <b>Operations that are not case sensitive:</b> These operations match even if the case is not the same. For example, <code>&#123;&#123;application&#125;&#125; equalsIgnoreCase "beachshirts"</code> matches <code>beachshirts</code> and <code>beachShirts</code>.
+      <b>Operations that are not case sensitive:</b> These operations match even if the case is not the same. 
         <ul>
           <li>
             <code>equalsIgnoreCase</code>
@@ -159,6 +162,12 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
             <code>matchesIgnoreCase</code>
           </li>
         </ul>
+        For example: 
+        <li><code>&#123;&#123;application&#125;&#125; equalsIgnoreCase "beachshirts"</code> is equal to <code>beachshirts</code> and <code>beachShirts</code>.
+        </li>
+        
+        <li><code>&#123;&#123;application&#125;&#125; matchesIgnoreCase "beachshirts123" </code> matches <code>beachshirts123</code> and <code>beachShirts123</code>.
+        </li>
       
     </td>
   </tr>
