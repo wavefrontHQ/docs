@@ -73,7 +73,7 @@ Creating a maintenance window consists of these simple steps discussed below:
 
 1. Specify required fields including description and start and end dates.
 2. Narrow down the scope. By default, no alerts fire during the maintenance window. You can target only alerts specific alerts, for example, alerts for sources or environments that will be in maintenance.
-<!---3. Optionally, specify an alternate alert target during the maintenance window. By default, no notifications are sent during the maintenance window.--->
+3. Optionally, specify an alternate alert target during the maintenance window. By default, no notifications are sent during the maintenance window.
 
 #### Step 1: Specify Required Maintenance Window Fields
 
@@ -93,20 +93,19 @@ Specify one or more of the following:
 
 <ul>
 <li><strong>Alert Tags: </strong>Type one or more alert tag names to suppress any alert that has one or more specified <a href="tags_overview.html">alert tags</a>. All alerts are included if you don't specify alert tags. </li>
-<!---<li><strong>Point Tags: </strong>Suppress any alert that has the specified alert tags and one or more specified point tag. Example: "dev".</li>--->
+<li><strong>Point Tags: </strong>Suppress any alert that has the specified alert tags and one or more specified point tag. Example: "dev".</li>
 <li><strong>Sources: </strong>Type one or more source names to suppress any alert on a source that has a matching source. Example: "app-14"</li>
 <li><strong>Source Tags: </strong>Type one or more source tag names to suppress any alert on a source that has a matching <a href="tags_overview.html">source tag</a>. </li>
 </ul>
 
-<!---![set maintenance window scope](/images/maint_window_2.png)
+[set maintenance window scope](/images/maint_window_2.png)
 
-#### Step 3: Specify Alert Notification Behavior
+#### Step 3 (Optional): Specify Alternate Alert Targets
 
 By default, no alert notifications are sent during the maintenance window. The alert is mute. You can instead specify alternate alert target(s) to notify during the maintenance window.
 
 ![set maintenance window alert notification behavior](/images/maint_window_3.png)
 
---->
 
 ### Maintenance Window Example
 
