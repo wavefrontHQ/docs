@@ -52,7 +52,7 @@ entries:
           url: /wavefront_keyboard_shortcuts.html
           output: web
 
-        - title: Get Help & Give Feedback
+        - title: Support & Feedback
           url: /wavefront_support_feedback.html
           output: web
 
@@ -125,6 +125,10 @@ entries:
           url: /videos_dashboards_charts.html
           output: web
 
+        - title: Query Language Videos
+          url: /videos_query_language.html
+          output: web
+
         - title: Tags & Searches Videos
           url: /videos_tags_searches.html
           output: web
@@ -141,8 +145,8 @@ entries:
           url: /videos_tracing.html
           output: web
 
-        - title: Use Case Videos
-          url: /wavefront_use_cases.html
+        - title: Events Videos
+          url: /videos_events.html
           output: web
 
 
@@ -348,7 +352,7 @@ entries:
           url: /alerts_dependencies.html
           output: web
 
-        - title: Preventing Alerts from Firing
+        - title: Maintenance Windows
           url: /maintenance_windows_managing.html
           output: web
 

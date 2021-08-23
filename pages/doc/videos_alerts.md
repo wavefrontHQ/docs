@@ -14,18 +14,45 @@ The following videos explain how alerts work and how to configure them.
 <td><strong><font color="blue">How Alerts Work</font></strong><br>
 <a href="https://www.youtube.com/watch?v=VjmWExKiYYg&index=1&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K" target="_blank"><img src="/images/v_alerting_clement.png"/></a></td>
 <td><br>
-<p>In this lightboard video, Clement explains how alerts work.  </p>
+<p>In this lightboard video, Clement explains how alerts work in the backend.  </p>
+</td>
+</tr>
+<tr>
+<td><strong><font color="blue">Introduction to Alerts</font></strong><br>
+<br>
+<iframe src="https://bcove.video/3gh9rce" width="550" height="275" allowfullscreen="true" alt="chart builder video"></iframe></td>
+<td><br>
+<p>
+Jason explains first why intelligent alerts are so useful. He then explores the Alerts browser, which gives alert details such recent changes or which alerts are firing. He also shows different filtering options on the Alerts browser.</p>
 </td>
 </tr>
 <tr>
 <td><strong><font color="blue">Creating Multi-Threshold Alerts</font></strong><br>
-<a href=" https://youtu.be/qWBP6PrkUrU"><img src="/images/v_threshold_alerts.png" style="width: 700px;" alt="threshold alerts"/></a></td>
+<a href=" https://youtu.be/qWBP6PrkUrU"><img src="/images/v_threshold_alerts.png"  alt="threshold alerts"/></a></td>
 <td><br>
 <p>Watch the creation of a multi-threshold alert, which will send notifications to different alert targets depending on the severity. Learn also about the alert firing behavior of a multi-threshold alert.</p>
 </td>
 </tr>
+<tr>
+<td><strong><font color="blue">Alert States and Lifecycle</font></strong><br><br>
+<iframe src="https://bcove.video/3iYlXiP" width="550" height="275" allowfullscreen="true" alt="alert states and lifecycle video by Jason"></iframe>
+</td>
+<td><br>
+<p>Jason uses the Wavefront UI to illustrate the different states that an alert goes through: Checking, Firing, Resolved. He discusses that alerts resolve when the threshold value is not true - no data meets that condition. </p>
+</td>
+</tr>
+<tr>
+<td><strong><font color="blue">Using Maintenance Windows</font></strong><br><br>
+<iframe src="https://bcove.video/3m7AM4x" width="550" height="275" allowfullscreen="true" alt="create a maintenance window video by Jason"></iframe>
+</td>
+<td><br>
+<p>Maintenance windows stop alerts from firing, reducing distraction for recipients and resulting an faster problem resolution. Watch Jason set a maintenance window so that an alert won't send notifications when you're in the process of doing an upgrade or solving a problem.</p>
+</td>
+</tr>
 </tbody>
 </table>
+
+
 
 <!---
 <table style="width: 100%;">
