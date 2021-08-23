@@ -110,9 +110,9 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
       <b>Key</b>
     </td>
     <td width="80%">
-      A source needs to be defined between <code>&#123;&#123;&#125;&#125;</code>. The source you define is considered a <a href="trace_data_details.html#span-tags">span tag key</a>.
+      A source needs to be defined between <code>&#123;&#123;&#125;&#125;</code>.
       
-      <br/>For example, you can pass the following values as a source and any span tag key: <code>&#123;&#123;spanName&#125;&#125;</code>, <code>&#123;&#123;sourceName&#125;&#125;</code>, <code>&#123;&#123;startMillis&#125;&#125;</code>, <code>&#123;&#123;duration&#125;&#125;</code>, and more.
+      <br/>For example, you can pass the following values as a source and any <a href="trace_data_details.html#span-tags">span tag key</a>: <code>&#123;&#123;spanName&#125;&#125;</code>, <code>&#123;&#123;sourceName&#125;&#125;</code>, <code>&#123;&#123;startMillis&#125;&#125;</code>, <code>&#123;&#123;duration&#125;&#125;</code>, and more.
     </td>
   </tr>
   <tr>
@@ -129,7 +129,7 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
           </li>
           <li>
             <code>equals</code>, <code>startsWith</code>, <code>contains</code>, <code>endsWith</code>, <code>matches</code>
-            <br/>For example, <code>equals</code> checks if the specified metadata string is equal to the comparison string (both strings must match exactly) and <code>matches</code> checks if the string you provide matches the comparison string (the comparison string can be a regular expression.
+            <br/>For example, <code>equals</code> checks if the string specified in the value is equal to those that match the key (both strings must match exactly) and <code>matches</code> checks if the string you provide matches the comparison string (the comparison string can be a regular expression.
 
 ).
           </li>
@@ -141,6 +141,7 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
           </li>
           <li>
             <code>in</code>
+            For example, <code>in</code> checks if a specified value or sub string 
           </li>
         </ul>
         
