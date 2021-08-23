@@ -12,18 +12,37 @@ The Wavefront Query Language lets you retrieve and display the data that has bee
 * **Histograms** The query language includes functions for [manipulating histograms](query_language_reference.html#histogram-functions).
 * **Traces and spans** Use the [tracing UI](tracing_traces_browser.html) to query traces and spans.
 
-This page uses the v2 UI, which allows you to examine your data with [chart builder](chart_builder.html) and perform advanced exploration with [query editor](query_editor.html).
+This page uses primarily the v2 UI, which allows you to examine your data with [chart builder](chart_builder.html) and perform advanced exploration with [query editor](query_editor.html).
 
-<!---REBRAND ME
+## Videos
+
 Watch these videos to get you started. The videos use the v1 UI, but the basic workflow remains the same in the v2 UI.
 
 <table style="width: 100%;">
 <tbody>
-<tr><td width="50%"><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=60b992dc-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_ql_intro.png" alt="introduction to query language"/></a></td>
-<td width="50%"><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=61f9391c-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_ql_basics.png"/></a></td></tr>
+<tr>
+<td><strong><font color="blue">Intro to Wavefront Query Language</font></strong><br><br>
+<iframe src="https://bcove.video/3mep1Jv" width="400" height="225" allowfullscreen="true" alt="Intro to Wavefront Query Language"></iframe></td>
+<td><br><br>
+<p>Wavefront query language allows you to shape the data you see in your dashboards. Jason first shows an example of an environment where a single switch in a customer environment had a problem. The example uses the advanced functions if() at() and corr() to find other switches with the same behavior and prevent further problems. Jason then uses the highpass() function on other data to show only true failures in a chart.</p>
+</td>
+</tr>
+<tr>
+<td><strong><font color="blue">Query Language Basics</font></strong><br><br>
+<iframe src="https://bcove.video/3zckmeE" width="400" height="225" allowfullscreen="true" alt="Intro to Wavefront Query Language"></iframe></td>
+<td><br><br>
+<p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. </p>
+</td>
+</tr>
+<tr>
+<td><strong><font color="blue">Advanced Query Language Functions</font></strong><br><br>
+<iframe src="https://bcove.video/3zckmeE" width="400" height="225" allowfullscreen="true" alt="Advanced Query Language Functions"></iframe></td>
+<td><br><br>
+<p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. </p>
+</td>
+</tr>
 </tbody>
 </table>
---->
 
 ## Step 0: What's a Query?
 
@@ -282,8 +301,6 @@ Charts for metrics also support the following types of queries:
 
 Wavefront documentation includes tutorials, reference, and guides on the query language. In addition, your Wavefront instance includes an **Interactice Query Language Explorer** dashboard.
 
-<!---
-- **[Query Language Videos](videos_query_language.html)** get you started and [Use Case Videos](wavefront_use_cases.html) show off some compelling examples.--->
 - **[Query builder](query_language_query_builder.html)** (for v1) and **[Chart builder](chart_builder.html)** (for v2) can help you come up to speed quickly while using the product.
 - If you're logged in to Wavefront, select **Integrations** in the taskbar and find the **Tutorial** or the **Tour Pro** integration. The Tutorial includes an **Interactive Query Language Explorer** dashboars that shows examples for most functions.
 - [Wavefront Query Language Reference](query_language_reference.html) lists each function and gives query language syntax element. Each function name is a link to a reference page for the function.

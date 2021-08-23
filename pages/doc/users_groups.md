@@ -20,8 +20,7 @@ Accounts can be user accounts or service accounts.
 
 This video shows how you find out the permissions you have, and how to manage permissions for users and groups.
 
-<p><a href="https://youtu.be/kQ-w-DyjW5M"><img src="/images/v_permissions_2019.png" style="width: 700px;" alt="permissions for users and groups"/></a>
-</p>
+<!--- took out link to outdated video--->
 
 Before you start with accounts and groups, here's what you need to know.
 

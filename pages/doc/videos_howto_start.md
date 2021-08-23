@@ -46,8 +46,18 @@ This page collects some videos that show basic tasks. A 90 second intro, intro v
 </td>
 <td><br><p>Users with Dashboards permissions can use Chart Builder to select metrics or histograms, apply filters and functions, select a chart type, and customize the chart.  </p> </td>
 </tr>
+<tr>
+<td><strong><font color="blue">Introduction to Alerts</font></strong><br>
+<br>
+<iframe src="https://bcove.video/3gh9rce" width="550" height="275" allowfullscreen="true" alt="chart builder video"></iframe></td>
+<td><br>
+<p>
+Jason explains first why intelligent alerts are so useful. He then explores the Alerts browser, which gives alert details such recent changes or which alerts are firing. He also shows different filtering options on the Alerts browser.</p>
+</td>
+</tr>
 </tbody>
 </table>
+
 
 <!--- Add alerts video when we have the new GUI. The following is no longer all that relevant.
 <table style="width: 100%;">

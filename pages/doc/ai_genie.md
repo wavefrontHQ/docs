@@ -13,15 +13,7 @@ summary: Learn how to use AI Genie for forecasting and anomaly detection
 
 Wavefront users are responsible for finding anomalies in their data. That task becomes harder as the amount of data increases. Wavefront already includes [anomaly detection based on statistical functions](https://docs.wavefront.com/query_language_statistical_functions_anomalies.html) such as standard deviation. AI Genie takes a different approach, offering anomaly detection based on forecasting.
 
-Wavefront chief architect and co-founder talks about AI Genie in the following two videos:
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="50%"><a href="https://youtu.be/XiSkNETTfCI" target="_blank"><img src="/images/v_anomaly_detection.png" alt="ai genie anomaly detection"/></a></td>
-<td width="50%"><a href="https://youtu.be/ypyyg0CElE4" target="_blank"><img src="/images/v_anomaly_forecasting.png"  alt="ai genie forecasting"/></a></td>
-</tr>
-</tbody>
-</table>
+Wavefront chief architect and co-founder talks about AI Genie in the following two videos <!---removing link to video. We no longer have this topic in the doc set --->
 
 **Note:** With release 2019.18, Wavefront introduced a different algorithm to perform forecasting and we now use this algorithm for forecasting in AI Genie. You can also call the corresponding [nnforecast](ts_nnforecast.html) function explicitly.
 
