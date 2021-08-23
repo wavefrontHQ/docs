@@ -112,7 +112,15 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
     <td width="80%">
       A source needs to be defined between <code>&#123;&#123;&#125;&#125;</code>.
       
-      <br/>For example, you can pass the following values as a source and any <a href="trace_data_details.html#span-tags">span tag key</a>: <code>&#123;&#123;spanName&#125;&#125;</code>, <code>&#123;&#123;sourceName&#125;&#125;</code>, <code>&#123;&#123;startMillis&#125;&#125;</code>, <code>&#123;&#123;duration&#125;&#125;</code>, and more.
+      <br/>For example, you can pass the following values and any <a href="trace_data_details.html#span-tags">span tag key</a> as a source: <br/><code>&#123;&#123;spanName&#125;&#125;</code>, <code>&#123;&#123;sourceName&#125;&#125;</code>, <code>&#123;&#123;startMillis&#125;&#125;</code>, <code>&#123;&#123;duration&#125;&#125;</code>, and more.
+    </td>
+  </tr>
+  <tr>
+    <td width="20%">
+      <b>Value</b>
+    </td>
+    <td width="80%">
+      Surround the value with double quotes (<code>""</code>).
     </td>
   </tr>
   <tr>
@@ -129,9 +137,16 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
           </li>
           <li>
             <code>equals</code>, <code>startsWith</code>, <code>contains</code>, <code>endsWith</code>, <code>matches</code>
-            <br/>For example, <code>equals</code> checks if the string specified in the value is equal to those that match the key (both strings must match exactly) and <code>matches</code> checks if the string you provide matches the comparison string (the comparison string can be a regular expression.
-
-).
+            <br/>
+            {{site.data.alerts.note}}
+            For example:
+            <ul><li>
+              <code>&#123;&#123;application&#125;&#125; equals "beachshirts"</code> is only satisfied if the value is exactly equal to <code>beachshirts</code>.
+            </li>
+            <li>
+              <code>&#123;&#123;application&#125;&#125; matches "beachshirts123"</code> is satisfied if the value matches <code>beachshirts123</code>. When using <code>matches</code>, the comparison string can be a regular expression.
+            </li></ul>
+            {{site.data.alerts.end}}
           </li>
           <li>
             <code>and</code>, <code>or</code>
@@ -141,7 +156,8 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
           </li>
           <li>
             <code>in</code>
-            For example, <code>in</code> checks if a specified value or sub string 
+            {% include note.html content="For example, <code>in</code> checks if a specified value or sub-string matches the data you are searching." %}
+            
           </li>
         </ul>
         
@@ -163,21 +179,18 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
             <code>matchesIgnoreCase</code>
           </li>
         </ul>
+        {{site.data.alerts.note}}
+
         For example: 
-        <li><code>&#123;&#123;application&#125;&#125; equalsIgnoreCase "beachshirts"</code> is equal to <code>beachshirts</code> and <code>beachShirts</code>.
-        </li>
+        <ul>
+          <li><code>&#123;&#123;application&#125;&#125; equalsIgnoreCase "beachshirts"</code> is equal to <code>beachshirts</code> and <code>beachShirts</code>.
+          </li>
         
-        <li><code>&#123;&#123;application&#125;&#125; matchesIgnoreCase "beachshirts123" </code> matches <code>beachshirts123</code> and <code>beachShirts123</code>.
-        </li>
+          <li><code>&#123;&#123;application&#125;&#125; matchesIgnoreCase "beachshirts123" </code> matches <code>beachshirts123</code> and <code>beachShirts123</code>.
+          </li>
+        </ul>
+        {{site.data.alerts.end}}
       
-    </td>
-  </tr>
-  <tr>
-    <td width="20%">
-      <b>Value</b>
-    </td>
-    <td width="80%">
-      Surround the value with double quotes (<code>""</code>).
     </td>
   </tr>
 </table>
