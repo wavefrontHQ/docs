@@ -110,8 +110,8 @@ With the drag-and-drop keyboard navigation you can rearrange:
 <tr><th width="35%">Keyboard Shortcut</th><th width="65%">Allows you to:</th></tr>
 </thead>
 <tr>
-<td><strong>Tab</strong> or <strong>Shift+Tab</strong></td>
-<td>Navigate forward and backward through the UI elements on a page level.</td>
+<td><strong>Tab</strong> and <strong>Shift+Tab</strong></td>
+<td>Navigate forward and backward through the UI elements on a page level. Also allow you to navigate through UI elements such as text boxes and the Query Editor.</td>
 </tr>
 <tr>
 <td><strong>Arrow keys</strong></td>
@@ -123,15 +123,12 @@ With the drag-and-drop keyboard navigation you can rearrange:
 </tr>
 <tr>
 <td><strong>Enter</strong></td>
-<td>Perform the action the element is meant to do. For example, if the element is a button, pressing <strong>Enter</strong> is the same as clicking the button. Pressing <strong>Enter</strong> when the element is a link, opens the link. <p> Pressing <strong>Enter</strong> in the Query Editor, enters edit mode, so that you can type a new query or edit the existing one.</p></td>
+<td>Perform the action the element is meant to do. For example, if the element is a button, pressing <strong>Enter</strong> is the same as clicking the button. Pressing <strong>Enter</strong> when the element is a link, opens the link. </td>
 </tr>
 <tr>
 <td><strong>Esc</strong> or <strong>Opt+Esc</strong> for Safari</td>
-<td>Perform different actions depending on the current selection:
-<ul>
-<li>Exit from current selection or active state, such as a text editor. </li>
-<li>Close a pop-up window or any opened menu, such as a drop-down menu, or an ellipsis icon menu. Returns you to the parent or closest interactive element if the current component disappears. Always orients you on the page post an action.</li>
-</ul></td>
+<td>Close a pop-up window or any opened menu, such as a drop-down menu, or an ellipsis icon menu. Returns you to the parent or closest interactive element if the current component disappears. Always orients you on the page post an action.
+</td>
 </tr>
 <tr>
 <td><strong>Spacebar</strong></td>
