@@ -45,7 +45,8 @@ If the [access control](access.html) for an individual dashboard or alert has be
 
 The process is very similar for dashboards and for alerts.
 
-**To grant or revoke dashboard access**
+**To grant or revoke dashboard access**:
+
 1. Navigate to the dashboard and click the Share Dashboard icon.
 
    ![share dashboard icon](images/share_dashboard_icon.png)
@@ -64,7 +65,7 @@ Wavefront supports the ability to embed an interactive chart outside of Wavefron
 
 1. Open the chart that you want to embed in the chart editor.
     1. Navigate to the dashboard in which your chart is included, click the ellipsis icon, and select **Edit**.
-    2. Click the ellipsis icon of the chart you want to embed, and select **Edit**.
+    2. Click the ellipsis icon of the chart that you want to embed, and select **Edit**.
 2. Click the embed icon (`<\>`).
 
     ![embed_chart_icon](images/embed_chart_icon.png)
@@ -73,7 +74,7 @@ Wavefront supports the ability to embed an interactive chart outside of Wavefron
 
     ![embed_chart_snippet](images/embed_chart_snippet.png)
 
-3. Copy the snippet and paste it into the desired location. You can adjust the `width` and `height` parameters.
+3. Copy the snippet by clicking the **Copy to clipboard** icon, and paste it into the desired location. You can adjust the `width` and `height` parameters.
 
 ### Allow or Deny Access to Embedded Charts
 
