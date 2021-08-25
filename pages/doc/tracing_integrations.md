@@ -14,12 +14,13 @@ You can collect [traces](tracing_basics.html#wavefront-trace-data) with Jaeger o
 Suppose you have already instrumented your application using Jaeger or Zipkin with OpenTracing or OpenTelemetry. You can continue using that system for application development, and then switch to using Wavefront by changing a few configuration settings.
 
 {{site.data.alerts.note}}
+  <p>You can use OpenTracing or OpenTelemetry to send traces to Wavefront using the Jaeger or Zipkin integration. To learn about the specification that works for you, see <a href="https://help.wavefront.com/hc/en-us/articles/360058140212-OpenTracing-or-OpenTelemetry-Which-specification-to-select-for-instrumenting-applications-for-tracing-">OpenTracing or OpenTelemetry</a>.</p>
   <ul>
     <li>
-      You can use OpenTracing or OpenTelemetry (OpenTracing and OpenCensus have merged to form OpenTelemetry) to send traces to Wavefront using the Jaeger or Zipkin integration. See <a href="opentelemetry.html">OpenTelemetry</a> for details.
+      The OpenTelemetry collector can identify data coming from applications instrumented with Jaeger or Zipkin and convert them to the Wavefront format. See <a href="opentelemetry.html">OpenTelemetry</a> to configure your application.
     </li>
     <li>
-      If you have not yet <a href="tracing_instrumenting_frameworks.html">instrumented your application for tracing</a>, consider doing so with one or more <a href="wavefront_sdks.html">Wavefront observability SDKs</a>.
+      For OpenTracing, follow the steps given below.
     </li>
   </ul>
 {{site.data.alerts.end}}

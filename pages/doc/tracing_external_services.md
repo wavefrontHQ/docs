@@ -9,7 +9,7 @@ summary: Configure your application to show external services or applications
 
 Wavefront can identify Java AWS services and Java databases in the [application map view](tracing_ui_overview.html#application-map). You can configure your OpenTracing, OpenTelemetry, or Spring Cloud Sleuth application to identify out-of-the-box external services or applications that your service communicates.
 
-{% include important.html content="OpenTelemetry is still at it is early stage. Therefore, if you want to configure external services for your OpenTelemetry application, contact [Wavefront Technical Support](wavefront_support_feedback.html#support) for help." %}
+{% include important.html content="This document shows you how to configure external services for your application instrumented with OpenTracing. If you have instrumented your application with OpenTelemetry and want to configure external services, contact [Wavefront Technical Support](wavefront_support_feedback.html#support) for help." %}
 
 
 ## Configure Out-of-the-Box AWS and Database Services

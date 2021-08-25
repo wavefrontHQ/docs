@@ -33,9 +33,9 @@ Watch these videos to listen to our Co-founder Clement Pang introduce distribute
 
 ## Instrument Your Application
 
-[OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/). 
+[OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/) and OpenTracing will be deprecated soon. 
 
-{% include note.html content="If you are new to Wavefront, we recommend that you use OpenTelemetry because OpenTracing will be deprecated soon." %}
+{% include note.html content="To learn about the specification that works for you, see [OpenTracing or OpenTelemetry](https://help.wavefront.com/hc/en-us/articles/360058140212-OpenTracing-or-OpenTelemetry-Which-specification-to-select-for-instrumenting-applications-for-tracing-)." %}
 
 ### OpenTelemetry
 
