@@ -117,7 +117,7 @@ Wavefront supports most PromQL functions and operators out of the box. There are
 </tbody>
 </table>
 
-### Best Practices
+### Best Practices 
 
 <table style="width: 100%;">
 <tbody>
@@ -127,7 +127,7 @@ Wavefront supports most PromQL functions and operators out of the box. There are
 <td width="75%">If you use the PromQL rate() function on an instant vector in Wavefront UI provide the time resolution.<br>
 <code>rate(metric[xm:ym]) </code><br>
 where x is time span length, y is the resolution, m is the time unit minute.<br><br>
-If you include the time resolution, Wavefront will automatically call align() on the translated query. If you don't include the time resolution, you might get different results depending on the monitor resolution. See <a href="ui_charts.html#chart-resolution">Chart Resolution</a> for details on how your monitor's resolution can affect how the chart looks. 
+If you include the time resolution, Wavefront will automatically call align() on the translated query. If you don't include the time resolution, you might get different results depending on the monitor resolution. See <a href="ui_charts.html#chart-resolution">Chart Resolution</a> for details on how your monitor's resolution can affect how the chart looks.
 </td></tr>
 <tr>
 <td width="25%"><strong>count_values()</strong>
