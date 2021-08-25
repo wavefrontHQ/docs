@@ -156,7 +156,9 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
           </li>
           <li>
             <code>in</code>
-            {% include note.html content="For example, <code>in</code> checks if a specified value or sub-string matches the data you are searching." %}
+            {{site.data.alerts.note}}
+            For example, <code>&#123;&#123;http.status_code&#125;&#125; in ("400", "404")</code>  is satisfied if the value is <code>400</code> or <code>404</code>. 
+            {{site.data.alerts.end}}
             
           </li>
         </ul>
