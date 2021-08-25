@@ -110,9 +110,17 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
       <b>Key</b>
     </td>
     <td width="80%">
-      A source needs to be defined between (<code>&#123;&#123;&#125;&#125;</code>). The source you define is considered a <a href="trace_data_details.html#span-tags">span tag key</a>.
+      A source needs to be defined between <code>&#123;&#123;&#125;&#125;</code>.
       
-      <br/>For example, you can pass the following values as a source and any span tag key: <code>&#123;&#123;spanName&#125;&#125;</code>, <code>&#123;&#123;sourceName&#125;&#125;</code>, <code>&#123;&#123;startMillis&#125;&#125;</code>, <code>&#123;&#123;duration&#125;&#125;</code>, and more.
+      <br/>For example, you can pass the following values and any <a href="trace_data_details.html#span-tags">span tag key</a> as a source: <br/><code>&#123;&#123;spanName&#125;&#125;</code>, <code>&#123;&#123;sourceName&#125;&#125;</code>, <code>&#123;&#123;startMillis&#125;&#125;</code>, <code>&#123;&#123;duration&#125;&#125;</code>, and more.
+    </td>
+  </tr>
+  <tr>
+    <td width="20%">
+      <b>Value</b>
+    </td>
+    <td width="80%">
+      Surround the value with double quotes (<code>""</code>).
     </td>
   </tr>
   <tr>
@@ -122,13 +130,23 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
     <td width="80%"> 
       Policy expressions can contain operations that are cases sensitive, and operations that are not case sensitive:
       
-      <br/><br/><b>Operations that are case sensitive:</b> These operations match only if the case is the same. For example, <code>&#123;&#123;application&#125;&#125; = "beachshirts"</code> matches <code>beachshirts</code> but not <code>beachShirts</code>.
+      <br/><br/><b>Operations that are case sensitive:</b> These operations match only if the case is the same. For example, <code>&#123;&#123;application&#125;&#125; = "beachshirts"</code> is equal to <code>beachshirts</code> but not <code>beachShirts</code>.
         <ul>
           <li>
             <code>=</code>, <code>></code>, <code><</code>, <code><=</code>, <code>>=</code>, <code>!=</code>
           </li>
           <li>
             <code>equals</code>, <code>startsWith</code>, <code>contains</code>, <code>endsWith</code>, <code>matches</code>
+            <br/>
+            {{site.data.alerts.note}}
+            For example:
+            <ul><li>
+              <code>&#123;&#123;application&#125;&#125; equals "beachshirts"</code> is only satisfied if the value is exactly equal to <code>beachshirts</code>.
+            </li>
+            <li>
+              <code>&#123;&#123;application&#125;&#125; matches "beachshirts123"</code> is satisfied if the value matches <code>beachshirts123</code>. When using <code>matches</code>, the comparison string can be a regular expression.
+            </li></ul>
+            {{site.data.alerts.end}}
           </li>
           <li>
             <code>and</code>, <code>or</code>
@@ -138,10 +156,14 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
           </li>
           <li>
             <code>in</code>
+            {{site.data.alerts.note}}
+            For example, <code>&#123;&#123;http.status_code&#125;&#125; in ("400", "404")</code>  is satisfied if the value is <code>400</code> or <code>404</code>. 
+            {{site.data.alerts.end}}
+            
           </li>
         </ul>
         
-      <b>Operations that are not case sensitive:</b> These operations match even if the case is not the same. For example, <code>&#123;&#123;application&#125;&#125; equalsIgnoreCase "beachshirts"</code> matches <code>beachshirts</code> and <code>beachShirts</code>.
+      <b>Operations that are not case sensitive:</b> These operations match even if the case is not the same. 
         <ul>
           <li>
             <code>equalsIgnoreCase</code>
@@ -159,15 +181,18 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
             <code>matchesIgnoreCase</code>
           </li>
         </ul>
+        {{site.data.alerts.note}}
+
+        For example: 
+        <ul>
+          <li><code>&#123;&#123;application&#125;&#125; equalsIgnoreCase "beachshirts"</code> is equal to <code>beachshirts</code> and <code>beachShirts</code>.
+          </li>
+        
+          <li><code>&#123;&#123;application&#125;&#125; matchesIgnoreCase "beachshirts123" </code> matches <code>beachshirts123</code> and <code>beachShirts123</code>.
+          </li>
+        </ul>
+        {{site.data.alerts.end}}
       
-    </td>
-  </tr>
-  <tr>
-    <td width="20%">
-      <b>Value</b>
-    </td>
-    <td width="80%">
-      Surround the value with double quotes (<code>""</code>).
     </td>
   </tr>
 </table>

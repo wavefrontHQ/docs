@@ -17,7 +17,7 @@ Let's look at the following scenarios to understand how sampling works in Wavefr
     
 Not all the trace data that you send to Wavefront are useful. Once traces are sent to Wavefront, Wavefront identifies the important traces and those that add value to you and retains them. This process is known as [Intelligent Sampling](#wavefront-intelligent-sampling).
 
-However, when intelligent sampling is on, you might not see some traces when you search for them on the traces browser. If you want to have specific trace data in Wavefront and don't want the traces to be discarded, use [Sampling Policies](#sampling-policies). With a sampling policy in place, Wavefront does not perform intelligent sampling on the data.
+However, when intelligent sampling is on, you might not see some traces when you search for them on the traces browser. If you want to have specific trace data in Wavefront and don't want the traces to be discarded, use [Sampling Policies](#sampling-policies). With a sampling policy in place, Wavefront does not perform intelligent sampling on the data sampled by the sampling policy
 
 Creating a sampling policy affects your cost as you store more data within Wavefront. Therefore, only a <a href="authorization.html#who-is-the-super-admin-user">Super Admin user</a> or users with <a href="permissions_overview.html">Applications permissions</a> can create sampling policies.
 
@@ -72,7 +72,7 @@ You can [monitor](wavefront_monitoring.html#using-internal-metrics-to-optimize-p
 
 ## Sampling Policies
 
-If you can’t find traces in Wavefront because Intelligent Sampling discarded them, create a sampling policy to let Wavefront know that you want to keep specific traces in Wavefront. Creating a sampling policy affects your costs because you store more data within Wavefront. See the [Service Description](https://www.vmware.com/download/eula/wavefront-terms-of-service.html) for cost details.
+If you can’t find traces in Wavefront because Intelligent Sampling discarded them, create a sampling policy to let Wavefront know that you want to keep specific traces in Wavefront. Creating a sampling policy affects your costs because you store more data within Wavefront. See your Service Description for cost details.
 
 See [Managing Sampling Policies](trace_sampling_policies.html) for details.
 
