@@ -32,7 +32,7 @@ Learn about getting data into Wavefront and get background info on time series a
 <td><strong><font color="blue">Time Series and Interpolation</font></strong><br>
 <a href="https://youtu.be/9LnDszVrJs4"  target="_blank"><img src="/images/v_interpolation.png" alt="time series and interpolation"/></a></td>
 <td><br>
-<p>Interpolation means that Wavefront creates pseudo data points if data are reported at different intervals. To support aggregation of multiple series--e.g. sum()--Wavefront . Wavefront performs automatic alignment data for very large intervals using mean(), but you can select the summarization function. The raw aggregation function include only actual data points--no automatic interpolation is performed. </p>
+<p>Interpolation means that Wavefront creates pseudo data points if data are reported at different intervals. To support aggregation of multiple series--e.g. sum()--Wavefront . Wavefront performs automatic alignment data for very large intervals using mean(), but you can select the summarization function. The raw aggregation function includes only actual data points--no automatic interpolation is performed. </p>
 </td>
 </tr>
 <tr>

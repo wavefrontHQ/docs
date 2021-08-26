@@ -6,13 +6,13 @@ sidebar: doc_sidebar
 permalink: videos_tags_searches.html
 summary: Use tags and searches to quickly find what you need.
 ---
-Jason's videos show how you use tags and searches in the UI to find what you need. Clement's video explains how to use tagging in Wavefront.
+The following videos show how to use tags and searches in the UI to find what you need. Clement's video explains how to use tagging in Wavefront.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="50%"><strong><font color="blue">Searching in Wavefront</font></strong><br><br>
-<iframe src="https://bcove.video/2UnQFZ0" width="550" height="275" allowfullscreen="true" alt="Task-based videos show many different search options"></iframe>
+<iframe src="https://bcove.video/2UnQFZ0" width="550" height="275" allowfullscreen="true" alt="Task-based video shows many different search options"></iframe>
 </td>
 <td width="50%"><br>
 <p>Learn how to do sophisticated and fine-grained searches in the Wavefront GUI.  </p>
