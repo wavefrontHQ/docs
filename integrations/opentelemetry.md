@@ -118,6 +118,8 @@ If your application uses OpenTelemetry, you can configure the application to sen
 
 **Note**: To learn about the specification that works for you, see [OpenTracing or OpenTelemetry](https://help.wavefront.com/hc/en-us/articles/360058140212-OpenTracing-or-OpenTelemetry-Which-specification-to-select-for-instrumenting-applications-for-tracing-).
 
+**Important**: OpenTelemetry is still at its early stage. Therefore, if you run into issues when configuring Wavefront with OpenTelemetry, contact [Wavefront Technical Support](wavefront_support_feedback.html#support) for help.
+
 Here's how it works:
 {% include image.md src="images/tracing_opentelemetry_trace_exporter_data.png" width="100" %}
 
