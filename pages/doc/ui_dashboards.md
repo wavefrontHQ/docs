@@ -441,38 +441,38 @@ After you've saved these changes:
 
 ## Ensure Optimal Dashboard Performance
 
-Wavefront can ingest and process very large amounts of data -- and if you're smart about the data shape and the queries in your charts, dashboard peformance is good. By following a few simple guidelines, you can ensure optimal dashbard performance.
+Wavefront can ingest and process very large amounts of data -- and if you're smart about the data shape and the queries in your charts, dashboard performance is good. By following a few simple guidelines, you can ensure optimal dashboard performance.
 
 * **Specify a time parameter with missing data functions.**
 
   Use [missing data functions](query_language_reference.html#missing-data-functions) with a specific time parameter. Missing data functions such as `default()`, `last()` and `next()` handle gaps or delays in metrics. If you don't explicitly specify a time window and delay time, Wavefront applies the default value for every second and for gaps up to 28 days. This impacts performance of the query and the dashboard. 
 
-  * Faster: `default([<timeWindow>,] [<delayTime>,] <defaultValue>, <tsExpression>)`
-  * Slower: `default(0, <tsExpression>)`
+  * **Faster**: `default([<timeWindow>,] [<delayTime>,] <defaultValue>, <tsExpression>)`
+  * **Slower**: `default(0, <tsExpression>)`
  
 * **Use filters to be as specific as possible in queries**
  
   Be as specific in your queries as possible, for better information and faster results. [Filtering functions](query_language_reference.html#filtering-and-comparison-functions) are useful to narrow down the query space. For example, if a query filters metrics by source, the query returns faster because Wavefront knows which metrics to fetch.
 
   * Faster: `ts(user.metric, source="db-1" and env="prod")` has the relevant information Wavefront needs.
-  * Slower: `ts(user.metric and not env="dev")` is more expensive. With `and not` Waverfront has to search through everything matching 'user.metric' which does not have a `env=prod` tag.
+  * Slower: `ts(user.metric and not env="dev")` is more expensive. With `and not` Waverfront has to search through everything matching `user.metric` which does not have an`env=prod` tag.
 
   Filter in the base query instead of using an advanced filtering function.
  
-  * Faster: `sum(ts(user.metric, source=app-1)))`
-  * Slower: `retainSeries(sum(ts(user.metric)), source=app-1))`
+  * **Faster**: `sum(ts(user.metric, source=app-1)))`
+  * **Slower**: `retainSeries(sum(ts(user.metric)), source=app-1))`
 
 
 * **Avoid wildcards in queries when possible**
 
-  [Wildcards](query_language_reference.html#partial-regex-wildcards-aliases-and-variables) in queries can result in many time series on a chart, which can be confusing and affect performance. If wildcards make sense for your use case, use delimiters and don't use a wildcard at the beginning of a query.
+  [Wildcards](query_language_reference.html#partial-regex-wildcards-aliases-and-variables) in queries can result in many time series on a chart, which can be confusing and affect performance. If wildcards make sense for your use case, use delimiters, and don't use a wildcard at the beginning of a query.
 
-  * Faster: Use delimiters around wildcards. `ts(‘abc.*.xyz’)` is faster than `ts(“abc*xyz”)`
-  * Slower: Don't use a wildcard at the beginning of a query `ts("*abc.xyz")`
+  * **Faster**: Use delimiters around wildcards. `ts(‘abc.*.xyz’)` is faster than `ts(“abc*xyz”)`
+  * **Slower**: Don't use a wildcard at the beginning of a query `ts("*abc.xyz")`
 
 * **Avoid interpolation when aggregating or working with multiple time series**
 
-  When you use [aggregation functions](query_language_aggregate_functions.html), Wavefront estimates values between reported points to get an aggregation that's as accurate as possible. That process is called *[interpolation](query_language_discrete_continuous.html#functions-that-use-interpolation-to-create-continuous-data)*. It can be computationally expensive and dashboards can take a long time to load. You can improve performance, you have these options.
+  When you use [aggregation functions](query_language_aggregate_functions.html), Wavefront estimates values between reported points to get an aggregation that's as accurate as possible. That process is called *[interpolation](query_language_discrete_continuous.html#functions-that-use-interpolation-to-create-continuous-data)*. It can be computationally expensive, and dashboards can take a long time to load. You can improve performance with these options.
 
   - Use the `align()` function to first align the metrics to exactly the same points in time and then use aggregation functions, for example `sum(align(1m, <tsExpression>))`
  
@@ -480,7 +480,7 @@ Wavefront can ingest and process very large amounts of data -- and if you're sma
 
 * **Set the default time window of a dashboard to match your needs**
 
-  By default, Wavefront uses a 2 hour time window for dashboards. You might need to see more data, for example, zoom out to see 12 hours or even a week or more. However, a larger time window means that more metrics have to be fetched from the backend, and eventually, performance suffers.
+  By default, Wavefront uses a 2-hour time window for dashboards. You might need to see more data, for example, zoom out to see 12 hours or even a week or more. However, a larger time window means that more metrics have to be fetched from the backend, and eventually, performance suffers.
 
   * If you're interested in past data, don't zoom out but specify the [time window](ui_examine_data_v1.html#set-the-dashboard-time-window) you need.
   * Consider using [time functions](query_language_reference.html#standard-time-functions) in your queries to see exactly what you need.  
@@ -490,8 +490,8 @@ Wavefront can ingest and process very large amounts of data -- and if you're sma
   Querying metrics and querying events are different tasks. However, by default each chart displays all source events and system events as black points or stars at the bottom of each chart. Those events queries affect dashboard performance.
 
   Here's what you can do:
-  * Select an individual chart, click the **Format** tab, and unselect **Display Source Events**.
-  * To adjust events for the whole dashboard, use the **Show Events** dropdown in the top right.
+  * Select an individual chart, click the **Format** tab, and deselect **Display Source Events**.
+  * Adjust events for the whole dashboard by using the **Show Events** dropdown in the top right.
 
   See [Control Event Overlays](charts_events_displaying.html#control-event-overlays) for details and screenshots.
 
@@ -506,6 +506,5 @@ Wavefront can ingest and process very large amounts of data -- and if you're sma
 
 The Customer Success team prepared these KB articles to troubleshoot problems with dashboards.
 * [How to Recover an Inaccessible Dashboard](https://help.wavefront.com/hc/en-us/articles/360055292751-How-to-Recover-an-Inaccessible-Dashboard)
-* [How to Improve Dashboard Performance](https://help.wavefront.com/hc/en-us/articles/360050810991-How-to-improve-dashboard-performance)
 * [How to Identify Unused Dashboards](https://help.wavefront.com/hc/en-us/articles/360060967432-How-to-Identify-Unused-Dashboards)
 * [How to Audit Dashboard Changes](https://help.wavefront.com/hc/en-us/articles/360055676911-How-to-Audit-Dashboard-and-Alert-Changes)

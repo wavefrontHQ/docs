@@ -211,11 +211,11 @@ The behavior differences between standard and raw apply to all aggregation funct
 
 ## Aggregation Best Practice -- When to Use Raw or Aggregated Data
 
-Your use case and data shape determines whether running queries over raw data or over aggrated data makes more sense.
+Your use case and data shape determines whether running queries over raw data or over aggregated data makes more sense.
 
 * Use aggregated data if you want quick and precise results for all points in time in which at least one time series reported.
-* Use raw data if you aggregate over a large search space (many time series, long time)--the system has to perform *interpolation* (see above), and that can affect query performance.
-* As a compromise, consider calling `align()` before applying a raw aggregation functions, for example, `rawsum(align(1m, ts("my_data")))`
+* Use raw data if you aggregate over a large search space (many time series, long time). When the system has to perform *interpolation* (see above) over a large search space, query performance can suffer.
+* As a compromise, consider calling `align()` before applying raw aggregation functions, for example, `rawsum(align(1m, ts("my_data")))`
 
 
 Here are some details:
@@ -226,15 +226,15 @@ Interpolation requires additional resources. Using a non-raw aggregation functio
 
 ### Are Skipped Values Common in the Data You're Analyzing?
 
-Consider whether your time series have natural gaps, and what you want to do for those cases. For example, suppose you want to aggregate the number of errors reported across multiple time series. Does the time series report 0 at regular intervals when no errors occur or skip the reporting interval?
+Consider whether your time series have natural gaps and what you want to do for those cases. For example, suppose you want to aggregate the number of errors reported across multiple time series. Does the time series report 0 at regular intervals when no errors occur or skip the reporting interval?
 * If the time series reports 0 when there's no value, you don't need interpolation and can safely use the raw aggregation function.
-* Otherwise, you'll have to consider whether you want interpolation, that is, "pretend" there is a value even though there is no value -- or possibly change the data sources to report 0 is a solution.
+* If the time series skips the reporting interval, consider whether you want interpolation, that is, "pretend" there is a value even though there is no value -- or possibly change the data sources to report 0 is a solution.
 
 ### Are Reporting Intervals Staggered?
 
 If reporting intervals are staggered, non-raw aggregation (and interpolation) can give you quick value.
 
-For example, suppose you're evaluating 10 time series over a 1 hour window. Each time series reports once per minute, but they don't report at the same time (align). Using a non-raw aggregation function you can get interpolation and a fast result.
+For example, suppose you're evaluating 10 time series over a 1 hour window. Each time series reports once per minute, but they don't report at the same time (align). By using a non-raw aggregation function you can get interpolation and a fast result.
 
 If, in that same scenario, you're evaluating 1000 time series over a 1 week time window, a large data set results and interpolation might impact performance. For that case, you can use `align()` together with a raw aggregation function to get the benefit of aligned data without the performance hit of interpolation, for example:
 ```
