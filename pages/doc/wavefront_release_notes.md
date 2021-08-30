@@ -17,7 +17,7 @@ This page lists new and updated features in the Wavefront service.
 
 * **Maintenance Mode Improvements**:
    - You can specify point tags when filtering alerts that you want to set to maintenance mode.
-   - You can specify [alternate targets to notify](maintenance_windows_managing.html#step-3-specify-alternate-alert-targets) during a maintenance mode.
+   - You can specify [alternate targets to notify](http://docs-dev.wavefront.com/maintenance_windows_managing.html#step-3-optional-specify-alternate-alert-targets) during a maintenance mode.
 
 
 ## 2021-28.x Release Notes
