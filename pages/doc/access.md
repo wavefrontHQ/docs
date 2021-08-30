@@ -69,14 +69,19 @@ Initially, all users can *view* all dashboards and alerts. In addition, global p
 * Users with **Dashboards** permission can modify all dashboards.
 * Users with **Alerts** permission can modify all alerts.
 
-Administrators can restrict access for new dashboards and alerts:
+As an administrator, you can restrict access for new dashboards and alerts:
 
 1. Click the gear icon <i class="fa fa-cog"/> on the taskbar, and select **Organization Settings**.
 2. Click the **Security** tab and select **Grant Modify Access To: Object Creator**
 
 After the change, access to new dashboards and new alerts is initially limited to the dashboard creator and the Super Admin users. Those users can share the objects with other groups or individual users by giving View access or View & Modify access.
 
-{% include note.html content="A change to an Organization Setting applies only to dashboards and alerts created after the change. If you change the setting to **Creator**, only new dashboards and alerts have restricted access. If you later change the setting to **Everyone**, all dashboards and alerts that were created while the setting was **Creator** keep the restricted access." %}
+{% include note.html content="A change to an Organization Setting applies only to dashboards and alerts created after the change. If you change the setting to **Object Creator**, only new dashboards and alerts have restricted access. If you later change the setting to **Everyone**, all dashboards and alerts that were created while the setting was **Object Creator** keep the restricted access." %}
+
+You can also grant access for new dashboards and alerts to Service Accounts:
+
+1. Click the gear icon <i class="fa fa-cog"/> on the taskbar, and select **Organization Settings**.
+2. Click the **Security** tab, select **Grant Modify Access To:  Everyone** and **Service Accounts**.
 
 ## Making Orphan Dashboards or Alerts Visible
 

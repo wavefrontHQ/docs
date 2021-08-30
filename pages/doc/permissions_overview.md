@@ -22,7 +22,7 @@ The following list gives an overview of permissions. To learn more, click the li
 - **[Alerts](alerts.html)** 
 
     Users with **Alerts** permission can create, edit, and delete alerts as well as maintenance windows, manage alert tags and view alert history, and create, edit, and delete alert targets.
-    {% include note.html content="If the **Security** organization setting is set to Creator, **View** access or **View & Modify** access to new alerts has to be granted explicitly." %}
+    {% include note.html content="If the **Security** organization setting is set to Object Creator, **View** access or **View & Modify** access to new alerts has to be granted explicitly." %}
     
 - **[Applications](tracing_apdex.html)** 
 
@@ -40,7 +40,7 @@ The following list gives an overview of permissions. To learn more, click the li
 
     Users with **Dashboard** permission can create, manage, and delete all dashboards and charts and manage dashboard tags.
    
-    {% include note.html content="If the **Security** organization setting is set to Creator, **View** access or **View & Modify** access to new dashboards has to be granted explicitly." %}
+    {% include note.html content="If the **Security** organization setting is set to Object Creator, **View** access or **View & Modify** access to new dashboards has to be granted explicitly." %}
    
  - **[Derived Metrics](derived_metrics.html)** 
      

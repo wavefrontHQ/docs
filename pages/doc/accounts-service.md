@@ -12,14 +12,15 @@ A service account can be used to automate management of objects such as dashboar
 
 {% include note.html content="A service account must have **permissions** to perform tasks. To run queries, a service account must have **Metrics** permission. To manage dashboards and alerts, the service account might need both permissions and [access](access.html)." %}
 
+With the 2021-NN.x release all Service Accounts are created in a separate predefined **Service Accounts** group and no longer belong to the **Everyone** group. All Service Accounts that were created previously, will be marked with the `(Existing)` suffix.
 
 ## What Are Service Accounts?
 
 Service accounts are used for automating management tasks.
 
 * A service account uses a **token** to authenticate.
-* Each account is automatically added to the **Everyone** group. If a role is assigned to that group, the service account gets the permissions from that role.
-* Service account can be added to any group to get that group's role (and permissions).
+* Each account is automatically added to the **Service Accounts** group. If a role is assigned to that group, the service account gets the permissions from that role.
+* Service accounts can be added to any group to get that group's role (and permissions).
 
 As an administrator, you generate (and revoke, if needed) authentication tokens for the service account. It’s also possible to deactivate a service account completely. 
 
@@ -67,7 +68,7 @@ Tokens</td>
 <tr>
 <td>
 Groups</td>
-<td>By default, service accounts are added to the <strong>Everyone</strong> group and you cannot remove them. If you assign roles to the <strong>Everyone</strong> group, all the service accounts get the permissions associated with that role. You can also add a service accounts to other groups. </td></tr>
+<td>Starting with the .... release, service accounts are added to the <strong>Service Accounts</strong> group. If you assign roles to the <strong>Everyone</strong> group, all the service accounts get the permissions associated with that role. You can also add a service accounts to other groups. </td></tr>
 <tr>
 <td>Roles</td>
 <td>Roles for the service account. Roles are sets of permissions. You can create one or two roles and use those roles only for service accounts. </td></tr>
