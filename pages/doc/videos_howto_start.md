@@ -12,7 +12,7 @@ This page collects some videos that show basic tasks. A 90 second intro, intro v
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="70%"><strong><font color="blue">Wavefront Introducton</font></strong><br>
+<td width="70%"><strong><font color="blue">Wavefront Introduction</font></strong><br>
 <br>
 <iframe src="https://bcove.video/2AiJk2v" width="550" height="275" allowfullscreen="true" alt="Wavefront intro how-to"></iframe></td>
 <td width="30%"><br><p>This 90 second introduction shows how Wavefront users create dashboards and charts, add alerts, and include histograms and spans in observability results. </p> </td>

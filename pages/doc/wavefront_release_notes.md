@@ -13,6 +13,13 @@ This page lists new and updated features in the Wavefront service.
 * For the latest changes and releases of the **Wavefront Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For  **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## 2021-33.x Release Notes
+
+* **Maintenance Mode Improvements**:
+   - You can specify point tags when filtering alerts that you want to set to maintenance mode.
+   - You can specify [alternate targets to notify](maintenance_windows_managing.html#step-3-specify-alternate-alert-targets) during a maintenance mode.
+
+
 ## 2021-28.x Release Notes
 
  * **Anomaly Detection on Charts**: With this release, we deprecate the support of AI Genie and replace it with the new [**Anomaly Detection**](anomaly_detection.html) feature, which is available for Line Plot chats.
