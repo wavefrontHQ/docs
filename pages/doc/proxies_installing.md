@@ -19,7 +19,7 @@ We offer several [deployment options](proxies.html#proxy-deployment-options). Du
 - Memory - The proxy does not use a lot of CPU, memory, or storage. However, we recommend running the proxy on a host with at least 4GB of free memory.
 - CPU - A standalone proxy can easily handle up to 40K PPS (points per second). If you're sending more, use [multiple proxies behind a load balancer](proxies.html#production-environment-team-of-proxies--load-balancer).
 - Operating system - Wavefront proxy is a Java application and can run on operating systems supported by Java. Java 8 or later is required, the latest version of Java is recommended.
-- Other - Maven
+- Other - Maven 
 
 <a name="single"></a>
 
