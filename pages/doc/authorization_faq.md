@@ -47,16 +47,28 @@ Wavefront groups do *not* currently synchronize with groups in your identity pro
 
 ### What's the Everyone Group?
 
-All accounts (user and service accounts) are members of the Everyone group.
+All user accounts are members of the Everyone group.
 
 Here's what you need to know:
 
-* You cannot remove accounts from the Everyone group. All accounts, including Super Admin, are always in the Everyone group.
+* You cannot remove accounts from the **Everyone** group. All user accounts, including Super Admin, are always in the Everyone group.
 * You cannot delete the Everyone group.
-* You can change the roles assigned to the Everyone group. By default, the group has associated roles, which means that human users can browse data but cannot modify anything. Service accounts cannot browse data.
+* You can change the roles assigned to the **Everyone** group. By default, the group has associated roles, which means that human users can browse data but cannot modify anything. 
 
-  **Warning** If you assign a role to the Everyone group, you change the permissions for each account in your environment, including service accounts.
-* If you use access control in your environment, you can share a dashboard or alert with the Everyone group to:
+  **Warning** If you assign a role to the **Everyone** group, you change the permissions for each user account in your environment.
+* If you use access control in your environment, you can share a dashboard or alert with the **Everyone** group to:
   - Give View & Modify access to accounts who have **Dashboards** or **Alerts** permissions.
   - Give View access to accounts who don't have **Dashboards** or **Alerts** permissions.
   You can remove the Everyone group from a dashboard or alert access list to limit access to that object.
+  
+  
+### What's the Service Accounts Group?
+
+With the 2021-MNO.xx release, all service accounts are moved out of the **Everyone** group and are members of the **Service Accounts** group. This separation is necessary so that you have different groups for the different types of accounts in your system. 
+
+The **Service Accounts** group has associated roles and by default service accounts cannot browse data. If you assign a role to the **Service Accounts** group, you change the permissions for each service account in your environment.
+
+
+
+
+  

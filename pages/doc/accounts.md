@@ -76,3 +76,27 @@ When you invite a new (human) user to Wavefront, what that new user can do depen
 
 - **New User Permissions:** Users with **Accounts, Groups & Roles** permission can view and modify new user default permissions. To do that, from the gear icon <i class="fa fa-cog"/> on the taskbar, select **Organization Settings**. These permissions *do not* apply to service accounts.
 - **New User Default Groups:** Users with **Accounts, Groups & Roles** permission can set up a default groups for new users. To do that, from the gear icon <i class="fa fa-cog"/> on the taskbar, select **Organization Settings**.  All new user accounts get all permissions assigned to the default user groups. These permissions *do not* apply to service accounts.
+
+## Set Default Permissions for New Users
+
+You can set default permissions for new users. By default, all new users can perform a set of new user actions discussed above. In addition, you can create a set of default permissions that are assigned to every new user added to the system later on:
+
+1. Click the gear icon <i class="fa fa-cog"/> on the taskbar and select **Organization Settings**.
+2. On the **New Accounts Defaults** tab select the set of permissions you want to grant to new users.
+
+The default permissions affect only new user accounts that you create after you made the change. They do not affect service accounts.
+
+**Note:** In many cases, it makes sense to create a group with permissions for new users, and to set that group as the default for new users.
+
+## Set the Default User Group for New Users
+
+Each new user is assigned to the Everyone group.
+
+To add any new user to additional groups:
+
+1. Click the gear icon <i class="fa fa-cog"/> on the taskbar and select **Organization Settings**.
+2. In the **Default User Groups** text box:
+  * Start typing the name of additional groups to add groups.
+  * Click the **x** next to a group name to remove a group. You cannot remove the Everyone group.
+
+Going forward, new users are added to the group. They get the group's permissions and any permissions set as **New User Default Permissions**.

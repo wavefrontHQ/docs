@@ -66,15 +66,14 @@ When you invite a (human) user to Wavefront, what that new user can do depends o
 - **New User Permissions:** Users with Accounts, Groups & Roles permission can view and modify new user default permissions from the Organization Settings menu item available from gear icon. These permissions *do not* apply to service accounts.
 - **New User Default Groups:** Users with Accounts, Groups & Roles permission can set up a default groups for new users from the Organization Settings menu item available from the gear icon. All new user accounts get all permissions assigned to the default user groups. These permissions *do not* apply to service accounts.
 
-<!---Too much detail
 ## Set Default Permissions for New Users
 
 You can set default permissions for new users. By default, all new users can perform a set of new user actions discussed above. In addition, you can create a set of default permissions that are assigned to every new user added to the system from that point on:
 
 1. Click the gear icon and select **Organization Settings**.
-2. Click **New User Defaults** and check the set of permissions you want to grant to new users.
+2. Click **New Accounts Defaults** and select the set of permissions you want to grant to new users.
 
-The default permissions affect new user accounts that you create after you made the change.
+The default permissions affect only new user accounts that you create after you made the change. They do not affect service accounts.
 
 **Note:** In many cases, it makes sense to create a group with permissions for new users, and to set that group as the default for new users.
 
