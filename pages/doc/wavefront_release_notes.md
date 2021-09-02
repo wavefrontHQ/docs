@@ -19,7 +19,7 @@ This page lists new and updated features in the Wavefront service.
 
   See [Ensure Optimal Dashboard Performance](ui_dashboards.html#ensure-optimal-dashboard-performance) for suggestions on how you can improve performance even more.
 
-* More stuff
+  {% include note.html content="This feature is rolled out to customers incrementally in the next few weeks"%}
 
 
 ## 2021-33.x Release Notes
