@@ -547,6 +547,13 @@ All operations between `tsExpression`s are subject to the matching processes des
 <li markdown="span">`[<]`, `[<=]`, `[>]`, `[>=]`, `[=]`, `[!=]`: Perform strict 'inner join' versions of the comparison operators. Strict operators match metric/source/point tag combinations on both sides of the operator and filter out unmatched combinations.</li>
 </ul>
 
+
+{% include tip.html content="In addition to the operators above, you can also use the operators `.lt`, `.gt`, `.le`, `.ge`, `.eq`, and `.ne`. See [Queries for Comparing Time Series](query_language_recipes.html#queries-for-comparing-time-series)." %}
+
+{% include tip.html content="In some cases, series matching with point tags results in no data because not all of the tags exist on both sides of the operator. You can use the **by** construct to perform matching using the element of your choice to get results for those series. See [Series Matching with the by Construct](query_language_series_matching.html#series-matching-with-the-by-construct)." %}
+
+
+
 <li markdown="span">**Examples**</li>
 <ul>
 <li markdown="span">`(ts(my.metric) > 10) and (ts(my.metric) < 20)` returns 1 if `my.metric` is between 10 and 20. Otherwise, returns 0.</li>
