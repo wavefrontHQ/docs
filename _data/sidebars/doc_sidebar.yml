@@ -794,6 +794,10 @@ entries:
           - title: Use Wavefront Top or Spy to Investigate Traffic
             url: /wavefront_monitoring_spy.html
             output: web
+            
+          - title: Examine Ingestion Breakdown
+            url: /ingestion_policies.html
+            output: web
 
         - title: Best Practices
           output: web
@@ -806,3 +810,8 @@ entries:
           - title: Obsolescence and Remediation
             url: /wavefront_obsolescence_policy.html
             output: web
+            
+          - title: Finding Ingestion and Query Problems
+            url: /monitoring_overview.html
+            output: web
+        

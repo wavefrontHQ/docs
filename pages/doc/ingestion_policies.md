@@ -50,10 +50,10 @@ Administrators with **Accounts, Groups & Roles** permission can go the Ingestion
 
 ### All Users
 
-All users can go to the
+All users can go to the Ingestion Breakdown dashboard and explore the policies.
 
 1. Find the Wavefront Usage integration.
-   1. Select **Integrations** in the menu bar, type **Wavefront Usage**, and select the integration.
+   1. Click **Integrations** in the yaskbar, type **Wavefront Usage**, and click the integration tile.
    2. Click **Dashboards** and select **Wavefront Ingestion Policy Explorer**.
 2. Use the dashboard to explore the policies.
 
@@ -63,6 +63,6 @@ Here's a simple example we've used in our demos:
 
 ## Export Usage Data
 
-You can export usage data in CSV format from the Ellipsis menu in the top right. The resulting file has all the information available in the current dashboard. Use the time picker to change the information you export.
+You can export usage data in CSV format. Click the ellipsis icon in the top right and select **Expot CSV**. The resulting file has all the information available in the current dashboard. Use the time picker to change the information you export.
 
 ![export ingestion data](images/export_ingestion_data.png)
