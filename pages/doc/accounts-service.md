@@ -10,9 +10,9 @@ summary: Create and manage service accounts.
 
 A service account can be used to automate management of objects such as dashboards, alerts, etc. A service account can't perform the **UI operations** that all user accounts can [perform by default](user-accounts.html#what-can-a-new-user-do). There's no limit on the number of service accounts that you can create in your organization. 
 
-{% include note.html content="A service account must have **permissions** to perform tasks. To run queries, a service account must have **Metrics** permission. To manage dashboards and alerts, the service account might need both permissions and [access](access.html)." %}
+{% include note.html content="Service accounts have no permissions by default. As an administrator, you must explicitly grant each service account only the permission required for the task that’s being automated (least required privilege). That ensures that permissions for service accounts are always very limited. Service accounts do not have the view permissions that user accounts have by default. A service account must have **permissions** to perform tasks. To run queries, a service account must have **Metrics** permission. To manage dashboards and alerts, the service account might need both permissions and [access](access.html)." %}
 
-With the 2021-NN.x release all Service Accounts are created in a separate predefined **Service Accounts** group and no longer belong to the **Everyone** group. All Service Accounts that were created previously, will be marked with the `(Existing)` suffix.
+With the 2021-NN.x release all Service Accounts are created in a separate predefined **Service Accounts** group and no longer belong to the **Everyone** group. All Service Accounts that were created previously are marked with the `(Existing)` suffix. 
 
 ## What Are Service Accounts?
 
