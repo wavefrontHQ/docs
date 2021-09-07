@@ -645,6 +645,10 @@ entries:
           - title: Offline Traces
             url: /tracing_view_offline_traces.html
             output: web
+            
+          - title: Sampling Policies
+            url: /trace_sampling_policies.html
+            output: web
 
           - title: Configure Apdex Settings
             url: /tracing_apdex.html
