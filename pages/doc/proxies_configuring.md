@@ -1126,12 +1126,34 @@ Ex: 40</td>
 
 ## Configure a Proxy in a Docker Container
 
-You can use the in-product Docker with cAdvisor or Kubernetes integration if you want to set up a proxy in a container. You can then customize that proxy.
+You can configure a proxy in a Docker container by running one of the following commands:
 
-{%include note.html content ="This section deals primarily with Docker. For Kubernetes, see the Kubernetes integration and [Kubernetes doc pages](label_kubernetes.html) "%}
+**dockerhub:**
+```
+docker run -d -e WAVEFRONT_URL=https://<myinstance>.wavefront.com/api/ -e
+WAVEFRONT_TOKEN=YOUR_API_TOKEN -p 2878:2878 wavefronthq/proxy:latest
+```
+
+**Harbor:**
+```
+docker run -d -e WAVEFRONT_URL=https://<myinstance>.wavefront.com/api/ -e
+WAVEFRONT_TOKEN=YOUR_API_TOKEN -p 2878:2878 projects.registry.vmware.com/tanzu_observability/proxy:latest
+```
+
+For both commands:
+
+* WAVEFRONT_TOKEN is the API token for the account
+* &lt;myinstance&gt; is the URL of the Wavefront instance, for example, `https://example.wavefront.com`
+* The proxy uses port 2878 by default. The proxy configuration file supports setting explicit ports for different kinds of metrics.
+
 
 ### Proxy Versions for Containers
-For containers, the proxy image version is determined by the `image` property in the configuration file. You can set this to `image: wavefronthq/proxy:latest`, or specify a proxy version explicitly.
+
+For containers, the proxy image version is determined by the `image` property in the configuration file. You have these choices:
+* Use `image: wavefronthq/proxy:latest` for an image on dockerhub
+* Use `projects.registry.vmware.com/tanzu_observability/proxy:latest` for an image on Harbor
+* Specify a proxy version explicitly in the proxy configuration file.
+
 The proxies are not stateful. Your configuration is managed in your `yaml` file. It's safe to use  `proxy:latest` -- we ensure that proxies are backward compatible.
 
 ### Restrict Memory Usage for a Docker Container
@@ -1237,3 +1259,21 @@ For either method, the service must return a 2xx code for valid tokens. Accordin
 </tr>
 </tbody>
 </table>
+
+<!---
+## Troubleshooting
+
+**TOKEN EXPIRED Proxy Error**
+
+**Symptom**: When you select **Browse > Metrics**, the corresponding proxy shows up as `TOKEN EXPIRED`
+**Cause**: This error usually means that the account that owned the token was disabled, for example, if a user left a company.
+**Resolution**: Create a new proxy for those metrics.
+
+See the following KB articles for additional proxy troubleshooting help.
+
+* [Orphaned Proxy Instances in Tanzu Observability by Wavefront UI](https://help.wavefront.com/hc/en-us/articles/360060591732-Orphaned-Proxy-instances-in-Tanzu-Observability-UI)
+* [How to Enable Proxy Health Checks for Tanzu Observability by Wavefront](https://help.wavefront.com/hc/en-us/articles/360058952572-How-to-enable-Tanzu-Observability-Proxy-Health-Checks-)
+* [How to Chain Proxies](https://help.wavefront.com/hc/en-us/articles/360056083472-How-to-Proxy-Chain)
+* [Validating Metrics Received at the Proxy](https://help.wavefront.com/hc/en-us/articles/360054622132-Validating-metrics-received-at-the-proxy)
+* [Common Tanzu Observability by Wavefront Proxy Log Messages](https://help.wavefront.com/hc/en-us/articles/360050483312-Common-Tanzu-Observability-by-Wavefront-Proxy-Log-Messages)
+--->
