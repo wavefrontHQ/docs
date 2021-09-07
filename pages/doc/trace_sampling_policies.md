@@ -77,7 +77,7 @@ To create a sampling policy:
         <td markdown="span">
           The policy is in effect when it is in the active state. Once the policy is active, it affects your costs as you store more data within Wavefront. 
           
-          <br/>To see the number of spans stored per second after a sampling policy is created, see <a href="#track-volume-of-trace-data-stored-in-wavefront">Track Volume of Trace Data Stored in Wavefront</a>.
+          <br/>To see the number of spans stored per second after a sampling policy is created, see <a href="trace_data_sampling.html#track-the-volume-of-trace-data-stored-in-wavefront">Track Volume of Trace Data Stored in Wavefront</a>.
         </td>
       </tr>
     </table>
