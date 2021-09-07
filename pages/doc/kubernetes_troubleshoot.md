@@ -14,6 +14,19 @@ Depending on your setup, you typically deploy the following components into your
 
 Once deployed, the collector instances gather data at regular intervals from various sources and send the data to Wavefront via the Wavefront proxy.
 
+## Known Issues
+
+This section focuses on known issues that cannot be fixed, for example, because of an issue with Kubernetes itself. Other issues are usually addressed by the team quickly and are not listed here.
+
+### Pod in terminating state with flapping metrics
+
+**Problem:** Sometimes Kubernetes leaves pods in a terminating state indefinitely. If that happens, the reported metrics for the pod might oscillate (flap) between their actual values and zero.
+
+**Cause:** The oscillation occurs at the kubelet summary API. The root cause is currently unknown.
+
+**Solution:** Forcibly delete the pod that is stuck in the terminating state.
+
+
 ## Troubleshoot Using the Wavefront Collector Dashboard
 
 The Wavefront Collector emits [internal metrics](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/metrics.md#collector-health-metrics) that you can use to troubleshoot issues.

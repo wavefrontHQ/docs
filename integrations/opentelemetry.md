@@ -31,13 +31,17 @@ This tutorial uses the OpenTelemetry Collector demo. For steps on how to configu
 1. If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, install a proxy.
 1. Configure the demo application to send trace data to the OpenTelemetry Collector.
 
-    1. Clone the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector.git).{% raw %}
+    1. Clone the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib.git).{% raw %}
         ```
-        git clone https://github.com/open-telemetry/opentelemetry-collector.git
+        git clone https://github.com/open-telemetry/opentelemetry-collector-contrib.git
         ```
 {% endraw %}
-    1. Open the opentelemetry-collector/example/demo/[prometheus.yaml](https://raw.githubusercontent.com/open-telemetry/opentelemetry-collector/master/examples/demo/prometheus.yaml) file and add the following configurations.
-      {% raw %}
+    1. Navigate to the opentelemetry-collector-contrib/examples/demo directory via the terminal.{% raw %}
+        ```
+        cd opentelemetry-collector-contrib/examples/demo/
+        ```
+{% endraw %}
+    1. Open the `prometheus.yaml` file and add the following configurations.{% raw %}
         ```yaml
         remote_write:
           - url: "http://<enter your IP address>:1234/receive"
@@ -46,12 +50,6 @@ This tutorial uses the OpenTelemetry Collector demo. For steps on how to configu
       
         **Note**: The IP address and port configured in the prometheus.yaml file needs to match configurations in the Prometheus Storage Adapter configured in Step 3 below.
     
-    1. Navigate to the opentelemetry-collector/example/demo directory via the terminal.{% raw %}
-        ```
-        cd opentelemetry-collector/example/demo/
-        ```
-{% endraw %}
-        
     1. Run `docker-compose up -d` to start the OpenTelemetry Collector and Prometheus Server. The Prometheus server is exposed on port `9090`.
 
 1. Send the data from the OpenTelemetry Collector to the Wavefront Prometheus integration. This adapter takes the data and forwards it to a Wavefront proxy. 
@@ -117,6 +115,8 @@ Once you have configured your OpenTelemetry Collector to send metric data to Wav
 If your application uses OpenTelemetry, you can configure the application to send trace data to Wavefront using the Tanzu Observability (Wavefront) trace exporter. When the data is in Wavefront, you can use our tracing dashboards to visualize any request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time, and discover problems.
 
 **Note**: To learn about the specification that works for you, see [OpenTracing or OpenTelemetry](https://help.wavefront.com/hc/en-us/articles/360058140212-OpenTracing-or-OpenTelemetry-Which-specification-to-select-for-instrumenting-applications-for-tracing-).
+
+**Important**: OpenTelemetry is still at its early stage. Therefore, if you run into issues when configuring Wavefront with OpenTelemetry, contact [Wavefront Technical Support](wavefront_support_feedback.html#support) for help.
 
 Here's how it works:
 {% include image.md src="images/tracing_opentelemetry_trace_exporter_data.png" width="100" %}

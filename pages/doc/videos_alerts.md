@@ -46,7 +46,7 @@ Jason explains first why intelligent alerts are so useful. He then explores the 
 <iframe src="https://bcove.video/3m7AM4x" width="550" height="275" allowfullscreen="true" alt="create a maintenance window video by Jason"></iframe>
 </td>
 <td><br>
-<p>Maintenance windows stop alerts from firing, reducing distraction for recipients and resulting an faster problem resolution. Watch Jason set a maintenance window so that an alert won't send notifications when you're in the process of doing an upgrade or solving a problem.</p>
+<p>Maintenance windows stop alerts from firing, reducing distraction for recipients and resulting in faster problem resolution. Watch Jason set a maintenance window so that an alert won't send notifications when you're in the process of doing an upgrade or solving a problem.</p>
 </td>
 </tr>
 </tbody>
