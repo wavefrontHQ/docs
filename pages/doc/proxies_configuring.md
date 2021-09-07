@@ -27,6 +27,9 @@ By default, proxy files are installed in the following locations.
   - Linux - `/var/log/wavefront`
   - Mac - `/usr/local/var/log/wavefront`
   - Windows - `C:\Program Files (x86)\Wavefront`
+  - For Docker containers, see [logging info on docs.docker.com](https://docs.docker.com/engine/reference/commandline/logs/).
+
+See [Logging](#logging) for details on log files and content.
 - `<wavefront_spool_path>`
   - Linux - `/var/spool/wavefront-proxy`
   - Mac - `/usr/local/var/spool/wavefront-proxy`
