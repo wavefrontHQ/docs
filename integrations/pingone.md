@@ -29,8 +29,8 @@ After setting up the PingOne integration, users can authenticate to Wavefront th
      - Click **Continue to Next Step**.
 4. On the Configuration page, enter the application configuration details: 
      - **Protocol Version** - Select SAML 2.0 from the list.
-     - **Assertion Consumer Service** - https://YOUR_CLUSTER.wavefront.com/api/saml/login/
-     - **Entity ID** - https://YOUR_CLUSTER.wavefront.com
+     - **Assertion Consumer Service** - https://YOUR_CLUSTER.wavefront.com:443/api/saml/login/
+     - **Entity ID** - https://YOUR_CLUSTER.wavefront.com:443
      - **Signing Algorithm** - RSA_SHA256
      - Click **Continue to Next Step**
 5. Review the configuration details and click **Save & Exit**.

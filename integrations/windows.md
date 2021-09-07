@@ -18,7 +18,7 @@ In addition to setting up the metrics flow, this integration also installs a das
 
 
 
-This integration uses various Telegraf input plugins. You can install the Wavefront proxy and Telegraf agent on the same host or on separate hosts.
+This integration uses various Telegraf input plugins. You can install the Wavefront proxy and Telegraf agent on the same host or on separate hosts. For proxy installation prerequisites, see the [Proxy Host Requirements](https://docs.wavefront.com/proxies_installing.html#proxy-host-requirements).
 
 Supported Version(s): Windows 8 and up
 
