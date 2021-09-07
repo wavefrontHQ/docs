@@ -1260,14 +1260,14 @@ For either method, the service must return a 2xx code for valid tokens. Accordin
 </tbody>
 </table>
 
-<!---
 ## Troubleshooting
 
-**TOKEN EXPIRED Proxy Error**
+**TOKEN EXPIRED Error**
 
-**Symptom**: When you select **Browse > Metrics**, the corresponding proxy shows up as `TOKEN EXPIRED`
-**Cause**: This error usually means that the account that owned the token was disabled, for example, if a user left a company.
-**Resolution**: Create a new proxy for those metrics.
+**Symptom**: When you select **Browse > Proxies**, you see a `TOKEN EXPIRED` error.
+**Cause**: This error usually means that the account that owned the token was disabled, for example, because a user left a company. Tokens do not actually expire. We're working on improving the message.
+**Resolution**: Create a new token for those metrics and update the proxy config file to use that new token.
+
 
 See the following KB articles for additional proxy troubleshooting help.
 
@@ -1276,4 +1276,3 @@ See the following KB articles for additional proxy troubleshooting help.
 * [How to Chain Proxies](https://help.wavefront.com/hc/en-us/articles/360056083472-How-to-Proxy-Chain)
 * [Validating Metrics Received at the Proxy](https://help.wavefront.com/hc/en-us/articles/360054622132-Validating-metrics-received-at-the-proxy)
 * [Common Tanzu Observability by Wavefront Proxy Log Messages](https://help.wavefront.com/hc/en-us/articles/360050483312-Common-Tanzu-Observability-by-Wavefront-Proxy-Log-Messages)
---->
