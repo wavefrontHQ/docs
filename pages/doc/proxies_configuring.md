@@ -111,7 +111,7 @@ You can log all the raw blocked data separately or log different entities into t
         ```
     {%include tip.html content ="You must update both the `<wavefront_log_path>/log4j2.xml` file and the `<wavefront_config_path>/wavefront.conf` file to get separate log files for blocked entities."%}
 
-    <a name="docker"></a>
+
 
 
 
@@ -1150,8 +1150,8 @@ For both commands:
 ### Proxy Versions for Containers
 
 For containers, the proxy image version is determined by the `image` property in the configuration file. You have these choices:
-* Use `image: wavefronthq/proxy:latest` for an image on dockerhub
-* Use `projects.registry.vmware.com/tanzu_observability/proxy:latest` for an image on Harbor
+* Use `wavefronthq/proxy:latest` for an image on dockerhub.
+* Use `projects.registry.vmware.com/tanzu_observability/proxy:latest` for an image on Harbor.
 * Specify a proxy version explicitly in the proxy configuration file.
 
 The proxies are not stateful. Your configuration is managed in your `yaml` file. It's safe to use  `proxy:latest` -- we ensure that proxies are backward compatible.
