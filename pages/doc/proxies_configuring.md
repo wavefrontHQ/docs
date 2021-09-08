@@ -1219,7 +1219,7 @@ In order for data sent via HTTP to the proxy to be accepted, the request will ne
 </table>
 
 
-### Authentication Method HTTP_Get or OAUTH2 
+### Authentication Method HTTP_Get or OAUTH2  
 
  Required properties: `authTokenIntrospectionServiceUrl`
 
