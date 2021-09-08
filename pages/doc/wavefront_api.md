@@ -74,7 +74,7 @@ Wavefront allows [user accounts](user-accounts.html) and [service accounts](serv
 
 #### Generate an API Token for a Service Account
 
-You generate API tokens for [service accounts](service-accounts.html) upon creation. You can also generate an API token at a later stage. To generate an API token for an existing **service account**:
+As a Wavefront administrator you generate API tokens for [service accounts](service-accounts.html) upon creation. You can also generate an API token at a later stage. To generate an API token for an existing **service account**:
 
 1. In the Wavefront UI, click the gear icon <i class="fa fa-cog"/>  at the top right of the taskbar and select **Account Management**.
 2. On the **Service Accounts** tab, click the ellipsis icon next to the service account for which you want to generate an API token, and select **Edit**.
