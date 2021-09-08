@@ -1265,12 +1265,13 @@ For either method, the service must return a 2xx code for valid tokens. Accordin
 
 ## Troubleshooting
 
-**TOKEN EXPIRED Error**
+### TOKEN EXPIRED Error
 
-**Symptom**: When you select **Browse > Proxies**, you see a `TOKEN EXPIRED` error.
-**Cause**: This error usually means that the account that owned the token was disabled, for example, because a user left a company. Tokens do not actually expire. We're working on improving the message.
-**Resolution**: Create a new token for those metrics and update the proxy config file to use that new token.
+- **Symptom**: When you select **Browse > Proxies**, you see a `TOKEN EXPIRED` error.
+- **Cause**: This error usually means that the account that owned the token was disabled, for example, because a user left a company. Tokens do not actually expire. We're working on improving the message.
+- **Resolution**: Create a new token for those metrics and update the proxy config file to use that new token.
 
+### KB Articles
 
 See the following KB articles for additional proxy troubleshooting help.
 
