@@ -304,12 +304,6 @@ You select an operation to display traces with at least one span that represents
 </tbody>
 </table>
 
-**Wildcard Selection**
-
-You can select `*` instead of name components to select all operations in a service, or all operations in all services:
-
-![tracing query builder operation menu](images/tracing_query_builder_operation_menu_all.png)
-
 ### Add Filters
 
 After you have selected an operation, you can optionally add filters to further describe the traces you want to see. You can add different types of filters in any order.
@@ -334,8 +328,12 @@ After you have selected an operation, you can optionally add filters to further 
 Use this type for indexed tags that your application uses, typically `cluster`, `shard`, `component`, `source`, and so on.</td>
 </tr>
 <tr>
-<td markdown="span">**RawTag**</td>
-<td markdown="span">Traces that have at least one span with a specified tag, for example, `env="prod"`. Use this type for custom or unindexed span tags.</td>
+<td markdown="span">**UnindexedTag**</td>
+<td markdown="span">Traces that have customized span tags. For details, see [Indexed and Unindexed Span Tags](trace_data_details.html#indexed-and-unindexed-span-tags).</td>
+</tr>
+<tr>
+<td markdown="span">**Source**</td>
+<td markdown="span">Traces that are sent by the a specfic host or container on which the applications or services run.</td>
 </tr>
 <tr>
 <td markdown="span">**SpanLog**</td>
