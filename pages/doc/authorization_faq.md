@@ -47,7 +47,7 @@ Wavefront groups do *not* currently synchronize with groups in your identity pro
 
 ### What's the Everyone Group?
 
-All user accounts are members of the **Everyone** group.
+All user accounts are members of the **Everyone** group. By default, no service account is added to this group. All service accounts are added to the **Service Accounts** group.
 
 Here's what you need to know:
 

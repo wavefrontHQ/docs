@@ -119,4 +119,4 @@ To add any new service accounts to additional groups:
   * Start typing the name of additional groups to add groups.
   * Click the **x** next to a group name to remove a group. You cannot remove the Service Accounts group.
 
-Going forward, new service accounts are added to the group.
+Going forward, new service accounts are added to this group.
