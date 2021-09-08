@@ -11,9 +11,13 @@ summary: Reference to the default() function
 default([<timeWindow>,] [<delayTime>,] <defaultValue>, <tsExpression> [.orElse<defaultIfNoData>])
 ```
 
-Fills in gaps in the time series described by `tsExpression`, by inserting data points with the value `defaultValue`. Specify `timeWindow` to fill in data for just a limited period of time after each existing point. Specify `delayTime` to allow a gap before the inserted data.
+Fills in gaps in the time series described by `tsExpression`, by inserting data points with the value `defaultValue`.
+* Specify `timeWindow` to fill in data for just a limited period of time after each existing point.
+* Specify `delayTime` to allow a gap before the inserted data.
 
-{% include note.html content="Despite its apparent simplicity, the `default()` function is one of the most misunderstood functions in Wavefront's query language. See the **Caveats** section below for recommendations" %}
+{% include important.html content="If you don't specify a `timeWindow`, we apply the default value for every second and fill gaps up to 28 days. Performance of queries and dashboards can deteriorate." %}
+
+{% include important.html content="Despite its apparent simplicity, the `default()` function is one of the most misunderstood functions in Wavefront's query language. See the **Caveats** section below for recommendations." %}
 
 
 
