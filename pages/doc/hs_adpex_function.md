@@ -78,7 +78,7 @@ Use the basic or advanced query format.
       `4T`
     </td>
     <td>
-      Tolerating threshold. If you don't specify the value, Wavefront uses T*4. The values are in microseconds. 
+      Tolerating threshold. If you don't specify the value, Wavefront uses T*4.
       {{site.data.alerts.note}}
         Wavefront does not save the value you define for the tolerating threshold (4T).
       {{site.data.alerts.end}}
