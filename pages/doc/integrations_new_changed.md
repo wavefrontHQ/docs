@@ -8,6 +8,13 @@ summary: New and changed Wavefront integrations.
 ---
 Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
+## September 2021
+
+Made improvements to the following integrations and dashboards in September 2021:
+
+* Linux Host -- Updated the summary section to use Gauge charts and fixed some errors in a couple of charts.
+* Mac Host -- Updated the summary section to use Gauge charts and fixed some errors in a couple of charts. 
+
 ## August 2021
 
 Made improvements to the following integrations and dashboards in August 2021:

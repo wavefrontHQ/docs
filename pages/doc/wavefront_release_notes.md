@@ -13,7 +13,7 @@ This page lists new and updated features in the Wavefront service.
 * For the latest changes and releases of the **Wavefront Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For  **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
-## 2021-34.x Release Notes
+## 2021-34.x Release Notes 
 
 * **UI performance improvements**: We’ve done extensive revamp of the rendering code for dashboards and charts. Measurements show improvements on all dashboards, some up to 50% faster. Improvements will be especially noticable in dashboards with many line charts or point plots.
 
