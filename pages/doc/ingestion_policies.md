@@ -19,7 +19,7 @@ Ingestion policies allow you to group accounts and then examine their usage in t
 ### Permissions
 
 Users with **Accounts, Groups & Roles** permission can create ingestion policies and add user accounts or service accounts.
-* Each account can belong to only one policy at a time. That way, you never count usage of a account twice.
+* Each account can belong to only one policy at a time. That way, you never count usage of an account twice.
 * You can add user accounts and service accounts to the same policy.
 
 ### Unassigned Policy
@@ -53,7 +53,7 @@ Administrators with **Accounts, Groups & Roles** permission can go the Ingestion
 All users can go to the Ingestion Breakdown dashboard and explore the policies.
 
 1. Find the Wavefront Usage integration.
-   1. Click **Integrations** in the yaskbar, type **Wavefront Usage**, and click the integration tile.
+   1. Click **Integrations** in the taskbar, type **Wavefront Usage**, and click the integration tile.
    2. Click **Dashboards** and select **Wavefront Ingestion Policy Explorer**.
 2. Use the dashboard to explore the policies.
 
@@ -63,6 +63,6 @@ Here's a simple example we've used in our demos:
 
 ## Export Usage Data
 
-You can export usage data in CSV format. Click the ellipsis icon in the top right and select **Expot CSV**. The resulting file has all the information available in the current dashboard. Use the time picker to change the information you export.
+You can export usage data in CSV format. Click the ellipsis icon in the top right and select **Export CSV**. The resulting file has all the information available in the current dashboard. Use the time picker to change the information you export.
 
 ![export ingestion data](images/export_ingestion_data.png)

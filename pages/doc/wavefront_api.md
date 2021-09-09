@@ -58,21 +58,30 @@ a411c16b-3cf7-4f03-bf11-8ca05aab898d
 ```
 Wavefront allows [user accounts](user-accounts.html) and [service accounts](service-accounts.html) to use the [Wavefront REST API](wavefront_api.html).
 
-{% include tip.html content="You generate user account tokens explicitly, discussed below. For service accounts, you can generate tokens with the specified permissions from the Service Accounts page. " %}
+{% include tip.html content="You generate user account tokens explicitly. For service accounts, you can generate tokens with specified permissions from the Service Accounts page. " %}
 
-To generate an API token for your account:
+#### Generate an API Token for a User Account
 
-1. In the Wavefront UI, click the gear icon <i class="fa fa-cog"/>  at the top right of the taskbar and select your username.
-2. At the bottom of your user profile, locate the section **API Access**.
-3. Click **Generate**. You can have up to 2 tokens at any given time.
-   If you want to generate a new token but already have two tokens, then you must revoke one of the existing tokens.
-4. To revoke a token, click the **Revoke** link next to the token. If you run a script that uses a revoked token, the script returns an authorization error.
+1. In the Wavefront UI, click the gear icon <i class="fa fa-cog"/>  at the top right of the taskbar and select your user name.
+2. On the **API Access** tab, click **Generate**. You can have up to 20 tokens at any given time.
+   If you want to generate a new token but already have 20 tokens, then you must revoke one of the existing tokens.
+3. To revoke a token, click the **Revoke** button next to the token. If you run a script that uses a revoked token, the script returns an authorization error.
 
 ![Generate API Token](/images/generate_token.png)
 
 
 {% include warning.html content="Do not share your API token with anyone. The token provides full access to the API. Accounts that have the token can authenticate without a username/password."%}
 
+#### Generate an API Token for a Service Account
+
+As a Wavefront administrator you generate API tokens for [service accounts](service-accounts.html) upon creation. You can also generate an API token at a later stage. To generate an API token for an existing **service account**:
+
+1. In the Wavefront UI, click the gear icon <i class="fa fa-cog"/>  at the top right of the taskbar and select **Account Management**.
+2. On the **Service Accounts** tab, click the ellipsis icon next to the service account for which you want to generate an API token, and select **Edit**.
+3. To generate a new token, in the Tokens section, click **Generate**. You can have up to 20 tokens per service account at any given time.
+   If you want to generate a new token but already have 20 tokens, then you must revoke one of the existing tokens.
+4. To revoke a token, click the **Revoke** button next to the token. Revoking a token cannot be undone. 
+5. Select the appropriate permissions for the service account and click **Update**.
 
 
 

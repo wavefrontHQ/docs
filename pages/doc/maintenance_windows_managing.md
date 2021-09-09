@@ -27,7 +27,7 @@ You can snooze an alert, so it doesn't fire even if the condition is met. Wavefr
 To snooze or unsnooze one or more alerts:
 <ol><li>Click <strong>Alerting</strong> from the taskbar. </li>
 <li>Select the check boxes next to the alerts that you want to snooze.</li>
-<li>Click the <strong>Snooze</strong> dropdown menu and select the desired duration.</li>
+<li>Click the <strong>Snooze</strong> drop-down menu and select the desired duration.</li>
 <li>To unsnooze the alerts, click <strong>Unsnooze</strong>.</li>
 </ol></td>
 <td width="50%"><img src="/images/snooze_unsnooze_alert.png" alt="Alert browser with alert selected and Snooze menu"></td>
@@ -71,7 +71,7 @@ Watch this video for an introduction to maintenance windows:
 
 Creating a maintenance window consists of these simple steps discussed below:
 
-1. Specify required information including description and start and end dates.
+1. Specify required information, including description and start and end dates.
 2. Narrow down the scope. By default, no alerts fire during the maintenance window. You can target only specific alerts, for example, alerts for sources or environments that will be in maintenance.
 3. Optionally, specify one or more alternate alert targets. By default, no notifications are sent during the maintenance window.
 
@@ -98,7 +98,7 @@ Specify one or more of the following:
 <li><strong>Source Tags: </strong>Type one or more source tag names to suppress any alert on a source that has a matching <a href="tags_overview.html">source tag</a>. </li>
 </ul>
 
-[set maintenance window scope](/images/maint_window_2.png)
+![set maintenance window scope](/images/maint_window_2.png)
 
 #### Step 3 (Optional): Specify Alternate Alert Targets
 

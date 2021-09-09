@@ -59,8 +59,8 @@ Account ID</td>
 Tokens</td>
 <td>List of API tokens that the service account can use to authenticate to Wavefront.
 <ul><li>Click the <strong>Edit</strong> icon to change the token name. </li>
-<li>Click <strong>Revoke</strong> to revoke the token. Any service accounts that use the token can no longer authenticate to Wavefront. </li>
-<li>Click <strong>Generate</strong> to generate additional tokens. Having multiple active tokens makes it possible to revoke some tokens. For example, if the service connects to several proxies, you can generate a token to connect to each proxy. You can revoke the token for one proxy but leave the others. </li>
+<li>Click <strong>Revoke</strong> to revoke a token. Any service account that uses the token can no longer authenticate to Wavefront. </li>
+<li>Click <strong>Generate</strong> to generate additional tokens. Having multiple active tokens makes it possible to revoke some tokens. For example, if the service connects to several proxies, you can generate a token to connect to each proxy. You can revoke the token for one proxy but leave the others. You can have up to 20 API tokens per service account at any given time.</li>
 <li>Click the <strong>Copy to Clipboard</strong> icon to copy the token for pasting.</li>
 </ul></td>
 </tr>
