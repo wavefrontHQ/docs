@@ -72,7 +72,7 @@ You can [monitor](wavefront_monitoring.html#using-internal-metrics-to-optimize-p
 
 ## Sampling Policies
 
-If you can’t find traces in Wavefront because Intelligent Sampling discarded them, create a sampling policy to let Wavefront know that you want to keep specific traces in Wavefront. Creating a sampling policy affects your costs because you store more data within Wavefront. See your Service Description for cost details.
+If you can’t find traces in Wavefront because Intelligent Sampling discarded them, create a sampling policy to let Wavefront know that you want to keep specific spans in Wavefront. Creating a sampling policy affects your costs because you store more data within Wavefront. See your Service Description for cost details.
 
 See [Managing Sampling Policies](trace_sampling_policies.html) for details.
 

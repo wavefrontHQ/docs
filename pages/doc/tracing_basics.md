@@ -103,7 +103,7 @@ You can export traces from Wavefront, save them locally as JSON files, and view 
 
 ### Create a Sampling policy
 
-Wavefront intelligent sampling reduces the volume of ingested traces. The goals of intelligent sampling are to retain traces that are likely to be informative. But sometimes intelligent sampling discards traces that you want to keep. You can [create a sampling policy](trace_sampling_policies.html) to fine-tune intelligent sampling and let Wavefront know that you want to keep certain traces.
+Wavefront intelligent sampling reduces the volume of ingested traces. The goals of intelligent sampling are to retain traces that are likely to be informative. But sometimes intelligent sampling discards traces that you want to keep. You can [create a sampling policy](trace_sampling_policies.html) to fine-tune intelligent sampling and let Wavefront know that you want to keep certain spans.
 
 ![Shows a screenshot of the sampling polices user interface](images/tracing_sampling_policies.png)
 

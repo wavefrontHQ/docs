@@ -13,9 +13,16 @@ This page lists new and updated features in the Wavefront service.
 * For the latest changes and releases of the **Wavefront Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For  **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## 2021-35.x Release Notes 
+
+* **Sampling Policies**: Can’t find traces in Wavefront because Intelligent Sampling discarded them? Create a sampling policy to let Wavefront know that you want to keep specific traces in Wavefront. Creating a sampling policy affects your costs because you store more data within Wavefront. See [Managing Sampling Policies](trace_sampling_policies.html) for details.
+
+* **Documentation Improvements**: Reorganized the distributed tracing content to include OpenTelemetry.
+  {% include important.html content="OpenTelemetry is still at it is early stage. Therefore, if you run into issues when configuring Wavefront with OpenTelemetry, contact [Wavefront Technical Support](wavefront_support_feedback.html#support) for help." %}
+
 ## 2021-34.x Release Notes 
 
-* **UI performance improvements**: We’ve done extensive revamp of the rendering code for dashboards and charts. Measurements show improvements on all dashboards, some up to 50% faster. Improvements will be especially noticable in dashboards with many line charts or point plots.
+* **UI performance improvements**: We’ve done extensive revamp of the rendering code for dashboards and charts. Measurements show improvements on all dashboards, some up to 50% faster. Improvements will be especially noticeable in dashboards with many line charts or point plots.
 
   See [Ensure Optimal Dashboard Performance](ui_dashboards.html#ensure-optimal-dashboard-performance) for suggestions on how you can improve performance even more.
 
