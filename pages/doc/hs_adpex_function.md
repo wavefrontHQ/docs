@@ -65,7 +65,7 @@ Use the basic or advanced query format.
       Satisfied threshold.
       <ul>
         <li>
-          If you don't specify the value, it uses the value you define under <a href="tracing_apdex.html#configure-the-threshold-t-value">Application Configurations</a> or the default value of 100 micro seconds. 
+          If you don't specify the value, it uses the value you define under <a href="tracing_apdex.html#configure-the-threshold-t-value">Application Configurations</a> or the default value of 100 microseconds. 
         </li>
         <li>
           If you specify the value, it overrides the value you define under Application Configurations. The values are in microseconds. For example, if you enter 200, it indicates 200 microseconds.
