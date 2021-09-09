@@ -31,19 +31,19 @@ Learn about the Wavefront query language and how you can use PromQL queries in W
 <td><strong><font color="blue">Advanced Query Language Functions</font></strong><br><br>
 <iframe src="https://bcove.video/3zckmeE" width="400" height="225" allowfullscreen="true" alt="Advanced Query Language Functions"></iframe></td>
 <td><br><br>
-<p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. </p>
-</td>
-</tr>
-<tr>
-<td><strong><font color="blue">Wavefront and Prometheus Query Language</font></strong><br>
-<iframe src="https://bcove.video/3tLRB6l" width="400" height="225" allowfullscreen="true" alt="Wavefront and PromQL"></iframe></td>
-<td><br>
 <p>Jason explores query language functions using the following examples:
 <ul>
 <li>The percentile() function in 3 queries shows different percentiles for a query.</li>
 <li>The mpercentile() (moving percentile) function displays percentile over a 30 minute window.</li>
 <li>A chart variable in a query that shows the standard deviation.</li>
 </ul></p>
+</td>
+</tr>
+<tr>
+<td><strong><font color="blue">Wavefront and Prometheus Query Language</font></strong><br>
+<iframe src="https://bcove.video/3tLRB6l" width="400" height="225" allowfullscreen="true" alt="Wavefront and PromQL"></iframe></td>
+<td><br>
+<p>With the 2021-17.x release, we've expanded the limited PromQL support and we've added admin-level organization setting to determine whether a user can write in PromQL. We have also added full support for creating charts and alerts with PromQL queries. Watch this video to learn how to create charts and alerts by using PromQL.</p>
 </td>
 </tr>
 </tbody>

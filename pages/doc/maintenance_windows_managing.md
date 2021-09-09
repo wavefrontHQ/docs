@@ -4,7 +4,7 @@ keywords: alerts
 tags: [alerts, videos]
 sidebar: doc_sidebar
 permalink: maintenance_windows_managing.html
-summary: Learn how snooze an alert, and how to use maintenance windows to prevent alerts from firing when systems are undergoing maintenance.
+summary: Learn how to snooze an alert, and how to use maintenance windows to prevent alerts from firing when systems are undergoing maintenance.
 ---
 
 You can prevent alerts from firing by using one of the following techniques:
@@ -27,7 +27,7 @@ You can snooze an alert, so it doesn't fire even if the condition is met. Wavefr
 To snooze or unsnooze one or more alerts:
 <ol><li>Click <strong>Alerting</strong> from the taskbar. </li>
 <li>Select the check boxes next to the alerts that you want to snooze.</li>
-<li>Click the <strong>Snooze</strong> dropdown and select the desired duration.</li>
+<li>Click the <strong>Snooze</strong> drop-down menu and select the desired duration.</li>
 <li>To unsnooze the alerts, click <strong>Unsnooze</strong>.</li>
 </ol></td>
 <td width="50%"><img src="/images/snooze_unsnooze_alert.png" alt="Alert browser with alert selected and Snooze menu"></td>
@@ -36,7 +36,7 @@ To snooze or unsnooze one or more alerts:
 <td width="50%">
 To snooze or unsnooze a single alert:
 <ol><li>Click <strong>Alerting</strong> from the taskbar. </li>
-<li>Click the ellipsis icon on the left of the alert and select <strong>Snooze &gt; Duration</strong>.</li>
+<li>Click the ellipsis icon on the left of the alert and select <strong>Snooze &gt; &lt;Duration&gt;</strong>.</li>
 <li>To unsnooze the alert, click the ellipsis icon on the left of the alert and select <strong>Unsnooze</strong>.</li>
 </ol></td>
 <td width="50%"><img src="/images/snooze_single.png" alt="Alert ellipsis menu with Snooze selected and snooze time options"></td>
@@ -58,7 +58,7 @@ You can:
 
 To view and manage maintenance windows, select **Browse > Maintenance Windows**.
 
-<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view maintenance windows, you must have [Alert Management permission](permissions_overview.html) to [manage](maintenance_windows_managing.html) maintenance windows. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
+<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view maintenance windows, you must have the [Alert Management permission](permissions_overview.html) to [manage](maintenance_windows_managing.html) maintenance windows. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
 
 Watch this video for an introduction to maintenance windows:
@@ -71,9 +71,9 @@ Watch this video for an introduction to maintenance windows:
 
 Creating a maintenance window consists of these simple steps discussed below:
 
-1. Specify required fields including description and start and end dates.
-2. Narrow down the scope. By default, no alerts fire during the maintenance window. You can target only alerts specific alerts, for example, alerts for sources or environments that will be in maintenance.
-<!---3. Optionally, specify an alternate alert target during the maintenance window. By default, no notifications are sent during the maintenance window.--->
+1. Specify required information, including description and start and end dates.
+2. Narrow down the scope. By default, no alerts fire during the maintenance window. You can target only specific alerts, for example, alerts for sources or environments that will be in maintenance.
+3. Optionally, specify one or more alternate alert targets. By default, no notifications are sent during the maintenance window.
 
 #### Step 1: Specify Required Maintenance Window Fields
 
@@ -93,24 +93,23 @@ Specify one or more of the following:
 
 <ul>
 <li><strong>Alert Tags: </strong>Type one or more alert tag names to suppress any alert that has one or more specified <a href="tags_overview.html">alert tags</a>. All alerts are included if you don't specify alert tags. </li>
-<!---<li><strong>Point Tags: </strong>Suppress any alert that has the specified alert tags and one or more specified point tag. Example: "dev".</li>--->
+<li><strong>Point Tags: </strong>Suppress any alert that has the specified alert tags and one or more specified point tag. Example: "dev".</li>
 <li><strong>Sources: </strong>Type one or more source names to suppress any alert on a source that has a matching source. Example: "app-14"</li>
 <li><strong>Source Tags: </strong>Type one or more source tag names to suppress any alert on a source that has a matching <a href="tags_overview.html">source tag</a>. </li>
 </ul>
 
-<!---![set maintenance window scope](/images/maint_window_2.png)
+![set maintenance window scope](/images/maint_window_2.png)
 
-#### Step 3: Specify Alert Notification Behavior
+#### Step 3 (Optional): Specify Alternate Alert Targets
 
-By default, no alert notifications are sent during the maintenance window. The alert is mute. You can instead specify alternate alert target(s) to notify during the maintenance window.
+By default, no alert notifications are sent during the maintenance window. The alert is mute. You can instead specify alternate alert targets to notify during the maintenance window.
 
 ![set maintenance window alert notification behavior](/images/maint_window_3.png)
 
---->
 
 ### Maintenance Window Example
 
-Suppose you have a group of alerts that are used primarily as demo examples. These alerts have [alert tag paths](alerts.html#step-5-organize-related-alerts-with-tags) like `example.latency.dev`, `example.latency.prod`, `example.network.dev`, `example.network.prod`, and so on.
+Suppose you have a group of alerts that are used primarily as demo examples. These alerts have [alert tag paths](alerts.html#step-5-organize-related-alerts-with-tags) such as `example.latency.dev`, `example.latency.prod`, `example.network.dev`, `example.network.prod`, and so on.
 
 To suppress the example alerts, you create a maintenance window as shown above, and fill in `Affected Alerts and Sources` according to your use case:
 
@@ -121,7 +120,7 @@ To suppress the example alerts, you create a maintenance window as shown above, 
   - In **Affected Alert Tags**, specify the tag path `example.*.prod`.
   - In **Affected Sources**, specify `app-1`.
 
-* To suppress just the example latency alerts from firing either on a source that has the source tag `EastCoastSources` or on the source named `app-1`:
+* To suppress just the example latency alerts from firing either on a source that has the source tag `EastCoastSources`, or on the source named `app-1`:
   - In **Affected Alert Tags**, specify the tag path `example.latency.*`.
   - In **Affected Source Tags**, specify the source tag `EastCoastSources`.
   - In **Affected Sources**, specify `app-1`.
@@ -139,7 +138,7 @@ You can extend the duration of a maintenance window. To extend one or more maint
 <td width="60%">
 <ol><li>Select <strong>Browse > Maintenance Windows</strong>. </li>
 <li>Select the check boxes next to the maintenance windows to be extended.</li>
-<li>Click the <strong>Extend</strong> drop-down menu and select the desired duration and confir.</li>
+<li>Click the <strong>Extend</strong> drop-down menu and select the desired duration and confirm.</li>
 </ol></td>
 <td width="40%"><img src="/images/extend_maintenance_window.png" alt="extend menu with extend time choices"></td>
 </tr>
@@ -170,8 +169,8 @@ Suppose an alert condition tests the metrics that flow from sources `app-1`, `ap
 
 1. [Add a source tag](tags_overview.html#add-source-tags) such as `decommissioned` to `app-2` when you are ready to take that source out of service.
 2. Modify the alert condition to include `and not tag=decommissioned`, for example:
-  ```ts(~sample.cpu.usage.percentage, source=app-* and not tag=decommissioned) > .5 ```
+  ```ts(~sample.cpu.usage.percentage, source=app-* and not tag=decommissioned) > .5 ```.
 
 ## Learn More!
 
-* To learn how to use point tags for maintenance windows, see [this KB article](https://help.wavefront.com/hc/en-us/articles/360058003411-How-to-Use-Point-Tags-for-Maintenance-Windows)
+* To learn more about using point tags for maintenance windows, see [this KB article](https://help.wavefront.com/hc/en-us/articles/360058003411-How-to-Use-Point-Tags-for-Maintenance-Windows)

@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: videos_tracing.html
 summary: Learn about our tracing implementation and watch a demo.
 ---
-Wavefront supports distributed tracing with third-party apps such as Jaeger or you can instrument your app with one of the Wavefront SDKs. Watch these videos for more.
+Wavefront supports distributed tracing with third-party apps such as Jaeger or you can instrument your app with one of the Wavefront SDKs. Watch these videos for more information.
 
 
 <table style="width: 100%;">
@@ -27,7 +27,7 @@ Wavefront supports distributed tracing with third-party apps such as Jaeger or y
 </tr>
 <tr>
 <td width="35%"><strong><font color="blue">Application Monitoring with Wavefront</font></strong><br><a href="https://youtu.be/56Ql2OQ2NLQ" target="_blank"><img src="/images/v_app_monitoring.png"  alt="Application monitoring with Wavefront"/></a></td>
-<td width="65%"><br><p>Clement first discusses how you can monitor metrics, histograms, and traces with Wavefront. He uses an example of monitoring microservices by traversing multiple languages and transport layers that use different <a href="https://github.com/wavefrontHQ"> Wavefront open source SDKs</a>.
+<td width="65%"><br><p>Clement first discusses how you can monitor metrics, histograms, and traces with Wavefront. He uses an example of monitoring microservices by traversing multiple languages and transport layers that use different <a href="https://github.com/wavefrontHQ"> Wavefront open-source SDKs</a>.
 </p> </td>
 </tr>
 <tr>

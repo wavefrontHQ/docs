@@ -11,7 +11,7 @@ into Wavefront. Telegraf is a light-weight server process capable of collecting,
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here's the CPU section of a dashboard displaying Linux host metrics.
 
-{% include image.md src="images/db_linux_cpu.png" width="80" %}
+{% include image.md src="images/linux_db.png" width="80" %}
 
 
 To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.

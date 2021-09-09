@@ -65,10 +65,10 @@ Use the basic or advanced query format.
       Satisfied threshold.
       <ul>
         <li>
-          If you don't specify the value, it uses the value you define under <a href="tracing_apdex.html#configure-the-threshold-t-value">Application Configurations</a> or the default value of 100ms.
+          If you don't specify the value, it uses the value you define under <a href="tracing_apdex.html#configure-the-threshold-t-value">Application Configurations</a> or the default value of 100 microseconds. 
         </li>
         <li>
-          If you specify the value, it overrides the value you define under Application Configurations.
+          If you specify the value, it overrides the value you define under Application Configurations. The values are in microseconds. For example, if you enter 200, it indicates 200 microseconds.
         </li>
       </ul>
     </td>
@@ -82,6 +82,7 @@ Use the basic or advanced query format.
       {{site.data.alerts.note}}
         Wavefront does not save the value you define for the tolerating threshold (4T).
       {{site.data.alerts.end}}
+      The values are in microseconds. For example, if you enter 800, it indicates 800 microseconds.
     </td>
   </tr>
   <tr>
@@ -104,7 +105,7 @@ The **advanced queries** let you customize the `hs()` functions. You can get the
 
 {% include note.html content="The thresholds (T and 4T) used to compute the apdex score are in microseconds. Therefore, you need to make sure that your histogram data is in microseconds.
 
-<br/><br/>If histogram data is in milliseconds, you need to add the threshold value to the apdex function and divide them by 1000 to ensure they are in milliseconds." %}
+<br/><br/>If histogram data is in milliseconds, you need to add the threshold value to the apdex function and divide the threshold value by 1000 to ensure that the threshold value is in milliseconds too. <br/>Example: <code>apdex( T/1000, 	&lt;histogram_series_in_milliseconds&gt;)</code>" %}
 
 ## Examples
 Here's how you can use these queries:
@@ -115,7 +116,7 @@ Here's how you can use these queries:
     ```
     ![The screenshot shows the above query and the chart that is generated for it.](images/tracing_apdex_basic_query.png)
 
-* Use an advanced query to return the Apdex score of the services in the beachsirts application every 30 minutes.
+* Use an advanced query to return the Apdex score of all the services that send data to Wavefront every 30 minutes.
     <pre>
 apdex(align(30m, merge(hs(tracing.aggregated.derived.*.duration.micros.m), application, service)))
     </pre>

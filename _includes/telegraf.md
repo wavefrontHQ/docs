@@ -1,6 +1,6 @@
 
 
-You can choose automatic installation or manual installation and configuration.
+You can choose automatic installation or manual installation and configuration. For proxy installation prerequisites, see the [Proxy Host Requirements](https://docs.wavefront.com/proxies_installing.html#proxy-host-requirements).
 
 ### Install Wavefront Proxy and Telegraf Agent Automatically
 
