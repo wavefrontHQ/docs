@@ -49,6 +49,12 @@ Learn about visualizing your metrics with dashboards and charts, and how to cust
 </td>
 <td><br><p>Users with Dashboards permissions can use Chart Builder to select metrics or histograms, apply filters and functions, select a chart type, and customize the chart.  </p> </td>
 </tr>
+<tr>
+<td><strong><font color="blue">Sharing Content</font></strong><br>
+<iframe src=" https://bcove.video/3DZazeL" width="550" height="275" allowfullscreen="true" alt="sharing Wavefront content video"></iframe>
+</td>
+<td><br><p>In this video, you'll learn how to share Wavefront content. For example, search results, dashboards, charts, and so on. You will also learn about what live and non-live displays are and how to share a live display of a dashboard.</p></td>
+</tr>
 </tbody>
 </table>
 
@@ -84,13 +90,7 @@ Learn about visualizing your metrics with dashboards and charts, and how to cust
 <li>And more!</li></ul></p>
 </td>
 </tr>
-<tr>
-<td><strong><font color="blue">Sharing Interactive Content (v1)</font></strong><br>
-<a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5bbbd068-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true" target="_blank"><img src="/images/v_share_content.png" alt="sharing content"/></a></td>
-<td>Now: https://onevmw.sharepoint.com/:v:/r/teams/VLZContentDumpforRPA/Shared%20Documents/General/vlz_Existing%20Courses/Wavefront%20Course%20Content/VLZ-2268%20V02.mp4?csf=1&web=1&e=kSKzqc<br>
-<p>Jason explains how to use a shortened URL to share dashboard browser status, alert browser status, and chart status. </p>
-While this information still applies, we now have additional options for <a href="ui_sharing.html"> sharing dashboards and charts</a>.
-</td>
+
 </tr>
 </tbody>
 </table>
