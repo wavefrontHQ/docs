@@ -1,37 +1,18 @@
 ---
-title: Authentication with SSO Providers
+title: Multi-Tenant Authentication
 keywords:
 tags: [integrations, administration]
 sidebar: doc_sidebar
 permalink: authentication.html
-summary: Learn how to enable authentication and multi-tenant authentication.
+summary: Learn how to enable multi-tenant authentication.
 ---
 
-Wavefront supports authentication through many identity providers (IdPs).
-* For several popular IdPs, we have Wavefront integrations.
-* The integrations include the steps for setting up [self-service SAML SSO](auth_self_service_sso.html).
-
-Most Wavefront customers use single-tenant authentication. If your company wants to set up different tenants for different teams, a multi-tenant setup might make sense.
+Most Wavefront customers use [single-tenant authentication](auth_self_service_sso.html). If your company wants to set up different tenants for different teams, a multi-tenant setup might make sense.
 
 {% include note.html content="Switching tenants in multi-tenant environments require [the extra steps listed below](#switching-tenants-in-multi-tenant-environments)." %}
 
-## Single-Tenant Authentication
 
-Most Wavefront administrators set up authentication in their environment by setting up SSO using an identity provider (IdP). Authentication integrations with the following IdPs are predefined. SSO setup with other IdPs is also possible.
-
-* [ADFS](adfs.html)
-* [Azure AD](azure_ad.html)
-* [Google](google.html)
-* [OneLogin](onelogin.html)
-* [Okta](okta.html)
-* [PingOne](pingone.html)
-* [VMware Workspace ONE Access](workspace-one.html).
-
-In single-tenant authentication environments, administrators can [Set Up or Update Self-Service SAML SSO](auth_self_service_sso.html). Users will then log in to the identity provider that the administrator has set up.
-
-After a user has been successfully authenticated, administrators set the permissions for that user. [Permissions](permissions_overview.html) determine what the user can do in Wavefront.
-
-## Multi-Tenant Authentication
+## Multi-Tenant Authentication in Wavefront
 
 Several Wavefront customers have asked for an environment that supports separate tenants for different teams. For example, here at VMware it made sense to keep the VMware vSphere team separate from the VMware NSX team -- both teams use Wavefront. We support this separation of teams, called multi-tenancy, like this:
 
@@ -62,7 +43,7 @@ Multi-tenancy is set up jointly by the Wavefront administrator at the customer s
 1. The administrator at the customer site and the newly specified tenant administrators can then:
   * Log in to the tenant.
   * [Invite users](user-accounts.html#create-and-manage-user-accounts) to the tenant and assign permissions for that tenant.
-  * Make other users tenant administrators by granting [Accounts, Groups & Roles permission](permissions_overview.html) to those invited users.
+  * Make other users tenant administrators by granting [**Accounts, Groups & Roles** permission](permissions_overview.html) to those invited users.
 
 ## Multi-Tenant Modes
 

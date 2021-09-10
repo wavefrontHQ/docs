@@ -22,7 +22,7 @@ Administrators can
 
 Permissions always apply to all objects of a certain type. For example, a user with **Dashboards** permission can view and modify all dashboards.
 
-A user with Accounts, Groups & Roles permission manages authorization:
+A user with **Accounts, Groups & Roles** permission manages authorization:
 1. Creates one or more **roles** and assigns one or more [permissions](permissions_overview.html) to each role.
 2. Creates one or more **groups** and adds one or more users to each group.
 3. Assigns one or more roles to each group.
