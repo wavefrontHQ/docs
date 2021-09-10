@@ -814,8 +814,3 @@ entries:
           - title: Obsolescence and Remediation
             url: /wavefront_obsolescence_policy.html
             output: web
-            
-          - title: Finding Ingestion and Query Problems
-            url: /monitoring_overview.html
-            output: web
-        
