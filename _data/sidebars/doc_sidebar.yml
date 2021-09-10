@@ -766,13 +766,17 @@ entries:
         - title: Authentication in Wavefront
           output: web
           subfolderitems:
+            
+          - title: Wavefront Authentication Model
+            url: /wavefront-authentication.html
+            output: web  
 
-          - title: Authentication with SSO Providers
-            url: /authentication.html
+          - title: Single-Tenant Authentication and SAML SSO
+            url: /auth_self_service_sso.html
             output: web
 
-          - title: Self-Service SAML SSO
-            url: /auth_self_service_sso.html
+          - title: Multi-Tenant Authentication
+            url: /authentication.html
             output: web
 
         - title: Monitoring & Troubleshooting
@@ -799,10 +803,6 @@ entries:
             url: /wavefront_monitoring_spy.html
             output: web
             
-          - title: Examine Ingestion Breakdown
-            url: /ingestion_policies.html
-            output: web
-
         - title: Best Practices
           output: web
           subfolderitems:
