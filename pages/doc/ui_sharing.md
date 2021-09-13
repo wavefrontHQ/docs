@@ -10,7 +10,15 @@ You can
 * Share [access](access.html) to a dashboard if the user is not in a group that has access to that specific dashboard.
 <!---* Embed an interactive chart outside Wavefront.--->
 
-{% include shared/badge.html content="Every Wavefront user can view dashboards and make temporary changes. You must have [Dashboard permission](permissions_overview.html) to share a link to a dashboard or chart." %}
+{% include shared/badge.html content="Every Wavefront user can view dashboards and make temporary changes. You must have the [**Dashboard** permission](permissions_overview.html) to share a link to a dashboard or chart." %}
+
+## Video: Sharing Content
+
+This short video shows how you can share Wavefront content by using some of the methods described below.
+
+<p>
+<iframe src="https://bcove.video/3DZazeL" width="700" height="400" allowfullscreen="true" alt="Wavefront and PromQL"></iframe>
+</p>
 
 ## Share a Link with the Share Icon
 
@@ -28,7 +36,7 @@ Wavefront allows you to share dashboards and charts with other authorized users 
 {% include note.html content="If access control is on, and you share a link with a user who does not have view access, the user cannot view the dashboard. You have to share access before you share the link."%}
 
 **To share a dashboard using a link**
-1. Navigate to the dashboard and click the Share Dashboard icon.
+1. Navigate to the dashboard and click the **Share Dashboard** icon.
 
    ![share dashboard icon](images/share_dashboard_icon.png)
 2. Select the **Shared Links** tab and click the button to copy the link you want to share:
@@ -59,7 +67,7 @@ The process is very similar for dashboards and for alerts.
 
 ## Embed a Chart in Other UIs and Allow or Restrict Access
 
-Wavefront supports the ability to embed an interactive chart outside of Wavefront. You must have [**Chart Embedding** Permission](permissions_overview.html) to create embedded charts.
+Wavefront supports the ability to embed an interactive chart outside of Wavefront. You must have the [**Chart Embedding** permission](permissions_overview.html) to create embedded charts.
 
 ### Embed a Chart in Other UIs
 
