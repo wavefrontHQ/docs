@@ -96,28 +96,12 @@ Next, you can make changes to the visualization.
 
 ![Prometheus query](images/prometheus_sample.png)
 
-## Differences and Best Practices
+## Best Practices
 
 Wavefront supports most PromQL functions and operators out of the box. There are a small number of differences and best practices.
 
-### Unsupported PromQL functions
 
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="25%"><strong>sort(), sort_desc()</strong>
-</td>
-<td width="75%">PromQL <strong>sort()</strong> and <strong>sort_desc()</strong> show the data order in the Console view. Because Wavefront visualizes queries in charts instead of a console, we don't support this option.
-</td></tr>
-<tr>
-<td width="25%"><strong>ignore, on, group_left, group_right</strong>
-</td>
-<td width="75%">Wavefront does not support ignore, on, group_left, group_right for vector matching with Prometheus queries.
-</td></tr>
-</tbody>
-</table>
-
-### Best Practices 
+### Best Practice: Functions
 
 <table style="width: 100%;">
 <tbody>
@@ -147,8 +131,58 @@ If you include the time resolution, Wavefront will automatically call align() on
 </tbody>
 </table>
 
+### Best Practice: Dashboard Variables
+
+Dashboard variables are a powerful feature in Wavefront.
+* Wavefront users with **Dashboard** permissions can create [dashboard variables](dashboards_variables.html).
+* All Wavefront users can select dashboard variable values at the top of dashboards, and can [specify variables inside a query](dashboards_variables.html#use-dashboard-variables-in-queries). When Wavefront runs the query, it automatically substitutes the current value of the variable with the selected value for the dashboard.
+
+This approach to variables is different from PromQL variables. In the Wavefront query editor, follow these practices when using variables in a PromQL query:
+
+* Don't use regex syntax to select a precise value. for example,
+  - Error: `organization_name=~”${selected_org}”`
+  - Correct: `organization_name=/.+/`
+* ANYTHING ELSE??
+
+
+
+
+
+
+
+
+### Best Practice: Recording Rules
+
+For expressions that are needed frequently or computationally expensive, PromQL supports creating recording rules, which allow you to save the expression result as a set of time series. The Wavefront [derived metrics](derived_metrics.html) feature is similar.
+
+It's not currently possible to translate a query that includes recording rules. However, advanced PromQL users can:
+1. Break down their PromQL query into small-ish pieces.
+2. Use the Query Editor translation feature for each piece.
+3. Create a derived metric for one or more of the short queries.
+
+
 ## Limitations
 
+Because the two languages are different, some limitations exist.
+
+### Unsupported PromQL Functions
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="25%"><strong>sort(), sort_desc()</strong>
+</td>
+<td width="75%">PromQL <strong>sort()</strong> and <strong>sort_desc()</strong> show the data order in the Console view. Because Wavefront visualizes queries in charts instead of a console, we don't support this option.
+</td></tr>
+<tr>
+<td width="25%"><strong>ignore, on, group_left, group_right</strong>
+</td>
+<td width="75%">Wavefront does not support ignore, on, group_left, group_right for vector matching with Prometheus queries.
+</td></tr>
+</tbody>
+</table>
+
+### Limitations in Wavefront Query Editor
 
 * Autocomplete is not currently supported for PromQL functions and operators. However, autocomplete for metrics that you use inside your query continues to be supported.
 * The Wavefront query language supports [using a query name as a chart variable](query_editor.html#use-chart-variables) in other queries for the same chart.
@@ -179,4 +213,4 @@ New to Wavefront? Here are some links to get you started:
 * [Dashboards Tutorials](tutorial_dashboards.html)
 * [Alerts](alerts.html)
 * [Query Language Quickstart](query_language_getting_started.html)
-* [Query Language Videos](videos_query_language.html
+* [Query Language Videos](videos_query_language.html)
