@@ -15,9 +15,9 @@ This page lists new and updated features in the Wavefront service.
 
 ## 2021-35.x Release Notes 
 
-* **Sampling Policies**: Can’t find traces in Wavefront because Intelligent Sampling discarded them? Create a sampling policy to let Wavefront know that you want to keep specific traces in Wavefront. Creating a sampling policy affects your costs because you store more data within Wavefront. See [Managing Sampling Policies](trace_sampling_policies.html) for details.
+* **Sampling Policies**: If you can't find traces in Wavefront because Intelligent Sampling discarded them, you can now create a sampling policy. Sampling policies let Wavefront know that you want to keep specific traces. A sampling policy can affect your costs because more trace data is stored. See [Managing Sampling Policies](trace_sampling_policies.html) for details.
 
-* **Documentation Improvements**: Reorganized the distributed tracing content to include OpenTelemetry.
+* **OpenTelemetry**: Reorganized the distributed tracing documentation to include OpenTelemetry.
   {% include important.html content="OpenTelemetry is still at it is early stage. Therefore, if you run into issues when configuring Wavefront with OpenTelemetry, contact [Wavefront Technical Support](wavefront_support_feedback.html#support) for help." %}
 
 ## 2021-34.x Release Notes 
