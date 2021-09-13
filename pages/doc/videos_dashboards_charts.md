@@ -53,9 +53,8 @@ Learn about visualizing your metrics with dashboards and charts, and how to cust
 <td><strong><font color="blue">Sharing Content</font></strong><br>
 <iframe src=" https://bcove.video/3DZazeL" width="550" height="275" allowfullscreen="true" alt="sharing Wavefront content video"></iframe>
 </td>
-<td>
-<p>In this video, you'll learn how to share Wavefront content. For example, search results, dashboards, charts, and so on. You will also learn about what live and non-live displays are and how to share a live display of a dashboard.</p>
-</td>
+<td><br><p>In this video, you'll learn how to share Wavefront content. For example, search results, dashboards, charts, and so on. You will also learn about what live and non-live displays are and how to share a live display of a dashboard.</p></td>
+</tr>
 </tbody>
 </table>
 

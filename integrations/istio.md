@@ -79,16 +79,16 @@ Istio config:{% raw %}
 
           metricAllowList:
           - 'istio.requests.*'
-          - 'istio.request.*'
+          - 'istio.request.*'   # mandatory for OOTB dashboards
           - 'istio.response.*'
-          - 'istio.tcp.*'
+          - 'istio.tcp.*'       # mandatory for OOTB dashboards
           - 'go.goroutines.value'
           - 'go.memstats.alloc.bytes.value'
           - 'go.memstats.heap.alloc.bytes.value'
           - 'go.memstats.heap.inuse.bytes.value'
           - 'go.memstats.heap.sys.bytes.value'
           - 'go.memstats.stack.inuse.bytes.value'
-          - 'istio.build.value'
+          - 'istio.build.value' # mandatory for OOTB dashboards
           - 'pilot.conflict.*.listener.*'
           - 'pilot.proxy.convergence.time.bucket.value'
           - 'pilot.services.value'

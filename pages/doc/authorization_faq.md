@@ -55,7 +55,7 @@ Here's what you need to know:
 * You cannot delete the Everyone group.
 * You can change the roles assigned to the Everyone group. By default, the group has associated roles, which means that human users can browse data but cannot modify anything. Service accounts cannot browse data.
 
-  **Warning** If you assign a role to the Everyone group, you change the permissions for each account in your environment, including service accounts.
+  **Warning**: If you assign a role to the Everyone group, you change the permissions for each account in your environment, including service accounts.
 * If you use access control in your environment, you can share a dashboard or alert with the Everyone group to:
   - Give View & Modify access to accounts who have **Dashboards** or **Alerts** permissions.
   - Give View access to accounts who don't have **Dashboards** or **Alerts** permissions.
