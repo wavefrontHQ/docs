@@ -39,7 +39,7 @@ Administrators (and often other team members) are interested in usage data at al
 
 Wavefront recently made some tools available that allow you to monitor ingestion and data shape. By data shape we mean that you can find out, for example, if you have very large numbers of metrics, or you suddenly started having an unusually large number of sources.
 
-You can start by examining the system dashboard and internal metrics, discussed above. In addition, Wavefront allows you to look closedly at data that is being ingested:
+You can start by examining the system dashboard and internal metrics, discussed above. In addition, Wavefront allows you to look closely at data that is being ingested:
 * Examine endpoints with [Wavefront Spy]()
 * Use the keyboard-driven [Wavefront Top]() tool to drill down interactively.
 
@@ -49,6 +49,6 @@ Both tools are for situations when the dashboards don't give you enough informat
   * Verify that your Wavefront instance is ingesting the data points that you expect.
   * Troubleshoot a sudden change in the rate at which new data is ingested.
 
-* [**Wavefront Top**](https://github.com/wavefrontHQ/wftop) is an interactive tool for exploring ingested points. For example, you can find out which metric namespaces were used in the last X days. Wavefront Top helps you look at the big picture of what's being ingested -- and the keyaboard-driven UI makes it easy to drill down. Watch [this video](https://youtu.be/XROitQwFCJs) for an intro.
+* [**Wavefront Top**](https://github.com/wavefrontHQ/wftop) is an interactive tool for exploring ingested points. For example, you can find out which metric namespaces were used in the last X days. Wavefront Top helps you look at the big picture of what's being ingested -- and the keyboard-driven UI makes it easy to drill down. Watch [this video](https://youtu.be/XROitQwFCJs) for an intro.
 
 <!--- Discuss new Ingestion Policies here --->

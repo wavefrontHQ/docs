@@ -20,10 +20,6 @@ Wavefront dashboards allow you to organize charts into sections, perform global 
 </tbody>
 </table>
 
-Watch this video for an introduction to dashboards:
-<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5103bc38-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_dashboards_intro.png" style="width: 700px;" alt="introduction to dashboards"/></a>
-</p>
-
 {% include shared/badge.html content="Every Wavefront user can view dashboards and make temporary changes. You must have Dashboard permission to save changes you make to dashboards." %}
 
 ## Create a Dashboard

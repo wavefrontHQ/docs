@@ -58,21 +58,30 @@ a411c16b-3cf7-4f03-bf11-8ca05aab898d
 ```
 Wavefront allows [user accounts](user-accounts.html) and [service accounts](service-accounts.html) to use the [Wavefront REST API](wavefront_api.html).
 
-{% include tip.html content="You generate user account tokens explicitly, discussed below. For service accounts, you can generate tokens with the specified permissions from the Service Accounts page. " %}
+{% include tip.html content="You generate user account tokens explicitly. For service accounts, you can generate tokens with specified permissions from the Service Accounts page. " %}
 
-To generate an API token for your account:
+#### Generate an API Token for a User Account
 
-1. In the Wavefront UI, click the gear icon <i class="fa fa-cog"/>  at the top right of the taskbar and select your username.
-2. At the bottom of your user profile, locate the section **API Access**.
-3. Click **Generate**. You can have up to 2 tokens at any given time.
-   If you want to generate a new token but already have two tokens, then you must revoke one of the existing tokens.
-4. To revoke a token, click the **Revoke** link next to the token. If you run a script that uses a revoked token, the script returns an authorization error.
+1. In the Wavefront UI, click the gear icon <i class="fa fa-cog"/>  at the top right of the taskbar and select your user name.
+2. On the **API Access** tab, click **Generate**. You can have up to 20 tokens at any given time.
+   If you want to generate a new token but already have 20 tokens, then you must revoke one of the existing tokens.
+3. To revoke a token, click the **Revoke** button next to the token. If you run a script that uses a revoked token, the script returns an authorization error.
 
 ![Generate API Token](/images/generate_token.png)
 
 
 {% include warning.html content="Do not share your API token with anyone. The token provides full access to the API. Accounts that have the token can authenticate without a username/password."%}
 
+#### Generate an API Token for a Service Account
+
+As a Wavefront administrator you generate API tokens for [service accounts](service-accounts.html) upon creation. You can also generate an API token at a later stage. To generate an API token for an existing **service account**:
+
+1. In the Wavefront UI, click the gear icon <i class="fa fa-cog"/>  at the top right of the taskbar and select **Account Management**.
+2. On the **Service Accounts** tab, click the ellipsis icon next to the service account for which you want to generate an API token, and select **Edit**.
+3. To generate a new token, in the Tokens section, click **Generate**. You can have up to 20 tokens per service account at any given time.
+   If you want to generate a new token but already have 20 tokens, then you must revoke one of the existing tokens.
+4. To revoke a token, click the **Revoke** button next to the token. Revoking a token cannot be undone. 
+5. Select the appropriate permissions for the service account and click **Update**.
 
 
 
@@ -115,30 +124,30 @@ The REST API supports the following objects corresponding to different categorie
 
 - **Access Policy** - Lets you allow or deny access to embedded charts. For information, see [Allow or Deny Access to Embedded Charts](ui_sharing.html#ui_sharing.html#allow-or-deny-access-to-embedded-charts).
 - **Access** - Provides information on the access level of an entity. See [Notes on the Access Category](#access) below.
-- **Account (User and Service Account)** - Allows users with [Accounts, Groups & Roles permission](permissions_overview.html) to retrieve a list of all [accounts](users_roles.html), create, update, and delete accounts and manage permissions and groups associated with accounts.
-- **Alert** - Retrieve active, snoozed, in-maintenance, and invalid alerts. Users with [Alert permission](permissions_overview.html) can create and update alerts.
-- **ApiToken** - Allows users with [Accounts, Groups & Roles permission](permissions_overview.html) to retrieve, create, and manage API tokens. Used primarily in conjunction with service accounts.
-- **Cloud Integration** - Retrieve cloud integration data types such as those available with the [AWS integration](integrations_aws_metrics.html). Users with [Proxies permission](permissions_overview.html) can add and remove cloud integration data types.
-- **Dashboard** - Retrieve data about dashboards, list dashboards, and return version history. Users with [Dashboard permission](permissions_overview.html) can save, create, delete, clone, undelete dashboards.
+- **Account (User and Service Account)** - Allows users with [**Accounts, Groups & Roles** permission](permissions_overview.html) to retrieve a list of all [accounts](users_roles.html), create, update, and delete accounts and manage permissions and groups associated with accounts.
+- **Alert** - Retrieve active, snoozed, in-maintenance, and invalid alerts. Users with [**Alerts** permission](permissions_overview.html) can create and update alerts.
+- **ApiToken** - Allows users with [**Accounts, Groups & Roles** permission](permissions_overview.html) to retrieve, create, and manage API tokens. Used primarily in conjunction with service accounts.
+- **Cloud Integration** - Retrieve cloud integration data types such as those available with the [AWS integration](integrations_aws_metrics.html). Users with [**Proxies** permission](permissions_overview.html) can add and remove cloud integration data types.
+- **Dashboard** - Retrieve data about dashboards, list dashboards, and return version history. Users with [**Dashboards** permission](permissions_overview.html) can save, create, delete, clone, undelete dashboards.
 - **Derived Metric** - Manage derived metrics.
 - **Direct Ingestion** - Perform [direct ingestion](direct_ingestion.html) instead of using a proxy.
-- **Event** - Retrieve events and tags associated with a specific event. Users with [Event permission](permissions_overview.html) can create, update, and delete events. Deleting events is limited to non-system events. System events include events based on alert firings, error events, and maintenance windows.
-- **External Link** - Navigate external links. Users with [External Links permission](permissions_overview.html) can create, update, and delete external links.
-- **Integration** - Retrieve integrations. Users with [Integration permission](permissions_overview.html) can install and uninstall integration dashboards.
-- **Maintenance Window** - Retrieve a complete or filtered list of existing maintenance windows. Users with [Alert permission](permissions_overview.html) can create, close, update, and delete maintenance windows.
+- **Event** - Retrieve events and tags associated with a specific event. Users with [**Events** permission](permissions_overview.html) can create, update, and delete events. Deleting events is limited to non-system events. System events include events based on alert firings, error events, and maintenance windows.
+- **External Link** - Navigate external links. Users with [**External Links** permission](permissions_overview.html) can create, update, and delete external links.
+- **Integration** - Retrieve integrations. Users with [**Integrations** permission](permissions_overview.html) can install and uninstall integration dashboards.
+- **Maintenance Window** - Retrieve a complete or filtered list of existing maintenance windows. Users with [**Alerts** permission](permissions_overview.html) can create, close, update, and delete maintenance windows.
 - **Message** - Retrieve messages and mark messages read.
 - **Metric** - Retrieve details on a metric.
-- **Notificant** - Allows users with Users with [Alert permission](permissions_overview.html) to create, delete, update, or test alert notification targets.
-- **Proxy** - Retrieve information about Wavefront proxies. Users with [Proxy Management permission](permissions_overview.html) can add and remove Wavefront proxies.
+- **Notificant** - Allows users with Users with [**Alerts** permission](permissions_overview.html) to create, delete, update, or test alert notification targets.
+- **Proxy** - Retrieve information about Wavefront proxies. Users with [**Proxies** permission](permissions_overview.html) can add and remove Wavefront proxies.
 - **Query** - Perform queries.
 - **Role** - Retrieve information about a role and manage roles and role assignees.
 - **Saved Search** - Retrieve, add, and remove saved searches.
 - **Search** - Search agents, alerts, integrations, dashboards, external links, maintenance windows, sources, and webhook alert targets.
-- **Source** - Retrieve sources and tags associated with a source. Users with [Source Tag permission](permissions_overview.html) can add and remove source tags and set descriptions.
+- **Source** - Retrieve sources and tags associated with a source. Users with [**Source Tags** permission](permissions_overview.html) can add and remove source tags and set descriptions.
 - **Usage** - Retrieve information about usage associated with ingestion policies and manage policies.
 - **User** - Deprecated API. Use **Account (User and Service Account)** instead.
-- **UserGroup** - Allows users with [Accounts, Groups & Roles permission](permissions_overview.html) to retrieve a list of all groups, create, update, and delete groups, and manage the users and roles associated with a group.
-- **Webhook** - Retrieve webhooks. Users with [Alert Management permission](permissions_overview.html) can create, update, and delete webhooks.
+- **UserGroup** - Allows users with [**Accounts, Groups & Roles** permission](permissions_overview.html) to retrieve a list of all groups, create, update, and delete groups, and manage the users and roles associated with a group.
+- **Webhook** - Retrieve webhooks. Users with [**Alerts** permission](permissions_overview.html) can create, update, and delete webhooks.
 
 <a name="access"></a>
 ### Notes on the Access Category

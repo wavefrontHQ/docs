@@ -68,13 +68,23 @@ The Wavefront proxy uses HTTPS, and we offer options to secure it further:
 
 ## Authentication
 
-Wavefront supports both user accounts and service accounts. User accounts [must authenticate](authentication.html) with a user name and password, service accounts authenticate with a revokable token. Wavefront customers can use the authentication provided by Wavefront or use one of our supported authentication integrations. We support several authentication solutions including Azure AD, Google ID, and Okta.
+Wavefront supports three methods of authentication. 
 
-We also support [self-service SAML SSO](auth_self_service_sso.html) setup.
+* By using a user name and password. 
+  
+  Wavefront supports user accounts and service accounts. User accounts [must authenticate](authentication.html) with a user name and password, service accounts authenticate with a token. 
 
-If a customer's chosen authentication solution supports two-factor authentication, Wavefront requires two-factor authentication for login.
+* SAML SSO
+  
+  Wavefront customers can use the authentication provided by Wavefront or use one of our supported authentication integrations. We support several authentication solutions including Azure AD, Google ID, and Okta.
 
-Large customers can request [multi-tenant SSO](authentication.html#multi-tenant-authentication). Users in different teams inside the company can authenticate to different tenants and cannot access the other tenant's data.
+  We also support [self-service SAML SSO](auth_self_service_sso.html) setup.
+
+  If a customer's chosen authentication solution supports two-factor authentication, Wavefront requires two-factor authentication for login.
+
+* Multi-Tenant SSO
+
+  Large customers can request [multi-tenant SSO](authentication.html#multi-tenant-authentication). Users in different teams inside the company can authenticate to different tenants and cannot access the other tenant's data.
 
 
 ## Authorization

@@ -52,7 +52,7 @@ entries:
           url: /wavefront_keyboard_shortcuts.html
           output: web
 
-        - title: Get Help & Give Feedback
+        - title: Support & Feedback
           url: /wavefront_support_feedback.html
           output: web
 
@@ -117,12 +117,16 @@ entries:
           url: /videos_quickstart.html
           output: web
 
-        - title: Wavefront and Data Videos
+        - title: Data & Proxy Videos
           url: /videos_data.html
           output: web
 
         - title: Dashboards & Charts Videos
           url: /videos_dashboards_charts.html
+          output: web
+
+        - title: Query Language Videos
+          url: /videos_query_language.html
           output: web
 
         - title: Tags & Searches Videos
@@ -133,14 +137,6 @@ entries:
           url: /videos_alerts.html
           output: web
 
-        - title: Events Videos
-          url: /videos_events.html
-          output: web
-
-        - title: Query Language Videos
-          url: /videos_query_language.html
-          output: web
-
         - title: Administration Videos
           url: /videos_administration.html
           output: web
@@ -149,8 +145,8 @@ entries:
           url: /videos_tracing.html
           output: web
 
-        - title: Use Case Videos
-          url: /wavefront_use_cases.html
+        - title: Events Videos
+          url: /videos_events.html
           output: web
 
 
@@ -356,7 +352,7 @@ entries:
           url: /alerts_dependencies.html
           output: web
 
-        - title: Preventing Alerts from Firing
+        - title: Maintenance Windows
           url: /maintenance_windows_managing.html
           output: web
 
@@ -649,6 +645,10 @@ entries:
           - title: Offline Traces
             url: /tracing_view_offline_traces.html
             output: web
+            
+          - title: Sampling Policies
+            url: /trace_sampling_policies.html
+            output: web
 
           - title: Configure Apdex Settings
             url: /tracing_apdex.html
@@ -715,7 +715,7 @@ entries:
       - title: Administer Wavefront
         url: /wavefront_administer.html
         output: web
-        
+
       - title: Wavefront Security
         url: /wavefront_security.html
         output: web
@@ -744,16 +744,16 @@ entries:
           - title: Manage User Accounts
             url: /user-accounts.html
             output: web
-            
+
           - title: Manage Service Accounts
             url: /service-accounts.html
             output: web
 
-        
+
         - title: Manage Access to Wavefront Objects
           output: web
           subfolderitems:
-                
+
           - title: Manage Access to Dashboards and Alerts
             url: /access.html
             output: web
@@ -766,15 +766,19 @@ entries:
         - title: Authentication in Wavefront
           output: web
           subfolderitems:
+            
+          - title: Wavefront Authentication Model
+            url: /wavefront-authentication.html
+            output: web  
 
-          - title: Authentication with SSO Providers
+          - title: Single-Tenant Authentication and SAML SSO
+            url: /auth_self_service_sso.html
+            output: web
+
+          - title: Multi-Tenant Authentication
             url: /authentication.html
             output: web
 
-          - title: Self-Service SAML SSO
-            url: /auth_self_service_sso.html
-            output: web
-            
         - title: Monitoring & Troubleshooting
           output: web
           subfolderitems:
@@ -782,11 +786,11 @@ entries:
           - title: Monitor the Wavefront Service
             url: /wavefront_monitoring.html
             output: web
-          
+
           - title: Wavefront Service Internal Metrics
             url: /wavefront-internal-metrics.html
             output: web
-            
+
           - title: Monitor Wavefront Proxies
             url: /monitoring_proxies.html
             output: web
@@ -806,8 +810,7 @@ entries:
           - title: Cardinality and Wavefront
             url: /cardinality.html
             output: web
-                  
+
           - title: Obsolescence and Remediation
             url: /wavefront_obsolescence_policy.html
             output: web
-          

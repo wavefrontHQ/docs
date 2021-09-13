@@ -7,9 +7,7 @@ permalink: charts_customizing.html
 published: false
 summary: Learn about the Wavefront chart time window and display resolution, and how to configure the units displayed in chart axes and legends.
 ---
-Here's a video to get you started with time windows:
-<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5925769f-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_charts_time_window.png" style="width: 700px;"/></a>
-</p>
+In most cases, Wavefront groups data points into time interval buckets and maps the buckets to display points. You can view information about those buckets and you can customize them from the chart editor.
 
 
 ## Chart Resolution
@@ -63,7 +61,7 @@ Wavefront supports several options to control how units display in chart axes an
 
 ### Unit Prefixes
 Charts support two unit prefixes: **SI** and **IEC/Binary**.
-* SI unit prefixes (k, M, G, T, P, E, Z, Y) increment by a factor of 1000 and are used by default. For details on SI units, see Wikipedia or a similar source. 
+* SI unit prefixes (k, M, G, T, P, E, Z, Y) increment by a factor of 1000 and are used by default. For details on SI units, see Wikipedia or a similar source.
 * IEC/Binary prefixes (Ki, Mi, Gi, Ti, Pi, Ei, Zi, Yi) increment by a factor of 1024.
 
 To display data in axes and legends with IEC/Binary unit prefixes, select the **IEC/Binary Unit Prefixes** check box. A data point with value 1024 x 1024 = 1,048,576 displays as "1.000Mi", instead of "1.049M".

@@ -8,15 +8,26 @@ summary: New and changed Wavefront integrations.
 ---
 Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
+## September 2021
+
+Made improvements to the following integrations and dashboards in September 2021:
+
+* Linux Host -- Updated the summary section to use Gauge charts and fixed some errors in a couple of charts.
+* Mac Host -- Updated the summary section to use Gauge charts and fixed some errors in a couple of charts. 
+
 ## August 2021
 
 Made improvements to the following integrations and dashboards in August 2021:
 
+* Data Platforms:
+  - Added ESXi hosts charts to the **Data Platform Blueprint1 - Kafka-Spark-Solr** and **Data Platform Blueprint2 - Kafka-Spark-Elasticsearch** dashboards.
+  - Modified the Health calculation logic in the Mission Control Section in the **Data Platform Blueprint1 - Kafka-Spark-Solr** and **Data Platform Blueprint2 - Kafka-Spark-Elasticsearch** dashboards.
+* AWS -- Modified the CPU usage calculation logic in the CPU usage chart in the **ECS (Fargate) Services** dashboard.
 * Java -- Added out-of-the-box dashboard to monitor Java applications that are running in a Kubernetes cluster.
 * Kubernetes (vSphere with Tanzu) -- Added Setup steps for configuring Kubernetes collector to monitor vSphere with Tanzu.
 * Catchpoint -- Added an SLO chart to **Catchpoint: API** and **Catchpoint: DNS** dashboards.
 
-![4 chart, SLO chart on right](/images/int_slo.png)
+  ![4 chart, SLO chart on right](/images/int_slo.png)
 
 ## July 2021
 
@@ -27,8 +38,8 @@ Made improvements to the following integrations and dashboards in July 2021:
 * OpenTelemetry --  Updated the steps for configuring the application to send trace data to Wavefront using the Tanzu Observability by Wavefront trace exporter.
 * Wavefront Usage -- Added new charts to **Proxies Overview** section in the **Wavefront Service and Proxy Data** dashboard to show **Spans Sampled By Policies**.
 * Azure AD -- Added steps to configure Azure AD using Self-Service SAML.
-* Data Platforms -- Added new dashboard  **Data Platform Blueprint2 - Kafka-Spark-Elasticsearch**.
-* Kubernetes
+* Data Platforms -- Added a new dashboard  **Data Platform Blueprint2 - Kafka-Spark-Elasticsearch**.
+* Kubernetes:
   - Added charts to **Kubernetes Collector Troubleshooting** (Wavefront Collector Metrics) dashboard to monitor collector performance.
   - Changed the metrics in the alert condition of the following out-of-the-box alerts:
     - K8s node memory usage too high

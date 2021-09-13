@@ -11,15 +11,15 @@ into Wavefront. Telegraf is a light-weight server process capable of collecting,
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. For example, here's the CPU section of a dashboard displaying Mac host metrics.
 
-{% include image.md src="images/db_mac_cpu.png" width="80" %}
+{% include image.md src="images/mac_db.png" width="80" %}
 
 ## Mac Host Setup
 
 
 
-This integration uses various Telegraf input plugins. You can install the Wavefront proxy and Telegraf agent on the same host or on separate hosts. You can choose automatic installation or manual installation and configuration.
+This integration uses various Telegraf input plugins. You can install the Wavefront proxy and Telegraf agent on the same host or on separate hosts. For proxy installation prerequisites, see the [Proxy Host Requirements](https://docs.wavefront.com/proxies_installing.html#proxy-host-requirements). You can choose automatic installation or manual installation and configuration.
 
-Supported Version(s): MacOS Sierra (10.12) or later
+Supported Version(s): MacOS Catalina (10.15) or later
 
 ### Install Automatically
 

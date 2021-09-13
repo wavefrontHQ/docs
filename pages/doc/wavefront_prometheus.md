@@ -96,9 +96,11 @@ Next, you can make changes to the visualization.
 
 ![Prometheus query](images/prometheus_sample.png)
 
-## How PromQL Queries Can Differ in Wavefront
+## Differences and Best Practices
 
-Wavefront supports most PromQL functions and operators out of the box. There are a small number of differences.
+Wavefront supports most PromQL functions and operators out of the box. There are a small number of differences and best practices.
+
+### Unsupported PromQL functions
 
 <table style="width: 100%;">
 <tbody>
@@ -106,6 +108,26 @@ Wavefront supports most PromQL functions and operators out of the box. There are
 <td width="25%"><strong>sort(), sort_desc()</strong>
 </td>
 <td width="75%">PromQL <strong>sort()</strong> and <strong>sort_desc()</strong> show the data order in the Console view. Because Wavefront visualizes queries in charts instead of a console, we don't support this option.
+</td></tr>
+<tr>
+<td width="25%"><strong>ignore, on, group_left, group_right</strong>
+</td>
+<td width="75%">Wavefront does not support ignore, on, group_left, group_right for vector matching with Prometheus queries.
+</td></tr>
+</tbody>
+</table>
+
+### Best Practices 
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="25%"><strong>rate() </strong>
+</td>
+<td width="75%">If you use the PromQL rate() function on an instant vector in Wavefront UI provide the time resolution.<br>
+<code>rate(metric[xm:ym]) </code><br>
+where x is time span length, y is the resolution, m is the time unit minute.<br><br>
+If you include the time resolution, Wavefront will automatically call align() on the translated query. If you don't include the time resolution, you might get different results depending on the monitor resolution. See <a href="ui_charts.html#chart-resolution">Chart Resolution</a> for details on how your monitor's resolution can affect how the chart looks.
 </td></tr>
 <tr>
 <td width="25%"><strong>count_values()</strong>
@@ -121,11 +143,6 @@ Wavefront supports most PromQL functions and operators out of the box. There are
 <li>Wavefront computes topk() and bottomk() at <strong>time series level</strong>. It returns the top or bottom series (based on the avg/min/max... value). </li>
 </ul>
 <p>In the Wavefront Query Editor, topk() and bottomk() always return results based on the time series. </p>
-</td></tr>
-<tr>
-<td width="25%"><strong>ignore, on, group_left, group_right</strong>
-</td>
-<td width="75%">Wavefront does not support ignore, on, group_left, group_right for vector matching with Prometheus queries.
 </td></tr>
 </tbody>
 </table>
@@ -162,4 +179,4 @@ New to Wavefront? Here are some links to get you started:
 * [Dashboards Tutorials](tutorial_dashboards.html)
 * [Alerts](alerts.html)
 * [Query Language Quickstart](query_language_getting_started.html)
-* [Query Language Videos](videos_query_language.html)
+* [Query Language Videos](videos_query_language.html

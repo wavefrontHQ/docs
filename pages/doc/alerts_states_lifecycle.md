@@ -5,10 +5,13 @@ sidebar: doc_sidebar
 permalink: alerts_states_lifecycle.html
 summary: Learn about alert conditions and states, when alerts fire, and how alerts resolve.
 ---
+
 Here's a video to get you started:
 
-<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6cb2ac52-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_alerts_lifecycle.png" style="width: 700px;"/></a>
+<p>
+<iframe src="https://bcove.video/3iYlXiP" width="700" height="400" allowfullscreen="true" alt="alert states and lifecycle video by Jason"></iframe>
 </p>
+
 
 ## What's the Alert Lifecycle?
 
