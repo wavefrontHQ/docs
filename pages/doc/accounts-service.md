@@ -11,7 +11,7 @@ A service account can be used to automate management of objects such as dashboar
 
 {% include note.html content="Service accounts have no permissions by default. As an administrator, you must explicitly grant each service account only the permission required for the task that’s being automated (least required privilege). That ensures that permissions for service accounts are always very limited. Service accounts do not have the view permissions that user accounts have by default. A service account must have **permissions** to perform tasks. To run queries, a service account must have **Metrics** permission. To manage dashboards and alerts, the service account might need both permissions and [access](access.html)." %}
 
-With the 2021-NNO.x release all Service Accounts are moved to a separate predefined **Service Accounts** group and no longer belong to the **Everyone** group. If you have named a Service Accounts group `Service Accounts`, you must have noticed that we have added the `(Existing)` suffix to its name. New service accounts that you create are added to the **Service Accounts** group. You can set additional groups for new service accounts.
+With the 2021-NNO.x release all Service Accounts are moved to a separate predefined **Service Accounts** group and no longer belong to the **Everyone** group. New service accounts that you create are automatically added to the **Service Accounts** group. You can also set additional groups for new service accounts.
 
 ## What Are Service Accounts?
 
@@ -110,13 +110,13 @@ To activate or deactivate an account from the <strong>Edit Service Account</stro
 
 ## Set the Default Service Accounts Group for New Service Accounts
 
-Each new service account is assigned to the Service Accounts group.
+Each new service account is assigned to the **Service Accounts** group.
 
 To add any new service accounts to additional groups:
 
 1. Click the gear icon <i class="fa fa-cog"/> on the taskbar and select **Organization Settings**.
 2. In the **Default Service Accounts Groups** text box:
   * Start typing the name of additional groups to add groups.
-  * Click the **x** next to a group name to remove a group. You cannot remove the Service Accounts group.
+  * Click the **x** next to a group name to remove a group. You cannot remove the **Service Accounts** group.
 
-Going forward, new service accounts are added to this group.
+Going forward, new service accounts are also added to this group.
