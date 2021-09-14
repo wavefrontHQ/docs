@@ -154,6 +154,8 @@ The REST API supports the following objects corresponding to different categorie
 
 The `/api/access/{entity}` endpoint provides information on how often an entity has been accessed.  Supported entities are metric, histogram, span.
 
+{% include note.html content="In order to use this API, users must have both the Direct Ingestion and Metrics permissions."%}
+
 {% include note.html content="Wavefront uses a bloom filter to determine the access pattern. As a result, even if data access returns true, there’s a very low probability that data actually hasn't been accessed. If data access returns false, it is guaranteed that the data has not been accessed.
 "%}
 
