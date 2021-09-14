@@ -68,7 +68,7 @@ wfTracerBuilder.redMetricsCustomTagKeys(new HashSet&lt;String&gt;(Arrays.asList(
         </div>
         
         <div role="tabpanel" class="tab-pane" id="openTelemetry">
-            <p>OpenTelemetry is still at it is early stage. Contact <a href="wavefront_support_feedback.html#support">Wavefront Technical Support</a> for help.</p>
+            <p>OpenTelemetry is still at its early stage. Contact <a href="wavefront_support_feedback.html#support">Wavefront Technical Support</a> for help.</p>
         </div>
         
         <div role="tabpanel" class="tab-pane" id="jaeger">

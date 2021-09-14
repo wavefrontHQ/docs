@@ -19,7 +19,7 @@ This page lists new and updated features in the Wavefront service.
   {% include note.html content="Sampling policies impact the volume of data ingested by Wavefront and can affect your costs. See [Track the Volume of Trace Data Stored in Wavefront](trace_data_sampling.html#track-the-volume-of-trace-data-stored-in-wavefront) for details on the number of spans you store in Wavefront with the sampling policies." %}
 
 * **OpenTelemetry**: Reorganized the distributed tracing documentation to include OpenTelemetry.
-  {% include important.html content="OpenTelemetry is still at it is early stage. Therefore, if you run into issues when configuring Wavefront with OpenTelemetry, contact [Wavefront Technical Support](wavefront_support_feedback.html#support) for help." %}
+  {% include important.html content="OpenTelemetry is still at its early stage. Therefore, if you run into issues when configuring Wavefront with OpenTelemetry, contact [Wavefront Technical Support](wavefront_support_feedback.html#support) for help." %}
 
 ## 2021-34.x Release Notes 
 
