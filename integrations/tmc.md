@@ -29,7 +29,7 @@ In addition to setting up the metrics flow, this integration also installs dashb
 * Kubernetes Pods: Detailed health of your pods broken down by node and namespace.
 * Kubernetes Containers: Deatailed health of your containers broken down by namespace, node and pod.
 * Kubernetes Namespaces: Details of your pods/containers broken down by namespace.
-* Kubernetes Collector Metrics: Internal stats of the Wavefront Kubernetes Collector.
+* Wavefront Collector for Kubernetes Metrics: Internal stats of the Wavefront Collector for Kubernetes.
 
 Here's a preview of the Kubernetes Summary dashboard:
 

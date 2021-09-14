@@ -7,7 +7,7 @@ permalink: trace_sampling_policies.html
 summary: Learn how to sample your trace data and see them in Wavefront using sampling policies.
 ---
 
-Wavefront [intelligent sampling](trace_data_sampling.html) reduces the volume of ingested traces. The goals of intelligent sampling are to retain traces that are likely to be informative. But sometimes intelligent sampling discards traces that you want to keep. You can create a sampling policy to fine-tune intelligent sampling and let Wavefront know that you want to keep certain traces. 
+Wavefront [intelligent sampling](trace_data_sampling.html) reduces the volume of ingested traces. The goal of intelligent sampling is to retain traces that are likely to be informative. But sometimes intelligent sampling discards traces that you want to keep. You can create a sampling policy to fine-tune intelligent sampling and let Wavefront know that you want to keep certain spans. 
 Creating a sampling policy affects your costs as you store more data within Wavefront. 
 
 You can create a sampling policy, edit, delete, restore, deactivate, and see the version history of the policy you created:
