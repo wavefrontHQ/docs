@@ -41,7 +41,7 @@ Watch these videos to listen to our Co-founder Clement Pang introduce distribute
 
 If your application uses OpenTelemetry, you can configure the application to send trace data to Wavefront using the Tanzu Observability (Wavefront) trace exporter. See [Sending Trace Data to Wavefront](opentelemetry.html#sending-trace-data-to-wavefront) and follow the steps to configure your OpenTelemetry application with Wavefront.
 
-{% include important.html content="OpenTelemetry is still at it is early stage. Therefore, if you run into issues when configuring Wavefront with OpenTelemetry, contact [Wavefront Technical Support](wavefront_support_feedback.html#support) for help." %}
+{% include important.html content="OpenTelemetry is still at its early stage. Therefore, if you run into issues when configuring Wavefront with OpenTelemetry, contact [Wavefront Technical Support](wavefront_support_feedback.html#support) for help." %}
 
 ![This diagram shows how to send data to Wavefront if your application has OpenTelemetry.](images/tracing_opentelemetry_trace_exporter_data.png)
 
