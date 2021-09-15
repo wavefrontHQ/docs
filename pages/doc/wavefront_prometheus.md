@@ -142,12 +142,77 @@ This approach to variables is different from PromQL variables. In the Wavefront 
 * Don't use regex syntax to select a precise value. for example,
   - Error: `organization_name=~”${selected_org}”`
   - Correct: `organization_name=/.+/`
-* ANYTHING ELSE??
+
+### Best Practice: Joins in WQL and PromQL
+
+The syntax for joins in WQL and PromQL is fundamentally different. In addition, Wavefront does not support the use of `ignore`, `on`, `group_left`, and `group_right` for vector matching with PromQL queries. However, after a bit of practice (and after looking at our examples and [this video](https://www.youtube.com/watch?v=SZhU8AO-SVk&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K&index=22&t=0s)) we expect you'll find joins in WQL quite powerful.
+
+#### Joins in WQL and Joins in PromQL
+
+**Wavefront query language** has several options for [combining time series with joins]. Here's a summary of the syntax:
+<br><br>
+<code>
+join(&lt;&lt;WQUERY1&gt;&gt; AS ts1 INNER JOIN &lt;&lt;WQUERY2&gt;&gt; AS ts2 USING(&lt;&lt;HOW TO JOIN METRICS&gt;&gt;)
+</code>
+
+In &lt;&lt;HOW TO JOIN METRICS&gt;&gt;, you specify the new output metric, the source you want to focus on, point tags in the output, and the value you want to use, as in this example:
+```
+metric='cf_app_memory_used_gb',                        //New output metric name
+source=ts2.application_name,                           //What do you want to use as source
+<<OUTPUT COLUMNS>>,                                    //Point tags in output.
+ts1                                                    //What value do you want to use as value
+```
+
+In **PromQL joins**, you specify Query 1, how to join the metrics, the output colums, and Query 2, as follows:
+<br><br>
+```
+(<<QUERY1>> + on(<<HOW TO JOIN METRICS>>) group_left(<<OUTPUT COLUMNS>>) (<<QUERY2>>)
+```
+
+This section shows an example for how 2 queries can be combined with joins in WQL and PromQL.
+
+#### Example Join in WQL
+
+The following example joins two Wavefront queries (WQL 1 and WQL 2).
+
+WQL 1:
+
+```
+ts(kubernetes.pod_container.status, cluster="mcs-cdca-prod-*" and nodename="ip-*" and pod_name="wb-metrics*" and namespace_name="wb-metrics" and status="running")
+```
+
+WQL 2:
+```
+ts(kubernetes.pod_container.uptime, cluster="mcs-cdca-prod-*" and nodename="ip-*" and pod_name="wb-metrics*" and namespace_name="wb-metrics")
+```
+
+WQL Join:
+```
+join(${WQL Q1} AS ts1 INNER JOIN ${WQL Q2} AS ts2 USING( cluster, nodename, pod_name, namespace_name ), metric='pods.running.uptime', source=ts2.source, cluster=ts1.cluster, nodename=ts1.nodename, pod_name=ts1.pod_name, namespace_name=ts1.namespace_name,  ts2)
+```
+
+#### Example Join in PromQL
+
+The following example joins two PromQL queries (PromQL 1 and PromQL 2)
+
+PromQL 1:
+
+```
+kubernetes.pod_container.status{cluster="mcs-cdca-prod-*",nodename="ip-*", pod_name="wb-metrics*", namespace_name="wb-metrics", status="running"}
+```
+
+PromQL 2:
 
 
+```
+kubernetes.pod_container.uptime{cluster="mcs-cdca-prod-*",nodename="ip-*", pod_name="wb-metrics*", namespace_name="wb-metrics"})
+```
 
+PromQL Join:
 
-
+```
+(${PromQL Q1} * on(cluster,nodename,pod_name,namespace_name) group_left(status) ${PromQL Q2} )
+```
 
 
 
