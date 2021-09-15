@@ -33,19 +33,32 @@ Watch these videos to listen to our Co-founder Clement Pang introduce distribute
 
 ## Instrument Your Application
 
+[OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/) and OpenTracing will be deprecated soon. 
+
+{% include note.html content="To learn about the specification that works for you, see [OpenTracing or OpenTelemetry](https://help.wavefront.com/hc/en-us/articles/360058140212-OpenTracing-or-OpenTelemetry-Which-specification-to-select-for-instrumenting-applications-for-tracing-)." %}
+
+### OpenTelemetry
+
+If your application uses OpenTelemetry, you can configure the application to send trace data to Wavefront using the Tanzu Observability (Wavefront) trace exporter. See [Sending Trace Data to Wavefront](opentelemetry.html#sending-trace-data-to-wavefront) and follow the steps to configure your OpenTelemetry application with Wavefront.
+
+{% include important.html content="OpenTelemetry is still at its early stage. Therefore, if you run into issues when configuring Wavefront with OpenTelemetry, contact [Wavefront Technical Support](wavefront_support_feedback.html#support) for help." %}
+
+![This diagram shows how to send data to Wavefront if your application has OpenTelemetry.](images/tracing_opentelemetry_trace_exporter_data.png)
+
+### OpenTracing
+
 An application must be instrumented for tracing before it can send trace data to Wavefront. Wavefront supports several options. Here's the big picture:
 
-![tracing architecture](images/tracing_send_data_to_wavefront.png)
+![This diagram shows how to send data to Wavefront if your application has OpenTracing.](images/tracing_send_data_to_wavefront.png)
 
-### Configure Your Already Instrumented Applications
-If you have already instrumented your code with Jaeger or Zipkin, you can forward the trace data to Wavefront using an integration. The integration sends the data through a Wavefront proxy.
+* **Configure Your Already Instrumented Applications**
+  
+  If you have already instrumented your code with Jaeger or Zipkin, you can forward the trace data to Wavefront using a [tracing integration](tracing_integrations.html). The integration sends the data through a Wavefront proxy.
 
-* You can use OpenTelemetry (OpenTracing and OpenCensus have merged to form OpenTelemetry) to send traces to Wavefront using the Jaeger or Zipkin integration. See [OpenTelemetry](opentelemetry.html#sending-trace-data-to-wavefront) for details.
-* If you have configured your applications using OpenTracing instrument your code with Jaeger or Zipkin, you can set up a [tracing integration](tracing_integrations.html) to forward the trace data to Wavefront.
+* **Configure Applications That are Not Instrumented**
 
-### Configure Applications That are Not Instrumented
-If you have not yet instrumented your code, you can add instrumentation by using [Wavefront OpenTracing SDKs or the Wavefront Java Tracing Agent](tracing_instrumenting_frameworks.html#step-2-get-data-flowing-into-wavefront).
-The Wavefront OpenTracing SDKs let you to [choose how to send trace data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data-to-wavefront) -- through a Wavefront proxy or directly to the Wavefront service. Using a Wavefront proxy is generally recommended. <!--- See XX for guidelines for choosing a proxy vs. direct ingestion. --->
+  If you have not yet instrumented your code, you can add instrumentation by using [Wavefront OpenTracing SDKs or the Wavefront Java Tracing Agent](tracing_instrumenting_frameworks.html#step-2-get-data-flowing-into-wavefront).
+  The Wavefront OpenTracing SDKs let you to [choose how to send trace data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data-to-wavefront) -- through a Wavefront proxy or directly to the Wavefront service. Using a Wavefront proxy is generally recommended. 
 
 ## Visualize Distributed Tracing Data in Wavefront
 
@@ -90,7 +103,7 @@ You can export traces from Wavefront, save them locally as JSON files, and view 
 
 ### Create a Sampling policy
 
-Wavefront intelligent sampling reduces the volume of ingested traces. The goals of intelligent sampling are to retain traces that are likely to be informative. But sometimes intelligent sampling discards traces that you want to keep. You can [create a sampling policy](trace_sampling_policies.html) to fine-tune intelligent sampling and let Wavefront know that you want to keep certain traces.
+Wavefront intelligent sampling reduces the volume of ingested traces. The goals of intelligent sampling are to retain traces that are likely to be informative. But sometimes intelligent sampling discards traces that you want to keep. You can [create a sampling policy](trace_sampling_policies.html) to fine-tune intelligent sampling and let Wavefront know that you want to keep certain spans.
 
 ![Shows a screenshot of the sampling polices user interface](images/tracing_sampling_policies.png)
 
