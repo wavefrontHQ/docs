@@ -81,7 +81,7 @@ We're excited about this contribution and hope to see more soon!
 
 You can install and uninstall the Wavefront system integration dashboards.
 
-<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view integrations, you must have [Integration Management permission](permissions_overview.html) to install and uninstall integration dashboards. If you do not have this permission, buttons to perform these tasks are not visible.</div>
+<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view integrations, you must have [**Integration Management** permission](permissions_overview.html) to install and uninstall integration dashboards. If you do not have this permission, buttons to perform these tasks are not visible.</div>
 
 1. Click **Integrations**.
 1. Click the integration tile.

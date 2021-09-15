@@ -12,12 +12,12 @@ summary: Define dashboard variables to allow easy switches between different dat
 <td width="80%">
 Dashboard variables and global filters are excellent ways of focusing the metrics that a dashboard displays.
 <ul>
-<li>A user with Dashboard permissions can <strong>add or edit variables</strong> for a dashboard and save the changes.  </li>
+<li>A user with <strong>Dashboards</strong> permission can <strong>add or edit variables</strong> for a dashboard and save the changes.  </li>
 <li>All users can <strong>set variables</strong> for a dashboard. The change applies to all charts in that dashboard.</li>
 <li>All users can create <strong>global filters</strong> - key-value pairs for filtering dashboard results. </li>
 <li> All users can include dashboard variables in queries. The query uses the current value of the variable.</li>
 </ul>
-{% include note.html content="All Wavefront users can examine all dashboards and charts unless an individual dashboard is protected through access control. All users can make temporary changes. To save changes to dashboards and charts you must have [Dashboard permission](permissions_overview.html)."%}
+{% include note.html content="All Wavefront users can examine all dashboards and charts unless an individual dashboard is protected through access control. All users can make temporary changes. To save changes to dashboards and charts you must have the [**Dashboards** permission](permissions_overview.html)."%}
 </td>
 <td width="20%"><a href="dashboards_variables_v1.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
 </tr>

@@ -12,7 +12,7 @@ Derived metrics allow you to run a query and ingest it back into Wavefront. All 
 Starting with release 2020-42.x, you can create a derive metric from a time series metric or a histogram.
 
 
-<div markdown="span" class="alert alert-info">You must have [Derived Metrics permissions](permissions_overview.html) to create and manage derived metrics.</div>
+<div markdown="span" class="alert alert-info">You must have the [**Derived Metrics** permission](permissions_overview.html) to create and manage derived metrics.</div>
 
 Derived metrics created and metrics points scanned apply to your data ingestion and data scan rates.
 

@@ -9,7 +9,7 @@ summary: Learn how to send data directly to the Wavefront service.
 
 You use the direct data ingestion mechanism to send data directly to the Wavefront service instead of a proxy. While the Wavefront proxy has many [benefits](proxies.html#proxy-benefits), direct data ingestion can be the best approach for some use cases.
 
-{% include shared/badge.html content="You need [Direct Data Ingestion permission](permissions_overview.html) to perform direct data ingestion." %}
+{% include shared/badge.html content="You must have the [**Direct Data Ingestion** permission](permissions_overview.html) to perform direct data ingestion." %}
 
 {% include shared/badge.html content="If you're using Wavefront as part of a free trial or Freemium offering, there are limits on how much data you can add to Wavefront using direct ingestions. Contact support@wavefront.com if you need a higher limit. " %}
 
