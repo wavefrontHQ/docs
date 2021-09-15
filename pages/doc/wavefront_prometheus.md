@@ -149,7 +149,7 @@ The syntax for joins in WQL and PromQL is fundamentally different. In addition, 
 
 #### Joins in WQL and Joins in PromQL
 
-**Wavefront query language** has several options for [combining time series with joins]. Here's a summary of the syntax:
+**Wavefront query language** has several options for [combining time series with joins](query_language_series_joining.html). Here's a summary of the syntax:
 <br><br>
 <code>
 join(&lt;&lt;WQUERY1&gt;&gt; AS ts1 INNER JOIN &lt;&lt;WQUERY2&gt;&gt; AS ts2 USING(&lt;&lt;HOW TO JOIN METRICS&gt;&gt;)
@@ -173,7 +173,7 @@ This section shows an example for how 2 queries can be combined with joins in WQ
 
 #### Example Join in WQL
 
-The following example joins two Wavefront queries (WQL 1 and WQL 2).
+The following example joins two Wavefront queries (WQL 1 and WQL 2) using an inner join.
 
 WQL 1:
 
@@ -190,10 +190,11 @@ WQL Join:
 ```
 join(${WQL Q1} AS ts1 INNER JOIN ${WQL Q2} AS ts2 USING( cluster, nodename, pod_name, namespace_name ), metric='pods.running.uptime', source=ts2.source, cluster=ts1.cluster, nodename=ts1.nodename, pod_name=ts1.pod_name, namespace_name=ts1.namespace_name,  ts2)
 ```
+See [Inner Join Example](query_language_series_joining.html#inner-join-example) for a discussion.
 
 #### Example Join in PromQL
 
-The following example joins two PromQL queries (PromQL 1 and PromQL 2)
+The following example joins two PromQL queries (PromQL 1 and PromQL 2).
 
 PromQL 1:
 
