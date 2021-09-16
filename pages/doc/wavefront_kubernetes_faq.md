@@ -19,6 +19,14 @@ The [Wavefront Collector](https://github.com/wavefrontHQ/wavefront-collector-for
 
 Yes, deploy Wavefront Collector on each of your Kubernetes clusters.
 
+## How Can I Filter Metric Data?
+
+During the [Helm installation](https://github.com/wavefrontHQ/helm/tree/master/wavefront), you can pass in a `values.yaml` as a parameter.
+
+Using `values.yaml` you can:
+* [Filter out generated labels](https://github.com/wavefrontHQ/helm/blob/0bbf6a0e46e6e884c0b3c44b9c7d51f4b9392b20/wavefront/values.yaml#L105)
+* [Create a filter to apply toward all metrics collected by the collector](https://github.com/wavefrontHQ/helm/blob/0bbf6a0e46e6e884c0b3c44b9c7d51f4b9392b20/wavefront/values.yaml#L86)
+
 ## How Do I Monitor Prometheus Metric Endpoints?
 
 Many Kubernetes components and applications expose metrics in the Prometheus format via HTTP endpoints. The Wavefront Collector natively supports discovering such endpoints and collecting metrics from them. The Collector listens for the addition of pods within a Kubernetes cluster, and can automatically start collecting the prometheus metrics from pods by:
