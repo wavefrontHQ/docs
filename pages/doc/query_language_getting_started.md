@@ -21,7 +21,7 @@ Watch these videos to get you started. The videos use the v1 UI, but the basic w
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td><strong><font color="blue">Intro to Wavefront Query Language</font></strong><br><br>
+<td style="width: 50%;"><strong><font color="blue">Intro to Wavefront Query Language</font></strong><br><br>
 <iframe src="https://bcove.video/3mep1Jv" width="400" height="225" allowfullscreen="true" alt="Intro to Wavefront Query Language"></iframe></td>
 <td><br><br>
 <p>Wavefront query language allows you to shape the data you see in your dashboards. Jason first shows an example of an environment where a single switch in a customer environment had a problem. The example uses the advanced functions if() at() and corr() to find other switches with the same behavior and prevent further problems. Jason then uses the highpass() function on other data to show only true failures in a chart.</p>
