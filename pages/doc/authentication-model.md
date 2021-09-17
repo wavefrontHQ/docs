@@ -7,7 +7,7 @@ permalink: wavefront-authentication.html
 summary: Learn about the Wavefront authentication model.
 ---
 
-At Wavefront we support three main types of authentication.
+Wavefront supports authentication with user name and password, self-service SAML SSO, and multi-tenant SSO. 
 
 ## User Name and Password
 
@@ -17,7 +17,7 @@ Wavefront supports both user accounts and service accounts.
 
   As a Wavefront administrator, you can invite new users and then manage the user accounts by adding them to groups with specific roles, for example.
 
-* [Service accounts](service-accounts.html) that must authenticate with a token. 
+* [Service accounts](service-accounts.html) that must authenticate with a token.
 
   A service account usually is used to perform management tasks. Service accounts can’t perform the UI operations that all user accounts can perform by default. There’s no limit on the number of service accounts that you can create in your organization.
 
