@@ -24,21 +24,21 @@ Watch these videos to get you started. The videos use the v1 UI, but the basic w
 <td style="width: 50%;"><strong><font color="blue">Intro to Wavefront Query Language</font></strong><br><br>
 <iframe src="https://bcove.video/3mep1Jv" width="400" height="225" allowfullscreen="true" alt="Intro to Wavefront Query Language"></iframe></td>
 <td><br><br>
-<p>Wavefront query language allows you to shape the data you see in your dashboards. Jason first shows an example of an environment where a single switch in a customer environment had a problem. The example uses the advanced functions if() at() and corr() to find other switches with the same behavior and prevent further problems. Jason then uses the highpass() function on other data to show only true failures in a chart.</p>
+<p>Wavefront query language allows you to shape the data you see in your dashboards. Jason first shows an example of an environment where a single switch in a customer environment had a problem. The example uses the advanced functions if() at() and corr() to find other switches with the same behavior and prevent further problems. Jason then uses the highpass() function on other data to show only true failures in a chart. Watch a high-res version of the video <a href="https://bcove.video/3mep1Jv">here</a></p>
 </td>
 </tr>
 <tr>
-<td><strong><font color="blue">Query Language Basics</font></strong><br><br>
+<td style="width: 50%;"><strong><font color="blue">Query Language Basics</font></strong><br><br>
 <iframe src="https://bcove.video/3zckmeE" width="400" height="225" allowfullscreen="true" alt="Intro to Wavefront Query Language"></iframe></td>
 <td><br><br>
-<p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. </p>
+<p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. Watch a high-res version of the video <a href="https://bcove.video/3zckmeE">here</a> </p>
 </td>
 </tr>
 <tr>
-<td><strong><font color="blue">Advanced Query Language Functions</font></strong><br><br>
-<iframe src="https://bcove.video/3zckmeE" width="400" height="225" allowfullscreen="true" alt="Advanced Query Language Functions"></iframe></td>
+<td style="width: 50%;"><strong><font color="blue">Query Language Advanced  Functions</font></strong><br><br>
+<iframe src="https://bcove.video/3sEAbZh" width="400" height="225" allowfullscreen="true" alt="Advanced Query Language Functions"></iframe></td>
 <td><br><br>
-<p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. </p>
+<p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. Watch a high-res version of the video <a href="https://bcove.video/3sEAbZh">here</a> </p>
 </td>
 </tr>
 </tbody>

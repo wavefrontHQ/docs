@@ -28,8 +28,8 @@ Learn about the Wavefront query language and how you can use PromQL queries in W
 </td>
 </tr>
 <tr>
-<td><strong><font color="blue">Advanced Query Language Functions</font></strong><br><br>
-<iframe src="https://bcove.video/3zckmeE" width="400" height="225" allowfullscreen="true" alt="Advanced Query Language Functions"></iframe></td>
+<td><strong><font color="blue">Query Language Advanced Functions</font></strong><br><br>
+<iframe src="https://bcove.video/3sEAbZh" width="400" height="225" allowfullscreen="true" alt="Advanced Query Language Functions"></iframe></td>
 <td><br><br>
 <p>Jason explores query language functions using the following examples:
 <ul>
