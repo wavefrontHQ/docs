@@ -6,7 +6,7 @@ permalink: wavefront_prometheus.html
 summary: Run PromQL queries in the Wavefront Query Editor
 ---
 
-Wavefront supports both PromQL and WQL (Wavefront Query Language) queries. The Query Editor includes admin-level organization settings for enabling PromQL and a query line GUI that includes a translation option. 
+Wavefront supports both PromQL and WQL (Wavefront Query Language) queries. The Query Editor includes admin-level organization settings for enabling PromQL and a query line GUI that includes a translation option.
 
 * Administrators have control over user defaults:
   - On the Organization Settings page (New User Defaults) administrators can enable users to write queries in PromQL.
@@ -96,12 +96,14 @@ Next, you can make changes to the visualization.
 
 ![Prometheus query](images/prometheus_sample.png)
 
-## Best Practices
+## Frequently Asked Questions
 
 Wavefront supports most PromQL functions and operators out of the box. There are a small number of differences and best practices.
 
 
-### Best Practice: Functions
+### FAQ: Do You Have Best Practices?
+
+A few functions work differently in PromQL and Wavefront QL. Here are some best practices. 
 
 <table style="width: 100%;">
 <tbody>
@@ -131,7 +133,7 @@ If you include the time resolution, Wavefront will automatically call align() on
 </tbody>
 </table>
 
-### Best Practice: Dashboard Variables
+### FAQ: Can I Use Variables in Wavefront?
 
 Dashboard variables are a powerful feature in Wavefront.
 * Wavefront users with **Dashboard** permissions can create [dashboard variables](dashboards_variables.html).
@@ -143,7 +145,8 @@ This approach to variables is different from PromQL variables. In the Wavefront 
   - Error: `organization_name=~”${selected_org}”`
   - Correct: `organization_name=/.+/`
 
-### Best Practice: Joins in WQL and PromQL
+<!---
+### FAQ: Joins in WQL and PromQL
 
 The syntax for joins in WQL and PromQL is fundamentally different. In addition, Wavefront does not support the use of `ignore`, `on`, `group_left`, and `group_right` for vector matching with PromQL queries. However, after a bit of practice (and after looking at our examples and [this video](https://www.youtube.com/watch?v=SZhU8AO-SVk&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K&index=22&t=0s)) we expect you'll find joins in WQL quite powerful.
 
@@ -214,10 +217,10 @@ PromQL Join:
 ```
 (${PromQL Q1} * on(cluster,nodename,pod_name,namespace_name) group_left(status) ${PromQL Q2} )
 ```
+--->
 
 
-
-### Best Practice: Recording Rules
+### FAQ: Does Wavefront Have Recording Rules?
 
 For expressions that are needed frequently or computationally expensive, PromQL supports creating recording rules, which allow you to save the expression result as a set of time series. The Wavefront [derived metrics](derived_metrics.html) feature is similar.
 
