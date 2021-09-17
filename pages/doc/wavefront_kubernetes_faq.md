@@ -4,10 +4,10 @@ keywords: containers, kubernetes
 tags: [containers, kubernetes]
 sidebar: doc_sidebar
 permalink: wavefront_kubernetes_faq.html
-summary: Get answers about viewing Kubernetes metrics in Wavefront
+summary: Answers about viewing Kubernetes metrics in Wavefront
 ---
 
-The [Wavefront Collector for Kubernetes on github](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes) enables monitoring Kubernetes clusters and sending metrics to Wavefront. Much of the doc for the project is in the [docs folder on Github](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/tree/master/docs). This page has some special tips and tricks to help you create the user experience you're after. 
+The [Wavefront Collector for Kubernetes on github](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes) enables monitoring Kubernetes clusters and sending metrics to Wavefront. Much of the doc for the project is in the [docs folder on Github](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/tree/master/docs). This page has some special tips and tricks to help you create the user experience you're after.
 
 <!--- Consider including Improve Display Speed with Sampling Option here --->
 
