@@ -19,7 +19,7 @@ summary: Create dashboards, add charts, customize dashboard layout, and troubles
 </tbody>
 </table>
 
-[Examine Data with Dashboards and Charts](ui_examine_data.html) explains how to set dashboard preferences, set the dashboard time window, isolate sources and series, and more. 
+[Examine Data with Dashboards and Charts](ui_examine_data.html) explains how to set dashboard preferences, set the dashboard time window, isolate sources and series, and more.
 
 {% include shared/badge.html content="Every Wavefront user can view dashboards and make some changes such as setting the time window. You must have the [Dashboard permission](permissions_overview.html) and Modify access to save changes you make to dashboards." %}
 
@@ -164,8 +164,19 @@ Here are some examples of what [all users can do](ui_examine_data.html):
 
 When you create a dashboard or when you edit a dashboard, the dashboard is in Edit mode. In Edit mode, you can make several changes at a time, then save all changes to dashboard layout or to charts.
 
-{% include shared/system_dashboard.html %}
+{% include note.html content="System dashboards are *read-only*. To make your own version of a system dashboard, select **Clone** from the ellipsis menu in the top right and make changes to the clone. " %}
 
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+A system dashboard has a lock icon next to the name.</td>
+<td width="50%"><img src="/images/system_dashboard.png" alt="lock icon next to tutorial dashboard"></td>
+</tr>
+</tbody>
+</table>
+
+Here are some actions you can perform in a dashboard. 
 <!---
 To remove a change, click the revert icon to the left of **Edit JSON** on the taskbar. The revert icon removes changes starting with the most recent and works backward. You can remove only changes made in the current Edit mode session.--->
 
