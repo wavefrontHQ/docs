@@ -176,9 +176,7 @@ A system dashboard has a lock icon next to the name.</td>
 </tbody>
 </table>
 
-Here are some actions you can perform in a dashboard. 
-<!---
-To remove a change, click the revert icon to the left of **Edit JSON** on the taskbar. The revert icon removes changes starting with the most recent and works backward. You can remove only changes made in the current Edit mode session.--->
+Here are some actions you can perform in a dashboard.
 
 ![dashboard in edit mode](images/v2_dashboard_edit.png)
 
@@ -316,9 +314,7 @@ For more information on the options listed in the Show Events dropdown, see <a h
 </tbody>
 </table>
 
-{% include shared/system_dashboard.html %}
-
-## Edit the Dashboard JSON
+## Edit the Dashboard JSON 
 
 Most users create and edit dashboards by using the Wavefront UI or automate the process with the Wavefront REST API. But at times, it's convenient to edit the dashboard JSON directly from the UI and see results immediately.
 
