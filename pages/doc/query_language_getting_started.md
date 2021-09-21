@@ -12,7 +12,7 @@ The Wavefront Query Language lets you retrieve and display the data that has bee
 * **Histograms** The query language includes functions for [manipulating histograms](query_language_reference.html#histogram-functions).
 * **Traces and spans** Use the [tracing UI](tracing_traces_browser.html) to query traces and spans.
 
-This page uses primarily the v2 UI, which allows you to examine your data with [chart builder](chart_builder.html) and perform advanced exploration with [query editor](query_editor.html).
+This page uses the v2 UI, which allows you to examine your data with [chart builder](chart_builder.html) and perform advanced exploration with [query editor](query_editor.html).
 
 ## Videos
 
