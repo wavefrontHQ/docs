@@ -103,7 +103,7 @@ Wavefront supports most PromQL functions and operators out of the box. There are
 
 ### FAQ: Do You Have Best Practices?
 
-A few functions work differently in PromQL and Wavefront QL. Here are some best practices. 
+A few functions work differently in PromQL and Wavefront QL. Here are some best practices.
 
 <table style="width: 100%;">
 <tbody>
@@ -139,13 +139,12 @@ Dashboard variables are a powerful feature in Wavefront.
 * Wavefront users with **Dashboard** permissions can create [dashboard variables](dashboards_variables.html).
 * All Wavefront users can select dashboard variable values at the top of dashboards, and can [specify variables inside a query](dashboards_variables.html#use-dashboard-variables-in-queries). When Wavefront runs the query, it automatically substitutes the current value of the variable with the selected value for the dashboard.
 
-This approach to variables is different from PromQL variables. In the Wavefront query editor, follow these practices when using variables in a PromQL query:
+This approach to variables is different from PromQL variables.
 
-* Don't use regex syntax to select a precise value. for example,
-  - Error: `organization_name=~”${selected_org}”`
-  - Correct: `organization_name=/.+/`
+* If the dashboard variable represents the actual value (or glob), use `=`.
+* In the rare case that you want to explicitly use a regex, use `=~`
 
-<!---
+
 ### FAQ: Joins in WQL and PromQL
 
 The syntax for joins in WQL and PromQL is fundamentally different. In addition, Wavefront does not support the use of `ignore`, `on`, `group_left`, and `group_right` for vector matching with PromQL queries. However, after a bit of practice (and after looking at our examples and [this video](https://www.youtube.com/watch?v=SZhU8AO-SVk&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K&index=22&t=0s)) we expect you'll find joins in WQL quite powerful.
@@ -217,7 +216,6 @@ PromQL Join:
 ```
 (${PromQL Q1} * on(cluster,nodename,pod_name,namespace_name) group_left(status) ${PromQL Q2} )
 ```
---->
 
 
 ### FAQ: Does Wavefront Have Recording Rules?
