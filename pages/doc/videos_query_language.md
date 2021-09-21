@@ -14,53 +14,37 @@ Learn about the Wavefront query language and how you can use PromQL queries in W
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td><strong><font color="blue">Intro to Wavefront Query Language</font></strong><br><br>
-<iframe src="https://bcove.video/3mep1Jv" width="400" height="225" allowfullscreen="true" alt="Intro to Wavefront Query Language"></iframe></td>
-<td><br><br>
-<p>Wavefront query language allows you to shape the data you see in your dashboards. Jason first shows an example of an environment where a single switch in a customer environment had a problem. The example uses the advanced functions if() at() and corr() to find other switches with the same behavior and prevent further problems. Jason then uses the highpass() function on other data to show only true failures in a chart.</p>
-</td>
-</tr>
-<tr>
-<td><strong><font color="blue">Query Language Basics</font></strong><br><br>
-<iframe src="https://bcove.video/3zckmeE" width="400" height="225" allowfullscreen="true" alt="Intro to Wavefront Query Language"></iframe></td>
-<td><br><br>
+<td width="70%"><strong><font color="blue">Query Language Basics</font></strong><br><br>
+<iframe src="https://bcove.video/3zckmeE" width="550" height="275" allowfullscreen="true" alt="Intro to Wavefront Query Language"></iframe></td>
+<td width="30%"><br><br>
 <p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. </p>
 </td>
 </tr>
 <tr>
-<td><strong><font color="blue">Query Language Advanced Functions</font></strong><br><br>
-<iframe src="https://bcove.video/3sEAbZh" width="400" height="225" allowfullscreen="true" alt="Advanced Query Language Functions"></iframe></td>
+<td width="70%"><strong><font color="blue">Intro to Wavefront Query Language</font></strong><br><br>
+<iframe src="https://bcove.video/3mep1Jv" width="550" height="275" allowfullscreen="true" alt="Intro to Wavefront Query Language"></iframe></td>
+<td width="30%"><br><br>
+<p>Wavefront query language allows you to shape the data you see in your dashboards. The example uses the advanced functions if() at() and corr() to find a problem behavior of a switch in other switches and prevent future problems.</p>
+</td>
+</tr>
+<tr>
+<td><strong><font color="blue">Advanced Query Language Functions</font></strong><br><br>
+<iframe src="https://bcove.video/3zckmeE" width="550" height="275" allowfullscreen="true" alt="Advanced Query Language Functions"></iframe></td>
 <td><br><br>
-<p>Jason explores query language functions using the following examples:
+<p>Jason explores:
 <ul>
-<li>The percentile() function in 3 queries shows different percentiles for a query.</li>
-<li>The mpercentile() (moving percentile) function displays percentile over a 30 minute window.</li>
-<li>A chart variable in a query that shows the standard deviation.</li>
+<li>How the percentile() function in 3 queries shows different percentiles.</li>
+<li>How the mpercentile() (moving percentile) function displays percentile over a time window.</li>
+<li>How a chart variable in a query shows the standard deviation.</li>
 </ul></p>
 </td>
 </tr>
 <tr>
-<td><strong><font color="blue">Wavefront and Prometheus Query Language</font></strong><br>
-<iframe src="https://bcove.video/3tLRB6l" width="400" height="225" allowfullscreen="true" alt="Wavefront and PromQL"></iframe></td>
+<td><strong><font color="blue">Wavefront and Prometheus Query Language</font></strong><br><br>
+<iframe src="https://bcove.video/3tLRB6l" width="550" height="275" allowfullscreen="true" alt="Wavefront and PromQL"></iframe></td>
 <td><br>
-<p>With the 2021-17.x release, we've expanded the limited PromQL support and we've added admin-level organization setting to determine whether a user can write in PromQL. We have also added full support for creating charts and alerts with PromQL queries. Watch this video to learn how to create charts and alerts by using PromQL.</p>
+<p>Wavefront <a href="wavefront_prometheus.html">supports PromQL</a> when you create charts and alerts. Admin-level organization setting to determine whether a user can write in PromQL. Watch this video to learn more.</p>
 </td>
 </tr>
 </tbody>
 </table>
-
-
-
-<!---<tr>
-<td><strong><font color="blue">Advanced Query Language Functions</font></strong><br>
-<a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6601e213-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true" target="_blank"><img src="/images/v_ql_advanced.png" alt="advanced functions"/></a></td>
-<td><br>
-<p>Jason explores query language functions using the following examples:
-<ul>
-<li>The percentile() function in 3 queries shows different percentiles for a query.</li>
-<li>The mpercentile() (moving percentile) function displays percentile over a 30 minute window.</li>
-<li>A chart variable in a query that shows the standard deviation.</li>
-</ul></p>
-</td>
-</tr>
---->
