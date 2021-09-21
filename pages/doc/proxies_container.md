@@ -9,7 +9,7 @@ summary: Configure a Wavefront Proxy and Telegraf in a container
 You can set up a proxy to run in a container. This page discusses running a proxy and Telegraf in a Docker container, but the guidance (though not some specifics) applies to other container solutions as well.
 
 ## Run a Proxy in a Docker Container
-
+ 
 You can run a proxy in a Docker container by running one of the following commands:
 
 **dockerhub:**
