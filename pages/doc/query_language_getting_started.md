@@ -347,7 +347,6 @@ This doc set includes videos and explanations from the engineering team that hel
 <td>How can I improve query performance?</td>
 <td markdown="span">Consider [bucketing with align()](query_language_align_function.html).
 Investigate [internal metrics for optimizing performance](wavefront_monitoring.html#useful-internal-metrics-for-optimizing-performance).</td> <td> </td></tr>
-
 </tbody>
 </table>
 
