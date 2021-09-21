@@ -12,6 +12,14 @@ Wavefront continuously adds new integrations to the existing set, and improves a
 
 Made improvements to the following integrations and dashboards in September 2021:
 
+* Kafka --  Updated the integration to monitor Bitnami Kafka running on Kubernetes.
+* Microsoft Azure -- Added new out of the box dashboards:
+  * **Azure: Cosmos DB** dashboard for monitoring Azure Cosmos DB.
+  * **Summary** dashboard that gives a high-level view of the Azure environment.
+* Pivotal Cloud Foundry -- Optimized the filter queries in the out of the box Tanzu Application Services (Pivotal Cloud Foundry) dashboards.
+* Istio -- Updated the Istio setup instructions with mandatory metric configuration.
+* AWS -- Fixed bucket and region count mismatch issue in the **AWS: S3** dashboard.
+* vSphere -- Updated the default configuration to add custom attributes to the metrics.
 * Linux Host -- Updated the summary section to use Gauge charts and fixed some errors in a couple of charts.
 * Mac Host -- Updated the summary section to use Gauge charts and fixed some errors in a couple of charts. 
 
@@ -73,24 +81,24 @@ Made improvements to the following integrations and dashboards in June 2021:
 
      ```
 
-* Pivotal Cloud Foundry -- Doppler health chart in the Pivotal Cloud Foundry summary dashboard is updated to show correct health status.
+* Pivotal Cloud Foundry -- Doppler health chart in the **Pivotal Cloud Foundry Summary** dashboard is updated to show correct health status.
 * Amazon Web Services:
-  * AWS Kinesis Data stream dashboard has been updated to use correct metric to compute stream throughput.
-  * AWS Dynamo DB dashboard now supports monitoring of on-demand Dynamo DB.
+  * **AWS Kinesis Data stream** dashboard has been updated to use correct metric to compute stream throughput.
+  * **AWS Dynamo DB** dashboard now supports monitoring of on-demand Dynamo DB.
 * PagerDuty -- Updated the setup instructions.
 
 
 ## May 2021
 
 Made improvements to the following integrations and dashboards in May 2021:
-* AWS -- Updated the AWS summary dashboard to use Delta Counters.
+* AWS -- Updated the **AWS Summary** dashboard to use Delta Counters.
 * Linux -- Updated the Linux integration to list all collected metrics.
 * Wavefront Usage:
   * The out of the box dashboards are updated to use new delta counters.
   * The integration out of the box alerts are updated to use delta counters.
 * Kubernetes:
   * Fixed node and pod memory usage charts in the out of the box Kubernetes Dashboards.
-  * Fixed the Memory usage chart in the Troubleshooting dashboard.
+  * Fixed the Memory usage chart in the **Troubleshooting** dashboard.
 * vSphere -- Documentation fixes for vSphere integration.
 * AWS ECS EC2 Integration -- The integration is updated to use a Telegraf agent to gather stats on running containers in a Task.
 * Consul -- Made the new metric version 2 as the default metric format.
@@ -108,7 +116,7 @@ Made improvements to the following integrations and dashboards in April 2021:
 * Elasticsearch -- Updates to the queries in the dashboards.
 * Linux -- Updates to the integration setup instructions.
 * Pivotal Cloud Foundry:
-  * Fixed charts in the PCF: MySQL dashboard.
+  * Fixed charts in the **PCF: MySQL** dashboard.
   * Added the VMware Tanzu Application Services tile to the Pivotal Cloud Foundry integration.
 * Istio -- Deprecated the Wavefront Istio adapter and added support to monitor Istio 1.8.
 * Jaeger -- Updates to the integration setup instructions to send data to the Wavefront proxy through gRPC.

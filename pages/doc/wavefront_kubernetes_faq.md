@@ -4,10 +4,10 @@ keywords: containers, kubernetes
 tags: [containers, kubernetes]
 sidebar: doc_sidebar
 permalink: wavefront_kubernetes_faq.html
-summary: Get answers about viewing Kubernetes metrics in Wavefront
+summary: Answers about viewing Kubernetes metrics in Wavefront
 ---
 
-The [Wavefront Collector for Kubernetes on github](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes) enables monitoring Kubernetes clusters and sending metrics to Wavefront. Much of the doc for the project is in the [docs folder on Github](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/tree/master/docs).  This page has some special tips and tricks to help you create the user experience you're after.
+The [Wavefront Collector for Kubernetes on github](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes) enables monitoring Kubernetes clusters and sending metrics to Wavefront. Much of the doc for the project is in the [docs folder on Github](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/tree/master/docs). This page has some special tips and tricks to help you create the user experience you're after.
 
 <!--- Consider including Improve Display Speed with Sampling Option here --->
 
@@ -18,6 +18,14 @@ The [Wavefront Collector](https://github.com/wavefrontHQ/wavefront-collector-for
 ## Do I Have to Deploy the Wavefront Collector on Every Kubernetes Cluster?
 
 Yes, deploy Wavefront Collector on each of your Kubernetes clusters.
+
+## How Can I Filter Metric Data?
+
+During the [Helm installation](https://github.com/wavefrontHQ/helm/tree/master/wavefront), you can pass in a `values.yaml` as a parameter.
+
+Using `values.yaml` you can:
+* [Filter out generated labels](https://github.com/wavefrontHQ/helm/blob/0bbf6a0e46e6e884c0b3c44b9c7d51f4b9392b20/wavefront/values.yaml#L105)
+* [Create a filter to apply toward all metrics collected by the collector](https://github.com/wavefrontHQ/helm/blob/0bbf6a0e46e6e884c0b3c44b9c7d51f4b9392b20/wavefront/values.yaml#L86)
 
 ## How Do I Monitor Prometheus Metric Endpoints?
 
