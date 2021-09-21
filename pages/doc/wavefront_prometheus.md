@@ -103,7 +103,7 @@ Wavefront supports most PromQL functions and operators out of the box. There are
 
 ### FAQ: Do You Have Best Practices?
 
-A few functions work differently in PromQL and Wavefront QL. Here are some best practices. 
+A few functions work differently in PromQL and Wavefront QL. Here are some best practices.
 
 <table style="width: 100%;">
 <tbody>
@@ -139,34 +139,41 @@ Dashboard variables are a powerful feature in Wavefront.
 * Wavefront users with **Dashboard** permissions can create [dashboard variables](dashboards_variables.html).
 * All Wavefront users can select dashboard variable values at the top of dashboards, and can [specify variables inside a query](dashboards_variables.html#use-dashboard-variables-in-queries). When Wavefront runs the query, it automatically substitutes the current value of the variable with the selected value for the dashboard.
 
-This approach to variables is different from PromQL variables. In the Wavefront query editor, follow these practices when using variables in a PromQL query:
+This approach to variables is different from PromQL variables.
 
-* Don't use regex syntax to select a precise value. for example,
-  - Error: `organization_name=~”${selected_org}”`
-  - Correct: `organization_name=/.+/`
+* If the dashboard variable represents the actual value (or glob), use `=`.
+* In the rare case that you want to explicitly use a regex, use `=~`
 
-<!---
-### FAQ: Joins in WQL and PromQL
 
-The syntax for joins in WQL and PromQL is fundamentally different. In addition, Wavefront does not support the use of `ignore`, `on`, `group_left`, and `group_right` for vector matching with PromQL queries. However, after a bit of practice (and after looking at our examples and [this video](https://www.youtube.com/watch?v=SZhU8AO-SVk&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K&index=22&t=0s)) we expect you'll find joins in WQL quite powerful.
+### FAQ: Can You Show Me a Query Example That Doesn't Translate?
 
-#### Joins in WQL and Joins in PromQL
+In many cases the translation from PromQL to WQL is straightforward. You type the PromQL query into the query editor and click WQL to see the corresponding query in WQL.
+
+However, the syntax for for joining queries in PromQL and in WQL is fundamentally different. In addition, Wavefront does not support the use of `ignore`, `on`, `group_left`, and `group_right` for vector matching with PromQL queries. However, after a bit of practice (and after looking at our examples and [this video](https://www.youtube.com/watch?v=SZhU8AO-SVk&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K&index=22&t=0s)) we expect you'll find joins in WQL quite powerful.
+
+#### Joining Queries in WQL and PromQL
 
 **Wavefront query language** has several options for [combining time series with joins](query_language_series_joining.html). Here's a summary of the syntax:
 <br><br>
-<code>
-join(&lt;&lt;WQUERY1&gt;&gt; AS ts1 INNER JOIN &lt;&lt;WQUERY2&gt;&gt; AS ts2 USING(&lt;&lt;HOW TO JOIN METRICS&gt;&gt;)
-</code>
+```
+join(<<WQUERY1>>  AS ts1
+INNER JOIN
+<<WQUERY2>> AS ts2
+USING(<<HOW TO JOIN METRICS>>),
+metric='<<NEW METRIC NAME>>',
+<<OUTPUT COLUMNS>>,
+ts1 (edited)
+```
 
 In &lt;&lt;HOW TO JOIN METRICS&gt;&gt;, you specify the new output metric, the source you want to focus on, point tags in the output, and the value you want to use, as in this example:
 ```
-metric='cf_app_memory_used_gb',                        //New output metric name
-source=ts2.application_name,                           //What do you want to use as source
-<<OUTPUT COLUMNS>>,                                    //Point tags in output.
-ts1                                                    //What value do you want to use as value
+metric='cf_app_memory_used_gb',               //New output metric name.
+source=ts2.application_name,                  //What do you want to use as source.
+<<OUTPUT COLUMNS>>,                           //Source and point tags in output.
+ts1                                           //What value do you want to use as value
 ```
 
-In **PromQL joins**, you specify Query 1, how to join the metrics, the output colums, and Query 2, as follows:
+In **PromQL**, you specify Query 1, how to join the metrics, the output colums, and Query 2, as follows:
 <br><br>
 ```
 (<<QUERY1>> + on(<<HOW TO JOIN METRICS>>) group_left(<<OUTPUT COLUMNS>>) (<<QUERY2>>)
@@ -181,12 +188,12 @@ The following example joins two Wavefront queries (WQL 1 and WQL 2) using an inn
 WQL 1:
 
 ```
-ts(kubernetes.pod_container.status, cluster="mcs-cdca-prod-*" and nodename="ip-*" and pod_name="wb-metrics*" and namespace_name="wb-metrics" and status="running")
+ts(kubernetes.pod_container.status, cluster="a-cluster" and nodename="ip-*" and pod_name="a-pod" and namespace_name="a-namespace" and status="running")
 ```
 
 WQL 2:
 ```
-ts(kubernetes.pod_container.uptime, cluster="mcs-cdca-prod-*" and nodename="ip-*" and pod_name="wb-metrics*" and namespace_name="wb-metrics")
+ts(kubernetes.pod_container.uptime, cluster="a-cluster" and nodename="ip-*" and pod_name="a-pod" and namespace_name="a-namespace")
 ```
 
 WQL Join:
@@ -202,22 +209,21 @@ The following example joins two PromQL queries (PromQL 1 and PromQL 2).
 PromQL 1:
 
 ```
-kubernetes.pod_container.status{cluster="mcs-cdca-prod-*",nodename="ip-*", pod_name="wb-metrics*", namespace_name="wb-metrics", status="running"}
+kubernetes.pod_container.status{cluster="a-cluster",nodename="ip-*", pod_name="a-pod", namespace_name="a-namespace", status="running"}
 ```
 
 PromQL 2:
 
 
 ```
-kubernetes.pod_container.uptime{cluster="mcs-cdca-prod-*",nodename="ip-*", pod_name="wb-metrics*", namespace_name="wb-metrics"})
+kubernetes.pod_container.uptime{cluster="a-cluster",nodename="ip-*", pod_name="a-pod", namespace_name="a-namespace"}
 ```
 
 PromQL Join:
 
 ```
-(${PromQL Q1} * on(cluster,nodename,pod_name,namespace_name) group_left(status) ${PromQL Q2} )
+${PromQL Q1} * on(cluster,nodename,pod_name,namespace_name) group_left(status) ${PromQL Q2}
 ```
---->
 
 
 ### FAQ: Does Wavefront Have Recording Rules?
