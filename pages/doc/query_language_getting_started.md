@@ -21,24 +21,36 @@ Watch these videos to get you started. The videos use the v1 UI, but the basic w
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td><strong><font color="blue">Intro to Wavefront Query Language</font></strong><br><br>
-<iframe src="https://bcove.video/3mep1Jv" width="400" height="225" allowfullscreen="true" alt="Intro to Wavefront Query Language"></iframe></td>
-<td><br><br>
-<p>Wavefront query language allows you to shape the data you see in your dashboards. Jason first shows an example of an environment where a single switch in a customer environment had a problem. The example uses the advanced functions if() at() and corr() to find other switches with the same behavior and prevent further problems. Jason then uses the highpass() function on other data to show only true failures in a chart.</p>
+<td width="70%"><strong><font color="blue">Query Language Basics</font></strong><br><br>
+<iframe src="https://bcove.video/3zckmeE" width="550" height="275" allowfullscreen="true" alt="Intro to Wavefront Query Language"></iframe></td>
+<td width="30%"><br><br>
+<p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. </p>
 </td>
 </tr>
 <tr>
-<td><strong><font color="blue">Query Language Basics</font></strong><br><br>
-<iframe src="https://bcove.video/3zckmeE" width="400" height="225" allowfullscreen="true" alt="Intro to Wavefront Query Language"></iframe></td>
-<td><br><br>
-<p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. </p>
+<td width="70%"><strong><font color="blue">Intro to Wavefront Query Language</font></strong><br><br>
+<iframe src="https://bcove.video/3mep1Jv" width="550" height="275" allowfullscreen="true" alt="Intro to Wavefront Query Language"></iframe></td>
+<td width="30%"><br><br>
+<p>Wavefront query language allows you to shape the data you see in your dashboards. The example uses the advanced functions if() at() and corr() to find a problem behavior of a switch in other switches and prevent future problems.</p>
 </td>
 </tr>
 <tr>
 <td><strong><font color="blue">Advanced Query Language Functions</font></strong><br><br>
-<iframe src="https://bcove.video/3zckmeE" width="400" height="225" allowfullscreen="true" alt="Advanced Query Language Functions"></iframe></td>
+<iframe src="https://bcove.video/3zckmeE" width="550" height="275" allowfullscreen="true" alt="Advanced Query Language Functions"></iframe></td>
 <td><br><br>
-<p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. </p>
+<p>Jason explores:
+<ul>
+<li>How the percentile() function in 3 queries shows different percentiles.</li>
+<li>How the mpercentile() (moving percentile) function displays percentile over a time window.</li>
+<li>How a chart variable in a query shows the standard deviation.</li>
+</ul></p>
+</td>
+</tr>
+<tr>
+<td><strong><font color="blue">Wavefront and Prometheus Query Language</font></strong><br><br>
+<iframe src="https://bcove.video/3tLRB6l" width="550" height="275" allowfullscreen="true" alt="Wavefront and PromQL"></iframe></td>
+<td><br>
+<p>Wavefront <a href="wavefront_prometheus.html">supports PromQL</a> when you create charts and alerts. Admin-level organization setting to determine whether a user can write in PromQL. Watch this video to learn more.</p>
 </td>
 </tr>
 </tbody>
@@ -339,7 +351,7 @@ Investigate [internal metrics for optimizing performance](wavefront_monitoring.h
 </tbody>
 </table>
 
-<!---s
+<!---
 <tr>
 <td>How do time windows work?</td>
 <td markdown=span>Wavefront supports [moving time window functions](). </a>.
