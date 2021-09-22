@@ -6,22 +6,15 @@ permalink: ui_dashboards.html
 summary: Create dashboards, add charts, customize dashboard layout, and troubleshoot dashboards.
 ---
 
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="80%">Wavefront dashboards allow you organize and customize the information about your environment. For example:
+Wavefront dashboards allow you organize and customize the information about your environment. For example:
 <ul>
 <li>Organize charts into sections.</li>
 <li>Perform global operations such as setting the dashboard time window.</li>
-<li>Use dashboard variables.</li></ul></td>
-<td width="20%"><a href="ui_dashboards_v1.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
-</tr>
-</tbody>
-</table>
+<li>Use dashboard variables.</li></ul>
 
 [Examine Data with Dashboards and Charts](ui_examine_data.html) explains how to set dashboard preferences, set the dashboard time window, isolate sources and series, and more.
 
-{% include shared/badge.html content="Every Wavefront user can view dashboards and make some changes such as setting the time window. You must have the [Dashboard permission](permissions_overview.html) and Modify access to save changes you make to dashboards." %}
+{% include note.html content="Every Wavefront user can view dashboards and make some changes such as setting the time window. You must have the [Dashboard permission](permissions_overview.html) and [Modify access](access.html) to save changes you make to dashboards." %}
 
 ## Video
 
@@ -314,7 +307,7 @@ For more information on the options listed in the Show Events dropdown, see <a h
 </tbody>
 </table>
 
-## Edit the Dashboard JSON 
+## Edit the Dashboard JSON
 
 Most users create and edit dashboards by using the Wavefront UI or automate the process with the Wavefront REST API. But at times, it's convenient to edit the dashboard JSON directly from the UI and see results immediately.
 

@@ -6,17 +6,9 @@ published: false
 permalink: ui_examine_data_v2.html
 summary: Examine data with dashboards and charts
 ---
+With dashboards and charts, all users can examine data, set dashboard time window, zoom in and out, and perform other customizations.
 
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="80%"> With dashboards and charts, you can examine data, set dashboard time window, zoom in and out, and perform other customizations.
-<br>
-<strong>Note:</strong> All Wavefront users can examine all dashboards and charts unless an individual dashboard is protected through access control. All users can make temporary changes. To save changes to dashboards and charts you must have Dashboard permission.</td>
-<td width="20%"><a href="ui_examine_data_v1.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
-</tr>
-</tbody>
-</table>
+{% include shared/badge.html content="All users can view and explore charts. You must have [Dashboard permission](permissions_overview.html) to make permanent changes, such as saving a chart to a dashboard." %}
 
 ## Get Started
 

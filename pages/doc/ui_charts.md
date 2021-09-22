@@ -6,22 +6,14 @@ permalink: ui_charts.html
 summary: Create charts, add and manage queries, and customize the chart.
 ---
 
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="80%">
-<br>
-Wavefront charts allow you to examine data, create alerts, and more!
+Wavefront charts allow you to examine data, create alerts, and more! For example:
 <ul>
 <li>Create a chart and fine-tune the data it displays using filters and functions.</li>
 <li>Customize your charts.</li>
-<li>Use chart variables, set the time window, create alerts, and much more!</li></ul></td>
-<td width="20%"><a href="ui_charts_v1.html"><img src="/images/classic_button.png" alt="click here for the v1 documentation"/></a></td>
-</tr>
-</tbody>
-</table>
+<li>Use chart variables, set the time window, create alerts, and optimize display speed.</li></ul>
 
-{% include shared/badge.html content="You must have [Dashboard permission](permissions_overview.html) to save a chart to a dashboard. If you do not have permission, the UI menu selections and buttons required to perform the task are not visible." %}
+
+{% include note.html content="All users can view and explore charts. You must have [Dashboard permission](permissions_overview.html) to make permanent changes, such as saving a chart to a dashboard." %}
 
 ## Create a Chart
 
@@ -49,7 +41,7 @@ You can create a chart from a dashboard or from the taskbar.
 1. Select **Dashboards > Create Chart**.
 2. (Optional) In the top left, specify a chart name.
 2. Select a metric and an optional filter and function.
-3. In the top right, click **Save**. 
+3. In the top right, click **Save**.
 4. Specify the dashboard in which you want to insert the chart or create a new dashboard.
 
 ![create chart](/images/v2_create_chart.png)
@@ -309,7 +301,7 @@ The [`align()` function](query_language_reference.html#filtering-and-comparison-
 
 Wavefront is very fast, but sometimes it's not necessary for the user to wait for thousands of series to be rendered. You can limit the number of time series to 100 for new charts.
 
-To affect all dashboards, turn on the **Sampling** in your preferences.  
+To affect all dashboards, turn on the **Sampling** in your preferences.
 1. Click the gear icon in the top right corner.
 2. Click your account name.
 3. Turn **Sampling** on.
