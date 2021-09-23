@@ -7,7 +7,7 @@ permalink: integrations_pcf_alerts.html
 summary: Details for Tanzu Application Service Alerts
 ---
 
-The Tanzu Application Service (TAS) integration includes a rich set of alerts out of the box. You can preview the alerts in the **Alerts** tab of the integration. This page gives details for each alert.
+The Tanzu Application Service (TAS) integration includes a rich set of out of the box alerts. You can preview, install, and uninstall the alerts on the **Alerts** tab of the integration. This page gives details for each alert.
 
 {% include tip.html content="This functionality will be available for all Wavefront instances soon." %}
 
