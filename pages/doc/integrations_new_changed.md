@@ -63,7 +63,7 @@ We added the following integrations:
 
 Made improvements to the following integrations and dashboards in June 2021:
 
-* Windows -- Updated the out of the box dashboard to use the correct metrics to calculate Physical Memory.
+* Windows -- Updated the out-of-the-box dashboard to use the correct metrics to calculate Physical Memory.
 
   **Note**: In an existing Windows integration, you must update the `telegraf.conf` file for the changes to take effect.
 
