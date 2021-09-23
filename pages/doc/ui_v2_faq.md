@@ -10,7 +10,7 @@ If you're migrating from v1 dashboards and charts to v2, you'll find most of the
 
 {% include note.html content="Every Wavefront user can view dashboards and make temporary changes. You must have the Dashboard permission to save dashboards and charts." %}
 
-## Main Improvements
+## Main Improvements 
 
 Our revamped UI for charts and dashboards includes the following main features:
 
