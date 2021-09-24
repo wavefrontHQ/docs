@@ -78,7 +78,6 @@ You can set up an alert that triggers if the alert is in a NO DATA state for a s
 <td><strong>INVALID</strong></td>
 <td>The alert is timing out ( > 5 min query execution) or queries include inactive metrics or sources. When an alert is in the INVALID state, it is checked approximately every 15 minutes, instead of the specified checking frequency (see next section).</td></tr>
 <tr>
-<tr>
 <td><strong>SYNTAX_ERROR</strong></td>
 <td>The alert condition query resulted in a syntax error. This can happen, for example, if the query does not use quotes around query elements (e.g. sources or  point tag values) that include special characters.  </td></tr>
 <tr>
