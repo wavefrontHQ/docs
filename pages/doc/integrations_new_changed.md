@@ -117,7 +117,7 @@ Made improvements to the following integrations and dashboards in April 2021:
 * Linux -- Updates to the integration setup instructions.
 * Pivotal Cloud Foundry:
   * Fixed charts in the **PCF: MySQL** dashboard.
-  * Added the VMware Tanzu Application Services tile to the Pivotal Cloud Foundry integration.
+  * Added the **VMware Tanzu Application Services** tile to the Pivotal Cloud Foundry integration.
 * Istio -- Deprecated the Wavefront Istio adapter and added support to monitor Istio 1.8.
 * Jaeger -- Updates to the integration setup instructions to send data to the Wavefront proxy through gRPC.
 * HipChat -- Removed the HipChat integration.
