@@ -482,7 +482,7 @@ Wavefront can ingest and process very large amounts of data -- and if you're sma
 
   By default, Wavefront uses a 2-hour time window for dashboards. You might need to see more data, for example, zoom out to see 12 hours or even a week or more. However, a larger time window means that more metrics have to be fetched from the backend, and eventually, performance suffers.
 
-  * If you're interested in past data, don't zoom out but specify the [time window](ui_examine_data_v1.html#set-the-dashboard-time-window) you need.
+  * If you're interested in past data, don't zoom out but specify the [time window](ui_examine_data.html#set-the-time-window) you need.
   * Consider using [time functions](query_language_reference.html#standard-time-functions) in your queries to see exactly what you need.  
 
 * **Display only the events you need**
