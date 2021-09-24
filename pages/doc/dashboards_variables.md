@@ -4,7 +4,7 @@ keywords: dashboards
 tags: [dashboards]
 sidebar: doc_sidebar
 permalink: dashboards_variables.html
-summary: Define dashboard variables to allow easy switches between different data sources.
+summary: Use dashboard variables and global filters switch between different data sources.
 ---
 
 Dashboard variables and global filters are excellent ways of focusing the metrics that a dashboard displays.
