@@ -13,7 +13,11 @@ This page lists new and updated features in the Wavefront service.
 * For the latest changes and releases of the **Wavefront Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For  **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
-## 2021-35.x Release Notes 
+## 2021-39.x Release Notes
+
+* **SYNTAX_ERROR Alert State**: If an alert query results in a syntax error, the alert is set to SYNTAX_ERROR state. This can happen, for example, when query elements with special characters are non surrounded by quotes. The state is visible, for example, in the Alerts Browser.
+
+## 2021-35.x Release Notes
 
 * **Sampling Policies**: If you can't find traces in Wavefront because Intelligent Sampling discarded them, you can now create a sampling policy. Sampling policies let Wavefront know that you want to keep specific traces. See [Managing Sampling Policies](trace_sampling_policies.html) for details.
   {% include note.html content="Sampling policies impact the volume of data ingested by Wavefront and can affect your costs. See [Track the Volume of Trace Data Stored in Wavefront](trace_data_sampling.html#track-the-volume-of-trace-data-stored-in-wavefront) for details on the number of spans you store in Wavefront with the sampling policies." %}
@@ -21,7 +25,7 @@ This page lists new and updated features in the Wavefront service.
 * **OpenTelemetry**: Reorganized the distributed tracing documentation to include OpenTelemetry.
   {% include important.html content="OpenTelemetry is still at its early stage. Therefore, if you run into issues when configuring Wavefront with OpenTelemetry, contact [Wavefront Technical Support](wavefront_support_feedback.html#support) for help." %}
 
-## 2021-34.x Release Notes 
+## 2021-34.x Release Notes
 
 * **UI performance improvements**: We’ve done extensive revamp of the rendering code for dashboards and charts. Measurements show improvements on all dashboards, some up to 50% faster. Improvements will be especially noticeable in dashboards with many line charts or point plots.
 

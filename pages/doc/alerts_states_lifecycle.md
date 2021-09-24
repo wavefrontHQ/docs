@@ -80,7 +80,7 @@ You can set up an alert that triggers if the alert is in a NO DATA state for a s
 <tr>
 <tr>
 <td><strong>SYNTAX_ERROR</strong></td>
-<td> </td></tr>
+<td>The alert condition query resulted in a syntax error. This can happen, for example, if the query does not use quotes around query elements (e.g. sources or  point tag values) that include special characters.  </td></tr>
 <tr>
 <td><strong>SNOOZED</strong></td>
 <td>The alert is not checked because the user set it to SNOOZED.</td></tr>
