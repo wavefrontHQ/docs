@@ -141,7 +141,7 @@ us to aggregate the raw data values reported in each 30 second interval, and dis
 
 
 
-## Learn More! 
+## Learn More!
 
 * Get the details about each chart type from the [Chart Reference](ui_chart_reference.html).
 * Send [a link to a chart](ui_sharing.html#share-a-link-to-a-dashboard-or-chart) to a coworker (or to the customer success team if you need help).
