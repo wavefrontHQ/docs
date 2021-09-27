@@ -3,7 +3,7 @@ title: Tanzu Application Service Alerts
 keywords:
 tags: [integrations, proxies]
 sidebar: doc_sidebar
-permalink: integrations_pcf_alerts.html
+permalink: integrations_tas_alerts.html
 summary: Details for Tanzu Application Service Alerts
 ---
 
