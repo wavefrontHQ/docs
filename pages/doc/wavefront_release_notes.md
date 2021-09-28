@@ -15,7 +15,9 @@ This page lists new and updated features in the Wavefront service.
 
 ## 2021-39.x Release Notes
 
-* **SYNTAX_ERROR Alert State**: If an alert query results in a syntax error, the alert is set to SYNTAX_ERROR state. This can happen, for example, when query elements with special characters are non surrounded by quotes. The state is visible, for example, in the Alerts Browser.
+* **SYNTAX_ERROR Alert State**: Starting with this release, a SYNTAX_ERROR alert state indicates that the alert query resulted in a syntax error. This might happen, for example, if a text string with special characters is missing double quotes, but could be the result of other query errors.
+
+  The error state is visible, for example, in the Alerts Browser and the Alerts Browser search bar. 
 
 ## 2021-35.x Release Notes
 
