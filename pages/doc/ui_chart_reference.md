@@ -1127,7 +1127,7 @@ Allows you to direct end users to a target dashboard if they click this chart. S
 ![node map chart](images/node_map.png)
 
 A **node map** chart shows colored 3-D cubes ordered from highest to lowest. Node maps show data based on source values.
-* By default, the node map uses displays the highest value on the top left to catch the user's eye.
+* By default, the node map displays the highest value on the top left to catch the user's eye.
 * When a user clicks a node, a small popup of the corresponding metric for that source results.
 * Use color mapping to determine colors for higher values. The node map uses shading to show transitions. In the example above, values below 0.3 are shown as green, values lower than 0.8 are shown as a shade of yellow.
 * Users can group and can set the metric to display in the top right.
