@@ -48,7 +48,7 @@ From the page of the integration you select, you can add an AWS integration, ena
 
 ### Adding an AWS Integration
 
-1. In Wavefront, click **Integrations** in the taskbar.
+1. Log in to your Wavefront cluster and click **Integrations** on the taskbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
 1. Click the **Setup** tab.
 1. Click **Set Up Amazon Integration** and click **Add Integration**.
@@ -56,16 +56,17 @@ From the page of the integration you select, you can add an AWS integration, ena
 1.  Configure the integration properties:
      - **Name** - Name to identify the integration.
      - **Role ARN** - Role ARN from Amazon account.
-     - **Bucket Name -** The S3 bucket containing CloudTrail logs. In your AWS account, go to **CloudTrail** &gt;**Trails** to see the bucket name.
+     - **Bucket Name** - The S3 bucket containing CloudTrail logs. In your AWS account, go to **CloudTrail** &gt;**Trails** to see the bucket name.
      - **Prefix** - A log file prefix specified when you created the CloudTrail.
      - **CloudTrail Region** - AWS Region where the CloudTrail logs reside.
-1.  Click **Set Up**. The integration is added to the Amazon Web Services Integrations list. If you want to configure whitelists and refresh rate for the CloudWatch integration, click the **CloudWatch** link in the Types column and follow the instructions in [Configuring CloudWatch Data Ingestion](#configure).
+1.  Click **Set Up**. The integration is added to the Amazon Web Services Integrations list. If you want to configure whitelists and refresh rate for the CloudWatch integration, click the **CloudWatch** link in the Types column and follow the instructions in [Configuring CloudWatch Data Ingestion](integrations_aws_metrics.html#configuring-cloudwatch-data-ingestion).
+
 
 ### Enabling and Disabling AWS Integrations
 
 Wavefront automatically disables integrations that are experiencing errors due to invalid credentials. To enable an integration after the credential has been corrected or to manually disable an integration:
 
-1. In Wavefront, click **Integrations** in the taskbar.
+1. In Wavefront, click **Integrations** on the taskbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
 1. Click the **Setup** tab.
 1. Click the **Advanced** link.
@@ -114,19 +115,21 @@ Data flows from AWS to Wavefront only if the account has the required access. Yo
    1. Copy the Role ARN value.
 1. In Wavefront, click **Integrations** in the taskbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
-1. Click the **Setup** tab.
-1. Click the **Advanced** link.
-1. Select **Add Integration &gt; &lt;Integration Option&gt;**, where  **&lt;Integration Option&gt;** is **Register [CloudWatch \| CloudTrail \| AWS Metrics+]**.
+1. On the **Setup** tab, click the **Advanced** link at the bottom.
+1. In the Cloud Integration page, click **Add Amazon Web Services** and select an option:
+   - **Register AWS Metrics+**
+   - **Register CloudTrail**
+   - **Register CloudWatch**
 1.  Configure the integration properties:
-     - **Common**
+     - **Common Properties** -- Apply to AWS Metrics+, CloudTrail, and CloudWatch.
          - **Name** - Name to identify the integration.
          - **Role ARN** - Role ARN from Amazon account.
-     - **CloudTrail**
+     - **CloudTrail Properties** -- Apply to CloudTrail only.
          - **Bucket Name -** The S3 bucket that contains CloudTrail logs. In AWS, go to **CloudTrail** &gt;**Trails** to see the bucket name.
          - **Prefix** - A log file prefix specified when you created the CloudTrail.
-     - **CloudWatch**
-         - Whitelists and Service Refresh Rate - see <a href="#configure">Configuring CloudWatch Data Ingestion</a>.
-1.  Click **Save**. The selected integration(s) are created and added to the Cloud Integrations list.
+     - **CloudWatch** -- Apply to CloudWatch only.
+         - Whitelists and Service Refresh Rate - see [Configuring CloudWatch Data Ingestion](integrations_aws_metrics.html#configuring-cloudwatch-data-ingestion).
+1.  Click **Save**. The selected integrations are created and added to the Cloud Integrations list.
 
 ## Giving Wavefront Limited Access
 
