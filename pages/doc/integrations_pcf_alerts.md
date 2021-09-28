@@ -9,14 +9,14 @@ summary: Details for Pivotal Cloud Foundry Alerts
 
 The Pivotal Cloud Foundry (PCF) integration includes a rich set of alerts out of the box. You can preview the alerts on the **Alerts** tab of the integration. This page gives details for each alert.
 
-{% include note.html content="If you already have installed the Pivotal Cloud Foundry (PCF) alerts, and want to migrate to the Tanzu Application Service integration, uninstall the PCF alerts, so that you don't have duplicate versions of the alerts. See [installing and uninstalling integration alerts](integrations.html#installing-and-uninstalling-integration-alerts)." %}
+{% include note.html content="If you already have installed the Pivotal Cloud Foundry (PCF) alerts, and want to migrate to the Tanzu Application Service integration, uninstall the PCF alerts, so that you don't have duplicate versions of the same alerts. See [installing and uninstalling integration alerts](integrations.html#installing-and-uninstalling-integration-alerts). Note that any changes to the PCF alerts that you have made will not be migrated and will be lost. You have to apply them manually after setting up the Tanzu Application Service integration." %}
 
 ## PAS Active Locks Alerts
 
 Total count of how many locks the system components are holding.
 
 If the ActiveLocks count is not equal to the expected value, there is likely a problem with Diego.
-1. Run monit status to inspect for failing processes.
+1. Run `monit` status to inspect for failing processes.
 2. If there are no failing processes, then review the logs for the components using the Locket service: BBS, Auctioneer, TPS Watcher, Routing API, and Clock Global (Cloud Controller clock). Look for indications that only one of each component is active at a time.
 3. Focus triage on the BBS first:
    - A healthy BBS shows obvious activity around starting or claiming LRPs.
@@ -26,11 +26,11 @@ If the ActiveLocks count is not equal to the expected value, there is likely a p
    - Recent logs for Auctioneer should show all but one of its instances are currently waiting on locks, and the active Auctioneer should show a record of when it last attempted to execute work. This attempt should correspond to app development activity, such as `cf push`.
    - Reference the Auctioneer-level Locket metric `auctioneer.LockHeld`. A value of 0 indicates Locket issues at the Auctioneer level. For more information, see Locks Held by Auctioneer.
 5. The TPS Watcher is primarily active when app instances crash. Therefore, if the TPS Watcher is suspected, review the most recent logs.
-6. If you are unable to resolve on-going excessive active locks, pull logs from the Diego BBS and Auctioneer VMs, which includes the Locket service component logs, and contact Pivotal Support.
+6. If you are unable to resolve on-going excessive active locks, pull logs from the Diego BBS and Auctioneer VMs, which includes the Locket service component logs, and contact VMware Support.
 
 ## PAS Auctioneer Fetch State Duration Taking Too Long
 
-App stage requests for Diego may be failing. Consult your Pivotal Expert.
+App stage requests for Diego may be failing. Consult your VMware Expert.
 
 ## PAS Auctioneer LRP Auctions Failed
 
@@ -40,7 +40,7 @@ This metric can indicate that PAS is out of container space or that there is a l
 1. To best determine the root cause, examine the Auctioneer logs. Depending on the specific error and resource constraint, you may also find a failure reason in the Cloud Controller (CC) API.
 2. Investigate the health of your Diego Cells to determine if they are the resource type causing the problem.
 3. Consider scaling additional Diego Cells using Ops Manager.
-4. If scaling Diego Cells does not solve the problem, pull Diego Brain logs and BBS node logs and contact Pivotal Support telling them that LRP auctions are failing.
+4. If scaling Diego Cells does not solve the problem, pull Diego Brain logs and BBS node logs and contact VMware Support telling them that LRP auctions are failing.
 
 ## PAS Auctioneer Task Auctions Failed
 
@@ -50,27 +50,27 @@ This metric is cumulative over the lifetime of the Auctioneer job. Failing Task 
 1. In order to best determine the root cause, examine the Auctioneer logs. Depending on the specific error or resource constraint, you may also find a failure reason in the CC API.
 2. Investigate the health of Diego Cells.
 3. Consider scaling additional Diego Cells using Ops Manager.
-4. If scaling Diego Cells does not solve the problem, pull Diego Brain logs and BBS logs for troubleshooting and contact Pivotal Support for additional troubleshooting. Inform Pivotal Support that Task auctions are failing.
+4. If scaling Diego Cells does not solve the problem, pull Diego Brain logs and BBS logs for troubleshooting and contact VMware Support for additional troubleshooting. Inform VMware Support that Task auctions are failing.
 
 ## PAS Auctioneer Time to Fetch Diego Cell State
 
 Time in ns that the Auctioneer took to fetch state from all the Diego Cells when running its auction. Indicates how the Diego Cells themselves are performing. Alerting on this metric helps alert that app staging requests to Diego may be failing.
 1. Check the health of the Diego Cells by reviewing the logs and looking for errors.
 2. Review IaaS console metrics.
-3. Inspect the Auctioneer logs to determine if one or more Diego Cells is taking significantly longer to fetch state than other Diego Cells. Relevant log lines have wording like `fetched Diego Cell state`. Pull Diego Brain logs, Diego Cell logs, and Auctioneer logs and contact Pivotal Support telling them that fetching Diego Cell states is taking too long.
+3. Inspect the Auctioneer logs to determine if one or more Diego Cells is taking significantly longer to fetch state than other Diego Cells. Relevant log lines have wording like `fetched Diego Cell state`. Pull Diego Brain logs, Diego Cell logs, and Auctioneer logs and contact VMware Support telling them that fetching Diego Cell states is taking too long.
 
 ## PAS BBS Crashed App Instances
 
 Total number of LRP instances that have crashed. Indicates how many instances in the deployment are in a crashed state. An increase in `bbs.CrashedActualLRPs` can indicate several problems, from a bad app with many instances associated, to a platform issue that is resulting in app crashes. this metric to help create a baseline for your deployment. After you have a baseline, you can create a deployment-specific alert to notify of a spike in crashes above the trend line. Tune alert values to your deployment. Frequency: 30 s
 1. Look at the BBS logs for apps that are crashing and at the Diego Cell logs to see if the problem is with the apps themselves, rather than a platform issue.
-2. Before contacting Pivotal Support, pull the BBS logs and, if particular apps are the problem, pull the logs from their Diego Cells too.
+2. Before contacting VMware Support, pull the BBS logs and, if particular apps are the problem, pull the logs from their Diego Cells too.
 
 ## PAS BBS Fewer App Instances Than Expected
 
 Total number of LRP instances that are desired but have no record in the BBS. When Diego wants to add more apps, the BBS sends a request to the Auctioneer to spin up additional LRPs. `LRPsMissing` is the total number of LRP instances that are desired but have no BBS record. If Diego has less LRP running than expected, there may be problems with the BBS. An app push with many instances can temporarily spike this metric. However, a sustained spike in `bbs.LRPsMissing` is unusual and should be investigated. Frequency: 30 s
 
 1. Review the BBS logs for proper operation or errors, looking for detailed error messages.
-2. If the condition persists, pull the BBS logs and contact Pivotal Support.
+2. If the condition persists, pull the BBS logs and contact VMware Support.
 
 ## PAS BBS Master Elected
 
@@ -80,7 +80,7 @@ Indicates when there is a BBS master election. A BBS master election takes place
 
 Total number of LRP instances that are no longer desired but still have a BBS record. When Diego wants to add more apps, the BBS sends a request to the Auctioneer to spin up additional LRPs. `LRPsExtra` is the total number of LRP instances that are no longer desired but still have a BBS record. If Diego has more LRPs running than expected, there may be problems with the BBS. Deleting an app with many instances can temporarily spike this metric. However, a sustained spike in `bbs.LRPsExtra` is unusual and should be investigated. Frequency: 30 s
 1. Review the BBS logs for proper operation or errors, looking for detailed error messages.
-2. If the condition persists, pull the BBS logs and contact Pivotal Support.
+2. If the condition persists, pull the BBS logs and contact VMware Support.
 
 ## PAS BBS Running App Instances Rate of Change
 
@@ -90,7 +90,7 @@ This Delta reflects a DOWNWARD trend for app instances started or stopped. It he
 
 ## PAS BBS Task Count is Elevated
 
-This elevated BBS task metric is a KPI tracked by the internal Pivotal Web Services team. Contact the Diego team to investigate if the cause is not clear.
+This elevated BBS task metric is a KPI tracked by the internal VMware Web Services team. Contact the Diego team to investigate if the cause is not clear.
 
 ## PAS BBS Time to Handle Requests
 
@@ -99,7 +99,7 @@ The maximum observed latency time over the past 60 seconds that the BBS took to 
 2. Check BBS logs for faults and errors that can indicate issues with BBS.
 3. Try scaling the BBS VM resources up. For example, add more CPUs and memory depending on its `system.cpu`/`system.memory` metrics.
 4. Consider vertically scaling the PAS backing database, if `system.cpu` and `system.memory` metrics for the database instances are high.
-5. If the above steps do not solve the issue, collect a sample of the Diego Cell logs from the BBS VMs and contact Pivotal Support to troubleshoot further.
+5. If the above steps do not solve the issue, collect a sample of the Diego Cell logs from the BBS VMs and contact VMware Support to troubleshoot further.
 
 ## PAS BBS Time to Run LRP Convergence
 
@@ -107,13 +107,13 @@ Time that the BBS took to run its LRP convergence pass. If the convergence run b
 1. Check BBS logs for errors.
 2. Try vertically scaling the BBS VM resources up. For example, add more CPUs or memory depending on its `system.cpu`/`system.memory` metrics.
 3. Consider vertically scaling the PAS backing database, if `system.cpu` and `system.memory` metrics for the database instances are high.
-4. If that does not solve the issue, pull the BBS logs and contact Pivotal Support for additional troubleshooting.
+4. If that does not solve the issue, pull the BBS logs and contact VMware Support for additional troubleshooting.
 
 ## PAS BOSH VM CPU Used
 
 Percentage of CPU spent in user processes. Set an alert and investigate further if the CPU utilization is too high for a job.
 
-For monitoring Gorouter performance, CPU utilization of the Gorouter VM is the key capacity scaling indicator Pivotal recommends. For more information, see Router VM CPU Utilization in Key Capacity Scaling Indicators.
+For monitoring Gorouter performance, CPU utilization of the Gorouter VM is the key capacity scaling indicator VMware recommends. For more information, see Router VM CPU Utilization in Key Capacity Scaling Indicators.
 
 ## PAS BOSH VM Disk Used
 
@@ -157,7 +157,7 @@ Indicates if the `cf-apps` Domain is up-to-date, meaning that PAS app requests f
 * 1 means cf-apps Domain is up-to-date
 * No data received means cf-apps Domain is not up-to-date: If the cf-apps Domain does not stay up-to-date, changes requested in the Cloud Controller are not guaranteed to propagate throughout the system. If the Cloud Controller and Diego are out of sync, then apps running could vary from those desired.
    1. Check the BBS and Clock Global (Cloud Controller clock) logs.
-   2. If the problem continues, pull the BBS logs and Clock Global (Cloud Controller clock) logs and contact Pivotal Support to say that the `cf-apps` domain is not being kept fresh.
+   2. If the problem continues, pull the BBS logs and Clock Global (Cloud Controller clock) logs and contact VMware Support to say that the `cf-apps` domain is not being kept fresh.
 
 ## PAS Diego Cell Container Capacity
 
@@ -190,7 +190,7 @@ Time that the Diego Cell Rep took to sync the ActualLRPs that it claimed with it
 Yellow: warning (2265 5 s)
 Red: critical (2265 10 s)
 
-ACTION: Investigate BBS logs for faults and errors. If a one or more Diego cells appear problematic, pull the logs for those Diego cells and the BBS logs before contacting Pivotal Support.
+ACTION: Investigate BBS logs for faults and errors. If a one or more Diego cells appear problematic, pull the logs for those Diego cells and the BBS logs before contacting VMware Support.
 
 
 ## PAS Diego Cell Route Emitter Sync Duration
@@ -211,8 +211,8 @@ The Diego Cell periodically checks its health against the Garden back end. For D
   1. Determine a time interval during which the metrics from the Diego Cell changed from healthy to unhealthy.
   2. Pull the logs that the Diego Cell generated over that interval. The Diego Cell ID is the same as the BOSH instance ID.
   3. Pull the BBS logs over that same time interval.
-  4. Contact Pivotal Support.
-3. As a last resort, if you cannot wait for Pivotal Support, it sometimes helps to recreate the Diego Cell by running bosh recreate. For information about the bosh recreate command syntax, see Deployments in Commands in the BOSH documentation. Warning: Recreating a Diego Cell destroys its logs. To enable a root cause analysis of the Diego Cell’s problem, save out its logs before running `bosh recreate`.
+  4. Contact VMware Support.
+3. As a last resort, if you cannot wait for VMware Support, it sometimes helps to recreate the Diego Cell by running bosh recreate. For information about the bosh recreate command syntax, see Deployments in Commands in the BOSH documentation. Warning: Recreating a Diego Cell destroys its logs. To enable a root cause analysis of the Diego Cell’s problem, save out its logs before running `bosh recreate`.
 
 ## PAS Gorouter 502 Bad Gateway
 
@@ -220,7 +220,7 @@ The number of bad gateways, or 502 responses, from the Gorouter itself, emitted 
 
 Use: Indicates that route tables might be stale. Stale routing tables suggest an issue in the route register management plane, which indicates that something has likely changed with the locations of the containers. Always investigate unexpected increases in this metric.
 
-Actions: Check the Gorouter and Route Emitter logs to see if they are experiencing issues when connecting to NATS. Check the BOSH logs to see if the NATS, Gorouter, or Route Emitter VMs are failing. Look broadly at the health of all VMs, particularly Diego-related VMs. If problems persist, pull Gorouter and Route Emitter logs and contact Pivotal Support to say there has been an unusual increase in Gorouter bad gateway responses.
+Actions: Check the Gorouter and Route Emitter logs to see if they are experiencing issues when connecting to NATS. Check the BOSH logs to see if the NATS, Gorouter, or Route Emitter VMs are failing. Look broadly at the health of all VMs, particularly Diego-related VMs. If problems persist, pull Gorouter and Route Emitter logs and contact VMware Support to say there has been an unusual increase in Gorouter bad gateway responses.
 * First inspect logs for network issues and indications of misbehaving backends.
 * If it appears that the Gorouter needs to scale due to ongoing traffic congestion, do not scale on the latency metric alone. You should also look at the CPU utilization of the Gorouter VMs and keep it within a maximum 60-70% range.
 * Resolve high utilization by scaling the Gorouter.
@@ -231,8 +231,8 @@ Number of file descriptors currently used by the Gorouter job. Indicates an impe
 
 While a drop in gorouter.total_routes or an increase in `gorouter.ms_since_last_registry_update` helps to surface that the issue may already be occurring, alerting on `gorouter.file_descriptors` indicates that such an issue is impending.
 
-The Gorouter limits the number of file descriptors to 100,000 per job. Once the limit is met, the Gorouter is unable to establish any new connections. To reduce the risk of DDoS attacks, Pivotal recommends doing one or both of the following:
-* Within PAS, set Maximum connections per back end to define how many requests can be routed to any particular app instance. This prevents a single app from using all Gorouter connections. The value specified should be determined by the operator based on the use cases for that foundation. For example, Pivotal sets the number of connections to 500 for Pivotal Web Services.
+The Gorouter limits the number of file descriptors to 100,000 per job. Once the limit is met, the Gorouter is unable to establish any new connections. To reduce the risk of DDoS attacks, VMware recommends doing one or both of the following:
+* Within PAS, set Maximum connections per back end to define how many requests can be routed to any particular app instance. This prevents a single app from using all Gorouter connections. The value specified should be determined by the operator based on the use cases for that foundation. For example, VM sets the number of connections to 500 for Pivotal Web Services.
 * Add rate limiting at the load balancer level.
 
 ## PAS Gorouter Handling Latency
@@ -269,25 +269,25 @@ ACTIONS:
 * Search the Gorouter and Route Emitter logs for connection issues to NATS.
 * Check the BOSH logs to see if the NATS, Gorouter, or Route Emitter VMs are failing.
 * Look more broadly at the health of all VMs, particularly Diego-related VMs.
-* If problems persist, pull the Gorouter and Route Emitter logs and contact Pivotal Support to say there are consistently long delays in route registry.
+* If problems persist, pull the Gorouter and Route Emitter logs and contact VMware Support to say there are consistently long delays in route registry.
 
 ## PAS Locks Held by Auctioneer
 
 Whether an Auctioneer instance holds the expected Auctioneer lock (in Locket). 1 means the active Auctioneer holds the lock, and 0 means the lock was lost. This metric is complimentary to Active Locks, and it offers an Auctioneer-level version of the Locket metrics. Although it is emitted per Auctioneer instance, only 1 active lock is held by Auctioneer. Therefore, the expected value is 1. The metric may occasionally be 0 when the Auctioneer instances are performing a leader transition, but a prolonged value of 0 indicates an issue with Auctioneer.
 
-1. Run monit status on the Diego Database VM to check for failing processes.
+1. Run `monit` status on the Diego Database VM to check for failing processes.
 2. If there are no failing processes, then review the logs for Auctioneer. Recent logs for Auctioneer should show all but one of its instances are currently waiting on locks, and the active Auctioneer should show a record of when it last attempted to execute work. This attempt should correspond to app development activity, such as `cf push`.
-3. If you are unable to resolve the issue, pull logs from the Diego BBS and Auctioneer VMs, which includes the Locket service component logs, and contact Pivotal Support.
+3. If you are unable to resolve the issue, pull logs from the Diego BBS and Auctioneer VMs, which includes the Locket service component logs, and contact VMware Support.
 
 ## PAS Locks Held by BBS
 
 Whether a BBS instance holds the expected BBS lock (in Locket). 1 means the active BBS server holds the lock, and 0 means the lock was lost. This metric is complimentary to Active Locks, and it offers a BBS-level version of the Locket metrics. Although it is emitted per BBS instance, only 1 active lock is held by BBS. Therefore, the expected value is 1. The metric may occasionally be 0 when the BBS instances are performing a leader transition, but a prolonged value of 0 indicates an issue with BBS.
 
-1. Run monit status on the Diego database VM to check for failing processes.
+1. Run `monit` status on the Diego database VM to check for failing processes.
 2. If there are no failing processes, then review the logs for BBS.
   * A healthy BBS shows obvious activity around starting or claiming LRPs.
   * An unhealthy BBS leads to the Auctioneer showing minimal or no activity. The BBS sends work to the Auctioneer.
-3. If you are unable to resolve the issue, pull logs from the Diego BBS, which include the Locket service component logs, and contact Pivotal Support.
+3. If you are unable to resolve the issue, pull logs from the Diego BBS, which include the Locket service component logs, and contact VMware Support.
 
 ## PAS UAA Latency is Elevated
 

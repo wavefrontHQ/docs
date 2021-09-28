@@ -9,14 +9,14 @@ summary: Details for Tanzu Application Service Alerts
 
 The Tanzu Application Service (TAS) integration includes a rich set of out of the box alerts. You can preview, install, and uninstall the alerts on the **Alerts** tab of the integration. This page gives details for each alert.
 
-{% include note.html content="If you already have installed the Pivotal Cloud Foundry alerts, and want to migrate to the Tanzu Application Service integration, uninstall the PCF alerts, so that you don't have duplicate versions of the alerts. See [installing and uninstalling integration alerts](integrations.html#installing-and-uninstalling-integration-alerts)." %}
+{% include note.html content="If you already have installed the Pivotal Cloud Foundry (PCF) alerts, and want to migrate to the Tanzu Application Service integration, uninstall the PCF alerts, so that you don't have duplicate versions of the same alerts. See [installing and uninstalling integration alerts](integrations.html#installing-and-uninstalling-integration-alerts). Note that any changes to the PCF alerts that you have made will not be migrated and will be lost. You have to apply them manually after setting up the Tanzu Application Service integration." %}
 
 ## TAS Active Locks Alerts
 
 Total count of how many locks the system components are holding.
 
 If the ActiveLocks count is not equal to the expected value, there is likely a problem with Diego.
-1. Run monit status to inspect for failing processes.
+1. Run `monit` status to inspect for failing processes.
 2. If there are no failing processes, then review the logs for the components using the Locket service: BBS, Auctioneer, TPS Watcher, Routing API, and Clock Global (Cloud Controller clock). Look for indications that only one of each component is active at a time.
 3. Focus triage on the BBS first:
    - A healthy BBS shows obvious activity around starting or claiming LRPs.
@@ -275,7 +275,7 @@ ACTIONS:
 
 Whether an Auctioneer instance holds the expected Auctioneer lock (in Locket). 1 means the active Auctioneer holds the lock, and 0 means the lock was lost. This metric is complimentary to Active Locks, and it offers an Auctioneer-level version of the Locket metrics. Although it is emitted per Auctioneer instance, only 1 active lock is held by Auctioneer. Therefore, the expected value is 1. The metric may occasionally be 0 when the Auctioneer instances are performing a leader transition, but a prolonged value of 0 indicates an issue with Auctioneer.
 
-1. Run monit status on the Diego Database VM to check for failing processes.
+1. Run `monit` status on the Diego Database VM to check for failing processes.
 2. If there are no failing processes, then review the logs for Auctioneer. Recent logs for Auctioneer should show all but one of its instances are currently waiting on locks, and the active Auctioneer should show a record of when it last attempted to execute work. This attempt should correspond to app development activity, such as `cf push`.
 3. If you are unable to resolve the issue, pull logs from the Diego BBS and Auctioneer VMs, which includes the Locket service component logs, and contact Support.
 
@@ -283,7 +283,7 @@ Whether an Auctioneer instance holds the expected Auctioneer lock (in Locket). 1
 
 Whether a BBS instance holds the expected BBS lock (in Locket). 1 means the active BBS server holds the lock, and 0 means the lock was lost. This metric is complimentary to Active Locks, and it offers a BBS-level version of the Locket metrics. Although it is emitted per BBS instance, only 1 active lock is held by BBS. Therefore, the expected value is 1. The metric may occasionally be 0 when the BBS instances are performing a leader transition, but a prolonged value of 0 indicates an issue with BBS.
 
-1. Run monit status on the Diego database VM to check for failing processes.
+1. Run `monit` status on the Diego database VM to check for failing processes.
 2. If there are no failing processes, then review the logs for BBS.
   * A healthy BBS shows obvious activity around starting or claiming LRPs.
   * An unhealthy BBS leads to the Auctioneer showing minimal or no activity. The BBS sends work to the Auctioneer.

@@ -12,14 +12,34 @@ Wavefront continuously adds new integrations to the existing set, and improves a
 
 Made improvements to the following integrations and dashboards in September 2021:
 
+* Pivotal Cloud Foundry 
+  - Deprecated the Pivotal Cloud Foundry Integration as part of the renaming of Pivotal Cloud Foundry to Tanzu Application Service. The Pivotal Cloud Foundry integration which supports versions 2.2 to 2.8 is moved to the list of Archived integrations. The Tanzu Application Service integration, supports Tanzu Application Service 2.9 and later. 
+  
+    {% include note.html content="If you already have installed the Pivotal Cloud Foundry (PCF) alerts, and want to migrate to the Tanzu Application Service integration, uninstall the PCF alerts, so that you don't have duplicate versions of the same alerts. See [installing and uninstalling integration alerts](integrations.html#installing-and-uninstalling-integration-alerts). Note that any changes to the PCF alerts that you have made will not be migrated and will be lost. You have to apply them manually after setting up the Tanzu Application Service integration." %}
+  
+    As a best practice, we recommend you to uninstall all PCF Dashboards before migrating to the Tanzu Application Service integration. See [installing and uninstalling integration dashboards](integrations.html#installing-and-uninstalling-integration-dashboards).
+  
+  - Optimized the filter queries in the out-of-the-box Tanzu Application Service (Pivotal Cloud Foundry) dashboards.
+  
+* AWS 
+
+  - Updated the query in the top 10 CPU charts of the **AWS: ECS (Fargate)** dashboard to show the correct values.
+  - Fixed bucket and region count mismatch issue in the **AWS: S3** dashboard.
+  
+* Wavefront Tutorial -- Added the following list of new chart types and examples to the **Chart Types** dashboard.
+
+  - Gauge
+  - Pie
+  - Node map
+  - Heat map 
+  - Stacked column
+  
 * Kafka --  Updated the integration to monitor Bitnami Kafka running on Kubernetes.
 * Microsoft Azure -- Added new out of the box dashboards:
   * **Azure: Cosmos DB** dashboard for monitoring Azure Cosmos DB.
   * **Summary** dashboard that gives a high-level view of the Azure environment.
-* Pivotal Cloud Foundry -- Optimized the filter queries in the out of the box Tanzu Application Services (Pivotal Cloud Foundry) dashboards.
 * Istio -- Updated the Istio setup instructions with mandatory metric configuration.
-* AWS -- Fixed bucket and region count mismatch issue in the **AWS: S3** dashboard.
-* vSphere -- Updated the default configuration to add custom attributes to the metrics.
+* * vSphere -- Updated the default configuration to add custom attributes to the metrics.
 * Linux Host -- Updated the summary section to use Gauge charts and fixed some errors in a couple of charts.
 * Mac Host -- Updated the summary section to use Gauge charts and fixed some errors in a couple of charts. 
 
