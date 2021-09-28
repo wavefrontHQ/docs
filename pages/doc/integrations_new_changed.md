@@ -36,7 +36,7 @@ Made improvements to the following integrations and dashboards in September 2021
   * **Azure: Cosmos DB** dashboard for monitoring Azure Cosmos DB.
   * **Summary** dashboard that gives a high-level view of the Azure environment.
 * Istio -- Updated the Istio setup instructions with mandatory metric configuration.
-* * vSphere -- Updated the default configuration to add custom attributes to the metrics.
+* vSphere -- Updated the default configuration to add custom attributes to the metrics.
 * Linux Host -- Updated the summary section to use Gauge charts and fixed some errors in a couple of charts.
 * Mac Host -- Updated the summary section to use Gauge charts and fixed some errors in a couple of charts. 
 
