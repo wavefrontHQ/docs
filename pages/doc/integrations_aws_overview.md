@@ -44,9 +44,11 @@ If you set up an [Amazon Web Services integration](integrations.html), Wavefront
 
 ## Managing an AWS Integration
 
-From the page of the integration you select, you can add an AWS integration, enable and disable it, and delete an AWS integration.
+From the page of the integration you select, you can add an AWS integration, enable and disable it, and delete an AWS integration. You can also add and manage AWS integrations by using the Wavefront REST API.
 
-### Adding an AWS Integration
+### Use the GUI to Add an AWS Integration
+
+You can add an AWS integration by using the Wavefront GUI.
 
 1. Log in to your Wavefront cluster and click **Integrations** on the taskbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
@@ -61,6 +63,9 @@ From the page of the integration you select, you can add an AWS integration, ena
      - **CloudTrail Region** - AWS Region where the CloudTrail logs reside.
 1.  Click **Set Up**. The integration is added to the Amazon Web Services Integrations list. If you want to configure whitelists and refresh rate for the CloudWatch integration, click the **CloudWatch** link in the Types column and follow the instructions in [Configuring CloudWatch Data Ingestion](integrations_aws_metrics.html#configuring-cloudwatch-data-ingestion).
 
+### Use the API to Add an AWS Integration
+
+You can add an AWS integration by using the Wavefront REST API.
 
 ### Enabling and Disabling AWS Integrations
 
@@ -131,7 +136,7 @@ Data flows from AWS to Wavefront only if the account has the required access. Yo
          - Whitelists and Service Refresh Rate - see [Configuring CloudWatch Data Ingestion](integrations_aws_metrics.html#configuring-cloudwatch-data-ingestion).
 1.  Click **Save**. The selected integrations are created and added to the Cloud Integrations list.
 
-## Giving Wavefront Limited Access
+## Give Wavefront Limited Access
 
 Instead of giving Wavefront read-only access, you can instead give more limited access.
 
