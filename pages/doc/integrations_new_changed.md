@@ -21,7 +21,7 @@ Made improvements to the following integrations and dashboards in September 2021
   
   - Optimized the filter queries in the out-of-the-box Tanzu Application Service (Pivotal Cloud Foundry) dashboards.
   
-* AWS 
+* AWS:
 
   - Updated the query in the top 10 CPU charts of the **AWS: ECS (Fargate)** dashboard to show the correct values.
   - Fixed bucket and region count mismatch issue in the **AWS: S3** dashboard.
