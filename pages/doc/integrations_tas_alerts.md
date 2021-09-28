@@ -9,7 +9,7 @@ summary: Details for Tanzu Application Service Alerts
 
 The Tanzu Application Service (TAS) integration includes a rich set of out of the box alerts. You can preview, install, and uninstall the alerts on the **Alerts** tab of the integration. This page gives details for each alert.
 
-{% include tip.html content="This functionality will be available for all Wavefront instances soon." %}
+{% include note.html content="If you already have installed the Pivotal Cloud Foundry alerts, and want to migrate to the Tanzu Application Service integration, uninstall the PCF alerts, so that you don't have duplicate versions of the alerts. See [installing and uninstalling integration alerts](integrations.html#installing-and-uninstalling-integration-alerts)." %}
 
 ## TAS Active Locks Alerts
 
