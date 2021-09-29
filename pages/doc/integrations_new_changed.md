@@ -25,7 +25,7 @@ Made improvements to the following integrations and dashboards in September 2021
   - Updated the query in the top 10 CPU charts of the **AWS: ECS (Fargate)** dashboard to show the correct values.
   - Fixed bucket and region count mismatch issue in the **AWS: S3** dashboard.
   
-* Wavefront Tutorial -- Added the following list of new chart types and examples to the **Chart Types** dashboard
+* Wavefront Tutorial -- Added the following list of new chart types and examples to the **Chart Types** dashboard:
   - Gauge
   - Pie
   - Node map
