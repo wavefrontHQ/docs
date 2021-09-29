@@ -13,7 +13,7 @@ Wavefront continuously adds new integrations to the existing set, and improves a
 Made improvements to the following integrations and dashboards in September 2021:
 
 * Pivotal Cloud Foundry:
-  - Deprecated the Pivotal Cloud Foundry Integration as part of the renaming of Pivotal Cloud Foundry to Tanzu Application Service. The Pivotal Cloud Foundry integration which supports versions 2.2 to 2.8 is moved to the list of Archived integrations. The Tanzu Application Service integration supports Tanzu Application Service 2.9 and later. 
+  - We now have Tanzu Application Service integration to support Tanzu Application Service 2.9 and later. We deprecated the Pivotal Cloud Foundry Integration as part of the renaming of Pivotal Cloud Foundry to Tanzu Application Service. The Pivotal Cloud Foundry integration which supports versions 2.2 to 2.8 is moved to the list of Archived integrations. 
   
     {% include note.html content="If you already have installed the Pivotal Cloud Foundry (PCF) alerts, and want to migrate to the Tanzu Application Service integration, uninstall the PCF alerts, so that you don't have duplicate versions of the same alerts. See [installing and uninstalling integration alerts](integrations.html#installing-and-uninstalling-integration-alerts). Note that any changes to the PCF alerts that you have made will not be migrated and will be lost. You have to apply them manually after setting up the Tanzu Application Service integration." %}
   
