@@ -873,7 +873,7 @@ A **Markdown** chart allows you to provide in-depth text descriptions of a dashb
 
 In addition to Markdown formatted text, you can use links, images hosted outside Wavefront, and [dashboard variables](dashboards_variables.html). You can refer to the value of a dashboard variable with the query variable syntax **${var_name}** and the label of the variable using **%{var_name}**. Using a label instead of the variable value could be useful for list variables that might show the dropdown labels such as: Any, 1 Year, 3 Years which could map to opaque values such as -1, 1, 3.
 
-You can pass a time window as a parameter in markdown. For example, when you create a dynamic link in a markdown chart, from the time selector you can pick a specific time window. When you click the link on the markdown chart, you will see the chart within the current time range that you’ve selected. 
+You can pass a time window as a parameter in markdown. For example, when you create a dynamic link in a markdown chart, from the time selector you can pick a specific time window. When you click the link on the markdown chart, you will see the chart within the current time range that you’ve selected.
 
 When you add a markdown chart with a dashboard dynamic link to an existing dashboard, for example, `[[dashboardURLWithCurrentTimeRange url=/tracing/service/details title=MyChart]]`, clicking the link on the markdown chart, will open a dashboard within the time range that is specified in the parent dashboard, i.e. the dashboard to which you've added the markdown chart.
 
@@ -1128,9 +1128,9 @@ Allows you to direct end users to a target dashboard if they click this chart. S
 
 A **node map** chart shows colored 3-D cubes ordered from highest to lowest. Node maps show data based on source values.
 * By default, the node map displays the highest value on the top left to catch the user's eye.
-* When a user clicks a node, a small popup of the corresponding metric for that source results.
-* Use color mapping to determine colors for higher values. The node map uses shading to show transitions. In the example above, values below 0.3 are shown as green, values lower than 0.8 are shown as a shade of yellow.
-* Users can group and can set the metric to display in the top right.
+* When a user clicks a node, a small popup of the corresponding metric for that source results. You might have to modify the query to ensure that the query returns a source. In some cases, it's necessary to use `aliasSource()` to get the desired results.
+* Use [color mapping](ui_charts_faq.html#how-do-i-set-up-color-mapping) to determine colors for higher values. The node map uses shading to show transitions. In the example above, values below 0.3 are shown as green, values lower than 0.8 are shown as a shade of yellow.
+* Set the group and the metric to display in the top right or in the **Node Map Defaults** tab in the chart editor. When a group is selected, only the top 12 results are displayed.
 * Specify a drilldown link to direct users to a different dashboard if they click on the dashboard.
 
 When you refresh a node map page, a short animation folds out the chart content.
@@ -1200,7 +1200,7 @@ Histogram charts have two main uses:
 * Visualize [Wavefront Histograms](proxies_histograms.html). Wavefront histograms let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure – particularly those gathered across many distributed sources.
 * Display a histogram visualization of a time series. That makes it possible, for example, to easily see query results above a certain percentile.
 
-You can zoom in to the histogram as needed by selecting a region. 
+You can zoom in to the histogram as needed by selecting a region.
 
 The histogram chart shows the aggregate view of the entire window. For both histogram data and time series data, you can visualize the amount of data in a certain percentile, specify color gradient and axis information, and, most importantly, get details about your histogram data by looking at hover text on each bar.
 
@@ -1236,7 +1236,7 @@ You must make sure you're looking at a metric -- it doesn't make sense to select
 <td>Display predefined percentile makers as numbers on the chart. </td>
 </tr>
 <tr><td>Threshold</td>
-<td>A <a href="ui_charts_faq.html#how-do-i-set-up-thresholds-for-histograms-and-heat-map-charts">threshold marker</a> for the data represented by the chart. Can be either a constant value or a variable that is defined by a query. 
+<td>A <a href="ui_charts_faq.html#how-do-i-set-up-thresholds-for-histograms-and-heat-map-charts">threshold marker</a> for the data represented by the chart. Can be either a constant value or a variable that is defined by a query.
 </td>
 </tr>
 </tbody>
