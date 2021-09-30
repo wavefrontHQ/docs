@@ -51,6 +51,9 @@ Then we replace the missing data with the first good value after the gap using `
 
 ![ts next](images/ts_next.png)
 
+## Caveats
+
+{% include tip.html content="You cannot apply `next()` to a histogram. Even if you convert the histogram to a tsExpression, an error results if you then apply `next()`." %}
 
 ## See Also
 

@@ -64,6 +64,8 @@ The function returns results only if:
 
 For example, if you specify `last(1vw, ts(my_query)`, and if your view window is greater than 4W, the query fails with an error.
 
+{% include tip.html content="You cannot apply `last()` to a histogram. Even if you convert the histogram to a tsExpression, an error results if you then apply `last()`." %}
+
 ## See Also
 
 [Using Moving and Tumbling Windows to Highlight trends](query_language_windows_trends.html)

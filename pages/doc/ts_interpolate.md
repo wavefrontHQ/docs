@@ -44,6 +44,10 @@ When you use `interpolate()` for this use case, the dashed lines are replaced wi
 ![interpolate after](images/ts_interpolate_after.png)
 
 
+## Caveats
+
+{% include tip.html content="You cannot apply `interpolate()` to a histogram. Even if you convert the histogram to a tsExpression, an error results if you then apply `interpolate()`." %}
+
 ## See Also
 
 [Using Moving and Tumbling Windows to Highlight trends](query_language_windows_trends.html)
