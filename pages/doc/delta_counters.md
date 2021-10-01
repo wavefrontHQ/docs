@@ -20,7 +20,7 @@ Learn the difference between cumulative counters and delta counters and see how 
 
 ## Counters and Delta Counters Basics
 
-It often makes sense to collect both counter metrics and delta counter metrics -- though in some serverless environments only delta counters are available. Starting with release 2020.26, you use a different function for the different types of counters.
+It often makes sense to collect both counter metrics and delta counter metrics -- though in some serverless environments only delta counters are available. You use a different function for the different types of counters.
 
 <table>
 <tbody>
