@@ -3,6 +3,7 @@ title: Create and Customize Charts (v1)
 tags: [getting started, dashboards, charts]
 sidebar: doc_sidebar
 permalink: ui_charts_v1.html
+published: false
 summary: Create charts, add and manage queries, and customize the chart.
 ---
 

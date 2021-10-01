@@ -4,25 +4,19 @@ keywords: dashboards
 tags: [dashboards]
 sidebar: doc_sidebar
 permalink: dashboards_variables.html
-summary: Define dashboard variables to allow easy switches between different data sources.
+summary: Use dashboard variables and global filters switch between different data sources.
 ---
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="80%">
+
 Dashboard variables and global filters are excellent ways of focusing the metrics that a dashboard displays.
+
 <ul>
-<li>A user with Dashboard permissions can <strong>add or edit variables</strong> for a dashboard and save the changes.  </li>
-<li>All users can <strong>set variables</strong> for a dashboard. The change applies to all charts in that dashboard.</li>
-<li>All users can create <strong>global filters</strong> - key-value pairs for filtering dashboard results. </li>
-<li> All users can include dashboard variables in queries. The query uses the current value of the variable.</li>
+<li>All users can <strong>set predefined variables</strong> for a dashboard. The change applies to all charts in that dashboard.</li>
+<li>All users can specify <strong>global filters</strong> - key-value pairs for filtering dashboard results. </li>
+<li>All users can include dashboard variables in queries. The query uses the current value of the variable.</li>
 </ul>
-{% include note.html content="All Wavefront users can examine all dashboards and charts unless an individual dashboard is protected through access control. All users can make temporary changes. To save changes to dashboards and charts you must have [Dashboard permission](permissions_overview.html)."%}
-</td>
-<td width="20%"><a href="dashboards_variables_v1.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
-</tr>
-</tbody>
-</table>
+
+{% include note.html content="Only users with [Dashboard permission](permissions_overview.html) can create and save dashboard variables. All other users can then set the variable from the GUI."%}
+
 
 ## Dashboard Variable Use Cases
 

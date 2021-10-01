@@ -8,9 +8,9 @@ summary: Main improvements in the v2 UI and some FAQs.
 If you're migrating from v1 dashboards and charts to v2, you'll find most of the changes intuitive. This page highlights new features and has some FAQs.
 
 
-{% include shared/badge.html content="Every Wavefront user can view dashboards and make temporary changes. You must have the Dashboard permission to save dashboards and charts." %}
+{% include note.html content="Every Wavefront user can view dashboards and make temporary changes. You must have the Dashboard permission to save dashboards and charts." %}
 
-## Main Improvements
+## Main Improvements 
 
 Our revamped UI for charts and dashboards includes the following main features:
 
