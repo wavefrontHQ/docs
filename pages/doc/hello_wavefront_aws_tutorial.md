@@ -92,7 +92,7 @@ Don't have an application running on your AWS account? Follow the steps given be
 If you already have an application running on the AWS account, move to the next step and see how you can visualize your data.
 
 1. Go back to your AWS account, search for the **EC2** service, and click it to open the service.
-1. Follow the AWS documentation on [Launching an Amazon EC2 Instance](https://docs.aws.amazon.com/quickstarts/latest/vmlaunch/step-1-launch-instance.html).
+1. Follow the AWS documentation on [Launching an Amazon EC2 Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-launch-instance).
 
 <!--
 1. Select **Launch Instance** and click **Launch Instance**.

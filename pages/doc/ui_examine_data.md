@@ -66,6 +66,12 @@ You can customize what you see, open charts, and more.
 
 ## Set the Time Window
 
+This video highlight how you can select, sync, and reset time windows so you can annalyze and compare your data.
+
+<p>
+<iframe src="https://bcove.video/3kJ6PGT" width="700" height="400" allowfullscreen="true" alt="customizing dashboards video"></iframe>
+</p>
+
 By default, dashboards:
 * Show a two-hour time window in each chart. You can configure the default time window as part of the [Dashboard Display Preferences](ui_dashboards.html#set-dashboard-display-preferences).
 * Display real-time (live) data.
