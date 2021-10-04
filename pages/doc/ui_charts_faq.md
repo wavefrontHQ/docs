@@ -12,6 +12,10 @@ summary: Learn chart customization from the experts.
 
 <!--- Consider including Improve Display Speed with Sampling Option here --->
 
+## Why Do I See an Invalid Chart Type Error?
+
+Many of the more recent chart types are supported only in the v2 UI. [Upgrade to v2](ui_v2_faq.html#how-do-i-switch-from-v1-to-v2) to get the new chart types, performance benefits, and more.   
+
 ## How Do I Set Up Color Mapping?
 
 Color mapping is a powerful way to get users' attention when there's a problem. We support color mapping for the following charts:

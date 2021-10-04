@@ -10,7 +10,7 @@ If you're migrating from v1 dashboards and charts to v2, you'll find most of the
 
 {% include note.html content="Every Wavefront user can view dashboards and make temporary changes. You must have the Dashboard permission to save dashboards and charts." %}
 
-## Main Improvements 
+## Main Improvements
 
 Our revamped UI for charts and dashboards includes the following main features:
 
@@ -73,15 +73,22 @@ We've streamlined variable configuration for developers. We've made setting vari
 </tbody>
 </table>
 
-## Where's the Doc for the New UI?
+## How Do I Switch from v1 to v2?
 
-We've updated the doc for dashboards and charts. From each doc page, you can access the corresponding information for the v1 UI in case you haven't yet switched to the v2 UI.
+Switch to the v2 UI for your account from the gear icon:
 
-* [Examine Data with Dashboards and Charts](ui_examine_data.html)
-* [Create and Customize Dashboards](ui_dashboards.html)
-* [Create and Customize Charts](ui_charts.html)
-* [Chart Reference](ui_chart_reference.html)
-* [Chart Builder](chart_builder.html)
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">
+<ol>
+<li>Select the gear icon in the top right.</li>
+<li>In the User Information tab, select <strong>UI Version > v2</strong>.</li>
+</ol></td>
+<td width="60%"><img src="images/switch_to_v2.png" alt="pulldown menu with v2 selected."></td>
+</tr>
+</tbody>
+</table>
 
 ## Chart FAQs from v2 Users
 
