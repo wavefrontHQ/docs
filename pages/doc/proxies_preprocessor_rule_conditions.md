@@ -161,12 +161,9 @@ In the example below, the rule applies only if at least one of the specified con
           - startsWith:
               scope: metricName
               value: "mymetric."
-        - startsWith:
-            scope: metricName
-            value: "mymetric.prod."
-        - equals:
-            scope: env
-            value: "prod"
+          - equals:
+              scope: env
+              value: "prod"
 ```
 
 Here are examples for each logical operator:
