@@ -42,8 +42,8 @@ Wavefront allows you to share dashboards and charts with other authorized users 
    ![share dashboard icon](images/share_dashboard_icon.png)
 2. Select the **Shared Links** tab and click the button to copy the link you want to share:
 
-   |  Share link to the **LIVE** display | The link recipient sees the live display of the current dashboard. If the dashboard changed after you sent the link, the recipient sees those changes. |
-   | Share link to the **NON-LIVE** display | The link recipient will see, at any time, what you see. For example, if you share a non-live link, and the recipient opens the links 3 hours later, that link shows the state of the system 3 hours ago. Even if you make changes, the link recipient only sees the snapshot of the dashboard at the time you copied the link.|
+   |  Share link to the **LIVE** dashboard display | The link recipient sees the live display of the current dashboard. If the dashboard changed after you sent the link, the recipient sees those changes. |
+   | Share link to the **NON-LIVE** dashboard display | The link recipient will see, at any time, what you see. For example, if you share a non-live link, and the recipient opens the links 3 hours later, that link shows the state of the system 3 hours ago. Even if you make changes, the link recipient only sees the snapshot of the dashboard at the time you copied the link.|
    
 ## Share Access to Dashboards or Alerts
 
@@ -59,7 +59,7 @@ The process is very similar for dashboards and for alerts.
 1. Navigate to the dashboard and click the **Share Dashboard** icon.
 
    ![share dashboard icon](images/share_dashboard_icon.png)
-2. Click **Accounts & Groups**.
+2. Click the **Accounts & Groups** tab.
 3. To grant access:
    1. Start typing an account or a group name in the **View Dashboard** or **View & Modify Dashboard** text box.
    2. Select the group or user to give access.
