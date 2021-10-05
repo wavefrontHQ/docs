@@ -19,7 +19,7 @@ summary: Examine data with dashboards and charts
 
 ## Video
 
-All users can customize their dashboards to drill down into data. Learn how to find a section, filter using variables or filters, set the time for the dashboard, and share the dashboard with others. You need Dashboards permissions to save your changes. 
+All users can customize their dashboards to drill down into data. Learn how to find a section, filter using variables or filters, set the time for the dashboard, and share the dashboard with others. You need Dashboards permissions to save your changes.
 
 
 <p>
@@ -215,7 +215,7 @@ You can move the time window into the future. However, unless you are using one 
 Here's a video that illustrates chart time windows. The video uses the v1 UI, but most of the information is still accurate:
 
 <p>
-<iframe src="https://bcove.video/3sweZ7W" width="700" height="400" allowfullscreen="true" alt="Video of Jason how to set, sync, and reset time windows"></iframe>
+<iframe src="https://bcove.video/3sweZ7W" width="700" height="400" allowfullscreen="true" alt="Video that illustrate how to set time windows for one chart, sync time for all charts on a dashboard, and reset time windows"></iframe>
 </p>
 
 ## Display Events on Charts
