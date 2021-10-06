@@ -19,8 +19,9 @@ This page lists new and updated features for the Wavefront service.
 
   The error state is visible, for example, in the Alerts Browser and the Alerts Browser search bar.
   
-* **Upcoming Service Accounts Changes**: Within the next releases all service accounts that you have created in your Wavefront environment will be moved out of the **Everyone** group and added to a new **Service Accounts** group. Any roles and groups with the name `Service Accounts` will be marked with the `(Existing)` suffix.
+* **Upcoming Service Accounts Changes**: Within the next releases all service accounts that you have created in your Wavefront environment will be moved out of the **Everyone** group and added to a new **Service Accounts** group. 
 
+  {% include important.html content="Any roles and groups with the name `Service Accounts` will be marked with the `(Existing)` suffix." %}
 
 ## 2021-35.x Release Notes
 
