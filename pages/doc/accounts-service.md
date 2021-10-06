@@ -11,7 +11,7 @@ A service account can be used to automate management of objects such as dashboar
 
 {% include note.html content="Service accounts have no permissions by default. As an administrator, you must explicitly grant each service account only the permission required for the task that’s being automated (least required privilege). That ensures that permissions for service accounts are always very limited. Service accounts do not have the view permissions that user accounts have by default. A service account must have **permissions** to perform tasks. To run queries, a service account must have **Metrics** permission. To manage dashboards and alerts, the service account might need both permissions and [access](access.html)." %}
 
-With the 2021-NNO.x release all Service Accounts are moved to a separate predefined **Service Accounts** group and no longer belong to the **Everyone** group. New service accounts that you create are automatically added to the **Service Accounts** group. You can also set additional groups for new service accounts.
+With the 2021-42.x release all Service Accounts are moved to a separate predefined **Service Accounts** group and no longer belong to the **Everyone** group. New service accounts that you create are automatically added to the **Service Accounts** group. You can also set additional groups for new service accounts.
 
 ## What Are Service Accounts?
 
