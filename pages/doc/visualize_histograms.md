@@ -40,6 +40,8 @@ You use the [`hs()` function](hs_function.html) with the name of a histogram met
 
 When you run an `hs()` query, you can optionally use it with one of the [histogram to histogram functions](query_language_reference.html#histogram-to-histogram-functions).
 
+{% include tip.html content="You cannot apply a [missing data function](query_language_reference.html#missing-data-functions) to a histogram. Even if you convert the histogram to a tsExpression, an error results if you then apply a missing data function." %}
+
 ## Visualize Histogram Metrics in Time-Series Charts
 
 It's possible to visualize histogram distributions in a time-series chart such as a line chart.

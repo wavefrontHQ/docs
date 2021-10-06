@@ -73,61 +73,69 @@ $(document).ready(function() {
 });
 
 
+function initSearch() {
+// API keys for algolia-docs-user@wavefront.com
+var client = algoliasearch(Wavefront.algolia.application_id, Wavefront.algolia.public_key);
+var index = client.initIndex('documentation');
+//initialize autocomplete on search input (ID selector must match)
+
+var $body = $('body');
+
+var inputContainerId = '#aa-input-container';
+if (window.innerWidth < 991) {
+    inputContainerId = '#aa-input-container-mobile'
+} 
+
 /** Algolia Search Functionality **/
-$(document).ready(function() {
-    // API keys for algolia-docs-user@wavefront.com
-    var client = algoliasearch(Wavefront.algolia.application_id, Wavefront.algolia.public_key);
-    var index = client.initIndex('documentation');
-    //initialize autocomplete on search input (ID selector must match)
+if($(inputContainerId).children().length === 0)
+{
+        $(inputContainerId).append('<input type="text" class="aa-search-input" id="aa-search-input" placeholder="Search..." />');
 
-    var $body = $('body');
-
-    var inputContainerId = '#aa-input-container';
-    if (window.innerWidth < 991) {
-        inputContainerId = '#aa-input-container-mobile'
-    }
-
-    $(inputContainerId).append('<input type="text" class="aa-search-input" id="aa-search-input" placeholder="Search..." />');
-
-    var $searchInput = $('#aa-search-input');
-    var search = autocomplete('#aa-search-input',
-        {
-            hint: false,
-            debug: false,
-            autoselect: true,
-            openOnFocus: true
-        }, {
-            source: autocomplete.sources.hits(index, {hitsPerPage: 10}),
-            //value to be displayed in input control after user's suggestion selection
-            displayKey: 'title',
-            //hash of templates used when rendering dataset
-            templates: {
-                //'suggestion' templating function used to render a single suggestion
-                empty: function () {
-                    return '<p class="wf-docs-no-results">No results</p>';
-                },
-                suggestion: function (suggestion) {
-                    return '<div class="wf-docs-search-autocomplete-suggestion">' +
-                        '<a class="wf-suggestion-link" href="' + suggestion.url + '">' + suggestion._highlightResult.title.value + '</a>' +
-                        '<p>' + (suggestion.summary || '') + '</p>' +
-                        '</div>';
+        var $searchInput = $('#aa-search-input');
+        var search = autocomplete('#aa-search-input',
+            {
+                hint: false,
+                debug: false,
+                autoselect: true,
+                openOnFocus: true
+            }, {
+                source: autocomplete.sources.hits(index, {hitsPerPage: 10}),
+                //value to be displayed in input control after user's suggestion selection
+                displayKey: 'title',
+                //hash of templates used when rendering dataset
+                templates: {
+                    //'suggestion' templating function used to render a single suggestion
+                    empty: function () {
+                        return '<p class="wf-docs-no-results">No results</p>';
+                    },
+                    suggestion: function (suggestion) {
+                        return '<div class="wf-docs-search-autocomplete-suggestion">' +
+                            '<a class="wf-suggestion-link" href="' + suggestion.url + '">' + suggestion._highlightResult.title.value + '</a>' +
+                            '<p>' + (suggestion.summary || '') + '</p>' +
+                            '</div>';
+                    }
                 }
-            }
-        }).on('autocomplete:selected', function (event, suggestion, dataset) {
-            window.location.href = suggestion.url;
-        }).on('autocomplete:opened', function () {
-            $body.addClass('wf-search-opened');
-        }).on('autocomplete:closed', function () {
-            $body.removeClass('wf-search-opened');
-        });
+            }).on('autocomplete:selected', function (event, suggestion, dataset) {
+                window.location.href = suggestion.url;
+            }).on('autocomplete:opened', function () {
+                $body.addClass('wf-search-opened');
+            }).on('autocomplete:closed', function () {
+                $body.removeClass('wf-search-opened');
+            });
 
-    var searchQuery = Wavefront.getUrlParameter('q');
-    if (searchQuery) {
-        search.autocomplete.setVal(searchQuery);
-        search.autocomplete.open();
-        $searchInput.focus();
+        var searchQuery = Wavefront.getUrlParameter('q');
+        if (searchQuery) {
+            search.autocomplete.setVal(searchQuery);
+            search.autocomplete.open();
+            $searchInput.focus();
+        }
     }
-});
+}
+
+
+//Triggers for search to be added on resize or page load
+$(document).ready(initSearch);
+window.addEventListener('resize', initSearch);
 
 var Wavefront = Wavefront || {};
 Wavefront.getUrlParameter = function (sParam) {

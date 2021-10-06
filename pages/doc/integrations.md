@@ -100,16 +100,20 @@ You cannot modify the Wavefront system dashboards. Instead, you must clone the d
 
 Some integrations contain system alerts. You can install and uninstall the predefined integration alerts or preview them before setting up the integration.
 
-{% include note.html content="All users can view alerts. You must have the **Alerts** permission to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
+{% include note.html content="All users can view alerts. You must have the **Alerts** permission to install and uninstall or modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
 1. Click **Integrations**.
 1. Click the integration tile.
 1. Click the **Alerts** tab.
 1. Click **\[Install All\| Uninstall All\]**.
 
-## Cloning and Customizing Alerts
+  {% include important.html content= "After you install the system integration alerts, make sure that you set one or more alert targets for each severity of the alerts so that you receive alert notifications." %}
 
-If you have the **Alerts** permission, you can [edit the targets of the integration alerts](webhooks_alert_notification.html#learn-about-alert-targets). If you edit the system integration alerts and then reinstall them, all of the changes that you've made are reverted back to their original state. If you want to make further customizations, clone the alert first. 
+## Editing and Cloning the Integration Alerts
+
+To [edit the targets of the integration alerts](webhooks_alert_notification.html#learn-about-alert-targets), you must have the **Alerts** permission. If you edit the system integration alerts and then reinstall them, all of the changes that you've made are reverted back to their original state. 
+
+To make further customizations, clone the alert first. 
 
 1. Click **Alerting** in the toolbar.
 2. Click the ellipsis icon next to the alert that you want to clone, and select **Clone**.

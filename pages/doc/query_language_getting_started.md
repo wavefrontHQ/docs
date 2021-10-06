@@ -12,7 +12,7 @@ The Wavefront Query Language lets you retrieve and display the data that has bee
 * **Histograms** The query language includes functions for [manipulating histograms](query_language_reference.html#histogram-functions).
 * **Traces and spans** Use the [tracing UI](tracing_traces_browser.html) to query traces and spans.
 
-This page uses primarily the v2 UI, which allows you to examine your data with [chart builder](chart_builder.html) and perform advanced exploration with [query editor](query_editor.html).
+This page uses the v2 UI, which allows you to examine your data with [chart builder](chart_builder.html) and perform advanced exploration with [query editor](query_editor.html).
 
 ## Videos
 
@@ -21,23 +21,23 @@ Watch these videos to get you started. The videos use the v1 UI, but the basic w
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td style="width: 50%;"><strong><font color="blue">Intro to Wavefront Query Language</font></strong><br><br>
-<iframe src="https://bcove.video/3mep1Jv" width="400" height="225" allowfullscreen="true" alt="Intro to Wavefront Query Language"></iframe></td>
-<td><br><br>
-<p>Wavefront query language allows you to shape the data you see in your dashboards. Jason first shows an example of an environment where a single switch in a customer environment had a problem. The example uses the advanced functions if() at() and corr() to find other switches with the same behavior and prevent further problems. Jason then uses the highpass() function on other data to show only true failures in a chart. Watch a high-res version of the video <a href="https://bcove.video/3mep1Jv">here</a></p>
+<td width="70%"><strong><font color="blue">Query Language Basics</font></strong><br><br>
+<iframe src="https://bcove.video/3zckmeE" width="550" height="275" allowfullscreen="true" alt="Intro to Wavefront Query Language"></iframe></td>
+<td width="30%"><br><br>
+<p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. </p>
 </td>
 </tr>
 <tr>
-<td style="width: 50%;"><strong><font color="blue">Query Language Basics</font></strong><br><br>
-<iframe src="https://bcove.video/3zckmeE" width="400" height="225" allowfullscreen="true" alt="Intro to Wavefront Query Language"></iframe></td>
-<td><br><br>
-<p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. Watch a high-res version of the video <a href="https://bcove.video/3zckmeE">here</a> </p>
+<td width="70%"><strong><font color="blue">Intro to Wavefront Query Language</font></strong><br><br>
+<iframe src="https://bcove.video/3mep1Jv" width="550" height="275" allowfullscreen="true" alt="Intro to Wavefront Query Language"></iframe></td>
+<td width="30%"><br><br>
+<p>Wavefront query language allows you to shape the data you see in your dashboards. The example uses the advanced functions if() at() and corr() to find a problem behavior of a switch in other switches and prevent future problems.</p>
 </td>
 </tr>
 <tr>
 <td style="width: 50%;"><strong><font color="blue">Query Language Advanced  Functions</font></strong><br><br>
 <iframe src="https://bcove.video/3sEAbZh" width="400" height="225" allowfullscreen="true" alt="Advanced Query Language Functions"></iframe></td>
-<td><br><br> 
+<td><br><br>
 <p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. Watch a high-res version of the video <a href="https://bcove.video/3sEAbZh">here</a> </p>
 </td>
 </tr>
@@ -339,7 +339,7 @@ Investigate [internal metrics for optimizing performance](wavefront_monitoring.h
 </tbody>
 </table>
 
-<!---s
+<!---
 <tr>
 <td>How do time windows work?</td>
 <td markdown=span>Wavefront supports [moving time window functions](). </a>.
