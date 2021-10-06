@@ -39,14 +39,21 @@ Watch [this video](https://youtu.be/Lrm8UuxrsqA) for some background on proxy vs
 2. On the proxy host, open the proxy configuration file `wavefront.conf` for editing. The [path to the file](proxies_configuring.html#paths) depends on the host OS.
 3. In the `wavefront.conf` file, uncomment or define an HTTP listener port to send your metrics, histograms, and tracing spans.
     {{site.data.alerts.note}}
-      <p>For proxy version before proxy 9.0, in the <code>wavefront.conf</code> file, find and uncomment each listener port you want to enable. The following example enables the default/recommended listener ports for metrics, histogram distributions, and trace data:</p>
-          <pre>
+      <ul>
+        <li>
+          For proxy version before proxy 9.0, in the <code>wavefront.conf</code> file, find and uncomment each listener port you want to enable. The following example enables the default/recommended listener ports for metrics, histogram distributions, and trace data:
+        </li>
+        <li>
+          From proxy version 9.0 onwards, you can send metrics and spans using the <code>pushListenerPorts=2878</code>.
+        </li>
+      </ul>
+      <pre>
 pushListenerPorts=2878
 ...
 histogramDistListenerPorts=2878
 ...
 traceListenerPorts=30000
-          </pre>
+      </pre>
     {{site.data.alerts.end}}
     
 
