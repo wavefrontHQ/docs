@@ -50,7 +50,7 @@ This function is also well suited for highlighting trends.
 Here's a query that shows some recent request latency averages.
 ![lag before](images/ts_lag_before.png)
 
-Now we'd like to see how these averages compare to the averages that were reported 30 minutes earlier. We add a second query that applies `lag()` to the original query. At a given moment in time, `lag()` returns the value that was actually reported by the time series 30 minutes earlier. 
+Now we'd like to see how these averages compare to the averages that were reported 30 minutes earlier. We add a second query that applies `lag()` to the original query. At a given moment in time, `lag()` returns the value that was actually reported by the time series 30 minutes earlier.
 
 ![lag after](images/ts_lag_after.png)
 
@@ -64,6 +64,9 @@ When you wrap `lag()` around that function, you're showing the trend for the CPU
 
 ![lag trend after](images/ts_lag_trend_after.png)
 
+## Caveats
+
+{% include tip.html content="You cannot apply `lag()` to a histogram. Even if you convert the histogram to a tsExpression, an error results if you then apply `lag()`." %}
 
 ## See Also
 [`lead()` Function](ts_lead.html)

@@ -79,7 +79,7 @@ For example:
 
 The following functions always return continuous time series, even when they operate on an input series that is discrete:
 
-* [Moving time windows](#moving-window-time-functions) except [`integral()`](ts_integral.html).
+* [Moving time windows](query_language_reference.html#moving-window-time-functions) except [`integral()`](ts_integral.html).
 * Missing data functions: [`default()`](ts_default.html), [`last()`](ts_last.html), [`next()`](ts_next.html), [`interpolate()`](ts_interpolate.html)
 * [`if()`](ts_if.html) function, when `expression` is not a constant time series.
 * [`between()`](ts_between.html), [`exists()`](ts_exists.html), and [`random()`](ts_random.html) functions.
