@@ -4,25 +4,19 @@ keywords: dashboards
 tags: [dashboards]
 sidebar: doc_sidebar
 permalink: dashboards_variables.html
-summary: Define dashboard variables to allow easy switches between different data sources.
+summary: Use dashboard variables and global filters switch between different data sources.
 ---
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="80%">
+
 Dashboard variables and global filters are excellent ways of focusing the metrics that a dashboard displays.
+
 <ul>
-<li>A user with Dashboard permissions can <strong>add or edit variables</strong> for a dashboard and save the changes.  </li>
-<li>All users can <strong>set variables</strong> for a dashboard. The change applies to all charts in that dashboard.</li>
-<li>All users can create <strong>global filters</strong> - key-value pairs for filtering dashboard results. </li>
-<li> All users can include dashboard variables in queries. The query uses the current value of the variable.</li>
+<li>All users can <strong>set predefined variables</strong> for a dashboard. The change applies to all charts in that dashboard.</li>
+<li>All users can specify <strong>global filters</strong> - key-value pairs for filtering dashboard results. </li>
+<li>All users can include dashboard variables in queries. The query uses the current value of the variable.</li>
 </ul>
-{% include note.html content="All Wavefront users can examine all dashboards and charts unless an individual dashboard is protected through access control. All users can make temporary changes. To save changes to dashboards and charts you must have [Dashboard permission](permissions_overview.html)."%}
-</td>
-<td width="20%"><a href="dashboards_variables_v1.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
-</tr>
-</tbody>
-</table>
+
+{% include note.html content="Only users with [Dashboard permission](permissions_overview.html) can create and save dashboard variables. All other users can then set the variable from the GUI."%}
+
 
 ## Dashboard Variable Use Cases
 
@@ -191,7 +185,7 @@ All users can set the value of the list variable:
 
 The values of a dynamic dashboard variable are dynamically determined by a query. You use a dynamic variable if you can't predict ahead of time what the available choices are. For example, if you know that the datacenter is development or production, you can use a list variable. But if you want to allow users to select from a list of hosts, and the actual hosts change, you use a dynamic variable.
 
-{% include note.html content="Starting with release 2020.14, you can specify a string or a wildcard character (`*`) for each option. That means users can limit the display or show results for all values of the variable." %}
+{% include note.html content="You can specify a string or a wildcard character (`*`) for each option. That means users can limit the display or show results for all values of the variable." %}
 
 ### Dynamic Dashboard Variable Field Options
 
@@ -213,7 +207,7 @@ If you define a dynamic dashboard variable named **var2** that refers to a sourc
 
 ### Create a Dynamic Dashboard Variable
 
-This example uses a point tag dynamic variable. Starting with release 2020.14, users can select a value or select the wildcard character to mean all possible values.
+This example uses a point tag dynamic variable. You can select a value or select the wildcard character to mean all possible values.
 
 1. In the top right corner, select **Edit** from the ellipsis icon to put your dashboard into edit mode.
 1. Click the **Add** icon in the variables bar.

@@ -4,7 +4,7 @@ keywords: administration
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: wavefront-internal-metrics.html
-summary: Wavefront collects internal metrics that are used extensively in the different dashboards of the Wavefront Usage integration. 
+summary: Wavefront collects internal metrics that are used extensively in the different dashboards of the Wavefront Usage integration.
 ---
 
 You can:
@@ -58,7 +58,7 @@ Wavefront customer support engineers have found the following metrics especially
 <tr>
 <td markdown="span">~collector</td>
 <td markdown="span">~collector.points.reported <br> ~collector.histograms.reported <br>~collector.tracing.spans.reported<br>~collector.tracing.span_logs.reported <br> ~collector.tracing.span_logs.bytes_reported<br></td>
-<td markdown="span">Valid metric points, histogram points, [trace data (spans)](tracing_basics.html#trace-sampling-and-storage), or [span logs](2019.30.x_release_notes.html#span-logs-for-distributed-tracing) that the collector reports to Wavefront. This is a billing metric that you can look up on the Wavefront Usage dashboard.<br>
+<td markdown="span">Valid metric points, histogram points, [trace data (spans)](tracing_basics.html#trace-sampling-and-storage), or span logs that the collector reports to Wavefront. This is a billing metric that you can look up on the Wavefront Usage dashboard.<br>
 <br>
 **Note:** We have a corresponding direct ingestion metric for each metric. For example, corresponding to `collector.points.reported` we have `collector.direct-ingestion.points.reported`.</td></tr>
 <tr>

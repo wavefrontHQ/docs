@@ -10,7 +10,7 @@ summary: Get an overview of the services and applications that send data to Wave
 It is important to get an overview of the services and applications that send data to Wavefront, understand the health of each service, and troubleshoot when your applications or services run into issues. You can get an overview and see the overall health of each application using the application map, table view, and grid view.
 
 
-{% include note.html content="This page refers to the Apdex functionality in a few places. This feature is rolled out with release 2020.42." %}
+{% include note.html content="This page refers to the Apdex functionality in a few places." %}
 
 <a name="app_map"></a>
 
@@ -333,7 +333,7 @@ Using the table view, you can:
       </td>
     </tr>
   </table>
-  
+
 * View specific alerts for a service:
   <table style="width: 100%;">
     <tr>
@@ -402,7 +402,7 @@ On the page for a particular application, you can:
         </td>
       </tr>
     </table>
-    
+
 * View specific alerts for a service:
   <table style="width: 100%;">
     <tr>
@@ -426,7 +426,7 @@ With Wavefront, you can [create smart alerts](alerts.html#how-alerts-work-video)
 
 Create an alert from the application status page:
 
-1. Navigate to the app map, table view, or grid view:  
+1. Navigate to the app map, table view, or grid view:
     <table style = "width: 100;">
       <tr>
         <td markdown ="span">

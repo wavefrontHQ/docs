@@ -99,7 +99,7 @@ sum(ts(~sample.cpu.loadavg.1m), az)
 The call groups the result of the call to `sum()` into two time series, one for each availability zone.
 
 
-{% include note.html content="Wavefront has supported grouping by using an implicit parameter from the beginning. Starting with release 2020.22.x, we also support an explicit `by` parameter and an explicit `without` parameter." %}
+{% include tip.html content="Wavefront has supported grouping by using an implicit parameter from the beginning. Wavefront also supports an explicit `by` parameter and an explicit `without` parameter." %}
 
 <table>
 <tbody>
@@ -140,7 +140,7 @@ The call groups the result of the call to `sum()` into two time series, one for 
 
 ### Grouping with `by` or `without`
 
-Starting with release 2020.22.x, the query line supports two new keywords:
+You can the following grouping keywords in a query:
 * The `by` keyword has the same result as the comma in a query. The following two queries are equivalent:
 ```
 sum(ts(~sample.cpu.loadavg.1m), az, sources)
