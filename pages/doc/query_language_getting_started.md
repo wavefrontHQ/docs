@@ -12,7 +12,7 @@ The Wavefront Query Language lets you retrieve and display the data that has bee
 * **Histograms** The query language includes functions for [manipulating histograms](query_language_reference.html#histogram-functions).
 * **Traces and spans** Use the [tracing UI](tracing_traces_browser.html) to query traces and spans.
 
-This page uses primarily the v2 UI, which allows you to examine your data with [chart builder](chart_builder.html) and perform advanced exploration with [query editor](query_editor.html).
+This page uses the v2 UI, which allows you to examine your data with [chart builder](chart_builder.html) and perform advanced exploration with [query editor](query_editor.html).
 
 ## Videos
 
@@ -35,22 +35,10 @@ Watch these videos to get you started. The videos use the v1 UI, but the basic w
 </td>
 </tr>
 <tr>
-<td><strong><font color="blue">Advanced Query Language Functions</font></strong><br><br>
-<iframe src="https://bcove.video/3zckmeE" width="550" height="275" allowfullscreen="true" alt="Advanced Query Language Functions"></iframe></td>
+<td style="width: 50%;"><strong><font color="blue">Query Language Advanced  Functions</font></strong><br><br>
+<iframe src="https://bcove.video/3sEAbZh" width="400" height="225" allowfullscreen="true" alt="Advanced Query Language Functions"></iframe></td>
 <td><br><br>
-<p>Jason explores:
-<ul>
-<li>How the percentile() function in 3 queries shows different percentiles.</li>
-<li>How the mpercentile() (moving percentile) function displays percentile over a time window.</li>
-<li>How a chart variable in a query shows the standard deviation.</li>
-</ul></p>
-</td>
-</tr>
-<tr>
-<td><strong><font color="blue">Wavefront and Prometheus Query Language</font></strong><br><br>
-<iframe src="https://bcove.video/3tLRB6l" width="550" height="275" allowfullscreen="true" alt="Wavefront and PromQL"></iframe></td>
-<td><br>
-<p>Wavefront <a href="wavefront_prometheus.html">supports PromQL</a> when you create charts and alerts. Admin-level organization setting to determine whether a user can write in PromQL. Watch this video to learn more.</p>
+<p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. Watch a high-res version of the video <a href="https://bcove.video/3sEAbZh">here</a> </p>
 </td>
 </tr>
 </tbody>

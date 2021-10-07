@@ -23,7 +23,7 @@ The following recipes show how to compare time series.
 
 ### Compare With Operators (.lt, .gt, .le, .ge, .eq, .ne)
 
-Starting with release 2020.10.x, you can use comparison operators to compare time series with other time series or with constants. The operators enhance the functionality available through the `highpass()` and `lowpass()` functions.
+You can use comparison operators to compare time series with other time series or with constants. The operators enhance the functionality available through the `highpass()` and `lowpass()` functions.
 
 * .lt (less than)
 * .gt (greater than)
@@ -183,7 +183,7 @@ If you're interested in, for example, the top 3 time series or the bottom 3 time
 
 `bottomk(3,(ts(~sample.network.bytes.sent, source="app-10")))`
 
-Wavefront v2 dashboards include a chart to visualize the top series. Currently topk charts are available only in our [read-only integration dashboards](2018.42.x_release_notes.html#aws-dashboards-preview).
+Wavefront dashboards include a chart to visualize the top series.
 
 ![topk chart](/images/topk_chart.png)
 

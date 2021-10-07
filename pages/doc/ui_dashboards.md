@@ -6,22 +6,15 @@ permalink: ui_dashboards.html
 summary: Create dashboards, add charts, customize dashboard layout, and troubleshoot dashboards.
 ---
 
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="80%">Wavefront dashboards allow you organize and customize the information about your environment. For example:
+Wavefront dashboards allow you organize and customize the information about your environment. For example:
 <ul>
 <li>Organize charts into sections.</li>
 <li>Perform global operations such as setting the dashboard time window.</li>
-<li>Use dashboard variables.</li></ul></td>
-<td width="20%"><a href="ui_dashboards_v1.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
-</tr>
-</tbody>
-</table>
+<li>Use dashboard variables.</li></ul>
 
-[Examine Data with Dashboards and Charts](ui_examine_data.html) explains how to set dashboard preferences, set the dashboard time window, isolate sources and series, and more. 
+[Examine Data with Dashboards and Charts](ui_examine_data.html) explains how to set dashboard preferences, set the dashboard time window, isolate sources and series, and more.
 
-{% include shared/badge.html content="Every Wavefront user can view dashboards and make some changes such as setting the time window. You must have the [Dashboard permission](permissions_overview.html) and Modify access to save changes you make to dashboards." %}
+{% include note.html content="Every Wavefront user can view dashboards and make some changes such as setting the time window. You must have the [Dashboard permission](permissions_overview.html) and [Modify access](access.html) to save changes you make to dashboards." %}
 
 ## Video
 
@@ -164,10 +157,19 @@ Here are some examples of what [all users can do](ui_examine_data.html):
 
 When you create a dashboard or when you edit a dashboard, the dashboard is in Edit mode. In Edit mode, you can make several changes at a time, then save all changes to dashboard layout or to charts.
 
-{% include shared/system_dashboard.html %}
+{% include note.html content="System dashboards are *read-only*. To make your own version of a system dashboard, select **Clone** from the ellipsis menu in the top right and make changes to the clone. " %}
 
-<!---
-To remove a change, click the revert icon to the left of **Edit JSON** on the taskbar. The revert icon removes changes starting with the most recent and works backward. You can remove only changes made in the current Edit mode session.--->
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+A system dashboard has a lock icon next to the name.</td>
+<td width="50%"><img src="/images/system_dashboard.png" alt="lock icon next to tutorial dashboard"></td>
+</tr>
+</tbody>
+</table>
+
+Here are some actions you can perform in a dashboard.
 
 ![dashboard in edit mode](images/v2_dashboard_edit.png)
 
@@ -304,8 +306,6 @@ For more information on the options listed in the Show Events dropdown, see <a h
 </tr>
 </tbody>
 </table>
-
-{% include shared/system_dashboard.html %}
 
 ## Edit the Dashboard JSON
 
@@ -482,7 +482,7 @@ Wavefront can ingest and process very large amounts of data -- and if you're sma
 
   By default, Wavefront uses a 2-hour time window for dashboards. You might need to see more data, for example, zoom out to see 12 hours or even a week or more. However, a larger time window means that more metrics have to be fetched from the backend, and eventually, performance suffers.
 
-  * If you're interested in past data, don't zoom out but specify the [time window](ui_examine_data_v1.html#set-the-dashboard-time-window) you need.
+  * If you're interested in past data, don't zoom out but specify the [time window](ui_examine_data.html#set-the-time-window) you need.
   * Consider using [time functions](query_language_reference.html#standard-time-functions) in your queries to see exactly what you need.  
 
 * **Display only the events you need**

@@ -216,7 +216,7 @@ PromQL 2:
 
 
 ```
-kubernetes.pod_container.uptime{cluster="a-cluster",nodename="ip-*", pod_name="a-pod", namespace_name="a-namespace"}
+kubernetes.pod_container.uptime{cluster="a-cluster",nodename="ip-*", pod_name="a-pod", namespace_name="a-namespace"} 
 ```
 
 PromQL Join:

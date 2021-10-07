@@ -6,20 +6,13 @@ permalink: ui_examine_data.html
 summary: Examine data with dashboards and charts
 ---
 
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="80%"> With dashboards and charts, you can examine data, set a dashboard time window, zoom in and out, and perform other customizations.
-<br>
-{% include note.html content="All Wavefront users can examine all dashboards and charts unless an individual dashboard is protected through access control. All users can make temporary changes. To save changes to dashboards and charts you must have the Dashboard permission." %}</td>
-<td width="20%"><a href="ui_examine_data_v1.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
-</tr>
-</tbody>
-</table>
+With dashboards and charts, all users can examine data, set dashboard time window, zoom in and out, and perform other customizations.
+
+{% include shared/badge.html content="All users can view and explore charts. You must have [Dashboard permission](permissions_overview.html) to make permanent changes, such as saving a chart to a dashboard." %}
 
 ## Video
 
-All users can customize their dashboards to drill down into data. Learn how to find a section, filter using variables or filters, set the time for the dashboard, and share the dashboard with others. You need Dashboards permissions to save your changes. 
+All users can customize their dashboards to drill down into data. Learn how to find a section, filter using variables or filters, set the time for the dashboard, and share the dashboard with others. You need Dashboards permissions to save your changes.
 
 
 <p>
@@ -72,6 +65,12 @@ You can customize what you see, open charts, and more.
 * [Share a link](ui_sharing.html) to the dashboard (all users) and [modify access](access.html) (**Dashboard** permission required).
 
 ## Set the Time Window
+
+This video highlight how you can select, sync, and reset time windows so you can annalyze and compare your data.
+
+<p>
+<iframe src="https://bcove.video/3kJ6PGT" width="700" height="400" allowfullscreen="true" alt="customizing dashboards video"></iframe>
+</p>
 
 By default, dashboards:
 * Show a two-hour time window in each chart. You can configure the default time window as part of the [Dashboard Display Preferences](ui_dashboards.html#set-dashboard-display-preferences).
@@ -209,7 +208,7 @@ You can move the time window into the future. However, unless you are using one 
 Here's a video that illustrates chart time windows. The video uses the v1 UI, but most of the information is still accurate:
 
 <p>
-<iframe src="https://bcove.video/3sweZ7W" width="700" height="400" allowfullscreen="true" alt="Video of Jason how to set, sync, and reset time windows"></iframe>
+<iframe src="https://bcove.video/3sweZ7W" width="700" height="400" allowfullscreen="true" alt="Video that illustrate how to set time windows for one chart, sync time for all charts on a dashboard, and reset time windows"></iframe>
 </p>
 
 ## Display Events on Charts
