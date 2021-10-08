@@ -840,8 +840,8 @@ Allows you to select which columns to see in the table chart.
 </td>
 </tr>
 <tr>
-<td>Hide value column</td>
-<td>Allows you to hide the value column if you don't want to see it in the chart.
+<td>Show Value Column</td>
+<td>Allows you to show or hide the <code>Value</column> column according to your needs.
 </td>
 </tr>
 </tbody>
