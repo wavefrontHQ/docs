@@ -7,6 +7,7 @@
 [submodule "_includes/go-metrics-wavefront"]
 	path = _includes/go-metrics-wavefront
 	url = https://github.com/wavefrontHQ/go-metrics-wavefront
+	branch  = master
 [submodule "_includes/java"]
 	path = _includes/java
 	url = https://github.com/wavefrontHQ/java
