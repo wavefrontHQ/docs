@@ -841,7 +841,7 @@ Allows you to select which columns to see in the table chart.
 </tr>
 <tr>
 <td>Show Value Column</td>
-<td>Allows you to show or hide the <code>Value</column> column according to your needs.
+<td>Allows you to show or hide the <code>Value</code> column according to your needs.
 </td>
 </tr>
 </tbody>
