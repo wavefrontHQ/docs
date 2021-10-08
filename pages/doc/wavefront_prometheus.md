@@ -6,7 +6,7 @@ permalink: wavefront_prometheus.html
 summary: Run PromQL queries in the Wavefront Query Editor
 ---
 
-Starting with release 2020-26.x, Wavefront has supported PromQL queries. With the 2021-17.x release, we add admin-level organization settings and a query line GUI that includes a translation option.
+Wavefront supports both PromQL and WQL (Wavefront Query Language) queries. The Query Editor includes admin-level organization settings for enabling PromQL and a query line GUI that includes a translation option.
 
 * Administrators have control over user defaults:
   - On the Organization Settings page (New User Defaults) administrators can enable users to write queries in PromQL.
@@ -17,7 +17,7 @@ Starting with release 2020-26.x, Wavefront has supported PromQL queries. With th
   - In PromQL mode, users can see the translation to Wavefront query language and translate the query if that is set in their preferences.
   - Users can add charts that use PromQL to dashboards, create alerts from charts that use PromQL, and use PromQL queries in the query line of a Create Alert page.
 
-{% include note.html content="Your Wavefront site administrator controls PromQL behavior. If you don't have some of the features, get in touch with the site administrator." %}
+{% include note.html content="Your Wavefront site administrator controls PromQL behavior. If you don't have some of the features, get in touch with your site administrator." %}
 
 
 ## Set PromQL Organization Settings (Administrator Only)
@@ -96,28 +96,14 @@ Next, you can make changes to the visualization.
 
 ![Prometheus query](images/prometheus_sample.png)
 
-## Differences and Best Practices
+## Frequently Asked Questions
 
 Wavefront supports most PromQL functions and operators out of the box. There are a small number of differences and best practices.
 
-### Unsupported PromQL functions
 
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="25%"><strong>sort(), sort_desc()</strong>
-</td>
-<td width="75%">PromQL <strong>sort()</strong> and <strong>sort_desc()</strong> show the data order in the Console view. Because Wavefront visualizes queries in charts instead of a console, we don't support this option.
-</td></tr>
-<tr>
-<td width="25%"><strong>ignore, on, group_left, group_right</strong>
-</td>
-<td width="75%">Wavefront does not support ignore, on, group_left, group_right for vector matching with Prometheus queries.
-</td></tr>
-</tbody>
-</table>
+### FAQ: Do You Have Best Practices?
 
-### Best Practices 
+A few functions work differently in PromQL and Wavefront QL. Here are some best practices.
 
 <table style="width: 100%;">
 <tbody>
@@ -147,8 +133,131 @@ If you include the time resolution, Wavefront will automatically call align() on
 </tbody>
 </table>
 
+### FAQ: Can I Use Variables in Wavefront?
+
+Dashboard variables are a powerful feature in Wavefront.
+* Wavefront users with **Dashboard** permissions can create [dashboard variables](dashboards_variables.html).
+* All Wavefront users can select dashboard variable values at the top of dashboards, and can [specify variables inside a query](dashboards_variables.html#use-dashboard-variables-in-queries). When Wavefront runs the query, it automatically substitutes the current value of the variable with the selected value for the dashboard.
+
+This approach to variables is different from PromQL variables.
+
+* If the dashboard variable represents the actual value (or glob), use `=`.
+* In the rare case that you want to explicitly use a regex, use `=~`
+
+
+### FAQ: Can You Show Me a Query Example That Doesn't Translate?
+
+In many cases the translation from PromQL to WQL is straightforward. You type the PromQL query into the query editor and click WQL to see the corresponding query in WQL.
+
+However, the syntax for for joining queries in PromQL and in WQL is fundamentally different. In addition, Wavefront does not support the use of `ignore`, `on`, `group_left`, and `group_right` for vector matching with PromQL queries. However, after a bit of practice (and after looking at our examples and [this video](https://www.youtube.com/watch?v=SZhU8AO-SVk&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K&index=22&t=0s)) we expect you'll find joins in WQL quite powerful.
+
+#### Joining Queries in WQL and PromQL
+
+**Wavefront query language** has several options for [combining time series with joins](query_language_series_joining.html). Here's a summary of the syntax:
+<br><br>
+```
+join(<<WQUERY1>>  AS ts1
+INNER JOIN
+<<WQUERY2>> AS ts2
+USING(<<HOW TO JOIN METRICS>>),
+metric='<<NEW METRIC NAME>>',
+<<OUTPUT COLUMNS>>,
+ts1 (edited)
+```
+
+In &lt;&lt;HOW TO JOIN METRICS&gt;&gt;, you specify the new output metric, the source you want to focus on, point tags in the output, and the value you want to use, as in this example:
+```
+metric='cf_app_memory_used_gb',               //New output metric name.
+source=ts2.application_name,                  //What do you want to use as source.
+<<OUTPUT COLUMNS>>,                           //Source and point tags in output.
+ts1                                           //What value do you want to use as value
+```
+
+In **PromQL**, you specify Query 1, how to join the metrics, the output colums, and Query 2, as follows:
+<br><br>
+```
+(<<QUERY1>> + on(<<HOW TO JOIN METRICS>>) group_left(<<OUTPUT COLUMNS>>) (<<QUERY2>>)
+```
+
+This section shows an example for how 2 queries can be combined with joins in WQL and PromQL.
+
+#### Example Join in WQL
+
+The following example joins two Wavefront queries (WQL 1 and WQL 2) using an inner join.
+
+WQL 1:
+
+```
+ts(kubernetes.pod_container.status, cluster="a-cluster" and nodename="ip-*" and pod_name="a-pod" and namespace_name="a-namespace" and status="running")
+```
+
+WQL 2:
+```
+ts(kubernetes.pod_container.uptime, cluster="a-cluster" and nodename="ip-*" and pod_name="a-pod" and namespace_name="a-namespace")
+```
+
+WQL Join:
+```
+join(${WQL Q1} AS ts1 INNER JOIN ${WQL Q2} AS ts2 USING( cluster, nodename, pod_name, namespace_name ), metric='pods.running.uptime', source=ts2.source, cluster=ts1.cluster, nodename=ts1.nodename, pod_name=ts1.pod_name, namespace_name=ts1.namespace_name,  ts2)
+```
+See [Inner Join Example](query_language_series_joining.html#inner-join-example) for a discussion.
+
+#### Example Join in PromQL
+
+The following example joins two PromQL queries (PromQL 1 and PromQL 2).
+
+PromQL 1:
+
+```
+kubernetes.pod_container.status{cluster="a-cluster",nodename="ip-*", pod_name="a-pod", namespace_name="a-namespace", status="running"}
+```
+
+PromQL 2:
+
+
+```
+kubernetes.pod_container.uptime{cluster="a-cluster",nodename="ip-*", pod_name="a-pod", namespace_name="a-namespace"} 
+```
+
+PromQL Join:
+
+```
+${PromQL Q1} * on(cluster,nodename,pod_name,namespace_name) group_left(status) ${PromQL Q2}
+```
+
+
+### FAQ: Does Wavefront Have Recording Rules?
+
+For expressions that are needed frequently or computationally expensive, PromQL supports creating recording rules, which allow you to save the expression result as a set of time series. The Wavefront [derived metrics](derived_metrics.html) feature is similar.
+
+It's not currently possible to translate a query that includes recording rules. However, advanced PromQL users can:
+1. Break down their PromQL query into small-ish pieces.
+2. Use the Query Editor translation feature for each piece.
+3. Create a derived metric for one or more of the short queries.
+
+
 ## Limitations
 
+Because the two languages are different, some limitations exist.
+
+### Unsupported PromQL Functions
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="25%"><strong>sort(), sort_desc()</strong>
+</td>
+<td width="75%">PromQL <strong>sort()</strong> and <strong>sort_desc()</strong> show the data order in the Console view. Because Wavefront visualizes queries in charts instead of a console, we don't support this option.
+</td></tr>
+<tr>
+<td width="25%"><strong>ignore, on, group_left, group_right</strong>
+</td>
+<td width="75%">Wavefront does not support ignore, on, group_left, group_right for vector matching with Prometheus queries.
+</td></tr>
+</tbody>
+</table>
+
+### Limitations in Wavefront Query Editor
 
 * Autocomplete is not currently supported for PromQL functions and operators. However, autocomplete for metrics that you use inside your query continues to be supported.
 * The Wavefront query language supports [using a query name as a chart variable](query_editor.html#use-chart-variables) in other queries for the same chart.
@@ -179,4 +288,4 @@ New to Wavefront? Here are some links to get you started:
 * [Dashboards Tutorials](tutorial_dashboards.html)
 * [Alerts](alerts.html)
 * [Query Language Quickstart](query_language_getting_started.html)
-* [Query Language Videos](videos_query_language.html
+* [Query Language Videos](videos_query_language.html)

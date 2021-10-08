@@ -134,7 +134,7 @@ The easiest way to improve Wavefront ingestion rates is to send only data that y
   - The [Metrics Browser](metrics_managing.html) lets you examine metrics and metric namespaces.
   - The **Wavefront Namespace Usage Explorer** dashboard that's part of the [Wavefront Usage integration](system.html) is available on each cluster and gives details on a per-namespace basis.
 * See which metrics are accessed.
-  - The [`Access` API endpoint](wavefront_api.html#notes-on-the-access-category), introduced in late 2020, provides information on how often an entity has been accessed. Supported entities are metric, histogram, span. Create a script that compares ingested to accessed metrics.
+  - The [`Access` API endpoint](wavefront_api.html#notes-on-the-access-category), provides information on how often an entity has been accessed. Supported entities are metric, histogram, span. Create a script that compares ingested to accessed metrics.
 * See which dashboards are not used in the Dashboards browser.
 
 ![Dashboard browser with Sort menu](images/dashboard_views.png)
