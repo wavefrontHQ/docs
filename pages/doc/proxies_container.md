@@ -58,7 +58,7 @@ Options:
 </tr>
 <tr>
 <td width="20%"><strong>Configuration properties</strong></td>
-<td width="80%" markdown="span">Use WAVEFRONT_PROXY_ARGS to point to set [configuration properties](proxies_configuring.html). You can specify more than one argument. <code>'--arg1> <value1> --<arg2> <value2>'</code> </td>
+<td width="80%" markdown="span">Use WAVEFRONT_PROXY_ARGS to point to set [configuration properties](proxies_configuring.html). You can specify more than one argument. <code>'&lt;--arg1&gt; &lt;value1&gt; --&lt;arg2&gt; &lt;value2&gt;'</code> </td>
 </tr>
 <tr>
 <td width="20%"><strong>Wavefront instance</strong></td>
@@ -91,21 +91,16 @@ Without a memory limit, the JVM committed can commit up to the memory provisione
 
 {% include tip.html content="Setting a memory limit is highly recommended. " %}
 
-To restrict a container's memory usage to 2 GB with `docker run`:
-
+For example, to restrict a container's memory usage to 2 GB with `docker run`:
 ```
 docker run -d \
-
 ...
-
+...
  -e JAVA_HEAP_USAGE="1650m" \
-
  -m 2g \
-
 ...
-
- wavefronthq/proxy:latest
-
+...
+wavefronthq/proxy:latest
 ```
 
 To limit memory usage of the container in Kubernetes use the `resources.limits.memory` property of a container definition. See the [Kubernetes doc](https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/).
@@ -136,14 +131,14 @@ See [Logging](proxies_configuring.html#logging) for additional background.
 
 ## Run Telegraf in a Docker Container
 
-It usually makes sense to run both the proxy and Telegraf as a Docker container
+It usually makes sense to run both the proxy and Telegraf in a Docker container.
 
 The following example passes the `telegraf.conf` file and any files (such as `10-wavefront.conf`) that belong in the `telegraf.d` directory.
 ​
 1. Create a `telegraf.conf` file under `<path/to/file>/telegraf.conf`. Use  [https://github.com/influxdata/telegraf/blob/master/etc/telegraf.conf](https://github.com/influxdata/telegraf/blob/master/etc/telegraf.conf) as an example
-2. Create the `10-wavefront.conf` file under `<path/to/dir>/telegraf.d/` via the example configuration below . Refer to the  [wavefront#configuration](https://github.com/influxdata/telegraf/tree/master/plugins/outputs/wavefront#configuration) information as needed
-​
-	**10-wavefront.conf**
+2. Create the `10-wavefront.conf` file under `<path/to/dir>/telegraf.d/` via the example configuration below . Refer to the  [wavefront#configuration](https://github.com/influxdata/telegraf/tree/master/plugins/outputs/wavefront#configuration) information on Github as needed.
+​<br/><br/>
+  **Example file: 10-wavefront.conf**
 	```
 	[[outputs.wavefront]]
 	  url = "http://<WAVEFRONT_PROXY_SERVER>:2878"
@@ -151,16 +146,16 @@ The following example passes the `telegraf.conf` file and any files (such as `10
 	  source_override = ["hostname", "agent_host", "node_host"]
 	  convert_paths = true
 	```
-​
-3. Run the Telegraf Agent with the specified configuration settings:
+3. Run the Telegraf agent with the specified configuration settings:
 
-```
-docker run -d \
- -v <path/to/file>/telegraf.conf:/etc/telegraf/telegraf.conf \
- -v <path/to/dir>/telegraf.d:/etc/telegraf/telegraf.d telegraf \
- --config-directory /etc/telegraf/telegraf.d \
- wavefronthq/telegraf:latest
-```
+
+    ```
+    docker run -d \
+    -v <path/to/file>/telegraf.conf:/etc/telegraf/telegraf.conf \
+    -v <path/to/dir>/telegraf.d:/etc/telegraf/telegraf.d telegraf \
+    --config-directory /etc/telegraf/telegraf.d \
+    wavefronthq/telegraf:latest
+    ```
 
 ## Troubleshooting
 
@@ -171,5 +166,5 @@ docker run -d \
 Errors with the container with WAVEFRONT_PROXY_ARGS will be logged as the container starts.
 
 * WAVFFRONT_TOKEN and WAVEFRONT_URL are required parameters for the container to start
-
-* The Wavefront proxy can use up to the limit of memory needed. If the consumption of the Wavefront Proxy container is
+<!---
+* The Wavefront proxy can use up to the limit of memory needed. If the consumption of the Wavefront Proxy container is --->
