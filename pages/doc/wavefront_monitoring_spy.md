@@ -53,7 +53,7 @@ Wavefront supports the `spy` endpoints shown in the following table:
 
 Each endpoint displays a header that describes your request, and then lists the results, if any, in close to real time (as soon as they are available). Each returned point, span, or ID is listed on a separate line.
 
-{% include note.html content="A `spy` endpoint returns a sample of the requested data, and you specify the sample size as an endpoint parameter. Because the endpoint connects to a single Wavefront back-end, the sample is taken from just the data that is ingested on a single shard, even when you request 100% sampling." %}
+A `spy` endpoint always returns a *sample* of the requested data. Wavefront always uses multiple data ingesters, but the endpoint connects to a single data ingester. The sample is taken from data that is ingested by that one data ingester. As a result, you always get a sample even if you specify a 100% sample size as an endpoint parameter. 
 
 ## Get Ingested Metric Points with Spy
 

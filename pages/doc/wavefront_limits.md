@@ -10,9 +10,9 @@ For best performance and cost reduction, Wavefront supports limits. Some limits 
 
 ## Concurrent Query Limits
 
-Starting with release 2020.22x, Wavefront enforces the following concurrent query limits. These limits are subject to change without notice.
+Wavefront enforces the following concurrent query limits. These limits are subject to change without notice.
 
-{% include note.html content="If your environment exceeds any of the query limits, an error results." %}
+{% include important.html content="If your environment exceeds any of the query limits, an error results." %}
 
 ### Per Customer Concurrent Query Limit
 
@@ -25,7 +25,8 @@ Customer concurrent query limit exceeded. Please try again later. Contact suppor
 ```
 
 ### Per User Concurrent Query Limit
-Starting with release 2020.22.x, Wavefront enforces a limit on per-user concurrent queries. The default limit is 100. Contact us if you believe that the setting doesn’t make sense for one of your users (for example, one of your service accounts) and we’ll discuss options with you.
+
+Wavefront enforces a limit on per-user concurrent queries. The default limit is 100. Contact us if you believe that the setting doesn’t make sense for one of your users (for example, one of your service accounts) and we’ll discuss options with you.
 
 The following error results if one of the users exceeds this limit:
 ```
@@ -48,7 +49,7 @@ You can start with Wavefront either as part of a free trial or as a new customer
 </tr>
 <tr>
 <td>Histogram length limit</td>
-<td>Maximum number of characters for a histogram name. <br/>The maximum number of characters for a histogram name before release 2020-22.x was 128.</td>
+<td>Maximum number of characters for a histogram name.</td>
 <td>256</td>
 </tr>
 <tr>

@@ -15,9 +15,9 @@ Learn about the Wavefront query language and how you can use PromQL queries in W
 <tbody>
 <tr>
 <td width="70%"><strong><font color="blue">Query Language Basics</font></strong><br><br>
-<iframe src="https://bcove.video/3zckmeE" width="550" height="275" allowfullscreen="true" alt="Intro to Wavefront Query Language"></iframe></td>
+<iframe src="https://bcove.video/3FqMmPo" width="550" height="275" allowfullscreen="true" alt="Wavefront Query Language Basics"></iframe></td>
 <td width="30%"><br><br>
-<p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. </p>
+<p>Learn about time series metrics, and about how to visualize metrics and filter and group them with Wavefront Query Language. </p>
 </td>
 </tr>
 <tr>
