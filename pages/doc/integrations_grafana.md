@@ -36,7 +36,7 @@ To set up Wavefront as a Prometheus data source, you must provide an API Token o
 
 ## After the Setup is Complete
 
-Make sure that PromQL Support is enabled on your cluster. After the setup, the behavior of the PromQL queries that you run in Grafana will be the same as the behavior of the same queries that you run in Wavefront. This means, that all limitations and best practices for using PromQL in Wavferont apply when you use Wavefront as a Prometheus data source in Grafana. For information, see [Using PromQL in Wavefront](https://docs.wavefront.com/wavefront_prometheus.html).
+Make sure that PromQL Support is enabled on your cluster. After the setup, the behavior of the PromQL queries that you run in Grafana will be the same as the behavior of the same queries that you run in Wavefront. This means, that all limitations and best practices for using PromQL in Wavefront apply when you use Wavefront as a Prometheus data source in Grafana. For information, see [Using PromQL in Wavefront](https://docs.wavefront.com/wavefront_prometheus.html).
 
 You can now test and see that when you create a chart in Wavefront by using PromQL, you can copy and paste the query in Grafana and see exactly the same result.
 
