@@ -3,6 +3,7 @@ title: Examine Data with Dashboards and Charts (v1)
 tags: [getting started, dashboards, charts]
 sidebar: doc_sidebar
 permalink: ui_examine_data_v1.html
+published: false
 summary: Examine data with dashboards and charts
 ---
 

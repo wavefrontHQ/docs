@@ -13,7 +13,7 @@ After your application sends [trace data](tracing_basics.html#wavefront-trace-da
 
 The Wavefront Traces Browser shows you all the spans that make up a trace. By examining the critical path, you can find operations that took a long time, decide which operations to optimize, and then examine optimization results. See [Traces Browser](tracing_traces_browser.html) for details.
 
-Starting with release 2020-38.x, you can view critical path data in Wavefront as histogram metrics and query them using the [`hs()` function](hs_function.html).
+You can use the  [`hs()` function](hs_function.html) to query and view critical path data as histogram metrics.
 
 ### View Critical Path Data in Charts
 

@@ -8,7 +8,7 @@ summary: Share links to dashboards and charts, give dashboard access, and create
 You can
 * Share a link to a dashboard or chart so someone else can see what's going on.
 * Share [access](access.html) to a dashboard if the user is not in a group that has access to that specific dashboard.
-<!---* Embed an interactive chart outside Wavefront.--->
+* Embed an interactive chart outside Wavefront.
 
 {% include shared/badge.html content="Every Wavefront user can view dashboards and make temporary changes. You must have the [**Dashboard** permission](permissions_overview.html) to share a link to a dashboard or chart." %}
 
@@ -17,7 +17,7 @@ You can
 This short video shows how you can share Wavefront content by using some of the methods described below.
 
 <p>
-<iframe src="https://bcove.video/3DZazeL" width="700" height="400" allowfullscreen="true" alt="Wavefront and PromQL"></iframe>
+<iframe src="https://bcove.video/3DZazeL" width="700" height="400" allowfullscreen="true" alt="Sharing search results, dashboards and charts using short URLs."></iframe>
 </p>
 
 ## Share a Link with the Share Icon
@@ -30,8 +30,9 @@ The easiest way to share a link is the share icon in the bottom right quadrant o
 ## Share a Link with the Share Dialog
 
 Wavefront allows you to share dashboards and charts with other authorized users of your environment. We support two options:
-* Non-live view -- Links to a snapshot of what you're looking at right now.
+
 * Live view -- Changes as the dashboard or alert changes.
+* Non-live view -- Links to a snapshot of what you're looking at right now.
 
 {% include note.html content="If access control is on, and you share a link with a user who does not have view access, the user cannot view the dashboard. You have to share access before you share the link."%}
 
@@ -41,9 +42,9 @@ Wavefront allows you to share dashboards and charts with other authorized users 
    ![share dashboard icon](images/share_dashboard_icon.png)
 2. Select the **Shared Links** tab and click the button to copy the link you want to share:
 
-   | Share link to the NON-LIVE display | The link recipient will see, at any time, what you see. For example, if you share a non-live link, and the recipient opens the links 3 hours later, that link shows the state of the system 3 hours ago. Even if you make changes, the link recipient only sees the snapshot of the dashboard at the time you copied the link.|
-   |  Share link to the LIVE display | The link recipient sees the live display of the current dashboard. If the dashboard changed after you sent the link, the recipient sees those changes. |
-
+   |  Share link to the **LIVE** dashboard display | The link recipient sees the live display of the current dashboard. If the dashboard changed after you sent the link, the recipient sees those changes. |
+   | Share link to the **NON-LIVE** dashboard display | The link recipient will see, at any time, what you see. For example, if you share a non-live link, and the recipient opens the links 3 hours later, that link shows the state of the system 3 hours ago. Even if you make changes, the link recipient only sees the snapshot of the dashboard at the time you copied the link.|
+   
 ## Share Access to Dashboards or Alerts
 
 If the [access control](access.html) for an individual dashboard or alert has been set so that access is blocked by default, the following users can share access with other users and groups:
@@ -55,10 +56,10 @@ The process is very similar for dashboards and for alerts.
 
 **To grant or revoke dashboard access**:
 
-1. Navigate to the dashboard and click the Share Dashboard icon.
+1. Navigate to the dashboard and click the **Share Dashboard** icon.
 
    ![share dashboard icon](images/share_dashboard_icon.png)
-2. Click **Accounts & Groups**.
+2. Click the **Accounts & Groups** tab.
 3. To grant access:
    1. Start typing an account or a group name in the **View Dashboard** or **View & Modify Dashboard** text box.
    2. Select the group or user to give access.

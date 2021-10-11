@@ -9,7 +9,7 @@ summary: Learn how to save a query so it runs once a minute, and how to use the 
 
 Derived metrics allow you to run a query and ingest it back into Wavefront. All users can then use the result of the query, that is, the derived metric, in their queries.
 
-Starting with release 2020-42.x, you can create a derive metric from a time series metric or a histogram.
+You can create a derive metric from a time series metric or a histogram.
 
 
 <div markdown="span" class="alert alert-info">You must have the [**Derived Metrics** permission](permissions_overview.html) to create and manage derived metrics.</div>
@@ -82,7 +82,7 @@ To create a derived metric:
 1. Select **Browse > Derived Metrics**.
 2. Click **Create Derived Metric**.
 3. Specify the query.
-   * You can specify a `ts()` query or an `hs()` query. 
+   * You can specify a `ts()` query or an `hs()` query.
    * Include an `aliasMetric` -- you use that name for the derived metric.
 4. If you want, change the times for results inclusion and for query execution. If your environment has queueing problems, increase the results inclusion time.
 
