@@ -72,7 +72,7 @@ You can [monitor](wavefront_monitoring.html#using-internal-metrics-to-optimize-p
 
 ## Sampling Policies
 
-If you can’t find traces in Wavefront because Intelligent Sampling discarded them, create a sampling policy to let Wavefront know that you want to keep specific spans in Wavefront. Creating a sampling policy affects your costs because you store more data within Wavefront. See your Service Description for cost details.
+If you can’t find traces in Wavefront because Intelligent Sampling discarded them, create a sampling policy to let Wavefront know that you want to keep specific spans in Wavefront. Sampling policies impact the volume of spans ingested by Wavefront and can affect your costs. See your Service Description for cost details.
 
 See [Managing Sampling Policies](trace_sampling_policies.html) for details.
 
@@ -80,7 +80,7 @@ See [Managing Sampling Policies](trace_sampling_policies.html) for details.
 
 ### Track the Volume of Trace Data Stored in Wavefront
 
-A sampling policy affects your costs by increasing the volume of data sent to Wavefront. To see the number of spans you store in Wavefront with the sampling policies:
+A sampling policy affects your costs because more data maybe sent to Wavefront. To see the number of spans you store in Wavefront with the sampling policies:
 
 1. Click **Dashboards** > **All Dashboards**.
 1. Search for the **Wavefront Service and Proxy Data** dashboard and click it to navigate to the dashboard.

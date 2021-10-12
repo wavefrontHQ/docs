@@ -1013,6 +1013,8 @@ These functions output continuous time series, with the exception of `integral()
 
 Missing data functions allow you to interpolate data points in time series that have gaps. To check for missing functions see the [`missing()` function](ts_missing.html) and the [`exists()` function](ts_exists.html).
 
+{% include tip.html content="You cannot apply a missing data function to a histogram. Even if you convert the histogram to a tsExpression, an error results if you then apply a missing data function." %}
+
 <table style="width: 100%;">
 <colgroup>
 <col width="40%" />

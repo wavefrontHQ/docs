@@ -6,8 +6,8 @@ sidebar: doc_sidebar
 permalink: trace_data_details.html
 summary: Get to know the concepts around distributed tracing in Wavefront.
 ---
-This section gives you an overview of all the key terms and concepts used in Wavefront distributed tracing. 
-Wavefront follows the [OpenTracing](https://opentracing.io/) and [OpenTelemetry](https://opentelemetry.io/) standards for representing and manipulating trace data. 
+This section gives you an overview of all the key terms and concepts used in Wavefront distributed tracing.
+Wavefront follows the [OpenTracing](https://opentracing.io/) and [OpenTelemetry](https://opentelemetry.io/) standards for representing and manipulating trace data.
 
 ## Traces
 A trace shows you how a request propagates from one microservice to the next in a distributed application. The basic building blocks of a trace are its spans, where each span corresponds to a distinct invocation of an operation that executes as part of the request.
@@ -150,7 +150,7 @@ Span tags are special tags associated with a span and are key-value pairs.
 - **Required**. Many of the span tags are required for a span to be valid.
 - **Optional (Custom)**. An application can be instrumented to include custom span tags. Custom tag names must not use the reserved span tag names.
 
-Here’s the maximum number of characters for span tags: 
+Here’s the maximum number of characters for span tags:
 
 <table>
 <colgroup>
@@ -262,7 +262,7 @@ Specify <strong>cluster=none</strong> to indicate a span that does not use this 
 </tbody>
 </table>
 
-Make sure that your application does not send spans with multiple application/service tags. Mandatory span tags must not have multiple values. 
+Make sure that your application does not send spans with multiple application/service tags. Mandatory span tags must not have multiple values.
 For example, a span with two span tags `service=notify` and `service=backend` is invalid.
 
 <!---
@@ -354,7 +354,7 @@ For performance reasons, Wavefront automatically indexes built-in span tags with
 
 In the [Application Map](tracing_ui_overview.html#application-map), tracing traffic shows how applications and services interact with each other. If you click on a tracing traffic, you can drill down to the trace browser.
 
-In the image shown below each arrow shows tracing traffic between application components. The arrows show direction of traffic.  
+In the image shown below each arrow shows tracing traffic between application components. The arrows show direction of traffic.
 ![an image that shows how each service communicates with each other using arrows. These arrows are called tracing traffic in wavefront.](images/tracing_edges_concept.png)
 
 To understand how to query for tracing traffic in the tracing browser, see [Use Spans to Examine Applications and Services](trace_data_query.html#use-spans-to-examine-applications-and-services).
@@ -469,7 +469,7 @@ Wavefront constructs the names of the underlying delta counters and histograms a
 
 ### RED Metrics Queries
 
-You can perform queries over [RED metric counters and histograms](#red-metric-counters-and-histograms) and visualize the results in your own charts, just as you would do for any other metrics in Wavefront. You can use RED metrics in query conditions when you create alerts on trace data. 
+You can perform queries over [RED metric counters and histograms](#red-metric-counters-and-histograms) and visualize the results in your own charts, just as you would do for any other metrics in Wavefront. You can use RED metrics in query conditions when you create alerts on trace data.
 
 **Examples**
 
@@ -765,7 +765,6 @@ Amazon Simple Notification Service (SNS), and external databases. For details, s
 The Application Performance Index ([Apdex](https://www.apdex.org/overview.html)) helps you understand how the response time of a service compares to the predefined response time threshold.
 Wavefront detects the application trace data that is sent to Wavefront as first-class citizens and calculates the Apdex score using the threshold value (T) you define. The default threshold value (T) is set to 100ms, and only a [Super Admin user](authorization.html#who-is-the-super-admin-user) or users with [Application permissions](permissions_overview.html) can configure the threshold value.
 
-This functionality is being rolled out with Wavefront release 2020.42. 
 <!---
 For details on the Apdex score and configuring the response time threshold (T), see [Configure Apdex Settings](tracing_apdex.html).
 --->
@@ -802,7 +801,7 @@ Wavefront uses application tags to aggregate and filter data at different levels
   - `shard` - Name of a mirror or other subgroup of hosts within a cluster, for example, `primary`.
 
   ![tracing service filter](images/tracing_service_filter_page.png)
-  
+
 <table style="width: 100%;">
 <tbody>
 <tr><td width="90%">&nbsp;</td><td width="10%"><a href="trace_data_details.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
@@ -829,7 +828,7 @@ Here's an example that adds span logs to [the best Wavefront practices example](
 
 ## Helper Objects That Collect and Transfer Data
 
-The SDK you’re using determines which helper objects are in a microservice. 
+The SDK you’re using determines which helper objects are in a microservice.
 {% include note.html content="When you use multiple Wavefront SDKs to instrument a microservice, certain helper objects belong to exactly one SDK, and other helper objects are shared."%}
 
 A typical set of helper objects includes some or all of the following:

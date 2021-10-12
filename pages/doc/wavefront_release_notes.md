@@ -7,13 +7,23 @@ permalink: wavefront_release_notes.html
 summary: Learn about new and updated features in Wavefront.
 ---
 
-This page lists new and updated features in the Wavefront service.
+This page lists new and updated features for the Wavefront service.
 
 * For **Wavefront Proxy**, your go-to place is the [Wavefront proxy github page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
 * For the latest changes and releases of the **Wavefront Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For  **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
-## 2021-35.x Release Notes 
+## 2021-40.x Release Notes 
+
+* **SYNTAX_ERROR Alert State**: Starting with this release, a SYNTAX_ERROR alert state indicates that the alert query resulted in a syntax error. This might happen, for example, if a text string with special characters is missing double quotes, but could be the result of other query errors.
+
+  The error state is visible, for example, in the Alerts Browser and the Alerts Browser search bar.
+
+* **Upcoming Service Accounts Changes**: Within the next releases all service accounts that you have created in your Wavefront environment will be moved out of the **Everyone** group and added to a new **Service Accounts** group.
+
+  {% include important.html content="Any roles and groups with the name `Service Accounts` will be marked with the `(Existing)` suffix." %}
+
+## 2021-35.x Release Notes
 
 * **Sampling Policies**: If you can't find traces in Wavefront because Intelligent Sampling discarded them, you can now create a sampling policy. Sampling policies let Wavefront know that you want to keep specific traces. See [Managing Sampling Policies](trace_sampling_policies.html) for details.
   {% include note.html content="Sampling policies impact the volume of data ingested by Wavefront and can affect your costs. See [Track the Volume of Trace Data Stored in Wavefront](trace_data_sampling.html#track-the-volume-of-trace-data-stored-in-wavefront) for details on the number of spans you store in Wavefront with the sampling policies." %}
@@ -21,7 +31,7 @@ This page lists new and updated features in the Wavefront service.
 * **OpenTelemetry**: Reorganized the distributed tracing documentation to include OpenTelemetry.
   {% include important.html content="OpenTelemetry is still at its early stage. Therefore, if you run into issues when configuring Wavefront with OpenTelemetry, contact [Wavefront Technical Support](wavefront_support_feedback.html#support) for help." %}
 
-## 2021-34.x Release Notes 
+## 2021-34.x Release Notes
 
 * **UI performance improvements**: We’ve done extensive revamp of the rendering code for dashboards and charts. Measurements show improvements on all dashboards, some up to 50% faster. Improvements will be especially noticeable in dashboards with many line charts or point plots.
 

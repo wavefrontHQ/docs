@@ -154,6 +154,9 @@ Here are some things to watch out for -- and suggestions how you can rewrite the
 
 If you still think that `default()` is needed, limit the time window to reduce performance problems.
 
+{% include tip.html content="You cannot apply `default()` to a histogram. Even if you convert the histogram to a tsExpression, an error results if you then apply `default()`." %}
+
+
 ## See Also
 
 [Using Moving and Tumbling Windows to Highlight trends](query_language_windows_trends.html)
