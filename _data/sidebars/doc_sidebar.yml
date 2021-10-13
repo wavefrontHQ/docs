@@ -475,6 +475,10 @@ entries:
           - title: AWS Integration Overview
             url: /integrations_aws_overview.html
             output: web
+            
+          - title: AWS Integration API Setup
+            url: /integrations_aws_overview_API.html
+            output: web
 
           - title: AWS Metrics Integration
             url: /integrations_aws_metrics.html

@@ -6,13 +6,13 @@ sidebar: doc_sidebar
 permalink: integrations_aws_metrics.html
 summary: Monitor CloudWatch, CloudTrail, and Metrics+ with Wavefront
 ---
-Amazon Web Services (AWS), is a collection of cloud-computing services that provide an on-demand computing platform. The Wavefront Amazon Web Services integration allows you to ingest metrics directly from AWS. The Wavefront Amazon Web Services built-in integration is part of the setup, but the additional steps in this document are needed to complete and customize integration setup.
+Amazon Web Services (AWS) is a collection of cloud-computing services that provide an on-demand computing platform. The Wavefront Amazon Web Services integration allows you to ingest metrics directly from AWS. The Wavefront Amazon Web Services built-in integration is part of the setup, but the additional steps in this document are needed to complete and customize integration setup.
 
 {% include shared/badge.html content="You must have [Proxy Management permission](permissions_overview.html) to set up an AWS integration. If you do not have permission, the UI menu selections, buttons, and links you use to perform the tasks are not visible." %}
 
 You have to set up your Wavefront account with the correct permissions.
 * From within the integration or explicitly, you can [Give Wavefront Global Read-Only Access](integrations_aws_overview.html#giving-wavefront-global-read-only-access)
-* As an alternative, you can [Create an IA Policy to Specify Limited Access](integrations_aws_overview.html#create-iam-policy-to-specify-limited-access)
+* As an alternative, you can [Create an IAM Policy to Specify Limited Access](integrations_aws_overview.html#create-iam-policy-to-specify-limited-access)
 
 
 ## Supported AWS Integrations
@@ -22,7 +22,7 @@ The AWS integration ingests data from many products and provides dashboards for 
 - **[CloudWatch](http://aws.amazon.com/cloudwatch)** - retrieves AWS [metric and
 dimension](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html) data. Includes some metrics for Amazon Relational Database (RDS).
 - **[CloudTrail](http://aws.amazon.com/cloudtrail)** - retrieves EC2 event information and creates Wavefront System events that represent the AWS events.
-- **[AWS Metrics+](integrations_aws_metrics.html#aws-metrics-data)** - retrieves additional metrics using AWS APIs other than CloudWatch. Data include EBS volume data and  EC2 instance metadata like tags. You can investigate billing data  and the number of reserved instances. Be sure to enable AWS+ metrics because it allows Wavefront to optimize its use of Cloudwatch, and saves money on Cloudwatch calls as a result.
+- **[AWS Metrics+](integrations_aws_metrics.html#aws-metrics-data)** - retrieves additional metrics using AWS APIs other than CloudWatch. Data include EBS volume data and  EC2 instance metadata like tags. You can investigate billing data  and the number of reserved instances. Be sure to enable AWS+ metrics because it allows Wavefront to optimize its use of CloudWatch, and saves money on CloudWatch calls as a result.
 
 
 ## CloudWatch Integration Details
@@ -43,9 +43,9 @@ To configure CloudWatch ingestion:
 1. Click the **Setup** tab.
 1. In the Types column, click the **CloudWatch** link in the row of the integration you want to configure.
 1. Configure ingestion properties:
-    - **Instance and Volume Whitelist** fields - Whitelist instances and volumes by specifying [EC2 tags](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) (as **&lt;key&gt;=&lt;value&gt;** pairs) defined on the instances and volumes. For example, **organization=&lt;yourcompany&gt;**. When specified as a comma-separated list, the tags are OR'd. To use instance and volume whitelisting, you must also add an [AWS Metrics+](#aws-metrics-plus-integration) integration because the AWS tags are imported from the EC2 service. If you don't specify any tags, Wavefront imports metrics from *all* instances and volumes.
-    - **Metric Whitelist** field - Whitelist metrics by specifying a regular expression. The regular expression must be a complete match of the entire metric name. For example, if you only want CloudWatch data for `elb` and `rds` (which come under `aws.rds`), then use a regular expression such as: `^aws.(elb|rds).*$`. If you do not specify a regular expression, _all_ CloudWatch metrics are retrieved.
-    - **Point Tag Whitelist** - Whitelist AWS point tags by specifying a regular expression. If you do not specify a regular expression, no point tags are added to metrics.
+    - **Instance and Volume Allow List** fields - Add instances and volumes to an allow list by specifying [EC2 tags](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) (as **&lt;key&gt;=&lt;value&gt;** pairs) defined on the instances and volumes. For example, **organization=&lt;yourcompany&gt;**. When specified as a comma-separated list, the tags are OR'd. To use instance and volume allow lists, you must also add an [AWS Metrics+](#aws-metrics-plus-integration) integration because the AWS tags are imported from the EC2 service. If you don't specify any tags, Wavefront imports metrics from *all* instances and volumes.
+    - **Metric Allow List** field - Adds metrics to an allow list by specifying a regular expression. The regular expression must be a complete match of the entire metric name. For example, if you only want CloudWatch data for `elb` and `rds` (which come under `aws.rds`), then use a regular expression such as: `^aws.(elb|rds).*$`. If you do not specify a regular expression, _all_ CloudWatch metrics are retrieved.
+    - **Point Tag Allow List** - Adds AWS point tags to an allow list by specifying a regular expression. If you do not specify a regular expression, no point tags are added to metrics.
     - **Service Refresh Rate** - Number of minutes between requesting metrics. Default: 5.
 1. Click **Save**.
 
@@ -80,7 +80,7 @@ Wavefront adds the following point tags to CloudWatch metrics:
 
 Standard AWS CloudWatch pricing applies each time Wavefront requests metrics using the CloudWatch API. For pricing information, see [AWS \| Amazon CloudWatch \| Pricing](http://aws.amazon.com/cloudwatch/pricing). After selecting a region, you can find the current expected price under **Amazon CloudWatch API Requests**. In addition, custom metrics have a premium price; see the **Amazon CloudWatch Custom Metrics** section of the pricing page. To limit cost, by default Wavefront queries the API every 5 minutes. However, you can [change the request rate](#configuring-cloudwatch-metric-ingestion), which will change the cost.
 
-As an alternative to using the CloudWatch API for EC2 metrics, you can collect these metrics using [a Telegraf collector](telegraf.html) on each AWS instance. In this case, to prevent CloudWatch from requesting those metrics, you should set the **Metric Whitelist** property to allow all metrics except EC2. For example:
+As an alternative to using the CloudWatch API for EC2 metrics, you can collect these metrics using [a Telegraf collector](telegraf.html) on each AWS instance. In this case, to prevent CloudWatch from requesting those metrics, you should set the **Metric Allow List** property to allow all metrics except EC2. For example:
 
 ```
 ^aws.(billing|instance|sqs|sns|reservedInstance|ebs|route53.health|ec2.status|elb|s3).*$
@@ -199,7 +199,7 @@ Unless otherwise indicated, Wavefront sets the value of the AWS Metrics+ `source
 
 ## AWS Metrics+ Trusted Advisor Service Limits
 
-Each AWS account has limits on the amount of resources that are available to you for each AWS service. You can monitor and manage your resource usage and limits using the AWS service limit metrics in Wavefront.
+Each AWS account has limits on the number of resources that are available to you for each AWS service. You can monitor and manage your resource usage and limits using the AWS service limit metrics in Wavefront.
 
 If you have an account with the required permissions, you can view the [available service limits](https://console.aws.amazon.com/trustedadvisor/home#/category/service-limits) in the AWS Trusted Advisor console.
 
