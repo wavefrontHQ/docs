@@ -110,21 +110,38 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
       <b>Key</b>
     </td>
     <td width="80%">
-      A source needs to be defined between <code>&#123;&#123;&#125;&#125;</code>.
-      
-      <br/>For example, you can pass the following values and any <a href="trace_data_details.html#span-tags">span tag key</a> as a source: 
+      You can pass the following values and any <a href="trace_data_details.html#span-tags">span tag key</a> as a key:
       <ul>
         <li>
-          <code>&#123;&#123;spanName&#125;&#125;</code>
+          If a span tag key or a default key is used to pass string values, the key needs to be defined between <code>&#123;&#123;&#125;&#125;</code>.
+      
+          <br/>Example: 
+          <ul>
+            <li>
+              <code>&#123;&#123;spanName&#125;&#125;</code>
+            </li>
+            <li>
+              <code>&#123;&#123;sourceName&#125;&#125;</code>
+            </li>
+            <li>
+              <code>&#36;startMillis</code>
+            </li>
+            <li>
+              <code>&#36;duration</code> in milliseconds.
+            </li>
+          </ul>
         </li>
         <li>
-          <code>&#123;&#123;sourceName&#125;&#125;</code>
-        </li>
-        <li>
-          <code>&#36;startMillis</code>
-        </li>
-        <li>
-          <code>&#36;duration</code> in milliseconds.
+          If a span tag key or a default key is used to pass an integer value, the key needs to start with a <code>&#36;</code>.
+          <br/>Example: 
+          <ul>
+            <li>
+              <code>&#36;startMillis</code>
+            </li>
+            <li>
+              <code>&#36;duration</code> in milliseconds.
+            </li>
+          </ul>
         </li>
       </ul>
     </td>
