@@ -123,12 +123,6 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
             <li>
               <code>&#123;&#123;sourceName&#125;&#125;</code>
             </li>
-            <li>
-              <code>&#36;startMillis</code>
-            </li>
-            <li>
-              <code>&#36;duration</code> in milliseconds.
-            </li>
           </ul>
         </li>
         <li>
