@@ -110,9 +110,34 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
       <b>Key</b>
     </td>
     <td width="80%">
-      A source needs to be defined between <code>&#123;&#123;&#125;&#125;</code>.
+      You can pass the following values and any <a href="trace_data_details.html#span-tags">span tag key</a> as a key:
+      <ul>
+        <li>
+          If a span tag key or a default key is used to pass string values, the key needs to be defined between <code>&#123;&#123;&#125;&#125;</code>.
       
-      <br/>For example, you can pass the following values and any <a href="trace_data_details.html#span-tags">span tag key</a> as a source: <br/><code>&#123;&#123;spanName&#125;&#125;</code>, <code>&#123;&#123;sourceName&#125;&#125;</code>, <code>&#123;&#123;startMillis&#125;&#125;</code>, <code>&#123;&#123;duration&#125;&#125;</code>, and more.
+          <br/>Example: 
+          <ul>
+            <li>
+              <code>&#123;&#123;spanName&#125;&#125;</code>
+            </li>
+            <li>
+              <code>&#123;&#123;sourceName&#125;&#125;</code>
+            </li>
+          </ul>
+        </li>
+        <li>
+          If a span tag key or a default key is used to pass an integer value, the key needs to start with a <code>&#36;</code>.
+          <br/>Example: 
+          <ul>
+            <li>
+              <code>&#36;startMillis</code>
+            </li>
+            <li>
+              <code>&#36;duration</code> in milliseconds.
+            </li>
+          </ul>
+        </li>
+      </ul>
     </td>
   </tr>
   <tr>
@@ -120,7 +145,16 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
       <b>Value</b>
     </td>
     <td width="80%">
-      Surround the value with double quotes (<code>""</code>).
+      Define the values as follows:
+      <ul>
+        <li>
+          For string values, surround the value with double quotes (<code>""</code>). <br/>Example: Retain spans that have the application name set to <code>beachshirts</code>. 
+          <pre>&#123;&#123;application&#125;&#125; = "beachshirts"</pre>
+        </li>
+        <li>
+          For integer values, you don't need to use double quotes. <br/>Example: Retain spans that take more than 1000 milliseconds to complete. <pre>$duration>1000</pre>
+        </li>
+      </ul>
     </td>
   </tr>
   <tr>
