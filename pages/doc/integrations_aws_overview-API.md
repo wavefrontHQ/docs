@@ -1,5 +1,5 @@
 ---
-title: Manage the AWS Integration Through the API
+title: Setting Up and Managing the AWS Integration Through the API
 keywords:
 tags: [integrations, best practices]
 sidebar: doc_sidebar
