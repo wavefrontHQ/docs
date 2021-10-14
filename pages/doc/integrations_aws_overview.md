@@ -44,7 +44,7 @@ If you set up an [Amazon Web Services integration](integrations.html), Wavefront
 
 ## Managing an AWS Integration
 
-From the page of the integration you select, you can add an AWS integration, enable and disable it, and delete an AWS integration. You can also add and [manage AWS integrations by using the Wavefront REST API](integrations_aws_overview_API.html).
+From the page of the integration you select, you can add an AWS integration, enable and disable it, and delete an AWS integration. You can also [add and manage AWS integrations by using the Wavefront REST API](integrations_aws_overview_API.html).
 
 ### Add an AWS Integration
 
