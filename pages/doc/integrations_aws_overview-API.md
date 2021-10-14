@@ -30,6 +30,7 @@ You can add an AWS integration by using the Wavefront REST API.
   "cloudWatch":{
     "baseCredentials":{
       "roleArn":"arn:aws:iam::<accountid>:role/<rolename>"
+      "externalId":"string"
     },
     "metricFilterRegex":"^aws.(sqs|ec2|ebs|elb).*$",
     "pointTagFilterRegex":"(region|name)"
@@ -37,7 +38,7 @@ You can add an AWS integration by using the Wavefront REST API.
   "serviceRefreshRateInMins":5
 }
     ```
-In this example, `roleArn` is the [Role ARN from your Amazon account](integrations_aws_overview.html#give-wavefront-read-only-access-to-your-amazon-account).
+In this example, `roleArn` is the [Role ARN from your Amazon account](integrations_aws_overview.html#give-wavefront-read-only-access-to-your-amazon-account), and the `externalId` is the ID displayed on the AWS **Setup** page. If you don't provide an external ID, the `POST` request will time out. 
 
 1. Click **Try it out!**.
 
@@ -151,33 +152,76 @@ To delete a cloud service integration that you no longer need, you need the inte
 
 ## Update an AWS Integration
 
-1. In the Wavefront REST API documentation, click the `PUT /api/v2/cloudintegration/{id}` request, and click **Try it out!**.
+1. 1. In the Wavefront REST API documentation, click the `GET/api/v2/cloudintegration` request, and click **Try it out!**.
+   
+   In the **Response Body** section, you can see the list of all configured cloud services integrations. For example:
+   
+    ```
+    {
+     "forceSave": false,
+     "name": "AWS",
+     "id": "7a146a98-583f-4a2c-8c57-cde6d146bb6b",
+     "service": "CLOUDWATCH",
+     "lastReceivedDataPointMs": 1634038298092,
+     "lastMetricCount": 210,
+     "cloudWatch": {
+       "namespaces": [
+         "AWS/DynamoDB"
+       ],
+       "metricFilterRegex": "",
+       "baseCredentials": {
+         "roleArn": "arn:aws:iam::<accountid>:role/<rolename>"
+       },
+       "pointTagFilterRegex": "",
+       "instanceSelectionTags": {},
+       "volumeSelectionTags": {}
+     },
+     "disabled": false,
+     "lastProcessorId": "3198d07c-210c-4670-9bd0-eb407d2a71dc",
+     "lastProcessingTimestamp": 1634038421682,
+     "createdEpochMillis": 1620216033503,
+     "updatedEpochMillis": 1622707203597,
+     "serviceRefreshRateInMins": 5,
+     "deleted": false,
+     "inTrash": false,
+     "lastErrorEvent": {
+       ...
+       ...
+     
+     "creatorId": "user-account-email-address",
+     "updaterId": "user-account-email-address"
+   },
+ 
+   ```
+1. Copy the value of the ``"id"`` parameter of the integration that you want to update.
+1. In the Wavefront REST API documentation, click the `PUT /api/v2/cloudintegration/{id}` request.
 1. Under **Parameters**, in the **id** text box enter the ID of the integration that you want to update.
 1. In the **body** text box enter the following example:
 
-```
-I need a meaningful CloudWatch code example, maybe something like that (need some more examples here):
+   ```
+   I need a meaningful CloudWatch code example, maybe something like that (need some more examples here):
 
 
-{
-  "name":"CloudWatch integration",
-  "service":"CLOUDWATCH",
-  "cloudWatch":{
-    "baseCredentials":{
-      "roleArn":"arn:aws:iam::<accountid>:role/<rolename>"
-    },
-    "metricFilterRegex":"^aws.(elb|rds).*$",
-    "pointTagFilterRegex":"(cluster|region)"
-    "instanceSelectionTagsExpr": "need-an-example-of-a-meaningful string",
-    "volumeSelectionTagsExpr": "need-an-example-of-a-meaningful string",
-    "instanceSelectionTags": {need-an-example},
-    "volumeSelectionTags": {need-an-example}
-  },
-  "serviceRefreshRateInMins":2
-}
+   {
+     "name":"CloudWatch integration",
+     "service":"CLOUDWATCH",
+     "cloudWatch":{
+       "baseCredentials":{
+         "roleArn":"arn:aws:iam::<accountid>:role/<rolename>"
+         "externalId":"string"
+       },
+       "metricFilterRegex":"^aws.(elb|rds).*$",
+       "pointTagFilterRegex":"(cluster|region)"
+       "instanceSelectionTagsExpr": "need-an-example-of-a-meaningful string",
+       "volumeSelectionTagsExpr": "need-an-example-of-a-meaningful string",
+       "instanceSelectionTags": {need-an-example},
+       "volumeSelectionTags": {need-an-example}
+     },
+     "serviceRefreshRateInMins":2
+   }
 
-We also need to explain what will change. 
-```
+   We also need to explain what will change. Also add info whether the external ID is the same ID provided during the setup of the integration.
+   ```
 
 1. Click **Try it out!**.
 

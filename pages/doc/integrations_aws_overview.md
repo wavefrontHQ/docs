@@ -72,7 +72,7 @@ Wavefront automatically disables integrations that are experiencing errors due t
 1. Click the **Advanced** link.
 1. In the row that contains the integration that you want to enable or disable, click the ellipsis icon, and select **Enable** or **Disable**.
 
-## Giving Wavefront Global Read-Only Access
+## Giving Wavefront Global Read-Only Access 
 
 Data flows from AWS to Wavefront only if the account has the required access. You have several options:
 
@@ -115,6 +115,10 @@ Data flows from AWS to Wavefront only if the account has the required access. Yo
    1. For Role name, enter **wavefront** and click **Create role**.
    1. Click the **wavefront** role.
    1. Copy the Role ARN value.
+   
+   ```
+   Margarita: The steps below explain how to configure the integration. Not sure whether we want these steps here.
+   ```
 1. In Wavefront, click **Integrations** in the taskbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
 1. On the **Setup** tab, click the **Advanced** link at the bottom.
