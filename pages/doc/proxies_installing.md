@@ -19,7 +19,7 @@ We offer several [deployment options](proxies.html#proxy-deployment-options). Du
 - Memory - The proxy does not use a lot of CPU, memory, or storage. However, we recommend running the proxy on a host with at least 4GB of free memory.
 - CPU - A standalone proxy can easily handle up to 40K PPS (points per second). If you're sending more, use [multiple proxies behind a load balancer](proxies.html#production-environment-team-of-proxies--load-balancer).
 - Operating system - Wavefront proxy is a Java application and can run on operating systems supported by Java. Java 8 or later is required, the latest version of Java is recommended.
-- Other - Maven 
+- Other - Maven
 
 <a name="single"></a>
 
@@ -213,6 +213,7 @@ sudo yum remove telegraf</code></td></tr>
 ## See Also
 
 Advanced users can export proxy data to a file and perform other customizations.
+* [Run a Proxy in a Container](proxies_container.html) shows how to install the proxy and Telegraf in a Docker container. 
 * [Export Data Queued at the Proxy](https://help.wavefront.com/hc/en-us/articles/360052251811-How-to-export-data-queued-at-the-Proxy)
 * [Install a Proxy in Non-Default Environments](proxies_manual_install.html)
 * Use the [proxy configuration file](proxies_configuring.html) to customize proxy behavior for metrics, histograms, and traces.
