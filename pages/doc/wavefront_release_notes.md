@@ -19,7 +19,7 @@ This page lists new and updated features for the Wavefront service.
 
    1. Review your Dashboards and Alerts access control lists and include the new **Service Accounts** group, according to your needs. 
       
-      For example, if you have granted a service account with access to particular dashboards or alerts, you must make sure that the same service account can access the dashboards and alerts, after the migration of the service accounts to the **Service Accounts** group.
+      For example, if you have granted a service account with access to certain dashboards or alerts, you must make sure that after the migration of the service accounts to the **Service Accounts** group, the service account can access the same dashboards and alerts.
    
    2. Review and adjust the permissions that are currently set on your **Service Accounts** group according to your needs.
 
