@@ -13,6 +13,16 @@ This page lists new and updated features for the Wavefront service.
 * For the latest changes and releases of the **Wavefront Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For  **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## 2021-42.x Release notes
+
+* **New Service Accounts Group**: All service accounts are moved from the **Everyone** group to the new **Service Accounts** group. Make sure that you:
+
+   1. Review your Dashboards and Alerts access control lists and include the new **Service Accounts** group, according to your needs. 
+      
+      For example, if you have granted service accounts with access to certain dashboards and alerts through the **Everyone** group, you must update the access list to include the **Service Accounts** group or specific service accounts, so that the service accounts can access the same dashboards and alerts after the migration.
+   
+   2. Review and adjust the permissions that are currently set on your **Service Accounts** group according to your needs.
+
 ## 2021-40.x Release Notes 
 
 * **SYNTAX_ERROR Alert State**: Starting with this release, a SYNTAX_ERROR alert state indicates that the alert query resulted in a syntax error. This might happen, for example, if a text string with special characters is missing double quotes, but could be the result of other query errors.
