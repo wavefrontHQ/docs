@@ -19,9 +19,9 @@ You can also use Wavefront as a Prometheus data source in Grafana.
 
 The Wavefront data source plugin makes it possible to visualize data collected by Wavefront in Grafana dashboards. You can use Grafana dashboard variables and templating with this plugin. Dynamic Grafana dashboard variables can be created using Wavefront ts() queries. [Read more](https://github.com/wavefrontHQ/grafana-wavefront-datasource) about the data source plugin features and limitations.
 
-### Set Up Wavefront as a Prometheus Data Source
+### Set Up Wavefront as a Data Source in Grafana
 
-To set up Wavefront as a Prometheus data source, you must provide an API Token of a user account or a service account that can run queries. For details on API tokens, see [Generating an API Token](https://docs.wavefront.com/wavefront_api.html#generating-an-api-token).
+To set up Wavefront as a data source in Grafana, you must provide an API Token of a user account or a service account that can run queries. For details on API tokens, see [Generating an API Token](https://docs.wavefront.com/wavefront_api.html#generating-an-api-token).
 
 1. Log in to your Grafana instance.
 
@@ -44,9 +44,9 @@ To set up Wavefront as a Prometheus data source, you must provide an API Token o
     
 8. Click **Save and Test**.
 
-### After the Setup is Complete
+### How to Use Wavefront as a Prometheus Data Source
 
-Make sure that PromQL Support is enabled on your cluster. 
+To use Wavefront as a Prometheus data source, make sure that PromQL Support is enabled on your cluster. 
 
 {% include important.html content="After the setup, the behavior of the PromQL queries that you run in Grafana will be the same as the behavior of the same queries that you run in Wavefront. This means, that all limitations and best practices for using PromQL in Wavefront apply when you use Wavefront as a Prometheus data source in Grafana. For information, see [Using PromQL in Wavefront](https://docs.wavefront.com/wavefront_prometheus.html)." %}
 
