@@ -231,6 +231,10 @@ entries:
           url: /proxies_manual_install.html
           output: web
 
+        - title: Run a Proxy in a Container
+          url: /proxies_container.html
+          output: web  
+
         - title: Proxy Configuration
           url: /proxies_configuring.html
           output: web
@@ -600,7 +604,7 @@ entries:
     - title: Key Concepts
       url: /trace_data_details.html
       output: web
-      
+
     - title: OpenTelemetry
       url: /opentelemetry.html
       output: web
@@ -609,7 +613,7 @@ entries:
       - title: OpenTracing
         output: web
         subfolderitems:
-          
+
           - title: OpenTracing Tutorial
             url: /tracing_java_tutorial.html
             output: web
@@ -621,11 +625,11 @@ entries:
           - title: Jaeger or Zipkin
             url: /tracing_integrations.html
             output: web
-            
+
           - title: Configure External Services
             url: /tracing_external_services.html
             output: web
-      
+
       - title: Visualize Trace Data
         output: web
         subfolderitems:
@@ -649,7 +653,7 @@ entries:
           - title: Offline Traces
             url: /tracing_view_offline_traces.html
             output: web
-            
+
           - title: Sampling Policies
             url: /trace_sampling_policies.html
             output: web
@@ -661,17 +665,17 @@ entries:
     - title: Trace Sampling
       url: /trace_data_sampling.html
       output: web
-      
+
     - title: Query Trace Data
       url: /trace_data_query.html
       output: web
-    
+
     - title: Customize Spans and Alerts for RED Metrics
       url: /tracing_customize_spans_and_alerts.html
       output: web
-      
+
       subfolders:
-             
+
       - title: Trace Functions
         output: web
         subfolderitems:
@@ -775,10 +779,10 @@ entries:
         - title: Authentication in Wavefront
           output: web
           subfolderitems:
-            
+
           - title: Wavefront Authentication Model
             url: /wavefront-authentication.html
-            output: web  
+            output: web
 
           - title: Single-Tenant Authentication and SAML SSO
             url: /auth_self_service_sso.html
@@ -811,7 +815,7 @@ entries:
           - title: Use Wavefront Top or Spy to Investigate Traffic
             url: /wavefront_monitoring_spy.html
             output: web
-            
+
         - title: Best Practices
           output: web
           subfolderitems:

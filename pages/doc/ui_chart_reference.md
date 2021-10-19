@@ -759,28 +759,8 @@ A **table** chart allows fine-grained customization in the Format tab but doesn'
 <td>Summarization</td>
 <td>Each line in a table is a summary of all of available data points, as set in the Summarized By field, based on the configured time window.</td></tr>
 <tr>
-<td>Point Tag Columns to Display</td>
-<td>Allows you to show all point tags, only a selected number, or only metrics with a certain tag key.
-</td>
-</tr>
-<tr>
-<td>Show Sources</td>
-<td>Select to display the sources in the table.
-</td>
-</tr>
-<tr>
-<td>Show Labels</td>
-<td>Select to display labels in the table. A label is the metric name associated with the data or the query expression resulting from an aggregation.
-</td>
-</tr>
-<tr>
 <td>Show Raw Values</td>
 <td>Select to display the raw metric values (e.g., 212.00 milliseconds) or values using scientific notation (SI), e.g., 212 milliseconds.
-</td>
-</tr>
-<tr>
-<td>Group by Sources</td>
-<td>Whether to group the column results by source.  If you select <strong>Group by Source</strong>, the table lists the grouped sources in the first column and the values for each metric in separate columns.
 </td>
 </tr>
 <tr>
@@ -827,6 +807,46 @@ You can specify a minimum of 200 milliseconds to show only values of interest:
 </tr>
 </tbody>
 </table>
+
+
+<a id="columns_tab">
+<p><span style="font-size: large; font-weight: 600">Columns Tab</span></p>
+
+Allows you to select which columns to see in the table chart.
+
+<table>
+<tbody>
+<thead>
+<tr><th width="15%">Option</th><th width="85%">Description</th></tr>
+</thead>
+<tr>
+<td>Show Sources</td>
+<td>Select to display the sources in the table.
+</td>
+</tr>
+<tr>
+<td>Show Labels</td>
+<td>Select to display labels in the table. A label is the metric name associated with the data or the query expression resulting from an aggregation.
+</td>
+</tr>
+<tr>
+<td>Group by Sources</td>
+<td>Whether to group the column results by source.  If you select <strong>Group by Source</strong>, the table lists the grouped sources in the first column and the values for each metric in separate columns.
+</td>
+</tr>
+<tr>
+<td>Point Tag Columns to Display</td>
+<td>Allows you to show all point tags, only a selected number, or only metrics with a certain tag key.
+</td>
+</tr>
+<tr>
+<td>Show Value Column</td>
+<td>Allows you to show or hide the <code>Value</code> column according to your needs.
+</td>
+</tr>
+</tbody>
+</table>
+
 
 <a id="table_drilldown_link_tab">
 <p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
