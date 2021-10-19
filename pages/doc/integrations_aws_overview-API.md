@@ -20,8 +20,8 @@ You can add an AWS integration by using the Wavefront REST API.
 1. Log in to your Wavefront cluster. 
 1. Click the gear icon in the top right and select **API Documentation**.
 1. Expand the **Cloud Integration** category.
-1. To create a new cloud integration, click the `POST /api/v2/cloudintegation` request.
-1. To add a CloudWatch integration, in the **body** text box enter the following example:
+1. To create a new cloud integration, click the `POST /api/v2/cloudintegration` request.
+1. To add a CloudWatch, AWS Metrics+, and CloudTrail integrations, in the **body** text box enter the following example:
 
     ```
 {
@@ -37,8 +37,36 @@ You can add an AWS integration by using the Wavefront REST API.
   },
   "serviceRefreshRateInMins":5
 }
+{
+  "name":"AWSMetric+ integration",
+  "service":"ec2",
+  "ec2":{
+    "baseCredentials":{
+      "roleArn":"arn:aws:iam::<accountid>:role/<rolename>",
+     "externalId": "string"
+    },
+    "metricFilterRegex":"^aws.(sqs|ec2|ebs|elb).*$",
+    "pointTagFilterRegex":"(region|name)"
+  },
+  "serviceRefreshRateInMins":5
+}
+{
+  "name":"CloudTrail integration",
+  "service":"cloudTrail",
+   "region":"string",
+   "prefix": "string",
+   "bucketName":"string"
+  "cloudTrail":{
+    "baseCredentials":{
+      "roleArn":"arn:aws:iam::<accountid>:role/<rolename>",
+     "externalId":"string"
+    },
+    "filterRule":"string"
+}
+
     ```
-In this example, `roleArn` is the [Role ARN from your Amazon account](integrations_aws_overview.html#give-wavefront-read-only-access-to-your-amazon-account), and the `externalId` is the ID displayed on the AWS **Setup** page. If you don't provide an external ID, the `POST` request will time out. 
+
+    In this example, `roleArn` is the [Role ARN from your Amazon account](integrations_aws_overview.html#give-wavefront-read-only-access-to-your-amazon-account), and the `externalId` is the ID displayed on the AWS **Setup** page. If you don't provide an external ID, the `POST` request will time out. 
 
 1. Click **Try it out!**.
 
