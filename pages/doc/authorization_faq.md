@@ -64,7 +64,7 @@ Here's what you need to know:
   
 ### What's the Service Accounts Group?
 
-With the 2021-42.x release, all service accounts are moved out of the **Everyone** group and are members of the **Service Accounts** group. This separation is necessary so that you have different groups for the different types of accounts in your system. 
+With the 2021-42.x release, all service accounts are moved out of the **Everyone** group to the **Service Accounts** group. This separation is necessary so that you have different groups for the different types of accounts in your system. 
 
 The **Service Accounts** group has associated roles and by default service accounts cannot browse data. If you assign a role to the **Service Accounts** group, you change the permissions for each service account in your environment.
 

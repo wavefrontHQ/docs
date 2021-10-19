@@ -9,9 +9,9 @@ summary: Create and manage service accounts.
 
 A service account can be used to automate management of objects such as dashboards, alerts, etc. A service account can't perform the **UI operations** that all user accounts can [perform by default](user-accounts.html#what-can-a-new-user-do). There's no limit on the number of service accounts that you can create in your organization. 
 
-{% include note.html content="Service accounts have no permissions by default. As an administrator, you must explicitly grant each service account only the permission required for the task that’s being automated (least required privilege). That ensures that permissions for service accounts are always very limited. Service accounts do not have the view permissions that user accounts have by default. A service account must have **permissions** to perform tasks. To run queries, a service account must have **Metrics** permission. To manage dashboards and alerts, the service account might need both permissions and [access](access.html)." %}
+{% include note.html content="Service accounts have no permissions by default. As an administrator, you must explicitly grant each service account only the permission required for the task that’s being automated (least required privilege). Doing so, you ensure that permissions for service accounts are always very limited. Service accounts do not have the view permissions that user accounts have by default. A service account must have **permissions** to perform tasks. To run queries, a service account must have **Metrics** permission. To manage dashboards and alerts, the service account might need both permissions and [access](access.html)." %}
 
-With the 2021-42.x release all Service Accounts are moved to a separate predefined **Service Accounts** group and no longer belong to the **Everyone** group. New service accounts that you create are automatically added to the **Service Accounts** group. You can also set additional groups for new service accounts.
+With the 2021-42.x release all existing service accounts are moved to a separate predefined **Service Accounts** group and no longer belong to the **Everyone** group. New service accounts that you create are automatically added to the **Service Accounts** group. You can also set additional groups for new service accounts.
 
 ## What Are Service Accounts?
 
@@ -92,7 +92,7 @@ You can activate or deactivate a service account from the **Service Accounts** p
 <tr>
 <td width="50%">
 To activate or deactivate an account from the <strong>Service Accounts</strong> page:
-<ul><li>Click the ellipsis icon. </li>
+<ul><li>Click the ellipsis icon in front of the service account. </li>
 <li>Select <strong>Activate</strong> or <strong>Deactivate</strong>.</li>
 </ul></td>
 <td width="50%"><img src="/images/sa_deactivate_multi.png" alt="deactivate or activate a service account"/></td>
