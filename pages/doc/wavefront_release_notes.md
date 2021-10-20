@@ -15,7 +15,7 @@ This page lists new and updated features for the Wavefront service.
 
 ## 2021-42.x Release notes
 
-* **New Service Accounts Group**: All service accounts are moved from the **Everyone** group to the new **Service Accounts** group. Make sure that you:
+* **New Service Accounts Group**: All existing service accounts are moved from the **Everyone** group to the new **Service Accounts** group. Make sure that you:
 
    1. Review your Dashboards and Alerts access control lists and include the new **Service Accounts** group, according to your needs. 
       
@@ -24,110 +24,18 @@ This page lists new and updated features for the Wavefront service.
    2. Review and adjust the permissions that are currently set on your **Service Accounts** group according to your needs.
 
 ## 2021-40.x Release Notes 
-
+   
 * **SYNTAX_ERROR Alert State**: Starting with this release, a SYNTAX_ERROR alert state indicates that the alert query resulted in a syntax error. This might happen, for example, if a text string with special characters is missing double quotes, but could be the result of other query errors.
-
-  The error state is visible, for example, in the Alerts Browser and the Alerts Browser search bar.
-
+   
+   The error state is visible, for example, in the Alerts Browser and the Alerts Browser search bar.
+   
 * **Upcoming Service Accounts Changes**: Within the next releases all service accounts that you have created in your Wavefront environment will be moved out of the **Everyone** group and added to a new **Service Accounts** group.
-
-  {% include important.html content="Any roles and groups with the name `Service Accounts` will be marked with the `(Existing)` suffix." %}
-
-## 2021-35.x Release Notes
-
-* **Sampling Policies**: If you can't find traces in Wavefront because Intelligent Sampling discarded them, you can now create a sampling policy. Sampling policies let Wavefront know that you want to keep specific traces. See [Managing Sampling Policies](trace_sampling_policies.html) for details.
-  {% include note.html content="Sampling policies impact the volume of data ingested by Wavefront and can affect your costs. See [Track the Volume of Trace Data Stored in Wavefront](trace_data_sampling.html#track-the-volume-of-trace-data-stored-in-wavefront) for details on the number of spans you store in Wavefront with the sampling policies." %}
-
-* **OpenTelemetry**: Reorganized the distributed tracing documentation to include OpenTelemetry.
-  {% include important.html content="OpenTelemetry is still at its early stage. Therefore, if you run into issues when configuring Wavefront with OpenTelemetry, contact [Wavefront Technical Support](wavefront_support_feedback.html#support) for help." %}
-
-## 2021-34.x Release Notes
-
-* **UI performance improvements**: We’ve done extensive revamp of the rendering code for dashboards and charts. Measurements show improvements on all dashboards, some up to 50% faster. Improvements will be especially noticeable in dashboards with many line charts or point plots.
-
-  See [Ensure Optimal Dashboard Performance](ui_dashboards.html#ensure-optimal-dashboard-performance) for suggestions on how you can improve performance even more.
-
-  {% include note.html content="This feature is rolled out to customers incrementally in the next few weeks"%}
-
-
-## 2021-33.x Release Notes
-
-* **Maintenance Mode Improvements**:
-   - You can specify point tags when filtering alerts that you want to set to maintenance mode.
-   - You can specify [alternate targets to notify](http://docs-dev.wavefront.com/maintenance_windows_managing.html#step-3-optional-specify-alternate-alert-targets) during a maintenance mode.
-
-
-## 2021-28.x Release Notes
-
- * **Anomaly Detection on Charts**: With this release, we deprecate the support of AI Genie and replace it with the new [**Anomaly Detection**](anomaly_detection.html) feature, which is available for Line Plot chats.
-   {% include note.html content="This feature is rolled out to customers incrementally in the next few weeks"%}
-
-   You can:
-     * Turn anomaly detection on and off.
-     * Explore all anomalies, which are highlighted in a different manner depending on their size.
-     * Select a specific anomaly.
-     * [Create alerts by using the `anomalous ()` function](ts_anomalous.html#using-the-anomalous-function-in-alerts), but note, that you must do that with caution, because queries with the `anomalous()` function are resource intensive.
-
-   For example, in the line plot below you can see large and small anomalies. Large anomalies are highlighted with square purple borders and small anomalies are highlighted with cycle purple borders.
-
-   ![Anomalies highlighted with purple square and purple circle](images/anomaly_hightlighting.png)
-
-
-* **Delete Alert Target Improvements**: Previously, alert targets could not be deleted if alert target was in used by an alert. Users can now click **Delete Notificant** to delete the alert target even if it is in use by alerts. That action removes the target from any alerts.
-* **Accessibility Improvements**: Additional improvements to color selector options on different product pages.
-
-## 2021-27.x Release Notes
-
-* **PromQL Compatibility Improvements**: Miscellaneous improvements. For example, the `percentile()`, `mpercentile()` and `variance()` functions now work as expected.
-* **New Doc Page**: [Monitor Tanzu Mission Control with Wavefront](integrations_tmc_howto.html)
-
-## 2021-26.x Release Notes
-
-* **Accessibility Improvements**:
-
-  In addition to the already existing keyboard navigation for some of the Wavefront UI pages, now we have [**support for end-to-end keyboard navigation**](wavefront_keyboard_shortcuts.html) for the following UI pages:
-
-  * [Create a dashboard wizard](ui_dashboards.html#create-a-dashboard)
-  * Chart page
-  * Integrations list page
-  * Kubernetes integration page
-  * Sources Browser pages
-  * Maintenance Windows page
-  * User profile page
-  * Metrics Browser page
-
-  We have also improved **drag-and-drop keyboard** navigation when you create or edit charts, or when you create or edit a metrics security policy. To use the drag-and-drop navigation:
-
-  1. To enter drag mode, press **spacebar**.
-  2. Use the arrow keys to move the item, for example a query line.
-  3. Press **spacebar** to drop the item in its new position.
-
-  You can rearrange:
-
-  * Query lines
-  * Functions within a query line in Query Builder
-  * Variables
-  * List values when you add variables to a dashboard
-  * Metrics Security Policy rules
-
-
-  **Colors** in all charts and dashboards, including service and operational dashboards, as well as Amazon Web Services dashboards, now support colorblind accessibility. Random chart colors are theme-specific. We also redesigned the color picker with a new color palette that is different for dark and light UI theme.
-
-    ![Color picker for light theme](images/color-picker.png)
-
-* **Azure AD Integration Improvements**: Updated the setup and the [setup instructions of the Azure AD Integration](azure_ad.html). You can now easily set up the Azure AD integration yourself without the need to contact our support team, so that users can authenticate to Wavefront through Azure AD instead of using a password.
-
-* **New Metrics to Track RED Metrics**: Tracks delta counters, histograms, and points derived as [Tracing RED metrics](trace_data_details.html#red-metrics) that the collector receives. For details, see [Monitor Your Wavefront Service](wavefront_monitoring.html).
-  * ~collector.delta_points.tracing_red.reported
-  * ~collector.histograms.tracing_red.reported
-  * ~collector.points.tracing_red.reported
-
-  {% include note.html content="We have a corresponding direct ingestion metric for each metric. For example, corresponding to `collector.delta_points.tracing_red.reported` we have
-  `collector.direct-ingestion.delta_points.tracing_red.reported`."%}
-
+   
+   {% include important.html content="Any roles and groups with the name `Service Accounts` will be marked with the `(Existing)` suffix." %}
 
 ## Past Release Notes
 
+- [2021-35.x Release Notes](2021.35.x_release_notes.html)
 - [2021-24.x Release Notes](2021.24.x_release_notes.html)
 - [2021-19.x Release Notes](2021.19.x_release_notes.html)
 - [2021-14.x Release Notes](2021.14.x_release_notes.html)
