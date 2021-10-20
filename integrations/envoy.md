@@ -48,19 +48,19 @@ Run `sudo service telegraf restart` to restart your Telegraf agent.
   
 ## Envoy Proxy on Kubernetes
 
-This integration uses the [annotation discovery](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/discovery.md#annotation-based-discovery) feature in Wavefront Collector to monitor Envoy proxy on kubernetes. If you do not have the Wavefront Collector for Kubernetes installed, follow these instructions to add it to your cluster by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install). You can check the status of the Wavefront Collector and Proxy if you are already monitoring the Kubernetes cluster [here](../kubernetes/setup).
+This integration uses the [annotation based discovery](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/discovery.md#annotation-based-discovery) feature in Wavefront Collector to monitor Envoy proxy on Kubernetes. If you do not have the Wavefront Collector for Kubernetes installed, follow these instructions to add it to your cluster by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install). You can check the status of the Wavefront Collector and Proxy if you are already monitoring the Kubernetes cluster [here](../kubernetes/setup).
 
-### Steps to annotate Envoy Proxy Deployment
+### Steps to Annotate Envoy Proxy Deployment
 
-1. Auto discovery `enableDiscovery: true` and annotation based discovery `discovery.disable_annotation_discovery: false` are enabled by default in the Wavefront Collector ConfigMap.
-**NOTE**: The Wavefront Collector scrapes all the pods that has prometheus annotation enabled.
-2. Annotate the Envoy pods to get discovered by Wavefront Collector, assuming `9901` is the admin `port_value` in Envoy ConfigMap.{% raw %}
+1. Make sure that auto discovery `enableDiscovery: true` and annotation based discovery `discovery.disable_annotation_discovery: false` are enabled in the Wavefront Collector ConfigMap. They should be enabled by default.
+**NOTE**: The Wavefront Collector scrapes all the pods that have Prometheus annotation enabled.
+2. Annotate the Envoy pods so that they can be discovered by Wavefront Collector. Assuming that the admin `port_value` in Envoy ConfigMap is `9901`, run:{% raw %}
 ```
 kubectl annotate pods <pod-name> prometheus.io/scrape=true prometheus.io/port=9901 prometheus.io/path=/stats/prometheus
 ```
 {% endraw %}
 
-Refer [here](https://github.com/wavefrontHQ/integrations/tree/master/envoy) to see sample Envoy Proxy Deployment and ConfigMap.
+Refer [here](https://github.com/wavefrontHQ/integrations/tree/master/envoy) to see a sample Envoy Proxy Deployment and ConfigMap.
 
 
 
