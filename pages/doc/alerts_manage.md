@@ -13,7 +13,229 @@ Most Wavefront users [examine alerts and drill down to find the problem](alerts.
 
 ## How to Create an Alert -- The Basics
 
-You can create an alert from any chart, or from the **Create Alert** page. The basic process is the same.
+You can create an alert from any chart, or from the **Create Alert** page. Here's what you specify:
+
+1. The **data** to monitor and **when** the alert condition is met. You can:
+  * Create a basic (single-threshold) alert with a boolean expression, for example, CPU utilization is more than 85%.
+  * Create a multi-threshold alert with any query or set of queries, combined with a threshold.
+2. The recipient(s) (**who** will receive alerts).
+3. Optionally, more info for the recipient(s), including links to dashboards with more details, runbooks, etc.
+
+## Create Alert Tutorial
+
+This tutorial creates a multi-threshold alert, which allows you to specify different severity for different thresholds. It's great if, for example, you want to:
+* Send an alert email of type Info to a group of engineers when a certain value is close to the SLO (e.g. 90% of budgeted CPU)
+* Send an alert Slack of type Severe to engineers and engineering managers if the value has crossed the threshold (e.g. 95% of budgeted CPU).
+
+
+### Step 0: Collect Information
+
+Ensure that you have the information for the **required fields**:
+
+* Alert condition, that is, data you monitor. For example, CPU of all production clusters.
+* When the alert condition is met. For example, CPU of at least 1 cluster is at 90% for 5 minutes.
+* Severity thresholds. For each severity, you can specify one or more alert targets to notify [when the alert changes state](alerts_states_lifecycle.html#when-threshold-alerts-notify-targets). When the alert changes state, each target that meets the condition is notified .
+
+For example, an alert target for an INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. Because notifications potentially go to targets of different severities, you cannot associate an alert target with more than one severity. "%}
+
+### Step 1: Start Alert Creation
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+To start alert creation, do one of the following:
+<ul>
+<li markdown="span"><strong>Alerts Browser</strong> - Click <strong>Alerting</strong> from the taskbar and click the <strong>Create Alert</strong> button located above the filter bar.</li>
+<li markdown="span">**Chart** - Click the ellipsis icon on the right of the query and select **Create Alert**.</li>
+</ul></td>
+<td width="40%" markdown="span">![create_alert](images/v2_create_alert.png) </td></tr>
+</tbody>
+</table>
+
+### Step 2: Specify the Data to Watch and Alert On
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td>In the <strong>Data</strong> section, specify the data you want to monitor and click <strong>Next</strong>. You have many options:
+<ul>
+<li>Keep it simple, e.g. just specify <code>ts()</code> and a metric: <code>ts(~sample.mem.used.percentage)</code> </li>
+<li>Use multiple queries, optionally with variables, to take advantage of the full power of WQL.</li>
+<li>Use either WQL or <a href="wavefront_prometheus.html">PromQL</a> on the data line.  </li>
+</ul> </td>
+<td><img src="images/alert_new_data.png" alt="Specify data the alert is monitoring"></td>
+</tr>
+</tbody>
+</table>
+
+### Step 3: Specify Thresholds and Severities
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td>In the <strong>Conditions</strong> section, specify thresholds for the alert. You can alert when the query result is greater than or less than the specified threshold. Specify at least 1 threshold and click Next. <br><br>
+You can fine-tune and test the condition.
+<ul>
+<li> </li>
+<li> </li>
+</ul></td>
+<td><img src="images/new_alert_condition.png" alt="Specify data the alert is monitoring"></td>
+</tr>
+</tbody>
+</table>
+
+<!---
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td>
+3. Press Enter.
+</td>
+</tr>
+<tr>
+<td>
+4. Click the <strong>Add</strong> button and select <strong>env &gt; production</strong> as the second filter.
+</td>
+<td width="50%">
+<img src="images/query_quickstart_env.png" alt="Select env=production">
+</td>
+</tr>
+</tbody>
+</table>
+
+<ol>
+<li>Do one of the following:
+<ul>
+<li markdown="span"><strong>Alerts Browser</strong> - Click <strong>Alerting</strong> from the taskbar and click the <strong>Create Alert</strong> button located above the filter bar.</li>
+<li markdown="span">**Chart** - Click the ellipsis icon on the right of the query and select **Create Alert**.
+![create_alert](images/v2_create_alert.png)</li>
+</ul></li>
+<li markdown="span">Next to **Type**, select **Threshold**.
+</li>
+<li>Fill in the following required alert properties.
+<table id="alert-properties">
+<tbody>
+<thead>
+<tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td><strong>Name</strong></td>
+<td>Name of the alert. 1-255 characters. </td>
+</tr>
+
+<tr>
+<td><strong>Condition</strong></td>
+<td>A query language expression that defines the threshold for the alert. The condition expression can include any valid <a href=
+"query_language_getting_started.html">Wavefront Query Language</a> construct. The condition expression coupled with the <strong>Alert fires</strong> setting determines when the alert fires.
+<ul><li><strong>Alert fires</strong> - Length of time (in minutes) during which the <strong>Condition</strong> expression must be <em>true</em> before the alert fires. Minimum is 1.  For example, if you enter 5, the alerting engine reviews the value of the condition during the last 5 minute window to determine whether the alert should fire.</li>
+<li><strong>Alert resolves</strong> - Length of time (in minutes) during which the <strong>Condition</strong> expression must be <em>not true</em> before the alert switches to resolved. Minimum is 1.  Omit this setting or pick a value that is greater than or equal to the <strong>Alert fires</strong> to avoid potential chains of resolve-fire cycles. </li>
+</ul>
+
+For details and examples, see <a href="alerts_states_lifecycle.html">Alert States and Lifecycle</a>.
+</td>
+</tr>
+<tr><td><strong>Operator</strong></td>
+<td>Select one of the operators, for example, greater than or &gt;. The operator determines which values to use for the different severity thresholds. For example, if the operator is greater than, then:
+<ul><li>You don't have to specify all 4 severities.</li>
+<li>SEVERE must be the highest number</li>
+<li>INFO must be the lowest number</li>
+<li>The numbers must increase from INFO to SEVERE. </li></ul></td>
+</tr>
+<tr>
+<td><strong>Severity</strong></td>
+<td>For multi-threshold alerts, specify more than one severity - or create a Classic alert. Associate a threshold value with each severity. The order must match the operator.
+<br/><br/>For example, you can specify an Operator >=, SEVERE 6000, and WARN 5000, but you can't specify SEVERE 5000, and WARN 6000 with that operator.
+</td>
+</tr>
+</tbody>
+</table>
+</li>
+
+<li>(Recommended) Specify a list of alert targets for each severity. Wavefront notifies the targets when the alert changes state, for example, from CHECKING to FIRING, or when the alert is snoozed. Specify names of <a href="webhooks_alert_notification.html">custom alert targets</a> that you already created. You can specify up to ten different targets for each severity. You cannot specify an email address or PagerDuty key directly.<br/>
+<br/>
+{% include note.html content="You cannot associate an alert target with more than one severity. Alert targets subscribe to **all** notifications at their severity and above.<br/> <br/>
+
+For example, an alert target for an INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. Because notifications potentially go to targets of different severities, you cannot associate an alert target with more than one severity." %}
+</li>
+
+<li>
+(Optional) To help you find the alert and information about it, specify <strong>Additional Information</strong> and <strong>Tags</strong>.
+<table id="alert-tags">
+<tbody>
+<thead>
+<tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td><strong>Additional Information</strong></td>
+<td>Any additional information, such as a link to a run book.</td>
+</tr>
+<tr>
+<td><strong>Tags</strong></td>
+<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing Related Alerts with Alert Tags](alerts.html#step-5-organize-related-alerts-with-tags). </td>
+</tr>
+</tbody>
+</table>
+</li>
+
+<li>(Optional) If you are protecting metrics in your environment with <a href="metrics_security.html">metrics security policies</a>, select the <strong>Secure Metrics Details</strong> check box. A simplified alert notification is sent.
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td><strong>Secure Metric Details</strong></td>
+<td>If checked, alert notifications do not show metric details and alert images. </td>
+</tr>
+</tbody>
+</table>
+</li>
+
+<li>(Optional) Click the <strong>Advanced</strong> link to configure the following alert properties. The defaults for those properties are often appropriate.
+<table>
+<tbody>
+<thead><tr><th width="20%">Property</th><th width="80%">Description</th></tr></thead>
+<tr>
+<td><strong>Checking Frequency</strong></td>
+<td markdown="span">Number of minutes between checking whether <strong>Condition</strong> is true. Minimum and default is 1. When an alert is in the [INVALID state](alerts_states_lifecycle.html), it is checked approximately every 15 minutes, instead of the specified checking frequency.</td>
+</tr>
+<tr>
+<td><strong>Evaluation Strategy</strong></td>
+<td markdown="span">Allows you to select <strong>Real-time Alerting</strong>. By default, Wavefront ignores values for the last 1 minutes to account for delays. Many data sources are updated only at certain points in time, so using the default evaluation strategy prevents spurious firings.  If you select this check box, we include values for the last 1 minute. The alert is evaluated strictly on the ingested data. See <a href="alerts_delayed_data.html">Limiting the Effects of Data Delays</a>. </td>
+</tr>
+<tr>
+<td><strong>Resend Notifications</strong></td>
+<td>Whether to resend notification of a firing alert. If enabled, you can specify the number of minutes to wait before resending the notification.</td>
+</tr>
+<tr>
+<td><strong>Unique PagerDuty Incidents</strong></td>
+<td>
+  Select this option to receive separate PagerDuty notifications for each series that meets the alert conditions.
+  <br/>For example, you get separate PagerDuty notifications for both the following series because the <code>env</code> tag is different.
+
+  <pre>
+#first series
+app.errors source=machine env=prod
+
+#second series
+app.errors source=machine env=stage
+  </pre>
+</td>
+</tr>
+<tr>
+<td><strong>Metrics</strong></td>
+<td>Whether to include obsolete metrics. By default, alerts don't consider data that have  not reported for 4 weeks or more. Include obsolete metrics if you use queries that aggregate data in longer time frames.</td>
+</tr>
+</tbody>
+</table>
+
+</li>
+
+<li>Click <strong>Save</strong>.</li>
+</ol>
+
 
 <table style="width: 100%;">
 <tbody>
@@ -33,6 +255,8 @@ The rest of this page explains:
 * How you can fine-tune the process to get just the right number of alerts to just the right people.
 * How to create alerts and customize the condition and the target.
 * How to create multi-threshold alerts, which can send notifications to different targets based on the severity of the problem.
+
+--->
 
 ### Alert Condition
 
