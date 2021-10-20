@@ -15,7 +15,7 @@ This page lists new and updated features for the Wavefront service.
 
 ## 2021-42.x Release notes
 
-* **New Service Accounts Group**: All service accounts are moved from the **Everyone** group to the new **Service Accounts** group. Make sure that you:
+* **New Service Accounts Group**: All existing service accounts are moved from the **Everyone** group to the new **Service Accounts** group. Make sure that you:
 
    1. Review your Dashboards and Alerts access control lists and include the new **Service Accounts** group, according to your needs. 
       
