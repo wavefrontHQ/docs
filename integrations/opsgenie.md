@@ -28,7 +28,7 @@ You can use Webhooks to integrate Wavefront alerts with OpsGenie. Here's an exam
 
 {% include webhooks_create.md %}
 1. In the **Content Type** field, select **application/json**.
-1. Select **Alert Target POST Body Template > TEMPLATE > Webhook Default**.
+1. Select **Body Template > TEMPLATE > Generic Webhook**.
 1. Customize the template. See the [Wavefront doc](https://docs.wavefront.com/alert_target_customizing.html) for details.
 1. Click **Save**. The alert target is added to the Alert Targets page.
 1. In the **Name** column, note the ID of the alert target under the alert target description.
