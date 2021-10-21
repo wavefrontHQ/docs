@@ -8,6 +8,14 @@ summary: New and changed Wavefront integrations.
 ---
 Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
+## October 2021
+
+Made improvements to the following integrations and dashboards in October 2021:
+
+* Kubernetes -- Made fixes to queries, so that they show correct values for the Wavefront Collector and Wavefront proxy restarts.
+* Azure Kubernetes -- Made fixes to queries, so that they show correct values for running and pending pods.
+* Envoy Proxy -- Added an out-of-the-box dashboard and setup steps to monitor Envoy proxy on Kubernetes.
+
 ## September 2021
 
 Made improvements to the following integrations and dashboards in September 2021:
