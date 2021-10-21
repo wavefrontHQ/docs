@@ -11,6 +11,35 @@ OpenTracing and OpenCensus have merged to form OpenTelemetry. OpenTelemetry prov
 
 
 
+## Sending Trace Data to Wavefront
+
+If your application uses OpenTelemetry, you can configure the application to send trace data to Wavefront using the Tanzu Observability (Wavefront) trace exporter. When the data is in Wavefront, you can use our tracing dashboards to visualize any request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time and discover problems.
+
+**Note**: To learn about the specification that works for you, see [OpenTracing or OpenTelemetry](https://help.wavefront.com/hc/en-us/articles/360058140212-OpenTracing-or-OpenTelemetry-Which-specification-to-select-for-instrumenting-applications-for-tracing-).
+
+**Important**: OpenTelemetry is still at its early stage. Therefore, if you run into issues when configuring Wavefront with OpenTelemetry, contact [Wavefront Technical Support](wavefront_support_feedback.html#support) for help.
+
+Here's how it works:
+{% include image.md src="images/tracing_opentelemetry_trace_exporter_data.png" width="100" %}
+
+**Tip**: See [Getting Started with OpenTelemetry and VMware Tanzu Observability](https://tanzu.vmware.com/content/blog/getting-started-opentelemetry-vmware-tanzu-observability) to send data to Wavefront from a sample application that uses OpenTelemetry.
+
+Follow these steps:
+
+1. [Install the Wavefront Proxy](https://docs.wavefront.com/proxies_installing.html)
+    <br/> **Note**:
+     <ul>
+      <li>
+        Open port 2878 to send spans and metrics to Wavefront. For example, on Linux, Mac, and Windows, open the <code>wavefront.conf</code> file, uncomment  the <code>pushListnerPort</code> and set it to 2878. 
+      </li>
+      <li>
+        Additionally, you need to open port 30001, with <code>customTracingListenerPorts=30001</code>, for the proxy to generate span-level RED metrics.
+      </li>
+    </ul>
+1. Configure your application to send the trace data to the OpenTelemetry Collector. See the [OpenTelemetry documentation](https://opentelemetry.io/docs/collector/) for details.
+1. Export the data from the OpenTelemetry Collector to the [Tanzu Observability (Wavefront) trace exporter](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/tanzuobservabilityexporter).
+1. Explore the trace data that was sent to Wavefront using the [tracing dashboards](https://docs.wavefront.com/tracing_basics.html#visualize-distributed-tracing-data-in-wavefront).
+
 ## Sending Metrics Data to Wavefront
 
 If your application uses OpenTelemetry, you can configure the application to send metrics data to Wavefront. Metrics data includes time series, counters, and histograms. You use the Wavefront Prometheus storage adapter and the Wavefront proxy. Once the data is in Wavefront, you can use charts and dashboards to visualize the data and create alerts.
@@ -21,6 +50,7 @@ Here's how it works:
 Follow these steps:
 
 1. [Install the Wavefront Proxy](https://docs.wavefront.com/proxies_installing.html).
+   <br/>Make sure to open port 2878 to send spans and metrics to Wavefront. For example, on Linux, Mac, and Windows, open the wavefront.conf file, uncomment  the `pushListnerPort` and set it to 2878.
 1. Configure your application to send the metrics/trace data to the OpenTelemetry Collector. See the [OpenTelemetry documentation](https://opentelemetry.io/docs/collector/) for details.
 1. Export the data from the OpenTelemetry Collector to the Wavefront Prometheus Storage Adapter. 
 
@@ -41,14 +71,30 @@ This tutorial uses the OpenTelemetry Collector demo. For steps on how to configu
         cd opentelemetry-collector-contrib/examples/demo/
         ```
 {% endraw %}
-    1. Open the `prometheus.yaml` file and add the following configurations.{% raw %}
-        ```yaml
+    1. Open the prometheus.yaml file and add the following configurations.
+        {% raw %}
+        ```
         remote_write:
           - url: "http://<enter your IP address>:1234/receive"
+        
         ```
 {% endraw %}
-      
+        
         **Note**: The IP address and port configured in the prometheus.yaml file needs to match configurations in the Prometheus Storage Adapter configured in Step 3 below.
+        
+        For example, this is how the prometheus.yaml file looks:{% raw %}
+        ```
+        scrape_configs:
+          - job_name: 'otel-collector'
+          scrape_interval: 10s
+          static_configs:
+            - targets: ['otel-collector:8889']
+            - targets: ['otel-collector:8888']
+
+          remote_write:
+            - url: "http://<enter your IP address>:1234/receive"
+        ```
+{% endraw %}
     
     1. Run `docker-compose up -d` to start the OpenTelemetry Collector and Prometheus Server. The Prometheus server is exposed on port `9090`.
 
@@ -69,7 +115,7 @@ This tutorial uses the OpenTelemetry Collector demo. For steps on how to configu
 {% include image.md src="images/tracing_opentelemetry_collector_chart.png" width="90" %}
 
 ### Registering OpenCensus Metric Exporter
-Once you have configured your OpenTelemetry Collector to send metric data to Wavefront, you can use the code snippet below to register OpenCensus metric exporter in a Java application and send custom metrics to Wavefront. See [OpenCensus documentation](https://opencensus.io/stats/) for details on OpenCensus API.
+Once you have configured your OpenTelemetry Collector to send metric data to Wavefront, you can use the code snippet below to register the OpenCensus metric exporter in a Java application and send custom metrics to Wavefront. See [OpenCensus documentation](https://opencensus.io/stats/) for details on OpenCensus API.
 {% raw %}
 ```
     import io.opencensus.common.Duration;
@@ -107,27 +153,6 @@ Once you have configured your OpenTelemetry Collector to send metric data to Wav
                 .build());
 ```
 {% endraw %}
-
-
-
-## Sending Trace Data to Wavefront
-
-If your application uses OpenTelemetry, you can configure the application to send trace data to Wavefront using the Tanzu Observability (Wavefront) trace exporter. When the data is in Wavefront, you can use our tracing dashboards to visualize any request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time, and discover problems.
-
-**Note**: To learn about the specification that works for you, see [OpenTracing or OpenTelemetry](https://help.wavefront.com/hc/en-us/articles/360058140212-OpenTracing-or-OpenTelemetry-Which-specification-to-select-for-instrumenting-applications-for-tracing-).
-
-**Important**: OpenTelemetry is still at its early stage. Therefore, if you run into issues when configuring Wavefront with OpenTelemetry, contact [Wavefront Technical Support](wavefront_support_feedback.html#support) for help.
-
-Here's how it works:
-{% include image.md src="images/tracing_opentelemetry_trace_exporter_data.png" width="100" %}
-
-Follow these steps:
-
-1. [Install the Wavefront Proxy](https://docs.wavefront.com/proxies_installing.html)
-1. Configure your application to sends the trace data to the OpenTelemetry Collector. See the [OpenTelemetry documentation](https://opentelemetry.io/docs/collector/) for details.
-1. Export the data from the OpenTelemetry Collector to the [Tanzu Observability (Wavefront) trace exporter](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/tanzuobservabilityexporter).
-1. Explore the trace data that was sent to Wavefront using the [tracing dashboards](https://docs.wavefront.com/tracing_basics.html#visualize-distributed-tracing-data-in-wavefront).
-    
 
 
 
