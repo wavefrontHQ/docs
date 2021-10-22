@@ -1,5 +1,5 @@
 ---
-title: Query Performance
+title: Optimize Query Performance
 keywords: query language
 tags: [query language, performance]
 sidebar: doc_sidebar
@@ -89,3 +89,11 @@ The time window is a measure of time expressed as an integer number of units. Th
 If you are looking at a 30-minute window, <strong>1vw</strong> is one view-window length, and therefore equivalent to <strong>30m</strong>. </li>
 <li>Time relative to the bucket size of the chart (1bw). Wavefront calculates bucket size based on the view window length and screen resolution. You can see bucket size at the bottom left of each chart.</li>
 </ul>
+
+## Use Wildcard Characters with Care
+
+Wavefront supports the asterisk (*) as a wildcard character [Wildcards](query_language_reference.html#partial-regex-wildcards-aliases-and-variables) in queries can result in many time series on a chart, which can be confusing and affect performance. If using a wildcard character make sense for your use case, use delimiters, and don't use a wildcard at the beginning of a query.
+
+* Faster: Use delimiters around wildcards. `ts(‘abc.*.xyz’)`
+* Slower: Without the period as a delimiter, the query is slower `ts(“abc*xyz”)`
+* Slower: Don't use a wildcard at the beginning of a query `ts("*abc.xyz")`
