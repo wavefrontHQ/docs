@@ -15,7 +15,7 @@ In most cases, you send data to the [Wavefront proxy](proxies.html), and the pro
 
 However, some Wavefront customers want to send data directly to the Wavefront services, and the data ingestion API allows you to do it.
 
-**Note** You must have direct data ingestion permission to use this API.
+**Note** You must have **Direct Data Ingestion** permission to use this API.
 
 ## Data Ingestion API
 

@@ -17,7 +17,7 @@ Here's a video to get you started with external links:
 </p>
 
 
-<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view external links, you must have [External Links Management permission](permissions_overview.html) to manage external links. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
+<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view external links, you must have the [**External Links Management** permission](permissions_overview.html) to manage external links. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
 ## Navigate to an External Link
 

@@ -20,7 +20,7 @@ As an administrator, you can:
 * Invite users, assign roles to users or add the users to groups to grant permissions. 
 * Create roles that are set of permissions and assign the role to one or more users.
 * Create groups and give all members of the group a set of permissions by assigning a role.
-* Manage user and service accounts.
+* Manage user accounts and service accounts.
 * Protect individual dashboards or alerts and grant access only to selected groups or accounts.
 * Protect metrics or groups of metrics using metrics security policy rules.
 
