@@ -126,7 +126,7 @@ remote_write:
 {% endraw %}
 Save the configuration file and restart Prometheus.
 
-See the [Integrating Prometheus with Wavefront](https://www.wavefront.com/integrating-prometheus-with-wavefront) blog for more information.
+See the [Integrating Prometheus with Wavefront](https://tanzu.vmware.com/content/blog/prometheus-or-tanzu-observability-by-wavefront-for-kubernetes-an-sre-s-point-of-view-2) blog for more information.
 
 
 
