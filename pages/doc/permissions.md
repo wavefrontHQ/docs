@@ -53,7 +53,7 @@ Because all new users are assigned to the Everyone group, permissions change for
 <strong>Option 2: Create a Group for new user permissions</strong>
 1. Create a group and assign the permissions you want for each new user.
 2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Organization Settings**.
-3. Select the **New User Defaults** tab and type the user group name in the **Default User Groups** field.
+3. Click the **New Accounts Defaults** tab and type the user group name in the **Default User Groups** field.
 
 ## Granting and Revoking Permissions for Groups
 
