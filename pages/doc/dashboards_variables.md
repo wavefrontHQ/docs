@@ -15,7 +15,7 @@ Dashboard variables and global filters are excellent ways of focusing the metric
 <li>All users can include dashboard variables in queries. The query uses the current value of the variable.</li>
 </ul>
 
-{% include note.html content="Only users with [Dashboard permission](permissions_overview.html) can create and save dashboard variables. All other users can then set the variable from the GUI."%}
+{% include note.html content="Only users with the [**Dashboard** permission](permissions_overview.html) can create and save dashboard variables. All other users can then set the variable from the GUI."%}
 
 
 ## Dashboard Variable Use Cases
@@ -34,7 +34,7 @@ All users can show or hide the variables bar and can select from the predefined 
 
 ## Create, Modify, and Save Variables (Edit Mode)
 
-Users with Dashboard permissions can create variables, use them in queries, and save the dashboard. After the dashboard has been saved, the variable shows up in the dashboard bar and all users can make selections.
+Users with the **Dashboard** permission can create variables, use them in queries, and save the dashboard. After the dashboard has been saved, the variable shows up in the dashboard bar and all users can make selections.
 
 ### Dashboard Variable Scope
 
