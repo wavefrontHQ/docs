@@ -11,9 +11,9 @@ summary: Learn about the Wavefront Grafana integration.
 
 You can set up and use Wavefront as a data source for [Grafana](https://www.grafana.com/).
 
-The Wavefront data source plugin for Grafana provides a basic query builder and the entire [Wavefront Query Language](https://docs.wavefront.com/query_language_reference.html). You can use multiple queries in a single chart. The plugin also supports dashboard variables. 
+The Wavefront data source plugin for Grafana provides a basic query builder and the entire [Wavefront Query Language](https://docs.wavefront.com/query_language_reference.html). You can use multiple queries in a single chart. The plugin also supports dashboard variables. You can also use Wavefront as a PromQL data source in Grafana. 
 
-You can also use Wavefront as a Prometheus data source in Grafana.
+When you set up the Wavefront data source plugin for Grafana, you can view the data stored in Wavefront by using the Grafana GUI. 
 
 ## Grafana Data Source Plugin Integration Setup
 
@@ -39,18 +39,18 @@ To set up Wavefront as a data source in Grafana, you must provide an API Token o
 
 7. Under **Custom HTTP Headers** set the following settings:
     
-    1. In the **Header** text box, make sure that you enter **Authorization** as the header name.
+    1. In the **Header** text box, enter **Authorization** as the header name.
     2. In the **Value** text box, enter `Bearer <Your-API-Token>`. 
     
 8. Click **Save and Test**.
 
 ### How to Use Wavefront as a Prometheus Data Source
 
-To use Wavefront as a Prometheus data source, make sure that PromQL Support is enabled on your cluster. 
+To use Wavefront as a PromQL data source, make sure that [PromQL Support is enabled on your cluster](https://docs.wavefront.com/wavefront_prometheus.html#set-promql-organization-settings-administrator-only). 
 
-{% include important.html content="After the setup, the behavior of the PromQL queries that you run in Grafana will be the same as the behavior of the same queries that you run in Wavefront. This means, that all limitations and best practices for using PromQL in Wavefront apply when you use Wavefront as a Prometheus data source in Grafana. For information, see [Using PromQL in Wavefront](https://docs.wavefront.com/wavefront_prometheus.html)." %}
+{% include important.html content="After the setup, the behavior of the PromQL queries that you run in Grafana will be the same as the behavior of the same queries that you run in Wavefront. All limitations and best practices for using PromQL in Wavefront apply. For information, see [Using PromQL in Wavefront](https://docs.wavefront.com/wavefront_prometheus.html)." %}
 
-You can now test and see that when you create a chart in Wavefront by using PromQL, the same query in Grafana returns exactly the same result.
+You can now test and see that a PromQL query in Wavefront returns the same result as a PromQL query in Grafana when the data source is the Wavefront cluster that you have configured. 
 
 * A PromQL query in Wavefront:
 
