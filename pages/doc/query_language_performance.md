@@ -52,7 +52,7 @@ Aggregation functions like sum() or avg() let you combine different time series,
 
 You have these options to eliminate the overhead from interpolation:
 
-### Use `align()` with Aggregation Functions:
+### Use `align()` with Aggregation Functions
 
 The align() function changes [how bucketing happens](query_language_align_function.html).
 
@@ -79,8 +79,8 @@ Example:
 
 Missing data functions such as `last()` support an optional timeWindow parameter. The `default()` function also supports a `delayTime` parameter. If you don’t specify those time parameters, Wavefront applies the default value for every second and for gaps up to 28 days. This impacts performance of the query and the dashboard.
 
-* Faster: default([<timeWindow>,] [<delayTime>,] <defaultValue>, <tsExpression>)
-* Slower: default(0, <tsExpression>)
+* Faster: `default([<timeWindow>,] [<delayTime>,] <defaultValue>, <tsExpression>)`
+* Slower: `default(0, <tsExpression>)`
 
 The time window is a measure of time expressed as an integer number of units. The default unit is minutes. You can specify:
 <ul>
