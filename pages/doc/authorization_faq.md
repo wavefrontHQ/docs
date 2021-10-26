@@ -13,7 +13,7 @@ Wavefront supports two account types:
 * [**User accounts**](user-accounts.html) are for human users who work with Wavefront. A user account authenticates with a user name and password.
 * [**Service accounts**](service-accounts.html) are for services that interact with Wavefront through an API and use a **token** to authenticate. Service accounts are used to automate management tasks. As an administrator, you generate (and revoke, if needed) authentication tokens for the service account. It’s also possible to deactivate a service account completely. 
  Service accounts:
-  - Don't have **default permissions** (unless one or more roles with permissions are assigned to the **Everyone** group.).
+  - Don't have **default permissions** (unless one or more roles with permissions are assigned to the **Service Accounts** group.).
   - Can't perform the **UI operations** that user accounts can perform by default.
   In the UI, service account names always start with **sa:**.
 
@@ -47,16 +47,28 @@ Wavefront groups do *not* currently synchronize with groups in your identity pro
 
 ### What's the Everyone Group?
 
-All accounts (user and service accounts) are members of the Everyone group.
+All user accounts are members of the **Everyone** group. By default, no service account is added to this group. All service accounts are added to the **Service Accounts** group.
 
 Here's what you need to know:
 
-* You cannot remove accounts from the Everyone group. All accounts, including Super Admin, are always in the Everyone group.
-* You cannot delete the Everyone group.
-* You can change the roles assigned to the Everyone group. By default, the group has associated roles, which means that human users can browse data but cannot modify anything. Service accounts cannot browse data.
+* You cannot remove accounts from the **Everyone** group. All user accounts, including Super Admin, are always in the **Everyone** group.
+* You cannot delete the **Everyone** group.
+* You can change the roles assigned to the **Everyone** group. By default, the group has associated roles, which means that human users can browse data but cannot modify anything. 
 
-  **Warning**: If you assign a role to the Everyone group, you change the permissions for each account in your environment, including service accounts.
-* If you use access control in your environment, you can share a dashboard or alert with the Everyone group to:
+  **Warning** If you assign a role to the **Everyone** group, you change the permissions for each user account in your environment.
+* If you use access control in your environment, you can share a dashboard or alert with the **Everyone** group to:
   - Give View & Modify access to accounts who have **Dashboards** or **Alerts** permissions.
   - Give View access to accounts who don't have **Dashboards** or **Alerts** permissions.
-  You can remove the Everyone group from a dashboard or alert access list to limit access to that object.
+  You can remove the **Everyone** group from a dashboard or alert access list to limit access to that object.
+  
+  
+### What's the Service Accounts Group?
+
+With the 2021-42.x release, all service accounts are moved out of the **Everyone** group to the **Service Accounts** group. This separation is necessary so that you have different groups for the different types of accounts in your system. 
+
+The **Service Accounts** group has associated roles and by default service accounts cannot browse data. If you assign a role to the **Service Accounts** group, you change the permissions for each service account in your environment.
+
+
+
+
+  

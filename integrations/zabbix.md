@@ -29,7 +29,7 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
 {% endraw %}
 - **Ubuntu**{% raw %}
   ```
-  sudo apt-get install python-mysql.connector
+  sudo pip3 install mysql-connector-python
   ```
 {% endraw %}
 If the package is not found, see [Installing Connector/Python from a Binary Distribution](http://dev.mysql.com/doc/connector-python/en/connector-python-installation-binary.html).
@@ -37,7 +37,7 @@ If the package is not found, see [Installing Connector/Python from a Binary Dist
 
 ### Step 3. Download the Zabbix Adapter Script
 
-Download the [Zabbix Adapter script](https://raw.githubusercontent.com/wavefrontHQ/zabbix/master/zabbixDBAdapter.py).
+Download the [Zabbix Adapter script](https://raw.githubusercontent.com/wavefrontHQ/zabbix/master/zabbix_db_adapter.py).
 
 ### Step 4. Configure the Adapter Script Parameters
 
