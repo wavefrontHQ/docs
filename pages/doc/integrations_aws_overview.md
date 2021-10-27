@@ -80,6 +80,43 @@ Wavefront automatically disables integrations that are experiencing errors due t
 1. Click the **Advanced** link.
 1. In the row that contains the integration that you want to enable or disable, click the ellipsis icon, and select **Enable** or **Disable**.
 
+
+### Register Additional Amazon Web Services
+
+After you set up the AWS integration with the Role ARN, you can additionally register more Amazon Web services.
+
+1. In Wavefront, click **Integrations** on the taskbar.
+1. In the Featured section, click the **Amazon Web Services** tile.
+1. Click the **Setup** tab.
+1. Click the **Advanced** link.
+1. In the Cloud Integration page, click **Add Amazon Web Services** and select an option:
+   * To register an AWS Metrics+ service, select **Register AWS Metrics+**, and configure the following integration properties:
+      
+      1. **Name** -- Name to identify the integration.
+      2. **Role ARN** -- Role ARN from Amazon account.
+   
+   * To register a CloudTrail service, select **Register CloudTrail**, and configure the following integration properties:
+      
+      1. **Name** - Name to identify the integration.
+      2. **Role ARN** -- Role ARN from Amazon account.
+      3. **Bucket Name** -- The S3 bucket that contains CloudTrail logs. 
+         
+         In AWS, go to **CloudTrail** &gt;**Trails** to see the bucket name.
+         
+      4. **Prefix** -- A log file prefix specified when you created the CloudTrail. 
+         
+         The default prefix is `AWSLogs`. If you use a custom prefix, you must put it here without using a forward slashes.
+         
+      5. **Region** -- AWS Region where the CloudTrail logs reside.
+       
+   * To register a CloudWatch service, select **Register CloudWatch**, and configure the following integration properties:
+   
+      1. **Name** -- Name to identify the integration.
+      2. **Role ARN** -- Role ARN from Amazon account.
+      3. Allow Lists and Service Refresh Rate -- see [Configuring CloudWatch Data Ingestion](integrations_aws_metrics.html#configuring-cloudwatch-data-ingestion).
+     
+1.  Click **Save**. The selected integrations are created and added to the Cloud Integrations list.
+
 ## Giving Wavefront Global Read-Only Access 
 
 Data flows from AWS to Wavefront only if the account has the required access. You have several options:
@@ -101,7 +138,7 @@ Data flows from AWS to Wavefront only if the account has the required access. Yo
 </tr>
 <tr>
 <td markdown="span">Create IAM policy to specify limited access</td>
-<td markdown="span">Explicitly specify the access settings in a custom IAM policy, as discussed in [Giving Wavefront Limited Access](integrations_aws_metrics.html#giving-wavefront-limited-access).</td>
+<td markdown="span">Explicitly specify the access settings in a custom IAM policy, as discussed in [Giving Wavefront Limited Access](integrations_aws_overview.html#create-iam-policy-to-specify-limited-access).</td>
 </tr>
 </tbody>
 </table>
@@ -135,7 +172,7 @@ For information about External IDs and how they are used in AWS, see [How to Use
 
 ### Give Wavefront Limited Access
 
-Instead of giving Wavefront read-only access, you can instead give more limited access.
+Instead of giving Wavefront read-only access, you can give more limited access.
 
 The required permissions depend on the integration and on the service you want to monitor, as shown in the following table:
 <table>
@@ -223,40 +260,6 @@ You can explicitly specify the access permissions in a custom IAM policy, as sho
 }
 ```
 
-## Register Additional Amazon Web Services
-
-After you set up the AWS integration with the Role ARN, you can additionally register more Amazon Web services.
-
-1. In Wavefront, click **Integrations** on the taskbar.
-1. In the Featured section, click the **Amazon Web Services** tile.
-1. Click the **Setup** tab.
-1. Click the **Advanced** link.
-1. In the Cloud Integration page, click **Add Amazon Web Services** and select an option:
-   - **Register AWS Metrics+**
-   - **Register CloudTrail**
-   - **Register CloudWatch**
-   1. To register AWS Metrics+, configure the following integration properties:
-      - **Name** -- Name to identify the integration.
-      - **Role ARN** -- Role ARN from Amazon account.
-   1. To register CloudTrail, configure the following integration properties:
-   
-     - **Name** - Name to identify the integration.
-     - **Role ARN** -- Role ARN from Amazon account.
-     - **Bucket Name** -- The S3 bucket that contains CloudTrail logs. 
-         
-         In AWS, go to **CloudTrail** &gt;**Trails** to see the bucket name.
-         
-     - **Prefix** -- A log file prefix specified when you created the CloudTrail. 
-         
-         The default prefix is `AWSLogs`. If you use a custom prefix, you must put it here without using a forward slashes.
-         
-     - **Region** -- AWS Region where the CloudTrail logs reside.
-   1. To register CloudWatch, configure the following integration properties:
-   
-     - **Name** -- Name to identify the integration.
-     - **Role ARN** -- Role ARN from Amazon account.
-     - Allow Lists* and Service Refresh Rate - see [Configuring CloudWatch Data Ingestion](integrations_aws_metrics.html#configuring-cloudwatch-data-ingestion).
-1.  Click **Save**. The selected integrations are created and added to the Cloud Integrations list.
 
 
 ## Viewing AWS Metrics
