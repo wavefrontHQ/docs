@@ -157,7 +157,7 @@ Customers often tell us that they want to make sure they don't exceed their comm
 2. If you need to reduce usage, you have several options:
    * Start examining ingestion from the Wavefront Service and Proxy Data dashboard. The [internal metrics](wavefront_monitoring.html#internal-metrics-overview) shown in this dashboard highlight.
    * Use the **Wavefront Namespace Usage Explorer** dashboard to drill down into the metrics. Wavefront automatically tracks the number of metrics received for the first 3 levels of your metric namespace as delta counters, and this dashboard presents the metrics in an easy-to-use way.
-   * Finally, if you suspect that much of your usage comes from certain accounts (human or service accounts) consider setting up one or more ingestion policies. With these policies in place, each account cannot consume more than the rate that is preset in the policy.
+   * Finally, if you suspect that much of your usage comes from certain accounts (user or service accounts) consider setting up one or more ingestion policies. With these policies in place, each account cannot consume more than the rate that is preset in the policy.
 
 
 ## Examine Versions of Dashboards and Alerts

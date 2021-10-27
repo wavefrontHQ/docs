@@ -8,7 +8,7 @@ summary: Monitor CloudWatch, CloudTrail, and Metrics+ with Wavefront
 ---
 Amazon Web Services (AWS) is a collection of cloud-computing services that provide an on-demand computing platform. The Wavefront Amazon Web Services integration allows you to ingest metrics directly from AWS. The Wavefront Amazon Web Services built-in integration is part of the setup, but the additional steps in this document are needed to complete and customize integration setup.
 
-{% include shared/badge.html content="You must have [Proxy Management permission](permissions_overview.html) to set up an AWS integration. If you do not have permission, the UI menu selections, buttons, and links you use to perform the tasks are not visible." %}
+{% include shared/badge.html content="You must have the [**Proxy Management** permission](permissions_overview.html) to set up an AWS integration. If you do not have permission, the UI menu selections, buttons, and links you use to perform the tasks are not visible." %}
 
 You have to set up your Wavefront account with the correct permissions.
 * From within the integration or explicitly, you can [Give Wavefront Global Read-Only Access](integrations_aws_overview.html#giving-wavefront-global-read-only-access)
