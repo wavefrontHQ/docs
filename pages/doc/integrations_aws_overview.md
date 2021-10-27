@@ -170,7 +170,7 @@ For information about External IDs and how they are used in AWS, see [How to Use
 1. Copy the **Role ARN** value.
    
 
-### Give Wavefront Limited Access
+## Giving Wavefront Limited Access
 
 Instead of giving Wavefront read-only access, you can give more limited access.
 
