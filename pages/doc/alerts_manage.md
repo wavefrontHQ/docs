@@ -118,7 +118,7 @@ Alert recipients receive notifications when the alert changes state. You can:
 
 ### Step 4 (Optional): Help Alert Recipients Resolve the Alert
 
-If you already have information that helps recipients find the causes for the alert, specify them in the **Contents** section:
+If you already have information that helps recipients find the causes for the alert, specify them in the **Contents** section: 
 
 <table style="width: 100%;">
 <tbody>
