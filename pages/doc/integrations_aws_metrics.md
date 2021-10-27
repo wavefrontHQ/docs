@@ -43,10 +43,11 @@ To configure CloudWatch ingestion:
 1. Click the **Setup** tab.
 1. In the Types column, click the **CloudWatch** link in the row of the integration you want to configure.
 1. Configure ingestion properties:
-    - **Instance and Volume Allow List** fields - Add instances and volumes to an allow list by specifying [EC2 tags](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) (as **&lt;key&gt;=&lt;value&gt;** pairs) defined on the instances and volumes. For example, **organization=&lt;yourcompany&gt;**. When specified as a comma-separated list, the tags are OR'd. To use instance and volume allow lists, you must also add an [AWS Metrics+](#aws-metrics-plus-integration) integration because the AWS tags are imported from the EC2 service. If you don't specify any tags, Wavefront imports metrics from *all* instances and volumes.
-    - **Metric Allow List** field - Adds metrics to an allow list by specifying a regular expression. The regular expression must be a complete match of the entire metric name. For example, if you only want CloudWatch data for `elb` and `rds` (which come under `aws.rds`), then use a regular expression such as: `^aws.(elb|rds).*$`. If you do not specify a regular expression, _all_ CloudWatch metrics are retrieved.
-    - **Point Tag Allow List** - Adds AWS point tags to an allow list by specifying a regular expression. If you do not specify a regular expression, no point tags are added to metrics.
-    - **Service Refresh Rate** - Number of minutes between requesting metrics. Default: 5.
+    - **Instance and Volume Allow List** fields -- Add instances and volumes to an allow list by specifying [EC2 tags](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) (as **&lt;key&gt;=&lt;value&gt;** pairs) defined on the instances and volumes. For example, **organization=&lt;yourcompany&gt;**. When specified as a comma-separated list, the tags are OR'd. To use instance and volume allow lists, you must also add an [AWS Metrics+](#aws-metrics-plus-integration) integration because the AWS tags are imported from the EC2 service. If you don't specify any tags, Wavefront imports metrics from *all* instances and volumes.
+    - **Metric Allow List** field -- Adds metrics to an allow list by specifying a regular expression. The regular expression must be a complete match of the entire metric name. For example, if you only want CloudWatch data for `elb` and `rds` (which come under `aws.rds`), then use a regular expression such as: `^aws.(elb|rds).*$`. If you do not specify a regular expression, _all_ CloudWatch metrics are retrieved.
+    - **Point Tag Allow List** -- Adds AWS point tags to an allow list by specifying a regular expression. If you do not specify a regular expression, no point tags are added to metrics.
+    - **Service Refresh Rate** -- Number of minutes between requesting metrics. Default: 5.
+    - **Products** -- Allows you to filter the list of AWS services for which you want to collect metrics by using the CloudWatch integration. The default is **All**. Click **Custom** to see the list of AWS services and to filter them according to your needs.
 1. Click **Save**.
 
 
