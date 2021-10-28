@@ -233,7 +233,7 @@ entries:
 
         - title: Run a Proxy in a Container
           url: /proxies_container.html
-          output: web  
+          output: web
 
         - title: Proxy Configuration
           url: /proxies_configuring.html
@@ -429,6 +429,10 @@ entries:
       - title: WQL Tips and Tricks
         output: web
         subfolderitems:
+
+        - title: Optimize Query Language Performance
+          url: /query_language_performance.html
+          output: web
 
         - title: Aggregating Time Series
           url: /query_language_aggregate_functions.html
