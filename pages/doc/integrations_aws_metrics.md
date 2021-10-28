@@ -11,7 +11,7 @@ Amazon Web Services (AWS) is a collection of cloud-computing services that provi
 {% include shared/badge.html content="You must have the [**Proxy Management** permission](permissions_overview.html) to set up an AWS integration. If you do not have permission, the UI menu selections, buttons, and links you use to perform the tasks are not visible." %}
 
 You have to set up your Wavefront account with the correct permissions.
-* From within the integration or explicitly, you can [Give Wavefront Global Read-Only Access](integrations_aws_overview.html#giving-wavefront-global-read-only-access)
+* From within the integration or explicitly, you can [Give Wavefront Global Read-Only Access](integrations_aws_overview.html##give-wavefront-read-only-access-to-your-amazon-account-and-get-the-role-arn)
 * As an alternative, you can [Create an IAM Policy to Specify Limited Access](integrations_aws_overview.html#create-iam-policy-to-specify-limited-access)
 
 
@@ -19,10 +19,10 @@ You have to set up your Wavefront account with the correct permissions.
 
 The AWS integration ingests data from many products and provides dashboards for each. See any integration page for [a list of dashboards](amazon_cloudtrail.html#dashboards). The following products are of special interest to most customers:
 
-- **[CloudWatch](http://aws.amazon.com/cloudwatch)** - retrieves AWS [metric and
+- **[CloudWatch](http://aws.amazon.com/cloudwatch)** -- retrieves AWS [metric and
 dimension](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html) data. Includes some metrics for Amazon Relational Database (RDS).
-- **[CloudTrail](http://aws.amazon.com/cloudtrail)** - retrieves EC2 event information and creates Wavefront System events that represent the AWS events.
-- **[AWS Metrics+](integrations_aws_metrics.html#aws-metrics-data)** - retrieves additional metrics using AWS APIs other than CloudWatch. Data include EBS volume data and  EC2 instance metadata like tags. You can investigate billing data  and the number of reserved instances. Be sure to enable AWS+ metrics because it allows Wavefront to optimize its use of CloudWatch, and saves money on CloudWatch calls as a result.
+- **[CloudTrail](http://aws.amazon.com/cloudtrail)** -- retrieves EC2 event information and creates Wavefront System events that represent the AWS events.
+- **[AWS Metrics+](integrations_aws_metrics.html#aws-metrics-data)** -- retrieves additional metrics using AWS APIs other than CloudWatch. Data include EBS volume data and  EC2 instance metadata like tags. You can investigate billing data  and the number of reserved instances. Be sure to enable AWS+ metrics because it allows Wavefront to optimize its use of CloudWatch, and saves money on CloudWatch calls as a result.
 
 
 ## CloudWatch Integration Details
@@ -47,7 +47,7 @@ To configure CloudWatch ingestion:
     - **Metric Allow List** field -- Adds metrics to an allow list by specifying a regular expression. The regular expression must be a complete match of the entire metric name. For example, if you only want CloudWatch data for `elb` and `rds` (which come under `aws.rds`), then use a regular expression such as: `^aws.(elb|rds).*$`. If you do not specify a regular expression, _all_ CloudWatch metrics are retrieved.
     - **Point Tag Allow List** -- Adds AWS point tags to an allow list by specifying a regular expression. If you do not specify a regular expression, no point tags are added to metrics.
     - **Service Refresh Rate** -- Number of minutes between requesting metrics. Default: 5.
-    - **Products** -- Allows you to filter the list of AWS services for which you want to collect metrics by using the CloudWatch integration. The default is **All**. Click **Custom** to see the list of AWS services and to filter them according to your needs.
+    - **Products** -- Allows you to filter the list of AWS products for which you want to collect metrics by using the CloudWatch integration. The default is **All**. Click **Custom** to see the list of AWS products and to filter them according to your needs.
 1. Click **Save**.
 
 
