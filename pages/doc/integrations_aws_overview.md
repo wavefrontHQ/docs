@@ -70,7 +70,7 @@ Data flows from AWS to Wavefront only if the account has the required access. Yo
 </table>
 
 
-### Give Wavefront Read-Only Access to Your Amazon Account
+### Give Wavefront Read-Only Access to Your Amazon Account and Get the Role ARN
 
 When you set up an AWS integration and grant Wavefront with limited or read-only access to your Amazon account, you need to provide an account ID and external ID. While the account ID is a constant value - the ID (in our case - the Wavefront ID) to which you want to grant access to your resources, the external ID is not a constant value. The external ID is a secret identifier that is known by you and Wavefront (the third-party). The external ID is time-sensitive and regenerated each time you reopen the AWS Integration setup page, and you cannot reuse it.
 
