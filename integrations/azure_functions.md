@@ -55,7 +55,7 @@ The process first creates an Azure Active Directory application that represents 
 
 
 
-undefined
+
 
 
 ## Metrics
