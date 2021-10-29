@@ -12,7 +12,7 @@ Most Wavefront users [examine alerts and drill down to find the problem](alerts.
 {% include note.html content="All users can view and examine. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
 
-## Create Alert Tutorial 
+## Create Alert Tutorial
 
 This tutorial creates a multi-threshold alert, which allows you to specify different severity for different thresholds. It's great if, for example, you want to:
 * Send an alert email of type Info to a group of engineers when a certain value is close to the SLO (e.g. 90% of budgeted CPU)
@@ -217,23 +217,137 @@ For example:
 <li>If data are meeting the alert condition for the "condition is true for x mins" amount of time, the actual alert might not fire because the alert check, determined by the alert check interval, happens too soon or too late.</li></ul>
 For both cases, test condition shows that the condition was met, but the actual alert might not fire.
 
+### How Can I Pass a Variable Value to a Target Dashboard?
 
-## Delete an Alert
+The **Content** section allows you to specify one or more triage dashboards. For each dashboard, you can preset one or more dashboard variables so that the user sees what they're interested in when they go to the triage dashboard. Here's an example that uses the predefined Cluster Metrics Exploration dashboard that's part of the Tour Pro integration as the target dashboard.
 
-Users with **Alerts** permissions can delete an alert.
-
-1. Click **Alerting** in the taskbar to display the Alerts Browser.
-2. Click the ellipsis icon next to the alert.
-3. Select **Delete** and confirm the deletion.
-
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">
+<ol>
+<li>In the target dashboard, show the predefined dashboard variables. <img src="images/show_variables.png" alt="screenshot Variables icon"></li>
+<li>Ensure that you know the variable names and possible values.</li>
+</ol>
+</td>
+<td width="60%" markdown="span">![screenshot ](images/variables_and_values.png)</td></tr>
+</tbody>
+</table>
 
 ## Edit an Alert
 
-You can change an alert at any time.
+Users with **Alerts** permission can change an alert at any time. The options are similar to what you see when you create an alert, but you can quickly focus on the things that you want to change.
 
-1. Click **Alerting** in the taskbar to display the Alerts Browser.
-2. Click the name of the alert you want to edit to display the Edit Alert page.
-3. Update the properties you want to change, and click **Save**.
+### Open the Alert for Edit
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">
+<ol>
+<li>Click <strong>Alerting</strong> in the taskbar to display the Alerts Browser. </li>
+<li>Click the ellipsis icon next to the alert.</li>
+<li>Select <strong>Edit</strong>.</li>
+</ol>
+</td>
+<td width="60%" markdown="span">![screenshot ellipsis menu to the left of alert in alerts browser](images/edit_alert.png) </td></tr>
+</tbody>
+</table>
+
+### Make Changes to the Alert
+
+You can an alert's properties when you edit the alert.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="55%">
+<strong>Alert Name and Tags</strong><br><br>
+In this section:
+<ul>
+<li>Change the alert name.</li>
+<li>Click the X on any tag to remove it from the alert.</li>
+<li>Click <strong>+Tag</strong> to add a tag to the alert. </li>
+</ul>
+</td>
+<td width="45%" markdown="span">![screenshot ellipsis menu to the left of alert in alerts browser](images/alert_name_tags.png) </td></tr>
+<tr>
+<td>
+<strong>Data</strong><br><br>
+In this section:
+<ul>
+<li>Change the data to alert on.</li>
+<li>Edit the existing alert query, for example, add filters to fine-tune the query. See <a href="query_language_getting_started.html">Query Language Quickstart</a> for background and a video or <a href="query_language_reference.html">Query Reference</a> if you're an advanced user.</li>
+<li>Fine-tune the alert image. See the <a href="ui_chart_reference.html">Chart Reference</a> for details.</li>
+</ul>
+</td>
+<td markdown="span">![screenshot of data section showing a single query](images/alert_edit_data.png) </td></tr>
+<tr>
+<td>
+<strong>Conditions</strong><br><br>
+In this section you can fine-tune the alert condition and test the condition. See <a href="alerts_manage.html#step-2-specify-thresholds-and-severities">Specify Thresholds and Severities</a> for details on each option.
+<ul>
+<li>Change the alert threshold or thresholds and severity. </li>
+<li>Change the Trigger Window and Resolve Window. </li>
+<li>Change the Checking Frequency and Evaluation Strategy. </li>
+</ul>
+</td>
+<td markdown="span">![Screenshot of a few Conditions options. Details are under Create Alert.](images/edit_alert_conditions.png) </td></tr>
+<tr>
+<td>
+<strong>Recipients</strong><br><br>
+In this section you can view, change, or add alert recipients.
+<ul>
+<li>Specify one or more recipient for each severity (unless the alert query returns 0 or 1).</li>
+<li>You can specify an email address or an alert target that has already been created. </li>
+<li>Notifications for each severity are sent to the recipients of that severity and lower. </li>
+<li>As a result, you cannot specify a recipient for multiple severities. Most likely, the recipient already receives the notification because, for example, when an alert notification is sent at the SEVERE level, it also goes to all recipients at lower levels.</li>
+</ul>
+</td>
+<td markdown="span">![Screenshot of Recipients section with 1 email and 1 alert target included](images/edit_alert_recipients.png) </td></tr>
+<tr>
+<td>
+<strong>Content</strong><br><br>
+In this section you can add runbook URLs and specify other information that can help with alert resolution.
+<ul>
+<li>The Runbook URL can point to internal information.</li>
+<li>Start typing to select from dashboard in your environment. You can set environment variables for the dashboard with the <strong>Pass</strong> option. See <a href="ui_charts_faq.html#how-do-drilldown-links-work">How Do Drilldown Links Work?</a> for background.</li>
+<li>Specify other information you want included in the notification in the <strong>Additional Information</strong> section. </li>
+</ul>
+</td>
+<td markdown="span">![Screenshot of Recipients section with 1 email and 1 alert target included](images/edit_alert_content.png) </td></tr>
+</tbody>
+</table>
+
+### Save Your Changes
+
+Click **Save** in the top right to save your changes.
+
+{% include warning.html content="If you close the browser tab, your changes are lost!"%}
+
+
+## Delete an Alert
+
+You delete an alert from the Alerts Browser page. Only users with **Alerts** permissions can delete an alert.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">
+<ol>
+<li>Click <strong>Alerting</strong> in the taskbar to display the Alerts Browser. </li>
+<li>Click the ellipsis icon next to the alert.</li>
+<li>Select <strong>Delete</strong> and confirm the deletion.</li>
+</ol>
+</td>
+<td width="60%" markdown="span">![screenshot ellipsis menu to the left of alert in alerts browser](images/delete_alert.png) </td></tr>
+</tbody>
+</table>
+
+
+
+
+
 
 <!---
 ## Test the Alert Fine-Tune Conditions
@@ -256,7 +370,7 @@ For both cases, backtesting shows the alert as firing while the actual alert mig
 
 ## Do More!
 
-* The [Alert Viewer Tutorial](alerts.html#alert-viewer-tutorial) shows how to examine a single alert.
-* The [Alerts Browser Tutorial](alerts.html#alerts-browser-tutorial)
 * Learn about [alert states and life-cycle](alerts_states_lifecycle.html).
+* The [Alert Viewer Tutorial](alerts.html#alert-viewer-tutorial) shows how to examine a single alert.
+* The [Alerts Browser Tutorial](alerts.html#alerts-browser-tutorial) explains how you can examine and manage all alerts in your environment.
 * Use ACLs to limit or share access to an [individual alert](access.html#changing-access-for-individual-dashboards-or-alerts).
