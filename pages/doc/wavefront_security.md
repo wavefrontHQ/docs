@@ -109,7 +109,7 @@ You can view changes that were made to dashboards, alerts, etc., by using [versi
 
 Cloud integrations support monitoring data from different cloud providers using Wavefront. The process is like this:
 1. You open the integration.
-2. You give Wavefront [global read-only access](integrations_aws_overview.html#giving-wavefront-global-read-only-access) or [limited access](integrations_aws_overview.html#giving-wavefront-limited-access).
+2. You give Wavefront [global read-only access](integrations_aws_overview.html#give-wavefront-read-only-access-to-your-amazon-account-and-get-the-role-arn) or [limited access](integrations_aws_overview.html#giving-wavefront-limited-access).
 
 For details, see the individual integration.
 
