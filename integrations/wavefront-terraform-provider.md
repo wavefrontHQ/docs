@@ -62,6 +62,8 @@ when creating alerts with the Wavefront API.
 
 - Check that your wavefront account has permission `Alert Management`.
 
+  **Note:** Before running `terraform init`, if you use terraform version 0.13 and later, run `terraform 0.13upgrade`.
+
 - Run `terraform init` to load your provider.
 
 - Run `terraform plan` to show the plan.
