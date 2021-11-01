@@ -9,20 +9,20 @@ summary: Learn how to create and manage alerts.
 
 Most Wavefront users [examine alerts and drill down to find the problem](alerts.html). A subset of Wavefront users create and manage alerts.
 
-{% include note.html content="All users can view and examine. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
+{% include note.html content="All users can view and examine alerts. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
 
 ## Create Alert Tutorial
 
-This tutorial creates a multi-threshold alert, which allows you to specify different severity for different thresholds. It's great if, for example, you want to:
+This tutorial creates a multi-threshold alert, which allows you to specify severity for each threshold.  For example, you can:
 * Send an alert email of type Info to a group of engineers when a certain value is close to the SLO (e.g. 90% of budgeted CPU)
-* Send an alert Slack of type Severe to engineers and engineering managers if the value has crossed the threshold (e.g. 95% of budgeted CPU).
+* Send an alert Slack of type Severe to engineers and engineering managers if the value has crossed that threshold (e.g. 95% of budgeted CPU).
 
 Before you begin, ensure that you have the information for the **required fields**:
 
-* Alert condition, that is, data you monitor. For example, CPU of all production clusters.
+* Alert data. For example, CPU of all production clusters. Be as specific as possible to speed up query execution.
 * When the alert condition is met. For example, CPU of at least 1 cluster is at 90% for 5 minutes.
-* Severity thresholds. For each severity, you can specify one or more alert targets to notify [when the alert changes state](alerts_states_lifecycle.html#when-threshold-alerts-notify-targets). When the alert changes state, each target that meets the condition is notified.
+* Severity thresholds and recipients. For each severity, you can specify one or more alert targets to notify [when the alert changes state](alerts_states_lifecycle.html#when-threshold-alerts-notify-targets). When the alert changes state, each target that meets the condition is notified.
 
   {% include tip.html content="Alert targets subscribe to all notifications at their severity and above. For example, a recipient associated with INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. You cannot associate an alert target with more than one severity. "%}
 
@@ -36,7 +36,7 @@ Before you begin, ensure that you have the information for the **required fields
 To start alert creation, do one of the following:
 <ul>
 <li markdown="span"><strong>Alerts Browser</strong> - Click <strong>Alerting</strong> from the taskbar and click the <strong>Create Alert</strong> button located above the filter bar.</li>
-<li markdown="span">**Chart** - Click the ellipsis icon on the right of the query and select **Create Alert**.</li>
+<li markdown="span">**Chart** - Click the ellipsis icon on the right of the query and select **Create Alert** from the menu.</li>
 </ul></td>
 <td width="50%" markdown="span">![create_alert](images/v2_create_alert.png) </td></tr>
 </tbody>
@@ -47,11 +47,11 @@ To start alert creation, do one of the following:
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="50%">In the <strong>Data</strong> section, specify the data you want to monitor and click <strong>Next</strong>. You have many options:
+<td width="50%">In the <strong>Data</strong> section, specify the data that you want to monitor and click <strong>Next</strong>. You have many options:
 <ul>
 <li>Keep it simple, e.g. just specify <code>ts()</code> and a metric: <code>ts(~sample.mem.used.percentage)</code> </li>
 <li>Use multiple queries, optionally with variables, to take advantage of the full power of WQL.</li>
-<li>Use either WQL or <a href="wavefront_prometheus.html">PromQL</a> on the data line.  </li>
+<li>Use either WQL or <a href="wavefront_prometheus.html">PromQL</a>.  </li>
 </ul> </td>
 <td><img src="images/alert_new_data.png" alt="Specify data the alert is monitoring"></td>
 </tr>
@@ -71,26 +71,26 @@ You can alert when the query result is greater than or less than the specified t
 </td></tr>
 <tr>
 <td>
-2. Click <strong>Test Condition</strong> to check if the alert would have fired in the current time window. Examine the result, shown above the chart.
-<strong>Tip:</strong>Test Condition looks backwards, and does not always match the actual alert firing. See <a href="#my-alert-fires-with-test-condition-but-not-in-production">the FAQ</a> below.
-</td>
+2. Click <strong>Test Condition</strong> to check if the alert would have fired in the current time window. Examine the test result, shown above the chart.
+<img src="images/test_results.png" alt="Test results. Alert would have fired once in the last 2 hours">
+<strong>Tip: </strong>Test Condition looks backwards, and does not always match the actual alert firing in the future. See <a href="#my-alert-fires-with-test-condition-but-not-in-production">the FAQ</a> below.</td>
 <td>
-<img src="images/test_results.png" alt="Test results. Alert would have fired once in the last 2 hours"><br><br>
+&nbsp;
 </td>
 </tr>
 <tr>
 <td>3. Optionally, fine-tune and test the condition.
 <ul>
 <li><strong>Trigger Window</strong>: Length of time (in minutes) during which the Condition expression must be true before the alert fires. Minimum is 1. For example, if you enter 5, the alerting engine reviews the value of the condition during the last 5-minute window to determine whether the alert should fire. </li>
-<li><strong>Resolve Window</strong>: Length of time (in minutes) during which the Condition expression must be not true before the alert switches to resolved. Minimum is 1. Omit this setting or pick a value that is greater than or equal to the Alert fires value to avoid resolve-fire cycles. </li>
+<li><strong>Resolve Window</strong>: Length of time (in minutes) during which the Condition expression must be NOT true before the alert switches to resolved. Minimum is 1. Omit this setting or pick a value that is greater than or equal to the Alert fires value to avoid resolve-fire cycles. </li>
 </ul></td>
 <td><img src="images/condition_options.png" alt="Condition options discussed in left column"></td>
 </tr>
 <tr>
 <td>4. For special cases, click <strong>Additional Settings</strong> to also specify the following settings. The default is often best.
 <ul>
-<li><strong>Checking Frequency</strong>: Number of minutes between checking whether Condition is true. Minimum and default is 1. When an alert is in the <a href="alerts_states_lifecycle.html">INVALID</a> state, it is checked approximately every 15 minutes, instead of the specified checking frequency. </li>
-<li><strong>Evaluation Strategy</strong>: Allows you to select Real-time Alerting. By default, Wavefront ignores values for the last 1 minutes to account for delays. Many data sources are updated only at certain points in time, so using the default evaluation strategy prevents spurious firings. If you select this check box, we include values for the last 1 minute. The alert is evaluated strictly on the ingested data. See <a href="alerts_delayed_data.html">Limiting the Effects of Data Delays</a>. </li>
+<li><strong>Checking Frequency</strong>: Number of minutes between checks whether Condition is true. Minimum and default is 1. When an alert is in the <a href="alerts_states_lifecycle.html">INVALID</a> state, the alert is checked approximately every 15 minutes, and not with the specified checking frequency. </li>
+<li><strong>Evaluation Strategy</strong>: Allows you to select Real-time Alerting. By default, Wavefront ignores values for the last 1 minutes to account for delays. This default evaluation strategy prevents spurious firings because many data sources are updated only at certain points in time. If you select this check box, we include values for the last 1 minute. The alert is evaluated strictly on the ingested data. See <a href="alerts_delayed_data.html">Limiting the Effects of Data Delays</a> for some background. </li>
 </ul></td>
 <td><img src="images/condition_options_2.png" alt="Condition options discussed in left column"></td>
 </tr>
@@ -106,8 +106,8 @@ You can alert when the query result is greater than or less than the specified t
 Alert recipients receive notifications when the alert changes state. You can:
 <ul>
 <li>Specify any email address</li>
-<li>Specify a PagerDuty key</li>
 <li markdown="span">Select from any predefined alert targets. [Alert targets](webhooks_alert_notification.html) allow fine-grained notification settings for a variety of messaging platforms (email, pager services) and communication channels.</li>
+<li>For alerts with a boolean alert query, specify a PagerDuty key. Not supported for multi-threshold alerts.</li>
 </ul>
 </td>
 <td width="50%" markdown="span">![create_alert](images/alert_recipients.png) </td></tr>
@@ -125,19 +125,28 @@ If you already have information that helps recipients find the causes for the al
 <tr>
 <td width="50%">
 <ul>
-<li><strong>Runbook</strong>:URL or a wiki or other doc that helps the alert recipient resolve the alert.</li>
-<li><strong>Triage Dashboard(s)</strong>:Start typing to select from dashboards on your Wavefront instance that have useful information</li>
-<li><strong>Additional Information</strong>:Any other information that is useful to the alert recipient. This field supports Markdown. Click <strong>Preview</strong> to preview the markdown output.</li>
+<li><strong>Runbook: </strong>URL or a wiki or other doc that helps the alert recipient resolve the alert.</li>
+<li><strong>Triage Dashboard(s): </strong>Start typing to select from dashboards on your Wavefront instance that have useful information and pass in information. See How Can I Pass A Value to a Triage Dashboard<a href="#how-do-i-pass-values-to-triage-dashboards"></a>.</li>
+<li><strong>Additional Information: </strong>Any other information that is useful to the alert recipient. This field supports Markdown. Click <strong>Preview</strong> to preview the Markdown output.</li>
 </ul>
 </td>
 <td width="50%" markdown="span">![create_alert](images/alert_content_1.png) </td></tr>
 <tr><td>Click <strong>Additional Settings</strong> to further customize the notifications for special cases.
 <ul><li><strong>Resend Notifications</strong>: If checked, Wavefront resends the notification of a firing alert. You can specify interval at which the alert is resent. By default, notifications are sent only when the alert changes state. </li>
-<li><strong>Unique PagerDuty Incidents</strong>Select this option to receive separate PagerDuty notifications for each series that meets the alert conditions.
-<br/>For example, you get separate PagerDuty notifications for both the following series because the <code>env</code> tag is different. </li>
+<li><strong>Unique PagerDuty Incidents</strong>: Select this option to receive separate PagerDuty notifications for each series that meets the alert conditions.
+<br/>For example, you get separate PagerDuty notifications for both the series on the right because the <code>env</code> tag is different.
+</li>
 <li><strong>Secure Metrics Details</strong>: If you are protecting metrics in your environment with <a href="metrics_security.html">metrics security policies</a>, select this  check box to send a simplified alert notification without metric details and alert images.</li></ul>
 </td>
-<td width="50%" markdown="span"> ![screenshot of options in Step 4](images/alert_content_2.png) </td>
+<td width="50%" markdown="span"> ![screenshot of options in Step 4](images/alert_content_2.png)
+```
+#first series
+app.errors source=machine env=prod
+
+#second series
+app.errors source=machine env=stage
+```
+</td>
 </tr>
 </tbody>
 </table>
@@ -154,7 +163,7 @@ As a final step, you name the alert, optionally add alert tags, and activate the
 <td width="50%">
 <ol>
 <li>(Required) Specify a <strong>Name</strong> that uniquely identifies the alert. </li>
-<li markdown="span">(Optional) Specify one or more <strong>Tags</strong>. [Alert tags](tags_overview.html#object-tags-tags-on-alerts-dashboards-events-and-sources). Tags make it easy to find alerts in the Alerts Browser. </li>
+<li markdown="span">(Optional) Specify one or more [**Alert tags**](tags_overview.html#object-tags-tags-on-alerts-dashboards-events-and-sources). Tags make it easy to find alerts, for example, in the Alerts Browser.</li>
 </ol>
 </td>
 <td width="50%" markdown="span">![screenshot of options in step 5](images/alert_activate.png) </td></tr>
@@ -173,7 +182,7 @@ Here are some frequently asked questions about alerts.
 <tbody>
 <tr>
 <td width="40%">
-If your query has a boolean result (0 or 1), you include the threshold in the query itself.<br><br> In the example screenshot on the right, the threshold is 6000. Notice how the hover text shows either 0 or 1 for the different time series.
+If your query itself has a boolean result (0 or 1), you include the threshold in the query itself.<br><br> In the example screenshot on the right, the threshold is 6000. Notice how the hover text shows either 0 or 1 for the different time series.
 </td>
 <td width="60%" markdown="span">![screenshot of options in step 5](images/alert_boolean_query.png) </td></tr>
 <tr>
@@ -186,51 +195,60 @@ Because the threshold is predefined, you can select only 1 severity. All notific
 
 If your query does NOT have a boolean result, you can specify different thresholds and different severities.
 
-{% include tip.html content="Most alert creation steps are the same for multi-threshold alerts and basic alerts. " %}
+{% include tip.html content="Most alert creation steps are the same for multi-threshold alerts and sinngle-threshold alerts. " %}
 
-### Who Gets Notified When the Alert Fires?
+### Who Gets Notified When the Alert Changes State?
 
-An alert [fires](alerts_states_lifecycle.html#when-do-alerts-fire) when a metric stays at a value that indicates a problem for the specified amount of time.
+Wavefront sends alert notifications when the alert changes state.
 * An alert with a **boolean query** sends a notification with the specified severity to all specified targets.
-* A **multi-threshold alert** allows you to specify multiple severities and a different target for each severity. Each target is notified if the condition is met when the alert changes state.
+* A **multi-threshold alert** allows you to specify multiple severities and a different target for each severity. Each target is notified if the condition is met when the alert changes state. Lower severity targets receive notifications for all higher severities.
+
+For example, an alert [fires](alerts_states_lifecycle.html#when-do-alerts-fire) when a metric stays at a value that indicates a problem for the specified amount of time. But you might also want to be notified when the alert is resolved or when the alert is snoozed. The alert target gives fine-grained control over which state changes trigger a notification.
 
 ### What's an Alert Target?
 
-Each alert is associated with one or more recipients, either an email address or an [alert target](webhooks_alert_notification.html).
+Each alert is associated with one or more recipients, either an email address or an [alert target](webhooks_alert_notification.html). (For alerts with a boolean query, a PagerDuty mey is also an option).
 
-When the alert changes state the recipients are notified. You can customize which state changes to alert on when you specify the alert target, or customize the triggers by editing the alert target.
+When the alert changes state, the recipients are notified. Customize which state changes trigger a notification:
+* Either when you [create the alert target](webhooks_alert_notification.html#create-a-custom-alert-target)
+* Or by editing the alert target.
 
 ![screenshot of Create Alert target shows several options e.g Alert Status Updated and Alert Resolved](images/create_alert_target.png)
 
    {% include note.html content="Alert targets subscribe to all notifications at their severity and above. For example, an alert target for an INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. Because notifications potentially go to targets of different severities, you cannot associate an alert target with more than one severity. " %}
 
-The **maximum number** of email alert targets is 10 for alerts with boolean queries and 10 per severity for multi-threshold alerts. If you exceed the number, you receive a message like the following:
+The **maximum number** of email alert targets is:
+* 10 for alerts with boolean queries
+* 10 per severity for multi-threshold alerts.
+
+If you exceed the number, you receive a message like the following:
 
 `{"status":{"result":"ERROR","message":"Invalid notification specified: null","code":400}}`
 
 ### My Alert Fires with Test Condition, But Not In Production
 
-**Test Condition** is very useful in fine-tuning an alert, but doesn't always match what happens in production.
+**Test Condition** is useful in fine-tuning an alert, but doesn't always match what happens in production.
 
 For example:
-<ul><li>If data comes in late, Test Condition won't match the actual alert firing.</li>
+<ul><li>If data comes in late, Test Condition won't match the actual alert firing. Data are visible looking back, but might not be there in real time.</li>
 <li>If data are meeting the alert condition for the "condition is true for x mins" amount of time, the actual alert might not fire because the alert check, determined by the alert check interval, happens too soon or too late.</li></ul>
 For both cases, test condition shows that the condition was met, but the actual alert might not fire.
 
-### How Can I Pass a Variable Value to a Target Dashboard?
+### How Do I Pass Values to Triage Dashboards?
 
 The **Content** section allows you to specify one or more triage dashboards. For each dashboard, you can preset one or more dashboard variables so that the user sees what they're interested in when they go to the triage dashboard. Here's an example that uses the predefined Cluster Metrics Exploration dashboard that's part of the Tour Pro integration as the target dashboard.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">
+<td width="60%">
 <ol>
 <li>In the target dashboard, show the predefined dashboard variables. <img src="images/show_variables.png" alt="screenshot Variables icon"></li>
-<li>Ensure that you know the variable names and possible values.</li>
+<li>Ensure that you know the variable names and possible values, in this example, the variable name is env and the value we want to set is dev.</li>
+<li>In the alert dialog, specify the name and value to set.</li>
 </ol>
 </td>
-<td width="60%" markdown="span">![screenshot ](images/variables_and_values.png)</td></tr>
+<td width="40%" markdown="span">![screenshot ](images/variables_and_values.png)</td></tr>
 </tbody>
 </table>
 
@@ -246,8 +264,7 @@ Users with **Alerts** permission can change an alert at any time. The options ar
 <td width="40%">
 <ol>
 <li>Click <strong>Alerting</strong> in the taskbar to display the Alerts Browser. </li>
-<li>Click the ellipsis icon next to the alert.</li>
-<li>Select <strong>Edit</strong>.</li>
+<li>Click the alert name, or click the ellipsis icon next to the alert and select <strong>Edit</strong>. <br><br>You can search for the alert by name, status, alert tag, etc. See <a href="wavefront_searching.html">Searching Wavefront</a>.</li>
 </ol>
 </td>
 <td width="60%" markdown="span">![screenshot ellipsis menu to the left of alert in alerts browser](images/edit_alert.png) </td></tr>
@@ -256,7 +273,7 @@ Users with **Alerts** permission can change an alert at any time. The options ar
 
 ### Make Changes to the Alert
 
-You can an alert's properties when you edit the alert.
+You can change an alert's properties when you edit the alert.
 
 <table style="width: 100%;">
 <tbody>
@@ -285,22 +302,23 @@ In this section:
 <tr>
 <td>
 <strong>Conditions</strong><br><br>
-In this section you can fine-tune the alert condition and test the condition. See <a href="alerts_manage.html#step-2-specify-thresholds-and-severities">Specify Thresholds and Severities</a> for details on each option.
+In this section you can fine-tune the alert condition and test the condition.
 <ul>
 <li>Change the alert threshold or thresholds and severity. </li>
 <li>Change the Trigger Window and Resolve Window. </li>
 <li>Change the Checking Frequency and Evaluation Strategy. </li>
 </ul>
+See <a href="alerts_manage.html#step-2-specify-thresholds-and-severities">Specify Thresholds and Severities</a> for details on each option.
 </td>
 <td markdown="span">![Screenshot of a few Conditions options. Details are under Create Alert.](images/edit_alert_conditions.png) </td></tr>
 <tr>
 <td>
 <strong>Recipients</strong><br><br>
-In this section you can view, change, or add alert recipients.
+In this section you can view, change, or add recipients of alert notifications.
 <ul>
 <li>Specify one or more recipient for each severity (unless the alert query returns 0 or 1).</li>
 <li>You can specify an email address or an alert target that has already been created. </li>
-<li>Notifications for each severity are sent to the recipients of that severity and lower. </li>
+<li>Notifications for each severity are sent to the recipients of that severity and higher. </li>
 <li>As a result, you cannot specify a recipient for multiple severities. Most likely, the recipient already receives the notification because, for example, when an alert notification is sent at the SEVERE level, it also goes to all recipients at lower levels.</li>
 </ul>
 </td>
@@ -311,8 +329,8 @@ In this section you can view, change, or add alert recipients.
 In this section you can add runbook URLs and specify other information that can help with alert resolution.
 <ul>
 <li>The Runbook URL can point to internal information.</li>
-<li>Start typing to select from dashboard in your environment. You can set environment variables for the dashboard with the <strong>Pass</strong> option. See <a href="ui_charts_faq.html#how-do-drilldown-links-work">How Do Drilldown Links Work?</a> for background.</li>
-<li>Specify other information you want included in the notification in the <strong>Additional Information</strong> section. </li>
+<li>Start typing to select from dashboards in your environment. You can set environment variables for the dashboard with the <strong>Pass</strong> option. See <a href="#how-do-i-pass-values-to-triage-dashboards">How Do I Pass Values to Triage Dashboards</a>.</li>
+<li>Specify other information you want included in the notification in the <strong>Additional Information</strong> section.</li>
 </ul>
 </td>
 <td markdown="span">![Screenshot of Recipients section with 1 email and 1 alert target included](images/edit_alert_content.png) </td></tr>
@@ -323,7 +341,7 @@ In this section you can add runbook URLs and specify other information that can 
 
 Click **Save** in the top right to save your changes.
 
-{% include warning.html content="If you close the browser tab, your changes are lost!"%}
+{% include warning.html content="If you close the browser tab without saving, your changes are lost!"%}
 
 
 ## Delete an Alert
@@ -343,6 +361,15 @@ You delete an alert from the Alerts Browser page. Only users with **Alerts** per
 <td width="60%" markdown="span">![screenshot ellipsis menu to the left of alert in alerts browser](images/delete_alert.png) </td></tr>
 </tbody>
 </table>
+
+## Restore an Alert Version
+
+Each time you save an alert, you create an alert version.
+
+To return to an older version:
+1. Find the alert in the Alerts Browser.
+2. Select Versions from the ellipsis menu.
+3. Select a version.
 
 
 
