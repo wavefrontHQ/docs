@@ -36,7 +36,7 @@ To set up Wavefront as a PromQL data source in Grafana, you must provide an API 
     
 8. Click **Save and Test**.
 
-### How to Use Wavefront as a Prometheus Data Source
+## How to Use Wavefront as a Prometheus Data Source
 
 To use Wavefront as a PromQL data source, make sure that [PromQL support is enabled on your Wavefront cluster](https://docs.wavefront.com/wavefront_prometheus.html#set-promql-organization-settings-administrator-only). 
 
