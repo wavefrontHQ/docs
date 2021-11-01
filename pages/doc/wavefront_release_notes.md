@@ -16,7 +16,7 @@ This page lists new and updated features for the Wavefront service.
 
 ## 2021-44.x Release Notes
 
-* **Share Section URLs**: You can now [share links to sections](ui_sharing.html#share-a-link-to-a-dashboard-section) from any dashboard. 
+* **Share Section URLs**: You can now [share links to sections](      ui_sharing.html#share-a-link-to-a-dashboard-section) from any dashboard.  
 
 ## 2021-43.x Release Notes
 
