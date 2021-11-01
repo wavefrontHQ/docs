@@ -344,7 +344,7 @@ Click **Save** in the top right to save your changes.
 {% include warning.html content="If you close the browser tab without saving, your changes are lost!"%}
 
 
-## Delete an Alert
+## Delete an Alert 
 
 You delete an alert from the Alerts Browser page. Only users with **Alerts** permissions can delete an alert.
 
