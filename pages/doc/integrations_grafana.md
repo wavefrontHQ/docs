@@ -7,7 +7,7 @@ permalink: integrations_grafana.html
 summary: Learn how you can set up Wavefront as a Prometheus data source in Grafana.
 ---
 
-In addition to [setting up and using Wavefront as a Wavefront Query Language data source in Grafana](integrations/grafana.html), you can also use Wavefront as a Prometheus data source in Grafana. 
+In addition to [setting up and using Wavefront as a Wavefront Query Language data source in Grafana](grafana.html), you can also use Wavefront as a Prometheus data source in Grafana. 
 
 When you set up Wavefront as a data source in Grafana, you can view the data stored in Wavefront by using the Grafana GUI. 
 
