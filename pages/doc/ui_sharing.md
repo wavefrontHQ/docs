@@ -32,7 +32,7 @@ To share a link to a dashboard, use the share icon in the bottom right quadrant 
 
 ### Share a Link to a Dashboard Section
 
-To share a link to a dashboard section, use the link icon next to the section
+To share a link to a dashboard section, use the link icon next to the section.
 
 ![link icon for section link](/images/share_section_link.png)
 
