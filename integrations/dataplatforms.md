@@ -6,7 +6,7 @@ summary: Learn about the Wavefront Data Platforms Integration.
 ---
 ## Data Platforms Blueprints Integration
 
-[Data Platform Blueprints avilable on the Bitnami catalog](https://bitnami.com/stack) provide you with fully automated deployment of your data platform, comprising of different combinations of software stacks on a Kubernetes cluster. The blueprints are validated and tested with engineered values of pod resources, such as CPU, Memory, and JVM, along with pod affinity and anti-affinity rules to provide recommended Kubernetes node count and associated node size and to facilitate cloud platform capacity planning.
+[Data Platform Blueprints available on the Bitnami catalog](https://bitnami.com/stack) provide you with fully automated deployment of your data platform, comprising of different combinations of software stacks on a Kubernetes cluster. The blueprints are validated and tested with engineered values of pod resources, such as CPU, Memory, and JVM, along with pod affinity and anti-affinity rules to provide recommended Kubernetes node count and associated node size and to facilitate cloud platform capacity planning.
 
 This integration allows you to monitor different Data Platform Blueprints running in different Kubernetes clusters.
 
@@ -27,6 +27,7 @@ The image below is a sample of the Kafka-Spark-Solr Blueprint dashboard, that is
 5. ***Individual Applications***: This section gives you a detailed view of the individual application metrics.
 
 {% include image.md src="images/dashboard.png" width="80" %}
+
 ### Data Platform Blueprints Setup
 
 Make sure that you have deployed the "Data Platform Blueprints" enabling the Tanzu Observability by Wavefront Framework. If not, follow the [Data Platforms Blueprint specific instructions on the Bitnami Catalog](https://bitnami.com/stacks) to enable observability for your data platform cluster running on Kubernetes cluster.
