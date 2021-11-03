@@ -35,10 +35,6 @@ The Wavefront Usage integration includes the following dashboards:
 <td>Explore metrics namespaces to see the <strong>trend</strong> of your metrics ingestion rate.</td>
 <td>Tracks the number of time series metrics received for the first 3 levels of your metric namespace. Also tracks the breakdown of histograms, spans, and delta counters.</td></tr>
 <tr>
-<td><strong>Wavefront Ingestion Policy Explorer</strong></td>
-<td>In environments where ingestion policies are defined, investigate usage for <strong>each account and ingestion policy</strong>.</td>
-<td markdown="span">Provides a granular breakdown of Wavefront ingestion across your organization by ingestion policies, accounts, sources, and types. Use this dashboard to identify who is contributing the most to your Wavefront usage and manage your overall usage. You can implement [ingestion policies](ingestion_policies.html) if you see problems in this dashboard.</td></tr>
-<tr>
 <td><strong>Committed Rate and Monthly Usage (PPS P95)</strong></td>
 <td>Avoid <strong>exceeding the committed rate</strong> for your instance by exploring dashboards and creating alerts.
 </td>
@@ -50,7 +46,6 @@ The Wavefront Usage integration includes the following dashboards:
 <!---
 * **Wavefront Service and Proxy Data** provides visibility into your use of the Wavefront service via internal metrics that we collect for you automatically. Preconfigured charts monitor the data ingestion rate for points, spans and distributions, the data scan rate, and different proxy metrics.
 * **Wavefront Namespace Usage Explorer** tracks the number of metrics received for the first 3 levels of your metric namespace. You can also view the breakdown of histograms, spans and delta counters.
-* **Wavefront Ingestion Policy Explorer** provides a granular breakdown of Wavefront ingestion across your organization by ingestion policies, accounts, sources, and types. Use this dashboard to identify who is contributing the most to your Wavefront usage and manage your overall usage. You can implement [ingestion policies](ingestion_policies.html) if you see problems in this dashboard.
 * **PPS P95 Usage Dashboard** displays a detailed breakdown of your monthly usage. This enables you to take appropriate action when usage reaches around 95% of your target/committed usage.--->
 
 ### Wavefront Service and Proxy Data Dashboard
@@ -142,10 +137,9 @@ This dashboards helps you monitor your **monthly usage** and ensure that you're 
 The dashboard gives a detailed breakdown of your Tanzu Observability monthly usage against commitment. When your usage reaches around 95% of your committed rate, you can then take appropriate action.
 
 For example:
-* Examine who is using a high percentage of the PPS in the  **Wavefront Ingestion Policy Explorer** dashboard.
-* Implement [ingestion policies](ingestion_policies.html).
+* Implement [ingestion policies](ingestion_policies.html) and examine who is using a high percentage of the PPS.
 
-{% include note.html content="The information contained in this dashboard has a 24-hour latency."%}
+{% include note.html content="The information contained in the Usage Summary dashboards have a 24-hour latency."%}
 
 ![screenshot of part of the dashboard](/images/p95_dashboard.png)
 

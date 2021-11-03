@@ -1,68 +1,93 @@
 ---
-title: Examine Ingestion Breakdown
+title: Examine the Wavefront Usage Per Ingestion Policy
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: ingestion_policies.html
 summary: Monitor usage with ingestion policies and usage dashboards.
 ---
 
-As a Wavefront administrator, you're interested in usage patterns for the whole company, but also for different teams in the company. You can create ingestion policies and assign accounts (user or service accounts) to each policy to see which teams use which part of total ingestion. You can even drill down to individual users from the Ingestion Breakdown dashboard.
+As a Wavefront Super Admin, you're interested in usage patterns for the whole company, but also for different teams in the company. You can create ingestion policies and assign user accounts or groups to each policy to see which teams use which part of total ingestion.
 
-You can examine the performance of your Wavefront instance using [wftop](), [Wavefront spy](wavefront_monitoring_spy.html), and the [Slow Queries dashboard](wavefront_monitoring.html#examine-slow-queries). In addition, you can find out usage on a per-account basis using ingestion policies and a Wavefront Usage integration dashboards.
+You can examine the performance of your Wavefront instance using [wftop](), [Wavefront spy](wavefront_monitoring_spy.html), and the [Slow Queries dashboard](wavefront_monitoring.html#examine-slow-queries). In addition, you can find out usage on a per-account or per-group basis using ingestion policies.
 
 **Note:** When you create a new ingestion policy, it can take a few minutes for the data to become available in the Wavefront Usage dashboard.
 
 ## Ingestion Policy Basics
 
-Ingestion policies allow you to group accounts and then examine their usage in the **Wavefront Ingestion Policy Explorer** for your cluster. For example, you can create a policy, add all accounts that joined in the last 6 months, and examine whether they show unusually high usage because they're not yet experienced. If yes, you could provide additional training.
+Ingestion policies allow you to group user accounts, service accounts or groups and then examine their usage for your cluster. For example, you can create a policy, add all accounts that joined in the last 6 months, or create a policy for a whole team, for example the Finance team, and examine whether they show unusually high usage because they're not yet experienced. If yes, you could provide additional training. You can also set a Points per Second (PPS) limit to an ingestion policy, so that you can track how much of the PPS is used and whether the users or team will need more PPS in the future.
 
 ### Permissions
 
-Users with **Accounts, Groups & Roles** permission can create ingestion policies and add user accounts or service accounts.
-* Each account can belong to only one policy at a time. That way, you never count usage of an account twice.
-* You can add user accounts and service accounts to the same policy.
-
-### Unassigned Policy
-
-The Ingestion Breakdown dashboard includes an **Unassigned** policy that shows the total for all accounts who aren't in an ingestion policy that you created.
+Users with **Accounts, Groups & Roles** permission can create ingestion policies and add user accounts or user groups to the policies.
+* Each account can belong to more than one policies at a time.
+* You can assign many service accounts and user accounts to the same ingestion policy.
+* You can assign many user and service accounts groups to the same ingestion policy.
+* Once you set the scope to accounts or groups, you cannot edit it. You can create a policy with scope which can be either accounts or groups.
 
 ## Create an Ingestion Policy
 
 1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Ingestion Policies**
-3. Click **Create Policy**.
-4. In the dialog:
-   1. Specify the name and optionally a description.
-   2. Specify users, service accounts, or both.
-   3. Click **Create**.
+2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage Portal**
+3. Click the **Ingestion Policies** tab, and click **New Ingestion Policy**.
+4. In the **Data** panel:
+   1. Choose the **Scope** of the policy.
+  
+      This can be either **Accounts** or **Groups**.
+   2. Depending on your choice, enter either the user and service accounts or user and service account groups to assign to the ingestion policy.
+   3. Select whether you want to set a PPS limit. 
+      If you choose to set a PPS limit, you must enter the points per second limit number in the **PPS per billing period** text box.
+   4. Click **Next**.
+   5. Enter the name of the policy and click **Create**.
 
-Each account can only belong to one policy. If an account is greyed out in the drop-down menu, it already belongs to another policy.
+## Edit a Policy
+
+After you create an ingestion policy, if you need, for example, to add a bigger PPS limit, you can edit the policy. 
+
+{% include note.html content="You cannot edit the scope of the policy."%}
+
+1. Log in to your Wavefront instance as a Super Admin user.
+2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage Portal**
+3. On the **Ingestion Policies** tab, click the ellipsis icon next to the policy that you want to edit and click **Edit**.
+4. Apply the necessary changes, and click **Save**.
+
+
+## Delete Policies
+
+1. Log in to your Wavefront instance as a Super Admin user.
+2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage Portal**
+3. On the **Ingestion Policies** tab, select the check boxes of the ingestion policies that you want to delete, click **Delete** and confirm.
+
 
 ## Examine Usage
 
-You examine usage for accounts in different policies or for individual accounts from the Ingestion Breakdown dashboard.
+As an administrator, you examine usage for user accounts or user groups assigned to different ingestion policies or for individual accounts by clicking the name of the policy.
 
-### Administrators
+1. Log in to your Wavefront instance as a Super Admin user.
+2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage Portal**
+3. On the **Ingestion Policies** tab, click the name of the policy you are interested in.
 
-Administrators with **Accounts, Groups & Roles** permission can go the Ingestion Breakdown dashboard directly from the Ingestion Policies page.
+   ![Ingestion policy name link](images/ingestion_policy_team.png)
 
-![ingestion breakdown link](images/ingestion_breakdown_dashboard_link.png)
+Explore the usage for the specific ingestion policy.
 
-### All Users
+In the **Ingestion Summary** section of the dashboard, you can see the following list of charts:
 
-All users can go to the Ingestion Breakdown dashboard and explore the policies.
+* **Usage Limit** 
 
-1. Find the Wavefront Usage integration.
-   1. Click **Integrations** in the taskbar, type **Wavefront Usage**, and click the integration tile.
-   2. Click **Dashboards** and select **Wavefront Ingestion Policy Explorer**.
-2. Use the dashboard to explore the policies.
+  Shows the total usage out of the committed usage.
+  
+* **Hourly Usage** 
+  
+  Shows the hourly PPS. The red line represents the commit level. If the hourly usage exceeds the committed rate with more than 5% for a given month, you will incur overage charges.
 
-Here's a simple example we've used in our demos:
+* **Month Over Month Change** 
 
-![ingestion breakdown](images/ingestion_usage_breakdown.png)
+   Shows a comparison res the current month with the previous month.
 
-## Export Usage Data
+* **Last 12 Months Usage** 
+   
+  Shows your billed usage over the last year. The red line represents your commit level.
 
-You can export usage data in CSV format. Click the ellipsis icon in the top right and select **Export CSV**. The resulting file has all the information available in the current dashboard. Use the time picker to change the information you export.
+In the **Optimize Usage** section of the dashboard, you can see a list of charts that lets you investigate further which accounts contribute the most, which are the top metrics by namespace, and which are the top increasing metrics, so that you can investigate usage patterns.
 
-![export ingestion data](images/export_ingestion_data.png)
+ ![Usage summary per ingestion policy](images/usage_summary_per_policy.png)

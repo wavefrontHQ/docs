@@ -30,21 +30,24 @@ If the customer uses more than the contracted rate, VMware bills for those addit
 </thead>
 <tr>
 <td>What are usage trends for my instance? </td>
-<td>Use the dashboards in the <strong>Wavefront Usage</strong> integration.
+<td>Use the dashboard on the <strong>Usage and Subscriptions</strong> page, or the dashboards in the <strong>Wavefront Usage</strong> integration. 
 </td>
 </tr>
 <tr>
 <td>Who is responsible for high usage </td>
-<td>Use the <strong>Wavefront Namespace Usage Explorer</strong> dashboard in the <strong>Wavefront Usage</strong> integration to drill down into namespaces and find where the ingested data is coming from.
+<td>Use <a href="ingestion_policies.html">ingestion policies</a> and the <strong>Wavefront Ingestion Summary</strong> dashboard for an ingestion policy to investigate which are the top accounts contributing to the ingestion.
+<p>Use the <strong>Wavefront Namespace Usage Explorer</strong> dashboard in the <strong>Wavefront Usage</strong> integration to drill down into namespaces and find where the ingested data is coming from.</p>
 </td>
 </tr>
 <tr>
 <td>How close am I to my billing limit?</td>
-<td>Use the <strong>Committed Rate and Monthly Usage (PPS P95)</strong> dashboard. Consider cloning and customizing this dashboard and adding alerts.</td>
+<td>
+Use the <strong>Usage Summary</strong> dashboard on the <strong>Usage and Subscriptions</strong> page to see <a href="examine_usage.html">information about the projected overage and whether you exceed your committed rate</a>.
+<p>Use the <strong>Committed Rate and Monthly Usage (PPS P95)</strong> dashboard. Consider cloning and customizing this dashboard and adding alerts.</p></td>
 </tr>
 <tr>
 <td>What are current usage details?</td>
-<td>Start with the dashboards in the <strong>Wavefront Usage</strong> integration. The dashboards allow you to look at both current usage and usage over time. If you need to drill down more, use the <a href="wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy">Wavefront Top GUI</a> for a detailed view of current spikes. </td>
+<td>Start with the <strong>Usage Summary</strong> dashboard on the <a href="examine_usage.html"><strong>Usage and Subscriptions</strong> page</a>. You can also investigate the dashboards in the <strong>Wavefront Usage</strong> integration. The dashboards allow you to look at both current usage and usage over time. If you need to drill down more, use the <a href="wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy">Wavefront Top GUI</a> for a detailed view of current spikes. </td>
 </tr>
 <tr>
 <td>Why do I have cardinality problems?</td>
@@ -114,7 +117,9 @@ For example, with Wavefront Top you can:
 
 The [Wavefront Spy API](wavefront_monitoring_spy.html) gives even more detail, but in most cases Wavefront Top is sufficient.
 
-## How Close Am I To Exceeding My Contracted Rate?
+## How Close Am I to Exceeding My Contracted Rate?
+
+The first thing you would do is to investigate the charts in the [Usage Summary dashboard](examine_usage.html). They can show you how close you are to exceeding your committed rate and whether you will be billed for overages.
 
 The Committed Rate and Monthly Usage (PPS P95) dashboard that’s part of the Wavefront Usage integration helps you determine whether you’re getting close to meeting the limit. For most Wavefront instances, Wavefront continues to ingest data after the limit is reached Wavefront, but the customer has to pay overage.
 
