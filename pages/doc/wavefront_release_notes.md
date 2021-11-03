@@ -16,7 +16,8 @@ This page lists new and updated features for the Wavefront service.
 
 ## 2021-44.x Release Notes
 
-* **Share Section URLs**: You can now [share links to sections](      ui_sharing.html#share-a-link-to-a-dashboard-section) from any dashboard.  
+* **Share Section URLs**: You can now [share links to sections](ui_sharing.html#share-a-link-to-a-dashboard-section) from any dashboard.  
+* **New Feature**: In addition to setting up Wavefront as a WQL data source in Grafana by using the [Wavefront data source plugin for Grafana](grafana.html), you can now also set up [Wavefront as a Prometheus data source in Grafana](integrations_grafana.html) and visualize the PromQL data stored in Wavefront by using the Grafana GUI.
 
 ## 2021-43.x Release Notes
 
