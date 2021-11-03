@@ -107,7 +107,8 @@ By default, the Resolve Window is set to the same number of minutes as the Trigg
 Alert recipients receive notifications when the alert changes state. You can:
 <ul>
 <li>Specify any email address</li>
-<li markdown="span">Select from any predefined alert targets. [Alert targets](webhooks_alert_notification.html) allow fine-grained notification settings for a variety of messaging platforms (email, pager services) and communication channels.</li>
+<li>Specify a PagerDuty key</li>
+<li markdown="span">Select from predefined alert targets. [Alert targets](webhooks_alert_notification.html) allow fine-grained notification settings for a variety of messaging platforms (email, pager services) and communication channels.</li>
 <li>For alerts with a boolean alert query, specify a PagerDuty key. Not supported for multi-threshold alerts.</li>
 </ul>
 </td>
@@ -208,7 +209,7 @@ For example, an alert [fires](alerts_states_lifecycle.html#when-do-alerts-fire) 
 
 ### What's an Alert Target?
 
-Each alert is associated with one or more recipients, either an email address or an [alert target](webhooks_alert_notification.html). (For alerts with a boolean query, a PagerDuty mey is also an option).
+Each alert is associated with one or more recipients, an email address, PagerDuty key, or [alert target](webhooks_alert_notification.html).
 
 When the alert changes state, the recipients are notified. Customize which state changes trigger a notification:
 * Either when you [create the alert target](webhooks_alert_notification.html#create-a-custom-alert-target)
@@ -317,8 +318,8 @@ See <a href="alerts_manage.html#step-2-specify-thresholds-and-severities">Specif
 <strong>Recipients</strong><br><br>
 In this section you can view, change, or add recipients of alert notifications.
 <ul>
-<li>Specify one or more recipient for each severity (unless the alert query returns 0 or 1).</li>
-<li>You can specify an email address or an alert target that has already been created. </li>
+<li>Specify one or more recipient for each severity.</li>
+<li>You can specify an email address, PagerDuty key, or alert target that has already been created. </li>
 <li>Notifications for each severity are sent to the recipients of that severity and higher. </li>
 <li>As a result, you cannot specify a recipient for multiple severities. Most likely, the recipient already receives the notification because, for example, when an alert notification is sent at the SEVERE level, it also goes to all recipients at lower levels.</li>
 </ul>
@@ -365,12 +366,22 @@ You delete an alert from the Alerts Browser page. Only users with **Alerts** per
 
 ## Restore an Alert Version
 
-Each time you save an alert, you create an alert version.
+Each time you save an alert, you create an alert version. Up to 100 versions are supported.
 
-To return to an older version:
-1. Find the alert in the Alerts Browser.
-2. Select Versions from the ellipsis menu.
-3. Select a version.
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+<ol>
+<li>Find the alert in the Alerts Browser. </li>
+<li>Select <strong>Versions</strong> from the ellipsis menu.</li>
+<li>Select a version.</li>
+</ol>
+</td>
+<td width="40%" markdown="span">![screenshot ellipsis menu to the left of alert in alerts browser](images/alert_versions.png) </td></tr>
+</tbody>
+</table>
+
 
 
 
