@@ -82,7 +82,8 @@ You can alert when the query result is greater than or less than the specified t
 <td>3. Optionally, fine-tune and test the condition.
 <ul>
 <li><strong>Trigger Window</strong>: Length of time (in minutes) during which the Condition expression must be true before the alert fires. Minimum is 1. For example, if you enter 5, the alerting engine reviews the value of the condition during the last 5-minute window to determine whether the alert should fire. </li>
-<li><strong>Resolve Window</strong>: Length of time (in minutes) during which the Condition expression must be NOT true before the alert switches to resolved. Minimum is 1. Omit this setting or pick a value that is greater than or equal to the Alert fires value to avoid resolve-fire cycles. </li>
+<li><strong>Resolve Window</strong>: Length of time (in minutes) during which the Condition expression must be NOT true before the alert switches to resolved. Minimum is 1.  <br><br>
+By default, the Resolve Window is set to the same number of minutes as the Trigger Window, but you can override it. Set the Resolve Window to greater than or equal to Trigger Window to avoid resolve-fire cycles.</li>
 </ul></td>
 <td><img src="images/condition_options.png" alt="Condition options discussed in left column"></td>
 </tr>
@@ -134,18 +135,18 @@ If you already have information that helps recipients find the causes for the al
 <tr><td>Click <strong>Additional Settings</strong> to further customize the notifications for special cases.
 <ul><li><strong>Resend Notifications</strong>: If checked, Wavefront resends the notification of a firing alert. You can specify interval at which the alert is resent. By default, notifications are sent only when the alert changes state. </li>
 <li><strong>Unique PagerDuty Incidents</strong>: Select this option to receive separate PagerDuty notifications for each series that meets the alert conditions.
-<br/>For example, you get separate PagerDuty notifications for both the series on the right because the <code>env</code> tag is different.
-</li>
-<li><strong>Secure Metrics Details</strong>: If you are protecting metrics in your environment with <a href="metrics_security.html">metrics security policies</a>, select this  check box to send a simplified alert notification without metric details and alert images.</li></ul>
-</td>
-<td width="50%" markdown="span"> ![screenshot of options in Step 4](images/alert_content_2.png)
-```
+<br/>For example, you get separate PagerDuty notifications for both the series on the right because the <code>env</code> tag is different.<br>
+<pre>
 #first series
 app.errors source=machine env=prod
 
 #second series
 app.errors source=machine env=stage
-```
+</pre>
+</li>
+<li><strong>Secure Metrics Details</strong>: If you are protecting metrics in your environment with <a href="metrics_security.html">metrics security policies</a>, select this  check box to send a simplified alert notification without metric details and alert images.</li></ul>
+</td>
+<td width="50%" markdown="span"> ![screenshot of options in Step 4](images/alert_content_2.png)
 </td>
 </tr>
 </tbody>
@@ -195,7 +196,7 @@ Because the threshold is predefined, you can select only 1 severity. All notific
 
 If your query does NOT have a boolean result, you can specify different thresholds and different severities.
 
-{% include tip.html content="Most alert creation steps are the same for multi-threshold alerts and sinngle-threshold alerts. " %}
+{% include tip.html content="Most alert creation steps are the same for multi-threshold alerts and single-threshold alerts. " %}
 
 ### Who Gets Notified When the Alert Changes State?
 
@@ -341,10 +342,10 @@ In this section you can add runbook URLs and specify other information that can 
 
 Click **Save** in the top right to save your changes.
 
-{% include warning.html content="If you close the browser tab without saving, your changes are lost!"%}
+{% include warning.html content="If you navigate away from the page or close the browser tab without saving, your changes are lost!"%}
 
 
-## Delete an Alert 
+## Delete an Alert
 
 You delete an alert from the Alerts Browser page. Only users with **Alerts** permissions can delete an alert.
 
