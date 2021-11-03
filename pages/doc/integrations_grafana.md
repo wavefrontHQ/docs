@@ -1,5 +1,5 @@
 ---
-title: Set up Wavefront as a PromQL Data Source in Grafana
+title: Set Up Wavefront as a PromQL Data Source in Grafana
 keywords:
 tags: [integrations, grafana]
 sidebar: doc_sidebar
