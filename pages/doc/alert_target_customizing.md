@@ -166,7 +166,7 @@ Wavefront defines variables for obtaining information about the alert as a whole
 </tr>
 <tr>
 <td markdown="span">`hostsFailingMessage`</td>
-<td>Message containing a list of the sources of the failing time series. These are time series for which the alert condition returned all true (non-zero) values for the duration of the <strong>Alert fires</strong> time window.</td>
+<td>Message containing a list of the sources of the failing time series. These are time series for which the alert condition returned all true (non-zero) values for the duration of the <strong>Trigger Window</strong>.</td>
 </tr>
 <tr>
 <td markdown="span">`imageLinks`</td>
@@ -334,7 +334,7 @@ Wavefront defines variables for obtaining information about the time series that
 </tr>
 <tr>
 <td><em>Recovered</em></td>
-<td>Any previously failing time series that is no longer failing, causing the alert to be updated or possibly resolved. These are time series for which the alert condition returned all true (non-zero) values for the duration of the <strong>Alert fires</strong> time window, and then returned either false (0) values or no data for the duration of the <strong>Alert resolves</strong> time window.
+<td>Any previously failing time series that is no longer failing, causing the alert to be updated or possibly resolved. These are time series for which the alert condition returned all true (non-zero) values for the duration of the <strong>Alert fires</strong> time window, and then returned either false (0) values or no data for the duration of the <strong>Resolve Window</strong> time window.
 </td>
 </tr>
 <tr>

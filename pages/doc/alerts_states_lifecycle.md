@@ -57,11 +57,11 @@ An alert can be in one of the following states, shown in the Alerts Browser and 
 </thead>
 <tr>
 <td><strong>CHECKING</strong></td>
-<td>Wavefront checks whether the <strong>Condition</strong> is met for the amount of time specified by the <strong>Alert fires</strong> property.<br/> <br/>
+<td>Wavefront checks whether the <strong>Condition</strong> is met for the amount of time specified by the <strong>Trigger Window</strong> property.<br/> <br/>
 If an alert is in the FIRING state, it cannot be in the CHECKING state at the same time but Wavefront checks firing alerts to determine if firing conditions are still met.  A FIRING alert resolves and transitions back to CHECKING when the condition does not evaluate to <strong>true</strong> in the time window, or when the time window contains no data.</td></tr>
 <tr>
 <td><strong>FIRING</strong></td>
-<td>The alert meets the <strong>Condition</strong> for the amount of time specified by the <strong>Alert fires</strong> property. An alert transitions to FIRING when the condition has at least one true value and no false values during a fixed time window.</td>
+<td>The alert meets the <strong>Condition</strong> for the amount of time specified by the <strong>Trigger Window</strong> property. An alert transitions to FIRING when the condition has at least one true value and no false values during a fixed time window.</td>
 </tr>
 <tr>
 <td><strong>NO DATA</strong></td>
@@ -135,11 +135,11 @@ The `align()` function returns the minimum value (0) as the single value at 12:1
 
 The time window that we evaluate at each checking frequency interval depends on the state of the alert:
 
-- When an alert is currently not firing, the **Alert fires** property determines the time window that is evaluated.
-- When an alert is currently firing, the **Alert resolves** property determines the time window that is evaluated.
+- When an alert is currently not firing, the **Trigger Window** property determines the time window that is evaluated.
+- When an alert is currently firing, the **Resolve Window** property determines the time window that is evaluated.
 
 The data points that are evaluated during an alert check time window are the [1-minute summarizations](#data-granularity-for-alert-checking) described above.
-For example, if the **Alert fires** property is set to 3 minutes, then the alert check evaluates 3 summarization data points, one for each minute in the check time window.
+For example, if the **Trigger Window** property is set to 3 minutes, then the alert check evaluates 3 summarization data points, one for each minute in the check time window.
 
 The last summarization data point to be evaluated in an alert check time window is determined by the following formula:
 
@@ -151,21 +151,21 @@ Wavefront uses this formula to ensure that the alert has a full minute's worth o
 
 **Example**
 
-Suppose the **Alert fires** property is set to 5 minutes, and the alert check time is 1:09:32pm:
+Suppose the **Trigger Window** property is set to 5 minutes, and the alert check time is 1:09:32pm:
 * The last summarization data point to be evaluated is at 1:08:00pm `((1:09:32 - 0:00:32) - 0:01:00)`. This point is the average of the data values that were returned by the alert query from 1:08:00pm to 1:08:59pm.
 * The 5-minute time window includes the 5 summarization data points from 1:04 - 1:08. These points cover the data values returned from 1:04:00pm through 1:08:59pm.
 
 ## When Do Alerts Fire?
 
-An alert fires when its [condition](#alert-conditions) evaluates to at least one true value and zero false values present within the given **Alert fires** time window.
+An alert fires when its [condition](#alert-conditions) evaluates to at least one true value and zero false values present within the given **Trigger Window** time window.
 
 ### Alert Firing: Example
 
-Suppose the alert condition is `ts(my.metric) > 4` and the **Alert fires** window is 2 minutes:
-- If the metric reports exactly one data value (5) in the last 2 minutes, and no other points (no data), the alert fires. <br> Reason: The **Alert fires** window contains one true summarization value (5 > 4) and no false values.
-- If the metric reports many points in the last 2 minutes, and all points are <= 4, the alert does not fire. <br> Reason: The **Alert fires** window contains two false summarization values, because the averages of values that are <= 4 are also <= 4.
-- If the metric reports many points in the last 2 minutes, all of which are > 4, the alert fires. <br> Reason: The **Alert fires** window contains two true summarization values and no false values, because the averages of values that are > 4 are also > 4.
-- If the metric reports exactly two data values (5 and 3), anywhere in the last 2 minutes, the alert does not fire. <br> Reason: The **Alert fires** window contains one false summarization value. If each data value is in a different minute, then one of the summarization values is 3, which evaluates to false. If both data values are in the same minute, then their average (4) evaluates to false (4 > 4 is false).
+Suppose the alert condition is `ts(my.metric) > 4` and **Trigger Window** is 2 minutes:
+- If the metric reports exactly one data value (5) in the last 2 minutes, and no other points (no data), the alert fires. <br> Reason: The **Trigger Window** window contains one true summarization value (5 > 4) and no false values.
+- If the metric reports many points in the last 2 minutes, and all points are <= 4, the alert does not fire. <br> Reason: The **Trigger Window** window contains two false summarization values, because the averages of values that are <= 4 are also <= 4.
+- If the metric reports many points in the last 2 minutes, all of which are > 4, the alert fires. <br> Reason: The **Trigger Window** window contains two true summarization values and no false values, because the averages of values that are > 4 are also > 4.
+- If the metric reports exactly two data values (5 and 3), anywhere in the last 2 minutes, the alert does not fire. <br> Reason: The **Trigger Window** window contains one false summarization value. If each data value is in a different minute, then one of the summarization values is 3, which evaluates to false. If both data values are in the same minute, then their average (4) evaluates to false (4 > 4 is false).
 
 Alert checks are based on data that is summarized every minute.  Consequently, if `ts(my.metric)` returns 5, 5, and 3 in the same minute, the summarized value (4.33) evaluates to true for that minute because 4.33 > 4, even though 3 by itself evaluates to false (3 !> 4). All alert queries are checked according to the **Checking Frequency** property.
 
@@ -191,18 +191,18 @@ Click FIRING to filter the list of alerts</td>
 ## When Do Alerts Resolve?
 
 An alert resolves when:
-* Either there are no true values present within the given **Alert resolves** time window
-* Or the **Alert resolves** time window contains no data.
+* Either there are no true values present within the given **Resolve Window** time window
+* Or the **Resolve Window** time window contains no data.
 
-By default, the **Alert resolves** time window is the same length as the **Alert fires** time window.
+By default, the **Resolve Window** is the same length as the **Trigger Window**.
 
 **Alert Resolution Example**
 
 Suppose you define an alert with the following properties:
 * The alert condition is `ts(metric.name) > 0`, where `metric.name` reports once a minute. (The summarization values are therefore the same as the reported values.)
 * The [Checking Frequency interval](#when-alerts-are-checked) = 1 minute (the default).
-* **Alert fires** = 5 minutes.
-* **Alert resolves** = 10 minutes.
+* **Trigger Window** = 5 minutes.
+* **Resolve Window** = 10 minutes.
 
 Here's how the alert might fire, and then resolve:
 
@@ -229,7 +229,7 @@ If you suspect an apparent false positive or negative, you can:
 ## Alert Lifecycle Example
 
 Suppose the threshold for an alert is set to 50%, and
-the alert's settings are **Alert fires** = 2 minutes, **Alert resolves** = 2 minutes, and **Checking Frequency** = 1 minute.
+the alert's settings are **Trigger Window** = 2 minutes, **Resolve Window** = 2 minutes, and **Checking Frequency** = 1 minute.
 
 In the chart below:
 * An event window from 09:34 to 09:35 identifies the interval during which the metric crossed the threshold going up.

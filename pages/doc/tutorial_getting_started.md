@@ -199,7 +199,7 @@ The <strong>Create Alert</strong> page displays. </td>
 <ol>
 <li>In the Name field, replace <strong>New Alert</strong> with <strong>Latency Alert</strong>.</li>
 <li>At the end of the Condition field, type <strong>&gt; 210</strong>. We're deliberately setting this alert threshold low so you can see the alert fire after a few minutes. In normal practice, you would set the threshold to an anomalous value.</li>
-<li>In the <strong>Alert fires</strong> field, change the value to <strong>2</strong> and press <strong>Enter</strong>. The alert fires whenever the moving maximum of the latency is greater than 210 for 2 minutes.</li>
+<li>In the <strong>Trigger Window</strong> field, change the value to <strong>2</strong> and press <strong>Enter</strong>. The alert fires whenever the moving maximum of the latency is greater than 210 for 2 minutes.</li>
 <li>In the <strong>Targets</strong> field, type your email address.</li>
 <li>Click <strong>Save</strong>.</li>
 </ol>
