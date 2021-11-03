@@ -170,7 +170,7 @@ Use
 
 `default(0, rawsum(ts(...)))`
 
-### Time Window and default()
+### Time Windows and default()
 
 To [improve performance](query_language_performance.html#specify-a-time-window-with-missing-data-functions), limit the time window.
 
