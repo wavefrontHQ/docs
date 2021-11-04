@@ -1,5 +1,5 @@
 ---
-title: Monitor Your Wavefront Service
+title: Monitor Your Wavefront Service with the Wavefront Usage Integration
 keywords: administration
 tags: [administration, dashboards]
 sidebar: doc_sidebar
@@ -120,15 +120,6 @@ Wavefront automatically tracks the number of metrics received for the first 3 le
 
 ![screenshot of part of dashboard](/images/metrics_breakdown.png)
 
-### Wavefront Ingestion (PPS) Usage Dashboard
-
-This dashboard helps you investigate Wavefront usage for each user and ingestion policy.
-
-Wavefront supports creation of ingestion policies. You create policies and assign accounts (user or service accounts) to each policy and examine which teams use which part of total ingestion in this Ingestion (PPS) Usage dashboard. You can even drill down and examine usage of individual users.
-
-The dashboard includes a link to the **Ingestion Policies** page so you can create, examine, or modify [ingestion policies](ingestion_policies.html)
-
-![screenshot of part of the dashboard](/images/ingestion_pps_usage_breakdown.png)
 
 ### Committed Rate and Monthly Usage (PPS P95) vs. Committed Dashboard
 

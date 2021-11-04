@@ -42,7 +42,7 @@ If the customer uses more than the contracted rate, VMware bills for those addit
 <tr>
 <td>How close am I to my billing limit?</td>
 <td>
-Use the <strong>Usage Summary</strong> dashboard on the <strong>Usage and Subscriptions</strong> page to see <a href="examine_usage.html">information about the projected overage and whether you exceed your committed rate</a>.
+Use the <a href="examine_usage.html"><strong>Usage Summary</strong></a> dashboard on the <strong>Usage and Subscriptions</strong> page to see information about the projected overage and whether you exceed your committed rate.
 <p>Use the <strong>Committed Rate and Monthly Usage (PPS P95)</strong> dashboard. Consider cloning and customizing this dashboard and adding alerts.</p></td>
 </tr>
 <tr>
@@ -65,7 +65,7 @@ Use the <strong>Usage Summary</strong> dashboard on the <strong>Usage and Subscr
 
 ## Which Teams Are Responsible for How Much Ingested Data?
 
-When you want to find out which teams are using the most data, follow these steps.
+When you want to find out which teams are using the most data, you can either create [ingestion policies](ingestion_policies.html) for each team, for example, and monitor the usage per team, or you can follow these steps.
 
 ### Step 1: Examine Ingestion with the Namespace Usage Explorer
 

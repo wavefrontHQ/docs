@@ -57,6 +57,14 @@ After you create an ingestion policy, if you need, for example, to add a bigger 
 2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage Portal**
 3. On the **Ingestion Policies** tab, select the check boxes of the ingestion policies that you want to delete, click **Delete** and confirm.
 
+## See the Ingestion Policies a Proxy Belongs to
+
+1. Log in to your Wavefront instance as a Super Admin user.
+2. Click **Browse > Proxies**.
+3. For each proxy the **Ingestion Policies** column shows a list of policies. If the proxy belongs to many policies, hover over the three dots and you'll see the ingestion policies in a tooltip.
+
+`MARGARITA: How is this information useful?`
+
 
 ## Examine Usage
 
@@ -88,6 +96,20 @@ In the **Ingestion Summary** section of the dashboard, you can see the following
    
   Shows your billed usage over the last year. The red line represents your commit level.
 
-In the **Optimize Usage** section of the dashboard, you can see a list of charts that lets you investigate further which accounts contribute the most, which are the top metrics by namespace, and which are the top increasing metrics, so that you can investigate usage patterns.
+In the **Optimize Usage** section of the dashboard, you can see a list of charts that lets you investigate further which accounts contribute the most and which are the top increasing metrics, so that you can investigate usage patterns.
 
  ![Usage summary per ingestion policy](images/usage_summary_per_policy.png)
+
+
+## Example: Monitor Which Teams Are Responsible for How Much Ingested Data
+
+Consider the following example. You are administering a Wavefront cluster for two big teams, `IT Team1` and `IT Team2`, and you want to monitor how much data each of the team uses. `IT Team1` usually needs more PPS data, and you have only 10K of committed PPS on a monthly basis.
+
+You can create an ingestion policy for each team to monitor how much data each team uses per month. You can also set PPS limits for each ingestion policy and if a team consumes more than expected, you can provide additional training on how to use ingested data wisely. 
+
+Our Customer Success Team has put together KB articles that drill down into adoption info.
+
+* [How to Track Adoption in Your Company with Usage Metadata](https://help.wavefront.com/hc/en-us/articles/360058526192-How-to-Track-Tanzu-Observability-Adoption-with-Usage-Metadata).
+* [How to Identify Unused Data](https://help.wavefront.com/hc/en-us/articles/360058084372-How-to-Identify-Unused-Data).
+* [How to Optimize Your Ingestion Rate PPS](https://help.wavefront.com/hc/en-us/articles/360057995092-How-to-Optimize-Your-Ingestion-Rate-PPS-).
+* [How to Request a PPS Add-On to Current Committed Rate](https://help.wavefront.com/hc/en-us/articles/4402939921044-How-to-request-a-PPS-add-on-to-current-committed-rate).
