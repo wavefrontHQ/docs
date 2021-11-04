@@ -74,3 +74,7 @@ The metrics used in this section are:
 For example, this row from that section shows latency metrics using `~proxy.push.*.duration.duration.median`:
 
 ![proxy troubleshooting](images/proxy_troubleshooting.png)
+
+## Learn More!
+
+* [How to monitor the time Proxy is spending with preprocessing rules](https://help.wavefront.com/hc/en-us/articles/360059103512-How-to-monitor-time-Proxy-is-spending-with-preprocessing-rules)

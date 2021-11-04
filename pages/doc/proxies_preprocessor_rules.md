@@ -1278,3 +1278,8 @@ Available action subtypes are `truncate`, `truncateWithEllipsis`, and `drop`.
 ```
 ## Next Steps
 To apply the Wavefront proxy preprocessor rules when certain conditions are met, [add preprocessor rule conditions](proxies_preprocessor_rule_conditions.html)
+
+## Learn More!
+
+Knowledge Base Article:
+* [How to monitor the time Proxy is spending with preprocessing rules](https://help.wavefront.com/hc/en-us/articles/360059103512-How-to-monitor-time-Proxy-is-spending-with-preprocessing-rules)

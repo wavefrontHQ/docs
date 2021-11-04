@@ -246,3 +246,10 @@ taggify(highpass(80, align(15m, mean, ts(metricname),tagk,tenant,grouping,".*","
 ``
 
 Use ".+", "^." or ".*$" as your search pattern to match the entire string only once.
+
+
+## Learn More!
+
+* For additional examples, see the [aliasSource() Function](ts_aliasSource.html).
+
+* See the KB article [Working with metadata functions - aliasSource, aliasMetric and taggify](https://help.wavefront.com/hc/en-us/articles/360057122452-Working-with-metadata-functions-aliasSource-aliasMetric-and-taggify)
