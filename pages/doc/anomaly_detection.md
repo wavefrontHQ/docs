@@ -66,4 +66,4 @@ If you select a specific anomaly, the anomaly is highlighted red on the chart.
 ## Learn More!
 
 * [Detecting Anomalies with Functions and Statistical Functions](query_language_statistical_functions_anomalies.html)
-* KB Article: [Strategies for Anomaly/Outlier Detection](https://help.wavefront.com/hc/en-us/articles/360061382451-Strategies-for-Anomaly-Outlier-Detection)
+* KB Article: [Strategies for Anomaly/Outlier Detection](https://help.wavefront.com/hc/en-us/articles/360061382451-Strategies-for-Anomaly-Outlier-Detection) 
