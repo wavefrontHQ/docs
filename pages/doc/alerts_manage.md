@@ -12,7 +12,7 @@ Most Wavefront users [examine alerts and drill down to find the problem](alerts.
 {% include note.html content="All users can view and examine alerts. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
 
-## Create Alert Tutorial
+## Create Alert Tutorial 
 
 This tutorial creates a multi-threshold alert, which allows you to specify severity for each threshold.  For example, you can:
 * Send an alert email of type Info to a group of engineers when a certain value is close to the SLO (e.g. 90% of budgeted CPU)
