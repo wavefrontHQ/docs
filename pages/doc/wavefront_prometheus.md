@@ -289,3 +289,4 @@ New to Wavefront? Here are some links to get you started:
 * [Alerts](alerts.html)
 * [Query Language Quickstart](query_language_getting_started.html)
 * [Query Language Videos](videos_query_language.html)
+* [Set Up Wavefront as a PromQL Data Source in Grafana](integrations_grafana.html)
