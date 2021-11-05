@@ -12,11 +12,11 @@ Most Wavefront users [examine alerts and drill down to find the problem](alerts.
 {% include note.html content="All users can view and examine alerts. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
 
-## Create Alert Tutorial 
+## Create Alert Tutorial
 
-This tutorial creates a multi-threshold alert, which allows you to specify severity for each threshold.  For example, you can:
+This tutorial creates a multi-threshold alert, which allows you to specify a severity for each threshold.  For example, you can:
 * Send an alert email of type Info to a group of engineers when a certain value is close to the SLO (e.g. 90% of budgeted CPU)
-* Send an alert Slack of type Severe to engineers and engineering managers if the value has crossed that threshold (e.g. 95% of budgeted CPU).
+* Send an alert Slack message of type Severe to engineers and engineering managers if the value has crossed that threshold (e.g. 95% of budgeted CPU).
 
 Before you begin, ensure that you have the information for the **required fields**:
 
@@ -50,7 +50,8 @@ To start alert creation, do one of the following:
 <td width="50%">In the <strong>Data</strong> section, specify the data that you want to monitor and click <strong>Next</strong>. You have many options:
 <ul>
 <li>Keep it simple, e.g. just specify <code>ts()</code> and a metric: <code>ts(~sample.mem.used.percentage)</code> </li>
-<li>Use multiple queries, optionally with variables, to take advantage of the full power of WQL.</li>
+<li>Use multiple queries, optionally with variables, to take advantage of the full power of WQL.<br>
+<strong>Note:</strong>You must select one query as the alert query using the radio button. You can use results of other queries as <a href="query_editor.html#use-chart-variables">chart variables</a> in the selected query. </li>
 <li>Use either WQL or <a href="wavefront_prometheus.html">PromQL</a>.  </li>
 </ul> </td>
 <td><img src="images/alert_new_data.png" alt="Specify data the alert is monitoring"></td>
@@ -66,7 +67,7 @@ To start alert creation, do one of the following:
 <td width="50%">
 1. In the <strong>Conditions</strong> section, specify thresholds for the alert. The threshold becomes visible in the chart. <br><br>
 You can alert when the query result is greater than or less than the specified threshold. Specify at least 1 threshold. <br><br>
-<strong>Note</strong>: If your Data query was a boolean expression that included the threshold, you can specify only one severity.</td>
+<strong>Note</strong>: If your Data query was a boolean expression that included a comparison operator, you can specify only one severity.</td>
 <td><img src="images/new_alert_condition.png" alt="Specify data the alert is monitoring">
 </td></tr>
 <tr>
@@ -184,7 +185,7 @@ Here are some frequently asked questions about alerts.
 <tbody>
 <tr>
 <td width="40%">
-If your query itself has a boolean result (0 or 1), you include the threshold in the query itself.<br><br> In the example screenshot on the right, the threshold is 6000. Notice how the hover text shows either 0 or 1 for the different time series.
+If your data query follows the format <code><expression> <comparisonOperator> <constant></code>, for example <code>myCPU < 45000</code>, the query itself alreadyincludes the query.<br><br> In the example screenshot on the right, the threshold is 6000. Notice how the hover text shows either 0 or 1 for the different time series.
 </td>
 <td width="60%" markdown="span">![screenshot of options in step 5](images/alert_boolean_query.png) </td></tr>
 <tr>
@@ -195,14 +196,14 @@ Because the threshold is predefined, you can select only 1 severity. All notific
 </tbody>
 </table>
 
-If your query does NOT have a boolean result, you can specify different thresholds and different severities.
+If your query does NOT follow the <code><expression> <comparisonOperator> <constant></code> pattern, you can specify different thresholds and different severities.
 
 {% include tip.html content="Most alert creation steps are the same for multi-threshold alerts and single-threshold alerts. " %}
 
 ### Who Gets Notified When the Alert Changes State?
 
 Wavefront sends alert notifications when the alert changes state.
-* An alert with a **boolean query** sends a notification with the specified severity to all specified targets.
+* An alert with a query that follows the pattern <code><expression> <comparisonOperator> <constant></code> sends a notification with the specified severity to all specified targets. This page calls this type of query **boolean query**.
 * A **multi-threshold alert** allows you to specify multiple severities and a different target for each severity. Each target is notified if the condition is met when the alert changes state. Lower severity targets receive notifications for all higher severities.
 
 For example, an alert [fires](alerts_states_lifecycle.html#when-do-alerts-fire) when a metric stays at a value that indicates a problem for the specified amount of time. But you might also want to be notified when the alert is resolved or when the alert is snoozed. The alert target gives fine-grained control over which state changes trigger a notification.
@@ -220,7 +221,7 @@ When the alert changes state, the recipients are notified. Customize which state
    {% include note.html content="Alert targets subscribe to all notifications at their severity and above. For example, an alert target for an INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. Because notifications potentially go to targets of different severities, you cannot associate an alert target with more than one severity. " %}
 
 The **maximum number** of email alert targets is:
-* 10 for alerts with boolean queries
+* 10 for alerts with boolean queries that follow the pattern <code><expression> <comparisonOperator> <constant></code>.
 * 10 per severity for multi-threshold alerts.
 
 If you exceed the number, you receive a message like the following:
@@ -253,6 +254,12 @@ The **Content** section allows you to specify one or more triage dashboards. For
 <td width="40%" markdown="span">![screenshot ](images/variables_and_values.png)</td></tr>
 </tbody>
 </table>
+
+## Why Do I See a Display Expression?
+
+By default, an alert that was created before November 2021 and that has a boolean alert query shows 0 or 1 on chart images, interactive charts, and custom notifications. You can instead specify a display expression, which can include any valid Wavefront Query Language construct, and typically captures the underlying time series that the condition expression is testing. In most cases, the display expression is already specified for the older alerts.
+
+{% include tip.html content="If you used the new Create Alert UI, the display expression defaults to the query and is not shown."%}
 
 ## Edit an Alert
 
@@ -304,7 +311,7 @@ In this section:
 <tr>
 <td>
 <strong>Conditions</strong><br><br>
-In this section you can fine-tune the alert condition and test the condition.
+In this section, you can fine-tune the alert condition and test the condition.
 <ul>
 <li>Change the alert threshold or thresholds and severity. </li>
 <li>Change the Trigger Window and Resolve Window. </li>
@@ -316,7 +323,7 @@ See <a href="alerts_manage.html#step-2-specify-thresholds-and-severities">Specif
 <tr>
 <td>
 <strong>Recipients</strong><br><br>
-In this section you can view, change, or add recipients of alert notifications.
+In this section, you can view, change, or add recipients of alert notifications.
 <ul>
 <li>Specify one or more recipient for each severity.</li>
 <li>You can specify an email address, PagerDuty key, or alert target that has already been created. </li>
@@ -328,7 +335,7 @@ In this section you can view, change, or add recipients of alert notifications.
 <tr>
 <td>
 <strong>Content</strong><br><br>
-In this section you can add runbook URLs and specify other information that can help with alert resolution.
+In this section, you can add runbook URLs and specify other information that can help with alert resolution.
 <ul>
 <li>The Runbook URL can point to internal information.</li>
 <li>Start typing to select from dashboards in your environment. You can set environment variables for the dashboard with the <strong>Pass</strong> option. See <a href="#how-do-i-pass-values-to-triage-dashboards">How Do I Pass Values to Triage Dashboards</a>.</li>
