@@ -29,18 +29,26 @@ Before you begin, ensure that you have the information for the **required fields
 
 ### Step 0: Start Alert Creation
 
+To start alert creation, do one of the following:
+
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="50%">
-To start alert creation, do one of the following:
 <ul>
 <li markdown="span"><strong>Alerts Browser</strong> - Click <strong>Alerting</strong> from the taskbar and click the <strong>Create Alert</strong> button located above the filter bar.</li>
+</ul></td>
+<td width="50%" markdown="span">![create_alert](images/create_alert_browser.png) </td></tr>
+<tr>
+<td width="50%">
+<ul>
 <li markdown="span">**Chart** - Click the ellipsis icon on the right of the query and select **Create Alert** from the menu.</li>
 </ul></td>
 <td width="50%" markdown="span">![create_alert](images/v2_create_alert.png) </td></tr>
 </tbody>
 </table>
+
+
 
 ### Step 1: Specify the Data to Watch and Alert On
 
@@ -51,7 +59,7 @@ To start alert creation, do one of the following:
 <ul>
 <li>Keep it simple, e.g. just specify <code>ts()</code> and a metric: <code>ts(~sample.mem.used.percentage)</code> </li>
 <li>Use multiple queries, optionally with variables, to take advantage of the full power of WQL.<br>
-<strong>Note:</strong>You must select one query as the alert query using the radio button. You can use results of other queries as <a href="query_editor.html#use-chart-variables">chart variables</a> in the selected query. </li>
+<strong>Note:</strong> You must select one query as the alert query using the radio button. You can use results of other queries as <a href="query_editor.html#use-chart-variables">chart variables</a> in the selected query. </li>
 <li>Use either WQL or <a href="wavefront_prometheus.html">PromQL</a>.  </li>
 </ul> </td>
 <td><img src="images/alert_new_data.png" alt="Specify data the alert is monitoring"></td>
@@ -110,7 +118,6 @@ Alert recipients receive notifications when the alert changes state. You can:
 <li>Specify any email address</li>
 <li>Specify a PagerDuty key</li>
 <li markdown="span">Select from predefined alert targets. [Alert targets](webhooks_alert_notification.html) allow fine-grained notification settings for a variety of messaging platforms (email, pager services) and communication channels.</li>
-<li>For alerts with a boolean alert query, specify a PagerDuty key. Not supported for multi-threshold alerts.</li>
 </ul>
 </td>
 <td width="50%" markdown="span">![create_alert](images/alert_recipients.png) </td></tr>
@@ -185,7 +192,7 @@ Here are some frequently asked questions about alerts.
 <tbody>
 <tr>
 <td width="40%">
-If your data query follows the format <code><expression> <comparisonOperator> <constant></code>, for example <code>myCPU < 45000</code>, the query itself alreadyincludes the query.<br><br> In the example screenshot on the right, the threshold is 6000. Notice how the hover text shows either 0 or 1 for the different time series.
+If your data query follows the format <code>&lt;expression&gt; &lt;comparisonOperator&gt; &lt;constant&gt;</code>, for example <code>myCPU &lt; 45000</code>, the query itself alreadyincludes the query.<br><br> In the example screenshot on the right, the threshold is 6000. Notice how the hover text shows either 0 or 1 for the different time series.
 </td>
 <td width="60%" markdown="span">![screenshot of options in step 5](images/alert_boolean_query.png) </td></tr>
 <tr>
@@ -196,14 +203,14 @@ Because the threshold is predefined, you can select only 1 severity. All notific
 </tbody>
 </table>
 
-If your query does NOT follow the <code><expression> <comparisonOperator> <constant></code> pattern, you can specify different thresholds and different severities.
+If your query does NOT follow the `<expression> <comparisonOperator> <constant>` pattern, you can specify different thresholds and different severities.
 
 {% include tip.html content="Most alert creation steps are the same for multi-threshold alerts and single-threshold alerts. " %}
 
 ### Who Gets Notified When the Alert Changes State?
 
 Wavefront sends alert notifications when the alert changes state.
-* An alert with a query that follows the pattern <code><expression> <comparisonOperator> <constant></code> sends a notification with the specified severity to all specified targets. This page calls this type of query **boolean query**.
+* An alert with a query that follows the pattern `<expression> <comparisonOperator> <constant>` sends a notification with the specified severity to all specified targets. This page calls this type of query **boolean query**.
 * A **multi-threshold alert** allows you to specify multiple severities and a different target for each severity. Each target is notified if the condition is met when the alert changes state. Lower severity targets receive notifications for all higher severities.
 
 For example, an alert [fires](alerts_states_lifecycle.html#when-do-alerts-fire) when a metric stays at a value that indicates a problem for the specified amount of time. But you might also want to be notified when the alert is resolved or when the alert is snoozed. The alert target gives fine-grained control over which state changes trigger a notification.
@@ -255,7 +262,7 @@ The **Content** section allows you to specify one or more triage dashboards. For
 </tbody>
 </table>
 
-## Why Do I See a Display Expression?
+### Why Do I See a Display Expression?
 
 By default, an alert that was created before November 2021 and that has a boolean alert query shows 0 or 1 on chart images, interactive charts, and custom notifications. You can instead specify a display expression, which can include any valid Wavefront Query Language construct, and typically captures the underlying time series that the condition expression is testing. In most cases, the display expression is already specified for the older alerts.
 
