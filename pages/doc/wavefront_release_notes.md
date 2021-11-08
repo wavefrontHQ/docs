@@ -14,7 +14,7 @@ This page lists new and updated features for the Wavefront service.
 * For  **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
 
-## 2021-44.x Release Notes 
+## 2021-44.x Release Notes
 
 * **Share Section URLs**: You can now [share links to sections](ui_sharing.html#share-a-link-to-a-dashboard-section) from any dashboard.
 * **PromQL-Related Improvements**: In addition to [setting up Wavefront as a WQL data source in Grafana](grafana.html), you can now also set up [Wavefront as a Prometheus data source in Grafana](integrations_grafana.html). This way, you can visualize the PromQL data stored in Wavefront by using the Grafana GUI.
