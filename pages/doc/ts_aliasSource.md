@@ -19,7 +19,7 @@ aliasSource(<tsExpression>, [metric|source|{tagk, <pointTagKey>},]
             “<regexSearchPattern>”, "<replacementPattern>")
 ```
 
-Replaces the source name for each time series with an alias, which can be a specified string or derived from existing metadata. 
+Replaces the source name for each time series with an alias, which can be a specified string or derived from existing metadata.
 
 To replace the metric name with an alias, use [aliasMetric()](ts_aliasMetric.html).
 
@@ -45,7 +45,7 @@ To replace the metric name with an alias, use [aliasMetric()](ts_aliasMetric.htm
 <ul>
 <li markdown="span">Specify `metric` to construct the new source name for a time series based on its metric name.</li>
 <li markdown="span">Specify `source` to construct the new source name for a time series based on its original source name.</li>
-<li markdown="span">Specify `tagk, <pointTagKey>` (no curly braces) to construct the new source name for a time series based on the value of a given point tag. 
+<li markdown="span">Specify `tagk, <pointTagKey>` (no curly braces) to construct the new source name for a time series based on the value of a given point tag.
 </li>
 </ul>
 Omitting this parameter is the same as specifying <code>source</code>.
@@ -80,7 +80,7 @@ Omitting this parameter is the same as specifying <code>source</code>.
 The `aliasSource()` metadata function lets you replace the source name of each time series described by `tsExpression` with an alias. The alias can be a specified string or a string that is derived from the metric name, the source name, an existing point tag value, or a combination of these.
 
 
-For example, let's say you have a set of metrics that includes the customer name, for example, `cpu.loadavg-customerA.1m`, `cpu.loadavg-customerB.5m`, and so on. All of these metrics are reported by a source named `source1`. 
+For example, let's say you have a set of metrics that includes the customer name, for example, `cpu.loadavg-customerA.1m`, `cpu.loadavg-customerB.5m`, and so on. All of these metrics are reported by a source named `source1`.
 What if you wanted to aggregate the data and group by customer? You could create two separate ts() expressions, or you could instead use `aliasSource()` to replace `source1` with a name like `customerA` or `customerB`. You could then group by source and get the answer you need from a single expression.
 
 
@@ -88,13 +88,13 @@ What if you wanted to aggregate the data and group by customer? You could create
 
 * A simple replacement string.
 * A replacement string that contains variables.
-* A single node that is extracted from the metric name, the original source name, or a point tag value. 
+* A single node that is extracted from the metric name, the original source name, or a point tag value.
 * Substrings that are matched by regular expressions from the metric name, the original source name, or a point tag value.
 
 ### Simple Replacement String
 
 You can specify a simple replacement string if you want to use the same source name for all time series described by `tsExpression`.
- 
+
 ```
 aliasSource(ts("sample.db.connections.*"), "Source.Test")
 ```
@@ -123,11 +123,11 @@ The specified replacement string acts like a template, in which Wavefront replac
 
 A common practice is to use naming conventions that provide structure to metric names, source names, or point tag values. Naming conventions typically subdivide  metadata values into nodes, which are substrings that are delimited by certain characters. By default, Wavefront uses periods (".") as node delimiters, but your naming conventions might use other characters.
 
-You can use `aliasSource()` with a `zeroBasedNodeIndex` to extract a single node from an existing metadata value and use just the extracted node as the metric name for your time series. For example, you might want to simplify a source name like `dev.host1_appA.0fd795b1700` by displaying it as `host1_appA`. 
+You can use `aliasSource()` with a `zeroBasedNodeIndex` to extract a single node from an existing metadata value and use just the extracted node as the metric name for your time series. For example, you might want to simplify a source name like `dev.host1_appA.0fd795b1700` by displaying it as `host1_appA`.
 
 `zeroBasedNodeIndex` specifies the node to extract by counting nodes from left to right, starting with 0. By default, `aliasSource()` extracts the node from the original source name. To extract a node from the metric name or a specified point tag value, you must explicitly include `metric` or `tagk, <pointTagKey>`.
 
-For example, suppose you use the following naming convention for a source namespace, and you consider periods (".") to be node delimiters: `<environment>.<hostN>_<appN>.<idNumber>` 
+For example, suppose you use the following naming convention for a source namespace, and you consider periods (".") to be node delimiters: `<environment>.<hostN>_<appN>.<idNumber>`
 
 Under these conventions, the nodes in the source name `dev.host1_appA.0fd795b1700` are numbered as follows:
 
@@ -278,3 +278,8 @@ You can easily do this with `aliasSource()`:
 ```
 aliasSource(ts(requests.failures.num), "accounts.([a-zA-Z.]*)[0-9]*$", "$1")
 ```
+
+
+## Learn More!
+
+* See the KB article [Working with metadata functions - aliasSource, aliasMetric and taggify](https://help.wavefront.com/hc/en-us/articles/360057122452-Working-with-metadata-functions-aliasSource-aliasMetric-and-taggify)
