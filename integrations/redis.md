@@ -6,12 +6,18 @@ summary: Learn about the Wavefront Redis Integration.
 ---
 ## Redis Integration
 
-Redis is a popular open source, in-memory data store. This integration installs and configures Telegraf to send Redis cluster metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+Redis is a popular open source, in-memory data store, used as a database, cache, and message broker. Redis provides data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes, and streams. By setting up this integration, you can send Redis metrics into Wavefront.
 
-In addition to setting up the metrics flow, this integration also installs a dashboard. Here's the activity and system section of a dashboard displaying Redis metrics:
+1. **Redis**: This integration installs and configures Telegraf to send Redis metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+2. **Redis on Kubernetes**: This explains the configuration of Wavefront Collector for Kubernetes to scrape Redis metrics using auto-discovery with annotation based discovery.
 
-{% include image.md src="images/redis-1.png" width="80" %}
-{% include image.md src="images/redis-2.png" width="80" %}
+In addition to setting up the metrics flow, this integration also installs dashboards:
+  * Redis
+  * Redis on Kubernetes
+
+Here's a screenshot of a Redis on Kubernetes dashboard that displays Redis metrics:
+
+{% include image.md src="images/redis-dashboard.png" width="80" %}
 
 
 To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
@@ -52,6 +58,20 @@ To monitor multiple Redis instances, configure the `servers` parameter with the 
 ### Step 3. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your agent.
+
+## Redis on Kubernetes
+
+Redis Exporter tested version: v1.29.0
+
+This integration uses the [annotation based discovery](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/discovery.md#annotation-based-discovery) feature in Wavefront Collector to monitor Redis on Kubernetes. If you do not have the Wavefront Collector for Kubernetes installed, follow these instructions to add it to your cluster by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install). You can check the status of the Wavefront Collector and Proxy if you are already monitoring the Kubernetes cluster [here](../kubernetes/setup).
+
+### Steps to Annotate Redis
+1. Annotate the Redis pods so that they can be discovered by the Wavefront Collector, if not annotated. Assuming that the `port` is `9121`, run:{% raw %}
+```
+kubectl annotate pods <pod-name> prometheus.io/scrape=true prometheus.io/port=9121 prometheus.io/path=/metrics
+```
+{% endraw %}
+**NOTE**: Make sure that auto discovery `enableDiscovery: true` and annotation based discovery `discovery.disable_annotation_discovery: false` are enabled in the Wavefront Collector. They should be enabled by default.
 
 
 

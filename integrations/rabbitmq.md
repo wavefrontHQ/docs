@@ -6,9 +6,17 @@ summary: Learn about the Wavefront RabbitMQ Integration.
 ---
 ## RabbitMQ Integration
 
-RabbitMQ is a popular open source message broker. This integration installs and configures Telegraf to send RabbitMQ metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+RabbitMQ is a popular open source message broker. By setting up this integration, you can send RabbitMQ metrics to Wavefront.
 
-In addition to setting up the metrics flow, this integration also installs a dashboard. Here's a preview of the dashboard:
+1. **RabbitMQ Metrics**: This explains the installation and configuration of Telegraf to send RabbitMQ metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+
+2. **RabbitMQ on Kubernetes**: This explains the configuration of Wavefront Collector for Kubernetes to scrape RabbitMQ metrics using prometheus plugin.
+
+In addition to setting up the metrics flow, this integration also installs dashboards:
+* RabbitMQ Metrics
+* RabbitMQ on Kubernetes
+
+Here's the screenshot of RabbitMQ dashboard displaying RabbitMQ metrics scraped using Telegraf plugin:
 
 {% include image.md src="images/rabbitmq_dashboard.png" width="80" %}
 
@@ -29,7 +37,7 @@ This integration requires the [RabbitMQ Management Plugin](https://www.rabbitmq.
 
 To enable the management plugin:{% raw %}
 ```
-rabbitmq-plugins enable rabbitmq_management
+sudo rabbitmq-plugins enable rabbitmq_management
 ```
 {% endraw %}
 
@@ -56,11 +64,60 @@ To monitor specific nodes, include the `nodes` property. For example:{% raw %}
 {% endraw %}
 If not specified metrics for all nodes are gathered.
 
-Configure additional `[[inputs.rabbitmq]]` entries to monitor multiple RabbitMQ instances.  
+Configure additional `[[inputs.rabbitmq]]` entries to monitor multiple RabbitMQ instances. For additional details on the RabbitMQ configuration, refer [here](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/rabbitmq/README.md).
 
 ### Step 4. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your agent.
 
+
+
+## RabbitMQ on Kubernetes 
+**Note:** These instructions are for monitoring RabbitMQ on Kubernetes where the version for RabbitMQ should be 3.9.0 or above.
+
+### Step 1. Enable RabbitMQ Plugins
+
+This integration requires the [RabbitMQ Management Plugin](https://www.rabbitmq.com/management.html), [RabbitMQ Prometheus Plugin](https://www.rabbitmq.com/prometheus.html) and [RabbitMQ Peer Disocvery Plugin](https://www.rabbitmq.com/cluster-formation.html) to be enabled on the RabbitMQ server.
+
+To enable the management plugin:{% raw %}
+```
+rabbitmq-plugins enable rabbitmq_management
+```
+{% endraw %}
+To enable the prometheus plugin:{% raw %}
+```
+rabbitmq-plugins enable rabbitmq_prometheus
+```
+{% endraw %}
+To enable the peer discovery plugin:{% raw %}
+```
+rabbitmq-plugins enable rabbitmq_peer_discovery_k8s
+```
+{% endraw %}
+### Step 2. Update the Wavefront Collector ConfigMap
+
+If you do not have the Wavefront Collector for Kubernetes installed on your Kubernetes cluster, follow these instructions to add it to your cluster by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install). You can check the status of Wavefront Collector and Proxy if you are already monitoring the Kubernetes cluster [here](../kubernetes/setup).
+
+Edit the Wavefront Collector ConfigMap at runtime using the following command:{% raw %}
+```
+kubectl edit configmap collector-config -n wavefront-collector
+```
+{% endraw %}
+To enable the Wavefront Collector to discover the RabbitMQ instances and dynamically start collecting metrics, under `rabbitmq` add the following snippet:{% raw %}
+```
+        ## rabbitmq
+      - name: rabbitmq
+        type: prometheus
+        selectors:
+          images:
+            - 'rabbitmq*'
+        port: 15692
+        path: /metrics
+        scheme: http
+        filters:
+          metricDenyList:
+          - 'rabbitmq.telemetry.*'
+```
+{% endraw %}
 
 

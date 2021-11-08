@@ -239,3 +239,7 @@ We can create a [multi-threshold alert](alerts_manage.html#create-a-multi-thresh
 * Notifies `WARN` targets if the value is greater than 80.
 
 ![service limits alarm](images/service_limit_alert.png)
+
+## Learn More!
+
+See the KB article [Ingesting Cloudwatch NeptuneDB metrics into Wavefront](https://help.wavefront.com/hc/en-us/articles/360060711332-Ingesting-Cloudwatch-NeptuneDB-metrics-into-Wavefront-)
