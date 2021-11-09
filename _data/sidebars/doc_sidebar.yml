@@ -516,7 +516,10 @@ entries:
             url: /integrations_grafana.html
             output: web
 
-
+          - title: vRealize Operations Integration Overview
+            url: /integrations_vrops.html
+            output: web
+            
       - title: collectd Integrations
         output: web
         subfolderitems:
