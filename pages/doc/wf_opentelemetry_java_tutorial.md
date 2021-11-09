@@ -77,22 +77,24 @@ Finally, navigate to the directory from your console and run the collector host 
 
 ## Auto-instrument the Application
 
+<!--Couldn't get the steps to step, so using bold -- update numbering if you make changes!--->
+
 For instrumentation, we use the Java agent provided by OpenTelemetry, which can be attached to any Java application. This agent dynamically injects bytecode to collect telemetry data so that you don’t need to manually add instrumentation.
 
-1. Download the sample application and navigate to the directory.
+**1.** Download the sample application and navigate to the directory.
 ```
   git clone https://github.com/wavefrontHQ/otel-demo-app-java
   cd otel-demo-app-java
 ```
 
-2. Do the install by running the following command from the root directory of the project.
+**2.** Do the install by running the following command from the root directory of the project.
 ```
 mvn clean install
 ```
 
-3. Download the [OpenTelemetry Java agent](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent-all.jar).
+**3.** Download the [OpenTelemetry Java agent](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent-all.jar).
 
-4. Attach the Java agent and start the services independently by running the following commands.
+**4.** Attach the Java agent and start the services independently by running the following commands.
 
 ```
 java -javaagent:<path to otel agent> \
@@ -111,7 +113,7 @@ java -javaagent:<path to otel agent> \
 -jar ./delivery/target/delivery-1.0-SNAPSHOT.jar
 ```
 
-5. Interact with your application to generate traces. For the sample application we’ve shared here, run the command below from the root directory to send requests to services every 10 seconds.
+**5.** Interact with your application to generate traces. For the sample application we’ve shared here, run the command below from the root directory to send requests to services every 10 seconds.
 ```
   ./loadgen.sh 10
 ```
@@ -120,6 +122,7 @@ java -javaagent:<path to otel agent> \
 
 When Wavefront ingests the trace data that the OpenTelemetry Collector has collected, you can examine them in the UI.
 
+<!--Couldn't get the steps to step, so using bold -- update numbering if you make changes!--->
 **1.** Log in to your Wavefront instance and select **Applications > Application Status**.
 
 ![Data flow from shopping to styling to delivery](images/otel_in_gui.png)
