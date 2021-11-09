@@ -507,19 +507,19 @@ entries:
           - title: Log Data Metrics Integration
             url: /integrations_log_data.html
             output: web
-
-          - title: IBM Cloud Integration (Third-Party Content)
-            url: /integrations_ibmcloud_thirdparty.html
-            output: web
-            
-          - title: Set Up Wavefront as PromQL Data Source in Grafana
-            url: /integrations_grafana.html
-            output: web
-
+    
           - title: vRealize Operations Integration Overview
             url: /integrations_vrops.html
             output: web
-            
+    
+          - title: Set Up Wavefront as PromQL Data Source in Grafana
+            url: /integrations_grafana.html
+            output: web
+        
+          - title: IBM Cloud Integration (Third-Party Content)
+            url: /integrations_ibmcloud_thirdparty.html
+            output: web
+                  
       - title: collectd Integrations
         output: web
         subfolderitems:
