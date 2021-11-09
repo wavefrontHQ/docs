@@ -30,7 +30,7 @@ If the customer uses more than the contracted rate, VMware bills for those addit
 </thead>
 <tr>
 <td>What are usage trends for my instance? </td>
-<td>Use the dashboard on the <strong>Usage and Subscriptions</strong> page, or the dashboards in the <strong>Wavefront Usage</strong> integration. 
+<td>Use the dashboard on the <strong>Usage and Ingestion Policies</strong> page, or the dashboards in the <strong>Wavefront Usage</strong> integration. 
 </td>
 </tr>
 <tr>
@@ -42,12 +42,12 @@ If the customer uses more than the contracted rate, VMware bills for those addit
 <tr>
 <td>How close am I to my billing limit?</td>
 <td>
-Use the <a href="examine_usage.html"><strong>Usage Summary</strong></a> dashboard on the <strong>Usage and Subscriptions</strong> page to see information about the projected overage and whether you exceed your committed rate.
+Use the <a href="examine_usage.html"><strong>Usage Summary</strong></a> dashboard on the <strong>Usage and Ingestion Policies</strong> page to see information about the projected overage and whether you exceed your committed rate.
 <p>Use the <strong>Committed Rate and Monthly Usage (PPS P95)</strong> dashboard. Consider cloning and customizing this dashboard and adding alerts.</p></td>
 </tr>
 <tr>
 <td>What are current usage details?</td>
-<td>Start with the <strong>Usage Summary</strong> dashboard on the <a href="examine_usage.html"><strong>Usage and Subscriptions</strong> page</a>. You can also investigate the dashboards in the <strong>Wavefront Usage</strong> integration. The dashboards allow you to look at both current usage and usage over time. If you need to drill down more, use the <a href="wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy">Wavefront Top GUI</a> for a detailed view of current spikes. </td>
+<td>Start with the <strong>Usage Summary</strong> dashboard on the <a href="examine_usage.html"><strong>Usage and Ingestion Policies</strong> page</a>. You can also investigate the dashboards in the <strong>Wavefront Usage</strong> integration. The dashboards allow you to look at both current usage and usage over time. If you need to drill down more, use the <a href="wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy">Wavefront Top GUI</a> for a detailed view of current spikes. </td>
 </tr>
 <tr>
 <td>Why do I have cardinality problems?</td>
