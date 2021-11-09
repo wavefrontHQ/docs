@@ -272,7 +272,7 @@ The display expression is the first non-hidden query. In the example below:
 
 ![selected query is variance(${A}) but non-hidden query is ts(~sample.cpu.loadavg.1m, source=app-1*) > .2](images/display_expression.png)
 
-{% include tip.html content="If you used the **new** Create Alert UI, the display expression defaults to the query and is not shown separately."%}
+{% include tip.html content="If you use the **new** Create Alert UI, the display expression, that is, the query that users see in notifications, is also the first non-hidden query."%}
 
 ## Edit an Alert
 
