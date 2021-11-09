@@ -1135,7 +1135,7 @@ The Wavefront proxy can be configured to authenticate inbound traffic. Below are
 
 ### Authentication Method Static Token
 
- **Required properties**: `authStaticToken `
+**Required properties**: `authStaticToken`
 
 In order for data sent via HTTP to the proxy to be accepted, the request will need to include a token matching whatever is configured for  `authStaticToken`. The token can be specified in the header or in the query string.
 
@@ -1149,22 +1149,22 @@ In order for data sent via HTTP to the proxy to be accepted, the request will ne
 <td><code>authMethod=STATIC_TOKEN</code></td>
 </tr>
 <tr>
-<td markdown="span">2.  Set <code>authStaticToken</code> to a value that will be used as the authentication token.</td>
+<td markdown="span">2. Set <code>authStaticToken</code> to a value that will be used as the authentication token.</td>
 <td><code>authStaticToken=token1234abcd</code></td>
 </tr>
 <tr>
-<td markdown="span">3.  Ensure that valid data sent to the proxy has the appropriate token included with the request.</td>
+<td markdown="span">3. Ensure that valid data sent to the proxy has the appropriate token included with the request.</td>
 <td>&nbsp;</td>
 </tr>
 </tbody>
 </table>
 
 
-### Authentication Method HTTP_Get or OAUTH2 
+### Authentication Method HTTP_Get or OAUTH2
 
- Required properties: `authTokenIntrospectionServiceUrl`
+Required properties: `authTokenIntrospectionServiceUrl`
 
- Optional properties: `authTokenIntrospectionAuthorizationHeader`, `authResponseRefreshInterval`, `authResponseMaxTtl` 
+Optional properties: `authTokenIntrospectionAuthorizationHeader`, `authResponseRefreshInterval`, `authResponseMaxTtl`
 
 If you have a service that can validate tokens, use this approach.
 * Use OAUTH2 if your Introspection Service is RFC7662 compliant.
@@ -1187,18 +1187,18 @@ For either method, the service must return a 2xx code for valid tokens. Accordin
 </tr>
 <tr>
 <td markdown="span">3. If the token validation endpoint requires authentication, specify <code>authTokenIntrospectionAuthorizationHeader</code>.   </td>
-<td><code>authTokenIntrospectionAuthorizationHeader=<br/>Authorization: Bearer token123xyz </code></td>
+<td><code>authTokenIntrospectionAuthorizationHeader=<br/>Authorization: Bearer token123xyz</code></td>
 </tr>
 <tr>
-<td markdown="span">4.  Optionally, set `authResponseRefreshInterval` to specify how long to cache token validation results, in seconds, before re-authenticating against the introspection service. Default is 600 seconds (10 minutes).</td>
-<td><code>authResponseRefreshInterval=300 </code></td>
+<td markdown="span">4. Optionally, set `authResponseRefreshInterval` to specify how long to cache token validation results, in seconds, before re-authenticating against the introspection service. Default is 600 seconds (10 minutes).</td>
+<td><code>authResponseRefreshInterval=300</code></td>
 </tr>
 <tr>
 <td markdown="span">5. Optionally, set `authResponseMaxTtl` to specify the maximum amount of time, in seconds, to cache token validation results if the introspection service cannot be reached. Default is 86400 seconds (1 day).</td>
-<td><code>authResponseMaxTtl=21600  </code></td>
+<td><code>authResponseMaxTtl=21600</code></td>
 </tr>
 <tr>
-<td markdown="span">6.  Ensure that valid data sent to the proxy has the appropriate token included with the request.</td>
+<td markdown="span">6. Ensure that valid data sent to the proxy has the appropriate token included with the request.</td>
 <td>&nbsp;</td>
 </tr>
 </tbody>
