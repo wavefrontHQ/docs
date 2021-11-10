@@ -52,3 +52,37 @@ The initial release of the vRealize Operations integration in November 2021 has 
 * For supermetrics, such as `Cost Drivers - Facilities (US $/Month)`, `Total Server Purchase Cost`, and so on, the metric names are not fetched and in Wavefront these metrics are displayed with the super metric ID.
 * The vRealize Operations metrics have a point tag, which represents the organization ID. This is the UUIF of the organization. Currently, Wavefront collects the Organization ID as a point tag, instead of the Organization name.
 * Along with the summary for a resource, in vRealize Operations there might be other properties. In Wavefront, currently we do not collect such properties. The vRealize Operations integration only collets properties under the summary section as point tags.
+* In this release, you will see all the vCenter Server instances that you have configured in vRealize Operations. To shortlist the vCenter Server instances you want to monitor, apply a filter by using the REST API. 
+  1. In your Wavefront cluster, click the gear icon on top right, and select **API Documentation**.
+  2. Expand **Cloud Integration** and click the `GET /api/v2/cloudintegration` request.
+  3. Click **Try it out**.
+     
+     You will see the list of the cloud integrations in the **Response Body** in JSON format. 
+
+   4. Search for the vRealize Operations integration that you want to update.
+   5. Copy the value of the `id` parameter of the vRealize Operations integration and keep it handy. 
+   6. In a JSON file replace all the values in the below structure with the values that you got from step 4, and filter out the vCenter Server instances.
+   
+       ```
+       {
+          "name":"<integration-name>",
+          "service":"VROPS",
+          "vrops": {
+                  "baseURL": "<vrealizre-operations-base-URL>",
+                  "metricFilterRegex": "<metric-filter-regex>",
+                  "categoriesToFetch": <categories-to-fetch>,
+                  "vropsAPIToken": "<vrealize-operations-API-Token>",
+                  "organizationID": "<organization-ID>",
+                  "adapterNames":{"VMWARE":["vCenter Server name 1","vCenter Server name 2",...]}
+                },
+            "serviceRefreshRateInMins":<service-refresh-rate-in-minutes>
+        }
+       ```
+       Here the `adapterNames` are the names of your vCenter Server instances. **Leave only the names of the vCenter Server instances that you want to monitor.**
+    
+    7. After you create the JSON file, click the `PUT /api/v2/cloudintegration/{id}` request.
+    8. In the **id** text box, enter the ID of the integration that you copied in step 5.
+    9. In the **body** text box, enter the contents of the JSON file that you created in step 6.
+    10. Click **Try it out**. 
+    
+   You get a 200 response and in the Wavefront UI you can see that the vCenter Server instances are filtered out.
