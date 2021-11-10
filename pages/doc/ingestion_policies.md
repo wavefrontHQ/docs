@@ -1,5 +1,5 @@
 ---
-title: Examine the Wavefront Usage Per Ingestion Policy
+title: Examine the Wavefront Usage with Ingestion Policies
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: ingestion_policies.html
