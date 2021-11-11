@@ -11,6 +11,11 @@ Wavefront continuously adds new integrations to the existing set, and improves a
 
 ## November 2021
 
+We added the following new integration in November 2021:
+
+* vRealize Operations Integration v1. This initial version of the integration currently fetches only vCenter Server adapter resources, such as Cluster Compute Resource and Datastore. We will add more features to this integration in future releases. For information about setting up the integration, the current limitations and caveats, see [vRealize Operations Integration Overview](integrations_vrops.html).
+
+
 Made improvements to the following integrations and dashboards in November 2021:
 
 * RabbitMQ -- Updated the RabbitMQ integration and added an out-of-the-box dashboard and setup steps to monitor Rabbit MQ on Kubernetes.

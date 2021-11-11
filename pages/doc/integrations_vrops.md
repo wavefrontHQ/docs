@@ -5,12 +5,14 @@ tags: [integrations]
 sidebar: doc_sidebar
 published: true
 permalink: integrations_vrops.html
-summary: Understand setup and vRealize Operations integration limitations and caveats.
+summary: Understand the setup and the vRealize Operations integration v1 limitations and caveats.
 ---
 [VMware vRealize Operations](https://www.vmware.com/products/vrealize-operations.html) delivers intelligent operations management with application-to-storage visibility across physical, virtual, and cloud infrastructures. Using policy-based automation, operations teams automate key processes and improve the IT efficiency.
 
 
-The vRealize Operations integration is a full-featured native integration, that offers agentless data ingestion of vRealize Operations metric data, as well as predefined dashboards.
+The vRealize Operations integration is a full-featured native integration that offers agentless data ingestion of vRealize Operations metric data, as well as a predefined dashboard. 
+
+{% include important.html content="The vRealize Operations integration v1 is the first version of this integration and currently fetches only vCenter Server adapter resources, such as Cluster Compute Resource and Datastore. We will add more features to this integration in future releases." %}
 
 ## How to Register a vRealize Operations Integration
 
@@ -40,14 +42,25 @@ To register a new vRealize Operations instance, you need a Cloud Services consol
 1. Provide a meaningful name of the integration.
 1. Paste the API token that you generated in the **API Token** text box.
 1. Select the resources to fetch.
+   
+   Currently we fetch only vCenter Server adapter resources, such as Cluster Compute Resource and Datastore.
+   
 1. In the **Metric Allow List** text box, add metrics to an allow list by specifying a regular expression. 
 1. In the **Service Refresh Rate** text box, enter the number of minutes between requesting metrics. Default is `5` minutes.
 1. In the **vROps URL** text box, enter the vRealize Operations Endpoint URL.
 1. Click **Register**.
 
+
+{% include important.html content="After you set up the vRealize Operations integration, it will take up to 24 hours for the data to start flowing into Wavefront. Until then, the charts on the predefined **VMware vRealize Operations Summary** dashboard will show NO DATA." %}
+
+
+## Metrics for vRealize Operations
+
+With this initial, v1 release of the vRealize Operations integration, we collect the following high-level list of metrics.
+
 ## vRealize Operations Integration Known Issues and Limitations
 
-The initial release of the vRealize Operations integration in November 2021 has the following known issues and limitations:
+This initial release of the vRealize Operations integration has the following known issues and limitations:
 
 * For supermetrics, such as `Cost Drivers - Facilities (US $/Month)`, `Total Server Purchase Cost`, and so on, the metric names are not fetched and in Wavefront these metrics are displayed with the super metric ID.
 * The vRealize Operations metrics have a point tag, which represents the organization ID. This is the UUIF of the organization. Currently, Wavefront collects the Organization ID as a point tag, instead of the Organization name.
