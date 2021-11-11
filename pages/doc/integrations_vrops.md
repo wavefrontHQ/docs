@@ -26,6 +26,9 @@ To register a new vRealize Operations instance, you need a Cloud Services consol
 1. Click the **Generate a New API Token** button.
 1. Enter a meaningful API token name, for example, `wavefront-integration`.
 1. Choose to generate a never expiring API Token by selecting **never expiring** from the drop-down menu showing the **Token TTL** units of time.
+
+   If you select to generate an API token that will expire after certain period of time, when the API token expires, you will have to configure the service again.
+   
 1. Define the role of the token. 
    
    1. Under **Organization Roles**, select **Organization Member**.
