@@ -39,7 +39,7 @@ Users with **Accounts, Groups & Roles** permission can create ingestion policies
    4. Click **Next**.
    5. Enter the name of the policy and click **Create**.
 
-## Edit a Policy
+## Edit an Ingestion Policy
 
 After you create an ingestion policy, if you need, for example, to add a bigger PPS limit, you can edit the policy. 
 
@@ -51,7 +51,7 @@ After you create an ingestion policy, if you need, for example, to add a bigger 
 4. Apply the necessary changes, and click **Save**.
 
 
-## Delete Policies
+## Delete Ingestion Policies
 
 1. Log in to your Wavefront instance as a Super Admin user.
 2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage Portal**

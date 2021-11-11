@@ -30,7 +30,7 @@ Here's an example of how the dashboard may look like.
 
 ![Example of the Usage Summary dashboard](images/usage_overview.png)
 
-### Overview charts
+### Overview Charts
 
 The **Overview** section of the dashboard contains the following charts:
 
