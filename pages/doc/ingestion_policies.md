@@ -84,19 +84,18 @@ In the **Ingestion Summary** section of the dashboard, you can see the following
 
   Shows the total usage out of the committed usage.
   
+  
+* **Month Over Month Change** 
+  
+  Shows a comparison res the current month with the previous month.
+
+  
 * **Hourly Usage** 
   
   Shows the hourly PPS. The red line represents the commit level. If the hourly usage exceeds the committed rate with more than 5% for a given month, you will incur overage charges.
 
-* **Month Over Month Change** 
 
-   Shows a comparison res the current month with the previous month.
-
-* **Last 12 Months Usage** 
-   
-  Shows your billed usage over the last year. The red line represents your commit level.
-
-In the **Optimize Usage** section of the dashboard, you can see a list of charts that lets you investigate further which accounts contribute the most and which are the top increasing metrics, so that you can investigate usage patterns.
+In the **Optimize Usage** section of the dashboard, you can see a list of charts that lets you investigate further which accounts contribute the most, what is the usage by ingestion source and ingestion type, so that you can investigate usage patterns.
 
  ![Usage summary per ingestion policy](images/usage_summary_per_policy.png)
 

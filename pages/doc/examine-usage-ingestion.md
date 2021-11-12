@@ -34,13 +34,13 @@ Here's an example of how the dashboard may look like.
 
 The **Overview** section of the dashboard contains the following charts:
 
-* **Projected Usage for This Month**
+* **Projected Usage for Selected Month**
     
-    Shows the P95 usage for the current month including overages.
+    Shows the P95 usage for the selected month including overages.
     
-* **Projected Overages for This Month**
+* **Projected Overages for Selected Month**
 
-    Shows the projected overage in PPS for this month.
+    Shows the projected overage in PPS for the selected month.
     
 * **Previous Month to Selected Month**
     
@@ -58,9 +58,17 @@ The **Overview** section of the dashboard contains the following charts:
 
     Shows the average usage for the previous three months out of your total commitment level.
     
-* **Last 12 Months Usage**
+* **Historical Usage (24 Months)**
 
-    Shows your billed usage over the last year. The dashed line represents your commit level.
+    Shows your billed usage over the last 2 years. The dashed line represents your commit level.
+    
+* **Top Metrics by Namespace**
+
+   Shows the number of data points per second (PPS) for all first-level metric names in the system. For example, if you have metrics named `cpu.usage`, `cpu.cores.number`, `memory.total`, and `memory.free`, this chart shows the total PPS under the first level metric names, such as `cpu` and `memory`.
+
+* **Top Increasing Metrics**
+
+   Shows the rate of metrics within a 30-days period of time.
     
 ### Scan Rate Charts
 
