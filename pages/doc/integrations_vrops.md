@@ -49,6 +49,9 @@ To register a new vRealize Operations instance, you need a Cloud Services consol
    Currently we fetch only vCenter Server adapter resources, such as Cluster Compute Resource and Datastore.
    
 1. In the **Metric Allow List** text box, add metrics to an allow list by specifying a regular expression. 
+
+   For example, to fetch only cost metrics, enter `^vrops.vmware.(datastore|clustercomputeresource).cost.*$`.
+   
 1. In the **Service Refresh Rate** text box, enter the number of minutes between requesting metrics. Default is `5` minutes.
 1. In the **vROps URL** text box, enter the vRealize Operations Endpoint URL.
 1. Click **Register**.
@@ -116,11 +119,13 @@ This initial release of the vRealize Operations integration has the following kn
             "serviceRefreshRateInMins":<service-refresh-rate-in-minutes>
         }
        ```
-       Here the `adapterNames` are the names of your vCenter Server instances. **Leave only the names of the vCenter Server instances that you want to monitor.**
+       Here the `adapterNames` are the names of your vCenter Server instances. 
+       
+       **Leave only the names of the vCenter Server instances that you want to monitor.**
     
     7. After you create the JSON file, click the `PUT /api/v2/cloudintegration/{id}` request.
-    8. In the **id** text box, enter the ID of the integration that you copied in step 5.
-    9. In the **body** text box, enter the contents of the JSON file that you created in step 6.
+    8. In the **id** text box, enter the ID of the integration that you copied in Step 5.
+    9. In the **body** text box, enter the contents of the JSON file that you created in Step 6.
     10. Click **Try it out**. 
     
    You get a 200 response and in the Wavefront UI you can see that the vCenter Server instances are filtered out.
