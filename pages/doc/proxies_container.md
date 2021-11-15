@@ -167,15 +167,21 @@ Errors with the container with WAVEFRONT_PROXY_ARGS will be logged as the contai
 
 * WAVEFRONT_TOKEN and WAVEFRONT_URL are required parameters for the container to start
 
-## Learn More!
+## Certificate Import for the Container's HTTP Proxy
 
-KB article: [Configure a Wavefront Proxy Container to Use wavefront.conf](https://help.wavefront.com/hc/en-us/articles/4409333245460-Configure-a-Wavefront-Proxy-Container-to-Use-wavefront-conf)
+### Option 1
 
-<!--- * The Wavefront proxy can use up to the limit of memory needed. If the consumption of the Wavefront Proxy container is --->
+To add the CA certificates, follow these steps:
+1. Add all PEM files into one directory.
+2. Mount that directory in `/tmp/ca` like this:
 
-<!-- This content still has to be verified.
-When you containerized Proxy the HTTP proxy requires certificate import. You can use a run.sh script, entry point to the Docker container, to simplify this process.
+docker run -it -e WAVEFRONT_URL=xxxxxxx -e WAVEFRONT_TOKEN=xxxxxx -p 2878:2878 -v /Users/user42/wavefront/ca_certs_test/to_docker:/tmp/ca proxy
 
+### Option 2
+
+You can use a run.sh script, entry point to the Docker container, to simplify this process.
+
+```
 #!/bin/bash
 
 if [[ -z "$WAVEFRONT_URL" ]]; then
@@ -236,4 +242,9 @@ fi
 java \
 $jvm_container_opts $JAVA_ARGS \
 -Dja
---->
+```
+
+
+## Learn More!
+
+KB article: [Configure a Wavefront Proxy Container to Use wavefront.conf](https://help.wavefront.com/hc/en-us/articles/4409333245460-Configure-a-Wavefront-Proxy-Container-to-Use-wavefront-conf)
