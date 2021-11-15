@@ -62,7 +62,7 @@ To register a new vRealize Operations instance, you need a Cloud Services consol
 
 ## Metrics for vRealize Operations
 
-With this initial, v1 release of the vRealize Operations integration, we collect the following high-level list of metrics. For the complete list and descriptions of the metrics that we collect for cluster compute resources and datastores, see [Cluster Compute Resource Metrics](https://docs.vmware.com/en/vRealize-Operations-Manager/8.4/com.vmware.vcom.metrics.doc/GUID-F6638548-7D0D-42A4-B774-9BF1EFB95E94.html) and [Datastore Metrics](https://docs.vmware.com/en/vRealize-Operations-Manager/8.4/com.vmware.vcom.metrics.doc/GUID-A77F1497-A21F-40A9-B240-446A66A174DD.html).
+With this initial, v1 release of the vRealize Operations integration, we collect the following high-level list of metrics. For the complete list and descriptions of the metrics that we collect for cluster compute resources and datastores, see [Cluster Compute Resource Metrics](https://docs.vmware.com/en/vRealize-Operations/8.6/com.vmware.vcom.metrics.doc/GUID-F6638548-7D0D-42A4-B774-9BF1EFB95E94.html) and [Datastore Metrics](https://docs.vmware.com/en/vRealize-Operations/8.6/com.vmware.vcom.metrics.doc/GUID-A77F1497-A21F-40A9-B240-446A66A174DD.html).
 
 
 |**Metric Name**|**Description**|
