@@ -30,7 +30,7 @@ Follow these steps:
     <br/> **Note**:
      <ul>
       <li>
-        Open port 2878 to send spans and metrics to Wavefront. For example, on Linux, Mac, and Windows, open the <code>wavefront.conf</code> file, uncomment  the <code>pushListnerPort</code> and set it to 2878. 
+        Open port 2878 to send spans and metrics to Wavefront. For example, on Linux, Mac, and Windows, open the <code>wavefront.conf</code> file, uncomment  the <code>pushListenerPorts</code> and set it to 2878. 
       </li>
       <li>
         Additionally, you need to open port 30001, with <code>customTracingListenerPorts=30001</code>, for the proxy to generate span-level RED metrics.
@@ -50,7 +50,7 @@ Here's how it works:
 Follow these steps:
 
 1. [Install the Wavefront Proxy](https://docs.wavefront.com/proxies_installing.html).
-   <br/>Make sure to open port 2878 to send spans and metrics to Wavefront. For example, on Linux, Mac, and Windows, open the wavefront.conf file, uncomment  the `pushListnerPort` and set it to 2878.
+   <br/>Make sure to open port 2878 to send spans and metrics to Wavefront. For example, on Linux, Mac, and Windows, open the wavefront.conf file, uncomment  the `pushListenerPorts` and set it to 2878.
 1. Configure your application to send the metrics/trace data to the OpenTelemetry Collector. See the [OpenTelemetry documentation](https://opentelemetry.io/docs/collector/) for details.
 1. Export the data from the OpenTelemetry Collector to the Wavefront Prometheus Storage Adapter. 
 
