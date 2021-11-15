@@ -165,6 +165,10 @@ The following example passes the `telegraf.conf` file and any files (such as `10
 ```
 Errors with the container with WAVEFRONT_PROXY_ARGS will be logged as the container starts.
 
-* WAVFFRONT_TOKEN and WAVEFRONT_URL are required parameters for the container to start
-<!---
-* The Wavefront proxy can use up to the limit of memory needed. If the consumption of the Wavefront Proxy container is --->
+* WAVEFRONT_TOKEN and WAVEFRONT_URL are required parameters for the container to start
+
+## Learn More!
+
+KB article: [Configure a Wavefront Proxy Container to Use wavefront.conf](https://help.wavefront.com/hc/en-us/articles/4409333245460-Configure-a-Wavefront-Proxy-Container-to-Use-wavefront-conf) 
+
+<!--- * The Wavefront proxy can use up to the limit of memory needed. If the consumption of the Wavefront Proxy container is --->

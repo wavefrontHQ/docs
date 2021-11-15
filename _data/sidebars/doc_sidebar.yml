@@ -233,7 +233,7 @@ entries:
 
         - title: Run a Proxy in a Container
           url: /proxies_container.html
-          output: web  
+          output: web
 
         - title: Proxy Configuration
           url: /proxies_configuring.html
@@ -430,6 +430,10 @@ entries:
         output: web
         subfolderitems:
 
+        - title: Optimize Query Language Performance
+          url: /query_language_performance.html
+          output: web
+
         - title: Aggregating Time Series
           url: /query_language_aggregate_functions.html
           output: web
@@ -507,6 +511,10 @@ entries:
           - title: IBM Cloud Integration (Third-Party Content)
             url: /integrations_ibmcloud_thirdparty.html
             output: web
+            
+          - title: Set Up Wavefront as PromQL Data Source in Grafana
+            url: /integrations_grafana.html
+            output: web
 
 
       - title: collectd Integrations
@@ -544,7 +552,7 @@ entries:
           - title: ZooKeeper collectd Integration
             url: /integrations_collectd_zookeeper.html
             output: web
-
+    
   - title: Kubernetes
     output: web
     folderitems:

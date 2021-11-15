@@ -158,7 +158,11 @@ Wavefront defines variables for obtaining information about the alert as a whole
 </tr>
 <tr>
 <td markdown="span">`errorMessage`</td>
-<td>Message that is returned if condition query processing results in an error. This usually occurs when the alert is in an invalid state.</td>
+<td><strong>Deprecated</strong>. Look at the updateMessage variable instead for information about the alert.</td>
+</tr>
+<tr>
+<td markdown="span">`updateMessage`</td>
+<td>Information about the alert, for example, information about the affected series. </td>
 </tr>
 <tr>
 <td markdown="span">`hostsFailingMessage`</td>
@@ -256,7 +260,7 @@ This portion of the Generic Webhook alert target template uses variables that ac
   "snoozedUntilTime": "{{{snoozedUntilTime}}}",
   "subject": "{{#jsonEscape}}{{{subject}}}{{/jsonEscape}}",
   "hostsFailingMessage": "{{#jsonEscape}}{{{hostsFailingMessage}}}{{/jsonEscape}}",
-  "errorMessage": "{{#jsonEscape}}{{{errorMessage}}}{{/jsonEscape}}",
+  "updateMessage": "{{#jsonEscape}}{{{updateMessage}}}{{/jsonEscape}}",
   "additionalInformation": "{{#jsonEscape}}{{{additionalInformation}}}{{/jsonEscape}}"
 }
 ```
@@ -289,7 +293,7 @@ Here is sample alert target output generated with the preceding template:
   "snoozedUntilTime": "",
   "subject": "[SMOKE] OPENED: Alert on Data rate (Test)",
   "hostsFailingMessage": "localhost (~proxy.points.2878.received)",
-  "errorMessage": "",
+  "updateMessage": "Newly Affected: app-18 (~sample.cpu.loadavg.1m) [az=us-west-2][env=production] : 1.30912 db-9 (~sample.cpu.loadavg.1m) [az=us-west-2][env=production] : 1.48368 app-10 (~sample.cpu.loadavg.1m) [az=us-west-2][env=production] : 1.06334",
   "additionalInformation": "An alert to test a Webhook integration with Slack Light"
   }
 ```

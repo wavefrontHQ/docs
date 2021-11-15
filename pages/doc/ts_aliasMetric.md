@@ -15,11 +15,11 @@ aliasMetric(<tsExpression>, "<newMetricName>")
 aliasMetric(<tsExpression>, [metric|source|{tagk, <pointTagKey>}],
          <zeroBasedNodeIndex> [, "<delimiterDefinition>"])
 
-aliasMetric(<tsExpression>, [metric|source|{tagk, <pointTagKey>}], 
+aliasMetric(<tsExpression>, [metric|source|{tagk, <pointTagKey>}],
         "<regexSearchPattern>", "<replacementPattern>")
 ```
 
-Replaces the metric name for each time series with an alias, which can be a specified string or derived from existing metadata. 
+Replaces the metric name for each time series with an alias, which can be a specified string or derived from existing metadata.
 
 To replace the source name with an alias, use [aliasSource()](ts_aliasSource.html).
 
@@ -45,7 +45,7 @@ To replace the source name with an alias, use [aliasSource()](ts_aliasSource.htm
 <ul>
 <li markdown="span">Specify `metric` to construct the new metric name for a time series based on its actual metric name.</li>
 <li markdown="span">Specify `source` to construct the new metric name for a time series based on its source name.</li>
-<li markdown="span">Specify `tagk, <pointTagKey>` (no curly braces) to construct the new metric name for a time series based on the value of a given point tag. 
+<li markdown="span">Specify `tagk, <pointTagKey>` (no curly braces) to construct the new metric name for a time series based on the value of a given point tag.
 </li>
 </ul>
 Omitting this parameter is the same as specifying <code>metric</code>.
@@ -86,13 +86,13 @@ Here are some sample scenarios:
 
 * A simple replacement string.
 * A replacement string that contains variables.
-* A single node that is extracted from the original metric name, the source name, or a point tag value. 
+* A single node that is extracted from the original metric name, the source name, or a point tag value.
 * Substrings that are matched by regular expressions from the original metric name, the source name, or a point tag value.
 
 ### Simple Replacement String
 
 You can specify a simple replacement string if you want to use the same metric name for all time series described by `tsExpression`.
- 
+
 Suppose you have a metric `ts("customer.user.total")` in your environment that tracks the number of total users of your product by customer. The series associated with this metric includes a customer point tag key to “group by” when applying an aggregate function:  `sum(ts("customer.user.total"),customer)`. If you want to display this information as a column on a Table chart, the current aggregate metric does not display properly. However, you can use `aliasMetric()` to rename the aggregate metric, and to apply a column header of **Total Users**.
 
 ```
@@ -122,11 +122,11 @@ The specified replacement string acts like a template, in which Wavefront replac
 
 A common practice is to use naming conventions that provide structure to metric names, source names, or point tag values. Naming conventions typically subdivide  metadata values into nodes, which are substrings that are delimited by certain characters. By default, Wavefront uses periods (".") as node delimiters, but your naming conventions might use other characters.
 
-You can use `aliasMetric()` with a `zeroBasedNodeIndex` to extract a single node from an existing metadata value and use just the extracted node as the metric name for your time series. For example, you might want to simplify a metric name like `pdx.customerA_latency.i49f21a72` by displaying it as `customerA_latency`. 
+You can use `aliasMetric()` with a `zeroBasedNodeIndex` to extract a single node from an existing metadata value and use just the extracted node as the metric name for your time series. For example, you might want to simplify a metric name like `pdx.customerA_latency.i49f21a72` by displaying it as `customerA_latency`.
 
 `zeroBasedNodeIndex` specifies the node to extract by counting nodes from left to right, starting with 0. By default, `aliasMetric()` extracts the node from the existing metric name. To extract a node from the source name or a specified point tag value, you must explicitly include `source` or `tagk, <pointTagKey>`.
 
-For example, suppose you use the following naming convention for a metric namespace, and you consider periods (".") to be node delimiters: `<datacenter>.<customerName>_latency.<idNumber>` 
+For example, suppose you use the following naming convention for a metric namespace, and you consider periods (".") to be node delimiters: `<datacenter>.<customerName>_latency.<idNumber>`
 
 Under these conventions, the nodes in the metric name `pdx.customerA_latency.i49f21a72` are numbered as follows:
 
@@ -165,7 +165,7 @@ aliasMetric(ts(~sample.db.connections.*), source, "db-([0-9]*)", "connect-$1-{{e
 
 Here is a summary of the sample `aliasMetric()` queries from the examples in the sections above.
 
-* [Replace metric names with a simple string:](#simple-replacement-string) 
+* [Replace metric names with a simple string:](#simple-replacement-string)
 
   ```
   aliasMetric(sum(ts("customer.user.total"),customer), "Total Users")
@@ -195,7 +195,11 @@ Here is a summary of the sample `aliasMetric()` queries from the examples in the
   {% endraw %}
 
 
-For additional examples, see the [aliasSource() Function](ts_aliasSource.html). 
+## Learn More!
+
+* For additional examples, see the [aliasSource() Function](ts_aliasSource.html).
+
+* See the KB article [Working with metadata functions - aliasSource, aliasMetric and taggify](https://help.wavefront.com/hc/en-us/articles/360057122452-Working-with-metadata-functions-aliasSource-aliasMetric-and-taggify)
 
 <!--- Need to fix this example
 
