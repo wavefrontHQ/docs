@@ -57,7 +57,7 @@ To register a new vRealize Operations instance, you need a Cloud Services consol
 1. Click **Register**.
 
 
-{% include important.html content="After you set up the vRealize Operations integration, it will take up to 24 hours for the data to start flowing into Wavefront. Until then, the charts on the predefined **VMware vRealize Operations Summary** dashboard will show NO DATA." %}
+{% include important.html content="After you set up the vRealize Operations integration, it will take up to 24 hours for the cost metrics to start flowing into Wavefront, because cost metrics reports flow on a daily basis. Until then, the cost related charts on the predefined **VMware vRealize Operations Summary** dashboard will show NO DATA." %}
 
 
 ## Metrics for vRealize Operations
