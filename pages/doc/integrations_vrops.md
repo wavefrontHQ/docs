@@ -3,7 +3,6 @@ title: vRealize Operations Integration Overview
 keywords:
 tags: [integrations]
 sidebar: doc_sidebar
-published: true
 permalink: integrations_vrops.html
 summary: Understand the setup and the vRealize Operations integration v1 limitations and caveats.
 ---
@@ -33,6 +32,7 @@ To register a new vRealize Operations instance, you need a Cloud Services consol
    
    1. Under **Organization Roles**, select **Organization Member**.
    1. Under **Service Roles**, scroll down, expand **VMware vRealize Operations Cloud**, and select the **vROps ReadOnly** role.
+   
 1. Click the **Generate** button.
 1. Click the **Copy** button and copy the generated token.
 
