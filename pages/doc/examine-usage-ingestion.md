@@ -68,7 +68,7 @@ The **Overview** section of the dashboard contains the following charts:
 </tr>
 <tr>
 <td><strong>Top Metrics by Namespace</strong></td>
-<td>Shows the number of data points per second (PPS) for all first-level metric names in the system. For example, if you have metrics named `cpu.usage`, `cpu.cores.number`, `memory.total`, and `memory.free`, this chart shows the total PPS under the first level metric names, such as `cpu` and `memory`.</td>
+<td>Shows the number of data points per second (PPS) for all first-level metric names in the system. For example, if you have metrics named <code>cpu.usage</code>, <code>cpu.cores.number</code>, <code>memory.total</code>, and <code>memory.free</code>, this chart shows the total PPS under the first level metric names, such as <code>cpu</code> and <code>memory</code>.</td>
 </tr>
 <tr>
 <td><strong>Top Increasing Metrics</strong></td>

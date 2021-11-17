@@ -54,7 +54,7 @@ The Wavefront Usage integration includes the following dashboards:
 
 ### Wavefront Service and Proxy Data Dashboard
 
-The Wavefront Service and Proxy Data dashboard helps you find reasons for system slowdown.
+The **Wavefront Service and Proxy Data** dashboard helps you find reasons for system slowdown.
 
 The charts show internal metrics information and allow you to examine many aspects of your Wavefront instance. See [Monitoring Wavefront Proxies](monitoring_proxies.html) for details on the **Proxy Health** and **Proxy Troubleshooting** sections.
 
@@ -120,7 +120,7 @@ The metrics used in this section are:
 
 This dashboard helps you drill down into the metrics namespace and explore the **trend** of your metrics ingestion rate.
 
-Wavefront automatically tracks the number of metrics received for the first 3 levels of your metric namespace as delta counters, which can be queried with `cs(~metric.global.namespace.*)`. The period (`.`) character separates the levels. For example for a metric named disk.space.total.bytes, the first level is disk, the second is space, and the third is total. This dashboard includes chart to explore those metrics and trends.
+Wavefront automatically tracks the number of metrics received for the first 3 levels of your metric namespace as delta counters, which can be queried with `cs(~metric.global.namespace.*)`. The period (`.`) character separates the levels. For example for a metric named `disk.space.total.bytes`, the first level is disk, the second is space, and the third is total. This dashboard includes chart to explore those metrics and trends.
 
 ![screenshot of part of dashboard](/images/metrics_breakdown.png)
 
@@ -154,11 +154,11 @@ For example:
 
 Customers often tell us that they want to make sure they don't exceed their committed monthly PPS (points per second). Follow these steps to monitor usage and take corrective action.
 
-1. The new `Committed Rate and Monthly Usage (PPS P95) vs. Committed` dashboard includes charts that show how close you are to consuming 95% of your contracted rate. You can add alerts to charts in this dashboard to get notifications.
+1. The new **Committed Rate and Monthly Usage (PPS P95) vs. Committed** dashboard includes charts that show how close you are to consuming 95% of your contracted rate. You can add alerts to charts in this dashboard to get notifications.
 2. If you need to reduce usage, you have several options:
-   * Start examining ingestion from the Wavefront Service and Proxy Data dashboard. The [internal metrics](wavefront_monitoring.html#internal-metrics-overview) shown in this dashboard highlight.
+   * Start examining ingestion from the **Wavefront Service and Proxy Data** dashboard. The [internal metrics](wavefront_monitoring.html#internal-metrics-overview) shown in this dashboard highlight.
    * Use the **Wavefront Namespace Usage Explorer** dashboard to drill down into the metrics. Wavefront automatically tracks the number of metrics received for the first 3 levels of your metric namespace as delta counters, and this dashboard presents the metrics in an easy-to-use way.
-   * Finally, if you suspect that much of your usage comes from certain accounts (user or service accounts) consider setting up one or more ingestion policies. With these policies in place, each account cannot consume more than the rate that is preset in the policy.
+   * Finally, if you suspect that much of your usage comes from certain accounts (user or service accounts) consider setting up one or more [ingestion policies](ingestion_policies.html). 
 
 
 ## Examine Versions of Dashboards and Alerts
