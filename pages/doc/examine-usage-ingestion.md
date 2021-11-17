@@ -34,41 +34,49 @@ Here's an example of how the dashboard may look like.
 
 The **Overview** section of the dashboard contains the following charts:
 
-* **Projected Usage for Selected Month**
-    
-    Shows the P95 usage for the selected month including overages.
-    
-* **Projected Overages for Selected Month**
+<table style="width: 100%;">
+<tbody>
+<thead>
+<tr><th width="30%">Chart</th><th width="70%">Description</th></tr>
+</thead>
+<tr>
+<td><strong>Projected Usage for Selected Month</strong></td>
+<td>Shows the P95 usage for the selected month including overages.</td></tr>
+<tr>
+<td><strong>Projected Overages for Selected Month</strong></td>
+<td>Shows the projected overage in PPS for the selected month.</td>
+</tr>
+<tr>
+<td><strong>Previous Month to Selected Month</strong></td>
+<td>Compares the PPS ingestion usage of the selected month with the previous month.</td>
+</tr>
+<tr>
+<td><strong>Hourly Usage</strong></td>
+<td>Shows the hourly PPS. The red line represents the commit level. If the hourly usage exceeds the committed rate with more than 5% for a given month, you will incur overage charges.</td>
+</tr>
+<tr>
+<td><strong>Time Above Contract Rate</strong></td>
+<td>Shows the percentage of time in which you have exceeded your committed rate. If you exceed your committed rate for more than 5% of the hours of a given month, you will be billed your overage rate.</td>
+</tr>
+<tr>
+<td><strong>Average Usage for the Last Quarter</strong></td>
+<td>Shows the average usage for the previous three months out of your total commitment level.</td>
+</tr>
+<tr>
+<td><strong>Historical Usage (24 Months)</strong></td>
+<td>Shows your billed usage over the last 2 years. The dashed line represents your commit level.</td>
+</tr>
+<tr>
+<td><strong>Top Metrics by Namespace</strong></td>
+<td>Shows the number of data points per second (PPS) for all first-level metric names in the system. For example, if you have metrics named `cpu.usage`, `cpu.cores.number`, `memory.total`, and `memory.free`, this chart shows the total PPS under the first level metric names, such as `cpu` and `memory`.</td>
+</tr>
+<tr>
+<td><strong>Top Increasing Metrics</strong></td>
+<td>Shows the rate of metrics within a 30-days period of time.</td>
+</tr>
+</tbody>
+</table>
 
-    Shows the projected overage in PPS for the selected month.
-    
-* **Previous Month to Selected Month**
-    
-    Compares the PPS ingestion usage of the selected month with the previous month.
-    
-* **Hourly Usage**
-    
-    Shows the hourly PPS usage. The red line in the chart represents the committed level.
-    
-* **Time Above Contract Rate**
-    
-    Shows the percentage of time in which you have exceeded your committed rate. If you exceed your committed rate for more than 5% of the hours of a given month, you will be billed your overage rate.
-    
-* **Average Usage for the Last Quarter**
-
-    Shows the average usage for the previous three months out of your total commitment level.
-    
-* **Historical Usage (24 Months)**
-
-    Shows your billed usage over the last 2 years. The dashed line represents your commit level.
-    
-* **Top Metrics by Namespace**
-
-   Shows the number of data points per second (PPS) for all first-level metric names in the system. For example, if you have metrics named `cpu.usage`, `cpu.cores.number`, `memory.total`, and `memory.free`, this chart shows the total PPS under the first level metric names, such as `cpu` and `memory`.
-
-* **Top Increasing Metrics**
-
-   Shows the rate of metrics within a 30-days period of time.
     
 ### Scan Rate Charts
 
@@ -76,17 +84,25 @@ Typically, you are billed based on your ingestion rate. If your scan rate exceed
 
 The **Scan Rate** section of the dashboard contains charts showing you the following charts:
 
-* **Is Billing Based on Scan Rate?**
-    
-    Shows whether you are currently billed based on your scan rate.
-    
-* **Scan Rate vs Ingest Rate**
+<table style="width: 100%;">
+<tbody>
+<thead>
+<tr><th width="30%">Chart</th><th width="70%">Description</th></tr>
+</thead>
+<tr>
+<td><strong>Is Billing Based on Scan Rate?</strong></td>
+<td>Shows whether you are currently billed based on your scan rate.</td></tr>
+<tr>
+<td><strong>Scan Rate vs Ingest Rate</strong></td>
+<td>Shows the times your scan rate exceeds your ingestion rate.</td>
+</tr>
+<tr>
+<td><strong>Ingest Rate vs Scan Rat</strong></td>
+<td>Compares your ingestion rate with your scan rate.</td>
+</tr>
+</tbody>
+</table>
 
-    Shows the times your scan rate exceeds your ingestion rate.
-    
-* **Ingest Rate vs Scan Rate**
-    
-    Compares your ingestion rate with your scan rate.
     
 ## Learn More
 

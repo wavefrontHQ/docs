@@ -36,6 +36,7 @@ If the customer uses more than the contracted rate, VMware bills for those addit
 <tr>
 <td>Who is responsible for high usage </td>
 <td>Use <a href="ingestion_policies.html">ingestion policies</a> and the <strong>Wavefront Ingestion Summary</strong> dashboard for an ingestion policy to investigate which are the top accounts contributing to the ingestion.
+<p>Use the <strong>Wavefront Ingestion Policy Explorer</strong> dashboard in the <strong>Wavefront Usage</strong> integration to drill down into accounts and find the accounts responsible for the high ingestion.</p>
 <p>Use the <strong>Wavefront Namespace Usage Explorer</strong> dashboard in the <strong>Wavefront Usage</strong> integration to drill down into namespaces and find where the ingested data is coming from.</p>
 </td>
 </tr>
@@ -65,7 +66,7 @@ Use the <a href="examine_usage.html"><strong>Usage Summary</strong></a> dashboar
 
 ## Which Teams Are Responsible for How Much Ingested Data?
 
-When you want to find out which teams are using the most data, you can either create [ingestion policies](ingestion_policies.html) for each team, for example, and monitor the usage per team, or you can follow these steps.
+When you want to find out which teams are using the most data, you can either create [ingestion policies](ingestion_policies.html) for each team and monitor the usage per team, or you can follow these steps.
 
 ### Step 1: Examine Ingestion with the Namespace Usage Explorer
 
@@ -121,7 +122,7 @@ The [Wavefront Spy API](wavefront_monitoring_spy.html) gives even more detail, b
 
 The first thing you would do is to investigate the charts in the [Usage Summary dashboard](examine_usage.html). They can show you how close you are to exceeding your committed rate and whether you will be billed for overages.
 
-The Committed Rate and Monthly Usage (PPS P95) dashboard that’s part of the Wavefront Usage integration helps you determine whether you’re getting close to meeting the limit. For most Wavefront instances, Wavefront continues to ingest data after the limit is reached Wavefront, but the customer has to pay overage.
+The **Committed Rate vs Monthly Usage (PPS P95)** dashboard that’s part of the Wavefront Usage integration helps you determine whether you’re getting close to meeting the limit. For most Wavefront instances, Wavefront continues to ingest data after the limit is reached Wavefront, but the customer has to pay overage.
 
 The charts in the dashboard show this information:
 
