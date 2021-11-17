@@ -33,6 +33,7 @@ To register a new vRealize Operations instance, you need a Cloud Services consol
    1. Under **Organization Roles**, select **Organization Member**.
    1. Under **Service Roles**, scroll down, expand **VMware vRealize Operations Cloud**, and select the **vROps ReadOnly** role.
    
+      **Note**: The same **vROps ReadOnly** role must be also assigned to your user account.
 1. Click the **Generate** button.
 1. Click the **Copy** button and copy the generated token.
 
