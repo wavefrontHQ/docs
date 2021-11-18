@@ -14,6 +14,13 @@ This page lists new and updated features for the Wavefront service.
 * For  **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
 
+## 2021-46.x Release Notes
+
+* **Integration Improvements**: November integrations are live! See [Integration Release Notes](integrations_new_changed.html#november-2021).
+* **New Doc Pages**:
+  - 
+
+
 ## 2021-44.x Release Notes
 
 * **Share Section URLs**: You can now [share links to sections](ui_sharing.html#share-a-link-to-a-dashboard-section) from any dashboard.
