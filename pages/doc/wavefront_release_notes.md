@@ -18,7 +18,9 @@ This page lists new and updated features for the Wavefront service.
 
 * **Integration Improvements**: November integrations are live! See [Integration Release Notes](integrations_new_changed.html#november-2021).
 * **New Doc Pages**:
-  - 
+  - [Improve Query Performance](query_language_performance.html) has tips and tricks for fine-tuning queries.
+  - [Ensure Optimal Dashboard Performance](ui_dashboards.html#ensure-optimal-dashboard-performance) has been revamped to include tips about sampling, dynamic variables, and more.
+  - Added the [OpenTelemetry and Wavefront Tutorial ](wf_opentelemetry_java_tutorial.html), which was already made [available in a blog post](https://tanzu.vmware.com/content/blog/getting-started-opentelemetry-vmware-tanzu-observability) in September. 
 
 
 ## 2021-44.x Release Notes
