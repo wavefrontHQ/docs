@@ -8,7 +8,7 @@ summary: Monitor usage with ingestion policies and usage dashboards.
 
 As a Wavefront Super Admin, you're interested in usage patterns for the whole company, but also for different teams in the company. You can create ingestion policies and assign accounts or groups to each policy to see which teams use which part of total ingestion.
 
-You can examine the performance of your Wavefront instance using [wftop](), [Wavefront spy](wavefront_monitoring_spy.html), the [Slow Queries dashboard](wavefront_monitoring.html#examine-slow-queries), and the [Wavefront Usage integration](wavefront_monitoring.html). By using ingestion policies, you can monitor the total usage out of the committed usage, the hourly usage and the top accounts contributing to ingestion.
+You can examine the performance of your Wavefront instance using [wftop](), [Wavefront spy](wavefront_monitoring_spy.html), the [Slow Queries dashboard](wavefront_monitoring.html#examine-slow-queries), and the [Wavefront Usage integration](wavefront_monitoring.html). By using ingestion policies, you can monitor the total usage out of the committed usage, the hourly usage, and the top accounts contributing to ingestion.
 
 **Note:** When you create a new ingestion policy, it can take a few minutes for the data to become available in the Wavefront Usage dashboard.
 
@@ -18,7 +18,7 @@ Ingestion policies allow you to group user accounts and service accounts or any 
 
 ### Permissions
 
-Users with **Accounts, Groups & Roles** permission can create ingestion policies and add accounts or groups to these policies.
+Users with the **Accounts, Groups & Roles** permission can create ingestion policies and add accounts or groups to these policies.
 * Each account can belong to more than one policies at a time.
 * You can assign many service accounts and user accounts to the same ingestion policy.
 * You can assign many user and service accounts groups to the same ingestion policy.
@@ -34,7 +34,7 @@ Users with **Accounts, Groups & Roles** permission can create ingestion policies
    1. Choose the **Scope** of the policy.
   
       This can be either **Accounts** or **Groups**.
-   2. Depending on your choice, enter either the user and service accounts to assign to the policy or the user and service accounts groups to assign to the policy.
+   2. Depending on your choice of scope, enter either the user and service accounts or the user and service accounts groups to assign to the policy.
    3. Select whether you want to set a PPS limit. 
       If you choose to set a PPS limit, you must enter the points per second limit number in the **PPS per billing period** text box.
    4. Click **Next**.
@@ -42,7 +42,7 @@ Users with **Accounts, Groups & Roles** permission can create ingestion policies
 
 ## Edit an Ingestion Policy
 
-After you create an ingestion policy, if you need, for example, to add a bigger PPS limit, you can edit the policy. 
+After you create an ingestion policy, if you need, for example, to increase the PPS limit, you can edit the policy. 
 
 {% include note.html content="You cannot edit the scope of the policy."%}
 
@@ -56,13 +56,13 @@ After you create an ingestion policy, if you need, for example, to add a bigger 
 
 1. Log in to your Wavefront instance as a Super Admin user.
 2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage Portal**.
-3. On the **Ingestion Policies** tab, select the check boxes of the ingestion policies that you want to delete, click **Delete** and confirm.
+3. On the **Ingestion Policies** tab, select the check boxes of the ingestion policies that you want to delete, click the **Delete** button and confirm.
 
 ## See the Ingestion Policies a Proxy Belongs to
 
 1. Log in to your Wavefront instance as a Super Admin user.
 2. Click **Browse > Proxies**.
-3. For each proxy the **Ingestion Policies** column shows a list of policies. If the proxy belongs to many policies, hover over the three dots and you'll see the ingestion policies in a tooltip.
+3. For each proxy the **Ingestion Policies** column shows a list of policies. If the proxy belongs to many policies, hover over the three horizontal dots and you'll see the rest of the ingestion policies in a tooltip.
 
 `MARGARITA: How is this information useful?`
 
@@ -110,7 +110,7 @@ In the **Optimize Usage** section of the dashboard, you can see a list of charts
 
 Consider the following example. You are administering a Wavefront cluster for two big teams, `IT Team1` and `IT Team2`, and you want to monitor how much data each of the team uses. `IT Team1` usually needs more PPS data, and you have only 10,000 of committed PPS on a monthly basis.
 
-You can create an ingestion policy for each team to monitor how much data each team uses per month. You can also set PPS limits for each ingestion policy and if a team consumes more than expected, you can provide additional training on how to use ingested data wisely. 
+You can create an ingestion policy for each team to monitor how much data each team uses per month. You can also set a PPS limit for each ingestion policy and if a team consumes more than expected, you can provide additional training on how to use ingested data wisely. 
 
 ### Learn More!
 

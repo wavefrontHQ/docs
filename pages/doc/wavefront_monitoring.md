@@ -13,7 +13,7 @@ You can use the Wavefront Usage integration dashboards to:
 * Examine the points per second (PPS) based on predefined ingestion policies.
 * See whether the ingested metrics are at 95% of committed rate. Optionally, get alerts if that happens.
 
-In addition, you can create your own dashboards, charts, and alerts by using the [internal metrics](wavefront-internal-metrics.html) to investigate the problem.
+In addition, you can create your own dashboards, charts, and alerts by using the [internal metrics](wavefront-internal-metrics.html) to investigate a problem.
 
 See [Monitoring Wavefront Proxies](monitoring_proxies.html) for details on investigating proxy usage.
 
@@ -39,7 +39,7 @@ The Wavefront Usage integration includes the following dashboards:
 <td>In environments where ingestion policies are defined, investigate usage for <strong>each account and ingestion policy</strong>.</td>
 <td markdown="span">Provides a granular breakdown of Wavefront ingestion across your organization by [ingestion policies](ingestion_policies.html), accounts, sources, and types. Use this dashboard to identify who is contributing the most to your Wavefront usage and manage your overall usage.</td></tr>
 <tr>
-<td><strong>Committed Rate and Monthly Usage (PPS P95)</strong></td>
+<td><strong>Committed Rate vs Monthly Usage (PPS P95)</strong></td>
 <td>Avoid <strong>exceeding the committed rate</strong> for your instance by exploring dashboards and creating alerts.
 </td>
 <td markdown="span">Displays a detailed breakdown of your monthly usage. Enables you to take appropriate action when usage reaches around 95% of your committed usage.</td></tr>
@@ -78,7 +78,7 @@ These charts use the following metrics:
 - **Data Scan Rate**
   - `~query.summaries_scanned`, the per-second rate at which metrics are being queried through dashboards, custom charts, or API calls.
   - `~query.spans_scanned`, the per-second rate at which spans are being queried through dashboards, custom charts, or API calls.
-  - `~query.histograms_scanned`, the per-second rate at which histograms are being queried through dashboards, custom charts, or API calls
+  - `~query.histograms_scanned`, the per-second rate at which histograms are being queried through dashboards, custom charts, or API calls.
 
 
 #### Wavefront Stats
@@ -116,7 +116,7 @@ The metrics used in this section are:
 - `~histogram.counter` - Number of histograms being collected. Does not include internal histogram data.
 
 
-### Wavefront Metric Namespace Breakdown Dashboard
+### Wavefront Metric Namespace Usage Explorer Dashboard
 
 This dashboard helps you drill down into the metrics namespace and explore the **trend** of your metrics ingestion rate.
 
@@ -135,9 +135,9 @@ The dashboard includes a link to the **Ingestion Policies** page so if you are a
 ![screenshot of part of the dashboard](/images/ingestion_pps_usage_breakdown.png)
 
 
-### Committed Rate and Monthly Usage (PPS P95) vs. Committed Dashboard
+### Committed Rate vs Monthly Usage (PPS P95) Dashboard
 
-This dashboards helps you monitor your **monthly usage** and ensure that you're not ingesting more PPS than your contracted rate allows.
+This dashboard helps you monitor your **monthly usage** and ensure that you're not ingesting more PPS than your contracted rate allows.
 
 The dashboard gives a detailed breakdown of your Tanzu Observability monthly usage against commitment. When your usage reaches around 95% of your committed rate, you can then take appropriate action.
 
@@ -154,11 +154,11 @@ For example:
 
 Customers often tell us that they want to make sure they don't exceed their committed monthly PPS (points per second). Follow these steps to monitor usage and take corrective action.
 
-1. The new **Committed Rate and Monthly Usage (PPS P95) vs. Committed** dashboard includes charts that show how close you are to consuming 95% of your contracted rate. You can add alerts to charts in this dashboard to get notifications.
+1. The new **Committed Rate vs Monthly Usage (PPS P95)** dashboard includes charts that show how close you are to consuming 95% of your contracted rate. You can add alerts to charts in this dashboard to get notifications.
 2. If you need to reduce usage, you have several options:
    * Start examining ingestion from the **Wavefront Service and Proxy Data** dashboard. The [internal metrics](wavefront_monitoring.html#internal-metrics-overview) shown in this dashboard highlight.
    * Use the **Wavefront Namespace Usage Explorer** dashboard to drill down into the metrics. Wavefront automatically tracks the number of metrics received for the first 3 levels of your metric namespace as delta counters, and this dashboard presents the metrics in an easy-to-use way.
-   * Finally, if you suspect that much of your usage comes from certain accounts (user or service accounts) consider setting up one or more [ingestion policies](ingestion_policies.html). 
+   * Finally, if you suspect that much of your usage comes from certain accounts (user or service accounts). consider setting up one or more [ingestion policies](ingestion_policies.html). 
 
 
 ## Examine Versions of Dashboards and Alerts
