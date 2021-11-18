@@ -167,8 +167,84 @@ Errors with the container with WAVEFRONT_PROXY_ARGS will be logged as the contai
 
 * WAVEFRONT_TOKEN and WAVEFRONT_URL are required parameters for the container to start
 
+## Certificate Import for the Container's HTTP Proxy
+
+### Option 1
+
+To add the CA certificates, follow these steps:
+1. Add all PEM files into one directory.
+2. Mount that directory in `/tmp/ca` like this:
+
+docker run -it -e WAVEFRONT_URL=xxxxxxx -e WAVEFRONT_TOKEN=xxxxxx -p 2878:2878 -v /Users/user42/wavefront/ca_certs_test/to_docker:/tmp/ca proxy
+
+### Option 2
+
+You can use a run.sh script, entry point to the Docker container, to simplify this process.
+
+```
+#!/bin/bash
+
+if [[ -z "$WAVEFRONT_URL" ]]; then
+echo "WAVEFRONT_URL environment variable not configured - aborting startup " >&2
+exit 0
+fi
+
+if [[ -z "$WAVEFRONT_TOKEN" ]]; then
+echo "WAVEFRONT_TOKEN environment variable not configured - aborting startup " >&2
+exit 0
+fi
+
+spool_dir="/var/spool/wavefront-proxy"
+mkdir -p $spool_dir
+
+chown -R wavefront:wavefront $spool_dir
+
+# Be receptive to core dumps
+ulimit -c unlimited
+
+# Allow high connection count per process (raise file descriptor limit)
+ulimit -Sn 65536
+ulimit -Hn 65536
+
+java_heap_usage=${JAVA_HEAP_USAGE:-4G}
+jvm_initial_ram_percentage=${JVM_INITIAL_RAM_PERCENTAGE:-50.0}
+jvm_max_ram_percentage=${JVM_MAX_RAM_PERCENTAGE:-85.0}
+
+# Use cgroup opts - Note that -XX:UseContainerSupport=true since Java 8u191.
+# https://bugs.openjdk.java.net/browse/JDK-8146115
+jvm_container_opts="-XX:InitialRAMPercentage=$jvm_initial_ram_percentage -XX:MaxRAMPercentage=$jvm_max_ram_percentage"
+if [ "${JVM_USE_CONTAINER_OPTS}" = false ] ; then
+jvm_container_opts="-Xmx$java_heap_usage -Xms$java_heap_usage"
+fi
+
+###################
+# import CA certs #
+###################
+files=$(ls /tmp/ca/*.pem)
+if [ ${#files[@]} -gt 0 ]; then
+echo
+echo "Adding credentials to JVM store.."
+echo
+for filename in ${files}; do
+alias=$(basename ${filename})
+alias=${alias%.*}
+echo "----------- Adding credential file:${filename} alias:${alias}"
+keytool -noprompt -cacerts -importcert -storepass changeit -file ${filename} -alias ${alias}
+keytool -storepass changeit -list -v -cacerts -alias ${alias}
+echo "----------- Done"
+echo
+done
+fi
+
+#############
+# run proxy #
+#############
+java \
+$jvm_container_opts $JAVA_ARGS \
+-Dja
+```
+
+
 ## Learn More!
 
-KB article: [Configure a Wavefront Proxy Container to Use wavefront.conf](https://help.wavefront.com/hc/en-us/articles/4409333245460-Configure-a-Wavefront-Proxy-Container-to-Use-wavefront-conf) 
-
-<!--- * The Wavefront proxy can use up to the limit of memory needed. If the consumption of the Wavefront Proxy container is --->
+KB article: [Configure a Wavefront Proxy Container to Use wavefront.conf](https://help.wavefront.com/hc/en-us/articles/4409333245460-Configure-a-Wavefront-Proxy-Container-to-Use-wavefront-conf)
