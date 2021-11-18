@@ -38,7 +38,7 @@ Users with the **Accounts, Groups & Roles** permission can create ingestion poli
    3. Select whether you want to set a PPS limit. 
       If you choose to set a PPS limit, you must enter the points per second limit number in the **PPS per billing period** text box.
    4. Click **Next**.
-5. Enter the name of the policy and click **Create**.
+5. Enter the name of the policy, and optionally, a description and click **Create**.
 
 ## Edit an Ingestion Policy
 
@@ -56,7 +56,7 @@ After you create an ingestion policy, if you need, for example, to increase the 
 
 1. Log in to your Wavefront instance as a Super Admin user.
 2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage Portal**.
-3. On the **Ingestion Policies** tab, select the check boxes of the ingestion policies that you want to delete, click the **Delete** button and confirm.
+3. On the **Ingestion Policies** tab, click the ellipsis icon next to the policy that you want to delete, click **Delete** and confirm.
 
 ## See the Ingestion Policies a Proxy Belongs to
 
