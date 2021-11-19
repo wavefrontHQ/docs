@@ -47,7 +47,7 @@ See [Run a Proxy in a Container](proxies_container.html) for additional details.
 
 Next, you install the OpenTelemetry Collector and create the config file.
 
-**1.** Download the binary from the latest release of the [OpenTelemetry Collector project](open-telemetry/opentelemetry-collector-contrib/releases/latest) and add it to a  directory of your choice.
+**1.** Download the binary from the latest release of the [OpenTelemetry Collector project](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/latest) and add it to a  directory of your choice.
 
 **2.** In the same directory, create the `otel_collector_config.yaml` file and copy the following configuration into the file.
 
