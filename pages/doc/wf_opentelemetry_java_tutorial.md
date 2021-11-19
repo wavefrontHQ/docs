@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: wf_opentelemetry_java_tutorial.html
 summary: Set up your environment to send OpenTelemetry Data to Wavefront.
 ---
-With observability, you can ask questions about your system and get answers based on the telemetry data (metrics, traces, and logs) they produce. 
+With observability, you can ask questions about your system and get answers based on the telemetry data (metrics, traces, and logs) they produce.
 
 With our tracing capabilities, you can analyze every request as it moves from one service to the next. This helps you:
 * Pinpoint the root cause of failures.
@@ -47,7 +47,7 @@ See [Run a Proxy in a Container](proxies_container.html) for additional details.
 
 Next, you install the OpenTelemetry Collector and create the config file.
 
-**1.** Download the binary from the latest release of the [OpenTelemetry Collector project](open-telemetry/opentelemetry-collector-contrib/releases/latest) and add it to a  directory of your choice.
+**1.** Download the binary from the latest release of the [OpenTelemetry Collector project](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/latest) and add it to a  directory of your choice.
 
 **2.** In the same directory, create the `otel_collector_config.yaml` file and copy the following configuration into the file.
 
