@@ -167,11 +167,11 @@ Errors with the container with WAVEFRONT_PROXY_ARGS will be logged as the contai
 
 * WAVEFRONT_TOKEN and WAVEFRONT_URL are required parameters for the container to start
 
-## Configure Wavefront Proxy with an HTTP/HTTPS Proxy
+## Configure Wavefront Proxy with an HTTPS Proxy
 
-In many environments, traffic goes through an HTTP/HTTPS proxy before going to the internet.
-* The HTTP/HTTPS proxy can run in the same container as the Wavefront proxy, or anywhere else.
-* The HTTP/HTTPS proxy must include CA signed certificates, especially in production environments.
+In many environments, traffic goes through an HTTPS proxy before going to the internet.
+* The HTTPS proxy can run in a container or anywhere else.
+* The HTTPS proxy must include CA signed certificates, especially in production environments.
 * The Wavefront proxy must have those certificates (PEM files) as well.
 
 ![Both HTTP/HTTPS proxy and Wavefront proxy are secured](images/proxy_and_proxy.png)
@@ -180,8 +180,8 @@ In many environments, traffic goes through an HTTP/HTTPS proxy before going to t
 To add the CA certificates to the Wavefront proxy:
 
 1. Place all PEM files in one directory.
-2. Mount that directory in `/tmp/ca`.
-3. Run the following command:
+2. Mount that directory as volume `/tmp/ca` on the Docker deployment
+3. Run a command like following for testing (see the Docker documentation for the command in production environments):
 ```
 docker run -it -e WAVEFRONT_URL=xxxxxxx -e WAVEFRONT_TOKEN=xxxxxx -p 2878:2878 -v /Users/user42/wavefront/ca_certs_test/to_docker:/tmp/ca proxy
 ```
@@ -189,7 +189,7 @@ docker run -it -e WAVEFRONT_URL=xxxxxxx -e WAVEFRONT_TOKEN=xxxxxx -p 2878:2878 -
 You have to specify:
 * WAVEFRONT_URL: The URL of your instance (e.g. https://example.wavefront.com)
 * WAVEFRONT_TOKEN: The [Wavefront Token](wavefront_api.html#generating-an-api-token). Creating a service account and using a service account token usually makes sense.
-* The port that the proxy is using, 2878 by default. 
+* The port that the proxy is using, 2878 by default.
 
 ## Learn More!
 

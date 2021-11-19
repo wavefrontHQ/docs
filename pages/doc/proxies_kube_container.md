@@ -246,4 +246,4 @@ You have to specify the URL of your instance (e.g. https://example.wavefront.com
 ## Learn More!
 
 * KB article: [Configure a Wavefront Proxy Container to Use wavefront.conf](https://help.wavefront.com/hc/en-us/articles/4409333245460-Configure-a-Wavefront-Proxy-Container-to-Use-wavefront-conf)
-* [Configure Wavefront Proxy with an HTTP/HTTPS proxy] (proxies_container.html#configure-wavefront-proxy-with-an-httphttps-proxy) explains CACertsetup for a Docker container. 
+* [Configure Wavefront Proxy with an HTTP/HTTPS proxy](proxies_container.html#configure-wavefront-proxy-with-an-https-proxy) explains CACertsetup for a Docker container.
