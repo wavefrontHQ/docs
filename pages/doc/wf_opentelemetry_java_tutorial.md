@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: wf_opentelemetry_java_tutorial.html
 summary: Set up your environment to send OpenTelemetry Data to Wavefront.
 ---
-With observability, you can ask questions about your system and get answers based on the telemetry data (metrics, traces, and logs) they produce.
+With observability, you can ask questions about your system and get answers based on the telemetry data (metrics, traces, and logs) they produce. 
 
 With our tracing capabilities, you can analyze every request as it moves from one service to the next. This helps you:
 * Pinpoint the root cause of failures.
