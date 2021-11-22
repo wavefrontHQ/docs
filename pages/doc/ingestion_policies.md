@@ -25,7 +25,7 @@ Users with the **Accounts, Groups & Roles** permission can create ingestion poli
 * Once you set the scope to accounts or groups, you cannot edit it. You can create a policy with scope which can be either accounts or groups.
 
 
-## Create an Ingestion Policy
+### Create an Ingestion Policy
 
 1. Log in to your Wavefront instance as a Super Admin user.
 2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage Portal**.
@@ -42,7 +42,7 @@ Users with the **Accounts, Groups & Roles** permission can create ingestion poli
 
 If a user starts ingesting data into Wavefront through a Wavefront Proxy, you can see the ingestion policies to which a proxy belongs from the [Proxies browser](#see-the-ingestion-policies-to-which-a-proxy-belongs) page.
 
-## Edit an Ingestion Policy
+### Edit an Ingestion Policy
 
 After you create an ingestion policy, if you need, for example, to increase the PPS limit, you can edit the policy. 
 
@@ -54,13 +54,13 @@ After you create an ingestion policy, if you need, for example, to increase the 
 4. Apply the necessary changes, and click **Save**.
 
 
-## Delete Ingestion Policies
+### Delete Ingestion Policies
 
 1. Log in to your Wavefront instance as a Super Admin user.
 2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage Portal**.
 3. On the **Ingestion Policies** tab, click the ellipsis icon next to the policy that you want to delete, click **Delete** and confirm.
 
-## See the Ingestion Policies to Which a Proxy Belongs
+### See the Ingestion Policies to Which a Proxy Belongs
 
 1. Log in to your Wavefront instance as a Super Admin user.
 2. Click **Browse > Proxies**.
@@ -112,7 +112,7 @@ Consider the following example. You are administering a Wavefront cluster for tw
 
 You can create an ingestion policy for each team to monitor how much data each team uses per month. You can also set a PPS limit for each ingestion policy and if a team consumes more than expected, you can provide additional training on how to use ingested data wisely. 
 
-### Learn More!
+## Learn More!
 
 You can additionally drill down and get a better understanding of the usage per account by using the [Wavefront Ingestion Policy Explorer dashboard](wavefront_monitoring.html). 
 
