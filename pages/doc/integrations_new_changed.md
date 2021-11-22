@@ -22,7 +22,7 @@ Made improvements to the following integrations and dashboards in November 2021:
 
 Made improvements to the following integrations and dashboards in October 2021:
 
-* Tanzu GemFire -- Updated the Tanzu Gemfire integration setup steps and added a new out-of-the-box dashboard to monitor Tanzu Gemfire standalone deployment.
+* Tanzu GemFire -- Updated the Tanzu GemFire integration setup steps and added a new out-of-the-box dashboard to monitor Tanzu GemFire standalone deployment.
 * Kubernetes -- Made fixes to queries, so that they show correct values for the Wavefront Collector and Wavefront proxy restarts.
 * Azure Kubernetes -- Made fixes to queries, so that they show correct values for running and pending pods.
 * Envoy Proxy -- Added an out-of-the-box dashboard and setup steps to monitor Envoy proxy on Kubernetes.
