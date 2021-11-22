@@ -40,6 +40,8 @@ Users with the **Accounts, Groups & Roles** permission can create ingestion poli
    4. Click **Next**.
 5. Enter the name of the policy, and optionally, a description and click **Create**.
 
+If a user starts ingesting data into Wavefront through a Wavefront Proxy, you can see the ingestion policies to which a proxy belongs from the [Proxies browser](#see-the-ingestion-policies-to-which-a-proxy-belongs) page.
+
 ## Edit an Ingestion Policy
 
 After you create an ingestion policy, if you need, for example, to increase the PPS limit, you can edit the policy. 
@@ -58,13 +60,11 @@ After you create an ingestion policy, if you need, for example, to increase the 
 2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage Portal**.
 3. On the **Ingestion Policies** tab, click the ellipsis icon next to the policy that you want to delete, click **Delete** and confirm.
 
-## See the Ingestion Policies a Proxy Belongs to
+## See the Ingestion Policies to Which a Proxy Belongs
 
 1. Log in to your Wavefront instance as a Super Admin user.
 2. Click **Browse > Proxies**.
 3. For each proxy the **Ingestion Policies** column shows a list of policies. If the proxy belongs to many policies, hover over the three horizontal dots and you'll see the rest of the ingestion policies in a tooltip.
-
-`MARGARITA: How is this information useful?`
 
 
 ## Examine Usage
