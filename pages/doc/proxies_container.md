@@ -171,7 +171,7 @@ Errors with the container with WAVEFRONT_PROXY_ARGS will be logged as the contai
 
 In many environments, traffic goes through an HTTPS proxy before going to the internet.
 * The HTTPS proxy can run in a container or anywhere else.
-* The HTTPS proxy must include CA signed certificates, especially in production environments.
+* The HTTPS proxy must include CA signed certificates.
 * The Wavefront proxy must have those certificates (PEM files) as well.
 
 ![Both HTTP/HTTPS proxy and Wavefront proxy are secured](images/proxy_and_proxy.png)
@@ -181,7 +181,8 @@ To add the CA certificates to the Wavefront proxy:
 
 1. Place all PEM files in one directory.
 2. Mount that directory as volume `/tmp/ca` on the Docker deployment
-3. Run a command like following for testing (see the Docker documentation for the command in production environments):
+
+For example, you can run a command like following for testing (see the Docker documentation for the command in production environments):
 ```
 docker run -it -e WAVEFRONT_URL=xxxxxxx -e WAVEFRONT_TOKEN=xxxxxx -p 2878:2878 -v /Users/user42/wavefront/ca_certs_test/to_docker:/tmp/ca proxy
 ```
