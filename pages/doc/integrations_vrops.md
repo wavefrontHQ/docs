@@ -19,6 +19,8 @@ To register a new vRealize Operations instance, you need a Cloud Services consol
 
 ### Obtain an API Token
 
+The API token will give read-only access to vRealize Operations and enable Wavefront to continually load metrics from various resource categories. The minimum role required for the integration is the **vROps ReadOnly** role. Make sure that the role assigned to the API token is also assigned to the user generating the API token.
+
 1. Navigate to the [VMware Cloud Services Console](https://console.cloud.vmware.com/csp/gateway/discovery) page.
 1. Click your user name on the right of the toolbar, and select **My Account**.
 1. Click the **API Tokens** tab.
