@@ -167,8 +167,21 @@ Errors with the container with WAVEFRONT_PROXY_ARGS will be logged as the contai
 
 * WAVEFRONT_TOKEN and WAVEFRONT_URL are required parameters for the container to start
 
+## Add the HTTP Proxy CACerts of the Container to the Wavefront Proxy
+
+The HTTP Proxy in the docker container must include CA signed certificates, especially in production environments. You have to add those certificates (PEM files) to the Wavefront proxy as well.
+
+To add the CA certificates:
+
+1. Place all PEM files in one directory.
+2. Mount that directory in `/tmp/ca`.
+3. Run the following command:
+```
+docker run -it -e WAVEFRONT_URL=xxxxxxx -e WAVEFRONT_TOKEN=xxxxxx -p 2878:2878 -v /Users/user42/wavefront/ca_certs_test/to_docker:/tmp/ca proxy
+```
+
+You have to specify the URL of your instance (e.g. https://example.wavefront.com) and a [Wavefront Token](wavefront_api.html#generating-an-api-token). Creating a service account and using a service account token usually makes sense.
+
 ## Learn More!
 
-KB article: [Configure a Wavefront Proxy Container to Use wavefront.conf](https://help.wavefront.com/hc/en-us/articles/4409333245460-Configure-a-Wavefront-Proxy-Container-to-Use-wavefront-conf) 
-
-<!--- * The Wavefront proxy can use up to the limit of memory needed. If the consumption of the Wavefront Proxy container is --->
+KB article: [Configure a Wavefront Proxy Container to Use wavefront.conf](https://help.wavefront.com/hc/en-us/articles/4409333245460-Configure-a-Wavefront-Proxy-Container-to-Use-wavefront-conf)

@@ -17,6 +17,15 @@ This page lists new and updated features for the Wavefront service.
 
 * **vRealize Operations Integration v1**: We now have released the first version of the vRealize Operations integration. It currently fetches only vCenter Server adapter resources, such as Cluster Compute Resource and Datastore. We will add more features to this integration in future releases. For information about setting up the integration, the current limitations and caveats, see [vRealize Operations Integration Overview](integrations_vrops.html).
 
+## 2021-46.x Release Notes 
+
+* **Integration Improvements**: November integrations are live! See [Integration Release Notes](integrations_new_changed.html#november-2021).
+* **New Doc Pages**:
+  - [Improve Query Performance](query_language_performance.html) has tips and tricks for fine-tuning queries.
+  - [Ensure Optimal Dashboard Performance](ui_dashboards.html#ensure-optimal-dashboard-performance) has been revamped to include tips about sampling, dynamic variables, and more.
+  - Added the [OpenTelemetry and Wavefront Tutorial ](wf_opentelemetry_java_tutorial.html), which was already made [available in a blog post](https://tanzu.vmware.com/content/blog/getting-started-opentelemetry-vmware-tanzu-observability) in September.
+
+
 ## 2021-44.x Release Notes
 
 * **Share Section URLs**: You can now [share links to sections](ui_sharing.html#share-a-link-to-a-dashboard-section) from any dashboard.
