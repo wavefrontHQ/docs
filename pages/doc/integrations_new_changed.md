@@ -13,6 +13,7 @@ Wavefront continuously adds new integrations to the existing set, and improves a
 
 Made improvements to the following integrations and dashboards in November 2021:
 
+* Tanzu Application Service -- Updated the Gorouter dashboard with new charts that show Gorouter metrics in histograms and monitor the router health.
 * RabbitMQ -- Updated the RabbitMQ integration and added an out-of-the-box dashboard and setup steps to monitor Rabbit MQ on Kubernetes.
 * Redis -- Updated the Redis integration and added an out-of-the-box dashboard and setup steps to monitor Redis on Kubernetes.
 
