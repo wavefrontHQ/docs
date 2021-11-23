@@ -104,7 +104,7 @@ The **Scan Rate** section of the dashboard contains charts showing you the follo
 </table>
 
     
-## Learn More
+## Learn More!
 
 For more in-depth exploration on the usage of your Wavefront service, see the [Wavefront usage integration](system.html)-related documentation: 
 
