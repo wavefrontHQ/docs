@@ -72,27 +72,30 @@ $(document).ready(function() {
     });
 });
 
-
 function initSearch() {
-// API keys for algolia-docs-user@wavefront.com
-var client = algoliasearch(Wavefront.algolia.application_id, Wavefront.algolia.public_key);
-var index = client.initIndex('documentation');
-//initialize autocomplete on search input (ID selector must match)
+    addSearchFunctionForInput('aa-input-container', "aa-input-container-mobile", 'aa-search-input')
+    addSearchFunctionForInput('aa-input-container-choose-path', "aa-input-container-mobile-choose-path", 'aa-search-input-choose-path')
+}
 
-var $body = $('body');
+function addSearchFunctionForInput(containerId, mobileContainerId, searchInputId) {
+    // API keys for algolia-docs-user@wavefront.com
+    var client = algoliasearch(Wavefront.algolia.application_id, Wavefront.algolia.public_key);
+    var index = client.initIndex('documentation');
+    //initialize autocomplete on search input (ID selector must match)
 
-var inputContainerId = '#aa-input-container';
-if (window.innerWidth < 991) {
-    inputContainerId = '#aa-input-container-mobile'
-} 
+    var $body = $('body');
+    var inputContainerId = `#${containerId}`;
+    if (window.innerWidth < 991) {
+        inputContainerId = `#${mobileContainerId}`;
+    }
 
-/** Algolia Search Functionality **/
-if($(inputContainerId).children().length === 0)
-{
-        $(inputContainerId).append('<input type="text" class="aa-search-input" id="aa-search-input" placeholder="Search..." />');
+    /** Algolia Search Functionality **/
+    if($(inputContainerId).children().length === 0)
+    {
+        $(inputContainerId).append(`<input type="text" class="aa-search-input" id=${searchInputId} placeholder="Search..." />`);
 
-        var $searchInput = $('#aa-search-input');
-        var search = autocomplete('#aa-search-input',
+        var $searchInput = $(`#${searchInputId}`);
+        var search = autocomplete(`#${searchInputId}`,
             {
                 hint: false,
                 debug: false,
@@ -116,12 +119,12 @@ if($(inputContainerId).children().length === 0)
                     }
                 }
             }).on('autocomplete:selected', function (event, suggestion, dataset) {
-                window.location.href = suggestion.url;
-            }).on('autocomplete:opened', function () {
-                $body.addClass('wf-search-opened');
-            }).on('autocomplete:closed', function () {
-                $body.removeClass('wf-search-opened');
-            });
+            window.location.href = suggestion.url;
+        }).on('autocomplete:opened', function () {
+            $body.addClass('wf-search-opened');
+        }).on('autocomplete:closed', function () {
+            $body.removeClass('wf-search-opened');
+        });
 
         var searchQuery = Wavefront.getUrlParameter('q');
         if (searchQuery) {
@@ -131,8 +134,6 @@ if($(inputContainerId).children().length === 0)
         }
     }
 }
-
-
 //Triggers for search to be added on resize or page load
 $(document).ready(initSearch);
 window.addEventListener('resize', initSearch);
