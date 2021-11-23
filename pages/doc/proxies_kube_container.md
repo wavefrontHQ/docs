@@ -4,19 +4,21 @@ keywords:
 tags: [proxies]
 sidebar: doc_sidebar
 permalink: proxies_kube_container.html
-summary: Configure Wavefront proxy and Telegraf in a Kubernetes container
+summary: Run a Wavefront proxy in a Kubernetes container and customize it
 ---
-You can set up a proxy to run in a Kubernetes container by following these high-level steps:
+When you set up a proxy to run [in a Kubernetes container](kubernetes.html#kubernetes-manual-install), a `wavefront.yaml` file governs deployment. To customize containerized proxy, you:
 
-1. Get a configmap that contains the preprocessing rule
-2. Set up the deployment YAML of Wavefront proxy to mounting the volume and using it to power its preprocessing rule.
+1. Create a custom ConfigMap file that contains the preprocessing rule for your custom configuration.
+2. Edit the `wavefront.yaml` file to mounting the volume where the ConfigMap lives, and point it to the preprocessing rule.
 3. Test your setup
 
-## Set up the configmap for Wavefront proxy
+## Use a Custom ConfigMap for Wavefront Proxy
 
-**1.** Create a file called `00_proxy-preprocessor-config.yaml` with content like the following. This sample file includes some examples for blocking certain metrics.
+In this section, we create a custom ConfigMap (`00_proxy-preprocessor-config.yaml`) that includes preprocessor rules to block metrics. We customize the `wavefront.yaml` so it points to our Wavefront instance, includes the token, and points to the preprocessor config file.
 
-```
+**1.** Create a file called `00_proxy-preprocessor-config.yaml` with content like the following. This sample file includes some examples of preprocessor rules that block certain metrics.
+
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -47,7 +49,7 @@ data:
 
 **2.** Update your `wavefront.yaml` (your deployment yaml for Wavefront proxy) as follows:
 
-```
+```yaml
 # Need to change YOUR_CLUSTER and YOUR_API_TOKEN accordingly
 
 apiVersion: apps/v1
@@ -145,7 +147,7 @@ volumes:
     name: proxy-preprocessor-config
 </pre>
 </td>
-<td width="50%" markdown="span">The volumes (coming from the config map) and volume mounts inside the container that mounts it on as `/preprocessor-config/preprocessor_rules.yaml`</td>
+<td width="50%" markdown="span">The volumes (coming from the ConfigMap) and volume mounts inside the container that mounts it on as `/preprocessor-config/preprocessor_rules.yaml`</td>
 </tr>
 <tr>
 <td width="50%">
@@ -160,7 +162,7 @@ volumes:
 </table>
 
 
-**4.** To apply the yaml run `kubectl apply -f`.
+**4.** To apply the updated YAML file run `kubectl apply -f`.
 
 ## Test Your Setup
 
@@ -170,7 +172,7 @@ To test your setup, look at the log first, then send some data to the proxy.
 
 **1.** To get the log of the proxy, run `kubectl logs wavefront-proxy-<id>`
 
-**2.** Check if there are errors during loading preprocessor rules. If everything is working fine, you see messages that looks like this:
+**2.** Check if there are errors during loading of the preprocessor rules. If everything works, you see messages like this:
 ```
 2021-11-16 16:21:20,017 INFO  [PreprocessorConfigManager:loadFromStream] Loaded 2 rules for port :: 2878
 2021-11-16 16:21:20,018 INFO  [PreprocessorConfigManager:loadFromStream] Loaded Preprocessor rules for port key :: "2878"
@@ -180,7 +182,7 @@ To test your setup, look at the log first, then send some data to the proxy.
 
 ### Send Data to the Proxy
 
-You can run a simple Ubuntu container and send some data via netcat to the proxy by doing the following.
+Run an Ubuntu container and send some data to the proxy via the Netcat utility, as follows:
 
 **1.** Create a file named `ubuntu.yaml` and enter the following:
 
@@ -198,34 +200,37 @@ spec:
     args: [ "while true; do sleep 300; done;" ]
 ```
 
-**2.** Run the following commands to run the Ubuntu container indefinitely, install netcat, and send metrics to the proxy. (This is a crude approach but fine for testing).
+**2.** Run the following commands to
+* Run the Ubuntu container indefinitely
+* Install Netcat (`nc`)
+* Send metrics to the proxy
+(This is a crude approach but fine for testing).
 
-Start:
-```
-exec
-```
+  a. Start:
+     ```
+     exec
+     ```
+  b. Get a shell prompt:
+     ```
+     kubectl exec -it ubuntu /bin/bash
+     ```
+  c. Install Netcat:
+     ```
+     apt-get update
+     apt-get install -y netcat
+     ```
+  d. Use a simple command like this to send data into proxy:
+     ```
+     echo 'test.metric 123 source=test' | nc -C wavefront-proxy 2878
+     ```
+     The command sends a metric called `test-metric` with source `source-test`.
+  e. Test that the preprocessor rule picks up and blocks data:
+     ```
+     echo 'illegal.metric 234 source=secret' | nc -C wavefront-proxy 2878
+     echo 'test.metric 351 source=127.0.0.1' | nc -C wavefront-proxy 2878
+     ```
 
-Get a shell prompt:
-```
-kubectl exec -it ubuntu /bin/bash
-```
-
-Get netcat installed and available:
-```
-apt-get update
-apt-get install -y netcat
-```
-
-Use a simple command like this to send data into proxy:
-```
-echo 'test.metric 123 source=test' | nc -C wavefront-proxy 2878
-```
-
-The command should produce a metric in your tenant. Now, test that the preprocessor rule picks up and blocks data:
-```
-echo 'illegal.metric 234 source=secret' | nc -C wavefront-proxy 2878
-echo 'test.metric 351 source=127.0.0.1' | nc -C wavefront-proxy 2878
-```
+     
 <!---Update me!
 ## Add the HTTP Proxy CACerts of the Container to the Wavefront Proxy
 
@@ -246,4 +251,4 @@ You have to specify the URL of your instance (e.g. https://example.wavefront.com
 ## Learn More!
 
 * KB article: [Configure a Wavefront Proxy Container to Use wavefront.conf](https://help.wavefront.com/hc/en-us/articles/4409333245460-Configure-a-Wavefront-Proxy-Container-to-Use-wavefront-conf)
-* [Configure Wavefront Proxy with an HTTP/HTTPS proxy](proxies_container.html#configure-wavefront-proxy-with-an-https-proxy) explains CACertsetup for a Docker container.
+* [Configure Containerized Wavefront Proxy with an HTTPS Proxy](proxies_container.html#configure-a-containerized-wavefront-proxy-with-an-https-proxy) explains CACert setup for a Docker container. The process is similar for a Kubernetes container.
