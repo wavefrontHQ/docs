@@ -230,7 +230,7 @@ spec:
      echo 'test.metric 351 source=127.0.0.1' | nc -C wavefront-proxy 2878
      ```
 
-     
+
 <!---Update me!
 ## Add the HTTP Proxy CACerts of the Container to the Wavefront Proxy
 
