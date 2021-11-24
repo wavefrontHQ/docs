@@ -30,7 +30,7 @@ The image below is a sample of the Kafka-Spark-Solr Blueprint dashboard, that is
 
 ### Data Platform Blueprints Setup
 
-Make sure that you have deployed the "Data Platform Blueprints" enabling the Tanzu Observability by Wavefront Framework. If not, follow the [Data Platforms Blueprint specific instructions on the Bitnami Catalog](https://bitnami.com/stacks) to enable observability for your data platform cluster running on Kubernetes cluster.
+Make sure "Bitnami Data Platform Blueprints" with Tanzu observability are deployed on your cluster. If not, follow the [Data Platforms Blueprint specific instructions on the Bitnami Catalog](https://bitnami.com/stacks) to enable observability for your data platform cluster running on Kubernetes cluster.
 
 Use the Blueprint-specific links below to enable metrics ingestion to Tanzu Observability by Wavefront. The data ingestion is done by using Wavefront Collectors.
 
@@ -40,6 +40,89 @@ Use the Blueprint-specific links below to enable metrics ingestion to Tanzu Obse
 
 See [Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes) for more details about the Wavefront Collector.
 
+### For using an existing Tanzu observibility deployment
+
+- To enable the annotation discovery feature in wavefront for the existing wavefront deployment,  make sure that auto discovery `enableDiscovery: true` and annotation based discovery `discovery.disable_annotation_discovery: false` are enabled in the Wavefront Collector ConfigMap. They should be enabled by default.
+
+**NOTE**: The Wavefront Collector scrapes all the pods that have Prometheus annotation enabled.
+
+See [annotation based discovery](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/discovery.md#annotation-based-discovery) feature in Wavefront Collector for more information.
+
+- If you wish not to use the annotation based discovery feature in wavefront, edit the Wavefront Collector ConfigMap To add rules based discovery to wavefront, add the following snippet under discovery plugins. Once done, restart the wavefront collectors DaemonSet.
+{% raw %}
+```console
+$ kubectl edit configmap wavefront-collector-config -n wavefront
+```
+{% endraw %}
+
+Add the below config:
+{% raw %}
+```yaml
+      discovery:
+        enable_runtime_plugins: true
+        plugins:
+        ## auto-discover kafka-exporter
+        - name: kafka-discovery
+          type: prometheus
+          selectors:
+            images:
+              - '*bitnami/kafka-exporter*'
+          port: 9308
+          path: /metrics
+          scheme: http
+          prefix: kafka.
+
+        ## auto-discover jmx exporter
+        - name: kafka-jmx-discovery
+          type: prometheus
+          selectors:
+            images:
+              - '*bitnami/jmx-exporter*'
+          port: 5556
+          path: /metrics
+          scheme: http
+          prefix: kafkajmx.
+
+        ## auto-discover solr
+        - name: solr-discovery
+          type: prometheus
+          selectors:
+            images:
+              - '*bitnami/solr*'
+          port: 9983
+          path: /metrics
+          scheme: http
+
+        ## auto-discover spark
+        - name: spark-worker-discovery
+          type: prometheus
+          selectors:
+            images:
+              - '*bitnami/spark*'
+          port: 8081
+          path: /metrics/
+          scheme: http
+          prefix: spark.
+        
+        ## auto-discover spark
+        - name: spark-master-discovery
+          type: prometheus
+          selectors:
+            images:
+              - '*bitnami/spark*'
+          port: 8080
+          path: /metrics/
+          scheme: http
+          prefix: spark.
+```
+{% endraw %}
+
+Below is the command to restart the DaemonSets
+{% raw %}
+```console
+$ kubectl rollout restart daemonsets wavefront-collector -n wavefront
+```
+{% endraw %}
 Once you enable metrics ingestion into Tanzu Observability by Wavefront, the Wavefront Collector pods will collect the metrics from the individual applications of your data platform and will push them through the Wavefront proxy to your Wavefront environment.
 
 Within a minute, you will be able to use the dashboards listed on the *Dashboards* tab, and see our default metrics sent from any Data Platform clusters created in that Kubernetes cluster.
