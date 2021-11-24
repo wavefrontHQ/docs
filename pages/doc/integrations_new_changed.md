@@ -8,11 +8,22 @@ summary: New and changed Wavefront integrations.
 ---
 Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
+
+## November 2021
+
+Made improvements to the following integrations and dashboards in November 2021:
+
+* Kubernetes -- Updated the queries in the dashboard charts to show correct values in single stats.
+* Tanzu Application Service -- Updated the Gorouter dashboard with new charts that show Gorouter metrics in histograms and monitor the router health.
+* RabbitMQ -- Updated the RabbitMQ integration and added an out-of-the-box dashboard and setup steps to monitor Rabbit MQ on Kubernetes.
+* Redis -- Updated the Redis integration and added an out-of-the-box dashboard and setup steps to monitor Redis on Kubernetes.
+
+
 ## October 2021
 
 Made improvements to the following integrations and dashboards in October 2021:
 
-* Tanzu GemFire -- Updated the Tanzu Gemfire integration setup steps and added a new out-of-the-box dashboard to monitor Tanzu Gemfire standalone deployment.
+* Tanzu GemFire -- Updated the Tanzu GemFire integration setup steps and added a new out-of-the-box dashboard to monitor Tanzu GemFire standalone deployment.
 * Kubernetes -- Made fixes to queries, so that they show correct values for the Wavefront Collector and Wavefront proxy restarts.
 * Azure Kubernetes -- Made fixes to queries, so that they show correct values for running and pending pods.
 * Envoy Proxy -- Added an out-of-the-box dashboard and setup steps to monitor Envoy proxy on Kubernetes.

@@ -160,7 +160,7 @@ In the example below, the rule applies only if at least one of the specified con
               value: "prod"
           - startsWith:
               scope: metricName
-              value: "mymetric."
+              value: "mymetric.prod"
           - equals:
               scope: env
               value: "prod"

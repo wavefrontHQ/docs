@@ -122,12 +122,11 @@ In some special circumstances, you might want to set up histograms to overwrite 
 1. Ingest the original histogram with `“_merge”=”false”` tag set.
 2. Set `“_merge”=”false”` for the histogram that is expected to overwrite the original histogram.
 
-    {% include important.html content="The histogram that is expected to overwrite must be sent within a certain timeframe or the overwrite does not happen even if the flag is set." %}
+    {% include important.html content="The histogram that is expected to overwrite must be sent within a certain timeframe or the overwrite does not happen even if the flag is set. This timeframe is relative to the Epoch timestamp of the original point ingested." %}
 
-* 30 minutes for a minute bucketed histogram
-* 6 hours for hour bucketed histogram
-* 1 day for day bucketed histogram.
-
+   * 30 minutes for a minute bucketed histogram
+   * 6 hours for hour bucketed histogram
+   * 1 day for day bucketed histogram.
 
 ## Histogram Aggregation Ports
 

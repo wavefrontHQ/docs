@@ -14,6 +14,8 @@ In a large enterprise, certain data are confidential. Wavefront allows you to li
 * **Access Control** allows administrators with the right permissions fine-grained control over individual dashboards or alerts. For example, it's possible to limit view and modify access to a Finance_2020 dashboard to just the Finance department.
 * **Metrics Security** supports even finer-grained control. In the example above, access to the Finance_2020 dashboard is limited to the Finance department. With metrics security, you can limit access to confidential time series, histogram, and delta counter metrics to the leadership team.
 
+{% include important.html content="This feature is not available on all Wavefront instances." %}
+
 {% include note.html content="Only a Super Admin user or users with **Metrics** permission can view, create, and manage metrics security policy. " %}
 
 ## Video: Metrics Security Policy
