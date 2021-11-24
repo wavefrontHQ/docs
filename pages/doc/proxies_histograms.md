@@ -114,6 +114,20 @@ You can now apply other functions to the histogram, for example, you can try to 
 
 `percentile (85, hs(my.metric))`
 
+## Histogram Overwrites
+
+By default, new histogram data are added to existing histogram data to allow you to monitor how the histogram behaves over time.
+
+In some special circumstances, you might want to set up histograms to overwrite existing histograms.
+1. Ingest the original histogram with `“_merge”=”false”` tag set.
+2. Set `“_merge”=”false”` for the histogram that is expected to overwrite the original histogram.
+
+    {% include important.html content="The histogram that is expected to overwrite must be sent within a certain timeframe or the overwrite does not happen even if the flag is set. This timeframe is relative to the Epoch timestamp of the original point ingested." %}
+
+   * 30 minutes for a minute bucketed histogram
+   * 6 hours for hour bucketed histogram
+   * 1 day for day bucketed histogram.
+
 
 ## Histogram Aggregation Ports
 
