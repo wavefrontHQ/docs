@@ -1,9 +1,9 @@
 <div class="choose-path-container">
     <div class="row section-header">
         <h2>Choose Your Path</h2>
-        <div class="aa-input-container desktop" id="aa-input-container"></div>
+        <div class="aa-input-container desktop" id="aa-input-container-choose-path"></div>
         <div class="container mobile-search">
-            <div class="aa-input-container mobile" id="aa-input-container-mobile"></div>
+            <div class="aa-input-container mobile" id="aa-input-container-mobile-choose-path"></div>
         </div>
     </div>
     <div class="row choose-path-card-wrapper">
