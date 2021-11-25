@@ -11,9 +11,18 @@ Wavefront continuously adds new integrations to the existing set, and improves a
 
 ## November 2021
 
+We added the following integration in November 2021:
+
+* AVI Networks
+
+  Now, NSX Advance Load Balancer (AVI Networks) can be monitored by using out-of-the-box dashboards provided in the AVI Networks (NSX ALB) integration tile. This integration is developed and created by the community and falls into to the new **Community Integrations** section of the Wavefront **Integrations** page. This is the first integration in this category. 
+
 Made improvements to the following integrations and dashboards in November 2021:
 
-* Kubernetes -- Updated the queries in the dashboard charts to show correct values in single stats.
+* Data Platforms -- Made query updates in health charts under the Mission Control section.
+* Kubernetes:
+  * Updated the queries in the dashboard charts to show correct values in single stat charts.
+  * Updated the queries in the dashboards to fix NO DATA issues.
 * Tanzu Application Service -- Updated the Gorouter dashboard with new charts that show Gorouter metrics in histograms and monitor the router health.
 * RabbitMQ -- Updated the RabbitMQ integration and added an out-of-the-box dashboard and setup steps to monitor Rabbit MQ on Kubernetes.
 * Redis -- Updated the Redis integration and added an out-of-the-box dashboard and setup steps to monitor Redis on Kubernetes.
