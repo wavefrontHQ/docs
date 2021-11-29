@@ -8,6 +8,11 @@ summary: New and changed Wavefront integrations.
 ---
 Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
+## December 2021
+
+We added the following integration in December 2021:
+
+* vRealize Operations Integration v1. This initial version of the integration currently fetches only vCenter Server adapter resources, such as Cluster Compute Resource and Datastore. We will add more features to this integration in future releases. For information about setting up the integration, the current limitations and caveats, see [vRealize Operations Integration Overview](integrations_vrops.html).
 
 ## November 2021
 
@@ -15,7 +20,7 @@ We added the following integration in November 2021:
 
 * AVI Networks
 
-  Now, NSX Advance Load Balancer (AVI Networks) can be monitored by using out-of-the-box dashboards provided in the AVI Networks (NSX ALB) integration tile. This integration is developed and created by the community and falls into to the new **Community Integrations** section of the Wavefront **Integrations** page. This is the first integration in this category. 
+  Now, NSX Advance Load Balancer (AVI Networks) can be monitored by using out-of-the-box dashboards provided in the AVI Networks (NSX ALB) integration tile. This integration is developed and created by the community and falls into to the new **Community Integrations** section of the Wavefront **Integrations** page. This is the first integration in this category.
 
 Made improvements to the following integrations and dashboards in November 2021:
 
@@ -42,23 +47,23 @@ Made improvements to the following integrations and dashboards in October 2021:
 Made improvements to the following integrations and dashboards in September 2021:
 
 * Pivotal Cloud Foundry:
-  - We now have Tanzu Application Service integration to support Tanzu Application Service 2.9 and later. We deprecated the Pivotal Cloud Foundry Integration as part of the renaming of Pivotal Cloud Foundry to Tanzu Application Service. The Pivotal Cloud Foundry integration which supports versions 2.2 to 2.8 is moved to the list of Archived integrations. 
-  
+  - We now have Tanzu Application Service integration to support Tanzu Application Service 2.9 and later. We deprecated the Pivotal Cloud Foundry Integration as part of the renaming of Pivotal Cloud Foundry to Tanzu Application Service. The Pivotal Cloud Foundry integration which supports versions 2.2 to 2.8 is moved to the list of Archived integrations.
+
     {% include note.html content="If you already have installed the Pivotal Cloud Foundry (PCF) alerts, and want to migrate to the Tanzu Application Service integration, uninstall the PCF alerts, so that you don't have duplicate versions of the same alerts. See [installing and uninstalling integration alerts](integrations.html#installing-and-uninstalling-integration-alerts). Note that any changes to the PCF alerts that you have made will not be migrated and will be lost. You have to apply them manually after setting up the Tanzu Application Service integration." %}
-  
+
     As a best practice, we recommend that you uninstall all PCF Dashboards before migrating to the Tanzu Application Service integration. See [installing and uninstalling integration dashboards](integrations.html#installing-and-uninstalling-integration-dashboards).
-  
+
   - Optimized the filter queries in the out-of-the-box Tanzu Application Service (Pivotal Cloud Foundry) dashboards.
-  
+
 * AWS:
   - Updated the query in the top 10 CPU charts of the **AWS: ECS (Fargate)** dashboard to show the correct values.
   - Fixed bucket and region count mismatch issue in the **AWS: S3** dashboard.
-  
+
 * Wavefront Tutorial -- Added the following list of new chart types and examples to the **Chart Types** dashboard:
   - Gauge
   - Pie
   - Node map
-  - Heat map 
+  - Heat map
   - Stacked column
 * Kafka --  Updated the integration to monitor Bitnami Kafka running on Kubernetes.
 * Microsoft Azure -- Added new out of the box dashboards:
@@ -67,7 +72,7 @@ Made improvements to the following integrations and dashboards in September 2021
 * Istio -- Updated the Istio setup instructions with mandatory metric configuration.
 * vSphere -- Updated the default configuration to add custom attributes to the metrics.
 * Linux Host -- Updated the summary section to use Gauge charts and fixed some errors in a couple of charts.
-* Mac Host -- Updated the summary section to use Gauge charts and fixed some errors in a couple of charts. 
+* Mac Host -- Updated the summary section to use Gauge charts and fixed some errors in a couple of charts.
 
 ## August 2021
 
@@ -85,7 +90,7 @@ Made improvements to the following integrations and dashboards in August 2021:
 
 ## July 2021
 
-Made improvements to the following integrations and dashboards in July 2021: 
+Made improvements to the following integrations and dashboards in July 2021:
 
 * Project Pacific -- Renamed the integration from Project Pacific Integration to vSphere with Tanzu Integration.
 * VMware Cloud PKS -- Removed the VMware Cloud PKS integration.
