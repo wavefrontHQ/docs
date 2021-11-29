@@ -18,8 +18,7 @@ summary: Solve your Wavefront Query Language problems with these pages
 * [Using Moving and Tumbing Windows to Highlight Trends](query_language_windows_trends.html)
 * [Bucketing with align()](query_language_align_function.html)
 * [Combining Time Series With join()](query_language_series_joining.html)
-* [Highlighting Trends](query_language_windows_trends.html)
-* [Detecting AnomaliesWith Statistical Functions](query_language_statistical_functions_anomalies.html)
+* [Detecting Anomalies With Statistical Functions](query_language_statistical_functions_anomalies.html)
 
 
 ## Learn How WQL Works
