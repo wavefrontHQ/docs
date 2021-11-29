@@ -9,7 +9,7 @@ summary: Learn how to use Wavefront histograms.
 ---
 Wavefront histograms let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure – particularly those gathered across many distributed sources. You can send histograms to a Wavefront proxy or use direct ingestion.
 
-This page explain how to send histogram distributions to Wavefront. After the data are available, you can [visualize histogram distributions](visualize_histograms.html) using Histogram charts or Heatmap charts. 
+This page explain how to send histogram distributions to Wavefront. After the data are available, you can [visualize histogram distributions](visualize_histograms.html) using Histogram charts or Heatmap charts.
 
 ## Getting Started
 
