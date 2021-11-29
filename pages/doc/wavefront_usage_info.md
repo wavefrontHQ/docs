@@ -30,25 +30,29 @@ If the customer uses more than the contracted rate, VMware bills for those addit
 </thead>
 <tr>
 <td>What are usage trends for my instance? </td>
-<td>Use the dashboards in the <strong>Wavefront Usage</strong> integration.
+<td>Use the dashboard on the <strong>Usage and Ingestion Policies</strong> page, or the dashboards in the <strong>Wavefront Usage</strong> integration. 
 </td>
 </tr>
 <tr>
-<td>Who is responsible for high usage </td>
-<td>Use the <strong>Wavefront Namespace Usage Explorer</strong> dashboard in the <strong>Wavefront Usage</strong> integration to drill down into namespaces and find where the ingested data is coming from.
+<td>Who is responsible for high usage? </td>
+<td>Use <a href="ingestion_policies.html">ingestion policies</a> and the <strong>Wavefront Ingestion Summary</strong> dashboard for an ingestion policy to investigate which are the top accounts contributing to the ingestion.
+<p>Use the <strong>Wavefront Ingestion Policy Explorer</strong> dashboard in the <strong>Wavefront Usage</strong> integration to drill down into accounts and find the accounts responsible for the high ingestion.</p>
+<p>Use the <strong>Wavefront Namespace Usage Explorer</strong> dashboard in the <strong>Wavefront Usage</strong> integration to drill down into namespaces and find where the ingested data is coming from.</p>
 </td>
 </tr>
 <tr>
 <td>How close am I to my billing limit?</td>
-<td>Use the <strong>Committed Rate and Monthly Usage (PPS P95)</strong> dashboard. Consider cloning and customizing this dashboard and adding alerts.</td>
+<td>
+Use the <a href="examine_usage.html"><strong>Usage Summary</strong></a> dashboard on the <strong>Usage and Ingestion Policies</strong> page to see information about the projected overage and whether you exceed your committed rate.
+<p>Use the <strong>Committed Rate vs Monthly Usage (PPS P95)</strong> dashboard. Consider cloning and customizing this dashboard and adding alerts.</p></td>
 </tr>
 <tr>
 <td>What are current usage details?</td>
-<td>Start with the dashboards in the <strong>Wavefront Usage</strong> integration. The dashboards allow you to look at both current usage and usage over time. If you need to drill down more, use the <a href="wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy">Wavefront Top GUI</a> for a detailed view of current spikes. </td>
+<td>Start with the <strong>Usage Summary</strong> dashboard on the <a href="examine_usage.html"><strong>Usage and Ingestion Policies</strong> page</a>. You can also investigate the dashboards in the <strong>Wavefront Usage</strong> integration. The dashboards allow you to look at both current usage and usage over time. If you need to drill down more, use the <a href="wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy">Wavefront Top GUI</a> for a detailed view of current spikes. </td>
 </tr>
 <tr>
 <td>Why do I have cardinality problems?</td>
-<td>If you know there's been a spike in data (for example an ID burst), you can use the <a href="wavefront_monitoring_spy.html">Wavefront Spy utility </a> to drill down into individual data points and tag values. </td>
+<td>If you know there's been a spike in data (for example, an ID burst), you can use the <a href="wavefront_monitoring_spy.html">Wavefront Spy utility </a> to drill down into individual data points and tag values. </td>
 </tr>
 <tr>
 <td>How much data is coming from my source?</td>
@@ -62,14 +66,14 @@ If the customer uses more than the contracted rate, VMware bills for those addit
 
 ## Which Teams Are Responsible for How Much Ingested Data?
 
-When you want to find out which teams are using the most data, follow these steps.
+When you want to find out which teams are using the most data, you can either create an [ingestion policy](ingestion_policies.html) for each team and monitor the usage per team, or you can follow these steps.
 
 ### Step 1: Examine Ingestion with the Namespace Usage Explorer
 
-The **Wavefront Namespace Usage Explorer** dashboard can help you pinpoint where data are coming from.  This dashboard provides not only a current view but also a historical view. Start at the level 1 namespace to identify the top level. Then dive into levels 2 and 3 for finer grained info to answer these questions:
+The **Wavefront Namespace Usage Explorer** dashboard can help you pinpoint where data are coming from.  This dashboard provides not only a current view but also a historical view. Start at the level 1 namespace to identify the top level. Then dive into levels 2 and 3 for finer-grained information to answer these questions:
 * How many different namespaces do I have at each level?
 * What are my top namespaces?
-* Top 10 and trends over time at each level
+* Which are the top 10 metric namespaces and trends over time at each level?
 
 The screenshot below shows an example from our demo server. The data are prefixed with the data source. In the pie chart, we can see that the top namespaces include `pcf` and `kubernetes`.
 
@@ -114,16 +118,21 @@ For example, with Wavefront Top you can:
 
 The [Wavefront Spy API](wavefront_monitoring_spy.html) gives even more detail, but in most cases Wavefront Top is sufficient.
 
-## How Close Am I To Exceeding My Contracted Rate?
+## How Close Am I to Exceeding My Contracted Rate?
 
-The Committed Rate and Monthly Usage (PPS P95) dashboard that’s part of the Wavefront Usage integration helps you determine whether you’re getting close to meeting the limit. For most Wavefront instances, Wavefront continues to ingest data after the limit is reached Wavefront, but the customer has to pay overage.
+The first thing you would do is to investigate the charts in the [Usage Summary dashboard](examine_usage.html). They can show you how close you are to exceeding your committed rate and whether you will be billed for overages.
+
+The **Committed Rate vs Monthly Usage (PPS P95)** dashboard that’s part of the Wavefront Usage integration helps you determine whether you’re getting close to meeting the limit. For most Wavefront instances, after the limit is reached data still keeps flowing into Wavefront, but the customer has to pay overage.
 
 The charts in the dashboard show this information:
 
-* Broken down by type
-* Hourly rate
-* Across tenants
-* Includes alert when customers are, for example, at 95% of contract rate.
+* Current PPS vs Committed PPS usage.
+* Usage of the Wavefront service in terms of PPS for your current billing period.
+* Usage of the Wavefront service for your current billing period in terms of the data points that are being queried out of Wavefront via dashboards, alerts, custom charts, API calls, etc.
+* Total PPS ingested for your current billing period.
+* Hourly usage of the Wavefront service.
+* Usage of the Wavefront service in terms of hourly PPS, data points per second (DPS), or spans per second (SPS) ingested vs scanned for the current billing period.
+* Usage of the Wavefront service in terms of PPS, DPS, or SPS ingested vs scanned for the current billing period.
 
 ## Which Metrics Are Ingested But Not Used?
 

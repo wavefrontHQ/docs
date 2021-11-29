@@ -807,7 +807,15 @@ entries:
         - title: Monitoring & Troubleshooting
           output: web
           subfolderitems:
-
+ 
+          - title: Examine Overall Wavefront Usage
+            url: /examine_usage.html
+            output: web
+            
+          - title: Examine Usage Per Ingestion Policy
+            url: /ingestion_policies.html
+            output: web
+            
           - title: Monitor the Wavefront Service
             url: /wavefront_monitoring.html
             output: web
