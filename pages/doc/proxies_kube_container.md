@@ -6,15 +6,17 @@ sidebar: doc_sidebar
 permalink: proxies_kube_container.html
 summary: Run a Wavefront proxy in a Kubernetes container and customize it
 ---
-When you set up a proxy to run [in a Kubernetes container](kubernetes.html#kubernetes-manual-install), a `wavefront.yaml` file governs deployment. To customize containerized proxy, you:
+When you set up Wavefront proxy to run [in a Kubernetes container](kubernetes.html#kubernetes-manual-install) you cannot rely on a single `wavefront.conf` file. Instead, a ConfigMap file governs deployment.
 
-1. Create a custom ConfigMap file that contains the preprocessing rule for your custom configuration.
-2. Edit the `wavefront.yaml` file to mounting the volume where the ConfigMap lives, and point it to the preprocessing rule.
+1. Create a custom ConfigMap file that contains the custom setup, for example preprocessing rules, for your proxy configuration. This doc page creates a `00_proxy-preprocessor-config.yaml` file.
+2. Edit `wavefront.yaml` so it points to the ConfigMap file.
 3. Test your setup
 
-## Use a Custom ConfigMap for Wavefront Proxy
+## Example: Use a Custom ConfigMap to Include Preprocessor Rules
 
-In this section, we create a custom ConfigMap (`00_proxy-preprocessor-config.yaml`) that includes preprocessor rules to block metrics. We customize the `wavefront.yaml` so it points to our Wavefront instance, includes the token, and points to the preprocessor config file.
+This section illustrates how to use a custom ConfigMap to block traffic for some metrics via preprocessor rules. You can use the same approach to, for example, have the Wavefront proxy use an HTTPS proxy.
+
+In this section, we first create a custom ConfigMap (`00_proxy-preprocessor-config.yaml`) that includes preprocessor rules to block metrics. Then we customize the `wavefront.yaml` so it points to our Wavefront instance, includes the token, and points to the ConfigMap file.
 
 **1.** Create a file called `00_proxy-preprocessor-config.yaml` with content like the following. This sample file includes some examples of preprocessor rules that block certain metrics.
 
@@ -47,7 +49,7 @@ data:
                 value: "127.0.0."
 ```
 
-**2.** Update your `wavefront.yaml` (your deployment yaml for Wavefront proxy) as follows:
+**2.** Update your `wavefront.yaml` (your deployment yaml for Wavefront proxy). See [Step 1: Deploy a Wavefront Proxy in Kubernetes](kubernetes.html#step-1-deploy-a-wavefront-proxy-in-kubernetes).
 
 ```yaml
 # Need to change YOUR_CLUSTER and YOUR_API_TOKEN accordingly
@@ -134,7 +136,7 @@ spec:
   selector:
     app: wavefront-proxy
 ```
-**3.** Notice these settings:
+**3.** Notice these settings in this `wavefront.yaml` file:
 
 <table style="width: 100%;">
 <tbody>
@@ -251,4 +253,4 @@ You have to specify the URL of your instance (e.g. https://example.wavefront.com
 ## Learn More!
 
 * KB article: [Configure a Wavefront Proxy Container to Use wavefront.conf](https://help.wavefront.com/hc/en-us/articles/4409333245460-Configure-a-Wavefront-Proxy-Container-to-Use-wavefront-conf)
-* [Configure Containerized Wavefront Proxy with an HTTPS Proxy](proxies_container.html#configure-a-containerized-wavefront-proxy-with-an-https-proxy) explains CACert setup for a Docker container. The process is similar for a Kubernetes container.
+* [Configure Containerized Wavefront Proxy with an HTTPS Proxy](proxies_container.html#configure-a-containerized-wavefront-proxy-with-an-https-proxy) explains CACert setup for a Docker container.
