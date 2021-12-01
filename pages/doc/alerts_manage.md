@@ -11,6 +11,14 @@ All Wavefront users can [examine alerts and drill down to find the problem](aler
 
 {% include note.html content="All users can view and examine alerts. You need the [Alerts permissions](permissions_overview.html) to create and manage alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
+## Create Alert Video
+
+Users with Alerts permission follow a step-by-step process to create an alert. Watch this 90s video.
+
+<p>
+<iframe src="https://bcove.video/3o9bu6L" width="700" height="400" allowfullscreen="true" alt="creating alerts with step-by-step process"></iframe>
+</p>
+
 
 ## Create Alert Tutorial
 
