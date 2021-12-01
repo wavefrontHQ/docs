@@ -231,8 +231,12 @@ entries:
           url: /proxies_manual_install.html
           output: web
 
-        - title: Run a Proxy in a Container
+        - title: Run a Proxy in a Docker Container
           url: /proxies_container.html
+          output: web
+
+        - title: Proxy in a Kubernetes Container
+          url: /proxies_kube_container.html
           output: web
 
         - title: Proxy Configuration
@@ -511,7 +515,7 @@ entries:
           - title: IBM Cloud Integration (Third-Party Content)
             url: /integrations_ibmcloud_thirdparty.html
             output: web
-            
+
           - title: Set Up Wavefront as PromQL Data Source in Grafana
             url: /integrations_grafana.html
             output: web
@@ -552,7 +556,7 @@ entries:
           - title: ZooKeeper collectd Integration
             url: /integrations_collectd_zookeeper.html
             output: web
-    
+
   - title: Kubernetes
     output: web
     folderitems:
@@ -564,6 +568,10 @@ entries:
       - title: Set Up Kubernetes
         url: /kubernetes.html
         output: web
+
+      - title: Proxy in a Kubernetes Container
+        url: /proxies_kube_container.html
+        output: web  
 
       - title: Monitor Tanzu Mission Control
         url: /integrations_tmc_howto.html
@@ -609,11 +617,19 @@ entries:
       url: /trace_data_details.html
       output: web
 
-    - title: OpenTelemetry
-      url: /opentelemetry.html
-      output: web
-
       subfolders:
+      - title: OpenTelemetry
+        output: web
+        subfolderitems:
+
+          - title: OpenTelemetry
+            url: /opentelemetry.html
+            output: web
+
+          - title: OpenTelemetry Tutorial
+            url: /wf_opentelemetry_java_tutorial.html
+            output: web
+
       - title: OpenTracing
         output: web
         subfolderitems:

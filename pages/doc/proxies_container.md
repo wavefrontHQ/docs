@@ -1,10 +1,10 @@
 ---
-title: Run a Proxy in a Container
+title: Run a Proxy and Telegraf in a Docker Container
 keywords:
 tags: [proxies]
 sidebar: doc_sidebar
 permalink: proxies_container.html
-summary: Configure a Wavefront Proxy and Telegraf in a container
+summary: Configure Wavefront proxy and Telegraf in a Kubernetes container
 ---
 You can set up a proxy to run in a container. This page discusses running a proxy and Telegraf Agent as Docker containers, but the guidance (though not some specifics) applies to other container solutions as well.
 
@@ -167,8 +167,33 @@ Errors with the container with WAVEFRONT_PROXY_ARGS will be logged as the contai
 
 * WAVEFRONT_TOKEN and WAVEFRONT_URL are required parameters for the container to start
 
+## Configure a Containerized Wavefront Proxy with an HTTPS Proxy
+
+In many environments, traffic goes through an HTTPS proxy before going to the internet. Sometimes, the HTTPS proxy requires that its clients use a site-specific CA-signed certificate. In that case, those certificates (in PEM format) must be imported into the trust store of the Wavefront proxy.
+
+* The HTTPS proxy can run in a container or anywhere else.
+* The HTTPS proxy must include CA signed certificates.
+* The Wavefront proxy must have those certificates (PEM files) as well.
+
+![Both HTTP/HTTPS proxy and Wavefront proxy are secured](images/proxy_and_proxy.png)
+
+
+To add the CA certificates of the HTTPS proxy to the Wavefront proxy that runs in the Docker container:
+
+1. Place all PEM files in one directory.
+2. Mount that directory as volume `/tmp/ca` on the Docker deployment
+
+For example, you can run a command like the following for testing (see the Docker documentation for the command in production environments):
+```
+docker run -it -e WAVEFRONT_URL=xxxxxxx -e WAVEFRONT_TOKEN=xxxxxx -p 2878:2878 -v /Users/user42/wavefront/ca_certs_test/to_docker:/tmp/ca proxy
+```
+
+
+You must specify:
+* WAVEFRONT_URL: The URL of your instance (e.g., https://example.wavefront.com)
+* WAVEFRONT_TOKEN: The [Wavefront Token](wavefront_api.html#generating-an-api-token). Creating a service account and using a service account token usually makes sense.
+* The port that the proxy is using; 2878 by default.
+
 ## Learn More!
 
-KB article: [Configure a Wavefront Proxy Container to Use wavefront.conf](https://help.wavefront.com/hc/en-us/articles/4409333245460-Configure-a-Wavefront-Proxy-Container-to-Use-wavefront-conf) 
-
-<!--- * The Wavefront proxy can use up to the limit of memory needed. If the consumption of the Wavefront Proxy container is --->
+KB article: [Configure a Wavefront Proxy Container to Use wavefront.conf](https://help.wavefront.com/hc/en-us/articles/4409333245460-Configure-a-Wavefront-Proxy-Container-to-Use-wavefront-conf)
