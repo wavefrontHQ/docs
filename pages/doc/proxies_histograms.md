@@ -128,7 +128,6 @@ In some special circumstances, you might want to set up histograms to overwrite 
    * 6 hours for hour bucketed histogram
    * 1 day for day bucketed histogram.
 
-
 ## Histogram Aggregation Ports
 
 The port you use depends on your intention.

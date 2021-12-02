@@ -231,8 +231,12 @@ entries:
           url: /proxies_manual_install.html
           output: web
 
-        - title: Run a Proxy in a Container
+        - title: Run a Proxy in a Docker Container
           url: /proxies_container.html
+          output: web
+
+        - title: Proxy in a Kubernetes Container
+          url: /proxies_kube_container.html
           output: web
 
         - title: Proxy Configuration
@@ -567,6 +571,10 @@ entries:
       - title: Set Up Kubernetes
         url: /kubernetes.html
         output: web
+
+      - title: Proxy in a Kubernetes Container
+        url: /proxies_kube_container.html
+        output: web  
 
       - title: Monitor Tanzu Mission Control
         url: /integrations_tmc_howto.html
