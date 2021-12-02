@@ -1,5 +1,5 @@
 ---
-title: Run a Proxy in a Docker Container
+title: Run a Proxy and Telegraf in a Docker Container
 keywords:
 tags: [proxies]
 sidebar: doc_sidebar
