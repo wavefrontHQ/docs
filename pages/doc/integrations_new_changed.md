@@ -12,7 +12,13 @@ Wavefront continuously adds new integrations to the existing set, and improves a
 
 We added the following integration in December 2021:
 
-* vRealize Operations Integration v1. This initial version of the integration currently fetches only vCenter Server adapter resources, such as Cluster Compute Resource and Datastore. We will add more features to this integration in future releases. For information about setting up the integration, the current limitations and caveats, see [vRealize Operations Integration Overview](integrations_vrops.html).
+* vRealize Operations Integration v1 
+
+  This initial version of the integration currently fetches only vCenter Server adapter resources, such as Cluster Compute Resource and Datastore. We will add more features to this integration in future releases. For information about setting up the integration, the current limitations and caveats, see [vRealize Operations Integration Overview](integrations_vrops.html).
+
+Made improvements to the following integrations and dashboards in December 2021:
+
+* Microsoft Azure -- Updated the setup steps for getting the application ID.
 
 ## November 2021
 
