@@ -249,4 +249,65 @@ The goal of instrumentation is to instrument enough methods to produce traces th
 
 ## Sampling Best Practices
 
-A large-scale web application can produce a high volume of traces. Consider limiting the volume of trace data using a head-based [sampling strategy](trace_data_sampling.html).
+A large-scale web application can produce a high volume of traces. Consider limiting the volume of trace data using a head-based [sampling strategy](trace_data_sampling.html). By default, [intelligent sampling](trace_data_sampling.html) limit the data coming in, but you can create a custom trace sampling policy.
+
+## Using Tracing with Spring Boot
+
+Assume that you want to write Spring Boot code that, when instrumented for OpenTracing, automatically creates spans that work across multiple microservices. Here's what you need to know:
+* If you're using Spring Cloud Sleuth, **everything has to be a bean**. For example, if you're using RestTemplates, those have to be beans.
+* You can create a RestTemplate bean yourself, or you can inject via RestTemplateBuilder.
+
+If you use a messaging or HTTP client (not a bean), Sleuth won't get you the spans across services.
+
+### Example: Does Not Work Across Microservices
+
+The following example works, but does not create spans that work across microservices.
+
+```java
+package com.demo.test.tier2.controllers;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+@RestController
+public class Tier2aEndpoint {
+  @RequestMapping("/tier2a")
+  public String tier2a() {
+    final String uri = "http://localhost:8083/tier3a";
+    RestTemplate restTemplate = new RestTemplate();
+    return "tier2a\\r
+    n" + response;
+  }
+}
+```
+### Example: Works for Spans Across Services
+
+Here is the same code written for spans across services, by using the RestTemplate:
+
+```java
+*package com.demo.test.tier2.controllers;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+/**
+
+Controller to test RestTemplate configuration
+*/
+@RestController
+public class Tier2aEndpoint {
+  private static final String uri = "http://localhost:8083/tier3a";
+  RestTemplate restTemplate;
+  @Autowired
+  public Tier2aEndpoint(RestTemplateBuilder builder) {
+    this.restTemplate = builder.build();
+    }
+  @RequestMapping("/tier2a")
+  public String tier2a() {
+    ResponseEntity<String> response = restTemplate.getForEntity(uri, String.class);
+    return "tier2a\\r
+    n" + response.getBody();
+  }
+}
+```
