@@ -123,27 +123,35 @@ If you specify color mappings for a gauge chart, the inner ring of the chart wil
 
 An additional outer ring shows how the colors map to the values 1-100 by default, even if the color mapping numbers are larger than 100. To specify where you want for the outer ring to start, specify a `Min` and `Max` value.
 
-## What Do the Summarization Options Do?
+## What Does the Summarization Option Do?
 
-The summarization method groups raw, reported data points, and maps them to displayable values. When displaying metrics:
+If the resolution of your monitor cannot accommodate all raw data points in the current chart time window, the Wavefront UI uses the summarization option to aggregate raw data points into displayable values.
 
-1. Wavefront determines the chart resolution and establishes an appropriate time interval as the chart's bucket size.
-2. Wavefront then aggregates (combines) the raw data values that are reported within each such time interval (bucket) and produces a single value to display for each bucket.
+When displaying metrics:
 
-The chosen summarization method determines how the aggregation is performed. Suppose the horizontal scale for your chart is `240 point buckets across, 1 bucket – 30 sec (est)`. Choosing **Median** causes
-us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.
+1. Wavefront determines the [chart resolution](ui_charts.html#chart-resolution) and establishes an appropriate time interval as the chart's bucket size.
+2. Wavefront aggregates (combines) the raw data values that are reported within each such time interval (bucket) and produces a single value to display for each bucket. The chosen summarization option determines how the aggregation is performed.
 
-- **Average** - Display the average (mean) of the raw data values in each bucket.
-- **Median** - Display the median of the raw data values in each bucket.
-- **Min** - Display the minimum raw data value in each bucket.
-- **Max** - Display the maximum raw data value in each bucket.
-- **Count** - Display the number of raw data values in each bucket.
-- **Sum** - Display the sum of the raw data values in each bucket.
-- **First** - Display the first raw data value to be reported in each bucket.
-- **Last** - Display the last raw data value to be reported in each bucket.
+   - **Average** - Displays the average (mean) of the raw data values in each bucket.
+   - **Median** - Displays the median of the raw data values in each bucket.
+   - **Min** - Displays the minimum raw data value in each bucket.
+   - **Max** - Displays the maximum raw data value in each bucket.
+   - **Count** - Displays the number of raw data values in each bucket.
+   - **Sum** - Displays the sum of the raw data values in each bucket.
+   - **First** - Displays the first raw data value to be reported in each bucket.
+   - **Last** - Displays the last raw data value to be reported in each bucket.
 
+Consider the following example. The horizontal scale for your chart is `240 point buckets across, 1 bucket – 30 sec (est)`. If you choose **Median**, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the bucket point.
 
+When you [fine-tune the time window](ui_examine_data.html#fine-tune-the-time-window), the Wavefront UI dynamically recalculates and updates the chart bucket size and the summarized values. You can zoom in the chart time window as much as needed to display the raw data points without any bucketing or summarization.
 
+{% include note.html content="The summarization option applies only to the chart visualization in the Wavefront UI. The summarization option does not apply to the chart queries or functions." %}
+
+{% include tip.html content="Choose the most appropriate summarization option for your chart query. If you select a summarization option which doesn’t correspond to your query function, most probably you’ll see misleading results.  
+  
+For example, if your chart query uses the `mmax()` function, select the **Max** summarization option." %}
+
+For the chart legend, you can choose whether to report raw or summarized values by disabling or enabling the **Non-summarized Stats** option.  
 
 ## Learn More!
 
