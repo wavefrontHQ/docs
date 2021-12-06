@@ -247,7 +247,7 @@ The same chart with the millisecond values in the hundred thousands displays as 
 
 ## Chart Resolution
 
-Wavefront accepts and stores data at up to 1 second resolution. Wavefront charts display that granularity only for small time windows on high-resolution displays. In most cases, Wavefront *groups* data points into time buckets and maps the buckets to display points.
+Wavefront accepts and stores data at up to 1 second resolution. Wavefront charts display that granularity only for small time windows on high-resolution displays. In most cases, the Wavefront UI aggregates data points into time buckets and maps the buckets to display points based on the chosen [summarization option](ui_charts_faq.html#what-does-the-summarization-option-do).
 
 **Chart resolution** is the bucket time interval. It displays in the **Horizontal Scale** field in the lower-left corner of a chart.
 
@@ -260,7 +260,7 @@ The chart above has 240 point buckets and the resolution of each bucket is 30 se
 ### Factors That Affect Chart Resolution
 
 Chart resolution is determined by:
-* The chart [time window](ui_examine_data.html#select-the-chart-time-window).
+* The chart [time window](ui_examine_data.html#set-the-time-window).
 * The resolution of the display on which you view the chart.
 
 Consider the following chart time window and display resolution examples, and the bucket size they typically have:
