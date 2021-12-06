@@ -125,7 +125,7 @@ An additional outer ring shows how the colors map to the values 1-100 by default
 
 ## What Does the Summarization Option Do?
 
-If the resolution of your monitor cannot accommodate all raw data points in the current chart time window, the Wavefront UI uses the summarization option to aggregate raw data points into displayable values.
+If the screen real estate dedicated to a particular chart cannot accommodate all raw data points in the current chart time window, the Wavefront UI uses the summarization option to aggregate raw data points into displayable values.
 
 When displaying metrics:
 
@@ -141,7 +141,7 @@ When displaying metrics:
    - **First** - Displays the first raw data value to be reported in each bucket.
    - **Last** - Displays the last raw data value to be reported in each bucket.
 
-Consider the following example. The horizontal scale for your chart is `240 point buckets across, 1 bucket – 30 sec (est)`. If you choose **Median**, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the bucket point.
+Consider the following example. The horizontal scale for your chart is `240 point buckets across, 1 bucket – 30 sec (est)`. If you choose **Median**, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.
 
 When you [fine-tune the time window](ui_examine_data.html#fine-tune-the-time-window), the Wavefront UI dynamically recalculates and updates the chart bucket size and the summarized values. You can zoom in the chart time window as much as needed to display the raw data points without any bucketing or summarization.
 

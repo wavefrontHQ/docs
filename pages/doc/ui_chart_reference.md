@@ -53,7 +53,7 @@ Missing data is represented by a dashed line. The dashed line only gives a visua
 <tr>
 <td>Summarization</td>
 <td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the Wavefront UI to aggregate raw data points into displayable values.<p>
-Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the bucket point.</p></td>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 
 <tr>
@@ -253,7 +253,7 @@ A **point plot** chart displays point buckets *without* any interpolation. Like 
 <tr>
 <td>Summarization</td>
 <td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the Wavefront UI to aggregate raw data points into displayable values.<p>
-Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the bucket point.</p></td>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Display Source Events</td>
@@ -413,7 +413,7 @@ The stacked area chart can help you determine at a glance which queries have the
 <tr>
 <td>Summarization</td>
 <td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the Wavefront UI to aggregate raw data points into displayable values.<p>
-Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the bucket point.</p></td>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Display Source Events</td>
@@ -592,7 +592,7 @@ This chart supports the same tabs and options as the Stacked Area Chart discusse
 <tr>
 <td>Summarization</td>
 <td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the Wavefront UI to aggregate raw data points into displayable values.<p>
-Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the bucket point.</p></td>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Display Source Events</td>
@@ -912,7 +912,7 @@ By default, a **single stat** chart plots a single series on a chart and display
 <tr>
 <td>Summarization</td>
 <td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the Wavefront UI to aggregate raw data points into displayable values.<p>
-Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the bucket point.</p></td>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Display Value</td>
@@ -1068,7 +1068,7 @@ The color mapping tab lets you define which set of values maps to which colors. 
 <tr>
 <td>Summarization</td>
 <td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the Wavefront UI to aggregate raw data points into displayable values.<p>
-Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the bucket point.</p></td>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Number of Bars</td>
@@ -1422,7 +1422,7 @@ A gauge chart displays a single value, in a default color. You can optionally ad
 <tr>
 <td>Summarization</td>
 <td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the Wavefront UI to aggregate raw data points into displayable values.<p>
-Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the bucket point.</p></td>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Decimal Precision</td>
@@ -1522,7 +1522,7 @@ The collage above shows both a pie chart and a donut chart for the same data.
 <tr>
 <td>Summarization</td>
 <td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the Wavefront UI to aggregate raw data points into displayable values.<p>
-Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the bucket point.</p></td>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Show Percentage</td>
