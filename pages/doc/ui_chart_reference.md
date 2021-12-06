@@ -52,10 +52,8 @@ Missing data is represented by a dashed line. The dashed line only gives a visua
 </thead>
 <tr>
 <td>Summarization</td>
-<td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
-
-Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
+<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the Wavefront UI to aggregate raw data points into displayable values.<p>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 
 <tr>
@@ -131,7 +129,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 <td>You can select all or none of the Legend options.
 <ul>
 <li>Fixed Legend -- Even if you don't select this option, you can use Shift+P with the mouse cursor in the chart to add a fixed legend.  </li>
-<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the <strong>Summarization</strong> setting. </li>
+<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the chosen <strong>Summarization</strong> option. </li>
 <li>Disable Legend on Hover -- Select to disable the legend on hover.   </li>
 </ul>
 </td>
@@ -254,10 +252,8 @@ A **point plot** chart displays point buckets *without* any interpolation. Like 
 </thead>
 <tr>
 <td>Summarization</td>
-<td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
-
-Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
+<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the Wavefront UI to aggregate raw data points into displayable values.<p>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Display Source Events</td>
@@ -321,7 +317,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 <td>Supports these options:
 <ul>
 <li>Fixed Legend -- Displays a fixed legend. Even if you don't select this option, you can use Shift+P with the mouse cursor in the chart to add a fixed legend.  </li>
-<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the <strong>Summarization</strong> setting. </li>
+<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the chosen <strong>Summarization</strong> option. </li>
 <li>Disable Legend on Hover -- Select to disable the legend on hover.   </li>
 </ul>
 </td>
@@ -416,10 +412,8 @@ The stacked area chart can help you determine at a glance which queries have the
 </thead>
 <tr>
 <td>Summarization</td>
-<td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
-
-Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
+<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the Wavefront UI to aggregate raw data points into displayable values.<p>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Display Source Events</td>
@@ -502,7 +496,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 <td>Supports these options:
 <ul>
 <li>Fixed Legend -- Displays a fixed legend. Even if you don't select this option, you can use Shift+P with the mouse cursor in the chart to add a fixed legend.  </li>
-<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the <strong>Summarization</strong> setting. </li>
+<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the chosen <strong>Summarization</strong> option. </li>
 <li>Disable Legend on Hover -- Select to disable the legend on hover.   </li>
 </ul>
 </td>
@@ -597,10 +591,8 @@ This chart supports the same tabs and options as the Stacked Area Chart discusse
 </thead>
 <tr>
 <td>Summarization</td>
-<td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
-
-Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
+<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the Wavefront UI to aggregate raw data points into displayable values.<p>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Display Source Events</td>
@@ -669,7 +661,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 <td>Supports these options:
 <ul>
 <li>Fixed Legend -- Displays a fixed legend. Even if you don't select this option, you can use Shift+P with the mouse cursor in the chart to add a fixed legend.  </li>
-<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the <strong>Summarization</strong> setting. </li>
+<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the chosen <strong>Summarization</strong> option. </li>
 <li>Disable Legend on Hover -- Select to disable the legend on hover.   </li>
 </ul>
 </td>
@@ -757,7 +749,7 @@ A **table** chart allows fine-grained customization in the Format tab but doesn'
 </thead>
 <tr>
 <td>Summarization</td>
-<td>Each line in a table is a summary of all of available data points, as set in the Summarized By field, based on the configured time window.</td></tr>
+<td>Each line in a table chart reports a summarized value of all available data points for the current time window. The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> determines how these values are calculated.</td></tr>
 <tr>
 <td>Show Raw Values</td>
 <td>Select to display the raw metric values (e.g., 212.00 milliseconds) or values using scientific notation (SI), e.g., 212 milliseconds.
@@ -919,10 +911,8 @@ By default, a **single stat** chart plots a single series on a chart and display
 </thead>
 <tr>
 <td>Summarization</td>
-<td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
-
-Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
+<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the Wavefront UI to aggregate raw data points into displayable values.<p>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Display Value</td>
@@ -1077,10 +1067,8 @@ The color mapping tab lets you define which set of values maps to which colors. 
 </thead>
 <tr>
 <td>Summarization</td>
-<td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
-
-Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
+<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the Wavefront UI to aggregate raw data points into displayable values.<p>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Number of Bars</td>
@@ -1433,10 +1421,8 @@ A gauge chart displays a single value, in a default color. You can optionally ad
 </thead>
 <tr>
 <td>Summarization</td>
-<td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
-
-Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
+<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the Wavefront UI to aggregate raw data points into displayable values.<p>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Decimal Precision</td>
@@ -1535,10 +1521,8 @@ The collage above shows both a pie chart and a donut chart for the same data.
 </tr>
 <tr>
 <td>Summarization</td>
-<td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
-
-Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
+<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the Wavefront UI to aggregate raw data points into displayable values.<p>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Show Percentage</td>
@@ -1580,7 +1564,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 <td>You can select all or none of the Legend options.
 <ul>
 <li>Fixed Legend -- Even if you don't select this option, you can use Shift+P with the mouse cursor in the chart to add a fixed legend.  </li>
-<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the <strong>Summarization</strong> setting. </li>
+<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the chosen <strong>Summarization</strong> option. </li>
 <li>Disable Legend on Hover -- Select to disable the legend on hover.   </li>
 </ul>
 </td>
