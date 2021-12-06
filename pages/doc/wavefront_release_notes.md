@@ -13,8 +13,14 @@ This page lists new and updated features for the Wavefront service.
 * For the latest changes and releases of the **Wavefront Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For  **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## 2021-48.x Release Notes
 
-## 2021-46.x Release Notes 
+* **vRealize Operations Integration v1**: We now have released the first version of the vRealize Operations integration. It currently fetches only vCenter Server adapter resources, such as Cluster Compute Resource and Datastore. We will add more features to this integration in future releases. For information about setting up the integration, the current limitations and caveats, see [vRealize Operations Integration Overview](integrations_vrops.html).
+* **Metrics Browser Improvements**: Consistency improvements for the [Metrics Browser](metrics_managing.html#metrics-browser).
+  - Unclutter that page with **Load More** option.
+  - Improve accessibility.
+
+## 2021-46.x Release Notes
 
 * **Integration Improvements**: November integrations are live! See [Integration Release Notes](integrations_new_changed.html#november-2021).
 * **New Doc Pages**:
