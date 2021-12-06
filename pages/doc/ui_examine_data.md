@@ -79,7 +79,7 @@ By default, dashboards:
 
 You can select a larger or smaller time window or view past data instead of real-time data with the time bar controls.
 
-{% include note.html content="When you change the time window, the refresh rate changes as well. For example, if you select a 10-minute time window, the charts in the dashboard refresh every second." %}
+{% include note.html content="When you change the time window, the [chart resolution](ui_charts.html#chart-resolution) and the refresh rate change as well. For example, if you select a 10-minute time window, the charts in the dashboard refresh every second." %}
 
 **To change the dashboard time window:**
 
@@ -177,6 +177,8 @@ You can focus on a particular source or series in the dashboard view or the sing
 ## Fine-Tune the Time Window
 
 You can fine-tune the time window for an individual chart, propagate the time window from one to all charts, and reset a customized time window to the dashboard default.
+
+When you fine-tune the time window, the Wavefront UI dynamically recalculates and updates the chart bucket size and the aggregated values based on the [summarization option](ui_charts_faq.html#what-does-the-summarization-option-do). 
 
 <table style="width: 100%;">
 <tbody>
