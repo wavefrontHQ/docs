@@ -253,7 +253,7 @@ A large-scale web application can produce a high volume of traces. Consider limi
 
 ## Using Tracing with Spring Boot
 
-Assume that you want to write Spring Boot code that, when instrumented for OpenTracing, automatically creates spans that work across multiple microservices. Here's what you need to know:
+Assume that you want to write Spring Boot code and instrument for OpenTracing. You want to ensure OpenTracing creates spans that work across multiple microservices.  Here's what you need to know:
 * If you're using Spring Cloud Sleuth, **everything has to be a bean**. For example, if you're using RestTemplates, those have to be beans.
 * You can create a RestTemplate bean yourself, or you can inject via RestTemplateBuilder.
 
@@ -281,33 +281,36 @@ public class Tier2aEndpoint {
 ```
 ### Example: Works for Spans Across Services
 
-Here is the same code written for spans across services, by using the RestTemplate:
+Here is a sample code snippet written for spans across services. The snippet uses `RestTemplate`:
 
 ```java
-*package com.demo.test.tier2.controllers;
+package com.demo.test.tier2.controllers;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-/**
 
+/**
 Controller to test RestTemplate configuration
 */
 @RestController
 public class Tier2aEndpoint {
+
   private static final String uri = "http://localhost:8083/tier3a";
-  RestTemplate restTemplate;
-  @Autowired
+
+  private final RestTemplate restTemplate;
+
   public Tier2aEndpoint(RestTemplateBuilder builder) {
     this.restTemplate = builder.build();
-    }
+  }
+
   @RequestMapping("/tier2a")
   public String tier2a() {
-    ResponseEntity<String> response = restTemplate.getForEntity(uri, String.class);
-    return "tier2a\\r
-    n" + response.getBody();
+    String response = restTemplate.getForObject(uri, String.class);
+    return "tier2a " + response;
   }
 }
 ```

@@ -69,7 +69,7 @@ That is because the default project stops soon as it starts without a web servic
 
 ### (NEW) How can I instrumented with distributed tracing across multiple microservices?
 
-Assume that you want to write Spring Boot code that, when instrumented for OpenTracing, automatically creates spans that work across multiple microservices. Here's what you need to know:
+Assume that you want to write Spring Boot code and instrument for OpenTracing. You want to ensure OpenTracing creates spans that work across multiple microservices.  Here's what you need to know:
 * If you're using Spring Cloud Sleuth, **everything has to be a bean**. For example, if you're using RestTemplates, those have to be beans.
 * You can create a RestTemplate bean yourself, or you can inject via RestTemplateBuilder.
 
