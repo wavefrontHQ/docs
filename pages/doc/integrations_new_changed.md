@@ -10,12 +10,6 @@ Wavefront continuously adds new integrations to the existing set, and improves a
 
 ## December 2021
 
-New integrations-related feature in December 2021:
-
-* Sample Data Dashboards 
-
-  We have added new sample data dashboards. These dashboards allow you to investigate the integrations dashboards and charts that contain sample data for our most used integrations. For details see [here](#integrations.html#get-to-know-the-integration-dashboards).
-
 We added the following integration in December 2021:
 
 * vRealize Operations Integration v1 
