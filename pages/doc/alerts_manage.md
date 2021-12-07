@@ -412,31 +412,6 @@ Each time you save an alert, you create an alert version. Up to 100 versions are
 </tbody>
 </table>
 
-
-
-
-
-
-
-<!---
-## Test the Alert Fine-Tune Conditions
-
-Wavefront can show hypothetical alert-generated events using backtesting. Backtesting enables you to fine tune new or existing alert conditions before you save them.
-
-When you create a classic alert, the Events Display is set to **Backtesting**. You can later edit the alert.
-
-To change the events display:
-
-1. Select the alert and click **Edit**.
-2. Change the **Events Display**:
-   - **Actual Firings**  - Displays past alert-generated event icons on the chart. You will see how often the alert actually fired within the given chart time window.
-   - **Backtesting** - Displays hypothetical alert-generated event icons on the chart. You can see how often an alert  would fire within the chart time window based on the condition and the **Trigger Window** field.
-
-Backtesting does not always exactly match the actual alert firing. For example:
-* If data comes in late, backtesting won't match the actual alert firing.
-* If data are meeting the alert condition for the "condition is true for x mins" amount of time, the actual alert might not fire because the alert check, determined by the alert check interval, happens too soon or too late.
-For both cases, backtesting shows the alert as firing while the actual alert might not show as firing.--->
-
 ## Do More!
 
 * Learn about [alert states and life-cycle](alerts_states_lifecycle.html).

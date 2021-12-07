@@ -19,12 +19,6 @@ The alert lifecycle determines:
 *  Which **events** the alert triggers, and which alert targets get notifications. Classic and multi-threshold alerts are exactly the same.
 *  When **notifications** are sent to which target. Classic and multi-threshold alerts differ, as discussed next.
 
-### When Do Classic Alerts Notify Alert Targets?
-
-Classic alerts notify all targets at the same time when the alert changes state:
-1. Wavefront monitors the alert condition. When the condition is met for the specified amount of time, the alert fires.
-2. When the alert fires, Wavefront sends alert notifications to the alert target(s) specified for the alert, using the severity that's prespecified for the alert.
-3. When the alert resolves or is snoozed, Wavefront sends additional notification to the alert target(s).
 
 ### When Do Multi-Threshold Alerts Notify Alert Targets?
 
@@ -45,6 +39,14 @@ This multi-threshold alert notifies targets like this:
 4. Wavefront continues checking the alert condition at the specified interval (1 minute by default). If the alert condition for a higher level is no longer met, but lower-level conditions are still met, then the higher-level alert target gets an Alert Resolved notification, and each lower-level alert target gets an Alert Updated notification.
 
 ![alert multi concept](images/alert_multi_concept.png)
+
+### When Do Single-Threshold Alerts Notify Alert Targets?
+
+Single-threshold alerts notify all targets at the same time when the alert changes state:
+
+1. Wavefront monitors the alert condition. When the condition is met for the specified amount of time, the alert fires.
+2. When the alert fires, Wavefront sends alert notifications to the alert target(s) specified for the alert, using the severity that's prespecified for the alert.
+3. When the alert resolves or is snoozed, Wavefront sends additional notification to the alert target(s).
 
 ## What are Alert States?
 

@@ -741,9 +741,10 @@ The preceding template might yield the following message:
 
 Statistics provide a profile of the values in a time series during the checking time window immediately preceding a notification. For example, the alert might be set up to fire when a condition is true for 10 minutes. During a 10-minute period where the condition is true, a time series likely have multiple values. You can use statistics to find out, e.g., the largest of these values, or the last value to be reported during the **Alert fires** time window.
 
+<!---
 For classic alerts, statistics are normally useful only if you have set the alert's **Display Expression** field with a display expression that captures the underlying time series being tested by the condition expression. If the alert has no display expression, statistics are based on the values that are returned by the alert's condition expression. Because the condition expression returns either 0 or not 0, that information is not useful.
 
-Multi-threshold alerts include a predefined display expression.
+Multi-threshold alerts include a predefined display expression.-->
 
 Use the following variables within the section of an [alert-series iterator](#alert-series-iterators) to specify the statistics that you want to include for each visited series. You can use any subset of these variables in any order. Use literal text around these items if you want to format them with any punctuation, separators, or labels.
 
@@ -865,7 +866,7 @@ For example, you can use the same template to send out one message for a firing 
 </tr>
 <tr>
 <td markdown="span">`isAlertRetriggered`</td>
-<td markdown="span"> Includes the content of this section if <strong>Resend Notification</strong> is set for this alert, and if the notification is not an initial notification but a resend. 
+<td markdown="span"> Includes the content of this section if <strong>Resend Notification</strong> is set for this alert, and if the notification is not an initial notification but a resend.
 </td>
 </tr>
 </tbody>

@@ -178,22 +178,23 @@ For example, for the `Latency Dev Alert` shown above, the chart looks like this:
 --->
 
 
-### Step 4: View Alert History
+### Step 4: View Alert Version History
+
+To access the version alert history, click the ellipsis icon on the left of the alert in the Alerts Browser and click **Versions**.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="60%">
 <br/>
-Alert history shows:
+Alert version history shows:
 <ul>
 <li>The changes that have been made to an alert over time.</li>
 <li>Which user made the changes.</li>
 <li>The date and time the changes were made.</li>
 <li>A description of the changes.</li></ul>
 You can revert back to a past alert version or clone a past alert version.
-<br/><br/>
-To access the alert history, click the ellipsis icon on the left of the alert in the Alerts Browser and click <strong>Versions</strong>.
+<br/><br/>.
 </td>
 <td width="40%"><img src="images/alert_history.png" alt="alert history selected in menu"></td>
 </tr>
@@ -269,7 +270,8 @@ Wavefront creates [events](events.html) as alerts fire, update, and resolve. You
 
 ## Do More!
 
-* Create a [classic alert](alerts.html#create-a-classic-alert) or a [multi-threshold alert](alerts.html#create-a-multi-threshold-alert).
+* Watch some [videos about alerts](videos_alerts.html)
+* [Create and manage alerts](alerts_manage.html).
 * Learn about [alert states and life-cycle](alerts_states_lifecycle.html).
 * For troubleshooting, read the following KBs:
    - [Unable to Create Alerts. Cannot Save Alerts Error](https://help.wavefront.com/hc/en-us/articles/360057759372-Unable-to-create-Alerts-error-message-Cannot-Save-alert-400-)
