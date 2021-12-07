@@ -84,7 +84,7 @@ Before setting up an integration, you can look into our demo dashboards. These d
 1. Click **Integrations** on the taskbar.
 1. In the **Sample Data Dashboards** section, click the **Explore** button for a sample integration dashboard. 
     
-    You are redirected to a sandbox data tenant cluster in another tab of your browser. The sandbox data tenant cluster contains the sample integrations data and dashboards.
+    {% include tip.html content="You are redirected to a sandbox data tenant cluster in another tab of your browser. Notice the URL. This sandbox data tenant cluster contains the sample integrations data and dashboards." %}
 
 1. To close the **Sample Data Dashboards** section, click **Close the section** and confirm. 
 1. To bring back the demo dashboards section, in the left pane, click **Show Demo Dashboards**.

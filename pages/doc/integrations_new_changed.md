@@ -10,7 +10,7 @@ Wavefront continuously adds new integrations to the existing set, and improves a
 
 ## December 2021
 
-New integrations-related feature in December 2021:
+New feature in December 2021:
 
 * Sample Data Dashboards 
 
