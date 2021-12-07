@@ -23,8 +23,8 @@ The following videos explain how to use Wavefront Top, add or revoke access for 
 </tr>
 <tr>
 <td width="30%"><strong><font color="blue">Metrics Security Policy</font></strong><br>
-<iframe src="https://bcove.video/2JgVcXq" width="400" height="225" allowfullscreen="true" alt="Secure your environment with metrics security policy rules"></iframe></td>
-<td width="70%"><br><p>In addition to global permissions and specific access control for dashboards & charts, Wavefront lets users with Metrics permission create metrics security policy rules.</p> </td>
+<iframe src="https://bcove.video/2JgVcXq" width="450" height="225" allowfullscreen="true" alt="Secure your environment with metrics security policy rules"></iframe></td>
+<td width="70%"><br><p>In addition to global permissions and specific access control for dashboards & charts, Wavefront lets users with Metrics permission create metrics security policy rules.</p> <p>You can also watch the video <a href="https://bcove.video/2JgVcXq" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> </td>
 </tr>
 </tbody>
 </table>

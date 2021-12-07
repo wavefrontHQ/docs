@@ -20,10 +20,11 @@ The following videos explain how alerts work and how to configure them.
 <tr>
 <td><strong><font color="blue">Introduction to Alerts</font></strong><br>
 <br>
-<iframe src="https://bcove.video/3gh9rce" width="550" height="275" allowfullscreen="true" alt="chart builder video"></iframe></td>
+<iframe src="https://bcove.video/3gh9rce" width="450" height="275" allowfullscreen="true" alt="chart builder video"></iframe></td>
 <td><br>
 <p>
 Jason explains first why intelligent alerts are so useful. He then explores the Alerts browser, which gives alert details such recent changes or which alerts are firing. He also shows different filtering options on the Alerts browser.</p>
+<p>You can also watch the video <a href="https://bcove.video/3gh9rce" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
@@ -35,18 +36,20 @@ Jason explains first why intelligent alerts are so useful. He then explores the 
 </tr>
 <tr>
 <td><strong><font color="blue">Alert States and Lifecycle</font></strong><br><br>
-<iframe src="https://bcove.video/3iYlXiP" width="550" height="275" allowfullscreen="true" alt="alert states and lifecycle video by Jason"></iframe>
+<iframe src="https://bcove.video/3iYlXiP" width="450" height="275" allowfullscreen="true" alt="alert states and lifecycle video by Jason"></iframe>
 </td>
 <td><br>
 <p>Jason uses the Wavefront UI to illustrate the different states that an alert goes through: Checking, Firing, Resolved. He discusses that alerts resolve when the threshold value is not true - no data meets that condition. </p>
+<p>You can also watch the video <a href="https://bcove.video/3iYlXiP" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
 <td><strong><font color="blue">Using Maintenance Windows</font></strong><br><br>
-<iframe src="https://bcove.video/3m7AM4x" width="550" height="275" allowfullscreen="true" alt="create a maintenance window video by Jason"></iframe>
+<iframe src="https://bcove.video/3m7AM4x" width="450" height="275" allowfullscreen="true" alt="create a maintenance window video by Jason"></iframe>
 </td>
 <td><br>
 <p>Maintenance windows stop alerts from firing, reducing distraction for recipients and resulting in faster problem resolution. Watch Jason set a maintenance window so that an alert won't send notifications when you're in the process of doing an upgrade or solving a problem.</p>
+<p>You can also watch the video <a href="https://bcove.video/3m7AM4x" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 </tbody>

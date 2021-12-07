@@ -863,6 +863,11 @@ For example, you can use the same template to send out one message for a firing 
 <td markdown="span"> Includes the contents of the section only if the alert has been snoozed.
 </td>
 </tr>
+<tr>
+<td markdown="span">`isAlertRetriggered`</td>
+<td markdown="span"> Includes the content of this section if <strong>Resend Notification</strong> is set for this alert, and if the notification is not an initial notification but a resend. 
+</td>
+</tr>
 </tbody>
 </table>
 
