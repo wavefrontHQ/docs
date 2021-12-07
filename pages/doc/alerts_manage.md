@@ -9,11 +9,11 @@ summary: Learn how to create and manage alerts.
 
 All Wavefront users can [examine alerts and drill down to find the problem](alerts.html). Administrators can create and manage alerts.
 
-{% include note.html content="All users can view and examine alerts. You need the [Alerts permissions](permissions_overview.html) to create and manage alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
+{% include note.html content="You need the [Alerts permissions](permissions_overview.html) to create and manage alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
 ## Create Alert Video
 
-Users with Alerts permission follow a step-by-step process to create an alert. Watch this 90s video.
+Users with Alerts permission follow a step-by-step process to create an alert. Watch this 90 second video.
 
 <p>
 <iframe src="https://bcove.video/3o9bu6L" width="700" height="400" allowfullscreen="true" alt="creating alerts with step-by-step process"></iframe>
@@ -108,7 +108,7 @@ By default, the <strong>Resolve Window</strong> is set to the same number of min
 <td>4. For special cases, click <strong>Additional Settings</strong> to also specify the following settings. The default is often best.
 <ul>
 <li><strong>Checking Frequency</strong>: Number of minutes between checks whether the condition is true. Minimum and default is 1. When an alert is in the <a href="alerts_states_lifecycle.html">INVALID</a> state, the alert is checked approximately every 15 minutes, and not with the specified checking frequency. </li>
-<li><strong>Evaluation Strategy</strong>: Allows you to select <strong>Real-time Alerting</strong>. By default, Wavefront ignores values for the last 1 minutes to account for delays. This default evaluation strategy prevents spurious firings because many data sources are updated only at certain points in time. If you select this check box, we include values for the last 1 minute. The alert is evaluated strictly on the ingested data. See <a href="alerts_delayed_data.html">Limiting the Effects of Data Delays</a> for some background. </li>
+<li><strong>Evaluation Strategy</strong>: Allows you to select <strong>Real-time Alerting</strong>. By default, Wavefront ignores values for the last 1 minutes to account for delays. This default evaluation strategy prevents spurious firings because many data sources are updated only at certain points in time. If you select this check box, the alerting engine considers values in the last 1 minute (the alert is evaluated strictly on the ingested data). See <a href="alerts_delayed_data.html">Limiting the Effects of Data Delays</a> for some background. </li>
 </ul></td>
 <td><img src="images/condition_options_2.png" alt="Condition options discussed in left column"></td>
 </tr>
@@ -146,7 +146,7 @@ If you already have information that helps recipients find the causes for the al
 <td width="50%">
 <ul>
 <li><strong>Runbook: </strong>A URL or a wiki page, or another document that helps the alert recipient resolve the alert.</li>
-<li><strong>Triage Dashboard(s): </strong>Start typing to select from dashboards on your Wavefront instance that have useful information and pass in information. See How Can I Pass A Value to a Triage Dashboard<a href="#how-do-i-pass-values-to-triage-dashboards"></a>.</li>
+<li><strong>Triage Dashboard(s): </strong>Start typing to select from dashboards on your Wavefront instance that have useful information and pass in information. See How Can I Pass a Value to a Triage Dashboard<a href="#how-do-i-pass-values-to-triage-dashboards"></a>.</li>
 <li><strong>Additional Information: </strong>Any other information that is useful to the alert recipient. This field supports Markdown. Click <strong>Preview</strong> to preview the Markdown output.</li>
 </ul>
 </td>
@@ -227,7 +227,7 @@ For example, an alert [fires](alerts_states_lifecycle.html#when-do-alerts-fire) 
 
 ### What's an Alert Target?
 
-Each alert is associated with one or more recipients, an email address, PagerDuty key, or [alert target](webhooks_alert_notification.html).
+Each alert is associated with one or more recipients: an email address, PagerDuty key, or [alert target](webhooks_alert_notification.html).
 
 When the alert changes state, the recipients are notified. Customize which state changes trigger a notification:
 * When you [create the alert target](webhooks_alert_notification.html#create-a-custom-alert-target)
