@@ -444,7 +444,8 @@ After you've saved these changes:
 Wavefront can ingest and process very large amounts of data. Here's what you can do to ensure performance is optimal.
 
 ### Watch for Cardinality Issues
-Ensure your data shape works well. Don't ingest time series and don't look at data you don't need. See [Cardinality and Wavefront](cardinality.html) for some background and a video.
+
+Ensure your data shape works well. Ingest only time series you need -- and then look only at those data you’re interested in. See [Cardinality and Wavefront](cardinality.html) for some background and a video.
 
 ### Optimize Query Performance
 

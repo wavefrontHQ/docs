@@ -287,17 +287,54 @@ Sample output for single proxy:
 }
 ```
 
-## Connecting to Wavefront Through an HTTP Proxy
+## Configure Wavefront Proxy with an HTTP/HTTPS Proxy
 
-The Wavefront proxy initiates an HTTPS connection to the Wavefront service. The connection is made over the default https port 443. Connection parameters are configured in `/etc/wavefront/wavefront-proxy/wavefront.conf`.
+The Wavefront proxy initiates an HTTPS connection to the Wavefront service. The connection is made over the default HTTPS port 443.
 
-You can instead configure the HTTP proxy setting within `wavefront.conf`.
+Instead of sending traffic directly, you can send traffic from the Wavefront proxy to an HTTP or HTTPS proxy, which forwards to the Wavefront service. You set the connection parameters in the `wavefront.conf` file (`/etc/wavefront/wavefront-proxy/wavefront.conf` by default). See
+* [the sample conf file on Github](https://github.com/wavefrontHQ/wavefront-proxy/blob/master/pkg/etc/wavefront/wavefront-proxy/wavefront.conf.default)
+* Some detail on [configuration options](proxies_configuring.html).
 
-{% include note.html content="The Wavefront proxy does not use the `http_proxy` environmental variables. You must specify the information in `wavefront.conf`." %}
+{% include note.html content="You must specify the information in `wavefront.conf`. The Wavefront proxy does not fully support the `http_proxy` environment variables. " %}
 
+
+### Modify wavefront.conf to Use an HTTP/HTTPS Proxy
+
+By default, the HTTP/HTTPS proxy section is commented out. Uncomment the section in `wavefront.conf` if you want to use an HTTP/HTTPS proxy, and specify the following information:
+
+```
+## The following settings are used to connect to Wavefront servers through a HTTP proxy:
+#proxyHost=<location of the HTTP/HTTPS proxy>
+#proxyPort=<port for connecting with the HTTP/HTTPS proxy. Default is 8080>
+## Optional: if http/https proxy supports username/password authentication
+#proxyUser=proxy_user
+#proxyPassword=proxy_password
+#
+```
+{% include note.html content="If the HTTP/HTTPS proxy supports username and password authentication, specify it in `wavefront.conf`. If the HTTPS proxy requires certificates, see the next section." %}
+
+### Set up Wavefront Proxy to Use the CAcerts of the HTTPS Proxy
+
+An HTTPS proxy requires that its clients use one or more site-specific CA-signed certificate. Those certificates (in PEM format) must be imported into the trust store of the Wavefront proxy.
+
+
+* The HTTPS proxy includes the CA signed certificates.
+* The Wavefront proxy must have those certificates (PEM files) as well.
+
+
+Use `keytool` to import the CA certificates into the Wavefront proxy
+
+
+```
+keytool -noprompt -cacerts -importcert -storepass changeit -file ${<filename>} -alias ${alias}
+```
+
+Here, `filename` is the name of the PEM file. If there's more than one PEM file, run the command again.
+
+<!--- This isn't about curl or about testing. I think we should cut it.
 ### Using curl to Test HTTP Proxy Connections
 
-If your environment requires the use of an HTTP proxy, add the proxy configuration command line directives or have the HTTP_PROXY environmental variable set.  These parms are the same as the HTTP proxy related configuration values need in `wavefront.conf`.
+If your environment requires the use of an HTTP proxy, add the proxy configuration command line directives or have the HTTP_PROXY environment variable set.  These parms are the same as the HTTP proxy related configuration values need in `wavefront.conf`.
 
 For curl testing, here are examples of setting the `http_proxy` environment variables. These variables are not used by the proxy itself.
 
@@ -313,23 +350,7 @@ $ export http_proxy="http://USER:PASSWORD@PROXY_SERVER:PORT"
 $ export https_proxy="https://USER:PASSWORD@PROXY_SERVER:PORT"
 $ export ftp_proxy="http://USER:PASSWORD@PROXY_SERVER:PORT"
 ```
-
-### Modifying wavefront.conf for HTTP Connections
-
-By default, the HTTP proxy section is commented out. Uncomment and configure with values required by your HTTP proxy:
-
-```
-## The following settings are used to connect to Wavefront servers through a HTTP proxy:
-#proxyHost=localhost
-#proxyPort=8080
-## Optional: if http proxy requires authentication
-#proxyUser=proxy_user
-#proxyPassword=proxy_password
-#
-```
-
-You can then follow the other Wavefront proxy setup steps.
-
+--->
 ## Installing Telegraf Manually
 
 If the system has network access, follow our [instructions for installing Telegraf](https://packagecloud.io/wavefront/telegraf/install)
