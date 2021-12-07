@@ -18,7 +18,16 @@ The following videos explain how alerts work and how to configure them.
 </td>
 </tr>
 <tr>
-<td><strong><font color="blue">Introduction to Alerts</font></strong><br>
+<td><strong><font color="blue">Create an Alert in 90 Seconds</font></strong><br>
+<br>
+<iframe src="https://bcove.video/3o9bu6L" width="450" height="275" allowfullscreen="true" alt="chart builder video"></iframe></td>
+<td><br>
+<p>Watch how we create and test an alert with two severity and two different notification targets.</p>
+<p>You can also watch the video <a href="https://bcove.video/3o9bu6L" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
+</td>
+</tr>
+<tr>
+<td><strong><font color="blue">Introduction to Alerts (v1 UI)</font></strong><br>
 <br>
 <iframe src="https://bcove.video/3gh9rce" width="450" height="275" allowfullscreen="true" alt="chart builder video"></iframe></td>
 <td><br>
@@ -28,14 +37,7 @@ Jason explains first why intelligent alerts are so useful. He then explores the 
 </td>
 </tr>
 <tr>
-<td><strong><font color="blue">Creating Multi-Threshold Alerts</font></strong><br>
-<a href=" https://youtu.be/qWBP6PrkUrU"><img src="/images/v_threshold_alerts.png"  alt="threshold alerts"/></a></td>
-<td><br>
-<p>Watch the creation of a multi-threshold alert, which will send notifications to different alert targets depending on the severity. Learn also about the alert firing behavior of a multi-threshold alert.</p>
-</td>
-</tr>
-<tr>
-<td><strong><font color="blue">Alert States and Lifecycle</font></strong><br><br>
+<td><strong><font color="blue">Alert States and Lifecycle (v1 UI)</font></strong><br><br>
 <iframe src="https://bcove.video/3iYlXiP" width="450" height="275" allowfullscreen="true" alt="alert states and lifecycle video by Jason"></iframe>
 </td>
 <td><br>
@@ -44,7 +46,7 @@ Jason explains first why intelligent alerts are so useful. He then explores the 
 </td>
 </tr>
 <tr>
-<td><strong><font color="blue">Using Maintenance Windows</font></strong><br><br>
+<td><strong><font color="blue">Using Maintenance Windows (v1 UI)</font></strong><br><br>
 <iframe src="https://bcove.video/3m7AM4x" width="450" height="275" allowfullscreen="true" alt="create a maintenance window video by Jason"></iframe>
 </td>
 <td><br>
