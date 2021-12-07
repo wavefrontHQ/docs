@@ -36,6 +36,7 @@ Here's a screenshot that shows the different tabs of the Apache Solr integration
 **Note** Even if we don't have an integration for you data source, you can send your data directly to the [Wavefront proxy](proxies.html) in one of the [supported data formats](proxies.html#supported-data-formats).
 
 ## Built-In and Custom Integrations
+
 Wavefront lets you set up many integrations directly from the product. For other integrations, we give step-by-step instructions -- or you can send your data to Wavefront in other ways, for example, using the Telegraf output plug-in for Wavefront.
 
 - **Built-in integrations** provide assisted installation and configuration. Many integrations also install a dashboard for you. Access the integration by selecting **Integrations** from the taskbar and clicking the **Setup** tab.
@@ -83,10 +84,10 @@ Before setting up an integration, you can look into our demo dashboards. These d
 1. Click **Integrations** on the taskbar.
 1. In the **Sample Data Dashboards** section, click the **Explore** button for a sample integration dashboard. 
     
-    You are redirected to a sandbox data tenant cluster in another browser tab. The sandbox data tenant cluster contains the sample integrations data and dashboards.
+    You are redirected to a sandbox data tenant cluster in another tab of your browser. The sandbox data tenant cluster contains the sample integrations data and dashboards.
 
 1. To close the **Sample Data Dashboards** section, click **Close the section** and confirm. 
-1. To bring back the demo dashboards section, click **Show Demo Dashboards** on the left.
+1. To bring back the demo dashboards section, in the left pane, click **Show Demo Dashboards**.
 
 ## Installing and Uninstalling Integration Dashboards
 
