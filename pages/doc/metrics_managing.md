@@ -24,6 +24,7 @@ The following videos get you started:
 </td>
 <td width="40%"><br>
 <p>90-second video that shows how you can find and examine metrics from the Sources browser and from the Metrics browser. </p>
+<p>You can also watch the video <a href="https://bcove.video/3n13ulm" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> 
 </td>
 </tr>
 <tr>
