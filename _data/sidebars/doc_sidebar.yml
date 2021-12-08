@@ -512,7 +512,7 @@ entries:
             url: /integrations_log_data.html
             output: web
     
-          - title: vRealize Operations Integration Overview
+          - title: vRealize Operations Cloud Integration
             url: /integrations_vrops.html
             output: web
     
