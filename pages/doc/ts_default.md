@@ -66,7 +66,7 @@ For the simplest case, you can use `default()` to set the default value of a que
 
 ### Using default() With .orElse
 
-While the `default()` function allows you to specify a value for missing points on a chart, the function shows NO DATA if the time series reported no data at all in the specified time window. In that situation, you can use `default()` with the `.orElse` operator to specify a value to return is no data are found.
+While the `default()` function allows you to specify a value for missing points on a chart, the function shows NO DATA if the time series reported no data at all in the specified time window. In that situation, you can use `default()` with the `.orElse` operator to specify a value to return if no data are found.
 
 {% include note.html content="A typical use case for `orElse` is together with `default()` but you can use `.orElse` with other functions." %}
 
