@@ -14,7 +14,7 @@ You can
 
 ## Video: Sharing Content
 
-This short video shows how you can share Wavefront content by using some of the methods described below.
+This short <a href="https://bcove.video/3DZazeL" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> shows how you can share Wavefront content by using some of the methods described below.
 
 <p>
 <iframe src="https://bcove.video/3DZazeL" width="700" height="400" allowfullscreen="true" alt="Sharing search results, dashboards and charts using short URLs."></iframe>

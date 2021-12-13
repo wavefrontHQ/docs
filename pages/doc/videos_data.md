@@ -22,6 +22,7 @@ Learn about getting data into Wavefront and get background info on time series a
 </td>
 <td><br>
 <p>90-second video that shows how you can find and examine metrics from the Sources browser and from the Metrics browser. </p>
+<p>You can also watch the video <a href="https://bcove.video/3lHbhDd" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> 
 </td>
 </tr>
 <tr>
@@ -42,6 +43,7 @@ Learn about getting data into Wavefront and get background info on time series a
 </td>
 <td><br>
 <p>Jason shows how any user with Integrations permission can browse existing integrations and use the instructions in the Setup tab to get data flowing.</p>
+<p>You can also watch the video <a href="https://bcove.video/2JTvMgW" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> 
 </td>
 </tr>
 <tr>
@@ -51,6 +53,7 @@ Learn about getting data into Wavefront and get background info on time series a
 </td>
 <td><br>
 <p>Watch this video to learn how to send metrics data from a Windows host machine to Wavefront by using the Wavefront proxy.</p>
+<p>You can also watch the video <a href="https://bcove.video/3rXZ1RY" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> 
 </td>
 </tr>
 <tr>
@@ -71,6 +74,7 @@ Learn about getting data into Wavefront and get background info on time series a
 </td>
 <td><br>
 <p>Learn the difference between cumulative counters and delta counters and see how to manage delta counters from the UI.</p>
+<p>You can also watch the video <a href="https://bcove.video/39DNLom" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> 
 </td>
 </tr>
 

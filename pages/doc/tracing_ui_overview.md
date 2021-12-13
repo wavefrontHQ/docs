@@ -18,7 +18,7 @@ It is important to get an overview of the services and applications that send da
 
 The application map gives you an overview of how the applications and services are linked, lets you focus on a specific service, view Request, Error, and Duration (RED) metrics for each service, and the tracing traffic in the application. You can also drill down to the Service Dashboard and Tracing Browser.
 
-This video highlights the application map features and settings:
+This <a href="https://bcove.video/3oDxXaa" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights the application map features and settings:
 
 <iframe src="https://bcove.video/3oDxXaa" width="700" height="400" allowfullscreen="true" alt="Wavefront intro how-to"></iframe>
 
