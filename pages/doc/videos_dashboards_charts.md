@@ -18,6 +18,7 @@ Learn about visualizing your metrics with dashboards and charts, and how to cust
 </td>
 <td><br>
 <p>90-second video that shows how you can find and examine metrics from the Sources browser and from the Metrics browser. </p>
+<p>You can also watch the video <a href="https://bcove.video/3n13ulm" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
@@ -27,6 +28,7 @@ Learn about visualizing your metrics with dashboards and charts, and how to cust
 </td>
 <td><br>
 <p>This video shows you how to select, sync, and reset time windows so you can annalyze and compare your data.</p>
+<p>You can also watch the video <a href="https://bcove.video/3kJ6PGT" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
@@ -34,26 +36,26 @@ Learn about visualizing your metrics with dashboards and charts, and how to cust
 <br>
 <iframe src="https://bcove.video/2WxBJoe" width="550" height="275" allowfullscreen="true" alt="creating dashboards video"></iframe>
 </td>
-<td><br><p>Users with Dashboards permissions can create a new dashboard with one or multiple charts from metrics, a chart type, or an integration.  </p> </td>
+<td><br><p>Users with Dashboards permissions can create a new dashboard with one or multiple charts from metrics, a chart type, or an integration.  </p><p>You can also watch the video <a href="https://bcove.video/2WxBJoe" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> </td>
 </tr>
 <tr>
 <td><strong><font color="blue">Customize Dashboards</font></strong><br>
 <br>
 <iframe src="https://bcove.video/2Wux6eP" width="550" height="275" allowfullscreen="true" alt="customizing dashboard video"></iframe></td>
-<td><br><p>All users can customize their dashboards. Learn how to find a section, filter using variables or filters, set the time for the dashboard, and share the dashboard with others.</p> </td>
+<td><br><p>All users can customize their dashboards. Learn how to find a section, filter using variables or filters, set the time for the dashboard, and share the dashboard with others.</p><p>You can also watch the video <a href="https://bcove.video/2Wux6eP" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> </td>
 </tr>
 <tr>
 <td><strong><font color="blue">Create and Modify Charts with Chart Builder</font></strong><br>
 <br>
 <iframe src="https://bcove.video/2Xx9IPz" width="550" height="275" allowfullscreen="true" alt="chart builder video"></iframe>
 </td>
-<td><br><p>Users with Dashboards permissions can use Chart Builder to select metrics or histograms, apply filters and functions, select a chart type, and customize the chart.  </p> </td>
+<td><br><p>Users with Dashboards permissions can use Chart Builder to select metrics or histograms, apply filters and functions, select a chart type, and customize the chart.  </p><p>You can also watch the video <a href="https://bcove.video/2Xx9IPz" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> </td>
 </tr>
 <tr>
 <td><strong><font color="blue">Sharing Content</font></strong><br>
 <iframe src=" https://bcove.video/3DZazeL" width="550" height="275" allowfullscreen="true" alt="sharing Wavefront content video"></iframe>
 </td>
-<td><br><p>In this video, you'll learn how to share Wavefront content. For example, search results, dashboards, charts, and so on. You will also learn about what live and non-live displays are and how to share a live display of a dashboard.</p></td>
+<td><br><p>In this video, you'll learn how to share Wavefront content. For example, search results, dashboards, charts, and so on. You will also learn about what live and non-live displays are and how to share a live display of a dashboard.</p><p>You can also watch the video <a href="https://bcove.video/3DZazeL" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p></td>
 </tr>
 </tbody>
 </table>
