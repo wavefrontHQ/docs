@@ -231,7 +231,7 @@ The goal of instrumentation is to instrument enough methods to produce traces th
 
 * Automate as much as possible by using [Wavefront framework SDKs](wavefront_sdks.html#sdks-that-instrument-frameworks), if any exist for your languages and framework. Then use a [Wavefront OpenTracing SDK](wavefront_sdks.html##sdks-for-collecting-trace-data) to instrument operations that are not handled by a framework SDK.
 
-* Limit the number of spans in a trace to < 1000.
+* Limit the number of spans in a trace to < 1000. 
 
 * **Java example:** Instantiate a singleton `WavefrontTracer`, pass it to each class, and use it in each method of interest:
 
