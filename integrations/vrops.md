@@ -1,17 +1,17 @@
 ---
-title: VMware vRealize Operations Integration
+title: VMware vRealize Operations Cloud Integration
 tags: [integrations list]
 permalink: vrops.html
-summary: Learn about the Wavefront VMware vRealize Operations Integration.
+summary: Learn about the Wavefront VMware vRealize Operations Cloud Integration.
 ---
-# VMware vRealize Operations Integration
+# VMware vRealize Operations Cloud Integration
 
-The vRealize Operations integration is a full-featured native integration, that offers agentless data ingestion of vRealize Operations metric data, as well as predefined dashboards.
+The vRealize Operations Cloud integration is a full-featured native integration, that offers agentless data ingestion of vRealize Operations Cloud metric data, as well as predefined dashboards.
 
 In addition to setting up the metrics flow, this integration also installs a dashboard.
 
 {% include image.md src="images/vrops-dashboard.png" width="80" %}
-## VMware vRealize Operations Integration
+## VMware vRealize Operations Cloud Integration
 
 
 
