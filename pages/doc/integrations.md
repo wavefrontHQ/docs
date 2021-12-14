@@ -13,7 +13,7 @@ We update our [integrations release notes](integrations_new_changed.html) on a m
 
 ## Watch a Video
 
-In this video, Jason talks about the different integrations we have, and how you can use them to get your data into Wavefront.
+In this video, Jason talks about the different integrations we have, and how you can use them to get your data into Wavefront. You can also watch the video <a href="https://bcove.video/2JTvMgW" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
 
 <p><a href="https://bcove.video/2JTvMgW"><img src="/images/v_integrations_v2.png" style="width: 700px;" alt="new intro to integratons"/></a>
 </p>
