@@ -112,7 +112,7 @@ This initial release of the VMware vRealize Operations Cloud integration has the
           "name":"<integration-name>",
           "service":"VROPS",
           "vrops": {
-                  "baseURL": "<vrealizre-operations-cloud-base-URL>",
+                  "baseURL": "<vrealize-operations-cloud-base-URL>",
                   "metricFilterRegex": "<metric-filter-regex>",
                   "categoriesToFetch": <categories-to-fetch>,
                   "vropsAPIToken": "<vrealize-operations-API-Token>",
