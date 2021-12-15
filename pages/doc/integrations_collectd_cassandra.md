@@ -15,7 +15,7 @@ Wavefront supports a built-in integration that gets data from Cassandra using Te
 
 ## Cassandra Set Up
 
-Make sure your Cassandra nodes are configured to allow [JMX connections](http://docs.datastax.com/en/archived/cassandra/3.x/cassandra/configuration/secureAboutJMXAuth.html?hl=jmx).Which metrics are available will depend on which version of Cassandra you're using. Consult the Cassandra JMX documentation to confirm which metrics are available for your version of Cassandra.
+Make sure your Cassandra nodes are configured to allow [JMX connections](http://docs.datastax.com/en/archived/cassandra/3.x/cassandra/configuration/secureAboutJMXAuth.html?hl=jmx). Which metrics are available depends on the Cassandra version that you're using. Consult the Cassandra JMX documentation to confirm which metrics are available for your version of Cassandra.
 
 ## Installation
 
