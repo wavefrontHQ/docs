@@ -1,12 +1,12 @@
 ---
-title: Setting Up and Managing the AWS Integration Through the API
+title: Set Up and Manage an AWS Integration Through the API
 keywords:
 tags: [integrations, best practices]
 sidebar: doc_sidebar
 permalink: integrations_aws_overview_API.html
 summary: Understand how to set up and manage the AWS integration by using the Wavefront REST API.
 ---
-The Wavefront Amazon Web Services integration allows you to ingest metrics directly from AWS. In addition to setting up and managing the AWS integration through the GUI, you can also use the Wavefront REST API for setting up and managing the integration. This doc provides some basic steps and examples on how to do this.
+The Wavefront Amazon Web Services integration allows you to ingest metrics directly from AWS. In addition to setting up and managing the AWS integration through the Wavefront UI, you can also use the Wavefront REST API for setting up and managing the AWS integration. This doc provides some basic steps and examples on how to do this.
 
 {% include shared/badge.html content="You must have the [**Proxy Management** permission](permissions_overview.html) to set up an AWS integration." %}
 
@@ -39,7 +39,6 @@ For information about external IDs and how they are used in AWS, see [How to Use
   }
   ```
   
-  
 ## Use the REST API to Add an AWS Integration
 
 You can add an AWS integration by using the Wavefront REST API. 
@@ -49,9 +48,13 @@ You can add an AWS integration by using the Wavefront REST API.
 1. Click the gear icon in the top right and select **API Documentation**.
 1. Expand the **Cloud Integration** category.
 1. To create a new cloud integration, click the `POST /api/v2/cloudintegration` request.
-1. To add a CloudWatch, AWS Metrics+, and CloudTrail integrations, in the **body** text box enter the following example:
+1. To add an integration, in the **body** text box enter one of the following examples for each AWS integration. 
 
-    ```
+   You can add one integration at a time. You cannot use a single API request to register all AWS services together.
+   
+   * CloudWatch integration:
+   
+     ```
 {
   "name":"CloudWatch integration",
   "service":"CLOUDWATCH",
@@ -65,6 +68,11 @@ You can add an AWS integration by using the Wavefront REST API.
   },
   "serviceRefreshRateInMins":5
 }
+     ```
+
+   * AWS Metrics+ integration:
+   
+     ```
 {
   "name":"AWSMetric+ integration",
   "service":"ec2",
@@ -78,6 +86,11 @@ You can add an AWS integration by using the Wavefront REST API.
   },
   "serviceRefreshRateInMins":5
 }
+     ```
+   
+    * CloudTrail integration:
+    
+      ```
 {
   "name":"CloudTrail integration",
   "service":"cloudTrail",
@@ -91,13 +104,11 @@ You can add an AWS integration by using the Wavefront REST API.
     },
     "filterRule":"string"
 }
-
-    ```
-
-    In this example, `roleArn` is the [Role ARN from your Amazon account](integrations_aws_overview.html#give-wavefront-read-only-access-to-your-amazon-account), and the `externalId` is the external ID [that you have already created](integrations_aws_overview_API.html#getting-an-external-id). If you don't provide an external ID, the request will time out. 
-
+      ```
+   
+   In these examples, `roleArn` is the [Role ARN from your Amazon account](integrations_aws_overview.html#give-wavefront-read-only-access-to-your-amazon-account), and the externalId is the external ID [that you have already created](integrations_aws_overview_API.html#getting-an-external-id). If you don’t provide an external ID, the request will time out. 
+   
 1. Click **Try it out!**.
-
 
 ## Enable and Disable AWS Integrations
 
@@ -111,7 +122,7 @@ Wavefront automatically disables integrations that are experiencing errors due t
     {
      "forceSave": false,
      "name": "AWS",
-     "id": "7a146a98-583f-4a2c-8c57-cde6d146bb6b",
+     "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
      "service": "CLOUDWATCH",
      "lastReceivedDataPointMs": 1634038298092,
      "lastMetricCount": 210,
@@ -144,13 +155,13 @@ Wavefront automatically disables integrations that are experiencing errors due t
    },
  
    ```
-1. Copy the value of the "id" parameter of the cloud integration that you want to enable or disable.
+1. Copy the value of the `"id"` parameter of the cloud integration that you want to enable or disable.
 1. To enable the integration, run the `POST /api/v2/cloudintegration/{id}/enable` request with the ID of the integration that you copied.
 1. To disable the integration, run the `POST /api/v2/cloudintegration/{id}/disable` request with the ID of the integration that you copied.
 
 ## Delete and Recover AWS Integrations
 
-To delete a cloud service integration that you no longer need, you need the integration ID. If you decide to move the integration to the recycle bin, you can recover it at a later stage.
+To delete a cloud service integration that you no longer want to use, you need the integration ID. If you decide to move the integration to the recycle bin, you can recover it at a later stage.
 
 1. In the Wavefront REST API documentation, click the `GET/api/v2/cloudintegration` request, and click **Try it out!**.
    
@@ -160,7 +171,7 @@ To delete a cloud service integration that you no longer need, you need the inte
     {
      "forceSave": false,
      "name": "AWS",
-     "id": "7a146a98-583f-4a2c-8c57-cde6d146bb6b",
+     "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
      "service": "CLOUDWATCH",
      "lastReceivedDataPointMs": 1634038298092,
      "lastMetricCount": 210,
@@ -193,22 +204,27 @@ To delete a cloud service integration that you no longer need, you need the inte
    },
  
    ```
-1. Copy the value of the ``"id"`` parameter of the integration that you want to delete.
+1. Copy the value of the `"id"` parameter of the integration that you want to delete.
 1. To delete the integration, click the `DELETE /api/v2/cloudintegration/{id}` request.
-1. Under **Parameters**, in the **id** text box enter the ID of the integration that you copied.
+1. Under **Parameters**, in the **id** text box enter the integration ID that you copied.
 1. From the **skipTrash** drop-down menu select whether you want to keep the deleted integration in the recycle bin. 
 
    * Select **false(default)**, to move the integration to the recycle bin, so that you can recover it at a later stage.
    * Select **true**, to delete the integration forever. You won't be able to recover it.
   
 1. Click **Try it out!**.
-1. To recover an integration from the recycle bin, i.e. an integration that was not permanently deleted, in the Wavefront REST API documentation, click the `POST /api/v2/cloudintegration/{id}/undelete` request.
+1. To recover an integration from the recycle bin, i.e., an integration that was not permanently deleted, in the Wavefront REST API documentation, click the `POST /api/v2/cloudintegration/{id}/undelete` request.
 1. Under **Parameters**, in the **id** text box enter the ID of the integration that you want to recover.
 1. Click **Try it out!**.
 
 ## Update an AWS Integration
 
-1. 1. In the Wavefront REST API documentation, click the `GET/api/v2/cloudintegration` request, and click **Try it out!**.
+You can update an AWS integration through the API.  You do not need the external ID value to update an existing AWS integration. 
+
+In this example, we update the CloudWatch integration to retrieve the AWS service metrics for AWS/EBS, AWS/ApiGateway, AWS/EC2, AWS/ELB, AWS/ElastiCache, AWS/ApplicationELB, AWS/SES, AWS/NATGateway, AWS/AutoScaling, and AWS/RDS. We also add the metrics for these services to a metric allow list by using a regular expression.
+  
+
+1. In the Wavefront REST API documentation, click the `GET/api/v2/cloudintegration` request, and click **Try it out!**.
    
    In the **Response Body** section, you can see the list of all configured cloud services integrations. For example:
    
@@ -216,7 +232,7 @@ To delete a cloud service integration that you no longer need, you need the inte
     {
      "forceSave": false,
      "name": "AWS",
-     "id": "7a146a98-583f-4a2c-8c57-cde6d146bb6b",
+     "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
      "service": "CLOUDWATCH",
      "lastReceivedDataPointMs": 1634038298092,
      "lastMetricCount": 210,
@@ -249,42 +265,48 @@ To delete a cloud service integration that you no longer need, you need the inte
    },
  
    ```
-1. Copy the value of the ``"id"`` parameter of the integration that you want to update.
-1. In the Wavefront REST API documentation, click the `PUT /api/v2/cloudintegration/{id}` request.
-1. Under **Parameters**, in the **id** text box enter the ID of the integration that you want to update.
-1. In the **body** text box enter the following example:
-
-   ```
-   I need a meaningful CloudWatch code example, maybe something like that (need some more examples here):
    
-
-  
-   { 
-     "id": "7a146a98-583f-4a2c-8c57-cde6d146bb6b",
-     "name":"AWS",
-     "service":"CLOUDWATCH",
-     "cloudWatch":{
-       "baseCredentials":{
-         "roleArn":"arn:aws:iam::<accountid>:role/<rolename>"
-       },
-       "metricFilterRegex":"^aws.(elb|rds).*$",
-       "pointTagFilterRegex":"(cluster|region)"
-       "instanceSelectionTagsExpr": "need-an-example-of-a-meaningful string",
-       "volumeSelectionTagsExpr": "need-an-example-of-a-meaningful string",
-       "instanceSelectionTags": {
-         "key1": "value1",
-         "key2": "value2"
-         },
-       "volumeSelectionTags": {
-         key1": "value1",
-         "key2": "value2"
-       }
-     },
-     "serviceRefreshRateInMins":2
-   }
-
-   We also need to explain what will change. Also add info whether the external ID is the same ID provided during the setup of the integration.
+   You can see that the CloudWatch integration retrieves only AWS/DynamoDB metrics.
+   
+1. Copy the value of the `"id"` parameter of the integration that you want to update.
+1. Copy the content of the response in a text file. 
+1. Edit the response body to add the list of services.
+   
    ```
-   You do not need the external ID value to update an existing AWS integration.
+{ 
+  "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
+  "name":"AWS",
+  "service":"CLOUDWATCH",
+  "cloudWatch":{
+    "namespaces": [
+      "AWS/DynamoDB"
+      "AWS/EBS",
+      "AWS/ApiGateway",
+      "AWS/EC2",
+      "AWS/ELB",
+      "AWS/ElastiCache",
+      "AWS/ApplicationELB",
+      "AWS/SES",
+      "AWS/NATGateway",
+      "AWS/AutoScaling",
+      "AWS/RDS"
+    ],
+    "baseCredentials":{
+      "roleArn":"arn:aws:iam::<accountid>:role/<rolename>"
+    },
+    "metricFilterRegex":^(aws.(ecs|ses|instance|autoscaling|sqs|sns|reservedInstance|ebs|route53.health|ec2.status|ec2.cpuutilization|ec2.network|ec2.autoscaling|autoscaling|elb|dynamodb|kinesis|firehose|s3|applicationelb|networkelb|lambda|rds|elasticache|applicationelb|natgateway).*),
+    "pointTagFilterRegex": "",
+    "instanceSelectionTags": {},
+    "volumeSelectionTags": {}
+    }
+  },
+  "serviceRefreshRateInMins":2
+}
 
+   ```
+
+1. In the Wavefront REST API documentation, click the `PUT /api/v2/cloudintegration/{id}` request.
+1. Under **Parameters**, in the **id** text box enter the ID of the integration that you copied.
+1. In the **body** text box enter the edited response body with the new services.
 1. Click **Try it out!**.
+1. Verify that the response returns `200` status code to indicate that the update was successful.
