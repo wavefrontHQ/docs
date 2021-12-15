@@ -32,9 +32,9 @@ If want to use a PagerDuty email target, consider the **Open a new incident only
 
 1. Log in to your PagerDuty account.
 1. Click the **Services** tab, and choose the service you want to retrieve the key or email address.
-{% include image.md width="50" src="images/pagerduty_services.png" %}
-1. On the Integrations tab, expand the integration to view the **API** or **Email** link.
 {% include image.md width="50" src="images/pagerduty_keys.png" %}
+1. On the Integrations tab, expand the integration to view the **API** or **Email** link.
+{% include image.md width="50" src="images/pagerduty_services.png" %}
 1. Copy the API integration key or email address.
 
 ### Step 2. Add the PagerDuty Integration to a Wavefront Alert
