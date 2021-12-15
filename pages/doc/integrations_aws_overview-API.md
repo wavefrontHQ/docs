@@ -106,7 +106,7 @@ You can add an AWS integration by using the Wavefront REST API.
 }
       ```
    
-   In these examples, `roleArn` is the [Role ARN from your Amazon account](integrations_aws_overview.html#give-wavefront-read-only-access-to-your-amazon-account), and the externalId is the external ID [that you have already created](integrations_aws_overview_API.html#getting-an-external-id). If you don’t provide an external ID, the request will time out. 
+   In these examples, `roleArn` is the [Role ARN from your Amazon account](integrations_aws_overview.html#give-wavefront-read-only-access-to-your-amazon-account), and the `externalId` is the external ID [that you have already created](integrations_aws_overview_API.html#getting-an-external-id). If you don’t provide an external ID, the request will time out. 
    
 1. Click **Try it out!**.
 
@@ -221,7 +221,7 @@ To delete a cloud service integration that you no longer want to use, you need t
 
 You can update an AWS integration through the API.  You do not need the external ID value to update an existing AWS integration. 
 
-In this example, we update the CloudWatch integration to retrieve the AWS service metrics for AWS/EBS, AWS/ApiGateway, AWS/EC2, AWS/ELB, AWS/ElastiCache, AWS/ApplicationELB, AWS/SES, AWS/NATGateway, AWS/AutoScaling, and AWS/RDS. We also add the metrics for these services to a metric allow list by using a regular expression.
+In this example, we update the CloudWatch integration to retrieve the AWS service metrics for EBS, ApiGateway, EC2, ELB, ElastiCache, ApplicationELB, SES, NATGateway, AutoScaling, and RDS. We also add the metrics for these services to a metric allow list by using a regular expression and change the service refresh rate from 5 to 2 minutes.
   
 
 1. In the Wavefront REST API documentation, click the `GET/api/v2/cloudintegration` request, and click **Try it out!**.
@@ -266,11 +266,11 @@ In this example, we update the CloudWatch integration to retrieve the AWS servic
  
    ```
    
-   You can see that the CloudWatch integration retrieves only AWS/DynamoDB metrics.
+   You can see that the CloudWatch integration retrieves only DynamoDB metrics and that the service refresh rate is 5 minutes.
    
 1. Copy the value of the `"id"` parameter of the integration that you want to update.
 1. Copy the content of the response in a text file. 
-1. Edit the response body to add the list of services.
+1. Edit the response body to add the list of services and to change the service refresh rate to 2 minutes.
    
    ```
 { 
@@ -299,9 +299,22 @@ In this example, we update the CloudWatch integration to retrieve the AWS servic
     "instanceSelectionTags": {},
     "volumeSelectionTags": {}
     }
+    },
+    "disabled": false,
+    "lastProcessorId": "3198d07c-210c-4670-9bd0-eb407d2a71dc",
+    "lastProcessingTimestamp": 1634038421682,
+    "createdEpochMillis": 1620216033503,
+    "updatedEpochMillis": 1622707203597,
+    "serviceRefreshRateInMins": 2,
+    "deleted": false,
+    "inTrash": false,
+    "lastErrorEvent": {
+      ...
+      ...
+    
+    "creatorId": "user-account-email-address",
+    "updaterId": "user-account-email-address"
   },
-  "serviceRefreshRateInMins":2
-}
 
    ```
 
