@@ -39,7 +39,7 @@ For information about external IDs and how they are used in AWS, see [How to Use
   }
   ```
   
-## Use the REST API to Add an AWS Integration
+## Set Up an AWS Integration
 
 You can add an AWS integration by using the Wavefront REST API. 
 
@@ -108,113 +108,6 @@ You can add an AWS integration by using the Wavefront REST API.
    
    In these examples, `roleArn` is the [Role ARN from your Amazon account](integrations_aws_overview.html#give-wavefront-read-only-access-to-your-amazon-account), and the `externalId` is the external ID [that you have already created](integrations_aws_overview_API.html#getting-an-external-id). If you don’t provide an external ID, the request will time out. 
    
-1. Click **Try it out!**.
-
-## Enable and Disable AWS Integrations
-
-Wavefront automatically disables integrations that are experiencing errors due to invalid credentials. To enable an integration after the credential has been corrected or to manually disable an integration, you need the integration ID.
-
-1. In the Wavefront REST API documentation, click the `GET/api/v2/cloudintegration` request, and click **Try it out!**.
-   
-   In the **Response Body** section, you can see the list of all configured cloud services integrations. For example:
-   
-    ```
-    {
-     "forceSave": false,
-     "name": "AWS",
-     "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-     "service": "CLOUDWATCH",
-     "lastReceivedDataPointMs": 1634038298092,
-     "lastMetricCount": 210,
-     "cloudWatch": {
-       "namespaces": [
-         "AWS/DynamoDB"
-       ],
-       "metricFilterRegex": "",
-       "baseCredentials": {
-         "roleArn": "arn:aws:iam::<accountid>:role/<rolename>"
-       },
-       "pointTagFilterRegex": "",
-       "instanceSelectionTags": {},
-       "volumeSelectionTags": {}
-     },
-     "disabled": false,
-     "lastProcessorId": "3198d07c-210c-4670-9bd0-eb407d2a71dc",
-     "lastProcessingTimestamp": 1634038421682,
-     "createdEpochMillis": 1620216033503,
-     "updatedEpochMillis": 1622707203597,
-     "serviceRefreshRateInMins": 5,
-     "deleted": false,
-     "inTrash": false,
-     "lastErrorEvent": {
-       ...
-       ...
-     
-     "creatorId": "user-account-email-address",
-     "updaterId": "user-account-email-address"
-   },
- 
-   ```
-1. Copy the value of the `"id"` parameter of the cloud integration that you want to enable or disable.
-1. To enable the integration, run the `POST /api/v2/cloudintegration/{id}/enable` request with the ID of the integration that you copied.
-1. To disable the integration, run the `POST /api/v2/cloudintegration/{id}/disable` request with the ID of the integration that you copied.
-
-## Delete and Recover AWS Integrations
-
-To delete a cloud service integration that you no longer want to use, you need the integration ID. If you decide to move the integration to the recycle bin, you can recover it at a later stage.
-
-1. In the Wavefront REST API documentation, click the `GET/api/v2/cloudintegration` request, and click **Try it out!**.
-   
-   In the **Response Body** section, you can see the list of all configured cloud services integrations. For example:
-   
-    ```
-    {
-     "forceSave": false,
-     "name": "AWS",
-     "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-     "service": "CLOUDWATCH",
-     "lastReceivedDataPointMs": 1634038298092,
-     "lastMetricCount": 210,
-     "cloudWatch": {
-       "namespaces": [
-         "AWS/DynamoDB"
-       ],
-       "metricFilterRegex": "",
-       "baseCredentials": {
-         "roleArn": "arn:aws:iam::<accountid>:role/<rolename>"
-       },
-       "pointTagFilterRegex": "",
-       "instanceSelectionTags": {},
-       "volumeSelectionTags": {}
-     },
-     "disabled": false,
-     "lastProcessorId": "3198d07c-210c-4670-9bd0-eb407d2a71dc",
-     "lastProcessingTimestamp": 1634038421682,
-     "createdEpochMillis": 1620216033503,
-     "updatedEpochMillis": 1622707203597,
-     "serviceRefreshRateInMins": 5,
-     "deleted": false,
-     "inTrash": false,
-     "lastErrorEvent": {
-       ...
-       ...
-     
-     "creatorId": "user-account-email-address",
-     "updaterId": "user-account-email-address"
-   },
- 
-   ```
-1. Copy the value of the `"id"` parameter of the integration that you want to delete.
-1. To delete the integration, click the `DELETE /api/v2/cloudintegration/{id}` request.
-1. Under **Parameters**, in the **id** text box enter the integration ID that you copied.
-1. From the **skipTrash** drop-down menu select whether you want to keep the deleted integration in the recycle bin. 
-
-   * Select **false(default)**, to move the integration to the recycle bin, so that you can recover it at a later stage.
-   * Select **true**, to delete the integration forever. You won't be able to recover it.
-  
-1. Click **Try it out!**.
-1. To recover an integration from the recycle bin, i.e., an integration that was not permanently deleted, in the Wavefront REST API documentation, click the `POST /api/v2/cloudintegration/{id}/undelete` request.
-1. Under **Parameters**, in the **id** text box enter the ID of the integration that you want to recover.
 1. Click **Try it out!**.
 
 ## Update an AWS Integration
@@ -323,3 +216,110 @@ In this example, we update the CloudWatch integration to retrieve the AWS servic
 1. In the **body** text box enter the edited response body with the new services.
 1. Click **Try it out!**.
 1. Verify that the response returns `200` status code to indicate that the update was successful.
+
+## Enable and Disable an AWS Integration
+
+Wavefront automatically disables integrations that are experiencing errors due to invalid credentials. To enable an integration after the credential has been corrected or to manually disable an integration, you need the integration ID.
+
+1. In the Wavefront REST API documentation, click the `GET/api/v2/cloudintegration` request, and click **Try it out!**.
+   
+   In the **Response Body** section, you can see the list of all configured cloud services integrations. For example:
+   
+    ```
+    {
+     "forceSave": false,
+     "name": "AWS",
+     "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
+     "service": "CLOUDWATCH",
+     "lastReceivedDataPointMs": 1634038298092,
+     "lastMetricCount": 210,
+     "cloudWatch": {
+       "namespaces": [
+         "AWS/DynamoDB"
+       ],
+       "metricFilterRegex": "",
+       "baseCredentials": {
+         "roleArn": "arn:aws:iam::<accountid>:role/<rolename>"
+       },
+       "pointTagFilterRegex": "",
+       "instanceSelectionTags": {},
+       "volumeSelectionTags": {}
+     },
+     "disabled": false,
+     "lastProcessorId": "3198d07c-210c-4670-9bd0-eb407d2a71dc",
+     "lastProcessingTimestamp": 1634038421682,
+     "createdEpochMillis": 1620216033503,
+     "updatedEpochMillis": 1622707203597,
+     "serviceRefreshRateInMins": 5,
+     "deleted": false,
+     "inTrash": false,
+     "lastErrorEvent": {
+       ...
+       ...
+     
+     "creatorId": "user-account-email-address",
+     "updaterId": "user-account-email-address"
+   },
+ 
+   ```
+1. Copy the value of the `"id"` parameter of the cloud integration that you want to enable or disable.
+1. To enable the integration, run the `POST /api/v2/cloudintegration/{id}/enable` request with the ID of the integration that you copied.
+1. To disable the integration, run the `POST /api/v2/cloudintegration/{id}/disable` request with the ID of the integration that you copied.
+
+## Delete and Recover a Deleted AWS Integration
+
+To delete a cloud service integration that you no longer want to use, you need the integration ID. If you decide to move the integration to the recycle bin, you can recover it at a later stage.
+
+1. In the Wavefront REST API documentation, click the `GET/api/v2/cloudintegration` request, and click **Try it out!**.
+   
+   In the **Response Body** section, you can see the list of all configured cloud services integrations. For example:
+   
+    ```
+    {
+     "forceSave": false,
+     "name": "AWS",
+     "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
+     "service": "CLOUDWATCH",
+     "lastReceivedDataPointMs": 1634038298092,
+     "lastMetricCount": 210,
+     "cloudWatch": {
+       "namespaces": [
+         "AWS/DynamoDB"
+       ],
+       "metricFilterRegex": "",
+       "baseCredentials": {
+         "roleArn": "arn:aws:iam::<accountid>:role/<rolename>"
+       },
+       "pointTagFilterRegex": "",
+       "instanceSelectionTags": {},
+       "volumeSelectionTags": {}
+     },
+     "disabled": false,
+     "lastProcessorId": "3198d07c-210c-4670-9bd0-eb407d2a71dc",
+     "lastProcessingTimestamp": 1634038421682,
+     "createdEpochMillis": 1620216033503,
+     "updatedEpochMillis": 1622707203597,
+     "serviceRefreshRateInMins": 5,
+     "deleted": false,
+     "inTrash": false,
+     "lastErrorEvent": {
+       ...
+       ...
+     
+     "creatorId": "user-account-email-address",
+     "updaterId": "user-account-email-address"
+   },
+ 
+   ```
+1. Copy the value of the `"id"` parameter of the integration that you want to delete.
+1. To delete the integration, click the `DELETE /api/v2/cloudintegration/{id}` request.
+1. Under **Parameters**, in the **id** text box enter the integration ID that you copied.
+1. From the **skipTrash** drop-down menu select whether you want to keep the deleted integration in the recycle bin. 
+
+   * Select **false(default)**, to move the integration to the recycle bin, so that you can recover it at a later stage.
+   * Select **true**, to delete the integration forever. You won't be able to recover it.
+  
+1. Click **Try it out!**.
+1. To recover an integration from the recycle bin, i.e., an integration that was not permanently deleted, in the Wavefront REST API documentation, click the `POST /api/v2/cloudintegration/{id}/undelete` request.
+1. Under **Parameters**, in the **id** text box enter the ID of the integration that you want to recover.
+1. Click **Try it out!**.
