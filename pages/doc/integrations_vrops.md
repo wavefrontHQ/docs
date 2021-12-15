@@ -4,7 +4,7 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_vrops.html
-summary: Understand the setup and the vRealize Operations Cloud integration v1 limitations and caveats.
+summary: Understand the setup and the vRealize Operations Cloud integration v1 limitations and caveats
 ---
 [VMware vRealize Operations Cloud](https://www.vmware.com/products/vrealize-operations.html) delivers intelligent operations management with application-to-storage visibility across physical, virtual, and cloud infrastructures. Using policy-based automation, operations teams automate key processes and improve the IT efficiency.
 
@@ -83,15 +83,15 @@ With this initial, v1 release of the vRealize Operations Cloud integration, we c
 || and so on|
 
 
-You can see the full list of the collected metrics on the Metrics page.
+You can see the full list of the collected metrics on the **Metrics Browser** page.
 
 1. In Wavefront, click **Browse > Metrics**.
-2. On the Metrics page, in the **Metrics** text box, enter `vrops.vmware.`.
+2. On the **Metrics Browser** page, in the **Metrics** text box, enter `vrops.vmware.`.
 3. Click the folder icons to drill down to the individual metrics. 
 
 ## vRealize Operations Cloud Integration Known Issues and Limitations
 
-This initial release of the Cluster Compute Resource Metrics integration has the following known issues and limitations:
+This initial release of the VMware vRealize Operations Cloud integration has the following known issues and limitations:
 
 * For supermetrics, such as `Cost Drivers - Facilities (US $/Month)`, `Total Server Purchase Cost`, and so on, the metric names are not fetched and in Wavefront these metrics are displayed with the super metric ID.
 * The vRealize Operations Cloud metrics have a point tag, which represents the organization ID. This is the UUIF of the organization. Currently, Wavefront collects the Organization ID as a point tag, instead of the Organization name.
@@ -112,7 +112,7 @@ This initial release of the Cluster Compute Resource Metrics integration has the
           "name":"<integration-name>",
           "service":"VROPS",
           "vrops": {
-                  "baseURL": "<vrealizre-operations-base-URL>",
+                  "baseURL": "<vrealizre-operations-cloud-base-URL>",
                   "metricFilterRegex": "<metric-filter-regex>",
                   "categoriesToFetch": <categories-to-fetch>,
                   "vropsAPIToken": "<vrealize-operations-API-Token>",
@@ -131,4 +131,4 @@ This initial release of the Cluster Compute Resource Metrics integration has the
     9. In the **body** text box, enter the contents of the JSON file that you created in Step 6.
     10. Click **Try it out**. 
     
-   You get a 200 response and in the Wavefront UI you can see that the vCenter Server instances are filtered out.
+   You get a `200` response and in the Wavefront UI, you can see that the vCenter Server instances are filtered out.
