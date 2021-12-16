@@ -10,11 +10,11 @@ The Wavefront Amazon Web Services integration allows you to ingest metrics direc
 
 {% include shared/badge.html content="You must have the [**Proxy Management** permission](permissions_overview.html) to set up an AWS integration." %}
 
-In these examples, you access the REST API through the Wavefront interface, so that you don't need to provide the Bearer token. Make sure that you have granted Wavefront with read-only access to your Amazon account and that you have the **Role ARN** value handy. 
+In these examples, you access the REST API through the Wavefront interface, so that you don't need to provide the Bearer token. Make sure that you have granted Wavefront with read-only access to your Amazon account and that you have the [**Role ARN** value handy](integrations_aws_overview.html#give-wavefront-read-only-access-to-your-amazon-account). 
 
 ## Create an External ID
 
-To grant Wavefront with read-only access to your Amazon account, you need to provide an account ID and external ID. While the account ID is a constant value - the ID (in our case - the Wavefront ID) to which you want to grant access to your resources, the external ID is not a constant value. The external ID is a secret identifier that is known by you and Wavefront (the third-party). The external ID is time-sensitive and regenerated each time you reopen the AWS Integration setup page, and you cannot reuse it.
+To grant Wavefront with read-only access to your Amazon account, you need to provide an account ID and external ID. While the account ID is a constant value (in our case - the Wavefront ID) to which you want to grant access to your resources, the external ID is not a constant value. The external ID is a secret identifier that is known by you and Wavefront (the third-party). The external ID is time-sensitive and regenerated each time you reopen the AWS Integration setup page, and you cannot reuse it.
 
 For information about external IDs and how they are used in AWS, see [How to Use External ID When Granting Access to Your AWS Resources](https://aws.amazon.com/blogs/security/how-to-use-external-id-when-granting-access-to-your-aws-resources/).
 
@@ -105,7 +105,7 @@ You can add an AWS integration by using the Wavefront REST API.
 }
       ```
    
-   In these examples, `roleArn` is the [Role ARN from your Amazon account](integrations_aws_overview.html#give-wavefront-read-only-access-to-your-amazon-account), and the `externalId` is the external ID [that you have already created](integrations_aws_overview_API.html#getting-an-external-id). If you don’t provide an external ID, the request will time out. 
+   In these examples, the `roleArn` value is the [Role ARN from your Amazon account](integrations_aws_overview.html#give-wavefront-read-only-access-to-your-amazon-account), and the `externalId` value is the external ID [that you have already created](integrations_aws_overview_API.html#getting-an-external-id). If you don’t provide an external ID, the request will time out. 
    
 1. Click **Try it out!**.
 
@@ -162,7 +162,7 @@ In this example, we update the CloudWatch integration to retrieve the AWS servic
    
 1. Copy the value of the `"id"` parameter of the integration that you want to update.
 1. Copy the content of the response in a text file. 
-1. Edit the response body to add the list of services and to change the service refresh rate to 2 minutes.
+1. Edit the copied response body to add the list of services and to change the service refresh rate to 2 minutes.
    
    ```
 { 
@@ -312,13 +312,13 @@ To delete a cloud service integration that you no longer want to use, you need t
    ```
 1. Copy the value of the `"id"` parameter of the integration that you want to delete.
 1. To delete the integration, click the `DELETE /api/v2/cloudintegration/{id}` request.
-1. Under **Parameters**, in the **id** text box enter the integration ID that you copied.
-1. From the **skipTrash** drop-down menu select whether you want to keep the deleted integration in the recycle bin. 
+   1. Under **Parameters**, in the **id** text box enter the integration ID that you copied.
+   1. From the **skipTrash** drop-down menu select whether you want to keep the deleted integration in the recycle bin. 
 
-   * Select **false(default)**, to move the integration to the recycle bin, so that you can recover it at a later stage.
-   * Select **true**, to delete the integration forever. You won't be able to recover it.
+      * Select **false(default)**, to move the integration to the recycle bin, so that you can recover it at a later stage.
+      * Select **true**, to delete the integration forever. You won't be able to recover it.
   
-1. Click **Try it out!**.
+   1. Click **Try it out!**.
 1. To recover an integration from the recycle bin, i.e., an integration that was not permanently deleted, in the Wavefront REST API documentation, click the `POST /api/v2/cloudintegration/{id}/undelete` request.
-1. Under **Parameters**, in the **id** text box enter the ID of the integration that you want to recover.
-1. Click **Try it out!**.
+   1. Under **Parameters**, in the **id** text box enter the ID of the integration that you want to recover.
+   1. Click **Try it out!**.
