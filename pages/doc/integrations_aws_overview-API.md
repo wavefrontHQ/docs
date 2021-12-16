@@ -10,15 +10,18 @@ The Wavefront Amazon Web Services integration allows you to ingest metrics direc
 
 {% include shared/badge.html content="You must have the [**Proxy Management** permission](permissions_overview.html) to set up an AWS integration." %}
 
-In these examples, you access the REST API through the Wavefront interface, so that you don't need to provide the Bearer token. Make sure that you have granted Wavefront with read-only access to your Amazon account and that you have the [**Role ARN** value handy](integrations_aws_overview.html#give-wavefront-read-only-access-to-your-amazon-account). 
+In these examples, you access the REST API through the Wavefront interface, so that you don't need to provide the Bearer token. 
 
-## Create an External ID
+## Before You Start
 
-To grant Wavefront with read-only access to your Amazon account, you need to provide an account ID and external ID. While the account ID is a constant value (in our case - the Wavefront ID) to which you want to grant access to your resources, the external ID is not a constant value. The external ID is a secret identifier that is known by you and Wavefront (the third-party). The external ID is time-sensitive and regenerated each time you reopen the AWS Integration setup page, and you cannot reuse it.
+To set up the Wavefront Amazon Web Services integration, you must provide Wavefront with read-only access to your Amazon account. To do that, you need to provide an account ID and external ID. While the account ID is a constant value (in our case - the Wavefront ID) to which you want to grant access to your resources, the external ID is not a constant value. The external ID is a secret identifier that is known by you and Wavefront (the third-party). The external ID is time-sensitive and regenerated each time you reopen the AWS Integration setup page, and you cannot reuse it.
 
 For information about external IDs and how they are used in AWS, see [How to Use External ID When Granting Access to Your AWS Resources](https://aws.amazon.com/blogs/security/how-to-use-external-id-when-granting-access-to-your-aws-resources/).
 
-To create an external ID:
+For more information about giving Wavefront access to your Amazon account, see [Giving Wavefront Access to Your AWS Account](integrations_aws_overview.html#giving-wavefront-access-to-your-aws-account).
+
+
+### Create an External ID
 
 1. Log in to your Wavefront cluster. 
 1. Click the gear icon in the top right and select **API Documentation**.
@@ -38,6 +41,26 @@ To create an external ID:
   }
   ```
   
+### Provide Wavefront Read-Only Access to Your Amazon Account and Get the Role ARN
+  
+1. Log in to your AWS account.
+1. Search for the **IAM** (AWS Identity and Access Management) service and click it.
+1. Under **Access management** on the left, click **Roles**.
+1. Click **Create role**.
+1. Click the **Another AWS account** tile.
+1. Enter the Wavefront account info:
+   - Account ID - The account ID to which you want to grant access to your resources.
+      
+     The account ID is displayed on the Wavefront AWS Integration Setup page, after you click **How to get Role ARN**.
+      
+   - Select the option **Require external ID** and provide the [external ID that you have copied](integrations_aws_overview_API.html#getting-an-external-id).
+1. Click **Next: Permissions**.
+1. On the **Attach permission policies** screen, search for and select the **ReadOnlyAccess** check box.
+1. Click **Next: Tags** and skip the step by clicking **Next: Review**.
+1. In the **Role name** text box, enter **Wavefront** and click **Create role**.
+1. On the **Roles** page, click the newly created **Wavefront** role.
+1. Copy the **Role ARN** value, so that you can use it (i.e. paste it in the Role ARN text box) when you configure your AWS integration.
+
 ## Set Up an AWS Integration
 
 You can add an AWS integration by using the Wavefront REST API. 
@@ -105,7 +128,7 @@ You can add an AWS integration by using the Wavefront REST API.
 }
       ```
    
-   In these examples, the `roleArn` value is the [Role ARN from your Amazon account](integrations_aws_overview.html#give-wavefront-read-only-access-to-your-amazon-account), and the `externalId` value is the external ID [that you have already created](integrations_aws_overview_API.html#getting-an-external-id). If you don’t provide an external ID, the request will time out. 
+   In these examples, the `roleArn` value is the [Role ARN from your Amazon account](integrations_aws_overview_API.html#provide-wavefront-read-only-access-to-your-amazon-account-and-get-the-role-arn), and the `externalId` value is the external ID [that you have already created](integrations_aws_overview_API.html#getting-an-external-id). If you don’t provide an external ID, the request will time out. 
    
 1. Click **Try it out!**.
 
