@@ -12,6 +12,8 @@ The Wavefront data source plugin for Grafana provides a basic query builder and 
 [Wavefront Query Language](https://docs.wavefront.com/query_language_reference.html). 
 You can use multiple queries in a single chart. The plugin also supports dashboard variables.
 
+In addition, you can also [set up and use Wavefront as a Prometheus data source in Grafana](http://docs.wavefront.com/integrations_grafana.html).
+
 ## Grafana Data Source Plugin Integration Setup
 
 This Grafana data source plugin makes it possible to visualize data collected by Wavefront in Grafana dashboards. 
