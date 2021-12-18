@@ -9,7 +9,7 @@ summary: Understand how Wavefront secures your data and supports fine-tuning sec
 Wavefront by VMware protects your data and includes facilities for you to customize authentication and authorization.
 
 This page gives a summary.
-* Download the white paper [VMware Tanzu Observability Security and Privacy](https://d1fto35gcfffzn.cloudfront.net/tanzu/observability/VMware_Tanzu_Observability_Security_and_Privacy.pdf) for a detailed discussion.
+* Download the white paper [VMware Tanzu Observability Security and Privacy](https://tanzu.vmware.com/content/white-papers/vmware-tanzu-observability-security-and-privacy) for a detailed discussion.
 * Download and review the [Cloud Security Alliance Consensus Assessments Initiative Questionnaire for Wavefront by VMware](https://cloudsecurityalliance.org/star/registry/vmware-inc/) for our consensus assessment questionnaire.
 
 ## Certifications
@@ -68,14 +68,14 @@ The Wavefront proxy uses HTTPS, and we offer options to secure it further:
 
 ## Authentication
 
-Wavefront supports three methods of authentication. 
+Wavefront supports three methods of authentication.
 
-* By using a user name and password. 
-  
-  Wavefront supports user accounts and service accounts. User accounts [must authenticate](authentication.html) with a user name and password, service accounts authenticate with a token. 
+* By using a user name and password.
+
+  Wavefront supports user accounts and service accounts. User accounts [must authenticate](authentication.html) with a user name and password, service accounts authenticate with a token.
 
 * SAML SSO
-  
+
   Wavefront customers can use the authentication provided by Wavefront or use one of our supported authentication integrations. We support several authentication solutions including Azure AD, Google ID, and Okta.
 
   We also support [self-service SAML SSO](auth_self_service_sso.html) setup.
