@@ -11,7 +11,7 @@ Learn how to easily set up a Windows or AWS integration so that you can send dat
 
 ## Video: Windows Integration
 
-Watch the following video to learn how to ingest Windows host metrics into Wavefront.
+Watch the following video to learn how to ingest Windows host metrics into Wavefront. You can also watch the video <a href="https://bcove.video/3rXZ1RY" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
 
 <p>
 <iframe src="https://bcove.video/3rXZ1RY" width="700" height="400" allowfullscreen="true" alt="Setting up a Windows integration"></iframe>
