@@ -28,8 +28,7 @@ In the **Metric Allow List**, add metrics to an allow list by entering a regular
 * To fetch only cost and health metrics, enter <code>^vrops.vmware.(datastore|clustercomputeresource).(cost|health).*$</code>
 
 
-### More Info
-
+**Read More**<br/>
 * [vRealize Operations Integration Overview](https://docs.wavefront.com/integrations_vrops.html)
 
 
