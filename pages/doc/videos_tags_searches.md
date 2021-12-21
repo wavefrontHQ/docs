@@ -12,10 +12,11 @@ The following videos show how to use tags and searches in the UI to find what yo
 <tbody>
 <tr>
 <td width="50%"><strong><font color="blue">Searching in Wavefront</font></strong><br><br>
-<iframe src="https://bcove.video/2UnQFZ0" width="550" height="275" allowfullscreen="true" alt="Task-based video shows many different search options"></iframe>
+<iframe src="https://bcove.video/2UnQFZ0" width="450" height="275" allowfullscreen="true" alt="Task-based video shows many different search options"></iframe>
 </td>
 <td width="50%"><br>
 <p>Learn how to do sophisticated and fine-grained searches in the Wavefront GUI.  </p>
+<p>You can also watch the video <a href="https://bcove.video/2UnQFZ0" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
@@ -27,9 +28,10 @@ The following videos show how to use tags and searches in the UI to find what yo
 </tr>
 <tr>
 <td><strong><font color="blue">Organizing with Tags</font></strong><br><br>
-<iframe src="https://bcove.video/3APZACf" width="550" height="275" allowfullscreen="true" alt="Jason shows how to organize data with tags"></iframe></td>
+<iframe src="https://bcove.video/3APZACf" width="450" height="275" allowfullscreen="true" alt="Jason shows how to organize data with tags"></iframe></td>
 <td><br>
 <p>Want to learn how to organize information in Wavefront? Jason shows an example of assigning a tag (e.g. training) to several dashboards and how the tag can be used for filtering. He then uses additional tags in a hierarchy of tags (e.g. training.attendee and training.trainer) to support more fine-grained filtering using tag paths. Tag paths are available for dashboards, alerts, and events. Finally, for sources, Jason shows you can add source tags and filter directly from a query. </p>
+<p>You can also watch the video <a href="https://bcove.video/3APZACf" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 </tbody>

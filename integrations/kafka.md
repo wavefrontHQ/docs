@@ -204,6 +204,7 @@ Create a file called `jolokia-kafka.conf` in `/etc/telegraf/telegraf.d` and ente
      paths = ["Count","OneMinuteRate","FiveMinuteRate","FifteenMinuteRate","MeanRate"]
 ```
 {% endraw %}
+
 **Note:** Replace `KAFKA_SERVER_IP_ADDRESS` with the Kafka server IP address.
 
 ### Step 4. Restart Telegraf
@@ -226,43 +227,22 @@ helm install <KAFKA_CLUSTER_NAME> --set metrics.kafka.enabled=true --set metrics
 ```
 {% endraw %}
 
-### Step 1. Update the Wavefront Collector ConfigMap
+### Configure the Wavefront Collector for Kubernetes
+
+You can configure the Wavefront Collector for Kubernetes to scrape Kafka metrics by using annotation based discovery.
 
 If you do not have the Wavefront Collector for Kubernetes installed on your Kubernetes cluster, follow these instructions to add it to your cluster by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install). You can check the status of Wavefront Collector and Proxy if you are already monitoring the Kubernetes cluster [here](../kubernetes/setup).
 
-Edit the Wavefront Collector ConfigMap at runtime, and under `auto discovery` add the following snippet:{% raw %}
-```
-kubectl edit configmap collector-config -n wavefront-collector
-```
-{% endraw %}
-kafka-exporter and jmx-exporter config:{% raw %}
-```
-        ## auto-discover kafka-exporter
-      - name: kafka-discovery
-        type: prometheus
-        selectors:
-          images:
-            - '*bitnami/kafka-exporter*'
-        port: 9308
-        path: /metrics
-        scheme: http
-        prefix: kafka.
-        filters:
-          metricDenyList:
-          - 'kafka.kafka.*'
+**Annotation Based Discovery**:
+By default, both the JMX exporter and Kafka exporter services are annotated with Prometheus `scrape` and `port`.
 
-        ## auto-discover jmx exporter
-      - name: kafka-jmx-discovery
-        type: prometheus
-        selectors:
-          images:
-            - '*bitnami/jmx-exporter*'
-        port: 5556
-        path: /metrics
-        scheme: http
-        prefix: kafkajmx.
+* Annotate the jmx-metrics service to add the `path` and prefix `kafkajmx.`.{% raw %}
+```
+kubectl annotate service <KAFKA_CLUSTER_NAME>-jmx-metrics prometheus.io/path=/metrics prometheus.io/prefix=kafkajmx.
 ```
 {% endraw %}
+
+**NOTE**: Make sure that auto discovery `enableDiscovery: true` and annotation based discovery `discovery.disable_annotation_discovery: false` are enabled in the Wavefront Collector. They should be enabled by default.
 
 
 

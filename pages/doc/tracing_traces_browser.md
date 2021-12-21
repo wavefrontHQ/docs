@@ -11,7 +11,7 @@ In the Traces Browser, you can explore the context and the details of your appli
 
 ## Video
 
-This video highlights the Traces Browser features and settings:
+This <a href="https://bcove.video/3vaNJM7" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights the Traces Browser features and settings:
 
 <iframe src="https://bcove.video/3vaNJM7" width="700" height="400" allowfullscreen="true" alt="Highlights the Wavefront traces browser features."></iframe>
 
