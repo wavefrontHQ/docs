@@ -4,22 +4,24 @@ keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: upgrade-and-purchase.html
-summary: Learn how to upgrade and purchase Wavefront from your trial version.
+summary: Learn how to upgrade and purchase Wavefront from your trial version
 ---
 
-When you create an account and register for the Wavefront trial version, your trial expires after a month. One of the options that we offer to Wavefront administrators, is to purchase Wavefront by themselves. If you prefer, you can also contact the Tanzu Observability by Wavefront sales team so that they guide you through the process. For large commitments and more PPS, we strongly recommend this option. 
+When you create a Wavefront account and register for the Wavefront trial version, your trial expires after a month. One of the options that we offer to Wavefront administrators, is to purchase Wavefront by themselves. If you prefer, you can also contact the Tanzu Observability by Wavefront sales team so that they guide you through the purchase process. For large commitments and more PPS, we strongly recommend this option. 
 
 To purchase Wavefront, you must either have a VMware Cloud Services account, or create one during the purchase process.
 
 ## Purchase Wavefront
 
-An administrator or a Super Admin user can purchase Wavefront. Before you buy, make sure that you understand the  Wavefront service ordering and pricing tiers. Billing depends on the amount of data, measured in points per second (PPS) that you send to Wavefront on a monthly basis. If you exceed the contracted rate, you will be charged for the usage above it. In any case, you do not lose any of your data.
+An administrator or a Super Admin user can purchase Wavefront. Before you buy, make sure that you understand the  Wavefront service ordering and pricing tiers. Billing depends on the amount of data, measured in points per second (PPS) that you send to Wavefront on a monthly basis. If you exceed the contracted rate, you will be charged for the usage above it (the overages). In any case, you do not lose any of your data.
 
 1. Click **Upgrade** on the banner showing how many days have left from your trial period.
 2. Review the Welcome screen and click **Next**.
-3. To connect your VMware account, click **Connect**. You are redirected to the VMware Cloud Services console where you must enter your VMware Cloud Services account email address and password.
+3. To connect your VMware account, click **Connect**. 
+
+   You are redirected to the VMware Cloud Services console where you must enter your VMware Cloud Services account email address and password.
    
-   If you don't have an existing VMware Cloud Services account and an organization, you must create one.
+   If you don't have an existing VMware Cloud Services account and an organization, you must create them.
    
 4. Enter the number of points per second to purchase and click **Next**. 
    
@@ -44,5 +46,5 @@ During the onboarding process, you create a cloud service account with your VMwa
 2. Follow the steps to create your VMware Cloud services account.
 3. Sign in to VMware Cloud services with your VMware ID.
 
-For more information, see the [VMware Cloud Services Documentation](https://docs.vmware.com/en/VMware-Cloud-services/index.html).
+For more information, see the [Using VMware Cloud Services Console](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-20D62AFF-024B-4901-976D-69BFD71BECC8.html).
    
