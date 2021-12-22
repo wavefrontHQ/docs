@@ -11,7 +11,7 @@ The following videos explain how events work and how to configure them.
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td><strong><font color="blue">Introduction to Events</font></strong><br>
+<td><strong><font color="#0091DA" size="3">Introduction to Events</font></strong><br>
 <br>
 <iframe src="https://bcove.video/3iZdNql" width="550" height="275" allowfullscreen="true" alt="Jason discusses system events and user-created events. "></iframe></td>
 <td><br><br>
@@ -20,7 +20,7 @@ The following videos explain how events work and how to configure them.
 </td>
 </tr>
 <tr>
-<td><strong><font color="blue">Creating an Event</font></strong><br>
+<td><strong><font color="#0091DA" size="3">Creating an Event</font></strong><br>
 <br>
 <iframe src="https://bcove.video/3AURJU0" width="550" height="275" allowfullscreen="true" alt="Jason explains how to create an event"></iframe></td>
 <td><br><br>
@@ -30,7 +30,7 @@ Wavefront creates System and Alert events for you. You can create User events vi
 </td>
 </tr>
 <tr>
-<td><strong><font color="blue">Controlling Event Displays</font></strong><br>
+<td><strong><font color="#0091DA" size="3">Controlling Event Displays</font></strong><br>
 <br>
 <iframe src="https://bcove.video/3AY5jFY" width="550" height="275" allowfullscreen="true" alt="Jason explains how to get the most out of event displays"></iframe></td>
 <td><br><br>

@@ -41,7 +41,7 @@ folder: labels
                 <p>Fine tune queries, perform aggregation, and more.</p>
             </div>
             <div class="panel-footer quick-links-panel-footer">
-                <a href="integrations_aws_overview.html">START HERE</a>
+                <a href="query_language_aggregate_functions.html">START HERE</a>
             </div>
         </div>
     </div>

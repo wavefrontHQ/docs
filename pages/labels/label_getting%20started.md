@@ -14,11 +14,11 @@ folder: labels
         <div class="panel panel-default quick-links-panel-container">
             <div class="panel-body quick-links-panel">
                 <img src="/images/Launch.png" alt="icon"/>
-                <div class="quick-links-panel-title">Get Data In!</div>
+                <div class="quick-links-panel-title">Data Ingestion</div>
                 <p>Expore our integrations - From Kubernetes to cloud, it's all there!</p>
             </div>
             <div class="panel-footer quick-links-panel-footer">
-                <a href="label_integrations%20list.html">LEARN HERE</a>
+                <a href="label_integrations%20list.html">START HERE</a>
             </div>
         </div>
     </div>

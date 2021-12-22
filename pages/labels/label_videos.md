@@ -25,8 +25,8 @@ folder: labels
     <div class="col-md-3 col-sm-6 quick-links-panel-wrapper">
         <div class="panel panel-default quick-links-panel-container">
             <div class="panel-body quick-links-panel">
-                <img src="/images/data.png" alt="icon"/>
-                <div class="quick-links-panel-title">Visualize</div>
+                <img src="/images/data_for_label.png" alt="icon"/>
+                <div class="quick-links-panel-title">Data</div>
                 <p>Learn how the proxy works, how to get different types of data in, and how to browse data.</p>
             </div>
             <div class="panel-footer quick-links-panel-footer">
@@ -54,7 +54,7 @@ folder: labels
                 <p>Understand alerts, targets, and notifications and learn about custom alerts.</p>
             </div>
             <div class="panel-footer quick-links-panel-footer">
-                <a href="/videos_administration.html">START HERE</a>
+                <a href="/videos_alerts.html">START HERE</a>
             </div>
         </div>
     </div>
