@@ -43,12 +43,6 @@ Here's a preview of the Kubernetes Pods dashboard:
 
 This page contains the Installation and Configuration steps for full-stack monitoring of OpenShift clusters using Wavefront Helm Chart.
 
-### Install and Configure Wavefront Operator on OpenShift Enterprise 3.x
-
-The Wavefront Collector supports monitoring of OpenShift clusters:
-  * To monitor OpenShift Origin 3.9 follow the steps in [Installation and Configuration on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/master/docs/openshift.md).
-  * To monitor OpenShift Enterprise 3.11 follow the steps in [Installation and Configuration of Wavefront Collector Operator on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/master/docs/openshift-operator.md)
-
 ### Install and Configure Wavefront Helm Chart on OpenShift Enterprise 4.x
 
 This page contains the Installation and Configuration steps for full-stack monitoring of OpenShift clusters using Wavefront Helm Chart.
@@ -68,6 +62,12 @@ This page contains the Installation and Configuration steps for full-stack monit
 Because default parameters are used, the collector runs as a daemonset and uses `wavefront-proxy` as sink. The collector auto-discovers the pods and services that expose metrics and dynamically starts collecting metrics for the targets. It collects metrics from the kubernetes API server if configured.
 
 Now log in to Wavefront and search for the `<KUBERNETES_CLUSTER_NAME>` in kubernetes integration dashboards.
+
+### Install and Configure Wavefront Operator on OpenShift Enterprise 3.x
+
+The Wavefront Collector supports monitoring of OpenShift clusters:
+* To monitor OpenShift Origin 3.9 follow the steps in [Installation and Configuration on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/master/docs/openshift.md).
+* To monitor OpenShift Enterprise 3.11 follow the steps in [Installation and Configuration of Wavefront Collector Operator on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/master/docs/openshift-operator.md)
 
 #### Using an Existing Proxy
 
