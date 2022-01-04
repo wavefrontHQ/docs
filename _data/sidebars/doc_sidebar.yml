@@ -747,7 +747,11 @@ entries:
       - title: Administer Wavefront
         url: /wavefront_administer.html
         output: web
-
+      
+      - title: Upgrade from Trial Version
+        url: /upgrade-and-purchase.html
+        output: web
+      
       - title: Wavefront Security
         url: /wavefront_security.html
         output: web
