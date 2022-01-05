@@ -7,7 +7,7 @@ permalink: wavefront_release_notes.html
 summary: Learn about new and updated features in Wavefront.
 ---
 
-This page lists new and updated features for the Wavefront service.
+This page lists new and updated features for the Wavefront service. 
 
 * For **Wavefront Proxy**, your go-to place is the [Wavefront proxy github page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
 * For the latest changes and releases of the **Wavefront Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
@@ -15,7 +15,7 @@ This page lists new and updated features for the Wavefront service.
 
 ## 2021-49.x Release Notes
 
-* New `isAlertRetriggered` option allows to you [customize alert notifications](alert_target_customizing.html#tailor-content-to-the-trigger-type) if **Resend Notifications** is checked.   
+* New `isAlertRetriggered` option allows to you [customize alert notifications](alert_target_customizing.html#tailor-content-to-the-trigger-type) if **Resend Notifications** is checked.
 
 ## 2021-48.x Release Notes
 

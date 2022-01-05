@@ -12,13 +12,13 @@ This page collects some videos that show basic tasks. A 90 second intro, intro v
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="70%"><strong><font color="blue">Wavefront Introduction</font></strong><br>
+<td width="70%"><strong><font color="#0091DA" size="3">Wavefront Introduction</font></strong><br>
 <br>
 <iframe src="https://bcove.video/2AiJk2v" width="550" height="275" allowfullscreen="true" alt="Wavefront intro how-to"></iframe></td>
 <td width="30%"><br><p>This 90-second introduction shows how Wavefront users create dashboards and charts, add alerts, and include histograms and spans in observability results. </p> <p>You can also watch the video <a href="https://bcove.video/2AiJk2v" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>  </td>
 </tr>
 <tr>
-<td><strong><font color="blue">Browse Your Data</font></strong><br>
+<td><strong><font color="#0091DA" size="3">Browsing Your Data</font></strong><br>
 <br>
 <iframe src="https://bcove.video/3n13ulm" width="550" height="275" allowfullscreen="true" alt="browse metrics from source browser or metrics browser"></iframe>
 </td>
@@ -27,20 +27,20 @@ This page collects some videos that show basic tasks. A 90 second intro, intro v
 </td>
 </tr>
 <tr>
-<td><strong><font color="blue">Explore and Customize Dashboards</font></strong><br>
+<td><strong><font color="#0091DA" size="3">Customize Dashboards</font></strong><br>
 <br>
 <iframe src="https://bcove.video/2Wux6eP" width="550" height="275" allowfullscreen="true" alt="customizing dashboard video"></iframe></td>
 <td><br><p>All users can customize their dashboards. Learn how to find a section, filter using variables or filters, set the time for the dashboard, and share the dashboard with others.</p><p>You can also watch the video <a href="https://bcove.video/2Wux6eP" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> </td>
 </tr>
 <tr>
-<td><strong><font color="blue">Create Dashboards</font></strong><br>
+<td><strong><font color="#0091DA" size="3">Create Dashboards</font></strong><br>
 <br>
 <iframe src="https://bcove.video/2WxBJoe" width="550" height="275" allowfullscreen="true" alt="creating dashboards video"></iframe>
 </td>
 <td><br><p>Users with Dashboards permissions can create a new dashboard with one or multiple charts from metrics, a chart type, or an integration.  </p> <p>You can also watch the video <a href="https://bcove.video/2WxBJoe" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p></td>
 </tr>
 <tr>
-<td><strong><font color="blue">Create an Alert in 90 Seconds</font></strong><br>
+<td><strong><font color="#0091DA" size="3">Create and Modify Charts with Chart Builder</font></strong><br>
 <br>
 <iframe src="https://bcove.video/3o9bu6L" width="550" height="275" allowfullscreen="true" alt="chart builder video"></iframe></td>
 <td><br>
@@ -49,7 +49,7 @@ This page collects some videos that show basic tasks. A 90 second intro, intro v
 </td>
 </tr>
 <tr>
-<td><strong><font color="blue">Create and Modify Charts with Chart Builder</font></strong><br>
+<td><strong><font color="#0091DA" size="3">Introduction to Alerts</font></strong><br>
 <br>
 <iframe src="https://bcove.video/2Xx9IPz" width="550" height="275" allowfullscreen="true" alt="chart builder video"></iframe>
 </td>
@@ -63,7 +63,7 @@ This page collects some videos that show basic tasks. A 90 second intro, intro v
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td><strong><font color="blue">Monitoring with Alerts</font></strong><br>
+<td><strong><font color="#0091DA" size="3">Monitoring with Alerts</font></strong><br>
 <a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=68cd255b-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true" target="_blank"><img src="/images/v_alerts_monitoring.png" alt="monitoring with alerts"/></a></td>
 <td><br>
 <p>Now: https://onevmw.sharepoint.com/:v:/r/teams/VLZContentDumpforRPA/Shared%20Documents/General/vlz_Existing%20Courses/Wavefront%20Course%20Content/VLZ-2280%20V02.mp4?csf=1&web=1&e=4zbfzZ

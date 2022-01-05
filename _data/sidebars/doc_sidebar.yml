@@ -504,26 +504,22 @@ entries:
             url: /integrations_aws_key_age.html
             output: web
 
-          - title: VMware PKS Integration
+          - title: VMware TKGi Integration
             url: /integrations_tkgi.html
             output: web
 
           - title: Log Data Metrics Integration
             url: /integrations_log_data.html
             output: web
-    
+
           - title: vRealize Operations Integration Overview
             url: /integrations_vrops.html
             output: web
-    
+
           - title: Set Up Wavefront as PromQL Data Source in Grafana
             url: /integrations_grafana.html
             output: web
-        
-          - title: IBM Cloud Integration (Third-Party Content)
-            url: /integrations_ibmcloud_thirdparty.html
-            output: web
-                  
+
       - title: collectd Integrations
         output: web
         subfolderitems:
@@ -574,7 +570,7 @@ entries:
 
       - title: Proxy in a Kubernetes Container
         url: /proxies_kube_container.html
-        output: web  
+        output: web
 
       - title: Monitor Tanzu Mission Control
         url: /integrations_tmc_howto.html

@@ -322,6 +322,10 @@ You can:
 * Use query line variables, aliases, and dashboard variables as shortcuts for building queries out of other expressions or predefined strings.
 * Combine wildcards, aliases, query line variables, and dashboard variables in the same query line.
 
+{% include tip.html content="The use of wildcard characters can result in a very large search space and affect performance, for example, if you use a wildcard at the beginning of a metric name." %}
+
+
+
 <table style="width: 100%;" id="wildcardAliasVariable">
 <colgroup>
 <col width="20%" />

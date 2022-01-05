@@ -22,7 +22,10 @@ We added the following integration in December 2021:
   
 Made improvements to the following integrations and dashboards in December 2021:
 
+* Kubernetes -- Updated the **Kubernetes Collector Troubleshooting** dashboard to communicate the proxy version.
+* Tanzu Application Service -- Added a new out-of-the-box dashboard to monitor the doppler server.
 * Microsoft Azure -- Updated the setup steps for getting the application ID.
+
 
 ## November 2021
 

@@ -55,7 +55,7 @@ Starting in September 2020, we support the [Wavefront Spring Boot starter](https
   - **Freemium** All users can run the Spring Boot Starter with the default settings to view their data in the Wavefront Freemium instance. Certain limitations apply, for example, alerts are not available, but you don't have to sign up.
   - **Wavefront Customer or Trial User** Wavefront customers or trial users can modify the default Wavefront Spring Boot Starter to send data to their cluster. You can sign up for a [free 30-day trial](https://tanzu.vmware.com/observability).
 
-### (NEW) How can I see my metrics? How can I see my traces?
+### How can I see my metrics? How can I see my traces?
 
 Starting in September 2020, the Spring Boot Starter directs you to the Spring Boot Inventory dashboard that allows you to examine certain metrics that Micrometer collects by default.
 
@@ -63,9 +63,14 @@ If applications are enabled for tracing, you can click the link in the Tracing s
 
 ![Spring Boot inventory screenshot](images/springboot_metrics_callout.png)
 
-### (NEW) Why don't I see the default dashboard when I click on the link?
+### Why don't I see the default dashboard when I click on the link?
 If you create a new project using [https://start.spring.io](https://start.spring.io/), add the Wavefront dependency, download the project, run it, and click the link on the terminal, you are not taken to the default dashboard.
 That is because the default project stops soon as it starts without a web service. As a result, data is not sent to Wavefront. To avoid this, add a dependency under the Web category, such as the Spring Web dependency, along with the wavefront dependency, and generate a new project.
 
-### How do I get help?
-Reach out to us on [Slack](https://www.wavefront.com/join-public-slack) and join the #springboot public channel.
+### (NEW) How can I instrumented with distributed tracing across multiple microservices?
+
+Assume that you want to write Spring Boot code and instrument for OpenTracing. You want to ensure OpenTracing creates spans that work across multiple microservices.  Here's what you need to know:
+* If you're using Spring Cloud Sleuth, **everything has to be a bean**. For example, if you're using RestTemplates, those have to be beans.
+* You can create a RestTemplate bean yourself, or you can inject via RestTemplateBuilder.
+
+If you use a messaging or HTTP client (not a bean), Sleuth won't work. See [Use Tracing with Spring Boot](tracing_best_practices.html#using-tracing-with-spring-boot) for an example.
