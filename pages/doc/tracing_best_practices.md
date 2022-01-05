@@ -231,7 +231,7 @@ The goal of instrumentation is to instrument enough methods to produce traces th
 
 * Automate as much as possible by using [Wavefront framework SDKs](wavefront_sdks.html#sdks-that-instrument-frameworks), if any exist for your languages and framework. Then use a [Wavefront OpenTracing SDK](wavefront_sdks.html##sdks-for-collecting-trace-data) to instrument operations that are not handled by a framework SDK.
 
-* Limit the number of spans in a trace to < 1000. 
+* Limit the number of spans in a trace to < 1000.
 
 * **Java example:** Instantiate a singleton `WavefrontTracer`, pass it to each class, and use it in each method of interest:
 
@@ -259,17 +259,20 @@ Assume that you want to write Spring Boot code and instrument for OpenTracing. Y
 
 If you use a messaging or HTTP client (not a bean), Sleuth won't get you the spans across services.
 
-### Example: Does Not Work Across Microservices
+### Example: Does Not Work for Spans Across Microservices
 
 The following example works, but does not create spans that work across microservices.
 
 ```java
 package com.demo.test.tier2.controllers;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+
 @RestController
 public class Tier2aEndpoint {
+  
   @RequestMapping("/tier2a")
   public String tier2a() {
     final String uri = "http://localhost:8083/tier3a";
