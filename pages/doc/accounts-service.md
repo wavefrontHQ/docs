@@ -40,7 +40,7 @@ You can disable a service account if you temporarily don't need it, or you can d
 
 Creating a service account is different from creating a user account.
 
-1. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Account Management**.
+1. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Accounts**.
 2. Click the **Service Accounts** tab and click **Create New Account**.
 3. On the **New Service Account** page, specify the account details and click **Create**.
 
