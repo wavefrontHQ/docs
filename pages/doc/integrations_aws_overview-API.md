@@ -136,7 +136,20 @@ You can add an AWS integration by using the Wavefront REST API.
 
 You can update an AWS integration through the API.  You do not need the external ID value to update an existing AWS integration. 
 
-In this example, we update the CloudWatch integration to retrieve the AWS service metrics for EBS, ApiGateway, EC2, ELB, ElastiCache, ApplicationELB, SES, NATGateway, AutoScaling, and RDS. We also add the metrics for these services to a metric allow list by using a regular expression and change the service refresh rate from 5 to 2 minutes.
+In this example, we update an existing CloudWatch integration to retrieve the service metrics for 10 more services in addition to DynamoDB:  
+
+* EBS
+* ApiGateway 
+* EC2 
+* ELB 
+* ElastiCache 
+* ApplicationELB 
+* SES 
+* NATGateway
+* AutoScaling 
+* RDS
+
+We also add the metrics for these services to a metric allow list by using a regular expression and change the service refresh rate from `5` to `10` minutes.
   
 
 1. In the Wavefront REST API documentation, click the `GET/api/v2/cloudintegration` request, and click **Try it out!**.
@@ -185,9 +198,9 @@ In this example, we update the CloudWatch integration to retrieve the AWS servic
    
 1. Copy the value of the `"id"` parameter of the integration that you want to update.
 1. Copy the content of the response in a text file. 
-1. Edit the copied response body to add the list of services and to change the service refresh rate to 2 minutes.
+1. Edit the copied response body to add the list of services, the regular expression, and to change the service refresh rate to 10 minutes.
    
-   ```
+   ```json
 { 
   "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
   "name":"AWS",
@@ -216,11 +229,10 @@ In this example, we update the CloudWatch integration to retrieve the AWS servic
     }
     },
     "disabled": false,
-    "lastProcessorId": "3198d07c-210c-4670-9bd0-eb407d2a71dc",
-    "lastProcessingTimestamp": 1634038421682,
-    "createdEpochMillis": 1620216033503,
-    "updatedEpochMillis": 1622707203597,
-    "serviceRefreshRateInMins": 2,
+     ...
+     ...
+     
+    "serviceRefreshRateInMins": 10,
     "deleted": false,
     "inTrash": false,
     "lastErrorEvent": {
