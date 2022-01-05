@@ -52,7 +52,7 @@ During the onboarding process, you create a VMware Cloud services account with y
    
 1. Initiate the onboarding process from the service sign-up or from your invitation link.
 2. Follow the steps to create your VMware Cloud services account.
-3. Sign in to VMware Cloud services with your VMware ID.
+3. Log in to the VMware Cloud Services Console with your VMware ID.
 
 For more information, see [Using VMware Cloud Services Console](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-20D62AFF-024B-4901-976D-69BFD71BECC8.html).
    
