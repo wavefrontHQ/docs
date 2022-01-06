@@ -8,6 +8,59 @@ folder: labels
 ---
 <p>Here's how to learn about Wavefront integrations:</p>
 
+
+<div class="row">
+    <div class="col-md-3 col-sm-6 quick-links-panel-wrapper">
+        <div class="panel panel-default quick-links-panel-container">
+            <div class="panel-body quick-links-panel">
+                <img src="/images/basics.png" alt="icon"/>
+                <div class="quick-links-panel-title">Basics</div>
+                <p>Learn about different types of integration, and watch a video that explains the basics.</p>
+            </div>
+            <div class="panel-footer quick-links-panel-footer">
+                <a href="integrations.html">START HERE</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 quick-links-panel-wrapper">
+        <div class="panel panel-default quick-links-panel-container">
+            <div class="panel-body quick-links-panel">
+                <img src="/images/whats_new.png" alt="icon"/>
+                <div class="quick-links-panel-title">What's New?</div>
+                <p>List of new and changed integrations, updated every month.</p>
+            </div>
+            <div class="panel-footer quick-links-panel-footer">
+                <a href="integrations_new_changed.html">START HERE</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 quick-links-panel-wrapper">
+        <div class="panel panel-default quick-links-panel-container">
+            <div class="panel-body quick-links-panel">
+                <img src="/images/customize.png" alt="icon"/>
+                <div class="quick-links-panel-title">Customize</div>
+                <p>Details on customizing the AWS, TAS, and vRealize integrations.</p>
+            </div>
+            <div class="panel-footer quick-links-panel-footer">
+                <a href="integrations_aws_overview.html">START HERE</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 quick-links-panel-wrapper">
+        <div class="panel panel-default quick-links-panel-container">
+            <div class="panel-body quick-links-panel">
+                <img src="/images/kubernetes_icon_for_label.png" alt="icon"/>
+                <div class="quick-links-panel-title">Kubernetes</div>
+                <p>Tanzu and Kubernetes integration details, troubleshooting, and FAQs.</p>
+            </div>
+            <div class="panel-footer quick-links-panel-footer">
+                <a href="kubernetes.html">START HERE</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!---
 <div class="row">
  <div class="col-md-3 col-sm-6">
      <div class="panel panel-default text-center">
@@ -66,6 +119,7 @@ folder: labels
      </div>
  </div>
 </div>
+--->
 
 
 {% capture c %}{{site.data.labels.integrations_list}}{% endcapture %}
