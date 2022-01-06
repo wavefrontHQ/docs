@@ -125,53 +125,34 @@ After you clone an alert, snooze the original system integration alert to avoid 
 
 ## Integration States
 
-The Integrations page reports integration state depending on two factors:
+The Integrations page reports integration states depending on two factors:
 
 - Whether metrics ever reported and whether they reported in the last 2 hours or in the last 7 days.
-- The state of content installation: never installed, installed, uninstalled.
+- The state of content installation, such as installed, never installed, or uninstalled.
 
 ### Supported States
 
 The supported states are:
 
-- **Active** - integrations whose metrics are reporting and installed or uninstalled content.
-- **Available** - integrations whose metrics never reported and never installed content or integrations that don't have metrics.
-- **Warning** - integrations whose metrics never reported and installed content.
-- **Error** - integrations whose metrics reported within the last 7 days but have stop reporting for 2 hours and installed content.
+- **Active** - integrations whose metrics are reporting and user has installed or uninstalled content.
+- **Available** - integrations whose metrics never reported and content has been never installed or integrations that don't have metrics.
+- **Warning** - integrations whose metrics never reported and have no installed content.
+- **Error** - integrations whose metrics reported within the last 7 days but have stop reporting for 2 hours and have installed content.
+- **Pending** - integrations whose metrics are yet to start reporting.
+- **Alias** - integrations that are supported by another integration.
 
-You can filter integrations by state or with the following saved searches:
+{% include note.html content="To filter the integrations by state, scroll down to the integration that you are interested in. When you click a state, only the integrations whose states are loaded will be listed in the main panel." %}
 
-- **New Integrations** - integrations that have metrics reporting for at most two hours and have installed content
+You can also filter integrations with the following saved searches:
+
+- **New Integrations** - integrations that have metrics reporting for at most two hours and have installed content.
 - **Installed Integrations** - integrations in the Active, Warning, or Error state. An integration can be in one of these states even if content has been uninstalled.
 
 ### State Indicators
 
-When you hover over an integration, Wavefront colors the integration border and displays indicators based on the current state:
+When you hover over an integration, Wavefront colors the integration border and displays indicators based on the current state. For example, the following integration is in the Warning state because metrics have stopped reporting in the past month and content is installed.
 
-<table width="80%" class="layout">
-<colgroup>
-<col width="20%" />
-<col width="40%" />
-<col width="40%" />
-</colgroup>
-<tr><td></td><td><strong>Metrics</strong></td><td><strong>No Metrics</strong></td></tr>
-<tbody>
-<tr>
-<td><strong>Content</strong></td>
-<td>Active <i class="fa fa-check-circle text-success" style="font-size: 18px;"></i> <i class="fa fa-check-circle text-success" style="font-size: 18px;"></i></td>
-<td>Warning <i class="fa fa-exclamation-circle" style="color:#FFA31C; font-size: 18px;"></i> <i class="fa fa-check-circle text-success" style="font-size: 18px;"></i> or Error <i class="fa fa-exclamation-triangle" style="color:#D9534F; font-size: 18px;"></i> <i class="fa fa-check-circle text-success" style="font-size: 18px;"></i></td>
-</tr>
-<tr>
-<td><strong>No Content</strong></td>
-<td>Active <i class="fa fa-check-circle text-success" style="font-size: 18px;"></i> <i class="fa fa-stop-circle text-muted" style="font-size: 18px;"></i></td>
-<td>Available <i class="fa fa-exclamation-circle text-error" style="font-size: 18px;"></i> <i class="fa fa-stop-circle text-muted" style="font-size: 18px;"></i></td>
-</tr>
-</tbody>
-</table>
-
-For example, the following integration is in the Error state because metrics have reported within the last 7 days but have stopped reporting in the past 2 hours and content is installed.
-
-![RabbitMQ integration state with an error sign next to metrics](images/integration_state.png)
+![Windows integration state with a Warning sign next to metrics](images/integration_state.png)
 
 
 ## More Info
