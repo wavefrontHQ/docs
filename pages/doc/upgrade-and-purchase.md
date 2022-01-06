@@ -7,13 +7,13 @@ permalink: upgrade-and-purchase.html
 summary: Learn how to upgrade and purchase Wavefront from your trial version
 ---
 
-When you create a Wavefront account and register for the Wavefront trial version, your trial expires after a month. One of the options that we offer to Wavefront administrators, is to purchase Wavefront by themselves. Another option is to contact the Tanzu Observability by Wavefront sales team so that they guide you through the purchase process. For large commitments and more PPS, we strongly recommend the latter option. 
+When you create a Wavefront account and register for the Wavefront trial version, your trial expires after a month. One of the options that we offer to Wavefront Super Admin users, is to purchase Wavefront by themselves. Another option is to contact the Tanzu Observability by Wavefront sales team so that they guide you through the purchase process. For large commitments and more PPS, we strongly recommend the latter option. 
 
 To purchase Wavefront, you must either have a VMware Cloud services account or create one during the purchase process.
 
 ## Purchase Wavefront
 
-An administrator or a Super Admin user can purchase Wavefront. Before you buy, make sure that you understand the  Wavefront service ordering and pricing tiers. Billing depends on the amount of data, measured in points per second (PPS), that you send to Wavefront on a monthly basis. If you exceed the contracted rate, you will be charged for the usage above it (the overages). In any case, you do not lose any of your data.
+A Super Admin user can purchase Wavefront. Before you buy, make sure that you understand the  Wavefront service ordering and pricing tiers. Billing depends on the amount of data, measured in points per second (PPS), that you send to Wavefront on a monthly basis. If you exceed the contracted rate, you will be charged for the usage above it (the overages). In any case, you do not lose any of your data.
 
 1. Click **Upgrade** on the banner showing how many days have left from your trial period.
 2. Review the Introduction screen and click **Next**.
@@ -33,16 +33,18 @@ An administrator or a Super Admin user can purchase Wavefront. Before you buy, m
    
    You can also see a chart that shows the billable rate during your trial period. Use this chart as a starting point to decide how many PPS per month you want to buy.
   
-5. Choose the billing terms and conditions and click **Proceed to checkout**.
+7. Choose the billing terms and conditions and click **Proceed to checkout**.
 
    You can choose to subscribe to Wavefront for one, three or five years and pay in full, on a monthly (when you subscribe for one year) or on annually (when you subscribe for three or five years) basis.
 
-6. On the VMware Cloud Services page, you can review and place your order. 
+8. On the VMware Cloud Services page, you can review and place your order. 
 
    In case you need to make any modifications and go back, click **Edit Order**.
 
    
-After you purchase Wavefront, you will see a confirmation page and your subscription will become active within the next 24 hours. In case of urgency, you can contact the Wavefront team by sending an email to: `tanzu_saas_ops@vmware.com` with the number of your order and someone from our team will help you.
+After you purchase Wavefront, you will see a confirmation page and your subscription will become active within the next 24 hours. You will receive the  "Welcome to VMware Tanzu Observability by Wavefront" email.
+
+In case of urgency, you can contact the Wavefront team by sending an email to: `tanzu_saas_ops@vmware.com` with the number of your order and someone from our team will help you.
 
 ## Sign Up for VMware Cloud Services
    
