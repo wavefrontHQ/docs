@@ -141,7 +141,7 @@ The supported states are:
 - **Pending** - integrations whose metrics are yet to start reporting.
 - **Alias** - integrations that are supported by another integration.
 
-{% include note.html content="To filter the integrations by state, scroll down to the integration that you are interested in. When you click a state, only the integrations whose states are loaded will be listed in the main panel." %}
+{% include note.html content="To filter the integrations by state, scroll down, so that the states of the integrations are loaded. When you click a state from the left panel, for example, **Active**, only the integrations whose Active states are loaded will be filtered out and displayed in the main panel." %}
 
 You can also filter integrations with the following saved searches:
 
