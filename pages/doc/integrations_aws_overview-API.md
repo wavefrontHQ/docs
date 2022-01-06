@@ -198,9 +198,23 @@ We also add the metrics for these services to a metric allow list by using a reg
    
 1. Copy the value of the `"id"` parameter of the integration that you want to update.
 1. Copy the content of the response in a text file. 
-1. Edit the copied response body to add the list of services, the regular expression, and to change the service refresh rate to 10 minutes.
+1. Edit the copied response body. 
+  
+   1. To update the list of services, under `"namespaces"`, add the list of services: 
    
-   ```json
+      ![Updated list of services.](images/aws-api-update-services.png)
+   
+   1. To add the regular expression, under the list of services, add the following `"metricFilterRegex"` value:
+   
+      ![Regular expression to allow the metrics flow from the updated list of services.](images/aws-api-update-regex.png)
+   
+   1. To change the service refresh rate to 10 minutes, update the `"serviceRefreshRateInMins"` value:
+   
+      ![Updated service refresh rate from 5 to 10 minutes.](images/aws-api-update-refresh-rate.png)
+   
+   The updated response body will look like that:
+     
+   ```
 { 
   "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
   "name":"AWS",
@@ -219,19 +233,20 @@ We also add the metrics for these services to a metric allow list by using a reg
       "AWS/AutoScaling",
       "AWS/RDS"
     ],
+    "metricFilterRegex":^(aws.(ecs|ses|instance|autoscaling|sqs|sns|reservedInstance|ebs|route53.health|ec2.status|ec2.cpuutilization|ec2.network|ec2.autoscaling|autoscaling|elb|dynamodb|kinesis|firehose|s3|applicationelb|networkelb|lambda|rds|elasticache|applicationelb|natgateway).*),
+    "pointTagFilterRegex": "",
     "baseCredentials":{
       "roleArn":"arn:aws:iam::<accountid>:role/<rolename>"
     },
-    "metricFilterRegex":^(aws.(ecs|ses|instance|autoscaling|sqs|sns|reservedInstance|ebs|route53.health|ec2.status|ec2.cpuutilization|ec2.network|ec2.autoscaling|autoscaling|elb|dynamodb|kinesis|firehose|s3|applicationelb|networkelb|lambda|rds|elasticache|applicationelb|natgateway).*),
-    "pointTagFilterRegex": "",
     "instanceSelectionTags": {},
     "volumeSelectionTags": {}
     }
     },
     "disabled": false,
-     ...
-     ...
-     
+    "lastProcessorId": "3198d07c-210c-4670-9bd0-eb407d2a71dc",
+    "lastProcessingTimestamp": 1634038421682,
+    "createdEpochMillis": 1620216033503,
+    "updatedEpochMillis": 1622707203597,
     "serviceRefreshRateInMins": 10,
     "deleted": false,
     "inTrash": false,
