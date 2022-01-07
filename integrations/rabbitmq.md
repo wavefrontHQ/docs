@@ -96,7 +96,7 @@ rabbitmq-plugins enable rabbitmq_peer_discovery_k8s
 {% endraw %}
 ### Step 2. Update the Wavefront Collector ConfigMap
 
-If you do not have the Wavefront Collector for Kubernetes installed on your Kubernetes cluster, follow these instructions to add it to your cluster by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install). You can check the status of Wavefront Collector and Proxy if you are already monitoring the Kubernetes cluster [here](../kubernetes/setup).
+If you do not have the Wavefront Collector for Kubernetes installed on your Kubernetes cluster, follow these instructions to add it to your cluster by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install). You can check the status of Wavefront Collector and Proxy if you are already monitoring the Kubernetes cluster on the `Setup` tab of the Kubernetes integration.
 
 Edit the Wavefront Collector ConfigMap at runtime using the following command:{% raw %}
 ```
@@ -119,5 +119,6 @@ To enable the Wavefront Collector to discover the RabbitMQ instances and dynamic
           - 'rabbitmq.telemetry.*'
 ```
 {% endraw %}
+
 
 
