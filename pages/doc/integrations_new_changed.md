@@ -10,6 +10,11 @@ Wavefront continuously adds new integrations to the existing set, and improves a
 
 ## January 2022
 
+We added the following integration in January 2022:
+
+* Velero
+
+  You can now monitor the Velero backup and restore solution. This integration is developed and created by the community and falls into to the **Community Integrations** section of the Wavefront **Integrations** page. 
 
 ## All 2018 - 2021 Integrations Release Notes
 
