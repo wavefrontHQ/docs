@@ -14,7 +14,7 @@ We added the following integration in January 2022:
 
 * Velero
 
-  You can now monitor the Velero backup and restore solution. This integration is developed and created by the community and falls into to the **Community Integrations** section of the Wavefront **Integrations** page. 
+  You can now monitor the Velero backup and restore solution. This integration is developed and created by the community and falls into to the **Community Integrations** section of the Wavefront **Integrations** page. We do not validate the community integrations and they are not fully supported by the Tanzu Observability by Wavefront team.
 
 ## All 2018 - 2021 Integrations Release Notes
 

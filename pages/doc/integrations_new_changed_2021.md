@@ -38,7 +38,7 @@ We added the following integration in November 2021:
 
 * AVI Networks
 
-  Now, NSX Advance Load Balancer (AVI Networks) can be monitored by using out-of-the-box dashboards provided in the AVI Networks (NSX ALB) integration tile. This integration is developed and created by the community and falls into to the new **Community Integrations** section of the Wavefront **Integrations** page. This is the first integration in this category.
+  Now, NSX Advance Load Balancer (AVI Networks) can be monitored by using out-of-the-box dashboards provided in the AVI Networks (NSX ALB) integration tile. This integration is developed and created by the community and falls into to the new **Community Integrations** section of the Wavefront **Integrations** page. This is the first integration in this category. We do not validate the community integrations and they are not fully supported by the Tanzu Observability by Wavefront team.
 
 Made improvements to the following integrations and dashboards in November 2021:
 
