@@ -18,8 +18,8 @@ Ingestion policies allow you to group user accounts and service accounts or any 
 
 ### Permissions
 
-Users with the **Accounts, Groups & Roles** permission can create ingestion policies and add accounts or groups to these policies.
-* Each account can belong to more than one policies at a time.
+Users with the **Accounts** permission can create ingestion policies and add accounts or groups to these policies.
+* Each account can belong to more than one policy at a time.
 * You can assign many service accounts and user accounts to the same ingestion policy.
 * You can assign many user and service accounts groups to the same ingestion policy.
 * Once you set the scope to accounts or groups, you cannot edit it. You can create a policy with scope which can be either accounts or groups.
@@ -33,8 +33,8 @@ Users with the **Accounts, Groups & Roles** permission can create ingestion poli
 4. In the **Data** panel:
    1. Choose the **Scope** of the policy.
   
-      This can be either **Accounts** or **Groups**.
-   2. Depending on your choice of scope, enter either the user and service accounts or the user and service accounts groups to assign to the policy.
+      This can be either **Accounts** or **Groups**. After you create the policy, you cannot edit the scope.
+   2. Depending on your choice of scope, enter either the user and service accounts or the groups that you want to assign to the policy.
    3. Select whether you want to set a PPS limit. 
       If you choose to set a PPS limit, you must enter the points per second limit number in the **PPS per billing period** text box.
    4. Click **Next**.
@@ -69,7 +69,7 @@ After you create an ingestion policy, if you need, for example, to increase the 
 
 ## Examine Usage
 
-As an administrator, you examine usage for accounts or groups assigned to different ingestion policies by clicking the name of the policy.
+As a Super Admin user, you can examine the usage for accounts or groups assigned to different ingestion policies by clicking the name of the policy.
 
 1. Log in to your Wavefront instance as a Super Admin user.
 2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage Portal**.
