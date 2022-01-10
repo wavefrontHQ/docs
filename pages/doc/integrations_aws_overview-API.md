@@ -43,8 +43,6 @@ For more information about giving Wavefront access to your Amazon account, see [
   
 ### Provide Wavefront Read-Only Access to Your Amazon Account and Get the Role ARN
 
-In this example procedure, we create a new role, called `Wavefront` and provide the role with read-only access to your Amazon account. If you have already created a role, named `Wavefront`, you can additionally grant it with read-only access to your Amazon account, by attaching the `ReadOnlyAccess` permission policy to it.
-
 1. Log in to your AWS account.
 1. Search for the **IAM** (AWS Identity and Access Management) service and click it.
 1. Under **Access management** on the left, click **Roles**.
@@ -59,7 +57,7 @@ In this example procedure, we create a new role, called `Wavefront` and provide 
 1. Click **Next: Permissions**.
 1. On the **Attach permission policies** screen, search for and select the **ReadOnlyAccess** check box.
 1. Click **Next: Tags** and skip the step by clicking **Next: Review**.
-1. In the **Role name** text box, enter the name of the role, for example, `Wavefront` and click **Create role**.
+1. In the **Role name** text box, provide a unique name of the role and click **Create role**.
 1. On the **Roles** page, click the newly created role.
 1. Copy the **Role ARN** value, so that you can use it (i.e. paste it in the Role ARN text box) when you configure your AWS integration.
 
