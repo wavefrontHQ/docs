@@ -163,9 +163,9 @@ These two 90-second videos show how to do it:
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="30%"><strong><font color="blue">Creating Charts with Chart Builder</font></strong><br/><br/>
+<td width="30%"><strong><font color="#0091DA" size="3">Creating Charts with Chart Builder</font></strong><br/><br/>
 <iframe src="https://bcove.video/2Xx9IPz" width="400" height="225" allowfullscreen="true" alt="create charts with chart builder video"></iframe></td>
-<td width="70%"><strong><font color="blue">Customizing Dashboards</font></strong><br/><br/>
+<td width="70%"><strong><font color="#0091DA" size="3">Customizing Dashboards</font></strong><br/><br/>
 <iframe src="https://bcove.video/2Wux6eP" width="400" height="225" allowfullscreen="true" alt="customizing dashboards video"></iframe> </td>
 </tr>
 </tbody>

@@ -9,7 +9,7 @@ Wavefront is a high-performance streaming analytics platform that supports obser
 
 ## Intro Videos
 
-The first video is a 90 second overview of **how you can use** Wavefront.
+The first <a href="https://bcove.video/2AiJk2v" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> is a 90 second overview of **how you can use** Wavefront.
 
 <iframe src="https://bcove.video/2AiJk2v" width="700" height="400" allowfullscreen="true" alt="Wavefront intro how-to"></iframe>
 
