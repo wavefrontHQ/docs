@@ -12,6 +12,8 @@ You can examine the performance of your Wavefront instance using [wftop](), [Wav
 
 You can also see how data is used by specific accounts or groups, based on the [ingestion policies](ingestion_policies.thml) that you create.
 
+{% include note.html content="The new Usage Portal and Ingestion Policy functionality is currently available to some of our customers. It will become available to all customers within the next releases."%}
+
 ## How to Use the Usage Summary Dashboard
 
 You can navigate to the Usage Summary dashboard to get an overview of the ingested and scanned data over a certain month (up to 25 months back). 
