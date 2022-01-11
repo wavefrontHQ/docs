@@ -22,7 +22,7 @@ This page lists new and updated features for the Wavefront service.
   - Cardinality: Number of unique time series. A unique time series has unique metric name, source name and point tags (key and value).
 <!--https://jira.eng.vmware.com/browse/MONIT-23306 Ask Renate to confirm about this feature and https://jira.eng.vmware.com/browse/MONIT-25866--> 
   
-* **Integration Improvements**: Made a fix on how the status of integrations is loaded, so that you can filter the integrations by state.
+* **Integration Improvements**: Made a fix on how the status of integrations is loaded, so that you can easily filter the integrations by state. See [here](integrations.html#supported-states).
 * **UI Updates and Improvements**: 
   - Updated the name of the **Accounts, Groups & Roles** permission to **Accounts** and changed the name of the **Account Management** menu item to **Accounts**.
   - Made a number of keyboard navigation fixes of the Create a dashboard wizard and the Chart UI pages. The sections that you add are now numbered, e.g. Section 1 instead of New Section.
