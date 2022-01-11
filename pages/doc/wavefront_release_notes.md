@@ -24,8 +24,7 @@ This page lists new and updated features for the Wavefront service.
   
 * **Integration Improvements**: Made a fix on how the status of integrations is loaded, so that you can filter the integrations by state.
 * **UI Updates and Improvements**: 
-  - Updated the name of the **Accounts, Groups & Roles** permission to **Accounts**.
-  - Updated the name of the **Account Management** menu item to **Accounts**.
+  - Updated the name of the **Accounts, Groups & Roles** permission to **Accounts** and changed the name of the **Account Management** menu item to **Accounts**.
   - Made a number of keyboard navigation fixes of the Create a dashboard wizard and the Chart UI pages. The sections that you add are now numbered, e.g. Section 1 instead of New Section.
   - After you pin a legend in a chart, you can sort the columns in the legend.
 
