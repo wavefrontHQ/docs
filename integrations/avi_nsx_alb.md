@@ -33,7 +33,8 @@ curl -o metricscollection.py https://raw.githubusercontent.com/avinetworks/devop
 ```
 {% endraw %}
 
-2. Create a file `configuration.yaml` and add the following configuration snippet.{% raw %}
+2. Create a file `configuration.yaml` and add the following configuration snippet.
+{% raw %}
 ```
 #----------Controllers to Poll Data From - REQUIRED ------------
 #---------------------------------------------------------------
