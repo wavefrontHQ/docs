@@ -29,6 +29,36 @@ The Wavefront Query Language lets you retrieve and display the data that has bee
 </tbody>
 </table>
 
+## Video: Optimize Dashboard Performance
+
+Watch this video to learn how to optimize dashboard and query performance.
+
+<p>
+<iframe src="https://bcove.video/3rcTY1w" width="700" height="400" allowfullscreen="true" alt="Optimize Dashboard Performance video"></iframe>
+</p>
+
+## Use Stats and Suggestions
+
+In the query editor, you can show query stats for the whole chart or stats and suggestions for each query. We collect the following statistics for the chart and for each query:
+- Points Scanned: Raw metric points.
+- Duration: Time between query start and return of result.
+- Cardinality: Number of unique time series. A unique time series has unique metric name, source name and point tags (key and value).
+
+### Chart Performance Stats
+
+To see chart performance stats:
+1. Put the chart in Edit mode or click the chart name.
+2. Click the ellipsis icon and select **Show Chart Stats**.
+
+
+### Query Stats and Suggestions
+
+To see information for a single query, click the lightbulb icon. In the panel to the right you see:
+* The query execution statistics for running the query in the current environment.
+* If the query uses certain functions in ways that often cause performance degradation, the Suggestions field shows how to improve the query, and includes a link to the doc for details.
+
+![screenshot highlighting Show/Hide stats icon, stats, and suggestions](/images/query_stats_annotated.png)
+
 ## Use Filters to Look at the Right Data
 
 For best query language performance, it's important to look at just the right amount of data.
