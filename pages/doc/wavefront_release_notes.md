@@ -20,12 +20,12 @@ This page lists new and updated features for the Wavefront service.
 <tbody>
 <tr>
 <td width="60%">
-<ul><li><strong>Query Editor Insights</strong>: When you create a chart and enter a query, you can click a lightbulb icon on the right to get:
-<ul><li>A pop-up window with information on the Points Scanned, Duration, and Cardinality for the query.</li>
-<li>Tips for improving the query (if any) below that popup.</li></ul>
+<ul><li><strong>Query Editor Insights for Queries and Charts</strong>:
+<ul><li>Click the ellipsis icon for the chart to see <a href="query_language_performance.html#chart-performance-stats">statistics for all queries in the chart</a>.</li>
+<li>Click the lightbulb icon next to a query for <a href="query_language_performance.html#query-stats-and-suggestions">query stats and suggestions</a>.</li></ul>
 </li>
 </ul></td>
-<td width="40%"><img src="/images/query_improvements.png" alt="lightbulb popup with hints for last function."></td>
+<td width="40%"><img src="/images/stats_all.png" alt="chart stats and query stats."></td>
 </tr>
 <tr>
 <td width="60%">
