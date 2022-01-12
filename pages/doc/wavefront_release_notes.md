@@ -19,31 +19,31 @@ This page lists new and updated features for the Wavefront service.
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="60%">
+<td width="50%">
 <ul><li><strong>Query Editor Insights for Queries and Charts</strong>:
 <ul><li>Click the ellipsis icon for the chart to see <a href="query_language_performance.html#chart-performance-stats">statistics for all queries in the chart</a>.</li>
 <li>Click the lightbulb icon next to a query for <a href="query_language_performance.html#query-stats-and-suggestions">query stats and suggestions</a>.</li></ul>
 </li>
 </ul></td>
-<td width="40%"><img src="/images/stats_all.png" alt="chart stats and query stats."></td>
+<td width="50%"><img src="/images/stats_all.png" alt="Chart stats and query stats."></td>
 </tr>
 <tr>
-<td width="60%">
-<ul><li><strong>Integration Improvements</strong>: The integration state icons now show the correct state on the integrations landing page.</li></ul>
+<td width="50%">
+<ul><li><strong>Integration Improvements</strong>: You can now easily filter the integrations by state. See <a href="integrations.html#supported-states">here</a>.</li></ul>
 </td>
-<td width="40%"><img src="/images/integration_state_relnotes.png" alt="3 integration icons, one is OK, one is problem."></td>
+<td width="50%"><img src="/images/integration_state_relnotes.png" alt="List of integrations filtered by active state."></td>
 </tr>
 <tr>
-<td width="60%">
-<ul><li><strong>UI Updates and Improvements</strong>: The integration state icons now show the correct state on the integrations landing page.</li>
+<td width="50%">
+<ul><li><strong>UI Updates and Improvements</strong>: </li>
 <ul>
 <li>Changed the name of the <strong>Accounts, Groups & Roles</strong> permission to <strong>Accounts</strong> and changed the name of the <strong>Account Management</strong> menu item to <strong>Accounts</strong>. </li>
 <li>Keyboard navigation fixes in the <strong>Create Dashboard</strong> wizard and in the Chart UI pages. The sections that you add are now numbered, e.g. Section 1 instead of New Section. </li>
-<li>After you pin a legend in a chart (Shift-P), you can now sort the columns in the legend. </li>
+<li>After you pin a legend in a chart (Shift-P), you can now sort the columns in the legend. See the screenshot on the right.</li>
 </ul>
 </ul>
 </td>
-<td width="40%"><img src="/images/sort_legend.png" alt="legend with up-down arrows for each column"></td>
+<td width="50%"><img src="/images/sort_legend.png" alt="A pinned legend with up and down arrows for each column."></td>
 </tr>
 </tbody>
 </table>
