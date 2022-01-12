@@ -7,7 +7,7 @@ permalink: wavefront_release_notes.html
 summary: Learn about new and updated features in Wavefront.
 ---
 
-This page lists new and updated features for the Wavefront service. 
+This page lists new and updated features for the Wavefront service.
 
 * For **Wavefront Proxy**, your go-to place is the [Wavefront proxy github page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
 * For the latest changes and releases of the **Wavefront Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
@@ -20,27 +20,25 @@ This page lists new and updated features for the Wavefront service.
 <tbody>
 <tr>
 <td width="50%">
-<ul><li><strong>Query Editor Insights for Queries and Charts</strong>:
+<strong>Query Editor Insights for Queries and Charts</strong>:
 <ul><li>Click the ellipsis icon for the chart to see <a href="query_language_performance.html#chart-performance-stats">statistics for all queries in the chart</a>.</li>
 <li>Click the lightbulb icon next to a query for <a href="query_language_performance.html#query-stats-and-suggestions">query stats and suggestions</a>.</li></ul>
-</li>
-</ul></td>
+</td>
 <td width="50%"><img src="/images/stats_all.png" alt="Chart stats and query stats."></td>
 </tr>
 <tr>
 <td width="50%">
-<ul><li><strong>Integration Improvements</strong>: You can now easily filter the integrations by state. See <a href="integrations.html#supported-states">here</a>.</li></ul>
+<strong>Integration Improvements</strong>: You can now easily filter the integrations by state. See <a href="integrations.html#supported-states">Supported States</a>.
 </td>
 <td width="50%"><img src="/images/integration_state_relnotes.png" alt="List of integrations filtered by active state."></td>
 </tr>
 <tr>
 <td width="50%">
-<ul><li><strong>UI Updates and Improvements</strong>: </li>
+<strong>UI Updates and Improvements</strong>:
 <ul>
 <li>Changed the name of the <strong>Accounts, Groups & Roles</strong> permission to <strong>Accounts</strong> and changed the name of the <strong>Account Management</strong> menu item to <strong>Accounts</strong>. </li>
 <li>Keyboard navigation fixes in the <strong>Create Dashboard</strong> wizard and in the Chart UI pages. The sections that you add are now numbered, e.g. Section 1 instead of New Section. </li>
 <li>After you pin a legend in a chart (Shift-P), you can now sort the columns in the legend. See the screenshot on the right.</li>
-</ul>
 </ul>
 </td>
 <td width="50%"><img src="/images/sort_legend.png" alt="A pinned legend with up and down arrows for each column."></td>
