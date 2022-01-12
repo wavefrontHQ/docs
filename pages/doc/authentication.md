@@ -39,11 +39,11 @@ Multi-tenancy is set up jointly by the Wavefront administrator at the customer s
    * Enables multi-tenancy for the customer.
    * Creates a tenant for each team specified by the customer.
    * Points each tenant to the customer's IdP.
-   * Creates tenant administrator users with **Accounts, Groups & Roles** permissions on each tenant.
+   * Creates tenant administrator users with **Accounts** permissions on each tenant.
 1. The administrator at the customer site and the newly specified tenant administrators can then:
   * Log in to the tenant.
   * [Invite users](user-accounts.html#create-and-manage-user-accounts) to the tenant and assign permissions for that tenant.
-  * Make other users tenant administrators by granting [**Accounts, Groups & Roles** permission](permissions_overview.html) to those invited users.
+  * Make other users tenant administrators by granting [**Accounts** permission](permissions_overview.html) to those invited users.
 
 ## Multi-Tenant Modes
 
@@ -65,7 +65,7 @@ If your environment is set up to support multi-tenant SSO, you log in to Wavefro
 
    * If you've been invited to only one tenant, then you are logged in to that tenant after authentication.
    * If you've been invited to more than one tenant, you are logged in to the last tenant you logged in. You can switch to the other tenants by selecting the tenant from the gear icon <i class="fa fa-cog"/> on the taskbar.
-   * For each tenant, you have specific permissions. That means, for example, if you have the **Accounts, Groups & Roles** permission on Tenant A, you don't necessarily have that permission for Tenant B. See [permissions](permissions_overview.html) for details.
+   * For each tenant, you have specific permissions. That means, for example, if you have the **Accounts** permission on Tenant A, you don't necessarily have that permission for Tenant B. See [permissions](permissions_overview.html) for details.
 
 
       {% include note.html content="You can have different sets of permissions on different tenants because each tenant administrator controls the permissions for that tenant for each user." %}

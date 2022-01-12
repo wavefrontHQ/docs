@@ -15,9 +15,9 @@ Permissions allow administrators to control access to Wavefront feature sets. Ad
 
 The following list gives an overview of permissions. To learn more, click the link.
 
-- **[Accounts, Groups & Roles](users_roles.html)** 
+- **[Accounts](users_roles.html)** 
     
-    Users with **Accounts, Groups & Roles** permission can manage user and service accounts. They can create groups and add accounts to groups, create roles and assign permissions to those roles, and assign roles to groups.
+    Users with **Accounts** permission can manage user and service accounts. They can create groups and add accounts to groups, create roles and assign permissions to those roles, and assign roles to groups.
     
 - **[Alerts](alerts.html)** 
 
