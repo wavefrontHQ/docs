@@ -46,18 +46,33 @@ In the query editor, you can show query stats for the whole chart or stats and s
 
 ### Chart Performance Stats
 
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">
 To see chart performance stats:
-1. Put the chart in Edit mode or click the chart name.
-2. Click the ellipsis icon and select **Show Chart Stats**.
-
+<ol><li>
+Put the chart in Edit mode or click the chart name.</li>
+<li>Click the ellipsis icon and select <strong>Show Chart Stats</strong>.</li></ol></td>
+<td width="60%"><img src="/images/chart_stats_annotated.png" alt="screenshot shows chart stats"></td>
+</tr>
+</tbody>
+</table>
 
 ### Query Stats and Suggestions
 
-To see information for a single query, click the lightbulb icon. In the panel to the right you see:
-* The query execution statistics for running the query in the current environment.
-* If the query uses certain functions in ways that often cause performance degradation, the Suggestions field shows how to improve the query, and includes a link to the doc for details.
-
-![screenshot highlighting Show/Hide stats icon, stats, and suggestions](/images/query_stats_annotated.png)
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">
+To see information for a single query, click the <strong>lightbulb icon</strong>. In the panel to the right you see:
+<ul><li>
+The query execution statistics for running the query in the current environment.</li>
+<li>If the query uses certain functions in ways that often cause performance degradation, the Suggestions field shows how to improve the query, and includes a link to the doc for details.</li></ul></td>
+<td width="60%"><img src="/images/query_stats_annotated.png" alt="screenshot highlighting Show/Hide stats icon, stats, and suggestions"></td>
+</tr>
+</tbody>
+</table>
 
 ## Use Filters to Look at the Right Data
 
