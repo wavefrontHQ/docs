@@ -284,11 +284,11 @@ The display expression is the first non-hidden query. In the example below:
 
 {% include tip.html content="If you use the **new** Create Alert UI, the display expression, that is, the query that users see in notifications, is also the first non-hidden query."%}
 
-## Edit an Alert
+## Edit Alerts
 
 Users with **Alerts** permission can change an alert at any time. The options are similar to what you see when you create an alert, but you can quickly focus on the things that you want to change.
 
-### Open the Alert for Edit
+### Start the Alert Edit
 
 <table style="width: 100%;">
 <tbody>
@@ -300,8 +300,18 @@ Users with **Alerts** permission can change an alert at any time. The options ar
 </ol>
 </td>
 <td width="60%" markdown="span">![screenshot ellipsis menu to the left of alert in alerts browser](images/edit_alert.png) </td></tr>
+<tr>
+<td width="40%">
+<ol>
+<li>Make changes (see next section).   </li>
+<li>Click <strong>Show Firings</strong> at any time to see when the alert fired and fine-tune the behavior based on that information.</li>
+</ol>
+</td>
+<td width="60%" markdown="span">![screenshot ellipsis menu to the left of alert in alerts browser](images/show_firings.png) </td></tr>
 </tbody>
 </table>
+
+{% include warning.html content="If you navigate away from the page or close the browser tab without saving, your changes are lost!"%}
 
 ### Make Changes to the Alert
 
