@@ -16,19 +16,55 @@ This page lists new and updated features for the Wavefront service.
 
 ## 2022-01.x Release Notes
 
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+<ul><li><strong>Query Editor Insights for Queries and Charts</strong>:
+<ul><li>Click the ellipsis icon for the chart to see <a href="query_language_performance.html#chart-performance-stats">statistics for all queries in the chart</a>.</li>
+<li>Click the lightbulb icon next to a query for <a href="query_language_performance.html#query-stats-and-suggestions">query stats and suggestions</a>.</li></ul>
+</li>
+</ul></td>
+<td width="50%"><img src="/images/stats_all.png" alt="Chart stats and query stats."></td>
+</tr>
+<tr>
+<td width="50%">
+<ul><li><strong>Integration Improvements</strong>: You can now easily filter the integrations by state. See <a href="integrations.html#supported-states">here</a>.</li></ul>
+</td>
+<td width="50%"><img src="/images/integration_state_relnotes.png" alt="List of integrations filtered by active state."></td>
+</tr>
+<tr>
+<td width="50%">
+<ul><li><strong>UI Updates and Improvements</strong>: </li>
+<ul>
+<li>Changed the name of the <strong>Accounts, Groups & Roles</strong> permission to <strong>Accounts</strong> and changed the name of the <strong>Account Management</strong> menu item to <strong>Accounts</strong>. </li>
+<li>Keyboard navigation fixes in the <strong>Create Dashboard</strong> wizard and in the Chart UI pages. The sections that you add are now numbered, e.g. Section 1 instead of New Section. </li>
+<li>After you pin a legend in a chart (Shift-P), you can now sort the columns in the legend. See the image on the right.</li>
+</ul>
+</ul>
+</td>
+<td width="50%"><img src="/images/sort_legend.png" alt="A pinned legend with up and down arrows for each column."></td>
+</tr>
+</tbody>
+</table>
+
+<!---
+* **UI Updates and Improvements**:
+  - Changed the name of the **Accounts, Groups & Roles** permission to **Accounts** and changed the name of the **Account Management** menu item to **Accounts**.
+  - Keyboard navigation fixes in the Create Dashboard wizard and in the Chart UI pages. The sections that you add are now numbered, e.g. Section 1 instead of New Section.
+  - After you pin a legend in a chart, you can sort the columns in the legend.--->
+
+<!---
 * **Chart Builder UI Improvements**: When you create a chart and enter a query, you can click the lightbulb icon on the right to get some hints and insights on the functions that you're using. These hints and insights will help you to understand the Wavefront query language, predict cardinality issues, and improve performance. In addition, we show a pop-up window with definitions and tips when you hover over the data displayed in the chart. This pop-up window includes:
   - Points Scanned: Raw metric points for a query.
   - Duration: Time between query start and return of result.
   - Cardinality: Number of unique time series. A unique time series has unique metric name, source name and point tags (key and value).
-<!--https://jira.eng.vmware.com/browse/MONIT-23306 Ask Renate to confirm about this feature and https://jira.eng.vmware.com/browse/MONIT-25866--> 
-  
-* **Integration Improvements**: Made a fix on how the status of integrations is loaded, so that you can easily filter the integrations by state. See [here](integrations.html#supported-states).
-* **UI Updates and Improvements**: 
-  - Updated the name of the **Accounts, Groups & Roles** permission to **Accounts** and changed the name of the **Account Management** menu item to **Accounts**.
-  - Made a number of keyboard navigation fixes of the Create a dashboard wizard and the Chart UI pages. The sections that you add are now numbered, e.g. Section 1 instead of New Section.
-  - After you pin a legend in a chart, you can sort the columns in the legend.
+--https://jira.eng.vmware.com/browse/MONIT-23306 Ask Renate to confirm about this feature and https://jira.eng.vmware.com/browse/MONIT-25866--->
 
-  
+
+
+
+
 ## Past Release Notes
 
 - [2021-49.x Release Notes](2021.49.x_release_notes.html)
