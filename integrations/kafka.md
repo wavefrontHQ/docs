@@ -231,7 +231,7 @@ helm install <KAFKA_CLUSTER_NAME> --set metrics.kafka.enabled=true --set metrics
 
 You can configure the Wavefront Collector for Kubernetes to scrape Kafka metrics by using annotation based discovery.
 
-If you do not have the Wavefront Collector for Kubernetes installed on your Kubernetes cluster, follow these instructions to add it to your cluster by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install). You can check the status of Wavefront Collector and Proxy if you are already monitoring the Kubernetes cluster [here](../kubernetes/setup).
+If you do not have the Wavefront Collector for Kubernetes installed on your Kubernetes cluster, follow these instructions to add it to your cluster by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install). You can check the status of Wavefront Collector and Proxy if you are already monitoring the Kubernetes cluster on the `Setup` tab of the Kubernetes integration.
 
 **Annotation Based Discovery**:
 By default, both the JMX exporter and Kafka exporter services are annotated with Prometheus `scrape` and `port`.
