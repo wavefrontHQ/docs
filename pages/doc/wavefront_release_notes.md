@@ -39,7 +39,7 @@ This page lists new and updated features for the Wavefront service.
 <ul>
 <li>Changed the name of the <strong>Accounts, Groups & Roles</strong> permission to <strong>Accounts</strong> and changed the name of the <strong>Account Management</strong> menu item to <strong>Accounts</strong>. </li>
 <li>Keyboard navigation fixes in the <strong>Create Dashboard</strong> wizard and in the Chart UI pages. The sections that you add are now numbered, e.g. Section 1 instead of New Section. </li>
-<li>After you pin a legend in a chart (Shift-P), you can now sort the columns in the legend. See the image on the right.</li>
+<li>After you pin a legend in a chart (Shift-P), you can now sort the columns in the legend. See the screenshot on the right.</li>
 </ul>
 </ul>
 </td>
