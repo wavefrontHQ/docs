@@ -286,7 +286,7 @@ The display expression is the first non-hidden query. In the example below:
 
 ## Edit Alerts
 
-Users with **Alerts** permission can change an alert at any time. The options are similar to what you see when you create an alert, but you can quickly focus on the things that you want to change.
+Users with **Alerts** permission can change an alert at any time. The options are similar to what you see when you create an alert, but you can quickly focus on the things that you want to change. 
 
 ### Start the Alert Edit
 
