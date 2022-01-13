@@ -272,6 +272,7 @@ The **Content** section allows you to specify one or more triage dashboards. For
 </tbody>
 </table>
 
+<!---Comment out & likely move to new doc page for v1 to v2
 ### Why Do I See a Display Expression?
 
 By default, an alert that was created before November 2021 and that has a boolean alert query shows 0 or 1 on chart images, interactive charts, and custom notifications. The earlier GUI supported specifying a display expression, which can include any valid Wavefront Query Language construct.
@@ -282,11 +283,11 @@ The display expression is the first non-hidden query. In the example below:
 
 ![selected query is variance(${A}) but non-hidden query is ts(~sample.cpu.loadavg.1m, source=app-1*) > .2](images/display_expression.png)
 
-{% include tip.html content="If you use the **new** Create Alert UI, the display expression, that is, the query that users see in notifications, is also the first non-hidden query."%}
+{% include tip.html content="If you use the **new** Create Alert UI, the display expression, that is, the query that users see in notifications, is also the first non-hidden query."%}--->
 
 ## Edit Alerts
 
-Users with **Alerts** permission can change an alert at any time. The options are similar to what you see when you create an alert, but you can quickly focus on the things that you want to change. 
+Users with **Alerts** permission can change an alert at any time. The options are similar to what you see when you create an alert, but you can quickly focus on the things that you want to change.
 
 ### Start the Alert Edit
 
