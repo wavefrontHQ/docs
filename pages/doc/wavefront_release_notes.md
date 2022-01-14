@@ -43,12 +43,14 @@ This page lists new and updated features for the Wavefront service.
 </td>
 <td width="50%"><img src="/images/sort_legend.png" alt="A pinned legend with up and down arrows for each column."></td>
 </tr>
+<!---
 <tr>
 <td width="50%">
 <strong>Application Map Performance Improvements</strong>: The team has improved the App Map performance significantly. <br><br>As part of that effort, the App Map no longer shows the node count by default. Check <strong>Show Node Counts</strong> in the App Map settings to change the default.
 </td>
 <td width="50%"><img src="/images/show_node_counts.png" alt="App Map settings screenshot, show node count not checked."></td>
 </tr>
+--->
 </tbody>
 </table>
 

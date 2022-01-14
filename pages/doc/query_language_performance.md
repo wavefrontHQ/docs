@@ -67,8 +67,8 @@ Put the chart in Edit mode or click the chart name.</li>
 <td width="40%">
 To see information for a single query, click the <strong>lightbulb icon</strong>. In the panel to the right you see:
 <ul><li>
-The query execution statistics for running the query in the current environment.</li>
-<li>If the query uses certain functions in ways that often cause performance degradation, the Suggestions field shows how to improve the query, and includes a link to the doc for details.</li></ul></td>
+The query execution statistics for running the query in the current environment. See <a href="#use-statistics-and-suggestions"> Use Statistics and Suggestions</a> for details on what the statistics mean and how to remedy problems.</li>
+<li>If the query uses certain functions in ways that often cause performance degradation, the Suggestions field shows how to improve the query, and includes a link to the doc for details. </li></ul></td>
 <td width="60%"><img src="/images/query_stats_annotated.png" alt="screenshot highlighting Show/Hide stats icon, stats, and suggestions"></td>
 </tr>
 </tbody>
