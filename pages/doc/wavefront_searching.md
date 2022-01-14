@@ -8,7 +8,7 @@ summary: Learn how to search for objects in the Wavefront UI.
 ---
 To help you find exactly what you need, Wavefront supports tags and a variety of search features.
 
-Here's a video to get you started:
+Here's a <a href="https://bcove.video/2UnQFZ0" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a>  to get you started:
 
 <p>
 <iframe src="https://bcove.video/2UnQFZ0" width="700" height="400" allowfullscreen="true" alt="Wavefront Searches video"></iframe>

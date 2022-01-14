@@ -21,24 +21,26 @@ Watch these videos to get you started. The videos use the v1 UI, but the basic w
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="70%"><strong><font color="blue">Query Language Basics</font></strong><br><br>
+<td width="70%"><strong><font color="#0091DA" size="3">Query Language Basics</font></strong><br><br>
 <iframe src="https://bcove.video/3FqMmPo" width="550" height="275" allowfullscreen="true" alt="Wavefront Query Language Basics"></iframe></td>
 <td width="30%"><br><br>
 <p>Learn about time series metrics, and about how to visualize metrics and filter and group them with Wavefront Query Language. </p>
+<p>You can also watch the video <a href="https://bcove.video/3FqMmPo" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
-<td width="70%"><strong><font color="blue">Intro to Wavefront Query Language</font></strong><br><br>
+<td width="70%"><strong><font color="#0091DA" size="3">Intro to Wavefront Query Language</font></strong><br><br>
 <iframe src="https://bcove.video/3mep1Jv" width="550" height="275" allowfullscreen="true" alt="Intro to Wavefront Query Language"></iframe></td>
 <td width="30%"><br><br>
 <p>Wavefront query language allows you to shape the data you see in your dashboards. The example uses the advanced functions if() at() and corr() to find a problem behavior of a switch in other switches and prevent future problems.</p>
+<p>You can also watch the video <a href="https://bcove.video/3mep1Jv" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
-<td style="width: 50%;"><strong><font color="blue">Query Language Advanced  Functions</font></strong><br><br>
-<iframe src="https://bcove.video/3sEAbZh" width="400" height="225" allowfullscreen="true" alt="Advanced Query Language Functions"></iframe></td>
+<td style="width: 50%;"><strong><font color="#0091DA" size="3">Query Language Advanced  Functions</font></strong><br><br>
+<iframe src="https://bcove.video/3sEAbZh" width="550" height="275" allowfullscreen="true" alt="Advanced Query Language Functions"></iframe></td>
 <td><br><br>
-<p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. Watch a high-res version of the video <a href="https://bcove.video/3sEAbZh">here</a> </p>
+<p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. <p>You can also watch the video <a href="https://bcove.video/3sEAbZh" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p></p>
 </td>
 </tr>
 </tbody>

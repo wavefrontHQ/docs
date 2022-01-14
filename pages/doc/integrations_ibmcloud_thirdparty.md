@@ -4,8 +4,11 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_ibmcloud_thirdparty.html
+published: false
 summary: Instructions for setting up IBM Cloud Integration
 ---
+
+<!---Canging this page to published: false. Can't know whether the content is still up to date--->
 
 This page describes how to install Wavefront on IBM Cloud. The content was generously contributed to the [Wavefront documentation repository](https://github.com/wavefrontHQ/docs/pull/177) and has been lightly edited for consistency.
 
@@ -66,10 +69,10 @@ To create a standard IBM Cloud Kubernetes cluster:
 
 1. Log in to your IBM Cloud Account, search for **Block Storage**, and select **Block Storage** from the list.
 2. On the Block Storage page, click  **Create** in the bottom right.
-3. Specify the storage details. 
+3. Specify the storage details.
 
    Here's an example setup:
-   
+
     * **Location**: Location of the cluster, for example, `Location > Europe > London > LON02`
     * **Billing Method**: `Monthly> 20 GB`
     * **OS type**: `Linux`
