@@ -7,7 +7,7 @@ permalink: wavefront_release_notes.html
 summary: Learn about new and updated features in Wavefront.
 ---
 
-This page lists new and updated features for the Wavefront service. 
+This page lists new and updated features for the Wavefront service.
 
 * For **Wavefront Proxy**, your go-to place is the [Wavefront proxy github page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
 * For the latest changes and releases of the **Wavefront Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
@@ -42,6 +42,12 @@ This page lists new and updated features for the Wavefront service.
 </ul>
 </td>
 <td width="50%"><img src="/images/sort_legend.png" alt="A pinned legend with up and down arrows for each column."></td>
+</tr>
+<tr>
+<td width="50%">
+<strong>App Map Performance Improvements</strong>: The team has improved the App Map performance significantly. <br><br>As part of that effort, the App Map no longer shows the service instance count by default. You can change the default to display the service instance in the App Map Settings.
+</td>
+<td width="50%"><img src="/images/integration_state_relnotes.png" alt="List of integrations filtered by active state."></td>
 </tr>
 </tbody>
 </table>
