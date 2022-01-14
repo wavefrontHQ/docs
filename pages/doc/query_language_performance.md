@@ -37,12 +37,12 @@ Watch this video to learn how to optimize dashboard and query performance.
 <iframe src="https://bcove.video/3rcTY1w" width="700" height="400" allowfullscreen="true" alt="Optimize Dashboard Performance video"></iframe>
 </p>
 
-## Use Stats and Suggestions
+## Use Statistics and Suggestions
 
 In the query editor, you can show query stats for the whole chart or stats and suggestions for each query. We collect the following statistics for the chart and for each query:
-- Points Scanned: Raw metric points.
+- Points Scanned: Complete raw metric points.
 - Duration: Time between query start and return of result.
-- Cardinality: Number of unique time series. A unique time series has unique metric name, source name and point tags (key and value).
+- Cardinality: Number of **unique** time series. A unique time series has unique metric name, source name and point tags (key and value). See [Wavefront and Cardinality](cardinality.html) for details.
 
 ### Chart Performance Stats
 
