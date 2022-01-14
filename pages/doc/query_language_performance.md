@@ -54,7 +54,7 @@ To see chart performance stats:
 <ol><li>
 Put the chart in Edit mode or click the chart name.</li>
 <li>Click the ellipsis icon and select <strong>Show Chart Stats</strong>.</li></ol></td>
-<td width="60%"><img src="/images/chart_stats_annotated.png" alt="screenshot shows chart stats"></td>
+<td width="60%"><img src="/images/chart_stats_problem.png" alt="screenshot shows chart stats"></td>
 </tr>
 </tbody>
 </table>
