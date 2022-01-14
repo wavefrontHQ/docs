@@ -1,5 +1,5 @@
 ---
-title: Anomaly Detection on Charts
+title: Anomaly Detection
 keywords: anomaly detection
 tags: [charts]
 sidebar: doc_sidebar
@@ -22,9 +22,9 @@ Assume that SRE Robin has received an alert that an application is slow.
 
 ![anomaly intro](images/anomaly_simple.png)
 
-## How to Use Anomaly Detection
+## How to Use Anomaly Detection on Charts
 
-Currently, Anomaly Detection is available for Line Plot charts.
+Currently, Anomaly Detection is available for Line Plot charts. 
 
 1. Enable Anomaly Detection from two places:
 
@@ -44,8 +44,57 @@ Currently, Anomaly Detection is available for Line Plot charts.
    * **Historical Sample Size** -- Allows you to define the size of the history window where chart forecasting is done.
        The size of a history window defines a granular time bucket to compare the chart behavior for finding anomalies. If you want to look for seasonal anomalies, select the appropriate history window, such as one week or one month. One-day historical sample size window helps you detect hourly anomalies.
    *  **Anomaly Type** -- Allows you to filter out the anomalies that are higher or lower than expected, or both.
-   *  **Sensitivity** -- Select high, medium or low sensitivity.
+   *  **Sensitivity** -- Select high, medium, or low sensitivity.
         **High** means that there's a 67% chance that the data is anomalous, **Medium** means there's a 95% chance, and **Low** means there's a 99% chance.
+
+## How to Use Anomaly Detection on Dashboards
+
+You can enable Anomaly Detection on dashboards that contain Line Plot charts.
+
+1. Open a dashboard.
+2. Click the **Anomaly Detection** drop-down menu on top.
+
+   ![Anomaly detection menu on top of a dashboard](images/anomaly-detection-dashboard.png)
+   
+3. Select and option:
+
+    <table>
+    <tbody>
+    <thead>
+    <tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+    </thead>
+    <tr>
+    <td><strong>on: use settings from each chart</strong></td>
+    <td><p>Use this option to enable Anomaly Detection on dashboard by taking the configuration options from each chart. </p>
+    <p>
+    This way you can configure the dashboard in a more flexible way by enabling or disabling Anomaly Detection only on the charts that you want, and configuring each chart with the settings that you want.</p>
+    </td>
+    </tr>
+    <tr>
+    <td><strong>on: use single settings for entire dashboard</strong></td>
+    <td>Use this option to enable anomaly detection on all Line Plot charts within the dashboard and apply the same settings to all of them. 
+    <p>This way, you can change anomaly detection settings from one place for all the Line Plot charts in the current dashboard.</p>
+    </td>
+    </tr>
+    <tr><td><strong>off</strong></td>
+    <td>Use this option to turn Anomaly Detection off for the whole dashboard. </td>
+    </tr>
+    </tbody>
+    </table>
+
+4. If you select to use the option to apply same settings to the Line Plot chart in the dashboard, click the modal icon displayed next to the Anomaly Detection switch, and select the Anomaly Detection options. 
+
+   ![Anomaly detection options for the whole dashboard.](images/anomaly-detection-dashboard-menu.png)
+
+    * **Display Settings** -- Select this option to filter out all the series that don’t have anomalies.
+        This option is useful for visualizing series with anomalies better.
+    * **Historical Sample Size** -- Allows you to define the size of the history window where chart forecasting is done.
+        The size of a history window defines a granular time bucket to compare the chart behavior for finding anomalies. If you want to look for seasonal anomalies, select the appropriate history window, such as one week or one month. One-day historical sample size window helps you detect hourly anomalies.
+    *  **Anomaly Type** -- Allows you to filter out the anomalies that are higher or lower than expected, or both.
+    *  **Sensitivity** -- Select high, medium, or low sensitivity.
+         **High** means that there's a 67% chance that the data is anomalous, **Medium** means there's a 95% chance, and **Low** means there's a 99% chance.
+
+5. Click **Apply**.
 
 ## Anomaly Highlighting
 
