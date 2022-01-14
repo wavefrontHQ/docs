@@ -21,7 +21,7 @@ This page lists new and updated features for the Wavefront service.
 <tr>
 <td width="50%">
 <strong>Query Editor Insights for Queries and Charts</strong>:
-<ul><li>Click the ellipsis icon for the chart to see <a href="query_language_performance.html#chart-performance-stats">statistics for all queries in the chart</a>.</li>
+<ul><li>Click the ellipsis icon for the chart to see <a href="query_language_performance.html#use-statistics-and-suggestions">statistics for all queries in the chart</a>.</li>
 <li>Click the lightbulb icon next to a query for <a href="query_language_performance.html#query-stats-and-suggestions">query stats and suggestions</a>.</li></ul>
 </td>
 <td width="50%"><img src="/images/stats_all.png" alt="Chart stats and query stats."></td>
