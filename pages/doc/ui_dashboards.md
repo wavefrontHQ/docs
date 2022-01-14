@@ -442,6 +442,15 @@ After you've saved these changes:
 
 ## Ensure Optimal Dashboard Performance
 
+### Video: Optimize Dashboard Performance
+
+Watch this video to learn how to optimize dashboard and query performance.
+
+<p>
+<iframe src="https://bcove.video/3rcTY1w" width="700" height="400" allowfullscreen="true" alt="Optimize Dashboard Performance video"></iframe>
+</p>
+
+
 Wavefront can ingest and process very large amounts of data. Here's what you can do to ensure performance is optimal.
 
 ### Watch for Cardinality Issues

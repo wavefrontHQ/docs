@@ -22,7 +22,7 @@ Wavefront supports both PromQL and WQL (Wavefront Query Language) queries. The Q
 
 ## Set PromQL Organization Settings (Administrator Only)
 
-Users with **Accounts, Groups & Roles**  permissions can navigate to the **Organization Settings** and enable the PromQL support.
+Users with **Accounts**  permissions can navigate to the **Organization Settings** and enable the PromQL support.
 * If **PromQL Support** is *not enabled*, other users cannot use PromQL or change PromQL user preferences.
 * If **PromQL Support** is *enabled*, administrators can set additional New User Default query settings, and other users can override those settings.
 
@@ -43,7 +43,7 @@ To set PromQL settings for your organization:
 
 If an administrator has enabled PromQL support (discussed above), each user can control some aspects of PromQL.
 
-{% include note.html content="If you can only choose between Query Editor and Chart Builder, then PromQL is not supported on your Wavefront instance. Contact a site administrator with **Accounts, Groups, and Roles** permission." %}
+{% include note.html content="If you can only choose between Query Editor and Chart Builder, then PromQL is not supported on your Wavefront instance. Contact a site administrator with **Accounts** permission." %}
 
 1. From the gear icon, select your username.
 2. Under **Query Settings**, select:

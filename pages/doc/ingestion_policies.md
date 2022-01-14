@@ -18,7 +18,7 @@ Ingestion policies allow you to group accounts and then examine their usage in t
 
 ### Permissions
 
-Users with **Accounts, Groups & Roles** permission can create ingestion policies and add user accounts or service accounts.
+Users with **Accounts** permission can create ingestion policies and add user accounts or service accounts.
 * Each account can belong to only one policy at a time. That way, you never count usage of an account twice.
 * You can add user accounts and service accounts to the same policy.
 
@@ -44,7 +44,7 @@ You examine usage for accounts in different policies or for individual accounts 
 
 ### Administrators
 
-Administrators with **Accounts, Groups & Roles** permission can go the Ingestion Breakdown dashboard directly from the Ingestion Policies page.
+Administrators with **Accounts** permission can go the Ingestion Breakdown dashboard directly from the Ingestion Policies page.
 
 ![ingestion breakdown link](images/ingestion_breakdown_dashboard_link.png)
 
