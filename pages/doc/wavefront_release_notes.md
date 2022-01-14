@@ -45,9 +45,9 @@ This page lists new and updated features for the Wavefront service.
 </tr>
 <tr>
 <td width="50%">
-<strong>App Map Performance Improvements</strong>: The team has improved the App Map performance significantly. <br><br>As part of that effort, the App Map no longer shows the service instance count by default. You can change the default to display the service instance in the App Map Settings.
+<strong>Application Map Performance Improvements</strong>: The team has improved the App Map performance significantly. <br><br>As part of that effort, the App Map no longer shows the node count by default. Check <strong>Show Node Counts</strong> in the App Map settings to change the default.
 </td>
-<td width="50%"><img src="/images/integration_state_relnotes.png" alt="List of integrations filtered by active state."></td>
+<td width="50%"><img src="/images/show_node_counts.png" alt="App Map settings screenshot, show node count not checked."></td>
 </tr>
 </tbody>
 </table>
