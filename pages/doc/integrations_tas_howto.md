@@ -4,6 +4,7 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_tas_howto.html
+published: false
 summary: Set up the Tanzu Observability tile and monitor your envionment
 ---
 
