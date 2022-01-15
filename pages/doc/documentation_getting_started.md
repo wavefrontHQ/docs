@@ -82,7 +82,7 @@ Our docs include reference documentation for API, query language, and chart opti
 <ul><li><a href="alerts_best_practices.html">Alerts Best Practices</a> </li>
 <li><a href="alerts_recipes.html">Alerts Recipes</a> </li>
 <li><a href="query_language_recipes.html">Query Language Recipes</a> </li>
-<li><a href="wavefront_data_naming.html">Data Naming Best Practices</a> </li>
+<li><a href="wavefront_data_format.html#wavefront-data-format-best-practices">Data Naming Best Practices</a> </li>
 <li><a href="tracing_best_practices.html">Tracing Best Practices</a> </li></ul></td>
 <td><a href="label_best%20practice.html" target="_blank"><img src="/images/best_practices_tile.png"  alt="screenshot of tile, best practices highlighted"/></a></td>
 </tr>

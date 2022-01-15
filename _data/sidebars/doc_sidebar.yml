@@ -178,10 +178,6 @@ entries:
       url: /wavefront_data_format.html
       output: web
 
-    - title: Wavefront Data Best Practices
-      url: /wavefront_data_naming.html
-      output: web
-
     - title: Cardinality and Wavefront
       url: /cardinality.html
       output: web
@@ -511,7 +507,7 @@ entries:
           - title: Log Data Metrics Integration
             url: /integrations_log_data.html
             output: web
-    
+
           - title: vRealize Operations Cloud Integration
             url: /integrations_vrops.html
             output: web

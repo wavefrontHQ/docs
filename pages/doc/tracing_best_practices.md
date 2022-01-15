@@ -154,7 +154,7 @@ Wavefront requires that you choose unique names for the sources that send spans.
   - If you use a machine's host name (the default), make sure all machines have unique host names. Use logical names to distinguish machines with the same host names in different data centers.
   - **Note:** Duplicate source names might result in incorrect RED metrics.
 
-* See also the guidelines for choosing [source names for metric data and histograms](wavefront_data_naming.html#source-names-best-practices).
+* See also the guidelines for choosing [source names for metric data and histograms](wavefront_data_format.html#source-names-best-practices).
 
 
 ### Best Practices for Wavefront Observability SDKs
@@ -231,7 +231,7 @@ The goal of instrumentation is to instrument enough methods to produce traces th
 
 * Automate as much as possible by using [Wavefront framework SDKs](wavefront_sdks.html#sdks-that-instrument-frameworks), if any exist for your languages and framework. Then use a [Wavefront OpenTracing SDK](wavefront_sdks.html##sdks-for-collecting-trace-data) to instrument operations that are not handled by a framework SDK.
 
-* Limit the number of spans in a trace to < 1000. 
+* Limit the number of spans in a trace to < 1000.
 
 * **Java example:** Instantiate a singleton `WavefrontTracer`, pass it to each class, and use it in each method of interest:
 
