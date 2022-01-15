@@ -14,7 +14,7 @@ Wavefront supports:
 * User accounts, discussed here, which authenticate with a username and password.
 * [Service accounts](service-accounts.html), which authenticate with a token.
 
-{% include note.html content="You must have **Accounts, Groups & Roles** permission to view and manage accounts, groups, and permissions in Wavefront. If you don't have **Accounts, Groups & Roles** permission, the UI menu selections, buttons, and links that you use to view accounts and permissions are not visible. " %}
+{% include note.html content="You must have **Accounts** permission to view and manage accounts, groups, and permissions in Wavefront. If you don't have **Accounts** permission, the UI menu selections, buttons, and links that you use to view accounts and permissions are not visible. " %}
 
 
 ## What Are User Accounts?
@@ -26,9 +26,9 @@ User accounts log in with a user name and password.
 
 ## Create, Edit, and Delete User Accounts
 
-Users with **Accounts, Groups & Roles** permissions can manage accounts.
+Users with **Accounts** permissions can manage accounts.
 
-1. Click the gear icon <i class="fa fa-cog"/> on the taskbar and select **Account Management**.
+1. Click the gear icon <i class="fa fa-cog"/> on the taskbar and select **Accounts**.
 2. To add an account:
    1. Click **Invite New Users** and specify a comma-separated list of email addresses.
    2. Specify user groups. You cannot remove users from the **Everyone** group.
@@ -74,8 +74,8 @@ When you invite a new (human) user to Wavefront, what that new user can do depen
 {% include note.html content="It's possible that [access to dashboards and alerts](access.html#how-access-control-works) is limited." %}
 
 
-- **New User Permissions:** Users with **Accounts, Groups & Roles** permission can view and modify new user default permissions. To do that, from the gear icon <i class="fa fa-cog"/> on the taskbar, select **Organization Settings**. These permissions *do not* apply to service accounts.
-- **New User Default Groups:** Users with **Accounts, Groups & Roles** permission can set up a default groups for new users. To do that, from the gear icon <i class="fa fa-cog"/> on the taskbar, select **Organization Settings**.  All new user accounts get all permissions assigned to the default user groups. These permissions *do not* apply to service accounts.
+- **New User Permissions:** Users with **Accounts** permission can view and modify new user default permissions. To do that, from the gear icon <i class="fa fa-cog"/> on the taskbar, select **Organization Settings**. These permissions *do not* apply to service accounts.
+- **New User Default Groups:** Users with **Accounts** permission can set up a default groups for new users. To do that, from the gear icon <i class="fa fa-cog"/> on the taskbar, select **Organization Settings**.  All new user accounts get all permissions assigned to the default user groups. These permissions *do not* apply to service accounts.
 
 ## Set Default Permissions for New Users
 

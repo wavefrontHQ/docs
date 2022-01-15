@@ -38,7 +38,7 @@ In your user profile, you can configure several preferences, for example, select
 1. On the **User Information** tab make the necessary changes.
 
 
-{% include note.html content="Some preferences are preset for all users in an account by a user with [Users and Groups permission](permissions_overview.html)." %}
+{% include note.html content="Some preferences are preset for all users in an account by a user with [Accounts permission](permissions_overview.html)." %}
 
 
 ## Speed up Chart Display with the Chart Sampling Preference

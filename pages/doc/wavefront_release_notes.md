@@ -7,63 +7,73 @@ permalink: wavefront_release_notes.html
 summary: Learn about new and updated features in Wavefront.
 ---
 
-This page lists new and updated features for the Wavefront service. 
+This page lists new and updated features for the Wavefront service.
 
 * For **Wavefront Proxy**, your go-to place is the [Wavefront proxy github page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
 * For the latest changes and releases of the **Wavefront Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For  **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
-## 2021-49.x Release Notes
 
-* New `isAlertRetriggered` option allows to you [customize alert notifications](alert_target_customizing.html#tailor-content-to-the-trigger-type) if **Resend Notifications** is checked.
+## 2022-01.x Release Notes
 
-## 2021-48.x Release Notes
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+<strong>Query Editor Insights for Queries and Charts</strong>:
+<ul><li>Click the ellipsis icon for the chart to see <a href="query_language_performance.html#use-statistics-and-suggestions">statistics for all queries in the chart</a>.</li>
+<li>Click the lightbulb icon next to a query for <a href="query_language_performance.html#query-stats-and-suggestions">query stats and suggestions</a>.</li></ul>
+</td>
+<td width="50%"><img src="/images/stats_all.png" alt="Chart stats and query stats."></td>
+</tr>
+<tr>
+<td width="50%">
+<strong>Integration Improvements</strong>: You can now easily filter the integrations by state. See <a href="integrations.html#supported-states">Supported States</a>.
+</td>
+<td width="50%"><img src="/images/integration_state_relnotes.png" alt="List of integrations filtered by active state."></td>
+</tr>
+<tr>
+<td width="50%">
+<strong>UI Updates and Improvements</strong>:
+<ul>
+<li>After you pin a legend in a chart (Shift-P), you can now sort the columns in the legend. See the screenshot on the right.</li>
+<li>Changed the name of the <strong>Accounts, Groups & Roles</strong> permission to <strong>Accounts</strong> and changed the name of the <strong>Account Management</strong> menu item to <strong>Accounts</strong>. </li>
+<li>Keyboard navigation improvements in the <strong>Create Dashboard</strong> wizard and in the Chart UI pages. The sections that you add are now numbered, e.g. Section 1 instead of New Section. </li>
+</ul>
+</td>
+<td width="50%"><img src="/images/sort_legend.png" alt="A pinned legend with up and down arrows for each column."></td>
+</tr>
+<!---
+<tr>
+<td width="50%">
+<strong>Application Map Performance Improvements</strong>: The team has improved the App Map performance significantly. <br><br>As part of that effort, the App Map no longer shows the node count by default. Check <strong>Show Node Counts</strong> in the App Map settings to change the default.
+</td>
+<td width="50%"><img src="/images/show_node_counts.png" alt="App Map settings screenshot, show node count not checked."></td>
+</tr>
+--->
+</tbody>
+</table>
 
-* **vRealize Operations Integration v1**: We now have released the first version of the vRealize Operations integration. It currently fetches only vCenter Server adapter resources, such as Cluster Compute Resource and Datastore. We will add more features to this integration in future releases. For information about setting up the integration, the current limitations and caveats, see [vRealize Operations Integration Overview](integrations_vrops.html).
-* **Metrics Browser Improvements**: Consistency improvements for the [Metrics Browser](metrics_managing.html#metrics-browser).
-  - Unclutter that page with **Load More** option.
-  - Improve accessibility.
+<!---
+* **UI Updates and Improvements**:
+  - Changed the name of the **Accounts, Groups & Roles** permission to **Accounts** and changed the name of the **Account Management** menu item to **Accounts**.
+  - Keyboard navigation fixes in the Create Dashboard wizard and in the Chart UI pages. The sections that you add are now numbered, e.g. Section 1 instead of New Section.
+  - After you pin a legend in a chart, you can sort the columns in the legend.--->
 
-## 2021-46.x Release Notes
+<!---
+* **Chart Builder UI Improvements**: When you create a chart and enter a query, you can click the lightbulb icon on the right to get some hints and insights on the functions that you're using. These hints and insights will help you to understand the Wavefront query language, predict cardinality issues, and improve performance. In addition, we show a pop-up window with definitions and tips when you hover over the data displayed in the chart. This pop-up window includes:
+  - Points Scanned: Raw metric points for a query.
+  - Duration: Time between query start and return of result.
+  - Cardinality: Number of unique time series. A unique time series has unique metric name, source name and point tags (key and value).
+--https://jira.eng.vmware.com/browse/MONIT-23306 Ask Renate to confirm about this feature and https://jira.eng.vmware.com/browse/MONIT-25866--->
 
-* **Integration Improvements**: November integrations are live! See [Integration Release Notes](integrations_new_changed.html#november-2021).
-* **New Doc Pages**:
-  - [Improve Query Performance](query_language_performance.html) has tips and tricks for fine-tuning queries.
-  - [Ensure Optimal Dashboard Performance](ui_dashboards.html#ensure-optimal-dashboard-performance) has been revamped to include tips about sampling, dynamic variables, and more.
-  - Added the [OpenTelemetry and Wavefront Tutorial ](wf_opentelemetry_java_tutorial.html), which was already made [available in a blog post](https://tanzu.vmware.com/content/blog/getting-started-opentelemetry-vmware-tanzu-observability) in September.
 
 
-## 2021-44.x Release Notes
 
-* **Share Section URLs**: You can now [share links to sections](ui_sharing.html#share-a-link-to-a-dashboard-section) from any dashboard.
-* **PromQL-Related Improvements**: In addition to [setting up Wavefront as a WQL data source in Grafana](grafana.html), you can now also set up [Wavefront as a Prometheus data source in Grafana](integrations_grafana.html). This way, you can visualize the PromQL data stored in Wavefront by using the Grafana GUI.
-
-## 2021-43.x Release Notes
-
-* **Accessibility Improvements**: We have made a number of keyboard navigation, colorblind accessibility, and focus indicator fixes. See the full list of pages with [end-to-end keyboard navigation support](wavefront_keyboard_shortcuts.html#wavefront-ui-pages-with-end-to-end-keyboard-navigation-support).
-
-## 2021-42.x Release Notes
-
-* **New Service Accounts Group**: All existing service accounts are moved from the **Everyone** group to the new **Service Accounts** group. Make sure that you:
-
-   1. Review your Dashboards and Alerts access control lists and include the new **Service Accounts** group, according to your needs.
-
-      For example, if you have granted service accounts with access to certain dashboards and alerts through the **Everyone** group, you must update the access list to include the **Service Accounts** group or specific service accounts, so that the service accounts can access the same dashboards and alerts after the migration.
-
-   2. Review and adjust the permissions that are currently set on your **Service Accounts** group according to your needs.
-
-## 2021-40.x Release Notes
-
-* **SYNTAX_ERROR Alert State**: Starting with this release, a SYNTAX_ERROR alert state indicates that the alert query resulted in a syntax error. This might happen, for example, if a text string with special characters is missing double quotes, but could be the result of other query errors.
-
-   The error state is visible, for example, in the Alerts Browser and the Alerts Browser search bar.
-
-* **Upcoming Service Accounts Changes**: Within the next releases all service accounts that you have created in your Wavefront environment will be moved out of the **Everyone** group and added to a new **Service Accounts** group.
-
-   {% include important.html content="Any roles and groups with the name `Service Accounts` will be marked with the `(Existing)` suffix." %}
 
 ## Past Release Notes
 
+- [2021-49.x Release Notes](2021.49.x_release_notes.html)
 - [2021-35.x Release Notes](2021.35.x_release_notes.html)
 - [2021-24.x Release Notes](2021.24.x_release_notes.html)
 - [2021-19.x Release Notes](2021.19.x_release_notes.html)
