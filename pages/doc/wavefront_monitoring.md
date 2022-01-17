@@ -76,9 +76,13 @@ These charts use the following metrics:
    For example, use `~externalservices.ec2.points` for the EC2 points.
    - `externalservices.points.reported` -- shows how you get billed for external services.
 - **Data Scan Rate**
-  - `~query.summaries_scanned`, the per-second rate at which metrics are being queried through dashboards, custom charts, or API calls.
+  - `~query.metrics_scanned`, the per-second rate at which metrics are being queried through dashboards, custom charts, derived metrics, or API calls.
   - `~query.spans_scanned`, the per-second rate at which spans are being queried through dashboards, custom charts, or API calls.
+<<<<<<< HEAD
   - `~query.histograms_scanned`, the per-second rate at which histograms are being queried through dashboards, custom charts, or API calls.
+=======
+  - `~query.histograms_scanned`, the per-second rate at which histograms are being queried through dashboards, custom charts, derived metrics, or API calls. 
+>>>>>>> 243e88b40bbafda3dc571c849b8734f2f856c869
 
 
 #### Wavefront Stats
