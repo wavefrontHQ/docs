@@ -10,7 +10,11 @@ Wavefront continuously adds new integrations to the existing set, and improves a
 
 ## January 2022
 
-We added the following integration in January 2022:
+We added the following integrations in January 2022:
+
+* Snowflake
+  
+  You can now monitor use the Snowflake integration to monitor a Snowflake database and the ACCOUNT_USAGE schema.
 
 * Velero
 
