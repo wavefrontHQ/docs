@@ -39,7 +39,7 @@ Yes. You can [aggregate points from multiple time series](query_language_aggrega
 ## Do Data Delays Impact Alert Behavior?
 Yes. Data coming from certain sources, such as cloud applications, are often batched and arrive at your alert at unpredictable times. You can [limit the impact of data delays](alerts_delayed_data.html) by making sure you understand the issue and by fine-tuning the query and time window.
 
-## Why Did My Alert Miss Firing or Fisfire?
+## Why Did My Alert Miss Firing or Misfire?
 False negative or false positive alerts could be due to:
 * [Delayed data reporting](alerts_delayed_data.html#check-for-a-data-delay). You can [adjust your alert condition](alerts_delayed_data.html#minimize-the-impact-of-data-delays-on-alerts) to prevent the alert from responding until data reporting is complete.
 * Utilizing [functions that can introduce interpolation](query_language_discrete_continuous.html#functions-that-use-interpolation-to-create-continuous-data). In Tanzu Observability, interpolation is the process of generating a made-up data value for 1 or more time series where they don't exist, and can only occur between two truly reported values within a series. The process of interpolation can increase a displayed value in the past by including more made-up values in the calculation once a newly reported value comes into the system.
