@@ -58,7 +58,7 @@ To start alert creation, do one of the following:
 
 
 
-### Step 1: Specify the Data to Watch and Alert On
+### Step 1a: Specify the Data to Watch and Alert On
 
 <table style="width: 100%;">
 <tbody>
@@ -74,6 +74,19 @@ To start alert creation, do one of the following:
 </tr>
 </tbody>
 </table>
+
+### Step 1b: Customize the Chart (Optional)
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">By default, each alert includes a line chart with a two hour time window. You can modify the chart type, format, axis, and some other aspects of the chart. See the <a href="ui_chart_reference.html">Chart Reference</a> for background. <br/><br/>
+<strong>Important</strong>: The customizations for alert charts are more limited than the customizations for charts in dashboards. </td>
+<td><img src="images/alerts_chart_cust.png" alt="Selection of chart type"></td>
+</tr>
+</tbody>
+</table>
+
 
 ### Step 2: Specify Thresholds and Severities
 
@@ -197,7 +210,6 @@ Here are some frequently asked questions about alerts.
 
 ### Why Can I Specify Only 1 Severity?
 
-
 <table style="width: 100%;">
 <tbody>
 <tr>
@@ -272,18 +284,7 @@ The **Content** section allows you to specify one or more triage dashboards. For
 </tbody>
 </table>
 
-<!---Comment out & likely move to new doc page for v1 to v2
-### Why Do I See a Display Expression?
 
-By default, an alert that was created before November 2021 and that has a boolean alert query shows 0 or 1 on chart images, interactive charts, and custom notifications. The earlier GUI supported specifying a display expression, which can include any valid Wavefront Query Language construct.
-
-The display expression is the first non-hidden query. In the example below:
-* The alert condition query is `variance(${A})`.
-* The display expression is `ts(~sample.cpu.loadavg.1m, source=app-1*) > .2`.
-
-![selected query is variance(${A}) but non-hidden query is ts(~sample.cpu.loadavg.1m, source=app-1*) > .2](images/display_expression.png)
-
-{% include tip.html content="If you use the **new** Create Alert UI, the display expression, that is, the query that users see in notifications, is also the first non-hidden query."%}--->
 
 ## Edit Alerts
 
@@ -320,7 +321,6 @@ You can change the alert properties when you edit the alert.
 
 <table style="width: 100%;">
 <tbody>
-<tr>
 <td width="55%">
 <strong>Alert Name and Tags</strong><br><br>
 In this section:

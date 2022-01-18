@@ -8,7 +8,7 @@ summary: What has changed? What are some tips and tricks?
 
 Wavefront users have asked for a more streamlined alert creation experience, and we're rolling it out to all users.
 * Going forward, all alerts will show up in the new alert GUI.
-* Under the covers, alerts work the same. But we're including this FAQ to help current alert users. 
+* Under the covers, alerts work the same. But we're including this FAQ to help current alert users.
 
 {% include note.html content="Every Wavefront user can view alerts and make temporary changes. You must have the Alerts permission to save changes to alerts." %}
 
@@ -35,6 +35,19 @@ Simple workflow for dashboards with multiple charts.
 Runbooks etc.
 
 ## FAQs for Alert Migration
+
+
+### Why Do I See a Display Expression?
+
+By default, an alert that was created before November 2021 and that has a boolean alert query shows 0 or 1 on chart images, interactive charts, and custom notifications. The earlier GUI supported specifying a display expression, which can include any valid Wavefront Query Language construct.
+
+The display expression is the first non-hidden query. In the example below:
+* The alert condition query is `variance(${A})`.
+* The display expression is `ts(~sample.cpu.loadavg.1m, source=app-1*) > .2`.
+
+![selected query is variance(${A}) but non-hidden query is ts(~sample.cpu.loadavg.1m, source=app-1*) > .2](images/display_expression.png)
+
+{% include tip.html content="If you use the **new** Create Alert UI, the display expression, that is, the query that users see in notifications, is also the first non-hidden query."%}
 
 
 
