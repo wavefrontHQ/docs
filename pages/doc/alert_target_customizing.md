@@ -13,6 +13,32 @@ You can customize the predefined template for the alert target type by making an
 
 {% include note.html content="For general information about setting up custom alert targets, see [Creating and Managing Custom Alert Targets](webhooks_alert_notification.html)." %}
 
+
+<!---Newly to be added since last revision:
+chartUrl
+runbookLinks
+dashboardLinks
+matchingMW
+alertRoute
+headline
+createdEpoch
+startedEpoch
+sinceEpoch
+endedEpoch
+snoozedUntilEpoch
+secureMetricDetails
+failing
+inMaintenance
+newlyFailing
+recovered
+isAlertNoData
+isAlertNoDataResolved
+failingHostSize
+inMaintenanceHostSize
+newlyFailingHostSize
+recoveredHostSize
+iterationLimitMap--->
+
 ## About Alert Target Templates
 
 
@@ -222,8 +248,13 @@ Wavefront defines variables for obtaining information about the alert as a whole
 </tr>
 <tr>
 <td markdown="span">`url`</td>
+<td markdown="span">Link that shows the alert in the [Alert Viewer](alerts.html#alert-viewer-tutorial).</td>
+</tr>
+<tr>
+<td markdown="span">`chartUrl`</td>
 <td markdown="span">Link to an [interactive chart](alerts_notifications.html#interactive-charts-linked-by-alert-notifications) that shows alert firing events or resolved events along with the alert condition.</td>
 </tr>
+
 </tbody>
 </table>
 
@@ -928,11 +959,6 @@ See [Setting and Testing Iteration Limits](#example-setting-and-testing-iteratio
 </thead>
 <tbody>
 <tr>
-<td markdown="span">`getIterationLimit`</td>
-<td markdown="span">Gets the value of an iteration limit. Valid values are: `defaultIterationLimit`, `failingLimit`, `inMaintenanceLimit`, `newlyFailingLimit`, and `recoveredLimit`.
-</td>
-</tr>
-<tr>
 <td markdown="span">`iterationLimitExceed`</td>
 <td markdown="span">Checks whether the number of the result returned is limited by an iteration limit. Valid values are: `failingLimitExceed`, `inMaintenanceLimitExceed`, `newlyFailingLimitExceed`, and `recoveredLimitExceed`.
 </td>
@@ -973,13 +999,6 @@ Suppose you have 8 failing sources: `source1`, `source2`, `source3`, `source4`, 
 ```handlebars
 {{#setDefaultIterationLimit}}5{{/setDefaultIterationLimit}}
 {
-  "getIterationLimit": {
-     "defaultIterationLimit": "{{{defaultIterationLimit}}}",
-     "failingLimit": "{{{failingLimit}}}",
-     "inMaintenanceLimit": "{{{inMaintenanceLimit}}}",
-     "newlyFailingLimit": "{{{newlyFailingLimit}}}",
-     "recoveredLimit": "{{{recoveredLimit}}}"
-   },
    "iterationLimitExceed": {
      "failingLimitExceed": "{{{failingLimitExceed}}}",
      "inMaintenanceLimitExceed": "{{{inMaintenanceLimitExceed}}}",
@@ -1011,13 +1030,6 @@ The template with these settings produces the following output for the 8 failing
 {% raw %}
 ```handlebars
 {
- "getIterationLimit": {
-   "defaultIterationLimit": "5",
-   "failingLimit": "5",
-   "inMaintenanceLimit": "5",
-   "newlyFailingLimit": "5",
-   "recoveredLimit": "5"
- },
  "iterationLimitExceed": {
    "failingLimitExceed": "true",
    "inMaintenanceLimitExceed": "false",
@@ -1039,19 +1051,6 @@ In contrast, if the `failingLimit` is 10, the output is the following for 8 fail
 {% raw %}
 ```handlebars
 {
-  "getIterationLimit": {
-    "defaultIterationLimit": "10",
-    "failingLimit": "10",
-    "inMaintenanceLimit": "10",
-    "newlyFailingLimit": "10",
-    "recoveredLimit": "10"
-  },
-  "iterationLimitExceed": {
-    "failingLimitExceed": "false",
-    "inMaintenanceLimitExceed": "false",
-    "newlyFailingLimitExceed": "false",
-    "recoveredLimitExceed": "false"
-  },
   "alertId": "1492543979795",
   "alertTags": [production, mysql],
   ...
