@@ -18,7 +18,7 @@ We added the following integration in January 2022:
 
 Made improvements to the following integrations and dashboards in January 2022:
  
-* Kubernetes -- Updated the Kubernetes OpenShift integration to use the newly certified helm chart.
+* OpenShift -- Updated the Kubernetes OpenShift integration to use the newly certified helm chart.
 * etcd -- Updated the etcd integration with out-of-the-box dashboards to monitor etcd on Kubernetes.
 * VMware Tanzu GemFire -- Updated the VMware Tanzu GemFire integration with a new GemFire for VMs dashboard.
 * Tanzu Application Service -- Updated the queries of some of the Tanzu Application Service alerts: 
