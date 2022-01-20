@@ -4,6 +4,7 @@ keywords: getting started
 tags: [charts]
 sidebar: doc_sidebar
 permalink: ui_chart_reference_v1.html
+published: false
 summary: Chart types and configuration options for each chart type.
 ---
 
