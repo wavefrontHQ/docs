@@ -12,122 +12,88 @@ Wavefront users have asked for a more streamlined alert creation experience, and
 
 {% include note.html content="Every Wavefront user can view alerts and make temporary changes. You must have the Alerts permission to save changes to alerts." %}
 
-## What Are the Main Improvements
+## What Are the Main Improvements?
 
+The team has talked to customers and we've  addressed a significant number of requests. We now have a streamlined design and better notifications.
 
+### Create and Edit Alerts More Easily
 
-### Create Alerts More Easily
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">
-Simple workflow for dashboards with multiple charts.
-<ol><li>Select <strong>Dashboards > Create Dashboard</strong>.</li>
-<li>Drag in a widget to create a chart (from integration or chart type)</li>
-<li>Customize the chart and save the dashboard.</li></ol></td>
-<td width="60%"><img src="/images/dashboard_123.png" alt="create dashboard"></td>
+<td width="50%">
+Straightforward stepper for <strong>Create Alert</strong> and <strong>Edit Alert</strong> flows.
+<ol><li>Chart shows alert metrics and thresholds. Format the chart for insight into your data. </li>
+<li>Multi-query option supports using query results as variables in the condition query.</li>
+<li>Simple <strong>Start Testing</strong> and <strong>Stop Testing</strong> button.</li></ol></td>
+<td width="50%"><img src="/images/alert_new_data.png" alt="create alert"></td>
 </tr>
 </tbody>
 </table>
 
-### Make Alerts More Useful
 
-Runbooks etc.
+### Help Alert Recipients
+
+If you have information that helps alert recipients find and resolve the causes for the alert, specify them in the **Contents** section:
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+<ul>
+<li><strong>Runbook: </strong>A URL or a wiki page, or another document that helps the alert recipient resolve the alert.</li>
+<li><strong>Triage Dashboard(s): </strong>Start typing to select from dashboards on your Wavefront instance that have useful information and pass in information. See How Can I Pass a Value to a Triage Dashboard<a href="#how-do-i-pass-values-to-triage-dashboards"></a>.</li>
+<li><strong>Additional Information: </strong>Any other information that is useful to the alert recipient. This field supports Markdown. Click <strong>Preview</strong> to preview the Markdown output.</li>
+</ul>
+</td>
+<td width="50%" markdown="span">![create_alert](images/alert_content_1.png) </td></tr>
+</tbody>
+</table>
+
+### Preview Notifications
+
+You can now preview alert notifications directly from the <strong>Create Alert</strong> and <strong>Edit Alert</strong> workflow.
+
+## FAQs for v2 Alerts
+
+### Can I pick the alert GUI version?
+A: No. All alerts are updated to the v2 format.
+
+### Do I have to change my API requests when creating v2 alerts?
+A: No. The existing API still works. To take advantage of the new multi-query request format, use the `useMultiQuery` option in the POST of  `/api-docs/ui/#!/Alert/createAlert`
 
 ## FAQs for Alert Migration
 
 
-### Why Do I See a Display Expression?
+### How Can I Set a Display Expression?
 
-By default, an alert that was created before November 2021 and that has a boolean alert query shows 0 or 1 on chart images, interactive charts, and custom notifications. The earlier GUI supported specifying a display expression, which can include any valid Wavefront Query Language construct.
+A: For alerts that return 0 or 1, it makes sense to include information about the query, not just the query result, in the alert notification. With v1 alerts, you set a display expression explicitly. With v2 alerts, all non-hidden queries are included in the notification.
 
-The display expression is the first non-hidden query. In the example below:
+In the example below:
 * The alert condition query is `variance(${A})`.
 * The display expression is `ts(~sample.cpu.loadavg.1m, source=app-1*) > .2`.
 
 ![selected query is variance(${A}) but non-hidden query is ts(~sample.cpu.loadavg.1m, source=app-1*) > .2](images/display_expression.png)
 
-{% include tip.html content="If you use the **new** Create Alert UI, the display expression, that is, the query that users see in notifications, is also the first non-hidden query."%}
 
+### Where Is Included Obsolete Metrics?
 
+A: Include Obsolete Metrics is now in the same place for charts on dashboards and charts for alerts.
+* For v1 alerts, **Include Obsolete Metrics** was under **Advanced**, at the bottom of the page.
+* For v2 alerts, **Include Obsolete Metrics** is under **Data**. Just as for charts in dashboards, you click the **Advanced** tab to turn on **Include Obsolete Metrics**.
 
+### Where Is Backtesting?
 
+A: Instead of backtesting, you can now use the  **Test Condition** and **Stop Testing** button as part of the alert create/edit flow.
 
+### What happens if I save a v1 alert after the migration to v2?
 
+The alert is converted to v2 format with multi-queries. The alert behavior does not change.
 
-## FAQs for v2 Alerts
+### What’s the alert condition?
 
-### Q: How do I add an alert from a chart?
-A: Open the chart, click the **Data** tab, click the ellipsis icon next to the query, and select **Create Alert**.
+A: The alert condition is the selected query. This query can include the result of other queries as variables. Notifications show the condition if it’s not hidden, but you can hide the condition and create a different query to show in notifications.
 
-![v2 Create Alert](images/v2_create_alert.png)
+### How will the chart images in notification emails look now that there’s no display expression?
 
-
-### Q: Some of my charts look different. What can I do?
-
-A: The goal of this UI revision is parity, but we've made a few changes:
-* **Scatter plots** are obsolete. Change scatter plot to a different chart type before you go to v2.
-* **Line plots** changed. Single-line line plots now use highlighting to make the highs and lows stand out more:
-
-  ![v2 Line plot](images/v2_linechart_single.png)
-
-  Line plots with more than one line look similar to v1 line plots though the colors are different.
-* **Single Stats** charts with sparklines have a changed look. You can experiment with sparkline position by selecting **Sparkline > Show Sparkline**. Change **Minimum** to 0 for a chart that looks like the v1 chart.
-
-### Q: How does the new time window selector work?
-
-A: Our new time window selector supports a selection of preset times, or you can specify a custom time frame. 4 weeks is not the same as 1 month -- use the custom time window selector to select a full month.
-
-![v2 time picker](images/v2_time_picker.png)
-
-### Q: How do I clone or delete a chart?
-
-A: Open the chart and on the **Data** tab, click the **Delete** or **Clone** icon on the right of the query.
-
-![v2 Clone Query](images/v2_clone.png)
-
-### Q: How can I deselect (hide) a query?
-
-A: Use the eye icon on the right of the query to hide or show the results of a query in the chart.
-
-![v2 Hide or show query](images/v2_hide_show.png)
-
-### Q: How can I copy/paste table chart content in v2?
-
-A: We're working on improving the copy/paste behavior. For now, please use [the third-party CLI](https://github.com/snltd/wavefront-cli) to generate a CSV file. See our [blog about using the CLI ](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/commanding-the-waves-using-the-wavefront-cli).
-
-### Q: How can I create an embedded chart in v2?
-
-A: Embedded charts allow you to make a chart available outside Wavefront. We temporarily don't support this functionality for v2, but all your existing embedded charts will continue to work.
-
-
-
-
-## Dashboard FAQs from v2 UI Users
-
-### Q: Where are my sections?
-
-A: Use the **Jump To** menu to select a section.
-
-![v2 Jump To](images/v2_jump_to.png)
-
-### Q: Where's the wrench icon (Dashboard display preferences)?
-
-A: We've consolidated the UI for customizing dashboards.
-1. Select **Edit**.
-2. Click **Settings** in the top right.
-3. Set your preferences for the dashboard, click **Accept**, and click **Save** to save the dashboard and your preferences.
-
-![v2 dashboard preferences](images/v2_dashboard_settings.png)
-
-### Q: Several of my charts now have warnings. What's going on?
-
-A: We've moved the warning icon from the bottom right of a chart to the top left to make it more visible. Here's an example with v2 on the left and the same chart in v1 on the right:
-
-![v2 warnings](images/v2_warning.png)
-
-Wavefront currently doesn't distinguish between warnings and info messages. For example, if a query specifies a time window but doesn't specify d, m, s, etc., we default to m (minutes) and show a warning. Expect an update in an upcoming release.
-
-### Q: Dashboard variables have changed. Where do I find out more?
-
-A: We have [new documentation](dashboards_variables.html) for dashboard variables.
+The chart image will show all the series from all the visible queries.
