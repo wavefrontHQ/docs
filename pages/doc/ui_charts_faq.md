@@ -10,11 +10,7 @@ summary: Learn chart customization from the experts.
 
 {% include shared/badge.html content="You must have [Dashboard permission](permissions_overview.html) to save a chart to a dashboard. If you do not have permission, the UI menu selections and buttons required to perform the task are not visible." %}
 
-<!--- Consider including Improve Display Speed with Sampling Option here --->
-
-## Why Do I See an Invalid Chart Type Error?
-
-Many of the more recent chart types are supported only in the v2 UI. [Upgrade to v2](ui_v2_faq.html#how-do-i-switch-from-v1-to-v2) to get the new chart types, performance benefits, and more.   
+<!--- Consider including Improve Display Speed with Sampling Option here --->  
 
 ## How Do I Set Up Color Mapping?
 
@@ -147,11 +143,11 @@ When you [fine-tune the time window](ui_examine_data.html#fine-tune-the-time-win
 
 {% include note.html content="The summarization option applies only to the chart visualization in the Wavefront UI. The summarization option does not apply to the chart queries or functions." %}
 
-{% include tip.html content="Choose the most appropriate summarization option for your chart query. If you select a summarization option which doesn’t correspond to your query function, most probably you’ll see misleading results.  
-  
+{% include tip.html content="Choose the most appropriate summarization option for your chart query. If you select a summarization option which doesn’t correspond to your query function, most probably you’ll see misleading results.
+
 For example, if your chart query uses the `mmax()` function, select the **Max** summarization option." %}
 
-For the chart legend, you can choose whether to report raw or summarized values by disabling or enabling the **Non-summarized Stats** option.  
+For the chart legend, you can choose whether to report raw or summarized values by disabling or enabling the **Non-summarized Stats** option.
 
 ## Learn More!
 

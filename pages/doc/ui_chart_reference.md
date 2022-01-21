@@ -6,18 +6,9 @@ sidebar: doc_sidebar
 permalink: ui_chart_reference.html
 summary: Chart types and configuration options for each chart type.
 ---
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="80%">
 Charts allow you to view and examine your metrics. You can <a href="ui_examine_data.html">interact directly with charts in real time</a> -- zoom in, zoom out, change the time window, and so on.
-<br>
-Users with dashboard permission can customize many aspects of the chart and save their changes. This page is a detailed reference to the tabs in the different chart types. We repeat tab reference for each chart type.</td>
-<td width="20%"><a href="ui_chart_reference_v1.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
-</tr>
-</tbody>
-</table>
+
+Users with dashboard permission can customize many aspects of the chart and save their changes. This page is a detailed reference to the tabs in the different chart types. We repeat tab reference for each chart type.
 
 {% include shared/badge.html content="While every Wavefront user can view charts and make temporary changes, you must have [Dashboard permission](permissions_overview.html) to save changes you make to charts." %}
 
