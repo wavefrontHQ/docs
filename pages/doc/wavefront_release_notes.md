@@ -15,9 +15,9 @@ This page lists new and updated features for the Wavefront service.
 
 ## Announcing Deprecation of v1 Dashboards and Charts
 
-In February, all v1 dashboards and charts will be migrated. Users can no longer select the v1 version of dashboards and charts.
+In February, all v1 dashboards and charts will be migrated to v2. Users can no longer select the v1 version of dashboards and charts.
 
-{% include important.html content="Most Wavefront users are already using the v2 GUI. If your dashboards and charts are migrated, see [What's New in v2 Dashboards & Charts](ui_v2_faq.html) for info. "%}
+{% include important.html content="Most Wavefront users are already using the v2 GUI. However, if your dashboards and charts are migrated, see [What's New in v2 Dashboards & Charts](ui_v2_faq.html) for info. "%}
 
 
 ## 2022-01.x Release Notes
