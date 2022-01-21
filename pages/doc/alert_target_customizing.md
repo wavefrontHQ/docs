@@ -15,7 +15,6 @@ You can customize the predefined template for the alert target type by making an
 
 
 <!---Newly to be added since last revision:
-chartUrl
 runbookLinks
 dashboardLinks
 matchingMW
@@ -149,6 +148,8 @@ To display and edit a predefined template for a new or existing custom alert tar
 
 Wavefront defines variables for obtaining information about the alert as a whole, such as the alert ID, timing, severity, and so on. Each of these variables is a property unless explicitly described as an iterator.
 
+### General Information About the Alert
+
 <table>
 <colgroup>
 <col width="25%"/>
@@ -173,14 +174,6 @@ Wavefront defines variables for obtaining information about the alert as a whole
 <tr>
 <td markdown="span">`condition`</td>
 <td>Alert condition query.</td>
-</tr>
-<tr>
-<td markdown="span">`createdTime`</td>
-<td>Time the alert was created.</td>
-</tr>
-<tr>
-<td markdown="span">`endedTime`</td>
-<td>Time the alert ended (resolved).</td>
 </tr>
 <tr>
 <td markdown="span">`errorMessage`</td>
@@ -211,6 +204,60 @@ Wavefront defines variables for obtaining information about the alert as a whole
 <td>Trigger that caused the alert target to send the notification, e.g., Alert Opened or Alert Snoozed.</td>
 </tr>
 <tr>
+<td markdown="span">`subject`</td>
+<td>Subject of the notification (usually for email). If you omit this variable, the subject is composed of the alert severity, alert trigger, and alert name.</td>
+</tr>
+<tr>
+<td markdown="span">`url`</td>
+<td markdown="span">Link that shows the alert in the [Alert Viewer](alerts.html#alert-viewer-tutorial).</td>
+</tr>
+<tr>
+<td markdown="span">`chartUrl`</td>
+<td markdown="span">Link to an [interactive chart](alerts_notifications.html#interactive-charts-linked-by-alert-notifications) that shows alert firing events or resolved events along with the alert condition.</td>
+</tr>
+<tr>
+<td markdown="span">`matchingMW`</td>
+<td markdown="span">Internal. Do not use.</td>
+</tr>
+<tr>
+<td markdown="span">`alertRoute`</td>
+<td>Route associated with alert target. Route allows you for example, to notify when a subset of hosts is failing. If defined a Webhook alert target, you can use the route in the notification template to send the alert to a different alert target. Another option to get this behavior is multiple alerts. See <a href="webhooks_alert_notification.html#add-custom-alert-routes">Add Custom Alert Routes</a> for background. </td>
+</tr>
+<tr>
+<td markdown="span">`heading`</td>
+<td>User-visible string for the alert state. Here's how the internal alert state maps to the user-visible string (in double quotes)
+<ul>
+<li>ALERT_OPENED: "OPENED"</li>
+<li>ALERT_RESOLVED: "RECOVERED"</li>
+<li>ALERT_MAINTENANCE: "SUSPENDED DUE TO MAINTENANCE"</li>
+<li>ALERT_SNOOZED: "SNOOZED"</li>
+<li>ALERT_INVALID: "INVALID ALERT"</li>
+<li>ALERT_NO_LONGER_INVALID: "ALERT NO LONGER INVALID"</li>
+<li>ALERT_TESTING: "TESTING"</li>
+<li>ALERT_RETRIGGERED: "ALERT RE-TRIGGERED"</li>
+<li>ALERT_NO_DATA: "ALERT NO DATA"</li>
+<li>ALERT_NO_DATA_RESOLVED: "ALERT NO DATA RESOLVED"</li>
+<li>ALERT_NO_DATA_MAINTENANCE: "ALERT NO DATA MAINTENANCE"</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td markdown="span">`secureMetricDetails`</td>
+<td markdown="span">Customers set this property in environments that use Metrics Security Policies. See [Secure Metric Details](alerts_notifications.html#alert-notification-with-secured-metrics-details)</td>
+</tr>
+</tbody>
+</table>
+
+### Severity Information for the Alert
+<table>
+<colgroup>
+<col width="25%"/>
+<col width="75%"/>
+</colgroup>
+<thead>
+<tr><th>Variable</th><th>Definition</th></tr></thead>
+<tbody>
+<tr>
 <td markdown="span">`severity`</td>
 <td>Alert severity (e.g., INFO, SMOKE, WARN, SEVERE).</td>
 </tr>
@@ -230,33 +277,64 @@ Wavefront defines variables for obtaining information about the alert as a whole
 <td markdown="span">`severityWarn`</td>
 <td>A flag set to True if alert severity is set to WARN.</td>
 </tr>
+</tbody>
+</table>
+
+### Time-Related Information About the Alert
+
+<table>
+<colgroup>
+<col width="25%"/>
+<col width="75%"/>
+</colgroup>
+<thead>
+<tr><th>Variable</th><th>Definition</th></tr>
+</thead>
+<tbody>
+<tr>
+<td markdown="span">`createdTime`</td>
+<td>Time the alert was created.</td>
+</tr>
+<tr>
+<td markdown="span">`createdEpoch`</td>
+<td>Time the alert was created, in Epoch format.</td>
+</tr>
+<tr>
+<td markdown="span">`endedTime`</td>
+<td>Time the alert ended (resolved).</td>
+</tr>
+<tr>
+<td markdown="span">`endedEpoch`</td>
+<td>Time the alert ended (resolved) in Epoch format.</td>
+</tr>
 <tr>
 <td markdown="span">`sinceTime`</td>
 <td>Time elapsed since the alert started firing.</td>
+</tr>
+<tr>
+<td markdown="span">`sinceEpoch`</td>
+<td>Time elapsed since the alert started firing, in Epoch format.</td>
 </tr>
 <tr>
 <td markdown="span">`snoozedUntilTime`</td>
 <td>Time when a snoozed alert is scheduled to be unsnoozed.</td>
 </tr>
 <tr>
+<td markdown="span">`snoozedUntilEpoch`</td>
+<td>Time when a snoozed alert is scheduled to be unsnoozed, in Epoch format.</td>
+</tr>
+<tr>
 <td markdown="span">`startedTime`</td>
 <td>Time the alert started firing.</td>
 </tr>
 <tr>
-<td markdown="span">`subject`</td>
-<td>Subject of the notification (usually for email). If you omit this variable, the subject is composed of the alert severity, alert trigger, and alert name.</td>
+<td markdown="span">`startedEpoch`</td>
+<td>Time the alert started firing, in Epoch format.</td>
 </tr>
-<tr>
-<td markdown="span">`url`</td>
-<td markdown="span">Link that shows the alert in the [Alert Viewer](alerts.html#alert-viewer-tutorial).</td>
-</tr>
-<tr>
-<td markdown="span">`chartUrl`</td>
-<td markdown="span">Link to an [interactive chart](alerts_notifications.html#interactive-charts-linked-by-alert-notifications) that shows alert firing events or resolved events along with the alert condition.</td>
-</tr>
-
 </tbody>
 </table>
+
+### Examples
 
 **Example: Accessing Alert Information in a Generic Webhook Alert Target Template**
 
@@ -344,7 +422,7 @@ Wavefront defines variables for obtaining information about the time series that
 * [Each series' defining information](#list-the-definitions-of-an-alerts-time-series)
 * A [custom combination of details](#access-a-custom-group-of-time-series-details) about each series.
 
- The time series visited by a particular iterator are in one of the following categories:
+The time series visited by a particular iterator are in one of the following categories:
 
 <table id="series-category">
 <colgroup>
@@ -390,6 +468,29 @@ The names of the iterators follow this convention: <code>&lt;seriesCategory&gt;&
 </ul>
 {{site.data.alerts.end}}
 
+## Information about Alert Resolution Help
+
+Starting with Alert v2, users can include information about the alert resolution such as a runbook. We support several variables for extracting or setting those fields.
+
+<table id="resolution-category">
+<colgroup>
+<col width="20%"/>
+<col width="80%"/>
+</colgroup>
+<thead>
+<tr><th>Field</th><th>Definition</th></tr>
+</thead>
+<tbody>
+<tr>
+<td><em>runbookLinks</em></td>
+<td>One or more URLs in which information for alert resolution is stored.</td>
+</tr>
+<tr>
+<td><em>dashboardLinks</em></td>
+<td>One or more URLs of dashboards that might help the user resolve the problem for which the alert was triggered. For example, if an alert for disk space is triggered, this could be a link to a dashboard that includes charts for disk usage. </td>
+</tr>
+</tbody>
+</table>
 
 ## List Sources and Source Tags of an Alert's Time Series
 
@@ -900,6 +1001,16 @@ For example, you can use the same template to send out one message for a firing 
 <td markdown="span"> Includes the content of this section if <strong>Resend Notification</strong> is set for this alert, and if the notification is not an initial notification but a resend.
 </td>
 </tr>
+<tr>
+<td markdown="span">`isAlertNoData`</td>
+<td markdown="span">Includes the content of this section if the alert query returns NO DATA.
+</td>
+</tr>
+<tr>
+<td markdown="span">`isAlertNoDataResolved`</td>
+<td markdown="span">Includes the contents of the section only if the alert previously returned NO DATA, and so has data now.
+</td>
+</tr>
 </tbody>
 </table>
 
@@ -1168,9 +1279,9 @@ Output:1600273622
 
 The predefined template for a custom HTML email target or a custom Slack target automatically includes the `imageLinks` variable for producing a [chart image](alerts_notifications.html#chart-images-in-alert-notifications) in alert notifications. However, if you created a custom email alert target or a custom Slack alert target before 2018-26.x, you must explicitly update the alert target's template to include a chart image in the alert notifications.
 
-{% include note.html content="You do not need to update pre-existing custom alert targets of type PagerDuty. All PagerDuty notifications sent in 2018-26.x or later will include chart images." %}
+{% include note.html content="You do not need to update existing custom alert targets of type PagerDuty. All PagerDuty notifications sent in 2018-26.x or later will include chart images." %}
 
-### Update a Pre-Existing Custom Email Alert Target
+### Update an Existing Custom Email Alert Target
 
 To update a custom email alert target that was created before 2018-26.x:
 
@@ -1190,7 +1301,7 @@ To update a custom email alert target that was created before 2018-26.x:
 Subsequent email notifications will now include a chart image that is generated for the alert. (Without the HTML `<img src= >` tag, the value returned by the `imageLinks` iterator would be displayed as a URL to a chart image, and not as an image.)
 
 
-### Update a Pre-Existing Custom Alert Target for Slack
+### Update an Existing Custom Alert Target for Slack
 
 To update the template for a custom Slack alert target that was created before 2018-26.x:
 
