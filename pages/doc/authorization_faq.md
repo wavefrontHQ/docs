@@ -24,11 +24,15 @@ When your company signs up with Wavefront, we ask you which users you want to de
 * Has access to all dashboards and alerts.
 * Can [restore orphan dashboards and alerts](access.html#making-orphan-dashboards-visible).
 * Can invite other Super Admin users.
+* Can upgrade from trial version and purchase Wavefront.
+* Can create and edit Ingestion Policies.
+<!--* Can purchase more PPS.-->
 
 As a Super Admin user, you can add other Super Admin users:
 
 1. Click the gear icon <i class="fa fa-cog"/> on the taskbar, and select **Super Admin**.
 2. Enter the user name of a user you want to add as a Super Admin.
+
 
 ### Why Roles?
 

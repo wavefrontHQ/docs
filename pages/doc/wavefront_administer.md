@@ -9,8 +9,6 @@ summary: Understand what you can do as a Wavefront administrator.
 
 As a Wavefront administrator you can perform a variety of tasks, such as:
 
-* Upgrade from trial version and purchase Wavefront.
-<!--* Purchase more PPS based on your PPS usage.-->
 * Manage the authorization and access to the Wavefront environment.
 * Select the authentication model in your environment. For example by setting up SSO using an identity provider (IdP).
 * Monitor and troubleshoot the Wavefront environment and usage.
