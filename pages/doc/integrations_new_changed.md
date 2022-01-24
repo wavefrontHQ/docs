@@ -20,6 +20,17 @@ We added the following integrations in January 2022:
 
   You can now monitor the Velero backup and restore solution. This integration is developed and created by the community and falls into to the **Community Integrations** section of the Wavefront **Integrations** page. We do not validate the community integrations and they are not fully supported by the Tanzu Observability by Wavefront team.
 
+Made improvements to the following integrations and dashboards in January 2022:
+ 
+* OpenShift -- Updated the Kubernetes OpenShift integration to use the newly certified helm chart.
+* etcd -- Updated the etcd integration with out-of-the-box dashboards to monitor etcd on Kubernetes.
+* VMware Tanzu GemFire -- Updated the VMware Tanzu GemFire integration with a new GemFire for VMs dashboard.
+* Tanzu Application Service -- Updated the queries of some of the Tanzu Application Service alerts: 
+  * TAS Cloud Controller and Diego Not in Sync
+  * TAS Locks Held by Auctioneer
+  * TAS Locks Held by BBS
+
+
 ## All 2018 - 2021 Integrations Release Notes
 
 We have separate pages for:
