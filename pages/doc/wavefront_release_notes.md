@@ -13,6 +13,12 @@ This page lists new and updated features for the Wavefront service.
 * For the latest changes and releases of the **Wavefront Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For  **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## Announcing Deprecation of v1 Dashboards and Charts
+
+In February, all v1 dashboards and charts will be migrated to v2. Users can no longer select the v1 version of dashboards and charts.
+
+{% include important.html content="Most Wavefront users are already using the v2 GUI. However, if your dashboards and charts are migrated, see [What's New in v2 Dashboards & Charts](ui_v2_faq.html) for info. "%}
+
 
 ## 2022-01.x Release Notes
 
