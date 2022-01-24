@@ -4,7 +4,7 @@ keywords:
 tags: [integrations, best practices]
 sidebar: doc_sidebar
 permalink: integrations_aws_overview_API.html
-summary: Understand how to set up and manage the AWS integration by using the Wavefront REST API.
+summary: Understand how to set up and manage the AWS integration by using the Wavefront REST API
 ---
 The Wavefront Amazon Web Services integration allows you to ingest metrics directly from AWS. In addition to setting up and managing the AWS integration through the Wavefront UI, you can also use the Wavefront REST API for setting up and managing the AWS integration. This doc provides some basic steps and examples on how to do this.
 
