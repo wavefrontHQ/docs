@@ -34,7 +34,7 @@ For each checking interval, Wavefront evaluates the reported value against the a
     * If `my.metric` reported the data value of `6` during the checking interval, Wavefront evaluates the alert condition for this checking interval as `0` because the statement `6 > 8` is `false`, i.e. the condition is *not met*.
     * If `my.metric` reported the data values of `6`, `6`, and `2` during the checking interval, Wavefront evaluates the alert condition for this checking interval as `0` because the aggregated average value of the three results (`0`,`0`,`0`) is `0`, i.e. the result is a *zero* value.
   * If there's no data reported during the checking interval, there's no result from the evaluation.
-
+  
 ## When Does an Alert Fire?
 If the alert condition returned *at least one* `true` value and *none* `false` values during the alert trigger window, Wavefront switches the alert state from CHECKING to FIRING. 
 
