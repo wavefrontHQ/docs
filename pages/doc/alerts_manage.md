@@ -159,7 +159,7 @@ If you already have information that helps recipients find the causes for the al
 <td width="50%">
 <ul>
 <li><strong>Runbook: </strong>A URL or a wiki page, or another document that helps the alert recipient resolve the alert.</li>
-<li><strong>Triage Dashboard(s): </strong>Start typing to select from dashboards on your Wavefront instance that have useful information and pass in information. See How Can I Pass a Value to a Triage Dashboard<a href="#how-do-i-pass-values-to-triage-dashboards"></a>.</li>
+<li><strong>Triage Dashboard(s): </strong>Start typing to select from dashboards on your Wavefront instance that have useful information and pass in information. See <a href="#how-do-i-pass-values-to-triage-dashboards">How Can I Pass a Value to a Triage Dashboard</a>.</li>
 <li><strong>Additional Information: </strong>Any other information that is useful to the alert recipient. This field supports Markdown. Click <strong>Preview</strong> to preview the Markdown output.</li>
 </ul>
 </td>

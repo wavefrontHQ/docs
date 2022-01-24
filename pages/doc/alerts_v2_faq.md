@@ -42,7 +42,7 @@ If you have information that helps alert recipients find and resolve the causes 
 <td width="50%">
 <ul>
 <li><strong>Runbook: </strong>A URL or a wiki page, or another document that helps the alert recipient resolve the alert.</li>
-<li><strong>Triage Dashboard(s): </strong>Start typing to select from dashboards on your Wavefront instance that have useful information and pass in information. See How Can I Pass a Value to a Triage Dashboard<a href="#how-do-i-pass-values-to-triage-dashboards"></a>.</li>
+<li><strong>Triage Dashboard(s): </strong>Start typing to select from dashboards on your Wavefront instance that have useful information and pass in information. See <a href="alerts_manage.html#how-do-i-pass-values-to-triage-dashboards">How Can I Pass a Value to a Triage Dashboard</a></li>
 <li><strong>Additional Information: </strong>Any other information that is useful to the alert recipient. This field supports Markdown. Click <strong>Preview</strong> to preview the Markdown output.</li>
 </ul>
 </td>
@@ -70,10 +70,10 @@ A: No. The existing API still works. To take advantage of the new multi-query re
 A: For alerts that return 0 or 1, it makes sense to include information about the query, not just the query result, in the alert notification. With v1 alerts, you set a display expression explicitly. With v2 alerts, all non-hidden queries are included in the notification.
 
 In the example below:
-* The alert condition query is `variance(${A})`.
-* The display expression is `ts(~sample.cpu.loadavg.1m, source=app-1*) > .2`.
+* The alert condition query is `variance(${A}) > 2`.
+* The display expression is `ts(~sample.cpu.loadavg.1m, source=app-1*)`.
 
-![selected query is variance(${A}) but non-hidden query is ts(~sample.cpu.loadavg.1m, source=app-1*) > .2](images/display_expression.png)
+![selected query is variance(${A})>2 but non-hidden query is ts(~sample.cpu.loadavg.1m, source=app-1*)](images/display_expression.png)
 
 
 ### Where Is Included Obsolete Metrics?
