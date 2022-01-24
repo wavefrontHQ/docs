@@ -29,6 +29,51 @@ The Wavefront Query Language lets you retrieve and display the data that has bee
 </tbody>
 </table>
 
+## Video: Optimize Dashboard Performance
+
+Watch this video to learn how to optimize dashboard and query performance.
+
+<p>
+<iframe src="https://bcove.video/3rcTY1w" width="700" height="400" allowfullscreen="true" alt="Optimize Dashboard Performance video"></iframe>
+</p>
+
+## Use Statistics and Suggestions
+
+In the query editor, you can show query stats for the whole chart or stats and suggestions for each query. We collect the following statistics for the chart and for each query:
+- **Points Scanned**: Number of data points that were queried to show the chart on the screen. You can affect this number by including the time window in the query or by changing the time window interactively.
+- **Duration**: Time between query start and return of result.
+- **Cardinality**: Number of unique time series. A unique time series has unique metric name, source name and point tags (key and value). For example, you might receive `networks_bytes_received` from multiple sources and with multiple point tags (e.g. `availability_zone`). You can lower cardinality for each query (and the chart) by filtering, for example, limiting the query to certain sources, certain availability zones, etc.
+
+### Chart Performance Stats
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">
+To see chart performance stats:
+<ol><li>
+Put the chart in Edit mode or click the chart name.</li>
+<li>Click the ellipsis icon and select <strong>Show Chart Stats</strong>.</li></ol></td>
+<td width="60%"><img src="/images/chart_stats_problem.png" alt="screenshot shows chart stats"></td>
+</tr>
+</tbody>
+</table>
+
+### Query Stats and Suggestions
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">
+To see information for a single query, click the <strong>lightbulb icon</strong>. In the panel to the right you see:
+<ul><li>
+The query execution statistics for running the query in the current environment. See <a href="#use-statistics-and-suggestions"> Use Statistics and Suggestions</a> for details on what the statistics mean and how to remedy problems.</li>
+<li>If the query uses certain functions in ways that often cause performance degradation, the Suggestions field shows how to improve the query, and includes a link to the doc for details. </li></ul></td>
+<td width="60%"><img src="/images/query_stats_annotated.png" alt="screenshot highlighting Show/Hide stats icon, stats, and suggestions"></td>
+</tr>
+</tbody>
+</table>
+
 ## Use Filters to Look at the Right Data
 
 For best query language performance, it's important to look at just the right amount of data.
