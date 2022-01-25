@@ -515,13 +515,17 @@ entries:
           - title: Log Data Metrics Integration
             url: /integrations_log_data.html
             output: web
-    
+
           - title: vRealize Operations Cloud Integration
             url: /integrations_vrops.html
             output: web
 
           - title: Set Up Wavefront as PromQL Data Source in Grafana
             url: /integrations_grafana.html
+            output: web
+
+          - title: Send Wavefront Data to CloudHealth
+            url: /integrations_cloudhealth.html
             output: web
 
       - title: collectd Integrations
