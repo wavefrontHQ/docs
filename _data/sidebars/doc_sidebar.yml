@@ -516,6 +516,10 @@ entries:
             url: /integrations_grafana.html
             output: web
 
+          - title: Send Wavefront Data to CloudHealth
+            url: /integrations_cloudhealth.html
+            output: web
+
       - title: collectd Integrations
         output: web
         subfolderitems:
