@@ -1,5 +1,5 @@
 ---
-title: Purchase Additional Capacity
+title: Purchase Additional Wavefront Capacity
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar

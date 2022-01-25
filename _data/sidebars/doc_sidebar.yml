@@ -751,6 +751,10 @@ entries:
       - title: Administer Wavefront
         url: /wavefront_administer.html
         output: web
+        
+      - title: Purchase Additional Wavefront Capacity
+        url: /purchase-additional-capacity.html
+        output: web
 
       - title: Wavefront Security
         url: /wavefront_security.html
