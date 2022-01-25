@@ -16,7 +16,7 @@ Even without additional customization the Wavefront proxy ingests metrics and fo
 
 <a name="paths">
 ## Proxy File Paths
-
+ 
 By default, proxy files are installed in the following locations.
 
 - **Configuration properties**: `<wavefront_config_path>`
