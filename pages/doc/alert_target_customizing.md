@@ -248,37 +248,7 @@ Wavefront defines variables for obtaining information about the alert as a whole
 </tbody>
 </table>
 
-### Severity Information for the Alert
-<table>
-<colgroup>
-<col width="25%"/>
-<col width="75%"/>
-</colgroup>
-<thead>
-<tr><th>Variable</th><th>Definition</th></tr></thead>
-<tbody>
-<tr>
-<td markdown="span">`severity`</td>
-<td>Alert severity (e.g., INFO, SMOKE, WARN, SEVERE).</td>
-</tr>
-<tr>
-<td markdown="span">`severityInfo`</td>
-<td>A flag set to True if alert severity is set to INFO.</td>
-</tr>
-<tr>
-<td markdown="span">`severitySmoke`</td>
-<td>A flag set to True if alert severity is set to SMOKE.</td>
-</tr>
-<tr>
-<td markdown="span">`severitySevere`</td>
-<td>A flag set to True if alert severity is set to SEVERE.</td>
-</tr>
-<tr>
-<td markdown="span">`severityWarn`</td>
-<td>A flag set to True if alert severity is set to WARN.</td>
-</tr>
-</tbody>
-</table>
+
 
 ### Time-Related Information About the Alert
 
@@ -960,7 +930,7 @@ The preceding template might yield the following message:
 ## Tailor Content to the Trigger Type
 
 If you want to send out different notifications for different types of triggers, you can use the following functions.
-For example, you can use the same template to send out one message for a firing alert, and another message for an updated alert.
+For example, you can use the same template to send out one message for a firing alert, and another message for an updated alert. You also tailor content based on the alert severity.
 
 <table>
 <colgroup>
@@ -1010,6 +980,22 @@ For example, you can use the same template to send out one message for a firing 
 <td markdown="span">`isAlertNoDataResolved`</td>
 <td markdown="span">Includes the contents of the section only if the alert previously returned NO DATA, and so has data now.
 </td>
+</tr>
+<tr>
+<td markdown="span">`severityInfo`</td>
+<td>Includes the contents of the section only if alert severity is set to INFO.</td>
+</tr>
+<tr>
+<td markdown="span">`severitySmoke`</td>
+<td>Includes the contents of the section only if alert severity is set to SMOKE.</td>
+</tr>
+<tr>
+<td markdown="span">`severitySevere`</td>
+<td>Includes the contents of the section only if alert severity is set to SEVERE.</td>
+</tr>
+<tr>
+<td markdown="span">`severityWarn`</td>
+<td>Includes the contents of the section only if alert severity is set to WARN.</td>
 </tr>
 </tbody>
 </table>
