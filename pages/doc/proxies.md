@@ -85,6 +85,23 @@ Each type of data uses a different data format. See [Wavefront Data Format](wave
 
 ## Proxies Troubleshooting & Advanced Configuration
 
+### Truncate the Proxy
+
+Sometimes a proxy accumulates a large queue that is never depleted. If you cannot truncate the queue, you can do so explicitly with a new flag in the proxy API.
+
+{% include warning.html content="Truncating the proxy can lead to data loss, but helps if you cannot safely empty queued proxy data in other ways." %}
+
+To truncate the proxy queue, run the following command:
+
+```curl
+$curl -X PUT -H 'Authorization: Bearer <TOKEN>' -H 'Content-Type: application/json' "https://MY_INSTANCE.wavefront.com/api/v2/proxy/PROXY_ID" -d {"truncate":true}
+```
+
+* `MY_INSTANCE` is your Wavefront instance, for example, the URL could start with `https://example.wavefront.com`
+* `PROXY_ID` is the ID, which you can find in the Proxies browser in the Hostname column.
+
+### More Info
+
 * [Monitor Wavefront Proxies](monitoring_proxies.html) discusses proxy information in the Wavefront Usage dashboard and lists `~proxy` internal metrics.
 
 See the following KB articles for additional proxy troubleshooting help.
