@@ -48,12 +48,18 @@ For more information about giving Wavefront access to your Amazon account, see [
 1. Under **Access management** on the left, click **Roles**.
 1. Click **Create role**.
 1. Click the **Another AWS account** tile.
-1. Enter the Wavefront account info:
-   - Account ID - The account ID to which you want to grant access to your resources.
-      
-     The account ID is displayed on the Wavefront AWS Integration Setup page, after you click **How to get Role ARN**.
+1. Enter the Wavefront account information:
+   - **Account ID** - The identifier of the Wavefront account to which you want to grant access.
+     To get the Wavefront account ID:
+     1. Navigate to your Wavefront cluster.
+     2. Click **Integrations** in the taskbar and click the **Amazon Web Services** integration tile. 
+     3. Click the **Setup** tab and click the **How to get Role ARN** link.
+     4. Copy the **Account ID** displayed in the instructions.
       
    - Select the option **Require external ID** and provide the [external ID that you have copied](integrations_aws_overview_API.html#getting-an-external-id).
+     
+      You can also copy and paste the **External ID** displayed in the instructions on the Wavefront  **Amazon Web Services** integration **Setup** page.
+     
 1. Click **Next: Permissions**.
 1. On the **Attach permission policies** screen, search for and select the **ReadOnlyAccess** check box.
 1. Click **Next: Tags** and skip the step by clicking **Next: Review**.
@@ -82,7 +88,7 @@ You can add an AWS integration by using the Wavefront REST API.
   "service":"CLOUDWATCH",
   "cloudWatch":{
     "baseCredentials":{
-      "roleArn":"arn:aws:iam::<accountid>:role/<rolename>"
+      "roleArn":"arn:aws:iam::<accountid>:role/<rolename>",
       "externalId":"string"
     },
     "metricFilterRegex":"^aws.(sqs|ec2|ebs|elb).*$",
