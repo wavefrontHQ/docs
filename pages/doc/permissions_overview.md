@@ -15,6 +15,10 @@ Permissions allow administrators to control access to Wavefront feature sets. Ad
 
 The following list gives an overview of permissions. To learn more, click the link.
 
+- **[API Tokens](users_account_managing.html#generate-an-api-token)**
+
+    A user with **API Tokens** permission can [generate API tokens](users_account_managing.html#generate-an-api-token) for their user account. Service accounts *cannot* have this permission.
+
 - **[Accounts](users_roles.html)** 
     
     Users with **Accounts** permission can manage user and service accounts. They can create groups and add accounts to groups, create roles and assign permissions to those roles, and assign roles to groups.
