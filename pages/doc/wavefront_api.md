@@ -62,7 +62,7 @@ Wavefront allows [user accounts](user-accounts.html) and [service accounts](serv
 
 #### Generate an API Token for Your User Account
 
-{% include shared/badge.html content="All users can use and manage their existing API tokens. You must have the [API Tokens permission](permissions_overview.html) to generate new API tokens for your user account." %}
+{% include note.html content="All users can use and manage their existing API tokens. You must have the [API Tokens permission](permissions_overview.html) to generate new API tokens for your user account." %}
 
 
 1. In the Wavefront UI, click the gear icon <i class="fa fa-cog"/>  at the top right of the taskbar and select your user name.

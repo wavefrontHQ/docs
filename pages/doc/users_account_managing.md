@@ -79,7 +79,7 @@ Wavefront allows [user accounts](user-accounts.html) and [service accounts](serv
 
 {% include tip.html content="You generate user account tokens explicitly. For service accounts, you can generate tokens with the specified permissions from the Service Accounts page. " %}
 
-{% include shared/badge.html content="All users can use and manage their existing API tokens. You must have the [API Tokens permission](permissions_overview.html) to generate new API tokens for your user account." %}
+{% include note.html content="All users can use and manage their existing API tokens. You must have the [API Tokens permission](permissions_overview.html) to generate new API tokens for your user account." %}
 
 To generate an API token for your user account:
 

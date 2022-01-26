@@ -20,7 +20,7 @@ In February, all v1 dashboards and charts will be migrated to v2. Users can no l
 {% include important.html content="Most Wavefront users are already using the v2 GUI. However, if your dashboards and charts are migrated, see [What's New in v2 Dashboards & Charts](ui_v2_faq.html) for info. "%}
 
 
-## 2022-02.x Release Notes
+## 2022-03.x Release Notes
 
 We have added a new **API Tokens** permission for user accounts only.
 
