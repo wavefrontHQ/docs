@@ -190,14 +190,14 @@ For Linux and Mac OS, can also upgrade a proxy from the command line as follows:
 
 On Docker, you don't explicitly update the proxy version, but stop the proxy and then start the new version.
 
-If you use a volume for the proxy buffer and you update from a version before 7.2 to 7.2 or later:
+If you use a volume for the proxy buffer (queue) and you update from a version before 7.2 to 7.2 or later, permissions change:
 * For earlier versions of the proxy, the proxy ran as `root:root`.
 * Starting with version 7.2, the proxy runs as `wavefront:wavefront`.
 
-Ensure that either the buffer is empty, or the files on the buffer directory (volume) are owned by a user with id `1000` and group `2000` (which will translate to user `wavefront` on the docker image).
 
-{% include warning.html content="If you update the proxy from &lt;7.2&gt; to &lt;7.2&gt; or later, ensure that no data are in the proxy queue. The proxy processes that run as a non-root user can no longer access the data that were restricted to the root user, and upgrade can lead to data loss." %}
+{% include warning.html content="Ensure that either the proxy buffer (queue) is empty, or that the files on the buffer directory (volume) are owned by a user with id `1000` and group `2000` (which will translate to user `wavefront` on the docker image). Any proxy processes that run as a non-root user in 7.2 and later can no longer access the data that were restricted to the root user in earlier versions. Upgrade can lead to data loss." %}
 
+If you performed the update and data are left in the proxy buffer, follow the steps in [Truncate the Proxy Queue](proxies.html#truncate-the-proxy-queue). 
 
 
 

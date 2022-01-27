@@ -85,7 +85,7 @@ Each type of data uses a different data format. See [Wavefront Data Format](wave
 
 ## Proxies Troubleshooting & Advanced Configuration
 
-### Truncate the Proxy
+### Truncate the Proxy Queue
 
 Sometimes a proxy accumulates a large queue that is never depleted. If you cannot truncate the queue, you can do so explicitly with a new flag in the proxy API.
 
