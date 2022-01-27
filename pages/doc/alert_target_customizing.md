@@ -442,6 +442,8 @@ The names of the iterators follow this convention: <code>&lt;seriesCategory&gt;&
 
 Starting with Alert v2, users can include information about the alert resolution such as a runbook. We support several variables for extracting or setting those fields.
 
+{% include note.html content="This information is included with the **alert notification** if specified as part of the alert. In contrast, tracingDashboardLinks, discussed in [Include a Link to a Tracing Service Dashboard](alert_target_customizing.html#include-a-link-to-a-tracing-service-dashboard) is shown in the Alerts Browser."%}
+
 <table id="resolution-category">
 <colgroup>
 <col width="20%"/>
@@ -452,11 +454,11 @@ Starting with Alert v2, users can include information about the alert resolution
 </thead>
 <tbody>
 <tr>
-<td><em>runbookLinks</em></td>
+<td>runbookLinks</td>
 <td>One or more URLs in which information for alert resolution is stored.</td>
 </tr>
 <tr>
-<td><em>dashboardLinks</em></td>
+<td>it is alertTriageDashboardLinks</td>
 <td>One or more URLs of dashboards that might help the user resolve the problem for which the alert was triggered. For example, if an alert for disk space is triggered, this could be a link to a dashboard that includes charts for disk usage. </td>
 </tr>
 </tbody>
@@ -1307,6 +1309,8 @@ To update the template for a custom Slack alert target that was created before 2
 ## Include a Link to a Tracing Service Dashboard
 
 If the Wavefront query in an alert has an application and service name and meets a specific alert target, you get a link to drill down to the [service dashboard](tracing_service_dashboard.html). The service dashboard lets you see RED metrics of the application or service and identify potential hot spots.
+
+{% include note.html content="The `tracingDashboardLinks` value is shown in the Alerts Browser. In contrast, the `alertTriageDashboardLinks` values are shown in the **alert notification** if specified as part of the alert. See [Information About Alert Resolution Help](#information-about-alert-resolution-help)"%}
 
 Let's walk through a scenario:
 
