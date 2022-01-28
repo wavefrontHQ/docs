@@ -16,7 +16,7 @@ Tanzu Observability supports smart alerts that dynamically filter noise and capt
 
 ## How Alerts Work Video
 
-In this video, Clement explains how single-threshold alerts work:
+In this video, Clement explains how a single-threshold alert works:
 
 <p><a href="https://www.youtube.com/watch?v=VjmWExKiYYg&index=1&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_alerting_clement.png" style="width: 700px;"/></a>
 </p>

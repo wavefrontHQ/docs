@@ -42,11 +42,16 @@ For example, here's the query for an alert that fires if the number of sample pr
 
 `(ts(~sample.process.num, source="app-5")) > 100`
 
-If you paste the query into the alert's DATA field as is, you create a single-threshold alert.
+If you paste the query into the alert's DATA field as is, you create a single-threshold alert. Specify a severity and associated recipients to send notifications to the recipients when the condition is met.
 
 To create a multi-threshold alert:
+
 1. Use `(ts(~sample.process.num, source="app-5"))` in the alert's DATA field and click **Next**.
-2. Select `greater than` and type 100 next to the severity you want for that alert. 
+2. Select `greater than`.
+3. Next to each severity, specify the threshold, for example, next to **Severe** type 100 and next to **Warn** type 90.
+4. Specify recipients for each severity.
+
+See [Create and Manage Alerts](alerts_manage.html) for details and a video. 
 
 ## Alert Only Between Specific Times
 

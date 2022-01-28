@@ -18,7 +18,7 @@ The type of alert (single-threshold or multi-threshold) and the type of alert ta
 
 * For multi-threshold alerts, each alert target has an associated severity. The notification is sent to the target(s) that were associated with that severity **and all higher severities**.
    {% include note.html content="Alert targets subscribe to all notifications at their severity and above. For example, an alert target for an INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. Because notifications potentially go to targets of different severities, you cannot associate an alert target with more than one severity. " %}
-* For single-threshold alerts, the notification is sent to all targets and includes the severity that is associated with the change.
+* For single-threshold alerts, which have just one severity, the notification is sent to all targets and includes the severity that is associated with the change.
 
 **When** the notification is sent depends on the type of alert target:
 

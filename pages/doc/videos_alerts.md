@@ -18,35 +18,35 @@ The following videos explain how alerts work and how to configure them.
 </td>
 </tr>
 <tr>
-<td><strong><font color="blue">Create an Alert in 90 Seconds</font></strong><br>
+<td><strong><font color="#0091DA" size="3">Create an Alert in 90 Seconds</font></strong><br>
 <br>
-<iframe src="https://bcove.video/3o9bu6L" width="450" height="275" allowfullscreen="true" alt="chart builder video"></iframe></td>
+<iframe src="https://bcove.video/3o9bu6L" width="500" height="275" allowfullscreen="true" alt="create alert v2 video"></iframe></td>
 <td><br>
-<p>Watch how we create and test an alert with two severity and two different notification targets.</p>
+<p>Learn how to create and test an alert using the streamlined alert creation GUI.</p>
 <p>You can also watch the video <a href="https://bcove.video/3o9bu6L" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
-<td><strong><font color="#0091DA" size="3">Creating Multi-Threshold Alerts</font></strong><br>
-<a href=" https://youtu.be/qWBP6PrkUrU"><img src="/images/v_threshold_alerts.png"  alt="threshold alerts"/></a></td>
+<td><strong><font color="#0091DA" size="3">Introduction to Alerts</font></strong><br><br>
+<iframe src="https://bcove.video/3gh9rce" width="500" height="275" allowfullscreen="true" alt="ntro to alerts video"></iframe></td>
 <td><br>
 <p>
-Jason explains first why intelligent alerts are so useful. He then explores the Alerts browser, which gives alert details such recent changes or which alerts are firing. He also shows different filtering options on the Alerts browser.</p>
+Jason explains first why intelligent alerts are so useful. He then explores the Alerts browser, which gives alert details such recent changes or which alerts are firing. He also shows different filtering options on the Alerts browser. This video uses the v1 GUI, but the information is still correct! </p>
 <p>You can also watch the video <a href="https://bcove.video/3gh9rce" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
 <td><strong><font color="#0091DA" size="3">Alert States and Lifecycle</font></strong><br><br>
-<iframe src="https://bcove.video/3iYlXiP" width="450" height="275" allowfullscreen="true" alt="alert states and lifecycle video by Jason"></iframe>
+<iframe src="https://bcove.video/3iYlXiP" width="500" height="275" allowfullscreen="true" alt="alert states and lifecycle video by Jason"></iframe>
 </td>
 <td><br>
-<p>Jason uses the Wavefront UI to illustrate the different states that an alert goes through: Checking, Firing, Resolved. He discusses that alerts resolve when the threshold value is not true - no data meets that condition. </p>
+<p>Jason uses the Wavefront UI to illustrate the different states that an alert goes through: Checking, Firing, Resolved. He discusses that alerts resolve when the threshold value is not true - no data meets that condition. This video uses the v1 GUI, but the information is still correct! </p>
 <p>You can also watch the video <a href="https://bcove.video/3iYlXiP" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
 <td><strong><font color="#0091DA" size="3">Using Maintenance Windows</font></strong><br><br>
-<iframe src="https://bcove.video/3m7AM4x" width="450" height="275" allowfullscreen="true" alt="create a maintenance window video by Jason"></iframe>
+<iframe src="https://bcove.video/3m7AM4x" width="500" height="275" allowfullscreen="true" alt="create a maintenance window video by Jason"></iframe>
 </td>
 <td><br>
 <p>Maintenance windows stop alerts from firing, reducing distraction for recipients and resulting in faster problem resolution. Watch Jason set a maintenance window so that an alert won't send notifications when you're in the process of doing an upgrade or solving a problem.</p>

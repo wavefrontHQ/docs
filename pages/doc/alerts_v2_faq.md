@@ -102,6 +102,6 @@ The chart image will show all the series from all the visible queries.
 
 If you use a simple condition that returns 0 or 1, the **Conditions** section prompts you to specify a single severity and no threshold.
 
-However, if you use a more complicated condition that returns 0 or 1, the condition asks you to specify a severity. If you specify a 0 for the severity you want to use in the notification, 
+However, if you use a more complicated condition that returns 0 or 1, the condition asks you to specify a severity. If you specify a 0 for the severity you want to use in the notification,
 
 ![In Data, boolean query with AND conjoined conditions. In Conditions,and severity 0. ](/images/complex_boolean.png)

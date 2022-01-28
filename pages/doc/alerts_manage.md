@@ -22,15 +22,15 @@ Users with Alerts permission follow a step-by-step process to create an alert. W
 
 ## Create Alert Tutorial
 
-This tutorial creates a multi-threshold alert, which allows you to specify the severity for each threshold.  For example, you can:
+This tutorial creates an alert that allows you to specify the severity for each threshold.  For example, you can:
 * Send an alert email of type Info to a group of engineers when a certain value is close to the SLO (e.g. 90% of budgeted CPU)
 * Send an alert Slack message of type Severe to engineers and engineering managers when the value has crossed that threshold (e.g. 95% of budgeted CPU).
 
 Before you begin, ensure that you have the information for the **required fields**:
 
 * Alert data. For example, CPU of all production clusters. Be as specific as possible to speed up query execution.
-* When the alert condition is met. For example, CPU of at least 1 cluster is at 90% for 5 minutes.
-* Severity thresholds and recipients. For each severity, you can specify one or more alert targets to notify [when the alert changes state](alerts_states_lifecycle.html#when-threshold-alerts-notify-targets). When the alert changes state, each target that meets the condition is notified.
+* Alert condition and associated severity. For example, it could be INFO severity if CPU of at least 1 cluster is at 90% for 5 minutes, but SEVERE if CPU of 75% of all clusters is at 90%.
+* Recipients. For each severity, you can specify an email, Slack notification, or one or more alert targets to notify [when the alert changes state](alerts_states_lifecycle.html#when-threshold-alerts-notify-targets). When the alert changes state, each target that meets the condition is notified with the specified severity.
 
   {% include tip.html content="Alert targets subscribe to all notifications at their severity and above. For example, a recipient associated with INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. You cannot associate an alert target with more than one severity. "%}
 

@@ -16,8 +16,8 @@ Here's a video to get you started:
 ## What's the Alert Lifecycle?
 
 The alert lifecycle determines:
-*  Which **events** the alert triggers, and which alert targets get notifications. Classic and multi-threshold alerts are exactly the same.
-*  When **notifications** are sent to which target. Classic and multi-threshold alerts differ, as discussed next.
+*  Which **events** the alert triggers, and which alert targets get notifications.
+*  When **notifications** are sent to which target.
 
 
 ### When Do Multi-Threshold Alerts Notify Alert Targets?

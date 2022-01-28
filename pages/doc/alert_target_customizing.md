@@ -845,7 +845,7 @@ The preceding template might yield the following message:
 
 Statistics provide a profile of the values in a time series during the checking time window immediately preceding a notification. For example, the alert might be set up to fire when a condition is true for 10 minutes. During a 10-minute period where the condition is true, a time series likely have multiple values. You can use statistics to find out, e.g., the largest of these values, or the last value to be reported during the **Alert fires** time window.
 
-<!---
+<!--- Remove after v2 is out!
 For classic alerts, statistics are normally useful only if you have set the alert's **Display Expression** field with a display expression that captures the underlying time series being tested by the condition expression. If the alert has no display expression, statistics are based on the values that are returned by the alert's condition expression. Because the condition expression returns either 0 or not 0, that information is not useful.
 
 Multi-threshold alerts include a predefined display expression.-->
