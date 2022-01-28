@@ -87,11 +87,24 @@ Each type of data uses a different data format. See [Wavefront Data Format](wave
 
 ### Truncate the Proxy Queue
 
-Sometimes a proxy accumulates a large queue that is never depleted. If you cannot truncate the queue, you can do so explicitly with a new flag in the proxy API.
+If, for any reason, you have to truncate the proxy queue you can do it remotely, or by explicitly with the `truncate` flag in the API.
 
 {% include warning.html content="Truncating the proxy can lead to data loss, but helps if you cannot safely empty queued proxy data in other ways." %}
 
-To truncate the proxy queue, run the following command:
+**To truncate the proxy queue:**
+
+In most cases, you truncate the proxy queue by deleting the files in the proxy queue directory.
+
+1. Connect to the proxy machine.
+2. Stop the proxy.
+3. Delete all files in the proxy queue directory
+4. Start the proxy
+
+**To truncate the proxy queue with the API:**
+
+If you can't connect to the proxy machine or don't have permissions for the proxy queue directory, you can truncate the queue with the API.
+
+Run the following command:
 
 ```curl
 $curl -X PUT -H 'Authorization: Bearer <TOKEN>' -H 'Content-Type: application/json' "https://MY_INSTANCE.wavefront.com/api/v2/proxy/PROXY_ID" -d {"truncate":true}
