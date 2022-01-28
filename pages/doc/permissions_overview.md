@@ -17,7 +17,7 @@ The following list gives an overview of permissions. To learn more, click the li
 
 - **[API Tokens](users_account_managing.html#generate-an-api-token)**
 
-    A user with the **API Tokens** permission can [generate API tokens](users_account_managing.html#generate-an-api-token) for their user account. Service accounts *cannot* have this permission, because only a Wavefront administrator can generate API tokens for service accounts.
+    A user with the **API Tokens** permission can [generate API tokens](users_account_managing.html#generate-an-api-token) for their user account. Service accounts *cannot* have this permission because only a Wavefront administrator can generate API tokens for service accounts.
 
 - **[Accounts](users_roles.html)** 
     

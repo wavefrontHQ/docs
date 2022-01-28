@@ -77,7 +77,7 @@ You can check the permissions you have and see which groups you belong to.
 
 Wavefront allows [user accounts](user-accounts.html) and [service accounts](service-accounts.html) to interact with your Wavefront instance using the [Wavefront REST API](wavefront_api.html).
 
-{% include tip.html content="You generate user account tokens explicitly. For service accounts, you can generate tokens with the specified permissions from the Service Accounts page. " %}
+{% include tip.html content="You generate API tokens for user accounts explicitly. For service accounts, a Wavefront administrator can generate tokens from the Service Accounts page." %}
 
 {% include note.html content="All users can use and manage their existing API tokens. You must have the [API Tokens permission](permissions_overview.html) to generate new API tokens for your user account." %}
 

@@ -22,16 +22,25 @@ In February, all v1 dashboards and charts will be migrated to v2. Users can no l
 
 ## 2022-03.x Release Notes
 
-We have added a new **API Tokens** permission for user accounts only.
+We have added a new **API Tokens** permission for user accounts.
 
 {% include important.html content="All existing users, who were previously able to generate their own API tokens, can still use and manage their existing API tokens. However, going forward, only users who have the **API Tokens** permission can generate new API tokens. "%}
 
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
 To enable users to generate API tokens:
-1. Log in to Wavefront as an administrator.
-2. Click the gear icon and select **Accounts**.
-4. On the **User Accounts** tab, select one or more users.
-5. Click **+Permission** and select **API Tokens**.
-
+<ol><li>Log in to Wavefront as an administrator.</li>
+<li>Click the gear icon and select <strong>Accounts</strong></li>
+<li>On the <strong>User Accounts</strong> tab, select one or more users.</li>
+<li>Click <strong>+Permission</strong> and select <strong>API Tokens</strong>.</li></ol>
+</td><td width="40%">
+<img src="/images/API_Tokens_permission_add.png" alt="API Tokens permission.">
+</td>
+</tr>
+</tbody>
+</table>
 
 ## 2022-01.x Release Notes
 
