@@ -87,7 +87,7 @@ Each type of data uses a different data format. See [Wavefront Data Format](wave
 
 ### Truncate the Proxy Queue
 
-If, for any reason, you have to truncate the proxy queue you can do it remotely, or by explicitly with the `truncate` flag in the API.
+If, for any reason, you have to truncate the proxy queue, you can do it locally by cleaning up the buffer directory, or remotely using the API with the `truncate` flag.
 
 {% include warning.html content="Truncating the proxy can lead to data loss, but helps if you cannot safely empty queued proxy data in other ways." %}
 
