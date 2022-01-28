@@ -8,7 +8,7 @@ summary: Examine data with dashboards and charts
 
 With dashboards and charts, all users can examine data, set dashboard time window, zoom in and out, and perform other customizations.
 
-{% include shared/badge.html content="All users can view and explore charts. You must have [Dashboard permission](permissions_overview.html) to make permanent changes, such as saving a chart to a dashboard." %}
+{% include note.html content="All users can view and explore charts. You must have [Dashboard permission](permissions_overview.html) to make permanent changes, such as saving a chart to a dashboard." %}
 
 ## Video
 

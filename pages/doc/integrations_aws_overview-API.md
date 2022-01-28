@@ -8,7 +8,7 @@ summary: Understand how to set up and manage the AWS integration by using the Wa
 ---
 The Wavefront Amazon Web Services integration allows you to ingest metrics directly from AWS. In addition to setting up and managing the AWS integration through the Wavefront UI, you can also use the Wavefront REST API for setting up and managing the AWS integration. This doc provides some basic steps and examples on how to do this.
 
-{% include shared/badge.html content="You must have the [**Proxy Management** permission](permissions_overview.html) to set up an AWS integration." %}
+{% include note.html content="You must have the [**Proxy Management** permission](permissions_overview.html) to set up an AWS integratio." %}
 
 In these examples, you access the REST API through the Wavefront interface, so that you don't need to provide the Bearer token. 
 
@@ -56,7 +56,7 @@ For more information about giving Wavefront access to your Amazon account, see [
      3. Click the **Setup** tab and click the **How to get Role ARN** link.
      4. Copy the **Account ID** displayed in the instructions.
       
-   - Select the option **Require external ID** and provide the [external ID that you have copied](integrations_aws_overview_API.html#getting-an-external-id).
+   - Select the option **Require external ID** and provide the [external ID that you have copied](integrations_aws_overview_API.html#create-an-external-id).
      
       You can also copy and paste the **External ID** displayed in the instructions on the Wavefront  **Amazon Web Services** integration **Setup** page.
      
@@ -134,7 +134,7 @@ You can add an AWS integration by using the Wavefront REST API.
 }
       ```
    
-   In these examples, the `roleArn` value is the [Role ARN from your Amazon account](integrations_aws_overview_API.html#provide-wavefront-read-only-access-to-your-amazon-account-and-get-the-role-arn), and the `externalId` value is the external ID [that you have already created](integrations_aws_overview_API.html#getting-an-external-id). If you don’t provide an external ID, the request will time out. 
+   In these examples, the `roleArn` value is the [Role ARN from your Amazon account](integrations_aws_overview_API.html#provide-wavefront-read-only-access-to-your-amazon-account-and-get-the-role-arn), and the `externalId` value is the external ID that you have provided while you created the role. If you don’t provide an external ID, the request will time out. 
    
 1. Click **Try it out!**.
 
@@ -160,7 +160,7 @@ We also add the metrics for these services to a metric allow list by using a reg
 
 1. In the Wavefront REST API documentation, click the `GET/api/v2/cloudintegration` request, and click **Try it out!**.
    
-   In the **Response Body** section, you can see the list of all configured cloud services integrations. For example:
+   In the **Response Body** section, under `namespaces` you can see the list of all configured cloud services integrations. For example:
    
     ```
     {
@@ -200,7 +200,7 @@ We also add the metrics for these services to a metric allow list by using a reg
  
    ```
    
-   You can see that the CloudWatch integration retrieves only DynamoDB metrics and that the service refresh rate is 5 minutes.
+   In this example, you can see that the CloudWatch integration retrieves only DynamoDB metrics and that the service refresh rate is 5 minutes.
    
 1. Copy the value of the `"id"` parameter of the integration that you want to update.
 1. Copy the content of the response in a text file. 
