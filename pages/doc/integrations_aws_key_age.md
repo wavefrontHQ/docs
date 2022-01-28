@@ -13,7 +13,7 @@ AWS Identity and Access Management (IAM) allows administrators of different AWS 
 
 An AWS Identity and Access Management (IAM) user represents a person or application that interacts with AWS. The user has a name and an access key. The access key consists of an access key ID and a secret key and can be used when accessing AWS programmatically.
 
-Wavefront supports a built-in integration that allows Wavefront to collect metrics about the access key age of all IAM users in a AWS profile. If you establish a trust relationship with a Wavefront AWS integration and follow the setup steps in this guide you can:
+Wavefront supports a built-in integration that allows Wavefront to collect metrics about the access key age of all IAM users in an AWS profile. If you establish a trust relationship with a Wavefront AWS integration and follow the setup steps in this guide you can:
 * Monitor access key age metric related to IAM users by a profile.
 * Set up alerts so you know when access keys are about to expire. For example, you can configure an alert target to notify when the access key age of user is about to reach the MAX_KEY_AGE (180 days).
 
