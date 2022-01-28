@@ -10,7 +10,7 @@ Amazon Web Services (AWS) is a collection of cloud-computing services that provi
 
 You can use the Wavefront Amazon Web Services integration for initial setup, but additional steps might be needed for some of the services. This page gives an overview.
 
-{% include shared/badge.html content="You must have the [**Proxy Management** permission](permissions_overview.html) to set up an AWS integration. If you do not have permission, the UI menu selections, buttons, and links you use to perform the tasks are not visible." %}
+{% include note.html content="You must have the [**Proxy Management** permission](permissions_overview.html) to set up an AWS integration. If you do not have permission, the UI menu selections, buttons, and links you use to perform the tasks are not visible." %}
 
 ## Basics
 
@@ -188,7 +188,7 @@ You can explicitly specify the access permissions in a custom IAM policy, as sho
 
 ## Managing an AWS Integration
 
-You can set up an AWS integration, enable and disable it, and delete it. After you set up an AWS integration, you can register more services to it. 
+You can set up an AWS integration, enable and disable it, and delete it. After you set up an AWS integration, you can register more services to it. You can also [add and manage AWS integrations by using the Wavefront REST API](integrations_aws_overview_API.html).
 
 ### Set up an AWS Integration
 

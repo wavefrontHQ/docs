@@ -7,7 +7,7 @@ permalink: integrations_collectd_apache.html
 summary: Learn how to send Apache data collected by collectd to Wavefront.
 ---
 
-[Apache](https://httpd.apache.org/) is a popular open source web server. To collect Apache data with collectd, use the collectd Apache plugin documentation found at [Plugin:Apache - collectd Wiki](https://collectd.org/wiki/index.php/Plugin:Apache).
+[Apache](https://httpd.apache.org/) is a popular open-source web server. To collect Apache data with collectd, use the collectd Apache plugin documentation found at [Plugin:Apache - collectd Wiki](https://collectd.org/wiki/index.php/Plugin:Apache).
 
 Wavefront supports a built-in integration that gets data from Apache using Telegraf. If you want to use collectd instead, follow the instructions on this page. 
 

@@ -13,9 +13,9 @@ You use the direct data ingestion mechanism to send data directly to the Wavefro
 * **Enrich or filter data** – You can set up the proxy preprocessor to filter data before it’s sent to Wavefront.
 * **Examine bottlenecks** – Each proxy generates its own metrics. You can [learn about incoming and outgoing data](monitoring_proxies.html) in the **Wavefront Service and Proxy** dashboard of the **Wavefront Usage** integration. 
 
-{% include shared/badge.html content="You must have the [**Direct Data Ingestion** permission](permissions_overview.html) to perform direct data ingestion." %}
+{% include note.html content="You must have the [**Direct Data Ingestion** permission](permissions_overview.html) to perform direct data ingestion." %}
 
-{% include shared/badge.html content="If you're using Wavefront as part of a free trial or Freemium offering, there are limits on how much data you can add to Wavefront using direct ingestions. Contact support@wavefront.com if you need a higher limit. " %}
+{% include note.html content="If you're using Wavefront as part of a free trial or Freemium offering, there are limits on how much data you can add to Wavefront using direct ingestions. Contact support@wavefront.com if you need a higher limit. " %}
 
 ## Background
 

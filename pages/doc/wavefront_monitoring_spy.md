@@ -8,7 +8,7 @@ summary: Use HTTP endpoints to get samples data or IDs, or use wftop to examine 
 
 Your Wavefront instance includes HTTP `spy` endpoints for sampling the data that your Wavefront instance is currently ingesting. Examining these endpoints helps you understand the data shape and avoid slowdown or other problems.
 
-{% include shared/badge.html content="You need [Direct Data Ingestion permission](permissions_overview.html) to use these HTTP endpoints." %}
+{% include note.html content="You need [Direct Data Ingestion permission](permissions_overview.html) to use these HTTP endpoints." %}
 
 
 ## Get Started with Wavefront Top and Spy

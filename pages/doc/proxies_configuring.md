@@ -16,7 +16,7 @@ Even without additional customization the Wavefront proxy ingests metrics and fo
 
 <a name="paths">
 ## Proxy File Paths
-
+ 
 By default, proxy files are installed in the following locations.
 
 - **Configuration properties**: `<wavefront_config_path>`
@@ -794,8 +794,8 @@ Required when authMethod = STATIC_TOKEN. For example, <code>authStaticToken=toke
 <td>traceListenerPorts</td>
 <td markdown="span">TCP ports that listen to incoming [spans](tracing_basics.html) from the Wavefront SDKs that [collect trace data](wavefront_sdks.html#sdks-for-collecting-trace-data), [collect metrics and histograms](wavefront_sdks.html#sdks-for-collecting-metrics-and-histograms), and [Wavefront SDKs that instrument frameworks](wavefront_sdks.html#sdks-that-instrument-frameworks). <br/> Default: None.</td>
 <td>Comma-separated list of available port numbers. Can be a single port.
-<div>Ex: 30000</div>
-<div>Ex: 30000, 30001</div></td>
+<div>Ex: 2878</div>
+<div>Ex: 2878, 2879</div></td>
 </tr>
 <tr>
 <td>traceSamplingDuration</td>
