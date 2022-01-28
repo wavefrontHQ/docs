@@ -88,15 +88,13 @@ spec:
         #- name: WAVEFRONT_PROXY_ARGS
         #  value: --traceZipkinListenerPorts 9411
         - name: WAVEFRONT_PROXY_ARGS
-          value: --preprocessorConfigFile /preprocessor-config/preprocessor_rules.yaml --histogramDistListenerPorts 40000 --traceListenerPorts 30000
+          value: --preprocessorConfigFile /preprocessor-config/preprocessor_rules.yaml --histogramDistListenerPorts 40000 --traceListenerPorts 2878
         ports:
         - containerPort: 2878
           protocol: TCP
         # Uncomment the below lines to consume Zipkin/Istio traces
         #- containerPort: 9411
         #  protocol: TCP
-        - containerPort: 30000
-          protocol: TCP
         - containerPort: 40000
           protocol: TCP
         volumeMounts:

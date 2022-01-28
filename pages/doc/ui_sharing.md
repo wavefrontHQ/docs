@@ -10,7 +10,7 @@ You can
 * Share [access](access.html) to a dashboard if the user is not in a group that has access to that specific dashboard.
 * Embed an interactive chart outside Wavefront.
 
-{% include shared/badge.html content="Every Wavefront user can view dashboards and make temporary changes. You must have the [**Dashboard** permission](permissions_overview.html) to share a link to a dashboard or chart." %}
+{% include note.html content="Every Wavefront user can view dashboards and make temporary changes. You must have the [**Dashboard** permission](permissions_overview.html) to share a link to a dashboard or chart." %}
 
 ## Video: Sharing Content
 
