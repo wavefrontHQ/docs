@@ -296,12 +296,13 @@ For each dashboard, you can customize display preferences.
 <ul><li>Set the default time window. You can later override the time window.  </li>
 <li>Hide the variables for the dashboard by default. Users can still show the variables bar using the <img src="/images/show_hide_variable_icon.png"
 style="vertical-align:text-bottom;width:25px" alt="show or hide variable icon" /> icon.  </li>
-<li>Display the <a href="events.html">Events</a> on charts using the Show Events dropdown.<br>
-For more information on the options listed in the Show Events dropdown, see <a href="charts_events_displaying.html#specify-an-events-query-for-a-dashboard">Specify an Events() Query for a Dashboard</a>.
+<li>Display the <a href="events.html">Events</a> on charts by entering an event query.<br>
+For more information, see <a href="charts_events_displaying.html#specify-an-events-query-for-a-dashboard">Specify an Events() Query for a Dashboard</a>.
 </li>
+<li>Include obsolete metrics and allow queries to return metrics that stopped reporting 4 weeks ago.<br> This setting applies to all charts in the dashboard and dashboard performance might suffer.</li>
 </ul>
 </li>
-<li>Click <strong>Accept</strong>, and click <strong>Save</strong> </li>
+<li>Click <strong>Accept</strong>, and click <strong>Save</strong>. </li>
 </ol></td>
 <td width="60%"><img src="/images/v2_dashboard_prefs.png" alt="set dashboard prefs"></td>
 </tr>
