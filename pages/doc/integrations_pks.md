@@ -20,35 +20,31 @@ The Tanzu Kubernetes Grid integration provides the following monitoring alerts f
 <tr><th width="60%">Name</th><th width="20%">Severity</th><th width="20%">Resolve After (min)</th></tr>
 </thead>
 <tr>
-<td>Node Memory Usage high</td>
+<td>Node memory usage high</td>
 <td>WARN</td>
 <td>10</td></tr>
 <tr>
-<td>Node Memory Usage too high</td>
+<td>Node memory usage too high</td>
 <td>SEVERE</td>
 <td>10</td></tr>
 <tr>
-<td>Node CPU Usage high</td>
+<td>Node CPU usage high</td>
 <td>WARN</td>
 <td>5</td></tr>
 <tr>
-<td>Node CPU Usage too high</td>
+<td>Node CPU usage too high</td>
 <td>SEVERE</td>
 <td>5</td></tr>
 <tr>
-<td>Node Storage Usage high</td>
+<td>Node storage usage high</td>
 <td>WARN</td>
 <td>10</td></tr>
 <tr>
-<td>Node Storage Usage too high</td>
+<td>Node storage usage too high</td>
 <td>SEVERE</td>
 <td>10</td></tr>
 <tr>
-<td>Too many Pods crashing</td>
-<td>SEVERE</td>
-<td>5</td></tr>
-<tr>
-<td>Too many Containers not running</td>
+<td>Too many containers not running</td>
 <td>SEVERE</td>
 <td>5</td></tr>
 <tr>
@@ -68,7 +64,7 @@ We support dashboards for major functionality including:
 * Nodes dashboard
 * Namespaces dashboard
 * Deployments dashboard
-* Pods dashbord
+* Pods dashboard
 * Pod containers dashboard
 * Services and Replication Sets dashboard
 

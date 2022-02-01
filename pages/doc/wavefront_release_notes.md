@@ -13,6 +13,34 @@ This page lists new and updated features for the Wavefront service.
 * For the latest changes and releases of the **Wavefront Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For  **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## Announcing Deprecation of v1 Dashboards and Charts
+
+In February, all v1 dashboards and charts will be migrated to v2. Users can no longer select the v1 version of dashboards and charts.
+
+{% include important.html content="Most Wavefront users are already using the v2 GUI. However, if your dashboards and charts are migrated, see [What's New in v2 Dashboards & Charts](ui_v2_faq.html) for info. "%}
+
+
+## 2022-03.x Release Notes
+
+We have added a new **API Tokens** permission for user accounts.
+
+{% include important.html content="All existing users, who were previously able to generate their own API tokens, can still use and manage their existing API tokens. However, going forward, only users who have the **API Tokens** permission can generate new API tokens. "%}
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+To enable users to generate API tokens:
+<ol><li>Log in to Wavefront as an administrator.</li>
+<li>Click the gear icon and select <strong>Accounts</strong></li>
+<li>On the <strong>User Accounts</strong> tab, select one or more users.</li>
+<li>Click <strong>+Permission</strong> and select <strong>API Tokens</strong>.</li></ol>
+</td><td width="40%">
+<img src="/images/API_Tokens_permission_add.png" alt="API Tokens permission.">
+</td>
+</tr>
+</tbody>
+</table>
 
 ## 2022-01.x Release Notes
 

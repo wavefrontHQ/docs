@@ -106,7 +106,7 @@ A: The goal of this UI revision is parity, but we've made a few changes:
 
   ![v2 Line plot](images/v2_linechart_single.png)
 
-  Line plots with more than one line look similar to v1 line plots though the colors are different.
+Line plots with more than one line look similar to v1 line plots though the colors are different.
 * **Single Stats** charts with sparklines have a changed look. You can experiment with sparkline position by selecting **Sparkline > Show Sparkline**. Change **Minimum** to 0 for a chart that looks like the v1 chart.
 
 ### Q: How does the new time window selector work?
@@ -133,7 +133,7 @@ A: We're working on improving the copy/paste behavior. For now, please use [the 
 
 ### Q: How can I create an embedded chart in v2?
 
-A: Embedded charts allow you to make a chart available outside Wavefront. We temporarily don't support this functionality for v2, but all your existing embedded charts will continue to work.
+A: Embedded charts allow you to make a chart available outside Wavefront. We temporarily don't support this functionality for v2, but **all your existing embedded charts** will continue to work.
 
 
 

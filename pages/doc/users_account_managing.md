@@ -19,7 +19,7 @@ To change your password:
 
 1. Log in to your Wavefront instance.
 2. Click the gear icon <i class="fa fa-cog"/> in the top right of the taskbar and select your username.
-3. On the **User Information** tab, click the **Change Password** link, and enter the current and new password as prompted.
+3. On the **User Information** tab, click the **Change Password** link, and enter the current and new passwords as prompted.
 4. Click **Save**.
 
 ### Reset a Forgotten Password
@@ -35,13 +35,13 @@ To reset a forgotten password:
 In your user profile, you can configure several preferences, for example, select our dark theme or chart title size.
 
 1. Click the gear icon <i class="fa fa-cog"/> in the top right of the taskbar and select your username.
-1. On the **User Information** tab make the necessary changes.
+1. On the **User Information** tab, make the necessary changes.
 
 
 {% include note.html content="Some preferences are preset for all users in an account by a user with [Accounts permission](permissions_overview.html)." %}
 
 
-## Speed up Chart Display with the Chart Sampling Preference
+## Speed Up Chart Display with the Chart Sampling Preference
 
 Wavefront is very fast, but sometimes it's not necessary for the user to wait for thousands of series to be rendered.
 
@@ -71,13 +71,15 @@ You can check the permissions you have and see which groups you belong to.
 
 3. Hover over any group to see the permissions you have from this group. The permissions come from roles assigned to the group.
 
-**Note:** Even if you have **Dashboards** or **Alerts** permission, it's possible that you can't modify a dashboard or an alert. This happens if **access** is restricted explicitly for that dashboard or alert. Ask the dashboard or alert creator to share the object with you.
+{% include note.html content="Even if you have **Dashboards** or **Alerts** permission, it's possible that you can't modify a dashboard or an alert. This happens if **access** is restricted explicitly for that dashboard or alert. Ask the dashboard or alert creator to share the object with you." %}
 
 ## Generate an API Token
 
 Wavefront allows [user accounts](user-accounts.html) and [service accounts](service-accounts.html) to interact with your Wavefront instance using the [Wavefront REST API](wavefront_api.html).
 
-{% include tip.html content="You generate user account tokens explicitly. For service accounts, you can generate tokens with the specified permissions from the Service Accounts page. " %}
+{% include tip.html content="You generate API tokens for user accounts explicitly. For service accounts, a Wavefront administrator can generate tokens from the Service Accounts page." %}
+
+{% include note.html content="All users can use and manage their existing API tokens. You must have the [API Tokens permission](permissions_overview.html) to generate new API tokens for your user account." %}
 
 To generate an API token for your user account:
 
