@@ -20,7 +20,7 @@ In a large enterprise, certain data are confidential. Wavefront allows you to li
 
 ## Video: Metrics Security Policy
 
-Watch this video for an overview.
+Watch this <a href="https://bcove.video/2JgVcXq" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> for an overview.
 
 <p>
 <iframe src="https://bcove.video/2JgVcXq" width="700" height="400" allowfullscreen="true" alt="Metrics Security Policy video"></iframe>

@@ -52,7 +52,7 @@ pushListenerPorts=2878
 ...
 histogramDistListenerPorts=2878
 ...
-traceListenerPorts=30000
+traceListenerPorts=2878
       </pre>
     {{site.data.alerts.end}}
     

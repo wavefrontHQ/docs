@@ -18,16 +18,17 @@ The following videos get you started:
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="60%"><strong><font color="blue">Browsing Your Data</font></strong><br>
+<td width="60%"><strong><font color="#0091DA" size="3">Browsing Your Data</font></strong><br>
 <br>
 <iframe src="https://bcove.video/3n13ulm" width="500" height="275" allowfullscreen="true" alt="browse metrics from source browser or metrics browser"></iframe>
 </td>
 <td width="40%"><br>
 <p>90-second video that shows how you can find and examine metrics from the Sources browser and from the Metrics browser. </p>
+<p>You can also watch the video <a href="https://bcove.video/3n13ulm" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> 
 </td>
 </tr>
 <tr>
-<td><strong><font color="blue">About Cardinality</font></strong><br> <a href="https://youtu.be/8wKPkrIiXKw" target="_blank"><img src="/images/v_cardinality.png" alt="Lightboard video about cardinality"/></a></td>
+<td><strong><font color="#0091DA" size="3">About Cardinality</font></strong><br> <a href="https://youtu.be/8wKPkrIiXKw" target="_blank"><img src="/images/v_cardinality.png" alt="Lightboard video about cardinality"/></a></td>
 <td><br><p>Wavefront chief architect and co-founder Clement Pang explains why the concept of cardinality is so important for observability, what high cardinality means, and why Wavefront deals so well with high cardinality input.</p> </td>
 </tr>
 </tbody>

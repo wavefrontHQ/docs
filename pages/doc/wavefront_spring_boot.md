@@ -444,7 +444,7 @@ You can invite users and let them send data to the same cluster:
 
 1. Click the link that was printed on your console and navigate to the Wavefront Service Dashboard:
     {% include note.html content="Save the link that you used to access the Service Dashboard." %}
-    1. Click the gear icon and select **Account Management**.
+    1. Click the gear icon and select **Accounts**.
     1. Click **Invite New Users** and specify a comma-separated list of email addresses.<br/>
         ![Invite Users](/images/spring_boot_invite_users.png)
   The users will get an email with a link to reset their password. They can then access your dashboard.

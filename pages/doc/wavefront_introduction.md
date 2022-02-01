@@ -9,7 +9,7 @@ Wavefront is a high-performance streaming analytics platform that supports obser
 
 ## Intro Videos
 
-The first video is a 90 second overview of **how you can use** Wavefront.
+The first <a href="https://bcove.video/2AiJk2v" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> is a 90 second overview of **how you can use** Wavefront.
 
 <iframe src="https://bcove.video/2AiJk2v" width="700" height="400" allowfullscreen="true" alt="Wavefront intro how-to"></iframe>
 
@@ -41,7 +41,7 @@ After you've sent your data to Wavefront, you can view them in custom dashboards
 <li>Use filters and functions to see exactly what you’re interested in. For example, combine multiple time series using aggregation functions such as sum() or avg().</li>
 <li>Combine functions, and show or hide some of the information - or use dashboard variables to change the focus of a dashboard. For example, a variable might allow you to show the production or development environment.</li>
 <li>Select one of several <strong>chart types</strong> (line plot, point plot, table, etc.)</li></ul></td>
-<td width="50%"><img src="images/intro_query_v2new.png" alt="simple v1 chart"/></td>
+<td width="50%"><img src="images/intro_query_v2new.png" alt="simple v2 chart"/></td>
 </tr>
 </tbody>
 </table>
@@ -58,7 +58,7 @@ After you've sent your data to Wavefront, you can view them in custom dashboards
 <li>What the alert severity is, and when the alert resolves.</li>
 </ul>
 After you've set up an alert with that information, we'll send alert notifications that include details and a chart image. See the example on the right. </td>
-<td width="50%"><img src="/images/alert_notification_example.png" alt="simple v1 chart"/></td>
+<td width="50%"><img src="/images/alert_notification_example.png" alt="alert notification example"/></td>
 </tr>
 </tbody>
 </table>
@@ -155,7 +155,7 @@ Wavefront works with time-series (metric) data, and also with traces and spans, 
 Different users interact with Wavefront in different ways:
 
 * Most users access the **graphical user interface** (GUI) from a browser. You log in to the Wavefront UI from a standard web browser, in many cases using an SSO solution.  The UI supports different time windows -- even an entire year. Wavefront supports Chrome, Firefox, and Safari.
-* The Chart Builder (v2) and Query Builder (v1) interfaces and the Query Editor allow you to fine-tune your charts and alerts. Access function documentation from the UI or start with the [Query Language Reference](query_language_reference.html) and click any function on that page for details and examples.
+* The Chart Builder and the Query Editor allow you to fine-tune your charts and alerts. Access function documentation from the UI or start with the [Query Language Reference](query_language_reference.html) and click any function on that page for details and examples.
 * The [Wavefront REST API](wavefront_api.html) allows you to perform UI actions programmatically. The API is based on Swagger, so you can generate the client of your choice.
 * For **Distributed Tracing**, we make a large sets of SDKs available in Github.
 

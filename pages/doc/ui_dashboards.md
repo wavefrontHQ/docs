@@ -18,7 +18,8 @@ Wavefront dashboards allow you organize and customize the information about your
 
 ## Video
 
-Users with Dashboards permissions can create a new dashboard with one or multiple charts from metrics, a chart type, or an integration.
+Users with Dashboards permissions can create a new dashboard with one or multiple charts from metrics, a chart type, or an integration. You can also watch the video <a href="https://bcove.video/2WxBJoe" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+
 
 <p>
 <iframe src="https://bcove.video/2WxBJoe" width="700" height="400" allowfullscreen="true" alt="creating dashboards video"></iframe>
@@ -440,6 +441,15 @@ After you've saved these changes:
 </table>
 
 ## Ensure Optimal Dashboard Performance
+
+### Video: Optimize Dashboard Performance
+
+Watch this video to learn how to optimize dashboard and query performance.
+
+<p>
+<iframe src="https://bcove.video/3rcTY1w" width="700" height="400" allowfullscreen="true" alt="Optimize Dashboard Performance video"></iframe>
+</p>
+
 
 Wavefront can ingest and process very large amounts of data. Here's what you can do to ensure performance is optimal.
 
