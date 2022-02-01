@@ -19,6 +19,11 @@ In February, all v1 dashboards and charts will be migrated to v2. Users can no l
 
 {% include important.html content="Most Wavefront users are already using the v2 GUI. However, if your dashboards and charts are migrated, see [What's New in v2 Dashboards & Charts](ui_v2_faq.html) for info. "%}
 
+## 2022-04.x Release Notes
+
+* **New Sample Data Dashboards**: We have added new sample data dashboards, that allow you to investigate integrations dashboards and charts that contain sample data for our most used integrations. For details see: [Get to know our integration dashboards](https://docs.wavefront.com/integrations.html#get-to-know-the-integration-dashboards).
+* **Obsolete Metrics**: You can now include obsolete metrics on a dashboard level. Doing so, data that have not been reported for 4 weeks or more are included and considered for all the charts within the dashboard and the dashboard performance might suffer. See [Set Dashboard Display Preferences](ui_dashboards.html#set-dashboard-display-preferences).
+* **New Doc Page**: See how you can [use the Wavefront API to set up and manage the AWS integration](integrations_aws_overview_API.html).
 
 ## 2022-03.x Release Notes
 
