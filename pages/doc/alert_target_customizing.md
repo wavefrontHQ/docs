@@ -216,10 +216,6 @@ Wavefront defines variables for obtaining information about the alert as a whole
 <td markdown="span">Link to an [interactive chart](alerts_notifications.html#interactive-charts-linked-by-alert-notifications) that shows alert firing events or resolved events along with the alert condition.</td>
 </tr>
 <tr>
-<td markdown="span">`matchingMW`</td>
-<td markdown="span">Internal. Do not use.</td>
-</tr>
-<tr>
 <td markdown="span">`alertRoute`</td>
 <td>Route associated with alert target. Route allows you for example, to notify when a subset of hosts is failing. If defined a Webhook alert target, you can use the route in the notification template to send the alert to a different alert target. Another option to get this behavior is multiple alerts. See <a href="webhooks_alert_notification.html#add-custom-alert-routes">Add Custom Alert Routes</a> for background. </td>
 </tr>
