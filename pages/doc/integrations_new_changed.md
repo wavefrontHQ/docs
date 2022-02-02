@@ -19,7 +19,11 @@ We added the following integrations in February 2022:
 Made improvements to the following integrations and dashboards in February 2022:
 
 * Ceph -- Updated the Ceph integration and now you can monitor Ceph on Kubernetes. 
-* Amazon Web Services -- Updated the **Overview** tab of the integration. You can now see a list with links to the Amazon Web Services documentation, which show you the metrics that we'll be collected once you set up the integration.
+* Amazon Web Services: 
+  * Updated the **Overview** tab of the integration. You can now see a list with links to the Amazon Web Services documentation, which show you the metrics that we'll be collected once you set up the integration.
+  * Now includes an **Alerts** tab with predefined alerts.
+
+* Google Cloud Platform -- Added a new out-of-the-box dashboard to monitor the Google Cloud Apigee service. 
 
 
 ## January 2022
