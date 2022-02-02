@@ -19,6 +19,38 @@ In February, all v1 dashboards and charts will be migrated to v2. Users can no l
 
 {% include important.html content="Most Wavefront users are already using the v2 GUI. However, if your dashboards and charts are migrated, see [What's New in v2 Dashboards & Charts](ui_v2_faq.html) for info. "%}
 
+## 2022-04.x Release Notes
+
+* **Usage Portal**: We have made [monitoring](examine_usage.html) of the ingested points per second (PPS) much easier. As a Wavefront Super Admin, you're interested in how ingested data is used, whether you will be billed for more data, and whether you will need to request more data. You can create [ingestion policies](ingestion_policies.html) and monitor how different accounts contribute to the PPS usage.
+
+   {% include note.html content="The new Usage Portal and Ingestion Policy functionality is currently available to some of our customers. It will become available to all customers within the next releases."%}
+
+   ![Example of the Usage Summary dashboard.](images/usage_overview.png)
+
+* **Obsolete Metrics**: You can now [include obsolete metrics](ui_examine_data.html#include-or-exclude-obsolete-metrics) on a dashboard level. Doing so, data that have not been reported for 4 weeks or more are included and considered for all the charts within the dashboard and the dashboard performance might suffer. 
+* **New Doc Page**: See how you can [use the Wavefront API to set up and manage the AWS integration](integrations_aws_overview_API.html).
+
+## 2022-03.x Release Notes
+
+We have added a new **API Tokens** permission for user accounts.
+
+{% include important.html content="All existing users, who were previously able to generate their own API tokens, can still use and manage their existing API tokens. However, going forward, only users who have the **API Tokens** permission can generate new API tokens. "%}
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+To enable users to generate API tokens:
+<ol><li>Log in to Wavefront as an administrator.</li>
+<li>Click the gear icon and select <strong>Accounts</strong></li>
+<li>On the <strong>User Accounts</strong> tab, select one or more users.</li>
+<li>Click <strong>+Permission</strong> and select <strong>API Tokens</strong>.</li></ol>
+</td><td width="40%">
+<img src="/images/API_Tokens_permission_add.png" alt="API Tokens permission.">
+</td>
+</tr>
+</tbody>
+</table>
 
 ## 2022-01.x Release Notes
 
