@@ -21,7 +21,13 @@ In February, all v1 dashboards and charts will be migrated to v2. Users can no l
 
 ## 2022-04.x Release Notes
 
-* **Obsolete Metrics**: You can now include obsolete metrics on a dashboard level. Doing so, data that have not been reported for 4 weeks or more are included and considered for all the charts within the dashboard and the dashboard performance might suffer. See [Set Dashboard Display Preferences](ui_dashboards.html#set-dashboard-display-preferences).
+* **Usage Portal**: We have made [monitoring](examine_usage.html) of the ingested points per second (PPS) much easier. As a Wavefront Super Admin, you're interested in how ingested data is used, whether you will be billed for more data, and whether you will need to request more data. You can create [ingestion policies](ingestion_policies.html) and monitor how different accounts contribute to the PPS usage.
+
+   {% include note.html content="The new Usage Portal and Ingestion Policy functionality is currently available to some of our customers. It will become available to all customers within the next releases."%}
+
+   ![Example of the Usage Summary dashboard.](images/usage_overview.png)
+
+* **Obsolete Metrics**: You can now [include obsolete metrics](ui_examine_data.html#include-or-exclude-obsolete-metrics) on a dashboard level. Doing so, data that have not been reported for 4 weeks or more are included and considered for all the charts within the dashboard and the dashboard performance might suffer. 
 * **New Doc Page**: See how you can [use the Wavefront API to set up and manage the AWS integration](integrations_aws_overview_API.html).
 
 ## 2022-03.x Release Notes
