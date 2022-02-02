@@ -27,7 +27,7 @@ In February, all v1 dashboards and charts will be migrated to v2. Users can no l
 
    ![Example of the Usage Summary dashboard.](images/usage_overview.png)
 
-* **Obsolete Metrics Toggle for Dashboards**: You can now [include obsolete metrics](ui_examine_data.html#include-or-exclude-obsolete-metrics) for all dashboards in a dashboard. Doing so, data that have not been reported for 4 weeks or more are included for all the charts on the dashboard.
+* **Obsolete Metrics Toggle for Dashboards**: You can now [include obsolete metrics](ui_examine_data.html#include-or-exclude-obsolete-metrics) for all charts in a dashboard. Doing so, data that have not been reported for 4 weeks or more are included for all the charts on the dashboard.
 
    {% include important.html content="Dashboard performance might suffer if you include obsolete metrics. Using the setting for individual charts is recommended."%}
 * **Set Up and Manage the AWS Integration by Using the API**: Learn how you can [use the Wavefront API to set up and manage the AWS integration](integrations_aws_overview_API.html).
