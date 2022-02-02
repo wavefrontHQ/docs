@@ -175,7 +175,7 @@ By default, metrics that stopped reporting 4 weeks ago are not included in the c
 Dashboards on which inclusion of obsolete metrics is turned on have a warning banner which allows you to easily turn off that setting.
 ![Banner saying that obsolete metrics inclusion is turned on for the dashboard. The banner also has a view settings button.](images/obsolete-metrics-banner.png)
 
-1. Navigate to the dashboard and click its name.
+1. Navigate to the dashboard.
 2. In the banner on top, click **View Settings**.
 4. Deselect the **Include Obsolete Metrics** check box.
 5. Click **Accept** and click **Save**.
