@@ -30,6 +30,12 @@ As a Super Admin user, you can add other Super Admin users:
 1. Click the gear icon <i class="fa fa-cog"/> on the taskbar, and select **Super Admin**.
 2. Enter the user name of a user you want to add as a Super Admin.
 
+### Who Is the Admin User?
+
+The Wavefront administrator has the **Accounts** permission. 
+
+Users with this permission can manage user and service accounts. They can create groups and add accounts to groups, create roles and assign permissions to those roles. They can also assign roles to groups.
+
 ### Why Roles?
 
 Roles allow you to combine a set of permissions. For example, create an **Intern** role to give limited permissions to interns. You can:
