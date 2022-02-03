@@ -8,13 +8,13 @@ summary: Monitor usage with ingestion policies and usage dashboards.
 
 As a Wavefront Super Admin, you're interested in usage patterns for the whole company, but also for different teams in the company. You can create ingestion policies and assign accounts or groups to each policy to see which teams use which part of total ingestion.
 
-You can examine the performance of your Wavefront instance using [wftop](), [Wavefront spy](wavefront_monitoring_spy.html), the [Slow Queries dashboard](wavefront_monitoring.html#examine-slow-queries), and the [Wavefront Usage integration](wavefront_monitoring.html). By using ingestion policies, you can monitor the total usage out of the committed usage, the hourly usage, and the top accounts contributing to ingestion.
+You can examine the performance of your Wavefront instance using [wftop, Wavefront spy](wavefront_monitoring_spy.html), the [Slow Queries dashboard](wavefront_monitoring.html#examine-slow-queries), and the [Wavefront Usage integration](wavefront_monitoring.html). By using ingestion policies, you can monitor the total usage out of the committed usage, the hourly usage, and the top accounts contributing to ingestion.
 
 {% include note.html content="The new Usage Portal and Ingestion Policy functionality is currently available to some of our customers. It will become available to all customers within the next releases."%}
 
 ## Ingestion Policy Basics
 
-Ingestion policies allow you to group user accounts and service accounts or any user or service accounts groups and then examine their usage for your cluster. For example, you can create a policy, add all accounts that joined in the last 6 months, or create a policy for a whole team, for example the Finance team, and examine whether they show unusually high usage because they're not yet experienced. If yes, you could provide additional training. You can also set a Points per Second (PPS) limit to an ingestion policy, so that you can track how much of the PPS is used and whether the users or the team will need more PPS in the future.
+Ingestion policies allow you to group user accounts and service accounts or any user or service accounts groups and then examine their usage for your cluster. For example, you can create a policy, add all accounts that joined in the last 6 months, or create a policy for a whole team, for example the Finance team, and examine whether they show unusually high usage because they're not yet experienced. In such a case, you can provide additional training. You can also set a Points per Second (PPS) limit to an ingestion policy, so that you can track how much of the PPS is used and whether the users or the team will need more PPS in the future.
 
 ### Permissions
 
@@ -39,7 +39,7 @@ Super Admin users (users who have all permissions) can create ingestion policies
    3. Select whether you want to set a PPS limit. 
       If you choose to set a PPS limit, you must enter the points per second limit number in the **PPS per billing period** text box.
    4. Click **Next**.
-5. Enter the name of the policy, and optionally, a description and click **Create**.
+5. Enter the name of the policy and, optionally, a description and click **Create**.
 
 If a user starts ingesting data into Wavefront through a Wavefront Proxy, you can see the ingestion policies to which a proxy belongs from the [Proxies browser](#see-the-ingestion-policies-to-which-a-proxy-belongs) page.
 
@@ -65,7 +65,10 @@ After you create an ingestion policy, if you need, for example, to increase the 
 
 1. Log in to your Wavefront instance as a Super Admin user.
 2. Click **Browse > Proxies**.
-3. For each proxy the **Ingestion Policies** column shows a list of policies. If the proxy belongs to many policies, hover over the three horizontal dots and you'll see the rest of the ingestion policies in a tooltip.
+   
+   For each proxy the **Ingestion Policies** column shows a list of policies. 
+
+   If the proxy belongs to many policies, hover over the three horizontal dots and you'll see the rest of the ingestion policies in a tooltip.
 
 
 ## Examine Usage
@@ -91,7 +94,7 @@ In the **Ingestion Summary** section of the dashboard, you can see the following
 <td><strong>Usage Limit</strong></td>
 <td>Shows the total usage out of the committed usage.</td></tr>
 <tr>
-<td><strong>Month Over Month Change</strong></td>
+<td><strong>Previous Month to Selected Month</strong></td>
 <td>Shows a comparison of the current month with the previous month.</td>
 </tr>
 <tr>

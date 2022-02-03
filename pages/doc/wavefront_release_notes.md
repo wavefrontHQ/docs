@@ -21,15 +21,18 @@ In February, all v1 dashboards and charts will be migrated to v2. Users can no l
 
 ## 2022-04.x Release Notes
 
-* **Usage Portal**: We have made [monitoring](examine_usage.html) of the ingested points per second (PPS) much easier. As a Wavefront Super Admin, you're interested in how ingested data is used, whether you will be billed for more data, and whether you will need to request more data. You can create [ingestion policies](ingestion_policies.html) and monitor how different accounts contribute to the PPS usage.
+* **Usage Portal**: As more teams use the Tanzu Observability by Wavefront service within an enterprise, the central team (Super Admins) needs a better mechanism to track their points per second (PPS) usage, manage consumption, and also put limits to manage costs. 
+
+   We have now made [monitoring](examine_usage.html) of the ingested PPS much easier. As a Wavefront Super Admin, you can track and monitor how ingested data is used, whether you will be billed for more data, and whether you will need to request more data. You can also create [ingestion policies](ingestion_policies.html) and monitor how different accounts contribute to the PPS usage.
 
    {% include note.html content="The new Usage Portal and Ingestion Policy functionality is currently available to some of our customers. It will become available to all customers within the next releases."%}
 
    ![Example of the Usage Summary dashboard.](images/usage_overview.png)
 
-* **Obsolete Metrics Toggle for Dashboards**: You can now [include obsolete metrics](ui_examine_data.html#include-or-exclude-obsolete-metrics) for all charts in a dashboard. Doing so, data that have not been reported for 4 weeks or more are included for all the charts on the dashboard.
+* **Obsolete Metrics Toggle for Dashboards**: You can now [include obsolete metrics](ui_examine_data.html#include-or-exclude-obsolete-metrics) in all charts within a dashboard. Doing so, data that have not been reported for 4 weeks or more are included for all the charts on the dashboard.
 
    {% include important.html content="Dashboard performance might suffer if you include obsolete metrics. Using the setting for individual charts is recommended."%}
+   
 * **Set Up and Manage the AWS Integration by Using the API**: Learn how you can [use the Wavefront API to set up and manage the AWS integration](integrations_aws_overview_API.html).
 
 ## 2022-03.x Release Notes
@@ -94,18 +97,7 @@ To enable users to generate API tokens:
 </tbody>
 </table>
 
-<!---
-* **UI Updates and Improvements**:
-  - Changed the name of the **Accounts, Groups & Roles** permission to **Accounts** and changed the name of the **Account Management** menu item to **Accounts**.
-  - Keyboard navigation fixes in the Create Dashboard wizard and in the Chart UI pages. The sections that you add are now numbered, e.g. Section 1 instead of New Section.
-  - After you pin a legend in a chart, you can sort the columns in the legend.--->
 
-<!---
-* **Chart Builder UI Improvements**: When you create a chart and enter a query, you can click the lightbulb icon on the right to get some hints and insights on the functions that you're using. These hints and insights will help you to understand the Wavefront query language, predict cardinality issues, and improve performance. In addition, we show a pop-up window with definitions and tips when you hover over the data displayed in the chart. This pop-up window includes:
-  - Points Scanned: Raw metric points for a query.
-  - Duration: Time between query start and return of result.
-  - Cardinality: Number of unique time series. A unique time series has unique metric name, source name and point tags (key and value).
---https://jira.eng.vmware.com/browse/MONIT-23306 Ask Renate to confirm about this feature and https://jira.eng.vmware.com/browse/MONIT-25866--->
 
 
 
