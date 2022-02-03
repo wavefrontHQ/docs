@@ -36,17 +36,17 @@ Let’s look at an example over a single minute in the checking interval. Suppos
 * If `my.metric` reported the data values of `6`, `6`, and `2` during the minute, Wavefront evaluates the alert condition for this checking interval as `false` because the aggregated average value of the three results (`0`,`0`,`0`) is `0`, which is a *zero* value considered `false`.
 * If there's no data reported during the minute, there's no result from the evaluation.
   
-After the alert evaluation, Wavefront has a list of `N` minutely values, one for each minute in the checking interval. Each of the `N` values can be either be `true`, `false`, or `no data`.
+After the alert evaluation, Wavefront has a list of `N` minutely values, one value for each minute in the checking interval. Each of the `N` values can be either `true`, `false`, or `no data`.
   
 ## When Does an Alert Fire?
-If the alert condition returned *at least one* `true` value and *no* `false` minutely values during the alert trigger window, Wavefront switches the alert state from CHECKING to FIRING. 
+Wavefront reviews all minutely values from the alert evaluations during the alert trigger window. If the alert condition returned *at least one* `true` value and *no* `false` minutely values during the alert trigger window, Wavefront switches the alert state from CHECKING to FIRING. 
 
 The default **Trigger Window** is 5 minutes. You can adjust this property from condition settings.
 
 If your metric is backfilled in chunks, for example, if the metric is backfilled in 10-minute chunks, avoid setting **Trigger Window** to less than 10 minutes, or use [moving time window functions](query_language_reference.html#moving-window-time-functions) to make sure that all the incoming data is visible to the alert.
 
-## When Does an Alert Resolve?
-If the alert condition didn't return *any* `true` minutely values during the alert resolve time window, Wavefront switches the alert state from FIRING to CHECKING.
+## When Does a Firing Alert Resolve?
+Wavefront reviews all minutely values from the alert evaluations during the alert resolve window. If the alert condition didn't return *any* `true` minutely values during the alert resolve window, Wavefront returns the alert state from FIRING to CHECKING.
 
 The default **Resolve Window** is the same as the **Trigger Window**. You can adjust this property from the condition setting.
 
