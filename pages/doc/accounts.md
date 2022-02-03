@@ -9,19 +9,20 @@ summary: Create and manage user accounts.
 You can manage authorization in your Wavefront environment by:
 * Assigning and revoking roles for groups or accounts to give **global** permissions.
 * Granting and revoking access to **individual objects** (initially dashboards and alerts) for accounts and groups.
+* [Managing API tokens](wavefront_api.html#managing-the-api-tokens-for-your-organization).
 
 Wavefront supports:
-* User accounts, discussed here, which authenticate with a username and password.
-* [Service accounts](service-accounts.html), which authenticate with a token.
+* User accounts, discussed here, which authenticate with a username and password. For API access, user accounts authenticate with API tokens.
+* [Service accounts](service-accounts.html), which authenticate with API tokens.
 
-{% include note.html content="You must have **Accounts** permission to view and manage accounts, groups, and permissions in Wavefront. If you don't have **Accounts** permission, the UI menu selections, buttons, and links that you use to view accounts and permissions are not visible. " %}
+{% include note.html content="You must have **Accounts** permission to view and manage accounts, groups, permissions, and API tokens in Wavefront. If you don't have **Accounts** permission, the UI menu selections, buttons, and links that you use to view accounts, permissions, and API tokens are not visible. " %}
 
 
 ## What Are User Accounts?
 
 User accounts log in with a user name and password.
 * All authenticated users can perform certain tasks such as viewing dashboards and charts or sharing links to charts.
-* **Roles** determine what users can do globally. Each role has one or more permissions. For example, assume that you have created an **Interns** role that has **Dashboard** permissions. All users with the **Interns** role can view and manage all dashboards.
+* **Roles** determine what users can do globally. Each role has one or more permissions. For example, assume that you have created an **Interns** role that has the **Dashboard** permission. All users with the **Interns** role can view and manage all dashboards.
 * **[Access](access.html)** applies to individual objects. For example, some users don't have access to a dashboard with financial data. Users who have modify access for a dashboard or alert can grant or revoke access for that object.
 
 ## Create, Edit, and Delete User Accounts
@@ -71,26 +72,26 @@ When you invite a new (human) user to Wavefront, what that new user can do depen
   * Share links to dashboards and charts with other users.
   * Access the user profile from the gear icon <i class="fa fa-cog"/> on the taskbar.
 
-{% include note.html content="It's possible that [access to dashboards and alerts](access.html#how-access-control-works) is limited." %}
+  {% include note.html content="It's possible that [access to dashboards and alerts](access.html#how-access-control-works) is limited." %}
 
 
-- **New User Permissions:** Users with **Accounts** permission can view and modify new user default permissions. To do that, from the gear icon <i class="fa fa-cog"/> on the taskbar, select **Organization Settings**. These permissions *do not* apply to service accounts.
-- **New User Default Groups:** Users with **Accounts** permission can set up a default groups for new users. To do that, from the gear icon <i class="fa fa-cog"/> on the taskbar, select **Organization Settings**.  All new user accounts get all permissions assigned to the default user groups. These permissions *do not* apply to service accounts.
+- **New User Permissions:** Users with the **Accounts** permission can view and modify new user default permissions. To do that, from the gear icon <i class="fa fa-cog"/> on the taskbar, select **Organization Settings**. These permissions *do not* apply to service accounts.
+- **New User Default Groups:** Users with the **Accounts** permission can set up default groups for new users. To do that, from the gear icon <i class="fa fa-cog"/> on the taskbar, select **Organization Settings**.  All new user accounts get all permissions assigned to the default user groups. These permissions *do not* apply to service accounts.
 
 ## Set Default Permissions for New Users
 
 You can set default permissions for new users. By default, all new users can perform a set of new user actions discussed above. In addition, you can create a set of default permissions that are assigned to every new user added to the system later on:
 
 1. Click the gear icon <i class="fa fa-cog"/> on the taskbar and select **Organization Settings**.
-2. On the **New Accounts Defaults** tab select the set of permissions you want to grant to new users.
+2. On the **New Accounts Defaults** tab, select the set of permissions you want to grant to new users.
 
 The default permissions affect only new user accounts that you create after you made the change. They do not affect service accounts.
 
-**Note:** In many cases, it makes sense to create a group with permissions for new users, and to set that group as the default for new users.
+{% include note.html content="In many cases, it makes sense to create a group with permissions for new users, and to set that group as the default for new users." %}
 
 ## Set the Default User Group for New Users
 
-Each new user is assigned to the Everyone group.
+Each new user is assigned to the **Everyone** group.
 
 To add any new user to additional groups:
 

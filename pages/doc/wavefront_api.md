@@ -75,7 +75,7 @@ Wavefront allows [user accounts](user-accounts.html) and [service accounts](serv
 
 ### Managing the API Tokens for Your Organization
 
-As a Wavefront administrator, you generate API tokens for service accounts and manage the API tokens for all user or service accounts in your organization.
+As a Wavefront administrator, you generate API tokens for service accounts and manage the API tokens for all user and service accounts in your organization.
 
 #### Generate an API Token for a Service Account
 You can generate API tokens for [service accounts](service-accounts.html) upon creation or at a later stage. To generate an API token for an existing **service account**:
@@ -93,11 +93,11 @@ You can view and revoke the API token for any user or service account in your or
 
 1. Log in to your Wavefront instance as administrator.
 2. In the Wavefront UI, click the gear icon <i class="fa fa-cog"/>  at the top right of the taskbar and select **Accounts**.
-3. Click the **API Tokens** tab to see the list of all API tokens for all user and service accounts in a table format.
-4. Examine or find a particular API token:
-- Sort the API tokens table by column.
-- Filter the API tokens by an account type, usage, or your saved search.
-- Search and save your searches.
+3. Click the **API Tokens** tab to see all API tokens for all user and service accounts in a table format.
+4. To examine the IP tokens or find a particular API token:
+- Sort the API tokens table by a column.
+- Filter the API tokens by an account type, usage, particular accounts, or your saved search.
+- Search and, optionally, save your search.
 5. To revoke an API token, click the ellipsis in front of the token and select **Revoke**. Revoking a token cannot be undone. A script that uses a revoked token returns an authorization error.
 
 ![View the API Tokens](/images/API_tokens.png)
