@@ -167,7 +167,7 @@ By default, metrics that stopped reporting 4 weeks ago are not included in the c
 1. Navigate to a dashboard and click the ellipsis icon in the top right corner of the dashboard.
 2. Select **Edit**.
 3. Click **Settings**.
-4. Select the **Include Obsolete Metrics** check box.
+4. Click **Advanced** and select the **Include Obsolete Metrics** check box.
 5. Click **Accept** and click **Save**.
 
 **To exclude obsolete metrics on a dashboard level**:
@@ -177,6 +177,7 @@ Dashboards on which inclusion of obsolete metrics is turned on have a warning ba
 
 1. Navigate to the dashboard.
 2. In the banner on top, click **View Settings**.
+3. Click **Advanced**.
 4. Deselect the **Include Obsolete Metrics** check box.
 5. Click **Accept** and click **Save**.
 

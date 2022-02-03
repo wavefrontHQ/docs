@@ -47,10 +47,6 @@ The Wavefront Usage integration includes the following dashboards:
 </tbody>
 </table>
 
-<!---
-* **Wavefront Service and Proxy Data** provides visibility into your use of the Wavefront service via internal metrics that we collect for you automatically. Preconfigured charts monitor the data ingestion rate for points, spans and distributions, the data scan rate, and different proxy metrics.
-* **Wavefront Namespace Usage Explorer** tracks the number of metrics received for the first 3 levels of your metric namespace. You can also view the breakdown of histograms, spans and delta counters.
-* **PPS P95 Usage Dashboard** displays a detailed breakdown of your monthly usage. This enables you to take appropriate action when usage reaches around 95% of your target/committed usage.--->
 
 ### Wavefront Service and Proxy Data Dashboard
 
@@ -63,37 +59,41 @@ The charts show internal metrics information and allow you to examine many aspec
 
 The Overall Data Rate section shows the overall point rate being processed by the Wavefront servers.
 
-![overall_section](images/overall_section.png)
+![Overall data rate section. Contains charts for data ingestion rate per points, spans and distributions, as well as data scan rate charts.](images/overall_section.png)
 
 These charts use the following metrics:
 
 - **Data Ingestion Rate**
-   - `~collector.points.reported` -- points coming from the proxy.
-   - `~collector.direct-ingestion.points.reported` -- points coming through direct ingestion.
-   - `~collector.delta_points.reported` -- delta counter points.
-   - `~externalservices.<*>.points` -- per-second rate at which Wavefront ingests new points from cloud integrations such as AWS, GCP, and Azure.
+   - `~collector.points.reported` -- Points coming from the proxy.
+   - `~collector.direct-ingestion.points.reported` -- Points coming through direct ingestion.
+   - `~collector.delta_points.reported` -- Delta counter points.
+   - `~externalservices.<*>.points` -- Per-second rate at which Wavefront ingests new points from cloud integrations such as AWS, GCP, and Azure.
 
    For example, use `~externalservices.ec2.points` for the EC2 points.
-   - `externalservices.points.reported` -- shows how you get billed for external services.
+   - `externalservices.points.reported` -- Shows how you get billed for external services.
+
 - **Data Scan Rate**
-  - `~query.metrics_scanned`, the per-second rate at which metrics are being queried through dashboards, custom charts, derived metrics, or API calls.
-  - `~query.spans_scanned`, the per-second rate at which spans are being queried through dashboards, custom charts, or API calls.
-<<<<<<< HEAD
-  - `~query.histograms_scanned`, the per-second rate at which histograms are being queried through dashboards, custom charts, or API calls.
-=======
-  - `~query.histograms_scanned`, the per-second rate at which histograms are being queried through dashboards, custom charts, derived metrics, or API calls. 
->>>>>>> 243e88b40bbafda3dc571c849b8734f2f856c869
+  - `~query.metrics_scanned` -- The per-second rate at which metrics are being queried through dashboards, custom charts, derived metrics, or API calls.
+  - `~query.spans_scanned` -- The per-second rate at which spans are being queried through dashboards, custom charts, or API calls.
+  - `~query.histograms_scanned` -- The per-second rate at which histograms are being queried through dashboards, custom charts, derived metrics, or API calls. 
+
+#### Wavefront Stats and Alert Stats
+
+Charts that track the number of Wavefront users during various time windows, the number of dashboards and alerts, and also provide information about the state and types of alerts.
+
+These charts use the following metrics: 
+
+- `~wavefront.alerts.*` -- Count, states, and types of the alerts.
+- `~wavefront.dashboard.*`  -- Metrics related to the number of dashboard views.
+- `~wavefront.dashboards.*` -- Total count of the dashboards, number of the custom dashboards, and number of deleted dashboards.
+- `~wavefront.maintenancewindows.*` -- Number of the active and future maintenance windows, as well as the total number of maintenance windows.
+- `~wavefront.serviceAccounts.*` -- Number of the active, inactive, and deleted service accounts.
+- `~wavefront.users.*` -- Metrics related to the user accounts and their activities.
 
 
-#### Wavefront Stats
+<!--#### AWS Integration
 
-Charts that track the number of Wavefront users during various time windows, number of dashboards and alerts, and information about the types of alerts.
-
-![wavefront metrics](images/wavefront_metrics.png)
-
-#### AWS Integration
-
-If you have an [AWS integration](integrations_aws_metrics.html) and are ingesting AWS CloudWatch, CloudTrail, and API Metrics+ metrics into Wavefront, this section monitors the count of CloudWatch requests, API requests, the point rate, and events coming in from your integration.
+If you have an [AWS integration](integrations_aws_metrics.html) and are ingesting AWS CloudWatch, CloudTrail, and AWS Metrics+ metrics into Wavefront, this section monitors the count of CloudWatch requests, API requests, the point rate, and events coming in from your integration.
 
 ![aws_metric_sections](images/aws_metric_sections.png)
 
@@ -105,19 +105,27 @@ The available metrics for the AWS integration are:
 - `~externalservices.cloudtrail.events` - number of CloudTrail events returned.
 - `~externalservices.cloudwatch-cycle-timer` - time in milliseconds CloudWatch requests take to complete.
 
+-->
+
 #### Ingest Rate by Source
 
 This section gives insight into the shape of your data. It shows the total number of sources reporting. It also monitors the rate of metrics creation and breaks it down by source.
 
-![point_rate breakdown](images/point_rate_breakdown.png)
+![Ingestion rate by source showing a chart with the number of reporting sources and the top 20 sources.](images/point_rate_breakdown.png)
 
 The metrics used in this section are:
 
-- `~metric.counter` - Number of metrics being collected. Does not include internal metrics.
+- `~metric.counter` -- Number of metrics being collected. Does not include internal metrics.
 
    If you're interested in histogram ingestion by source, clone this dashboard and add a chart that uses the `~histogram.counter` metric.
 
-- `~histogram.counter` - Number of histograms being collected. Does not include internal histogram data.
+- `~histogram.counter` -- Number of histograms being collected. Does not include internal histogram data.
+
+#### Rate of New Data Creations
+
+Gives insight into the newly created data, such as metrics, sources, point tags, delta counters, histograms and spans.
+
+![Rate of new data creations section of the dashboard.](images/new_data_creations.png)
 
 
 ### Wavefront Metric Namespace Usage Explorer Dashboard
@@ -126,7 +134,7 @@ This dashboard helps you drill down into the metrics namespace and explore the *
 
 Wavefront automatically tracks the number of metrics received for the first 3 levels of your metric namespace as delta counters, which can be queried with `cs(~metric.global.namespace.*)`. The period (`.`) character separates the levels. For example for a metric named `disk.space.total.bytes`, the first level is disk, the second is space, and the third is total. This dashboard includes chart to explore those metrics and trends.
 
-![screenshot of part of dashboard](/images/metrics_breakdown.png)
+![Screenshot of the Overview section of the Wavefront Namespace Usage Explorer dashboard.](/images/metrics_breakdown.png)
 
 ### Wavefront Ingestion Policy Explorer Dashboard
 
@@ -136,7 +144,7 @@ Wavefront supports creation of ingestion policies. You create policies and assig
 
 The dashboard includes a link to the **Ingestion Policies** page so if you are a Super Admin, you can create, examine, or modify [ingestion policies](ingestion_policies.html).
 
-![screenshot of part of the dashboard](/images/ingestion_pps_usage_breakdown.png)
+![Screenshot of part of the Ingestion Policy Explorer dashboard](/images/ingestion_pps_usage_breakdown.png)
 
 
 ### Committed Rate vs Monthly Usage (PPS P95) Dashboard
@@ -152,22 +160,27 @@ For example:
 
 {% include note.html content="The information contained in the **Usage Summary** and the **Wavefront Ingestion Policy Explorer** dashboards have a 24-hour latency."%}
 
-![screenshot of part of the dashboard](/images/p95_dashboard.png)
+![Screenshot of part of the Committed Rate vs Monthly Usage (PPS P95) dashboard](/images/p95_dashboard.png)
 
 ## Scenario: Avoid Exceeding the Committed Rate
 
 Customers often tell us that they want to make sure they don't exceed their committed monthly PPS (points per second). Follow these steps to monitor usage and take corrective action.
 
-1. The new **Committed Rate vs Monthly Usage (PPS P95)** dashboard includes charts that show how close you are to consuming 95% of your contracted rate. You can add alerts to charts in this dashboard to get notifications.
+1. The **Committed Rate vs Monthly Usage (PPS P95)** dashboard includes charts that show how close you are to consuming 95% of your contracted rate. You can add alerts to charts in this dashboard to get notifications.
 2. If you need to reduce usage, you have several options:
-   * Start examining ingestion from the **Wavefront Service and Proxy Data** dashboard. The [internal metrics](wavefront_monitoring.html#internal-metrics-overview) shown in this dashboard highlight.
-   * Use the **Wavefront Namespace Usage Explorer** dashboard to drill down into the metrics. Wavefront automatically tracks the number of metrics received for the first 3 levels of your metric namespace as delta counters, and this dashboard presents the metrics in an easy-to-use way.
-   * Finally, if you suspect that much of your usage comes from certain accounts (user or service accounts). consider setting up one or more [ingestion policies](ingestion_policies.html). 
+   * Start examining ingestion from the **Wavefront Service and Proxy Data** dashboard. 
+   
+     The [internal metrics](wavefront_monitoring.html#internal-metrics-overview) shown in this dashboard highlight.
+   * Use the **Wavefront Namespace Usage Explorer** dashboard to drill down into the metrics. 
+   
+     Wavefront automatically tracks the number of metrics received for the first 3 levels of your metric namespace as delta counters, and this dashboard presents the metrics in an easy-to-use way.
+   * [Examine the overall usage of your Wavefront service](examine_usage.html).
+   * Finally, if you suspect that much of your usage comes from certain accounts (user or service accounts), consider setting up one or more [ingestion policies](ingestion_policies.html).  
 
 
 ## Examine Versions of Dashboards and Alerts
 
-Wavefront stores details about each version of each dashboard and each alert. That means you have an audit trail of changes. When someone saves changes to a dashboard or alert, we create a new version and track the changes, including details about the change and the user who made the change.
+Wavefront stores details about each version of each dashboard and each alert. That means you have an audit trail of changes. When someone saves changes to a dashboard or alert, we create a new version and track the changes, including details about the change and the user who made the change. If you suspect that someone has made changes to a dashboard which results in higher usage, you can check who made the change and what is changed. 
 
 You can examine dashboard and alert versions from the UI or using the REST API.
 
@@ -177,7 +190,7 @@ You can examine dashboard and alert versions from the UI or using the REST API.
 2. Click the three vertical dots to the left of the dashboard you're interested in and select **Versions**.
 3. You can review the changes to the dashboard, revert to a previous version, or clone a previous version.
 
-![dashboard versions](images/dashboard_versions.png)
+![A screenshot of the table showing the Dashboard versions. Contains columns with the version number, user who updated the dashboard, date of the update, and descriptions of the changes.](images/dashboard_versions.png)
 
 The process is the same for alerts.
 
