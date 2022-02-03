@@ -37,7 +37,7 @@ In February, all v1 dashboards and charts will be migrated to v2. Users can no l
 
 ## 2022-03.x Release Notes
 
-We have added a new **API Tokens** permission for user accounts. This change **does not** affect service accounts.
+We have added a new **API Tokens** permission for user accounts. This change **does not** affect service accounts. 
 
 {% include important.html content="All existing users, who were previously able to generate their own API tokens, can still use and manage their existing API tokens. However, going forward, only users who have the **API Tokens** permission can generate new API tokens. "%}
 
