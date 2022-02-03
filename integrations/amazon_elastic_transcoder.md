@@ -103,4 +103,4 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
-<h2>Alerts</h2>  <ul><li markdown="span"><b>EC2 instance CPU usage too high</b>:Alert reports when the EC2 instance CPU utilization constantly exceeds the defined limit.</li><li markdown="span"><b>EC2 instance status check failed</b>:Alert reports when the EC2 status check constantly fails.</li></ul>
+<h2>Alerts</h2>  <ul><li markdown="span"><b>EC2 Instance CPU Usage Too High</b>:Alert reports when the EC2 instance CPU utilization constantly exceeds the defined limit.</li><li markdown="span"><b>EC2 Instance Status Check Failed</b>:Alert reports when the EC2 status check constantly fails.</li></ul>
