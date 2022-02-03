@@ -81,6 +81,8 @@ We're excited about this contribution and hope to see more soon!
 
 Before setting up an integration, you can look into our demo dashboards. These demo dashboards are for our most used integrations and contain some sample (sandbox) data. You can explore the data and look how the dashboards work. As these are demo dashboards, you cannot edit them.
 
+ {% include note.html content="The Sample Data Dashboards are currently available to some of our customers. They will become available to all customers within the next releases."%}
+
 1. Click **Integrations** on the taskbar.
    
    ![Sample data dashboards section preview](images/integrations-sample-dashboards.png)
