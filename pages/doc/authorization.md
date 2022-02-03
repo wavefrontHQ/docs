@@ -58,7 +58,7 @@ In this example, we can assign the Demo role to the Admin Group. Or we can creat
 <p>Assigning roles or permissions to individual users is also supported.
 <br>
 <br>
-For example, assume the marketing team asks Pat to give a demo, and Pat is assigned the Demo role and now has **Dashboards** permission.</p></td>
+For example, assume the marketing team asks Pat to give a demo, and Pat is assigned the Demo role and now has <strong>Dashboards</strong> permission.</p></td>
 <td width="50%">
 <img src="/images/permissions_user_level.png" alt="permissions user level"/></td>
 </tr>
