@@ -33,6 +33,10 @@ In February, all v1 dashboards and charts will be migrated to v2. Users can no l
 
    {% include important.html content="Dashboard performance might suffer if you include obsolete metrics. Using the setting for individual charts is recommended."%}
    
+* **New Sample Data Dashboards**: We have added new sample data dashboards, that allow you to investigate integrations dashboards and charts that contain sample data for our most used integrations. For details see: [Get to know our integration dashboards](https://docs.wavefront.com/integrations.html#get-to-know-the-integration-dashboards).
+  
+   {% include note.html content="The Sample Data Dashboards are currently available to some of our customers. They will become available to all customers within the next releases."%}
+
 * **Set Up and Manage the AWS Integration by Using the API**: Learn how you can [use the Wavefront API to set up and manage the AWS integration](integrations_aws_overview_API.html).
 
 ## 2022-03.x Release Notes
