@@ -10,7 +10,7 @@ As a Wavefront Super Admin, you're interested in how ingested data is used, whet
 
 You can examine the performance of your Wavefront instance using [wftop, Wavefront spy](wavefront_monitoring_spy.html), and the [Slow Queries dashboard](wavefront_monitoring.html#examine-slow-queries). 
 
-You can also see how data is used by specific accounts or groups, based on the [ingestion policies](ingestion_policies.thml) that you create.
+You can also see how data is used by specific accounts or groups, based on the [ingestion policies](ingestion_policies.html) that you create.
 
 {% include note.html content="The new Usage Portal and Ingestion Policy functionality is currently available to some of our customers. It will become available to all customers within the next releases."%}
 
