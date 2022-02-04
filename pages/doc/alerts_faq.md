@@ -17,7 +17,8 @@ The alert condition is the currently selected query. In multi-query alerts, you 
 ## How Often Does Wavefront Evaluate the Alert Condition?
 The minimum and default **Checking Frequency** interval is 1 minute. You can adjust this property from the **Additional Settings** in the **Conditions** section of the alert.
 
-  * If your data points are coming much less frequently than once a minute, consider increasing the checking frequency interval. For example, if the query metrics report every 10m, set the **Checking Frequency** interval to 10m.
+  * If your alert condition query runs more than a minute, consider increasing the checking frequency interval. For example, if the query runs 2-4 minutes, set the **Checking Frequency** interval to 5 minutes.
+  * If your data points are coming much less frequently than once a minute, consider increasing the checking frequency interval. For example, if the query metrics report every 10 minutes, set the **Checking Frequency** interval to 10 minutes.
   * If an alert is non-critical, you can check only as much as needed.
   * If an alert condition uses larger moving time windows or aligns to a large interval, you can check less frequently. For example, an alert that compares a `mavg(6h, ...)` to `mavg(48h, ...)` can be safely checked once an hour or even less.
 
