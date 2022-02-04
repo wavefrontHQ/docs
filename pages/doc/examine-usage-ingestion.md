@@ -8,7 +8,7 @@ summary: Monitor overall usage for a given time period.
 
 As a Wavefront Super Admin, you're interested in how ingested data is used, whether you will be billed for more data, and whether you will need to request more data. Billing is based on the amount of data, measured in Points per Second (PPS), which you send to Tanzu Observability by Wavefront. If you exceed your committed rate, you will be charged more.
 
-You can examine the performance of your Wavefront instance using [wftop, Wavefront spy](wavefront_monitoring_spy.html), and the [Slow Queries dashboard](wavefront_monitoring.html#examine-slow-queries). 
+You can examine the performance of your Wavefront instance using [wftop, Wavefront spy](wavefront_monitoring_spy.html), and the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response). 
 
 You can also see how data is used by specific accounts or groups, based on the [ingestion policies](ingestion_policies.html) that you create.
 
