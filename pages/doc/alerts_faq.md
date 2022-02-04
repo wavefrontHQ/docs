@@ -40,14 +40,14 @@ Let’s look at an example over a single minute in the checking interval. Suppos
 After the alert evaluation, Wavefront has a list of `N` minutely values, one value for each minute in the checking interval. Each of the `N` values can be either `true`, `false`, or `no data`.
   
 ## When Does an Alert Fire?
-Wavefront reviews all minutely values from the alert evaluations during the alert trigger window. If the alert condition returned *at least one* `true` value and *no* `false` minutely values during the alert trigger window, Wavefront switches the alert state from CHECKING to FIRING. 
+If the alert condition returned *at least one* `true` value and *no* `false` minutely values during the alert trigger window, Wavefront switches the alert state from CHECKING to FIRING. 
 
 The default **Trigger Window** is 5 minutes. You can adjust this property from condition settings.
 
 If your metric is backfilled in chunks, for example, if the metric is backfilled in 10-minute chunks, avoid setting **Trigger Window** to less than 10 minutes, or use [moving time window functions](query_language_reference.html#moving-window-time-functions) to make sure that all the incoming data is visible to the alert.
 
 ## When Does a Firing Alert Resolve?
-Wavefront reviews all minutely values from the alert evaluations during the alert resolve window. If the alert condition didn't return *any* `true` minutely values during the alert resolve window, Wavefront returns the alert state from FIRING to CHECKING.
+If the alert condition didn't return *any* `true` minutely values during the alert resolve window, Wavefront returns the alert state from FIRING to CHECKING.
 
 The default **Resolve Window** is the same as the **Trigger Window**. You can adjust this property from the condition setting.
 
