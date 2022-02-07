@@ -487,6 +487,24 @@ See [Control Event Overlays](charts_events_displaying.html#control-event-overlay
 [Dynamic dashboard variables](dashboards_variables.html#dynamic-dashboard-variables) are used to display a list of possible values to the end user. The values are computed by a query.
 
 Avoid using expensive queries in dynamic dashboard variables. If the query for the dynamic dashboard variable is complex, it slows down the dashboard loading. Keep queries simple, and consider using a [derived metric](derived_metrics.html), which uses a query that has already been executed and stored.
+
+### Turn off Dynamic Dashboard Variable Live Refresh
+
+When a dashboard has a lot of variables with interdependencies, it might make sense to turn off live refresh for dynamic variables. Only users with **Dashboards** permission can toggle this setting.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+<ol><li>Open the dashboard for edit, either from the Dashboards browser or from the ellipsis icon in the top right of the dashboard..  </li>
+<li>Click <strong>Settings</strong> </li>
+<li>Check <strong>Disable Variable Refresh in Live Mode</strong>. </li></ol>
+<p>Going forward, you won't see the potentially distracting refresh of each chart. Refresh your browser to refresh all variables.</p></td>
+<td width="50%">
+<img src="/images/variable_refresh.png " alt="save to dashboard"></td>
+</tr>
+</tbody>
+</table>
  
 
 ## Troubleshooting

@@ -26,9 +26,11 @@ In February, all v1 dashboards and charts will be migrated to v2. Users can no l
   - New Runbooks and Triage Dashboard fields help alert recipients resolve the alert.
   - Alert notifications include actionable insights.
 
-See [FAQ for Alerts v2](faq_alerts_v2.html), watch the [Create Alert Video] , or look at the new [Create Alert Tutorial](alerts_manage.html#create-alert-tutorial) .
+  See the [FAQ for Alerts v2](faq_alerts_v2.html), watch the [Create Alert Video], or look at the new [Create Alert Tutorial](alerts_manage.html#create-alert-tutorial) .
 
-{% include tip.html content="When you open an existing alert for edit, you'll see it in alerts v2 GUI. However, all APIs work as before. See [FAQ for Alerts v2](faq_alerts_v2.html). "%}
+  {% include tip.html content="When you open an existing alert for edit, you'll see it in alerts v2 GUI. However, all APIs work as before. See [FAQ for Alerts v2](faq_alerts_v2.html). "%}
+
+* **Turn off Dynamic Dashboard Variable Live Refresh**. Users with **Dashboard** permissions can now toggle whether a dashboard that shows live data performs [refresh of dynamic variables](ui_dashboards.html#turn-off-dynamic-dashboard-variable-live-refresh).
 
 ## 2022-04.x Release Notes
 
