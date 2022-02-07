@@ -1,6 +1,7 @@
 ---
 title: Examine the Overall Usage of Your Wavefront Service
 tags: [administration, dashboards]
+published: false
 sidebar: doc_sidebar
 permalink: examine_usage.html
 summary: Monitor overall usage for a given time period.
