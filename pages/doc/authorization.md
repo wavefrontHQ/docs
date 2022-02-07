@@ -9,7 +9,7 @@ summary: Learn about authorization of Wavefront groups and users.
 
 Wavefront supports both role-based control that use global permissions and object-based access control for individual dashboards and alerts.
 
-Administrators can:
+Wavefront users with the **Accounts** permission can:
 
 * Create **[roles](users_roles.html)** with permissions and assign roles to users or groups.
 * Protect individual dashboards or alerts and grant **[access](access.html)** only to selected groups or accounts.
@@ -58,7 +58,7 @@ In this example, we can assign the Demo role to the Admin Group. Or we can creat
 <p>Assigning roles or permissions to individual users is also supported.
 <br>
 <br>
-For example, assume the marketing team asks Pat to give a demo, and Pat is assigned the Demo role and now has the <b>Dashboards</b> permission.</p></td>
+For example, assume the marketing team asks Pat to give a demo, and Pat is assigned the Demo role and now has <strong>Dashboards</strong> permission.</p></td>
 <td width="50%">
 <img src="/images/permissions_user_level.png" alt="permissions user level"/></td>
 </tr>
@@ -67,10 +67,10 @@ For example, assume the marketing team asks Pat to give a demo, and Pat is assig
 
 ## Access Control for Dashboards and Charts
 
-Our fine-grained **[access control](access.html)** allows administrators to protect sensitive information, for example, to restrict access to certain dashboards to the Finance team.
+Our fine-grained **[access control](access.html)** allows users with the **Accounts** permission to protect sensitive information, for example, to restrict access to certain dashboards to the Finance team.
 
 * **Access control on individual objects** -- While permissions are global and apply, for example, to all dashboards, access control allows you to restrict who can view or view and modify individual objects (initially dashboards and alerts).
-* **Security setting for new objects** -- In high security environments, administrators can set a security setting so that all new dashboards and new alerts are accessible only to the creator and to the Super Admin users.
+* **Security setting for new objects** -- In high security environments, users with the **Accounts** permission can set a security setting so that all new dashboards and new alerts are accessible only to the creator and to the Super Admin users.
 
 ## Metrics Security Policy Rules
 
@@ -78,5 +78,5 @@ Any Super Admin user or users with **Metrics** permission can view, create, and 
 
 Data protected by a metrics security policy rule can become completely invisible to users.
 * **Not visible in charts**. The chart either includes a warning that some metrics are protected, or, if all metrics are protected, the chart shows only the message.
-* **Not visible in alerts** (if **Secure Metrics Details** is checked for the alert). The alert fires based on the complete set of metrics, and the complete set is shown in notification images by default. A check box allows administrators to [hide alert details](alerts_notifications.html#alert-notification-with-secured-metrics-details) so that confidential metrics are not shown.
+* **Not visible in alerts** (if **Secure Metrics Details** is checked for the alert). The alert fires based on the complete set of metrics, and the complete set is shown in notification images by default. A check box allows users with the **Accounts** permission to [hide alert details](alerts_notifications.html#alert-notification-with-secured-metrics-details) so that confidential metrics are not shown.
 * **Not visible in auto-complete** in Chart Builder, Query Editor, Metrics browser, etc.

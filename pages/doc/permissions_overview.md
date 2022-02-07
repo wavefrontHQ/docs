@@ -7,7 +7,7 @@ permalink: permissions_overview.html
 summary: Learn about Wavefront permissions.
 ---
 
-Permissions allow administrators to control access to Wavefront feature sets. Administrators can manage permissions for groups or for users.
+Permissions allow administrators to control access to Wavefront feature sets. Users with the **Accounts** permission can manage permissions for groups or for users.
 
 {% include note.html content="Every Wavefront user can [perform certain tasks](user-accounts.html#what-can-a-new-user-do). However, you must have the appropriate permission to manage objects. If you do not have permission, UI menu selections and buttons required to perform management tasks are not visible." %}
 
@@ -17,11 +17,11 @@ The following list gives an overview of permissions. To learn more, click the li
 
 - **[API Tokens](users_account_managing.html#generate-an-api-token)**
 
-    A user with the **API Tokens** permission can [generate API tokens](users_account_managing.html#generate-an-api-token) for their user account. Service accounts *cannot* have this permission because only a Wavefront administrator can generate API tokens for service accounts.
+    A user with the **API Tokens** permission can [generate API tokens](users_account_managing.html#generate-an-api-token) for their user account. Service accounts *cannot* have this permission because only users with the **Accounts** permission can generate API tokens for service accounts.
 
 - **[Accounts](users_roles.html)** 
     
-    Users with the **Accounts** permission can manage user and service accounts. They can create groups and add accounts to groups, create roles and assign permissions to those roles, and assign roles to groups. They can manage the API tokens of all accounts.
+    Users with the **Accounts** permission can manage user and service accounts. They can create groups and add accounts to groups, create roles and assign permissions to those roles, and assign roles to groups. They can generate API tokens for service accounts and manage the API tokens of all user and service accounts.
     
 - **[Alerts](alerts.html)** 
 
