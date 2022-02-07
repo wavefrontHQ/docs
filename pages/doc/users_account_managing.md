@@ -56,8 +56,8 @@ You can limit the number of time series to 100 for new charts by changing the **
 ## Examine Groups, Roles, and Permissions
 
 If you can't perform a certain task, it's possible that you don't have the necessary [permissions](permissions_overview.html).
-* Wavefront administrators usually [create roles](users_roles.html), which are sets of permissions, and assign one or more roles to a group.
-* Administrators can assign roles or permissions explicitly to individual users.
+* Wavefront users with the **Accounts** permission usually [create roles](users_roles.html), which are sets of permissions, and assign one or more roles to a group.
+* Wavefront users with the **Accounts** permission can assign roles or permissions explicitly to individual users.
 
 Permissions are additive:
 * If you belong to a group with 2 roles, you get the permissions from both roles.
@@ -77,7 +77,7 @@ You can check the permissions you have and see which groups you belong to.
 
 Wavefront allows [user accounts](user-accounts.html) and [service accounts](service-accounts.html) to interact with your Wavefront instance using the [Wavefront REST API](wavefront_api.html).
 
-{% include tip.html content="You generate API tokens for user accounts explicitly. For service accounts, a Wavefront administrator can generate tokens from the Service Accounts page." %}
+{% include tip.html content="You generate API tokens for user accounts explicitly. For service accounts, a Wavefront user with the **Accounts** permission can generate tokens from the Service Accounts page." %}
 
 {% include note.html content="All users can use and manage their existing API tokens. You must have the [API Tokens permission](permissions_overview.html) to generate new API tokens for your user account." %}
 
