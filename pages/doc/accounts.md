@@ -9,7 +9,7 @@ summary: Create and manage user accounts.
 You can manage authorization in your Wavefront environment by:
 * Assigning and revoking roles for groups or accounts to give **global** permissions.
 * Granting and revoking access to **individual objects** (initially dashboards and alerts) for accounts and groups.
-* [Managing API tokens](wavefront_api.html#managing-the-api-tokens-for-your-organization).
+* [Managing API tokens](wavefront_api.html#managing-api-tokens).
 
 Wavefront supports:
 * User accounts, discussed here, which authenticate with a username and password. For API access, user accounts authenticate with API tokens.
