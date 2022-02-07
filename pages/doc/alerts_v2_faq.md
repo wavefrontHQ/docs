@@ -7,7 +7,7 @@ summary: What has changed? What are some tips and tricks?
 ---
 
 Wavefront users have asked for a more streamlined alert creation experience, and we're rolling it out to all users.
-* Going forward, all alerts will show up in the new alert GUI.
+* Going forward, all alerts will appear in the new alert GUI.
 * Under the covers, alerts work the same. But we're including this FAQ to help current alert users.
 
 {% include note.html content="Every Wavefront user can view alerts and make temporary changes. You must have the Alerts permission to save changes to alerts." %}

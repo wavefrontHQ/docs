@@ -13,7 +13,7 @@ All Wavefront users can [examine alerts and drill down to find the problem](aler
 
 ## Create Alert Video
 
-Users with Alerts permission follow a step-by-step process to create an alert. Watch this 90 second video.
+Users with Alerts permission follow a step-by-step process to create an alert. Watch this 90 second video. You can also watch the video <a href="https://bcove.video/3o9bu6L" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
 
 <p>
 <iframe src="https://bcove.video/3o9bu6L" width="700" height="400" allowfullscreen="true" alt="creating alerts with step-by-step process"></iframe>
@@ -425,6 +425,7 @@ Each time you save an alert, you create an alert version. Up to 100 versions are
 
 ## Do More!
 
+* Look at the [Alerts v2 FAQ](alerts_v2_faq.html)
 * Learn about [alert states and life-cycle](alerts_states_lifecycle.html).
 * The [Alert Viewer Tutorial](alerts.html#alert-viewer-tutorial) shows how to examine a single alert.
 * The [Alerts Browser Tutorial](alerts.html#alerts-browser-tutorial) explains how you can examine and manage all alerts in your environment.
