@@ -8,7 +8,7 @@ summary: Control access to individual dashboards and alerts.
 ---
 The roles, permissions, and groups authorization paradigm manages global permissions. For example, a user with **Dashboards** permission can manage *all* dashboards. This paradigm is sufficient for many Wavefront customers.
 
-Administrators who need finer-grained control can manage access on a per-object basis. We currently support access control for dashboards and alerts.
+Super Admins or users with the **Accounts** permission who need finer-grained control can manage access on a per-object basis. We currently support access control for dashboards and alerts.
 
 {% include note.html content="Permission and access control are additive. To make changes to a dashboard, you must have the **Dashboards** permission and View and Modify access for that dashboard" %}
 

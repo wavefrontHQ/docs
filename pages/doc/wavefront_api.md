@@ -58,7 +58,7 @@ a411c16b-3cf7-4f03-bf11-8ca05aab898d
 ```
 Wavefront allows [user accounts](user-accounts.html) and [service accounts](service-accounts.html) to use the [Wavefront REST API](wavefront_api.html).
 
-{% include tip.html content="You generate API tokens for user accounts explicitly. For service accounts, a Wavefront administrator can generate tokens from the Service Accounts page." %}
+{% include tip.html content="You generate API tokens for user accounts explicitly. For service accounts, a Wavefront user with the **Accounts** permission can generate tokens from the Service Accounts page." %}
 
 #### Generate an API Token for Your User Account
 
@@ -77,7 +77,9 @@ Wavefront allows [user accounts](user-accounts.html) and [service accounts](serv
 
 #### Generate an API Token for a Service Account
 
-As a Wavefront administrator you generate API tokens for [service accounts](service-accounts.html) upon creation. You can also generate an API token at a later stage. To generate an API token for an existing **service account**:
+{% include note.html content="You must have the [Accounts permission](permissions_overview.html) to generate API tokens for your service accounts." %}
+
+You generate API tokens for [service accounts](service-accounts.html) upon creation. You can also generate an API token at a later stage. To generate an API token for an existing **service account**:
 
 1. In the Wavefront UI, click the gear icon <i class="fa fa-cog"/>  at the top right of the taskbar and select **Accounts**.
 2. On the **Service Accounts** tab, click the ellipsis icon next to the service account for which you want to generate an API token, and select **Edit**.
