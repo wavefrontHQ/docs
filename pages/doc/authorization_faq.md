@@ -11,7 +11,7 @@ summary: Before you start with managing users, groups, roles and access to Wavef
 
 Wavefront supports two account types:
 * [**User accounts**](user-accounts.html) are for human users who work with Wavefront. A user account authenticates with a user name and password.
-* [**Service accounts**](service-accounts.html) are for services that interact with Wavefront through an API and use a **token** to authenticate. Service accounts are used to automate management tasks. As an administrator, you generate (and revoke, if needed) authentication tokens for the service account. It’s also possible to deactivate a service account completely. 
+* [**Service accounts**](service-accounts.html) are for services that interact with Wavefront through an API and use a **token** to authenticate. Service accounts are used to automate management tasks. As a user with the **Accounts** permission, you generate (and revoke, if needed) authentication tokens for the service account. It’s also possible to deactivate a service account completely. 
  Service accounts:
   - Don't have **default permissions** (unless one or more roles with permissions are assigned to the **Service Accounts** group.).
   - Can't perform the **UI operations** that user accounts can perform by default.

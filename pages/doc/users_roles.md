@@ -7,12 +7,12 @@ permalink: users_roles.html
 summary: Manage global permissions with roles.
 ---
 
-Administrators use roles to fine-tune authorization in the Wavefront environment:
+Users with the **Accounts** permission use roles to fine-tune authorization in the Wavefront environment:
 1. Create one or more **roles** and assign one or more [permissions](permissions_overview.html) to each role.
 2. Create one or more **groups** and add one or more accounts to each group. Accounts can be user accounts or service accounts.
 3. Assign one or more roles to each group. It's also possible to assign a role to individual users.
 
-In addition to the global roles and permissions model, Wavefront also supports [access control for individual objects](access.html), for example, administrators can limit access to a sensitive dashboard.
+In addition to the global roles and permissions model, Wavefront also supports [access control for individual objects](access.html), for example, users with the **Accounts** permission can limit access to a sensitive dashboard.
 
 {% include note.html content="You must have **Accounts** permission to view and manage authorization in Wavefront. If you don't have the permission, the corresponding UI menu selections, buttons, and links are not visible." %}
 
