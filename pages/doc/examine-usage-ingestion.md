@@ -16,7 +16,7 @@ You can also see how data is used by specific accounts or groups, based on the [
 
 ## How to Use the Usage Summary Dashboard
 
-You can navigate to the Usage Summary dashboard to get an overview of the ingested and scanned data over a certain month. 
+You can navigate to the Usage Summary dashboard to get an overview of the ingested and scanned data over a certain month. You can go up to 2 years back in time.
 
 1. Log in to your Wavefront instance as a Super Admin user.
 2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage Portal**.
