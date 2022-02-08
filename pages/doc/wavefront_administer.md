@@ -39,4 +39,4 @@ Super Admin users can use the Wavefront Usage integration dashboards to monitor 
 * See whether the ingested metrics are at 95% of the committed rate and optionally get alerts if that happens.
 * In addition, you can create your own dashboards, charts, and alerts by using the internal metrics to investigate the problem.
 
-As a Super Admin user, you can also [monitor the overall Wavefront usage](examine_usage.html) and see how data is used by specific accounts or groups, based on the [ingestion policies](ingestion_policies.html) that you create.
+<!--As a Super Admin user, you can also [monitor the overall Wavefront usage](examine_usage.html) and see how data is used by specific accounts or groups, based on the [ingestion policies](ingestion_policies.html) that you create.-->

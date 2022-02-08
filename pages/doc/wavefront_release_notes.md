@@ -30,8 +30,17 @@ In February, all v1 dashboards and charts will be migrated to v2. Users can no l
 
   {% include tip.html content="When you open an existing alert for edit, you'll see it in alerts v2 GUI. However, all APIs work as before. See [FAQ for Alerts v2](faq_alerts_v2.html). "%}
 
-* **Turn off Dynamic Dashboard Variable Live Refresh**. Users with **Dashboard** permissions can now toggle whether a dashboard that shows live data performs [refresh of dynamic variables](ui_dashboards.html#turn-off-dynamic-dashboard-variable-live-refresh).
+* **Turn off Dynamic Dashboard Variable Live Refresh**: Users with **Dashboard** permissions can now toggle whether a dashboard that shows live data performs [refresh of dynamic variables](ui_dashboards.html#turn-off-dynamic-dashboard-variable-live-refresh).
 
+* **Decimal Precision in Charts**: We have included the **Decimal Precision** setting, and you can specify how many digits to show after the decimal point for a number of charts, such as:
+    * Line Plot
+    * Point Plot
+    * Stacked Area
+    * Stacked Column
+    * Table
+  
+  See the [Chart Reference](ui_chart_reference.html) for details.
+  
 ## 2022-04.x Release Notes
 
 <!--* **Usage Portal**: As more teams use the Tanzu Observability by Wavefront service within an enterprise, the central team (Super Admins) needs a better mechanism to track their points per second (PPS) usage, manage consumption, and also put limits to manage costs.
