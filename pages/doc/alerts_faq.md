@@ -11,7 +11,7 @@ Permissions and access control determine who can view, create, and modify an ale
   * [Permissions](permissions_overview.html) apply to **all alerts**. Users with the **Alerts** permission can create and modify alerts. Users who don’t have the **Alerts** permissions can only view alerts.
   *	[Access control](access.html) applies to **individual alerts**. To view an alert that is under access control, you should be granted **View** or **View & Modify** access for this alert. To modify an alert that is under access control, you should be granted **View & Modify** access for this alert and you should have the **Alerts** permission.
   
-## What’s the Alert Condition
+## What’s the Alert Condition?
 The alert condition is the currently selected query. In multi-query alerts, you can define several queries and use the results of these queries in the condition query, but only the currently selected query will be used as the condition. 
 
 ## How Often Does Wavefront Evaluate the Alert Condition?
@@ -19,11 +19,11 @@ The minimum and default **Checking Frequency** interval is 1 minute. You can adj
 
   * If your alert condition query runs for more than a minute, consider increasing the checking frequency interval. For example, if the query runs for 2-4 minutes, set the **Checking Frequency** interval to 5 minutes.
   * If your data points are coming much less frequently than once a minute, consider increasing the checking frequency interval. For example, if the query metrics report every 10 minutes, set the **Checking Frequency** interval to 10 minutes.
-  * If an alert is non-critical, you can check only as much as needed.
+  * If an alert is non-critical, you can check only as often as needed.
   * If an alert condition uses larger moving time windows or aligns to a large interval, you can check less frequently. For example, an alert that compares a `mavg(6h, ...)` to `mavg(48h, ...)` can be safely checked once an hour or even less.
 
 ## How Does Wavefront Evaluate the Alert Condition?
-Wavefront evaluates the reported value against the alert condition for each minute in the checking interval. If your metric reports more than one value during a particular minute, Wavefront first evaluates each reported value against the alert condition, then performs an *average* aggregation of the results for that minute.
+Wavefront evaluates the reported value against the alert condition for each minute in the checking interval. If your metric reports more than one value during a particular minute, Wavefront first performs an *average* aggregation of the values for that minute, then evaluates the aggregated value against the alert condition.
 
 * If the alert condition is *met* or returns a *non-zero* value, the result is `true`.
 * If the alert condition is *not met* or returns a *zero* value, the result is `false`.
@@ -31,11 +31,8 @@ Wavefront evaluates the reported value against the alert condition for each minu
 
 Let’s look at an example over a single minute in the checking interval. Suppose your alert condition is `ts(my.metric) > 8`.
 
-* If `my.metric` reported the data value of `15` during the minute, Wavefront evaluates the alert condition for this minute as `true` because the statement `15 > 8` returns `1`, i.e. the condition is *met*.
-* If `my.metric` reported the data values of `15`, `6`, and `2` during the minute, Wavefront evaluates the alert condition for this checking interval as `true` because the aggregated average value of the three results (`1`,`0`,`0`) is `0.3`, which is a *non-zero* value considered `true`.
-* If `my.metric` reported the data value of `6` during the minute, Wavefront evaluates the alert condition for this checking interval as `false` because the statement `6 > 8` returns `0`, i.e. the condition is *not met*.
-* If `my.metric` reported the data values of `6`, `6`, and `2` during the minute, Wavefront evaluates the alert condition for this checking interval as `false` because the aggregated average value of the three results (`0`,`0`,`0`) is `0`, which is a *zero* value considered `false`.
-* If there's no data reported during the minute, there's no result from the evaluation.
+* If `my.metric` reported the data value of `15` during the minute, Wavefront evaluates the alert condition for this minute as `true` because the statement `15 > 8` is *met*.
+* If `my.metric` reported the data values of `15`, `6`, and `2` during the minute, Wavefront evaluates the alert condition for this minute as `false` because the statement for the aggregated average value `7.6 > 8` is *not met*.
   
 After the alert evaluation, Wavefront has a list of `N` minutely values, one value for each minute in the checking interval. Each of the `N` values can be either `true`, `false`, or `no data`.
   
@@ -75,7 +72,7 @@ False positive alerts could be due to:
   * Consider the NO DATA state to be normal and take action only when the alert triggers to FIRING, which means the alert sees the presence of reported error data.
   
     {% include note.html content="Wavefront considers a metric *obsolete* after it hasn’t reported any values for 4 weeks, and obsolete metrics *are not* included in alert evaluations by default. To handle alerting on very infrequently reported errors series, on the **Advanced** tab of the **Data** settings of the alert, select the **Include Obsolete Metrics** check box." %}
-  * Use the [default() missing data function](ts_default.html) to correctly handle the omitted value.
+  * Use the [default() missing data function](ts_default.html) to insert a default value depending on how you want to handle the situation where data isn’t being reported.
   * Wrap `count` around the metric, so that the metric is cumulative.
 
 * If your alert monitors *heartbeat* metrics, you should treat the NO DATA state as an *erroneous* state. Consider [configuring an alert to fire when a time series stops reporting](alerts_missing_data.html).
