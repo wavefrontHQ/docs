@@ -67,7 +67,7 @@ Wavefront allows [user accounts](user-accounts.html) and [service accounts](serv
 2. On the **API Access** tab, click **Generate**. You can have up to 20 tokens at any given time.
    If you want to generate a new token but already have 20 tokens, then you must revoke one of the existing tokens.
 3. To revoke a token, click the **Revoke** button for the token. If you run a script that uses a revoked token, the script returns an authorization error.
-4. To add a name or rename an API token, click the Edit icon for the token, enter the name, and press Enter.
+4. To add a name or rename an API token, click the **Edit** icon for the token, enter the name, and press Enter.
 
 ![Generate API Token](/images/generate_token.png)
 
@@ -84,7 +84,7 @@ As a user with the **Accounts** permission, you can generate API tokens for [ser
 4. To generate a new token, in the Tokens section, click **Generate**. You can have up to 20 tokens per service account at any given time.
    If you want to generate a new token but already have 20 tokens, then you must revoke one of the existing tokens.
 5. To revoke a token, click the **Revoke** button for the token. Revoking a token cannot be undone.
-5. To rename an API token, click the Edit icon for the token, enter the name, and press Enter.
+5. To rename an API token, click the **Edit** icon for the token, enter the name, and press Enter.
 6. Select the appropriate permissions for the service account and click **Update**.
 
 ### View and Manage the API Tokens in Your Organization
@@ -99,11 +99,13 @@ As a user with the **Accounts** permission, you can view and revoke the API toke
   
 ![The API Tokens page shows the tokens table, the search field above the table, and the preconfigured filters and the saved searches in the left panel](/images/API_tokens.png)
 
+{% include important.html content="Revoking a token cannot be undone. Any script that uses a revoked token returns an authorization error." %}
+
 On the API Tokens page, you can:
-- Sort the API tokens table by a column.
+- Sort the API tokens table by column.
 - Search and, optionally, save and share your search.
-- Filter the API tokens by an account type, usage, particular accounts, or your saved search.
-- Revoke an API token from the vertical ellipsis for the token. Revoking a token cannot be undone. Any script that uses a revoked token returns an authorization error.
+- Filter the API tokens by account type, usage, particular accounts, or your saved search.
+- Revoke an API token from the vertical ellipsis icon for the token.
 
 
 ## Invoking the API
