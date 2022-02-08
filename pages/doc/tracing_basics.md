@@ -21,7 +21,7 @@ You can use Wavefront tracing dashboards and browsers to:
 
 Watch these videos to listen to our Co-founder Clement Pang introduce distributed tracing with Wavefront, and give updates including improved ingestion options and intelligent sampling:
 
-{% include shared/badge.html content="You need either [Proxy Management permission](permissions_overview.html) or [Direct Data Ingestion permission](permissions_overview.html) to send trace data from your application to Wavefront." %}
+{% include note.html content="You need either [Proxy Management permission](permissions_overview.html) or [Direct Data Ingestion permission](permissions_overview.html) to send trace data from your application to Wavefront." %}
 
 <table style="width: 100%;">
 <tbody>

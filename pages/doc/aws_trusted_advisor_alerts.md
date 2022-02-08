@@ -73,7 +73,7 @@ The alert informs the recipients with this information:
 ```
 Open a support case w/ AWS to increase the limit if possible (otherwise consider a less populated region/account to build the infrastructure in if this is net new work)
 ```
---->
+
 
 ## AWS Limits on VPC EIPs
 

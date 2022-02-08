@@ -49,7 +49,7 @@ These `~proxy metrics` describe behavior at the Wavefront proxy:
 
 These metrics are displayed in a tabular chart:
 
-![proxy_table_chart](images/proxy_table_chart.png)
+![A screenshot of the Proxy Stat chart.](images/proxy_table_chart.png)
 
 ## Proxy Troubleshooting
 
@@ -73,7 +73,7 @@ The metrics used in this section are:
 
 For example, this row from that section shows latency metrics using `~proxy.push.*.duration.duration.median`:
 
-![proxy troubleshooting](images/proxy_troubleshooting.png)
+![A screenshot of the P95 Network Latency, P75 Network Latency and Median Network Latency charts.](images/proxy_troubleshooting.png)
 
 ## Learn More!
 

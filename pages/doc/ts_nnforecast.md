@@ -13,6 +13,8 @@ nnforecast(<forecastPeriod>, [<confidenceFactor>,] <tsExpression>, [with_bounds]
 Forecasts future data values for each time series described by the expression.
 It uses hypothesis testing and neural networks for prediction.
 
+{% include note.html content="You can specify up to 100 time series in an `nnforecast` query. If you specify more, an error results." %}
+
 ## Parameters
 <table style="width: 100%;">
 <tbody>
@@ -37,10 +39,6 @@ It uses hypothesis testing and neural networks for prediction.
 ## Description
 
 The `nnforecast()` function predicts future data values for each time series described by the expression. The function uses hypothesis testing and neural networks for prediction.
-
-In charts, we adjust the time window so that you see the forecast in 1/3 of the window and the past in 2/3 of the window. In the following screenshot, the forecast period is set to 1 week so the total time window is 3 weeks.
-
-![nnforecast example](images/ts_nnforecast_new.png)
 
 The historical period has to be at least 2x the forecast period. If the function cannot find enough historical data to produce a forecast for the requested period, then the function returns no result.
 

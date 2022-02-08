@@ -13,9 +13,11 @@ To purchase Wavefront, you must either have a VMware Cloud services account or c
 
 ## Purchase Wavefront
 
-A Super Admin user can purchase Wavefront. Before you buy, make sure that you understand the  Wavefront service ordering and pricing tiers. Billing depends on the amount of data, measured in points per second (PPS), that you send to Wavefront on a monthly basis. If you exceed the contracted rate, you will be charged for the usage above it (the overages). In any case, you do not lose any of your data.
+A Super Admin user can upgrade from trial version and purchase Wavefront. 
 
-1. Click **Upgrade** on the banner showing how many days have left from your trial period.
+Billing depends on the amount of data, measured in points per second (PPS), that you send to Wavefront on a monthly basis. If you exceed the contracted rate for more than 5% of the hours of a given month, you will be charged for the usage above it (the overages). In any case, you do not lose any of your data.
+
+1. Click **Upgrade** on the banner showing you how many days have left from your trial period.
 2. Review the Introduction screen and click **Next**.
 3. To connect your VMware account, click **Connect**. 
 
@@ -29,9 +31,9 @@ A Super Admin user can purchase Wavefront. Before you buy, make sure that you un
    
 5. To continue with the purchase process, click **Next**. 
 
-6. On the **Create Subscription** page, enter the number of points per second to purchase and click **Next**. 
+6. On the **Create Subscription** page, enter the number of KPPS (kilo points per second) to purchase and click **Next**. 
    
-   You can also see a chart that shows the billable rate during your trial period. Use this chart as a starting point to decide how many PPS per month you want to buy.
+   You can also see a chart that shows the billable rate during your trial period. Use this chart as a starting point to decide how many KPPS per month you want to buy.
   
 7. Choose the billing terms and conditions and click **Proceed to checkout**.
 
