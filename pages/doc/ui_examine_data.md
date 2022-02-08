@@ -8,7 +8,7 @@ summary: Examine data with dashboards and charts
 
 With dashboards and charts, all users can examine data, set dashboard time window, zoom in and out, and perform other customizations.
 
-{% include note.html content="All users can view and explore charts. You must have [Dashboard permission](permissions_overview.html) to make permanent changes, such as saving a chart to a dashboard." %}
+{% include note.html content="All users can view and explore charts. You must have the [**Dashboard** permission](permissions_overview.html) to make permanent changes, such as saving a chart to a dashboard." %}
 
 ## Video
 
@@ -156,7 +156,30 @@ In the example on the right, a <strong>Region</strong> dashboard variable has be
 </tbody>
 </table>
 
+## Include or Exclude Obsolete Metrics
 
+By default, metrics that stopped reporting 4 weeks ago are not included in the charts within a dashboard, unless you [explicitly decide to include these metrics](ui_charts.html#include-metrics-that-stopped-reporting-over-4-weeks-ago). You can include obsolete metrics on a dashboard level. This way, obsolete metrics will be included in all the charts within a dashboard.
+
+{% include note.html content="Including obsolete metrics on a dashboard level may significantly slow down the dashboard performance." %}
+
+**To include obsolete metrics on a dashboard level**:
+
+1. Navigate to a dashboard and click the ellipsis icon in the top right corner of the dashboard.
+2. Select **Edit**.
+3. Click **Settings**.
+4. Click **Advanced** and select the **Include Obsolete Metrics** check box.
+5. Click **Accept** and click **Save**.
+
+**To exclude obsolete metrics on a dashboard level**:
+
+Dashboards on which inclusion of obsolete metrics is turned on have a warning banner which allows you to easily turn off that setting.
+![Banner saying that obsolete metrics inclusion is turned on for the dashboard. The banner also has a view settings button.](images/obsolete-metrics-banner.png)
+
+1. Navigate to the dashboard.
+2. In the banner on top, click **View Settings**.
+3. Click **Advanced**.
+4. Deselect the **Include Obsolete Metrics** check box.
+5. Click **Accept** and click **Save**.
 
 ## Isolate Sources or Series
 

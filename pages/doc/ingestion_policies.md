@@ -8,7 +8,7 @@ summary: Monitor usage with ingestion policies and usage dashboards.
 
 As a Wavefront administrator, you're interested in usage patterns for the whole company, but also for different teams in the company. You can create ingestion policies and assign accounts (user or service accounts) to each policy to see which teams use which part of total ingestion. You can even drill down to individual users from the Ingestion Breakdown dashboard.
 
-You can examine the performance of your Wavefront instance using [wftop](), [Wavefront spy](wavefront_monitoring_spy.html), and the [Slow Queries dashboard](wavefront_monitoring.html#examine-slow-queries). In addition, you can find out usage on a per-account basis using ingestion policies and a Wavefront Usage integration dashboards.
+You can examine the performance of your Wavefront instance using [wftop](), [Wavefront spy](wavefront_monitoring_spy.html), and the [Slow Query  dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response). In addition, you can find out usage on a per-account basis using ingestion policies and a Wavefront Usage integration dashboards.
 
 **Note:** When you create a new ingestion policy, it can take a few minutes for the data to become available in the Wavefront Usage dashboard.
 
@@ -18,7 +18,7 @@ Ingestion policies allow you to group accounts and then examine their usage in t
 
 ### Permissions
 
-Users with **Accounts** permission can create ingestion policies and add user accounts or service accounts.
+Users with **Accounts, Groups & Roles** permission can create ingestion policies and add user accounts or service accounts.
 * Each account can belong to only one policy at a time. That way, you never count usage of an account twice.
 * You can add user accounts and service accounts to the same policy.
 

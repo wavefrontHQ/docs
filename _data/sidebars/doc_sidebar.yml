@@ -822,7 +822,7 @@ entries:
         - title: Monitoring & Troubleshooting
           output: web
           subfolderitems:
-
+            
           - title: Monitor the Wavefront Service
             url: /wavefront_monitoring.html
             output: web

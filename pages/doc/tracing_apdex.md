@@ -7,7 +7,7 @@ permalink: tracing_apdex.html
 summary: Get an overview of how the Apdex score is calculated and Configure Apdex Settings.
 ---
 
-The Application Performance Index ([Apdex](https://www.apdex.org/overview.html)) is an industry standard that can help you understand how the response time of a service compares to a predefined response time threshold.
+The Application Performance Index ([Apdex](https://www.apdex.org)) is an industry standard that can help you understand how the response time of a service compares to a predefined response time threshold.
 
 ## Overview
 

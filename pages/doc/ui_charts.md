@@ -150,9 +150,13 @@ For details, see the [Chart Reference](ui_chart_reference.html).
 
 For optimal rendering of displayed results, Wavefront does not include metrics that stopped reporting over 4 weeks ago (obsolete metrics) in charts. If you're interested in including those metrics in a chart, it's easy to do.
 
-**To include obsolete metrics**
+**To include obsolete metrics**:
 1. Open the chart for edit.
 2. Click the **Advanced** tab, select the **Include Obsolete Metrics** check box, and click **Save**.
+
+You can also include obsolete metrics for all charts within a dashboard. See [Set Dashboard Display Preferences](ui_dashboards.html#set-dashboard-display-preferences).
+
+{% include note.html content="Including obsolete metrics on a dashboard level may significantly slow down the dashboard performance." %}
 
 ### Use a Logarithmic Y Axis for Skewed Data
 
