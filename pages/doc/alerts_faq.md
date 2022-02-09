@@ -31,8 +31,8 @@ Wavefront evaluates the reported value against the alert condition for each minu
 
 Let’s look at an example over a single minute in the checking interval. Suppose your alert condition is `ts(my.metric) > 8`.
 
-* If `my.metric` reported the data value of `15` during the minute, Wavefront evaluates the alert condition for this minute as `true` because the statement `15 > 8` is *met*.
-* If `my.metric` reported the data values of `15`, `6`, and `2` during the minute, Wavefront evaluates the alert condition for this minute as `false` because the statement for the aggregated average value `7.6 > 8` is *not met*.
+* If `my.metric` reported the data value of `15` during the minute, Wavefront evaluates the alert condition for this minute as `true` because the condition is *met*, i.e. the statement `15 > 8` is `true`.
+* If `my.metric` reported the data values of `15`, `6`, and `2` during the minute, Wavefront evaluates the alert condition for this minute as `false` because the condition for the aggregated average value is *not met*, i.e. the statement `7.6 > 8` is `false`.
   
 After the alert evaluation, Wavefront has a list of `N` minutely values, one value for each minute in the checking interval. Each of the `N` values can be either `true`, `false`, or `no data`.
   
@@ -73,6 +73,6 @@ False positive alerts could be due to:
   
     {% include note.html content="Wavefront considers a metric *obsolete* after it hasn’t reported any values for 4 weeks, and obsolete metrics *are not* included in alert evaluations by default. To handle alerting on very infrequently reported errors series, on the **Advanced** tab of the **Data** settings of the alert, select the **Include Obsolete Metrics** check box." %}
   * Use the [default() missing data function](ts_default.html) to insert a default value depending on how you want to handle the situation where data isn’t being reported.
-  * Use the exception counter metric instead of the exception metric, if applicable. For example, use the `bad.exception.count` metric instead of the `bad.exception` metric so that the metric is cumulative and does not become obsolete.
+  * Use the exception counter metric instead of the exception metric, if applicable. For example, use the `bad.exception.count` metric rather than the gauge `bad.exception` metric so that the metric is cumulative and does not become obsolete.
 
 * If your alert monitors *heartbeat* metrics, you should treat the NO DATA state as an *erroneous* state. Consider [configuring an alert to fire when a time series stops reporting](alerts_missing_data.html).
