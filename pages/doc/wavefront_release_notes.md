@@ -38,9 +38,9 @@ In February, all v1 dashboards and charts will be migrated to v2. Users can no l
     * Stacked Area
     * Stacked Column
     * Table
-  
-  See the [Chart Reference](ui_chart_reference.html) for details.
-  
+
+  See the [Chart Reference](ui_chart_reference.html) for details. 
+
 ## 2022-04.x Release Notes
 
 <!--* **Usage Portal**: As more teams use the Tanzu Observability by Wavefront service within an enterprise, the central team (Super Admins) needs a better mechanism to track their points per second (PPS) usage, manage consumption, and also put limits to manage costs.
