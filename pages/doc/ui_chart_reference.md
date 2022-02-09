@@ -12,6 +12,8 @@ Users with dashboard permission can customize many aspects of the chart and save
 
 {% include note.html content="While every Wavefront user can view charts and make temporary changes, you must have [Dashboard permission](permissions_overview.html) to save changes you make to charts." %}
 
+{% include important.html content="This chart reference has all information for charts that are in a dashboard. Many, but <strong>not all</strong> of the same options are available for charts in alerts." %}
+
 
 ## Data Tab (All Charts)
 

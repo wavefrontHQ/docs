@@ -49,7 +49,7 @@ This chart shows data for several weeks. 1 represents Monday and 7 represents Su
 
 **Example 2: Defining an Alert that Fires on Particular Days**
 
-Here we include `(weekday("UTC") = 1 or weekday("UTC") = 3 or weekday("UTC") = 5)` in a conditional expression to define an alert that fires when the CPU load average rises above 2.5 on a Monday, Wednesday, or Friday of each week.
+Here we include `(weekday("UTC") = 6 OR weekday("UTC") = 7` to create an alert that fires when the CPU load average rises above 2.5 on the weekend.
 ![weekday alert](images/ts_weekday_alert.png)
 
 ## See Also

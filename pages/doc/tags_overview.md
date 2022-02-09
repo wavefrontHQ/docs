@@ -9,7 +9,7 @@ A tag is custom metadata that adds application-specific meaning to Wavefront obj
 
 ## Videos
 
-Watch these videos to get started: 
+Watch these videos to get started:
 
 <table style="width: 100%;">
 <tbody>
@@ -283,6 +283,6 @@ The syntax is the same for both the SourceTag and the SourceDescription property
 
 ## Learn More!
 
-* See [Wavefront Data Naming](wavefront_data_naming.html) for examples of tags and tag naming.
+* See [Wavefront Data Naming](wavefront_data_format.html#wavefront-data-format-best-practices) for examples of tags and tag naming.
 
 * Read the blog post [Skyline Resolves Production Incidents Faster with Alert-Based Health Dashboards](https://tanzu.vmware.com/content/blog/skyline-resolves-production-incidents-faster-with-alert-based-health-dashboards) for a discussion of a real-world example that uses alert tags.

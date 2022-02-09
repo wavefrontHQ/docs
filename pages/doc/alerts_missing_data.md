@@ -88,24 +88,24 @@ Different amounts of missing data can indicate the severity of a fault. In gener
 
 ### Controlling Alert Responsiveness
 
-When you use `mcount()` in an alert condition, the length of the function's shifting time window affects how quickly the alert responds to a time series that stops reporting. This factor is independent of the length of the **Alert fires** time window. The maximum number of minutes between the last reported data point and the alert's firing time is given by the following formula:
+When you use `mcount()` in an alert condition, the length of the function's shifting time window affects how quickly the alert responds to a time series that stops reporting. This factor is independent of the length of the **Trigger Window**. The maximum number of minutes between the last reported data point and the alert's firing time is given by the following formula:
 
 ```
-mcount's shifting time window  +  Alert fires time window
+mcount's shifting time window  +  Trigger Window time window
 ```
 
 **Example**
 
 Suppose you configure an alert with the following properties:
 * The alert condition is `mcount(3m, ts(my.metric)) = 0`, so the shifting time window is 3 minutes.
-* **Alert fires** time window is 2 minutes.
+* **Trigger Window** is 2 minutes.
 
 Now consider what happens if `my.metric` reports regularly once a minute until 10:30 and then stops:
 1. `mcount()` counts 3 points in every 3-minute shifting window through 10:30:59. Then the moving counts decrease over the next 3 minutes: 2 points through 10:31:59, 1 point through 10:32:59, and finally, 0 points at 10:33 and beyond.
 2. The alert checking system combines the per-second moving counts into summarization points: 3 at 10:30, 2 at 10:31, 1 at 10:32, and 0 at 10:33, 10:34, and so on.
 3. When the alert condition compares each summarization value to 0, the result is false until 10:33.
 4. The alert fires at 10:35, based on 2 minutes' worth (10:33 and 10:34) of true values and no false values. The total elapsed time between the last reported data point and the alert firing is 3+2 = 5 minutes.
-    {% include note.html content="The elapsed time will be shorter for an alert condition such as `mcount(3m, ts(my.metric)) < 3`, when the **Alert fires** time window can overlap the shifting time window." %}
+    {% include note.html content="The elapsed time will be shorter for an alert condition such as `mcount(3m, ts(my.metric)) < 3`, when the **Trigger Window** time window can overlap the shifting time window." %}
 
 ![Alert mcount](images/alerts_mcount_fire.png)
 
@@ -132,14 +132,14 @@ You can choose the alert response that best fits your use case:
 
 ### Option 1: Let the Alert Resolve
 
-An alert will automatically resolve if it detects NO DATA for the duration of the **Alert resolves** time window. Letting the alert resolve makes sense if the time series is unlikely to start reporting again without explicit intervention.
+An alert will automatically resolve if it detects NO DATA for the duration of the **Resolve Window** time window. Letting the alert resolve makes sense if the time series is unlikely to start reporting again without explicit intervention.
 
 **Example**
 
 Consider the alert that we described [above](#controlling-alert-responsiveness):
 * The alert condition is `mcount(3m, ts(my.metric)) = 0`, so the shifting time window is 3 minutes.
-* **Alert fires** time window is 2 minutes.
-* **Alert resolves** time window is 2 minutes.
+* **Trigger Window** time window is 2 minutes.
+* **Resolve Window** time window is 2 minutes.
 * The time series `my.metric` reports regularly once a minute.
 
 Now consider what happens if the time series stops reporting at 10:30 (and does not restart):
