@@ -227,7 +227,7 @@ Because the threshold is predefined, you can select only 1 severity. All notific
 </tbody>
 </table>
 
-If your query does NOT follow the `<expression> <comparisonOperator> <constant>` pattern, you can specify different thresholds and different severities.
+If your query does NOT follow the `<expression> <comparisonOperator> <constant>` pattern, you can specify different thresholds and different severities. 
 
 {% include tip.html content="Most alert creation steps are the same for multi-threshold alerts and single-threshold alerts. " %}
 
