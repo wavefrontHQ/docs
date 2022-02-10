@@ -30,7 +30,7 @@ Before you begin, ensure that you have the information for the **required fields
 
 * Alert data. For example, CPU of all production clusters. Be as specific as possible to speed up query execution.
 * Alert condition and associated severity. For example, it could be INFO severity if CPU of at least 1 cluster is at 90% for 5 minutes, but SEVERE if CPU of 75% of all clusters is at 90%.
-* Recipients. For each severity, you can specify an email, Slack notification, or one or more alert targets to notify [when the alert changes state](alerts_states_lifecycle.htmls). When the alert changes state, each target that meets the condition is notified with the specified severity.
+* Recipients. For each severity, you can specify an email, Slack notification, or one or more alert targets to notify [when the alert changes state](alerts_states_lifecycle.html). When the alert changes state, each target that meets the condition is notified with the specified severity.
 
   {% include tip.html content="Alert targets subscribe to all notifications at their severity and above. For example, a recipient associated with INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. You cannot associate an alert target with more than one severity. "%}
 
