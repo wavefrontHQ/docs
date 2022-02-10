@@ -194,11 +194,10 @@ Unless otherwise indicated, Wavefront sets the value of the AWS Metrics+ `source
 - Service Limit Metrics - capture the current resource limits and usage for your AWS account. These metrics include the point tags `Region` and `category`.
   - `aws.limits.<resource>.limit` - the current limit for an AWS resource in a particular region.
   - `aws.limits.<resource>.usage` - the current usage of an AWS resource in a particular region.
-    See the following section for details.
-
+  
     {% include note.html content="To examine these metrics, your account needs at least the Business-level AWS Support plan because the integration uses the Support API to pull service limits. You also need both ReadOnlyAccess and AWSSupportAccess. See [Giving Wavefront Read-Only Access](integrations_aws_metrics.html#giving-wavefront-global-read-only-access) for details." %}
 
-## AWS Metrics+ Trusted Advisor Service Limits
+<!--## AWS Metrics+ Trusted Advisor Service Limits
 
 Each AWS account has limits on the number of resources that are available to you for each AWS service. You can monitor and manage your resource usage and limits using the AWS service limit metrics in Wavefront.
 
@@ -238,7 +237,7 @@ We can create a [multi-threshold alert](alerts_manage.html#create-a-multi-thresh
 * Notifies `SEVERE` targets if the value is greater than 90.
 * Notifies `WARN` targets if the value is greater than 80.
 
-![service limits alarm](images/service_limit_alert.png)
+![service limits alarm](images/service_limit_alert.png)-->
 
 ## Learn More!
 
