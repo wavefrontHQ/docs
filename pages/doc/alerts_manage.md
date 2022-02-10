@@ -9,7 +9,7 @@ summary: Learn how to create and manage alerts.
 
 All Wavefront users can [examine alerts and drill down to find the problem](alerts.html). Administrators can create and manage alerts.
 
-{% include note.html content="You need the [Alerts permissions](permissions_overview.html) to create and manage alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
+{% include note.html content="You need the [Alerts](permissions_overview.html) permission to create and manage alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
 ## Create Alert Video
 
@@ -30,7 +30,7 @@ Before you begin, ensure that you have the information for the **required fields
 
 * Alert data. For example, CPU of all production clusters. Be as specific as possible to speed up query execution.
 * Alert condition and associated severity. For example, it could be INFO severity if CPU of at least 1 cluster is at 90% for 5 minutes, but SEVERE if CPU of 75% of all clusters is at 90%.
-* Recipients. For each severity, you can specify an email, Slack notification, or one or more alert targets to notify [when the alert changes state](alerts_states_lifecycle.html#when-threshold-alerts-notify-targets). When the alert changes state, each target that meets the condition is notified with the specified severity.
+* Recipients. For each severity, you can specify an email, Slack notification, or one or more alert targets to notify [when the alert changes state](alerts_states_lifecycle.htmls). When the alert changes state, each target that meets the condition is notified with the specified severity.
 
   {% include tip.html content="Alert targets subscribe to all notifications at their severity and above. For example, a recipient associated with INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. You cannot associate an alert target with more than one severity. "%}
 
@@ -63,7 +63,7 @@ To start alert creation, do one of the following:
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="50%">In the <strong>Data</strong> section, specify the data that you want to monitor and click <strong>Next</strong>. You have many options:
+<td width="50%">In the <strong>Data</strong> section, specify the data that you want to monitor, optionally customize the chart, and click <strong>Next</strong>. You have many options:
 <ul>
 <li>Keep it simple, e.g. just specify <code>ts()</code> and a metric: <code>ts(~sample.mem.used.percentage)</code> </li>
 <li>Use multiple queries, optionally with variables, to take advantage of the full power of Wavefront Query Language (WQL).<br>
@@ -112,8 +112,10 @@ You can alert when the query result is greater than or less than the specified t
 <td>3. Optionally, fine-tune and test the condition.
 <ul>
 <li><strong>Trigger Window</strong>: Length of time (in minutes) during which the <strong>Condition</strong> expression must be true before the alert fires. Minimum is 1. For example, if you enter 5, the alerting engine reviews the value of the condition during the last 5-minute window to determine whether the alert should fire. </li>
-<li><strong>Resolve Window</strong>: Length of time (in minutes) during which the <strong>Condition</strong> expression must be NOT true before the alert switches to resolved. Minimum is 1.  <br><br>
-By default, the <strong>Resolve Window</strong> is set to the same number of minutes as the Trigger Window, but you can override it. Set the <strong>Resolve Window</strong> to greater than or equal to the <strong>Trigger Window</strong> to avoid resolve-fire cycles.</li>
+<li><strong>Resolve Window</strong>(Optional): By default, the <strong>Resolve Window</strong> is unchecked and set to the same number of minutes as the Trigger Window. Set the <strong>Resolve Window</strong> to greater than or equal to the <strong>Trigger Window</strong> to avoid resolve-fire cycles.
+<br><br>
+The <strong>Resolve Window</strong> is the length of time (in minutes) during which the <strong>Condition</strong> expression must be NOT true before the alert switches to resolved. Minimum is 1.  <br><br>
+</li>
 </ul></td>
 <td><img src="images/condition_options.png" alt="Condition options discussed in left column"></td>
 </tr>
@@ -121,7 +123,7 @@ By default, the <strong>Resolve Window</strong> is set to the same number of min
 <td>4. For special cases, click <strong>Additional Settings</strong> to also specify the following settings. The default is often best.
 <ul>
 <li><strong>Checking Frequency</strong>: Number of minutes between checks whether the condition is true. Minimum and default is 1. When an alert is in the <a href="alerts_states_lifecycle.html">INVALID</a> state, the alert is checked approximately every 15 minutes, and not with the specified checking frequency. </li>
-<li><strong>Evaluation Strategy</strong>: Allows you to select <strong>Real-time Alerting</strong>. By default, Wavefront ignores values for the last 1 minutes to account for delays. This default evaluation strategy prevents spurious firings because many data sources are updated only at certain points in time. If you select this check box, the alerting engine considers values in the last 1 minute (the alert is evaluated strictly on the ingested data). See <a href="alerts_delayed_data.html">Limiting the Effects of Data Delays</a> for some background. </li>
+<li><strong>Evaluation Strategy</strong>: Allows you to select <strong>Real-time Alerting</strong>. By default, Wavefront ignores values for the last 1 minute to account for delays. This default evaluation strategy prevents spurious firings because many data sources are updated only at certain points in time. If you select this check box, the alerting engine considers values in the last 1 minute (the alert is evaluated strictly on the ingested data). See <a href="alerts_delayed_data.html">Limiting the Effects of Data Delays</a> for some background. </li>
 </ul></td>
 <td><img src="images/condition_options_2.png" alt="Condition options discussed in left column"></td>
 </tr>
@@ -134,7 +136,7 @@ By default, the <strong>Resolve Window</strong> is set to the same number of min
 <tbody>
 <tr>
 <td width="50%">
-Alert recipients receive notifications when the alert changes state. You can:
+Alert recipients receive notifications when the alert changes state. For each severity, you can:
 <ul>
 <li>Specify any email address</li>
 <li>Specify a PagerDuty key</li>
@@ -158,7 +160,7 @@ If you already have information that helps recipients find the causes for the al
 <tr>
 <td width="50%">
 <ul>
-<li><strong>Runbook: </strong>A URL or a wiki page, or another document that helps the alert recipient resolve the alert.</li>
+<li><strong>Runbook: </strong>A URL to a wiki page, or another document that helps alert recipients resolve the alert.</li>
 <li><strong>Triage Dashboard(s): </strong>Start typing to select from dashboards on your Wavefront instance that have useful information and pass in information. See <a href="#how-do-i-pass-values-to-triage-dashboards">How Can I Pass a Value to a Triage Dashboard</a>.</li>
 <li><strong>Additional Information: </strong>Any other information that is useful to the alert recipient. This field supports Markdown. Click <strong>Preview</strong> to preview the Markdown output.</li>
 </ul>
@@ -214,7 +216,7 @@ Here are some frequently asked questions about alerts.
 <tbody>
 <tr>
 <td width="40%">
-If your data query follows the format <code>&lt;expression&gt; &lt;comparisonOperator&gt; &lt;constant&gt;</code>, for example <code>myCPU &lt; 45000</code>, the query itself already includes the query.<br><br> In the example screenshot on the right, the threshold is 6000. Notice how the hover text shows either 0 or 1 for the different time series.
+If your data query follows the format <code>&lt;expression&gt; &lt;comparisonOperator&gt; &lt;constant&gt;</code>, for example <code>myCPU &lt; 45000</code>, the query itself already includes the condition.<br><br> In the example screenshot on the right, the threshold is 6000. Notice how the hover text shows either 0 or 1 for the different time series.
 </td>
 <td width="60%" markdown="span">![screenshot of options in step 5](images/alert_boolean_query.png) </td></tr>
 <tr>
@@ -233,7 +235,7 @@ If your query does NOT follow the `<expression> <comparisonOperator> <constant>`
 
 Wavefront sends alert notifications when the alert changes state.
 * An alert with a query that follows the pattern `<expression> <comparisonOperator> <constant>` sends a notification with the specified severity to all specified targets. This page calls this type of query **boolean query**.
-* A **multi-threshold alert** allows you to specify multiple severities and a different target for each severity. Each target is notified if the condition is met when the alert changes state. Lower severity targets receive notifications for all higher severities.
+* A **multi-threshold alert** supports multiple severities and a different target for each severity. When the alert changes state, targets for conditions that meet the severity threshold are notified. Lower severity targets always receive notifications for all higher severities.
 
 For example, an alert [fires](alerts_states_lifecycle.html#when-do-alerts-fire) when a metric stays at a value that indicates a problem for the specified amount of time. But you might also want to be notified when the alert is resolved or when the alert is snoozed. The alert target gives fine-grained control over which state changes trigger a notification.
 
