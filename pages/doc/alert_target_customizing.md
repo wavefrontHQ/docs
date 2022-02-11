@@ -436,7 +436,7 @@ The names of the iterators follow this convention: <code>&lt;seriesCategory&gt;&
 
 ## Information about Alert Resolution Help
 
-Starting with Alert v2, users can include information about the alert resolution such as a runbook. We support several variables for extracting or setting those fields.
+Starting with release 2022.05, users can include information about the alert resolution such as a runbook. We support several variables for extracting or setting those fields.
 
 {% include note.html content="This information is included with the **alert notification** if specified as part of the alert. In contrast, tracingDashboardLinks, discussed in [Include a Link to a Tracing Service Dashboard](alert_target_customizing.html#include-a-link-to-a-tracing-service-dashboard) is shown in the Alerts Browser."%}
 

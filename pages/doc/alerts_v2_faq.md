@@ -1,5 +1,5 @@
 ---
-title: FAQ for Alerts v2
+title: FAQ for the New Alert GUI
 tags: [alerts]
 sidebar: doc_sidebar
 permalink: alerts_v2_faq.html
@@ -54,12 +54,14 @@ If you have information that helps alert recipients find and resolve the causes 
 
 You can now preview alert notifications directly from the <strong>Create Alert</strong> and <strong>Edit Alert</strong> workflow.
 
-## FAQs for v2 Alerts
+## FAQs for the New Alert Experience
 
 ### Can I pick the alert GUI version?
-A: No. All alerts are updated to the v2 format.
 
-### Do I have to change my API requests when creating v2 alerts?
+A: No. All alerts are updated to the new alert GUI.
+
+### Do I have to change my API requests?
+
 A: No. The existing API still works. To take advantage of the new multi-query request format, use the `useMultiQuery` option in the POST of  `/api-docs/ui/#!/Alert/createAlert`
 
 ## FAQs for Alert Migration
@@ -67,7 +69,7 @@ A: No. The existing API still works. To take advantage of the new multi-query re
 
 ### How Can I Set a Display Expression?
 
-A: For alerts that return 0 or 1, it makes sense to include information about the query, not just the query result, in the alert notification. With v1 alerts, you set a display expression explicitly. With v2 alerts, all non-hidden queries are included in the notification.
+A: For alerts that return 0 or 1, it makes sense to include information about the query, not just the query result, in the alert notification. Until now you set a display expression explicitly. With the new alert GUI, all non-hidden queries are included in the notification.
 
 In the example below:
 * The alert condition query is `variance(${A}) > 2`.
@@ -79,16 +81,16 @@ In the example below:
 ### Where Is Included Obsolete Metrics?
 
 A: Include Obsolete Metrics is now in the same place for charts on dashboards and charts for alerts.
-* For v1 alerts, **Include Obsolete Metrics** was under **Advanced**, at the bottom of the page.
-* For v2 alerts, **Include Obsolete Metrics** is under **Data**. Just as for charts in dashboards, you click the **Advanced** tab to turn on **Include Obsolete Metrics**.
+* Before, **Include Obsolete Metrics** was under **Advanced**, at the bottom of the page.
+* With the new alert GUI, **Include Obsolete Metrics** is under **Data**. Just as for charts in dashboards, you click the **Advanced** tab to turn on **Include Obsolete Metrics**.
 
 ### Where Is Backtesting?
 
 A: Instead of backtesting, you can now use the  **Test Condition** and **Stop Testing** button as part of the alert create/edit flow.
 
-### What happens if I save a v1 alert after the migration to v2?
+### What happens if I save an previously created alert?
 
-The alert is converted to v2 format with multi-queries. The alert behavior does not change.
+After the migration, alerts are converted the new format with multi-queries. The alert behavior does not change.
 
 ### What’s the alert condition?
 

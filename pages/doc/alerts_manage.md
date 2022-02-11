@@ -427,7 +427,7 @@ Each time you save an alert, you create an alert version. Up to 100 versions are
 
 ## Do More!
 
-* Look at the [Alerts v2 FAQ](alerts_v2_faq.html)
+* Look at the [FAQ for the New Alert GUI](alerts_v2_faq.html)
 * Learn about [alert states and life-cycle](alerts_states_lifecycle.html).
 * The [Alert Viewer Tutorial](alerts.html#alert-viewer-tutorial) shows how to examine a single alert.
 * The [Alerts Browser Tutorial](alerts.html#alerts-browser-tutorial) explains how you can examine and manage all alerts in your environment.
