@@ -9,6 +9,8 @@ summary: Learn how to customize how events display in charts.
 
 Examining events directly in charts can help you correlate metric anomalies with the events. This page explains how you can display an event *overlay* with details about the event, and customize the overlay.
 
+You save any of these events settings from the GUI, but can make the settings persist by setting the value [in the dashboard JSON file](#set-event-overlays-permanently).
+
 ## Event Overlay Example
 
 The example below shows an event overlay that includes a link to the alert that generated it and other information about the event.
@@ -146,3 +148,29 @@ Let's look at how you can view the events you added to the charts and dashboards
     </td>
   </tr>
 </table>
+
+## Set Event Overlays Permanently
+
+<!---From https://help.wavefront.com/hc/en-us/articles/360058262552-How-to-set-Show-Events-setting-on-a-dashboard-permanently--->
+You cannot save the event overlay settings from the GUI, but can make the change in the dashboard JSON file.
+
+{% include warning.html content="Editing the dashboard JSON might have unintended consequences. Use the JSON editor only if you have some experience with JSON." %}
+
+**To set event overlay defaults for a dashboard**
+
+1. Open the dashboard [JSON file for edit](https://docs.wavefront.com/ui_dashboards.html#edit-the-dashboard-json).
+
+2. Set `eventFilterType` setting to one of the following and save the JSON. Going forward, the **Show Events** setting for this dashboard defaults to the setting specified in `eventFilterType`.
+
+  ```
+  BYCHART = from charts
+  BYDASHBOARD = from dashboard settings
+  BYCHARTANDDASHBOARD = from chart and dashboard
+  AUTOMATIC = related source alerts
+  ALL = all
+  NONE = none
+  ```
+
+For example, to set the **Show Events** setting to **from dashboard settings**, set `eventFilterType : BYDASHBOARD` as shown in the following screenshot.
+
+![screenshot of JSON GUI, eventFilterType:BYDASHBOARD selected](/images/event_filter_json.png)
