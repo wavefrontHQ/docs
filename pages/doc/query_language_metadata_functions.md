@@ -119,7 +119,7 @@ Nodes are indexed from left to right, starting with 0. A delimiter (".") separat
 * Node 3: `used`
 * Node 4: `summation`
 
-### Use zeroBasedNodeIndes to Change the Source Name
+**Source Name Replacement with zeroBasedNodeIndex**
 
 To change the displayed **source name** to a different name, use `zeroBasedNodeIndex` in this syntax of `aliasSource`:
 
@@ -169,11 +169,11 @@ globalFilter() removed all query keys
 Cannot access node: 5 from source value: vsphere.host.cpu.used.summation
 ```
 
-### Regex Search and Replace Patterns
+## Regex Search and Replace Pattern Examples
 
 Regex patterns in `aliasSource`, `aliasMetric`, and `taggify` work perform a search and replace. If there is no match during the search, there is nothing to replace, so the original displayed values remain.
 
-**aliasSource Regex Replacement**
+**Replace Source Name with Regex (aliasSource)**
 
 You can change source name displayed in charts to an alternative name using a search and replace regex. Use this syntax:
 ```
@@ -191,7 +191,7 @@ aliasSource(ts("vsphere.vm.cpu.usagemhz.average",source=perf18*), "perf([0-9]*)"
 
 ![table chart shows performance-machine-18-acct-1 and performance-machine-18-acct-2](images/vm-perf.jpeg)
 
-**aliasMetric Regex Replacement**
+**Replace Metric Name with Regex (aliasMetric)**
 
 You can change the displayed metric name to a differen name using a search/replace regex. Use this syntax:
 
@@ -210,7 +210,7 @@ aliasMetric(${Original metric},"(.{0,14}).*", "$1")
 
 
 
-**taggify Regex Replacement**
+**Replace Point Tag Name with Regex (taggify)**
 
 You can change the displayed point tags `taggify` and a search and replace regex. Use this syntax:
 ```
