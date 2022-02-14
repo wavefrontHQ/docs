@@ -22,7 +22,7 @@ In March, all v1 dashboards and charts will be migrated to v2. Users can no long
 ## 2022-05.x Release Notes
 
 * **Create and Manage Alerts Revamp**: Streamlined experience that improves usability and gives alert creators more options.
-  - Straighforward settings during creation and edit.
+  - Straightforward settings during creation and edit.
   - New Runbooks and Triage Dashboard fields help alert recipients resolve the alert.
   - Alert notifications include actionable insights.
 
