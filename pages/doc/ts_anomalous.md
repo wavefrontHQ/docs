@@ -102,7 +102,7 @@ The orange line in the following chart suggests that the spikes in data ingestio
 
 ### History Size and Test Window Size
 
-When you use the `anomalous()` function in alerts, you must adjust some parameters. The most important ones are history window(`historyWindow`) and test window (`testWindow`). 
+When you use the `anomalous()` function in alerts, you must adjust some parameters. The most important ones are history window(`historyWindow`) and test window (`testWindow`).
 
 To understand what's the best value to use for `historyWindow`, you must answer the simple questions: What type of anomalies am I looking for? Am I interested in daily, weekly, or monthly anomalies?
 
@@ -114,16 +114,16 @@ The ratio between history window and test window is not optimal and will result 
 
 ### Alert Firing Window and Checking Frequency
 
-To minimize the load on the system, you may want to tweak the **Alert fires** window and **Checking Frequency** parameters based on the history window and the test window values that you choose. 
+To minimize the load on the system, you may want to tweak the **Trigger Window** window and **Checking Frequency** parameters based on the history window and the test window values that you choose.
 
-You can set the **Alert fires** window parameter under **Condition** and the **Checking Frequency** parameter when you click the **Advanced** link.
+You can set the **Trigger Window** window parameter under **Condition** and the **Checking Frequency** parameter when you click the **Advanced** link.
 
-For optimal and effective execution of the alerts that are based on anomaly detection, update the default values for the **Alert Fires** window and alert **Checking Frequency**.
+For optimal and effective execution of the alerts that are based on anomaly detection, update the default values for the **Trigger Window** window and alert **Checking Frequency**.
 
-Choose an **Alert fires** window based on the following equation:
+Choose an **Trigger Window** window based on the following equation:
 
 ```
-Alert fires window = Test window / 10 * K, where K = 1, …, 10
+Trigger Window = Test window / 10 * K, where K = 1, …, 10
 ```
 
 Choose an alert **Checking Frequency** that is more than `Test window/10`, as the execution of the anomaly detection algorithm with lower values will take as an input the same historical duration, which will cause redundancy.

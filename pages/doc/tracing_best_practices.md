@@ -154,7 +154,7 @@ Wavefront requires that you choose unique names for the sources that send spans.
   - If you use a machine's host name (the default), make sure all machines have unique host names. Use logical names to distinguish machines with the same host names in different data centers.
   - **Note:** Duplicate source names might result in incorrect RED metrics.
 
-* See also the guidelines for choosing [source names for metric data and histograms](wavefront_data_naming.html#source-names-best-practices).
+* See also the guidelines for choosing [source names for metric data and histograms](wavefront_data_format.html#source-names-best-practices).
 
 
 ### Best Practices for Wavefront Observability SDKs

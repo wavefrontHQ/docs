@@ -47,7 +47,7 @@ The returned values are plotted against the times shown on the x-axis. The retur
 In this chart, we have set a custom date that goes from August 12 to February 12. `month("America/New_York")` returns 8 (August), 9 (September)... and then 1 (January) and 2 (February.
 ![month](images/ts_month.png)
 
-**Example 2: Defining an Alert that Fires in Particular Months**
+**Example 2: Defining an Alert that Fires in a Particular Month**
 
-Here we include `between(month("America/New_York"),4,6)` in a conditional expression to define an alert that fires when the CPU load average rises above 2.0 during the second quarter (April through June) of the current year.
+Here we include `(month("America/New_York"),2)` to define an alert that fires when the CPU load average rises above 2.0 in February.
 ![month alert](images/ts_month_alert.png)

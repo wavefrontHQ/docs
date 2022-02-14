@@ -85,6 +85,37 @@ Each type of data uses a different data format. See [Wavefront Data Format](wave
 
 ## Proxies Troubleshooting & Advanced Configuration
 
+<!--- Going out in March 2022
+### Truncate the Proxy Queue
+
+If, for any reason, you have to truncate the proxy queue, you can do it locally by cleaning up the buffer directory, or remotely using the API with the `truncate` flag.
+
+{% include warning.html content="Truncating the proxy can lead to data loss, but helps if you cannot safely empty queued proxy data in other ways." %}
+
+**To truncate the proxy queue:**
+
+In most cases, you truncate the proxy queue by deleting the files in the proxy queue directory.
+
+1. Connect to the proxy machine.
+2. Stop the proxy.
+3. Delete all files in the proxy queue directory
+4. Start the proxy
+
+**To truncate the proxy queue with the API:**
+
+If you can't connect to the proxy machine or don't have permissions for the proxy queue directory, you can truncate the queue with the API.
+
+Run the following command:
+
+```curl
+$curl -X PUT -H 'Authorization: Bearer <TOKEN>' -H 'Content-Type: application/json' "https://MY_INSTANCE.wavefront.com/api/v2/proxy/PROXY_ID" -d {"truncate":true}
+```
+
+* `MY_INSTANCE` is your Wavefront instance, for example, the URL could start with `https://example.wavefront.com`
+* `PROXY_ID` is the ID, which you can find in the Proxies browser in the Hostname column.--->
+
+### More Info
+
 * [Monitor Wavefront Proxies](monitoring_proxies.html) discusses proxy information in the Wavefront Usage dashboard and lists `~proxy` internal metrics.
 
 See the following KB articles for additional proxy troubleshooting help.

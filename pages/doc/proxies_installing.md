@@ -160,13 +160,13 @@ Wavefront frequently releases new proxy versions with new features. See the [Wav
 
 {% include note.html content="Upgrading a proxy with a large proxy queue is not a good idea. The proxy will queue your data until the upgrade is complete, but the short-term result can be an even bigger proxy queue." %}
 
-**Upgrade from the UI**
+#### Upgrade from the UI
 
 To upgrade from the UI, select **Browse > Proxies > Add New Proxy**. If an older version of the proxy exists, this process replaces it.
 
 {% include note.html content="On Windows systems, you might have to uninstall the existing proxy first." %}
 
-**Upgrade from the Command Line**
+#### Upgrade from the Command Line
 
 For Linux and Mac OS, can also upgrade a proxy from the command line as follows:
 
@@ -185,6 +185,20 @@ For Linux and Mac OS, can also upgrade a proxy from the command line as follows:
 <td><code>brew update && brew upgrade wfproxy</code></td></tr>
 </tbody>
 </table>
+
+#### Upgrade a Proxy on Docker
+
+On Docker, you don't explicitly update the proxy version, but stop the proxy and then start the new version.
+
+If you use a volume for the proxy buffer (queue) and you update from a version before 7.2 to 7.2 or later, permissions change:
+* For earlier versions of the proxy, the proxy ran as `root:root`.
+* Starting with version 7.2, the proxy runs as `wavefront:wavefront`.
+
+
+{% include warning.html content="Ensure that either the proxy buffer (queue) is empty, or that the files on the buffer directory (volume) are owned by a user with id `1000` and group `2000` (which will translate to user `wavefront` on the docker image)." %}
+
+<!---
+If you performed the update and data are left in the proxy buffer, follow the steps in [Truncate the Proxy Queue](proxies.html#truncate-the-proxy-queue).--->
 
 ### Uninstall a Proxy
 

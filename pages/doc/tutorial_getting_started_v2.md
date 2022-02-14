@@ -203,7 +203,7 @@ Our doc set includes concept videos, how-to videos, and more!
 <td width="50%"><a href="https://www.youtube.com/watch?v=lhrtPSqn8-c&index=2&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K" target="_blank"><img src="/images/v_data_into_wavefront.png" alt="getting data into wavefront"/></a></td>
 </tr>
 <tr>
-<td width="50%"><p><strong>Alerts Videos</strong></p><p>Our Alerts videos give important background and best practices info and a lot of practical advice on how to configure classic alerts and multi-threshold alerts.  </p> </td>
+<td width="50%"><p><strong>Alerts Videos</strong></p><p>Our Alerts videos give important background and best practices info and a lot of practical advice on how to configure alerts.  </p> </td>
 <td width="50%"><a href=" https://youtu.be/qWBP6PrkUrU"><img src="/images/v_threshold_alerts.png" style="width: 700px;" alt="threshold alerts"/></a></td>
 </tr>
 <tr>

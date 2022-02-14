@@ -12,19 +12,19 @@ When an alert changes state, it sends notifications to one or more alert targets
 
 ## Where and When Notifications Are Sent
 
-The type of alert (classic or multi-threshold) and the type of alert target (simple or webhook-based) determine the notification behavior.
+The type of alert (single-threshold or multi-threshold) and the type of alert target (simple or webhook-based) determines the notification behavior.
 
 **Where** the notification is sent depends on the type of alert.
-* For classic alerts, the notification is sent to all targets and includes the severity that is associated with the change.
-* For multi-threshold alerts, each alert target has an associated severity. The notification is sent to the target(s) that were associated with that severity and all higher severities.
 
+* For multi-threshold alerts, each alert target has an associated severity. The notification is sent to the target(s) that were associated with that severity **and all higher severities**.
    {% include note.html content="Alert targets subscribe to all notifications at their severity and above. For example, an alert target for an INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. Because notifications potentially go to targets of different severities, you cannot associate an alert target with more than one severity. " %}
+* For single-threshold alerts, which have just one severity, the notification is sent to all targets and includes the severity that is associated with the change.
 
 **When** the notification is sent depends on the type of alert target:
 
-* For simple targets (email addresses and PagerDuty keys added directly in the alert's **Target List**), a notification is sent whenever the alert is firing, updated, resolved, snoozed or in a maintenance window.
+* For simple targets (email addresses and PagerDuty keys added directly in the alert's **Recipient List**), a notification is sent whenever the alert is firing, updated, resolved, snoozed or in a maintenance window.
   {% include note.html content="A maximum of 10 email targets is supported. For  multi-threshold alerts, the maximum is 10 email targets per severity. " %}
-* For [custom alert targets](webhooks_alert_notification.html), a notification is sent in response to each triggering event that is specified for the target.
+* For [custom alert targets](webhooks_alert_notification.html), a notification is sent in response to each triggering event. Triggering events are specified as part of alert target creation.
 
 
 ## What's in an Alert Notification
@@ -40,25 +40,26 @@ Each alert notification includes a link to an interactive chart, usually through
 
 * Simple notification **emails** include a **View Alert Chart** link that takes you to the chart view.
 * For PagerDuty, alert target (webhook), and templated email notifications:
-  - The link  target of the `url` mustache template variable directs to the Alert Viewer. 
-  - The mustache context variable `chartUrl` takes you directly to the chart view.
+  - The `url` mustache template variable directs to the Alert Viewer. 
+  - The `chartUrl` mustache template variable directs to the chart view.
 
-The sample email notification above includes a **View Alert** button that users can click to go to the URL and see an interactive chart in [Alert Viewer](alerts.html#alert-viewer-tutorial)
+The sample email notification in the screenshot above includes a **View Alert** button that users can click to go to the URL and see an interactive chart in [Alert Viewer](alerts.html#alert-viewer-tutorial)
 
 
 #### Alert Condition Information
 
-The interactive chart shows the alert condition or display expression:
+The interactive chart that is included in the notification shows the alert condition.
 
-* For a classic alert, the condition is usually not meaningful. However, if the alert's [**Display Expression** field](#alert-properties) is set, the interactive chart shows the time series being tested by the alert.
-* For a multi-threshold alert, the interactive chart shows the alert condition.
+If you're looking at an alert that was created before the alert GUI revamp in winter 2021, you might also see a Display Expression. See [Why Do I See a Display Expression](alerts_manage.html#why-do-i-see-a-display-expression)
 
 
-#### Time Window Considerations and Delayed Data
+#### Misfiring Alerts and Delayed Data
 
-The presence of delayed and then backfilled data in the interactive chart can obscure why the alert fired or did not fire.
+I data were delayed and then backfilled, you might see the data in the chart but it's possible they were not available to the alert engine at an earlier time. Misfiring alerts are the result.
 
-The interactive chart is set to a custom date showing the time window in which the alert was triggered. However, the data in the chart might have been backfilled with data values that were **reported** during that time window, but were not **ingested** until later.  If you suspect a [misfiring alert](alerts_states_lifecycle.html#did-my-alert-misfire), inspect the chart image included in the notification, which shows the state when the alert fired.
+The interactive chart is set to the time window in which the alert was triggered. However, the data in the chart might have been backfilled with data values that were **reported** during that time window, but were not **ingested** until later.
+
+If you suspect a [misfiring alert](alerts_states_lifecycle.html#did-my-alert-misfire), inspect the chart image that is included in the notification. The chart image shows a snapshot of the state when the alert fired, instead of the chart image.
 
 #### Optional Information in the Interactive Chart
 
