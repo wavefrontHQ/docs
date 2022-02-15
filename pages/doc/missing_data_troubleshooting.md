@@ -114,27 +114,18 @@ One of the most common reasons data that you don't see data that you expect to s
 
 For example:
 * A data point is timestamped for 12:00:01 UTC
-* Becaus of data delays, that point does not show up on charts until 12:04:35 UTC.
+* Because of data delays, that point does not show up on charts until 12:04:35 UTC.
 
-Here are some possible causes for ingestion delays:
+One of the benefits of the Wavefront proxy is queue management. The Wavefront proxy queues data as needed,  and those data are ingested by the Wavefront service with a delay. The proxy prioritizes live incoming data and processes data in the queues (backlog) only when possible.
 
-Proxy Queues
-Data Pipeline
-High Rate of New IDs
+There are several possible reasons for queues at the proxy. The [Monitoring Wavefront Proxies](monitoring_proxies.html) and the **Queuing Reasons** chart in the **Wavefront Service and Proxy Data** dashboard are especially helpful for identifying the cause for queuing, discussed next:
 
-### Check for Data Delays Caused by Proxy Queues
-
-In certain situations, the Wavefront proxy queues data and those data are ingested by the Wavefront service with a delay. The Proxy prioritizes live incoming data and processes data in the queues (backlog) only when possible.
-
-There are several possible reasons for queues at the Proxy. The [Monitoring Wavefront Proxies](monitoring_proxies.html) and the **Queuing Reasons** chart in the **Wavefront Service and Proxy Data** dashboard are especially helpful for identifying the cause for queuing:
-
-<!---Make me links!--->
-* Pushback from Backend
-* Proxy Rate Limit
-* Bursty Data
-* Memory Buffer Overflow
-* Network Latency
-* Memory Pressure
+* [Pushback from Backend](#proxy-queue-issues-pushback-from-backend)
+* [Proxy Rate Limit](#proxy-queue-issues-proxy-rate-limit)
+* [Bursty Data](#proxy-queue-issues-bursty-data)
+* [Memory Buffer Overflow](#proxy-queue-issues-memory-buffer)
+* [Network Latency](#proxy-queue-issues-network)
+* [Memory Pressure](#proxy-queue-issues-memory-low-on-proxy-host)
 
 #### Proxy Queue Issues: Pushback from Backend
 
@@ -143,7 +134,7 @@ If the rate of data ingestion is higher than backend limit, the proxy queues dat
 **Troubleshooting & Further Investigation**
 
 1. Look for pushback in the **Queuing Reasons** chart of the **Wavefront Service and Proxy Data** dashboard.
-2. Use the query in the **Data Ingestion Rate (Points)** chart of the **Wavefront Service and Proxy Data** dashboard to keep track of your ingestion rate. Ensure the ingetion rate is within contractual limits to avoid overages. While it's possible to ask Wavefront Support to raise the backend limit such a change can result in overages.
+2. Use the query in the **Data Ingestion Rate (Points)** chart of the **Wavefront Service and Proxy Data** dashboard to keep track of your ingestion rate. Ensure the ingestion rate is within contractual limits to avoid overages. While it's possible to ask Wavefront Support to raise the backend limit such a change can result in overages.
 
 
 #### Proxy Queue Issues: Proxy Rate Limit
@@ -162,10 +153,17 @@ If the rate of data sent to the proxy too high, the proxy starts queuing data. T
 
 #### Proxy Queue Issues: Bursty Data
 
-This can be related to either of the two points above. If your rate of data is very bursty, you may also experience queueing. "Burstiness" means that data is sent in bursts rather than being sent evenly over time. For instance, the average PPS (points per second) over a minute may be 1000. That could be the result of 1000 data points sent for each of the 60 seconds within that minute. But, that could also be the result of 60,000 data points sent at one particular second within that minute and no data sent for the rest of the minute. Since rate limits are set assuming a steady rate, that burst of 60,000 PPS for that one second will result in data being queued.
+This can be related to either of the two points above. If your rate of data is very bursty, you may also experience queueing. "Burstiness" means that data is sent in bursts rather than being sent evenly over time. For instance, the average PPS (points per second) over a minute may be 1000.
+* That could be the result of 1000 data points sent for each of the 60 seconds within that minute.
+* That could also be the result of 60,000 data points sent at one particular second within that minute and no data sent for the rest of the minute.
 
-Troubleshooting & Further Investigation:
-The Received Points/Distributions/Spans Max Burst Rate (top 20) charts in the Wavefront Service and Proxy Data dashboard provides insight into the burstiness of your data rate. The queuing ability of the Proxy normally helps smooth out the data rate through momentary queuing. However, if you find that the Proxy queues sustain and continue to grow, the overall data ingest rate is too high. You can either reduce the ingest rate or request that the backend limit be raised (possibly resulting in overages).
+Because rate limits are set assuming a steady rate, that burst of 60,000 PPS for that one second will result in data being queued.
+
+**Troubleshooting & Further Investigation**
+
+1. Explore the **Received Points/Distributions/Spans Max Burst Rate (top 20)** charts in the **Wavefront Service and Proxy Data** dashboard provides to understand the burstiness of your data rate. The queuing ability of the Proxy normally helps smooth out the data rate through momentary queuing.
+2. If you find that the Proxy queues sustain and continue to grow, then the overall data ingest rate is too high.
+3. Either reduce the ingest rate or request that the backend limit be raised (possibly resulting in overages).
 
 #### Proxy Queue Issues: Memory Buffer
 
@@ -175,8 +173,12 @@ If the data ingestion rate is so high that the memory buffer fills too quickly, 
 
 As the proxy processes data in the memory buffers, space is freed up for new incoming points. However, when the rate of ingest is so high that the buffer fills up more quickly than it is drained, more and more data points are queued up.
 
-Troubleshooting & Further Investigation:
-Look for "bufferSize" in the Queuing Reasons chart. Consider lowering the rate of ingest or distributing the load among several Proxies. It is not typically necessary to adjust the pushMemoryBufferLimit Proxy property. However, if you choose to do so, understand that raising this value results in higher memory usage while lowering this value results in more frequent spooling to disk.
+**Troubleshooting & Further Investigation**
+
+1. Find the **Queuing Reasons** chart in the **Wavefront Service and Proxy Data** dashboard and look for `bufferSize`.
+2. If you see problems, consider lowering the ingestion rate or distributing the load among several proxies. 3. In some situations, it might make sense to adjust the `pushMemoryBufferLimit` proxy property.
+  * Raising this value results in higher memory usage.
+  * Lowering this value results in more frequent spooling to disk.
 
 #### Proxy Queue Issues: Network
 
@@ -184,7 +186,7 @@ If network issues prevent or slow down the proxy as it sends data to the Wavefro
 
 **Troubleshooting & Further Investigation:**
 
-1. Go to the **Network Latency** charts in the **Proxy Troubleshooting** section of the **Wavefront Service and Proxy Data** dashboard. Thse charts track the amount of time from when the Proxy sends out a data point to when it receives an acknowledgment from the backend.
+1. Go to the **Network Latency** chart in the **Proxy Troubleshooting** section of the **Wavefront Service and Proxy Data** dashboard. This chart tracks the amount of time from when the Proxy sends out a data point to when it receives an acknowledgment from the backend.
 2. Ensure that this amount of time is in the range of hundreds of milliseconds. If the time reaches the range of seconds, check for network latency issues.
 
 
@@ -201,20 +203,31 @@ The proxy configuration property `memGuardFlushThreshold` is meant to protect ag
 
 ## Find Data Delays Caused by Data Pipeline Issues
 
-If your data travels through a pipeline before reaching the Wavefront Proxy or before being direct ingested to the Tanzu Observability backend, the pipeline itself may introduce delays to the ingestion process.
+If your data travels through a pipeline before reaching the Wavefront Proxy or before being direct ingested to the Wavefront service, the pipeline itself can introduce delays to the ingestion process.
 
-Troubleshooting & Further Investigation:
-One area that may provide a clue is looking at the Data Received Lag charts in the Proxy Troubleshooting section of the Wavefront Service and Proxy Data dashboard. This helps if the data points are timestamped at or near the source of the data. The underlying metric used in these charts tracks the difference between the system time of the Proxy host and the timestamp of data points. This difference could provide some insight into how long it takes a data point to traverse through the data pipeline and reach the Proxy. Every pipeline will inherently have its own latencies. Understanding this will help with expectations on when data should show up in charts. It will also help with crafting queries so that this latency is taken into account.
+**Troubleshooting & Further Investigation**
+
+Examine the **Data Received Lag** charts in the **Proxy Troubleshooting** section of the **Wavefront Service and Proxy Data** dashboard.
+
+These charts can help if the data points are timestamped at or near the source of the data. The underlying metric used in these charts tracks the difference between the system time of the proxy host and the timestamp of data points. This difference can provide insight into how long it takes for a data point to traverse the data pipeline and reach the proxy.
+
+Every pipeline inherently has its own latencies. Understanding the latencies helps you understand when data are expected to show up in charts. It can also help with crafting queries that this latency into account.
 
 
 
 ## Find Data Delays Caused by High Rate of New IDs
 
-Components of each data point are converted into IDs at the backend prior to persistence in storage. These components include metric name, source name, and the point tag key and value combination. Whenever a new name is detected by the backend, a new ID will need to be generated. This adds to the ingestion time. This is negligible when the rate of new IDs is relatively low. However, when the rate is high, this can lead to a backlog of items that need an ID. This backlog results in delays in ingestion.
+Components of each data point are converted into IDs at the backend (Wavefront service) before the points are stored. These components include metric name, source name, and the point tag key and value combination.
+
+Each time the Wavefront service detects a new name, it generates a new ID. ID generation adds to the ingestion time. When the rate of new IDs is low, this is negligible. However, when you send a large amount of new data at the same time and the ID generation rate is high, a backlog of items that need an ID can result. This backlog results in delays in ingestion.
 
 
-Troubleshooting & Further Investigation:
-The Wavefront Usage integration includes several alert examples that can be used to catch when there is a high rate of new IDs. A high rate of new IDs could indicate a cardinality issue with your data shape. For instance, if a timestamp was included as a point tag, this would lead to a high number of unique point tags, inflating the cardinality of the applicable timeseries. This would be problematic when it comes time to query that data. See Tanzu Observability Data Naming Best Practices for best practices.
+**Troubleshooting & Further Investigation**
+
+The **Wavefront Usage** integration includes several alertd that you can customize to be alerted when there is a high rate of new IDs.
+
+* A high rate of new IDs can happen when you start expanding the data you send to Wavefront.
+* A high rate of new IDs could also indicate a **cardinality issue** with the data shape of the data you're sending to Wavefront. For instance, if a timestamp was included as a point tag, a high number of unique point tags results. This can be a problem when you send the data to Wavefront, but also causes problems later when you query the data. See [Tanzu Observability Data Naming Best Practices] for best practices.
 
 
 
