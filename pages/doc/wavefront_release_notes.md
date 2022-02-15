@@ -19,6 +19,21 @@ In March, all v1 dashboards and charts will be migrated to v2. Users can no long
 
 {% include important.html content="Most Wavefront users are already using the v2 GUI. However, if your dashboards and charts are migrated, see [What's New in v2 Dashboards & Charts](ui_v2_faq.html) for info. "%}
 
+## 2022-06.x Release Notes
+
+**UI Updates and Improvements**
+<tr>
+<td width="50%">
+<ul>
+<li>After you pin a legend in a chart (Shift-P), you can now sort the columns in the legend. See the screenshot on the right.</li>
+<li>Changed the name of the <strong>Accounts, Groups & Roles</strong> permission to <strong>Accounts</strong> and changed the name of the <strong>Account Management</strong> menu item to <strong>Accounts</strong>. </li>
+<li>Keyboard navigation improvements in the <strong>Create Dashboard</strong> wizard and in the Chart UI pages. The sections that you add are now numbered, e.g. Section 1 instead of New Section. </li>
+</ul>
+</td>
+<td width="50%"><img src="/images/sort_legend.png" alt="A pinned legend with up and down arrows for each column."></td>
+</tr>
+
+
 ## 2022-05.x Release Notes
 
 * **Create and Manage Alerts Revamp**: Streamlined experience that improves usability and gives alert creators more options.
@@ -101,17 +116,6 @@ To enable users to generate API tokens:
 <strong>Integration Improvements</strong>: You can now easily filter the integrations by state. See <a href="integrations.html#supported-states">Supported States</a>.
 </td>
 <td width="50%"><img src="/images/integration_state_relnotes.png" alt="List of integrations filtered by active state."></td>
-</tr>
-<tr>
-<td width="50%">
-<strong>UI Updates and Improvements</strong>:
-<ul>
-<li>After you pin a legend in a chart (Shift-P), you can now sort the columns in the legend. See the screenshot on the right.</li>
-<li>Changed the name of the <strong>Accounts, Groups & Roles</strong> permission to <strong>Accounts</strong> and changed the name of the <strong>Account Management</strong> menu item to <strong>Accounts</strong>. </li>
-<li>Keyboard navigation improvements in the <strong>Create Dashboard</strong> wizard and in the Chart UI pages. The sections that you add are now numbered, e.g. Section 1 instead of New Section. </li>
-</ul>
-</td>
-<td width="50%"><img src="/images/sort_legend.png" alt="A pinned legend with up and down arrows for each column."></td>
 </tr>
 <!---
 <tr>
