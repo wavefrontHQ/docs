@@ -323,6 +323,7 @@ You can change the alert properties when you edit the alert.
 
 <table style="width: 100%;">
 <tbody>
+<tr>
 <td width="55%">
 <strong>Alert Name and Tags</strong><br><br>
 In this section:
