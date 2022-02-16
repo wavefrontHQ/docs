@@ -22,6 +22,18 @@ In March, all v1 dashboards and charts will be migrated to v2. Users can no long
 ## 2022-06.x Release Notes
 
 * **Updated the Wavefront REST API Documentation UI**: We've updated our in-product interactive API documentation to use the latest Swagger API console. To access the API documentation, either click the gear icon and select **API Documentation**, or go to `https://<your_cluster_name>/api-docs/ui/`.
+* **New Alerts FAQ Page**: Check out the new [Alerts FAQ page](alerts_faq.html) that answers questions like "Why Did My Alert Misfire?" or "When Does an Alert Resolve?".
+* **UI Updates and Improvements**
+<tr>
+<td width="50%">
+<ul>
+<li>After you pin a legend in a chart (Shift-P), you can now sort the columns in the legend. See the screenshot on the right.</li>
+<li>Changed the name of the <strong>Accounts, Groups & Roles</strong> permission to <strong>Accounts</strong> and changed the name of the <strong>Account Management</strong> menu item to <strong>Accounts</strong>. </li>
+<li>Keyboard navigation improvements in the <strong>Create Dashboard</strong> wizard and in the Chart UI pages. The sections that you add are now numbered, e.g. Section 1 instead of New Section. </li>
+</ul>
+</td>
+<td width="50%"><img src="/images/sort_legend.png" alt="A pinned legend with up and down arrows for each column."></td>
+</tr>
 
 ## 2022-05.x Release Notes
 
