@@ -242,7 +242,7 @@ The **Wavefront Usage** integration includes several alertd that you can customi
 
 The Wavefront proxy or the Wavefront service block data for a variety of reasons. When this happens, the data is dropped and is be ingested. If data is blocked at the proxy, the proxy log includes a message indicating the reason.
 
-### Blocked Data: Incorrect Timestamps
+### Blocked Data Issue: Incorrect Timestamps
 
 By default, the proxy and the Wavefront service allow data points that are timestamped between:
 * 8760 hours (1 year) ago
@@ -251,7 +251,7 @@ By default, the proxy and the Wavefront service allow data points that are times
 This functionality supports back-fill of old data or pre-fill of data. Make sure that the timestamp of your data points is in this range. Data with a timestamp outside this range will be rejected at the proxy or not ingested by the Wavefront service.
 
 
-### Blocked Data: Invalid Data Format
+### Blocked Data Issue: Invalid Data Format
 
 The proxy supports a variety of data formats. Most environments are set up to use different ports for different formats. Ensure that data is being sent to the proper port.
 
@@ -262,6 +262,6 @@ For data that is in the Wavefront Data Format, see [this page](wavefront_data_fo
 
 
 
-### Blocked Data: Proxy Preprocessor Rules
+### Blocked Data Issue: Proxy Preprocessor Rules
 
 The proxy supports setting up [custom preprocessor rules](proxies_preprocessor_rules.html) to allow or block certain data. Ensure that your data meets all the rules set-up at the proxy. You may need to reach out to the team that manages the proxy and/or those rules.

@@ -16,9 +16,27 @@ This page uses vphere sample metrics to demonstrate how you can change a table c
 
 All three metadata functions support these options:
 
-* To specify a string,
-* To use a numeric zeroBasedNodeIndex
-* To use a regex search/replace pattern.
+<table>
+<tbody>
+<thead>
+<tr><th width="40%">Option</th><th width="60%">Example</th></tr>
+</thead>
+<tr><td markdown="span">Specify a string to add to or replace a string in the source.</td>
+<td markdown="span">Change "esxi-11" to "esxi-11-to-be-decommissioned"</td>
+</tr>
+<tr>
+<td markdown="span">Use a numeric zeroBasedNodeIndex to change a string at a specific location in the source string.  </td>
+<td>Use zeroBasedNodeIndex to ename a source from "version.7.esxi101" to "esxi101".
+<ul><li>The delimiter is a period.</li>
+<li>We use the index 2 to use the 3rd node from the left.</li></ul>
+</td>
+</tr>
+<tr>
+<td markdown="span">Use a regex search/replace pattern.</td>
+<td>Use a search and replace pattern to:<ul><li>Rename all the sources beginning with "perf18" to "Performance-Machine-Number"</li>
+<li>Capture everything after the perf18 that is a number and put that into the capture group.</li></ul> </td></tr>
+</tbody>
+</table>
 
 ## Parameters
 
