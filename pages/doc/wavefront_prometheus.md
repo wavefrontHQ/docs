@@ -8,9 +8,9 @@ summary: Run PromQL queries in the Wavefront Query Editor
 
 Wavefront supports both PromQL and WQL (Wavefront Query Language) queries. The Query Editor includes admin-level organization settings for enabling PromQL and a query line GUI that includes a translation option.
 
-* Administrators have control over user defaults:
-  - On the Organization Settings page (New User Defaults) administrators can enable users to write queries in PromQL.
-  - If queries in PromQL are enabled, administrators can also set other options.
+* Users with the **Accounts** permission and Super Admins (Administrators) have control over user defaults:
+  - On the Organization Settings page (New User Defaults) they can enable users to write queries in PromQL.
+  - If queries in PromQL are enabled, they can also set other options.
 * Users can then type PromQL or Wavefront query language (WQL) queries into the Query Editor.
   - If users enter a PromQL query when **PromQL** is selected, or a Wavefront query language query, when **WQL** is selected, the Query Editor parses the query. The corresponding chart shows the information you'd expect.
   - If users enter a PromQL query when **WQL** is selected, or the reverse, the Query Editor doesn't parse the query and displays a syntax error.
@@ -22,7 +22,7 @@ Wavefront supports both PromQL and WQL (Wavefront Query Language) queries. The Q
 
 ## Set PromQL Organization Settings (Administrator Only)
 
-Users with **Accounts, Groups & Roles**  permissions can navigate to the **Organization Settings** and enable the PromQL support.
+Users with **Accounts**  permissions can navigate to the **Organization Settings** and enable the PromQL support.
 * If **PromQL Support** is *not enabled*, other users cannot use PromQL or change PromQL user preferences.
 * If **PromQL Support** is *enabled*, administrators can set additional New User Default query settings, and other users can override those settings.
 
@@ -43,7 +43,7 @@ To set PromQL settings for your organization:
 
 If an administrator has enabled PromQL support (discussed above), each user can control some aspects of PromQL.
 
-{% include note.html content="If you can only choose between Query Editor and Chart Builder, then PromQL is not supported on your Wavefront instance. Contact a site administrator with **Accounts, Groups, and Roles** permission." %}
+{% include note.html content="If you can only choose between Query Editor and Chart Builder, then PromQL is not supported on your Wavefront instance. Contact a site administrator with **Accounts** permission." %}
 
 1. From the gear icon, select your username.
 2. Under **Query Settings**, select:

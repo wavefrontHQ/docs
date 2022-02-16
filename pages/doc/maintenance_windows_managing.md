@@ -15,9 +15,9 @@ You can prevent alerts from firing by using one of the following techniques:
 * To prevent an alert from firing outside of certain hours, you can [alert only between specific times](alerts_recipes.html#alert-only-between-specific-times).
 
 
-## Snoozing and Unsnoozing Alerts
+## Snooze and Unsnooze Alerts
 
-You can snooze an alert, so it doesn't fire even if the condition is met. Wavefront allows you to snooze one or more alerts for 30 minutes, 1 hour, 6 hours, 1 day, 1 week, or Forever. If you choose Forever, the alert is snoozed until it is unsnoozed.
+You can snooze an alert, so it doesn't fire even if the condition is met. You can snooze one or more alerts for 30 minutes, 1 hour, 6 hours, 1 day, 1 week, or Forever. If you choose Forever, the alert doesn't fire until it is unsnoozed.
 
 
 <table style="width: 100%;">
@@ -45,9 +45,9 @@ To snooze or unsnooze a single alert:
 </table>
 
 
-## Using Maintenance Windows
+## Maintenance Windows
 
-You can create maintenance windows to temporarily prevent alerts from firing when disruptive operations occur as a result of system maintenance or testing. During such operations, you know it's likely that alerts will fire.
+Maintenance windows prevent alerts from firing. Use them, for example, when disruptive operations occur as a result of system maintenance or testing.
 
 You can:
 
@@ -69,7 +69,7 @@ Watch this <a href="https://bcove.video/3m7AM4x" target="_blank">video<img src="
 
 ### Creating a Maintenance Window
 
-Creating a maintenance window consists of these simple steps discussed below:
+Creating a maintenance window consists of these simple steps:
 
 1. Specify required information, including description and start and end dates.
 2. Narrow down the scope. By default, no alerts fire during the maintenance window. You can target only specific alerts, for example, alerts for sources or environments that will be in maintenance.
@@ -128,7 +128,7 @@ To suppress the example alerts, you create a maintenance window as shown above, 
 
 
 
-### Extending a Maintenance Window
+### Extend a Maintenance Window
 
 You can extend the duration of a maintenance window. To extend one or more maintenance windows:
 
@@ -147,9 +147,9 @@ You can extend the duration of a maintenance window. To extend one or more maint
 
 To extend a single maintenance window, click the ellipsis icon on the left of the window, click **Extend** and select the desired duration.
 
-### Closing a Maintenance Window
+### Close a Maintenance Window
 
-You can close the window before it is scheduled to finish. To close one or more maintenance windows:
+You can close the window to enable alerts before the window is scheduled to finish.
 
 1. Select **Browse > Maintenance Windows**.
 2. Select the check boxes next to the maintenance windows to be closed.
@@ -161,7 +161,7 @@ To close a single maintenance window, click the ellipsis icon on the left of the
 
 To edit or delete a maintenance window, click the ellipsis icon on the left of the window and click **Edit** or **Delete**.
 
-## Excluding Sources from an Alert
+## Exclude Sources from an Alert
 
 You can exclude sources from an alert by configuring the alert condition so that it filters out source tags that are associated with the sources to be skipped. Doing so prevents the metrics on the source from triggering the alert.
 

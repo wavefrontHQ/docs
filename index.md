@@ -1,4 +1,5 @@
 ---
+title: Home
 keywords: homepage
 labels: getting started
 sidebar: doc_sidebar

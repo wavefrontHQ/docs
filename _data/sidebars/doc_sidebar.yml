@@ -178,10 +178,6 @@ entries:
       url: /wavefront_data_format.html
       output: web
 
-    - title: Wavefront Data Best Practices
-      url: /wavefront_data_naming.html
-      output: web
-
     - title: Cardinality and Wavefront
       url: /cardinality.html
       output: web
@@ -487,6 +483,10 @@ entries:
           - title: AWS Integration Overview
             url: /integrations_aws_overview.html
             output: web
+            
+          - title: AWS Integration API Setup
+            url: /integrations_aws_overview_API.html
+            output: web
 
           - title: AWS Metrics Integration
             url: /integrations_aws_metrics.html
@@ -511,13 +511,17 @@ entries:
           - title: Log Data Metrics Integration
             url: /integrations_log_data.html
             output: web
-    
+
           - title: vRealize Operations Cloud Integration
             url: /integrations_vrops.html
             output: web
 
           - title: Set Up Wavefront as PromQL Data Source in Grafana
             url: /integrations_grafana.html
+            output: web
+
+          - title: Send Wavefront Data to CloudHealth
+            url: /integrations_cloudhealth.html
             output: web
 
       - title: collectd Integrations
@@ -814,7 +818,7 @@ entries:
         - title: Monitoring & Troubleshooting
           output: web
           subfolderitems:
-
+            
           - title: Monitor the Wavefront Service
             url: /wavefront_monitoring.html
             output: web

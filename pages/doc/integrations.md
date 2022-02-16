@@ -77,6 +77,21 @@ Our first external integration sends AlertSite monitoring results to Wavefront a
 
 We're excited about this contribution and hope to see more soon!
 
+## Get to Know the Integration Dashboards
+
+Before setting up an integration, you can look into our demo dashboards. These demo dashboards are for our most used integrations and contain some sample (sandbox) data. You can explore the data and look how the dashboards work. As these are demo dashboards, you cannot edit them.
+
+ {% include note.html content="The Sample Data Dashboards are currently available to some of our customers. They will become available to all customers within the next releases."%}
+
+1. Click **Integrations** on the taskbar.
+   
+   ![Sample data dashboards section preview](images/integrations-sample-dashboards.png)
+1. In the **Get to know integration dashboards!** section, click the **Explore** button for a sample integration dashboard. 
+    
+    {% include note.html content="You are redirected to a sandbox data tenant cluster in another tab of your browser. Notice the URL. This sandbox data tenant cluster contains the sample integrations data and dashboards." %}
+
+1. To close the **Sample Data Dashboards** section, click **Close the section** and confirm. 
+1. To bring back the demo dashboards section, in the left pane, click **Show Demo Dashboards**.
 
 ## Installing and Uninstalling Integration Dashboards
 
@@ -125,53 +140,34 @@ After you clone an alert, snooze the original system integration alert to avoid 
 
 ## Integration States
 
-The Integrations page reports integration state depending on two factors:
+The Integrations page reports integration states depending on two factors:
 
 - Whether metrics ever reported and whether they reported in the last 2 hours or in the last 7 days.
-- The state of content installation: never installed, installed, uninstalled.
+- The state of content installation, such as installed, never installed, or uninstalled.
 
 ### Supported States
 
 The supported states are:
 
-- **Active** - integrations whose metrics are reporting and installed or uninstalled content.
-- **Available** - integrations whose metrics never reported and never installed content or integrations that don't have metrics.
-- **Warning** - integrations whose metrics never reported and installed content.
-- **Error** - integrations whose metrics reported within the last 7 days but have stop reporting for 2 hours and installed content.
+- **Active** - integrations whose metrics are reporting and user has installed or uninstalled content.
+- **Available** - integrations whose metrics never reported and content has been never installed or integrations that don't have metrics.
+- **Warning** - integrations whose metrics never reported and have no installed content.
+- **Error** - integrations whose metrics reported within the last 7 days but have stop reporting for 2 hours and have installed content.
+- **Pending** - integrations whose metrics are yet to start reporting.
+- **Alias** - integrations that are supported by another integration.
 
-You can filter integrations by state or with the following saved searches:
+{% include note.html content="To filter the integrations by state, scroll down, so that the states of the integrations are loaded. When you click a state from the left panel, for example, **Active**, only the integrations whose Active states are loaded will be filtered out and displayed in the main panel." %}
 
-- **New Integrations** - integrations that have metrics reporting for at most two hours and have installed content
+You can also filter integrations with the following saved searches:
+
+- **New Integrations** - integrations that have metrics reporting for at most two hours and have installed content.
 - **Installed Integrations** - integrations in the Active, Warning, or Error state. An integration can be in one of these states even if content has been uninstalled.
 
 ### State Indicators
 
-When you hover over an integration, Wavefront colors the integration border and displays indicators based on the current state:
+When you hover over an integration, Wavefront colors the integration border and displays indicators based on the current state. For example, the following integration is in the Warning state because metrics have stopped reporting in the past month and content is installed.
 
-<table width="80%" class="layout">
-<colgroup>
-<col width="20%" />
-<col width="40%" />
-<col width="40%" />
-</colgroup>
-<tr><td></td><td><strong>Metrics</strong></td><td><strong>No Metrics</strong></td></tr>
-<tbody>
-<tr>
-<td><strong>Content</strong></td>
-<td>Active <i class="fa fa-check-circle text-success" style="font-size: 18px;"></i> <i class="fa fa-check-circle text-success" style="font-size: 18px;"></i></td>
-<td>Warning <i class="fa fa-exclamation-circle" style="color:#FFA31C; font-size: 18px;"></i> <i class="fa fa-check-circle text-success" style="font-size: 18px;"></i> or Error <i class="fa fa-exclamation-triangle" style="color:#D9534F; font-size: 18px;"></i> <i class="fa fa-check-circle text-success" style="font-size: 18px;"></i></td>
-</tr>
-<tr>
-<td><strong>No Content</strong></td>
-<td>Active <i class="fa fa-check-circle text-success" style="font-size: 18px;"></i> <i class="fa fa-stop-circle text-muted" style="font-size: 18px;"></i></td>
-<td>Available <i class="fa fa-exclamation-circle text-error" style="font-size: 18px;"></i> <i class="fa fa-stop-circle text-muted" style="font-size: 18px;"></i></td>
-</tr>
-</tbody>
-</table>
-
-For example, the following integration is in the Error state because metrics have reported within the last 7 days but have stopped reporting in the past 2 hours and content is installed.
-
-![RabbitMQ integration state with an error sign next to metrics](images/integration_state.png)
+![Windows integration state with a Warning sign next to metrics](images/integration_state.png)
 
 
 ## More Info

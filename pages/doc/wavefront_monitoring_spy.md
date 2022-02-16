@@ -8,7 +8,7 @@ summary: Use HTTP endpoints to get samples data or IDs, or use wftop to examine 
 
 Your Wavefront instance includes HTTP `spy` endpoints for sampling the data that your Wavefront instance is currently ingesting. Examining these endpoints helps you understand the data shape and avoid slowdown or other problems.
 
-{% include shared/badge.html content="You need [Direct Data Ingestion permission](permissions_overview.html) to use these HTTP endpoints." %}
+{% include note.html content="You need [Direct Data Ingestion permission](permissions_overview.html) to use these HTTP endpoints." %}
 
 
 ## Get Started with Wavefront Top and Spy
@@ -53,7 +53,7 @@ Wavefront supports the `spy` endpoints shown in the following table:
 
 Each endpoint displays a header that describes your request, and then lists the results, if any, in close to real time (as soon as they are available). Each returned point, span, or ID is listed on a separate line.
 
-A `spy` endpoint always returns a *sample* of the requested data. Wavefront always uses multiple data ingesters, but the endpoint connects to a single data ingester. The sample is taken from data that is ingested by that one data ingester. As a result, you always get a sample even if you specify a 100% sample size as an endpoint parameter. 
+A `spy` endpoint always returns a *sample* of the requested data. Wavefront always uses multiple data ingesters, but the endpoint connects to a single data ingester. The sample is taken from data that is ingested by that one data ingester. As a result, you always get a sample even if you specify a 100% sample size as an endpoint parameter.
 
 ## Get Ingested Metric Points with Spy
 
@@ -81,7 +81,7 @@ To get a sampling of points with specific characteristics, add one or more of th
 <tr><td markdown="span">**metric**</td>
 <td>string, optional</td>
 <td markdown="span">List a point only if its metric name starts with the specified case-sensitive prefix. <br> E.g., `metric=Cust` matches metrics named `Customer`, `Customers`, `Customer.alerts`, but not `customer`.</td></tr>
-<tr><td markdown="span">**host**</td>
+<tr><td markdown="span">**host** or **source**</td>
 <td>string, optional</td>
 <td>List a point only if its source name starts with the specified case-sensitive prefix. </td></tr>
 <tr><td markdown="span">**pointTagKey**</td>

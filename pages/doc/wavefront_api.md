@@ -58,9 +58,12 @@ a411c16b-3cf7-4f03-bf11-8ca05aab898d
 ```
 Wavefront allows [user accounts](user-accounts.html) and [service accounts](service-accounts.html) to use the [Wavefront REST API](wavefront_api.html).
 
-{% include tip.html content="You generate user account tokens explicitly. For service accounts, you can generate tokens with specified permissions from the Service Accounts page. " %}
+{% include tip.html content="You generate API tokens for user accounts explicitly. For service accounts, a Wavefront user with the **Accounts** permission can generate tokens from the Service Accounts page." %}
 
-#### Generate an API Token for a User Account
+#### Generate an API Token for Your User Account
+
+{% include note.html content="All users can use and manage their existing API tokens. You must have the [API Tokens permission](permissions_overview.html) to generate new API tokens for your user account." %}
+
 
 1. In the Wavefront UI, click the gear icon <i class="fa fa-cog"/>  at the top right of the taskbar and select your user name.
 2. On the **API Access** tab, click **Generate**. You can have up to 20 tokens at any given time.
@@ -74,9 +77,11 @@ Wavefront allows [user accounts](user-accounts.html) and [service accounts](serv
 
 #### Generate an API Token for a Service Account
 
-As a Wavefront administrator you generate API tokens for [service accounts](service-accounts.html) upon creation. You can also generate an API token at a later stage. To generate an API token for an existing **service account**:
+{% include note.html content="You must have the [Accounts permission](permissions_overview.html) to generate API tokens for your service accounts." %}
 
-1. In the Wavefront UI, click the gear icon <i class="fa fa-cog"/>  at the top right of the taskbar and select **Account Management**.
+You generate API tokens for [service accounts](service-accounts.html) upon creation. You can also generate an API token at a later stage. To generate an API token for an existing **service account**:
+
+1. In the Wavefront UI, click the gear icon <i class="fa fa-cog"/>  at the top right of the taskbar and select **Accounts**.
 2. On the **Service Accounts** tab, click the ellipsis icon next to the service account for which you want to generate an API token, and select **Edit**.
 3. To generate a new token, in the Tokens section, click **Generate**. You can have up to 20 tokens per service account at any given time.
    If you want to generate a new token but already have 20 tokens, then you must revoke one of the existing tokens.
@@ -124,9 +129,9 @@ The REST API supports the following objects corresponding to different categorie
 
 - **Access Policy** - Lets you allow or deny access to embedded charts. For information, see [Allow or Deny Access to Embedded Charts](ui_sharing.html#ui_sharing.html#allow-or-deny-access-to-embedded-charts).
 - **Access** - Provides information on the access level of an entity. See [Notes on the Access Category](#access) below.
-- **Account (User and Service Account)** - Allows users with [**Accounts, Groups & Roles** permission](permissions_overview.html) to retrieve a list of all [accounts](users_roles.html), create, update, and delete accounts and manage permissions and groups associated with accounts.
+- **Account (User and Service Account)** - Allows users with [**Accounts** permission](permissions_overview.html) to retrieve a list of all [accounts](users_roles.html), create, update, and delete accounts and manage permissions and groups associated with accounts.
 - **Alert** - Retrieve active, snoozed, in-maintenance, and invalid alerts. Users with [**Alerts** permission](permissions_overview.html) can create and update alerts.
-- **ApiToken** - Allows users with [**Accounts, Groups & Roles** permission](permissions_overview.html) to retrieve, create, and manage API tokens. Used primarily in conjunction with service accounts.
+- **ApiToken** - Allows users with [**Accounts** permission](permissions_overview.html) to retrieve, create, and manage API tokens. Used primarily in conjunction with service accounts.
 - **Cloud Integration** - Retrieve cloud integration data types such as those available with the [AWS integration](integrations_aws_metrics.html). Users with [**Proxies** permission](permissions_overview.html) can add and remove cloud integration data types.
 - **Dashboard** - Retrieve data about dashboards, list dashboards, and return version history. Users with [**Dashboards** permission](permissions_overview.html) can save, create, delete, clone, undelete dashboards.
 - **Derived Metric** - Manage derived metrics.
@@ -146,7 +151,7 @@ The REST API supports the following objects corresponding to different categorie
 - **Source** - Retrieve sources and tags associated with a source. Users with [**Source Tags** permission](permissions_overview.html) can add and remove source tags and set descriptions.
 - **Usage** - Retrieve information about usage associated with ingestion policies and manage policies.
 - **User** - Deprecated API. Use **Account (User and Service Account)** instead.
-- **UserGroup** - Allows users with [**Accounts, Groups & Roles** permission](permissions_overview.html) to retrieve a list of all groups, create, update, and delete groups, and manage the users and roles associated with a group.
+- **UserGroup** - Allows users with [**Accounts** permission](permissions_overview.html) to retrieve a list of all groups, create, update, and delete groups, and manage the users and roles associated with a group.
 - **Webhook** - Retrieve webhooks. Users with [**Alerts** permission](permissions_overview.html) can create, update, and delete webhooks.
 
 <a name="access"></a>

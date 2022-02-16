@@ -21,7 +21,7 @@ Service accounts are used for automating management tasks.
 * Each account is automatically added to the **Service Accounts** group. If a role is assigned to that group, the service account gets the permissions from that role.
 * Service accounts can be added to any group to get that group's role (and permissions).
 
-As an administrator, you generate (and revoke, if needed) authentication tokens for the service account. It’s also possible to deactivate a service account completely. 
+As a user with the **Accounts** permission, you generate (and revoke, if needed) authentication tokens for the service account. It’s also possible to deactivate a service account completely. 
 
 ## How Service Accounts Work
 
@@ -40,7 +40,7 @@ You can disable a service account if you temporarily don't need it, or you can d
 
 Creating a service account is different from creating a user account.
 
-1. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Account Management**.
+1. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Accounts**.
 2. Click the **Service Accounts** tab and click **Create New Account**.
 3. On the **New Service Account** page, specify the account details and click **Create**.
 
@@ -67,7 +67,7 @@ Tokens</td>
 <tr>
 <td>
 Groups</td>
-<td>By default, service accounts are added to the <strong>Service Accounts</strong> group. If you assign roles to the <strong>Service Accounts</strong> group, all the service accounts get the permissions associated with that role. You can also add service accounts to other groups. </td></tr>
+<td>By default, service accounts are added to the <strong>Service Accounts</strong> group. If you assign roles to the <strong>Service Accounts</strong> group, all the service accounts get the permissions associated with these roles. You can also add service accounts to other groups. </td></tr>
 <tr>
 <td>Roles</td>
 <td>Roles for the service account. Roles are sets of permissions. You can create one or two roles and use those roles only for service accounts. </td></tr>

@@ -7,6 +7,7 @@ summary: Limits and recommendations to promote efficient resource use.
 ---
 For best performance and cost reduction, Wavefront supports limits. Some limits are recommendations--if your environment exceeds the limits, you'll see significant performance issues. Other limits result in an error if you exceed the limit.
 
+<!--this page is public but we're not pointing to it from elsewhere in the documentation because some companies change their limits (and pay more, potentially) --->
 
 ## Concurrent Query Limits
 
@@ -33,8 +34,6 @@ The following error results if one of the users exceeds this limit:
 HTTP 429 TOO_MANY_REQUESTS
 “User concurrent query limit exceeded. Please try again later. Contact support@wavefront.com for help.”
 ```
-
-
 
 ## Default Customer-Specific Limits
 
@@ -129,7 +128,7 @@ Follow best practices to avoid hitting query limits and for improved query execu
   - Organize metric names in a meaningful hierarchy from most general to most specific (i.e. `system.cpu0.loadavg.1m` instead of `1m.loadavg.cpu0.system`)
 * For best performance, keep the number of distinct time series per metric and host to under 1000.
 
-See [Wavefront Data Naming](wavefront_data_naming.html) for more best practices.
+See [Wavefront Data Naming](wavefront_data_format.html#wavefront-data-format-best-practices) for more best practices.
 
 
 
