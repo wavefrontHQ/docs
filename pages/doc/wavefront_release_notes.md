@@ -21,7 +21,7 @@ In March, all v1 dashboards and charts will be migrated to v2. Users can no long
 
 ## 2022-06.x Release Notes
 
-* **Updated the Wavefront REST API Documentation UI**: We've updated our in-product interactive API documentation by using the latest Swagger API console. To access the API documentation, either click the gear icon and select **API Documentation**, or go to `https://<your_cluster_name>/api-docs/ui/`.
+* **Updated the Wavefront REST API Documentation UI**: We've updated our in-product interactive API documentation to use the latest Swagger API console. To access the API documentation, either click the gear icon and select **API Documentation**, or go to `https://<your_cluster_name>/api-docs/ui/`.
 
 ## 2022-05.x Release Notes
 
