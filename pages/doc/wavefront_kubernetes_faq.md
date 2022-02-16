@@ -21,11 +21,19 @@ Yes, deploy Wavefront Collector on each of your Kubernetes clusters.
 
 ## How Can I Filter Metric Data?
 
+You can filter metrics data during installation or later using proxy preprocessor rules.
+
+### Filter During Installation
+
 During the [Helm installation](https://github.com/wavefrontHQ/helm/tree/master/wavefront), you can pass in a `values.yaml` as a parameter.
 
 Using `values.yaml` you can:
 * [Filter out generated labels](https://github.com/wavefrontHQ/helm/blob/0bbf6a0e46e6e884c0b3c44b9c7d51f4b9392b20/wavefront/values.yaml#L105)
 * [Create a filter to apply toward all metrics collected by the collector](https://github.com/wavefrontHQ/helm/blob/0bbf6a0e46e6e884c0b3c44b9c7d51f4b9392b20/wavefront/values.yaml#L86)
+
+### Filter Using Proxy
+
+Filter using a Wavefront [proxy preprocessor rule](proxies_preprocessor_rules.html). You can use point filtering/altering rules and span filtering/altering rules. The proxy deals with data coming from Kubernetes exactly the same way as with data from other data sources. 
 
 ## How Do I Monitor Prometheus Metric Endpoints?
 

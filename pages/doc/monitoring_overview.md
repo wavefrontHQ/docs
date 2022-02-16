@@ -26,7 +26,11 @@ You can find queries that are exceptionally slow by checking  the **Slow Query**
      The dashboard also provides you with the number of slow queries by user. The time window buttons [1h, 12h, 1d] control which slow queries you are viewing.
 
    * The **Top Slow Queries** tab provides details (timestamp, query type, ts() query, points, etc.) about the slow queries.
-
+     
+     * **Time Taken** shows the time a slow query takes. Queries listed on this page can't return results for more than 5 minutes.
+     * **Points Scanned** shows the number of data points that were queried to show the chart on the screen.
+     * **CPU Seconds** column shows the amount of time a node has spent on computing the given query.
+     
    * The **Resource Consumption** tab displays each user that ran a slow query and provides details such as time spent, total points scanned, and total CPU consumed.
 
 And even if a query isn't listed there, there are some guidelines for queries:

@@ -13,6 +13,31 @@ You can customize the predefined template for the alert target type by making an
 
 {% include note.html content="For general information about setting up custom alert targets, see [Creating and Managing Custom Alert Targets](webhooks_alert_notification.html)." %}
 
+
+<!---Newly to be added since last revision:
+runbookLinks
+dashboardLinks
+matchingMW
+alertRoute
+headline
+createdEpoch
+startedEpoch
+sinceEpoch
+endedEpoch
+snoozedUntilEpoch
+secureMetricDetails
+failing
+inMaintenance
+newlyFailing
+recovered
+isAlertNoData
+isAlertNoDataResolved
+failingHostSize
+inMaintenanceHostSize
+newlyFailingHostSize
+recoveredHostSize
+iterationLimitMap--->
+
 ## About Alert Target Templates
 
 
@@ -123,6 +148,8 @@ To display and edit a predefined template for a new or existing custom alert tar
 
 Wavefront defines variables for obtaining information about the alert as a whole, such as the alert ID, timing, severity, and so on. Each of these variables is a property unless explicitly described as an iterator.
 
+### General Information About the Alert
+
 <table>
 <colgroup>
 <col width="25%"/>
@@ -149,14 +176,6 @@ Wavefront defines variables for obtaining information about the alert as a whole
 <td>Alert condition query.</td>
 </tr>
 <tr>
-<td markdown="span">`createdTime`</td>
-<td>Time the alert was created.</td>
-</tr>
-<tr>
-<td markdown="span">`endedTime`</td>
-<td>Time the alert ended (resolved).</td>
-</tr>
-<tr>
 <td markdown="span">`errorMessage`</td>
 <td><strong>Deprecated</strong>. Look at the updateMessage variable instead for information about the alert.</td>
 </tr>
@@ -166,7 +185,7 @@ Wavefront defines variables for obtaining information about the alert as a whole
 </tr>
 <tr>
 <td markdown="span">`hostsFailingMessage`</td>
-<td>Message containing a list of the sources of the failing time series. These are time series for which the alert condition returned all true (non-zero) values for the duration of the <strong>Alert fires</strong> time window.</td>
+<td>Message containing a list of the sources of the failing time series. These are time series for which the alert condition returned all true (non-zero) values for the duration of the <strong>Trigger Window</strong>.</td>
 </tr>
 <tr>
 <td markdown="span">`imageLinks`</td>
@@ -185,47 +204,103 @@ Wavefront defines variables for obtaining information about the alert as a whole
 <td>Trigger that caused the alert target to send the notification, e.g., Alert Opened or Alert Snoozed.</td>
 </tr>
 <tr>
-<td markdown="span">`severity`</td>
-<td>Alert severity (e.g., INFO, SMOKE, WARN, SEVERE).</td>
+<td markdown="span">`subject`</td>
+<td>Subject of the notification (usually for email). If you omit this variable, the subject is composed of the alert severity, alert trigger, and alert name.</td>
 </tr>
 <tr>
-<td markdown="span">`severityInfo`</td>
-<td>A flag set to True if alert severity is set to INFO.</td>
+<td markdown="span">`url`</td>
+<td markdown="span">Link that shows the alert in the [Alert Viewer](alerts.html#alert-viewer-tutorial).</td>
 </tr>
 <tr>
-<td markdown="span">`severitySmoke`</td>
-<td>A flag set to True if alert severity is set to SMOKE.</td>
+<td markdown="span">`chartUrl`</td>
+<td markdown="span">Link to an [interactive chart](alerts_notifications.html#interactive-charts-linked-by-alert-notifications) that shows alert firing events or resolved events along with the alert condition.</td>
 </tr>
 <tr>
-<td markdown="span">`severitySevere`</td>
-<td>A flag set to True if alert severity is set to SEVERE.</td>
+<td markdown="span">`alertRoute`</td>
+<td>Route associated with alert target. Route allows you for example, to notify when a subset of hosts is failing. If defined a Webhook alert target, you can use the route in the notification template to send the alert to a different alert target. Another option to get this behavior is multiple alerts. See <a href="webhooks_alert_notification.html#add-custom-alert-routes">Add Custom Alert Routes</a> for background. </td>
 </tr>
 <tr>
-<td markdown="span">`severityWarn`</td>
-<td>A flag set to True if alert severity is set to WARN.</td>
+<td markdown="span">`heading`</td>
+<td>User-visible string for the alert state. Here's how the internal alert state maps to the user-visible string (in double quotes)
+<ul>
+<li>ALERT_OPENED: "OPENED"</li>
+<li>ALERT_RESOLVED: "RECOVERED"</li>
+<li>ALERT_MAINTENANCE: "SUSPENDED DUE TO MAINTENANCE"</li>
+<li>ALERT_SNOOZED: "SNOOZED"</li>
+<li>ALERT_INVALID: "INVALID ALERT"</li>
+<li>ALERT_NO_LONGER_INVALID: "ALERT NO LONGER INVALID"</li>
+<li>ALERT_TESTING: "TESTING"</li>
+<li>ALERT_RETRIGGERED: "ALERT RE-TRIGGERED"</li>
+<li>ALERT_NO_DATA: "ALERT NO DATA"</li>
+<li>ALERT_NO_DATA_RESOLVED: "ALERT NO DATA RESOLVED"</li>
+<li>ALERT_NO_DATA_MAINTENANCE: "ALERT NO DATA MAINTENANCE"</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td markdown="span">`secureMetricDetails`</td>
+<td markdown="span">Customers set this property in environments that use Metrics Security Policies. See [Secure Metric Details](alerts_notifications.html#alert-notification-with-secured-metrics-details)</td>
+</tr>
+</tbody>
+</table>
+
+
+
+### Time-Related Information About the Alert
+
+<table>
+<colgroup>
+<col width="25%"/>
+<col width="75%"/>
+</colgroup>
+<thead>
+<tr><th>Variable</th><th>Definition</th></tr>
+</thead>
+<tbody>
+<tr>
+<td markdown="span">`createdTime`</td>
+<td>Time the alert was created.</td>
+</tr>
+<tr>
+<td markdown="span">`createdEpoch`</td>
+<td>Time the alert was created, in Epoch format.</td>
+</tr>
+<tr>
+<td markdown="span">`endedTime`</td>
+<td>Time the alert ended (resolved).</td>
+</tr>
+<tr>
+<td markdown="span">`endedEpoch`</td>
+<td>Time the alert ended (resolved) in Epoch format.</td>
 </tr>
 <tr>
 <td markdown="span">`sinceTime`</td>
 <td>Time elapsed since the alert started firing.</td>
 </tr>
 <tr>
+<td markdown="span">`sinceEpoch`</td>
+<td>Time elapsed since the alert started firing, in Epoch format.</td>
+</tr>
+<tr>
 <td markdown="span">`snoozedUntilTime`</td>
 <td>Time when a snoozed alert is scheduled to be unsnoozed.</td>
+</tr>
+<tr>
+<td markdown="span">`snoozedUntilEpoch`</td>
+<td>Time when a snoozed alert is scheduled to be unsnoozed, in Epoch format.</td>
 </tr>
 <tr>
 <td markdown="span">`startedTime`</td>
 <td>Time the alert started firing.</td>
 </tr>
 <tr>
-<td markdown="span">`subject`</td>
-<td>Subject of the notification (usually for email). If you omit this variable, the subject is composed of the alert severity, alert trigger, and alert name.</td>
-</tr>
-<tr>
-<td markdown="span">`url`</td>
-<td markdown="span">Link to an [interactive chart](alerts_notifications.html#interactive-charts-linked-by-alert-notifications) that shows alert firing events or resolved events along with the alert condition.</td>
+<td markdown="span">`startedEpoch`</td>
+<td>Time the alert started firing, in Epoch format.</td>
 </tr>
 </tbody>
 </table>
+
+### Examples
 
 **Example: Accessing Alert Information in a Generic Webhook Alert Target Template**
 
@@ -313,7 +388,7 @@ Wavefront defines variables for obtaining information about the time series that
 * [Each series' defining information](#list-the-definitions-of-an-alerts-time-series)
 * A [custom combination of details](#access-a-custom-group-of-time-series-details) about each series.
 
- The time series visited by a particular iterator are in one of the following categories:
+The time series visited by a particular iterator are in one of the following categories:
 
 <table id="series-category">
 <colgroup>
@@ -334,7 +409,7 @@ Wavefront defines variables for obtaining information about the time series that
 </tr>
 <tr>
 <td><em>Recovered</em></td>
-<td>Any previously failing time series that is no longer failing, causing the alert to be updated or possibly resolved. These are time series for which the alert condition returned all true (non-zero) values for the duration of the <strong>Alert fires</strong> time window, and then returned either false (0) values or no data for the duration of the <strong>Alert resolves</strong> time window.
+<td>Any previously failing time series that is no longer failing, causing the alert to be updated or possibly resolved. These are time series for which the alert condition returned all true (non-zero) values for the duration of the <strong>Alert fires</strong> time window, and then returned either false (0) values or no data for the duration of the <strong>Resolve Window</strong> time window.
 </td>
 </tr>
 <tr>
@@ -359,6 +434,31 @@ The names of the iterators follow this convention: <code>&lt;seriesCategory&gt;&
 </ul>
 {{site.data.alerts.end}}
 
+## Information about Alert Resolution Help
+
+Starting with release 2022.05, users can include information about the alert resolution such as a runbook. We support several variables for extracting or setting those fields.
+
+{% include note.html content="This information is included with the **alert notification** if specified as part of the alert. In contrast, tracingDashboardLinks, discussed in [Include a Link to a Tracing Service Dashboard](alert_target_customizing.html#include-a-link-to-a-tracing-service-dashboard) is shown in the Alerts Browser."%}
+
+<table id="resolution-category">
+<colgroup>
+<col width="20%"/>
+<col width="80%"/>
+</colgroup>
+<thead>
+<tr><th>Field</th><th>Definition</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>runbookLinks</td>
+<td>One or more URLs in which information for alert resolution is stored.</td>
+</tr>
+<tr>
+<td>it is alertTriageDashboardLinks</td>
+<td>One or more URLs of dashboards that might help the user resolve the problem for which the alert was triggered. For example, if an alert for disk space is triggered, this could be a link to a dashboard that includes charts for disk usage. </td>
+</tr>
+</tbody>
+</table>
 
 ## List Sources and Source Tags of an Alert's Time Series
 
@@ -741,9 +841,10 @@ The preceding template might yield the following message:
 
 Statistics provide a profile of the values in a time series during the checking time window immediately preceding a notification. For example, the alert might be set up to fire when a condition is true for 10 minutes. During a 10-minute period where the condition is true, a time series likely have multiple values. You can use statistics to find out, e.g., the largest of these values, or the last value to be reported during the **Alert fires** time window.
 
+<!--- Remove after v2 is out!
 For classic alerts, statistics are normally useful only if you have set the alert's **Display Expression** field with a display expression that captures the underlying time series being tested by the condition expression. If the alert has no display expression, statistics are based on the values that are returned by the alert's condition expression. Because the condition expression returns either 0 or not 0, that information is not useful.
 
-Multi-threshold alerts include a predefined display expression.
+Multi-threshold alerts include a predefined display expression.-->
 
 Use the following variables within the section of an [alert-series iterator](#alert-series-iterators) to specify the statistics that you want to include for each visited series. You can use any subset of these variables in any order. Use literal text around these items if you want to format them with any punctuation, separators, or labels.
 
@@ -827,7 +928,7 @@ The preceding template might yield the following message:
 ## Tailor Content to the Trigger Type
 
 If you want to send out different notifications for different types of triggers, you can use the following functions.
-For example, you can use the same template to send out one message for a firing alert, and another message for an updated alert.
+For example, you can use the same template to send out one message for a firing alert, and another message for an updated alert. You also tailor content based on the alert severity.
 
 <table>
 <colgroup>
@@ -865,8 +966,34 @@ For example, you can use the same template to send out one message for a firing 
 </tr>
 <tr>
 <td markdown="span">`isAlertRetriggered`</td>
-<td markdown="span"> Includes the content of this section if <strong>Resend Notification</strong> is set for this alert, and if the notification is not an initial notification but a resend. 
+<td markdown="span"> Includes the content of this section if <strong>Resend Notification</strong> is set for this alert, and if the notification is not an initial notification but a resend.
 </td>
+</tr>
+<tr>
+<td markdown="span">`isAlertNoData`</td>
+<td markdown="span">Includes the content of this section if the alert query returns NO DATA.
+</td>
+</tr>
+<tr>
+<td markdown="span">`isAlertNoDataResolved`</td>
+<td markdown="span">Includes the contents of the section only if the alert previously returned NO DATA, and so has data now.
+</td>
+</tr>
+<tr>
+<td markdown="span">`severityInfo`</td>
+<td>Includes the contents of the section only if alert severity is set to INFO.</td>
+</tr>
+<tr>
+<td markdown="span">`severitySmoke`</td>
+<td>Includes the contents of the section only if alert severity is set to SMOKE.</td>
+</tr>
+<tr>
+<td markdown="span">`severitySevere`</td>
+<td>Includes the contents of the section only if alert severity is set to SEVERE.</td>
+</tr>
+<tr>
+<td markdown="span">`severityWarn`</td>
+<td>Includes the contents of the section only if alert severity is set to WARN.</td>
 </tr>
 </tbody>
 </table>
@@ -927,11 +1054,6 @@ See [Setting and Testing Iteration Limits](#example-setting-and-testing-iteratio
 </thead>
 <tbody>
 <tr>
-<td markdown="span">`getIterationLimit`</td>
-<td markdown="span">Gets the value of an iteration limit. Valid values are: `defaultIterationLimit`, `failingLimit`, `inMaintenanceLimit`, `newlyFailingLimit`, and `recoveredLimit`.
-</td>
-</tr>
-<tr>
 <td markdown="span">`iterationLimitExceed`</td>
 <td markdown="span">Checks whether the number of the result returned is limited by an iteration limit. Valid values are: `failingLimitExceed`, `inMaintenanceLimitExceed`, `newlyFailingLimitExceed`, and `recoveredLimitExceed`.
 </td>
@@ -972,13 +1094,6 @@ Suppose you have 8 failing sources: `source1`, `source2`, `source3`, `source4`, 
 ```handlebars
 {{#setDefaultIterationLimit}}5{{/setDefaultIterationLimit}}
 {
-  "getIterationLimit": {
-     "defaultIterationLimit": "{{{defaultIterationLimit}}}",
-     "failingLimit": "{{{failingLimit}}}",
-     "inMaintenanceLimit": "{{{inMaintenanceLimit}}}",
-     "newlyFailingLimit": "{{{newlyFailingLimit}}}",
-     "recoveredLimit": "{{{recoveredLimit}}}"
-   },
    "iterationLimitExceed": {
      "failingLimitExceed": "{{{failingLimitExceed}}}",
      "inMaintenanceLimitExceed": "{{{inMaintenanceLimitExceed}}}",
@@ -1010,13 +1125,6 @@ The template with these settings produces the following output for the 8 failing
 {% raw %}
 ```handlebars
 {
- "getIterationLimit": {
-   "defaultIterationLimit": "5",
-   "failingLimit": "5",
-   "inMaintenanceLimit": "5",
-   "newlyFailingLimit": "5",
-   "recoveredLimit": "5"
- },
  "iterationLimitExceed": {
    "failingLimitExceed": "true",
    "inMaintenanceLimitExceed": "false",
@@ -1038,19 +1146,6 @@ In contrast, if the `failingLimit` is 10, the output is the following for 8 fail
 {% raw %}
 ```handlebars
 {
-  "getIterationLimit": {
-    "defaultIterationLimit": "10",
-    "failingLimit": "10",
-    "inMaintenanceLimit": "10",
-    "newlyFailingLimit": "10",
-    "recoveredLimit": "10"
-  },
-  "iterationLimitExceed": {
-    "failingLimitExceed": "false",
-    "inMaintenanceLimitExceed": "false",
-    "newlyFailingLimitExceed": "false",
-    "recoveredLimitExceed": "false"
-  },
   "alertId": "1492543979795",
   "alertTags": [production, mysql],
   ...
@@ -1168,9 +1263,9 @@ Output:1600273622
 
 The predefined template for a custom HTML email target or a custom Slack target automatically includes the `imageLinks` variable for producing a [chart image](alerts_notifications.html#chart-images-in-alert-notifications) in alert notifications. However, if you created a custom email alert target or a custom Slack alert target before 2018-26.x, you must explicitly update the alert target's template to include a chart image in the alert notifications.
 
-{% include note.html content="You do not need to update pre-existing custom alert targets of type PagerDuty. All PagerDuty notifications sent in 2018-26.x or later will include chart images." %}
+{% include note.html content="You do not need to update existing custom alert targets of type PagerDuty. All PagerDuty notifications sent in 2018-26.x or later will include chart images." %}
 
-### Update a Pre-Existing Custom Email Alert Target
+### Update an Existing Custom Email Alert Target
 
 To update a custom email alert target that was created before 2018-26.x:
 
@@ -1190,7 +1285,7 @@ To update a custom email alert target that was created before 2018-26.x:
 Subsequent email notifications will now include a chart image that is generated for the alert. (Without the HTML `<img src= >` tag, the value returned by the `imageLinks` iterator would be displayed as a URL to a chart image, and not as an image.)
 
 
-### Update a Pre-Existing Custom Alert Target for Slack
+### Update an Existing Custom Alert Target for Slack
 
 To update the template for a custom Slack alert target that was created before 2018-26.x:
 
@@ -1210,6 +1305,8 @@ To update the template for a custom Slack alert target that was created before 2
 ## Include a Link to a Tracing Service Dashboard
 
 If the Wavefront query in an alert has an application and service name and meets a specific alert target, you get a link to drill down to the [service dashboard](tracing_service_dashboard.html). The service dashboard lets you see RED metrics of the application or service and identify potential hot spots.
+
+{% include note.html content="The `tracingDashboardLinks` value is shown in the Alerts Browser. In contrast, the `alertTriageDashboardLinks` values are shown in the **alert notification** if specified as part of the alert. See [Information About Alert Resolution Help](#information-about-alert-resolution-help)"%}
 
 Let's walk through a scenario:
 

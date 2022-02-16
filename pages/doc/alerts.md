@@ -16,7 +16,7 @@ Tanzu Observability supports smart alerts that dynamically filter noise and capt
 
 ## How Alerts Work Video
 
-In this video, Clement explains how single-threshold alerts work:
+In this video, Clement explains how a single-threshold alert works:
 
 <p><a href="https://www.youtube.com/watch?v=VjmWExKiYYg&index=1&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_alerting_clement.png" style="width: 700px;"/></a>
 </p>
@@ -94,6 +94,14 @@ When an alert fires, Wavefront analyzes the point tags that are most likely to b
 </tbody>
 </table>
 
+### Alert Viewer Video
+
+In this video, Pierre gives a 2-minute tour of Alert Viewer:
+
+<p>
+<iframe src="https://bcove.video/3r3PRVe" width="700" height="400" allowfullscreen="true" alt="intro to alert viewer"></iframe>
+</p>
+
 
 ## Alerts Browser Tutorial
 
@@ -170,22 +178,23 @@ For example, for the `Latency Dev Alert` shown above, the chart looks like this:
 --->
 
 
-### Step 4: View Alert History
+### Step 4: View Alert Version History
+
+To access the version alert history, click the ellipsis icon on the left of the alert in the Alerts Browser and click **Versions**.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="60%">
 <br/>
-Alert history shows:
+Alert version history shows:
 <ul>
 <li>The changes that have been made to an alert over time.</li>
 <li>Which user made the changes.</li>
 <li>The date and time the changes were made.</li>
 <li>A description of the changes.</li></ul>
 You can revert back to a past alert version or clone a past alert version.
-<br/><br/>
-To access the alert history, click the ellipsis icon on the left of the alert in the Alerts Browser and click <strong>Versions</strong>.
+<br/><br/>.
 </td>
 <td width="40%"><img src="images/alert_history.png" alt="alert history selected in menu"></td>
 </tr>
@@ -261,7 +270,8 @@ Wavefront creates [events](events.html) as alerts fire, update, and resolve. You
 
 ## Do More!
 
-* Create a [classic alert](alerts.html#create-a-classic-alert) or a [multi-threshold alert](alerts.html#create-a-multi-threshold-alert).
+* Watch some [videos about alerts](videos_alerts.html)
+* [Create and manage alerts](alerts_manage.html).
 * Learn about [alert states and life-cycle](alerts_states_lifecycle.html).
 * For troubleshooting, read the following KBs:
    - [Unable to Create Alerts. Cannot Save Alerts Error](https://help.wavefront.com/hc/en-us/articles/360057759372-Unable-to-create-Alerts-error-message-Cannot-Save-alert-400-)

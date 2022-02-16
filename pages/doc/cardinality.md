@@ -98,7 +98,7 @@ Although Wavefront supports high cardinality for time series data, to avoid high
    3. Use point tags for data that are ephemeral.
    4. In Kubernetes, where point tags are usually called labels, add only the point tags that you really need.
 
-For information about metric, source, and point tag names, see [Wavefront Data Naming Best Practices](wavefront_data_naming.html). You can also understand more about the metrics structure, sources and the sources browser, and tags, by exploring [Metrics and the Metrics Browser](metrics_managing.html), [Sources](sources_managing.html), and [Organizing with Tags](tags_overview.html).
+For information about metric, source, and point tag names, see [Wavefront Data Naming Best Practices](wavefront_data_format.html#wavefront-data-format-best-practices). You can also understand more about the metrics structure, sources and the sources browser, and tags, by exploring [Metrics and the Metrics Browser](metrics_managing.html), [Sources](sources_managing.html), and [Organizing with Tags](tags_overview.html).
 
 <!--* If you run a query of the type `ts(<metricName>, source="<sourceName>")`, make sure that the number of data points returned is less than 1000. Although Wavefront can handle more, it is best to keep in mind that more data can cause high cardinality issues.-->
 

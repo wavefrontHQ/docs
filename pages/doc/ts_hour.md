@@ -57,6 +57,6 @@ As the `hour()` standard time function doesn't always display decimal values, su
 
 `between(hour("Europe/Sofia"),15,16) and minute("Europe/Sofia")=51 AND ts(~sample.cpu.loadavg.1m)>1.5`
 
-Here, we include `between(hour("Europe/Sofia"),15,16) and minute("Europe/Sofia")=51` in a conditional expression to define an alert that fires when the CPU load average rises above 1.5 at 3:51pm in the Europe/Sofia time zone.
+Here, we include `between(hour("Europe/Sofia"),15,16) and minute("Europe/Sofia")=51` in a conditional expression to define an alert that fires when the CPU load average rises above 1.5 at 3:51pm in the Europe/Sofia time zone. Note that the chart shows the time in PDT, so the alert appears to fire at 5:51am.
 
 ![hour alert at a specific minute](images/ts_hour_minute_alert.png)

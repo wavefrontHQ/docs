@@ -15,11 +15,34 @@ This page lists new and updated features for the Wavefront service.
 
 ## Announcing Deprecation of v1 Dashboards and Charts
 
-In February, all v1 dashboards and charts will be migrated to v2. Users can no longer select the v1 version of dashboards and charts.
+In March, all v1 dashboards and charts will be migrated to v2. Users can no longer select the v1 version of dashboards and charts.
 
 {% include important.html content="Most Wavefront users are already using the v2 GUI. However, if your dashboards and charts are migrated, see [What's New in v2 Dashboards & Charts](ui_v2_faq.html) for info. "%}
 
-## 2022-04.x Release Notes 
+## 2022-05.x Release Notes
+
+* **Create and Manage Alerts Revamp**: Streamlined experience that improves usability and gives alert creators more options.
+  - Straightforward settings during creation and edit.
+  - New Runbooks and Triage Dashboard fields help alert recipients resolve the alert.
+  - Alert notifications include actionable insights.
+
+  See the [FAQ for the New Alert GUI](alerts_v2_faq.html), watch the [Create Alert Video](https://bcove.video/3o9bu6L), or look at the new [Create Alert Tutorial](alerts_manage.html#create-alert-tutorial).
+
+  {% include tip.html content="When you open an existing alert for edit, you'll see it in alerts v2 GUI. However, all APIs work as before. See [FAQ for the New Alert GUI](alerts_v2_faq.html). "%}
+  {% include note.html content="There will be a staggered rollout of this feature over the next few weeks. "%}
+
+* **Turn off Dynamic Dashboard Variable Live Refresh**: Users with **Dashboard** permissions can now toggle whether a dashboard that shows live data performs [refresh of dynamic variables](ui_dashboards.html#turn-off-dynamic-dashboard-variable-live-refresh).
+
+* **Decimal Precision in Charts**: We have included the **Decimal Precision** setting, and you can specify how many digits to show after the decimal point for a number of charts, such as:
+    * Line Plot
+    * Point Plot
+    * Stacked Area
+    * Stacked Column
+    * Table
+
+  See the [Chart Reference](ui_chart_reference.html) for details.
+
+## 2022-04.x Release Notes
 
 <!--* **Usage Portal**: As more teams use the Tanzu Observability by Wavefront service within an enterprise, the central team (Super Admins) needs a better mechanism to track their points per second (PPS) usage, manage consumption, and also put limits to manage costs.
 
