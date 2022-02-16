@@ -19,6 +19,10 @@ In March, all v1 dashboards and charts will be migrated to v2. Users can no long
 
 {% include important.html content="Most Wavefront users are already using the v2 GUI. However, if your dashboards and charts are migrated, see [What's New in v2 Dashboards & Charts](ui_v2_faq.html) for info. "%}
 
+## 2022-06.x Release Notes
+
+* **Updated the Wavefront REST API Documentation UI**: We've updated our in-product interactive API documentation by using the latest Swagger API console. To access the API documentation, either click the gear icon and select **API Documentation**, or go to `https://<your_cluster_name>/api-docs/ui/`.
+
 ## 2022-05.x Release Notes
 
 * **Create and Manage Alerts Revamp**: Streamlined experience that improves usability and gives alert creators more options.
