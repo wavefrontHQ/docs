@@ -35,7 +35,7 @@ In March, all v1 dashboards and charts will be migrated to v2. Users can no long
   <tbody>
   <tr>
   <td width="50%">
-  You can now soft columns in the legend for most chart types after you pin a legend in a chart (Shift-P). See the screenshot on the right.
+  You can now sort columns in the legend for most chart types after you pin a legend in a chart (Shift-P). See the screenshot on the right.
   </td>
   <td width="50%"><img src="/images/sort_legend.png" alt="A pinned legend with up and down arrows for each column."></td>
   </tr>
