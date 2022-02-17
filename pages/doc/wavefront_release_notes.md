@@ -13,6 +13,12 @@ This page lists new and updated features for the Wavefront service.
 * For the latest changes and releases of the **Wavefront Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For  **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## Announcing Removal of the Service Accounts from the Everyone Group
+
+In March, the service accounts that are still members of the **Everyone** system group will be removed from this group. Last year, all service accounts were added to the new **Service Accounts** system group.
+
+{% include important.html content="Ensure that service accounts in your organization do not depend on the **Everyone** group permissions."%}
+
 ## Announcing Deprecation of v1 Dashboards and Charts
 
 In March, all v1 dashboards and charts will be migrated to v2. Users can no longer select the v1 version of dashboards and charts.
