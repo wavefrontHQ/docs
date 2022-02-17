@@ -30,16 +30,17 @@ In March, all v1 dashboards and charts will be migrated to v2. Users can no long
 * **Updated the Wavefront REST API Documentation UI**: We've updated our in-product interactive API documentation to use the latest Swagger API console. To access the API documentation, either click the gear icon and select **API Documentation**, or go to `https://<your_cluster_name>/api-docs/ui/`.
 * **New Alerts FAQ Page**: Check out the new [Alerts FAQ page](alerts_faq.html) that answers questions like "Why Did My Alert Misfire?" or "When Does an Alert Resolve?".
 * **UI Updates and Improvements**
-<tr>
-<td width="50%">
-<ul>
-<li>After you pin a legend in a chart (Shift-P), you can now sort the columns in the legend. See the screenshot on the right.</li>
-<li>Changed the name of the <strong>Accounts, Groups & Roles</strong> permission to <strong>Accounts</strong> and changed the name of the <strong>Account Management</strong> menu item to <strong>Accounts</strong>. </li>
-<li>Keyboard navigation improvements in the <strong>Create Dashboard</strong> wizard and in the Chart UI pages. The sections that you add are now numbered, e.g. Section 1 instead of New Section. </li>
-</ul>
-</td>
-<td width="50%"><img src="/images/sort_legend.png" alt="A pinned legend with up and down arrows for each column."></td>
-</tr>
+
+  <table>
+  <tbody>
+  <tr>
+  <td width="50%">
+  You can now soft columns in the legend for most chart types after you pin a legend in a chart (Shift-P). See the screenshot on the right.
+  </td>
+  <td width="50%"><img src="/images/sort_legend.png" alt="A pinned legend with up and down arrows for each column."></td>
+  </tr>
+  </tbody>
+  </table>
 
 ## 2022-05.x Release Notes
 
@@ -123,17 +124,6 @@ To enable users to generate API tokens:
 <strong>Integration Improvements</strong>: You can now easily filter the integrations by state. See <a href="integrations.html#supported-states">Supported States</a>.
 </td>
 <td width="50%"><img src="/images/integration_state_relnotes.png" alt="List of integrations filtered by active state."></td>
-</tr>
-<tr>
-<td width="50%">
-<strong>UI Updates and Improvements</strong>:
-<ul>
-<li>After you pin a legend in a chart (Shift-P), you can now sort the columns in the legend. See the screenshot on the right.</li>
-<li>Changed the name of the <strong>Accounts, Groups & Roles</strong> permission to <strong>Accounts</strong> and changed the name of the <strong>Account Management</strong> menu item to <strong>Accounts</strong>. </li>
-<li>Keyboard navigation improvements in the <strong>Create Dashboard</strong> wizard and in the Chart UI pages. The sections that you add are now numbered, e.g. Section 1 instead of New Section. </li>
-</ul>
-</td>
-<td width="50%"><img src="/images/sort_legend.png" alt="A pinned legend with up and down arrows for each column."></td>
 </tr>
 <!---
 <tr>

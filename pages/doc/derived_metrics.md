@@ -87,3 +87,7 @@ To create a derived metric:
 4. If you want, change the times for results inclusion and for query execution. If your environment has queueing problems, increase the results inclusion time.
 
 {% include note.html content="An error results if you attempt to ingest a metric into itself. Use `aliasMetric` or `aliasSource` to have a different name for the metric (and optional source)." %}
+
+## Learn More
+
+See the KB article [Migrating Objects or Data Between Environments](https://help.wavefront.com/hc/en-us/articles/360053164791-Migrating-Objects-or-Data-Between-Tanzu-Observability-Environments) if your company has several Wavefront instances. 
