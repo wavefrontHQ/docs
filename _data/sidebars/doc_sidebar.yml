@@ -319,6 +319,10 @@ entries:
       url: /alerts_states_lifecycle.html
       output: web
 
+    - title: Alerts FAQ
+      url: /alerts_faq.html
+      output: web
+
       subfolders:
       - title: Alert Targets and Notifications
         output: web
@@ -363,7 +367,6 @@ entries:
         - title: Alerts Best Practices
           url: /alerts_best_practices.html
           output: web
-
 
       - title: Events
         output: web
@@ -483,7 +486,7 @@ entries:
           - title: AWS Integration Overview
             url: /integrations_aws_overview.html
             output: web
-            
+
           - title: AWS Integration API Setup
             url: /integrations_aws_overview_API.html
             output: web
@@ -818,7 +821,7 @@ entries:
         - title: Monitoring & Troubleshooting
           output: web
           subfolderitems:
-            
+
           - title: Monitor the Wavefront Service
             url: /wavefront_monitoring.html
             output: web

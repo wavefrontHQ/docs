@@ -21,7 +21,9 @@ In March, all v1 dashboards and charts will be migrated to v2. Users can no long
 
 ## 2022-06.x Release Notes
 
-**UI Updates and Improvements**
+* **Updated the Wavefront REST API Documentation UI**: We've updated our in-product interactive API documentation to use the latest Swagger API console. To access the API documentation, either click the gear icon and select **API Documentation**, or go to `https://<your_cluster_name>/api-docs/ui/`.
+* **New Alerts FAQ Page**: Check out the new [Alerts FAQ page](alerts_faq.html) that answers questions like "Why Did My Alert Misfire?" or "When Does an Alert Resolve?".
+* **UI Updates and Improvements**
 <tr>
 <td width="50%">
 <ul>
@@ -32,7 +34,6 @@ In March, all v1 dashboards and charts will be migrated to v2. Users can no long
 </td>
 <td width="50%"><img src="/images/sort_legend.png" alt="A pinned legend with up and down arrows for each column."></td>
 </tr>
-
 
 ## 2022-05.x Release Notes
 
