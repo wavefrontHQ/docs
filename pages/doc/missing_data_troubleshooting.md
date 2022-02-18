@@ -4,7 +4,7 @@ keywords: query language
 tags: [query language]
 sidebar: doc_sidebar
 permalink: missing_data_troubleshooting.html
-summary: Learn how to use metadata functions  to rename metrics and sources and create point tags.
+summary: Learn why you see NO DATA in your charts even though you expect to see data.
 ---
 
 Sometimes users expect to see certain data in Tanzu Observability by Wavefront but, for some reason, it doesn't show up!  This can be a frustrating and confusing experience, especially when you require the data quickly. Wavefront does not delete data, and retains raw data for 18 months. What could be the problem?

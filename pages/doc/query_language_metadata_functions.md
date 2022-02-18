@@ -1,15 +1,17 @@
 ---
-title: Metadata Functions
+title: Metadata (Label Manipulation) Functions
 keywords: query language
 tags: [query language]
 sidebar: doc_sidebar
 permalink: query_language_metadata_functions.html
-summary: Learn how to use metadata functions  to rename metrics and sources and create point tags.
+summary: Learn how to rename metrics and sources and create point tags with aliasSource, aliasMetric, and taggify.
 ---
 
-Metadata functions like `aliasSource`, `aliasMetric`, and `taggify` enable users to temporarily rename a source, a metric or create a synthetic point tag for display purposes in charts or dashboards.
+Metadata (label manipulation) functions like `aliasSource`, `aliasMetric`, and `taggify` enable users to temporarily rename a source, rename a metric or create a synthetic point tag. Dashboards and charts display the changed name or aggregated point tag.
 
-This page uses vphere sample metrics to demonstrate how you can change a table column heading and the text in the column. In the screenshots, you might see a metric like `vsphere.host.cpu.used.summation`. The same principles apply for other data and other chart types.
+This page uses vSphere and ~sample metrics to demonstrate how you can change a table column heading and the text in the column. Screenshots illustrate the changed labels, for example, you might see a metric like `vsphere.host.cpu.used.summation`. The same principles apply for other data and other chart types.
+
+{% include tip.html content="You can use metadata functions together with [string manipulation functions](query_language_reference.html#string-manipulation-functions) to display exactly what you want the user to see." %}
 
 
 ## Overview
@@ -98,7 +100,7 @@ For example, you can add a point tag `Physical location`, `Site B` with:
 
 ## String Replacement with Variables Examples
 
-You can specify a replacement string using variables from the time series to contain one or more metadata values from that series.
+You can specify a variable that generates a string from the time series. Then you replace all or part of an existing source name, metric name, or point tag with that variable.
 
 **aliasSource and Variables**
 
@@ -144,7 +146,7 @@ taggify(${A},"Host/Site","{{source}}/{{Physical location}}")
 
 ## Examples that Use zeroBasedNodeIndex
 
-When using any of the metadata function, you can extract a single element (node) from an existing source name, metric name, or point tag value and use the element as a new value.
+When using any of the metadata functions, you can extract a single element (node) from an existing source name, metric name, or point tag value and use the element as a new value.
 
 Nodes are indexed from left to right, starting with 0. A delimiter (".") separates the nodes. For example:
 * Sample metric: `vsphere.host.cpu.used.summation`
