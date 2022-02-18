@@ -15,7 +15,7 @@ This page lists new and updated features for the Wavefront service.
 
 ## Announcing Removal of the Service Accounts from the Everyone Group
 
-In March, the service accounts that are still part of the predefined **Everyone** group will be removed from this group. Last year, all service accounts were added to the new predefined **Service Accounts** group.
+In March, the service accounts that are still part of the predefined **Everyone** group will be removed from this group. Last year, all service accounts were added to the new predefined **Service Accounts** group. See [the 2021-42.x Release Notes](2021.49.x_release_notes.html#2021-42x-release-notes) for details.
 
 {% include important.html content="Ensure that the service accounts in your organization do not depend on the **Everyone** group permissions."%}
 
