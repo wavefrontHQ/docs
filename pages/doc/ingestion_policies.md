@@ -1,9 +1,9 @@
 ---
-title: Examine the Wavefront Usage with Ingestion Policies
+title: Monitor the Wavefront Usage with Ingestion Policies
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: ingestion_policies.html
-summary: Monitor usage with ingestion policies and usage dashboards.
+summary: Monitor usage with ingestion policies, usage dashboards, and usage alerts.
 ---
 
 As a Wavefront Super Admin, you're interested in usage patterns for the whole company, but also for different teams in the company. You can create ingestion policies and assign accounts or groups to each policy to see which teams use which part of total ingestion.
