@@ -323,6 +323,7 @@ You can change the alert properties when you edit the alert.
 
 <table style="width: 100%;">
 <tbody>
+<tr>
 <td width="55%">
 <strong>Alert Name and Tags</strong><br><br>
 In this section:
@@ -427,8 +428,10 @@ Each time you save an alert, you create an alert version. Up to 100 versions are
 
 ## Do More!
 
-* Look at the [FAQ for the New Alert GUI](alerts_v2_faq.html)
+* Look at the [Alerts FAQ](alerts_faq.html). If you just migrated look at the [FAQ for the New Alert GUI](alerts_v2_faq.html) as well.
 * Learn about [alert states and life-cycle](alerts_states_lifecycle.html).
 * The [Alert Viewer Tutorial](alerts.html#alert-viewer-tutorial) shows how to examine a single alert.
 * The [Alerts Browser Tutorial](alerts.html#alerts-browser-tutorial) explains how you can examine and manage all alerts in your environment.
 * Use ACLs to limit or share access to an [individual alert](access.html#changing-access-for-individual-dashboards-or-alerts).
+
+* See the KB article [Migrating Objects or Data Between Environments](https://help.wavefront.com/hc/en-us/articles/360053164791-Migrating-Objects-or-Data-Between-Tanzu-Observability-Environments) if your company has several Wavefront instances.

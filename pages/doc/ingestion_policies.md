@@ -18,7 +18,7 @@ Ingestion policies allow you to group accounts and then examine their usage in t
 
 ### Permissions
 
-Users with **Accounts, Groups & Roles** permission can create ingestion policies and add user accounts or service accounts.
+Users with **Accounts** permission can create ingestion policies and add user accounts or service accounts.
 * Each account can belong to only one policy at a time. That way, you never count usage of an account twice.
 * You can add user accounts and service accounts to the same policy.
 
