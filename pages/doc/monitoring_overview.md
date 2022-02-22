@@ -25,7 +25,7 @@ You can find queries that are exceptionally slow by checking  the **Slow Query**
 
      The dashboard also provides you with the number of slow queries by user. The time window buttons [1h, 12h, 1d] control which slow queries you are viewing.
 
-   * The **Top Slow Queries** tab provides details (timestamp, query type, ts() query, points, etc.) about the slow queries.
+   * The **Top Slow Queries** tab provides details (timestamp, query type, ts() query, points, etc.) about the slow queries. 
 
      * **Time Taken** shows the time a slow query takes. Queries listed on this page can't return results for more than 5 minutes.
      * **Points Scanned** shows the number of data points that were queried to show the chart on the screen.
