@@ -24,8 +24,7 @@ Made improvements to the following integrations and dashboards in February 2022:
 
 * Microsoft Azure:
     * Updated the **Overview** tab with a new section named **Metrics Information**. You can now see a list with links to the Microsoft Azure documentation, which show you the metrics that we’ll be collecting once you set up the integration.
-    * Added an out-of-the-box alert that reports when the Azure Instance CPU utilization percentage is constantly high.
-    * Added an out-of-the-box alert that reports when the Azure Disk IOPS consumed percentage is constantly high.
+    * Now includes an **Alerts** tab with predefined alerts.
 * Ceph -- Updated the Ceph integration and now you can monitor Ceph on Kubernetes. 
 * Amazon Web Services: 
   * Updated the **Overview** tab of the integration. You can now see a list with links to the Amazon Web Services documentation, which show you the metrics that we'll be collected once you set up the integration.
