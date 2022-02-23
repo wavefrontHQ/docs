@@ -222,7 +222,7 @@ Every pipeline inherently has its own latencies. Understanding the latencies hel
 
 
 
-## Step 6: Find Data Delays Caused by High Rate of New IDs
+## Step 7: Find Data Delays Caused by High Rate of New IDs
 
 Components of each data point are converted into IDs at the backend (Wavefront service) before the points are stored. These components include metric name, source name, and the point tag key and value combination.
 

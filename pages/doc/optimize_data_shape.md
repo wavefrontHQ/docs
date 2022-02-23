@@ -13,53 +13,73 @@ This page explains how you can optimize performance by making smart choices abou
 
 ## Video
 
-In the following video Wavefront co-founder Clement Pang explains cardinality and why it's important.
+In the following video Wavefront co-founder Clement Pang explains cardinality and data shape.
 
 <a href="https://youtu.be/8wKPkrIiXKw" target="_blank"><img src="/images/v_cardinality.png" style="width: 700px;" alt="about cardinality"/></a>
 
 ## Shaping Your Data Effectively
 
-The first two actions you can take have to do with how much data you sent and how that data is structured.
+You can significantly improve performance and potentially lower cost by considering how you send your data to Wavefront.
 
-**Action: Don't send more time series than necessary**
 
-Making sure that we don't introduce more time series than necessary will also improve query performance.
+### Send Only What You Need
 
-**Action: Be smart about data point elements**
+* Check if your data is time series data. If your data is tracking very unique behavior and the metric/source combination is unique for each data point, it's difficult to graph that time series.
+* Make sure that you don't create more time series than necessary. Each time series has unique metric name, source name and point tags (key and value). For example, you might receive `networks_bytes_received` from multiple sources and with multiple point tags (e.g. `availability_zone` or `env`). For each point tag you add to your data set, you get a new time series. None of the components of a data point that describe what is being measured should be so unique that each data point is its own time series.  See XX
+
+
+### Be Smart about Data Point Components
 
 Tanzu Observability by Wavefront has several indexes for retrieving data.
-* One of the main indexes uses the metric name and source name combination.
+* One index uses the metric name and source name combination.
 * Another index allows retrieval of data based on the point tag key and values combination.
-If we can be smart about using both of these indexes in our data shaping, the query engine can return results faster.
+
+If we can be smart about using both of these indexes in our data shaping, the query engine can return results faster. See XX.
 
 
+## Step 1: Check if the data is a time series
 
+Wavefront supports time series data. Time series track behavior over time. Each data point is a measurement at a particular point in time. We can connect and graph data points because they measure the same behavior at different moments in time. For example, you can measure the CPU load for one data source over time and can then graph those data to show increase, decrease, etc.
 
-### Step 1: Check if the data is a time series
+### Data Point Components
 
-Wavefront is an observability platform that supports time series data. Time series because track some behavior over time. Each data point is a measurement at a particular point in time. We can connect and graph data points because we know that they are measuring the same behavior at different moments in time. For example, you might want to measure the CPU load for one data source over time.
+Wavefront identifies data points that measure the same behavior by looking at the **components of each data point** (metric name, source name, and point tag name/value). The unique combination of these components describes what a time series. For example, Wavefront sees that the CPU load for source-1 is different from the CPU load for source-2 and shows 2 time series in the chart. Or, if point tags are associated by the data, then Wavefront can track different Kubernetes Pods separately or have different time series for different availability zones.
 
-Wavefront can identify which data points are measuring the same behavior through the various components of each data point (metric name, source name, and point tag name/value). The unique combination of these components describes what we are measuring. For example, Wavefront sees that the CPU load for source-1 is different from the CPU load for source-2 and shows 2 time series in the chart. Or, if point tags are associated by the data then Wavefront can track different Kubernetes Pods separately.
+### Ensure You Have Time Series Data
 
-However, if your data is tracking very unique behavior such that no two data points (or very few of them) belong to the same time series, it's difficult to graph that time series. Ensure that you have a true time series -- maybe using [Distributed Tracing](tracing_basics.html).
+If your data is tracking very unique behavior such that no two data points (or very few of them) belong to the same time series, it's difficult to graph that time series. Ensure that you have a true time series -- maybe using [Distributed Tracing](tracing_basics.html).
 
-To detect if data has this unique data shape, query the raw data on a line chart. If you see a bunch of dots rather than lines, you know that each data point belongs to a different series and therefore, you actually do not have true time series data.
+To detect if data has data shape, **query the raw data on a line chart**. If you see a bunch of dots rather than lines, you know that each data point belongs to a different series and therefore, you actually do not have true time series data.
+
+### More Time Series -- Slower Data Retrieval
 
 Data is stored as time series, that is, data that belong to the same series are stored together. Increasing the number of time series slows down data retrieval because
-* More time series may need to be scanned to find all the time series that need to be retrieved.
+* More time series need to be scanned to find all the time series that need to be retrieved.
 * More time series have to be retrieved. Each dot represents a time series, and if a different query would result in a different set of dots representing time series, all those time series have to be scanned.
 
 
-## Step 2: Ask how data will be queried and optimize
+## Step 2: Ask How data Will Be Queried and Optimize
 
-Understanding how the data is to be ingested and how it will be queried is key to optimizing the data shape. This will help with determining what should make up each **component** of the data points. Components include the metric name, source name, and point tags. The key consideration is to optimize for the most frequent/common situation so we start with source name and metric name, one of the indexes.
+To optimize the data shape, ask these questions:
+* How will the data to be ingested?
+* How it will be queried?
+
+The answer determines what the **components** of the data points should be. Components include:
+* metric name
+* source name
+* (optional) point tags.
+
+To optimize for the most frequent/common situation, let's start with source name and metric name, one of the indexes.
 
 
-### Source Name
+### Pick the Optimal Source Name
 
-Think about:
+Each data point has a timestamp, source, and value. The source name doesn't have to be the physical host where the data originates.
+
+Ask these questions:
 * How the metric will be queried?
-* What will be the main (or most frequently used) dimension for filtering or grouping the data? This dimension will often be the best candidate to use as the source name.
+* What will be the main (or most frequently used) dimension for filtering or grouping the data?
+This dimension is often the best candidate to use as the source name.
 
 If you ask these questions, you'll make good use of the metric name/source name index and you'll improve the retrieval speed of the data we care about (and query performance).
 
@@ -76,7 +96,7 @@ A better solution is to design my data shape to make the most efficient use of a
 
 
 
-### Metric Name
+### Pick Efficient Metric Names
 
 Carefully thinking about the metric name is also important.
 * It's helpful if the metric name reflects data that is comparable across various sources.
@@ -95,11 +115,12 @@ Suppose I have a metric that is tracking response code counts. I want to compare
 In most cases, additional filtering is required in your queries. But it's useful to start out with an efficient query instead of using a wasteful data shape.
 
 
-## Step 3: Check data points aren't highly unique?
+## Step 3: Don't Use Unique Attributes as Point Tags
 
-Often, the first instinct is to store every attribute that you need for a particular set of data as a separate point tag key and value. However, it's important to consider how frequently the values of the point tags change.
-* If the value changes rarely, e.g. with the point tag env that can have values `az="us-west-1"` and `az="us-west-2"` it makes sense to use a point tag because many (or all!) data points will have one or the other value for `az`.
-* If the value changes with each data point, this would make a very poor point tag because it would result in a very large number of time series, each with just a single data point. For example, if you want to use a timestamp or other unique identifier, each data point has a different unique value. This slows down data retrieval and therefore, query performance.
+Often, the first instinct is to store every attribute in a set of data as a separate point tag key and value. However, it's important to consider how frequently the values of the point tags change.
+
+* **If the value changes rarely**, e.g. with the point tag `env` that can have values `az="us-west-1"` and `az="us-west-2"` it makes sense to use a point tag because many (or all!) data points will have one or the other value for `az`.
+* **If the value changes with each data point**, the result is a very large number of time series, each with just a single data point. For example, if you want to use a timestamp or other unique identifier, each data point has a different unique value. This slows down data retrieval and therefore, query performance.
 
 The same concept applies to metric names and source names. None of the components of a data point that describe what is being measured should be so unique that each data point is its own time series. Therefore, things like timestamps or unique IDs should not be used in metric names, source names, or point tags.
 
