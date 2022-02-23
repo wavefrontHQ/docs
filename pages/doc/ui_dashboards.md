@@ -499,7 +499,7 @@ When a dashboard has a lot of variables with interdependencies, it might make se
 <ol><li>Open the dashboard for edit, either from the Dashboards browser or from the ellipsis icon in the top right of the dashboard..  </li>
 <li>Click <strong>Settings</strong> </li>
 <li>Check <strong>Disable Variable Refresh in Live Mode</strong>. </li></ol>
-<p>Going forward, **Variable Refresh Disabled** info text show up to the right of the variables bar. Users no longer see the potentially distracting refresh of each chart. An explicit brower refresh updates all variables.</p></td>
+<p>Going forward, <strong>Variable Refresh Disabled</strong> info text show up to the right of the variables bar. Users no longer see the potentially distracting refresh of each chart. An explicit brower refresh updates all variables.</p></td>
 <td width="50%">
 <img src="/images/variable_refresh.png " alt="save to dashboard"></td>
 </tr>
@@ -507,7 +507,7 @@ When a dashboard has a lot of variables with interdependencies, it might make se
 </table>
  
 
-## Troubleshooting
+## Troubleshoot and Learn More! 
 
 The Customer Success team prepared these KB articles to troubleshoot problems with dashboards.
 * [How to Recover an Inaccessible Dashboard](https://help.wavefront.com/hc/en-us/articles/360055292751-How-to-Recover-an-Inaccessible-Dashboard)
