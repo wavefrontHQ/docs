@@ -24,7 +24,7 @@ The following videos get you started:
 </td>
 <td width="40%"><br>
 <p>90-second video that shows how you can find and examine metrics from the Sources browser and from the Metrics browser. </p>
-<p>You can also watch the video <a href="https://bcove.video/3n13ulm" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> 
+<p>You can also watch the video <a href="https://bcove.video/3n13ulm" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
@@ -163,3 +163,7 @@ The selected metrics and metric prefixes appear again as long as they have had a
 </tr>
 </tbody>
 </table>
+
+## Learn More!
+
+See the KB article [Migrating Objects or Data Between Environments](https://help.wavefront.com/hc/en-us/articles/360053164791-Migrating-Objects-or-Data-Between-Tanzu-Observability-Environments) if your company has several Wavefront instances.
