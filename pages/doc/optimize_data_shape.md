@@ -130,7 +130,7 @@ There are valid situations where it's appropriate to capture ephemeral informati
 ## Learn More!
 
 Our Customer Success team has prepared several KB articles that give additional detail.
-* [How to optimize and format the shape of your data for query performance](https://help.wavefront.com/hc/en-us/articles/360061261412-How-to-optimize-and-format-the-shape-of-your-Data-for-query-performance-).
+
 * [Common time limits and best practices](https://help.wavefront.com/hc/en-us/articles/360058716512-Common-Tanzu-Observability-time-limits-and-best-practices).
 * [Understand your time series data shape](https://help.wavefront.com/hc/en-us/articles/360050098952-Understand-your-time-series-data-shape).
 * [Monitoring Metric Data Quality](https://help.wavefront.com/hc/en-us/articles/360055613191-Monitoring-metric-data-quality).
