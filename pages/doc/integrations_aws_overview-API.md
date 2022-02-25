@@ -27,7 +27,7 @@ For more information about giving Wavefront access to your Amazon account, see [
 1. Click the gear icon in the top right and select **API Documentation**.
 1. Expand the **Cloud Integration** category.
 1. To create a new cloud integration, click the `POST /api/v2/cloudintegration/awsExternalId` request.
-1. Click **Try it out!**.
+1. Click the **Try it out** button in the top right of the request and click **Execute**.
 1. Copy the external ID from the response body of the request.
 
    ```
@@ -76,7 +76,8 @@ You can add an AWS integration by using the Wavefront REST API.
 1. Click the gear icon in the top right and select **API Documentation**.
 1. Expand the **Cloud Integration** category.
 1. To create a new cloud integration, click the `POST /api/v2/cloudintegration` request.
-1. To add an integration, in the **body** text box enter one of the following examples for each AWS integration. 
+1. Click the **Try it out** button in the top right of the request.
+1. To add an integration, in the **Edit Value** text box enter one of the following examples for each AWS integration. 
 
    You can add one integration at a time. You cannot use a single API request to register all AWS services together.
    
@@ -136,7 +137,7 @@ You can add an AWS integration by using the Wavefront REST API.
    
    In these examples, the `roleArn` value is the [Role ARN from your Amazon account](integrations_aws_overview_API.html#provide-wavefront-read-only-access-to-your-amazon-account-and-get-the-role-arn), and the `externalId` value is the external ID that you have provided while you created the role. If you don’t provide an external ID, the request will time out. 
    
-1. Click **Try it out!**.
+1. Click **Execute**.
 
 ## Update an AWS Integration
 
@@ -158,7 +159,8 @@ In this example, we update an existing CloudWatch integration to retrieve the se
 We also add the metrics for these services to a metric allow list by using a regular expression and change the service refresh rate from `5` to `10` minutes.
   
 
-1. In the Wavefront REST API documentation, click the `GET/api/v2/cloudintegration` request, and click **Try it out!**.
+1. In the Wavefront REST API documentation, click the `GET/api/v2/cloudintegration` request.
+1. Click the **Try it out** button in the top right of the request and click **Execute**.
    
    In the **Response Body** section, under `namespaces` you can see the list of all configured cloud services integrations. For example:
    
@@ -267,16 +269,18 @@ We also add the metrics for these services to a metric allow list by using a reg
    ```
 
 1. In the Wavefront REST API documentation, click the `PUT /api/v2/cloudintegration/{id}` request.
+1. Click the **Try it out** button in the top right of the request.
 1. Under **Parameters**, in the **id** text box enter the ID of the integration that you copied.
-1. In the **body** text box enter the edited response body with the new services.
-1. Click **Try it out!**.
+1. In **Edit Value** text box enter the edited response body with the new services.
+1. Click **Execute**.
 1. Verify that the response returns `200` status code to indicate that the update was successful.
 
 ## Enable and Disable an AWS Integration
 
 Wavefront automatically disables integrations that are experiencing errors due to invalid credentials. To enable an integration after the credential has been corrected or to manually disable an integration, you need the integration ID.
 
-1. In the Wavefront REST API documentation, click the `GET/api/v2/cloudintegration` request, and click **Try it out!**.
+1. In the Wavefront REST API documentation, click the `GET/api/v2/cloudintegration` request.
+1. Click the **Try it out** button in the top right of the request and click **Execute**.
    
    In the **Response Body** section, you can see the list of all configured cloud services integrations. For example:
    
@@ -325,7 +329,8 @@ Wavefront automatically disables integrations that are experiencing errors due t
 
 To delete a cloud service integration that you no longer want to use, you need the integration ID. If you decide to move the integration to the recycle bin, you can recover it at a later stage.
 
-1. In the Wavefront REST API documentation, click the `GET/api/v2/cloudintegration` request, and click **Try it out!**.
+1. In the Wavefront REST API documentation, click the `GET/api/v2/cloudintegration` request.
+1. Click the **Try it out** button in the top right of the request and click **Execute**.
    
    In the **Response Body** section, you can see the list of all configured cloud services integrations. For example:
    
@@ -368,13 +373,14 @@ To delete a cloud service integration that you no longer want to use, you need t
    ```
 1. Copy the value of the `"id"` parameter of the integration that you want to delete.
 1. To delete the integration, click the `DELETE /api/v2/cloudintegration/{id}` request.
+1. Click the **Try it out** button in the top right of the request.
    1. Under **Parameters**, in the **id** text box enter the integration ID that you copied.
    1. From the **skipTrash** drop-down menu select whether you want to keep the deleted integration in the recycle bin. 
 
-      * Select **false(default)**, to move the integration to the recycle bin, so that you can recover it at a later stage.
+      * Select **false**, to move the integration to the recycle bin, so that you can recover it at a later stage.
       * Select **true**, to delete the integration forever. You won't be able to recover it.
   
-   1. Click **Try it out!**.
-1. To recover an integration from the recycle bin, i.e., an integration that was not permanently deleted, in the Wavefront REST API documentation, click the `POST /api/v2/cloudintegration/{id}/undelete` request.
+   1. Click **Execute**.
+1. To recover an integration from the recycle bin, i.e., an integration that was not permanently deleted, in the Wavefront REST API documentation, click the `POST /api/v2/cloudintegration/{id}/undelete` request and click **Try it out**.
    1. Under **Parameters**, in the **id** text box enter the ID of the integration that you want to recover.
-   1. Click **Try it out!**.
+   1. Click **Execute**.
