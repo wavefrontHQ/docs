@@ -116,7 +116,7 @@ Anyone can get started using the Wavefront Spring Boot Starter.
 Here are some things to know before you start:
 
 * **Ingestion Method**: Wavefront for Spring Boot sends data to Wavefront via [direct ingestion](direct_ingestion.html) by default. You can [configure your application to send data via the Wavefront proxy](#proxy).
-* **Target**: Wavefront for Spring Boot sends data to the Wavefront Freemium instance by default. You can [configure your application to send data to your Wavefront instance](#wf_instance).
+* **Target**: Wavefront for Spring Boot sends data to the Wavefront Freemium instance by default. You can [configure your application to send data to your Wavefront instance](#wf_instance). 
 * **Account**: By default the starter sends you to the Freemium instance,  auto-negotiates an account, and saves the API token in the `~/.wavefront_freemium` file in your home directory. If you customize the starter to go to your Wavefront instance (see Step 2 below) you need to include an API token for that instance. -->
 
 <!---
