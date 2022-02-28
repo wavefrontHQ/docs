@@ -86,7 +86,7 @@ By default, service accounts don't have browse permissions. However, you can als
 
 ## Recovering an Inaccessible Dashboard
 
-If a dashboard is no longer accessible, it was either deleted (moved to trash), it was permanently deleted, or the permissions were revoked for some reason. If a dashboard is moved to trash and permissions on the dashboard haven't been changed, a user with the **Dashboards** permission can [recover the deleted dashboard](ui_dashboards.html#set-dashboard-display-preferences-and-settings).
+If a dashboard is no longer accessible, it was either deleted (moved to trash), it was permanently deleted, or the permissions were revoked for some reason. If a dashboard is moved to trash and permissions on the dashboard haven't been changed, a user with the **Dashboards** permission can [recover the deleted dashboard](ui_dashboards.html#delete-and-recover-a-deleted-dashboard).
 
 Only a Super Admin user, can restore dashboard permissions and attempt to restore a permanently deleted dashboard.
 
