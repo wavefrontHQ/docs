@@ -106,7 +106,7 @@ You have to send and query delta counters like this:
 </tbody>
 </table>
 
-{% include important.html content="If a delta counter records 0 (no values received) for any minute bucket, that value doesn't show up in the chart until a non-zero value appears. For example assume t1=1, t2-t5 (no data), t6=1. The 0 value for t2-t5 shows up in the chart after t6=1 arrives even though no values were ingested during t2-t5 and the corresponding count is 0." %}
+{% include important.html content="If a delta counter records 0 (no values received or zero value ingested) for any minute bucket, that value doesn’t show up in the chart until a non-zero value appears. For example assume t1=1, t2-t5 (no data or zero value ingested), t6=1. The 0 value for t2-t5 shows up in the chart after t6=1 arrives even though either no value or 0 value were ingested during t2-t5 hence the corresponding count is 0." %}
 
 
 ### The cs() Function
