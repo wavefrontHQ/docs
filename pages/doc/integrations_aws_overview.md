@@ -81,20 +81,18 @@ For information about external IDs and how they are used in AWS, see [How to Use
 1. Search for the **IAM** (AWS Identity and Access Management) service and click it.
 1. Under **Access management** on the left, click **Roles**.
 1. Click **Create role**.
-1. Click the **Another AWS account** tile.
-1. Enter the Wavefront account info:
-   - Account ID - The account ID to which you want to grant access to your resources.
-      
-     The account ID is displayed on the Wavefront AWS Integration Setup page, after you click **How to get Role ARN**.
-      
+1. Click the **AWS account** tile, and select the **Another AWS account** radio button.
+1. Enter the Wavefront account information:
+   - **Account ID** - The identifier of the Wavefront account to which you want to grant access. The account ID is displayed on the Wavefront AWS Integration Setup page, after you click **How to get Role ARN**.
    - Select the option **Require external ID** and provide the external ID displayed on the Wavefront AWS Integration Setup page, after you click **How to get Role ARN**.
-1. Click **Next: Permissions**.
-1. On the **Attach permission policies** screen, search for and select the **ReadOnlyAccess** check box.
-1. Click **Next: Tags** and skip the step by clicking **Next: Review**.
-1. In the **Role name** text box, enter **Wavefront** and click **Create role**.
-1. On the **Roles** page, click the newly created **Wavefront** role.
-1. Copy the **Role ARN** value, so that you can use it (i.e. paste it in the Role ARN text box) when you configure your AWS integration.
-   
+     
+1. Click **Next**.
+1. On the **Add permissions** screen, search for, and select the **ReadOnlyAccess** check box.
+1. Click **Next**.
+1. In the **Role name** text box, provide a unique name of the role and click **Create role**.
+1. On the **Roles** page, click the newly created role.
+1. Copy the **ARN** value, so that you can use it when you configure your AWS integration.
+
 
 ### Giving Wavefront Limited Access
 
@@ -211,7 +209,7 @@ To set up an AWS integration, you must have a Role ARN handy. Use the Role ARN t
         
      - **CloudTrail Region** - AWS Region where the CloudTrail logs reside.
      
-1. Click **Set Up**. 
+1. Click **Register**. 
 
 The integration is added to the Amazon Web Services Integrations list. If you want to configure allow lists and refresh rate for the CloudWatch integration, click the **CloudWatch** link in the Types column and follow the instructions in [Configuring CloudWatch Data Ingestion](integrations_aws_metrics.html#configuring-cloudwatch-data-ingestion).
 
@@ -228,12 +226,12 @@ After you set up the AWS integration with a [Role ARN](integrations_aws_overview
    * To register an AWS Metrics+ service, select **Register AWS Metrics+**, and configure the following integration properties:
       
       1. **Name** -- Name to identify the integration.
-      2. **Role ARN** -- Role ARN from your Amazon account.
+      2. **Role ARN** -- Select the Role ARN from your Amazon account.
    
    * To register a CloudTrail service, select **Register CloudTrail**, and configure the following integration properties:
       
       1. **Name** - Name to identify the integration.
-      2. **Role ARN** -- Role ARN from your Amazon account.
+      2. **Role ARN** -- Select the Role ARN from your Amazon account.
       3. **Bucket Name** -- The S3 bucket that contains CloudTrail logs. 
          
          In AWS, go to **CloudTrail** &gt;**Trails** to see the bucket name.
@@ -247,10 +245,10 @@ After you set up the AWS integration with a [Role ARN](integrations_aws_overview
    * To register a CloudWatch service, select **Register CloudWatch**, and configure the following integration properties:
    
       1. **Name** -- Name to identify the integration.
-      2. **Role ARN** -- Role ARN from your Amazon account.
+      2. **Role ARN** -- Select the Role ARN from your Amazon account.
       3. Allow Lists and Service Refresh Rate -- see [Configuring CloudWatch Data Ingestion](integrations_aws_metrics.html#configuring-cloudwatch-data-ingestion).
      
-1.  Click **Save**. The selected integrations are created and added to the Cloud Integrations list.
+1.  Click **Register**. The selected integrations are created and added to the Cloud Integrations list.
 
 ### Enable and Disable AWS Integrations
 

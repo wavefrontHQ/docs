@@ -8,7 +8,7 @@ summary: Understand how to set up and manage the AWS integration by using the Wa
 ---
 The Wavefront Amazon Web Services integration allows you to ingest metrics directly from AWS. In addition to setting up and managing the AWS integration through the Wavefront UI, you can also use the Wavefront REST API for setting up and managing the AWS integration. This doc provides some basic steps and examples on how to do this.
 
-{% include note.html content="You must have the [**Proxy Management** permission](permissions_overview.html) to set up an AWS integratio." %}
+{% include note.html content="You must have the [**Proxy Management** permission](permissions_overview.html) to set up an AWS integration." %}
 
 In these examples, you access the REST API through the Wavefront interface, so that you don't need to provide the Bearer token. 
 
@@ -47,7 +47,7 @@ For more information about giving Wavefront access to your Amazon account, see [
 1. Search for the **IAM** (AWS Identity and Access Management) service and click it.
 1. Under **Access management** on the left, click **Roles**.
 1. Click **Create role**.
-1. Click the **Another AWS account** tile.
+1. Click the **AWS account** tile, and select the **Another AWS account** radio button.
 1. Enter the Wavefront account information:
    - **Account ID** - The identifier of the Wavefront account to which you want to grant access.
      To get the Wavefront account ID:
@@ -56,16 +56,16 @@ For more information about giving Wavefront access to your Amazon account, see [
      3. Click the **Setup** tab and click the **How to get Role ARN** link.
      4. Copy the **Account ID** displayed in the instructions.
       
-   - Select the option **Require external ID** and provide the [external ID that you have copied](integrations_aws_overview_API.html#create-an-external-id).
+   - Select the **Require external ID** check box and provide the [external ID that you have copied](integrations_aws_overview_API.html#create-an-external-id).
      
       You can also copy and paste the **External ID** displayed in the instructions on the Wavefront  **Amazon Web Services** integration **Setup** page.
      
-1. Click **Next: Permissions**.
-1. On the **Attach permission policies** screen, search for and select the **ReadOnlyAccess** check box.
-1. Click **Next: Tags** and skip the step by clicking **Next: Review**.
+1. Click **Next**.
+1. On the **Add permissions** screen, search for, and select the **ReadOnlyAccess** check box.
+1. Click **Next**.
 1. In the **Role name** text box, provide a unique name of the role and click **Create role**.
 1. On the **Roles** page, click the newly created role.
-1. Copy the **Role ARN** value, so that you can use it (i.e. paste it in the Role ARN text box) when you configure your AWS integration.
+1. Copy the **ARN** value, so that you can use it when you configure your AWS integration.
 
 ## Set Up an AWS Integration
 
