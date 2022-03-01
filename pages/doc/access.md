@@ -10,7 +10,7 @@ The roles, permissions, and groups authorization paradigm manages global permiss
 
 Super Admins or users with the **Accounts** permission who need finer-grained control can manage access on a per-object basis. We currently support access control for dashboards and alerts.
 
-{% include note.html content="Permission and access control are additive. To make changes to a dashboard, you must have the **Dashboards** permission and View and Modify access for that dashboard" %}
+{% include note.html content="Permission and access control are additive. To make changes to a dashboard, you must have the **Dashboards** permission and View and Modify access for that dashboard." %}
 
 {% include tip.html content="In addition to access control, we also support [metrics security policy rules](metrics_security.html) which allow fine-grained control over which users can see which metrics." %}
 
@@ -83,7 +83,14 @@ By default, service accounts don't have browse permissions. However, you can als
 1. Click the gear icon <i class="fa fa-cog"/> on the taskbar, and select **Organization Settings**.
 2. Click the **Security** tab, select **Grant Modify Access To:  Everyone** and **Service Accounts**.
 
-## Making Orphan Dashboards or Alerts Visible
+
+## Recovering an Inaccessible Dashboard
+
+If a dashboard is no longer accessible, it was either deleted (moved to trash), it was permanently deleted, or the permissions were revoked for some reason. If a dashboard is moved to trash and permissions on the dashboard haven't been changed, a user with the **Dashboards** permission can [recover the deleted dashboard](ui_dashboards.html#delete-and-recover-a-deleted-dashboard).
+
+Only a Super Admin user, can restore dashboard permissions and attempt to restore a permanently deleted dashboard.
+
+### Make Orphan Dashboards or Alerts Visible
 
 An orphan dashboard results if:
 * All users and groups, including the **Everyone** group, no longer have access.
@@ -94,3 +101,50 @@ To restore an orphan dashboard or alert:
 2. Select the orphaned dashboard or alert and share it with other users or groups.
 
   ![orphan dashboards](/images/orphan_dashboards.png)
+  
+### Recover a Permanently Deleted Dashboard
+
+If a dashboard is not in the trash, or if Super Admin can't find it, then the dashboard is most probably permanently deleted. As a Super Admin, you can attempt to restore the dashboard by using the Wavefront API.
+
+1. Log in as a Super Admin user and from the gear icon <i class="fa fa-cog"/> on the taskbar select **API Documentation**.
+2. Expand the **Dashboard** category, click the `GET api/v2/dashboard/{id}/history/{version}` request and click **Try it out** in the top right of the request.
+3. Enter the dashboard name as the `"id"` parameter. 
+   For example, if the dashboard URL is `https://<your-wavefront-cluster>.wavefront.com/dashboards/MY-DASHBOARD`, then the `"id"` that you should enter is **MY-DASHBOARD**.
+4. Enter the last known version of the dashboard as an integer.
+   
+   Note: If you don't know the version, you can enter **1**. This way, you also determine whether the dashboard `"id"` input has ever existed.
+5. Click **Execute**.
+   
+   If the dashboard `"id"` or version don't exist, the API call returns an error the type:
+   ```
+     {
+      "status":
+      {
+        "result":"ERROR",
+        "message":"dashboard does not exist",
+        "code":404
+        }
+      }
+      ```
+6. Copy the **Response body** of the request, that starts after `"response":` up to and including the last but one closing curly bracket (`}`). 
+
+   
+   ```
+{
+  "modifyAclAccess":true,
+  "hidden":false,
+  "parameters":{},
+    "name":"MY DASHBOARD",
+    "id":"MY-DASHBOARD",
+    ...
+    
+    "favorite":false,
+    "numCharts":2
+}
+
+   ```
+7. Click the `POST api/v2/dashboard/` request and click the **Try it out** button in the top right of the request. 
+8. Paste the copied response data into the **Edit Value** text box and click **Execute** to perform the POST API call.
+9. Validate that the dashboard is now live again. 
+   
+   You should now be able to review the dashboard history by using the GUI. 
