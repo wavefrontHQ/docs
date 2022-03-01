@@ -533,7 +533,6 @@ You can delete a single or multiple dashboards that you no longer need. After yo
 ## Troubleshoot and Learn More! 
 
 The Customer Success team prepared these KB articles to troubleshoot problems with dashboards.
-* [How to Recover an Inaccessible Dashboard](https://help.wavefront.com/hc/en-us/articles/360055292751-How-to-Recover-an-Inaccessible-Dashboard)
 * [How to Identify Unused Dashboards](https://help.wavefront.com/hc/en-us/articles/360060967432-How-to-Identify-Unused-Dashboards)
 * [How to Audit Dashboard Changes](https://help.wavefront.com/hc/en-us/articles/360055676911-How-to-Audit-Dashboard-and-Alert-Changes)
 * [Migrating Objects or Data Between Environments](https://help.wavefront.com/hc/en-us/articles/360053164791-Migrating-Objects-or-Data-Between-Tanzu-Observability-Environments)
