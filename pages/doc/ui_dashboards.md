@@ -310,7 +310,6 @@ For more information, see <a href="charts_events_displaying.html#specify-an-even
 </tbody>
 </table>
 
-
 ## Edit the Dashboard JSON
 
 Most users create and edit dashboards by using the Wavefront UI or automate the process with the Wavefront REST API. But at times, it's convenient to edit the dashboard JSON directly from the UI and see results immediately.
@@ -507,28 +506,6 @@ When a dashboard has a lot of variables with interdependencies, it might make se
 </tbody>
 </table>
  
-## Delete and Recover a Deleted Dashboard
-
-You can delete a single or multiple dashboards that you no longer need. After you delete a dashboard it is moved to the trash for 30 days before it gets permanently deleted. If a dashboard is permanently deleted, you cannot restore it. Only a Super Admin user can try to restore a permanently deleted dashboard. 
-
-**To delete a dashboard:**
-
-1. Select **Dashboards > All Dashboards**.
-2. Search for and select the check boxes of the dashboards that you want to delete. 
-3. Click the delete icon on top and confirm the deletion.
-
-**To restore a deleted dashboard from the trash:**
-
-1. Select **Dashboards > All Dashboards**.
-2. From the **All** menu in the top right of the list of dashboards, select **Deleted**. 
-
-   ![Change the dashboard view from all to deleted.](/images/deleted-dashboards.png)
-   
-3. Search for and select the dashboard that you want to restore.
-4. Click the ellipsis icon and select **Restore**.
-
-   ![Restore a dashboard from the trash.](/images/restore-dashboard.png)
-
 
 ## Troubleshoot and Learn More! 
 
