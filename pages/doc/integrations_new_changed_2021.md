@@ -239,6 +239,6 @@ Made improvements to the following integrations and dashboards in December 2020 
 * Google Cloud Platform -- New dashboard to support the new Google Cloud Platform Kubernetes metric namespace `gcp.kubernetes`
 * Pivotal Cloud Foundry (TAS) -- This integration uses the VMware Tanzu Observability by Wavefront Nozzle tile distributed by the Pivotal network. It has been updated to use Wavefront proxy 9.2 and stem cell 621.76.
 
-## All 2018 - 2021 Integrations
+## All 2019 - 2021 Integrations
 
 We have a separate page for [New and Changed Integrations in 2019-2020](integrations_new_changed_2020.html).
