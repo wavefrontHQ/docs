@@ -25,7 +25,7 @@ In March, all v1 dashboards and charts will be migrated to v2. Users can no long
 
 {% include important.html content="Most Wavefront users are already using the v2 GUI. However, if your dashboards and charts are migrated, see [What's New in v2 Dashboards & Charts](ui_v2_faq.html) for info. "%}
 
-# 2022-08.x Release Notes
+## 2022-08.x Release Notes
 
 
 **Usage Portal**: As more teams use the Tanzu Observability by Wavefront service within an enterprise, the central team (Super Admins) needs a better mechanism to track their points per second (PPS) usage, manage consumption, and also put limits to manage costs.
