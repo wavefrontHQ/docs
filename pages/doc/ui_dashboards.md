@@ -509,7 +509,7 @@ When a dashboard has a lot of variables with interdependencies, it might make se
  
 ## Delete and Recover a Deleted Dashboard
 
-You can delete a single or multiple dashboards that you no longer need. After you delete a dashboard it is moved to the trash for 30 days before it gets permanently deleted. If a dashboard is permanently deleted, you cannot restore it. Only a Super Admin user can try to restore a permanently deleted dashboard. 
+You can delete a single or multiple dashboards that you no longer need. After you delete a dashboard it is moved to the trash for 30 days before it gets permanently deleted. If a dashboard is permanently deleted, has been permanently deleted users will no longer be able to restore it without the assistance of a Super Admin, see [Recover a Permanently Deleted Dashboard](access.html#recover-a-permanently-deleted-dashboard). 
 
 **To delete a dashboard:**
 

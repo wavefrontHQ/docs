@@ -98,7 +98,7 @@ If you can no longer access a dashboard or alert, it was either deleted (moved t
 * If the alert was deleted and moved to trash less than 30 days ago, a user with the **Alerts** permission can [restore the deleted alert](alerts_manage.html#restore-a-deleted-alert).
 * If the dashboard was deleted and moved to trash more than 30 days ago, or was permanently deleted, and no one, including the Super Admin, can find the dashboard, the Super Admin user can attempt to [restore the dashboard by using the API](access.html#recover-a-permanently-deleted-dashboard).
 * If the access settings to a dashboard or alert have changed, you can ask a Super Admin or a user with the **Accounts** permissions to [restore the access for you](access.html#changing-access-for-individual-dashboards-or-alerts).
-* If all users and groups can no longer access the dashboard or alert, most probably it became an orphan. A Super Admin user can [make orphan dashboards and alerts visible](access.html#make-orphan-dashboards-or-alerts-visible). 
+* If all users and groups can no longer access a specific dashboard or alert, a Super Admin may need to check if it is in an orphaned state. A Super Admin user can [make orphan dashboards and alerts visible](access.html#make-orphan-dashboards-or-alerts-visible). 
 
 Only a Super Admin user, can restore dashboard permissions and attempt to restore a permanently deleted dashboard.
 
@@ -117,7 +117,7 @@ To restore an orphan dashboard or alert:
   
 ### Recover a Permanently Deleted Dashboard
 
-If a dashboard is not in the trash, or if Super Admin can't find it, then the dashboard is most probably permanently deleted. As a Super Admin, you can attempt to restore the dashboard by using the Wavefront API.
+A permanently deleted dashboard or alert does not show in the trash and will be inaccessible to all users, including the Super Admin. As a Super Admin, you can attempt to restore the dashboard by using the Wavefront API.
 
 1. Log in as a Super Admin user. 
 2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **API Documentation**.
@@ -130,7 +130,8 @@ If a dashboard is not in the trash, or if Super Admin can't find it, then the da
    
 6. Click **Execute**.
    
-   If the dashboard `"id"` or version don't exist, the API call returns an error the type:
+   If the dashboard `"id"` and the dashboard version don't exist, the API call returns an error, like:
+   
    ```
      {
       "status":
@@ -163,7 +164,7 @@ If a dashboard is not in the trash, or if Super Admin can't find it, then the da
    
    ![Create a dashboard by using the API. The Edit Value text box contains the response data copied from Step 7.](images/create-dashboard-api-call.png)
     
-    This way you create the dashboard.
+    This will restore the dashboard.
     
 10. Validate that the dashboard is now live again. 
    
