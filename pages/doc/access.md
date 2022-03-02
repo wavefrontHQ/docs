@@ -163,7 +163,8 @@ If a dashboard is not in the trash, or if Super Admin can't find it, then the da
    
    ![Create a dashboard by using the API. The Edit Value text box contains the response data copied from Step 7.](images/create-dashboard-api-call.png)
     
-   This way you create the dashboard.
+    This way you create the dashboard.
+    
 10. Validate that the dashboard is now live again. 
    
-   For example, navigate to `https://<your-wavefront-cluster>.wavefront.com/dashboards/MY-DASHBOARD/history` and you should now be able to review the dashboard history by using the GUI. 
+    For example, navigate to `https://<your-wavefront-cluster>.wavefront.com/dashboards/MY-DASHBOARD/history` and you should now be able to review the dashboard history by using the GUI. 
