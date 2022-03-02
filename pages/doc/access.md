@@ -126,7 +126,8 @@ If a dashboard is not in the trash, or if Super Admin can't find it, then the da
    For example, if the dashboard URL is `https://<your-wavefront-cluster>.wavefront.com/dashboards/MY-DASHBOARD`, then the `"id"` that you should enter is **MY-DASHBOARD**.
 5. Enter the last known version of the dashboard as an integer.
    
-   Note: If you don't know the version, you can enter **1**. This way, you also determine whether the dashboard `"id"` input has ever existed.
+   If you don't know the version, you can enter **1**. This way, you also determine whether the dashboard `"id"` input has ever existed.
+   
 6. Click **Execute**.
    
    If the dashboard `"id"` or version don't exist, the API call returns an error the type:
@@ -159,6 +160,10 @@ If a dashboard is not in the trash, or if Super Admin can't find it, then the da
    ```
 8. Click the `POST api/v2/dashboard/` request and click the **Try it out** button in the top right of the request. 
 9. Paste the copied response data into the **Edit Value** text box and click **Execute** to perform the POST API call.
+   
+   ![Create a dashboard by using the API. The Edit Value text box contains the response data copied from Step 7.](images/create-dashboard-api-call.png)
+    
+   This way you create the dashboard.
 10. Validate that the dashboard is now live again. 
    
-   You should now be able to review the dashboard history by using the GUI. 
+   For example, navigate to `https://<your-wavefront-cluster>.wavefront.com/dashboards/MY-DASHBOARD/history` and you should now be able to review the dashboard history by using the GUI. 
