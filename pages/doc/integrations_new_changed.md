@@ -56,7 +56,7 @@ Made improvements to the following integrations and dashboards in January 2022:
   * TAS Locks Held by BBS
 
 
-## All 2018 - 2021 Integrations Release Notes
+## All 2019 - 2021 Integrations Release Notes
 
 We have separate pages for:
 
