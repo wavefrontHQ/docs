@@ -20,7 +20,7 @@ Get detailed information [here](https://docs.datadoghq.com/agent/?tab=linux) to 
 ### Step 3. Configure Datadog Agent to send data to Wavefront Proxy
 1.  On the server running your Datadog Agent, open the file `/etc/datadog-agent/datadog.yaml` and update the following properties:{% raw %}
     ```
-        api_key: 8c43090ae3ea11e89f32f2801f1b9fd1
+        api_key: <Datadog api-key>
         site: <wavefront-proxy-host-ip:PORT>
         dd_url: http://<wavefront-proxy-host-Ip:PORT>
     ```
