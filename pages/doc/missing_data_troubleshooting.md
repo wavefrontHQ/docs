@@ -4,10 +4,10 @@ keywords: query language
 tags: [query language]
 sidebar: doc_sidebar
 permalink: missing_data_troubleshooting.html
-summary: Learn why you see NO DATA in your charts even though you expect to see data.
+summary: Learn how to troubleshoot when you expect to see data but they don't appear in charts
 ---
 
-Sometimes users expect to see certain data in Tanzu Observability by Wavefront but, for some reason, it doesn't show up!  This can be a frustrating and confusing experience, especially when you require the data quickly. Wavefront does not delete data, and retains raw data for 18 months. What could be the problem?
+Sometimes users expect to see certain data in Tanzu Observability by Wavefront but, for some reason, it doesn't show up!  This can be a frustrating and confusing experience, especially when you urgently need the data. Wavefront does not delete data, and retains raw data for 18 months. What could be the problem?
 
 This doc page, based on the extensive experience of our customer success team, helps you
 investigate, understand, and remedy possible causes.
@@ -15,9 +15,9 @@ investigate, understand, and remedy possible causes.
 
 ## Step 1: Check the Time Window
 
-At times, you're looking at a chart and the chart's time window does not show the time when data were flowing. For example, suppose you discovered a week ago that there were problems with networking data for a certain host. You replaced the host, and want to show last week's problem to a co-worker. You have to make sure that you look at a time window before the host was replaced.
+At times, you're looking at a chart and the chart's time window is not set to the time during which data were flowing. For example, suppose you discovered a week ago that there were problems with networking data for a certain host. You replaced the host, and want to show last week's problem to a co-worker. You have to make sure that you look at a time window before the host was replaced.
 
-As a first step, [expand the chart's time window](ui_examine_data.html#set-the-time-window) and see if the data of interest shows up. You can look back 28 days. If you still don't see your data, go to the next step and conider including obsolete metric.
+As a first step, [expand the chart's time window](ui_examine_data.html#set-the-time-window) and see if the data of interest shows up. You try looking back up 28 days. If you still don't see your data, go to the next step and consider including obsolete metric.
 
 
 
@@ -40,11 +40,11 @@ Recommend we don't link to this. Duplicate. See Where is My Old Data? for more d
 
 ## Step 3: Check if Sampling or Filtering Excludes Data
 
-Both the chart UI and the query language support sampling and filtering data. It's possible that the data you are expecting to see is being sampled or filtered.
+Both the chart UI and the query language support data sampling and filtering. It's possible that the data you are expecting to see is being sampled or filtered.
 
 ### Check if Chart-Level Sampling Hides Your Data
 
-You can [improve the display speed](ui_charts.html#improve-display-speed-with-the-sampling-option) for all charts by turning on Sampling for your account. When you do, Wavefront limits the number of time series to 100 for each chart. If the time series you're missing wasn't among the first 100, the chart doesn't show it.
+You can [improve the display speed](ui_charts.html#improve-display-speed-with-the-sampling-option) for all charts by turning on Sampling for your account. When you do, Wavefront limits the number of time series to 100 for each chart. If the time series you're looking for wasn't among the first 100, the chart doesn't show it.
 
 You can toggle sampling as a user preference for all charts. If sampling is on, you can explicitly turn it off for individual charts.
 
@@ -115,7 +115,7 @@ For example:
 * A data point is timestamped for 12:00:01 UTC
 * Because of data delays, that point does not show up on charts until 12:04:35 UTC.
 
-Ingestion delays are often problems at the data source, for example, certain cloud platforms only send data with a delay. [Limiting the Impact of Data Delays](alerts_delayed_data.html) explores how delayed data can affect alerting behavior.
+Ingestion delays often happen at the data source or in the data pipeline, for example, certain cloud platforms only send data with a delay. [Limiting the Impact of Data Delays](alerts_delayed_data.html) explores how delayed data can affect alerting behavior.
 
 ## Step 5: Find Data Delays at the Proxy
 
@@ -123,7 +123,7 @@ For many integrations, data are sent from a source to the [Wavefront proxy](prox
 
 ![Data goes from a source to Telegraf, then to Wavefront proxy, then to Wavefront service ](images/proxy_deployment_simple.png)
 
-One of the benefits of the Wavefront proxy is queue management. The Wavefront proxy queues data as needed,  and those data are ingested by the Wavefront service with a delay. The proxy prioritizes live incoming data and processes data in the queues (backlog) only when possible.
+One of the benefits of the Wavefront proxy is queue management. The Wavefront proxy queues data as needed,  and those data are ingested by the Wavefront service at a later time resulting in a delay. The proxy prioritizes live incoming data and processes data in the queues (backlog) only when possible.
 
 There are several possible reasons for queues at the proxy. The [Monitoring Wavefront Proxies](monitoring_proxies.html) and the **Queuing Reasons** chart in the **Wavefront Service and Proxy Data** dashboard are especially helpful for identifying the cause for queuing, discussed next:
 
@@ -134,9 +134,9 @@ There are several possible reasons for queues at the proxy. The [Monitoring Wave
 * [Network Latency](#proxy-queue-issues-network)
 * [Memory Pressure](#proxy-queue-issues-memory-low-on-proxy-host)
 
-### Proxy Queue Issues: Pushback from Backend
+### Proxy Queue Reasons: Pushback from Backend
 
-If the rate of data ingestion is higher than backend limit, the proxy queues data.  The backend limit typically depends on the commit rate specified in your company's contract. When you attempt to ingest data at a higher rate than the backend limit, data is queued up at the proxy.
+If the rate of data ingestion is higher than backend limit, the proxy queues data.  The backend limit typically depends on the commit rate specified in your company's contract with VMware. When you attempt to ingest data at a higher rate than the backend limit, data is queued up at the proxy.
 
 **Troubleshooting & Further Investigation**
 
@@ -144,35 +144,37 @@ If the rate of data ingestion is higher than backend limit, the proxy queues dat
 2. Use the query in the **Data Ingestion Rate (Points)** chart of the **Wavefront Service and Proxy Data** dashboard to keep track of your ingestion rate. Ensure the ingestion rate is within contractual limits to avoid overages. While it's possible to ask Wavefront Support to raise the backend limit such a change can result in overages.
 
 
-### Proxy Queue Issues: Proxy Rate Limit
+### Proxy Queue Reasons: Proxy Rate Limit
 
-If the rate of data sent to the proxy too high, the proxy starts queuing data. The **Proxy Rate Limiter Active** chart in the **Wavefront Service and Proxy Data** dashboard provides insight into whether data are coming in faster than the proxy rate limit supports.
+If the prox is configured with a rate limit, and the rate of data sent to the proxy is above the limit, the proxy starts queuing data. The **Proxy Rate Limiter Active** chart in the **Wavefront Service and Proxy Data** dashboard provides insight into whether data are coming in faster than the proxy rate limit supports.
 
 <!---So, is the solution more proxies, limit the data, or both?? How can I direct my data to a proxy that can handle it?? HA solution??--->
 
 **Troubleshooting & Further Investigation**
 
 1. Confirm whether data are coming in faster than the proxy's rate limit configuration (`pushRateLimit`). If so, look into ways to reduce your data rate.
+  1. On the **Wavefront Service and Proxy Data dashboard** find the **Proxy Troubleshooting** section and  examine the **Proxy  Rate Limiter Active** chart to see whether the rate limiter is active on the different proxies in your environment.
+  2. Confirm the `pushRateLimit`of each proxy by looking at the proxy configuration file or by querying `--proxyconfig.pushRateLimit`.
 2. Go to the **Received Points/Distributions/Spans Per Second** charts in the **Wavefront Service and Proxy Data** dashboard
   1. Examine the ingest rate for the proxy that seems to have rate limit problems.
   2. Use the Filter feature at the top of each dashboard or chart or specifying a specific source name in the underlying queries to filter for the proxy you are interested in.
 
 
-### Proxy Queue Issues: Bursty Data
+### Proxy Queue Reasons: Bursty Data
 
 This can be related to either of the two points above. If your rate of data is very bursty, you may also experience queueing. "Burstiness" means that data is sent in bursts rather than being sent evenly over time. For instance, the average PPS (points per second) over a minute may be 1000.
 * That could be the result of 1000 data points sent for each of the 60 seconds within that minute.
 * That could also be the result of 60,000 data points sent at one particular second within that minute and no data sent for the rest of the minute.
 
-Because rate limits are set assuming a steady rate, that burst of 60,000 PPS for that one second will result in data being queued.
+Because rate limits are set assuming a steady rate, that burst of 60,000 PPS for that one second could result in data being queued if the rate limit is less than 60,000 PPS.
 
 **Troubleshooting & Further Investigation**
 
 1. Explore the **Received Points/Distributions/Spans Max Burst Rate (top 20)** charts in the **Wavefront Service and Proxy Data** dashboard provides to understand the burstiness of your data rate. The queuing ability of the proxy normally helps smooth out the data rate through momentary queuing.
 2. If you find that the proxy queues sustain and continue to grow, then the overall data ingest rate is too high.
-3. Either reduce the ingest rate or request that the backend limit be raised (possibly resulting in overages).
+3. Either reduce the ingest rate or request that the backend limit be raised (this could result in overages).
 
-### Proxy Queue Issues: Memory Buffer
+### Proxy Queue Reasons: Memory Buffer
 
 If the data ingestion rate is so high that the memory buffer fills too quickly, the proxy queues data. The proxy:
 * Holds a certain number of data points in memory (set through the `pushMemoryBufferLimit` [configuration property](proxies_configuring.html))
@@ -183,13 +185,14 @@ As the proxy processes data in the memory buffers, space is freed up for new inc
 **Troubleshooting & Further Investigation**
 
 1. Find the **Queuing Reasons** chart in the **Wavefront Service and Proxy Data** dashboard and look for `bufferSize`.
-2. If you see problems, consider lowering the ingestion rate or distributing the load among several proxies. 3. In some situations, it might make sense to adjust the `pushMemoryBufferLimit` proxy property.
+2. If you see problems, consider lowering the ingestion rate or distributing the load among several proxies.
+3. In some situations, it might make sense to adjust the `pushMemoryBufferLimit` proxy property.
   * Raising this value results in higher memory usage.
   * Lowering this value results in more frequent spooling to disk.
 
-### Proxy Queue Issues: Network
+### Proxy Queue Reasons: Network Issues
 
-If network issues prevent or slow down the proxy as it sends data to the Wavefront service, the proxy queue fills up.
+If network issues prevent or slow down requests from the proxy to the Wavefront service, then the proxy queue fills up because data arrives at the proxy faster than data can be sent to the Wavefront service.
 
 **Troubleshooting & Further Investigation:**
 
@@ -197,7 +200,7 @@ If network issues prevent or slow down the proxy as it sends data to the Wavefro
 2. Ensure that this amount of time is in the range of hundreds of milliseconds. If the time reaches the range of seconds, check for network latency issues.
 
 
-### Proxy Queue Issues: Memory Low on Proxy Host
+### Proxy Queue Reasons: Memory Low on Proxy Host
 
 The proxy configuration property `memGuardFlushThreshold` is meant to protect against out of memory situations. If heap usage on the proxy exceeds this threshold, data in memory will be flushed to disk and queued.
 
@@ -208,7 +211,7 @@ The proxy configuration property `memGuardFlushThreshold` is meant to protect ag
 2. If there's a problem, consider increasing memory limits for the host server.
 
 
-## Step 6: Find Data Delays Caused by Data Pipeline Issues
+## Step 6: Understand Data Delays Inherent to Your Data Pipeline
 
 If your data travels through a pipeline before reaching the Wavefront proxy or before being direct ingested to the Wavefront service, the pipeline itself can introduce delays to the ingestion process.
 
@@ -231,37 +234,37 @@ Each time the Wavefront service detects a new name, it generates a new ID. ID ge
 
 **Troubleshooting & Further Investigation**
 
-The **Wavefront Usage** integration includes several alertd that you can customize to be alerted when there is a high rate of new IDs.
+The **Wavefront Usage** integration includes several alerts that you can customize to be alerted when there is a high rate of new IDs.
 
-* A high rate of new IDs can happen when you start expanding the data you send to Wavefront.
+* A high rate of new IDs can happen when you start sending new data to Wavefront.
 * A high rate of new IDs could also indicate a **cardinality issue** with the data shape of the data you're sending to Wavefront. For instance, if a timestamp was included as a point tag, a high number of unique point tags results. This can be a problem when you send the data to Wavefront, but also causes problems later when you query the data. See [Tanzu Observability Data Naming Best Practices] for best practices.
 
 
 
-## Step 8: Find Blocked Data Issues
+## Step 8: Determine Whether Data Is Being Blocked
 
-The Wavefront proxy or the Wavefront service block data for a variety of reasons. When this happens, the data is dropped and is be ingested. If data is blocked at the proxy, the proxy log includes a message indicating the reason.
+The Wavefront proxy or the Wavefront service block data for a variety of reasons. When this happens, the data is dropped and is not ingested. If data is blocked at the proxy, the proxy log includes a message indicating the reason.
 
-### Blocked Data Issue: Incorrect Timestamps
+### Blocked Data Reason: Invalid Timestamps
 
 By default, the proxy and the Wavefront service allow data points that are timestamped between:
 * 8760 hours (1 year) ago
 * 24 hours (1 day) ahead of the current time
 
-This functionality supports back-fill of old data or pre-fill of data. Make sure that the timestamp of your data points is in this range. Data with a timestamp outside this range will be rejected at the proxy or not ingested by the Wavefront service.
+This functionality supports back-fill of old data or pre-fill future data. Make sure that the timestamp of your data points is in this range. Data with a timestamp outside this range will be rejected at the proxy or not ingested by the Wavefront service. If you have a use case for ingesting data outside this time range, update the proxy configuration and [contact Support](wavefront_support_feedback.html#support) to have the backend configuration for your environment updated.
 
 
-### Blocked Data Issue: Invalid Data Format
+### Blocked Data Reason: Invalid Data Format
 
 The proxy supports a variety of data formats. Most environments are set up to use different ports for different formats. Ensure that data is being sent to the proper port.
 
-For data that is in the Wavefront Data Format, see [this page](wavefront_data_format.html) for information on what is and is not valid.
+For data that is in the Wavefront Data Format, see [this page](wavefront_data_format.html) for information on what is and is not valid and on the [limits that are in place](wavefront_limits.html).
 
 * Each component of the data point has a set of allowed characters and length limits.
-* There is also a limit, by default, of 20 point tags per data point.
+* There is also, for example, a default limit of 20 points tags per data point.
 
 
 
-### Blocked Data Issue: Proxy Preprocessor Rules
+### Blocked Data Reasons: Proxy Preprocessor Rules
 
 The proxy supports setting up [custom preprocessor rules](proxies_preprocessor_rules.html) to allow or block certain data. Ensure that your data meets all the rules set-up at the proxy. You may need to reach out to the team that manages the proxy and/or those rules.
