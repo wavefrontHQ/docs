@@ -226,3 +226,7 @@ Once you have configured your OpenTelemetry Collector to send metric data to Wav
                 .build());
 ```
 {% endraw %}
+
+## Next Steps
+
+[Try out the Tutorials](opentelemetry_java_tutorial.html) and see how you can send your data to Wavefront!

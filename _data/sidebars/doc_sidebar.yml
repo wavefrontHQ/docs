@@ -611,6 +611,22 @@ entries:
         url: /wavefront_spring_boot_faq.html
         output: web
 
+  - title: "OpenTelemetry"
+    output: web
+    folderitems:
+      
+      - title: Send Trace Data
+        url: /opentelemetry.html
+        output: web
+        
+      - title: Send Metrics Data
+        url: /opentelemetry.html
+        output: web
+      
+      - title: OpenTelemetry Tutorials
+        url: /opentelemetry_java_tutorial.html
+        output: web
+      
   - title: "Distributed Tracing"
     output: web
     folderitems:
@@ -632,8 +648,8 @@ entries:
             url: /opentelemetry.html
             output: web
 
-          - title: OpenTelemetry Tutorial
-            url: /wf_opentelemetry_java_tutorial.html
+          - title: OpenTelemetry Tutorials
+            url: /opentelemetry_java_tutorial.html
             output: web
 
       - title: OpenTracing
