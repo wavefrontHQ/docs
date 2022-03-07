@@ -20,9 +20,8 @@ The Dynatrace integration is an AI-powered, full-stack, automated performance ma
 In this initial release of the Dynatrace integration, we have the following limitations:
 
 * Billing metrics are not allowed and fetched with this release.
-* You must have the <code>Annotations Key Length Limit</code> set up to <code>70</code>. The <code>Annotations Key Length Limit</code> is the maximum number of characters in a point tag key.
+* If the point tags are with Annotations Key Length Limit greater than 64, the metrics associated with the corresponding point tag will be dropped.
 
-  **Important**: You cannot edit the default value (<code>64</code>) of the <code>Annotations Key Length Limit</code> by yourself. You must contact our customer success team to request changes.
 
 **Obtain the Environment ID and Generate an API Token**
 
