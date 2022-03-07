@@ -616,11 +616,11 @@ entries:
     folderitems:
       
       - title: Send Trace Data
-        url: /opentelemetry.html
+        url: /opentelemetry_tracing.html
         output: web
         
       - title: Send Metrics Data
-        url: /opentelemetry.html
+        url: /opentelemetry_metrics.html
         output: web
       
       - title: OpenTelemetry Tutorials
@@ -645,7 +645,7 @@ entries:
         subfolderitems:
 
           - title: OpenTelemetry
-            url: /opentelemetry.html
+            url: /opentelemetry_tracing.html
             output: web
 
           - title: OpenTelemetry Tutorials
