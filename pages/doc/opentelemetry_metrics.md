@@ -5,6 +5,8 @@ permalink: opentelemetry_metrics.html
 summary: Learn how to send data your OpenTelemetry metrics and traces to Tanzu Observability.
 ---
 
+{% include warning.html content="This document is work in progress!" %}
+
 OpenTracing and OpenCensus merged to form OpenTelemetry. OpenTelemetry provides a single set of APIs, libraries, agents, and collector services to capture distributed traces, metrics, and logs from your application. If your application uses OpenTelemetry, you can configure the application to send metrics to Tanzu Observability by Wavefront as explained below:
 
 ## Sending Metrics Data to Tanzu Observability
@@ -17,7 +19,17 @@ Here's how it works:
 Follow these steps:
 
 1. [Install the Wavefront Proxy](proxies_installing.html).
-   {% include note.html content="Make sure to open port 2878 to send spans and metrics to Tanzu Observability. For example, on Linux, Mac, and Windows, open the [`wavefront.conf`](proxies_configuring.html#proxy-file-paths) file, uncomment  the `pushListenerPorts`, and set it to 2878." %}
+    {{site.data.alerts.note}}
+      <ul>
+        <li>
+          If you have already installed the Wavefront proxy, make sure it is version 10.14 or higher. 
+        </li>
+        <li>
+          Make sure to open port 2878 to send spans and metrics to Tanzu Observability. For example, on Linux, Mac, and Windows, open the <a href="proxies_configuring.html#proxy-file-paths"><code>wavefront.conf</code></a> file, uncomment  the <code>pushListenerPorts</code>, and set it to 2878.
+        </li>
+      </ul>
+    {{site.data.alerts.end}}
+
 1. Configure your application to send the metrics data to the OpenTelemetry Collector. 
 1. Export the data from the OpenTelemetry Collector to the Tanzu Observability (Wavefront) metrics exporter. See [Install the OpenTelemetry Collector](https://github.com/wavefrontHQ/opentelemetry-examples#install-the-opentelemetry-collector) to get the up-to-date YAML file.
     {% include note.html content="The Tanzu Observability metrics exporter in the OpenTelemetry collector converts the OpenTelemetry metrics to the Tanzu Observability metrics format. See [OpenTelemetry Metrics in Tanzu Observability](#opentelemetry-metrics-in-tanzu-observability) to learn more about the different metrics types you can see in Tanzu Observability." %}

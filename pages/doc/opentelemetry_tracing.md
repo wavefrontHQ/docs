@@ -41,7 +41,7 @@ Follow these steps:
 1. Open port 4317 on the Wavefront Proxy to send OpenTelemetry spans to Wavefront. 
   <br/>For example, on Linux, Mac, and Windows, open the [`wavefront.conf`](proxies_configuring.html#proxy-file-paths) file, add the line `otlpGrpcListenerPorts=4317`, and save the file.
 1. Configure your application to send the trace data to the Wavefront Proxy. 
-  <br/>By default, OpenTelemetry SDKs will send data over gRPC to `http://localhost:4317`. This can be changed at a per-SDK level, but there are conventions that most SDKs adhere to. For example, to customize the endpoint that your application reports OpenTelemetry data to, add `OTEL_EXPORTER_OTLP_ENDPOINT=http://wavefront-proxy.mydomain:4317` to the environment variables.
+    {% include note.html content="By default, OpenTelemetry SDKs will send data over gRPC to `http://localhost:4317`. This can be changed at a per-SDK level, but there are conventions that most SDKs adhere to. For example, to customize the endpoint that your application reports OpenTelemetry data to, add `OTEL_EXPORTER_OTLP_ENDPOINT=http://wavefront-proxy.mydomain:4317` to the environment variables." %}
 1. Explore the trace data that was sent to Wavefront using the [tracing dashboards](tracing_basics.html#visualize-distributed-tracing-data-in-wavefront).
 
 
