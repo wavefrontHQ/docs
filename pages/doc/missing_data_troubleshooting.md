@@ -30,7 +30,7 @@ In this section, you learn how to investigate. Here's an overview of the steps:
 
 ![investigate missing data flowchart, content matches steps](images/missing_data_1.png)
 
-{% include tip.html content="This section investigest only missing data. If your query returns a syntax error, look carefully at the [query language reference](query_language_reference.html), examine individual reference pages, and learn from other pages in that section such as [Fine Tune Queries with Point Tags](query_language_point_tags.html)." %}
+{% include tip.html content="This section investigest only missing data. If your query returns a syntax error, look carefully at the [query language reference](query_language_reference.html), examine individual reference pages, and learn from other pages in that section such as [Fine Tune Queries with Point Tags](query_language_point_tags.html)." %} 
 
 
 
