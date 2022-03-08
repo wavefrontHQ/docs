@@ -29,9 +29,9 @@ OpenTracing and OpenCensus have merged to form OpenTelemetry. OpenTelemetry prov
 
 If your application uses OpenTelemetry, you can configure the application to send native OpenTelemetry trace data to Wavefront using the OpenTelemetry Collector or by directly sending it to the Wavefront proxy. When the data is in Wavefront, you can use our tracing dashboards to visualize any request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time and discover problems.
 
-### Sending Data To Wavefront Proxy (Recommended) 
+### Sending Data To Wavefront Proxy - (Recommended) 
 
-Send data from your application to the Wavefront Proxy. This is the recommended approach and most simplified approach to get your data into Wavefront.
+Send data from your application to the Wavefront Proxy. This is the recommended and most simplified approach to get your data into Wavefront.
 
 Here's how it works:
 ![Shows how the data flows from your application to Wavefront](images/opentelemetry_proxy_tracing.png)
@@ -41,9 +41,9 @@ Follow these steps:
 1. [Install the Wavefront Proxy](proxies_installing.html).
 1. Open port 4317 on the Wavefront Proxy to send OpenTelemetry spans to Wavefront. 
   <br/>For example, on Linux, Mac, and Windows, open the [`wavefront.conf`](proxies_configuring.html#proxy-file-paths) file, add the line `otlpGrpcListenerPorts=4317`, and save the file.
-1. Configure your application to send the trace data to the Wavefront Proxy. 
-    {% include note.html content="By default, OpenTelemetry SDKs will send data over gRPC to `http://localhost:4317`. This can be changed at a per-SDK level, but there are conventions that most SDKs adhere to. For example, to customize the endpoint that your application reports OpenTelemetry data to, add `OTEL_EXPORTER_OTLP_ENDPOINT=http://wavefront-proxy.mydomain:4317` to the environment variables." %}
-1. Explore the trace data that was sent to Wavefront using the [tracing dashboards](tracing_basics.html#visualize-distributed-tracing-data-in-wavefront).
+1. Configure your application to send trace data to the Wavefront Proxy. 
+    {% include note.html content="By default, OpenTelemetry SDKs send data over gRPC to `http://localhost:4317`." %}
+1. Explore the trace data sent to Wavefront using the [tracing dashboards](tracing_basics.html#visualize-distributed-tracing-data-in-wavefront).
 
 
 ### Sending Data To The OpenTelemetry Collector
@@ -68,7 +68,7 @@ Here's how it works:
      </ul>
     {{site.data.alerts.end}}
      
-1. Configure your application to send the trace data to the OpenTelemetry Collector. See the [OpenTelemetry documentation](https://opentelemetry.io/docs/collector/) for details.
+1. Configure your application to send trace data to the OpenTelemetry Collector. See the [OpenTelemetry documentation](https://opentelemetry.io/docs/collector/) for details.
 1. Export the data from the OpenTelemetry Collector to the Tanzu Observability (Wavefront) trace exporter:
     1. Create a directory to store all the files.
     1. Download the binary from the latest release of the [OpenTelemetry Collector project](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases) to the directory you created.
@@ -113,7 +113,7 @@ Here's how it works:
         ```
         ./otelcontribcol_darwin_amd64 --config otel_collector_config.yaml
         ```
-1. Explore the trace data that was sent to Wavefront using the [tracing dashboards](tracing_basics.html#visualize-distributed-tracing-data-in-wavefront).
+1. Explore the trace data sent to Wavefront using the [tracing dashboards](tracing_basics.html#visualize-distributed-tracing-data-in-wavefront).
 
 
 ## Next Steps

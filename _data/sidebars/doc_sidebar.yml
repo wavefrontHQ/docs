@@ -19,6 +19,79 @@ entries:
       output: web
 
       subfolders:
+      
+      - title: Tutorials
+        output: web
+        subfolderitems:
+          
+        - title: "Learn Wavefront"
+          url: /tutorial_overview.html
+          output: web
+
+        - title: "Hello Wavefront Tutorial"
+          url: /hello_wavefront_aws_tutorial.html
+          output: web
+
+        - title: "Dashboards & Charts Tutorial"
+          url: /tutorial_dashboards.html
+          output: web
+
+        - title: "Query Language Tutorial"
+          url: /query_language_getting_started.html
+          output: web
+
+        - title: "Spring Boot Tutorial"
+          url: /wavefront_springboot_tutorial.html
+          output: web
+
+        - title: "Distributed Tracing Tutorial"
+          url: /tracing_java_tutorial.html
+          output: web
+      
+      - title: Videos
+        output: web
+        subfolderitems:
+
+        - title: "Intro Videos"
+          url: /videos_howto_start.html
+          output: web
+
+        - title: "Basic Concepts Videos"
+          url: /videos_quickstart.html
+          output: web
+
+        - title: Data & Proxy Videos
+          url: /videos_data.html
+          output: web
+
+        - title: Dashboards & Charts Videos
+          url: /videos_dashboards_charts.html
+          output: web
+
+        - title: Query Language Videos
+          url: /videos_query_language.html
+          output: web
+
+        - title: Tags & Searches Videos
+          url: /videos_tags_searches.html
+          output: web
+
+        - title: Alerts Videos
+          url: /videos_alerts.html
+          output: web
+
+        - title: Administration Videos
+          url: /videos_administration.html
+          output: web
+
+        - title: Tracing Videos
+          url: /videos_tracing.html
+          output: web
+
+        - title: Events Videos
+          url: /videos_events.html
+          output: web
+        
       - title: Reference
         output: web
         subfolderitems:
@@ -71,84 +144,6 @@ entries:
     - title: Wavefront Glossary
       url: /glossary.html
       output: web
-
-  - title: Tutorials & Videos
-    output: web
-    folderitems:
-
-    - title: "Learn Wavefront"
-      url: /tutorial_overview.html
-      output: web
-
-      subfolders:
-      - title: Tutorials
-        output: web
-        subfolderitems:
-
-        - title: "Hello Wavefront Tutorial"
-          url: /hello_wavefront_aws_tutorial.html
-          output: web
-
-        - title: "Dashboards & Charts Tutorial"
-          url: /tutorial_dashboards.html
-          output: web
-
-        - title: "Query Language Tutorial"
-          url: /query_language_getting_started.html
-          output: web
-
-        - title: "Spring Boot Tutorial"
-          url: /wavefront_springboot_tutorial.html
-          output: web
-
-        - title: "Distributed Tracing Tutorial"
-          url: /tracing_java_tutorial.html
-          output: web
-
-      - title: Videos
-        output: web
-        subfolderitems:
-
-        - title: "Intro Videos"
-          url: /videos_howto_start.html
-          output: web
-
-        - title: "Basic Concepts Videos"
-          url: /videos_quickstart.html
-          output: web
-
-        - title: Data & Proxy Videos
-          url: /videos_data.html
-          output: web
-
-        - title: Dashboards & Charts Videos
-          url: /videos_dashboards_charts.html
-          output: web
-
-        - title: Query Language Videos
-          url: /videos_query_language.html
-          output: web
-
-        - title: Tags & Searches Videos
-          url: /videos_tags_searches.html
-          output: web
-
-        - title: Alerts Videos
-          url: /videos_alerts.html
-          output: web
-
-        - title: Administration Videos
-          url: /videos_administration.html
-          output: web
-
-        - title: Tracing Videos
-          url: /videos_tracing.html
-          output: web
-
-        - title: Events Videos
-          url: /videos_events.html
-          output: web
-
 
   - title: Release Notes
     output: web
