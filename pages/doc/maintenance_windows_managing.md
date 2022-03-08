@@ -61,7 +61,7 @@ To view and manage maintenance windows, select **Browse > Maintenance Windows**.
 <div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view maintenance windows, you must have the [Alert Management permission](permissions_overview.html) to [manage](maintenance_windows_managing.html) maintenance windows. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
 
-Watch this <a href="https://bcove.video/3m7AM4x" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> for an introduction to maintenance windows. 
+Watch this <a href="https://bcove.video/3m7AM4x" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> for an introduction to maintenance windows.
 
 <p>
 <iframe src="https://bcove.video/3m7AM4x" width="700" height="400" allowfullscreen="true" alt="Video of Jason explaining maintenance windows"></iframe>
@@ -170,6 +170,63 @@ Suppose an alert condition tests the metrics that flow from sources `app-1`, `ap
 1. [Add a source tag](tags_overview.html#add-source-tags) such as `decommissioned` to `app-2` when you are ready to take that source out of service.
 2. Modify the alert condition to include `and not tag=decommissioned`, for example:
   ```ts(~sample.cpu.usage.percentage, source=app-* and not tag=decommissioned) > .5 ```.
+
+
+## Query for Known Downtime
+
+Maintainance windows or testing windows result in expected downtime periods. You can exclude these known downtimes from uptime calculations by excluding the times when the maintenance window is active. This section uses the `events()` and `ongoing()` functions to find known downtimes.
+
+
+### Step 1: Query for Maintenance Window(s)
+
+To query for maintenance window(s), use the `events()` function and filter by maintenance window name. For example, if a maintenance window name is `OS Upgrade`, the query is:
+
+`events(name="OS Upgrade")`
+
+### Step 2: Determine When the Maintenance Window Is Inactive
+
+When calculating uptime, we only care about time periods with no active maintenance windows. The `ongoing()` function returns `1` when the underlying maintenance window is active and `0` otherwise. To determine when the maintenance window is inactive, we can  check when the result is 0:
+
+`ongoing(events(name="OS Upgrade")) = 0`
+
+
+### Step 3. (Optional) Match Granularity of Uptime Calculation
+
+The `ongoing()` function returns a continuous time series (returns data every second continuously). To use this data in uptime calculations, we match the granularity.
+
+For example, if you are calculating uptime in minutes, then the data that tells us when maintenance windows are active also has to be in minutes. We use the `align()` function to accomplish this:
+
+`align(1m, min, ongoing(events(name="OS Upgrade")) = 0)`
+
+This example assumes:
+* The uptime calculation is in minutes.
+* If the Maintenance Window is active during any portion of a minute, we want to exclude that entire minute from uptime calculations.
+
+The query uses a summarization strategy of minimum (`min()`). If at any second within a minute the maintenance window is active, the `ongoing()` query returns `1`. When comparing that with `0`, the result is `0`, and the result of the `align()` function is `0` for that minute.
+
+### Step 4. Calculating Uptime
+
+This step varies depending on how you are calculating uptime. For our example:
+* We have a set of canary data that reports at 1-minute intervals when a service is up.
+* We make sure that periods of active maintenance windows are not included in uptime data.
+
+```handlebars
+Maintenance Window inactive = align(1m, min, ongoing(events(name="OS Upgrade")) = 0)
+Service available = `ts(service.available)
+Service actually available = align(1m, ${Maintenance Window inactive} AND ${Service available})
+```
+
+By using `AND`, we only account for time periods when the maintenance window inactive query returns `1`. `Service actually availabl` return `1` when there are no Maintenance Windows AND the service is up.
+
+We can use this data to calculate uptime by comparing the number of minutes the service was truly available with the time period of interest. For example, to calculate uptime percentage over the last 24 hours, we use this query:
+
+```handlebars
+(msum(24h, ${Service actually available}) / (24 * 60)) * 100
+```
+
+* We use the `msum()` function to determine how many minutes over a 24-hour time window the service was truly available (there are 24 * 60 minutes over a 24-hour time window).
+* We multiply by 100 to get a percentage rather than a decimal.
+
 
 ## Learn More!
 
