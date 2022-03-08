@@ -12,13 +12,6 @@ Sometimes users expect to see certain data in Tanzu Observability by Wavefront b
 This doc page, based on the extensive experience of our customer success team, helps you
 investigate, understand, and remedy possible causes.
 
-<!---
-Reasons are not included in the doc (from Slack with Hao)
-Specified metric/histogram/span does not exist.
-Point tag does not exist.
-Queries have syntax errors.
-Nothing matching: <metric name> and source[]
---->
 
 ## Problem 1: You Expect to See Data But They Aren't There
 
@@ -31,8 +24,11 @@ It's not uncommon that users expect to see data in a chart or an alert but the d
   - `Specified metric/histogram/span does not exist`
   - `Point tag does not exist`
   - `Nothing matching: <metric name> and source[]`
+* Below a query, you see a syntax error message.
 
 In this section, you learn how to investigate.
+
+{% include tip.html content="This section investigest only missing data. If your query returns a syntax error, look carefully at the " %}
 
 ### Step 1: Check the Time Window
 
