@@ -14,7 +14,7 @@ OpenTracing and OpenCensus merged to form OpenTelemetry. OpenTelemetry provides 
 Metrics data includes time series, counters, and histograms. You use the OpenTelemetry Collector and the Wavefront proxy. Once the data is in Tanzu Observability, you can use charts and dashboards to visualize the data and create alerts.
 
 Here's how it works:
-<br/>[ADD IMAGE - FLOW]
+![tThe diagram shows how the data flows from an application to OpenTelemetry collector, which has the OpenTelemetry exporter, to the wavefront proxy, which has the OpenTelemetry receiver, and finally to Tanzu Observability.](images/opentelemetry_collector_metrics.png)
 
 Follow these steps:
 

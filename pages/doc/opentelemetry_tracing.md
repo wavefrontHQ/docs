@@ -7,33 +7,34 @@ summary: Learn how to send data your OpenTelemetry metrics and traces to Tanzu O
 
 {% include warning.html content="This document is work in progress!" %}
 
-OpenTracing and OpenCensus have merged to form OpenTelemetry. OpenTelemetry provides a single set of APIs, libraries, agents, and collector services to capture distributed traces and metrics from your application. If your application uses OpenTelemetry, you can configure the application to send traces and metrics to Wavefront as explained below:
+OpenTracing and OpenCensus have merged to form OpenTelemetry. OpenTelemetry provides a single set of APIs, libraries, agents, and collector services to capture distributed traces and metrics from your application. If your application uses OpenTelemetry, you can configure the application to send traces to Wavefront as explained below:
 
 {{site.data.alerts.tip}}
-  <p>If you are not sure on what you need to use, we recommend the following:</p>
+  <p>If you are not sure about what you need to use, we recommend the following:</p>
     <ul>
       <li>
         If your application uses SpringBoot, use Spring Cloud Sleuth.
       </li>
       <li>
-        If your application is already using OpenTracing, continue using OpenTracing until the OpenTelemetry libraries mature. See <a href="tracing_instrumenting_frameworks.html">Instrumenting Your App for Tracing</a> to send traces to Wavefront when using OpenTracing.
-      </li>
-      <li>
         If you are a new user, and you are configuring your application to send data to Wavefront, use OpenTelemetry. If you run into issues when configuring Wavefront with OpenTelemetry, contact <a href="wavefront_support_feedback.html#support">Wavefront Technical Support</a> for help.
       </li>
+      <li>
+        If your application is already using OpenTracing, continue using OpenTracing until it is completely deprecated. See <a href="tracing_instrumenting_frameworks.html">Instrumenting Your App for Tracing</a> to send traces to Wavefront when using OpenTracing.
+      </li>
+      
     </ul>
 {{site.data.alerts.end}}
 
 ## Sending Trace Data to Wavefront
 
-If your application uses OpenTelemetry, you can configure the application to send send native OpenTelemetry trace data to Wavefront using the OpenTelemetry Collector or by directly sending it to the Wavefront proxy. When the data is in Wavefront, you can use our tracing dashboards to visualize any request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time and discover problems.
+If your application uses OpenTelemetry, you can configure the application to send native OpenTelemetry trace data to Wavefront using the OpenTelemetry Collector or by directly sending it to the Wavefront proxy. When the data is in Wavefront, you can use our tracing dashboards to visualize any request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time and discover problems.
 
-### [Recommended] Sending Data To Wavefront Proxy
+### Sending Data To Wavefront Proxy [Recommended] 
 
 Send data from your application to the Wavefront Proxy. This is the recommended approach and most simplified approach to get your data into Wavefront.
 
 Here's how it works:
-![Shows how the data flows from your application to Wavefront](images/tracing_opentelemetry_trace_exporter_data.png)
+![Shows how the data flows from your application to Wavefront](images/opentelemetry_proxy_tracing.png)
 
 Follow these steps:
 
@@ -52,7 +53,7 @@ If you have already configured your application to send data to the OpenTelemetr
 {% include note.html content="You need to use OpenTelemetry Collector Contrib version v0.28.0 or later to export traces to Wavefront." %} 
 
 Here's how it works:
-![Shows how the data flows from your application to the OpenTelemetry Collector to Wavefront](images/tracing_opentelemetry_trace_exporter_data.png)
+![Shows how the data flows from your application to the OpenTelemetry Collector to Wavefront](images/opentelemetry_collector_tracing.png)
 
 1. [Install the Wavefront Proxy](proxies_installing.html).
     {{site.data.alerts.note}}
@@ -61,7 +62,7 @@ Here's how it works:
         Open port 30001, with <code>customTracingListenerPorts=30001</code>, for the proxy to generate span-level RED metrics.
        </li>
        <li>
-         Open port 2878 to send spans and metrics to Wavefront. For example, on Linux, Mac, and Windows, open the <code>wavefront.conf</code> file, uncomment  the <code>pushListenerPorts</code> and set it to 2878. 
+         Open port 2878 to send metrics to Wavefront. For example, on Linux, Mac, and Windows, open the <code>wavefront.conf</code> file, uncomment  the <code>pushListenerPorts</code>, and set it to 2878. 
        </li>
        
      </ul>
@@ -72,7 +73,7 @@ Here's how it works:
     1. Create a directory to store all the files.
     1. Download the binary from the latest release of the [OpenTelemetry Collector project](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases) to the directory you created.
     1. In the same directory, create a file named `otel_collector_config.yaml`.
-    1. Copy the configurations below into the yaml file.
+    1. Copy the configurations below into the YAML file.
         ```
         receivers:
            otlp:
