@@ -25,17 +25,15 @@ Production Wavefront clusters retain different data for different amounts of tim
 <tr><td><strong>histograms</strong></td>
 <td>6 months of data retention</td></tr>
 <tr><td><strong>spans</strong></td>
-<td>7 days retention. With spans, we use <a href="trace_data_sampling.html#wavefront-intelligent-sampling">Intelligent Sampling</a>. You can use trace sampling policies to change what's sampled out.  </td></tr>
+<td>7 days retention. With spans, we use <a href="trace_data_sampling.html#wavefront-intelligent-sampling">Intelligent Sampling</a>. Use trace sampling policies explicitly exclude certain spans.  </td></tr>
 </tbody>
 </table>
-
-We also have an uptime guarantee, as well as High Availability (HA) and Disaster Recovery (DR) options.
 
 ## Terms of Service
 
 Your Terms of Service are different depending on when you became a Wavefront customer.
 
-Production clusters currently offer 18 months of full-resolution (no downsampling) data retention for metrics, 6 months for histograms, and 7 days for spans. We also have a 99.95% uptime guarantee, as well as High Availability (HA) and Disaster Recovery (DR) options.
+Production clusters currently offer 18 months of full-resolution (no downsampling) data retention for metrics, 6 months for histograms, and 7 days for spans. We also have an uptime guarantee, as well as High Availability (HA) and Disaster Recovery (DR) options.
 
 If you became a customer on or after August 17, 2017:
 
