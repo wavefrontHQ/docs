@@ -25,7 +25,7 @@ When your company signs up with Wavefront, we ask you which users you want to de
 * Can [restore orphan dashboards and alerts](access.html#making-orphan-dashboards-visible).
 * Can invite other Super Admin users.
 * Can upgrade from trial version and purchase Wavefront.
-<!--* Can purchase more PPS.-->
+* Can purchase more PPS.
 * Can create [ingestion policies](ingestion_policies.html) and [examine the overall Wavefront usage](examine_usage.html).
 
 As a Super Admin user, you can add other Super Admin users:
