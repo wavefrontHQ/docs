@@ -7,13 +7,13 @@ permalink: missing_data_troubleshooting.html
 summary: Learn how to troubleshoot when you expect to see data but they don't appear in charts
 ---
 
-Sometimes users expect to see certain data in Tanzu Observability by Wavefront but, for some reason, it doesn't show up!  This can be a frustrating and confusing experience, especially when you urgently need the data. Wavefront does not delete data, and retains raw data for 18 months. What could be the problem?
+Sometimes users expect to see certain data in Tanzu Observability by Wavefront but, for some reason, it doesn't show up!  This can be a frustrating and confusing experience, especially when you urgently need the data. Wavefront does not delete data, and retains [metric data for 18 months](terms_of_service.html#data-retention). What could be the problem?
 
 This doc page, based on the extensive experience of our customer success team, helps you
 investigate, understand, and remedy possible causes.
 
 
-## Problem 1: You Expect to See Data But They Aren't There
+## Problem: You Expect to See Data But They Aren't There
 
 It's not uncommon that users expect to see data in a chart or an alert but the data aren't there.
 
@@ -26,9 +26,13 @@ It's not uncommon that users expect to see data in a chart or an alert but the d
   - `Nothing matching: <metric name> and source[]`
 * Below a query, you see a syntax error message.
 
-In this section, you learn how to investigate.
+In this section, you learn how to investigate. Here's an overview of the steps:
 
-{% include tip.html content="This section investigest only missing data. If your query returns a syntax error, look carefully at the " %}
+![investigate missing data flowchart, content matches steps](images/missing_data_1.png)
+
+{% include tip.html content="This section investigest only missing data. If your query returns a syntax error, look carefully at the [query language reference](query_language_reference.html), [query language tips and tricks](query_language_tips_tricks.html) and other pages in that section." %}
+
+
 
 ### Step 1: Check the Time Window
 
@@ -126,7 +130,7 @@ Several Wavefront Query Language (WQL) functions can be used to filter the data 
 
 
 
-## Problem 2: Ingestion Delays
+## Problem: Ingestion Delays
 
 One of the most common reasons data that you don't see data that you expect to see is ingestion delays. If ingestion delays are the problem, the data eventually show up in Tanzu Observability. However, you'll see a discrepancy between the timestamp of the data point and when the data point is actually visible on a chart.
 
@@ -136,11 +140,16 @@ For example:
 
 Ingestion delays often happen at the data source or in the data pipeline, for example, certain cloud platforms only send data with a delay. [Limiting the Impact of Data Delays](alerts_delayed_data.html) explores how delayed data can affect alerting behavior.
 
+{% include tip.html content="This section does not discuss delays for data that come from AWS Cloudwatch. For those data, wait the amount of time that is usually expected, check if data is blocked or a high data rate could cause the problem, and contact support if that doesn't resolve the issue. " %}
+
+
 ### Step 1: Find Data Delays at the Proxy
+
+
 
 Cloud integrations do not use a Wavefront proxy, but for many integrations, data are sent from a source to the [Wavefront proxy](proxies.html). The proxy sends the data to the Wavefront service.
 
-![Data goes from a source to Telegraf, then to Wavefront proxy, then to Wavefront service ](images/proxy_deployment_simple.png)
+<img src="images/delayed_data_proxy.png" style="width: 600px;" alt="Data delay at proxy flowchart, mirrors text"/>
 
 One of the benefits of the Wavefront proxy is queue management. The Wavefront proxy queues data as needed,  and those data are ingested by the Wavefront service at a later time resulting in a delay. The proxy prioritizes live incoming data and processes data in the queues (backlog) only when possible.
 
@@ -230,6 +239,7 @@ The proxy configuration property `memGuardFlushThreshold` is meant to protect ag
 2. If there's a problem, consider increasing memory limits for the host server.
 
 
+
 ### Step 2: Understand Data Delays Inherent to Your Data Pipeline
 
 If your data travels through a pipeline before reaching the Wavefront proxy or before being direct ingested to the Wavefront service, the pipeline itself can introduce delays to the ingestion process.
@@ -258,9 +268,11 @@ The **Wavefront Usage** integration includes several alerts that you can customi
 * A high rate of new IDs can happen when you start sending new data to Wavefront.
 * A high rate of new IDs could also indicate a **cardinality issue** with the data shape of the data you're sending to Wavefront. For instance, if a timestamp was included as a point tag, a high number of unique point tags results. This can be a problem when you send the data to Wavefront, but also causes problems later when you query the data. See [Tanzu Observability Data Naming Best Practices] for best practices.
 
-## Problem 3: Blocked Data
+## Problem: Blocked Data
 
 The Wavefront proxy or the Wavefront service block data for a variety of reasons. When this happens, the data is dropped and is not ingested. If data is blocked at the proxy, the proxy log includes a message indicating the reason.
+
+![2 reasons for blocked data shown in flowchart](images/blocked_data.png)
 
 
 ### Step 1: Do Invalid Timestamps Block Data?
