@@ -639,7 +639,7 @@ entries:
         output: web
         subfolderitems:
 
-          - title: OpenTelemetry
+          - title: Send Trace Data
             url: /opentelemetry_tracing.html
             output: web
 
