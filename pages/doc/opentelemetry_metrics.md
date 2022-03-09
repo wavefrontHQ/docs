@@ -2,21 +2,18 @@
 title: OpenTelemetry Metrics Data
 tags: [tracing]
 permalink: opentelemetry_metrics.html
-summary: Learn how to send data your OpenTelemetry metrics and traces to Tanzu Observability.
+summary: Learn how to send trace data from your application that uses OpenTelemetry to Tanzu Observability.
 ---
+OpenTracing and OpenCensus merged to form OpenTelemetry. OpenTelemetry provides a single set of APIs, libraries, agents, and collector services to capture distributed traces, metrics, and logs from your application. If your application uses OpenTelemetry, you can configure the application to send metrics to Tanzu Observability by Wavefront.
 
-{% include warning.html content="This document is work in progress!" %}
+## Send Metrics Data
 
-OpenTracing and OpenCensus merged to form OpenTelemetry. OpenTelemetry provides a single set of APIs, libraries, agents, and collector services to capture distributed traces, metrics, and logs from your application. If your application uses OpenTelemetry, you can configure the application to send metrics to Tanzu Observability by Wavefront as explained below:
-
-## Send Metrics Data to Tanzu Observability
-
-Metrics data includes time series, counters, and histograms. You use the OpenTelemetry Collector and the Wavefront proxy. Once the data is in Tanzu Observability, you can use charts and dashboards to visualize the data and create alerts.
+Metrics data includes time series, counters, and histograms. You use the OpenTelemetry Collector and the Wavefront proxy. When the data is in Tanzu Observability, you can use charts and dashboards to visualize the data and create alerts.
 
 Here's how it works:
 ![tThe diagram shows how the data flows from an application to OpenTelemetry collector, which has the OpenTelemetry exporter, to the wavefront proxy, which has the OpenTelemetry receiver, and finally to Tanzu Observability.](images/opentelemetry_collector_metrics.png)
 
-Follow these steps:
+Follow these steps to send data to Tanzu Observability:
 
 1. [Install the Wavefront Proxy](proxies_installing.html).
     {{site.data.alerts.note}}
@@ -25,14 +22,14 @@ Follow these steps:
           If you have already installed the Wavefront proxy, make sure it is version 10.14 or higher. 
         </li>
         <li>
-          Make sure to open port 2878 to send spans and metrics to Tanzu Observability. For example, on Linux, Mac, and Windows, open the <a href="proxies_configuring.html#proxy-file-paths"><code>wavefront.conf</code></a> file, uncomment  the <code>pushListenerPorts</code>, and set it to 2878.
+          Ensure that port 2878 is open to send spans and metrics to Tanzu Observability. For example, on Linux, Mac, and Windows, open the <a href="proxies_configuring.html#proxy-file-paths"><code>wavefront.conf</code></a> file and confirm that <code>pushListenerPorts</code> is set to 2878, and that this configuration is uncommented.
         </li>
       </ul>
     {{site.data.alerts.end}}
 
 1. Configure your application to send the metrics data to the OpenTelemetry Collector. 
 1. Export the metrics data from the OpenTelemetry Collector using the Tanzu Observability (Wavefront) metrics exporter. See [Install the OpenTelemetry Collector](https://github.com/wavefrontHQ/opentelemetry-examples#install-the-opentelemetry-collector) to get the up-to-date YAML file.
-    {% include note.html content="The Tanzu Observability metrics exporter in the OpenTelemetry collector converts the OpenTelemetry metrics to the Tanzu Observability metrics format. See [OpenTelemetry Metrics in Tanzu Observability](#opentelemetry-metrics-in-tanzu-observability) to learn more about the different metrics types you can see in Tanzu Observability." %}
+    {% include note.html content="The Tanzu Observability metrics exporter in the OpenTelemetry collector converts the OpenTelemetry metrics to the Tanzu Observability metrics format. See [OpenTelemetry Metrics in Tanzu Observability](#metrics-conversion) to learn more about the different metrics types you can see in the dashboards and charts." %}
     For example, make sure you have all the metrics configurations in your YAML file:
     
     ```
@@ -60,12 +57,12 @@ Follow these steps:
           processors: [batch]
 
     ```
-1. Explore the metrics data you sent to Tanzu Observability using charts and dashboards.
-    {% include note.html content="If you are new to using Tanzu Observability, try out the [Dashboards and Charts tutorial](tutorial_dashboards.html) and see how you can use charts and dashboards to view data." %}
+1. Explore the metrics data you sent with charts and dashboards.
+    {% include note.html content="Try out the [Dashboards and Charts tutorial](tutorial_dashboards.html) or watch the video on that page to get started." %}
 
-## OpenTelemetry Metrics in Tanzu Observability
+## Metrics Conversion 
 
-The OpenTelemetry metrics your applications send are converted to the Tanzu Observability metrics format as follows:
+The OpenTelemetry metrics your applications send are converted to the [Wavefront data format](wavefront_data_format.html) as follows:
 
 <table style="width: 100%;">
   <tbody>
@@ -156,4 +153,9 @@ The OpenTelemetry metrics your applications send are converted to the Tanzu Obse
 
 ## Next Steps
 
-[Try out the Tutorials](opentelemetry_java_tutorial.html) and see how you can send your data to Tanzu Observability!
+* [Try out the Tutorials](opentelemetry_java_tutorial.html) and see how you can send your data to Tanzu Observability!
+* Next, log in to your Tanzu Observability instance and examine your data in dashboards and charts:
+  * [Examine the sample data on the predefined charts and dashboards](tutorial_dashboards.html).
+  * Create [dashboards](ui_dashboards.htm) and [charts](ui_charts.html) for the data you sent to Tanzu Observability. 
+    <br/>You need to have the required permissions to do these tasks.
+  
