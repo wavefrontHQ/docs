@@ -1,397 +1,332 @@
 ---
-title: Metadata Functions
+title: Metadata (Label Manipulation) Functions
 keywords: query language
 tags: [query language]
 sidebar: doc_sidebar
-published: false
 permalink: query_language_metadata_functions.html
-summary: Learn how to use metadata functions in Wavefront Query Language expressions to rename metrics and sources and create point tags.
+summary: Learn how to rename metrics and sources and create point tags with aliasSource, aliasMetric, and taggify.
 ---
 
-Metadata functions allow you to extract information from an existing set of data, to rename a metric or source, or create a new synthetic point tag. We support 3 metadata functions: `aliasSource()`, `aliasMetric()`, and `taggify()`. This pages gives an in-depth explanation of each function and examples.
+Metadata (label manipulation) functions, that is, [`aliasSource`](ts_aliasSource.html), [`aliasMetric`](ts_aliasMetric.html), and [`taggify`](ts_taggify.html) enable users to temporarily rename a source, rename a metric or create a synthetic point tag. Dashboards and charts display the changed name or aggregated point tag.
 
-## The aliasSource() Function
+This page uses vSphere and ~sample metrics to demonstrate how you can change a table column heading and the text in the column. Screenshots illustrate the changed labels, for example, you might see a metric like `vsphere.host.cpu.used.summation`. The same principles apply for other data and other chart types.
 
-`aliasSource()` lets you replace one or more existing source names in a ts() expression with a string extracted from the metric name(s), source name(s), or point tag value(s).  For example, let's say you have a set of metrics that includes the customer name:
+{% include tip.html content="You can use metadata functions together with [string manipulation functions](query_language_reference.html#string-manipulation-functions) to display exactly what you want the user to see." %}
 
-```
-cpu.loadavg-customerA.1m
-cpu.loadavg-customerB.1m
-cpu.loadavg-customerA.5m
-cpu.loadavg-customerB.5m
-```
-
-The data for this set of metrics is being reported by 1 source (e.g. `source1`). The data is present, but what if you wanted to aggregate the data and group by customer? You could create two separate ts() expressions, or you could use `aliasSource()` to update the `<source1>` name to `customerA` or `customerB`. You could then group by source and get the answer you need from a single expression.
 
-The `aliasSource()` function supports 3 ways of replacing source names in a ts() expression: zeroBasedNodeIndex, regular expression replacement, simple string replacement.
+## Overview
 
-### zeroBasedNodeIndex Approach
+All three metadata functions support these options:
 
-When you use the zeroBasedNodeIndex approach for `aliasSource()`, you extract a single node from an existing source name, metric name, or point tag value for the purpose of renaming a source. Nodes in existing source name(s), metric name(s), or point tag value(s) are separated by delimiters. For example, let's say that you have the following metric name:
+<table>
+<tbody>
+<thead>
+<tr><th width="40%">Option</th><th width="60%">Example</th></tr>
+</thead>
+<tr><td markdown="span">Specify a string to add to or replace a string in the source.</td>
+<td markdown="span">Change "esxi-11" to "esxi-11-to-be-decommissioned"</td>
+</tr>
+<tr>
+<td markdown="span">Use a numeric zeroBasedNodeIndex to change a string at a specific location in the source string.  </td>
+<td>Rename a source from "version.7.esxi101" to "esxi101".
+<ul><li>The delimiter is a period.</li>
+<li>We useelements of the metric name to rename the source</li>
+<li>We use the index 2 to use the 3rd node from the left.</li></ul>
+</td>
+</tr>
+<tr>
+<td markdown="span">Use a regex search and replace pattern.</td>
+<td><ul><li>Rename all the sources beginning with "perf18" to "Performance-Machine-Number"</li>
+<li>Capture everything after the perf18 substring that is a number and put that into the capture group.</li></ul> </td></tr>
+</tbody>
+</table>
 
-```
-disk.space.total.environment
-```
 
-In the metric name above, each node is assigned a number:
+## Parameters
 
+The functions have the following parameters.
 ```
-disk = 0
-space = 1
-total = 2
-environment = 3
-```
+aliasSource(<tsExpression>, [metric|source|{tagk,<pointTagKey>},]zeroBasedNodeIndex[, "delimiterDefinition"] |"regexSearchPattern", "replacementPattern" |"replacementString")
 
-The numbers listed above would be associated with the `zeroBasedNodeIndex` parameter. By default, Wavefront identifies each node separated by a (".") delimiter. So if the above metric name was:
+aliasMetric(<tsExpression>, [metric|source|{tagk,<pointTagKey>},]zeroBasedNodeIndex[, "delimiterDefinition"] |"regexSearchPattern", "replacementPattern" |"replacementString")
 
-```
-disk.space-total_environment
+taggify(<tsExpression>, metric|source|{tagk,<pointTagKey>}, <newPointTagKey>, zeroBasedNodeIndex[, "delimiterDefinition"] | "regexSearchPattern", "replacementPattern" | "replacementString")
 ```
 
-Then each node would be assigned the following number:
+## String Replacement Examples
 
-```
-disk = 0
-space-total_environment = 1
-```
+Learn how to change the displayed source name, metric name, or point tag.
 
-If the data you want to extract a node from include delimiters such as a hyphen ("-") or underscore ("_"), then you can use the `"delimiterDefinition"` parameter to identify those as delimiters.
+<p><span style="font-size: large; font-weight: 600">aliasSource String Replacement</span></p>
 
-The syntax for `aliasSource()` using the zeroBasedNodeIndex approach is:
-
+To change the displayed **source** name to a different name use this syntax:
 ```
-aliasSource(expression, [metric|source|{tagk, <pointTagKey>},] zeroBasedNodeIndex [, "delimiterDefinition"])`
+aliasSource(<tsExpression>, "replacementString")
 ```
-
-- `expression` - The ts() expression to extract a piece of information from.
-- `metric|source|{tagk, <pointTagKey>}` - The set of data to extract a node from for the purpose of renaming one or more sources. Use `{tagk, pointTagKey}` if you want to extract a node from an existing point tag value. To use this approach, enter `tagk` followed by the particular `<pointTagKey>` associated with the point tag value. For example, if you have point tag `Region=us-west-2b`, and you want to replace the existing source name with the entire point tag value, then you would enter `tagk, Region` and set the `zeroBasedNodeIndex` to 0. If (`metric`, `source`, `tagk`) is not explicitly entered, then the option is set to `source` by default.
-- `zeroBasedNodeIndex` - The node to extract from the source option and use to rename one or more source(s). You must specify this parameter regardless of what you specify in the first option.
-- `"delimiterDefinition"` - Use this optional parameter to specify a delimiter other than period ("."). For example, if you want to extract `total_environment` from `disk.space-total_environment`, then set `zeroBasedNodeIndex` to 2 and `"delimiterDefinition"` to ".-". If no `"delimiterDefinition"` is specified, then only periods (".") are considered delimiters.
-
-#### zeroBasedNodeIndex Examples
-
-##### Example 1 - Renaming source(s) with an existing source name node
-
-Base expression `ts("requests.failures.num")` has 40 unique sources sending data. Those 40 unique sources are named `app-1`, `app-2`, `app-3`...`app-40`.
-
-![aliasSource_zeroBased_example1](images/aliasSource_zeroBased_example1.png)
 
-In this scenario, we'd like to ignore the `app` reference in the existing source name, and simply have the associated number displayed as the source name. This can be done with the following expression:
+For example, to rename a source from `esxi-11` to `esxi-11-to-be-decommissioned` use:
 
 ```
-aliasSource(ts("requests.failures.num"),1,"-")
+aliasSource(ts("vsphere.host.cpu.used.summation", source="esxi-11"),"esxi-11-to-be-decommissioned")
 ```
 
-![aliasSource_zeroBased_example1](images/aliasSource_zeroBased_example2.png)
+![Output has table header esxi-11-to-be-decommissioned](images/aliasSource.jpeg)
 
-* Because we are extracting a node from an existing source name, we don't need to specify a source option parameter (the default is source).
-* Because the original source name uses hyphens ("-") instead of periods (".") as delimiters, we use the `"delimiterDefinition"` parameter to specify hyphen (-) as delimiters.
-* We also specify the zeroBasedNodeIndex we'd like to extract. In this case, the pattern is `app-<number>`, that is, `app = 0` and `<number> = 1`. We specify 1 to show only the number and drop the string `app`.
+<p><span style="font-size: large; font-weight: 600">aliasMetric String Replacement</span></p>
 
-##### Example 2 - Renaming source(s) with an existing metric name node
+To change the displayed **metric** name to a different name, use this syntax:
 
-Imagine you have 1 physical server running 8 virtual machines. Each virtual machine is sending stats into Wavefront, but the physical server is set as the source name and the unique virtual machine name is in the metric name:
-
 ```
-ts(disk.space.total.vm1)
-source=phyServ
+aliasMetric(<tsExpression>, "replacementString")
 ```
 
-If you want to see the virtual machine name instead of the physical server name as the source name, you could do so as follows:
+For example, to rename a metric from `vsphere.host.cpu.used.summation` to `vsphere-esxi-cpu-used-summation` use this:
 
 ```
-aliasSource(ts(disk.space.total.*),metric, 3)
+aliasMetric(ts("vsphere.host.cpu.used.summation"),"vsphere-esxi-cpu-used-summation")
 ```
-
-* Because you want to extract the string from the metric name, you set the `<source>` option to `metric`.
-* The only delimiters used in the metric name are periods, so you don't have to specify a delimiterDefinition.
-* You set `zeroBasedNodeIndex` to 3.
 
-This approach replaces `phyServ` with vm1, vm2, vm3, etc. for each unique metric.
+![Output has table header vsphere-esxi-cpu-used-summation](images/aliasMetric.jpeg)
 
+<p><span style="font-size: large; font-weight: 600">taggify String Replacement</span></p>
 
-##### Example 3 - Renaming source(s) with a point tag value node
+To add a displayed **point tag** using `taggify`, use this syntax:
 
-Assume that you have 5 unique servers (server1, server2, server3, etc.) that run multiple applications at any given moment. A set of general metrics such as `application.latency`, applies to all applications. You apply an `application` point tag to the data format to determine the associated application for each source on the chart. The format of the `application` point tag is:
-
 ```
-application=<company>.id-<value>_<appName>
+taggify(<expression>, <newPointTagKey>, "<newPointTagValue>")
 ```
 
-For this use case, you'd like to replace the existing source names (server1, server2, server3, etc.) with the id value and application name. You use the following expression:
+For example, to add a point tag `Physical location`, `Site B` use:
 
 ```
-aliasSource(ts("application.latency"), tagk, application, 2, ".-")
+taggify("vsphere.host.cpu.used.summation" and source="esxi-11", "Physical location", "Site B")
 ```
-
-In the example above:
-* You want to extract a new source name from an existing point tag value associated with the application point tag key, so you enter `tagk, application` as the source option parameter.
-* You want the new source name to be `<value>_<appName>`, so you specify the `"delimiterDefinition"`. Notice that we do not specify underscore ("\_") as a delimiter. If we were to do that, then the zeroBasedNodeIndex approach would no longer enable us to extract both the `<value>` and `<appName>` from the existing point tag value(s).
-* Because `"delimiterDefinition"` us set to periods (".") and hyphens ("-"), you can set `zeroBasedNodeIndex` to 2. This approach sets `<company>` as 0, `id` as 1, and `<value>_<appName>` as 2.
 
-### Regex Approach
+![Output has table column header Physical location and column values Site B](images/taggify-site.jpeg)
 
-You can use a regular expression in `aliasSource()` to transform an existing source name, metric name, or point tag value.  This approach works as a "search-replace" functionality&mdash;everything matching `regexSearchPattern` is replaced with `replacementPattern`. The syntax for this approach is:
 
-```
-aliasSource(expression, [metric|source|{tagk, <pointTagKey>},] "regexSearchPattern", "replacementPattern")
-```
+## String Replacement with Variables Examples
 
-- `expression` - The ts() expression to extract a piece of information from.
-- `metric|source|{tagk, <pointTagKey>}` - The set of data to extract a node from for the purpose of renaming one or more sources. `{tagk, <pointTagKey>}` is used if you want to extract a node from an existing point tag value. To use this approach, enter `tagk` followed by a specific `<pointTagKey>` name.
+You can specify a variable that generates a string from the time series. Then you can replace all or part of an existing source name, metric name, or point tag with that variable.
 
-  For example, if you have point tag `Region=us-west-2b`, and you want to use its value to replace the source name, you can use `tagk, Region` followed by regEx patterns. If (`metric`, `source`, or `tagk`) is not explicitly entered, then the option is set to `source` by default.
-- `"regexSearchPattern"` - A regular expression pattern to match against the extraction node specified above (source is the default).
-- `"replacementPattern"` - The replacement string. If capturing groups were used in the regexSearchPattern, they can be referred to as "$1", "$2", etc.
+<p><span style="font-size: large; font-weight: 600">aliasSource and Variables</span></p>
 
-#### Regex Examples
-This example repeats the examples from the zeroBasedNodeIndex approach.
 
-##### Example 1 - Renaming source(s) with an existing source name node
+The following example uses `aliasSource()` to alter the **source** to include the value of the specified point tag for physical location. Here a variable `${A}` is set to `taggify("vsphere.host.cpu.used.summation" and source="esxi-11", "Physical location", "Site B")`.
 
-For this example, you replace the simple `zeroBasedNodeIndex` with a regular expression:
+The table column header becomes `esxi-11-to-be-decomissioned-site-B` with this query:
 
+{% raw %}
+```handlebars
+aliasSource(${A},"{{source}}-{{Physical location}}")
 ```
-aliasSource(ts(requests.failures.num), "app-([0-9]*)", "$1")
-```
-
-* `"regularExpression"` is set to  `"app-([0-9]*)"`, so you capture everything after the `app-` substring that is a number and put that into capture group 1.
-* You can then refer to that capture group as `$1` in the `captureGroupBackReference`.
+{% endraw %}
 
-##### Example 2 - Renaming source(s) with an existing metric name node
+![table column header is esxi-11-to-be-decomissioned-site-B, the location for this example](images/esxi-source-pointtag.jpeg)
 
-The equivalent `aliasSource()` syntax would be:
+<p><span style="font-size: large; font-weight: 600">aliasMetric and Variables</span></p>
 
-```
-aliasSource(ts(disk.space.total.*), metric, "disk.([a-z-0-9]*)..*", "$1")
-```
+The following example uses `aliasMetric()` to change the **metric** name to the value of the specified point tag for physical location. Here a variable `${A}` is set to `taggify("vsphere.host.cpu.used.summation" and source="esxi-11", "Physical location", "Site B")`.
 
-##### Example 3 - Renaming source(s) with a point tag value node
+The table column header includes the physical location with this query:
 
-The equivalent `aliasSource()` syntax would be:
-
-```
-aliasSource(ts("application.latency"), tagk, application, ".*.id-(.*)", "$1")
+{% raw %}
+```handlebars
+aliasMetric(${A},"vsphere.host.cpu.used.summation-{{Physical location}}")
 ```
+{% endraw %}
 
-##### Example 4 - Renaming source(s) with a source name node
+![table column header shows the location](images/metric-variable.jpeg)
 
-This is an example of using `aliasSource()` with a regular expression that could not be easily done using the zeroBasedNodeIndex approach.
+<p><span style="font-size: large; font-weight: 600">taggify and Variables</span></p>
 
-Assume you have sources that look like: `accounts.<company_name>.<group name><numeric value>`
 
-and you want to set the source to `<company_name>.<group name>` (i.e., leave off `<numeric value>`)
+The following example uses `taggify()` to add a new **point tag**. The example uses an existing point tag in combination with the source, for source and physical location. The variable is set to `taggify("vsphere.host.cpu.used.summation" and source="esxi-11", "Physical location", "Site B"))`.
 
-This table shows the current source and desired source names:
+The table column header shows `Host/Site` and the column itself combines the source with the physical location.
 
-
-| Current Source | Desired Source
-| -
-| accounts.foo.bar1 | foo.bar |
-| accounts.baz.bar7 | baz.bar |
-
-We can easily do this with `aliasSource()`:
-
-```
-aliasSource(ts(requests.failures.num), "accounts.([a-zA-Z.]*)[0-9]*$", "$1")
+{% raw %}
+```handlebars
+taggify(${A},"Host/Site","{{source}}/{{Physical location}}")
 ```
+{% endraw %}
 
-## The aliasMetric() Function
+![table column header and column are updated by taggify](images/host-site.jpeg)
 
-`aliasMetric()` lets you replace one or more existing metric names in a ts() expression with a string extracted from the metric name(s), source name(s), or point tag value(s).  For example, assume that you have a metric in your environment that tracks the number of total users of your product by customer:
 
-```
-ts("customer.user.total")
-```
+## Examples that Use zeroBasedNodeIndex
 
-The series associated with this metric include a customer point tag key to "group by" when applying an aggregate function.
+When using any of the metadata functions, you can extract a single element (node) from an existing source name, metric name, or point tag value and use the element as a new value.
 
-```
-sum(ts("customer.user.total"),customer)
-```
+Nodes are indexed from left to right, starting with 0. A delimiter (".") separates the nodes. For example, in the sample metric `vsphere.host.cpu.used.summation` we have these nodes:
 
-If you want to display this information as a column on a tabular view chart, the current aggregate metric does not display properly. However, you can use `aliasMetric()` to rename the aggregate metric, and to apply a column header of 'Total Users'.
+* Node 0: `vsphere`
+* Node 1: `host`
+* Node 2: `cpu`
+* Node 3: `used`
+* Node 4: `summation`
 
-You can use the `aliasMetric` function using the zeroBasedNodeIndex, regular expression replacement, or simple string replacement approach.
+<p><span style="font-size: large; font-weight: 600">Source Name Replacement with zeroBasedNodeIndex</span></p>
 
-### zeroBasedNodeIndex Approach
 
-If you use the zeroBasedNodeIndex approach for `aliasMetric()`, you extract a single node from an existing source name, metric name, or point tag value for the purpose of renaming a metric. Nodes in existing source name(s), metric name(s), or point tag value(s) are separated by delimiters. Suppose you have the following naming convention for a metric namespace:
+To change the displayed **source name** to a different name, use `zeroBasedNodeIndex` in this syntax of `aliasSource`:
 
 ```
-<datacenter>.<customerName>_latency.<idNumber>
+aliasSource(<tsExpression>, [metric|source|{tagk, <pointTagKey>},] <zeroBasedNodeIndex> [, "<delimiterDefinition>"])
 ```
-
-e.g. `pdx.customerA_latency.i49f21a72`
 
-In the metric name above, each node is assigned a number:
+For example, you can rename a source from `version.7.esxi101` to `esxi101`.
 
 ```
-pdx = 0
-customerA_latency = 1
-i49f21a72 = 2
+aliasSource(ts("vsphere.host.cpu.used.summation", source="version.7.esxi101"), 2)
 ```
+Here:
+* The delimiter is a period.
+* We use the index 2 to use the 3rd node from the left.
 
-The numbers listed above would be associated with the `zeroBasedNodeIndex` parameter. By default, Wavefront identifies each node separated by a (".") delimiter. This is why `customerA_latency` is considered a single node.
+![table shows `esxi101`](images/version-7-esxi.jpeg)
 
-If the data you want to extract a node from includes delimiters such as a hyphen ("-") or underscore ("_"), then you can use the `"delimiterDefinition"` parameter `aliasMetric()` to identify those as delimiters. The syntax for `aliasMetric()` using the zeroBasedNodeIndex approach is:
 
+If the delimiter is not a period, you can include the delimiter definition in the query. For example, if the source uses hyphens (`version-7-esxi101`), use the following query to rename the source:
 ```
-aliasMetric(expression, [metric|source|{tagk, <pointTagKey>},] zeroBasedNodeIndex [, "delimiterDefinition"])
+aliasSource(ts("vsphere.host.cpu.used.summation", source="version-7-esxi101"), 2,"-")
 ```
-
-- `expression` - The ts() expression to extract a piece of information from.
-- `metric|source|{tagk, <pointTagKey>}` - The set of data to extract a node from for the purpose of renaming one or more metrics.
-  - Use `{tagk, pointTagKey}` if you want to extract a node from an existing point tag value. To use this approach, enter `tagk` followed by the `<pointTagKey>` that is associated with the point tag value. For example, if you have point tag `Region=us-west-2b`, and you want to replace the existing metric name with the entire point tag value, then you would enter `tagk, Region` and set the `zeroBasedNodeIndex` to 0.
-  - If you don't specify (`metric`, `source`, `tagk`) this parameter defaults to `metric`.
-- `zeroBasedNodeIndex` - The node to extract from the selected source name(s), metric name(s), or point tag value(s), and to use to rename one or more metric(s). You must specify this parameter.
-- `"delimiterDefinition"` - Use this optional parameter to specify a delimiter other than period ("."). For example, if you want to extract `total_environment` from `disk.space-total_environment`, then set `zeroBasedNodeIndex` to 2 and "delimiterDefinition"] to ".-". If no `"delimiterDefinition"` is specified, then only periods (".") are considered delimiters.
-
-#### zeroBasedNodeIndex Example
+![table shows `esxi101`](images/version7-delim.jpeg)
 
-##### Example - Renaming metric(s) with an existing point tag value node
 
-Assume that you have a set of metric names that are very long and clutter your hover legend:
-
+You can use elements of the metric name to rename the source. For example, if the metric name is `vsphere-version7-esxi150-cpu-used` and you want to rename the source to the third element in the metric name `esxi150`, use this query:
 ```
-<datacenter>.<version>.<customer>_latency.<id>
+aliasSource("vsphere-version7-esxi150-cpu-used"),metric, 2,"-")
 ```
+![table chart shows `esxi101`](images/aliasSourceMetricName.jpeg)
 
-The information you want from the metric name is `<customer>_latency`. `<datacenter>` and `<version>` are also sent as optional point tag key values, so you don't need them in the hover legend. `aliasMetric()` lets you rename each metric to declutter your hover legend:
+<p><span style="font-size: large; font-weight: 600">Source Name Replacement with Point Tag Elements</span></p>
 
+You can use elements of a point tag to rename the source name from a point tag specify the point tag with `tagK` and the point tag name. For example
+* The point tag `hostname` has a value `esxi1750.vmware.com`
+* You want to rename the source to `esxi1750` using zeroBasedNodeIndex.
+Use this query (where node 0 is esxi1750):
 ```
-aliasMetric(ts("<datacenter>.<version>.<customer>_latency.<id>"), 2)
+aliasSource(ts("vsphere.host.cpu.used.summation",tagK,hostname,0)
 ```
-
-In this case, you are extracting from a metric name, so we don't need to specify `',metric'` before applying the `zeroBasedNodeIndex` value.
-
-### Regex Approach
-
-You can also use a regular expression with `aliasMetric()` to transform an existing source name, metric name, or point tag value.  This approach works as a "search-replace" functionality&mdash;everything that matches `regexSearchPattern` is replaced with `replacementPattern`. The syntax for this approach is:
+![table chart shows `esxi1750`](images/aliasSourcePointtag.jpeg)
 
+If the query references a node that doesn't exist, an error results. For example, assume the following query:
 ```
-aliasMetric(expression, [metric|source|{tagk, <pointTagKey>},] "regexSearchPattern", "replacementPattern")
+aliasSource(ts("vsphere.host.cpu.used.summation",tagK,hostname,5)
 ```
-
-- `expression` - The ts() expression to extract a piece of information from.
-- `metric|source|{tagk, <pointTagKey>}` - The set of data to extract a node from for the purpose of renaming a metric. `{tagk, <pointTagKey>}` is used if you want to extract a node from an existing point tag value. To use this approach, enter `tagk` followed by a specific `<pointTagKey>` name. For example, if you have point tag `Region=us-west-2b`, and you want to use its value to replace the metric name, then you would enter `tagk, Region` followed by regEx patterns. If (`metric`, `source`, or `tagk`) is not explicitly entered, then the option is set to `source` by default.
-- `"regexSearchPattern"` - A regular expression pattern to match against the extraction node specified above (`source` is the default).
-- `"replacementPattern"` - The replacement string. If capturing groups are used in `regexSearchPattern`, they can be referred to as `$1`, `$2`, etc.
+Because the source only has 5 element and index 5 goes to element 6, the following error message results:
+```
+globalFilter() removed all query keys
+Cannot access node: 5 from source value: vsphere.host.cpu.used.summation
+```
 
-## The taggify() Function
+## Regex Search and Replace Pattern Examples
 
-`taggify()` lets you extract a string from an existing metric name, source name, or point tag value and create a synthetic point tag key value for that particular query. For example, assume you have a set of metrics that include a customer name in the actual metric name. Each customer has 3 unique metrics associated with it and they are all being reported by a single source:
+Regex patterns in `aliasSource`, `aliasMetric`, and `taggify` work perform a search and replace. If there is no match during the search, there is nothing to replace, so the original displayed values remain.
 
-```
-Source="Customer-Example"
+<p><span style="font-size: large; font-weight: 600">Replace Source Name with aliasSource() and Regex
+</span></p>
 
-cpu.idle.customerA
-cpu.load.customerA
-cpu.total.customerA
 
-cpu.idle.customerB
-cpu.load.customerB
-cpu.total.customerB
+You can change the source name displayed in charts to a different name using a search and replace regex. Use this syntax:
 ```
+aliasSource(<tsExpression>, [metric|source|{tagk,<pointTagKey>},"regexSearchPattern", "replacementPattern" )
+```
 
-Based on this dataset you could aggregate the data, but you'd be unable to aggregate based on customer. You can instead use a "group-by" point tag option for aggregate functions. To use this functionality, you need to extract the customer name from the metric(s) and apply it as a synthetic point tag. You can accomplish this with the following `taggify()` query:
+For example, assume you want to:
+* Rename all the sources beginning with "perf18" to "Performance-Machine-#"
+* Capture everything after the perf18 that is a number and put that into the capture group.
 
+The replacement pattern can use a variable, `$1`, to append the number to  `"Performance-Machine"` as in this example:
 ```
-min(taggify(ts("cpu.*"), metric, customer, 2), customer)
+aliasSource(ts("vsphere.vm.cpu.usagemhz.average",source=perf18*), "perf([0-9]*)", "Performance-Machine-$1")
 ```
-
-The query above identifies the customer name, extracts that information as a point tag value, and applies it to a point tag key `customer`.
 
-You then apply an aggregate function, in this case `min()`, and use "group-by" `customer` in the query.
+![table chart shows performance-machine-18-acct-1 and performance-machine-18-acct-2](images/vm-perf.jpeg)
 
-You can use `taggify()` with a simple zeroBasedNodeIndex syntax. If that syntax doesn't solve your use case, use the regex syntax.
+<p><span style="font-size: large; font-weight: 600">Replace Metric Name with aliasMetric() and Regex</span></p>
 
-### zeroBasedNodeIndex Approach
+You can change the displayed metric name to a differen name using a search/replace regex. Use this syntax:
 
-The zeroBasedNodeIndex approach for `taggify()` refers to extracting a single node from an existing source name, metric name, or point tag value for the purpose of creating a synthetic point tag. Nodes in existing source name(s), metric name(s), or point tag value(s) are separated by delimiters. Suppose you have the following naming convention for a metric namespace:
-
 ```
-<datacenter>.<customerName>_latency.<idNumber>
+aliasMetric(<tsExpression>, [metric|source|{tagk,<pointTagKey>},"regexSearchPattern", "replacementPattern")
 ```
-
-e.g. `pdx.customerA_latency.i49f21a72`
 
-For the metric name above, each node is assigned a number:
-
+For example, assume you want to rename the metric `CPU-Used-VM-11-verylongmetricname` to `CPU-Used-VM-11` The following regex:
+* Searches and captures the first 14 characters of the metric.
+* Uses those 14 characters in the replacement metric.
+In this example, `${Original metric}` is `ts("CPU-Used-VM-11-verylongmetricname")`.
 ```
-pdx = 0
-customerA_latency = 1
-i49f21a72 = 2
+aliasMetric(${Original metric},"(.{0,14}).*", "$1")
 ```
+![table chart with long metric name and CP-used-vm-11 below that](images/vm-longmetricname.jpeg)
 
-The numbers listed above would be associated with the `zeroBasedNodeIndex` parameter. By default, Wavefront identifies each node separated by a (".") delimiter. This is why `customerA_latency` is considered a single node.
 
-If the data you want to extract a node from includes delimiters such as a hyphen ("-") or underscore ("_"), then you can use the `"delimiterDefinition"` parameter. The syntax for `taggify()` using the zeroBasedNodeIndex approach is:
+<p><span style="font-size: large; font-weight: 600">Replace Point Tag Name with taggify() and Regex</span></p>
 
+You can change the displayed point tags with `taggify()` and a search and replace regex. Use this syntax:
 ```
-taggify(expression, metric|source|{tagk, <pointTagKey>}, newPointTagKey, zeroBasedNodeIndex [, "delimiterDefinition"])
+taggify(<tsExpression>, [metric|source|{tagk,<pointTagKey>},"regexSearchPattern", "replacementPattern" )
 ```
-
-- `expression` - The ts() expression to extract a piece of information from.
-- `metric|source|{tagk, <pointTagKey>}` - The set of data to extract a node from for the purpose of creating a synthetic point tag. {tagk, pointTagKey} is used if you want to extract a node from an existing point tag value. To use this approach, enter `tagk` followed by the particular `<pointTagKey>` associated with the point tag value. For example, if you have point tag `Region=us-west-2b`, and you want to create a synthetic point tag based on the 1st zeroBasedNodeIndex (e.g. west), then you would enter `tagk, Region` and set the `zeroBasedNodeIndex` to 1. This would also require that you use  `"delimiterDefinition"` to specify a hyphen ("-") as a delimiter.  In contrast to  `aliasSource()` and `aliasMetric()`, you must specify this parameter for `taggify`.
-- `newPointTagKey` - The new point tag key.
-- `zeroBasedNodeIndex` - The node to extract from the selected source name(s), metric name(s), or point tag value(s), and use to create a new synthetic point tag key-value. You must specify this parameter regardless of whether `metric`, `source`, or `tagk`, `<pointTagKey>` is selected.
-- `"delimiterDefinition"` - Use this optional parameter to specify a delimiter other than period ("."). For example, to extract `total_environment` from `disk.space-total_environment`, set `zeroBasedNodeIndex` to 2 and `"delimiterDefinition"` to ".-". If no `"delimiterDefinition"` is specified, then only periods (".") are considered delimiters.
 
-#### zeroBasedNodeIndex Example
+For example, to search and replace the values for the point tag `clustername`, from `Test-cluster` with a hyphen to `Test_cluster` with an underbar character, use this expression:
 
-Imagine you're a SaaS company that provides multiple versions of your platform. You collect data from each platform your customer(s) are running and you include a version key in the source name(s):
-
 ```
-source="<app-x>-<machine_type>.<versionKey>"
+taggify(${A}, tagk, clustername, clustername, "-", "_")
 ```
-
-With this approach each customer has several version keys over time. Right now, all customers are broken into 3 categories: `<versionKey1>`, `<versionKey2>`, and `<versionKey3>`.
 
-You want to collect a dataset that helps you understand the difference in performance between the different versions. You can create a synthetic point tag `version` based on `<versionKey>` to aggregate and group by `version` and to see the performance differences. The following query uses the zeroBasedNodeIndex approach to:
-* identify `source` as the set of data to extract the `<versionKey>`,
-* name `version` as the new point tag key,
-* and identify `<versionKey>` as the 1st node.
 
-```
-taggify(ts("performance.*.tracker"), source, version, 1)
-```
+In the screenshot below, the `taggify` search and replace operates on the point tag `clustername` (value is `Test-Cluster` and the result is `Test_Cluster`.
 
-Because hyphens ("-") and underscores ("_") are used in the source name, you could also write this query as in one of the following examples:
+![table chart with clusternames test-cluster and the revised test_cluster](images/clustername.jpeg)
 
-- `taggify(ts("performance.*.tracker"), source, version, 4, "-_.")`
-- `taggify(ts("performance.*.tracker"), source, version, 3, "-.")`
 
-For any of these queries, your hover legend will show a new column labeled `version` with values `<versionKey1>`, `<versionKey2>`, and `<versionKey3>`.
+You can also use a search and replace operation on a point tag and create a new point tag from the results, for example to create a new point tag called "clustertype" using point tag values found in "clustername", like this:
 
-You can next `taggify` calls. For example,
-
 ```
-taggify(taggify(default(0, ts(production.infra.aws.ec2.instance.pulldeploy.failed.count.sum, asg="build_secondary*")),source,temp_asg,2,'.'),tagk,temp_asg,my_asg,0,'-')
+taggify(${B}, tagk, clustername, clustertype, "(.{0,4}).*", "$1")
 ```
-
-extracts `asg` from the source.
 
-### Regex Approach
+Here, variable `${B}` is `taggify(${A}, tagk, clustername, clustername, "-", "_")` and we see the new point tag `clustertype` with the value `Test`.
 
-You can also use a regular expression in `taggify()` to extract an existing metric name, source name, or point tag value and create a synthetic point tag from the information.  This approach works as a "search-replace" functionality&mdash;everything matching `regexSearchPattern` is replaced with `replacementPattern`. The syntax for this approach is:
+![table chart with clustertype Test](images/clustertype.jpeg)
 
-```
-taggify(expression, metric|source|{tagk, <pointTagKey>}, version, "regexSearchPattern", "replacementPattern")
-```
+## Nesting Metadata Functions
 
-#### Regex Example
+Metadata functions (`aliasSource`, `aliasMetric`, and `taggify`) can be nested to provide flexible manipulation of the content displayed on screen in the charts and dashboards.
 
-To perform the transform shown in the zeroBasedNodeIndex Example with a regular expressions, use the following query:
+{% include tip.html content="Build queries one at a time until your chart shows what you want to show."%}
 
-```
-taggify(ts("performance.*.tracker"), source, "regexSearchPattern", "replacementPattern")
+For example, consider the metric `~sample.cpu.usage.user.percentage`, which has sources `db-[0-9]` and `app[0-9]`. Assume you want:
+* Alter the displayed sources so that they display as `app-x-production`, `db-x-dev` etc
+* Show the metric name as `CPU.Usage.Production.User.Percentage` along with some additional point tags like build version:11.3
+* Abbreviate `env` point tag
 
-```
+You can use the following sequence of queries.
 
-## Best Practice for Metadata Functions
 
-When using metadata functions, keep the following in mind:
+<table>
+<tbody>
+<thead>
+<tr><th width="5%"> </th><th width="50%">Query</th><th width="45%">What it does</th></tr>
+</thead>
+<tr><td><strong>A</strong></td><td markdown="span"><code>aliasSource(ts(~sample.cpu.usage.user.percentage), "app-([0-9]*)", "app$1-&#123;&#123;env}}")</code></td>
+<td markdown="span">Converts the source names for application machines, `app-[0-9]` to `app-[0-9]-dev`, `app-[0-9]-production` etc.</td>
+</tr>
+<tr><td><strong>B</strong></td><td markdown="span"><code>aliasSource($&#123;A}, "db-([0-9]*)", "db$1-&#123;&#123;env}}")</code></td>
+<td markdown="span">Converts the source names for the db machines, `db-[0-9]` to `db-[0-9]-dev`, `db-[0-9]-production` etc.</td>
+</tr>
+<tr><td><strong>C</strong></td><td markdown="span"><code>aliasMetric($&#123;B},"CPU.Usage.Production.User.Percentage")</code></td>
+<td markdown="span">Converts the metric name `~sample.cpu.usage.user.percentage` to `CPU.Usage.Production.User.Percentage`</td>
+</tr>
+<tr><td><strong>D</strong></td><td markdown="span"><code>taggify($&#123;C},"Build Version", "11.3")</code></td>
+<td markdown="span">Adds a `Build Version` point tag (value 11.3)</td>
+</tr>
+<tr><td><strong>E</strong></td><td markdown="span"><code>taggify($&#123;D},tagK,env,env,"(.{0,4}).*", "$1")</code></td>
+<td markdown="span">Shortens the `env` point tag to max 4 characters.</td>
+</tr>
+</tbody>
+</table>
 
-- The query must be able to work with all underlying series or it does not return data. For example, if you extract a string from a source name and specify `zeroBasedNodeIndex` as 2, then all sources reporting data for your query must have at least 3 zeroBased nodes. If one source is named `app.25` (i.e. 0 and 1 zeroBased nodes), then the entire query fails because that source does not have a 2 zeroBased node.
-- The series that result from `aliasSource()` and `aliasMetric()` must all be unique, or an error occurs and no data is returned. Series are defined as metric + source + point tags. For example, consider the following query: `aliasSource(ts("requests.latency"),metric,1)`. If no point tags exist for this data and 20 sources are reporting data for `requests.latency`, then the query returns an error because you are renaming each source as `latency`. In the resulting series each point has `metric="requests.latency"` and `source="latency"`. However, if each series has a unique point tag value, the query would work.
+![Screenshot shows results of each query in a table chart](images/nested.jpeg)
