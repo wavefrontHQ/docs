@@ -25,6 +25,10 @@ In March, all v1 dashboards and charts will be migrated to v2. Users can no long
 
 {% include important.html content="Most Wavefront users are already using the v2 GUI. However, if your dashboards and charts are migrated, see [What's New in v2 Dashboards & Charts](ui_v2_faq.html) for info. "%}
 
+## 2022-09.x Release Notes
+
+**Drilldown Links on Charts Improvement**: You can now use drilldown links to send users to a target section of a dashboard.
+
 ## 2022-08.x Release Notes
 
 
