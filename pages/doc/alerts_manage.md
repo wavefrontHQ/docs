@@ -44,7 +44,7 @@ To start alert creation, do one of the following:
 <tr>
 <td width="50%">
 <ul>
-<li markdown="span"><strong>Alerts Browser</strong> - Click <strong>Alerting</strong> from the taskbar and click the <strong>Create Alert</strong> button located above the filter bar.</li>
+<li markdown="span"><strong>Alerts Browser</strong> - Click <strong>Alerting &gt; Create Alert</strong>.</li>
 </ul></td>
 <td width="50%" markdown="span">![create_alert](images/create_alert_browser.png) </td></tr>
 <tr>
@@ -299,7 +299,7 @@ Users with **Alerts** permission can change an alert at any time. The options ar
 <tr>
 <td width="40%">
 <ol>
-<li>Click <strong>Alerting</strong> in the taskbar to display the Alerts Browser. </li>
+<li>Click <strong>Alerting &gt; All Alerts</strong> in the taskbar to display the Alerts Browser. </li>
 <li>Click the alert name, or click the ellipsis icon next to the alert and select <strong>Edit</strong>. <br><br>You can search for the alert by name, status, alert tag, etc. See <a href="wavefront_searching.html">Searching Wavefront</a>.</li>
 </ol>
 </td>
@@ -399,7 +399,7 @@ You delete an alert from the Alerts Browser page. Only users with **Alerts** per
 <tr>
 <td width="40%">
 <ol>
-<li>Click <strong>Alerting</strong> in the taskbar to display the Alerts Browser. </li>
+<li>Click <strong>Alerting &gt; All Alerts</strong> in the taskbar to display the Alerts Browser. </li>
 <li>Click the ellipsis icon next to the alert.</li>
 <li>Select <strong>Delete</strong> and confirm the deletion.</li>
 </ol>
@@ -417,7 +417,7 @@ You can restore an alert from the trash if it was deleted less than 30 days ago 
 <tr>
 <td width="50%">
 <ol>
-<li>Click <strong>Alerting</strong> in the taskbar to display the Alerts Browser. </li>
+<li>Click <strong>Alerting &gt; All Alerts</strong> in the taskbar to display the Alerts Browser. </li>
 <li>Click <strong>All</strong> from the top right and select <strong>Deleted</strong>.</li>
 <li>Click the ellipsis icon next to the alert.</li>
 <li>Select <strong>Restore</strong>.</li>

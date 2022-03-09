@@ -51,14 +51,14 @@ For example, you could use a custom alert target to:
 
 ## View Custom Alert Targets
 ​
-To view alert targets, select **Browse > Alert Targets**.
+To view alert targets, select **Alerting > Alert Targets**.
 
 
 ## Create a Custom Alert Target
 
 The process for creating an alert target is similar for the different types of targets. Setting the **Type** changes which fields are displayed.
 
-1.  Select **Browse > Alert Targets**.
+1.  Select **Alerting > Alert Targets**.
 1.  Click the **Create Alert Target** button.
 1.  Fill in the properties that are common to all alert targets.
     <table>
@@ -213,7 +213,7 @@ Test your alert target to ensure that it works properly.
 <tr>
 <td width="60%">
 <strong>To create a dashboard</strong>:
-<ol><li>Select <strong>Browse > Alert Targets</strong> and find the target on the Alert Targets page. </li>
+<ol><li>Select <strong>Alerting > Alert Targets</strong> and find the target on the Alert Targets page. </li>
 <li>Click the ellipsis icon to the left of the alert target and select <strong>Test</strong>.</li></ol></td>
 <td width="40%"><img src="images/alert_target_test.png" alt="ellipsis menu, test selected"></td>
 </tr>
@@ -252,7 +252,7 @@ Each custom alert target has a unique ID that the system generates when you firs
 <tr>
 <td width="60%">
 <strong>To create a dashboard</strong>:
-<ol><li>Select <strong>Browse > Alert Targets</strong> from the taskbar. </li>
+<ol><li>Select <strong>Alerting > Alert Targets</strong> from the taskbar. </li>
 <li>In the Name column, note the ID of the alert target under the description.</li></ol></td>
 <td width="40%"><img src="/images/webhook_id.png" alt="showing ID under alert name"></td>
 </tr>

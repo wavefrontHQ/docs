@@ -122,10 +122,10 @@ The Alerts Browser allows you to
 On any page in the Wavefront GUI, a colored dot next to <strong>Alerting</strong> indicates that there are firing alerts. The color shows the alert severity.
 <ol>
 <li>Hover over the <strong>Alerting</strong> button in the taskbar to see how many alerts are currently firing.</li>
-<li>Click <strong>Alerting</strong> in the taskbar to go to the Alerts Browser. </li>
+<li>Click <strong>Alerting &gt; All Alerts</strong> in the taskbar to go to the Alerts Browser. </li>
 </ol>
 </td>
-<td width="50%"><img src="/images/alerts_taskbar.png" alt="multiple firing alerts on the clock icon next to text Alerting in taskbar."></td>
+<td width="50%"><img src="/images/alerting_all_alerts.png" alt="Alerting All Alerts selected."></td>
 </tr>
 </tbody>
 </table>
@@ -256,7 +256,7 @@ When you have many and complex tag paths, you can search them by parent. For exa
 
 To make copies of an existing alert, then change the copy, you can clone an alert.
 
-1. Click **Alerting** in the taskbar to display the Alerts Browser.
+1. Click **Alerting > All Alerts** in the taskbar to display the Alerts Browser.
 2. Click the ellipsis icon next to the alert.
 3. Select **Clone**, make changes when prompted, and click **Save**.
 
