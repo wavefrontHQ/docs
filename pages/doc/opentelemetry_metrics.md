@@ -31,7 +31,7 @@ Follow these steps:
     {{site.data.alerts.end}}
 
 1. Configure your application to send the metrics data to the OpenTelemetry Collector. 
-1. Export the data from the OpenTelemetry Collector to the Tanzu Observability (Wavefront) metrics exporter. See [Install the OpenTelemetry Collector](https://github.com/wavefrontHQ/opentelemetry-examples#install-the-opentelemetry-collector) to get the up-to-date YAML file.
+1. Export the metrics data from the OpenTelemetry Collector using the Tanzu Observability (Wavefront) metrics exporter. See [Install the OpenTelemetry Collector](https://github.com/wavefrontHQ/opentelemetry-examples#install-the-opentelemetry-collector) to get the up-to-date YAML file.
     {% include note.html content="The Tanzu Observability metrics exporter in the OpenTelemetry collector converts the OpenTelemetry metrics to the Tanzu Observability metrics format. See [OpenTelemetry Metrics in Tanzu Observability](#opentelemetry-metrics-in-tanzu-observability) to learn more about the different metrics types you can see in Tanzu Observability." %}
     For example, make sure you have all the metrics configurations in your YAML file:
     
@@ -45,7 +45,7 @@ Follow these steps:
     exporters:
       tanzuobservability:
         metrics:
-          endpoint: "http://<enter your IP address>:2878"
+          endpoint: "http://<enter your Wavefront proxy IP address>:2878"
     # Proxy hostname and customTracing ListenerPort
 
     processors:
@@ -71,8 +71,8 @@ The OpenTelemetry metrics your applications send are converted to the Tanzu Obse
   <tbody>
     <thead>
       <tr>
-        <th>OpenTelemetry Metric</th>
-        <th>Tanzu Observability Metric</th>
+        <th>OpenTelemetry Metrics Format</th>
+        <th>Tanzu Observability Metrics Format</th>
       </tr>
     </thead>
     <tr>
@@ -107,7 +107,7 @@ The OpenTelemetry metrics your applications send are converted to the Tanzu Obse
         Cumulative histograms
       </td>
       <td>
-        Histograms
+        Gauge metrics
       </td>
     </tr>
     
@@ -125,7 +125,7 @@ The OpenTelemetry metrics your applications send are converted to the Tanzu Obse
         Cumulative exponential histograms
       </td>
       <td>
-        Histograms
+        Gauge metrics
       </td>
     </tr>
     
@@ -143,7 +143,8 @@ The OpenTelemetry metrics your applications send are converted to the Tanzu Obse
         Summary metrics
       </td>
       <td>
-        WHAT TO ADD HERE?
+        Gauge metrics
+        <br/>Each quantile in the summary is sent to Wavefront as a series of gauge metrics.
       </td>
     </tr>
     

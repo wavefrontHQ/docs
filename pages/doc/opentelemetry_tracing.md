@@ -19,7 +19,7 @@ OpenTracing and OpenCensus have merged to form OpenTelemetry. OpenTelemetry prov
         If you are a new user, and you are configuring your application to send data to Wavefront, use OpenTelemetry. If you run into issues when configuring Wavefront with OpenTelemetry, contact <a href="wavefront_support_feedback.html#support">Wavefront Technical Support</a> for help.
       </li>
       <li>
-        If your application is already using OpenTracing, continue using OpenTracing until it is completely deprecated. See <a href="tracing_instrumenting_frameworks.html">Instrumenting Your App for Tracing</a> to send traces to Wavefront when using OpenTracing.
+        If your application is already using OpenTracing, continue using OpenTracing. See <a href="thttps://opentelemetry.io/docs/reference/specification/compatibility/opentracing/">OpenTracing Compatibility</a> for guidance on transition from OpenTracing to OpenTelemetry.
       </li>
       
     </ul>
@@ -38,7 +38,7 @@ Here's how it works:
 
 Follow these steps:
 
-1. [Install the Wavefront Proxy](proxies_installing.html).
+1. [Install the Wavefront Proxy](proxies_installing.html) version 11 or higher.
 1. Open port 4317 on the Wavefront Proxy to send OpenTelemetry spans to Wavefront. 
   <br/>For example, on Linux, Mac, and Windows, open the [`wavefront.conf`](proxies_configuring.html#proxy-file-paths) file, add the line `otlpGrpcListenerPorts=4317`, and save the file.
 1. Configure your application to send trace data to the Wavefront Proxy. 
