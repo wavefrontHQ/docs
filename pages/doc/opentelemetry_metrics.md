@@ -59,6 +59,8 @@ Follow these steps to send data to Tanzu Observability:
     ```
 1. Explore the metrics data you sent with charts and dashboards.
     {% include note.html content="Try out the [Dashboards and Charts tutorial](tutorial_dashboards.html) or watch the video on that page to get started." %}
+    Example:
+    ![shows the OpenTelemetry collector data in a chart](images/tracing_opentelemetry_collector_chart.png)
 
 ## Metrics Conversion 
 
