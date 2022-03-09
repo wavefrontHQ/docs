@@ -94,9 +94,9 @@ By default, service accounts don't have browse permissions. However, you can als
 
 If you can no longer access a dashboard or alert, it was either deleted (moved to trash), it was permanently deleted, or the access settings for you or a group you belong to were changed. 
 
-* If the dashboard was deleted and moved to trash less than 30 days ago, a user with the **Dashboards** permission can [restore the deleted dashboard](ui_dashboards.html#delete-and-recover-a-deleted-dashboard).
-* If the alert was deleted and moved to trash less than 30 days ago, a user with the **Alerts** permission can [restore the deleted alert](alerts_manage.html#restore-a-deleted-alert).
-* If the dashboard was deleted and moved to trash more than 30 days ago, or was permanently deleted, and no one, including the Super Admin, can find the dashboard, the Super Admin user can attempt to [restore the dashboard by using the API](access.html#recover-a-permanently-deleted-dashboard).
+* If a dashboard was deleted and moved to trash less than 30 days ago, a user with the **Dashboards** permission can [restore the deleted dashboard](ui_dashboards.html#delete-and-recover-a-deleted-dashboard).
+* If an alert was deleted and moved to trash less than 30 days ago, a user with the **Alerts** permission can [restore the deleted alert](alerts_manage.html#restore-a-deleted-alert).
+* If a dashboard was deleted and moved to trash more than 30 days ago, or was permanently deleted, and no one, including the Super Admin, can find the dashboard, the Super Admin can attempt to [restore the dashboard by using the API](access.html#recover-a-permanently-deleted-dashboard).
 * If the access settings to a dashboard or alert have changed, you can ask a Super Admin or a user with the **Accounts** permissions to [restore the access for you](access.html#changing-access-for-individual-dashboards-or-alerts).
 * If all users and groups can no longer access a specific dashboard or alert, a Super Admin may need to check if it is in an orphaned state. A Super Admin user can [make orphan dashboards and alerts visible](access.html#make-orphan-dashboards-or-alerts-visible). 
 
@@ -117,7 +117,7 @@ To restore an orphan dashboard or alert:
   
 ### Recover a Permanently Deleted Dashboard
 
-A permanently deleted dashboard or alert does not show in the trash and will be inaccessible to all users, including the Super Admin. As a Super Admin, you can attempt to restore the dashboard by using the Wavefront API.
+A permanently deleted dashboard does not show in the trash and becomes inaccessible to all users, including the Super Admin. As a Super Admin, you can attempt to restore the dashboard by using the Wavefront API.
 
 1. Log in as a Super Admin user. 
 2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **API Documentation**.
@@ -130,7 +130,7 @@ A permanently deleted dashboard or alert does not show in the trash and will be 
    
 6. Click **Execute**.
    
-   If the dashboard `"id"` and the dashboard version don't exist, the API call returns an error, like:
+   If the dashboard `"id"` and the dashboard version don't exist, the API call returns an error like:
    
    ```
      {
