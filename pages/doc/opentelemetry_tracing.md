@@ -25,11 +25,11 @@ OpenTracing and OpenCensus have merged to form OpenTelemetry. OpenTelemetry prov
     </ul>
 {{site.data.alerts.end}}
 
-## Sending Trace Data to Wavefront
+## Send Trace Data to Wavefront
 
 If your application uses OpenTelemetry, you can configure the application to send native OpenTelemetry trace data to Wavefront using the OpenTelemetry Collector or by directly sending it to the Wavefront proxy. When the data is in Wavefront, you can use our tracing dashboards to visualize any request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time and discover problems.
 
-### Sending Data To Wavefront Proxy - (Recommended) 
+### Send Data Using the Wavefront Proxy - (Recommended) 
 
 Send data from your application to the Wavefront Proxy. This is the recommended and most simplified approach to get your data into Wavefront.
 
@@ -46,7 +46,7 @@ Follow these steps:
 1. Explore the trace data sent to Wavefront using the [tracing dashboards](tracing_basics.html#visualize-distributed-tracing-data-in-wavefront).
 
 
-### Sending Data To The OpenTelemetry Collector
+### Send Data Using the OpenTelemetry Collector
 
 If you have already configured your application to send data to the OpenTelemetry Collector, follow these steps:
 

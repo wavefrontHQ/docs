@@ -17,16 +17,16 @@ entries:
     - title: Your Wavefront Account
       url: /users_account_managing.html
       output: web
+    
+    - title: "Learn Wavefront"
+      url: /tutorial_overview.html
+      output: web
 
       subfolders:
       
       - title: Tutorials
         output: web
         subfolderitems:
-          
-        - title: "Learn Wavefront"
-          url: /tutorial_overview.html
-          output: web
 
         - title: "Hello Wavefront Tutorial"
           url: /hello_wavefront_aws_tutorial.html
@@ -47,7 +47,27 @@ entries:
         - title: "Distributed Tracing Tutorial"
           url: /tracing_java_tutorial.html
           output: web
-      
+        
+      - title: Reference
+        output: web
+        subfolderitems:
+
+        - title: Query Language Reference
+          url: /query_language_reference.html
+          output: web
+
+        - title: Chart Reference
+          url: /ui_chart_reference.html
+          output: web
+
+        - title: REST API
+          url: /wavefront_api.html
+          output: web
+
+        - title: All Integrations
+          url: /label_integrations%20list.html
+          output: web
+          
       - title: Videos
         output: web
         subfolderitems:
@@ -90,26 +110,6 @@ entries:
 
         - title: Events Videos
           url: /videos_events.html
-          output: web
-        
-      - title: Reference
-        output: web
-        subfolderitems:
-
-        - title: Query Language Reference
-          url: /query_language_reference.html
-          output: web
-
-        - title: Chart Reference
-          url: /ui_chart_reference.html
-          output: web
-
-        - title: REST API
-          url: /wavefront_api.html
-          output: web
-
-        - title: All Integrations
-          url: /label_integrations%20list.html
           output: web
 
 

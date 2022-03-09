@@ -9,7 +9,7 @@ summary: Learn how to send data your OpenTelemetry metrics and traces to Tanzu O
 
 OpenTracing and OpenCensus merged to form OpenTelemetry. OpenTelemetry provides a single set of APIs, libraries, agents, and collector services to capture distributed traces, metrics, and logs from your application. If your application uses OpenTelemetry, you can configure the application to send metrics to Tanzu Observability by Wavefront as explained below:
 
-## Sending Metrics Data to Tanzu Observability
+## Send Metrics Data to Tanzu Observability
 
 Metrics data includes time series, counters, and histograms. You use the OpenTelemetry Collector and the Wavefront proxy. Once the data is in Tanzu Observability, you can use charts and dashboards to visualize the data and create alerts.
 
@@ -40,7 +40,7 @@ Follow these steps:
       otlp:
         protocols:
             grpc:
-                endpoint: "<enter your IP address>:4317"
+                endpoint: "<enter your OpenTelemetry collector IP address>:4317"
 
     exporters:
       tanzuobservability:
