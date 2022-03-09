@@ -27,7 +27,7 @@ In March, all v1 dashboards and charts will be migrated to v2. Users can no long
 
 ## 2022-09.x Release Notes
 
-**Drilldown Links on Charts Improvement**: You can now use drilldown links to send users to a target section of a dashboard.
+**Drilldown Links on Charts Improvement**: You can now use drilldown links to send users to a target section of a dashboard. See [How Do Drilldown Links Work](ui_charts_faq.html#how-do-drilldown-links-work).
 
 ## 2022-08.x Release Notes
 
