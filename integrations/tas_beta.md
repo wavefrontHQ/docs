@@ -53,4 +53,3 @@ Wavefront API Token: `YOUR_API_TOKEN`
 
 
 
-<h2>Alerts</h2>  <ul></ul>

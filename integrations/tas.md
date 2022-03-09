@@ -12,26 +12,26 @@ Tanzu Application Service, previously known as Pivotal Cloud Foundry, is a popul
 
 The TAS integration contains a set of predefined dashboards that give you an overview of your TAS deployment and specific TAS components:
 
-- TAS: Summary - overall health of TAS deployment.
-- TAS: Cloud Controller - detailed Cloud Controller metrics.
-- TAS: GoRouter - detailed Gorouter metrics.
-- TAS: Container - health of containers within TAS.
-- TAS: User Account and Authentication (UAA) - detailed UAA server metrics.
-- TAS: Diego Auctioneer - detailed Diego Auctioneer metrics.
-- TAS: Diego BBS - detailed Deigo Bulletin Board System (BBS) metrics.
-- TAS: Diego Cell - health of Diego Cells.
+- TAS: Summary - Overall health of TAS deployment.
+- TAS: Cloud Controller - Detailed Cloud Controller metrics.
+- TAS: Gorouter - Detailed Gorouter metrics.
+- TAS: Container - Health of containers within TAS.
+- TAS: User Account and Authentication (UAA) - Detailed UAA server metrics.
+- TAS: Diego Auctioneer - Detailed Diego Auctioneer metrics.
+- TAS: Diego BBS - Detailed Deigo Bulletin Board System (BBS) metrics.
+- TAS: Diego Cell - Health of Diego Cells.
 - TAS: MySQL - Real-time visibility into the TAS MySQL status.
 - TAS: Redis - Real-time visibility into the TAS Redis status.
 - TAS: RabbitMQ - Real-time visibility into the On-Demand TAS RabbitMQ status.
-- TAS: Wavefront Nozzle - To monitor the health and performance of your Tanzu Platform deployment and apps.
-
-## Alerts
-
-The TAS alerts are also available for you to install and use. Descriptions of the alerts are available in the [Tanzu Observability by Wavefront documentation](https://docs.wavefront.com/integrations_pcf_alerts.html)
+- TAS: Wavefront Nozzle - Monitoring of the health and performance of your Tanzu Platform deployment and apps.
+- TAS: Doppler - Real-time visibility into the TAS Doppler.
 
 Here's a preview of the Cloud Controller dashboard:
 {% include image.md src="images/cloud_controller_dashboard.png" width="80" %}
 
+### Alerts
+
+The TAS alerts are also available for you to install and use. Descriptions of the alerts are available in the [Tanzu Observability by Wavefront documentation](https://docs.wavefront.com/integrations_tas_alerts.html)
 ## Tanzu Application Service Setup
 
 
@@ -43,15 +43,14 @@ Supported Versions: TAS v2.9 and later.
 This integration uses the [VMware Tanzu Observability by Wavefront Nozzle](https://network.pivotal.io/products/wavefront-nozzle)
 tile distributed through the Tanzu network.
 
-Refer the [documentation](http://docs.pivotal.io/partners/wavefront-nozzle/installing.html) to install and configure the tile within your TAS deployment.
+See the [VMware Tanzu Observability by Wavefront Nozzle](https://docs.pivotal.io/wavefront-nozzle/3-x/installing.html) documentation for instruction on installing and configuring the tile within your TAS deployment.
 Use the following Wavefront Instance URL and API token for configuring the [Wavefront proxy](http://docs.pivotal.io/partners/wavefront-nozzle/installing.html#install):
 Wavefront Instance URL: `https://YOUR_CLUSTER.wavefront.com/api`  
 Wavefront API Token: `YOUR_API_TOKEN`
 
 ### Send App Metrics
 
-See the [documentation](http://docs.pivotal.io/partners/wavefront-nozzle/installing.html#marketplace)
-for information about installing and configuring the tile within your TAS deployment.
+See the [Configure Service Instance for Wavefront Service Broker for VMware Tanzu](http://docs.pivotal.io/partners/wavefront-nozzle/installing.html#marketplace) documentation for information about installing and configuring the tile within your TAS deployment.
 
 
 
