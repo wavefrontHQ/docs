@@ -145,7 +145,6 @@ The OpenTelemetry metrics your applications send are converted to the [Wavefront
       </td>
     </tr>
     
-    
   </tbody>
 </table>
 
