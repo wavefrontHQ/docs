@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: wavefront_data_format.html
 summary: Syntax and parameters of the Wavefront native data format.
 ---
-The Wavefront data format is supported by Wavefront proxies and by direct ingestion. This page is a reference to the Wavefront data format. See [Wavefront Data Naming](wavefront_data_naming.html) for best practices.
+The Wavefront data format is supported by Wavefront proxies and by direct ingestion. This page is a reference to the Wavefront data format and includes best practices.
 
 ## Metrics
 
@@ -58,7 +58,7 @@ Fields must be space separated and each line must be terminated with the newline
 <li markdown="span">Points with invalid characters in metricName are rejected and [logged by the Wavefront proxy](proxies_configuring.html#blocked-point-log). For information on how to configure the proxy to rewrite invalid metric names, see [​Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules.html).</li>
 <li>Metric searches are case sensitive; ts("my.metric") does not find a metric "my.Metric".</li>
 </ul>
-Maximum length for metricName is 256. 
+Maximum length for metricName is 256.
 </td>
 </tr>
 <tr>
@@ -165,4 +165,50 @@ Follow best practices for improved query execution speed and meaningful results.
   - Organize metric names in a meaningful hierarchy from most general to most specific (i.e. `system.cpu0.loadavg.1m` instead of `1m.loadavg.cpu0.system`)
 * For best performance, keep the number of distinct time series per metric and host to under 1000.
 
-See [Wavefront Data Naming](wavefront_data_naming.html) for a more best practices.
+### Metric Names Best Practices
+
+Metric names should reflect a class of comparable data across different sources or different points. Most system- and application-level metric names should be mappable to sources. There are exceptions such as total datacenter power usage or business analytics that are reported out of a 3rd party system.
+- `cpu.idle` is a good metric name because you can compare it across different sources, visualize them together, etc.
+- `cpu.idle.source124` is a poor metric name because it's tied to a single source, and it can't be compared across different sources.
+- `dc.power.usage` is a good metric name because you can compare power usage across different data centers, as long as you pass in the data center names as the source names.
+
+{% include tip.html content="Don't include a timestamp in the metric name." %}
+
+
+### Source Names Best Practices
+
+Source names should reflect a unique source that is emitting metrics. Wavefront assumes that source names are unique.
+
+For example, if you have the same machine name in different data centers, and don't separate the two machines when sending data to Wavefront (for example, by prefixing the source names with the datacenter), you can get confusing query results. Time series might oscillate between different values seemingly randomly, or you might see unexpected averaging of points between multiple sources.
+
+When it's not clear which name to use as the source name, use the most unique value for a source name. For higher-level pre-aggregated data, for example, a datacenter-wide metric like power usage, use the name of the datacenter as the name of the source.
+
+### Point Tag Names Best Practices
+
+Point tags represent conceptual attributes tied to a data point and change frequently (< 1 month), perhaps going back and forth over several values at any given time.  Here are some use cases for point tags:
+- A back-end service handles requests from two different client pools and you want to view the back-end request data for one of those clients.
+- You send data with the source name of the virtual machine, but also want to record what physical server that VM was running on. The VM shifts from one physical server to another every few days.
+- You run two instances of the same application on the same source and want to differentiate the metrics for the two instances.
+See [Point Tags in Queries](query_language_point_tags.html).
+
+### Alert, Event, and Source Tag Names Best Practices
+
+**Alert, event, and source tags** represent conceptual attributes that can be tied to an alert, event, or source and change at infrequent (> 1 month) intervals. For example, the specific hardware of a source, the geographical location, perhaps the role of a source (production vs. staging vs. development), or the version of application software of that source (such as the JVM version, or OS version, or proprietary application version).  Alert, event, and source tags (or _object_ tags) can be attached to multiple alerts, events, and sources.  You can add and remove such tags through API calls or from the Alert, Event, and Sources browser and use the tags in queries to select groups of related objects.
+
+### Supported Characters for Tag Names
+
+Tag names can contain alphanumeric (a-z, A-Z, 0-9), dash (-), underscore (_), and colon (:) characters. The space character is not supported. Use [Proxy Preprocessor Rules](proxies_preprocessor_rules.html) to replace unsupported characters with supported characters.
+
+### History
+
+Wavefront does not retain the history of alert, event, and source tags. For example, the machine `web004.pax.wavefront.com` might have the source tags `java-17`, `build-24`, and `dc-pax`. If you remove the `build-24` tag from `web004.pax.wavefront.com` and replace it with `build-25`, queries filtered by `build-24` no longer match `web004.pax.wavefront.com.` In other words, only current alert, event, and source tags affect queries because these tags are tied only to those objects, not to data.
+
+
+## Learn More!
+
+* [Wavefront and Cardinality](cardinality.html) explores how you can optimize query performance by selecting the best data dimensions.
+
+The following KB articles provide details on data best practices:
+
+* [Where is my old data](https://help.wavefront.com/hc/en-us/articles/360051131032-Where-is-my-Old-Data-) explains how to toggle the Obsolete Metrics settings to see data that's older than 4 weeks.
+* [Common Time Limits and Best Practices](https://help.wavefront.com/hc/en-us/articles/360058716512-Common-Tanzu-Observability-time-limits-and-best-practices) shows limits, for example, when a query times out.

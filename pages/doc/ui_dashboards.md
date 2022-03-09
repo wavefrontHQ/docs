@@ -42,7 +42,7 @@ It's easy to create a dashboard from metrics data or by selecting a chart.
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">
+<td width="50%">
 <strong>To create a dashboard</strong>:
 <ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the taskbar. </li>
 <li>Drag the <strong>Data</strong> or <strong>New Chart</strong> widget to the canvas</li>
@@ -52,7 +52,7 @@ It's easy to create a dashboard from metrics data or by selecting a chart.
   <li>The Name field supports letters, numbers, characters, and spaces.</li>
   <li>The URL field supports letters, numbers, underscores, and dashes.</li>
 </ul></li></ol></td>
-<td width="60%"><img src="/images/v2_create_dashboard.png" alt="create a dashboard by selecting data or creating a chart"></td>
+<td width="50%"><img src="/images/v2_create_dashboard.png" alt="create a dashboard by selecting data or creating a chart"></td>
 </tr>
 </tbody>
 </table>
@@ -64,7 +64,7 @@ With release 2019.46, you can create a dashboard by specifying an integration da
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">
+<td width="50%">
 <strong>To create a dashboard</strong>:
 <ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the taskbar. </li>
 <li>Drag the <strong> Integration Templates</strong> widget to the canvas. </li>
@@ -75,7 +75,7 @@ With release 2019.46, you can create a dashboard by specifying an integration da
 <li>The URL field supports letters, numbers, underscores, and dashes. </li>
 </ul>
 </li></ol></td>
-<td width="60%"><img src="/images/v2_create_dashboard_template.png" alt="create a dashboard from a template"></td>
+<td width="50%"><img src="/images/v2_create_dashboard_template.png" alt="create a dashboard from a template"></td>
 </tr>
 </tbody>
 </table>
@@ -89,7 +89,7 @@ The Wavefront service dashboard includes a set of charts to monitor the trace da
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">
+<td width="50%">
 <strong>To create a dashboard</strong>:
 <ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the taskbar. </li>
 <li>Drag the <strong>Tracing Templates</strong> widget to the canvas. </li>
@@ -102,7 +102,7 @@ The Wavefront service dashboard includes a set of charts to monitor the trace da
 </li>
 <li>To view data that is specific to an application and service, use the <strong>application</strong> and <strong>service</strong> dropdowns.</li>
 </ol></td>
-<td width="60%"><img src="/images/create_tracing_template.png" alt="create a dashboard from a tracing template"></td>
+<td width="50%"><img src="/images/create_tracing_template.png" alt="create a dashboard from a tracing template"></td>
 </tr>
 </tbody>
 </table>
@@ -121,20 +121,20 @@ The dashboard menu allows you to create a dashboard, edit a dashboard, clone a d
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">
+<td width="50%">
 <strong>To edit a dashboard</strong>:
 <ol><li>Click the ellipsis icon in the top right of the dashboard and select <strong>Edit</strong>. </li>
 <li>Make changes to the dashboard in edit mode.</li>
 <li>Save the dashboard.</li></ol></td>
-<td width="60%"><img src="/images/v2_edit_dashboard.png" alt="edit a dashboard"></td>
+<td width="50%"><img src="/images/v2_edit_dashboard.png" alt="edit a dashboard"></td>
 </tr>
 <tr>
-<td width="40%">
+<td width="50%">
 <strong>To clone a dashboard</strong>:
 <ol><li>Click the ellipsis icon in the top right of the dashboard and select <strong>Clone</strong>. </li>
 <li>Accept the suggested URL and dashboard name or specify new ones. Do not include <code>https://</code> in the URL string.  </li>
 <li>Save the cloned dashboard.</li></ol></td>
-<td width="60%"><img src="/images/v2_clone_dashboard.png" alt="clone a dashboard"></td>
+<td width="50%"><img src="/images/v2_clone_dashboard.png" alt="clone a dashboard"></td>
 </tr>
 </tbody>
 </table>
@@ -270,40 +270,42 @@ You can undo dashboard changes.
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">
+<td width="50%">
 <ol><li>Edit the dashboard and make one or more changes.</li>
 <li>Click the icons to undo and to redo the operations. </li> </ol></td>
-<td width="60%"><img src="/images/v2_undo.png" alt="Undo and redo icons"/></td>
+<td width="50%"><img src="/images/v2_undo.png" alt="Undo and redo icons"/></td>
 </tr>
 </tbody>
 </table>
 
-### Set Dashboard Display Preferences
+### Set Dashboard Display Preferences and Settings
 
-For each dashboard, you can customize display preferences.
+For each dashboard, you can customize display preferences and settings.
 
 {% include tip.html content="To use the dark theme with your dashboard and all other Wavefront UI components, set your personal preferences [from the gear icon](users_account_managing.html#configuring-user-preferences)."%}
 
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">
-<strong>To set the dashboard display preferences</strong>:
+<td width="50%">
+<strong>To set the dashboard settings</strong>:
 <ol><li>Navigate to a dashboard and click the ellipsis icon in the top right corner of the dashboard.</li>
 <li>Select <strong>Edit</strong>. </li>
 <li>Click <strong>Settings</strong>.</li>
 <li>Make selections in the dialog:
-<ul><li>Set the default time window. You can later override the time window.  </li>
+<ol><li>Set the default time window. You can later override the time window.  </li>
 <li>Hide the variables for the dashboard by default. Users can still show the variables bar using the <img src="/images/show_hide_variable_icon.png"
 style="vertical-align:text-bottom;width:25px" alt="show or hide variable icon" /> icon.  </li>
-<li>Display the <a href="events.html">Events</a> on charts using the Show Events dropdown.<br>
-For more information on the options listed in the Show Events dropdown, see <a href="charts_events_displaying.html#specify-an-events-query-for-a-dashboard">Specify an Events() Query for a Dashboard</a>.
+<li>Click <strong>Advanced</strong></li>
+<li>Select to display the <a href="events.html">Events</a> on charts by entering an event query.<br>
+For more information, see <a href="charts_events_displaying.html#specify-an-events-query-for-a-dashboard">Specify an Events() Query for a Dashboard</a>.
 </li>
-</ul>
+<li>Select to include obsolete metrics and allow queries to return metrics that stopped reporting 4 weeks ago.<br> This setting applies to all charts in the dashboard and dashboard performance might suffer.</li>
+</ol>
 </li>
-<li>Click <strong>Accept</strong>, and click <strong>Save</strong> </li>
+<li>Click <strong>Accept</strong>, and click <strong>Save</strong>. </li>
 </ol></td>
-<td width="60%"><img src="/images/v2_dashboard_prefs.png" alt="set dashboard prefs"></td>
+<td width="50%"><img src="/images/v2_dashboard_prefs.png" alt="set dashboard prefs"></td>
 </tr>
 </tbody>
 </table>
@@ -485,11 +487,30 @@ See [Control Event Overlays](charts_events_displaying.html#control-event-overlay
 [Dynamic dashboard variables](dashboards_variables.html#dynamic-dashboard-variables) are used to display a list of possible values to the end user. The values are computed by a query.
 
 Avoid using expensive queries in dynamic dashboard variables. If the query for the dynamic dashboard variable is complex, it slows down the dashboard loading. Keep queries simple, and consider using a [derived metric](derived_metrics.html), which uses a query that has already been executed and stored.
+
+### Turn off Dynamic Dashboard Variable Live Refresh
+
+When a dashboard has a lot of variables with interdependencies, it might make sense to turn off live refresh for dynamic variables. Only users with **Dashboards** permission can toggle this setting.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+<ol><li>Open the dashboard for edit, either from the Dashboards browser or from the ellipsis icon in the top right of the dashboard..  </li>
+<li>Click <strong>Settings</strong> </li>
+<li>Check <strong>Disable Variable Refresh in Live Mode</strong>. </li></ol>
+<p>Going forward, <strong>Variable Refresh Disabled</strong> info text show up to the right of the variables bar. Users no longer see the potentially distracting refresh of each chart. An explicit brower refresh updates all variables.</p></td>
+<td width="50%">
+<img src="/images/variable_refresh.png " alt="save to dashboard"></td>
+</tr>
+</tbody>
+</table>
  
 
-## Troubleshooting
+## Troubleshoot and Learn More! 
 
 The Customer Success team prepared these KB articles to troubleshoot problems with dashboards.
 * [How to Recover an Inaccessible Dashboard](https://help.wavefront.com/hc/en-us/articles/360055292751-How-to-Recover-an-Inaccessible-Dashboard)
 * [How to Identify Unused Dashboards](https://help.wavefront.com/hc/en-us/articles/360060967432-How-to-Identify-Unused-Dashboards)
 * [How to Audit Dashboard Changes](https://help.wavefront.com/hc/en-us/articles/360055676911-How-to-Audit-Dashboard-and-Alert-Changes)
+* [Migrating Objects or Data Between Environments](https://help.wavefront.com/hc/en-us/articles/360053164791-Migrating-Objects-or-Data-Between-Tanzu-Observability-Environments)

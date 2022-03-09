@@ -8,7 +8,7 @@ summary: Monitor CloudWatch, CloudTrail, and Metrics+ with Wavefront
 ---
 Amazon Web Services (AWS) is a collection of cloud-computing services that provide an on-demand computing platform. The Wavefront Amazon Web Services integration allows you to ingest metrics directly from AWS. The Wavefront Amazon Web Services built-in integration is part of the setup, but the additional steps in this document are needed to complete and customize integration setup.
 
-{% include shared/badge.html content="You must have the [**Proxy Management** permission](permissions_overview.html) to set up an AWS integration. If you do not have permission, the UI menu selections, buttons, and links you use to perform the tasks are not visible." %}
+{% include note.html content="You must have the [**Proxy Management** permission](permissions_overview.html) to set up an AWS integration. If you do not have permission, the UI menu selections, buttons, and links you use to perform the tasks are not visible." %}
 
 You have to set up your Wavefront account with the correct permissions.
 * From within the integration or explicitly, you can [Give Wavefront Global Read-Only Access](integrations_aws_overview.html##give-wavefront-read-only-access-to-your-amazon-account-and-get-the-role-arn)
@@ -194,11 +194,10 @@ Unless otherwise indicated, Wavefront sets the value of the AWS Metrics+ `source
 - Service Limit Metrics - capture the current resource limits and usage for your AWS account. These metrics include the point tags `Region` and `category`.
   - `aws.limits.<resource>.limit` - the current limit for an AWS resource in a particular region.
   - `aws.limits.<resource>.usage` - the current usage of an AWS resource in a particular region.
-    See the following section for details.
-
+  
     {% include note.html content="To examine these metrics, your account needs at least the Business-level AWS Support plan because the integration uses the Support API to pull service limits. You also need both ReadOnlyAccess and AWSSupportAccess. See [Giving Wavefront Read-Only Access](integrations_aws_metrics.html#giving-wavefront-global-read-only-access) for details." %}
 
-## AWS Metrics+ Trusted Advisor Service Limits
+<!--## AWS Metrics+ Trusted Advisor Service Limits
 
 Each AWS account has limits on the number of resources that are available to you for each AWS service. You can monitor and manage your resource usage and limits using the AWS service limit metrics in Wavefront.
 
@@ -238,7 +237,7 @@ We can create a [multi-threshold alert](alerts_manage.html#create-a-multi-thresh
 * Notifies `SEVERE` targets if the value is greater than 90.
 * Notifies `WARN` targets if the value is greater than 80.
 
-![service limits alarm](images/service_limit_alert.png)
+![service limits alarm](images/service_limit_alert.png)-->
 
 ## Learn More!
 

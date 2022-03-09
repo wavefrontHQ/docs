@@ -178,10 +178,6 @@ entries:
       url: /wavefront_data_format.html
       output: web
 
-    - title: Wavefront Data Best Practices
-      url: /wavefront_data_naming.html
-      output: web
-
     - title: Cardinality and Wavefront
       url: /cardinality.html
       output: web
@@ -323,6 +319,10 @@ entries:
       url: /alerts_states_lifecycle.html
       output: web
 
+    - title: Alerts FAQ
+      url: /alerts_faq.html
+      output: web
+
       subfolders:
       - title: Alert Targets and Notifications
         output: web
@@ -367,7 +367,6 @@ entries:
         - title: Alerts Best Practices
           url: /alerts_best_practices.html
           output: web
-
 
       - title: Events
         output: web
@@ -486,6 +485,10 @@ entries:
 
           - title: AWS Integration Overview
             url: /integrations_aws_overview.html
+            output: web
+
+          - title: AWS Integration API Setup
+            url: /integrations_aws_overview_API.html
             output: web
 
           - title: AWS Metrics Integration
@@ -822,8 +825,16 @@ entries:
         - title: Monitoring & Troubleshooting
           output: web
           subfolderitems:
-
-          - title: Monitor the Wavefront Service
+            
+          - title: Examine Overall Wavefront Usage
+            url: /examine_usage.html
+            output: web
+            
+          - title: Examine Usage with Ingestion Policies
+            url: /ingestion_policies.html
+            output: web
+            
+          - title: Monitor with the Wavefront Usage Integration
             url: /wavefront_monitoring.html
             output: web
 

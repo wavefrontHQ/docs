@@ -15,9 +15,9 @@ You can prevent alerts from firing by using one of the following techniques:
 * To prevent an alert from firing outside of certain hours, you can [alert only between specific times](alerts_recipes.html#alert-only-between-specific-times).
 
 
-## Snoozing and Unsnoozing Alerts
+## Snooze and Unsnooze Alerts
 
-You can snooze an alert, so it doesn't fire even if the condition is met. Wavefront allows you to snooze one or more alerts for 30 minutes, 1 hour, 6 hours, 1 day, 1 week, or Forever. If you choose Forever, the alert is snoozed until it is unsnoozed.
+You can snooze an alert, so it doesn't fire even if the condition is met. You can snooze one or more alerts for 30 minutes, 1 hour, 6 hours, 1 day, 1 week, or Forever. If you choose Forever, the alert doesn't fire until it is unsnoozed.
 
 
 <table style="width: 100%;">
@@ -45,9 +45,9 @@ To snooze or unsnooze a single alert:
 </table>
 
 
-## Using Maintenance Windows
+## Maintenance Windows
 
-You can create maintenance windows to temporarily prevent alerts from firing when disruptive operations occur as a result of system maintenance or testing. During such operations, you know it's likely that alerts will fire.
+Maintenance windows prevent alerts from firing. Use them, for example, when disruptive operations occur as a result of system maintenance or testing.
 
 You can:
 
@@ -61,7 +61,7 @@ To view and manage maintenance windows, select **Browse > Maintenance Windows**.
 <div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view maintenance windows, you must have the [Alert Management permission](permissions_overview.html) to [manage](maintenance_windows_managing.html) maintenance windows. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
 
-Watch this <a href="https://bcove.video/3m7AM4x" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> for an introduction to maintenance windows. 
+Watch this <a href="https://bcove.video/3m7AM4x" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> for an introduction to maintenance windows.
 
 <p>
 <iframe src="https://bcove.video/3m7AM4x" width="700" height="400" allowfullscreen="true" alt="Video of Jason explaining maintenance windows"></iframe>
@@ -69,7 +69,7 @@ Watch this <a href="https://bcove.video/3m7AM4x" target="_blank">video<img src="
 
 ### Creating a Maintenance Window
 
-Creating a maintenance window consists of these simple steps discussed below:
+Creating a maintenance window consists of these simple steps:
 
 1. Specify required information, including description and start and end dates.
 2. Narrow down the scope. By default, no alerts fire during the maintenance window. You can target only specific alerts, for example, alerts for sources or environments that will be in maintenance.
@@ -128,7 +128,7 @@ To suppress the example alerts, you create a maintenance window as shown above, 
 
 
 
-### Extending a Maintenance Window
+### Extend a Maintenance Window
 
 You can extend the duration of a maintenance window. To extend one or more maintenance windows:
 
@@ -147,9 +147,9 @@ You can extend the duration of a maintenance window. To extend one or more maint
 
 To extend a single maintenance window, click the ellipsis icon on the left of the window, click **Extend** and select the desired duration.
 
-### Closing a Maintenance Window
+### Close a Maintenance Window
 
-You can close the window before it is scheduled to finish. To close one or more maintenance windows:
+You can close the window to enable alerts before the window is scheduled to finish.
 
 1. Select **Browse > Maintenance Windows**.
 2. Select the check boxes next to the maintenance windows to be closed.
@@ -161,7 +161,7 @@ To close a single maintenance window, click the ellipsis icon on the left of the
 
 To edit or delete a maintenance window, click the ellipsis icon on the left of the window and click **Edit** or **Delete**.
 
-## Excluding Sources from an Alert
+## Exclude Sources from an Alert
 
 You can exclude sources from an alert by configuring the alert condition so that it filters out source tags that are associated with the sources to be skipped. Doing so prevents the metrics on the source from triggering the alert.
 
@@ -170,6 +170,63 @@ Suppose an alert condition tests the metrics that flow from sources `app-1`, `ap
 1. [Add a source tag](tags_overview.html#add-source-tags) such as `decommissioned` to `app-2` when you are ready to take that source out of service.
 2. Modify the alert condition to include `and not tag=decommissioned`, for example:
   ```ts(~sample.cpu.usage.percentage, source=app-* and not tag=decommissioned) > .5 ```.
+
+
+## Query for Known Downtime
+
+Maintainance windows or testing windows result in expected downtime periods. You can exclude these known downtimes from uptime calculations by excluding the times when the maintenance window is active. This section uses the `events()` and `ongoing()` functions to find known downtimes.
+
+
+### Step 1: Query for Maintenance Window(s)
+
+To query for maintenance window(s), use the `events()` function and filter by maintenance window name. For example, if a maintenance window name is `OS Upgrade`, the query is:
+
+`events(name="OS Upgrade")`
+
+### Step 2: Determine When the Maintenance Window Is Inactive
+
+When calculating uptime, we only care about time periods with no active maintenance windows. The `ongoing()` function returns `1` when the underlying maintenance window is active and `0` otherwise. To determine when the maintenance window is inactive, we can  check when the result is 0:
+
+`ongoing(events(name="OS Upgrade")) = 0`
+
+
+### Step 3. (Optional) Match Granularity of Uptime Calculation
+
+The `ongoing()` function returns a continuous time series (returns data every second continuously). To use this data in uptime calculations, we match the granularity.
+
+For example, if you are calculating uptime in minutes, then the data that tells us when maintenance windows are active also has to be in minutes. We use the `align()` function to accomplish this:
+
+`align(1m, min, ongoing(events(name="OS Upgrade")) = 0)`
+
+This example assumes:
+* The uptime calculation is in minutes.
+* If the Maintenance Window is active during any portion of a minute, we want to exclude that entire minute from uptime calculations.
+
+The query uses a summarization strategy of minimum (`min()`). If at any second within a minute the maintenance window is active, the `ongoing()` query returns `1`. When comparing that with `0`, the result is `0`, and the result of the `align()` function is `0` for that minute.
+
+### Step 4. Calculating Uptime
+
+This step varies depending on how you are calculating uptime. For our example:
+* We have a set of canary data that reports at 1-minute intervals when a service is up.
+* We make sure that periods of active maintenance windows are not included in uptime data.
+
+```handlebars
+Maintenance Window inactive = align(1m, min, ongoing(events(name="OS Upgrade")) = 0)
+Service available = `ts(service.available)
+Service actually available = align(1m, ${Maintenance Window inactive} AND ${Service available})
+```
+
+By using `AND`, we only account for time periods when the maintenance window inactive query returns `1`. `Service actually availabl` return `1` when there are no Maintenance Windows AND the service is up.
+
+We can use this data to calculate uptime by comparing the number of minutes the service was truly available with the time period of interest. For example, to calculate uptime percentage over the last 24 hours, we use this query:
+
+```handlebars
+(msum(24h, ${Service actually available}) / (24 * 60)) * 100
+```
+
+* We use the `msum()` function to determine how many minutes over a 24-hour time window the service was truly available (there are 24 * 60 minutes over a 24-hour time window).
+* We multiply by 100 to get a percentage rather than a decimal.
+
 
 ## Learn More!
 

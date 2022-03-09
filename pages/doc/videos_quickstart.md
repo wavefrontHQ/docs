@@ -33,7 +33,7 @@ summary: Learn the concepts behind Wavefront technology.
 <td><strong><font color="#0091DA" size="3">Alerting in Wavefront</font></strong><br>
 <a href="https://www.youtube.com/watch?v=VjmWExKiYYg&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K&index=1" target="_blank"><img src="/images/v_alerting_clement.png"  alt="Alerting With Wavefront"/></a></td>
 <td><br>
-<p markdown="span">Wavefront supports sophisticated alerts that go far beyond traditional alerting systems. Clement explains how alerts work using the example of a simple threshold alert. The alert fires when any monitored time series exceeds the threshold for 10 minutes. Wavefront then sends an alert notification to all specified alert targets. When the alert is resolved, notifications are sent to the targets again. Additional examples are shown in [other videos](videos_alerts.html).</p>
+<p markdown="span">Wavefront supports sophisticated alerts that go far beyond traditional alerting systems. Clement explains how alerts work using the example of an alert that alert fires when any monitored time series exceeds the threshold for 10 minutes. Wavefront then sends an alert notification to all specified alert targets. When the alert is resolved, notifications are sent to the targets again. Additional examples are shown in [other videos](videos_alerts.html).</p>
 </td>
 </tr>
 

@@ -9,9 +9,6 @@ summary: Get an overview of the services and applications that send data to Wave
 
 It is important to get an overview of the services and applications that send data to Wavefront, understand the health of each service, and troubleshoot when your applications or services run into issues. You can get an overview and see the overall health of each application using the application map, table view, and grid view.
 
-
-{% include note.html content="This page refers to the Apdex functionality in a few places." %}
-
 <a name="app_map"></a>
 
 ## Application Map Features
@@ -456,14 +453,16 @@ Create an alert from the application status page:
     </table>
 
 1. Configure the alert:
-    {% include note.html content="Wavefront has two templates to create an alert. The [classic alert](alerts_manage.html#create-a-classic-alert) is simple to use and the [multi-threshold alert](alerts_manage.html#create-a-multi-threshold-alert) lets you add advanced settings. On the App status page, you get the multi-threshold alert template." %}
     1. You can set the alert conditions based on your data. For example, let's create an alert that fires in the:
       * Severe state for the shopping service when the error percentage is greater than 6%
-      * and in the Warn state when it is greater than 3%.
+      * Warn state when it is greater than 3%.
+      See [Create and Manage Alerts](alerts_manage.html) for details.
     1. [Create an alert target](webhooks_alert_notification.html) to receive alert notifications for a variety of messaging platforms (email, pager services) and communication channels.
       <br/>You can also customize your alert targets to [include a link to a service dashboard when the alert fires](alert_target_customizing.html#include-a-link-to-a-tracing-service-dashboard).
     1. Optionally, [use alert tags](alerts.html#step-5-organize-related-alerts-with-tags) to organize related alerts into categories.
 1. Click **Create Alert**.
-  ![Create an alert from the table view page.](images/tracing_creating_an_alert_app_map.png)
 
-Once the alert is created, click **Alerting** and search for the alert you created on the alert browser.
+<!---
+  ![Create an alert from the table view page.](images/tracing_creating_an_alert_app_map.png)--->
+
+Once the alert is created, click **Alerting** and search for the alert you created .

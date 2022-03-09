@@ -42,4 +42,4 @@ Wavefront supports variables in dashboards and charts.
 * You can use dashboard variables in your queries.
 * Chart variables are local to the chart.
 
-Chart variables make it possible to use the result of one query in another query in the same chart using `{$query_name}` notation.
+Chart variables make it possible to use the result of one query in another query in the same chart using `${query_name}` notation.

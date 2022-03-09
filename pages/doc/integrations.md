@@ -77,6 +77,21 @@ Our first external integration sends AlertSite monitoring results to Wavefront a
 
 We're excited about this contribution and hope to see more soon!
 
+## Get to Know the Integration Dashboards
+
+Before setting up an integration, you can look into our demo dashboards. These demo dashboards are for our most used integrations and contain some sample (sandbox) data. You can explore the data and look how the dashboards work. As these are demo dashboards, you cannot edit them.
+
+ {% include note.html content="The Sample Data Dashboards are currently available to some of our customers. They will become available to all customers within the next releases."%}
+
+1. Click **Integrations** on the taskbar.
+   
+   ![Sample data dashboards section preview](images/integrations-sample-dashboards.png)
+1. In the **Get to know integration dashboards!** section, click the **Explore** button for a sample integration dashboard. 
+    
+    {% include note.html content="You are redirected to a sandbox data tenant cluster in another tab of your browser. Notice the URL. This sandbox data tenant cluster contains the sample integrations data and dashboards." %}
+
+1. To close the **Sample Data Dashboards** section, click **Close the section** and confirm. 
+1. To bring back the demo dashboards section, in the left pane, click **Show Demo Dashboards**.
 
 ## Installing and Uninstalling Integration Dashboards
 

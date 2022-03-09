@@ -13,12 +13,103 @@ This page lists new and updated features for the Wavefront service.
 * For the latest changes and releases of the **Wavefront Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For  **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## Announcing Removal of the Service Accounts from the Everyone Group
+
+In the next release(s), the service accounts that are still part of the predefined **Everyone** group will be removed from this group. This will not impact any existing functionality and integrations. Last year, all service accounts were added to the new predefined **Service Accounts** group. See the [2021-42.x Release Notes](2021.49.x_release_notes.html#2021-42x-release-notes) for details.
+
+{% include important.html content="Ensure that the service accounts in your organization do not depend on the **Everyone** group permissions."%}
+
 ## Announcing Deprecation of v1 Dashboards and Charts
 
-In February, all v1 dashboards and charts will be migrated to v2. Users can no longer select the v1 version of dashboards and charts.
+In March, all v1 dashboards and charts will be migrated to v2. Users can no longer select the v1 version of dashboards and charts.
 
 {% include important.html content="Most Wavefront users are already using the v2 GUI. However, if your dashboards and charts are migrated, see [What's New in v2 Dashboards & Charts](ui_v2_faq.html) for info. "%}
 
+## 2022-08.x Release Notes
+
+
+**Usage Portal**: As more teams use the Tanzu Observability by Wavefront service within an enterprise, the central team (Super Admins) needs a better mechanism to track their points per second (PPS) usage, manage consumption, and also put limits to manage costs.
+
+We have now made [monitoring](examine_usage.html) of the ingested PPS much easier. As a Wavefront Super Admin, you can track and monitor how ingested data is used, whether you will be billed for more data, and whether you will need to request more data. You can also create [ingestion policies](ingestion_policies.html) and monitor how different accounts contribute to the PPS usage.
+
+{% include note.html content="The new Usage Portal and Ingestion Policy functionality is currently available to some of our customers. It will become available to all customers within the next releases."%}
+
+![Example of the Usage Summary dashboard.](images/usage_overview.png)
+
+
+## 2022-06.x Release Notes
+
+* **Updated the Wavefront REST API Documentation UI**: We've updated our in-product interactive API documentation to use the latest Swagger API console. To access the API documentation, either click the gear icon and select **API Documentation**, or go to `https://<your_cluster_name>/api-docs/ui/`.
+* **New Alerts FAQ Page**: Check out the new [Alerts FAQ page](alerts_faq.html) that answers questions like "Why Did My Alert Misfire?" or "When Does an Alert Resolve?".
+* **UI Updates and Improvements**
+
+  <table>
+  <tbody>
+  <tr>
+  <td width="50%">
+  You can now sort columns in the legend for most chart types after you pin a legend in a chart (Shift-P). See the screenshot on the right.
+  </td>
+  <td width="50%"><img src="/images/sort_legend.png" alt="A pinned legend with up and down arrows for each column."></td>
+  </tr>
+  </tbody>
+  </table>
+
+## 2022-05.x Release Notes
+
+* **Create and Manage Alerts Revamp**: Streamlined experience that improves usability and gives alert creators more options.
+  - Straightforward settings during creation and edit.
+  - New Runbooks and Triage Dashboard fields help alert recipients resolve the alert.
+  - Alert notifications include actionable insights.
+
+  See the [FAQ for the New Alert GUI](alerts_v2_faq.html), watch the [Create Alert Video](https://bcove.video/3o9bu6L), or look at the new [Create Alert Tutorial](alerts_manage.html#create-alert-tutorial).
+
+  {% include tip.html content="When you open an existing alert for edit, you'll see it in alerts v2 GUI. However, all APIs work as before. See [FAQ for the New Alert GUI](alerts_v2_faq.html). "%}
+  {% include note.html content="There will be a staggered rollout of this feature over the next few weeks. "%}
+
+* **Turn off Dynamic Dashboard Variable Live Refresh**: Users with **Dashboard** permissions can now toggle whether a dashboard that shows live data performs [refresh of dynamic variables](ui_dashboards.html#turn-off-dynamic-dashboard-variable-live-refresh).
+
+* **Decimal Precision in Charts**: We have included the **Decimal Precision** setting, and you can specify how many digits to show after the decimal point for a number of charts, such as:
+    * Line Plot
+    * Point Plot
+    * Stacked Area
+    * Stacked Column
+    * Table
+
+  See the [Chart Reference](ui_chart_reference.html) for details.
+
+## 2022-04.x Release Notes
+
+* **Obsolete Metrics Toggle for Dashboards**: You can now [include obsolete metrics](ui_examine_data.html#include-or-exclude-obsolete-metrics) in all charts within a dashboard. Doing so, data that have not been reported for 4 weeks or more are included for all the charts on the dashboard.
+
+   {% include important.html content="Dashboard performance might suffer if you include obsolete metrics. Using the setting for individual charts is recommended."%}
+
+* **New Sample Data Dashboards**: We have added new sample data dashboards, that allow you to investigate integrations dashboards and charts that contain sample data for our most used integrations. For details see: [Get to know our integration dashboards](https://docs.wavefront.com/integrations.html#get-to-know-the-integration-dashboards).
+
+   {% include note.html content="The Sample Data Dashboards are currently available to some of our customers. They will become available to all customers within the next releases."%}
+
+* **Set Up and Manage the AWS Integration by Using the API**: Learn how you can [use the Wavefront API to set up and manage the AWS integration](integrations_aws_overview_API.html).
+
+## 2022-03.x Release Notes
+
+We have added a new **API Tokens** permission for user accounts. This change **does not** affect service accounts.
+
+{% include important.html content="All existing users, who were previously able to generate their own API tokens, can still use and manage their existing API tokens. However, going forward, only users who have the **API Tokens** permission can generate new API tokens. "%}
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+To enable users to generate API tokens:
+<ol><li>Log in to Wavefront as a user with <strong>Accounts</strong> permission.</li>
+<li>Click the gear icon and select <strong>Accounts</strong></li>
+<li>On the <strong>User Accounts</strong> tab, select one or more users.</li>
+<li>Click <strong>+Permission</strong> and select <strong>API Tokens</strong>.</li></ol>
+</td><td width="40%">
+<img src="/images/API_Tokens_permission_add.png" alt="API Tokens permission.">
+</td>
+</tr>
+</tbody>
+</table>
 
 ## 2022-01.x Release Notes
 
@@ -38,17 +129,6 @@ In February, all v1 dashboards and charts will be migrated to v2. Users can no l
 </td>
 <td width="50%"><img src="/images/integration_state_relnotes.png" alt="List of integrations filtered by active state."></td>
 </tr>
-<tr>
-<td width="50%">
-<strong>UI Updates and Improvements</strong>:
-<ul>
-<li>After you pin a legend in a chart (Shift-P), you can now sort the columns in the legend. See the screenshot on the right.</li>
-<li>Changed the name of the <strong>Accounts, Groups & Roles</strong> permission to <strong>Accounts</strong> and changed the name of the <strong>Account Management</strong> menu item to <strong>Accounts</strong>. </li>
-<li>Keyboard navigation improvements in the <strong>Create Dashboard</strong> wizard and in the Chart UI pages. The sections that you add are now numbered, e.g. Section 1 instead of New Section. </li>
-</ul>
-</td>
-<td width="50%"><img src="/images/sort_legend.png" alt="A pinned legend with up and down arrows for each column."></td>
-</tr>
 <!---
 <tr>
 <td width="50%">
@@ -60,18 +140,7 @@ In February, all v1 dashboards and charts will be migrated to v2. Users can no l
 </tbody>
 </table>
 
-<!---
-* **UI Updates and Improvements**:
-  - Changed the name of the **Accounts, Groups & Roles** permission to **Accounts** and changed the name of the **Account Management** menu item to **Accounts**.
-  - Keyboard navigation fixes in the Create Dashboard wizard and in the Chart UI pages. The sections that you add are now numbered, e.g. Section 1 instead of New Section.
-  - After you pin a legend in a chart, you can sort the columns in the legend.--->
 
-<!---
-* **Chart Builder UI Improvements**: When you create a chart and enter a query, you can click the lightbulb icon on the right to get some hints and insights on the functions that you're using. These hints and insights will help you to understand the Wavefront query language, predict cardinality issues, and improve performance. In addition, we show a pop-up window with definitions and tips when you hover over the data displayed in the chart. This pop-up window includes:
-  - Points Scanned: Raw metric points for a query.
-  - Duration: Time between query start and return of result.
-  - Cardinality: Number of unique time series. A unique time series has unique metric name, source name and point tags (key and value).
---https://jira.eng.vmware.com/browse/MONIT-23306 Ask Renate to confirm about this feature and https://jira.eng.vmware.com/browse/MONIT-25866--->
 
 
 

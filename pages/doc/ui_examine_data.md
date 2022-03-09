@@ -8,12 +8,11 @@ summary: Examine data with dashboards and charts
 
 With dashboards and charts, all users can examine data, set dashboard time window, zoom in and out, and perform other customizations.
 
-{% include shared/badge.html content="All users can view and explore charts. You must have [Dashboard permission](permissions_overview.html) to make permanent changes, such as saving a chart to a dashboard." %}
+{% include note.html content="All users can view and explore charts. You must have the [**Dashboard** permission](permissions_overview.html) to make permanent changes, such as saving a chart to a dashboard." %}
 
 ## Video
 
 All users can customize their dashboards to drill down into data. Learn how to find a section, filter using variables or filters, set the time for the dashboard, and share the dashboard with others. You need Dashboards permissions to save your changes. You can also watch the video <a href="https://bcove.video/2Wux6eP" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
-
 
 
 <p>
@@ -156,7 +155,40 @@ In the example on the right, a <strong>Region</strong> dashboard variable has be
 </tbody>
 </table>
 
+## Include or Exclude Obsolete Metrics
 
+By default, metrics that stopped reporting 4 weeks ago are not included in the charts unless you explicitly decide to include these metrics. You can:
+* Explicitly include obsolete metrics for each chart.
+* Explicitly include obsolete metrics on a dashboard level. This way, obsolete metrics will be included in all the charts within a dashboard.
+
+{% include note.html content="Including obsolete metrics on a dashboard level may significantly slow down the dashboard performance." %}
+
+{% include tip.html content="Everyone can explore obsolete metrics for dashboards and charts. You must have **Dashboards** to save the changes to the settings." %}
+
+**To include obsolete metrics for a chart**:
+
+1. Open the chart for edit.
+2. Click the **Advanced** tab and select the **Include Obsolete Metrics** check box.
+3. Explore the data or, if you have **Dashboard** permissions, click **Save** to save the changes for this chart.
+
+**To include obsolete metrics for a dashboard**:
+
+1. Navigate to a dashboard and click the ellipsis icon in the top right corner of the dashboard.
+2. Select **Edit**.
+3. Click **Settings**.
+4. Click **Advanced** and select the **Include Obsolete Metrics** check box.
+5. Click **Accept**  and explore. If you have **Dashboards** permission click **Save** to save your changes.
+
+**To exclude obsolete metrics for a dashboard**:
+
+Dashboards on which inclusion of obsolete metrics is turned on have a warning banner which allows you to easily turn off that setting.
+![Banner saying that obsolete metrics inclusion is turned on for the dashboard. The banner also has a view settings button.](images/obsolete-metrics-banner.png)
+
+1. Navigate to the dashboard and click **View Settings** in the banner at the top.
+   Refresh your browser if you closed the banner. 
+3. Click **Advanced**.
+4. Deselect the **Include Obsolete Metrics** check box.
+5. Click **Accept**  and explore. If you have **Dashboards** permission click **Save** to save your changes.
 
 ## Isolate Sources or Series
 
@@ -179,7 +211,7 @@ You can focus on a particular source or series in the dashboard view or the sing
 
 You can fine-tune the time window for an individual chart, propagate the time window from one to all charts, and reset a customized time window to the dashboard default.
 
-When you fine-tune the time window, the Wavefront UI dynamically recalculates and updates the chart bucket size and the aggregated values based on the [summarization option](ui_charts_faq.html#what-does-the-summarization-option-do). 
+When you fine-tune the time window, the Wavefront UI dynamically recalculates and updates the chart bucket size and the aggregated values based on the [summarization option](ui_charts_faq.html#what-does-the-summarization-option-do).
 
 <table style="width: 100%;">
 <tbody>

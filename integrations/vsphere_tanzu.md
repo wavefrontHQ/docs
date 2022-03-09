@@ -228,7 +228,7 @@ Metrics collected per resource:
 | Namespace | CPU, Memory, Pod/Container counts |
 | Nodes | CPU, Memory, Network, Filesystem, Storage, Uptime, Pod/Container counts |
 | Pods | CPU, Memory, Network, Filesystem, Storage, Uptime, Restarts, Phase |
-| Pod_Containers | CPU, Memory, Filesystem, Storage, Accelerator, Uptime, Restarts, Status |
+| Pod_Container | CPU, Memory, Filesystem, Storage, Accelerator, Uptime, Restarts, Status |
 | System_Containers | CPU, Memory, Uptime |
 
 Metrics collected per type:

@@ -52,7 +52,7 @@ Learn about visualizing your metrics with dashboards and charts, and how to cust
 <td><br><p>Users with Dashboards permissions can use Chart Builder to select metrics or histograms, apply filters and functions, select a chart type, and customize the chart.  </p><p>You can also watch the video <a href="https://bcove.video/2Xx9IPz" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> </td>
 </tr>
 <tr>
-<td><strong><font color="#0091DA" size="3">Sharing Content</font></strong><br>
+<td><strong><font color="#0091DA" size="3">Sharing Content</font></strong><br><br>
 <iframe src=" https://bcove.video/3DZazeL" width="550" height="275" allowfullscreen="true" alt="sharing Wavefront content video"></iframe>
 </td>
 <td><br><p>In this video, you'll learn how to share Wavefront content. For example, search results, dashboards, charts, and so on. You will also learn about what live and non-live displays are and how to share a live display of a dashboard.</p><p>You can also watch the video <a href="https://bcove.video/3DZazeL" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p></td>
