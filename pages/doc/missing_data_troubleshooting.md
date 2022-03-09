@@ -12,6 +12,10 @@ Sometimes users expect to see certain data in Tanzu Observability by Wavefront b
 This doc page, based on the extensive experience of our customer success team, helps you
 investigate, understand, and remedy possible causes.
 
+<!---
+Should probably be some mention of examining sub-queries.  Performing some operations (eg. and or or) on empty subqueries results in No Data propagation (similar to how NaN works in IEEE math), and also suppresses warning messages
+--->
+
 
 ## Problem: You Expect to See Data But They Aren't There
 
@@ -30,7 +34,7 @@ In this section, you learn how to investigate. Here's an overview of the steps:
 
 ![investigate missing data flowchart, content matches steps](images/missing_data_1.png)
 
-{% include tip.html content="This section investigest only missing data. If your query returns a syntax error, look carefully at the [query language reference](query_language_reference.html), examine individual reference pages, and learn from other pages in that section such as [Fine Tune Queries with Point Tags](query_language_point_tags.html)." %} 
+{% include tip.html content="This section investigest only missing data. If your query returns a syntax error, look carefully at the [query language reference](query_language_reference.html), examine individual reference pages, and learn from other pages in that section such as [Fine Tune Queries with Point Tags](query_language_point_tags.html)." %}
 
 
 
