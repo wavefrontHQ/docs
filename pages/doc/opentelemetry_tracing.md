@@ -19,7 +19,7 @@ OpenTracing and OpenCensus have merged to form OpenTelemetry. OpenTelemetry prov
         If you are a new user, and you are configuring your application to send data to Wavefront, use OpenTelemetry. If you run into issues when configuring Wavefront with OpenTelemetry, contact <a href="wavefront_support_feedback.html#support">Wavefront Technical Support</a> for help.
       </li>
       <li>
-        If your application is already using OpenTracing, continue using OpenTracing. See <a href="thttps://opentelemetry.io/docs/reference/specification/compatibility/opentracing/">OpenTracing Compatibility</a> for guidance on transition from OpenTracing to OpenTelemetry.
+        If your application is already using OpenTracing, continue using OpenTracing. See <a href="https://opentelemetry.io/docs/reference/specification/compatibility/opentracing/">OpenTracing Compatibility</a> for guidance on transition from OpenTracing to OpenTelemetry.
       </li>
       
     </ul>
@@ -108,7 +108,7 @@ Here's how it works:
                 processors: [memory_limiter, batch]
           
         ```
-        {% include tip.html content="To learn more about OpenTelemetry configurations, [OpenTelemetry Collector Configuration](https://opentelemetry.io/docs/collector/configuration/)." %}
+        {% include tip.html content="To learn more about OpenTelemetry configurations, see [OpenTelemetry Collector Configuration](https://opentelemetry.io/docs/collector/configuration/)." %}
     1. On your console, navigate to the directory and run the following command to start OpenTelemetry Collector:
         ```
         ./otelcontribcol_darwin_amd64 --config otel_collector_config.yaml
