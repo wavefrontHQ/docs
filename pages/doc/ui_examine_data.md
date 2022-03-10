@@ -8,7 +8,7 @@ summary: Examine data with dashboards and charts
 
 With dashboards and charts, all users can examine data, set dashboard time window, zoom in and out, and perform other customizations.
 
-{% include note.html content="All users can view and explore charts. You must have the [**Dashboard** permission](permissions_overview.html) to make permanent changes, such as saving a chart to a dashboard." %}
+{% include note.html content="All users can view and explore charts. You must have the [**Dashboards** permission](permissions_overview.html) to make permanent changes, such as saving a chart to a dashboard." %}
 
 ## Video
 
@@ -35,7 +35,7 @@ From the Dashboard Browser, you can find dashboards by using filters and tags. Y
     * View dashboard tags (or, add or remove them if you have **Dashboard** permission).
 
 
-![dashboard browser annotated with the items in the bullets above](images/dashboard_browser.png)
+![The dashboard browser annotated with the items in the bullets above](images/dashboard_browser.png)
 
 ### Find a Dashboard
 
@@ -55,7 +55,7 @@ After you've selected a dashboard, it displays in your browser.
 
 Here's the anatomy of a dashboard:
 
-![an annotated dashboard with the items in the bullets below](images/ui_dashboard_anatomy.png)
+![An annotated dashboard with the items in the bulleted list below](images/ui_dashboard_anatomy.png)
 
 You can customize what you see, open charts, and more.
 * Select [predefined variables or use a filter](dashboards_variables.html) to limit the display.
@@ -163,7 +163,7 @@ By default, metrics that stopped reporting 4 weeks ago are not included in the c
 
 {% include note.html content="Including obsolete metrics on a dashboard level may significantly slow down the dashboard performance." %}
 
-{% include tip.html content="Everyone can explore obsolete metrics for dashboards and charts. You must have **Dashboards** to save the changes to the settings." %}
+{% include tip.html content="Everyone can explore obsolete metrics for dashboards and charts. You must have the **Dashboards** permission to save the changes to the settings." %}
 
 **To include obsolete metrics for a chart**:
 
