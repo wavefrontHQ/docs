@@ -13,17 +13,19 @@ This page lists new and updated features for the Wavefront service.
 * For the latest changes and releases of the **Wavefront Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For  **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
-## Announcing Removal of the Service Accounts from the Everyone Group
+### Announcements
 
-In the next release(s), the service accounts that are still part of the predefined **Everyone** group will be removed from this group. This will not impact any existing functionality and integrations. Last year, all service accounts were added to the new predefined **Service Accounts** group. See the [2021-42.x Release Notes](2021.49.x_release_notes.html#2021-42x-release-notes) for details.
+* **Upcoming  Removal of the Service Accounts from the Everyone Group**
 
-{% include important.html content="Ensure that the service accounts in your organization do not depend on the **Everyone** group permissions."%}
+    In the next release(s), the service accounts that are still part of the predefined **Everyone** group will be removed from this group. This will not impact any existing functionality and integrations. Last year, all service accounts were added to the new predefined **Service Accounts** group. See the [2021-42.x Release Notes](2021.49.x_release_notes.html#2021-42x-release-notes) for details.
 
-## Announcing Deprecation of v1 Dashboards and Charts
+    {% include important.html content="Ensure that the service accounts in your organization do not depend on the **Everyone** group permissions."%}
 
-In March, all v1 dashboards and charts will be migrated to v2. Users can no longer select the v1 version of dashboards and charts.
+* **Upcoming Deprecation of v1 Dashboards and Charts**
 
-{% include important.html content="Most Wavefront users are already using the v2 GUI. However, if your dashboards and charts are migrated, see [What's New in v2 Dashboards & Charts](ui_v2_faq.html) for info. "%}
+    In the next releases, all v1 dashboards and charts will be migrated to v2. Users can no longer select the v1 version of dashboards and charts.
+
+    Most Wavefront users are already using the v2 GUI. However, if your dashboards and charts are migrated, see [What's New in v2 Dashboards & Charts](ui_v2_faq.html) for info.
 
 ## 2022-08.x Release Notes
 
