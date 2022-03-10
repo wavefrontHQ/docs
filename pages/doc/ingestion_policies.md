@@ -1,9 +1,9 @@
 ---
-title: Monitor and Manage the Wavefront Usage with Ingestion Policies
+title: Examine the Wavefront Usage with Ingestion Policies
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: ingestion_policies.html
-summary: Monitor and manage who is using what by creating ingestion policies and setting limits and alerts.
+summary: Examine who is using what by creating ingestion policies and setting limits with alerts.
 ---
 
 As a Wavefront Super Admin, you're interested in usage patterns for the whole company, but also for different teams in the company. You can create ingestion policies and assign accounts or groups to each policy to see which teams use which part of the total ingestion.
@@ -14,17 +14,17 @@ You can examine the performance of your Wavefront instance using [wftop, Wavefro
 
 ## Ingestion Policy Basics
 
-Ingestion policies allow you to group user accounts and service accounts or any user or service accounts groups and then examine their usage for your cluster. For example, you can create a policy, add all accounts that joined in the last 6 months, or create a policy for a whole team, for example the Finance team, and examine whether they show unusually high usage because they're not yet experienced. In such a case, you can provide additional training. You can also set a Points per Second (PPS) limit to an ingestion policy, so that you can track how much of the PPS is used and whether the users or the team will need more PPS in the future.
+Ingestion policies allow you to group user and service accounts or groups, so that you can examine their usage for your cluster. For example, you can create a policy for all accounts that joined in the last 6 months, or create a policy for a whole team, for example the Finance team, and monitor whether they show unusually high usage because they're not yet experienced. In such a case, you can provide additional training. Also, you can set a Points per Second (PPS) limit to an ingestion policy with an associated alert, so that you can receive notifications and track how much of the PPS is used and whether the users or the team will need more PPS in the future.
 
-### Permissions
+* The policy scope can be either accounts or groups. Once you set the scope to accounts or groups, you cannot edit it, you can only add and remove accounts or groups from the selected scope.
+* Each account or group can belong to more than one policy at a time.
+* You can assign many user and service accounts to the same ingestion policy.
+* You can assign many groups to the same ingestion policy.
 
-Super Admin users (users who have all permissions) can create ingestion policies and add accounts or groups to these policies.
+## Permissions
 
-* Each account can belong to more than one policy at a time.
-* You can assign many service accounts and user accounts to the same ingestion policy.
-* You can assign many user and service accounts groups to the same ingestion policy.
-* Once you set the scope to accounts or groups, you cannot edit it. You can create a policy with scope which can be either accounts or groups.
-
+* Only Super Admin users can create, view, and edit ingestion policies.
+* All users can view the alerts associated with ingestions policies but only Super Admin users can edit or delete these alerts.
 
 ### Create an Ingestion Policy
 
@@ -35,10 +35,14 @@ Super Admin users (users who have all permissions) can create ingestion policies
    1. Choose the **Scope** of the policy.
   
       This can be either **Accounts** or **Groups**. After you create the policy, you cannot edit the scope.
-   2. Depending on your choice of scope, enter either the user and service accounts or the groups that you want to assign to the policy.
+   2. Depending on your choice of scope, enter either the user and service accounts or the user and service groups that you want to assign to the policy.
    3. Select whether you want to set a PPS limit. 
       If you choose to set a PPS limit, you must enter the points per second limit number in the **PPS per billing period** text box.
    4. Click **Next**.
+5. If you set a PPS limit, in the **Conditions** panel, configure the ingestion policy alert.
+   1.  Specify at least one threshold for the alert. The threshold becomes visible in the chart.
+       
+       You can alert when the usage is greater than or less than the specified threshold. Specify at least 1 threshold.
    
 5. Enter the name of the policy and, optionally, a description and click **Create**.
 
