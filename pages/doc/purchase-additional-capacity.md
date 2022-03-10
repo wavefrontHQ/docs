@@ -12,16 +12,16 @@ As a Super Admin, you can request more PPS to be added to the active Wavefront s
 {% include note.html content="You must have connected your VMware account to VMware Cloud Services." %}
 
 1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage Portal**.
+2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage and Subscriptions**.
 3. Click the **Subscriptions** tab.
 
     You can see a detailed list of all active, inactive, and expired subscriptions of your organization.
 4. In the last column for your active Wavefront subscription, click **Add more capacity**.
 5. In the **Additional capacity** field, enter the number of kilo-points per second that you want to add to the current commitment.
 6. Verify the resulting **New commitment** of PPS per month and **Current Level** pricing tier, and click **Next**.
-7. Choose the billing model and commit duration for the additional capacity, and click **Proceed to checkout**.
+7. Select the billing model and commit duration for the additional capacity, and click **Proceed to checkout**.
 
-    The billing model and commit duration for the additional capacity are the same as for the original subscription.
+    The billing model and commit duration for the additional capacity are the same as for the original subscription. Billing model and commit duration cannot be changed.
 
 After you purchase additional capacity, you will receive a confirmation email and your subscription will become updated within the next 24 hours.
 
