@@ -10,7 +10,7 @@ As a Wavefront Super Admin, you're interested in usage patterns for the whole co
 
 You can examine the performance of your Wavefront instance using [wftop, Wavefront spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Wavefront Usage integration](wavefront_monitoring.html). By using ingestion policies, you can monitor the total usage out of the committed usage, the hourly usage, and the top accounts contributing to ingestion.
 
-{% include note.html content="The new Usage Portal and Ingestion Policy functionality is currently available to some of our customers. It will become available to all customers within the next releases."%}
+{% include note.html content="The new Usage Summary and Ingestion Policy functionality is currently available to some of our customers. It will become available to all customers within the next releases."%}
 
 ## Ingestion Policy Basics
 
@@ -29,7 +29,7 @@ Super Admin users (users who have all permissions) can create ingestion policies
 ### Create an Ingestion Policy
 
 1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage Portal**.
+2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage and Subscriptions**.
 3. Click the **Ingestion Policies** tab, and click **New Ingestion Policy**.
 4. In the **Data** panel:
    1. Choose the **Scope** of the policy.
@@ -50,7 +50,7 @@ After you create an ingestion policy, if you need, for example, to increase the 
 {% include note.html content="You cannot edit the scope of the policy."%}
 
 1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage Portal**.
+2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage and Subscriptions**.
 3. On the **Ingestion Policies** tab, click the ellipsis icon next to the policy that you want to edit and click **Edit**.
 4. Apply the necessary changes, and click **Save**.
 
@@ -58,7 +58,7 @@ After you create an ingestion policy, if you need, for example, to increase the 
 ### Delete Ingestion Policies
 
 1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage Portal**.
+2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage and Subscriptions**.
 3. On the **Ingestion Policies** tab, click the ellipsis icon next to the policy that you want to delete, click **Delete** and confirm.
 
 ### See the Ingestion Policies to Which a Proxy Belongs
@@ -76,7 +76,7 @@ After you create an ingestion policy, if you need, for example, to increase the 
 As a Super Admin user, you can examine the usage for accounts or groups assigned to different ingestion policies by clicking the name of the policy.
 
 1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage Portal**.
+2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage and Subscriptions**.
 3. On the **Ingestion Policies** tab, click the name of the policy you are interested in.
 
    ![Ingestion policy name link](images/ingestion_policy_team.png)

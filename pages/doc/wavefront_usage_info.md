@@ -23,7 +23,7 @@ If the customer uses more than the contracted rate, VMware bills for those addit
 
 ## How Can I Learn About Ingested Data?
 
-{% include note.html content="The new Usage Portal and Ingestion Policy functionality is currently available to some of our customers. It will become available to all customers within the next releases."%}
+{% include note.html content="The new Usage Summary and Ingestion Policy functionality is currently available to some of our customers. It will become available to all customers within the next releases."%}
 
 <table>
 <tbody>
