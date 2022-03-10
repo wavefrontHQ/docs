@@ -53,26 +53,25 @@ Follow these steps:
 
 1. On a web browser tab, log in to your AWS account.
 1. Search for the **IAM** (AWS Identity and Access Management) service and click it to open the service.
-1. Click **Roles** on the left panel and click **Create role**.
+1. Click **Roles** in the left panel and click **Create role**.
 1. Create an AWS account:
-    1. Select **Another AWS Account**.
+    1. Click the **AWS Account** tile and select **Another AWS account**.
     1. Enter the **Account ID**: Copy the **Account ID** value shown in the Wavefront AWS integration instructions and paste it here.
         ![A diagram that shows where the account ID is on the Wavefront integration and an arrow pointing how to copy and paste on the AWS account.](images/hello_tutorial_aws_account_ID.png)
     1. Select **Require external ID**.
         ![A screenshot of the external ID option selected.](images/hello_tutorial_aws_external_ID_selected.png)
     1. Enter the **External ID**. Copy the **External ID** value shown in the Wavefront AWS integration instructions and paste it here.
         ![A diagram that shows where the external ID is on the Wavefront integration and an arrow pointing how to copy and paste on the AWS account.](images/hello_tutorial_aws_external_ID.png)
-    1. Click **Next: Permissions**.
+    1. Click **Next**.
 1. Set Permissions:
     1. Search for the **ReadOnlyAccess** permission and select it.
         {% include note.html content="You get many results when you search for ReadOnlyAccess. Scroll down until you find ReadOnlyAccess, as shown in the screenshot below."%}
         ![A screenshot that shows the ReadOnlyAccess permission selected.](images/hello_tutorial_readonly_permission.png)
-    1. Click **Next: Tags**. You don't have to set any tags.
+    1. Click **Next**.
 
-1. Click **Next: Review**.
-1. Set the **Role Name** as wavefront.
+1. Set the **Role name** as `wavefront`.
 1. Click **Create role**.
-1. Once the list of roles appears, click on wavefront (the role you just created), and copy the **Role ARN** value.
+1. Once the list of roles appears, click `wavefront` (the role you just created), and copy the **ARN** value.
 
 {% include note.html content="See [Giving Wavefront Limited Access](integrations_aws_overview.html#giving-wavefront-limited-access) if you want to specify a more restrictive IAM policy for Wavefront." %}
 
@@ -127,11 +126,11 @@ Wavefront includes pre-defined dashboards for AWS that help you analyze and gath
 1. Click **AWS: Summary**. From the Summary dashboard, you can easily navigate to all other AWS dashboards.
     {% include note.html content="You need to configure your AWS account preferences to send billing metrics to Wavefront. See [Configuring CloudWatch Billing Metrics](integrations_aws_metrics.html#configuring-cloudwatch-billing-metrics)." %}
     ![Screenshot of the predefined AWS summary dahsboard](images/hello_tutorial_aws_summary_dashboard.png)
-{% include tip.html content="You can't edit the queries in these charts. If you want to customize the queries, you need to clone the dashboard and then update the queries in the charts. See [Edit or Clone a Dashboard](ui_dashboards.html#edit-or-clone-a-dashboard)" %}
+{% include tip.html content="You can't edit the queries in these charts. If you want to customize the queries, you need to clone the dashboard and then update the queries in the charts. See [Edit or Clone a Dashboard](ui_dashboards.html#edit-or-clone-a-dashboard)." %}
 
 
 ## Next Steps
 
 * For more information on the AWS integration, see [Amazon Web Services Integration](amazon_cloudfront.html).
-* Try out the [DashboardsTutorial](tutorial_dashboards.html).
+* Try out the [Dashboards Tutorial](tutorial_dashboards.html).
 * [Learn about the metrics](wavefront_monitoring.html#aws-integration) that help you monitor CloudWatch requests, API requests, the point rate, and events coming in from your AWS integration.
