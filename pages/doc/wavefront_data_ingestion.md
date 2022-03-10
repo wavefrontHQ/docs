@@ -1,12 +1,12 @@
 ---
-title: Set Up Data Ingestion 
+title: Set Up Data Ingestion
 keywords: data
 tags: [data, proxies]
 sidebar: doc_sidebar
 permalink: wavefront_data_ingestion.html
 summary: Learn how to set up the data ingestion pipeline.
 ---
-How you get your data into Tanzu Observability by Wavefront depends on your use case, but you have many options. You can use one of the supported integrations, or you can instrument your application and send data directly to Wavefront.
+How you get your data into Tanzu Observability by Wavefront depends on your use case, but you have many options. You can use one of the supported integrations, or you can instrument your application and send data directly.
 
 Watch this video to listen to Wavefront co-founder Clement Pang talk about getting data in:
 
