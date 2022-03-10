@@ -4,7 +4,7 @@ keywords: data
 tags: [data, proxies]
 sidebar: doc_sidebar
 permalink: wavefront_data_format.html
-summary: Syntax and parameters of the Tanzu Observability by Wavefront native data format.
+summary: Wavefront data format syntax and parameters.
 ---
 Tanzu Observability by Wavefront supports the same native data format with Wavefront proxies and with direct ingestion. This page is a reference to the data format and includes best practices.
 

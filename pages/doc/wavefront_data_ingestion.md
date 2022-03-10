@@ -8,7 +8,7 @@ summary: Learn how to set up the data ingestion pipeline.
 ---
 How you get your data into Tanzu Observability by Wavefront depends on your use case, but you have many options. You can use one of the supported integrations, or you can instrument your application and send data directly.
 
-Watch this video to listen to Wavefront co-founder Clement Pang talk about getting data in:
+Watch this video to listen to Wavefront co-founder Clement Pang talk about data ingestion:
 
 <p><a href="https://www.youtube.com/watch?v=lhrtPSqn8-c&index=2&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_data_into_wavefront.png" style="width: 700px;" alt="getting data into wavefront"/></a>
 </p>
@@ -60,7 +60,7 @@ The simplest path for any use case is to use a [pre-built integration](label_int
 
 ### Get Metrics from a Cloud Provider
 
-Cloud integrations use a different setup process than other integrations. You log in to the cloud service, and give Wavefront read access to the metrics that you're interested in. There's no need to install or set up a Wavefront proxy.
+Cloud integrations use a different setup process than other integrations. You log in to the cloud service, and give the Wavefront service read access to the metrics that you're interested in. There's no need to install or set up a Wavefront proxy.
 
 We support integrations for the most popular cloud services. This doc set has customization information for example, for [AWS Metrics Integration](integrations_aws_metrics.html), [AWS ECS Integration](integrations_aws_ecs.html), [AWS Lambda Functions](integrations_aws_lambda.html), and [Pivotal Container Service](integrations_pks.html).
 
@@ -121,7 +121,7 @@ Once data is flowing, you can set up dashboards, charts, and alerts. With dashbo
 <ul>
 <li>Most integrations include dashboards that collect commonly used metrics.</li>
 <li>You can clone and customize existing dashboards or create charts from scratch and add them to your own dashboard.</li></ul>
-The real power of Wavefront comes from alerts and special features such as anomaly detection, histograms, and distributed tracing. For example, you can add alerts to your charts and send them to alert targets such as PagerDuty or a custom Webhook target.</td>
+Alerts and special features such as anomaly detection, histograms, and distributed tracing make our observability offering powerful. For example, you can add alerts to your charts and send them to alert targets such as PagerDuty or a custom Webhook target.</td>
 <td width="50%"><img src="/images/v2_dashboard_small.png" alt="dashboard example"/></td>
 </tr>
 </tbody>

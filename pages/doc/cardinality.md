@@ -47,14 +47,14 @@ Almost all timeseries databases are key-value systems and each unique combinatio
 When you deploy a large system, there’s a rapid burst of new index entries, which can lead to high cardinality issues, such as slowdown or unresponsiveness of the monitoring system.
 
 
-## Wavefront and High Cardinality
+## High Cardinality and the Wavefront Service
 
 
 The Wavefront service usually deals gracefully with high cardinality because it has the following features:
 
 **Applies top-down and bottom-up indexes**
 
-Top-down indexes are the so-called metric source tags. In Wavefront, instead of just using the metric name as the primary key, the source is also considered a first-class citizen and is part of the primary metric host tag index. This improves performance and retrievability of data.
+Top-down indexes are the so-called metric source tags. Instead of just using the metric name as the primary key, the Wavefront service uses the source as part of the primary metric/host index. This improves performance and retrievability of data.
 
 A second tag value index allows for queries filtered by tag values to retain high performance. The combination of 2 primary indexes (metric and source) for timeseries data allows for greater cardinality with no impact on the data ingestion or query performance.
 
