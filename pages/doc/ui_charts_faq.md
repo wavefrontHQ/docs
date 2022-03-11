@@ -72,7 +72,6 @@ You can apply threshold markers for the data represented by histogram and heat m
 
 ## How Do Drilldown Links Work?
 
-
 A drilldown link sends users to a target dashboard when they click on a chart.
 
 * Drilldown on click is available for the following chart types:
@@ -84,10 +83,11 @@ A drilldown link sends users to a target dashboard when they click on a chart.
 
 ### Simple Drilldown
 
-In most cases, you want to send users from a chart to another dashboard.
+In most cases, you want to send users from a chart to another dashboard or a dashboard section.
 1. Open the chart for edit and click the **Drilldown Link** tab.
-2. Start typing the name of the target dashboard, select from the options, and save the chart.
-   ![simple drilldown to send users from a chart to another dashboard](images/simple_drilldown.png)
+2. Start typing the name of the target dashboard and select from the options.
+3. (Optional) Select a target dashboard section and save the chart.
+   ![simple drilldown to send users from a chart to another dashboard section](images/simple_drilldown.png)
 
 ### Drilldown Using Local Settings
 
