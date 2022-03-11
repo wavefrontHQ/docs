@@ -1,13 +1,13 @@
 ---
-title: Wavefront Release Notes
+title: Release Notes and Announcements
 keywords:
 tags:
 sidebar: doc_sidebar
 permalink: wavefront_release_notes.html
-summary: Learn about new and updated features in Wavefront.
+summary: Learn about announcements and the new and updated features in Tanzu Observability by Wavefront.
 ---
 
-This page lists new and updated features for the Wavefront service.
+This page lists new and updated features for the Tanzu Observability by Wavefront service.
 
 * For **Wavefront Proxy**, your go-to place is the [Wavefront proxy github page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
 * For the latest changes and releases of the **Wavefront Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
@@ -23,13 +23,14 @@ This page lists new and updated features for the Wavefront service.
 
 * **Upcoming Deprecation of v1 Dashboards and Charts**
 
-    In March, all v1 dashboards and charts will be migrated to v2. Users can no longer select the v1 version of dashboards and charts.
+    In the next releases, all v1 dashboards and charts will be migrated to v2. Users can no longer select the v1 version of dashboards and charts.
 
-    {% include important.html content="Most Wavefront users are already using the v2 GUI. However, if your dashboards and charts are migrated, see [What's New in v2 Dashboards & Charts](ui_v2_faq.html) for info. "%}
+    Most Wavefront users are already using the v2 GUI. However, if your dashboards and charts are migrated, see [What's New in v2 Dashboards & Charts](ui_v2_faq.html) for info.
 
 ## 2022-09.x Release Notes
 
 **Drilldown Links on Charts Improvement**: You can now use drilldown links to send users to a target section of a dashboard. See [How Do Drilldown Links Work](ui_charts_faq.html#how-do-drilldown-links-work).
+
 
 ## 2022-08.x Release Notes
 
