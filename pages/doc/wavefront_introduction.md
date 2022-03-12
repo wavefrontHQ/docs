@@ -132,10 +132,7 @@ It's easy to monitor any of the clusters:
 </tbody>
 </table>
 
-
-
-
-## How Do I Set Up My Data Ingestion Pipeline?
+## How Do I Set Up a Data Ingestion Pipeline?
 
 You can use Tanzu Observability by Wavefront with time-series (metric) data, and also with traces and spans, and with histograms from diverse sources.
 * **Cloud:** Perform minimal setup to let the Wavefront service access the data in your cloud environment. The result is direct ingestion of cloud services data such as Amazon Web Services or Google Cloud Platform.
