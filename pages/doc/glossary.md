@@ -22,7 +22,7 @@ This Tanzu Observability by Wavefront glossary defines technical terms that are 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Access management**](access.html)</td>
-<td>By default, users can access objects based on their **global permissions**. For example, users with **Dashboard** permission view and modify all dashboard. Access adds a more fine-grained layer of per-object ACL. A dashboard or alert creator can give only a certain user or group of users view or view and modify access to that object.
+<td>By default, users can access objects based on their <strong>global permission</strong>. For example, users with <strong>Dashboard</strong> permission view and modify all dashboard. Access adds a more fine-grained layer of per-object ACL. A dashboard or alert creator can give only a certain user or group of users view or view and modify access to that object.
 </td>
 </tr>
 <tr>
@@ -77,7 +77,7 @@ This Tanzu Observability by Wavefront glossary defines technical terms that are 
 <tr>
 <td markdown="span">&nbsp;</td>
 <td markdown="span">[**Counter**](delta_counters.html)</td>
-<td><strong>A cumulative counter, or simply counter, is a monotonically increasing counter. These counters are useful for aggregating metric information such as the number of hits on a web page, how many users log into a portal, etc. They're usually used with `rate()` or a similar function. See also:**Delta counter.**</td>
+<td><strong>A cumulative counter, or simply counter, is a monotonically increasing counter. These counters are useful for aggregating metric information such as the number of hits on a web page, how many users log into a portal, etc. They're usually used with `rate()` or a similar function. See also:<strong>Delta counter.</strong></td>
 </tr>
 <tr>
 <td><strong><big>D</big></strong></td>
@@ -96,7 +96,7 @@ This Tanzu Observability by Wavefront glossary defines technical terms that are 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Delta counter**](delta_counters.html)</td>
-<td>Delta counters bin metrics to a minute timestamp and they treat write operations to the same bin as deltas. Delta counters are especially useful in serverless Function-as-a-Service environments or if you want to combine points that come in at the same time from several sources. Use a `cs()` query to have your metric treated as a delta counter. See also:**Delta counter.**</td>
+<td>Delta counters bin metrics to a minute timestamp and they treat write operations to the same bin as deltas. Delta counters are especially useful in serverless Function-as-a-Service environments or if you want to combine points that come in at the same time from several sources. Use a `cs()` query to have your metric treated as a delta counter. See also:<strong>Delta counter.</strong></td>
 </tr>
 <tr>
 <td>&nbsp;</td>
