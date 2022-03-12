@@ -4,10 +4,10 @@ keywords: alerts
 tags: [getting started]
 sidebar: doc_sidebar
 permalink: glossary.html
-summary: Learn about Wavefront terms.
+summary: Learn how we use technical terms.
 ---
 
-This glossary introduces common Wavefront terms. Click the links or search this doc set for details.
+This Tanzu Observability by Wavefront glossary defines technical terms that are commonly used in the documentation or in the product. Click the links or search this documentation for details.
 
 <table style="width: 100%;">
 <tbody>
@@ -22,7 +22,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Access management**](access.html)</td>
-<td>By default, Wavefront users can access objects based on their permissions. Wavefront allows administrators to limit access to Wavefront objects (initially dashboards). With this strict security setting, only the creator (e.g. dashboard creator) and invited users/groups have access to new objects.
+<td>By default, users can access objects based on their **global permissions**. For example, users with **Dashboard** permission view and modify all dashboard. Access adds a more fine-grained layer of per-object ACL. A dashboard or alert creator can give only a certain user or group of users view or view and modify access to that object.
 </td>
 </tr>
 <tr>
@@ -34,7 +34,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">Alert notification</td>
-<td markdown="span">When an alert fires, Wavefront sends an alert notification to the alert target you specified when you created the alert. You can [customize **alert notifications**](alert_target_customizing.html).</td>
+<td markdown="span">When an alert fires, an alert notification is sent to the alert target you specified when you created the alert. You can [customize **alert notifications**](alert_target_customizing.html).</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
@@ -44,7 +44,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Application tags**](tracing_instrumenting_frameworks.html#application-tags)</td>
-<td markdown="span">Application tags describe the architecture of an application that was instrumented for tracing. Application tags are span tags with the names <code>application</code>, <code>service</code>, <code>cluster</code>, and <code>shard</code>. Wavefront uses application tags to aggregate and filter trace data at different levels of granularity.</td>
+<td markdown="span">Application tags describe the architecture of an application that was instrumented for tracing. Application tags are span tags with the names <code>application</code>, <code>service</code>, <code>cluster</code>, and <code>shard</code>. You can use application tags to aggregate and filter trace data at different levels of granularity.</td>
 </tr>
 <tr>
 <td><strong><big>B</big></strong></td>
@@ -53,7 +53,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">Bucket size</td>
-<td markdown="span">In Wavefront charts, point buckets represent data that have been summarized over a certain length of time. [**Chart resolution**](ui_charts.html#chart-resolution) is the bucket time interval, and it displays in the Horizontal Scale field in the lower-left corner of a chart.</td>
+<td markdown="span">Point buckets in charts represent data that have been summarized over a certain length of time. [**Chart resolution**](ui_charts.html#chart-resolution) is the bucket time interval, and it displays in the Horizontal Scale field in the lower-left corner of a chart.</td>
 </tr>
 <tr>
 <td><strong><big>C</big></strong></td>
@@ -62,17 +62,17 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Chart**](ui_charts.html)</td>
-<td markdown="span">Charts allow you to view and examine your telemetry data. Wavefront supports a rich set of chart types and chart configuration options. You can interact directly with charts–-zoom in, zoom out, change the time window, and so on, and share a link to the chart. </td>
+<td markdown="span">Charts allow you to view and examine your telemetry data. We support a rich set of chart types and chart configuration options. You can interact directly with charts–-zoom in, zoom out, change the time window, and so on, and share a link to the chart. </td>
 </tr>
 <tr>
 <td markdown="span">&nbsp;</td>
 <td markdown="span">Collector agent</td>
-<td>Many Wavefront customers set up their environment to use a collector agent such as Telegraf for data collection. The collector agent sends the metrics to the Wavefront proxy. We support integrations for commonly used collector agents. </td>
+<td>A collector agent such as Telegraf for data collection is often part of the data ingestion pipeline. The collector agent sends the metrics to the Wavefront proxy. We support integrations for commonly used collector agents. </td>
 </tr>
 <tr>
 <td markdown="span">&nbsp;</td>
 <td markdown="span">[**Continuous time series**](query_language_discrete_continuous.html)</td>
-<td>A time series that contains one data point per second. Because Wavefront accepts and stores data at up to 1 second resolution, a continuous time series has a data value for each moment in time that can be represented on the X-axis of a chart. <strong>See also:</strong> Discrete time series.</td>
+<td>A time series that contains one data point per second. Because the Wavefront service accepts and stores data at up to 1 second resolution, a continuous time series has a data value for each moment in time that can be represented on the X-axis of a chart. <strong>See also:</strong> Discrete time series.</td>
 </tr>
 <tr>
 <td markdown="span">&nbsp;</td>
@@ -86,7 +86,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Dashboard**](ui_dashboards.html)</td>
-<td>Dashboards allow you to group and prioritize a set of charts. All charts in a dashboard share certain display preferences and dashboard variables. All Wavefront users have permission to search and interact with dashboards. </td>
+<td>Dashboards allow you to group and prioritize a set of charts. All charts in a dashboard share certain display preferences and dashboard variables.</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
@@ -96,12 +96,12 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Delta counter**](delta_counters.html)</td>
-<td>Delta counters bin metrics to a minute timestamp and they treat write operations to the same bin as deltas. Wavefront delta counters are especially useful in serverless Function-as-a-Service environments or if you want to combine points that come in at the same time from several sources. Use a `cs()` query to have your metric treated as a delta counter. See also:**Delta counter.**</td>
+<td>Delta counters bin metrics to a minute timestamp and they treat write operations to the same bin as deltas. Delta counters are especially useful in serverless Function-as-a-Service environments or if you want to combine points that come in at the same time from several sources. Use a `cs()` query to have your metric treated as a delta counter. See also:**Delta counter.**</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Derived metrics**](derived_metrics.html)</td>
-<td>The derived metrics functionality allows you to run a query and ingest it back into Wavefront. All users can then use the result of the query, that is, the derived metric, in their queries.</td>
+<td>The derived metrics functionality allows you to run a query and ingest it back into the product. All users can then use the result of the query, that is, the derived metric, in their queries.</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
@@ -120,12 +120,12 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Embedded chart**](ui_sharing.html#embed-a-chart-in-other-uis)</td>
-<td>You can embed an interactive chart outside of Wavefront. When you use the UI, we generate an HTML code snippet and you can adjust the width and height.</td>
+<td>You can embed an interactive chart in a product or web page. When you use the UI, we generate an HTML code snippet and you can adjust the width and height.</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Event**](events.html)</td>
-<td>An event is a record that something of interest has happened. For example, the event might show that an alert has changed state. Wavefront supports system events and user events.</td>
+<td>An event is a record that something of interest has happened. For example, the event might show that an alert has changed state. We supports system events and user events.</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
@@ -135,7 +135,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**External link**](external_links_managing.html)</td>
-<td>External links allow you to go from a Wavefront chart to an external system such as a log. You can in effect connect your streaming metrics to logs and other external info. </td>
+<td>External links allow you to go from a chart to an external system such as a log. You can in effect connect your streaming metrics to logs and other external info. </td>
 </tr>
 <tr>
 <td><strong><big>H</big></strong></td>
@@ -144,7 +144,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Histogram (distribution)**](proxies_histograms.html)</td>
-<td>A Wavefront histogram is a series of distributions that Wavefront has computed from the data points of a time series. Each distribution summarizes the points in a particular time interval (minute, hour, or day) by organizing their values into bins (value ranges). You can send histograms to a histogram proxy port or directly to the Wavefront service. </td>
+<td>A Wavefront histogram is a series of distributions that the Wavefront service has computed from the data points of a time series. Each distribution summarizes the points in a particular time interval (minute, hour, or day) by organizing their values into bins (value ranges). You can send histograms to a histogram proxy port or directly to the Wavefront service. </td>
 </tr>
 <tr>
 <td><strong><big>I</big></strong></td>
@@ -153,7 +153,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Integration**](integrations.html)</td>
-<td markdown="span">Integrations are one easy way to get data from external systems into Wavefront. Wavefront supports [**over 160 integrations**](label_integrations%20list.html) with common Web, cloud, monitoring, and other applications and services.  For cloud integrations such as AWS, setup is automated. For other integrations, you follow setup steps which usually involve changes to a configuration file. </td>
+<td markdown="span">Integrations are one easy way to set up a data pipeline from an external system. We support [**over 200 integrations**](label_integrations%20list.html) with common Web, cloud, monitoring, and other applications and services.  For cloud integrations such as AWS, setup is automated. For other integrations, you follow setup steps which usually involve changes to a configuration file. </td>
 </tr>
 <tr>
 <td><strong><big>M</big></strong></td>
@@ -177,7 +177,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Multi-tenant SSO**](authentication.html#multi-tenant-authentication)</td>
-<td>If a Wavefront customers uses an Identity Provider (IP), all users authenticate with that IP and see the same information by default. Multi-tenant SSO allows customers to request multiple tenants, each with a tenant administrator. Tenant administrators can invite other users. Users who authenticate to the IP can then access the tenant(s) to which they have been invited. </td>
+<td>If one of our customers uses an Identity Provider (IP), all users authenticate with that IP and see the same information by default. Multi-tenant SSO allows customers to request multiple tenants, each with a tenant administrator. Tenant administrators can invite other users. Users who authenticate to the IP can then access the tenant(s) to which they have been invited. </td>
 </tr>
 <tr>
 <td><strong><big>O</big></strong></td>
@@ -187,11 +187,6 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <td>&nbsp;</td>
 <td markdown="span">[**Object tag**](tags_overview.html#managing-object-tags)</td>
 <td>Object tags help you filter your display. You apply an object tag to Wavfront UI objects such as dashboards. You can later find and display groups of objects based on their object tag. </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td markdown="span">Observability data</td>
-<td>Refers to all data you can store and analyze with the Wavefront observability platform. Metrics (including delta counters), histograms, and tracing spans are collectively described as observability data. (Sometimes called telemetry data.)</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
@@ -206,7 +201,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Permission**](permissions_overview.html)</td>
-<td>Wavefront permissions determine the tasks that a user can perform.</td></tr>
+<td>Permissions determine the tasks that a user can perform.</td></tr>
 You can manage authorization with user-level permissions or user and group-level permission. For more fine-grained authorization control, you can perform access management for objects such as dashboards.</td>
 </tr>
 <tr>
@@ -217,12 +212,12 @@ You can manage authorization with user-level permissions or user and group-level
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">**PPS**</td>
-<td markdown="span">Points per Seconds. Telemetry data points per second ingested by the Wavefront Service. All customers are billed based on their PPS. We support dashboards and tools to <a href="https://docs.wavefront.com/wavefront_usage_info.html">Find Actionable Usage Information</a>  </td>
+<td markdown="span">Points per Seconds. Telemetry data points per second ingested by the Wavefront service. All customers are billed based on their PPS. We support dashboards and tools to <a href="https://docs.wavefront.com/wavefront_usage_info.html">Find Actionable Usage Information</a>  </td>
 </tr>
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Proxy**](proxies.html)</td>
-<td markdown="span">A Wavefront proxy ingests metrics and forwards them to the Wavefront service in a secure, fast, and reliable manner. Using a Wavefront proxy has several benefits, but you can also send data to Wavefront using direct ingestion. </td>
+<td markdown="span">A Wavefront proxy ingests metrics and forwards them to the Wavefront service in a secure, fast, and reliable manner. Using a Wavefront proxy has several benefits, but you can also send data to the Wavefront service using direct ingestion. </td>
 </tr>
 <tr>
 <td><strong><big>Q</big></strong></td>
@@ -231,7 +226,7 @@ You can manage authorization with user-level permissions or user and group-level
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">Query</td>
-<td markdown="span">Queries are requests that you submit to find and visualize data. A query consists of expressions built from the [Wavefront Query Language](query_language_reference.html). You can compose queries with the [Chart Builder](chart_builder.html) UI, or you can write queries directly in [Query Editor](query_editor.html). Queries let you retrieve and transform ingested data, as well as create and display synthetic data for the duration of the query.</td>
+<td markdown="span">Queries are requests that you submit to find and visualize data. A query consists of expressions built from the [Wavefront Query Language (WQL)](query_language_reference.html). You can compose queries with the [Chart Builder](chart_builder.html) UI, or you can write queries directly in [Query Editor](query_editor.html). Queries let you retrieve and transform ingested data, as well as create and display synthetic data for the duration of the query.</td>
 </tr>
 <tr>
 <td><strong><big>R</big></strong></td>
@@ -249,18 +244,12 @@ You can manage authorization with user-level permissions or user and group-level
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Sampling**](trace_data_sampling.html)</td>
-<td>Sampling is a technique for limiting the volume of trace data that is actually sent to Wavefront for storage and visualization. A sampling strategy is a policy for deciding which traces to send. </td>
+<td>Sampling is a technique for limiting the volume of trace data that is actually sent to to the Wavefront service for storage and visualization. A sampling strategy is a policy for deciding which traces to send. </td>
 </tr>
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**SDK**](wavefront_sdks.html)</td>
-<td>An SDK (software development kit) is a library that you can include with your application code. Wavefront supports observability SDKs in different programming languages to enable you to instrument applications to report telemetry data to Wavefront.
-
-<ul>
-<li markdown="span">[Framework SDKs](wavefront_sdks.html#sdks-that-instrument-frameworks) collect and report predefined metrics, histograms, and trace data from specific frameworks used in your application. </li>
-<li markdown="span">[OpenTracing SDKs](wavefront_sdks.html#sdks-for-collecting-trace-data) and [metrics SDKs](wavefront_sdks.html#sdks-for-collecting-metrics-and-histograms) enable you to define, collect, and report your own types of observability data from your application code.</li>
-<li markdown="span">[Sender SDKs](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront) enable you to instrument your application by sending raw observability data to Wavefront.</li>
-</ul> </td>
+<td>An SDK (software development kit) is a library that you can include with your application code. We support observability SDKs in different programming languages and for different types of data (metrics and traces).</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
@@ -294,7 +283,7 @@ You can manage authorization with user-level permissions or user and group-level
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Tag**](tags_overview.html)</td>
-<td>Tags are metadata that is associated with your observability data. You can use tags to filter the results of a query, or to apply an operation to a group of objects (such as suppressing a group of alerts during a maintenance window). Wavefront supports several types of tags, including source tags, point tags, event tags, alert tags, and span tags. <strong>See also:</strong> Point tag, Source tag. </td>
+<td>Tags are metadata that is associated with your observability data. You can use tags to filter the results of a query, or to apply an operation to a group of objects (such as suppressing a group of alerts during a maintenance window). We support several types of tags, including source tags, point tags, event tags, alert tags, and span tags. <strong>See also:</strong> Point tag, Source tag. </td>
 </tr>
 <tr>
 <td>&nbsp;</td>
