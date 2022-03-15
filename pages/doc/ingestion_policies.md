@@ -64,7 +64,9 @@ If a user starts ingesting data into Wavefront through a Wavefront Proxy, you ca
 
 After you create an ingestion policy, if you need, for example, to increase the PPS limit, you can edit the policy. 
 
-{% include note.html content="You cannot edit the scope of the policy. You can only add and remove accounts or groups depending on the scope."%}
+{% include note.html content="You cannot change the scope of the policy. You can only add and remove accounts or groups depending on the scope."%}
+
+{% include note.html content="Removing the PPS limit dissociates the alert from the ingestion policy."%}
 
 1. Log in to your Wavefront instance as a Super Admin user.
 2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage Portal**.
