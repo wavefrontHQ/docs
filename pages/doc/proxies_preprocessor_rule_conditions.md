@@ -4,13 +4,13 @@ keywords:
 tags: [proxies]
 sidebar: doc_sidebar
 permalink: proxies_preprocessor_rule_conditions.html
-summary: Learn how to add conditions on Wavefront proxy preprocessor rules.
+summary: Learn how to write proxy preprocessor rules that include conditions.
 ---
-You can set up your environment to apply a [proxy preprocessor rule](proxies_preprocessor_rules.html) only when multiple conditions are met or when certain conditions are met and other conditions are not met.
+You can configure Tanzu Observability by Wavefront with [proxy preprocessor rules](proxies_preprocessor_rules.html) that apply only when multiple conditions are met or when certain conditions are met and other conditions are not met.
 
 {% include tip.html content="Starting with Proxy 9.x, `*blacklist` has been replaced with `*block` and `*whitelist` has been replaced with `*allow`. This documentation page uses the new configuration parameter names. " %}
 
-## Example
+## Conditional Preprocessor Rule Example
 
 For example, you might want to block list spans only if it
 * has span tags that match both `"span.kind"="server"` and (`"http.status_code"="302"` or `"http.status_code"="404"`)
