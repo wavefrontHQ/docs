@@ -6,19 +6,19 @@ sidebar: doc_sidebar
 permalink: integrations_aws_overview_API.html
 summary: Understand how to set up and manage the AWS integration by using the Wavefront REST API
 ---
-The Wavefront Amazon Web Services integration allows you to ingest metrics directly from AWS. In addition to setting up and managing the AWS integration through the Wavefront UI, you can also use the Wavefront REST API for setting up and managing the AWS integration. This doc provides some basic steps and examples on how to do this.
+The Amazon Web Services integration allows you to ingest metrics directly from AWS. In addition to setting up and managing the AWS integration through the UI, you can also use the Wavefront REST API for setting up and managing the AWS integration. This doc page provides some basic steps and examples on how to do this.
 
 {% include note.html content="You must have the [**Proxy Management** permission](permissions_overview.html) to set up an AWS integration." %}
 
-In these examples, you access the REST API through the Wavefront interface, so that you don't need to provide the Bearer token. 
+In these examples, you access the REST API through the interface, so that you don't need to provide the Bearer token. 
 
 ## Before You Start
 
-To set up the Wavefront Amazon Web Services integration, you must provide Wavefront with read-only access to your Amazon account. To do that, you need to provide an account ID and external ID. While the account ID is a constant value (in our case - the Wavefront ID) to which you want to grant access to your resources, the external ID is not a constant value. The external ID is a secret identifier that is known by you and Wavefront (the third-party). The external ID is time-sensitive and regenerated each time you reopen the AWS Integration setup page, and you cannot reuse it.
+To set up the Amazon Web Services integration, you must provide Tanzu Observability by Wavefront with read-only access to your Amazon account. To do that, you need to provide an account ID and external ID. While the account ID is a constant value (in our case - the Wavefront ID) to which you want to grant access to your resources, the external ID is not a constant value. The external ID is a secret identifier that is known by you and Tanzu Observability by Wavefront (the third-party). The external ID is time-sensitive and regenerated each time you reopen the AWS Integration setup page, and you cannot reuse it.
 
 For information about external IDs and how they are used in AWS, see [How to Use External ID When Granting Access to Your AWS Resources](https://aws.amazon.com/blogs/security/how-to-use-external-id-when-granting-access-to-your-aws-resources/).
 
-For more information about giving Wavefront access to your Amazon account, see [Giving Wavefront Access to Your AWS Account](integrations_aws_overview.html#giving-wavefront-access-to-your-aws-account).
+For more information about giving Tanzu Observability by Wavefront access to your Amazon account, see [Giving Tanzu Observability by Wavefront Access to Your AWS Account](ntegrations_aws_overview.html#giving-tanzu-observability-by-wavefront-access-to-your-aws-account).
 
 
 ### Create an External ID
@@ -41,7 +41,7 @@ For more information about giving Wavefront access to your Amazon account, see [
   }
   ```
   
-### Provide Wavefront Read-Only Access to Your Amazon Account and Get the Role ARN
+### Provide Read-Only Access to Your Amazon Account and Get the Role ARN
 
 1. Log in to your AWS account.
 1. Search for the **IAM** (AWS Identity and Access Management) service and click it.
@@ -58,7 +58,7 @@ For more information about giving Wavefront access to your Amazon account, see [
       
    - Select the **Require external ID** check box and provide the [external ID that you have copied](integrations_aws_overview_API.html#create-an-external-id).
      
-      You can also copy and paste the **External ID** displayed in the instructions on the Wavefront  **Amazon Web Services** integration **Setup** page.
+      You can also copy and paste the **External ID** displayed in the instructions on the **Amazon Web Services** integration **Setup** page (in the Wavefront instance UI).
      
 1. Click **Next**.
 1. On the **Add permissions** screen, search for, and select the **ReadOnlyAccess** check box.
@@ -135,13 +135,13 @@ You can add an AWS integration by using the Wavefront REST API.
 }
       ```
    
-   In these examples, the `roleArn` value is the [Role ARN from your Amazon account](integrations_aws_overview_API.html#provide-wavefront-read-only-access-to-your-amazon-account-and-get-the-role-arn), and the `externalId` value is the external ID that you have provided while you created the role. If you don’t provide an external ID, the request will time out. 
+   In these examples, the `roleArn` value is the [Role ARN from your Amazon account](integrations_aws_overview_API.html#provide-read-only-access-to-your-amazon-account-and-get-the-role-arn), and the `externalId` value is the external ID that you have provided while you created the role. If you don’t provide an external ID, the request will time out. 
    
 1. Click **Execute**.
 
 ## Update an AWS Integration
 
-You can update an AWS integration through the API.  You do not need the external ID value to update an existing AWS integration. 
+You can update an AWS integration through the API. You do not need the external ID value to update an existing AWS integration. 
 
 In this example, we update an existing CloudWatch integration to retrieve the service metrics for 10 more services in addition to DynamoDB:  
 
@@ -277,7 +277,7 @@ We also add the metrics for these services to a metric allow list by using a reg
 
 ## Enable and Disable an AWS Integration
 
-Wavefront automatically disables integrations that are experiencing errors due to invalid credentials. To enable an integration after the credential has been corrected or to manually disable an integration, you need the integration ID.
+Tanzu Observability by Wavefront automatically disables integrations that are experiencing errors due to invalid credentials. To enable an integration after the credential has been corrected or to manually disable an integration, you need the integration ID.
 
 1. In the Wavefront REST API documentation, click the `GET/api/v2/cloudintegration` request.
 1. Click the **Try it out** button in the top right of the request and click **Execute**.

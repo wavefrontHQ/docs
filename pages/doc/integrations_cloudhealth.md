@@ -4,18 +4,18 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_cloudhealth.html
-summary: Learn how to send Wavefront data to CloudHealth.
+summary: Learn how to send Tanzu Observability by Wavefront data to CloudHealth.
 ---
 
 The CloudHealth platform helps your team manage resource utilization and costs across multiple cloud environments. CloudHealth provides spending summary reports for each cost center, which helps you drive financial accountability and find ways to lower your cloud spend.  You can create custom policies that automate daily cloud operations, support faster decision making, and reduce risk. CloudHealth also, reports on vulnerabilities so you can proactively monitor, detect, and remediate risks in real-time.
 
-This page explains how to send date that are ingested into Tanzu Observability by Wavefront (Wavefront) to CloudHealth. From CloudHealth, you can then examine those data and learn how to use your cloud resources more efficiently:
+This page explains how to send date that are ingested into Tanzu Observability by Wavefront to CloudHealth. From CloudHealth, you can then examine those data and learn how to use your cloud resources more efficiently:
 
 ![Diagram shows data from Wavefront that goes to CloudHealth.](images/integration_cloudhleath_intro.png)
 
-## Benefits of Wavefront Integration in CloudHealth
+## Benefits of the Wavefront Integration in CloudHealth
 
-CloudHealth ingests the usage and performance data that Wavefront gathers to help you in the following ways:
+CloudHealth ingests the usage and performance data that Tanzu Observability by Wavefront gathers to help you in the following ways:
 * Understand how your cloud assets are being allocated and utilized through usage reports.
 * Categorize assets into Perspectives inside CloudHealth.
 * Make rightsizing decisions for EC2 Instances and Azure Virtual Machines.
@@ -29,35 +29,35 @@ Here's what you need to get started.
 * You must have a CloudHealth account. If you don't have one, [request a demo from the CloudHealth team](https://go.cloudhealthtech.com/demo-request.html?ref=nav).
 * You need Administrator permission in CloudHealth to add a Wavefront account to CloudHealth.
 
-**Wavefront**
-* You need access to a Wavefront instance that monitors the data source you're interested in.
+**Tanzu Observability by Wavefront**
+* You need access to a Wavefront cluster that monitors the data source you're interested in.
 * [Generate a Wavefront API token](users_account_managing.html#generate-an-api-token) to let CloudHealth access the Wavefront API.
-  {% include note.html content="A Wavefront API token is tied to a Wavefront account. Ensure that the account whose API token you select has access to the Wavefront Sources that you want to ingest in CloudHealth. Creating a Wavefront service account is often the right approach." %}
+  {% include note.html content="A Wavefront API token is tied to a Wavefront account. Ensure that the account whose API token you select has access to the Tanzu Observability by Wavefront Sources that you want to ingest in CloudHealth. Creating a service account is often the right approach." %}
 
 
-## Create Wavefront Account in CloudHealth
+## Create a Wavefront Account in CloudHealth
 
 Follow these steps to create a Wavefront account in CloudHealth:
 
 1. Sign in to your CloudHealth account.
-1. Click the cloud environment (e.g. AWS or Azure) where you want to add the Wavefront Account.
+1. Click the cloud environment (e.g. AWS or Azure) where you want to add the Wavefront account.
 1. Select **Accounts** > **Setup** > **Wavefront**.
 1. Click **New Account** and configure the integration:
-  ![](images/integration_cloudhealth_wavefront_setup.png)
-    1. Name the account.
-    1. Retrieve the Wavefront API token (see Prerequisites) and paste it into the API Key field.
-    1. If you are using a metric prefix in Wavefront, enter its value in the Metric Prefix field.
-    1. To import tags from a legacy Servers account, enable Import tags. CloudHealth then actively collects tags, and you will see an additional field to accept the tags that you want to import into CloudHealth.
+  ![Screenshot of the configuration screen in the CloudHealth UI.](images/integration_cloudhealth_wavefront_setup.png)
+    1. Enter a name of the account.
+    1. Retrieve the Wavefront API token (see Prerequisites) and paste it in the **API Token** field.
+    1. If you are using a metric prefix in Wavefront, enter its value in the **Metric Prefix** field.
+    1. To import tags from a legacy Servers account, enable **Import Tags**. CloudHealth then actively collects tags, and you will see an additional field to accept the tags that you want to import into CloudHealth.
 1. Click **Save Account**.
 
 CloudHealth begins collecting Wavefront Sources within 15 minutes of account setup, and continues collecting these Sources every 15 min. CloudHealth fetches up to one day's worth of time-series data from the date when you add the Wavefront account.
 
 ## Data Gathered by CloudHealth
 
-The following data from Wavefront is sent to CloudHealth:
+The following data from Tanzu Observability by Wavefront is sent to CloudHealth:
 
-* Wavefront [Sources](sources_managing.html) every 15 minutes. Each source is a data source (host, VM, etc). Sources can have tags attached to them.
-* Wavefront [Source tags](tags_overview.html#source-tags) every 15 minutes. Wavefront Source tags are treated as dynamic attributes on a Wavefront Source. You cannot overwrite Wavefront Source tags with custom CloudHealth tags, but you can use Wavefront Source tags to build Perspectives in CloudHealth, as explained in the next section.
+* Tanzu Observability by Wavefront [Sources](sources_managing.html) every 15 minutes. Each source is a data source (host, VM, etc). Sources can have tags attached to them.
+* Tanzu Observability by Wavefront [Source tags](tags_overview.html#source-tags) every 15 minutes. Source tags are treated as dynamic attributes on a Tanzu Observability by Wavefront Source. You cannot overwrite Tanzu Observability by Wavefront Source tags with custom CloudHealth tags, but you can use them to build Perspectives in CloudHealth, as explained in the next section.
   {% include tip.html content="CloudHealth Perspectives are lenses through which you want to view your infrastructure. They provide a framework for categorizing all the assets within your infrastructure. Sample perspectives might include Environment, Application, Department, Function, Project, or Cost Center." %}
 * Memory and disk metrics for each source every 1 hour. For each metric, CloudHealth gathers the mean, minimum, and maximum.
 * If you have enabled CloudWatch metrics collection through the CloudHealth platform, additional core metrics such as CPU, network bytes, and filesystem usage are gathered.
@@ -65,7 +65,7 @@ The following data from Wavefront is sent to CloudHealth:
 
 ## Create Perspectives in CloudHealth
 
-You can use Wavefront source tags to create Perspective Groups within the CloudHealth Platform. Follow these steps:
+You can use Tanzu Observability by Wavefront source tags to create Perspective Groups within the CloudHealth Platform. Follow these steps:
 
 1. Navigate to CloudHealth, and click Wavefront.
 1. Click **Setup** > **Perspectives** > **New Perspective**.
@@ -82,4 +82,4 @@ You can use Wavefront source tags to create Perspective Groups within the CloudH
 
 ## Rightsize Using CloudHealth
 
-CloudHealth ingests Wavefront metrics (Memory, CPU, network bytes, and filesystem usage) for the cloud resources you selected and displays these metrics in the Rightsizing Report.
+CloudHealth ingests Tanzu Observability by Wavefront metrics (Memory, CPU, network bytes, and filesystem usage) for the cloud resources you selected and displays these metrics in the Rightsizing Report.

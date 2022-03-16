@@ -4,7 +4,7 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_aws_ecs.html
-summary: Send AWS ECS data to Wavefront using Telegraf agent or AWS Fargate.
+summary: Send AWS ECS data to Tanzu Observability by Wavefront using Telegraf agent or AWS Fargate.
 ---
 [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/) is Amazon's Docker container orchestration system. From the Amazon ECS website:
 
@@ -12,13 +12,13 @@ summary: Send AWS ECS data to Wavefront using Telegraf agent or AWS Fargate.
 Amazon Elastic Container Service (ECS) is a highly scalable, high-performance container orchestration service that supports Docker containers and allows you to easily run and scale containerized applications on AWS. Amazon ECS eliminates the need for you to install and operate your own container orchestration software, manage and scale a cluster of virtual machines, or schedule containers on those virtual machines.
 ```
 
-Wavefront supports an Amazon Web Services [built-in integration](amazon_ecs.html) that allows Wavefront to collect useful high-level metrics about ECS using the AWS CloudWatch API, but that's only part of your setup.
+Tanzu Observability by Wavefront supports an Amazon Web Services [built-in integration](amazon_ecs.html) that allows Tanzu Observability by Wavefront to collect useful high-level metrics about ECS using the AWS CloudWatch API, but that's only part of your setup.
 
 ## Overview
 
 The integration basics are covered in our [AWS ECS Integration](amazon_ecs.html) page.
 
-This page provides detailed steps on how to install and configure the Wavefront ECS integration either by adding a Telegraf agent container to the task definition or by creating an AWS Fargate task definition. After you complete these steps, the integration provides:
+This page provides detailed steps on how to install and configure the Tanzu Observability by Wavefront ECS integration either by adding a Telegraf agent container to the task definition or by creating an AWS Fargate task definition. After you complete these steps, the integration provides:
 
 - Monitoring of important CloudWatch metrics related to Amazon ECS.
 - Monitoring of detailed metrics about individual containers, services, and clusters running in your AWS ECS environment.
@@ -27,18 +27,18 @@ This page provides detailed steps on how to install and configure the Wavefront 
 
 - Access to Amazon Web Services.
 - Access to a [Wavefront proxy](proxies_installing.html) - Preferably running in AWS or a place accessible to your ECS instances.
-- Wavefront AWS integration - Parts of the ECS integration use CloudWatch metrics, which can be acquired by configuring the Wavefront AWS integration.
+- AWS integration - Parts of the ECS integration use CloudWatch metrics, which can be acquired by configuring the AWS integration.
 
 
 ### Configure the AWS Integration
 
-Set up the [AWS integration](integrations_aws_metrics.html). This allows Wavefront to collect useful high-level metrics about ECS using the AWS CloudWatch API.
+Set up the [AWS integration](integrations_aws_metrics.html). This allows Tanzu Observability by Wavefront to collect useful high-level metrics about ECS using the AWS CloudWatch API.
 
 **Note:** To ensure that dashboards display correctly, use only the default EC2 instance name for the ECS cluster.
 
-## Create AWS ECS Fargate Task Definition for Wavefront
+## Create AWS ECS Fargate Task Definition for Tanzu Observability by Wavefront
 
-You can set up Wavefront to collect the data from AWS Fargate containers. These steps create an ECS task definition that ensures the Wavefront Collector automatically runs on each Fargate instance in your ECS cluster.
+You can set up Tanzu Observability by Wavefront to collect the data from AWS Fargate containers. These steps create an ECS task definition that ensures the Wavefront Collector automatically runs on each Fargate instance in your ECS cluster.
 
 After you've performed the setup, you can view and examine the data in our AWS Fargate dashboard in your Wavefront instance. See the screenshot at the bottom of this page.
 
@@ -107,9 +107,9 @@ After you've performed the setup, you can view and examine the data in our AWS F
 9. Click **Run Task**.
 
 
-## Create an AWS ECS EC2 Task Definition for Wavefront
+## Create an AWS ECS EC2 Task Definition for Tanzu Observability by Wavefront
 
-A Telegraf (telegraf-ecs) image enables Wavefront to monitor Amazon ECS service. The Telegraf container must run in the same Task as the workload it is inspecting. Below are the steps to create an example ECS task definition and run the Telegraf container along with other containers in the task.  In the Telegraf container, the ECS input plugin is enabled to gather stats on running containers in a Task and the Wavefront output plugin is enabled to send ECS metrics to Wavefront.
+A Telegraf (telegraf-ecs) image enables Tanzu Observability by Wavefront to monitor Amazon ECS service. The Telegraf container must run in the same Task as the workload it is inspecting. Below are the steps to create an example ECS task definition and run the Telegraf container along with other containers in the task.  In the Telegraf container, the ECS input plugin is enabled to gather stats on running containers in a Task and the Wavefront output plugin is enabled to send ECS metrics to Tanzu Observability by Wavefront.
 
 After you perform the setup, you can view and examine the data in the AWS ECS dashboard of your Wavefront instance. The screenshots at the bottom of this page show the AWS ECS dashboard.
 

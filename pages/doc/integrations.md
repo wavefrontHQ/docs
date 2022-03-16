@@ -7,22 +7,22 @@ permalink: integrations.html
 summary: Learn how to customize a built-in integration and how to set up a custom integration.
 ---
 
-Integrations are one easy way to get data from external systems into Wavefront. Use one of the [built-in integrations](label_integrations%20list.html) and customize it as needed.
+Integrations are one easy way to get data from external systems into Tanzu Observability by Wavefront. Use one of the [built-in integrations](label_integrations%20list.html) and customize it as needed.
 
 We update our [integrations release notes](integrations_new_changed.html) on a monthly basis.
 
 ## Watch a Video
 
-In this video, Jason talks about the different integrations we have, and how you can use them to get your data into Wavefront. You can also watch the video <a href="https://bcove.video/2JTvMgW" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+In this video, Jason talks about the different integrations we have, and how you can use them to get your data into Tanzu Observability by Wavefront. You can also watch the video <a href="https://bcove.video/2JTvMgW" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
 
 <p><a href="https://bcove.video/2JTvMgW"><img src="/images/v_integrations_v2.png" style="width: 700px;" alt="new intro to integratons"/></a>
 </p>
 
 ## Try an Integration!
 
-Sign up for a Wavefront trial to try integrations. Detailed setup steps for each integration are in the product.
+Sign up for a Tanzu Observability by Wavefront trial to try integrations. Detailed setup steps for each integration are in the product.
 
-Here's a sample of what you see when you select one of the Wavefront integrations:
+Here's a sample of what you see when you select one of our integrations:
 * The **Overview** tab explains how the integration works and what's included, often a sample dashboard with commonly used charts.
 * The **Setup** tab has instructions for configuring the integration.
 * The **Metrics** and **Dashboard** tabs are preconfigured to show your metrics after you've set up the integration. You can [clone and customize our dashboards](integrations.html#cloning-and-customizing-dashboards).
@@ -37,7 +37,7 @@ Here's a screenshot that shows the different tabs of the Apache Solr integration
 
 ## Built-In and Custom Integrations
 
-Wavefront lets you set up many integrations directly from the product. For other integrations, we give step-by-step instructions -- or you can send your data to Wavefront in other ways, for example, using the Telegraf output plug-in for Wavefront.
+Tanzu Observability by Wavefront lets you set up many integrations directly from the product. For other integrations, we give step-by-step instructions -- or you can send your data in other ways, for example, using the Telegraf output plug-in.
 
 - **Built-in integrations** provide assisted installation and configuration. Many integrations also install a dashboard for you. Access the integration by selecting **Integrations** from the taskbar and clicking the **Setup** tab.
 
@@ -71,9 +71,9 @@ This table provides links to the documentation pages for many of the custom and 
 
 ## External (Open-Source) Integrations
 
-Wavefront customers have started to make open-source integrations available on GitHub.
+Our customers have started to make open-source integrations available on GitHub.
 
-Our first external integration sends AlertSite monitoring results to Wavefront and is available at [https://github.com/secureworks/AlertSite2Wavefront](https://github.com/secureworks/AlertSite2Wavefront).
+Our first external integration sends AlertSite monitoring results to Tanzu Observability by Wavefront and is available at [https://github.com/secureworks/AlertSite2Wavefront](https://github.com/secureworks/AlertSite2Wavefront).
 
 We're excited about this contribution and hope to see more soon!
 
@@ -95,9 +95,9 @@ Before setting up an integration, you can look into our demo dashboards. These d
 
 ## Installing and Uninstalling Integration Dashboards
 
-You can install and uninstall the Wavefront system integration dashboards.
+You can install and uninstall the system integration dashboards.
 
-<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view integrations, you must have [**Integration Management** permission](permissions_overview.html) to install and uninstall integration dashboards. If you do not have this permission, buttons to perform these tasks are not visible.</div>
+<div markdown="span" class="alert alert-info" role="alert">While every user can view integrations, you must have [**Integration Management** permission](permissions_overview.html) to install and uninstall integration dashboards. If you do not have this permission, buttons to perform these tasks are not visible.</div>
 
 1. Click **Integrations**.
 1. Click the integration tile.
@@ -106,7 +106,7 @@ You can install and uninstall the Wavefront system integration dashboards.
 
 ## Cloning and Customizing Dashboards
 
-You cannot modify the Wavefront system dashboards. Instead, you must clone the dashboards.
+You cannot modify the system dashboards. Instead, you must clone the dashboards.
 1. Click the ellipsis icon in the top right corner of the dashboard.
 2. Select **Clone**. 
 3. Provide a URL string that's just the name (e.g., `mydashboard` or `dashboard-name-clone`) and not the URL (e.g., `http://mydashboard`). 
@@ -165,14 +165,14 @@ You can also filter integrations with the following saved searches:
 
 ### State Indicators
 
-When you hover over an integration, Wavefront colors the integration border and displays indicators based on the current state. For example, the following integration is in the Warning state because metrics have stopped reporting in the past month and content is installed.
+When you hover over an integration, the integration border in the UI changes and you see indicators based on the current state. For example, the following integration is in the Warning state because metrics have stopped reporting in the past month and content is installed.
 
 ![Windows integration state with a Warning sign next to metrics](images/integration_state.png)
 
 
 ## More Info
 
-* Don't see the integration you are looking for? Have a look at [Getting Data Into Wavefront](wavefront_data_ingestion.html) and at [Wavefront Data Format](wavefront_data_format.html).
+* Don't see the integration you are looking for? Have a look at [Set Up Data Ingestion](wavefront_data_ingestion.html) and at [Data Format](wavefront_data_format.html).
 * On our [Tanzu Observability](https://tanzu.vmware.com/observability) pages we have several blog posts with use cases and background info:
   - [Google Cloud Monitoring Using Wavefront Metrics-Driven Analytics](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/google-cloud-monitoring-using-wavefront-metrics-driven-analytics)
   - [Monitor MongoDB Metrics for Better Scaling and Optimized Database Performance](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitor-mongodb-metrics-for-better-scaling-and-optimized-database-performance)

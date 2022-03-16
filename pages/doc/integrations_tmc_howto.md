@@ -4,7 +4,7 @@ keywords:
 tags: [integrations, kubernetes]
 sidebar: doc_sidebar
 permalink: integrations_tmc_howto.html
-summary: Monitor clusters in Tanzu Mission Control using Tanzu Observability by Wavefront
+summary: Monitor clusters in Tanzu Mission Control using Tanzu Observability by Wavefront.
 ---
 
 [VMware Tanzu Mission Control](https://docs.vmware.com/en/VMware-Tanzu-Mission-Control/services/tanzumc-concepts/GUID-E2B5BE05-596E-4999-9B21-1CDB875A1BBF.html) provides a centralized management platform for consistently operating and securing your Kubernetes infrastructure and modern applications across multiple teams and clouds.

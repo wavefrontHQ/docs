@@ -4,15 +4,15 @@ keywords:
 tags: [integrations, dashboards]
 sidebar: doc_sidebar
 permalink: integrations_gcp_overview.html
-summary: Minimum permissions for Google Cloud Platform
+summary: Minimum permissions for Google Cloud Platform.
 ---
 
-When you set up a Google Cloud Platform integration, you have to give the Wavefront service a permissions to access the data you want to visualize and analyze.
+When you set up a Google Cloud Platform integration, you have to give the Wavefront service permissions to access the data you want to visualize and analyze.
 
 
 ## Access Options
 
-Data flows from GCP to Wavefront only if the account has the required access. You have several options, discussed in detail below:
+Data flows from GCP to Tanzu Observability by Wavefront only if the account has the required access. You have several options, discussed in detail below:
 
 <table style="width: 100%;">
 <colgroup>
@@ -55,7 +55,7 @@ You can assign the following predefined roles, depending on which aspect of GCP 
 </table>
 
 
-## Giving Wavefront Limited Access
+## Giving Limited Access
 
 Instead of using the roles above, you can predefine a custom role and assign the following permissions.
 

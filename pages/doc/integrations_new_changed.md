@@ -4,9 +4,9 @@ keywords: integrations
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_new_changed.html
-summary: New and changed Wavefront integrations.
+summary: New and changed integrations.
 ---
-Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
+Tanzu Observability by Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
 ## February 2022
 
@@ -18,7 +18,7 @@ We added the following integrations in February 2022:
 
 * Dynatrace SaaS 
 
-  This integration collects the metrics from a Dynatrace SaaS environment and sends them to Wavefront. The on-premises Dynatrace integration is moved to the **Archived** section.
+  This integration collects the metrics from a Dynatrace SaaS environment and sends them to Tanzu Observability by Wavefront. The on-premises Dynatrace integration is moved to the **Archived** section.
 
 Made improvements to the following integrations and dashboards in February 2022:
 
@@ -43,7 +43,7 @@ We added the following integrations in January 2022:
 
 * Velero
 
-  You can monitor the Velero backup and restore solution. This integration is developed and created by the community and falls into to the **Community Integrations** section of the Wavefront **Integrations** page. We do not validate the community integrations and they are not fully supported by the Tanzu Observability by Wavefront team.
+  You can monitor the Velero backup and restore solution. This integration is developed and created by the community and falls into to the **Community Integrations** section of the Tanzu Observability by Wavefront **Integrations** page. We do not validate the community integrations and they are not fully supported by the Tanzu Observability by Wavefront team.
 
 Made improvements to the following integrations and dashboards in January 2022:
  
