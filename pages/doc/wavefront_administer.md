@@ -1,13 +1,13 @@
 ---
-title: Administer Wavefront
+title: Administer Tanzu Observability by Wavefront
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: wavefront_administer.html
-summary: Understand what you can do as a Wavefront administrator.
+summary: Understand what you can do as an administrator.
 ---
 
-Wavefront Super Admin users and Wavefront users with the **Accounts** permission can perform a variety of tasks, such as:
+Super Admin users and users with the **Accounts** permission can perform a variety of tasks, such as:
 
 * Manage the authorization and access to the Wavefront environment.
 * Select the authentication model in your environment. For example by setting up SSO using an identity provider (IdP).
@@ -15,7 +15,7 @@ Wavefront Super Admin users and Wavefront users with the **Accounts** permission
 
 ## Authorization
 
-As a Wavefront user with the **Accounts** permission, you can:
+As a user with the **Accounts** permission, you can:
 
 * Invite users, assign roles to users or add the users to groups to grant permissions. 
 * Create roles that are set of permissions and assign the role to one or more users.
@@ -27,7 +27,7 @@ As a Wavefront user with the **Accounts** permission, you can:
 
 ## Authentication
 
-You can select your preferred authentication method for your environment by setting up single sign-on using an identity provider (IdP), so that users can log in by using SSO instead of a user name and password. Wavefront authentication integrations use SAML and fully support two-factor authentication (managed by individual identity providers).  In single-tenant authentication environment, you can set up or update self-service SAML SSO. You can also set up multi-tenancy, which is configured jointly by you -- at the customer site, and the Wavefront team. 
+You can select your preferred authentication method for your environment by setting up single sign-on using an identity provider (IdP), so that users can log in by using SSO instead of a user name and password. Our authentication integrations use SAML and fully support two-factor authentication (managed by individual identity providers).  In single-tenant authentication environment, you can set up or update self-service SAML SSO. You can also set up multi-tenancy, which is configured jointly by you -- at the customer site, and the Tanzu Observability team. 
 
 ## Monitor and Troubleshoot
 

@@ -4,12 +4,12 @@ keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: authorization-faq.html
-summary: Before you start with managing users, groups, roles and access to Wavefront and Wavefront objects, here are some FAQs.
+summary: Before you start managing users, groups, roles, and access, here are some FAQs.
 ---
 
 ### What Are User & Service Accounts?
 
-Wavefront supports two account types:
+Tanzu Observability by Wavefront supports two account types:
 * [**User accounts**](user-accounts.html) are for human users who work with Wavefront. A user account authenticates with a user name and password.
 * [**Service accounts**](service-accounts.html) are for services that interact with Wavefront through an API and use a **token** to authenticate. Service accounts are used to automate management tasks. As a user with the **Accounts** permission, you generate (and revoke, if needed) authentication tokens for the service account. It’s also possible to deactivate a service account completely. 
  Service accounts:
@@ -19,7 +19,7 @@ Wavefront supports two account types:
 
 ### Who Is the Super Admin User?
 
-When your company signs up with Wavefront, we ask you which users you want to designate as Super Admin users. A Super Admin user:
+When your company signs up with Tanzu Observability, we ask you which users you want to designate as Super Admin users. A Super Admin user:
 * Has all permissions.
 * Has access to all dashboards and alerts.
 * Can [restore orphan dashboards and alerts](access.html#making-orphan-dashboards-visible).
@@ -44,7 +44,7 @@ Groups allow you to combine a set of users. You can then:
 * Assign a role to the group.
 * Give [view or modify access](access.html) for individual dashboards and alerts to the group.
 
-Wavefront groups do *not* currently synchronize with groups in your identity provider (IdP) such as Active Directory or LDAP.
+Our groups do *not* currently synchronize with groups in your identity provider (IdP) such as Active Directory or LDAP.
 
 
 ### What's the Everyone Group?
