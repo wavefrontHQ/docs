@@ -46,9 +46,9 @@ In the **Data** panel, specify the user and service accounts or groups and, opti
    
 ### Step 2: Configure the Ingestion Policy Alert
 
-If you set a PPS limit for the ingestion policy, Tanzu Observability creates an ingestion policy alert which queries the percentage of the PPS limit used by the accounts in the policy. You specify [thresholds and severities](https://docs.wavefront.com/alerts_manage.html#step-2-specify-thresholds-and-severities), [recipients](https://docs.wavefront.com/alerts_manage.html#step-3-specify-recipients), and a [name](https://docs.wavefront.com/alerts_manage.html#step-5-name-and-activate-the-alert) for the ingestion policy alert.
-
 {% include note.html content="If you chose not to set a PPS limit, this step is skipped."%}
+
+If you set a PPS limit for the ingestion policy, Tanzu Observability creates an ingestion policy alert that queries the percentage of the PPS limit used by the accounts assigned to the policy. You specify [thresholds and severities](https://docs.wavefront.com/alerts_manage.html#step-2-specify-thresholds-and-severities), [recipients](https://docs.wavefront.com/alerts_manage.html#step-3-specify-recipients), and a [name](https://docs.wavefront.com/alerts_manage.html#step-5-name-and-activate-the-alert) for the ingestion policy alert.
 
 1. In the **Conditions** panel, configure the thresholds and severities.
    1. Select the comparison operator for the alert condition. You can alert when the usage is greater than or less than a specified threshold percentage of the policy PPS limit.
