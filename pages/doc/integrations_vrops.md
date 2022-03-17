@@ -60,7 +60,7 @@ The API token will give read-only access to vRealize Operations Cloud and enable
 1. Click **Register**.
 
 
-{% include important.html content="After you set up the vRealize Operations Cloud integration, it will take up to 24 hours for the cost metrics to start flowing into Wavefront, because cost metrics reports flow on a daily basis. Until then, the cost related charts on the predefined **VMware vRealize Operations Cloud Summary** dashboard will show NO DATA." %}
+{% include important.html content="After you set up the vRealize Operations Cloud integration, it will take up to 24 hours for the cost metrics to start flowing into Tanzu Observability by Wavefront, because cost metrics reports flow on a daily basis. Until then, the cost related charts on the predefined **VMware vRealize Operations Cloud Summary** dashboard will show NO DATA." %}
 
 
 ## Metrics for vRealize Operations Cloud
@@ -93,9 +93,9 @@ You can see the full list of the collected metrics on the **Metrics Browser** pa
 
 This initial release of the VMware vRealize Operations Cloud integration has the following known issues and limitations:
 
-* For supermetrics, such as `Cost Drivers - Facilities (US $/Month)`, `Total Server Purchase Cost`, and so on, the metric names are not fetched and in the Tanzu Observability by Wavefront UI, these metrics are displayed with the super metric ID.
-* The vRealize Operations Cloud metrics have a point tag, which represents the organization ID. This is the UUIF of the organization. Currently, Tanzu Observability by Wavefront collects the Organization ID as a point tag, instead of the Organization name.
-* Along with the summary for a resource, in vRealize Operations Cloud there might be other properties. In Tanzu Observability by Wavefront, currently we do not collect such properties. The vRealize Operations Cloud integration only collets properties under the summary section as point tags.
+* For supermetrics, such as `Cost Drivers - Facilities (US $/Month)`, `Total Server Purchase Cost`, and so on, the metric names are not fetched and in the Tanzu Observability UI, these metrics are displayed with the super metric ID.
+* The vRealize Operations Cloud metrics have a point tag, which represents the organization ID. This is the UUIF of the organization. Currently, Tanzu Observability collects the Organization ID as a point tag, instead of the Organization name.
+* Along with the summary for a resource, in vRealize Operations Cloud there might be other properties. In Tanzu Observability, currently we do not collect such properties. The vRealize Operations Cloud integration only collets properties under the summary section as point tags.
 * In this release, you will see all the vCenter Server instances that you have configured in vRealize Operations Cloud. To shortlist the vCenter Server instances you want to monitor, apply a filter by using the REST API. 
   1. In your Wavefront cluster, click the gear icon on top right, and select **API Documentation**.
   2. Expand **Cloud Integration** and click the `GET /api/v2/cloudintegration` request.
@@ -126,9 +126,9 @@ This initial release of the VMware vRealize Operations Cloud integration has the
        
        **Leave only the names of the vCenter Server instances that you want to monitor.**
     
-    7. After you create the JSON file, click the `PUT /api/v2/cloudintegration/{id}` request.
+    7. After you create the JSON file, click the `PUT /api/v2/cloudintegration/{id}` request, and click **Try it out**.
     8. In the **id** text box, enter the ID of the integration that you copied in Step 5.
-    9. In the **body** text box, enter the contents of the JSON file that you created in Step 6.
-    10. Click **Try it out**. 
+    9. In the **Edit Value** text box, enter the contents of the JSON file that you created in Step 6.
+    10. Click **Execute**. 
     
    You get a `200` response and in the Tanzu Observability by Wavefront UI, you can see that the vCenter Server instances are filtered out.

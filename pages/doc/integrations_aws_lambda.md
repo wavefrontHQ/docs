@@ -17,16 +17,16 @@ On this page, we give some background and details not available on the integrati
 
 AWS Lambda is ideal for situations when you want to run a function in response to an event. Use cases include generating thumbnails whenever users upload images to a website or similar scenarios. You define the function in one of the languages that AWS Lambda supports, and the function runs whenever a triggering event occurs. This model is called Function-as-a-Service or serverless.
 
-While it's convenient to stop worrying about function execution, you might want to monitor the function. Tanzu Observability by Wavefront offers these choices to monitor your AWS Lambda function:
-* Use the Amazon CloudWatch integration. Using the CloudWatch integration allows access to the full set of standard metrics, but polling CloudWatch and send the data to Tanzu Observability by Wavefront introduces some lag.
+While it's convenient to stop worrying about function execution, you might want to monitor the function. We offer these choices to monitor your AWS Lambda function:
+* Use the Amazon CloudWatch integration. Using the CloudWatch integration allows access to the full set of standard metrics, but polling CloudWatch and send the data to Tanzu Observability introduces some lag.
 * Use the [AWS Lambda Functions integration](aws-lambda-functions.html). The integration collects standard metrics available through the public API. It also allows you to monitor business metrics by using a wrapper in Python, Go, or Node.js.
   - [Wavefront Go SDK for AWS Lambda](https://github.com/wavefrontHQ/wavefront-lambda-go)
   - [Wavefront Node.js SDK for AWS Lambda](https://github.com/wavefrontHQ/wavefront-lambda-nodejs)
   - [Wavefront Python SDK for AWS Lambda](https://github.com/wavefrontHQ/wavefront-lambda-python)
 
-## How to Use Tanzu Observability by Wavefront to Monitor AWS Lambda
+## How to Use Tanzu Observability to Monitor AWS Lambda
 
-To support monitoring serverless environments, Tanzu Observability by Wavefront includes a metric type called [delta counter](delta_counters.html). With delta counters, Tanzu Observability by Wavefront points are aggregated to the minute bucket. That avoids point collisions.
+To support monitoring serverless environments, Tanzu Observability includes a metric type called [delta counter](delta_counters.html). With delta counters, Tanzu Observability points are aggregated to the minute bucket. That avoids point collisions.
 
 The AWS Lambda Function integration and the SDKs listed above make it easy to collect standard metrics and custom metrics.
 

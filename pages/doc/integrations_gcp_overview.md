@@ -12,7 +12,7 @@ When you set up a Google Cloud Platform integration, you have to give the Wavefr
 
 ## Access Options
 
-Data flows from GCP to Tanzu Observability by Wavefront only if the account has the required access. You have several options, discussed in detail below:
+Data flows from GCP to Tanzu Observability only if the account has the required access. You have several options, discussed in detail below
 
 <table style="width: 100%;">
 <colgroup>

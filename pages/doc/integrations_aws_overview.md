@@ -25,12 +25,12 @@ dimension](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Supp
 
 ### Establish a Trust Relationship
 
-Adding an AWS integration requires establishing a trust relationship between Amazon and Tanzu Observability by Wavefront by specifying account information. You have to do that only once, and you have 2 options:
+Adding an AWS integration requires establishing a trust relationship between Amazon and Tanzu Observability by specifying account information. You have to do that only once, and you have 2 options:
 
-* [Give Tanzu Observability Global Read-Only Access](#give-read-only-access-to-your-amazon-account-and-get-the-role-arn)
-* [Give Tanzu Observability Limited Access](#giving-limited-access)
+* [Give Global Read-Only Access](#give-read-only-access-to-your-amazon-account-and-get-the-role-arn)
+* [Give Limited Access](#giving-limited-access)
 
-After you've set up the integration, you can examine metrics from all AWS services that you subscribe to from Tanzu Observability by Wavefront. The integration includes a predefined dashboard for each service. You can clone and modify the system dashboards, or create your own custom dashboard.
+After you've set up the integration, you can examine metrics from all AWS services that you subscribe to from Tanzu Observability. The integration includes a predefined dashboard for each service. You can clone and modify the system dashboards, or create your own custom dashboard.
 
 <!--### Use Internal Metrics to Monitor AWS Integrations
 
@@ -38,12 +38,12 @@ You can use some Tanzu Observability by Wavefront internal metrics to [monitor y
 
 ### AWS Dashboards
 
-If you set up an [Amazon Web Services integration](integrations.html), Tanzu Observability by Wavefront installs AWS overview dashboards Summary, Pricing, and Billing and the AWS service-specific dashboards: EC2, ECS, ELB, DynamoDB, Lambda, Redshift, and so on. All AWS dashboards have a tag `~integration.aws.<service>`. For example: `~integration.aws.ec2`, `~integration.aws.lambda`, etc.
+If you set up an [Amazon Web Services integration](integrations.html), Tanzu Observability installs AWS overview dashboards Summary, Pricing, and Billing and the AWS service-specific dashboards: EC2, ECS, ELB, DynamoDB, Lambda, Redshift, and so on. All AWS dashboards have a tag `~integration.aws.<service>`. For example: `~integration.aws.ec2`, `~integration.aws.lambda`, etc.
 
 {% include shared/system_dashboard.html %}
 
 
-## Giving Tanzu Observability by Wavefront Access to Your AWS Account
+## Giving Tanzu Observability Access to Your AWS Account
 
 Data flows from AWS only if the account has the required access. You have several options:
 
@@ -72,7 +72,7 @@ Data flows from AWS only if the account has the required access. You have severa
 
 ### Give Read-Only Access to Your Amazon Account and Get the Role ARN
 
-To grant Tanzu Observability by Wavefront with read-only access to your Amazon account, you need to provide an account ID and external ID. While the account ID is a constant value - the ID (in our case - the Wavefront ID) to which you want to grant access to your resources, the external ID is not a constant value. The external ID is a secret identifier that is known by you and Tanzu Observability by Wavefront (the third-party). The external ID is time-sensitive and regenerated each time you reopen the AWS Integration setup page, and you cannot reuse it.
+To grant Tanzu Observability with read-only access to your Amazon account, you need to provide an account ID and external ID. While the account ID is a constant value - the ID (in our case - the Wavefront ID) to which you want to grant access to your resources, the external ID is not a constant value. The external ID is a secret identifier that is known by you and Tanzu Observability by Wavefront (the third-party). The external ID is time-sensitive and regenerated each time you reopen the AWS Integration setup page, and you cannot reuse it.
 
 For information about external IDs and how they are used in AWS, see [How to Use External ID When Granting Access to Your AWS Resources](https://aws.amazon.com/blogs/security/how-to-use-external-id-when-granting-access-to-your-aws-resources/).
 
@@ -83,8 +83,16 @@ For information about external IDs and how they are used in AWS, see [How to Use
 1. Click **Create role**.
 1. Click the **AWS account** tile, and select the **Another AWS account** radio button.
 1. Enter the Wavefront account information:
-   - **Account ID** - The identifier of the Wavefront account to which you want to grant access. The account ID is displayed on the Wavefront AWS Integration Setup page, after you click **How to get Role ARN**.
-   - Select the option **Require external ID** and provide the external ID displayed on the Wavefront AWS Integration Setup page, after you click **How to get Role ARN**.
+   - **Account ID** - The identifier of the Wavefront account to which you want to grant access. 
+     To get the Wavefront account ID:
+      1. Navigate to your Wavefront cluster.
+      2. Click **Integrations** in the taskbar and click the **Amazon Web Services** integration tile. 
+      3. Click the **Setup** tab and click the **How to get Role ARN** link.
+      4. Copy the **Account ID** displayed in the instructions.
+    
+   - Select the option **Require external ID** and provide the external ID. 
+   
+       Copy the **External ID** displayed in the instructions on the **Amazon Web Services** integration **Setup** page (in your Wavefront instance UI) and paste it into the text box in the AWS UI.
      
 1. Click **Next**.
 1. On the **Add permissions** screen, search for, and select the **ReadOnlyAccess** check box.
@@ -96,7 +104,7 @@ For information about external IDs and how they are used in AWS, see [How to Use
 
 ### Giving Limited Access
 
-Instead of giving Tanzu Observability by Wavefront read-only access, you can give more limited access.
+Instead of giving global read-only access, you can give more limited access.
 
 The required permissions depend on the integration and on the service you want to monitor, as shown in the following table:
 <table>
@@ -112,7 +120,7 @@ The required permissions depend on the integration and on the service you want t
 </tr>
 <tr>
     <td>CloudTrail <br /></td>
-    <td>Retrieves EC2 event information and creates Tanzu Observability by Wavefront System events </td>
+    <td>Retrieves EC2 event information and creates Tanzu Observability System events </td>
     <td>List and Get permissions on the S3 bucket where the logs are delivered.
     </td>
 </tr>

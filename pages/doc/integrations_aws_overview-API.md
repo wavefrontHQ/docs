@@ -4,7 +4,7 @@ keywords:
 tags: [integrations, best practices]
 sidebar: doc_sidebar
 permalink: integrations_aws_overview_API.html
-summary: Understand how to set up and manage the AWS integration by using the Wavefront REST API
+summary: Understand how to set up and manage the AWS integration by using the Wavefront REST API.
 ---
 The Amazon Web Services integration allows you to ingest metrics directly from AWS. In addition to setting up and managing the AWS integration through the UI, you can also use the Wavefront REST API for setting up and managing the AWS integration. This doc page provides some basic steps and examples on how to do this.
 
@@ -18,7 +18,7 @@ To set up the Amazon Web Services integration, you must provide Tanzu Observabil
 
 For information about external IDs and how they are used in AWS, see [How to Use External ID When Granting Access to Your AWS Resources](https://aws.amazon.com/blogs/security/how-to-use-external-id-when-granting-access-to-your-aws-resources/).
 
-For more information about giving Tanzu Observability by Wavefront access to your Amazon account, see [Giving Tanzu Observability by Wavefront Access to Your AWS Account](ntegrations_aws_overview.html#giving-tanzu-observability-by-wavefront-access-to-your-aws-account).
+For more information, see [Giving Tanzu Observability Access to Your AWS Account](ntegrations_aws_overview.html#giving-tanzu-observability-access-to-your-aws-account).
 
 
 ### Create an External ID
@@ -277,7 +277,7 @@ We also add the metrics for these services to a metric allow list by using a reg
 
 ## Enable and Disable an AWS Integration
 
-Tanzu Observability by Wavefront automatically disables integrations that are experiencing errors due to invalid credentials. To enable an integration after the credential has been corrected or to manually disable an integration, you need the integration ID.
+Tanzu Observability automatically disables integrations that are experiencing errors due to invalid credentials. To enable an integration after the credential has been corrected or to manually disable an integration, you need the integration ID.
 
 1. In the Wavefront REST API documentation, click the `GET/api/v2/cloudintegration` request.
 1. Click the **Try it out** button in the top right of the request and click **Execute**.

@@ -44,10 +44,11 @@ Follow these steps to create a Wavefront account in CloudHealth:
 1. Select **Accounts** > **Setup** > **Wavefront**.
 1. Click **New Account** and configure the integration:
   ![Screenshot of the configuration screen in the CloudHealth UI.](images/integration_cloudhealth_wavefront_setup.png)
-    1. Enter a name of the account.
+    1. Enter ab account name.
     1. Retrieve the Wavefront API token (see Prerequisites) and paste it in the **API Token** field.
-    1. If you are using a metric prefix in Wavefront, enter its value in the **Metric Prefix** field.
-    1. To import tags from a legacy Servers account, enable **Import Tags**. CloudHealth then actively collects tags, and you will see an additional field to accept the tags that you want to import into CloudHealth.
+    1. If you are using a metric prefix in Tanzu Observability by Wavefront, enter its value in the **Metric Prefix** field.
+    1. To import tags from a legacy Servers account, enable **Import Tags**. 
+       CloudHealth then actively collects tags, and you will see an additional field to accept the tags that you want to import into CloudHealth.
 1. Click **Save Account**.
 
 CloudHealth begins collecting Wavefront Sources within 15 minutes of account setup, and continues collecting these Sources every 15 min. CloudHealth fetches up to one day's worth of time-series data from the date when you add the Wavefront account.
@@ -56,8 +57,8 @@ CloudHealth begins collecting Wavefront Sources within 15 minutes of account set
 
 The following data from Tanzu Observability by Wavefront is sent to CloudHealth:
 
-* Tanzu Observability by Wavefront [Sources](sources_managing.html) every 15 minutes. Each source is a data source (host, VM, etc). Sources can have tags attached to them.
-* Tanzu Observability by Wavefront [Source tags](tags_overview.html#source-tags) every 15 minutes. Source tags are treated as dynamic attributes on a Tanzu Observability by Wavefront Source. You cannot overwrite Tanzu Observability by Wavefront Source tags with custom CloudHealth tags, but you can use them to build Perspectives in CloudHealth, as explained in the next section.
+* Tanzu Observability [Sources](sources_managing.html) every 15 minutes. Each source is a data source (host, VM, etc). Sources can have tags attached to them.
+* Tanzu Observability [Source tags](tags_overview.html#source-tags) every 15 minutes. Source tags are treated as dynamic attributes on a Tanzu Observability Source. You cannot overwrite Tanzu Observability Source tags with custom CloudHealth tags, but you can use them to build Perspectives in CloudHealth, as explained in the next section.
   {% include tip.html content="CloudHealth Perspectives are lenses through which you want to view your infrastructure. They provide a framework for categorizing all the assets within your infrastructure. Sample perspectives might include Environment, Application, Department, Function, Project, or Cost Center." %}
 * Memory and disk metrics for each source every 1 hour. For each metric, CloudHealth gathers the mean, minimum, and maximum.
 * If you have enabled CloudWatch metrics collection through the CloudHealth platform, additional core metrics such as CPU, network bytes, and filesystem usage are gathered.
@@ -65,17 +66,17 @@ The following data from Tanzu Observability by Wavefront is sent to CloudHealth:
 
 ## Create Perspectives in CloudHealth
 
-You can use Tanzu Observability by Wavefront source tags to create Perspective Groups within the CloudHealth Platform. Follow these steps:
+You can use Tanzu Observability source tags to create Perspective Groups within the CloudHealth Platform. Follow these steps:
 
-1. Navigate to CloudHealth, and click Wavefront.
+1. Navigate to CloudHealth, and click **Wavefront**.
 1. Click **Setup** > **Perspectives** > **New Perspective**.
 1. Provide a Name and click **Create Perspective and Start Building**.
   ![The UI that shows with the name text box, and optional description. There are two buttons at the bottom, which are create perspective and start building and cancel.](images/integartion_cloudhealth_perspective.png)
-1. On the Guided Search tab:
-    1. For the **Choose an Asset Type** dropdown, select **Source** under **Wavefront**.
+1. On the **Guided Search** tab:
+    1. From the **Choose an Asset Type** drop-down menu, select **Source** under **Wavefront**.
         ![Shows the source selected under the Wavefront section as explained in this step.](images/integration_cloudhealth_perspective_asset_type.png)
     1. Set the **Discovery Method** to **Categorize**.
-    1. Click the dropdown under **Choose a Field to Categorize By** and select the tag you want to use to create Perspective groups.
+    1. Click the drop-down menu under **Choose a Field to Categorize By** and select the tag you want to use to create Perspective groups.
     1. Click **Categorize**.
 
     ![A screenshot that shows all the fields filled as explained in the sub steps below.](images/integartion_cloudhealth_perspective_group.png)

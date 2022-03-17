@@ -13,14 +13,14 @@ We update our [integrations release notes](integrations_new_changed.html) on a m
 
 ## Watch a Video
 
-In this video, Jason talks about the different integrations we have, and how you can use them to get your data into Tanzu Observability by Wavefront. You can also watch the video <a href="https://bcove.video/2JTvMgW" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+In this video, Jason talks about the different integrations we have, and how you can use them to get your data into Tanzu Observability. You can also watch the video <a href="https://bcove.video/2JTvMgW" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
 
 <p><a href="https://bcove.video/2JTvMgW"><img src="/images/v_integrations_v2.png" style="width: 700px;" alt="new intro to integratons"/></a>
 </p>
 
 ## Try an Integration!
 
-Sign up for a Tanzu Observability by Wavefront trial to try integrations. Detailed setup steps for each integration are in the product.
+Sign up for a trial version to try our integrations. Detailed setup steps for each integration are in the product.
 
 Here's a sample of what you see when you select one of our integrations:
 * The **Overview** tab explains how the integration works and what's included, often a sample dashboard with commonly used charts.
@@ -37,7 +37,7 @@ Here's a screenshot that shows the different tabs of the Apache Solr integration
 
 ## Built-In and Custom Integrations
 
-Tanzu Observability by Wavefront lets you set up many integrations directly from the product. For other integrations, we give step-by-step instructions -- or you can send your data in other ways, for example, using the Telegraf output plug-in.
+Tanzu Observability lets you set up many integrations directly from the product. For other integrations, we give step-by-step instructions -- or you can send your data in other ways, for example, using the Telegraf output plug-in.
 
 - **Built-in integrations** provide assisted installation and configuration. Many integrations also install a dashboard for you. Access the integration by selecting **Integrations** from the taskbar and clicking the **Setup** tab.
 
@@ -73,7 +73,7 @@ This table provides links to the documentation pages for many of the custom and 
 
 Our customers have started to make open-source integrations available on GitHub.
 
-Our first external integration sends AlertSite monitoring results to Tanzu Observability by Wavefront and is available at [https://github.com/secureworks/AlertSite2Wavefront](https://github.com/secureworks/AlertSite2Wavefront).
+Our first external integration sends AlertSite monitoring results to Tanzu Observability and is available at [https://github.com/secureworks/AlertSite2Wavefront](https://github.com/secureworks/AlertSite2Wavefront).
 
 We're excited about this contribution and hope to see more soon!
 
