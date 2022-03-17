@@ -25,7 +25,7 @@ You can snooze an alert, so it doesn't fire even if the condition is met. You ca
 <tr>
 <td width="50%">
 To snooze or unsnooze one or more alerts:
-<ol><li>Click <strong>Alerting</strong> from the taskbar. </li>
+<ol><li>Click <strong>Alerting &gt; All Alerts</strong> in the taskbar. </li>
 <li>Select the check boxes next to the alerts that you want to snooze.</li>
 <li>Click the <strong>Snooze</strong> drop-down menu and select the desired duration.</li>
 <li>To unsnooze the alerts, click <strong>Unsnooze</strong>.</li>
@@ -35,7 +35,7 @@ To snooze or unsnooze one or more alerts:
 <tr>
 <td width="50%">
 To snooze or unsnooze a single alert:
-<ol><li>Click <strong>Alerting</strong> from the taskbar. </li>
+<ol><li>Click <strong>Alerting &gt; All Alerts</strong> from the taskbar. </li>
 <li>Click the ellipsis icon on the left of the alert and select <strong>Snooze &gt; &lt;Duration&gt;</strong>.</li>
 <li>To unsnooze the alert, click the ellipsis icon on the left of the alert and select <strong>Unsnooze</strong>.</li>
 </ol></td>
@@ -56,7 +56,7 @@ You can:
 * Extend selected maintenance windows.
 * Send alert notifications to an alternate alert target during the maintenance window.
 
-To view and manage maintenance windows, select **Browse > Maintenance Windows**.
+To view and manage maintenance windows, select **Alerting > Maintenance Windows**.
 
 <div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view maintenance windows, you must have the [Alert Management permission](permissions_overview.html) to [manage](maintenance_windows_managing.html) maintenance windows. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
@@ -77,7 +77,7 @@ Creating a maintenance window consists of these simple steps:
 
 #### Step 1: Specify Required Maintenance Window Fields
 
-<ol><li>Click <strong>Alerting</strong> or select <strong>Browse > Maintenance Windows</strong> from the taskbar. </li>
+<ol><li>Click <strong>Alerting &gt; Maintenance Windows</strong> in the taskbar. </li>
 <li>Click the <strong>Create Maintenance Window</strong> button.</li>
 <li>Specify the <strong>Name</strong> and <strong>Description</strong> for the maintenance window.</li>
 <li>Specify the <strong>Start Time</strong> and <strong>End Time</strong> for the maintenance window.</li>
@@ -136,7 +136,7 @@ You can extend the duration of a maintenance window. To extend one or more maint
 <tbody>
 <tr>
 <td width="60%">
-<ol><li>Select <strong>Browse > Maintenance Windows</strong>. </li>
+<ol><li>Select <strong>Alerting > Maintenance Windows</strong>. </li>
 <li>Select the check boxes next to the maintenance windows to be extended.</li>
 <li>Click the <strong>Extend</strong> drop-down menu and select the desired duration and confirm.</li>
 </ol></td>
@@ -151,7 +151,7 @@ To extend a single maintenance window, click the ellipsis icon on the left of th
 
 You can close the window to enable alerts before the window is scheduled to finish.
 
-1. Select **Browse > Maintenance Windows**.
+1. Select **Alerting > Maintenance Windows**.
 2. Select the check boxes next to the maintenance windows to be closed.
 3. Click the **Close** button and confirm.
 

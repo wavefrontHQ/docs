@@ -174,7 +174,7 @@ Alert checks are based on data that is summarized every minute.  Consequently, i
 
 ### Viewing Firing Alerts
 
-When you hover over the **Alerting** button in the taskbar, you can see the number of alerts firing.
+When you hover over **Alerting** in the taskbar, you can see how many alerts are firing.
 
 <table style="width: 100%;">
 <tbody>

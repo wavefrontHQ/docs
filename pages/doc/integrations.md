@@ -84,13 +84,13 @@ Before setting up an integration, you can look into our demo dashboards. These d
  {% include note.html content="The Sample Data Dashboards are currently available to some of our customers. They will become available to all customers within the next releases."%}
 
 1. Click **Integrations** on the taskbar.
-   
+
    ![Sample data dashboards section preview](images/integrations-sample-dashboards.png)
-1. In the **Get to know integration dashboards!** section, click the **Explore** button for a sample integration dashboard. 
-    
+1. In the **Get to know integration dashboards!** section, click the **Explore** button for a sample integration dashboard.
+
     {% include note.html content="You are redirected to a sandbox data tenant cluster in another tab of your browser. Notice the URL. This sandbox data tenant cluster contains the sample integrations data and dashboards." %}
 
-1. To close the **Sample Data Dashboards** section, click **Close the section** and confirm. 
+1. To close the **Sample Data Dashboards** section, click **Close the section** and confirm.
 1. To bring back the demo dashboards section, in the left pane, click **Show Demo Dashboards**.
 
 ## Installing and Uninstalling Integration Dashboards
@@ -108,8 +108,8 @@ You can install and uninstall the Wavefront system integration dashboards.
 
 You cannot modify the Wavefront system dashboards. Instead, you must clone the dashboards.
 1. Click the ellipsis icon in the top right corner of the dashboard.
-2. Select **Clone**. 
-3. Provide a URL string that's just the name (e.g., `mydashboard` or `dashboard-name-clone`) and not the URL (e.g., `http://mydashboard`). 
+2. Select **Clone**.
+3. Provide a URL string that's just the name (e.g., `mydashboard` or `dashboard-name-clone`) and not the URL (e.g., `http://mydashboard`).
 4. Customize the clone to suit your needs.
 
 ## Installing and Uninstalling Integration Alerts
@@ -127,11 +127,11 @@ Some integrations contain system alerts. You can install and uninstall the prede
 
 ## Editing and Cloning the Integration Alerts
 
-To [edit the targets of the integration alerts](webhooks_alert_notification.html#learn-about-alert-targets), you must have the **Alerts** permission. If you edit the system integration alerts and then reinstall them, all of the changes that you've made are reverted back to their original state. 
+To [edit the targets of the integration alerts](webhooks_alert_notification.html#learn-about-alert-targets), you must have the **Alerts** permission. If you edit the system integration alerts and then reinstall them, all of the changes that you've made are reverted back to their original state.
 
-To make further customizations, clone the alert first. 
+To make further customizations, clone the alert first.
 
-1. Click **Alerting** in the toolbar.
+1. Click **Alerting>All Alerts** in the toolbar.
 2. Click the ellipsis icon next to the alert that you want to clone, and select **Clone**.
 3. Enter a name of the new alert and click **Clone**.
 
