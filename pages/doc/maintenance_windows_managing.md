@@ -25,7 +25,7 @@ You can snooze an alert, so it doesn't fire even if the condition is met. You ca
 <tr>
 <td width="50%">
 To snooze or unsnooze one or more alerts:
-<ol><li>Click <strong>Alerting &gt; All Alerts</strong> in the taskbar. </li>
+<ol><li>Click <strong>Alerting &gt; All Alerts</strong> from the toolbar. </li>
 <li>Select the check boxes next to the alerts that you want to snooze.</li>
 <li>Click the <strong>Snooze</strong> drop-down menu and select the desired duration.</li>
 <li>To unsnooze the alerts, click <strong>Unsnooze</strong>.</li>
@@ -35,7 +35,7 @@ To snooze or unsnooze one or more alerts:
 <tr>
 <td width="50%">
 To snooze or unsnooze a single alert:
-<ol><li>Click <strong>Alerting &gt; All Alerts</strong> from the taskbar. </li>
+<ol><li>Click <strong>Alerting &gt; All Alerts</strong> from the toolbar. </li>
 <li>Click the ellipsis icon on the left of the alert and select <strong>Snooze &gt; &lt;Duration&gt;</strong>.</li>
 <li>To unsnooze the alert, click the ellipsis icon on the left of the alert and select <strong>Unsnooze</strong>.</li>
 </ol></td>
@@ -58,7 +58,7 @@ You can:
 
 To view and manage maintenance windows, select **Alerting > Maintenance Windows**.
 
-<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view maintenance windows, you must have the [Alert Management permission](permissions_overview.html) to [manage](maintenance_windows_managing.html) maintenance windows. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
+<div markdown="span" class="alert alert-info" role="alert">While every user can view maintenance windows, you must have the [**Alerts** permission](permissions_overview.html) to [manage](maintenance_windows_managing.html) maintenance windows. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
 
 Watch this <a href="https://bcove.video/3m7AM4x" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> for an introduction to maintenance windows.
@@ -77,7 +77,7 @@ Creating a maintenance window consists of these simple steps:
 
 #### Step 1: Specify Required Maintenance Window Fields
 
-<ol><li>Click <strong>Alerting &gt; Maintenance Windows</strong> in the taskbar. </li>
+<ol><li>Click <strong>Alerting &gt; Maintenance Windows</strong> from the toolbar. </li>
 <li>Click the <strong>Create Maintenance Window</strong> button.</li>
 <li>Specify the <strong>Name</strong> and <strong>Description</strong> for the maintenance window.</li>
 <li>Specify the <strong>Start Time</strong> and <strong>End Time</strong> for the maintenance window.</li>
@@ -136,7 +136,7 @@ You can extend the duration of a maintenance window. To extend one or more maint
 <tbody>
 <tr>
 <td width="60%">
-<ol><li>Select <strong>Alerting > Maintenance Windows</strong>. </li>
+<ol><li>Click <strong>Alerting > Maintenance Windows</strong> from the toolbar. </li>
 <li>Select the check boxes next to the maintenance windows to be extended.</li>
 <li>Click the <strong>Extend</strong> drop-down menu and select the desired duration and confirm.</li>
 </ol></td>

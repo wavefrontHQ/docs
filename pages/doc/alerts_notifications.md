@@ -105,14 +105,14 @@ If you want to exclude chart images:
 
 ## PagerDuty Notifications
 
-If you use the out-of-the-box PagerDuty alert target, and you resolve the incident in PagerDuty while the alert is still firing in Wavefront, two scenarios are possible:
+If you use the out-of-the-box PagerDuty alert target, and you resolve the incident in PagerDuty while the alert is still firing in Tanzu Observability by Wavefront, two scenarios are possible:
 
 - If there is a change to the set of sources being affected, that change triggers a new incident in PagerDuty. Changes to the set of sources being affected include:
 
   - Newly affected sources are added to the list of existing affected sources
   - A subset of the existing sources being affected is no longer affected
 
-- If all affected sources are no longer affected and the alert is resolved in Wavefront, then no new incident is logged into PagerDuty.
+- If all affected sources are no longer affected and the alert is resolved in Tanzu Observability, then no new incident is logged into PagerDuty.
 
 You can customize this behavior by creating a custom PagerDuty [alert target](webhooks_alert_notification.html) with different triggers.
 
