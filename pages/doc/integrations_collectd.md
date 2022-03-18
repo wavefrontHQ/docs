@@ -4,7 +4,7 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_collectd.html
-summary: Learn how to send data collected by collectd to Wavefront.
+summary: Learn how to send data collected by collectd to Tanzu Observability by Wavefront.
 ---
 
 To set up collectd to collect metrics, follow the instructions in the in-product [collectd integration](integrations.html).
