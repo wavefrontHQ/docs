@@ -1,12 +1,12 @@
 ---
-title: Cardinality and Wavefront
+title: High Cardinality Data
 keywords: getting started
 tags: [getting started, cardinality, videos]
 sidebar: doc_sidebar
 permalink: cardinality.html
-summary: Learn about how Wavefront deals with cardinality.
+summary: Learn about how the Wavefront service deals with cardinality.
 ---
-Wavefront supports high cardinality when dealing with timeseries data and infinite cardinality in its distributed tracing offering.  Wavefront can handle the cardinality of more than 200,000 concurrently running containers per Kubernetes cluster. Even though Wavefront can handle high cardinality data shapes, high cardinality can cause system slowdown and metrics retrieval issues.
+Tanzu Observability by Wavefront supports high cardinality when dealing with timeseries data and infinite cardinality in its distributed tracing offering.  The Wavefront service can handle more than 200,000 concurrently running containers per Kubernetes cluster. In certain situations, however, high cardinality can cause system slowdown and metrics retrieval issues.
 
 ## What Is Data Cardinality?
 
@@ -16,7 +16,7 @@ Generally, timeseries data in a simple form is labeled as a name, value, and tim
 
 `cpu.usage.user.percentage <metricvalue> [<timestamp>]`
 
-In Wavefront, we enhance the data with tags and indexes, so that it has more context. For example:
+The [Wavefront Data Format](wavefront_data_format.html) also includes point tags. For example:
 
 `cpu.usage.user.percentage <metricvalue> [<timestamp>] source="mysystem" [pointTags]`
 
@@ -47,30 +47,30 @@ Almost all timeseries databases are key-value systems and each unique combinatio
 When you deploy a large system, there’s a rapid burst of new index entries, which can lead to high cardinality issues, such as slowdown or unresponsiveness of the monitoring system.
 
 
-## Wavefront and High Cardinality
+## High Cardinality and the Wavefront Service
 
 
-Wavefront usually deals gracefully with high cardinality because it has the following features:
+The Wavefront service usually deals gracefully with high cardinality because it has the following features:
 
 **Applies top-down and bottom-up indexes**
 
-Top-down indexes are the so-called metric source tags. In Wavefront, instead of just using the metric name as the primary key, the source is also considered a first-class citizen and is part of the primary metric host tag index. This improves the Wavefront performance and retrievability of data.
+Top-down indexes are the so-called metric source tags. Instead of just using the metric name as the primary key, the Wavefront service uses the source as part of the primary metric/host index. This improves performance and retrievability of data.
 
 A second tag value index allows for queries filtered by tag values to retain high performance. The combination of 2 primary indexes (metric and source) for timeseries data allows for greater cardinality with no impact on the data ingestion or query performance.
 
 **Keeps the most recent indexes**
 
-In Wavefront, indexes that deal with current data are kept in fast memory. Wavefront moves the indexes that have not received new data for 4 weeks to older storage. Containerized environments benefit especially from this because of the ephemeral nature of the generated indexes.
+The Wavefront service keeps indexes that deal with current data are kept in fast memory. Only indexes that have not received new data for 4 weeks are moved to older storage. Containerized environments benefit especially from this because of the ephemeral nature of the generated indexes.
 
 
 **Uses correlated tagging**
 
-Some metrics always have the same combination of tag keys and values. Data ingestion heuristics can spot when the same combination of tags is routinely indexed. Wavefront correlates tags and optimizes index creation and usage to increase the performance for metrics with the same combination of tags.
+Some metrics always have the same combination of tag keys and values. Data ingestion heuristics can spot when the same combination of tags is routinely indexed. The Wavefront service correlates tags and optimizes index creation and usage to increase the performance for metrics with the same combination of tags.
 
 **Uses dynamic programming**
 Most queries are similar and run repeatedly, iteratively, and streaming. For example, queries such as `*.system.cpu.*, env=prod` would damage many systems when fetching proper indexes.
 
-Wavefront uses a dynamic programming in the backend which:
+The Wavefront service uses a dynamic programming in the backend which:
 
 * Breaks down a complex search into simple sub-searches.
 * Solves each sub-search once and store the results.
@@ -85,11 +85,11 @@ For more information, watch the following video, in which the Wavefront co-found
 
 <a href="https://youtu.be/8wKPkrIiXKw" target="_blank"><img src="/images/v_cardinality.png" style="width: 700px;" alt="about cardinality"/></a>
 
-## Optimizing Your Data for Wavefront
+## Optimizing High-Cardinality Data
 
-Although Wavefront supports high cardinality for time series data, to avoid high cardinality issues, consider the following recommendations:
+Although the Wavefront service supports high cardinality for time series data, to avoid high cardinality issues, consider the following recommendations:
 
-* Do not use Wavefront for monitoring individual event data points. If you want to monitor such data, use the distributed tracing offering. See [Distributed Tracing Overview](tracing_basics.html) and [Tracing Best Practices](tracing_best_practices.html).
+* Do not monitor individual event data points. If you want to monitor such data, use the distributed tracing offering. See [Distributed Tracing Overview](tracing_basics.html) and [Tracing Best Practices](tracing_best_practices.html).
 
 * Follow best practices:
 
@@ -104,8 +104,8 @@ For information about metric, source, and point tag names, see [Wavefront Data N
 
 ## Learn More!
 
+* For more background and practical advice, see [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html).
+
 Our Customer Success team has prepared several KB articles that give additional detail.
-* [How to optimize and format the shape of your data for query performance](https://help.wavefront.com/hc/en-us/articles/360061261412-How-to-optimize-and-format-the-shape-of-your-Data-for-query-performance-).
 * [Common time limits and best practices](https://help.wavefront.com/hc/en-us/articles/360058716512-Common-Tanzu-Observability-time-limits-and-best-practices).
-* [Understand your time series data shape](https://help.wavefront.com/hc/en-us/articles/360050098952-Understand-your-time-series-data-shape).
 * [Monitoring Metric Data Quality](https://help.wavefront.com/hc/en-us/articles/360055613191-Monitoring-metric-data-quality).

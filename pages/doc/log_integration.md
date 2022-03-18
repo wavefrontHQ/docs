@@ -1,16 +1,18 @@
 ---
 title: Access and Examine External Logs
-keywords: log integrations 
+keywords: log integrations
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: log_integration.html
 summary: Learn how to manage and view external logs.
 ---
-The log integration lets you drill down from a Wavefront time series to a log entry in a logging system such as Scalyr, ELK, or Splunk.
+The Tanzu Observability by Wavefront log integration lets you drill down from time series that is displayed in a chart to a log entry in a logging system such as Scalyr, ELK, or Splunk.
 
-Suppose while analyzing metrics data you find an anomaly such as an unexpected drop in transaction rate. You want to look at corresponding log entries. Set up the Log Integration and you can click through from a Wavefront series directly to a related entry in your logging system.
+Suppose while analyzing metrics data you find an anomaly such as an unexpected drop in transaction rate. You want to look at corresponding log entries. Set up the Log Integration and you
+* Look at the problem in a chart
+* Click through from the time series directly to a related entry in your logging system.
 
-{% include note.html content="While every Wavefront user can view external links, you must have [External Links Management permission](permissions_overview.html) to [manage external links](external_links_managing.html) and create log integrations. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible."%}
+{% include note.html content="While ever user can view external links, you must have [External Links Management permission](permissions_overview.html) to [manage external links](external_links_managing.html) and create log integrations. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible."%}
 
 {% include tip.html content="Log integrations and [external links](external_links_managing.html) work the same way but, they will be listed under different sections when you right click on a time series.
 ![log integration and external links](images/log_integration_intro.png)"
@@ -21,9 +23,9 @@ Suppose while analyzing metrics data you find an anomaly such as an unexpected d
 Users with **External Links** permission can create and modify log integration.
 
 1. Select **Browse > Create Log Integration**.
-1. Specify a link name and description.    
+1. Specify a link name and description.
 1. (Optional) Specify a filter to limit the log integration from showing on a time series. For example, if you specify a point tag filter of `env=production`, you will only see the specified log integration when you right click on a time series that has data related to that point tag.
-    
+
     Filters are optional but allow you to show the external link only on certain time series.
 
     <table>
@@ -131,7 +133,7 @@ Users with **External Links** permission can create and modify log integration.
               </tbody>
           </table></li>
           </ul>
-        
+
         </div>
 
         <div role="tabpanel" class="tab-pane" id="templateexample">
@@ -143,27 +145,27 @@ Users with **External Links** permission can create and modify log integration.
     https://example.com/&lcub;&lcub;source&rcub;&rcub;
           </pre>
           </li>
-          
+
           <li>The following external link URL template goes to <code>scalyr.com</code> and passes in the source of the series and the start and end time of the chart if a user right-clicks on a series.
 
           <pre>
     https://www.scalyr.com/events?logSource=&lcub;&lcub;&lcub;source}}}&startTime=&lcub;&lcub;startEpochMillis}}&endTime=&lcub;&lcub;endEpochMillis}}
           </pre>
           </li>
-          
+
           <li>The next external link URL template looks for a service trace in the distributed traces.
 
           <pre>
     https://demo.wavefront.com/tracing/service/&lcub;&lcub;namespace_name}}/&lcub;&lcub;container_name}}#_v01(g:(d:7200,ls:!t,s:&lcub;&lcub;#functions.epochMillisToEpochSeconds}}&lcub;&lcub;startEpochMillis}}&lcub;&lcub;/functions.epochMillisToEpochSeconds}},e:&lcub;&lcub;#functions.epochMillisToEpochSeconds}}&lcub;&lcub;endEpochMillis}}&lcub;&lcub;/functions.epochMillisToEpochSeconds}}),p:(cluster:(v:'*'),shard:(v:'*'),source:(v:'*')))
           </pre>
           </li>
-          
+
           <li>The following external link URL template displays an event on the Events page when you click the event in a chart. Replace <code>&lt;my_instance&gt;</code> with the name of your Wavefront instance.
           <pre>
     https://&lt;my_instance&gt;.wavefront.com/events?search=%7B%22searchTerms%22%3A%5B%7B%22type%22%3A%22freetext%22%2C%22value%22%3A%22&lcub;&lcub;alertId}}%22%7D%5D%2C%22sortOrder%22%3A%22ascending%22%2C%22sortField%22%3Anull%2C%22pageNum%22%3A1%2C%22cursor%22%3A%22%22%2C%22direction%22%3A%22forward%22%2C%22timeRange%22%3A%7B%22start%22%3A&lcub;&lcub;startEpochMillis}}%2C%22quickTime%22%3Anull%2C%22end%22%3A&lcub;&lcub;endEpochMillis}}%7D%7D&tagPathTree=%7B%7D
           </pre>
           </li>
-          
+
           <li>The following external link URL template references the point tag name <code>service</code>:
           <pre>
     http://&lt;hostname&gt;?time:(from:'&lcub;&lcub;#functions.epochMillisToISO}}&lcub;&lcub;startEpochMillis}}&lcub;&lcub;/functions.epochMillisToISO}}',to:'&lcub;&lcub;#functions.epochMillisToISO}}&lcub;&lcub;endEpochMillis}}&lcub;&lcub;/functions.epochMillisToISO}}'))&&lcub;&lcub;#functions.urlEncode}}host:&lcub;&lcub;source}} AND source:"/mnt/logs/&lcub;&lcub;service}}.log"&lcub;&lcub;/functions.urlEncode}}'))
@@ -172,7 +174,7 @@ Users with **External Links** permission can create and modify log integration.
           </ul>
 
         </div>
-      </div> 
+      </div>
 1. Click **Save**.
 
 ## Navigate to External Logs

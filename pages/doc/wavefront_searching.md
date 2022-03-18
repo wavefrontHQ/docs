@@ -1,12 +1,12 @@
 ---
-title: Searching Wavefront
+title: Searching Tanzu Observability by Wavefront
 keywords: getting started
 tags: [getting started, video]
 sidebar: doc_sidebar
 permalink: wavefront_searching.html
-summary: Learn how to search for objects in the Wavefront UI.
+summary: Learn how to search for objects using tags and other search features.
 ---
-To help you find exactly what you need, Wavefront supports tags and a variety of search features.
+To help you find exactly what you need, Tanzu Observability by Wavefront supports tags and other search features.
 
 Here's a <a href="https://bcove.video/2UnQFZ0" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a>  to get you started:
 
@@ -17,19 +17,19 @@ Here's a <a href="https://bcove.video/2UnQFZ0" target="_blank">video<img src="/i
 
 ## Using Tags to Facilitate Searches
 
-Tags allow you to flexibly manage and organize your Wavefront content.
-* Tag paths allow you to organize your content in hierarchies that best suit your particular use of Wavefront.
+Tags allow you to flexibly manage and organize what you see in dashboards, charts, browsers, and other UI elements.
+* Tag paths allow you to organize your content in hierarchies that best suit your particular use of the product.
 * You can include content in multiple hierarchies to suit the needs of different groups of users.
 
 We support several different types of tags that you can leverage when searching. See [Organizing with Tags](tags_overview.html).
 
 ## Searching
 
-All Wavefront browsers (**All Dashboards**, **Alerts**, **Integrations**, and so on) support a variety of search methods. You can search in the Search field at the top or in the faceted filter bar at the left.
+All object browsers (**All Dashboards**, **Alerts**, **Integrations**, and so on) support a variety of search methods. You can search in the Search field at the top or in the faceted filter bar at the left.
 
 ### Search Field
 
-The search field at the top of every Wavefront browser page supports both autocomplete and search. We support autocomplete for many searches.
+The search field at the top of every object browser page (alerts browser, metrics browser, etc.) supports both autocomplete and search. We support autocomplete for many searches.
 
 For example, in the **All Dashboards** page, searching for an incomplete term, returns a drop-down list that displays a list of items that contain the search string, such as:
 
@@ -67,7 +67,7 @@ Once you press **Return** or **Enter** after typing a search string, the buttons
 
 ## Other Actions
 
-The Wavefront UI supports tagging and other actions.
+To find and access objects, we support tagging and other actions:
 
 -   **Tagging** -- Select at least one item from the list and click the tag buttons to create, add, and remove tags.
 -   **Actions** -- Perform different actions, such as clone, delete, edit, rename, etc., on an individual object. Select the object, click the ellipsis icon on the left of the object, for example, on the left of an alert. The actions that you can perform are different for different types of objects but might include clone, edit, manage access, delete, or snooze (for alerts). Here's an example for the **Actions** menu for dashboards:

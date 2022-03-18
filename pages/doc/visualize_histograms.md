@@ -5,9 +5,9 @@ tags: [proxies, dashboards, charts]
 sidebar: doc_sidebar
 published: true
 permalink: visualize_histograms.html
-summary: Learn how to visualize Wavefront histograms.
+summary: Learn how to visualize histograms.
 ---
-Wavefront histograms let you compute, store, and use distributions of metrics rather than single metrics. You can [send histograms](proxies_histograms.html#sending-histogram-distributions) to a Wavefront proxy or use direct ingestion.
+Tanzu Observability by Wavefront supports histograms for computing, storing, and using distributions of metrics rather than single metrics. You can [send histograms](proxies_histograms.html#sending-histogram-distributions) to a Wavefront proxy or use direct ingestion.
 
 You can find histogram metrics in the histogram browser and query for them using an `hs()` query. You can also visualize histograms different chart types.
 
@@ -84,7 +84,7 @@ Histogram charts are designed especially for histogram visualization:
 Histogram charts are interactive. Hover legends give details, and you can go from the ellipsis in the top right to the trace browser for the histogram:
 * Add histogram queries in Query Builder or Chart Builder.
   - Use an `hs()` query to visualize data that were ingested as Wavefront histograms.
-  - Use a `ts()` query to visualize any data as histograms.
+  - Use a `ts()` query to visualize **any data** as histograms.
 * Set the Y axis dimensions and X axis minimum, maximum, and units.
 * Select percentile markers to display.
 * Customize the color gradient.

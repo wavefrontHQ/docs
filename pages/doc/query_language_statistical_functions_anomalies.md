@@ -50,7 +50,7 @@ data:|`ts(test.http.requests, host=web493.corp.example.com)`
 mean:|`mavg(10m,${data})`
 median:|`mmedian(10m,${data})`
 
-The screen shot below shows the corresponding Wavefront chart:
+The screen shot below shows the corresponding chart:
 * If you consider these spikes as anomalies, use `avg` or `mavg` to catch similar deviations or variability.
 * If you consider the spikes as noise and want to ignore one-off spikes, use `percentile` or `mmedian`, which are less sensitive to outliers or variations, and show only sustained dips.
 

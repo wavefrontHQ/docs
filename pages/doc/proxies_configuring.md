@@ -16,7 +16,7 @@ Even without additional customization the Wavefront proxy ingests metrics and fo
 
 <a name="paths">
 ## Proxy File Paths
- 
+
 By default, proxy files are installed in the following locations.
 
 - **Configuration properties**: `<wavefront_config_path>`
@@ -202,7 +202,7 @@ Ex: 8760</td>
 </tr>
 <tr>
 <td>deltaCountersAggregationListenerPorts</td>
-<td>Port to listen to the Wavefront-formatted <a href="delta_counters.html">delta counter data</a>. Other data formats are rejected at this port. Pre-aggregating delta counters at the proxy, helps reduce the outbound point rate. Use this property in conjunction with deltaCountersAggregationIntervalSeconds to limit the number of points per second for delta counters. <br/>Default: none.</td>
+<td>Port to listen for <a href="delta_counters.html">delta counter data</a>. Other data formats are rejected at this port. Pre-aggregating delta counters at the proxy, helps reduce the outbound point rate. Use this property in conjunction with deltaCountersAggregationIntervalSeconds to limit the number of points per second for delta counters. <br/>Default: none.</td>
 <td>Comma-separated list of available port numbers. Can be a single port.<br/>
 Ex: 12878<br/>
 Ex: 12878,12879</td>
@@ -210,7 +210,7 @@ Ex: 12878,12879</td>
 </tr>
 <tr>
 <td>deltaCountersAggregationIntervalSeconds</td>
-<td>Interval between flushing aggregating delta counters to Wavefront. Use this property in conjunction with deltaCountersAggregationListenerPorts to send points to the port(s) in batches, thereby limiting the number of points per second. <br/>Default: 30 seconds. </td>
+<td>Interval between flushing aggregating delta counters to a Wavefront service. Use this property in conjunction with deltaCountersAggregationListenerPorts to send points to the port(s) in batches, thereby limiting the number of points per second. <br/>Default: 30 seconds. </td>
 <td>Number of seconds.<br/>
 Ex: 45</td>
 <td>6.0</td>
@@ -224,7 +224,7 @@ Ex: 5044 </td>
 </tr>
 <tr>
 <td>flushThreads</td>
-<td>Number of threads that flush data to the server. Setting this value too high results in sending batches that are too small to the Wavefront server and wasting connections. Values between 6 and 16 are a good starting point. This setting is per listening port. <br/>Default: The number of available processors (min 4).</td>
+<td>Number of threads that flush data to the server. Setting this value too high results in sending batches that are too small to the Wavefront service and wasting connections. Values between 6 and 16 are a good starting point. This setting is per listening port. <br/>Default: The number of available processors (min 4).</td>
 <td>Positive integer.<br/>
 Ex: 16</td>
 <td>3.14</td>
@@ -260,7 +260,7 @@ Ex: true</td>
 </tr>
 <tr>
 <td>gzipCompressionLevel</td>
-<td>Sets the gzip compression level if gzipCompression is enabled. The level vary from, 1 to 9. Higher compression levels slightly reduces the volume of traffic between the proxy and Wavefront, but uses more CPU.  <br/> Default: 4.</td>
+<td>Sets the gzip compression level if gzipCompression is enabled. The level vary from, 1 to 9. Higher compression levels slightly reduces the volume of traffic between the proxy and the Wavefront service, but uses more CPU.  <br/> Default: 4.</td>
 <td>Positive integer ranging from 1 to 9.<br/>
 Ex: 4</td>
 <td>6.0</td>
@@ -356,7 +356,7 @@ Default: &lt;cfg_path&gt;/logsIngestion.yaml.</td>
 </tr>
 <tr>
 <td>prefix</td>
-<td>String to prepend before every metric name. For example, if you set prefix to 'production', a metric that is sent to the proxy as <code>cpu.loadavg.1m</code> is sent from the proxy to Wavefront as <code>production.cpu.loadavg.1m</code>. You can include longer prefixes such as <code>production.nyc.dc1</code>. <br/>Default: None.</td>
+<td>String to prepend before every metric name. For example, if you set prefix to 'production', a metric that is sent to the proxy as <code>cpu.loadavg.1m</code> is sent from the proxy to the Wavefront service as <code>production.cpu.loadavg.1m</code>. You can include longer prefixes such as <code>production.nyc.dc1</code>. <br/>Default: None.</td>
 <td>A lowercase alphanumeric string, with periods separating segments. You do not need to include a trailing period.
 <div>Ex: production</div>
 <div>Ex: production.nyc.dc1</div>
@@ -384,7 +384,7 @@ Default: &lt;cfg_path&gt;/logsIngestion.yaml.</td>
 </tr>
 <tr>
 <td>proxyHost</td>
-<td>HTTP proxy host to be used in configurations when direct HTTP connections to Wavefront servers are not possible. Must be used with proxyPort.</td>
+<td>HTTP proxy host to be used in configurations when direct HTTP connections to Wavefront instances are not possible. Must be used with proxyPort.</td>
 <td>A string.
 <div>Ex: proxy.local</div></td>
 <td>3.23</td>
@@ -398,7 +398,7 @@ Default: &lt;cfg_path&gt;/logsIngestion.yaml.</td>
 </tr>
 <tr>
 <td>proxyPort</td>
-<td>HTTP proxy port to be used in configurations when direct HTTP connections to Wavefront servers are not possible. Must be used with proxyHost.</td>
+<td>HTTP proxy port to be used in configurations when direct HTTP connections to Wavefront instances are not possible. Must be used with proxyHost.</td>
 <td>A port number.
 <div>Ex: 8080 </div></td>
 <td>3.23</td>
@@ -421,35 +421,35 @@ Default: &lt;cfg_path&gt;/logsIngestion.yaml.</td>
 </tr>
 <tr>
 <td>pushFlushInterval</td>
-<td>Milliseconds to wait between each flush to Wavefront. <br/>Default: 1000.</td>
+<td>Milliseconds to wait between each flush. <br/>Default: 1000.</td>
 <td>An integer equal to or greater than 1000.
 <div>Ex: 1000 </div></td>
 <td>&nbsp;</td>
 </tr>
 <tr>
 <td>pushFlushMaxPoints</td>
-<td>Maximum number of points to send to Wavefront during each flush. <br/>Default: 40,000.</td>
+<td>Maximum number of points to send to the Wavefront service during each flush. <br/>Default: 40,000.</td>
 <td>Positive integer.
 <div>Ex: 40000 </div></td>
 <td>&nbsp;</td>
 </tr>
 <tr>
 <td>pushFlushMaxHistograms</td>
-<td>Maximum number of histograms to send to Wavefront during each flush. <br/>Default: 10,000.</td>
+<td>Maximum number of histograms to send to the Wavefront service during each flush. <br/>Default: 10,000.</td>
 <td>Positive integer.
 <div>Ex: 10000 </div></td>
 <td>6.0</td>
 </tr>
 <tr>
 <td>pushFlushMaxSpans</td>
-<td>Maximum number of spans to send to Wavefront during each flush. <br/>Default: 5,000.</td>
+<td>Maximum number of spans to send to the Wavefront service during each flush. <br/>Default: 5,000.</td>
 <td>Positive integer.
 <div>Ex: 5000 </div></td>
 <td>6.0</td>
 </tr>
 <tr>
 <td>pushFlushMaxSpanLogs</td>
-<td>Maximum number of span logs to send to Wavefront during each flush. <br/>Default: 1,000.</td>
+<td>Maximum number of span logs to send to the Wavefront service during each flush. <br/>Default: 1,000.</td>
 <td>Positive integer.
 <div>Ex: 1000 </div></td>
 <td>6.0</td>
@@ -494,28 +494,28 @@ Default: &lt;cfg_path&gt;/logsIngestion.yaml.</td>
 </tr>
 <tr>
 <td>pushRateLimit</td>
-<td>Maximum number of points per second to send to Wavefront. <br/>Default: unlimited.</td>
+<td>Maximum number of points per second to send. <br/>Default: unlimited.</td>
 <td>Positive integer.
 <div>Ex: 20000</div></td>
 <td>4.1</td>
 </tr>
 <tr>
 <td>pushRateLimitHistograms</td>
-<td>Maximum number of histograms per second to send to Wavefront. <br/>Default: unlimited.</td>
+<td>Maximum number of histograms per second to send. <br/>Default: unlimited.</td>
 <td>Positive integer.
 <div>Ex: 20000</div></td>
 <td>6.0</td>
 </tr>
 <tr>
 <td>pushRateLimitSpans</td>
-<td>Maximum number of spans per second to send to Wavefront. <br/>Default: unlimited.</td>
+<td>Maximum number of spans per second to send. <br/>Default: unlimited.</td>
 <td>Positive integer.
 <div>Ex: 10000</div></td>
 <td>6.0</td>
 </tr>
 <tr>
 <td>pushRateLimitSpanLogs</td>
-<td>Maximum number of span logs per second to send to Wavefront. <br/>Default: unlimited.</td>
+<td>Maximum number of span logs per second to send. <br/>Default: unlimited.</td>
 <td>Positive integer.
 <div>Ex: 10000</div></td>
 <td>6.0</td>
@@ -529,7 +529,7 @@ Default: &lt;cfg_path&gt;/logsIngestion.yaml.</td>
 </tr>
 <tr>
 <td>pushRelayListenerPorts</td>
-<td>Ports to receive the data sent to the relay. In environments where direct outbound connections to Wavefront servers are not possible, you can use another Wavefront proxy that has outbound access to act as a relay and forward all the data received on that endpoint (from direct data ingestion clients and/or other proxies) to Wavefront servers. <br/>Default: none.</td>
+<td>Ports to receive the data sent to the relay. In environments where direct outbound connections to the Wavefront instance is not possible, you can use another Wavefront proxy that has outbound access to act as a relay and forward all the data received on that endpoint (from direct data ingestion clients and/or other proxies) to a Wavefront instance. <br/>Default: none.</td>
 <td>Comma-separated list of available port numbers. Can be a single port.
 Ex: 2978<br/>
 Ex: 2978,2979</td>
@@ -544,7 +544,7 @@ Ex: 2978,2979</td>
 </tr>
 <tr>
 <td>pushValidationLevel</td>
-<td>Level of validation to perform on incoming data before sending the data to Wavefront. If NO_VALIDATION, all data is sent forward. If NUMERIC_ONLY, data is checked to make sure that it is numerical and dropped locally if it is not.</td>
+<td>Level of validation to perform on incoming data before sending the data to the Wavefront service. If NO_VALIDATION, all data is sent forward. If NUMERIC_ONLY, data is checked to make sure that it is numerical and dropped locally if it is not.</td>
 <td>NUMERIC_ONLY or NO_VALIDATION
 <div>Ex: NUMERIC_ONLY </div></td>
 <td>&nbsp;</td>
@@ -581,7 +581,7 @@ Ex: 2978,2979</td>
 </tr>
 <tr>
 <td>server</td>
-<td>The API URL of the Wavefront server in the format https://&lt;wf_instance&gt;.wavefront.com/api/.</td>
+<td>The API URL of the Wavefront instance in the format https://&lt;wf_instance&gt;.wavefront.com/api/.</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 </tr>
@@ -594,7 +594,7 @@ Ex: 0 </td>
 </tr>
 <tr>
 <td>splitPushWhenRateLimited</td>
-<td>Whether to split the push batch size when the push is rejected by Wavefront due to rate limit. <br/>Default: false.</td>
+<td>Whether to split the push batch size when the push is rejected due to rate limit. <br/>Default: false.</td>
 <td>true or false
 <div>Ex: false </div></td>
 <td>&nbsp;</td>
@@ -754,14 +754,14 @@ Required when authMethod = STATIC_TOKEN. For example, <code>authStaticToken=toke
 <tr>
 <a name="traceJaegerHttpListenerPorts"></a>
 <td>traceJaegerHttpListenerPorts</td>
-<td markdown="span">TCP ports to receive Jaeger Thrift formatted data via HTTP. The data is then sent to Wavefront in [Wavefront span format](trace_data_details.html#wavefront-span-format).
+<td markdown="span">TCP ports to receive Jaeger Thrift formatted data via HTTP. The data is then sent to the Wavefront service in [Wavefront span format](trace_data_details.html#wavefront-span-format).
 <br/> Default: None.
 <br/> Version: Since 6.0</td>
 <td>Comma-separated list of available port numbers. Can be a single port.</td>
 </tr>
 <tr>
 <td>traceJaegerListenerPorts</td>
-<td>TCP ports to receive Jaeger Thrift formatted data via TChannel. The data is then sent to Wavefront in <a href="trace_data_details.html#wavefront-span-format">Wavefront span format</a>. <br/> Default: None.
+<td>TCP ports to receive Jaeger Thrift formatted data via TChannel. The data is then sent to Wavefront service in <a href="trace_data_details.html#wavefront-span-format">Wavefront span format</a>. <br/> Default: None.
 {% include warning.html content="<br/>Sending data via TChannel has been deprecated in Jaeger 1.16. Therefore, we recommend using <code>traceJaegerHttpListenerPorts</code> to receive Jaeger Thrift formatted data via HTTP." %}
 </td>
 <td>Comma-separated list of available port numbers. Can be a single port.</td>
@@ -776,7 +776,7 @@ Required when authMethod = STATIC_TOKEN. For example, <code>authStaticToken=toke
 </tr>
 <tr>
 <td>customTracingListenerPorts</td>
-<td>TCP ports to receive spans and derive RED metrics from the <a href="wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront">SDKs that send raw data to Wavefront</a>.
+<td>TCP ports to receive spans and derive RED metrics from the <a href="wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront">SDKs that send raw data to the Wavefront service</a>.
 <br/> Default: None.
 <br/> Version: Since 6.0
 {% include note.html content="<br/>The application name and service name tags are required to generate RED metrics. If these tags are not sent with your span, the application name defaults to <code>wfProxy</code>, and the service name defaults to <code>defaultService</code>."%}
@@ -799,13 +799,13 @@ Required when authMethod = STATIC_TOKEN. For example, <code>authStaticToken=toke
 </tr>
 <tr>
 <td>traceSamplingDuration</td>
-<td markdown="span">Minimum duration of the tracing spans that can be sent to Wavefront for [trace data sampling](trace_data_sampling.html). <br/> Default: 0 (send all generated spans). </td>
+<td markdown="span">Minimum duration of the tracing spans that can be sent to the Wavefront service for [trace data sampling](trace_data_sampling.html). <br/> Default: 0 (send all generated spans). </td>
 <td>Number of milliseconds.
 <div>Ex: 45</div> </td>
 </tr>
 <tr>
 <td>traceSamplingRate</td>
-<td markdown="span">Percentage of all generated spans to send to Wavefront for [trace data sampling](trace_data_sampling.html). <br/> Default: 1.0 (send all generated spans). </td>
+<td markdown="span">Percentage of all generated spans to send to the Wavefront service for [trace data sampling](trace_data_sampling.html). <br/> Default: 1.0 (send all generated spans). </td>
 <td>Number from 0.0 to 1.0.
 <div>Ex: .1</div></td>
 </tr>
@@ -855,7 +855,7 @@ Required when authMethod = STATIC_TOKEN. For example, <code>authStaticToken=toke
 
 ### Histogram Configuration Properties
 
-Wavefront supports additional histogram configuration properties, shown in the following table. Note the requirements on the state directory and the effect of the two `persist` properties listed at the bottom of the table.
+Tanzu Observability by Wavefront supports additional histogram configuration properties, shown in the following table. The **requirements** on the state directory and the effect of the two `persist` properties listed at the bottom of the table.
 
 <table class="width:100%;">
 <colgroup>
@@ -874,7 +874,7 @@ Wavefront supports additional histogram configuration properties, shown in the f
 </tr>
 <tr>
 <td>histogramAccumulatorFlushInterval</td>
-<td>Interval in milliseconds to check for histograms that need to be sent to Wavefront according to their histogramMinuteFlushSecs settings. Default: 1000.</td>
+<td>Interval in milliseconds to check for histograms to be sent to a Wavefront service according to their histogramMinuteFlushSecs settings. Default: 1000.</td>
 <td>Positive integer.</td>
 </tr>
 <tr>
@@ -915,7 +915,7 @@ Wavefront supports additional histogram configuration properties, shown in the f
 </tr>
 <tr>
 <td>histogramDayFlushSecs</td>
-<td>Time-to-live, in seconds, for a day granularity accumulation on the proxy (before the intermediary is sent to Wavefront). Default: 18000 (5 hours).
+<td>Time-to-live, in seconds, for a day granularity accumulation on the proxy (before the intermediary is sent to the Wavefront service). Default: 18000 (5 hours).
 </td>
 <td>Positive integer.</td>
 </tr>
@@ -956,7 +956,7 @@ Wavefront supports additional histogram configuration properties, shown in the f
 </tr>
 <tr>
 <td>histogramDistFlushSecs</td>
-<td>Number of seconds to keep a new distribution bin open for new samples, before the intermediary is sent to Wavefront. Default: 70.</td>
+<td>Number of seconds to keep a new distribution bin open for new samples, before the intermediary is sent to the Wavefront service. Default: 70.</td>
 <td>Positive integer.</td>
 </tr>
 <tr>
@@ -1012,7 +1012,7 @@ Wavefront supports additional histogram configuration properties, shown in the f
 </tr>
 <tr>
 <td>histogramHourFlushSecs</td>
-<td>Time-to-live, in seconds, for an hour granularity accumulation on the proxy (before the intermediary is sent to Wavefront). Default: 4200.</td>
+<td>Time-to-live, in seconds, for an hour granularity accumulation on the proxy (before the intermediary is sent to the  Wavefront service). Default: 4200.</td>
 <td>Positive integer.</td>
 </tr>
 <tr>
@@ -1065,7 +1065,7 @@ Wavefront supports additional histogram configuration properties, shown in the f
 </tr>
 <tr>
 <td>histogramMinuteFlushSecs</td>
-<td>Time-to-live, in seconds, for a minute granularity accumulation on the proxy (before the intermediary is sent to Wavefront). Default: 70.</td>
+<td>Time-to-live, in seconds, for a minute granularity accumulation on the proxy (before the intermediary is sent to the Wavefront service). Default: 70.</td>
 <td>Positive integer.</td>
 </tr>
 <tr>
@@ -1090,7 +1090,7 @@ Wavefront supports additional histogram configuration properties, shown in the f
 </tr>
 <tr>
 <td>histogramStateDirectory</td>
-<td>Directory for persistent proxy state, must be writable.  Before being flushed to Wavefront, histogram data is persisted on the filesystem where the Wavefront proxy resides. If the files are corrupted or the files in the directory can't be accessed, the proxy reports the problem in its log and fails back to using in-memory structures. In this mode, samples can be lost if the proxy terminates without draining its queues. Default: <code>/var/spool/wavefront-proxy</code>.
+<td>Directory for persistent proxy state, must be writable.  Before being flushed to the Wavefront service, histogram data is persisted on the filesystem where the Wavefront proxy runs. If the files are corrupted or the files in the directory can't be accessed, the proxy reports the problem in its log and fails back to using in-memory structures. In this mode, samples can be lost if the proxy terminates without draining its queues. Default: <code>/var/spool/wavefront-proxy</code>.
 </td>
 <td>A valid path on the local file system. {% include note.html content="A high PPS requires that the machine that the proxy is on has an appropriate amount of IOPS. We recommend about 1K IOPS with at least 8GB RAM on the machine that the proxy writes histogram data to. Recommended machine type: m4.xlarge." %}</td>
 </tr>
@@ -1121,7 +1121,7 @@ Ex: 40</td>
 </tr>
 <tr>
 <td>pushRelayHistogramAggregatorFlushSecs</td>
-<td>Since 6.0. Interval in milliseconds to check for histograms that have accumulated at the relay ports before sending data to Wavefront. Only applicable if the pushRelayHistogramAggregator is set to true. <br/> Default: 70.</td>
+<td>Since 6.0. Interval in milliseconds to check for histograms that have accumulated at the relay ports before sending data to the Wavefront service. Only applicable if the pushRelayHistogramAggregator is set to true. <br/> Default: 70.</td>
 <td>Number of milliseconds.<br/> Ex: 80</td>
 </tr>
 </tbody>

@@ -6,7 +6,7 @@ permalink: ui_examine_data.html
 summary: Examine data with dashboards and charts
 ---
 
-With dashboards and charts, all users can examine data, set dashboard time window, zoom in and out, and perform other customizations.
+With dashboards and charts, all Tanzu Observability by Wavefront users can examine data. By default, everyone can explore: set dashboard time window, zoom in and out, and perform other customizations.
 
 {% include note.html content="All users can view and explore charts. You must have the [**Dashboards** permission](permissions_overview.html) to make permanent changes, such as saving a chart to a dashboard." %}
 
@@ -24,7 +24,7 @@ All users can customize their dashboards to drill down into data. Learn how to f
 
 From the Dashboard Browser, you can find dashboards by using filters and tags. You can make a dashboard a favorite with the star icon. Users with **Dashboard** permissions can also look at versions, grand and remove access, clone dashboards, move a dashboard to the trash, or access a deleted dashboard for up to 30 days.
 
-1. Log in to Wavefront.
+1. Log in to your Wavefront instance.
 2. Select **Dashboards > All Dashboards**
 3. In the Dashboard Browser:
     * Use the search bar at the top to find a dashboard.
@@ -39,7 +39,7 @@ From the Dashboard Browser, you can find dashboards by using filters and tags. Y
 
 ### Find a Dashboard
 
-Many Wavefront users work in environments with many dashboards.
+Many users work in environments with a lot of dashboards.
 
 **To find a dashboard**, you have these options:
 * From the taskbar, select **Dashboards > All Dashboards** and narrow down your search using the fields on the left.
@@ -109,10 +109,10 @@ Use the <strong>Jump To</strong> menu to go to a section.</td>
 ## Filter with Global Filters or Dashboard Variables
 
 Global filters and dashboard variables are two ways to narrow down what you see.
-* **Global Filters** allow any Wavefront user to filter by key-value pair. For example, you could specify `source="db-2"` or `env="production"`.
+* **Global Filters** allow any user to filter by key-value pair. For example, you could specify `source="db-2"` or `env="production"`.
 * [**Dashboard Variables**](dashboards_variables.html) are preset by a user with Dashboard permissions. All users can then make selections, for example, select a value from predefined list of strings or an automatically generated list of sources.
 
-If you select both a variable and a global filter, Wavefront uses AND to find results that satisfy both conditions. For example, `source="db-2" AND source="db-1"` results in No Data, but other combinations might get the results you're after.
+If you select both a variable and a global filter, the query engine uses AND to find results that satisfy both conditions. For example, `source="db-2" AND source="db-1"` results in No Data, but other combinations might get the results you're after.
 
 ### Filter with Global Filters
 
@@ -185,7 +185,7 @@ Dashboards on which inclusion of obsolete metrics is turned on have a warning ba
 ![Banner saying that obsolete metrics inclusion is turned on for the dashboard. The banner also has a view settings button.](images/obsolete-metrics-banner.png)
 
 1. Navigate to the dashboard and click **View Settings** in the banner at the top.
-   Refresh your browser if you closed the banner. 
+   Refresh your browser if you closed the banner.
 3. Click **Advanced**.
 4. Deselect the **Include Obsolete Metrics** check box.
 5. Click **Accept**  and explore. If you have **Dashboards** permission click **Save** to save your changes.
@@ -211,7 +211,7 @@ You can focus on a particular source or series in the dashboard view or the sing
 
 You can fine-tune the time window for an individual chart, propagate the time window from one to all charts, and reset a customized time window to the dashboard default.
 
-When you fine-tune the time window, the Wavefront UI dynamically recalculates and updates the chart bucket size and the aggregated values based on the [summarization option](ui_charts_faq.html#what-does-the-summarization-option-do).
+When you fine-tune the time window, the UI dynamically recalculates and updates the chart bucket size and the aggregated values based on the selected [summarization option](ui_charts_faq.html#what-does-the-summarization-option-do).
 
 <table style="width: 100%;">
 <tbody>
@@ -248,7 +248,7 @@ Here's a <a href="https://bcove.video/3sweZ7W" target="_blank">video<img src="/i
 ## Display Events on Charts
 
 The charts in your dashboard can display [events](events.html).
-* Wavefront sends system events, for example, when an alert changes state.
+* The Wavefront service generates system events, for example, when an alert changes state.
 * In addition, users with **Events** permission might have added user events.
 
 All users can select which events are displayed for all charts.
