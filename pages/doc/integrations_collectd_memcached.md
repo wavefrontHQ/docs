@@ -4,12 +4,12 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_collectd_memcached.html
-summary: Learn how to send memcached data collected by collectd to Wavefront.
+summary: Learn how to send memcached data collected by collectd to Tanzu Observability by Wavefront.
 ---
 
 [memcached](https://memcached.org/) is a popular memory object cache system. See [collectd memcached plugin documentation](https://collectd.org/wiki/index.php/Plugin:memcached).
 
-Wavefront supports a built-in integration that gets data from memcached using Telegraf. If you want to use collectd instead, follow the instructions on this page. 
+Tanzu Observability supports a built-in integration that gets data from memcached using Telegraf. If you want to use collectd instead, follow the instructions on this page. 
 
 ## Installation
 
