@@ -131,7 +131,7 @@ To [edit the targets of the integration alerts](webhooks_alert_notification.html
 
 To make further customizations, clone the alert first.
 
-1. Click **Alerting>All Alerts** in the toolbar.
+1. Click **Alerting > All Alerts** from the toolbar.
 2. Click the ellipsis icon next to the alert that you want to clone, and select **Clone**.
 3. Enter a name of the new alert and click **Clone**.
 
