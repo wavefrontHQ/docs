@@ -7,19 +7,21 @@ permalink: users_roles.html
 summary: Manage global permissions with roles.
 ---
 
-Users with the **Accounts** permission use roles to fine-tune authorization in the Wavefront environment:
+Tanzu Observability by Wavefront supports roles to fine-tune authorization in the Wavefront environment.
+
+Users with the **Accounts** permission can:
 1. Create one or more **roles** and assign one or more [permissions](permissions_overview.html) to each role.
 2. Create one or more **groups** and add one or more accounts to each group. Accounts can be user accounts or service accounts.
 3. Assign one or more roles to each group. It's also possible to assign a role to individual users.
 
-In addition to the global roles and permissions model, Wavefront also supports [access control for individual objects](access.html), for example, users with the **Accounts** permission can limit access to a sensitive dashboard.
+In addition to the global roles and permissions model, Tanzu Observability also supports [access control for individual objects](access.html), for example, users with the **Accounts** permission can limit access to a sensitive dashboard.
 
-{% include note.html content="You must have **Accounts** permission to view and manage authorization in Wavefront. If you don't have the permission, the corresponding UI menu selections, buttons, and links are not visible." %}
+{% include note.html content="You must have the **Accounts** permission to view and manage authorization in Tanzu Observability. If you don't have the permission, the corresponding UI menu selections, buttons, and links are not visible." %}
 
 
 ## Manage Roles and Permissions
 
-The Wavefront roles and permissions model allows you to make sure nobody can perform tasks without the corresponding permission -- and here we list the required permissions for most tasks.
+The roles and permissions model allows you to make sure nobody can perform tasks without the corresponding permission -- and here we list the required permissions for most tasks.
 
 Creating roles and assigning them to groups of users is most efficient and least error prone. It's possible to grant permissions or assign a role to an individual account -- that might make sense during a POC.
 
@@ -32,19 +34,17 @@ All users with **Accounts** permission can create roles.
 <tr>
 <td width="50%">
 To create a role:
-<ol><li>Log in to your Wavefront cluster.</li>
-<li>Click the gear icon on the taskbar and select <strong>Accounts</strong>.</li>
+<ol><li>Log in to your Wavefront instance.</li>
+<li>Click the gear icon on the toolbar and select <strong>Accounts</strong>.</li>
 <li>On the <strong>Roles</strong> tab, click <strong>Create Role</strong>.</li>
 <li>Specify a name, an optional description, and one or more permissions for that role.</li>
-<li>(Optional) Enter groups (or accounts) to assign the role to. You can also add groups or accounts later. </li>
+<li>(Optional) Enter groups or accounts to assign the role to. You can also add groups or accounts later. </li>
 <li>Click <strong>Create</strong>. </li>
 </ol></td>
 <td width="50%"><img src="/images/create_role.png" alt="create a role"/></td>
 </tr>
 </tbody>
 </table>
-
-
 
 
 ### Create a Group
@@ -56,8 +56,8 @@ All users with **Accounts** permission can create groups and add members and rol
 <tr>
 <td width="50%">
 To create a group:
-<ol><li>Log in to your Wavefront cluster.</li>
-<li>Click the gear icon on the taskbar and select <strong>Accounts</strong>.</li>
+<ol><li>Log in to your Wavefront instance.</li>
+<li>Click the gear icon on the toolbar and select <strong>Accounts</strong>.</li>
 <li>On the <strong>Groups</strong> tab, click <strong>Create Group</strong>.</li>
 <li>Specify a name and, optionally, a description.</li>
 <li>(Optional) Add one or more accounts to the group now or later. You cannot add a group as a member.</li>
@@ -78,7 +78,7 @@ Users with **Accounts** permission can assign roles to a group when they create 
 <tr>
 <td width="50%">
 To assign a role to a group:
-<ol><li>Log in to your Wavefront cluster.</li>
+<ol><li>Log in to your Wavefront instance.</li>
 <li>Click the gear icon on the taskbar and select <strong>Accounts</strong>.</li>
 <li>On the <strong>Groups</strong> tab, change role assignment in one of these ways: </li>
 <ul><li>Select the group check box, click <strong>+Role</strong> or <strong>-Role</strong>, and select a role to change role assignment (not shown on  the right).</li>

@@ -6,15 +6,16 @@ sidebar: doc_sidebar
 permalink: user-accounts.html
 summary: Create and manage user accounts.
 ---
-You can manage authorization in your Wavefront environment by:
-* Assigning and revoking roles for groups or accounts to give **global** permissions.
-* Granting and revoking access to **individual objects** (initially dashboards and alerts) for accounts and groups.
 
-Wavefront supports:
+Tanzu Observability by Wavefront supports:
 * User accounts, discussed here, which authenticate with a username and password.
 * [Service accounts](service-accounts.html), which authenticate with a token.
 
-{% include note.html content="You must have **Accounts** permission to view and manage accounts, groups, and permissions in Wavefront. If you don't have **Accounts** permission, the UI menu selections, buttons, and links that you use to view accounts and permissions are not visible. " %}
+You can manage authorization in your environment by:
+* Assigning and revoking roles for groups or accounts to give **global** permissions.
+* Granting and revoking access to **individual objects** (initially dashboards and alerts) for accounts and groups.
+
+{% include note.html content="You must have the **Accounts** permission to view and manage accounts, groups, and permissions. If you don't have the **Accounts** permission, the UI menu selections, buttons, and links that you use to view accounts and permissions are not visible. " %}
 
 
 ## What Are User Accounts?
@@ -45,7 +46,7 @@ Users with **Accounts** permissions can manage accounts.
    1. Select the check box for the user on the **Users Accounts** page.
    2. Click the trash icon and confirm when prompted.
 
-   If you delete a user, you remove that user's access to Wavefront.
+   If you delete a user, you remove that user's access to your environment.
 
    {% include tip.html content="As a safeguard, you cannot select multiple users and delete them. You can delete only one user at a time." %}
 
@@ -57,13 +58,13 @@ As a [super admin user](authorization.html#who-is-the-super-admin-user), you can
 POST https://<your_wavefront_cluster>.wavefront.com/api/logout/{identifier}
 ```
 
-You must specify the `{identifier}`, which is the email address of the user that you want to log out. If you are not logged in to your Wavefront cluster, when you run the POST request, you must also provide a valid [API token](wavefront_api.html#generating-an-api-token).
+You must specify the `{identifier}`, which is the email address of the user that you want to log out. If you are not logged in to your Wavefront instance, when you run the POST request, you must also provide a valid [API token](wavefront_api.html#generating-an-api-token).
 
 ## What Can a New User Do?
 
-When you invite a new (human) user to Wavefront, what that new user can do depends on several factors.
+When you invite a new (human) user to your environment, what that new user can do depends on several factors.
 
-- **New User Tasks:** All Wavefront users can perform the following tasks:
+- **New User Tasks:** All users can perform the following tasks:
   * View the dashboards, alerts, metrics, sources, events, maintenance windows, and alert notification pages.
   * Add dashboards to the list of favorites.
   * View existing dashboards and charts.
