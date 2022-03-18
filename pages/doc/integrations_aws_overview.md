@@ -55,7 +55,7 @@ Data flows from AWS only if the account has the required access. You have severa
 <tbody>
 <tr>
 <td>ReadOnlyAccess policy (most services)</td>
-<td markdown="span">In most cases, it makes sense to give the Tanzu Observability by Wavefront account the `ReadOnlyAccess` policy to the Amazon account.</td></tr>
+<td markdown="span">In most cases, it makes sense to give the `ReadOnlyAccess` policy to the Amazon account.</td></tr>
 <tr>
 <td markdown="span">Access to Service Limit metrics</td>
 <td markdown="span">If you want to collect Service Limit metrics:

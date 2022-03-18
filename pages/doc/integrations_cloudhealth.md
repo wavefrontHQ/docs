@@ -1,5 +1,5 @@
 ---
-title: Send Wavefront Data to CloudHealth
+title: Send Data to CloudHealth
 keywords:
 tags: [integrations]
 sidebar: doc_sidebar
@@ -55,7 +55,7 @@ CloudHealth begins collecting Wavefront Sources within 15 minutes of account set
 
 ## Data Gathered by CloudHealth
 
-The following data from Tanzu Observability by Wavefront is sent to CloudHealth:
+The following data is sent to CloudHealth:
 
 * Tanzu Observability [Sources](sources_managing.html) every 15 minutes. Each source is a data source (host, VM, etc). Sources can have tags attached to them.
 * Tanzu Observability [Source tags](tags_overview.html#source-tags) every 15 minutes. Source tags are treated as dynamic attributes on a Tanzu Observability Source. You cannot overwrite Tanzu Observability Source tags with custom CloudHealth tags, but you can use them to build Perspectives in CloudHealth, as explained in the next section.
@@ -83,4 +83,4 @@ You can use Tanzu Observability source tags to create Perspective Groups within 
 
 ## Rightsize Using CloudHealth
 
-CloudHealth ingests Tanzu Observability by Wavefront metrics (Memory, CPU, network bytes, and filesystem usage) for the cloud resources you selected and displays these metrics in the Rightsizing Report.
+CloudHealth ingests Tanzu Observability metrics (Memory, CPU, network bytes, and filesystem usage) for the cloud resources you selected and displays these metrics in the Rightsizing Report.

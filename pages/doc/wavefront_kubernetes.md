@@ -8,10 +8,10 @@ summary: Monitor Kubernetes infrastructure and applications. Scale Kubernetes wo
 ---
 **Monitor your Kubernetes environment** at the infrastructure level and at the applications level with the Wavefront Collector for Kubernetes.
 
-* Monitor Kubernetes infrastructure metrics (containers, pods, etc.) from Wavefront dashboards -- and create alerts from those dashboards.
+* Monitor Kubernetes infrastructure metrics (containers, pods, etc.) from our dashboards -- and create alerts from those dashboards.
 * Automatically collect metrics from applications and workloads using built-in plug-ins such as Prometheus, Telegraf, etc.
 
-**Scale your Kubernetes environment** based on the metrics sent to Wavefront with the Wavefront Horizontal Pod Autoscaler Adapter.
+**Scale your Kubernetes environment** based on the metrics sent to Tanzu Observability with the Wavefront Horizontal Pod Autoscaler Adapter.
 
 
 ## Videos
@@ -56,7 +56,7 @@ The Wavefront Collector for Kubernetes supports monitoring for your Kubernetes i
 * Set up the Wavefront Collector to have much of the monitoring happen automatically. 
 * Fine-tune and customize the solution with configuration options available in the Wavefront Collector for Kubernetes.
 
-{% include note.html content="See the [list of metrics collected by the Wavefront Kubernetes Collector](kubernetes.html#metrics)." %}
+{% include note.html content="See the [list of metrics collected by the Wavefront Collector for Kubernetes](kubernetes.html#metrics)." %}
 
 ### Infrastructure Monitoring
 
@@ -72,7 +72,7 @@ The collector runs as a DaemonSet for high scalability and supports leader elect
 
 The Wavefront Collector for Kubernetes supports automatic monitoring of host-level metrics and host-level `systemd` metrics. When you set up the collector, it auto-discovers pods and services  in your environment and starts collecting host-level metrics.
 
-You can [filter the metrics](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/blob/master/docs/filtering.md) before they are reported to Wavefront.
+You can [filter the metrics](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/blob/master/docs/filtering.md) before they are reported to the Wavefront service.
 
 ### Application Monitoring
 
@@ -180,7 +180,7 @@ The out-of-the-box dashboards:
   </tr>
   <tr> 
     <td width="20%" markdown="span">
-      **Wavefront Collector for K8s Metrics**
+      **Wavefront Collector for Kubernetes Metrics**
     </td>
     <td width="80%">
       Internal stats of the Wavefront Collector for Kubernetes.
@@ -196,7 +196,7 @@ The default Kubernetes infrastructure can include a [Horizontal Pod Autoscaler](
 
 The [Wavefront Horizontal Pod Autoscaler Adapter](https://www.github.com/wavefrontHQ/wavefront-kubernetes-adapter) allows you to scale based on *any* metric that it knows about.
 
-For example, you could scale based on networking or disk metrics, or any application metrics that are available to Wavefront. The Autoscaler Adapter sends the recommendation to the Horizontal Pod Autoscaler, and the Kubernetes environment is kept healthy as a result.
+For example, you could scale based on networking or disk metrics, or any application metrics that are available to Tanzu Observability. The Autoscaler Adapter sends the recommendation to the Horizontal Pod Autoscaler, and the Kubernetes environment is kept healthy as a result.
 
 ![kubernetes scaling diagram](/images/kubernetes_scaling.png)
 
