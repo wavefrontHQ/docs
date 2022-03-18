@@ -118,4 +118,5 @@ Here's how it works:
 
 ## Next Steps
 
-[Try out the Tutorials](opentelemetry_java_tutorial.html) and see how you can send your data to Tanzu Observability!
+- [Try out the Tutorials](opentelemetry_java_tutorial.html) and see how you can send your data to Tanzu Observability!
+- To enable logs for your OpenTelemetry data, see [Enable Logs for OpenTelemetry Data](opentelemetry_logs.html).

@@ -618,8 +618,12 @@ entries:
         url: /opentelemetry_metrics.html
         output: web
       
-      - title: OpenTelemetry Tutorials
+      - title: Tutorials
         url: /opentelemetry_java_tutorial.html
+        output: web
+        
+      - title: Enable Logs
+        url: /opentelemetry_logs.html
         output: web
       
   - title: "Distributed Tracing"
