@@ -1,12 +1,12 @@
 ---
-title: Examine the Wavefront Usage with Ingestion Policies
+title: Examine Usage with Ingestion Policies
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: ingestion_policies.html
-summary: Monitor usage with ingestion policies and usage dashboards.
+summary: Monitor the usage with ingestion policies and usage dashboards.
 ---
 
-As a Wavefront Super Admin, you're interested in usage patterns for the whole company, but also for different teams in the company. You can create ingestion policies and assign accounts or groups to each policy to see which teams use which part of total ingestion.
+As a Super Admin user, you're interested in usage patterns for the whole company, but also for different teams in the company. For such cases, Tanzu Observability by Wavefront supports ingestion policies. You can create different ingestion policies and assign accounts or groups to each policy to see which teams use which part of total ingestion.
 
 You can examine the performance of your Wavefront instance using [wftop, Wavefront spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Wavefront Usage integration](wavefront_monitoring.html). By using ingestion policies, you can monitor the total usage out of the committed usage, the hourly usage, and the top accounts contributing to ingestion.
 
@@ -29,7 +29,7 @@ Super Admin users (users who have all permissions) can create ingestion policies
 ### Create an Ingestion Policy
 
 1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage Portal**.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
 3. Click the **Ingestion Policies** tab, and click **New Ingestion Policy**.
 4. In the **Data** panel:
    1. Choose the **Scope** of the policy.
@@ -41,7 +41,7 @@ Super Admin users (users who have all permissions) can create ingestion policies
    4. Click **Next**.
 5. Enter the name of the policy and, optionally, a description and click **Create**.
 
-If a user starts ingesting data into Wavefront through a Wavefront Proxy, you can see the ingestion policies to which a proxy belongs from the [Proxies browser](#see-the-ingestion-policies-to-which-a-proxy-belongs) page.
+If a user starts ingesting data through a Wavefront Proxy, you can see the ingestion policies to which a proxy belongs from the [Proxies browser](#see-the-ingestion-policies-to-which-a-proxy-belongs) page.
 
 ### Edit an Ingestion Policy
 
@@ -50,7 +50,7 @@ After you create an ingestion policy, if you need, for example, to increase the 
 {% include note.html content="You cannot edit the scope of the policy."%}
 
 1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage Portal**.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
 3. On the **Ingestion Policies** tab, click the ellipsis icon next to the policy that you want to edit and click **Edit**.
 4. Apply the necessary changes, and click **Save**.
 
@@ -58,7 +58,7 @@ After you create an ingestion policy, if you need, for example, to increase the 
 ### Delete Ingestion Policies
 
 1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage Portal**.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
 3. On the **Ingestion Policies** tab, click the ellipsis icon next to the policy that you want to delete, click **Delete** and confirm.
 
 ### See the Ingestion Policies to Which a Proxy Belongs
@@ -76,7 +76,7 @@ After you create an ingestion policy, if you need, for example, to increase the 
 As a Super Admin user, you can examine the usage for accounts or groups assigned to different ingestion policies by clicking the name of the policy.
 
 1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage Portal**.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
 3. On the **Ingestion Policies** tab, click the name of the policy you are interested in.
 
    ![Ingestion policy name link](images/ingestion_policy_team.png)
@@ -112,7 +112,7 @@ In the **Optimize Usage** section of the dashboard, you can see a list of charts
 
 ## Example: Monitor Which Teams Are Responsible for How Much Ingested Data
 
-Consider the following example. You are administering a Wavefront cluster for two big teams, `IT Team1` and `IT Team2`, and you want to monitor how much data each of the team uses. `IT Team1` usually needs more PPS data, and you have only 10,000 of committed PPS on a monthly basis.
+Consider the following example. You are administering a Wavefront instance for two big teams, `IT Team1` and `IT Team2`, and you want to monitor how much data each of the team uses. `IT Team1` usually needs more PPS data, and you have only 10,000 of committed PPS on a monthly basis.
 
 You can create an ingestion policy for each team to monitor how much data each team uses per month. You can also set a PPS limit for each ingestion policy and if a team consumes more than expected, you can provide additional training on how to use ingested data wisely. 
 

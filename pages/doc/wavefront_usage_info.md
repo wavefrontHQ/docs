@@ -6,7 +6,7 @@ permalink: wavefront_usage_info.html
 summary: Monitor usage information for your Wavefront instance.
 ---
 
-Wavefront includes tools and dashboards for examining usage. This page helps administrators learn how much data is coming in, who is sending the data, and how to get alerted if ingested data get close to monthly contracted usage.
+Tanzu Observability by Wavefront includes tools and dashboards for examining usage. This page helps administrators learn how much data is coming in, who is sending the data, and how to get alerted if ingested data get close to monthly contracted usage.
 
 ## Why Is Usage Information Important?
 
@@ -15,8 +15,8 @@ Each customer has a contract with VMware that allows them to send a predetermine
 If the customer uses more than the contracted rate, VMware bills for those additional data. Because VMware has to pay the cloud provides for data consumed by the Wavefront instances, we have to make sure that customers pay for the data they consume. But we're interested in having our customers get the best possible results from their data.
 
 
-* **Send data, use data**. If some teams at the customer site send a lot of data to Wavefront but don't use those ingested data anywhere (e.g. in alerts, dashboards, etc.) nobody benefits.
-* **Team responsibility**. If several teams at a customer site use Wavefront, it might be useful to know which team send in most data.
+* **Send data, use data**. If some teams at the customer site send a lot of data to the Wavefront service but don't use those ingested data anywhere (e.g. in alerts, dashboards, etc.) nobody benefits.
+* **Team responsibility**. If several teams at a customer site use the Wavefront service, it might be useful to know which team send in most data.
 * **Know PPS and limits**. If customers are clear about how they're using the contracted PPS, they can budget well.
   - Learn how different metric types (histograms, metrics, spans, etc.) contribute to the overall ingest rate.
   - Understand how you can be smart about sending only data that are useful for you.
@@ -81,12 +81,12 @@ The screenshot below shows an example from our demo server. The data are prefixe
 
 ![Metrics namespace dashboard screenshot](images/metrics_namespace_dashboard.png)
 
-The Namespace Usage Explorer is especially useful if your metrics use hierarchical name spaces of up to 3 levels that identify who sends which metrics. For example, some Wavefront customers use namespaces that show the Business Unit (Level 1), team (Level 2), and data source. For example, you might have `monitoring.dev.kubernetes` and `monitoring.sales.kubernetes` for Kubernetes data coming from the dev and sales time in the monitoring Business Unit.
+The Namespace Usage Explorer is especially useful if your metrics use hierarchical name spaces of up to 3 levels that identify who sends which metrics. For example, some of our customers use namespaces that show the Business Unit (Level 1), team (Level 2), and data source. For example, you might have `monitoring.dev.kubernetes` and `monitoring.sales.kubernetes` for Kubernetes data coming from the dev and sales time in the monitoring Business Unit.
 
 
 ### (Optional) Create Custom Charts with Namespace Delta Counters
 
-If you don't see the information you need, for example if need to look at histogram ingestion, clone the **Namespace Usage Explorer** dashboard. You can then modify existing charts or create custom charts. Wavefront supports delta counters that return information about counters, histograms, and spans. For example, the default dashboard examines `~metric` information, but you can also examine other data using the following format:
+If you don't see the information you need, for example if need to look at histogram ingestion, clone the **Namespace Usage Explorer** dashboard. You can then modify existing charts or create custom charts. Tanzu Observability supports delta counters that return information about counters, histograms, and spans. For example, the default dashboard examines `~metric` information, but you can also examine other data using the following format:
 
 ```
 cs(~<data_type>.global.namespace.<namespace>.pps, source=<depth_number>)
@@ -124,13 +124,13 @@ The [Wavefront Spy API](wavefront_monitoring_spy.html) gives even more detail, b
 
 The first thing you would do is to investigate the charts in the [Usage Summary dashboard](examine_usage.html). They can show you how close you are to exceeding your committed rate and whether you will be billed for overages.
 
-The **Committed Rate vs Monthly Usage (PPS P95)** dashboard that’s part of the Wavefront Usage integration helps you determine whether you’re getting close to meeting the limit. For most Wavefront instances, after the limit is reached data still keeps flowing into Wavefront, but the customer has to pay overage.
+The **Committed Rate vs Monthly Usage (PPS P95)** dashboard that’s part of the Wavefront Usage integration helps you determine whether you’re getting close to meeting the limit. For most Wavefront instances, after the limit is reached data still keeps flowing into the Wavefront service, but the customer has to pay overage.
 
 The charts in the dashboard show this information:
 
 * Current PPS vs Committed PPS usage.
 * Usage of the Wavefront service in terms of PPS for your current billing period.
-* Usage of the Wavefront service for your current billing period in terms of the data points that are being queried out of Wavefront via dashboards, alerts, custom charts, API calls, etc.
+* Usage of the Wavefront service for your current billing period in terms of the data points that are being queried via dashboards, alerts, custom charts, API calls, etc.
 * Total PPS ingested for your current billing period.
 * Hourly usage of the Wavefront service.
 * Usage of the Wavefront service in terms of hourly PPS, data points per second (DPS), or spans per second (SPS) ingested vs scanned for the current billing period.
@@ -138,7 +138,7 @@ The charts in the dashboard show this information:
 
 ## Which Metrics Are Ingested But Not Used?
 
-The easiest way to improve Wavefront ingestion rates is to send only data that you actually use.
+The easiest way to improve your ingestion rates is to send only data that you actually use.
 
 * Use Wavefront Top to examine which percentage of ingested metrics are accessed.
 * See which metrics are ingested.

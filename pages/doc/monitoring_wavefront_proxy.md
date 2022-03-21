@@ -6,7 +6,7 @@ permalink: monitoring_proxies.html
 summary: Learn how to monitor Wavefront proxies.
 ---
 
-The Wavefront Usage integration includes a **Wavefront Service and Proxy Data** dashboard that includes several sections with dashboards for examining proxy health.
+Tanzu Observability by Wavefront supports monitoring of your Wavefront proxies. The Wavefront Usage integration includes a **Wavefront Service and Proxy Data** dashboard that includes several sections with dashboards for examining proxy health.
 
 ![proxy health](images/proxy_health_example.png)
 
@@ -18,11 +18,11 @@ The Proxy Health section of the System Usage dashboard includes commonly used in
 
 - `~proxy.points.*.received` - Counter showing the total points the proxy receives, as a per-second rate. To look at the overall rate of points received across all the ports, you can sum up these series and look at the aggregate rate for a proxy. You can also look at the overall rate across all proxies by summing this up further.
 
-- `~proxy.points.*.queued` - Counter showing the number of points being queued to be sent to Wavefront from the proxy, as a per-second rate. Queueing usually happens for one of the following reasons:
+- `~proxy.points.*.queued` - Counter showing the number of points being queued to be sent to the Wavefront service from the proxy, as a per-second rate. Queueing usually happens for one of the following reasons:
 
-  - The total point rate being collected at Wavefront has reached the maximum capacity. The Wavefront service is pushing back, causing data to buffer at the proxy and causing the proxy to queue points.
+  - The total point rate being collected has reached the maximum capacity. The Wavefront service is pushing back, causing data to buffer at the proxy and causing the proxy to queue points.
 
-  - The proxy has reached the threshold of number of points it can process in each batch. The maximum number of points that a proxy can process and push to Wavefront is determined by these factors:
+  - The proxy has reached the threshold of number of points it can process in each batch. The maximum number of points that a proxy can process and push to the Wavefront service is determined by these factors:
     - Number of cores on the machine on which the proxy is running
     - `pushFlushMaxPoints` - batch size the proxy sends every second. This value is configurable.
 
