@@ -11,6 +11,7 @@ Wavefront users have asked for a more streamlined alert creation experience, and
 * Under the covers, alerts work the same. But we're including this FAQ to help current alert users.
 
 {% include note.html content="Every Wavefront user can view alerts and make temporary changes. You must have the Alerts permission to save changes to alerts." %}
+{% include important.html content="If you are using the Terraform Provider, update to [version 3.0.1](https://registry.terraform.io/providers/vmware/wavefront/latest/docs). That version is compatible with the new alert experience." %}
 
 ## What Are the Main Improvements?
 
