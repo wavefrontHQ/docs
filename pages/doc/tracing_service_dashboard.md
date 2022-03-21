@@ -16,9 +16,9 @@ The default, read-only dashboard for a service lets you explore that service, ho
 See the Service Dashboard:
 
 * Option 1:
-  1. In your web browser, go to your Wavefront cluster and log in. 
+  1. In your web browser, go to your Wavefront instance and log in.
   1. From the taskbar, click **Applications** > **Service Dashboard**.
-  
+
 * Option 2:
   Drill down to the Service Dashboard from the application map, table view, or grid view.
 
@@ -36,21 +36,21 @@ On the dashboard for a particular service, you can:
 * Select **Detailed View** or **Summarized View** to change the level of detail for charts.
 <a name="Tracesbrowser"></a>
 * Examine the TopK charts to find out which operations are potential hot spots. The bars represent operations that execute in this component of the service.
-* Use <img src="images/tracing_link_icon.png"
+* Use the link icon <img src="images/tracing_link_icon.png"
 style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link"/> to get a link and share what you’re seeing right now (NON-LIVE display) with other users.
 * Navigate to the Traces Browser.
   * Click a bar on a histogram.
   * Select a region of the histogram chart and click **Search Traces** to view the traces for the selected duration.
   * Click a bar on a TopK chart.
   * Click the vertical ellipsis in the top right of any chart, click **Traces**, and click a service.
-    {% include note.html content="If you don’t see **Traces**, check whether your metrics include `application` and `service point` tags.<br/><br/> These tags are defined when you instrument your application for tracing via [Application tags](trace_data_details.html#application-tags). If your application is already sending this data into Wavefront via the Wavefront proxy, you can add point tags using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html#addtag-and-addtagifnotexists)." %}
+    {% include note.html content="If you don’t see **Traces**, check whether your metrics include `application` and `service point` tags.<br/><br/> These tags are defined when you instrument your application for tracing via [Application tags](trace_data_details.html#application-tags). If your application is already sending this data to the Wavefront service via the Wavefront proxy, you can add point tags using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html#addtag-and-addtagifnotexists)." %}
 
 ## Custom Service Dashboard
 
 The standard dashboard for services is read-only. To create a customizable copy:
 
 1. Click **Clone** from the ellipsis menu.
-2. In the cloned dashboard, add your own charts or customize the RED metrics charts. 
+2. In the cloned dashboard, add your own charts or customize the RED metrics charts.
 
 After you save the clone, click **Dashboard** on the taskbar and search for your dashboard by its  name. You can use it to drill down to the Traces Browser.
 
@@ -69,7 +69,7 @@ View queries used in the charts of the default Service Dashboard and save these 
           Click <strong>Save</strong>.
         </li>
         <li>
-          Save the chart to a dashboard: 
+          Save the chart to a dashboard:
           <ul>
             <li>
               To save to an existing dashboard, start typing the name of the dashboard, select a dashboard, and click <strong>Insert</strong>.
@@ -90,15 +90,15 @@ View queries used in the charts of the default Service Dashboard and save these 
   </tr>
 </table>
 
-## Troubleshooting 
+## Troubleshooting
 
 **Don't see RED metrics or see incorrect RED metrics on your charts?**
 
-Starting with [release 2020-26.x](2020.26.x_release_notes.html), the **span.kind** filter is introduced to the default Service Dashboard. As a result, if the spans from your OpenTracing application don't have the `span.kind` point tag, the RED metrics you see on the default Service Dashboard will be incorrect, or you will not see RED metrics on your charts. 
+Starting with [release 2020-26.x](2020.26.x_release_notes.html), the **span.kind** filter is introduced to the default Service Dashboard. As a result, if the spans from your OpenTracing application don't have the `span.kind` point tag, the RED metrics you see on the default Service Dashboard will be incorrect, or you will not see RED metrics on your charts.
 
 The OpenTracing SDK and Wavefront proxy versions listed below add the `span.kind` tag to the spans. Use the recommended versions to see accurate data on the default Service Dashboard.
 
-{% include note.html content="If you are using [Wavefront Sender SDKs](tracing_instrumenting_frameworks.html#instrument-your-application-with-wavefront-sender-sdks) and sending data via the Wavefront Proxy, make sure to update to the latest proxy version."%}
+{% include note.html content="If you are using [Wavefront Sender SDKs](tracing_instrumenting_frameworks.html#instrument-your-application-with-wavefront-sender-sdks) and sending data via the Wavefront proxy, make sure to update to the latest proxy version."%}
 
 <table style="width: 80%;">
 
