@@ -29,7 +29,7 @@ If your application uses OpenTelemetry, you can configure the application to sen
 
 ### Send Data Using the Wavefront Proxy - (Recommended) 
 
-Send data from your application to the Wavefront Proxy. This is the recommended and most simplified approach to get your data into Wavefront.
+Send data from your application to the Wavefront Proxy. This is the recommended and most simplified approach to get your data into Tanzu Observability.
 
 Here's how it works:
 ![Shows how the data flows from your application to Tanzu Observability](images/opentelemetry_proxy_tracing.png)
