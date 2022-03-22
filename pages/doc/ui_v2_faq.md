@@ -117,7 +117,9 @@ A: We're working on improving the copy/paste behavior. For now, please use [the 
 
 ### Q: How can I create an embedded chart in v2?
 
-A: Embedded charts allow you to make a chart available outside Wavefront. We temporarily don't support this functionality for v2, but **all your existing embedded charts** will continue to work.
+A: Embedded charts allow you to make a chart available in a different context, for example, on a Web page.
+* **All embedded charts created in v1** will continue to work.
+* You can **create new embedded charts** for many chart types. However, those charts will render using v1 styling. We're in the process of finalizing embedded chart creation for all chart types with a v2 look and feel.   
 
 
 
