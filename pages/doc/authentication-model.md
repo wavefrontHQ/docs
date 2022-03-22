@@ -23,7 +23,7 @@ Tanzu Observability supports both user accounts and service accounts.
 
 ## Self-Service SAML SSO
 
-You can use the authentication provided by Tanzu Observability or use one of our supported authentication integrations. We support several authentication solutions including:
+You can use the authentication provided by Tanzu Observability or use one of the supported authentication integrations. Tanzu Observability supports several authentication solutions including:
 
 * [ADFS](adfs.html)
 * [Azure AD](azure_ad.html)

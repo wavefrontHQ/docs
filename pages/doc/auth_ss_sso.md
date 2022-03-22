@@ -55,7 +55,7 @@ As an administrator, in single-tenant authentication environments, you can set u
 If the certificate that's used in your setup must be replaced, you can delete the existing setup and set up SAML SSO again.
 
 1. Log in to your Wavefront instance as a user with the **SAML IdP Admin** permission.
-2. From the gear icon <i class="fa fa-cog"/> on the toolkbar, select **Self Service SAML**.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Self Service SAML**.
 3. Click the **Click Here** link to delete the existing key pair.
 4. Repeat the setup process.
 

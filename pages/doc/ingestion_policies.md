@@ -3,7 +3,7 @@ title: Examine Usage with Ingestion Policies
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: ingestion_policies.html
-summary: Monitor the usage with ingestion policies and usage dashboards.
+summary: Monitor usage with ingestion policies and usage dashboards.
 ---
 
 As a Super Admin user, you're interested in usage patterns for the whole company, but also for different teams in the company. For such cases, Tanzu Observability by Wavefront supports ingestion policies. You can create different ingestion policies and assign accounts or groups to each policy to see which teams use which part of total ingestion.
@@ -14,7 +14,7 @@ You can examine the performance of your Wavefront instance using [wftop, Wavefro
 
 ## Ingestion Policy Basics
 
-Ingestion policies allow you to group user accounts and service accounts or any user or service accounts groups and then examine their usage for your cluster. For example, you can create a policy, add all accounts that joined in the last 6 months, or create a policy for a whole team, for example the Finance team, and examine whether they show unusually high usage because they're not yet experienced. In such a case, you can provide additional training. You can also set a Points per Second (PPS) limit to an ingestion policy, so that you can track how much of the PPS is used and whether the users or the team will need more PPS in the future.
+Ingestion policies allow you to group user accounts and service accounts or any user or service accounts groups and then examine their usage for your Wavefront instance. For example, you can create a policy, add all accounts that joined in the last 6 months, or create a policy for a whole team, for example the Finance team, and examine whether they show unusually high usage because they're not yet experienced. In such a case, you can provide additional training. You can also set a Points per Second (PPS) limit to an ingestion policy, so that you can track how much of the PPS is used and whether the users or the team will need more PPS in the future.
 
 ### Permissions
 

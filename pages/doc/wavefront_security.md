@@ -74,11 +74,11 @@ Tanzu Observability supports three methods of authentication.
 
 * SAML SSO
 
-  Our customers can use the authentication provided by Tanzu Observability or use one of our supported authentication integrations. We support several authentication solutions including Azure AD, Google ID, and Okta.
+  You can use the authentication provided by Tanzu Observability or use one of the supported authentication integrations. We support several authentication solutions including Azure AD, Google ID, and Okta.
 
   We also support [self-service SAML SSO](auth_self_service_sso.html) setup.
 
-  If a customer's chosen authentication solution supports two-factor authentication, Tanzu Observability requires two-factor authentication for login.
+  If your chosen authentication solution supports two-factor authentication, Tanzu Observability requires two-factor authentication for login.
 
 * Multi-Tenant SSO
 

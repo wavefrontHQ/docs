@@ -15,7 +15,7 @@ Each customer has a contract with VMware that allows them to send a predetermine
 If the customer uses more than the contracted rate, VMware bills for those additional data. Because VMware has to pay the cloud provides for data consumed by the Wavefront instances, we have to make sure that customers pay for the data they consume. But we're interested in having our customers get the best possible results from their data.
 
 
-* **Send data, use data**. If some teams at the customer site send a lot of data to the Wavefront service but don't use those ingested data anywhere (e.g. in alerts, dashboards, etc.) nobody benefits.
+* **Send data, use data**. If some teams at the customer site send a lot of data but don't use those ingested data anywhere (e.g. in alerts, dashboards, etc.) nobody benefits.
 * **Team responsibility**. If several teams at a customer site use the Wavefront service, it might be useful to know which team send in most data.
 * **Know PPS and limits**. If customers are clear about how they're using the contracted PPS, they can budget well.
   - Learn how different metric types (histograms, metrics, spans, etc.) contribute to the overall ingest rate.
@@ -124,7 +124,7 @@ The [Wavefront Spy API](wavefront_monitoring_spy.html) gives even more detail, b
 
 The first thing you would do is to investigate the charts in the [Usage Summary dashboard](examine_usage.html). They can show you how close you are to exceeding your committed rate and whether you will be billed for overages.
 
-The **Committed Rate vs Monthly Usage (PPS P95)** dashboard that’s part of the Wavefront Usage integration helps you determine whether you’re getting close to meeting the limit. For most Wavefront instances, after the limit is reached data still keeps flowing into the Wavefront service, but the customer has to pay overage.
+The **Committed Rate vs Monthly Usage (PPS P95)** dashboard that’s part of the Wavefront Usage integration helps you determine whether you’re getting close to meeting the limit. For most Wavefront instances, after the limit is reached data still keeps flowing into Tanzu Observability, but the customer has to pay overage.
 
 The charts in the dashboard show this information:
 

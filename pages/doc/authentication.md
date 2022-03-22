@@ -7,21 +7,21 @@ permalink: authentication.html
 summary: Learn how to enable multi-tenant authentication.
 ---
 
-Most of our customers use [single-tenant authentication](auth_self_service_sso.html). If your company wants to set up different tenants for different teams, a multi-tenant setup might make sense.
+Most of our customers use [single-tenant authentication](auth_self_service_sso.html). If your company wants to set up different tenants for different teams, Tanzu Observability by Wavefront supports multi-tenancy.
 
 {% include note.html content="Switching tenants in multi-tenant environments require [the extra steps listed below](#switching-tenants-in-multi-tenant-environments)." %}
 
 
 ## Multi-Tenant Authentication
 
-Several of our customers have asked for an environment that supports separate tenants for different teams. For example, here at VMware it made sense to keep the VMware vSphere team separate from the VMware NSX team -- both teams use Tanzu Observability by Wavefront. We support this separation of teams, called multi-tenancy, like this:
+Several of our customers have asked for an environment that supports separate tenants for different teams. For example, here at VMware it made sense to keep the VMware vSphere team separate from the VMware NSX team -- both teams use Tanzu Observability by Wavefront. This separation of teams, called multi-tenancy, works like this:
 
 * The administrator at the customer site requests tenants from Tanzu Observability and provides the tenant administrator emails and other information such as the IdP.
 * After the Tanzu Observability team has set up the tenants, each tenant administrator (a Super Admin or a user the **Accounts** permission) invites users to that tenant.
 * A Super Admin or a user the **Accounts** permission can invite users to multiple tenants.
-* Users who have been invited to multiple tenants:
+* After logging in to the Wavefront instance, users who have been invited to multiple tenants:
     - Are directed to the last tenant they used.
-    - Can switch to other tenants from the gear icon <i class="fa fa-cog"/> on the taskbar without having to log in again.
+    - Can switch to other tenants from the gear icon <i class="fa fa-cog"/> on the toolbar without having to log in again.
 
 Multi-tenancy must be set up in collaboration with the Tanzu Observability team, as discussed next.
 
@@ -52,8 +52,8 @@ Administrators who request a multi-tenant setup can specify sandbox mode or stri
 ### Sandbox Mode (Default Login Enabled)
 
 In sandbox mode, any user who is authenticated by the corporate ID provider is given access to a default tenant.
-* If that user was never invited to any of the tenants, Tanzu Observability creates a user on the default tenant.
-* If the user has been invited to an existing tenant, the user is given access to that tenant, and Tanzu Observability does not create a user on the default tenant.
+* If the user was never invited to any of the tenants, we create a user on the default tenant.
+* If the user has been invited to an existing tenant, the user is given access to that tenant, and we do not create a user on the default tenant.
 
 ### Strict Mode (Default Login Disabled)
 

@@ -55,7 +55,7 @@ Users with **Accounts** permissions can manage accounts.
 As a [super admin user](authorization.html#who-is-the-super-admin-user), you can sign out other users by using the Wavefront REST API. To sign out a user while you are logged in as a Super Admin user, simply run a POST request with the `logout` API call. For example:
 
 ```
-POST https://<your_wavefront_cluster>.wavefront.com/api/logout/{identifier}
+POST https://<your_instance>.wavefront.com/api/logout/{identifier}
 ```
 
 You must specify the `{identifier}`, which is the email address of the user that you want to log out. If you are not logged in to your Wavefront instance, when you run the POST request, you must also provide a valid [API token](wavefront_api.html#generating-an-api-token).

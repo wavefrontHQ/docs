@@ -38,7 +38,7 @@ The following list gives an overview of permissions. To learn more, click the li
     
 - **[Chart Embedding](ui_sharing.html#embed-a-chart-in-other-uis)**  
     
-    Users with the **Chart Embedding** permission can generate HTML snippets of Tanzu Observability charts and embed a corresponding interactive chart outside of Tanzu Observability. Embedded chart URLs are associated with a specific user account. If a user embeds a chart and later that user's account is removed, the embedded chart no longer works.
+    Users with the **Chart Embedding** permission can generate HTML snippets of charts in Tanzu Observability and embed a corresponding interactive chart outside of Tanzu Observability. Embedded chart URLs are associated with a specific user account. If a user embeds a chart and later that user's account is removed, the embedded chart no longer works.
     
 - **[Dashboards](ui_dashboards.html)** 
 

@@ -16,7 +16,7 @@ Users with the **Accounts** permission can:
 
 In addition to the global roles and permissions model, Tanzu Observability also supports [access control for individual objects](access.html), for example, users with the **Accounts** permission can limit access to a sensitive dashboard.
 
-{% include note.html content="You must have the **Accounts** permission to view and manage authorization in Tanzu Observability. If you don't have the permission, the corresponding UI menu selections, buttons, and links are not visible." %}
+{% include note.html content="You must have the **Accounts** permission to view and manage authorization in your Wavefront environment. If you don't have the permission, the corresponding UI menu selections, buttons, and links are not visible." %}
 
 
 ## Manage Roles and Permissions
@@ -79,7 +79,7 @@ Users with **Accounts** permission can assign roles to a group when they create 
 <td width="50%">
 To assign a role to a group:
 <ol><li>Log in to your Wavefront instance.</li>
-<li>Click the gear icon on the taskbar and select <strong>Accounts</strong>.</li>
+<li>Click the gear icon on the toolbar and select <strong>Accounts</strong>.</li>
 <li>On the <strong>Groups</strong> tab, change role assignment in one of these ways: </li>
 <ul><li>Select the group check box, click <strong>+Role</strong> or <strong>-Role</strong>, and select a role to change role assignment (not shown on  the right).</li>
 <li>Click the group name. In the <strong>Edit Group</strong> page, make the desired changes and click <strong>Update</strong>, as shown on the right.</li></ul>

@@ -58,7 +58,7 @@ Our customer support engineers have found the following metrics especially usefu
 <tr>
 <td markdown="span">~collector</td>
 <td markdown="span">~collector.points.reported <br> ~collector.histograms.reported <br>~collector.tracing.spans.reported<br>~collector.tracing.span_logs.reported <br> ~collector.tracing.span_logs.bytes_reported<br></td>
-<td markdown="span">Valid metric points, histogram points, [trace data (spans)](tracing_basics.html#trace-sampling-and-storage), or span logs that the collector reports to the Wavefront service. This is a billing metric that you can look up on the Wavefront Usage dashboard.<br>
+<td markdown="span">Valid metric points, histogram points, [trace data (spans)](tracing_basics.html#trace-sampling-and-storage), or span logs that the collector reports to Tanzu Observability. This is a billing metric that you can look up on the Wavefront Usage dashboard.<br>
 <br>
 **Note:** We have a corresponding direct ingestion metric for each metric. For example, corresponding to `collector.points.reported` we have `collector.direct-ingestion.points.reported`.</td></tr>
 <tr>
@@ -71,7 +71,7 @@ Our customer support engineers have found the following metrics especially usefu
 <tr>
 <td markdown="span">~collector</td>
 <td markdown="span">~collector.points.undecodable<br> ~collector.histograms.undecodable<br> ~collector.tracing.spans.undecodable<br> ~collector.tracing.span_logs.undecodable</td>
-<td markdown="span">Points, histogram points, spans, or span logs that the collector receives but cannot report to the Wavefront service because the input is not in the right format.<br>
+<td markdown="span">Points, histogram points, spans, or span logs that the collector receives but cannot report to Tanzu Observability because the input is not in the right format.<br>
 <br>
 **Note:** We have a corresponding direct ingestion metric for each metric. For example, corresponding to `collector.points.undecodable` we have `collector.direct-ingestion.points.undecodable`.</td></tr>
 
@@ -86,15 +86,15 @@ Our customer support engineers have found the following metrics especially usefu
 <tr>
 <td markdown="span">~metric</td>
 <td>~metric.new_host_ids</td>
-<td markdown="span">Counter that increments when a new `source=` or `host=` is sent to the Wavefront service.</td></tr>
+<td markdown="span">Counter that increments when a new `source=` or `host=` is sent to Tanzu Observability.</td></tr>
 <tr>
 <td markdown="span">~metric</td>
 <td>~metric.new_metric_ids</td>
-<td markdown="span">Counter that increments when a new metric name is sent to the Wavefront service.</td></tr>
+<td markdown="span">Counter that increments when a new metric name is sent to Tanzu Observability.</td></tr>
 <tr>
 <td markdown="span">~metric</td>
 <td>~metric.new_string_ids</td>
-<td markdown="span">Counter that increments when a new point tag value is sent to the Wavefront service.</td></tr>
+<td markdown="span">Counter that increments when a new point tag value is sent to Tanzu Observability.</td></tr>
 <tr>
 <td markdown="span">~query</td>
 <td>~query.requests</td><td>Counter tracking the number of queries a user made.</td></tr>

@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: access.html
 summary: Control access to individual dashboards and alerts.
 ---
-The roles, permissions, and groups authorization paradigm manages global permissions. For example, a user with **Dashboards** permission can manage *all* dashboards. This paradigm is sufficient for many Tanzu Observability by Wavefront customers.
+Tanzu Observability by Wavefront supports the roles, permissions, and groups authorization paradigm for managing global permissions. For example, a user with **Dashboards** permission can manage *all* dashboards. This paradigm is sufficient for many of our customers.
 
 Super Admins or users with the **Accounts** permission who need finer-grained control can manage access on a per-object basis. We currently support access control for dashboards and alerts.
 
@@ -16,7 +16,7 @@ Super Admins or users with the **Accounts** permission who need finer-grained co
 
 This video shows how to limit access for a dashboard, how to give access (share) that dashboard, and how to set the Security organization setting. You can manage access for alerts the same way. The video uses the 2020 version of the UI.
 
-<p><a href="https://youtu.be/45E4pkann0E"><img src="images/v_access.png" style="width: 700px;" alt="Tanzu Observability access control"/></a>
+<p><a href="https://youtu.be/45E4pkann0E"><img src="images/v_access.png" style="width: 700px;" alt="Access control for dashboards"/></a>
 </p>
 
 {% include note.html content="After the Access organization setting is set to Object Creator in an environment, only the creator of a new object and the Super Admin can view and modify new objects initially. Those users can give access to the object with other groups or users." %}
@@ -123,7 +123,7 @@ A permanently deleted dashboard does not show in the trash and becomes inaccessi
 2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **API Documentation**.
 3. Expand the **Dashboard** category, click the `GET api/v2/dashboard/{id}/history/{version}` request and click **Try it out** in the top right of the request.
 4. Enter the dashboard name as the `"id"` parameter. 
-   For example, if the dashboard URL is `https://<your_cluster>.wavefront.com/dashboards/MY-DASHBOARD`, then the `"id"` that you should enter is **MY-DASHBOARD**.
+   For example, if the dashboard URL is `https://<your_instance>.wavefront.com/dashboards/MY-DASHBOARD`, then the `"id"` that you should enter is **MY-DASHBOARD**.
 5. Enter the last known version of the dashboard as an integer.
    
    If you don't know the version, you can enter **1**. This way, you also determine whether the dashboard `"id"` input has ever existed.
@@ -168,4 +168,4 @@ A permanently deleted dashboard does not show in the trash and becomes inaccessi
     
 10. Validate that the dashboard is now live again. 
    
-    For example, navigate to `https://<your_cluster>.wavefront.com/dashboards/MY-DASHBOARD/history` and you should now be able to review the dashboard history by using the GUI. 
+    For example, navigate to `https://<your_instance>.wavefront.com/dashboards/MY-DASHBOARD/history` and you should now be able to review the dashboard history by using the GUI. 

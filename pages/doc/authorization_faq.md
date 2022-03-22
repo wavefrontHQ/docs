@@ -19,7 +19,7 @@ Tanzu Observability by Wavefront supports two account types:
 
 ### Who Is the Super Admin User?
 
-When your company signs up with Tanzu Observability, we ask you which users you want to designate as Super Admin users. A Super Admin user:
+When your company signs up with Tanzu Observability, we ask you which users you want to designate as Super Admin users for your Wavefront instance. A Super Admin user:
 * Has all permissions.
 * Has access to all dashboards and alerts.
 * Can [restore orphan dashboards and alerts](access.html#making-orphan-dashboards-visible).
@@ -44,7 +44,7 @@ Groups allow you to combine a set of users. You can then:
 * Assign a role to the group.
 * Give [view or modify access](access.html) for individual dashboards and alerts to the group.
 
-Our groups do *not* currently synchronize with groups in your identity provider (IdP) such as Active Directory or LDAP.
+The groups in your Wavefront environment do *not* currently synchronize with the groups in your identity provider (IdP) such as Active Directory or LDAP.
 
 
 ### What's the Everyone Group?

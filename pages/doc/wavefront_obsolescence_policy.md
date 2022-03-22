@@ -79,7 +79,7 @@ Delta counter behavior changed with [Release 2020.26](2020.26.x_release_notes.ht
 
 We update system dashboard and integration content to use the new version of delta counters. However, you might have to update custom delta counters.
 
-* **Automatic Updates**. [Tracing RED metrics](trace_data_details.html#red-metrics) and in certain internal `~` metrics [collected by the Wavefront service](wavefront-internal-metrics.html), such as `~collector.points.reported`, use delta counters. All out-of-the-box dashboards that use these data will be updated for you.
+* **Automatic Updates**. [Tracing RED metrics](trace_data_details.html#red-metrics) and in certain internal `~` metrics [collected by Tanzu Observability](wavefront-internal-metrics.html), such as `~collector.points.reported`, use delta counters. All out-of-the-box dashboards that use these data will be updated for you.
 * **User Updates**. If you have cloned any out-of-the-box dashboards that use delta counters or have created any custom dashboards, charts, or alerts, you are responsible for updating the queries in related charts and alerts yourself.
 
 

@@ -9,9 +9,9 @@ summary: Understand what you can do as an administrator.
 
 Super Admin users and users with the **Accounts** permission can perform a variety of tasks, such as:
 
-* Manage the authorization and access to the environment.
-* Select the authentication model in your environment. For example by setting up SSO using an identity provider (IdP).
-* Monitor and troubleshoot the environment and usage.
+* Manage the authorization and access to the Wavefront environment.
+* Select the authentication model in the Wavefront environment. For example by setting up SSO using an identity provider (IdP).
+* Monitor and troubleshoot the Wavefront environment and usage.
 
 ## Authorization
 
@@ -31,7 +31,7 @@ You can select your preferred authentication method for your environment by sett
 
 ## Monitor and Troubleshoot
 
-Super Admin users can use the Wavefront Usage integration dashboards to monitor and troubleshoot your environment. By using the dashboards in this integration, you can:
+As a Super Admin user, you can use the Wavefront Usage integration dashboards to monitor and troubleshoot your Wavefront environment. By using the dashboards in this integration, you can:
 
 * Get usage information for your Wavefront instance and Wavefront proxy.
 * Drill down into the metrics namespaces to discover trends.

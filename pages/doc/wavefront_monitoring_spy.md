@@ -140,7 +140,7 @@ Suppose you have a Wavefront instance named `ex1`.
 
 ## Get Ingested Delta Counters with Spy
 
-Your Wavefront instance includes an HTTP endpoint that returns a sample of ingested [delta counters](delta_counters.html). The data you see are the aggregated points in each minute bucket that the Wavefront service stores **post aggregation**, not the individual points that were sent to the service.
+Your Wavefront instance includes an HTTP endpoint that returns a sample of ingested [delta counters](delta_counters.html). The data you see are the aggregated points in each minute bucket that Tanzu Observability stores **post aggregation**, not the individual points that were sent to Tanzu Observability.
 
 You can use the returned list to help you answer questions like:
 * Show me some ingested delta counters with names that start with the prefix `Cust`.
@@ -406,7 +406,7 @@ To get a sample of the ingested span logs, use the following endpoint. Replace `
 https://<your_instance>.wavefront.com/api/gateway/spy/spanlogs
 ```
 
-By default, the sampling rate is 1%, which means that the Wavefront service returns 1% of the data. To sample the span logs at a different sampling rate, add the `sampling` parameter to the URL.
+By default, the sampling rate is 1%, which means that Tanzu Observability returns 1% of the data. To sample the span logs at a different sampling rate, add the `sampling` parameter to the URL.
 
 <table width="100%">
 <tbody>
