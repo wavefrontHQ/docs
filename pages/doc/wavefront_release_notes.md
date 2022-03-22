@@ -32,6 +32,17 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
   <table>
   <tbody>
   <tr>
+  <td width="50%"><strong>Documentation improvements</strong>:<br/><br/>
+  We have made a lot of documentation improvements with information that comes from our Tanzu Observability SaaS Value Engineering team. Main doc improvements are listed on the right.
+  </td>
+  <td width="50%">
+  <ul><li><a href="https://docs.wavefront.com/optimize_data_shape.html">Optimizing the Data Shape to Improve Performance</a></li>
+  <li><a href="https://docs.wavefront.com/missing_data_troubleshooting.html">Troubleshooting Missing Data</a></li>
+  <li><a href="https://docs.wavefront.com/query_language_metadata_functions.html">Metadata (Label Manipulation) Functions</a></li>
+  </ul>
+  </td>
+  </tr>
+  <tr>
   <td width="50%"><strong>Toolbar improvements</strong>:<br/><br/>
   All objects and items related to the alerts are accessible through the <strong>Alerting</strong> menu. Instead of clicking <strong>Browse</strong> on the toolbar to access alert targets and maintenance windows, you can click <strong>Alerting</strong> and select:
   <ul><li><strong>All Alerts</strong> - to open the Alerts Browser page.</li>
