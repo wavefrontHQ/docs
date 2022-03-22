@@ -73,22 +73,6 @@ We've streamlined variable configuration for developers. We've made setting vari
 </tbody>
 </table>
 
-## How Do I Switch from v1 to v2?
-
-Switch to the v2 UI for your account from the gear icon:
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="40%">
-<ol>
-<li>Select the gear icon in the top right.</li>
-<li>In the User Information tab, select <strong>UI Version > v2</strong>.</li>
-</ol></td>
-<td width="60%"><img src="images/switch_to_v2.png" alt="pulldown menu with v2 selected."></td>
-</tr>
-</tbody>
-</table>
 
 ## Chart FAQs from v2 Users
 
