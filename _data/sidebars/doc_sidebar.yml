@@ -6,11 +6,7 @@ entries:
   version:
   folders:
 
-<<<<<<< HEAD
   - title: Quickstart & Tutorials
-=======
-  - title: Quickstart
->>>>>>> 7887b023d136092d5e13d9cb409f488481413c49
     output: web
     folderitems:
 
@@ -21,71 +17,8 @@ entries:
     - title: Your Account
       url: /users_account_managing.html
       output: web
-<<<<<<< HEAD
-    
-    - title: "Learn Wavefront"
-=======
-
-      subfolders:
-      - title: Reference
-        output: web
-        subfolderitems:
-
-        - title: Query Language Reference
-          url: /query_language_reference.html
-          output: web
-
-        - title: Chart Reference
-          url: /ui_chart_reference.html
-          output: web
-
-        - title: REST API
-          url: /wavefront_api.html
-          output: web
-
-        - title: All Integrations
-          url: /label_integrations%20list.html
-          output: web
-
-
-      - title: Misc.
-        output: web
-        subfolderitems:
-
-        - title: Use and Save Searches
-          url: /wavefront_searching.html
-          output: web
-
-        - title: Accessibility & Keyboard Navigation
-          url: /wavefront_keyboard_shortcuts.html
-          output: web
-
-        - title: Support & Feedback
-          url: /wavefront_support_feedback.html
-          output: web
-
-        - title: Terms of Service
-          url: /terms_of_service.html
-          output: web
-
-        - title: Obsolescence Policy
-          url: /wavefront_obsolescence_policy.html
-          output: web
-
-        - title: Privacy Policy
-          url: /privacy.html
-          output: web
-
-    - title: Glossary
-      url: /glossary.html
-      output: web
-
-  - title: Tutorials & Videos
-    output: web
-    folderitems:
-
+      
     - title: "Learn Tanzu Observability"
->>>>>>> 7887b023d136092d5e13d9cb409f488481413c49
       url: /tutorial_overview.html
       output: web
 
@@ -184,7 +117,7 @@ entries:
         output: web
         subfolderitems:
 
-        - title: Searching Wavefront
+        - title: Use and Save Searches
           url: /wavefront_searching.html
           output: web
 
@@ -200,15 +133,15 @@ entries:
           url: /terms_of_service.html
           output: web
 
-        - title: Wavefront Obsolescence Policy
+        - title: Obsolescence Policy
           url: /wavefront_obsolescence_policy.html
           output: web
 
-        - title: Wavefront Privacy Policy
+        - title: Privacy Policy
           url: /privacy.html
           output: web
 
-    - title: Wavefront Glossary
+    - title: Glossary
       url: /glossary.html
       output: web
 
