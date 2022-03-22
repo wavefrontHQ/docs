@@ -5,8 +5,6 @@ permalink: opentelemetry_tracing.html
 summary: Learn how to send data your OpenTelemetry metrics and traces to Tanzu Observability.
 ---
 
-{% include warning.html content="This document is work in progress!" %}
-
 OpenTracing and OpenCensus have merged to form OpenTelemetry. OpenTelemetry provides a single set of APIs, libraries, agents, and collector services to capture distributed traces and metrics from your application. If your application uses OpenTelemetry, you can configure the application to send traces to Tanzu Observability by Wavefront as explained below:
 
 {{site.data.alerts.tip}}

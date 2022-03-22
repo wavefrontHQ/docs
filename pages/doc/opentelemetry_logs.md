@@ -5,7 +5,7 @@ permalink: opentelemetry_logs.html
 summary: Learn how to enable logs for your OpenTelemetry data.
 ---
 
-Follow these steps to enable logs for your OpenTelemetry data. Once the logs are saved, you can see them in the directory you saved.
+Follow these steps to enable logs for your OpenTelemetry data. Once the logs are saved, you can see them in the directory you specified for `log-path` on your `log4j2.xml` file.
 
 1. Open the [`<wavefront_config_path>`](#paths)`/log4j2.xml` file.
 2. Add the configurations to enable and manage logs under `<Appenders>`.<br/>
