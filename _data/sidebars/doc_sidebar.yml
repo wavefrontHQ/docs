@@ -638,7 +638,7 @@ entries:
         url: /opentelemetry_java_tutorial.html
         output: web
         
-      - title: Enable Logs
+      - title: Enable Proxy Debug Logs
         url: /opentelemetry_logs.html
         output: web
       
