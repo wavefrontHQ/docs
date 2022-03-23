@@ -125,4 +125,3 @@ Next, log in to your Tanzu Observability instance and examine your data in dashb
 * [Examine the sample data on the predefined charts and dashboards](tutorial_dashboards.html).
 * Create [dashboards](ui_dashboards.html) and [charts](ui_charts.html) for the data you sent to Tanzu Observability. 
   <br/>You need to have the required permissions to do these tasks.
-  
