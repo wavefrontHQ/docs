@@ -9,7 +9,7 @@ summary: Announcements and new and updated features in Tanzu Observability by Wa
 
 This page lists new and updated features for the Tanzu Observability by Wavefront service.
 
-* For **Wavefront Proxy**, your go-to place is the [Wavefront proxy github page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
+* For **Wavefront Proxy**, your go-to place is the [Wavefront proxy GitHub page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
@@ -21,11 +21,6 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
     {% include important.html content="Ensure that the service accounts in your organization do not depend on the **Everyone** group permissions."%}
 
-* **Upcoming Deprecation of v1 Dashboards and Charts**
-
-    In the next releases, all v1 dashboards and charts will be migrated to v2. Users can no longer select the v1 version of dashboards and charts.
-
-    Most users are already using the v2 GUI. However, if your dashboards and charts are migrated, see [What's New in v2 Dashboards & Charts](ui_v2_faq.html) for info.
     
 * **Terraform Provider Updates**
 
