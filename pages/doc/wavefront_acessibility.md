@@ -82,7 +82,7 @@ The end-to-end keyboard navigation is fully supported in the UI pages listed bel
 
 * Metrics Browser page
 
-  You can access it by navigating to **Browse > Metrics** from the toolbar.
+  Navigate to **Browse > Metrics** from the toolbar.
 
 ## Drag-and-Drop Keyboard Navigation
 

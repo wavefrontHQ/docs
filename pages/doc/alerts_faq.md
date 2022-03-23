@@ -1,10 +1,10 @@
 ---
-title: Wavefront Alerts FAQ
+title: Alerts FAQ
 keywords: alerts
 tags: [getting started, alerts]
 sidebar: doc_sidebar
 permalink: alerts_faq.html
-summary: Learn alert customization from experts.
+summary: Learn alert customization from Tanzu Observability by Wavefront experts.
 ---
 ## Who Can View and Manage Alerts?
 Permissions and access control determine who can view, create, and modify an alert.
@@ -14,7 +14,7 @@ Permissions and access control determine who can view, create, and modify an ale
 ## What’s the Alert Condition?
 The alert condition is the currently selected query. In multi-query alerts, you can define several queries and use the results of these queries in the condition query, but only the currently selected query will be used as the condition. 
 
-## How Often Does Wavefront Evaluate the Alert Condition?
+## How Often Does Tanzu Observability Evaluate the Alert Condition?
 The minimum and default **Checking Frequency** interval is 1 minute. You can adjust this property from the **Additional Settings** in the **Conditions** section of the alert.
 
   * If your alert condition query runs for more than a minute, consider increasing the checking frequency interval. For example, if the query runs for 2-4 minutes, set the **Checking Frequency** interval to 5 minutes.
@@ -22,8 +22,8 @@ The minimum and default **Checking Frequency** interval is 1 minute. You can adj
   * If an alert is non-critical, you can check only as often as needed.
   * If an alert condition uses larger moving time windows or aligns to a large interval, you can check less frequently. For example, an alert that compares a `mavg(6h, ...)` to `mavg(48h, ...)` can be safely checked once an hour or even less.
 
-## How Does Wavefront Evaluate the Alert Condition?
-Wavefront evaluates the reported value against the alert condition for each minute in the checking interval. If your metric reports more than one value during a particular minute, Wavefront first performs an *average* aggregation of the values for that minute, then evaluates the aggregated value against the alert condition.
+## How Does Tanzu Observability Evaluate the Alert Condition?
+Tanzu Observability evaluates the reported value against the alert condition for each minute in the checking interval. If your metric reports more than one value during a particular minute, Tanzu Observability first performs an *average* aggregation of the values for that minute, then evaluates the aggregated value against the alert condition.
 
 * If the alert condition is *met* or returns a *non-zero* value, the result is `true`.
 * If the alert condition is *not met* or returns a *zero* value, the result is `false`.
@@ -31,25 +31,25 @@ Wavefront evaluates the reported value against the alert condition for each minu
 
 Let’s look at an example over a single minute in the checking interval. Suppose your alert condition is `ts(my.metric) > 8`.
 
-* If `my.metric` reported the data value of `15` during the minute, Wavefront evaluates the alert condition for this minute as `true` because the condition is *met*, i.e. the statement `15 > 8` is `true`.
-* If `my.metric` reported the data values of `15`, `6`, and `2` during the minute, Wavefront evaluates the alert condition for this minute as `false` because the condition for the aggregated average value is *not met*, i.e. the statement `7.6 > 8` is `false`.
+* If `my.metric` reported the data value of `15` during the minute, Tanzu Observability evaluates the alert condition for this minute as `true` because the condition is *met*, i.e. the statement `15 > 8` is `true`.
+* If `my.metric` reported the data values of `15`, `6`, and `2` during the minute, Tanzu Observability evaluates the alert condition for this minute as `false` because the condition for the aggregated average value is *not met*, i.e. the statement `7.6 > 8` is `false`.
   
-After the alert evaluation, Wavefront has a list of `N` minutely values, one value for each minute in the checking interval. Each of the `N` values can be either `true`, `false`, or `no data`.
+After the alert evaluation, Tanzu Observability has a list of `N` minutely values, one value for each minute in the checking interval. Each of the `N` values can be either `true`, `false`, or `no data`.
   
 ## When Does an Alert Fire?
-If the alert condition returned *at least one* `true` value and *no* `false` minutely values during the alert trigger window, Wavefront switches the alert state from CHECKING to FIRING. 
+If the alert condition returned *at least one* `true` value and *no* `false` minutely values during the alert trigger window, Tanzu Observability switches the alert state from CHECKING to FIRING. 
 
 The default **Trigger Window** is 5 minutes. You can adjust this property from condition settings.
 
 If your metric is backfilled in chunks, for example, if the metric is backfilled in 10-minute chunks, avoid setting **Trigger Window** to less than 10 minutes, or use [moving time window functions](query_language_reference.html#moving-window-time-functions) to make sure that all the incoming data is visible to the alert.
 
 ## When Does a Firing Alert Resolve?
-If the alert condition didn't return *any* `true` minutely values during the alert resolve window, Wavefront returns the alert state from FIRING to CHECKING.
+If the alert condition didn't return *any* `true` minutely values during the alert resolve window, Tanzu Observability returns the alert state from FIRING to CHECKING.
 
 The default **Resolve Window** is the same as the **Trigger Window**. You can adjust this property from the condition setting.
 
 ## Can Alerts Use Multiple Metrics?
-Yes, you can [aggregate points from multiple time series](query_language_aggregate_functions.html) with or without interpolation depending on your use case. In Wavefront, interpolation is the process of generating a made-up data value for one or more time series where they don't exist, and can only occur between two truly reported values within a series.
+Yes, you can [aggregate points from multiple time series](query_language_aggregate_functions.html) with or without interpolation depending on your use case. In Tanzu Observability, interpolation is the process of generating a made-up data value for one or more time series where they don't exist, and can only occur between two truly reported values within a series.
 
 If metrics report at the same time, it might be better to use raw aggregate functions and not interpolating aggregate functions. With standard aggregation functions, interpolation will occur.
 
@@ -71,7 +71,7 @@ False positive alerts could be due to:
   In such cases, you can use one of the following approaches:
   * Consider the NO DATA state to be normal and take action only when the alert triggers to FIRING, which means the alert sees the presence of reported error data.
   
-    {% include note.html content="Wavefront considers a metric *obsolete* after it hasn’t reported any values for 4 weeks, and obsolete metrics *are not* included in alert evaluations by default. To handle alerting on very infrequently reported errors series, on the **Advanced** tab of the **Data** settings of the alert, select the **Include Obsolete Metrics** check box." %}
+    {% include note.html content="Tanzu Observability considers a metric *obsolete* after it hasn’t reported any values for 4 weeks, and obsolete metrics *are not* included in alert evaluations by default. To handle alerting on very infrequently reported errors series, on the **Advanced** tab of the **Data** settings of the alert, select the **Include Obsolete Metrics** check box." %}
   * Use the [default() missing data function](ts_default.html) to insert a default value depending on how you want to handle the situation where data isn’t being reported.
   * Use the counter metric rather than the gauge metric, if applicable, so that the metric is cumulative and does not become obsolete. For example, use the `bad.exception.count` metric rather than the `bad.exception` metric.
 

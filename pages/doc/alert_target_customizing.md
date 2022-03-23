@@ -7,7 +7,7 @@ permalink: alert_target_customizing.html
 summary: Learn how to customize alert notifications by modifying alert target templates.
 ---
 
-An alert target provides a template that specifies how Wavefront extracts information from the alert, and how to assemble the notification from the alert information.
+An alert target provides a template that specifies how Tanzu Observability by Wavefront extracts information from the alert, and how to assemble the notification from the alert information.
 
 You can customize the predefined template for the alert target type by making and saving changes. The template uses [Mustache syntax](https://mustache.github.io/) to combine literal text with Wavefront-defined _variables_ and _functions_ to produce the structures to be sent to the receiving messaging platform.
 
@@ -45,10 +45,10 @@ The template defined by a custom alert target describes the contents of the noti
 
 Here's what happens:
 1. The alert triggers an event.
-2. The alert template
+2. The alert template:
    * Identifies the information you want to extract from the alert
    * Embeds that information in a formatted structure appropriate for the target's messaging platform.
-3. Wavefront sends the formatted information to the target.
+3. Tanzu Observability sends the formatted information to the target.
 4. The messaging platform interprets the structure and displays it as a readable notification.
 
 For example:
@@ -60,7 +60,7 @@ For example:
 
 ### Predefined Templates
 
-Wavefront provides a predefined template for each type of custom alert target. You can use the predefined template as is, or you can customize it.
+We provide a predefined template for each type of custom alert target. You can use the predefined template as is, or you can customize it.
 
 You can [inspect](#display-and-edit-predefined-templates) a predefined template to see:
 
@@ -74,7 +74,7 @@ The predefined Slack and VictorOps templates contain JSON attributes defined by 
 
 ### Template Variables
 
-Wavefront defines template variables for accessing [information about the alert](#obtain-information-about-the-alert) and about [the time series tested by the alert](#obtain-information-about-the-alerts-time-series). When the alert triggers a notification, Wavefront replaces the variables in the template with strings that represent the requested values. 
+We define template variables for accessing [information about the alert](#obtain-information-about-the-alert) and about [the time series tested by the alert](#obtain-information-about-the-alerts-time-series). When the alert triggers a notification, Tanzu Observability replaces the variables in the template with strings that represent the requested values. 
 
 We support property and iterator variables, which are used differently.
 
@@ -107,7 +107,7 @@ We support property and iterator variables, which are used differently.
 
 ### Template Functions
 
-Wavefront defines template functions for performing various tasks, such as [tailoring the notification content to the trigger type](#tailor-content-to-the-trigger-type), [limiting the number of elements an iterator can return](#limit-list-sizes), and [assisting with JSON or XML formatting](#utility-functions-for-readability).
+We define template functions for performing various tasks, such as [tailoring the notification content to the trigger type](#tailor-content-to-the-trigger-type), [limiting the number of elements an iterator can return](#limit-list-sizes), and [assisting with JSON or XML formatting](#utility-functions-for-readability).
 
 The following snippet shows the basic Mustache syntax for two functions:
 
@@ -146,7 +146,7 @@ To display and edit a predefined template for a new or existing custom alert tar
 
 ## Obtain Information About the Alert
 
-Wavefront defines variables for obtaining information about the alert as a whole, such as the alert ID, timing, severity, and so on. Each of these variables is a property unless explicitly described as an iterator.
+We define variables for obtaining information about the alert as a whole, such as the alert ID, timing, severity, and so on. Each of these variables is a property unless explicitly described as an iterator.
 
 ### General Information About the Alert
 
@@ -381,7 +381,7 @@ Notice that, in a template entry such as {% raw %} `"alertId": "{{{alertId}}}"`{
 
 ## Obtain Information About the Alert's Time Series
 
-Wavefront defines variables for obtaining information about the time series that contributed to the alert's state change. Each of these variables is an iterator that visits the time series in a particular category, and returns one of the following kinds of information about the visited series:
+We define variables for obtaining information about the time series that contributed to the alert's state change. Each of these variables is an iterator that visits the time series in a particular category, and returns one of the following kinds of information about the visited series:
 
 * [Each series' source (host)](#list-sources-and-source-tags-of-an-alerts-time-series)
 *
@@ -1041,7 +1041,7 @@ The `failingLimit` property applies to all iterators in the `failing` category: 
 
 See [Setting and Testing Iteration Limits](#example-setting-and-testing-iteration-limits) for an example.
 
-{% include note.html content="If the application that is being integrated requires the full list of items (e.g., `failingHosts`) you can retrieve the `alertId` from the notification and use the Wavefront API to get the full list of items." %}
+{% include note.html content="If the application that is being integrated requires the full list of items (e.g., `failingHosts`) you can retrieve the `alertId` from the notification and use the Wavefront REST API to get the full list of items." %}
 
 
 <table>
@@ -1304,7 +1304,7 @@ To update the template for a custom Slack alert target that was created before 2
 
 ## Include a Link to a Tracing Service Dashboard
 
-If the Wavefront query in an alert has an application and service name and meets a specific alert target, you get a link to drill down to the [service dashboard](tracing_service_dashboard.html). The service dashboard lets you see RED metrics of the application or service and identify potential hot spots.
+If the query in an alert has an application and service name and meets a specific alert target, you get a link to drill down to the [service dashboard](tracing_service_dashboard.html). The service dashboard lets you see RED metrics of the application or service and identify potential hot spots.
 
 {% include note.html content="The `tracingDashboardLinks` value is shown in the Alerts Browser. In contrast, the `alertTriageDashboardLinks` values are shown in the **alert notification** if specified as part of the alert. See [Information About Alert Resolution Help](#information-about-alert-resolution-help)"%}
 
@@ -1328,7 +1328,7 @@ Let's walk through a scenario:
     Here we create an alert that fires when the request rate is greater than 3 for the `beachshirts` application's `delivery` service.
     ![a screenshot of the alert.](images/alert_tracing_service_dashboard.png)
 
-If the alert you created moves to the firing stage, Wavefront sends a notification to the users specified in the alert target. The notification includes a link to the service dashboard. For example, in this scenario, the JSON output of your notification looks like this:
+If the alert you created moves to the firing stage, we send a notification to the users specified in the alert target. The notification includes a link to the service dashboard. For example, in this scenario, the JSON output of your notification looks like this:
 ```
 "tracingDashboardLinks": [
   "https://<cluster_name>.wavefront.com/tracing/service/details#_v01(g:(d:1500,s:1619576595),p:(application:(v:beachshirts),service:(v:delivery)))"
