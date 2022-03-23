@@ -10,9 +10,9 @@ As a Super Admin, you're interested in usage patterns for the whole company, but
 
 By using ingestion policies, you can monitor the usage for particular accounts or groups. You can examine:
 - the total usage out of a certain limit for the policy
-- how the total usage changed month over month
+- the month-over-month percentage change in the total usage for the policy
 - the hourly usage for the current billing month
-- which accounts ingest most data
+- the accounts that ingest most data
 - the usage by ingestion source (proxy and direct ingestions)
 - the usage by ingestion type (time series, histograms, and delta counters)
 
