@@ -8,7 +8,7 @@ summary: Monitor usage with ingestion policies, usage dashboards, and alerts.
 
 As a Super Admin, you're interested in usage patterns for the whole company, but also for different teams in the company. For examining the usage by teams, Tanzu Observability by Wavefront supports ingestion policies. You can create ingestion policies and assign accounts or groups to each policy to see which teams use what part of the total ingestion.
 
-By using ingestion policies, you can monitor the usage for particular accounts or groups. You can examine their usage out of a certain limit, their hourly usage, the accounts that ingest most data, their usage by ingestion source (proxy and direct ingestions), and their usage by ingestion type (time series, histograms, and delta counters).
+By using ingestion policies, you can monitor the usage for particular accounts or groups. You can examine their usage out of a certain limit, their hourly usage, their usage by ingestion source (proxy and direct ingestions) and by ingestion type (time series, histograms, and delta counters). You can also understand which accounts ingest most data.
 
 To examine the performance of your Wavefront instance, you can use [wftop, Wavefront spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Wavefront Usage integration](wavefront_monitoring.html).
 
