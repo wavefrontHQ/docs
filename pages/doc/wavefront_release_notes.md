@@ -31,39 +31,64 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
   <table>
   <tbody>
   <tr>
-  <td width="50%"><strong>Documentation Improvements</strong>:<br/><br/>
-  We have made a lot of documentation improvements with information that comes from our Tanzu Observability SaaS Value Engineering team. Main doc improvements are listed on the right.
-  </td>
-  <td width="50%"><p>&nbsp;</p>
-  <ul><li><a href="https://docs.wavefront.com/optimize_data_shape.html">Optimizing the Data Shape to Improve Performance</a></li>
-  <li><a href="https://docs.wavefront.com/missing_data_troubleshooting.html">Troubleshooting Missing Data</a></li>
-  <li><a href="https://docs.wavefront.com/query_language_metadata_functions.html">Metadata (Label Manipulation) Functions</a></li>
-  </ul>
-  </td>
+    <td width="50%">
+      <strong>Documentation Improvements</strong>:<br/><br/>
+      We have made a lot of documentation improvements with information that comes from our Tanzu Observability SaaS Value Engineering team. Main doc improvements are listed on the right.
+    </td>
+    <td width="50%">
+      <p>&nbsp;</p>
+      <ul>
+        <li><a href="optimize_data_shape.html">Optimizing the Data Shape to Improve Performance</a></li>
+        <li><a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a></li>
+        <li><a href="query_language_metadata_functions.html">Metadata (Label Manipulation) Functions</a></li>
+      </ul>
+    </td>
   </tr>
   <tr>
-  <td width="50%"><strong>Toolbar Improvements</strong>:<br/><br/>
-  All objects and items related to the alerts are accessible through the <strong>Alerting</strong> menu. Instead of clicking <strong>Browse</strong> on the toolbar to access alert targets and maintenance windows, you can click <strong>Alerting</strong> and select:
-  <ul><li><strong>All Alerts</strong> - to open the Alerts Browser page.</li>
-  <li><strong>Alert Targets</strong> - to open the Alerts targets page.</li>
-  <li><strong>Maintenance Windows</strong> - to open the Maintenance Windows page.</li>
-  <li><strong>Create Alert</strong> - to create a new alert.</li>
-  </ul>
-  </td>
-  <td width="50%"><br/><br/><img src="/images/create_alert_browser.png" alt="The new alerting menu on the toolbar."></td>
+    <td width="50%">
+      <strong>Toolbar Improvements</strong>:<br/><br/>
+      All objects and items related to the alerts are accessible through the <strong>Alerting</strong> menu. Instead of clicking <strong>Browse</strong> on the toolbar to access alert targets and maintenance windows, you can click <strong>Alerting</strong> and select:
+      <ul>
+        <li><strong>All Alerts</strong> - to open the Alerts Browser page.</li>
+        <li><strong>Alert Targets</strong> - to open the Alerts targets page.</li>
+        <li><strong>Maintenance Windows</strong> - to open the Maintenance Windows page.</li>
+        <li><strong>Create Alert</strong> - to create a new alert.</li>
+        </ul>
+    </td>
+    <td width="50%">
+      <br/><br/><img src="/images/create_alert_browser.png" alt="The new alerting menu on the toolbar.">
+    </td>
   </tr>
   <tr>
-  <td width="50%"><strong>Improved User Experience for Slow Loading or Failed Queries</strong>:<br/><br/>
-  If your charts contain slow loading queries, the charts on the dashboard will load slowly as well. When you open a dashboard, and you see that a chart is slowly loading, instead of refreshing the whole browser page, you can click the <strong>Stop</strong> button on the chart to stop fetching the data. To reload the query request, simply click <strong>Reload</strong>. <p>If a query on a chart fails to load data,  click the <strong>Reload</strong> button to rerun the query.</p><p>
-  In addition, you can see a progress bar at the bottom of the chart.</p>
-  </td>
-  <td width="50%"><br/><br/><img src="/images/stop-reload-chart.png" alt="A chart with reload button and a progress bar at the bottom."></td>
+    <td width="50%">
+      <strong>Improved User Experience for Slow Loading or Failed Queries</strong>:<br/><br/>
+      If your charts contain slow loading queries, the charts on the dashboard will load slowly as well. When you open a dashboard, and you see that a chart is slowly loading, instead of refreshing the whole browser page, you can click the <strong>Stop</strong> button on the chart to stop fetching the data. To reload the query request, simply click <strong>Reload</strong>. <p>If a query on a chart fails to load data,  click the <strong>Reload</strong> button to rerun the query.</p><p>
+      In addition, you can see a progress bar at the bottom of the chart.</p>
+    </td>
+    <td width="50%">
+      <br/><br/><img src="/images/stop-reload-chart.png" alt="A chart with reload button and a progress bar at the bottom.">
+    </td>
   </tr>
   <tr>
-  <td width="50%"><strong>Sorting of Columns in Pinned Legends</strong>:<br/><br/>
-  You can now sort columns in the legend for most chart types after you pin a legend in a chart (Shift+P). See the screenshot on the right.
-  </td>
-  <td width="50%"><br/><img src="/images/sort_legend.png" alt="A pinned legend with up and down arrows for each column."></td>
+    <td width="50%">
+      <strong>Sorting of Columns in Pinned Legends</strong>:<br/><br/>
+      You can now sort columns in the legend for most chart types after you pin a legend in a chart (Shift+P). See the screenshot on the right.
+    </td>
+    <td width="50%">
+      <br/><img src="/images/sort_legend.png" alt="A pinned legend with up and down arrows for each column.">
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <strong>Send OpenTelemetry Trace Data Directly to the Wavefront Proxy </strong>:<br/><br/>
+      You can now directly send OpenTelemetry trace data from your applications to the Wavefront proxy. This is the recommended and simplest approach to get your data into Tanzu Observability.
+    </td>
+    <td width="50%"><p>&nbsp;</p>
+      <ul>
+        <li><a href="opentelemetry_tracing.html">Send OpenTelemetry trace data to Tanzu Observability</a></li>
+        <li><a href="opentelemetry_logs.html">Enable Logs for OpenTelemetry Data</a></li>
+      </ul>
+    </td>
   </tr>
   </tbody>
   </table>
