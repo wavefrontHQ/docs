@@ -8,13 +8,19 @@ summary: Monitor usage with ingestion policies, usage dashboards, and alerts.
 
 As a Super Admin, you're interested in usage patterns for the whole company, but also for different teams in the company. For examining the usage by teams, Tanzu Observability by Wavefront supports ingestion policies. You can create ingestion policies and assign accounts or groups to each policy to see which teams use what part of the total ingestion.
 
-By using ingestion policies, you can monitor the usage for particular accounts or groups. You can examine their usage out of a certain limit, their hourly usage, their usage by ingestion source (proxy and direct ingestions) and by ingestion type (time series, histograms, and delta counters). You can also understand which accounts ingest most data.
+By using ingestion policies, you can monitor the usage for particular accounts or groups. You can examine:
+- the total usage out of a certain limit for the policy
+- how the total usage changed month over month
+- the hourly usage for the current billing month
+- which accounts ingest most data
+- the usage by ingestion source (proxy and direct ingestions)
+- the usage by ingestion type (time series, histograms, and delta counters)
 
 To examine the performance of your Wavefront instance, you can use [wftop, Wavefront spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Wavefront Usage integration](wavefront_monitoring.html).
 
 ## Ingestion Policy Basics
 
-Ingestion policies allow you to combine user and service accounts or groups, so that you can examine their usage of the Wavefront service. For example, you can create a policy for all accounts that joined in the last 6 months, or create a policy for a whole team, for example the Finance team, and monitor whether they show unusually high usage because they're not yet experienced. In such a case, you can provide additional training, for example. Also, you can set a Points per Second (PPS) limit and an associated alert for an ingestion policy, so that you can receive notifications and track how much of the PPS is used and whether the users or the team will need more PPS in the future.
+Ingestion policies allow you to combine user and service accounts or groups, so that you can examine their usage of the Wavefront service. For example, you can create a policy for all accounts that joined in the last 6 months. You can also create a policy for a whole team, for example the Finance team, and monitor whether they show unusually high usage because they're not yet experienced. In such a case, you can provide additional training, for example. Also, you can set a Points per Second (PPS) limit and create an associated alert for an ingestion policy, so that you can receive notifications and track how much of the PPS is used and whether the users or the team will need more PPS in the future.
 
 The policy scope can be either accounts or groups.
 * Once you set the scope to accounts or groups, you cannot change it.
@@ -41,13 +47,13 @@ In the **Data** panel, specify the user and service accounts or groups and, opti
 1. Choose the **Scope** of the policy, either **Accounts** or **Groups**, and enter the user and service accounts or the groups that you want to assign to the policy.
   
     After you create the policy, you cannot change the scope. You can change only the assigned accounts or groups depending on the scope.
-2. Choose whether you want to set a PPS limit for the policy. If you select **set a PPS limit**, you must enter the PPS limit number for the billing month in the **PPS per billing period** text box.
+2. Choose whether you want to set a PPS limit for the policy. If you select **Set a PPS limit**, you must enter the PPS limit number for the billing month in the **PPS per billing period** text box.
    
     The limit becomes visible in the ingestion policy dashboard charts. If you set a PPS limit, you must create the ingestion policy alert in the next steps.
    
 ### Step 2: Configure the Ingestion Policy Alert
 
-{% include note.html content="If you chose not to set a PPS limit, this step is skipped."%}
+{% include note.html content="If you didn't choose to set a PPS limit, this step is skipped."%}
 
 If you set a PPS limit for the ingestion policy, Tanzu Observability creates an ingestion policy alert that queries the percentage of the PPS limit used by the accounts assigned to the policy. You specify [thresholds and severities](alerts_manage.html#step-2-specify-thresholds-and-severities), [recipients](alerts_manage.html#step-3-specify-recipients), and a [name](alerts_manage.html#step-5-name-and-activate-the-alert) for the ingestion policy alert.
 
@@ -72,16 +78,18 @@ After you create an ingestion policy, if you need, for example, to increase the 
 
 {% include note.html content="You cannot change the policy scope from accounts to groups or the reverse."%}
 
-{% include note.html content="Removing the PPS limit dissociates the alert from the ingestion policy."%}
-
 1. Log in to your Wavefront instance as a Super Admin user.
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal and Subscriptions**.
 3. On the **Ingestion Policies** tab, click the ellipsis icon next to the policy that you want to edit and click **Edit**.
 4. In each panel, apply the necessary changes and click **Next**, and in the **Create** panel, click **Save**.
 
+{% include note.html content="Removing the PPS limit dissociates the alert from the ingestion policy."%}
+
 ## Delete Ingestion Policies
 
-{% include note.html content="Deleting an ingestion policy with a PPS limit, also deletes its associated alert."%}
+If you no longer need an ingestion policy, for example, after a reorganization in your company, you might want to remove an ingestion policy.
+
+{% include note.html content="Deleting an ingestion policy cannot be undone. Deleting an ingestion policy with a PPS limit, also deletes its associated alert."%}
 
 1. Log in to your Wavefront instance as a Super Admin user.
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal and Subscriptions**.
@@ -95,7 +103,6 @@ After you create an ingestion policy, if you need, for example, to increase the 
    For each proxy, the **Ingestion Policies** column shows a list of policies. 
 
    If the proxy belongs to many policies, hover over the three horizontal dots and you'll see the rest of the ingestion policies in a tooltip.
-
 
 ## Examine Usage
 
@@ -121,7 +128,7 @@ In the **Ingestion Summary** section of the dashboard, you can see the following
 <td>Shows the usage for the current month out of the PPS limit for the policy.</td></tr>
 <tr>
 <td><strong>Previous Month to Selected Month</strong></td>
-<td>Shows a comparison of the current month usage with the previous month usage.</td>
+<td>Shows a comparison of the current month's usage with the previous month's usage.</td>
 </tr>
 <tr>
 <td><strong>Hourly Usage</strong></td>
@@ -131,7 +138,7 @@ In the **Ingestion Summary** section of the dashboard, you can see the following
 </table>
 
 
-In the **Optimize Usage** section of the dashboard, you can see a list of charts that lets you investigate further which accounts contribute the most, what is the usage by ingestion source (proxy and direct ingestions) and by ingestion type (time series, histograms, and delta counters), so that you can investigate usage patterns.
+In the **Optimize Usage** section of the dashboard, you can see a list of charts that lets you investigate further which accounts contribute the most, what is the usage by ingestion source (proxy and direct ingestions), and what is the usage by ingestion type (time series, histograms, and delta counters).
 
  ![Usage summary per ingestion policy](images/usage_summary_per_policy.png)
 
@@ -140,7 +147,7 @@ In the **Optimize Usage** section of the dashboard, you can see a list of charts
 
 Consider the following example. You are administering a Wavefront instance for two big teams, `IT Team1` and `IT Team2`, and you want to monitor how much data each of the team uses. `IT Team1` usually needs more PPS data, and you have only 10,000 of committed PPS on a monthly basis.
 
-You can create an ingestion policy for each team to monitor how much data each team uses per month. You can also set a PPS limit for each ingestion policy and if a team consumes more than expected, you can receive an alert notification and provide additional training on how to use ingested data wisely. 
+You can create an ingestion policy for each team to monitor how much data each team uses per month. You can also set a PPS limit for each ingestion policy and if a team consumes more than expected, you will receive an alert notification, so that you can provide additional training on how to use ingested data wisely. 
 
 ## Learn More!
 
