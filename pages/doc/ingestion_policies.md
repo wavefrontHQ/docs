@@ -33,7 +33,7 @@ The policy scope can be either accounts or groups.
 
 1. Log in to your Wavefront instance as a Super Admin user.
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal and Subscriptions**.
-3. Click the **Ingestion Policies** tab, and click **New Ingestion Policy**.
+3. Click the **Ingestion Policies** tab and click **New Ingestion Policy**.
 
 ### Step 1: Specify the Scope and PPS Limit
 
@@ -52,7 +52,7 @@ In the **Data** panel, specify the user and service accounts or groups and, opti
 If you set a PPS limit for the ingestion policy, Tanzu Observability creates an ingestion policy alert that queries the percentage of the PPS limit used by the accounts assigned to the policy. You specify [thresholds and severities](alerts_manage.html#step-2-specify-thresholds-and-severities), [recipients](alerts_manage.html#step-3-specify-recipients), and a [name](alerts_manage.html#step-5-name-and-activate-the-alert) for the ingestion policy alert.
 
 1. In the **Conditions** panel, configure the thresholds and severities.
-   1. Select the comparison operator for the alert condition. In most cases, you alert when the usage is **greater than** than a specified threshold percentage of the PPS limit.
+   1. Select the comparison operator for the alert condition. In most cases, you alert when the usage is **greater than** a specified threshold percentage of the PPS limit.
    2. For at least one severity, specify a threshold percentage of the PPS limit and click **Next**.
    
        The threshold percentage becomes visible in the ingestion policy alert chart.
@@ -81,7 +81,7 @@ After you create an ingestion policy, if you need, for example, to increase the 
 
 ## Delete Ingestion Policies
 
-{% include note.html content="Deleting an ingestion policy with a PPS limit, deletes also its associated alert."%}
+{% include note.html content="Deleting an ingestion policy with a PPS limit, also deletes its associated alert."%}
 
 1. Log in to your Wavefront instance as a Super Admin user.
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal and Subscriptions**.
