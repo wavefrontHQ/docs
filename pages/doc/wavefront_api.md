@@ -29,7 +29,7 @@ To access the REST API documentation :
 1. Log in to your Wavefront instance.
 2. Display the doc from the UI or using a URL:
   * In the UI, click the gear icon <i class="fa fa-cog"/> at the top right of the toolbar and select **API Documentation**.
-  * Type `https://<your_cluster_name>.com/api-docs/ui/`
+  * Type `https://<your_instance_name>.com/api-docs/ui/`
 
 
 ![REST API in Wavefront instance](/images/rest_api.png)

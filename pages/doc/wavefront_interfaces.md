@@ -31,7 +31,7 @@ Tanzu Observability provides different kinds of interfaces for performing differ
 <td markdown="span">Instrumenting your application code to send metrics, histograms, and trace data to Tanzu Observability by Wavefront, either through the Wavefront proxy or directly to the Wavefront service. These SDKs are available for most popular programming languages, and are available in GitHub.</td>
 </tr>
 <tr>
-<td markdown="span">[Tanzu Observability by CLIs](wavefront_clis.html)</td>
+<td markdown="span">[Tanzu Observability CLIs](wavefront_clis.html)</td>
 <td markdown="span">Running command-line utilities to install and configure the Wavefront proxy, the Telegraf collector agent, or integrations.</td>
 </tr>
 </tbody>
