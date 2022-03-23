@@ -97,7 +97,7 @@ To use the drag-and-drop navigation:
 With the drag-and-drop keyboard navigation you can rearrange:
 
 * Query lines
-* Functions within a query line in Query Builder
+* Functions within a query line in Query Editor
 * Variables
 * List values when you add variables to a dashboard
 * Metrics Security Policy rules

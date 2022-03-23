@@ -8,7 +8,7 @@ permalink: wavefront_errors.html
 summary: Wavefront errors and suggested actions to resolve them.
 ---
 
-## Query Builder and Chart Builder Errors
+## Chart Builder and Query Editor Errors
 <table width="100%">
 <tbody>
 <thead>
