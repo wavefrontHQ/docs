@@ -4,16 +4,16 @@ keywords: getting started
 tags: [getting started]
 sidebar: doc_sidebar
 permalink: wavefront_api.html
-summary: Learn about the REST API for managing Wavefront.
+summary: Learn about the REST API for managing Tanzu Observability by Wavefront.
 ---
 
-The Wavefront REST API enables you to write scripts to perform Wavefront management tasks, such as defining alerts and creating events. You can use the REST API to perform any task that is supported by the Wavefront UI. The REST API is based on Swagger, so you can generate the API client of your choice (including a CLI client).
+The Wavefront REST API enables you to write scripts to perform management tasks, such as defining alerts and creating events. You can use the REST API to perform any task that is supported by the Wavefront UI. The REST API is based on Swagger, so you can generate the API client of your choice (including a CLI client).
 
 
 
 ## REST API Overview
 
-All interactions between the Wavefront UI and your Wavefront instance occur through the Wavefront management API. You can perform those actions using REST - or you can create an API client using Swagger, discussed below.
+All interactions between the UI and your Wavefront instance occur through the Wavefront API. You can perform those actions using REST - or you can create an API client using Swagger, discussed below.
 
 The current version of the REST API is v2. You can access the API at `<wavefront_instance>/api/v2`. The v1 API (`<wavefront_instance>/api/`) was deprecated in 2017 and is no longer supported.
 
@@ -28,7 +28,7 @@ To access the REST API documentation :
 
 1. Log in to your Wavefront instance.
 2. Display the doc from the UI or using a URL:
-  * From the Wavefront UI, click the gear icon <i class="fa fa-cog"/> at the top right of the taskbar and select **API Documentation**.
+  * In the UI, click the gear icon <i class="fa fa-cog"/> at the top right of the toolbar and select **API Documentation**.
   * Type `https://<your_cluster_name>.com/api-docs/ui/`
 
 
@@ -42,33 +42,37 @@ We include an overview and a Swagger-generated API Reference. We update the refe
 
 ![REST API in VMware code](/images/vmware_code_api.png)
 
-The [VMware code website](https://code.vmware.com/samples?categories=Sample&tags=wavefront) also includes some samples, for example, for getting data into Wavefront. We're providing these samples as is - some are from the Wavefront team, others will come from the community.
+The [VMware code website](https://code.vmware.com/samples?categories=Sample&tags=wavefront) also includes some samples, for example, for getting data into Tanzu Observability. We're providing these samples as is - some are from our team, others will come from the community.
 
 
 ## Invoking the API
 
-You can invoke the API using `curl` or from an API client. In either case, you must pass in a Wavefront API token.
+You can invoke the API using `curl` or from an API client. In either case, you must pass in an API token.
 
 ### Generating an API Token
 
-A Wavefront API token is a string of hexadecimal characters and dashes. For example:
+An API token is a string of hexadecimal characters and dashes. For example:
 
 ```
 a411c16b-3cf7-4f03-bf11-8ca05aab898d
 ```
-Wavefront allows [user accounts](user-accounts.html) and [service accounts](service-accounts.html) to use the [Wavefront REST API](wavefront_api.html).
+Tanzu Observability by Wavefront allows [user accounts](user-accounts.html) and [service accounts](service-accounts.html) to use the [Wavefront REST API](wavefront_api.html).
 
-{% include tip.html content="You generate API tokens for user accounts explicitly. For service accounts, a Wavefront user with the **Accounts** permission can generate tokens from the Service Accounts page." %}
+{% include tip.html content="You generate API tokens for user accounts explicitly. For service accounts, a user with the **Accounts** permission can generate tokens from the **Service Accounts** page." %}
 
 #### Generate an API Token for Your User Account
 
 {% include note.html content="All users can use and manage their existing API tokens. You must have the [API Tokens permission](permissions_overview.html) to generate new API tokens for your user account." %}
 
 
-1. In the Wavefront UI, click the gear icon <i class="fa fa-cog"/>  at the top right of the taskbar and select your user name.
-2. On the **API Access** tab, click **Generate**. You can have up to 20 tokens at any given time.
-   If you want to generate a new token but already have 20 tokens, then you must revoke one of the existing tokens.
-3. To revoke a token, click the **Revoke** button next to the token. If you run a script that uses a revoked token, the script returns an authorization error.
+1. Log in to your Wavefront instance.
+2. Click the gear icon <i class="fa fa-cog"/> at the top right of the toolbar and select your user name.
+3. On the **API Access** tab, click **Generate**. 
+
+   You can have up to 20 tokens at any given time. If you want to generate a new token but already have 20 tokens, then you must revoke one of the existing tokens.
+4. To revoke a token, click the **Revoke** button next to the token. 
+
+    If you run a script that uses a revoked token, the script returns an authorization error.
 
 ![Generate API Token](/images/generate_token.png)
 
@@ -77,15 +81,18 @@ Wavefront allows [user accounts](user-accounts.html) and [service accounts](serv
 
 #### Generate an API Token for a Service Account
 
-{% include note.html content="You must have the [Accounts permission](permissions_overview.html) to generate API tokens for your service accounts." %}
+{% include note.html content="You must have the [**Accounts** permission](permissions_overview.html) to generate API tokens for your service accounts." %}
 
 You generate API tokens for [service accounts](service-accounts.html) upon creation. You can also generate an API token at a later stage. To generate an API token for an existing **service account**:
 
-1. In the Wavefront UI, click the gear icon <i class="fa fa-cog"/>  at the top right of the taskbar and select **Accounts**.
+1. Click the gear icon <i class="fa fa-cog"/> at the top right of the toolbar and select **Accounts**.
 2. On the **Service Accounts** tab, click the ellipsis icon next to the service account for which you want to generate an API token, and select **Edit**.
-3. To generate a new token, in the Tokens section, click **Generate**. You can have up to 20 tokens per service account at any given time.
-   If you want to generate a new token but already have 20 tokens, then you must revoke one of the existing tokens.
-4. To revoke a token, click the **Revoke** button next to the token. Revoking a token cannot be undone. 
+3. To generate a new token, in the Tokens section, click **Generate**. 
+
+   You can have up to 20 tokens per service account at any given time. If you want to generate a new token but already have 20 tokens, then you must revoke one of the existing tokens.
+4. To revoke a token, click the **Revoke** button next to the token. 
+
+   Revoking a token cannot be undone. 
 5. Select the appropriate permissions for the service account and click **Update**.
 
 
@@ -161,7 +168,7 @@ The `/api/access/{entity}` endpoint provides information on how often an entity 
 
 {% include important.html content="In order to use this API, users must have both the Direct Data Ingestion and Metrics [permissions](permissions_overview.html)."%}
 
-{% include note.html content="Wavefront uses a bloom filter to determine the access pattern. As a result, even if data access returns true, there’s a very low probability that data actually hasn't been accessed. If data access returns false, it is guaranteed that the data has not been accessed.
+{% include note.html content="Tanzu Observability by Wavefront uses a bloom filter to determine the access pattern. As a result, even if data access returns true, there’s a very low probability that data actually hasn't been accessed. If data access returns false, it is guaranteed that the data has not been accessed.
 "%}
 
 This GET endpoint has the following parameters:
@@ -177,7 +184,7 @@ This GET endpoint has the following parameters:
 <tr>
 <td>hostPrefix</td>
 <td>Prefix of the host name, e.g. you can use test-2a-app67 if the whole host name is test-2a-app57-id-12345 <br>
-<strong>Warning:</strong>hostPrefix must be somewhat specific. There's a limit on how many hosts Wavefront scans.</td></tr>
+<strong>Warning:</strong>hostPrefix must be somewhat specific. There's a limit on how many hosts Tanzu Observability scans.</td></tr>
 <tr>
 <td>usageThresholdDays</td>
 <td>How many days to look back. 7 days by default.</td></tr>
