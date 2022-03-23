@@ -734,12 +734,45 @@ Required when authMethod = STATIC_TOKEN. For example, <code>authStaticToken=toke
 </tbody>
 </table>
 
+### OpenTelemetry Proxy Properties
+
+<table style="width: 100%;">
+<thead>
+<tr>
+<th width="27%">Property</th>
+<th width="43%">Purpose</th>
+<th width="30%">Format /Example </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<a name="otlpGrpcListenerPorts"></a>
+<td>otlpGrpcListenerPorts</td>
+<td markdown="span">Ports to receive OpenTelemetry Protobuf data over gRPC.
+<br/> Default: None.
+<br/> Version: Since 11.0</td>
+<td> Comma-separated list of available port numbers. Can be a single port.
+<br/>Recommended: 4317</td>
+</tr>
+<tr>
+<a name="otlpHttpListenerPorts"></a>
+<td>otlpHttpListenerPorts</td>
+<td markdown="span">Ports to receive OpenTelemetry Protobuf data over HTTP.
+<br/> Default: None.
+<br/> Version: Since 11.0</td>
+<td> Comma-separated list of available port numbers. Can be a single port.
+<br/> Recommended: 4318</td>
+</tr>
+</tbody>
+</table>
+
+
 ### Tracing Proxy Properties
 
 <table style="width: 100%;">
 <thead>
 <tr>
-<th width="10%">Property</th>
+<th width="20%">Property</th>
 <th width="50%">Purpose</th>
 <th width="30%">Format /Example </th>
 </tr>
