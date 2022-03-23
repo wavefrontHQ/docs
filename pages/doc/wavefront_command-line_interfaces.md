@@ -4,7 +4,7 @@ keywords: getting started
 tags: [getting started]
 sidebar: doc_sidebar
 permalink: wavefront_clis.html
-summary: Different CLIs you can use with Tanzu Observability by Wavefront.
+summary: You can use different CLIs with Tanzu Observability by Wavefront.
 ---
 
 The Wavefront REST API is publicly available via Swagger. You can use Swagger to generate an [API client](wavefront_api.html#generate-an-api-client-using-swagger) that includes CLI options. Several Wavefront customers have generated CLIs already.
