@@ -4,7 +4,7 @@ keywords:
 tags: [integrations, proxies]
 sidebar: doc_sidebar
 permalink: integrations_tas_alerts.html
-summary: Details for Tanzu Application Service Alerts
+summary: Details for Tanzu Application Service Alerts.
 ---
 
 The Tanzu Application Service (TAS) integration includes a rich set of out of the box alerts. You can preview, install, and uninstall the alerts on the **Alerts** tab of the integration. This page gives details for each alert.

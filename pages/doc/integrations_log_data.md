@@ -4,13 +4,13 @@ keywords:
 tags: [integrations, videos]
 sidebar: doc_sidebar
 permalink: integrations_log_data.html
-summary: Learn how to send log data to Wavefront by setting up a proxy and configuring Filebeat or TCP.
+summary: Learn how to send log data to Tanzu Observability by Wavefront by setting up a proxy and configuring Filebeat or TCP.
 ---
 
-Wavefront supports two methods for sending log data metrics to Wavefront proxy: Filebeat and TCP. Wavefront proxy 4.4 and higher supports these methods.
+Tanzu Observability supports two methods for sending log data metrics to a Wavefront proxy: Filebeat and TCP. Wavefront proxy 4.4 and later supports these methods.
 
 **Warning** Log ingestion functionality does not work well if you use a load balancer in your environment.
-* When traffic is split between nodes, each node tracks its own counter. The counters collide when they are sent to Wavefront.
+* When traffic is split between nodes, each node tracks its own counter. The counters collide when they are sent to Tanzu Observability by Wavefront.
 * Information about the actual source (host) is lost.
 
 The [Create Metrics from Logs for Real-Time Cloud Application Monitoring](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/engineering-tips-series-create-metrics-from-logs-for-real-time-cloud-application-monitoring-without-breaking-your-bank) blog post discusses a real example and complements this page.
@@ -19,13 +19,13 @@ The [Create Metrics from Logs for Real-Time Cloud Application Monitoring](https:
 
 The built-in Log Data integration guides you through installing a Wavefront proxy. To access this integration:
 
-1. Open the Wavefront application UI.
-1. Click **Integrations** and find the **Log Data** tile.
+1. Log in to your Wavefront cluster.
+1. Click **Integrations** and click the **Log Data** tile.
 1. Click the **Setup** tab and follow the instructions.
 
 ## Configuring the Wavefront Proxy to Ingest Log Data
 
-In this example, we configure Wavefront to parse [Combined Apache Logs](http://httpd.apache.org/docs/2.4/logs.html#combined), which is a common logging format for many web services (for example, NGiNX). The example is merely a starting point&mdash; so you understand how to ingest metrics from any log format.
+In this example, we configure Tanzu Observability to parse [Combined Apache Logs](http://httpd.apache.org/docs/2.4/logs.html#combined), which is a common logging format for many web services (for example, NGiNX). The example is merely a starting point&mdash; so you understand how to ingest metrics from any log format.
 
 ### Configuring the Wavefront Proxy to Listen for Log Data
 
@@ -69,7 +69,7 @@ histograms:
 
 This configuration file is parsed as a POJO; see the [javadoc](http://static.javadoc.io/com.wavefront/proxy/4.1/com/wavefront/agent/config/LogsIngestionConfig.html) for more details on each field. Log lines are given structure with [java-grok](http://github.com/thekrakken/java-grok), which is the syntax for the Logstash grok plugin.
 
-Through `valueLabel`, you can specify which part of the log line contains the metrics to send to Wavefront. There are three supported modes of aggregation: counters, gauges, and histograms. See [Dropwizard documentation](http://metrics.dropwizard.io/3.1.0/getting-started/) for details.
+Through `valueLabel`, you can specify which part of the log line contains the metrics to send. There are three supported modes of aggregation: counters, gauges, and histograms. See [Dropwizard documentation](http://metrics.dropwizard.io/3.1.0/getting-started/) for details.
 
 You can think of a grok pattern as a regexe with macros. Each macro can consist of sub-macros, and each macro can bind a substring to a label. For example:
 
@@ -81,7 +81,7 @@ You can think of a grok pattern as a regexe with macros. Each macro can consist 
 
     INFO 1476925272 my operation took 42 seconds (and other info here)
 
-In the example above, the log message has a timestamp. You can use this timestamp to match the message for ingestion, but Wavefront always ingests the resulting metric at the time the Wavefront proxy sees the log, _not_ at the time the message was logged in your system. Therefore, the resulting metric would be: **myOperationDuration 42 &lt;proxy time&gt; source=&lt;host&gt;**
+In the example above, the log message has a timestamp. You can use this timestamp to match the message for ingestion, but Tanzu Observability always ingests the resulting metric at the time the Wavefront proxy sees the log, _not_ at the time the message was logged in your system. Therefore, the resulting metric would be: **myOperationDuration 42 &lt;proxy time&gt; source=&lt;host&gt;**
 
 The Wavefront proxy includes these [patterns](http://github.com/wavefrontHQ/java/blob/master/proxy/src/main/resources/patterns/patterns) and you can always add more.
 
@@ -94,7 +94,7 @@ The Wavefront proxy includes these [patterns](http://github.com/wavefrontHQ/java
 
 #### Testing Grok Patterns in Interactive Mode
 
-To test grok patterns before sending data to Wavefront, you can run the proxy in test mode where it reads lines from stdin and prints the generated metric when there is a match with a pattern in `logsIngestionConfig.yaml`.  How you run the proxy in test mode depends on whether you're using the JVM bundled with the Wavefront proxy. In that case, if the proxy installer detects that java v8, 9, 10 or, 11 already exists in the users path that version of Java is used.
+To test grok patterns before sending data, you can run the proxy in test mode where it reads lines from stdin and prints the generated metric when there is a match with a pattern in `logsIngestionConfig.yaml`.  How you run the proxy in test mode depends on whether you're using the JVM bundled with the Wavefront proxy. In that case, if the proxy installer detects that java v8, 9, 10 or, 11 already exists in the users path that version of Java is used.
 
 To run in test mode with the bundled VM:
 
@@ -143,7 +143,7 @@ The Wavefront proxy automatically assigns metrics a **source** according to the 
 
 ### Instructions
 
-1.  Install [Filebeat](http://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) on any production node that has log data to send to Wavefront:
+1.  Install [Filebeat](http://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) on any production node that has log data to send to Tanzu Observability by Wavefront:
     -   **Ubuntu**:
 
             $ curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.0.1-amd64.deb

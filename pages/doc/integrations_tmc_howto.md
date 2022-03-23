@@ -4,14 +4,14 @@ keywords:
 tags: [integrations, kubernetes]
 sidebar: doc_sidebar
 permalink: integrations_tmc_howto.html
-summary: Monitor clusters in Tanzu Mission Control using Tanzu Observability by Wavefront
+summary: Monitor clusters in Tanzu Mission Control using Tanzu Observability by Wavefront.
 ---
 
 [VMware Tanzu Mission Control](https://docs.vmware.com/en/VMware-Tanzu-Mission-Control/services/tanzumc-concepts/GUID-E2B5BE05-596E-4999-9B21-1CDB875A1BBF.html) provides a centralized management platform for consistently operating and securing your Kubernetes infrastructure and modern applications across multiple teams and clouds.
 
 This document explains
 * How to set up and enable the integration from Tanzu Mission Control to Tanzu Observability by Wavefront.
-* How to monitor your Kubernetes environment with pre-defined Wavefront dashboards, and how to clone and customize those dashboards.
+* How to monitor your Kubernetes environment with our pre-defined dashboards, and how to clone and customize those dashboards.
 * How to troubleshoot common problems.
 
 <!---
@@ -21,14 +21,14 @@ If you want to monitor Tanzu Mission Control with Wavefront, you have two option
 
 ## Create the Credential
 
-To get started, you set up the integration from Tanzu Mission Control to Wavefront:
+To get started, you set up the integration from Tanzu Mission Control to Tanzu Observability by Wavefront:
 
-### Step 1: In Wavefront, Generate an API Token
+### Step 1: In Your Wavefront Cluster, Generate an API Token
 
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="50%">In Wavefront, <a href="integrations_tmc.html#generate-a-service-account-api-token-for-tanzu-mission-control">Generate a Service Account API Token for Tanzu Mission Control</a>.
+<td width="50%">In your Wavefront cluster, <a href="integrations_tmc.html#generate-a-service-account-api-token-for-tanzu-mission-control">Generate a Service Account API Token for Tanzu Mission Control</a>.
 </td>
 <td width="50%"><img src="/images/tmc_service_account_create.png" alt="Create service account dialog with name and description filled in."></td>
 </tr>
@@ -40,7 +40,7 @@ To get started, you set up the integration from Tanzu Mission Control to Wavefro
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="50%">In the Tanzu Mission Control console
+<td width="50%">In the Tanzu Mission Control console:
 <ol><li>Select <strong>Administration &gt; Accounts</strong>. </li>
 <li>Click <strong>Create Account Credential</strong> and select <strong>Tanzu Observability credential.</strong></li>
 </ol>
@@ -51,7 +51,7 @@ To get started, you set up the integration from Tanzu Mission Control to Wavefro
 <td width="50%">On the <strong>Create Tanzu Observability credential</strong> page, specify credential attributes:
 <ul>
 <li><strong>Credential Name</strong>. Name that starts and ends with a letter and contains only lowercase letters, numbers, and hyphens. Best practice is to include the name of the Wavefront instance in the credential name. Do NOT use the name of the service account. </li>
-<li><strong>Tanzu Observability URL</strong>. The URL of the Wavefront instance, for example, <code>https://demo.wavefront.com</code></li>
+<li><strong>Tanzu Observability URL</strong>. The URL of the Wavefront cluster, for example, <code>https://demo.wavefront.com</code></li>
 <li><strong>Tanzu Observability API Token</strong>. The API token that you generated inside the Wavefront instance. </li>
 </ul> </td>
 <td width="50%"><img src="/images/tmc_create_credential_page.png" alt="Create Tanzu Observability page with 3 fields filled in"></td>
@@ -67,9 +67,9 @@ To get started, you set up the integration from Tanzu Mission Control to Wavefro
 
 {% include tip.html content="For details, see the [Tanzu Mission Control documentation](https://docs.vmware.com/en/VMware-Tanzu-Mission-Control/services/tanzumc-using/GUID-A70E57A8-2C45-46D4-8E1F-6D5E7026473F.html)" %}
 
-## Enable Tanzu Observability for a cluster in Tanzu Mission Control
+## Enable Tanzu Observability for a Cluster in Tanzu Mission Control
 
-After you have set up the credential from Tanzu Mission Control, you can start enabling Tanzu Observability by Wavefront for individual clusters that are managed by Tanzu Mission Control.
+After you have set up the credential from Tanzu Mission Control, you can start enabling Tanzu Observability for individual clusters that are managed by Tanzu Mission Control.
 
 
 <table style="width: 100%;">
@@ -115,7 +115,7 @@ If you want to customize the charts in the dashboards or add more charts, you ca
 <ol>
 <li>Select <strong>Clone</strong> from the ellipsis menu in the top right.</li>
 <li>Give the cloned dashboard a name and click <strong>OK</strong>.</li></ol>
-You must have <strong>Dashboards</strong> permission inside Wavefront to clone or edit a dashboard. </td>
+You must have the <strong>Dashboards</strong> permission inside Tanzu Observability by Wavefront to clone or edit a dashboard. </td>
 <td width="50%"><img src="/images/tmc_clone.png" alt="Pulldown menu shows Edit, Clone, Export to PDF"></td>
 </tr>
 </tbody>
@@ -149,12 +149,12 @@ Failures might be caused by several issues including the following:
 * Image cannot be pulled
 * Pod crash due to internal access logic error
 * General issue on the Tanzu Mission Control side
-* Issue with credential, for example, the API token might have been revoked on the Wavefront side.
+* Issue with credential, for example, the API token might have been revoked on the Tanzu Observability by Wavefront side.
 
 ### Remediation
 
 Follow these steps to remediate problems:
-1. Ensure that the cluster you want to connect to isn't protected by an SSO solution. If it is, you might have to explicitly log in to the cluster as a user before you can display the Wavefront dashboard.
+1. Ensure that the cluster you want to connect to isn't protected by an SSO solution. If it is, you might have to explicitly log in to the cluster as a user before you can display the dashboard.
 2. Ensure that the Wavefront API key is active and correctly entered. If the key was revoked, it's no longer valid.
 
 ## Learn More

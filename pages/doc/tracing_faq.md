@@ -4,9 +4,9 @@ keywords: data, distributed tracing, jaeger, zipkin, spans
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: tracing_faq.html
-summary: Get answers to your questions about Wavefront distributed tracing
+summary: FAQ for distributed tracing with Tanzu Observability by Wavefront
 ---
-This page has some special tips to help you instrument your applications and send trace data to Wavefront.
+This page has some special tips to help you instrument your applications and send trace data to  Tanzu Observability by Wavefront.
 
 ## How do I send custom span level RED metrics?
 
@@ -35,10 +35,10 @@ To override the default application name when using [zipkin-js](https://github.c
     traceJaegerApplicationName = <Enter_Application_Name>
     ```
   {% include note.html content="Only one application can send traces to a proxy because there’s only one application name per proxy. "%}
-  
+
 ## How do I emit spans in the Wavefront format?
 
-If you are not using a [Wavefront SDK](wavefront_sdks.html), OpenTracing library, or OpenTelemetry library, you can still send spans to Wavefront using the Wavefront proxy.
+If you are not using a [Wavefront SDK](wavefront_sdks.html), OpenTracing library, or OpenTelemetry library, you can still send spans to the Wavefront service using the Wavefront proxy.
 
 Send spans to the Wavefront proxy's `customTracingListenerPorts` port in the Wavefront spans format. Open the [`<wavefront_config_path>`](proxies_configuring.html#paths)`/wavefront.conf` file, and update or add the `customTracingListenerPorts` property.
 
@@ -60,7 +60,7 @@ wavefrontSender.sendSpan("getAllUsers", System.currentTimeMillis(), 343, "localh
 You might not see search results:
 <ul>
   <li markdown="span">
-    If you search for a trace after 7 days because Wavefront retains trace data only for 7 days.
+    If you search for a trace after 7 days because the Wavefront service retains trace data only for 7 days.
   </li>
   <li>
     If you search for a trace after 1 hour because you have enabled <a href="trace_data_sampling.html">intelligent sampling</a> for traces.
@@ -75,7 +75,6 @@ You might not see search results:
 RED metrics are derived automatically using the spans sent by your applications. But, RED metrics data is not automatically updated when you update the span data, such as the span name, source name, and point tags, using preprocessor rules. You need to update the RED metrics data using a proxy rule condition and a similar point altering preprocessor rule.
 
 For example:
-  * You updated the spans using the `spanAddTagIfNotExists` preprocessor rule. 
+  * You updated the spans using the `spanAddTagIfNotExists` preprocessor rule.
   * Now, the spans are updated but, the span RED metrics that were propagated previously are not updated. These RED metrics have the following format: `tracing.derived.*` or `∆tracing.derived.*`.
   * Define a [proxy rule condition](proxies_preprocessor_rule_conditions.html) to update the `tracing.derived.*` and `∆tracing.derived.*` RED metrics using a similar [point altering preprocessor rule](proxies_preprocessor_rules.html#point-altering-rules) (e.g., `addTagIfNotExists` preprocessor rule).
-  
