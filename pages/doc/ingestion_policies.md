@@ -8,7 +8,7 @@ summary: Monitor usage with ingestion policies, usage dashboards, and alerts.
 
 As a Super Admin, you're interested in usage patterns for the whole company, but also for different teams in the company. For examining the usage by teams, Tanzu Observability by Wavefront supports ingestion policies. You can create ingestion policies and assign accounts or groups to each policy to see which teams use what part of the total ingestion.
 
-By using ingestion policies, you can monitor the group usage out of a PPS limit for particular accounts or groups. You can examine their hourly usage, the accounts that contribute the most, the usage by ingestion source (proxy and direct ingestions), and the usage by ingestion type (time series, histograms, and delta counters).
+By using ingestion policies, you can monitor the usage for particular accounts or groups. You can examine their usage out of a certain limit, their hourly usage, the accounts that ingest most data, their usage by ingestion source (proxy and direct ingestions), and their usage by ingestion type (time series, histograms, and delta counters).
 
 To examine the performance of your Wavefront instance, you can use [wftop, Wavefront spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Wavefront Usage integration](wavefront_monitoring.html).
 
@@ -41,7 +41,7 @@ In the **Data** panel, specify the user and service accounts or groups and, opti
 1. Choose the **Scope** of the policy, either **Accounts** or **Groups**, and enter the user and service accounts or the groups that you want to assign to the policy.
   
     After you create the policy, you cannot change the scope. You can change only the assigned accounts or groups depending on the scope.
-2. Choose whether you want to set a PPS limit for the policy. If you select **set a PPS limit**, you must enter the points per second limit number in the **PPS per billing period** text box.
+2. Choose whether you want to set a PPS limit for the policy. If you select **set a PPS limit**, you must enter the PPS limit number for the billing month in the **PPS per billing period** text box.
    
     The limit becomes visible in the ingestion policy dashboard charts. If you set a PPS limit, you must create the ingestion policy alert in the next steps.
    
