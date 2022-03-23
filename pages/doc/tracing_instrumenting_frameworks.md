@@ -7,7 +7,7 @@ permalink: tracing_instrumenting_frameworks.html
 summary: Set up your application to send metrics, histograms, and trace data.
 ---
 
-You instrument your application so that trace data from different parts of the stack are sent to Tanzu Observability by Wavefront. Instrumentation enables you to trace a request from end to end across multiple distributed services, guided by key metrics from your application. After instrumentation, you can use our [tracing UI](tracing_basics.html#visualize-distributed-tracing-data-in-wavefront) to visualize a request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time and discover problems.
+You instrument your application so that trace data from different parts of the stack are sent to Tanzu Observability by Wavefront. Instrumentation enables you to trace a request from end to end across multiple distributed services, guided by key metrics from your application. After instrumentation, you can use our [tracing UI](tracing_basics.html#visualize-distributed-tracing-data) to visualize a request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time and discover problems.
 
 You instrument each microservice in your application with one or more [Wavefront observability SDKs](wavefront_sdks.html). This page:
 * Helps you choose the SDK(s) or corresponding integration
