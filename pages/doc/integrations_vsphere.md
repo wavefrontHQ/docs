@@ -4,11 +4,11 @@ keywords:
 tags: [integrations, dashboards]
 sidebar: doc_sidebar
 permalink: integrations_vsphere.html
-summary: Learn details about the vSphere integration
+summary: Learn details about the vSphere integration.
 ---
-The Wavefront [vSphere integration](vsphere.html) offers predefined dashboards and predefined alert conditions. The integration is designed for high performance data collection and has been tested with over 7000 virtual machines. This page gives some recommendations for achieving maximum performance.
+The [vSphere integration](vsphere.html) offers predefined dashboards and predefined alert conditions. The integration is designed for high performance data collection and has been tested with over 7000 virtual machines. This page gives some recommendations for achieving maximum performance.
 
-**Note**: For details on some customization aspects, see the [Telegraf plugin info on Github](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/vsphere)
+**Note**: For details on some customization aspects, see the [Telegraf plugin info on Github](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/vsphere).
 
 <!---Out of date>
 ## Separating Real-time and Historical Metrics
@@ -25,17 +25,17 @@ In the default configuration, all metrics are defined in a single instance of th
 
 The data collector is likely to spend most of its time waiting for results from vCenter Server. To make it run more efficiently, we allow concurrent collections. Simply put, if the concurrency is set to 3, we allow 3 collections to run at the same time. In many cases, concurrent collection improves performance.
 
-**Note:** Setting the concurrency value too high can put excessive load on the vCenter Server and cause severe problems. Choose the number of concurrent collectors with care!
+**Note:** Setting the concurrency value too high can put excessive load on the vCenter Server instance and cause severe problems. Choose the number of concurrent collectors with care!
 
 Collection concurrency is determined by the configuration parameter `collect_concurrency`. A rule of thumb is to set it to the number of VMs divided by 1500, rounded up. For example, if you are planning on monitoring an environment with 4500 VMs, set `collect_concurrency` to 3.
 
-If you're separating real-time and historical metics, it makes sense to use different values for the  `collect_concurrency` parameter for the two plugin instances.
+If you're separating real-time and historical metrics, it makes sense to use different values for the  `collect_concurrency` parameter for the two plugin instances.
 
 ## Discovery Concurrency
 
 The vSphere plugin periodically performs resource discovery (typically every 5 minutes). This process takes an inventory of all VMs, hosts, datastores, etc. in your environment. In a large environment, resource discovery can take a long time. To increase performance, you can increase the concurrency of discovery through the `discover_concurrency` configuration parameter. Just like the collection concurrency, we recommend a value of the number of VMs divided by 1500.
 
-If you're separating real-time and historical metics, it makes sense to use different values for the  `discovery_concurrency` parameter for the two plugin instances.
+If you're separating real-time and historical metrics, it makes sense to use different values for the  `discovery_concurrency` parameter for the two plugin instances.
 
 <!---Out of date as per Pierre>
 ## Example Configuration

@@ -10,8 +10,8 @@ summary: Announcements and new and updated features in Tanzu Observability by Wa
 This page lists new and updated features for the Tanzu Observability by Wavefront service.
 
 * For **Wavefront Proxy**, your go-to place is the [Wavefront proxy github page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
-* For the latest changes and releases of the **Wavefront Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
-* For  **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
+* For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
+* For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
 ## Announcements
 
@@ -25,7 +25,54 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
     In the next releases, all v1 dashboards and charts will be migrated to v2. Users can no longer select the v1 version of dashboards and charts.
 
-    Most Wavefront users are already using the v2 GUI. However, if your dashboards and charts are migrated, see [What's New in v2 Dashboards & Charts](ui_v2_faq.html) for info.
+    Most users are already using the v2 GUI. However, if your dashboards and charts are migrated, see [What's New in v2 Dashboards & Charts](ui_v2_faq.html) for info.
+    
+* **Terraform Provider Updates**
+
+    If you are using the Terraform Provider, update to [version 3.0.1](https://registry.terraform.io/providers/vmware/wavefront/latest/docs). This version is compatible with the new alert experience. See the [FAQ for the New Alert GUI](alerts_v2_faq.html).
+
+## 2022-11.x Release Notes
+
+  <table>
+  <tbody>
+  <tr>
+  <td width="50%"><strong>Documentation Improvements</strong>:<br/><br/>
+  We have made a lot of documentation improvements with information that comes from our Tanzu Observability SaaS Value Engineering team. Main doc improvements are listed on the right.
+  </td>
+  <td width="50%"><p>&nbsp;</p>
+  <ul><li><a href="https://docs.wavefront.com/optimize_data_shape.html">Optimizing the Data Shape to Improve Performance</a></li>
+  <li><a href="https://docs.wavefront.com/missing_data_troubleshooting.html">Troubleshooting Missing Data</a></li>
+  <li><a href="https://docs.wavefront.com/query_language_metadata_functions.html">Metadata (Label Manipulation) Functions</a></li>
+  </ul>
+  </td>
+  </tr>
+  <tr>
+  <td width="50%"><strong>Toolbar Improvements</strong>:<br/><br/>
+  All objects and items related to the alerts are accessible through the <strong>Alerting</strong> menu. Instead of clicking <strong>Browse</strong> on the toolbar to access alert targets and maintenance windows, you can click <strong>Alerting</strong> and select:
+  <ul><li><strong>All Alerts</strong> - to open the Alerts Browser page.</li>
+  <li><strong>Alert Targets</strong> - to open the Alerts targets page.</li>
+  <li><strong>Maintenance Windows</strong> - to open the Maintenance Windows page.</li>
+  <li><strong>Create Alert</strong> - to create a new alert.</li>
+  </ul>
+  </td>
+  <td width="50%"><br/><br/><img src="/images/create_alert_browser.png" alt="The new alerting menu on the toolbar."></td>
+  </tr>
+  <tr>
+  <td width="50%"><strong>Improved User Experience for Slow Loading or Failed Queries</strong>:<br/><br/>
+  If your charts contain slow loading queries, the charts on the dashboard will load slowly as well. When you open a dashboard, and you see that a chart is slowly loading, instead of refreshing the whole browser page, you can click the <strong>Stop</strong> button on the chart to stop fetching the data. To reload the query request, simply click <strong>Reload</strong>. <p>If a query on a chart fails to load data,  click the <strong>Reload</strong> button to rerun the query.</p><p>
+  In addition, you can see a progress bar at the bottom of the chart.</p>
+  </td>
+  <td width="50%"><br/><br/><img src="/images/stop-reload-chart.png" alt="A chart with reload button and a progress bar at the bottom."></td>
+  </tr>
+  <tr>
+  <td width="50%"><strong>Sorting of Columns in Pinned Legends</strong>:<br/><br/>
+  You can now sort columns in the legend for most chart types after you pin a legend in a chart (Shift+P). See the screenshot on the right.
+  </td>
+  <td width="50%"><br/><img src="/images/sort_legend.png" alt="A pinned legend with up and down arrows for each column."></td>
+  </tr>
+  </tbody>
+  </table>
+
 
 ## 2022-09.x Release Notes
 

@@ -251,5 +251,4 @@ Use ".+", "^." or ".*$" as your search pattern to match the entire string only o
 ## Learn More!
 
 * For additional examples, see the [aliasSource() Function](ts_aliasSource.html).
-
-* See the KB article [Working with metadata functions - aliasSource, aliasMetric and taggify](https://help.wavefront.com/hc/en-us/articles/360057122452-Working-with-metadata-functions-aliasSource-aliasMetric-and-taggify)
+* For an in-depth exploration with examples, see [Metadata (Label Manipulation) Functions](query_language_metadata_functions.html)

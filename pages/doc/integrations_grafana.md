@@ -1,19 +1,19 @@
 ---
-title: Set Up Wavefront as a PromQL Data Source in Grafana
+title: Set Up Tanzu Observability by Wavefront as a PromQL Data Source in Grafana
 keywords:
 tags: [integrations, grafana]
 sidebar: doc_sidebar
 permalink: integrations_grafana.html
-summary: Learn how you can set up Wavefront as a Prometheus data source in Grafana.
+summary: Learn how you can set up Tanzu Observability by Wavefront as a Prometheus data source in Grafana.
 ---
 
-In addition to [setting up and using Wavefront as a Wavefront Query Language data source in Grafana](grafana.html), you can also use Wavefront as a Prometheus data source in Grafana. 
+In addition to [setting up and using Tanzu Observability as a Wavefront Query Language data source in Grafana](grafana.html), you can also use Tanzu Observability by Wavefront as a Prometheus data source in Grafana. 
 
-When you set up Wavefront as a data source in Grafana, you can view the data stored in Wavefront by using the Grafana GUI. 
+When you set up Tanzu Observability as a data source in Grafana, you can view the data stored in Tanzu Observability by using the Grafana GUI. 
 
-## Set Up Wavefront as a Prometheus Data Source
+## Set Up Tanzu Observability as a Prometheus Data Source
 
-To set up Wavefront as a PromQL data source in Grafana, you must provide an API Token of a user account or a service account that can run queries. For details on API tokens, see [Generating an API Token](https://docs.wavefront.com/wavefront_api.html#generating-an-api-token).
+To set up Tanzu Observability as a PromQL data source in Grafana, you must provide an API Token of a user account or a service account that can run queries. For details on API tokens, see [Generating an API Token](https://docs.wavefront.com/wavefront_api.html#generating-an-api-token).
 
 1. Log in to your Grafana instance.
 
@@ -36,15 +36,15 @@ To set up Wavefront as a PromQL data source in Grafana, you must provide an API 
     
 8. Click **Save and Test**.
 
-## How to Use Wavefront as a Prometheus Data Source
+## How to Use Tanzu Observability as a Prometheus Data Source
 
-To use Wavefront as a PromQL data source, make sure that [PromQL support is enabled on your Wavefront cluster](https://docs.wavefront.com/wavefront_prometheus.html#set-promql-organization-settings-administrator-only). 
+To use Tanzu Observability as a PromQL data source, make sure that [PromQL support is enabled on your Wavefront cluster](https://docs.wavefront.com/wavefront_prometheus.html#set-promql-organization-settings-administrator-only). 
 
-{% include important.html content="After the setup, the behavior of the PromQL queries that you run in Grafana will be the same as the behavior of the same queries that you run in Wavefront. All limitations and best practices for using PromQL in Wavefront apply. For information, see [Using PromQL in Wavefront](https://docs.wavefront.com/wavefront_prometheus.html)." %}
+{% include important.html content="After the setup, the behavior of the PromQL queries that you run in Grafana will be the same as the behavior of the same queries that you run in the Wavefront UI. All limitations and best practices for using PromQL in Tanzu Observability apply. For information, see [Using PromQL in Tanzu Observability by Wavefront](https://docs.wavefront.com/wavefront_prometheus.html)." %}
 
-You can now test and see that a PromQL query in Wavefront returns the same result as a PromQL query in Grafana when the data source is the Wavefront cluster that you have configured. 
+You can now test and see that a PromQL query in Tanzu Observability returns the same result as a PromQL query in Grafana when the data source is the Wavefront cluster that you have configured. 
 
-* A PromQL query in Wavefront:
+* A PromQL query in Tanzu Observability by Wavefront:
 
    ![PromQL query in Wavefront](images/grafana-wavefront-example-promQL.png)
 
