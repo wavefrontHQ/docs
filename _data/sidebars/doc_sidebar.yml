@@ -534,7 +534,7 @@ entries:
             url: /integrations_grafana.html
             output: web
 
-          - title: Send Wavefront Data to CloudHealth
+          - title: Send Data to CloudHealth
             url: /integrations_cloudhealth.html
             output: web
 
@@ -762,19 +762,19 @@ entries:
     output: web
     folderitems:
 
-      - title: Wavefront Interfaces
+      - title: Interfaces
         url: /wavefront_interfaces.html
         output: web
 
-      - title: Wavefront REST API
+      - title: Wavefront REST API 
         url: /wavefront_api.html
         output: web
 
-      - title: Wavefront SDKs
+      - title: Supported SDKs
         url: /wavefront_sdks.html
         output: web
 
-      - title: Wavefront CLIs
+      - title: CLIs for the REST API
         url: /wavefront_clis.html
         output: web
 
@@ -795,7 +795,7 @@ entries:
           output: web
           subfolderitems:
 
-          - title: Wavefront Authorization Model
+          - title: Authorization Model
             url: /authorization.html
             output: web
 
@@ -837,7 +837,7 @@ entries:
           output: web
           subfolderitems:
 
-          - title: Wavefront Authentication Model
+          - title: Authentication Model
             url: /wavefront-authentication.html
             output: web
 
