@@ -33,7 +33,7 @@ You can use `exists()` to see if a metric is obsolete or has never reported.
 
 `exists()` is useful if you're creating a query that uses a metric that is planned but has not yet started reporting, for example, when you're building a dashboard before any data is sent. Unless you wrap the query in `exists()`, all your charts will show errors for the missing metric. Using `exists` allows any syntax errors to be reported, which help you make corrections, but suppresses the errors for the missing metric.
 
-{% include note.html content="If you are querying with a time window in the past, and if the series **did not** report for 24 hours before or during the window but the series **is** reporting at present, the `exists()` function returns true. Wavefront is working on addressing this issue." %}
+{% include note.html content="If you are querying with a time window in the past, and if the series **did not** report for 24 hours before or during the window but the series **is** reporting at present, the `exists()` function returns true. We are working on addressing this issue." %}
 
 ## Examples
 

@@ -308,4 +308,4 @@ In addition to examining time series data, drilling down on exactly the informat
   * See [Application Status](tracing_ui_overview.html).
   * See [Service Dashboard](tracing_service_dashboard.html).
   * See [Traces Browser](tracing_traces_browser.html).
-* For troubleshooting, see the KB article [Where's My Data: Troubleshooting for Missing Data](https://help.wavefront.com/hc/en-us/articles/360055706512-Where-s-My-Data-Troubleshooting-for-Missing-Data).
+* For an in-depth discussion, see [Troubleshooting Missing Data](missing_data_troubleshooting.html).
