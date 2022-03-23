@@ -7,7 +7,7 @@ permalink: wavefront_api.html
 summary: Learn about the REST API for managing Tanzu Observability by Wavefront.
 ---
 
-The Wavefront REST API enables you to write scripts to perform management tasks, such as defining alerts and creating events. You can use the REST API to perform any task that is supported by the Wavefront UI. The REST API is based on Swagger, so you can generate the API client of your choice (including a CLI client).
+The Wavefront REST API enables you to write scripts to perform management tasks, such as defining alerts and creating events. You can use the REST API to perform any task that is supported by the Tanzu Observability GUI. The REST API is based on Swagger, so you can generate the API client of your choice (including a CLI client).
 
 
 
@@ -29,7 +29,7 @@ To access the REST API documentation :
 1. Log in to your Wavefront instance.
 2. Display the doc from the UI or using a URL:
   * In the UI, click the gear icon <i class="fa fa-cog"/> at the top right of the toolbar and select **API Documentation**.
-  * Type `https://<your_cluster_name>.com/api-docs/ui/`
+  * Type `https://<your_instance_name>.com/api-docs/ui/`
 
 
 ![REST API in Wavefront instance](/images/rest_api.png)
