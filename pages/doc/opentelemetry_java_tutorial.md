@@ -3,7 +3,7 @@ title: OpenTelemetry Tutorials
 keywords: tracing opentelemetry tutorial
 tags: [tracing, tutorials]
 sidebar: doc_sidebar
-permalink: wf_opentelemetry_java_tutorial.html
+permalink: opentelemetry_java_tutorial.html
 summary: Set up your environment to send OpenTelemetry Data to Wavefront.
 ---
 With observability, you can ask questions about your system and get answers based on the telemetry data (metrics, traces, and logs) they produce.

@@ -112,4 +112,4 @@ Search this doc set for details on any of the metric types, or read this:
 * [Metrics and the Metrics Browser](metrics_managing.html) examines the structure of a metric and explains how to use the Metrics Browser.
 * [Cumulative Counters and Delta Counters](delta_counters.html) discusses the 2 kinds of counters that we support and includes examples for each type.
 * [Histograms](proxies_histograms.html) are useful for distribution of metrics in high-velocity environment. We support a set of [query language functions just for histograms](query_language_reference.html#histogram-functions).
-* Our [Tracing UI](tracing_basics.html#visualize-distributed-tracing-data-in-wavefront) lets you drill down from the service level to the individual spans and examine outliers to find bottlenecks.
+* Our [Tracing UI](tracing_basics.html#visualize-distributed-tracing-data) lets you drill down from the service level to the individual spans and examine outliers to find bottlenecks.

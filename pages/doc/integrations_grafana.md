@@ -1,5 +1,5 @@
 ---
-title: Set Up Tanzu Observability by Wavefront as a PromQL Data Source in Grafana
+title: Set Up Tanzu Observability as a PromQL Data Source in Grafana
 keywords:
 tags: [integrations, grafana]
 sidebar: doc_sidebar
