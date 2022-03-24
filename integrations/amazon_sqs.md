@@ -105,14 +105,6 @@ Then, you register the integration by providing the necessary information. See [
 <h2>Alerts</h2>  <ul><li markdown="span"><b>EC2 Instance CPU Usage Too High</b>:Alert reports when the EC2 instance CPU utilization constantly exceeds the defined limit.</li><li markdown="span"><b>EC2 Instance Status Check Failed</b>:Alert reports when the EC2 status check constantly fails.</li></ul>
 
 
-
-
-
-
-## Metrics
-
-See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) for Metrics descriptions.  
-
 |Metric Name|Description|
 | :--- | :--- |
 |aws.sqs.approximateageofoldestmessage.*|Statistics: average, maximum, minimum, samplecount, sum|

@@ -79,7 +79,7 @@ Delta counter behavior changed with [Release 2020.26](2020.26.x_release_notes.ht
 
 We update system dashboard and integration content to use the new version of delta counters. However, you might have to update custom delta counters.
 
-* **Automatic Updates**. [Tracing RED metrics](trace_data_details.html#red-metrics) and in certain internal `~` metrics [collected by Wavefront](wavefront_monitoring.html#internal-metrics-overview) such as `~collector.points.reported` use delta counters. All out-of-the-box dashboards that use these data will be updated for you.
+* **Automatic Updates**. [Tracing RED metrics](trace_data_details.html#red-metrics) and in certain internal `~` metrics [collected by Tanzu Observability](wavefront-internal-metrics.html), such as `~collector.points.reported`, use delta counters. All out-of-the-box dashboards that use these data will be updated for you.
 * **User Updates**. If you have cloned any out-of-the-box dashboards that use delta counters or have created any custom dashboards, charts, or alerts, you are responsible for updating the queries in related charts and alerts yourself.
 
 
@@ -87,7 +87,7 @@ We update system dashboard and integration content to use the new version of del
 
 1. Find delta counters from the UI or using Spy.
     * Log into your Wavefront instance, click **Browse > Delta Counters** and examine your data.
-    * From your Web browser, use [Delta Counter Spy](https://docs.wavefront.com/wavefront_monitoring_spy.html#get-ingested-delta-counters-with-spy) to view live delta counter ingestion.
+    * From your Web browser, use [Delta Counter Spy](wavefront_monitoring_spy.html#get-ingested-delta-counters-with-spy) to view live delta counter ingestion.
 2. [Search](wavefront_searching.html#search-field) for those named counters in alerts and dashboards.
    * Search on the **Alerts** page to find alerts that use the counter metric.
    * Search on the **All Dashboards** page for dashboards. You might have to select **Metrics** to get the relevant result.
