@@ -8,6 +8,35 @@ summary: New and changed integrations.
 ---
 Tanzu Observability by Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
+## March 2022
+
+We added the following integrations in March 2022:
+
+* VMware Blockchain 
+  
+  VMware Blockchain is an enterprise-grade blockchain platform that enables multi-party workflows. This integration is developed and created by the community and falls into to the **Community Integrations** section of the Tanzu Observability by Wavefront **Integrations** page. We do not validate the community integrations and they are not fully supported by the Tanzu Observability by Wavefront team.
+
+ 
+Made improvements to the following integrations in March 2022:
+
+*  Wavefront Usage
+   * Added two new system dashboards to the integration: **Committed rate vs Monthly Usage (PPS P95) Billable** and **Usage vs Remaining Balance (PPS P95) Burndown**
+   * Added three new system alerts: **Percentage of Usage Scanned**, **Percentage of Usage Ingested**, and **Remaining Balance**
+
+* Tanzu Application Service -- Updates to the alerts descriptions and setup instructions. 
+* Tanzu Application Service (Beta) -- Updated the query metrics in the **Ops Manager** Health dashboard.
+* Kubernetes - K8s Control Plane dashboard is added.
+* VMware Tanzu GemFire:
+  * Updated the GemFire for VMs dashboard and now it is forward compatible with GemFire for VMs 1.15 and later.
+  * Added a list of alerts, such as **Low Server Count**, **Low Locator Count**, **High CPU Utilization**, and **High Disk Utilization** for all supported VMware Tanzu GemFire editions: VMware Tanzu  GemFire for Kubernetes, VMware Tanzu GemFire (Standalone), and VMware Tanzu GemFire for VMs.
+* Istio (Archived) -- this archived integration is removed and no longer available.
+
+We made minor bug fixes and improvements to the following list of integrations:
+  * Amazon Web Services
+  * PingOne
+  * OpenTelemetry
+  
+
 ## February 2022
 
 We added the following integrations in February 2022:
