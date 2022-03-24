@@ -4,7 +4,7 @@ keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: wavefront_administer.html
-summary: Understand what you can do as an administrator.
+summary: Understand what you can do as an administrator in Tanzu Observability by Wavefront.
 ---
 
 Super Admin users and users with the **Accounts** permission can perform a variety of tasks, such as:
