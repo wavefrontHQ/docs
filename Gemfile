@@ -9,3 +9,5 @@ end
 gem 'jekyll-sitemap'
 gem 'jekyll-extlinks'
 gem "kramdown-parser-gfm"
+
+gem "webrick", "~> 1.7"

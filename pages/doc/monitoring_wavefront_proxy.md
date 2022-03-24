@@ -6,7 +6,7 @@ permalink: monitoring_proxies.html
 summary: Learn how to monitor Wavefront proxies.
 ---
 
-The Wavefront Usage integration includes a **Wavefront Service and Proxy Data** dashboard that includes several sections with dashboards for examining proxy health.
+Tanzu Observability by Wavefront supports monitoring of your Wavefront proxies. The Wavefront Usage integration includes a **Wavefront Service and Proxy Data** dashboard that includes several sections with dashboards for examining proxy health.
 
 ![proxy health](images/proxy_health_example.png)
 
@@ -14,15 +14,15 @@ The Wavefront Usage integration includes a **Wavefront Service and Proxy Data** 
 
 [Wavefront proxies](proxies.html) emit metrics that you can use to check if your Wavefront proxy is behaving as expected.
 
-The Proxy Health section of the System Usage dashboard includes commonly used internal metrics, such as the `~proxy.points` counter metrics, which measure the data traffic on each port of the proxy. These metrics show the rate at which each proxy receives points, the rate at which the proxy sends points to the Wavefront service, and any queued or blocked points. Here's an overview of metrics on this dashboard:
+The Proxy Health section of the System Usage dashboard includes commonly used internal metrics, such as the `~proxy.points` counter metrics, which measure the data traffic on each port of the proxy. These metrics show the rate at which each proxy receives points, the rate at which the proxy sends points to Tanzu Observability, and any queued or blocked points. Here's an overview of metrics on this dashboard:
 
 - `~proxy.points.*.received` - Counter showing the total points the proxy receives, as a per-second rate. To look at the overall rate of points received across all the ports, you can sum up these series and look at the aggregate rate for a proxy. You can also look at the overall rate across all proxies by summing this up further.
 
-- `~proxy.points.*.queued` - Counter showing the number of points being queued to be sent to Wavefront from the proxy, as a per-second rate. Queueing usually happens for one of the following reasons:
+- `~proxy.points.*.queued` - Counter showing the number of points being queued to be sent to Tanzu Observability from the proxy, as a per-second rate. Queueing usually happens for one of the following reasons:
 
-  - The total point rate being collected at Wavefront has reached the maximum capacity. The Wavefront service is pushing back, causing data to buffer at the proxy and causing the proxy to queue points.
+  - The total point rate being collected has reached the maximum capacity. The Wavefront service is pushing back, causing data to buffer at the proxy and causing the proxy to queue points.
 
-  - The proxy has reached the threshold of number of points it can process in each batch. The maximum number of points that a proxy can process and push to Wavefront is determined by these factors:
+  - The proxy has reached the threshold of number of points it can process in each batch. The maximum number of points that a proxy can process and push to Tanzu Observability is determined by these factors:
     - Number of cores on the machine on which the proxy is running
     - `pushFlushMaxPoints` - batch size the proxy sends every second. This value is configurable.
 
@@ -56,7 +56,7 @@ These metrics are displayed in a tabular chart:
 You can also investigate second-level metrics that give you insight into questions, for example:
 * Why are some points blocked?
 * What's the file descriptor usage on the proxy JVM?
-* How long does it take for points to be pushed from the proxy to the Wavefront service?
+* How long does it take for points to be pushed from the proxy to Tanzu Observability?
 
 The metrics used in this section are:
 
@@ -67,7 +67,7 @@ The metrics used in this section are:
 - `~proxy.jvm.fd_usage` - % of file descriptors in use per proxy. If this metric reaches close to 100% of the allowed usage for the proxy, increase the `uLimit` on your system.
 - `~proxy.jvm.garbage-collectors.*.time` - Garbage collection (GC) activity on the proxy JVM. Anything larger than 200ms is a GC issue, anything near 1s indicates continuous full GCs in the proxy.
 - `~proxy.jvm.memory.heapMax/heapUsed` - Memory usage by the proxy process.
-- `~proxy.push.*.duration.duration.median` - Duration taken by points pushed from the proxy to reach the Wavefront service. Can help identify network latency issues. You can graph other percentiles.
+- `~proxy.push.*.duration.duration.median` - Duration taken by points pushed from the proxy to reach Tanzu Observability. Can help identify network latency issues. You can graph other percentiles.
 - `~proxy.points.*.received.lag.p99` - p99 difference between the timestamp on a point and the time that the proxy received it. High numbers can indicate back-filling old data, or clock drift in sending systems.
 - `~proxy.buffer.queue-time.*` - Latency introduced by queueing.
 

@@ -282,4 +282,4 @@ aliasSource(ts(requests.failures.num), "accounts.([a-zA-Z.]*)[0-9]*$", "$1")
 
 ## Learn More!
 
-* For an in-depth discussion, see [Metadata (Label Manipulation) Functions](query_language_metadata_functions.html)
+* For an in-depth exploration with examples, see [Metadata (Label Manipulation) Functions](query_language_metadata_functions.html)
