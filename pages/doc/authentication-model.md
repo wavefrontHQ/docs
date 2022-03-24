@@ -39,6 +39,6 @@ If a customer's chosen authentication solution supports two-factor authenticatio
 
 ## Multi-Tenant SSO
 
-Large customers can request [multi-tenant SSO](authentication.html#multi-tenant-authentication). Multi-tenancy is set up jointly by the administrator at the customer site and the Tanzu Observability team.
+Large customers can request [multi-tenant SSO](authentication.html#multi-tenant-authentication). Multi-tenancy is set up jointly by the administrator at the customer site and the Tanzu Observability Technical Support team.
 
 Users in different teams inside the company can authenticate to different tenants and cannot access the other tenant's data.

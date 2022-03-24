@@ -17,17 +17,17 @@ Most of our customers use [single-tenant authentication](auth_self_service_sso.h
 Several of our customers have asked for an environment that supports separate tenants for different teams. For example, here at VMware it made sense to keep the VMware vSphere team separate from the VMware NSX team -- both teams use Tanzu Observability by Wavefront. This separation of teams, called multi-tenancy, works like this:
 
 * The administrator at the customer site requests tenants from Tanzu Observability and provides the tenant administrator emails and other information such as the IdP.
-* After the Tanzu Observability team has set up the tenants, each tenant administrator (a Super Admin or a user the **Accounts** permission) invites users to that tenant.
-* A Super Admin or a user the **Accounts** permission can invite users to multiple tenants.
+* After the Tanzu Observability Technical Support team has set up the tenants, each tenant administrator (a Super Admin or a user with the **Accounts** permission) invites users to that tenant.
+* A Super Admin or a user with the **Accounts** permission can invite users to multiple tenants.
 * After logging in to the Wavefront instance, users who have been invited to multiple tenants:
     - Are directed to the last tenant they used.
     - Can switch to other tenants from the gear icon <i class="fa fa-cog"/> on the toolbar without having to log in again.
 
-Multi-tenancy must be set up in collaboration with the Tanzu Observability team, as discussed next.
+Multi-tenancy must be set up in collaboration with our Technical Support team, as discussed next.
 
 ## How to Set Up Multi-Tenancy
 
-Multi-tenancy is set up jointly by the administrator at the customer site and the Tanzu Observability team:
+Multi-tenancy is set up jointly by the administrator at the customer site and the Technical Support team at the Tanzu Observability site:
 
 1. The administrator decides on the multi-tenancy mode (see below), that is, sandbox or strict multi-tenant mode.
 1. The administrator requests a multi-tenant setup from Tanzu Observability, providing the following information:
@@ -35,11 +35,11 @@ Multi-tenancy is set up jointly by the administrator at the customer site and th
    * Email addresses of the administrators of each team.
    * IdP details.
    * Sandbox mode or strict mode (see below).
-1. The Tanzu Observability team sets up the multi-tenant environment based on the request:
+1. The Tanzu Observability Technical Support team sets up the multi-tenant environment based on the request:
    * Enables multi-tenancy for the customer.
    * Creates a tenant for each team specified by the customer.
    * Points each tenant to the customer's IdP.
-   * Creates tenant administrator users with **Accounts** permissions on each tenant.
+   * Creates tenant administrator users with the **Accounts** permission on each tenant.
 1. The administrator at the customer site and the newly specified tenant administrator users with the **Accounts** permission can then:
   * Log in to the tenant.
   * [Invite users](user-accounts.html#create-and-manage-user-accounts) to the tenant and assign permissions for that tenant.

@@ -27,7 +27,7 @@ As a user with the **Accounts** permission, you can:
 
 ## Authentication
 
-You can select your preferred authentication method for your environment by setting up single sign-on using an identity provider (IdP), so that users can log in by using SSO instead of a user name and password. Our authentication integrations use SAML and fully support two-factor authentication (managed by individual identity providers).  In single-tenant authentication environment, you can set up or update self-service SAML SSO. You can also set up multi-tenancy, which is configured jointly by you -- at the customer site, and the Tanzu Observability team. 
+You can select your preferred authentication method for your environment by setting up single sign-on using an identity provider (IdP), so that users can log in by using SSO instead of a user name and password. Our authentication integrations use SAML and fully support two-factor authentication (managed by individual identity providers).  In single-tenant authentication environment, you can set up or update self-service SAML SSO. You can also set up multi-tenancy, which is configured jointly by you -- at the customer site, and the Tanzu Observability Technical Support team. 
 
 ## Monitor and Troubleshoot
 
