@@ -115,7 +115,11 @@ You can log all the raw blocked data separately or log different entities into t
     {%include tip.html content ="You must update both the `<wavefront_log_path>/log4j2.xml` file and the `<wavefront_config_path>/wavefront.conf` file to get separate log files for blocked entities."%}
 
 
-
+    <table style="width: 100%;">
+    <tbody>
+    <tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+    </tbody>
+    </table>
 
 
 ## Configuration Properties
@@ -677,6 +681,12 @@ Sets the headroom multiplier for traffic shaping when there's backlog.
 </tbody>
 </table>
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
 ### Authentication Proxy Properties
 
 Because the proxy is running in your local network by default, communication **to** the proxy is un-authenticated. If you want to authenticate inbound traffic to the proxy, use the settings in this section.
@@ -766,6 +776,11 @@ Required when authMethod = STATIC_TOKEN. For example, <code>authStaticToken=toke
 </tbody>
 </table>
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ### Tracing Proxy Properties
 
@@ -884,7 +899,11 @@ Required when authMethod = STATIC_TOKEN. For example, <code>authStaticToken=toke
 </tbody>
 </table>
 
-
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ### Histogram Configuration Properties
 
@@ -1160,6 +1179,12 @@ Ex: 40</td>
 </tbody>
 </table>
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
 
 ## Authenticate Incoming HTTP Requests at the Proxy
 
@@ -1234,6 +1259,92 @@ For either method, the service must return a 2xx code for valid tokens. Accordin
 <td markdown="span">6. Ensure that valid data sent to the proxy has the appropriate token included with the request.</td>
 <td>&nbsp;</td>
 </tr>
+</tbody>
+</table>
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
+## Proxy Configuration for Multicasting Environments
+
+Starting with Proxy version 11, you can configure your proxy to support a multicasting environment.
+
+* You set configuration properties for the proxy to recognize endpoints for multicasting tenants and Wavefront instances.
+* The proxy will then:
+  - Register itself to multiple Wavefront instances.
+  - Perform multicasting for data points (metrics, delta counters, histograms, and spans).
+  - Handle pushback and local data spooling for each multicasting Wavefront instance.
+
+### Sample Configuration
+
+Here's a sample configuration, followed by a brief discussion of the different config properties.
+
+The example includes two multi-casting servers, `tenant_1` and `tenant_2`.
+
+```
+retryThreads=0
+server=https://<server>.wavefront.com/api
+hostname=<proxy_name>
+token=<CENTRAL_TOKEN>
+pushListenerPorts=2878
+deltaCountersAggregationListenerPorts = 12878
+buffer=/tmp/wf-proxy-buffermulticasting
+
+Tenants=2
+
+multicastingTenantName_1=<tenant_2>
+multicastingServer_1=https://<mc_server_1>.wavefront.com/api
+multicastingToken_1=<FRACTRAL_TOKEN>
+
+multicastingTenantName_2=<tenant_2>
+multicastingServer_2=https://<mc_server_2>.wavefront.com/api
+multicastingToken_2=<FRACTRAL_TOKEN>
+
+pushFlushMaxPoints=40000
+pushFlushInterval=1000
+pushBlockedSamples=5
+pushLogLevel=SUMMARY
+pushValidationLevel=NUMERIC_ONLY
+idFile=wavefront_test_id
+```
+
+### Multi-Tenant Setup Configuration Properties
+
+<table class="width:100%;">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="34%" /></colgroup>
+<thead>
+<tr><th>Property</th><th>Description</th><th>Format</th></tr>
+</thead>
+<tbody>
+
+<tr>
+<td>multicastingTenantName_<em>N</em></td>
+<td>Name of the multi-casting tenant. You append a number to this property that corresponds to the tenant, and use the corresponding server and </td>
+<td>String. NOT a URL. </td>
+</tr>
+<tr>
+<td>multicastingServer_<em>N</em></td>
+<td>Name of the multi-casting server. This is the URL of the Wavefront instance that the customer accesses. You append a number to this property that corresponds to the number that you appended to the tenant. </td>
+<td>URL of the Wavefront instance, for example, <code>https://myserver.wavefront.com</code></td>
+</tr>
+<tr>
+<td>multicastingToken_<em>N</em></td>
+<td>API token for the multi-casting server that you in multicastingServer_<em>N</em>. You need a separate API token for each server. </td>
+<td>API token for the Wavefront instance. See <a href="hwavefront_api.html#generating-an-api-token">Generating an API Token</a></td>
+</tr>
+</tbody>
+</table>
+
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>
 
