@@ -38,11 +38,12 @@ In release 2022-11.x, we made the following improvements to the documentation an
   <tbody>
   <tr>
     <td width="50%">
-      <strong>Documentation Improvements</strong>:<br/><br/>
-      We updated the doc set with information that comes from the Tanzu Observability SaaS Value Engineering team. Some information was added, some new doc pages are listed on the right.
+      <strong>Documentation Improvements</strong>:<p>
+      We updated the doc set with information that comes from the Tanzu Observability SaaS Value Engineering team. Some information was added, some new doc pages are listed on the right.</p>
     </td>
     <td width="50%">
-      <p>&nbsp;</p>
+      <strong>Read More:</strong>
+    
       <ul>
         <li><a href="optimize_data_shape.html">Optimizing the Data Shape to Improve Performance</a></li>
         <li><a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a></li>
@@ -67,15 +68,15 @@ In release 2022-11.x, we made the following improvements to the documentation an
   </tr>
   <tr>
     <td width="50%">
-      <strong>Improved User Experience for Slow Loading or Failed Queries</strong>:<br/><br/>
+      <strong>Improved User Experience for Slow Loading or Failed Queries</strong>:
       <ul>
       <li>New <strong>progress bar</strong> at the bottom of each chart. </li>
-      <li><strong>Slow Loading Queries</strong>: If you see that a chart on a dashboard is loading slowly, you can now click a <strong>Stop</strong> button on the chart to stop fetching the data (instead of refreshing the whole browser page). To update the chart, click <strong>Reload</strong>.</li>
+      <li><strong>Slow Loading Queries</strong>: If you see that a chart on a dashboard is loading slowly, you can click a <strong>Stop</strong> button on the chart to stop fetching the data (instead of refreshing the whole browser page). To update the chart, click <strong>Reload</strong>.</li>
       <li><strong>Failed Queries</strong>: If a query on a chart <strong>fails to load data</strong>, click the <strong>Reload</strong> button to rerun the query.</li>
-      </ul>
+      <li>Hovering over the <strong>Stop</strong> button shows information about the <strong>state of the queries</strong> in the chart, such as loading time series, events, and so on.</li></ul>
     </td>
     <td width="50%">
-      <br/><br/><img src="/images/stop-reload-chart.png" alt="A chart with reload button and a progress bar at the bottom.">
+      <br/><br/><br/><img src="/images/stop-reload-chart.png" alt="A chart with reload button and a progress bar at the bottom.">
     </td>
   </tr>
   <tr>
@@ -89,12 +90,13 @@ In release 2022-11.x, we made the following improvements to the documentation an
   </tr>
   <tr>
     <td width="50%">
-      <strong>Send OpenTelemetry Trace Data to the Wavefront Proxy</strong>:<br/><br/>
+      <strong>Send OpenTelemetry Trace Data to the Wavefront Proxy</strong>:<p>
       You can now send OpenTelemetry trace data directly from your applications to the Wavefront proxy. This is the recommended and simplest approach to get your data into Tanzu Observability.
+    </p>
     </td>
     <td width="50%">
-      <p>&nbsp;</p>
-      <ul>
+    <strong>Read More:</strong>
+    <ul>
         <li><a href="opentelemetry_tracing.html#send-data-using-the-wavefront-proxy---recommended">Send Data Directly Using the Wavefront Proxy</a></li>
         <li><a href="opentelemetry_logs.html">Enable Proxy Debug Logs for OpenTelemetry Data</a></li>
       </ul>
