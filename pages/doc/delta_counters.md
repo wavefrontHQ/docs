@@ -6,7 +6,8 @@ sidebar: doc_sidebar
 permalink: delta_counters.html
 summary: Learn when and how to use cumulative counters and delta counters.
 ---
-Wavefront supports [several types of metrics](metric_types.html), including 2 kinds of counters.
+Tanzu Observability by Wavefront supports [several types of metrics](metric_types.html), including 2 kinds of counters.
+
 * **Cumulative counters** (usually called **counters** in this doc set) monotonically increasing counters. They're useful for aggregating metric information such as the number of hits on a web page, how many users log into a portal, etc. They're usually used with `rate()` or a similar function.
 * **Delta counters** (sometimes called periodic counters) measure the **change** since a metric was last recorded. For example, metrics for request count could be delta counters. Each value records how many requests were received since the last data point was recorded.
 
@@ -41,9 +42,9 @@ It often makes sense to collect both counter metrics and delta counter metrics -
 
 ### Example
 
-The following illustration contrasts cumulative counters and delta counters:
+The following illustration contrasts cumulative counters and delta counters with a simple example:
 
-* Error data are being sent to Wavefront. 5 errors in the first minute, 17 in the second, and 8 in the third.
+* Error data are being sent to the Wavefront service. 5 errors in the first minute, 17 in the second, and 8 in the third.
 * The top row shows cumulative counter behavior. In many cases, the data actually come in as cumulative counters:
   - The running total of the errors (5, 22, 30) is ingested and stored.
   - The `ts()` query shows a chart with values increasing over time.
@@ -61,16 +62,16 @@ Counters show information over time and are useful for aggregating metrics infor
 
 ### Where Are Delta Counters Useful?
 
-Users who are monitoring an environment where multiple sources perform the same function can't use cumulative counters. Lost points because of collision are likely. Wavefront solves the problem by performing the aggregation on the server side. Delta counters are therefore especially suitable for serverless Function-as-a-service environments and some other use cases.
+Users who are monitoring an environment where multiple sources perform the same function can't use cumulative counters. Lost points because of collision are likely. We solve the problem by performing the aggregation on the server side. Delta counters are therefore especially suitable for serverless Function-as-a-service environments and some other use cases.
 
 Delta counters are useful if you want to combine points that come in at the same time from several sources. For example:
 
 * You're monitoring a Function-as-a-Service (FaaS or serverless) environment, and many functions execute simultaneously. It's not possible to monitor bursty traffic like that without losing some reported metric points due to collision.
 * You want to collect metrics from two sets of applications, each using a separate Telegraf instance behind a load balancer.
 ![telegraf and delta_counters](images/delta_metrics_telegraph.png)
-* You want to aggregate counters across multiple apps. For example, Wavefront uses delta counters for the [logs to metrics Wavefront integration](integrations_log_data.html).
+* You want to aggregate counters across multiple apps. For example, the [logs to metrics integration](integrations_log_data.html) uses delta counters.
 
-For more on delta counter use cases, see the blog [Monitoring Apps in the Serverless World: Introducing Wavefront Delta Counters](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitoring-apps-in-the-serverless-world-part-2-introducing-wavefront-delta-counters)
+For more on delta counter use cases, see the blog [Monitoring Apps in the Serverless World: Introducing Delta Counters](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitoring-apps-in-the-serverless-world-part-2-introducing-wavefront-delta-counters)
 
 
 ### Example: Monitoring AWS Lambda with Delta Counters
@@ -111,7 +112,7 @@ You have to send and query delta counters like this:
 
 ### The cs() Function
 
-If you use the `cs()` function (instead of the `ts()` function) with a query, Wavefront treats the incoming data as delta counters:
+If you use the `cs()` function (instead of the `ts()` function) with a query, the query engine treats the incoming data as delta counters:
 * Bin to a minute timestamp
 * Treat write operations to the same bin as deltas.
 
@@ -142,7 +143,7 @@ You can use our SDKs to make your metric a delta counter.
 We support the following [proxy configuration properties](proxies_configuring.html#general-proxy-properties-and-examples) with delta counters.
 
 - **deltaCounterPorts**: Comma-separated list of ports that accept only delta counter data.
-- **deltaCounterAggregationInterval**: Time that the proxy spends aggregating data before sending them to the Wavefront Service. Default is 30 seconds.
+- **deltaCounterAggregationInterval**: Time that the proxy spends aggregating data before sending them to the Wavefront service. Default is 30 seconds.
 
 ### Delta Prefix
 

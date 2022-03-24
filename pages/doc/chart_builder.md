@@ -7,6 +7,8 @@ permalink: chart_builder.html
 summary: Use Chart Builder to display the data you're interested in.
 ---
 
+When you get started with Tanzu Observability by Wavefront, Chart Builder is the fasted way to customize which metrics you see and to display them in charts.
+
 <table style="width: 100%;">
 <tbody>
 <tr>
@@ -15,7 +17,7 @@ summary: Use Chart Builder to display the data you're interested in.
 <li>Construct queries from building blocks</li>
 <li>Show or hide individual queries</li>
 <li>Clone or delete a line</li>
-<li>Create alerts or turn **Anomaly Detection** on for forecasting or anomaly detection on Line Plot charts. </li></ul></td>
+<li>Create alerts or turn <strong>Anomaly Detection</strong> on for forecasting or anomaly detection on Line Plot charts. </li></ul></td>
 <td width="20%"><a href="query_language_query_builder.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
 </tr>
 </tbody>

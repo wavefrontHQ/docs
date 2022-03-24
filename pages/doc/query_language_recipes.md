@@ -6,11 +6,12 @@ sidebar: doc_sidebar
 permalink: query_language_recipes.html
 summary: Recipes for Common Queries
 ---
-The Wavefront Customer Success team has found that customers want certain information from their data. For example, customers are interested in the point rate received or queued, or in the moving average or moving median.
+Our Customer Success team has found that customers often want certain information from their data. For example, customers are interested in the point rate received or queued, or in the moving average or moving median.
 
 We have a separate set of [Alert Recipes](alerts_recipes.html) but you can use many of queries in the recipes here in alerts.
 
-**Note:** For improved legibility, we've included line breaks in some of the examples.
+{% include note.html content="For improved legibility, we've included line breaks in some of the examples."%}
+
 
 ## Queries for Counting
 
@@ -135,7 +136,7 @@ Point rate blocked across all Wavefront proxies. Points might be blocked due to 
 
 `sum(rate(ts(~proxy.points.*.blocked)))`
 
-Total points that are collected by the Wavefront service. The `~collector` service acts as an entry point to Wavefront, and these metrics monitor the data processed at the collector.
+Total points that are collected by the Wavefront service. The `~collector` service acts as an entry point to the Wavefront service, and these metrics monitor the data processed at the collector.
 
 `sum(rate(ts(~collector.points.reported)))`
 
@@ -183,7 +184,7 @@ If you're interested in, for example, the top 3 time series or the bottom 3 time
 
 `bottomk(3,(ts(~sample.network.bytes.sent, source="app-10")))`
 
-Wavefront dashboards include a chart to visualize the top series.
+You can use the topk chart to visualize the top series.
 
 ![topk chart](/images/topk_chart.png)
 
@@ -199,7 +200,7 @@ The following example compares the bytes sent with the bytes sent 15 minutes ago
 
 ## Queries for Standard Deviation and IQR
 
-Wavefront supports [Anomaly Detection](anomaly_detection.html) for automatic anomaly detection. You can instead perform [anomaly detection with functions and statistical functions](query_language_statistical_functions_anomalies.html). This page gives some examples.
+We support [Anomaly Detection](anomaly_detection.html) for automatic anomaly detection. You can instead perform [anomaly detection with functions and statistical functions](query_language_statistical_functions_anomalies.html). This page gives some examples.
 
 ### Standard Deviation from Self
 

@@ -408,6 +408,25 @@ You delete an alert from the Alerts Browser page. Only users with **Alerts** per
 </tbody>
 </table>
 
+## Restore a Deleted Alert
+
+You can restore an alert from the trash if it was deleted less than 30 days ago or if it wasn't permanently deleted. You restore deleted alerts from the Alerts Browser page. Only users with **Alerts** permission can restore a deleted alert.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+<ol>
+<li>Click <strong>Alerting</strong> in the taskbar to display the Alerts Browser. </li>
+<li>Click <strong>All</strong> from the top right and select <strong>Deleted</strong>.</li>
+<li>Click the ellipsis icon next to the alert.</li>
+<li>Select <strong>Restore</strong>.</li>
+</ol>
+</td>
+<td width="50%" markdown="span">![screenshot of changing the view to deleted alerts](images/select-deleted-alerts.png) </td></tr>
+</tbody>
+</table>
+
 ## Restore an Alert Version
 
 Each time you save an alert, you create an alert version. Up to 100 versions are supported.

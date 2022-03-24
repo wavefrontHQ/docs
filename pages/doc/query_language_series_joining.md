@@ -7,26 +7,26 @@ permalink: query_language_series_joining.html
 summary: Use relationships among your time series to build full stack correlations.
 ---
 
-You can use the `join()` function to:
+Tanzu Observability by Wavefront supports a `join()` function that lets you:
 * Compare two or more time series and find matches, or, conversely, find the time series that do not match.
 * Combine the data points from any matching time series to form a new synthetic time series with point tags from one or both of the input series.
 
 <!--- Short list of simple why-you-care examples? -->
 <!--- Shortcut for simple cases: see series matching -->
 
-The Wavefront `join()` function is modeled after the SQL JOIN operation, which correlates rows of data across 2 or more input tables, and then forms new tables by joining selected portions of the correlated rows. If you are familiar with SQL, then you will recognize many of the Wavefront `join()` keywords and concepts.
+The WQL `join()` function is modeled after the SQL JOIN operation, which correlates rows of data across 2 or more input tables, and then forms new tables by joining selected portions of the correlated rows. If you are familiar with SQL, then you will recognize many of the WQL `join()` keywords and concepts.
 
 {% include note.html content="Using `join()` for an inner join is an explicit way to perform series matching between two groups of time series. As an shortcut for certain simple use cases, you can use an operator that performs [implicit series matching](query_language_series_matching.html)." %}
 
 
-Watch Pierre talk about Wavefront joins and how they're used.
+Watch Pierre talk about WQL joins and how they're used.
 
 <p><a href="https://www.youtube.com/watch?v=SZhU8AO-SVk&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K&index=22&t=0s"><img src="/images/v_join.png" style="width: 700px;"/></a>
 </p>
 
 ## Time Series as Tables
 
-A Wavefront `join()` views time series as tables and then operates on those tables. A time series is a sequence of timestamped points that is identified by a unique combination of metadata:
+A WQL `join()` views time series as tables and then operates on those tables. A time series is a sequence of timestamped points that is identified by a unique combination of metadata:
 * A metric name, for example, `cpu.load`
 * A source name, for example, `host-1`
 * 0 or more point tags (key value pairs), for example, `env=prod dc=Oregon`
@@ -35,7 +35,7 @@ A `join()` operation views every time series as a row in a table that has a colu
 
 ### Sample Time-Series Tables
 
-Suppose you are running services on several sources, and you want to use a Wavefront `join()` to correlate the CPU load with the number of service requests per second on each source. You identify the time series you want to correlate, and refer to them using the ts() expressions `ts(cpu.load)` and `ts(request.rate)`. Each ts() expression stands for a group of time series with different sources and point-tag values, and you want to use `join()` to identify any pairs of series that both flow from the same source, and share certain point-tag values.
+Suppose you are running services on several sources, and you want to use a WQL `join()` to correlate the CPU load with the number of service requests per second on each source. You identify the time series you want to correlate, and refer to them using the ts() expressions `ts(cpu.load)` and `ts(request.rate)`. Each ts() expression stands for a group of time series with different sources and point-tag values, and you want to use `join()` to identify any pairs of series that both flow from the same source, and share certain point-tag values.
 
 We represent the time series for each metric as rows in separate tables, which we will use for the various `join()` examples on this page. The doc uses row indicators like _L1_ so we can refer to specific time series in later examples. They're not part of the data!
 
@@ -164,7 +164,7 @@ The second table shows 4 time series that are described by `ts(request.rate)`. T
 
 ## join() Syntax Overview
 
-Like SQL JOIN, the Wavefront `join()` function examines rows from two time-series tables, and determines whether any row from one table correlates with any row from the other. Two rows correlate if they both satisfy a join condition. All `join()` operations combine the correlated rows into new rows in a new table, and then return a new time series corresponding to each new row. (Some `join()` types also return time series for the non-correlated rows in one or both tables.)
+Like SQL JOIN, the WQL `join()` function examines rows from two time-series tables, and determines whether any row from one table correlates with any row from the other. Two rows correlate if they both satisfy a join condition. All `join()` operations combine the correlated rows into new rows in a new table, and then return a new time series corresponding to each new row. (Some `join()` types also return time series for the non-correlated rows in one or both tables.)
 
 For example, suppose you want to divide the CPU load by the number of service requests per second on each production, development, or test source. The following `join()` function accomplishes this by correlating rows from [the two tables above](#sample-time-series-tables):
 
@@ -198,7 +198,7 @@ For readability, we write the keywords in all caps, but that's not required.
 * ts() expressions specify the time series in a left table (e.g., `ts(cpu.load)`) and a right table (e.g., `ts(request.rate)`).
 * Either or both ts() expressions can include filters, analogous to SQL `WHERE`. For example, `ts(cpu.load, dc!=Texas)`
 * `AS` assigns an alias to each table (required). For example, `ts1` is the alias for `ts(cpu.load)`.
-  - Do not use Wavefront reserved words, such as function names, operator names, or SI prefixes. For details, see the rules for valid alias names in [Wildcards, Aliases, and Variables](query_language_reference.html#wildcardAliasVariable).
+  - Do not use reserved words, such as WQL function names, operator names, or SI prefixes. For details, see the rules for valid alias names in [Wildcards, Aliases, and Variables](query_language_reference.html#wildcardAliasVariable).
   - Best practice: Make aliases 3 characters or longer.
 * `INNER JOIN` is one of 4 [join types](#join-types). The join type determines whether and how rows are included in the result table.
 
@@ -240,11 +240,11 @@ For readability, we write the keywords in all caps, but that's not required.
 
 ## Join Types
 
-Like SQL JOIN, the Wavefront `join()` function supports different types of join operation. Each join type has a different rule for including rows (time series) in the result table.
+Like SQL JOIN, the WQL `join()` function supports different types of join operation. Each join type has a different rule for including rows (time series) in the result table.
 
 The following table shows the main types of joins.
 * This table shows _inclusive_ joins, which means they include any rows that satisfy the join condition.
-* Wavefront also supports [_exclusive_ join types](#exclusive-join-types) for use cases in which you only want rows that do not satisfy the condition.
+* We also support [_exclusive_ join types](#exclusive-join-types) for use cases in which you only want rows that do not satisfy the condition.
 
 <table width="100%">
 <colgroup>
@@ -432,9 +432,9 @@ Each pair of matching rows in the previous table is the input for a new time ser
 
 The data points of each result series are derived from the data points of the matching input series. In this example, the output data expression `ts1 / ts2` says to divide the values of a left-hand series by the values of the matching right-hand series. (For simplicity in this example, we assume that all right-hand values are nonzero.)
 
-Wavefront accomplishes this by dividing each value of the left-hand series by the value with the corresponding timestamp from the right-hand series. So, for example, the result series corresponding to row _A5_ has points that are derived by dividing each value from _L6_ by the corresponding value from _R3_.
+The query engine accomplishes this by dividing each value of the left-hand series by the value with the corresponding timestamp from the right-hand series. So, for example, the result series corresponding to row _A5_ has points that are derived by dividing each value from _L6_ by the corresponding value from _R3_.
 
-If the timestamps for the 2 input series do not line up, Wavefront interpolates values before combining them.
+If the timestamps for the 2 input series do not line up, the query engine interpolates values before combining them.
 
 ## Left Outer Join Example
 
@@ -783,7 +783,7 @@ You can use the special syntax to provide whatever alternate value makes sense f
 
 ## Exclusive Join Types
 
-You can combine the Wavefront `join()` and [`removeSeries()`](ts_removeSeries.html) functions to perform exclusive join operations. An exclusive join starts with an [inclusive join type](#join-types) and then filters out any rows (time series) that satisfy the join condition. Exclusive joins are useful for finding hidden issues, as illustrated in [our blog on finding silent failures with `join()`](https://tanzu.vmware.com/content/blog/how-to-find-silent-failures-in-your-cloud-services-faster-with-join-function).
+You can combine the WQL `join()` and [`removeSeries()`](ts_removeSeries.html) functions to perform exclusive join operations. An exclusive join starts with an [inclusive join type](#join-types) and then filters out any rows (time series) that satisfy the join condition. Exclusive joins are useful for finding hidden issues, as illustrated in [our blog on finding silent failures with `join()`](https://tanzu.vmware.com/content/blog/how-to-find-silent-failures-in-your-cloud-services-faster-with-join-function).
 
 The following table describes the types of exclusive join.
 

@@ -36,4 +36,4 @@ The following diagram represents an `events()` query that returns 3 events (A, B
 
   ![Events until](images/until_events.png)
 
-**Note:** Synthetic events are displayed by the query, but not stored in Wavefront.
+**Note:** Synthetic events are displayed by the query, but are not stored.

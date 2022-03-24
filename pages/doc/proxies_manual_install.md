@@ -1,12 +1,16 @@
 ---
-title: Manual Wavefront Proxy Install on Linux
+title: Manual Proxy Install on Linux
 keywords: Ansible
 tags: [proxies, best practice]
 sidebar: doc_sidebar
 permalink: proxies_manual_install.html
 summary: Learn how to manually install a Wavefront proxy and Telegraf agent.
 ---
-Most Wavefront customers perform a [scripted installation](proxies_installing.html#proxy-installation) of the Wavefront proxy and Telegraf agent. In some environments, it's necessary to perform a manual installation instead. This page gives some guidance. You can perform additional customization using [proxy configuration properties](proxies_configuring.html#general-proxy-properties-and-examples).
+Most Tanzu Observability by Wavefront customers use an automated proxy install:
+* Option 1: Install the Wavefront proxy and the Telegraf agent when the set up an integration.
+* Option 2: Perform a [scripted installation](proxies_installing.html#proxy-installation) of the Wavefront proxy and Telegraf agent.
+
+In some environments, it's necessary to perform a manual installation instead. This page gives some guidance. You can perform additional customization using [proxy configuration properties](proxies_configuring.html#general-proxy-properties-and-examples).
 
 {% include note.html content="Because the exact steps depend on your environment, this page can't give details for each use case. [Advanced Proxy Configuration](proxies_configuring.html) gives details about settings you can change in the proxy config file." %}
 
@@ -40,7 +44,7 @@ Before you can customize the proxy configuration, you have to find the values fo
 </thead>
 <tr>
 <td markdown="span">**server**</td>
-<td>URL of the Wavefront server you log in to.  </td>
+<td>URL of the Wavefront instance you log in to.  </td>
 <td>https://try.wavefront.com/api/ </td>
 </tr>
 <tr>
@@ -120,7 +124,7 @@ After the interactive configuration is complete:
 
 ## Proxy Install -- Limited Network Access
 
-Some Wavefront customers want to run the proxy on a host with limited network access.
+In some cases, you might need to run the proxy on a host with limited network access.
 
 ### Prerequisites
 
@@ -138,7 +142,7 @@ Installation and configuration is similar to environments with full network acce
 1. Make sure all prerequisites are met, including an open outgoing HTTPS connection to the Wavefront service and JRE.
 2. Install the .rpm or .deb file.
 3. Update the settings, either by editing the configuration file or by running the autoconf script, as explained above.
-4. You may need to update the Wavefront control file  `/etc/init.d/wavefront.proxy` to the following settings:
+4. You may need to update the Wavefront proxy control file  `/etc/init.d/wavefront.proxy` to the following settings:
 
 ```
    desc=${DESC:-Wavefront Proxy}
@@ -181,7 +185,7 @@ The following parameters support TLS/SS. You can specify those parameters in the
 
 ## Testing Proxy Host Connectivity
 
-You can test connectivity from the proxy host to the Wavefront server using curl.
+You can test connectivity from the proxy host to the Wavefront instance using curl.
 
 Run this test before installing the proxy, and again after installing and configuring the proxy.
 
@@ -227,23 +231,23 @@ Here is an example of the expected return when you use the `-v` parameter (witho
 
 ## Testing Your Installation
 
-After you have started the proxy you just configured, you can verify its status from the Wavefront UI or with curl commands.
+After you have started the proxy you just configured, you can verify its status from the UI or with curl commands.
 
 ### Testing From the UI
 To check your proxy from the UI:
-1. Log in to Wavefront from a browser.
+1. Log in to your Wavefront instance from a browser.
 2. From the taskbar, select **Browse > Proxies** to view a list of all proxies.
    If the list is long, type the proxy name as defined in `hostname=` in  `wavefront.conf` to located the proxy by name.
 
 ### Testing Using curl
 
-You can test your proxy using `curl`. Documentation for the following curl commands can be found directly on your Wavefront server at `https://<your-server.wavefront.com>/api-docs/ui/#!/Proxy/getAllProxy`.
+You can test your proxy using `curl`. Documentation for the following curl commands can be found directly on your Wavefront instance at `https://<your-server.wavefront.com>/api-docs/ui/#!/Proxy/getAllProxy`.
 
 You can run the commands [directly from the API documentation](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/did-you-know-that-our-api-docs-are-alive). This is less error prone than copy/paste of the token.
 
 For this task, you first you get the list of proxies for your Wavefront service, then you display information for just the proxy you installed.
 
-Step 1: Get the list of proxies for your Wavefront server:
+Step 1: Get the list of proxies for your Wavefront instance:
 ```
 curl -X GET --header "Accept: application/json" --header "Authorization: Bearer xxxxxxxxx-<your api token>-xxxxxxxxxxxx" "https://<yourserver.wavefront.com/api/v2/proxy?offset=0&limit=100"
 ```
@@ -303,7 +307,7 @@ Instead of sending traffic directly, you can send traffic from the Wavefront pro
 By default, the HTTP/HTTPS proxy section is commented out. Uncomment the section in `wavefront.conf` if you want to use an HTTP/HTTPS proxy, and specify the following information:
 
 ```
-## The following settings are used to connect to Wavefront servers through a HTTP proxy:
+## The following settings are used to connect to a Wavefront instance through a HTTP proxy:
 #proxyHost=<location of the HTTP/HTTPS proxy>
 #proxyPort=<port for connecting with the HTTP/HTTPS proxy. Default is 8080>
 ## Optional: if http/https proxy supports username/password authentication

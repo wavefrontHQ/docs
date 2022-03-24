@@ -7,7 +7,7 @@ permalink: dashboards_variables.html
 summary: Use dashboard variables and global filters switch between different data sources.
 ---
 
-Dashboard variables and global filters are excellent ways of focusing the metrics that a dashboard displays.
+Tanzu Observability by Wavefront includes dashboard variables and global filters. Both are excellent ways of focusing the metrics that a dashboard displays.
 
 <ul>
 <li>All users can <strong>set predefined variables</strong> for a dashboard. The change applies to all charts in that dashboard.</li>
@@ -108,7 +108,7 @@ Here's an example that uses a simple variable:
 
    `ts(cpu.loadavg.1m, ${az})`.
 
-3. When Wavefront executes this query, it replaces `${az}` with the current variable value and executes this query:
+3. When the query engine executes this query, it replaces `${az}` with the current variable value and executes this query:
 
    `ts(cpu.loadavg.1m, tag=az-3 or source=app-3)`.
 

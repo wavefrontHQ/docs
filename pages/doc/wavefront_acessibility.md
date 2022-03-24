@@ -1,103 +1,103 @@
 ---
-title: Wavefront Keyboard Shortcuts and Accessibility Improvements
+title: Keyboard Shortcuts and Accessibility Improvements
 tags: [accessibility, keyboard navigation, keyboard shortcuts]
 sidebar: doc_sidebar
 permalink: wavefront_keyboard_shortcuts.html
 summary: Use the keyboard shortcuts to navigate through pages and menus.
 ---
 
-With the 2021-19.x release, Wavefront addressed accessibility issues and included level-A accessibility fixes for keyboard navigation and colorblind support. There were a few level-AA issues addressed as well. 
+Tanzu Observability by Wavefront is committed to continuous improvement of product accessibility. We recently addressed accessibility issues and included level-A accessibility fixes for keyboard navigation and colorblind support. We also addressed several level-AA accessibility issues. Here are some highlights:
 
-Wavefront allows you to use keyboard shortcuts to navigate through pages and menus instead of using the mouse. UI elements are also with changed color so that the color contrast supports colorblind accessibility. 
-
+* Keyboard shortcuts allow you to navigate through pages and menus without using a mouse.
+* Color contrast supports colorblind accessibility. We continuously check our UI elements and change color as needed.
 
 ## Accessibility Improvements
 
-With the 2021-26.x release, Wavefront addresses more accessibility issues. It now includes:
+Starting with the 2021-26.x release, we included these accessibility improvements:
 
-* More color contrast improvements to support colorblind accessibility, for example in all charts and dashboards, including operational and service dashboards. 
+* More color contrast improvements to support colorblind accessibility, for example in all charts and dashboards, including operational and service dashboards.
 * A redesigned color picker with a new color palette.
   * Light UI theme:
-  
+
     ![Color picker for light theme](images/color-picker.png)
-  
+
   * Dark UI theme:
-   
+
     ![Color picker for dark theme](images/color-picker-dark.png)
 * Keyboard navigation support in more UI pages.
 * Drag-and-drop functionality that allows you to rearrange items.
 
 
-## Wavefront UI Pages With End-to-End Keyboard Navigation Support
+## UI Pages With End-to-End Keyboard Navigation Support
 
-The end-to-end keyboard navigation is fully supported in the Wavefront UI pages listed below. The documented way for navigating to the respective page is provided as an example, because you can access these pages in multiple ways.
+The end-to-end keyboard navigation is fully supported in the UI pages listed below. The documented way for navigating to the respective page is provided as an example, because you can access these pages in multiple ways.
 
 * Dashboards Browser page
 
   You can access it by navigating to **Dashboards > All Dashboards** from the toolbar.
-  
+
 * Dashboard page
 
   You can access it by navigating to a specific dashboard from the Dashboards Browser page.
-  
+
 * Create a dashboard wizard
-  
+
   You can access it by navigating to **Dashboards > Create Dashboard** from the toolbar.
-  
+
 * Alerts Browser page
-  
-  You can access it by navigating to **Alerting** from the toolbar.
-  
+
+  You can access it by navigating to **Alerting > All Alerts** from the toolbar.
+
 * Alert Viewer page
 
   You can access it by navigating to a specific alert from the Alerts Browser page.
-  
+
 * Events list page
 
   You can access it by navigating to **Browse > Events** from the toolbar.
-  
+
 * Chart page
 
   You can access it by navigating to a specific chart from the Dashboard page or by navigating to **Dashboards > Create Chart** from the toolbar.
-  
+
 * Integrations list page
 
   You can access it by navigating to **Integrations** from the toolbar.
-  
+
 * Kubernetes integration page
 
   You can access it by navigating to **Kubernetes** from the Integrations list page.
-  
+
 * Sources Browser page
 
   You can access it by navigating to **Browse > Sources** from the toolbar.
-  
+
 * Maintenance Windows page
 
   You can access it by navigating to **Browse > Maintenance Windows** from the toolbar.
-  
+
 * User profile page
 
   You can access it by navigating to your profile from the gear icon <i class="fa fa-cog"/> on the taskbar.
-  
+
 * Metrics Browser page
 
   You can access it by navigating to **Browse > Metrics** from the toolbar.
 
 ## Drag-and-Drop Keyboard Navigation
 
-The drag-and-drop keyboard navigation is available when you create or edit charts and when you create or edit metrics security policies. 
+The drag-and-drop keyboard navigation is available when you create or edit charts and when you create or edit metrics security policies.
 
 To use the drag-and-drop navigation:
 
-1. To enter drag mode, press **spacebar**. 
-2. Use the arrow keys to move the item, for example a query line. 
-3. Press **spacebar** to drop the item in its new position. 
+1. To enter drag mode, press **spacebar**.
+2. Use the arrow keys to move the item, for example a query line.
+3. Press **spacebar** to drop the item in its new position.
 
 With the drag-and-drop keyboard navigation you can rearrange:
 
 * Query lines
-* Functions within a query line in Query Builder 
+* Functions within a query line in Query Builder
 * Variables
 * List values when you add variables to a dashboard
 * Metrics Security Policy rules

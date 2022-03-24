@@ -4,14 +4,14 @@ keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: trace_data_query.html
-summary: Learn how to query for Wavefront trace data.
+summary: Learn how to query for trace data.
 ---
 
-After your application sends [trace data](tracing_basics.html#wavefront-trace-data) to Wavefront, you can examine that data in the Traces Browser. By fine-tuning the trace query in the Traces Browser, you find the traces that you're interested in by describing the spans they must contain.
+After your application sends [trace data](tracing_basics.html#wavefront-trace-data) to Tanzu Observability by Wavefront, you can examine that data in the Traces Browser. By fine-tuning the trace query in the Traces Browser, you find the traces that you're interested in by describing the spans they must contain.
 
 ## View Tracing Critical Path Data in Charts
 
-The Wavefront Traces Browser shows you all the spans that make up a trace. By examining the critical path, you can find operations that took a long time, decide which operations to optimize, and then examine optimization results. See [Traces Browser](tracing_traces_browser.html) for details.
+The Traces Browser shows you all the spans that make up a trace. By examining the critical path, you can find operations that took a long time, decide which operations to optimize, and then examine optimization results. See [Traces Browser](tracing_traces_browser.html) for details.
 
 You can use the  [`hs()` function](hs_function.html) to query and view critical path data as histogram metrics.
 
@@ -253,14 +253,14 @@ To query traces, select **Applications > Traces** and navigate to the Traces Bro
 **Query traces using a trace ID**:
 1. Click **Trace ID** and enter the ID of the trace or traces you want to query.
     ![query traces by trace ID](images/tracing_query_by_trace_id.png)
-    {% include note.html content="Your trace ID needs to be in the UUID format (example: `00000000-0000-0000-1111-111111111111`). If you copy-paste a trace ID that is not in the UUID format, Wavefront transforms it for you." %}
+    {% include note.html content="Your trace ID needs to be in the UUID format (example: `00000000-0000-0000-1111-111111111111`). If you copy-paste a trace ID that is not in the UUID format, we transform it for you." %}
 2. Click **Search** in the query bar.
 
 {{site.data.alerts.note}}
   You might not see search results:
   <ul>
     <li markdown="span">
-      If you search for a trace after 7 days because Wavefront retains trace data only for 7 days.
+      If you search for a trace after 7 days because the Wavefront service retains trace data only for 7 days.
     </li>
     <li>
       If you search for a trace after 1 hour because you have enabled <a href="trace_data_sampling.html">intelligent sampling</a> for traces.
@@ -419,7 +419,8 @@ Query Builder generates a query that includes the [`traces()` function](traces_f
 * [Toggle to the Query Editor](#use-query-editor-power-users) to see what the corresponding functions look like.
     ![tracing query editor from builder](images/tracing_query_editor_from_builder.png)
 
-**Note:** If you change a query using Query Editor, you cannot go back to Query Builder.
+{%include important.html content="If you change a query using Query Editor, you cannot go back to Query Builder."  %}
+
 
 
 ### Trace Query Results
@@ -438,16 +439,16 @@ If you also specified a minimum (or maximum) duration, the query filters out any
 
 #### Graphic Representation of a Returned Trace
 
-Wavefront displays a bar for each trace that is returned by a trace query. The bar's length visually indicates the trace's duration. A blue area in the bar indicates where a matching span occurs in the trace, and how much of the trace it occupies:
+The Traces Browser displays a bar for each trace that is returned by a trace query. The bar's length visually indicates the trace's duration. A blue area in the bar indicates where a matching span occurs in the trace, and how much of the trace it occupies:
 
 ![tracing query results](images/tracing_query_results.png)
 
-#### How Wavefront Labels a Returned Trace
+#### How the Traces Browser Labels a Returned Trace
 Each bar that is returned by a query represents a unique trace that has a unique trace ID. For readability, we label each trace by its root span, which is the first span in the trace. The trace's label is the name of the operation that the root span represents.
 
 For example, the two returned traces shown above both have a root span that represents work done by an operation called `ShoppingWebResource.getShoppingMenu`. However, these root spans represent different executions of the operation, with different start times. Although the two root spans have the same operation name, they mark the beginning of two different traces.
 
-**Note:** A trace's root span might differ from the span that was specified in the query. For example, suppose you query for spans that represent `getAvailableColors` operations. The query could return traces that begin with `ShoppingWebResource.getShoppingMenu`, if those traces contain a `getAvailableColors` span.
+{%include tip.html content="A trace's root span might differ from the span that was specified in the query. For example, suppose you query for spans that represent `getAvailableColors` operations. The query could return traces that begin with `ShoppingWebResource.getShoppingMenu`, if those traces contain a `getAvailableColors` span."  %}
 
 ### Limit and Sort the Result Set
 
@@ -455,13 +456,15 @@ The browser allows you to fine-tune what you see.
 
 * Use the **Limit** filter to limit the number of returned traces and make your query complete faster. The trace query starts by returning the most recent traces.  After reaching the limit, the query stops looking for more traces.
 
-   **Note:** The current time window for the Traces Browser also implicitly limits by the result set. Traces are returned only if they contain a matching span _and_ start in the current time window.
+   {%include tip.html content="The current time window for the Traces Browser also implicitly limits by the result set. Traces are returned only if they contain a matching span _and_ start in the current time window."  %}
 
 * Sort a set of returned traces by selecting a sort order from the **Sort By** menu. For example, choose **Outliers** to start with the traces whose duration is unusually long or unusually short. Or, choose **Most Spans** to start with the traces that contain the largest number of spans.
 
 If you both limit and sort the query results, sorting applies after limiting. For example, suppose you limit the number of returned traces to 50, and then sort the result set from shortest to longest. The sorted list includes only the 50 traces that were originally returned by the query. We do not first sort all traces containing a matching span, and then display the 50 shortest traces.
 
-**Note:** If you've enabled a sampling strategy, results are found among the spans that have actually been ingested. The query does not search through spans before they’ve been sampled.
+   {%include tip.html content="If you've enabled a sampling strategy, results are found among the spans that have actually been ingested. The query does not search through spans before they’ve been sampled."  %}
+
+The current time window for the Traces Browser also implicitly limits by the result set. Traces are returned only if they contain a matching span _and_ start in the current time window.
 
 ### Use Query Editor (Power Users)
 

@@ -4,13 +4,13 @@ keywords:
 tags: [proxies]
 sidebar: doc_sidebar
 permalink: proxies_kube_container.html
-summary: Run a Wavefront proxy in a Kubernetes container and customize it
+summary: Run a Wavefront proxy in a Kubernetes container and customize it.
 ---
-When you set up Wavefront proxy to run [in a Kubernetes container](kubernetes.html#kubernetes-manual-install) you cannot rely on a single `wavefront.conf` file. Instead, a ConfigMap file governs deployment.
+Tanzu Observability by Wavefront supports setting up the Wavefront proxy to run [in a Kubernetes container](kubernetes.html#kubernetes-manual-install). However, you cannot rely on a single `wavefront.conf` file. Instead, a ConfigMap file governs deployment.
 
 1. Create a custom ConfigMap file that contains the custom setup, for example preprocessing rules, for your proxy configuration. This doc page creates a `00_proxy-preprocessor-config.yaml` file.
 2. Edit `wavefront.yaml` so it points to the ConfigMap file.
-3. Test your setup
+3. Test your setup.
 
 ## Example: Use a Custom ConfigMap to Include Preprocessor Rules
 
