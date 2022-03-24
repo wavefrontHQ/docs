@@ -52,14 +52,14 @@ To create the alert, click the **Create Alert** link under the query and configu
 
 ### Add a GCP Integration
 
-Adding a Google Cloud Platform (GCP) integration requires establishing a trust relationship between GCP and Wavefront. Minimum required permissions you need depend on the services you are using. See [Google Cloud Platform Overview and Permissions](http://docs.wavefront.com/integrations_gcp_overview.html) for details.
+Adding a Google Cloud Platform (GCP) integration requires establishing a trust relationship between GCP and Tanzu Observability by Wavefront. Minimum required permissions you need depend on the services you are using. See [Google Cloud Platform Overview and Permissions](http://docs.wavefront.com/integrations_gcp_overview.html) for details.
 
 
 The overall process involves the following:
 
-* Creating a service account
-* Giving that account viewer privileges 
-* Downloading a JSON key
+    * Creating a service account
+    * Giving that account viewer privileges 
+    * Downloading a JSON key
 
 1. In the **Name** text box, enter a meaningful name.
 2. In the **JSON key** text box, enter your JSON key to give read-only access to a GCP project.

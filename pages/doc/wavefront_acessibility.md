@@ -1,19 +1,19 @@
 ---
-title: Wavefront Keyboard Shortcuts and Accessibility Improvements
+title: Keyboard Shortcuts and Accessibility Improvements
 tags: [accessibility, keyboard navigation, keyboard shortcuts]
 sidebar: doc_sidebar
 permalink: wavefront_keyboard_shortcuts.html
 summary: Use the keyboard shortcuts to navigate through pages and menus.
 ---
 
-With the 2021-19.x release, Wavefront addressed accessibility issues and included level-A accessibility fixes for keyboard navigation and colorblind support. There were a few level-AA issues addressed as well.
+Tanzu Observability by Wavefront is committed to continuous improvement of product accessibility. We recently addressed accessibility issues and included level-A accessibility fixes for keyboard navigation and colorblind support. We also addressed several level-AA accessibility issues. Here are some highlights:
 
-Wavefront allows you to use keyboard shortcuts to navigate through pages and menus instead of using the mouse. UI elements are also with changed color so that the color contrast supports colorblind accessibility.
-
+* Keyboard shortcuts allow you to navigate through pages and menus without using a mouse.
+* Color contrast supports colorblind accessibility. We continuously check our UI elements and change color as needed.
 
 ## Accessibility Improvements
 
-With the 2021-26.x release, Wavefront addresses more accessibility issues. It now includes:
+Starting with the 2021-26.x release, we included these accessibility improvements:
 
 * More color contrast improvements to support colorblind accessibility, for example in all charts and dashboards, including operational and service dashboards.
 * A redesigned color picker with a new color palette.
@@ -28,57 +28,57 @@ With the 2021-26.x release, Wavefront addresses more accessibility issues. It no
 * Drag-and-drop functionality that allows you to rearrange items.
 
 
-## Wavefront UI Pages With End-to-End Keyboard Navigation Support
+## UI Pages With End-to-End Keyboard Navigation Support
 
-The end-to-end keyboard navigation is fully supported in the Wavefront UI pages listed below. The documented way for navigating to the respective page is provided as an example, because you can access these pages in multiple ways.
+The end-to-end keyboard navigation is fully supported in the UI pages listed below. The documented way for navigating to the respective page is provided as an example, because you can access these pages in multiple ways.
 
 * Dashboards Browser page
 
-  Navigate to **Dashboards > All Dashboards** from the toolbar.
+  You can access it by navigating to **Dashboards > All Dashboards** from the toolbar.
 
 * Dashboard page
 
-  Navigate to a specific dashboard from the Dashboards Browser page.
+  You can access it by navigating to a specific dashboard from the Dashboards Browser page.
 
 * Create a dashboard wizard
 
-  Navigate to **Dashboards > Create Dashboard** from the toolbar.
+  You can access it by navigating to **Dashboards > Create Dashboard** from the toolbar.
 
 * Alerts Browser page
 
-  Navigate to **Alerting > All Alerts** from the toolbar.
+  You can access it by navigating to **Alerting > All Alerts** from the toolbar.
 
 * Alert Viewer page
 
-  Navigate to a specific alert from the Alerts Browser page.
+  You can access it by navigating to a specific alert from the Alerts Browser page.
 
 * Events list page
 
-  Navigate to **Browse > Events** from the toolbar.
+  You can access it by navigating to **Browse > Events** from the toolbar.
 
 * Chart page
 
-  Navigate to a specific chart from the Dashboard page or navigate to **Dashboards > Create Chart** from the toolbar.
+  You can access it by navigating to a specific chart from the Dashboard page or by navigating to **Dashboards > Create Chart** from the toolbar.
 
 * Integrations list page
 
-  Navigate to **Integrations** from the toolbar.
+  You can access it by navigating to **Integrations** from the toolbar.
 
 * Kubernetes integration page
 
-  Navigate to **Kubernetes** from the Integrations list page.
+  You can access it by navigating to **Kubernetes** from the Integrations list page.
 
 * Sources Browser page
 
-  Navigate to **Browse > Sources** from the toolbar.
+  You can access it by navigating to **Browse > Sources** from the toolbar.
 
 * Maintenance Windows page
 
-  Navigate to **Alerting > Maintenance Windows** from the toolbar.
+  You can access it by navigating to **Browse > Maintenance Windows** from the toolbar.
 
 * User profile page
 
-  Navigating to your profile from the gear icon <i class="fa fa-cog"/> on the taskbar.
+  You can access it by navigating to your profile from the gear icon <i class="fa fa-cog"/> on the taskbar.
 
 * Metrics Browser page
 

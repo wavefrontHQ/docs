@@ -1,15 +1,15 @@
 ---
-title: Wavefront Authorization Model
+title: Authorization Model
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: authorization.html
-summary: Learn about authorization of Wavefront groups and users.
+summary: Learn about authorization of groups and users.
 ---
 
-Wavefront supports both role-based control that use global permissions and object-based access control for individual dashboards and alerts.
+Tanzu Observability by Wavefront supports both role-based control that use global permissions and object-based access control for individual dashboards and alerts.
 
-Wavefront users with the **Accounts** permission can:
+Users with the **Accounts** permission can:
 
 * Create **[roles](users_roles.html)** with permissions and assign roles to users or groups.
 * Protect individual dashboards or alerts and grant **[access](access.html)** only to selected groups or accounts.

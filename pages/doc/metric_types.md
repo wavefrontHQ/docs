@@ -7,14 +7,14 @@ permalink: metric_types.html
 summary: Learn about gauges, counters, delta counters, histograms, and spans.
 ---
 
-Wavefront supports monitoring time series, histograms, and traces.
+Tanzu Observability by Wavefront supports monitoring time series, histograms, and traces.
 * Each **time series** consists of numeric data points for a metric, for example, CPU load or failed network connections. Time series can use one of the [supported data formats](wavefront_data_format.html#supported-data-formats-for-metrics).
-   The type of data that you’re collecting determines the type of metric. Wavefront supports gauges, counters, delta counters, and more.
+   The type of data that you’re collecting determines the type of metric. The Wavefront service supports gauges, counters, delta counters, and more.
 
-* **[Wavefront histograms](proxies_histograms.html)** let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure–-particularly metrics that are gathered across many distributed sources.
+* **[Histograms](proxies_histograms.html)** let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure–-particularly metrics that are gathered across many distributed sources.
 * **[Distributed tracing](tracing_basics.html)** enables you to track the flow of work that is performed by an application as it processes a user request. We support the OpenTracing standard. You can either visualize and examine traces coming from a 3rd-party system such as Jaeger or Zipkin, or instrument your application for tracing using one of our SDKs.
 
-{% include tip.html content="Wavefront co-founder Clement Pang recently wrote [a Medium article](https://medium.com/@clementpang/thoughts-from-the-front-line-why-wavefront-3d807e2106f) that explains different metric types and why they are so powerful." %}
+{% include tip.html content="Wavefront co-founder Clement Pang wrote [a Medium article](https://medium.com/@clementpang/thoughts-from-the-front-line-why-wavefront-3d807e2106f) that explains different metric types and why they are so powerful." %}
 
 ## Summary of Metric Types
 
@@ -42,7 +42,7 @@ The following table gives an overview of metric types. We introduce each type in
 </tr>
 <tr>
 <td>Histogram</td>
-<td>Supports computing, storing, and using distributions of metrics that use the Wavefront histogram format. </td>
+<td>Supports computing, storing, and using distributions of metrics that use our histogram format. </td>
 <td>Useful for very high frequency data. See the <a href="proxies_histograms.html">discussion of histograms</a>. </td>
 </tr>
 <tr>
@@ -63,7 +63,7 @@ The following table gives an overview of metric types. We introduce each type in
 
 A gauge shows the current value for each point in time. Think of a thermometer that shows the current temperature or a gauge that shows how much electricity your Tesla has left.
 
-Many metrics that come into Wavefront are gauges. For example, Wavefront internal metrics include `~alert.checking_frequency.{id}` and `~alert.query_time.{alert_id}`.
+Many metrics are gauges. For example, our internal metrics include `~alert.checking_frequency.{id}` and `~alert.query_time.{alert_id}`.
 
 ## Cumulative Counters
 
@@ -71,7 +71,7 @@ Cumulative counters (counters) show information over time. Think of a person wit
 
 Counter metrics usually increase over time but might reset back to zero, for example, when a service or system restarts. Users can wrap [**rate()**](ts_rate.html) around a counter if they want to ignore temporary 0 values and see only the positive rate of change. [Using Cumulative Counters](delta_counters.html#using-cumulative-counters) gives several examples.
 
-Wavefront internal metrics that are counters include `~metric.new_host_ids` and `~query.requests`.
+For example, `~metric.new_host_ids` and `~query.requests` are internal metrics that are counters.
 
 ## Delta Counters
 
@@ -79,7 +79,7 @@ Wavefront internal metrics that are counters include `~metric.new_host_ids` and 
 
 For example, instead of one person with a counter standing at a single concert entrance, several people count, each at one entrance gate. Eventually the results from the counters can be added for total attendance. In the same way, the Wavefront service can aggregate delta counter information.
 
-To have Wavefront treat a metric as a delta counter, you have several choices:
+To have the Wavefront service treat a metric as a delta counter, you have several choices:
 * Use the `cs()` instead of the `ts()` function.
 * Add a delta character prefix to the metric.
 
@@ -89,19 +89,19 @@ To have Wavefront treat a metric as a delta counter, you have several choices:
 
 ## Histograms
 
-Wavefront can receive and store metrics at 1 point per second per unique source. However, some scenarios generate metrics even more frequently. Suppose you are measuring the latency of web requests. If you have a lot of traffic at multiple servers, you may have multiple distinct measurements for a given metric, timestamp, and source. Using "normal” metrics, we can’t measure this.
+The Wavefront service can receive and store metrics at 1 point per second per unique source. However, some scenarios generate metrics even more frequently. Suppose you are measuring the latency of web requests. If you have a lot of traffic at multiple servers, you may have multiple distinct measurements for a given metric, timestamp, and source. Using "normal” metrics, we can’t measure this.
 
-To address high frequency data, Wavefront supports histograms – a mechanism to compute, store, and use distributions of metrics. A Wavefront histogram is a distribution of metrics collected and computed by the Wavefront proxy. Histograms are supported by Wavefront proxy 4.12 and later. [Wavefront Histograms](proxies_histograms.html) describes the histogram format, histogram ports, and some examples.
+To address high frequency data, we supports histograms – a mechanism to compute, store, and use distributions of metrics. A histogram is a distribution of metrics collected and computed by the Wavefront proxy. [Wavefront Histograms](proxies_histograms.html) describes the histogram format, histogram ports, and some examples.
 
 ![histogram](images/histogram.png)
 
 ## Traces and Spans
 
-Wavefront follows the OpenTracing standard for representing and manipulating trace data.
+We follow the OpenTracing standard for representing and manipulating trace data.
 
 * A [**trace**](trace_data_details.html#traces) represents an individual workflow in an application. A trace shows you how a particular request propagates through your application or among a set of services.
 
-* [**Spans**](trace_data_details.html#spans)  are the individual segments of work in the trace. A Wavefront trace consists of one or more spans. Each span represents time spent by an operation in a service (often a microservice).
+* [**Spans**](trace_data_details.html#spans)  are the individual segments of work in the trace. A  trace consists of one or more spans. Each span represents time spent by an operation in a service (often a microservice).
 
 Because requests normally consist of other requests, a trace actually consists of a tree of spans.
 
@@ -110,6 +110,6 @@ Because requests normally consist of other requests, a trace actually consists o
 
 Search this doc set for details on any of the metric types, or read this:
 * [Metrics and the Metrics Browser](metrics_managing.html) examines the structure of a metric and explains how to use the Metrics Browser.
-* [Cumulative Counters and Delta Counters](delta_counters.html) discusses the 2 kinds of counters that Wavefront supports and includes examples for both types.
+* [Cumulative Counters and Delta Counters](delta_counters.html) discusses the 2 kinds of counters that we support and includes examples for each type.
 * [Histograms](proxies_histograms.html) are useful for distribution of metrics in high-velocity environment. We support a set of [query language functions just for histograms](query_language_reference.html#histogram-functions).
-* Our [Tracing UI](tracing_basics.html#visualize-distributed-tracing-data-in-wavefront) lets you drill down from the service level to the individual spans and examine outliers to find bottlenecks.
+* Our [Tracing UI](tracing_basics.html#visualize-distributed-tracing-data) lets you drill down from the service level to the individual spans and examine outliers to find bottlenecks.

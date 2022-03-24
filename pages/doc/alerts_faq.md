@@ -76,3 +76,6 @@ False positive alerts could be due to:
   * Use the counter metric rather than the gauge metric, if applicable, so that the metric is cumulative and does not become obsolete. For example, use the `bad.exception.count` metric rather than the `bad.exception` metric.
 
 * If your alert monitors *heartbeat* metrics, you should treat the NO DATA state as an *erroneous* state. Consider [configuring an alert to fire when a time series stops reporting](alerts_missing_data.html).
+
+## Troubleshooting
+For troubleshooting, see the KB article [Why did my alert fire or not fire?](https://help.wavefront.com/hc/en-us/articles/360049071471-Why-did-my-alert-fire-or-not-fire-).

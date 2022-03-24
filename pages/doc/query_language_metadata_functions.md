@@ -7,7 +7,10 @@ permalink: query_language_metadata_functions.html
 summary: Learn how to rename metrics and sources and create point tags with aliasSource, aliasMetric, and taggify.
 ---
 
-Metadata (label manipulation) functions, that is, [`aliasSource`](ts_aliasSource.html), [`aliasMetric`](ts_aliasMetric.html), and [`taggify`](ts_taggify.html) enable users to temporarily rename a source, rename a metric or create a synthetic point tag. Dashboards and charts display the changed name or aggregated point tag.
+Tanzu Observability by Wavefront includes metadata (label manipulation) functions that enable users to temporarily rename a source, rename a metric or create a synthetic point tag. Dashboards and charts display the changed name or aggregated point tag. We support:
+* [`aliasSource`](ts_aliasSource.html) - Manipulate a source name
+* [`aliasMetric`](ts_aliasMetric.html) - Manipulate a metric name
+*  [`taggify`](ts_taggify.html) - Manipulate a point tag name 
 
 This page uses vSphere and ~sample metrics to demonstrate how you can change a table column heading and the text in the column. Screenshots illustrate the changed labels, for example, you might see a metric like `vsphere.host.cpu.used.summation`. The same principles apply for other data and other chart types.
 

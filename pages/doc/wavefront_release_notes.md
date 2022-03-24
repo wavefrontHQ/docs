@@ -4,7 +4,7 @@ keywords:
 tags:
 sidebar: doc_sidebar
 permalink: wavefront_release_notes.html
-summary: Learn about announcements and the new and updated features in Tanzu Observability by Wavefront.
+summary: Announcements and new and updated features in Tanzu Observability by Wavefront.
 ---
 
 This page lists new and updated features for the Tanzu Observability by Wavefront service.
