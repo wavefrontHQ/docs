@@ -21,19 +21,25 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
     {% include important.html content="Ensure that the service accounts in your organization do not depend on the **Everyone** group permissions."%}
 
-    
+
 * **Terraform Provider Updates**
 
     If you are using the Terraform Provider, update to [version 3.0.1](https://registry.terraform.io/providers/vmware/wavefront/latest/docs). This version is compatible with the new alert experience. See the [FAQ for the New Alert GUI](alerts_v2_faq.html).
 
 ## 2022-11.x Release Notes
+<br/>
+<p><span style="font-size: large; font-weight: 600">Wavefront Proxy</span></p>
+We recently released Wavefront Proxy version 11. Go to the [Wavefront Proxy Release Notes](https://github.com/wavefrontHQ/wavefront-proxy/releases) on Github for details.
+
+<p><span style="font-size: large; font-weight: 600">Wavefront Service</span></p> 
+In release 2022-11.x, we made the following improvements to the documentation and the Wavefront service:
 
   <table>
   <tbody>
   <tr>
     <td width="50%">
       <strong>Documentation Improvements</strong>:<br/><br/>
-      We have made a lot of documentation improvements with information that comes from our Tanzu Observability SaaS Value Engineering team. Main doc improvements are listed on the right.
+      We updated the doc set with information that comes from the Tanzu Observability SaaS Value Engineering team. Some information was added, some new doc pages are listed on the right.
     </td>
     <td width="50%">
       <p>&nbsp;</p>
@@ -47,10 +53,10 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
   <tr>
     <td width="50%">
       <strong>Toolbar Improvements</strong>:<br/><br/>
-      All objects and items related to the alerts are accessible through the <strong>Alerting</strong> menu. Instead of clicking <strong>Browse</strong> on the toolbar to access alert targets and maintenance windows, you can click <strong>Alerting</strong> and select:
+      All objects and items related to alerts are available from the <strong>Alerting</strong> menu. Instead of clicking <strong>Browse</strong> on the toolbar to access alert targets and maintenance windows, you can click <strong>Alerting</strong> and select:
       <ul>
         <li><strong>All Alerts</strong> - to open the Alerts Browser page.</li>
-        <li><strong>Alert Targets</strong> - to open the Alerts targets page.</li>
+        <li><strong>Alert Targets</strong> - to open the Alert Targets page.</li>
         <li><strong>Maintenance Windows</strong> - to open the Maintenance Windows page.</li>
         <li><strong>Create Alert</strong> - to create a new alert.</li>
         </ul>
@@ -62,8 +68,11 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
   <tr>
     <td width="50%">
       <strong>Improved User Experience for Slow Loading or Failed Queries</strong>:<br/><br/>
-      If your charts contain slow loading queries, the charts on the dashboard will load slowly as well. When you open a dashboard, and you see that a chart is slowly loading, instead of refreshing the whole browser page, you can click the <strong>Stop</strong> button on the chart to stop fetching the data. To reload the query request, simply click <strong>Reload</strong>. <p>If a query on a chart fails to load data,  click the <strong>Reload</strong> button to rerun the query.</p><p>
-      In addition, you can see a progress bar at the bottom of the chart.</p>
+      <ul>
+      <li>New <strong>progress bar</strong> at the bottom of each chart. </li>
+      <li><strong>Slow Loading Queries</strong>: If you see that a chart on a dashboard is loading slowly, you can now click a <strong>Stop</strong> button on the chart to stop fetching the data (instead of refreshing the whole browser page). To update the chart, click <strong>Reload</strong>.</li>
+      <li><strong>Failed Queries</strong>: If a query on a chart <strong>fails to load data</strong>, click the <strong>Reload</strong> button to rerun the query.</li>
+      </ul>
     </td>
     <td width="50%">
       <br/><br/><img src="/images/stop-reload-chart.png" alt="A chart with reload button and a progress bar at the bottom.">
@@ -79,9 +88,12 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
     </td>
   </tr>
   <tr>
-    <td colspan="2">
-      <strong>Send OpenTelemetry Trace Data</strong>:<br/><br/>
-      You can now directly send OpenTelemetry trace data from your applications to the Wavefront proxy. This is the recommended and simplest approach to get your data into Tanzu Observability.
+    <td width="50%">
+      <strong>Send OpenTelemetry Trace Data to the Wavefront Proxy</strong>:<br/><br/>
+      You can now send OpenTelemetry trace data directly from your applications to the Wavefront proxy. This is the recommended and simplest approach to get your data into Tanzu Observability.
+    </td>
+    <td width="50%">
+      <p>&nbsp;</p>
       <ul>
         <li><a href="opentelemetry_tracing.html#send-data-using-the-wavefront-proxy---recommended">Send Data Directly Using the Wavefront Proxy</a></li>
         <li><a href="opentelemetry_logs.html">Enable Proxy Debug Logs for OpenTelemetry Data</a></li>
