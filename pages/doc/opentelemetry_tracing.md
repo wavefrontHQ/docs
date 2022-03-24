@@ -12,15 +12,15 @@ OpenTracing and OpenCensus have merged to form OpenTelemetry. OpenTelemetry prov
 Before you get started, pick how you send data to Tanzu Observability by Wavefront. What your application uses determines what makes sense: 
 * If your application uses SpringBoot, use Spring Cloud Sleuth.
 * If you are a new user, and you are configuring your application to send data to Tanzu Observability, use OpenTelemetry. If you run into issues when configuring Tanzu Observability with OpenTelemetry, contact [Technical Support](wavefront_support_feedback.html#support) for help.
-* If your application is already using OpenTracing, continue using OpenTracing. See [OpenTracing Compatibility](https://opentelemetry.io/docs/reference/specification/compatibility/opentracing) for guidance on transition from OpenTracing to OpenTelemetry.
+* If your application is already using OpenTracing, continue using OpenTracing. See [OpenTracing Compatibility](https://opentelemetry.io/docs/reference/specification/compatibility/opentracing) for guidance on transitioning from OpenTracing to OpenTelemetry.
 
 ## Send Trace Data
 
-If your application uses OpenTelemetry, you can configure the application to send native OpenTelemetry trace data to Tanzu Observability:
+If your application uses an OpenTelemetry SDK, you can configure the application to send trace data to Tanzu Observability:
 * Using the OpenTelemetry Collector 
 * Or by directly sending OpenTelemetry data to the Wavefront proxy. 
 
-You can then use our tracing dashboards to visualize any request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time and discover problems.
+You can then use our tracing dashboards to visualize any request as a trace, which consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time and discover problems.
 
 ### Send Data Using the Wavefront Proxy - (Recommended) 
 
@@ -32,8 +32,12 @@ Here's how the data flows:
 Follow these steps:
 
 1. [Install the Wavefront Proxy](proxies_installing.html) version 11 or higher.
-1. Open port 4317 on the Wavefront Proxy to send OpenTelemetry spans to Tanzu Observability. 
-  <br/>For example, on Linux, Mac, and Windows, open the [`wavefront.conf`](proxies_configuring.html#proxy-file-paths) file, add the line `otlpGrpcListenerPorts=4317`, and save the file.
+1. Open the port on the Wavefront Proxy to send OpenTelemetry spans to Tanzu Observability. 
+    * port 4317 (recommended) with `otlpGrpcListenerPorts` 
+    * or port 4318 (recommended) with `otlpHttpListenerPorts`  
+  
+    See the [Wavefront proxy settings for OpenTelemetry](proxies_configuring.html#opentelemetry-proxy-properties).
+    <br/>For example, on Linux, Mac, and Windows, open the [`wavefront.conf`](proxies_configuring.html#proxy-file-paths) file, add the line `otlpGrpcListenerPorts=4317`, and save the file.
 1. Configure your application to send trace data to the Wavefront Proxy. 
     {% include note.html content="By default, OpenTelemetry SDKs send data over gRPC to `http://localhost:4317`." %}
 1. Explore the trace data using our [tracing dashboards](tracing_basics.html#visualize-distributed-tracing-data).
@@ -41,7 +45,7 @@ Follow these steps:
 
 ### Send Data Using the OpenTelemetry Collector
 
-If you have already configured your application to send data to the OpenTelemetry Collector, the data will flow as shown in the diagram:
+If you have already configured your application to send data to the OpenTelemetry Collector, the data flows from your application to Tanzu Observability as shown in the diagram:
 
 {% include note.html content="You need to use OpenTelemetry Collector Contrib version v0.28.0 or later to export traces to Tanzu Observability." %} 
 
@@ -113,4 +117,4 @@ Follow these steps:
 ## Next Steps
 
 - [Try out the Tutorials](opentelemetry_java_tutorial.html) and see how you can send your data to Tanzu Observability!
-- To enable logs for your OpenTelemetry data, see [Enable Logs for OpenTelemetry Data](opentelemetry_logs.html).
+- To enable proxy debug logs for the OpenTelemetry data sent directly to the Wavefront Porxy, see [Enable Proxy Debug Logs for OpenTelemetry Data](opentelemetry_logs.html).
