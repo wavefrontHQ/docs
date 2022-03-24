@@ -35,11 +35,13 @@ We support other cloud integrations, such as Google Cloud Platform (GCP), Micros
 Follow these steps:
 
 1. In a web browser, go to your Wavefront instance (https://www.&lt;enter_cluster_name&gt;.waverfront.com), and log in. <br/>If you don’t have a cluster, [sign up for a free trial](https://tanzu.vmware.com/observability).
-1. Click **Integrations** on the toolbar.
-1. Select the **Amazon Web Services (AWS)** tile.
+1. Click **Integrations** on the toolbar
+1. Under Featured, click the **Amazon Web Services (AWS)** tile.
     <!--![Highlight the AWS integration on the Wavefront Integrations page.](images/hello_tutorial_aws_integration_tile.png)-->
 1. Click the **Setup** tab and click **Add Integration**.
     ![Highlights the Add Integration button on the AWS integration's Setup tab.](images/hello_tutorial_aws_add_integration.png)
+1. Click the **CloudWatch & Metrics+** tile and click **Next**.
+1. Click the **How to get Role ARN** link and click the **AWS UI Method** tab.
 
 You need the **Account ID** and **External ID** displayed under **How to get Role ARN** for the next step.
 
@@ -51,16 +53,20 @@ You need the **Account ID** and **External ID** displayed under **How to get Rol
 
 Follow these steps:
 
-1. On a web browser tab, log in to your AWS account.
+1. In a web browser, log in to your AWS account.
 1. Search for the **IAM** (AWS Identity and Access Management) service and click it to open the service.
 1. Click **Roles** in the left panel and click **Create role**.
 1. Create an AWS account:
-    1. Click the **AWS Account** tile and select **Another AWS account**.
-    1. Enter the **Account ID**: Copy the **Account ID** value shown in the AWS integration setup instructions and paste it here.
+    1. Click the **AWS Account** tile and select the **Another AWS account** radio button.
+    1. Enter the **Account ID**. 
+    
+       Copy the **Account ID** value shown in the AWS integration setup instructions and paste it here.
         ![A diagram that shows where the account ID is on the Wavefront integration and an arrow pointing how to copy and paste on the AWS account.](images/hello_tutorial_aws_account_ID.png)
     1. Select **Require external ID**.
         ![A screenshot of the external ID option selected.](images/hello_tutorial_aws_external_ID_selected.png)
-    1. Enter the **External ID**. Copy the **External ID** value shown in the AWS integration setup instructions and paste it here.
+    1. Enter the **External ID**. 
+    
+       Copy the **External ID** value shown in the AWS integration setup instructions and paste it here.
         ![A diagram that shows where the external ID is on the Wavefront integration and an arrow pointing how to copy and paste on the AWS account.](images/hello_tutorial_aws_external_ID.png)
     1. Click **Next**.
 1. Set Permissions:
@@ -79,9 +85,9 @@ Follow these steps:
 
 Go back to the Wavefront cluster where you opened the AWS integration tile, and follow these steps:
 
+1. Provide a name for the integration.
 1. Paste the **Role ARN** value you copied in the previous step as the value for **“Role ARN” from Amazon IAM**.
 1. Click **Register**.
-    ![Screenshot of the AWS integration's configure section. The Register button is highlighted in red.](images/hell_tutorial_configure_aws_integration.png)
 
 Tanzu Observability by Wavefront can now connect to your AWS account and get data. Once the data starts flowing, you can visualize them. It will take a few minutes for the data to show.
 
