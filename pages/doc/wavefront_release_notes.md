@@ -79,14 +79,12 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
     </td>
   </tr>
   <tr>
-    <td width="50%">
-      <strong>Send OpenTelemetry Trace Data Directly to the Wavefront Proxy </strong>:<br/><br/>
+    <td colspan="2">
+      <strong>Send OpenTelemetry Trace Data</strong>:<br/><br/>
       You can now directly send OpenTelemetry trace data from your applications to the Wavefront proxy. This is the recommended and simplest approach to get your data into Tanzu Observability.
-    </td>
-    <td width="50%"><p>&nbsp;</p>
       <ul>
-        <li><a href="opentelemetry_tracing.html">Send OpenTelemetry trace data to Tanzu Observability</a></li>
-        <li><a href="opentelemetry_logs.html">Enable Logs for OpenTelemetry Data</a></li>
+        <li><a href="opentelemetry_tracing.html#send-data-using-the-wavefront-proxy---recommended">Send Data Directly Using the Wavefront Proxy</a></li>
+        <li><a href="opentelemetry_logs.html">Enable Proxy Debug Logs for OpenTelemetry Data</a></li>
       </ul>
     </td>
   </tr>
