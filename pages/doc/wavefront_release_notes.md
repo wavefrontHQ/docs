@@ -27,7 +27,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
     If you are using the Terraform Provider, update to [version 3.0.1](https://registry.terraform.io/providers/vmware/wavefront/latest/docs). This version is compatible with the new alert experience. See the [FAQ for the New Alert GUI](alerts_v2_faq.html).
 
 ## 2022-11.x Release Notes
-<br/>
+
 <p><span style="font-size: large; font-weight: 600">Wavefront Proxy</span></p>
 We recently released Wavefront Proxy version 11. Go to the [Wavefront Proxy Release Notes](https://github.com/wavefrontHQ/wavefront-proxy/releases) on Github for details.
 
