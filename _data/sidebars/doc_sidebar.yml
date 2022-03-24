@@ -885,7 +885,7 @@ entries:
           output: web
           subfolderitems:
 
-          - title: Cardinality
+          - title: Understanding Cardinality
             url: /cardinality.html
             output: web
 
@@ -893,6 +893,6 @@ entries:
             url: /optimize_data_shape.html
             output: web            
 
-          - title: Obsolescence and Remediation
+          - title: Obsolescence Policy
             url: /wavefront_obsolescence_policy.html
             output: web
