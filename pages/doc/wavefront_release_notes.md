@@ -28,14 +28,24 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 ## 2022-11.x Release Notes
 
-<p><span style="font-size: large; font-weight: 600">Wavefront Proxy</span></p>
-We recently released Wavefront Proxy version 11. Go to the [Wavefront Proxy Release Notes](https://github.com/wavefrontHQ/wavefront-proxy/releases) on Github for details.
-
-<p><span style="font-size: large; font-weight: 600">Wavefront Service</span></p> 
-In release 2022-11.x, we made the following improvements to the documentation and the Wavefront service:
-
   <table>
   <tbody>
+  <tr>
+    <td width="50%">
+      <strong>Wavefront Proxy 11.0</strong>:
+      <ul><li>We recently released Wavefront Proxy version 11.</li>
+      <li>You can now <strong>send OpenTelemetry trace data directly</strong> from your applications to the Wavefront proxy. This is the recommended and simplest approach to get your data into Tanzu Observability.</li>
+      </ul>
+      </td>
+    <td width="50%">
+    <strong>Read More:</strong>
+    <ul>
+        <li><a href="https://github.com/wavefrontHQ/wavefront-proxy/releases">Wavefront Proxy Release Notes on GitHub</a></li>
+        <li><a href="opentelemetry_tracing.html#send-data-using-the-wavefront-proxy---recommended">Send Data Directly Using the Wavefront Proxy</a></li>
+        <li><a href="opentelemetry_logs.html">Enable Proxy Debug Logs for OpenTelemetry Data</a></li>
+      </ul>
+    </td>
+  </tr>
   <tr>
     <td width="50%">
       <strong>Documentation Improvements</strong>:<p>
@@ -88,21 +98,7 @@ In release 2022-11.x, we made the following improvements to the documentation an
       <br/><img src="/images/sort_legend.png" alt="A pinned legend with up and down arrows for each column.">
     </td>
   </tr>
-  <tr>
-    <td width="50%">
-      <strong>Send OpenTelemetry Trace Data to the Wavefront Proxy</strong>:<p>
-      You can now send OpenTelemetry trace data directly from your applications to the Wavefront proxy. This is the recommended and simplest approach to get your data into Tanzu Observability.
-    </p>
-    </td>
-    <td width="50%">
-    <strong>Read More:</strong>
-    <ul>
-        <li><a href="opentelemetry_tracing.html#send-data-using-the-wavefront-proxy---recommended">Send Data Directly Using the Wavefront Proxy</a></li>
-        <li><a href="opentelemetry_logs.html">Enable Proxy Debug Logs for OpenTelemetry Data</a></li>
-      </ul>
-    </td>
-  </tr>
-  </tbody>
+    </tbody>
   </table>
 
 
