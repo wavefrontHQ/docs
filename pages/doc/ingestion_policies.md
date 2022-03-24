@@ -85,7 +85,7 @@ After you create an ingestion policy, if you need, for example, to increase the 
 
 {% include note.html content="Removing the PPS limit dissociates the alert from the ingestion policy."%}
 
-## Delete Ingestion Policies
+## Delete an Ingestion Policy
 
 If you no longer need an ingestion policy, for example, after a reorganization in your company, you might want to remove an ingestion policy.
 
