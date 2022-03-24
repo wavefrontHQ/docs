@@ -7,7 +7,7 @@ permalink: service-accounts.html
 summary: Create and manage service accounts.
 ---
 
-A service account can be used to automate management of objects such as dashboards, alerts, etc. A service account can't perform the **UI operations** that all user accounts can [perform by default](user-accounts.html#what-can-a-new-user-do). There's no limit on the number of service accounts that you can create in your organization. 
+Tanzu Observability by Wavefront supports service accounts that can be used to automate management of objects such as dashboards, alerts, etc. A service account can't perform the **UI operations** that all user accounts can [perform by default](user-accounts.html#what-can-a-new-user-do). There's no limit on the number of service accounts that you can create in your organization. 
 
 {% include note.html content="Service accounts have no permissions by default. As an administrator, you must explicitly grant each service account only the permission required for the task that’s being automated (least required privilege). Doing so, you ensure that permissions for service accounts are always very limited. Service accounts do not have the view permissions that user accounts have by default. A service account must have **permissions** to perform tasks. To run queries, a service account must have **Metrics** permission. To manage dashboards and alerts, the service account might need both permissions and [access](access.html)." %}
 
@@ -21,13 +21,13 @@ Service accounts are used for automating management tasks.
 * Each account is automatically added to the **Service Accounts** group. If a role is assigned to that group, the service account gets the permissions from that role.
 * Service accounts can be added to any group to get that group's role (and permissions).
 
-As an administrator, you generate (and revoke, if needed) authentication tokens for the service account. It’s also possible to deactivate a service account completely. 
+As a user with the **Accounts** permission, you generate (and revoke, if needed) authentication tokens for the service account. It’s also possible to deactivate a service account completely. 
 
 ## How Service Accounts Work
 
 If you build a service or tool that manages proxies or ingests data, then that tool must authenticate to the Wavefront API.
 
-1. Create a service account from the Wavefront UI. The service account name must be unique.
+1. Create a service account from the UI. The service account name must be unique.
 2. Assign a role to the account to give the account the permissions it needs. Service accounts can perform get, modify, and delete tasks **only** if they have the necessary permissions.
 3. Configure your tool to pass the service account credentials (API token) to the Wavefront API.
 
@@ -40,7 +40,7 @@ You can disable a service account if you temporarily don't need it, or you can d
 
 Creating a service account is different from creating a user account.
 
-1. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Account Management**.
+1. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Accounts**.
 2. Click the **Service Accounts** tab and click **Create New Account**.
 3. On the **New Service Account** page, specify the account details and click **Create**.
 
@@ -52,14 +52,14 @@ Creating a service account is different from creating a user account.
 <tr>
 <td>
 Account ID</td>
-<td>ID of the account. We prefix this ID with <strong>sa::</strong>. <p>A service account name must be unique. Wavefront converts service account ID to lower case to avoid confusion that can result from almost identical account names (e.g. Service-1 and service-1). Users can type upper case or lower case. </p> </td>
+<td>ID of the account. We prefix this ID with <strong>sa::</strong>. <p>A service account name must be unique. Tanzu Observability converts service account ID to lower case to avoid confusion that can result from almost identical account names (e.g. Service-1 and service-1). Users can type upper case or lower case. </p> </td>
 </tr>
 <tr>
 <td>
 Tokens</td>
-<td>List of API tokens that the service account can use to authenticate to Wavefront.
+<td>List of API tokens that the service account can use to authenticate to the Wavefront service.
 <ul><li>Click the <strong>Edit</strong> icon to change the token name. </li>
-<li>Click <strong>Revoke</strong> to revoke a token. Any service account that uses the token can no longer authenticate to Wavefront. </li>
+<li>Click <strong>Revoke</strong> to revoke a token. Any service account that uses the token can no longer authenticate to the Wavefront service. </li>
 <li>Click <strong>Generate</strong> to generate additional tokens. Having multiple active tokens makes it possible to revoke some tokens. For example, if the service connects to several proxies, you can generate a token to connect to each proxy. You can revoke the token for one proxy but leave the others. You can have up to 20 API tokens per service account at any given time.</li>
 <li>Click the <strong>Copy to Clipboard</strong> icon to copy the token for pasting.</li>
 </ul></td>
@@ -67,7 +67,7 @@ Tokens</td>
 <tr>
 <td>
 Groups</td>
-<td>By default, service accounts are added to the <strong>Service Accounts</strong> group. If you assign roles to the <strong>Service Accounts</strong> group, all the service accounts get the permissions associated with that role. You can also add service accounts to other groups. </td></tr>
+<td>By default, service accounts are added to the <strong>Service Accounts</strong> group. If you assign roles to the <strong>Service Accounts</strong> group, all the service accounts get the permissions associated with these roles. You can also add service accounts to other groups. </td></tr>
 <tr>
 <td>Roles</td>
 <td>Roles for the service account. Roles are sets of permissions. You can create one or two roles and use those roles only for service accounts. </td></tr>

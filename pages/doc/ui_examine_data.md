@@ -6,14 +6,13 @@ permalink: ui_examine_data.html
 summary: Examine data with dashboards and charts
 ---
 
-With dashboards and charts, all users can examine data, set dashboard time window, zoom in and out, and perform other customizations.
+With dashboards and charts, all Tanzu Observability by Wavefront users can examine data. By default, everyone can explore: set dashboard time window, zoom in and out, and perform other customizations.
 
-{% include shared/badge.html content="All users can view and explore charts. You must have [Dashboard permission](permissions_overview.html) to make permanent changes, such as saving a chart to a dashboard." %}
+{% include note.html content="All users can view and explore charts. You must have the [**Dashboards** permission](permissions_overview.html) to make permanent changes, such as saving a chart to a dashboard." %}
 
 ## Video
 
 All users can customize their dashboards to drill down into data. Learn how to find a section, filter using variables or filters, set the time for the dashboard, and share the dashboard with others. You need Dashboards permissions to save your changes. You can also watch the video <a href="https://bcove.video/2Wux6eP" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
-
 
 
 <p>
@@ -25,7 +24,7 @@ All users can customize their dashboards to drill down into data. Learn how to f
 
 From the Dashboard Browser, you can find dashboards by using filters and tags. You can make a dashboard a favorite with the star icon. Users with **Dashboard** permissions can also look at versions, grand and remove access, clone dashboards, move a dashboard to the trash, or access a deleted dashboard for up to 30 days.
 
-1. Log in to Wavefront.
+1. Log in to your Wavefront instance.
 2. Select **Dashboards > All Dashboards**
 3. In the Dashboard Browser:
     * Use the search bar at the top to find a dashboard.
@@ -36,11 +35,11 @@ From the Dashboard Browser, you can find dashboards by using filters and tags. Y
     * View dashboard tags (or, add or remove them if you have **Dashboard** permission).
 
 
-![dashboard browser annotated with the items in the bullets above](images/dashboard_browser.png)
+![The dashboard browser annotated with the items in the bullets above](images/dashboard_browser.png)
 
 ### Find a Dashboard
 
-Many Wavefront users work in environments with many dashboards.
+Many users work in environments with a lot of dashboards.
 
 **To find a dashboard**, you have these options:
 * From the taskbar, select **Dashboards > All Dashboards** and narrow down your search using the fields on the left.
@@ -56,7 +55,7 @@ After you've selected a dashboard, it displays in your browser.
 
 Here's the anatomy of a dashboard:
 
-![an annotated dashboard with the items in the bullets below](images/ui_dashboard_anatomy.png)
+![An annotated dashboard with the items in the bulleted list below](images/ui_dashboard_anatomy.png)
 
 You can customize what you see, open charts, and more.
 * Select [predefined variables or use a filter](dashboards_variables.html) to limit the display.
@@ -110,10 +109,10 @@ Use the <strong>Jump To</strong> menu to go to a section.</td>
 ## Filter with Global Filters or Dashboard Variables
 
 Global filters and dashboard variables are two ways to narrow down what you see.
-* **Global Filters** allow any Wavefront user to filter by key-value pair. For example, you could specify `source="db-2"` or `env="production"`.
+* **Global Filters** allow any user to filter by key-value pair. For example, you could specify `source="db-2"` or `env="production"`.
 * [**Dashboard Variables**](dashboards_variables.html) are preset by a user with Dashboard permissions. All users can then make selections, for example, select a value from predefined list of strings or an automatically generated list of sources.
 
-If you select both a variable and a global filter, Wavefront uses AND to find results that satisfy both conditions. For example, `source="db-2" AND source="db-1"` results in No Data, but other combinations might get the results you're after.
+If you select both a variable and a global filter, the query engine uses AND to find results that satisfy both conditions. For example, `source="db-2" AND source="db-1"` results in No Data, but other combinations might get the results you're after.
 
 ### Filter with Global Filters
 
@@ -156,7 +155,40 @@ In the example on the right, a <strong>Region</strong> dashboard variable has be
 </tbody>
 </table>
 
+## Include or Exclude Obsolete Metrics
 
+By default, metrics that stopped reporting 4 weeks ago are not included in the charts unless you explicitly decide to include these metrics. You can:
+* Explicitly include obsolete metrics for each chart.
+* Explicitly include obsolete metrics on a dashboard level. This way, obsolete metrics will be included in all the charts within a dashboard.
+
+{% include note.html content="Including obsolete metrics on a dashboard level may significantly slow down the dashboard performance." %}
+
+{% include tip.html content="Everyone can explore obsolete metrics for dashboards and charts. You must have the **Dashboards** permission to save the changes to the settings." %}
+
+**To include obsolete metrics for a chart**:
+
+1. Open the chart for edit.
+2. Click the **Advanced** tab and select the **Include Obsolete Metrics** check box.
+3. Explore the data or, if you have **Dashboard** permissions, click **Save** to save the changes for this chart.
+
+**To include obsolete metrics for a dashboard**:
+
+1. Navigate to a dashboard and click the ellipsis icon in the top right corner of the dashboard.
+2. Select **Edit**.
+3. Click **Settings**.
+4. Click **Advanced** and select the **Include Obsolete Metrics** check box.
+5. Click **Accept**  and explore. If you have **Dashboards** permission click **Save** to save your changes.
+
+**To exclude obsolete metrics for a dashboard**:
+
+Dashboards on which inclusion of obsolete metrics is turned on have a warning banner which allows you to easily turn off that setting.
+![Banner saying that obsolete metrics inclusion is turned on for the dashboard. The banner also has a view settings button.](images/obsolete-metrics-banner.png)
+
+1. Navigate to the dashboard and click **View Settings** in the banner at the top.
+   Refresh your browser if you closed the banner.
+3. Click **Advanced**.
+4. Deselect the **Include Obsolete Metrics** check box.
+5. Click **Accept**  and explore. If you have **Dashboards** permission click **Save** to save your changes.
 
 ## Isolate Sources or Series
 
@@ -179,7 +211,7 @@ You can focus on a particular source or series in the dashboard view or the sing
 
 You can fine-tune the time window for an individual chart, propagate the time window from one to all charts, and reset a customized time window to the dashboard default.
 
-When you fine-tune the time window, the Wavefront UI dynamically recalculates and updates the chart bucket size and the aggregated values based on the [summarization option](ui_charts_faq.html#what-does-the-summarization-option-do). 
+When you fine-tune the time window, the UI dynamically recalculates and updates the chart bucket size and the aggregated values based on the selected [summarization option](ui_charts_faq.html#what-does-the-summarization-option-do).
 
 <table style="width: 100%;">
 <tbody>
@@ -216,7 +248,7 @@ Here's a <a href="https://bcove.video/3sweZ7W" target="_blank">video<img src="/i
 ## Display Events on Charts
 
 The charts in your dashboard can display [events](events.html).
-* Wavefront sends system events, for example, when an alert changes state.
+* The Wavefront service generates system events, for example, when an alert changes state.
 * In addition, users with **Events** permission might have added user events.
 
 All users can select which events are displayed for all charts.

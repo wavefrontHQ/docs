@@ -107,103 +107,103 @@ To deploy kube-state-metrics:
 2. Run `kubectl create -f </path/to>/kube-state.yaml`.
 
 The `kube-state-metrics` service starts running on your cluster. The Wavefront Collector automatically discovers the service and starts collecting metrics from the kube-state-metrics service.
-## Use OpenShift To Install Kubernetes
+## Use OpenShift To Install the Kubernetes Integration
 
-This page contains the Installation and Configuration steps for full-stack monitoring of OpenShift clusters using Wavefront Operator.
+This page contains the Installation and Configuration steps for full-stack monitoring of OpenShift clusters using Wavefront Helm Chart.
 
-### Install and Configure Wavefront Operator on OpenShift Enterprise 3.x
 
-The Wavefront Collector supports monitoring of OpenShift clusters:
-  * To monitor OpenShift Origin 3.9 follow the steps in [Installation and Configuration on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/master/docs/openshift.md).
-  * To monitor OpenShift Enterprise 3.11 follow the steps in [Installation and Configuration of Wavefront Collector Operator on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/master/docs/openshift-operator.md)
+### Install and Configure the Wavefront Helm Chart on OpenShift Enterprise 4.x
 
-### Install and Configure Wavefront Operator on OpenShift Enterprise 4.x
+This page contains the Installation and Configuration steps for full-stack monitoring of OpenShift clusters using Wavefront Helm Chart.
 
-This page contains the Installation and Configuration steps for full-stack monitoring of OpenShift clusters using Wavefront Operator.
 
-#### Install and Configure Wavefront Operator 
+#### Install the Wavefront Helm Chart
 
-1.  Log in to OpenShift Web UI as administrator.
-2.  Create a project with name `wavefront`.
-3.  In the Left pane, navigate to **Catalog** > **OperatorHub**.
-4.  From the list of Operator types select **Monitoring** > **Wavefront**.
-5.  Click on the **Wavefront Operator** and click **Install**.
-6.  Select `wavefront` as namespace to subscribe to.
-7.  When the subscription is successful, the operator is listed under **Installed Operators** and deploys Wavefront Proxy and Wavefront Collector CRD's into the project.
-8.  Select **Installed Operators** > **Wavefront Operator** > **Wavefront Proxy** > **Create New**  to deploy the proxy.
-9.  Create Wavefront Proxy custom resource by specifying the following parameters in the proxy spec and leave rest of the values as defaults.
-    * token → YOUR_API_TOKEN
-    * url → https://YOUR_CLUSTER.wavefront.com
-10. Click **Create**.  This deploys the proxy service named `example-wavefrontproxy` with port 2878 as metric port.  In addition, Operator creates Persistent Volume Claim (PVC) with the name `wavefront-proxy-storage` using default underlying Persistent Volume (PV).
-11. Select **Installed Operators** > **Wavefront Operator** > **Wavefront Collector** > **Create New** to deploy the collector.
-12. Click **Create** without changing any values in the proxy definition.
+1. Log in to the OpenShift Web UI as an administrator.
 
-Because default parameters are used, the collector runs as a daemonset and uses `example-wavefrontproxy` as sink. The collector auto-discovers the pods and services that expose metrics and dynamically starts collecting metrics for the targets. It collects metrics from the kubernetes API server if configured.
+2. Create a project named `wavefront`.
 
-Now log in to Wavefront and search for the `openshift-demo-cluster` in kubernetes integration dashboards.
+3. In the left pane, navigate to **Helm** and select **Install a Helm Chart from the developer catalog**.
 
-#### Using an Existing Proxy
+4. Search for **Wavefront** and click **Install Helm Chart**.
+
+5. Install from the **form view** tab. Replace the following with your values:
+  * clusterName → &lt;OPENSHIFT_CLUSTER_NAME&gt;
+  * token → [&lt;YOUR_WF_API_TOKEN&gt;](https://docs.wavefront.com/users_account_managing.html#generate-an-api-token)
+  * url → https://&lt;YOUR_WF_INSTANCE&gt;.wavefront.com
+
+6. Click **Install**.
+
+Because default parameters are used, the Collector runs as a daemonset and uses `wavefront-proxy` as sink. The Collector auto-discovers the pods and services that expose metrics and dynamically starts collecting metrics for the targets. It collects metrics from the Kubernetes API server, if configured.
+
+Now, log in to Wavefront and search for the `<OPENSHIFT_CLUSTER_NAME>` in Kubernetes integration dashboards.
+
+
+#### Use an Existing Proxy
 
 To configure Wavefront Collector to use a proxy that's already running in your environment, follow these steps:
-1. Download the example configuration [file](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/master/deploy/examples/openshift-collector-configmap.yaml).
-2. Update `sinks.proxyAddress` with your existing proxy address. Please refer this [document](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md) for more configuration options.
-3. Create a ConfigMap by selecting **Workloads** > **ConfigMap** > **Select Project** > **Create ConfigMap**, copy paste the updated configuration in to the text field and click on **Create**.
-4. Select **Installed Operators** > **Wavefront Operator** > **Wavefront Collector** > **Create New** to deploy the collector.
-5. Set `spec.useOpenshiftDefaultConfig` to `false` and `spec.configName` to the ConfigMap name created in step 3.
-6. Click on **Create**.
+
+1. On the **yaml view** tab, in the **proxy** section, set **enabled** to false:{% raw %}
+    ```yaml
+    proxy:
+      enabled: false
+    ```
+{% endraw %}
+
+2. On the **yaml view** tab, add **proxyAddress** under **collector**.{% raw %}
+    ```yaml
+    collector:
+      proxyAddress: <YOUR_WF_PROXY_ADDRESS>:2878
+    ```
+{% endraw %}
+
+3. Click **Install**.
 
 
 #### Advanced Wavefront Proxy Configuration
 
-You can configure the proxy to change how it processes your data, port numbers, metric prefix etc. Refer this [document](https://docs.wavefront.com/proxies_configuring.html) for more details on proxy configuration properties. Below are the steps to create ConfigMap with advanced configuration properties:
+You can configure the proxy to change how it processes your data, port numbers, metric prefix, etc.
 
-1. Create a ConfigMap under the project where the operator is deployed.
 
-   Example:-{% raw %}
-   ```yaml
-   apiVersion: v1
-   kind: ConfigMap
-   metadata:
-     name: advanced-config
-     namespace: wavefront
-   data:
-     wavefront.conf: |
-       prefix = dev
-       customSourceTags = <YOUR_K8S_CLUSTER>
-   ```
+##### Configure the Wavefront Proxy Preprocessor Rules
+
+[Preprocessor rules](https://docs.wavefront.com/proxies_preprocessor_rules.html) allow you to manipulate incoming metrics before they reach the proxy. For example, you can remove confidential text strings or replace unacceptable characters. Follow these steps to create a `ConfigMap` with custom preprocessor rules:
+
+1. In the left pane, navigate to **Helm**, and choose the Wavefront installation.
+
+2. Under **Actions**, click **Upgrade**.
+
+3. On the **yaml view** tab, under **proxy**, add **preprocessor**.{% raw %}
+    ```yaml
+    proxy:
+      preprocessor:
+        rules.yaml: |
+          '2878':
+            # fix %2F to be a / instead.  May be required on EKS.
+            - rule    : fix-forward-slash
+              action  : replaceRegex
+              scope   : pointLine
+              search  : "%2F"
+              replace : "/"
+            # replace bad characters ("&", "$", "!", "@") with underscores in the entire point line string
+            - rule    : replace-badchars
+              action  : replaceRegex
+              scope   : pointLine
+              search  : "[&\\$!@]"
+              replace : "_"
+    ```
 {% endraw %}
-2. Select **Installed Operators** > **Wavefront Operator** > **Wavefront Proxy** > **Create New** to deploy the proxy.
-3. Set `spec.advanced` to the name of the ConfigMap created in Step 1.
-4. Set `spec.token` to Wavefront API token and `spec.url` to Wavefront URL.
-5. Click on **Create**.
+
+4. Click **Upgrade**.
 
 
-#### Configuring Wavefront Proxy Preprocessor Rules
+### Install and Configure Wavefront Operator on OpenShift Enterprise 3.x
 
-Preprocessor rules allow you to manipulate incoming metrics before they reach the proxy, for example, you could remove confidential text strings or replace unacceptable characters. See [Proxy Preprocessor Rules](https://docs.wavefront.com/proxies_preprocessor_rules.html) for details. Follow these steps to create a ConfigMap with custom preprocessor rules:
+The Wavefront Collector supports monitoring of OpenShift clusters:
 
-1. Create a ConfigMap under the project where the operator is deployed.
-   
-   Example:-{% raw %}
-   ```yaml
-   apiVersion: v1
-   kind: ConfigMap
-   metadata:
-     name: preprocessor-config
-     namespace: wavefront
-   data:
-      rules.yaml: |
-        '2878':
-          - rule    : add-cluster-tag
-            action  : addTag
-            tag     : env
-            value   : dev
-   ```
-{% endraw %}
-2. Select **Installed Operators** > **Wavefront Operator** > **Wavefront Proxy** > **Create New** to deploy the proxy.
-3. Set `spec.preprocessor` to the name of the ConfigMap created in Step 1.
-4. Set `spec.token` to Wavefront API token and `spec.url` to Wavefront URL.
-5. Click on **Create**.
+* To monitor OpenShift Origin 3.9, follow the steps in [Installation and Configuration on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/master/docs/openshift.md).
+
+* To monitor OpenShift Enterprise 3.11, follow the steps in [Installation and Configuration of Wavefront Collector Operator on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/master/docs/openshift-operator.md)
 
 ## Metrics
 
@@ -228,7 +228,7 @@ Metrics collected per resource:
 | Namespace | CPU, Memory, Pod/Container counts |
 | Nodes | CPU, Memory, Network, Filesystem, Storage, Uptime, Pod/Container counts |
 | Pods | CPU, Memory, Network, Filesystem, Storage, Uptime, Restarts, Phase |
-| Pod_Containers | CPU, Memory, Filesystem, Storage, Accelerator, Uptime, Restarts, Status |
+| Pod_Container | CPU, Memory, Filesystem, Storage, Accelerator, Uptime, Restarts, Status |
 | System_Containers | CPU, Memory, Uptime |
 
 Metrics collected per type:

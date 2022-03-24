@@ -6,20 +6,13 @@ sidebar: doc_sidebar
 permalink: ui_chart_reference.html
 summary: Chart types and configuration options for each chart type.
 ---
+Tanzu Observability by Wavefront provides charts viewing and examining your data. You can <a href="ui_examine_data.html">interact directly with charts in real time</a> -- zoom in, zoom out, change the time window, and so on.
 
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="80%">
-Charts allow you to view and examine your metrics. You can <a href="ui_examine_data.html">interact directly with charts in real time</a> -- zoom in, zoom out, change the time window, and so on.
-<br>
-Users with dashboard permission can customize many aspects of the chart and save their changes. This page is a detailed reference to the tabs in the different chart types. We repeat tab reference for each chart type.</td>
-<td width="20%"><a href="ui_chart_reference_v1.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
-</tr>
-</tbody>
-</table>
+Users with dashboard permission can customize many aspects of the chart and save their changes. This page is a detailed reference to the tabs in the different chart types. We repeat tab reference for each chart type.
 
-{% include shared/badge.html content="While every Wavefront user can view charts and make temporary changes, you must have [Dashboard permission](permissions_overview.html) to save changes you make to charts." %}
+{% include note.html content="While every user can view charts and make temporary changes, you must have [Dashboard permission](permissions_overview.html) to save changes you make to charts." %}
+
+{% include important.html content="This chart reference has all information for charts that are in a dashboard. Many, but <strong>not all</strong> of the same options are available for charts in alerts." %}
 
 
 ## Data Tab (All Charts)
@@ -52,8 +45,8 @@ Missing data is represented by a dashed line. The dashed line only gives a visua
 </thead>
 <tr>
 <td>Summarization</td>
-<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the Wavefront UI to aggregate raw data points into displayable values.<p>
-Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
+<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the query engine to aggregate raw data points into displayable values.<p>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the query engine aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 
 <tr>
@@ -70,6 +63,11 @@ You can also use events() queries to <a href="charts_events_displaying.html">Dis
 <td>
 Allows you to turn off or turn on the single line color gradient when you're looking at a line chart and you have only a single line.
 </td>
+</tr>
+
+<tr>
+<td>Decimal Precision</td>
+<td>How many digits to show after the decimal point. Defaults to 3.  </td>
 </tr>
 
 </tbody>
@@ -102,7 +100,7 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
 <li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
-<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
+<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
 <p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
 </td>
@@ -252,13 +250,17 @@ A **point plot** chart displays point buckets *without* any interpolation. Like 
 </thead>
 <tr>
 <td>Summarization</td>
-<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the Wavefront UI to aggregate raw data points into displayable values.<p>
-Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
+<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the query engine to aggregate raw data points into displayable values.<p>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the query engine aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Display Source Events</td>
 <td>If checked, displays events that were generated by alerts associated with any source displayed on the chart.
 You can also use events() queries to <a href="charts_events_displaying.html">Display events in charts</a>.</td>
+</tr>
+<tr>
+<td>Decimal Precision</td>
+<td>How many digits to show after the decimal point. Defaults to 3.  </td>
 </tr>
 </tbody>
 </table>
@@ -290,7 +292,7 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
 <li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
-<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
+<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
 <p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
 </td>
@@ -412,8 +414,8 @@ The stacked area chart can help you determine at a glance which queries have the
 </thead>
 <tr>
 <td>Summarization</td>
-<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the Wavefront UI to aggregate raw data points into displayable values.<p>
-Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
+<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the query engine to aggregate raw data points into displayable values.<p>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the query engine aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Display Source Events</td>
@@ -436,6 +438,10 @@ The following stack types are supported.
 <li><strong>Stacked Columns</strong> - Shows the result as a set of stacked columns, which resemble a bar chart.</li>
 </ul>
 </td>
+</tr>
+<tr>
+<td>Decimal Precision</td>
+<td>How many digits to show after the decimal point. Defaults to 3.  </td>
 </tr>
 </tbody>
 </table>
@@ -469,7 +475,7 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
 <li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
-<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
+<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
 <p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
 </td>
@@ -591,8 +597,8 @@ This chart supports the same tabs and options as the Stacked Area Chart discusse
 </thead>
 <tr>
 <td>Summarization</td>
-<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the Wavefront UI to aggregate raw data points into displayable values.<p>
-Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
+<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the query engine to aggregate raw data points into displayable values.<p>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the query engine aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Display Source Events</td>
@@ -603,6 +609,10 @@ You can also use events() queries to <a href="charts_events_displaying.html">Dis
 <td>Gap Threshold</td>
 <td>Controls when data is considered missing when there are gaps in the reporting of the data. The gap threshold is expressed in seconds and defaults to 60 seconds. Data considered missing based on the threshold are shown as dotted lines.
 </td></tr>
+<tr>
+<td>Decimal Precision</td>
+<td>How many digits to show after the decimal point. Defaults to 3.  </td>
+</tr>
 </tbody>
 </table>
 
@@ -634,7 +644,7 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
 <li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
-<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
+<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
 <p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
 </td>
@@ -760,6 +770,10 @@ A **table** chart allows fine-grained customization in the Format tab but doesn'
 <td>Check to sort values descending (largest to smallest) or ascending (smallest to largest).
 </td>
 </tr>
+<tr>
+<td>Decimal Precision</td>
+<td>How many digits to show after the decimal point. Defaults to 3.  </td>
+</tr>
 </tbody>
 </table>
 
@@ -792,7 +806,7 @@ You can specify a minimum of 200 milliseconds to show only values of interest:
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
 <li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
-<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
+<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
 <p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
 </td>
@@ -883,7 +897,7 @@ Chart description which shows up as hover text when users move the mouse over th
 
 A **Markdown** chart allows you to provide in-depth text descriptions of a dashboard and individual charts using Markdown. We support [CommonMark](https://commonmark.org/)
 
-In addition to Markdown formatted text, you can use links, images hosted outside Wavefront, and [dashboard variables](dashboards_variables.html). You can refer to the value of a dashboard variable with the query variable syntax **${var_name}** and the label of the variable using **%{var_name}**. Using a label instead of the variable value could be useful for list variables that might show the dropdown labels such as: Any, 1 Year, 3 Years which could map to opaque values such as -1, 1, 3.
+In addition to Markdown formatted text, you can use links, images hosted at a location of your choice, and [dashboard variables](dashboards_variables.html). You can refer to the value of a dashboard variable with the query variable syntax **${var_name}** and the label of the variable using **%{var_name}**. Using a label instead of the variable value could be useful for list variables that might show the dropdown labels such as: Any, 1 Year, 3 Years which could map to opaque values such as -1, 1, 3.
 
 You can pass a time window as a parameter in markdown. For example, when you create a dynamic link in a markdown chart, from the time selector you can pick a specific time window. When you click the link on the markdown chart, you will see the chart within the current time range that you’ve selected.
 
@@ -911,8 +925,8 @@ By default, a **single stat** chart plots a single series on a chart and display
 </thead>
 <tr>
 <td>Summarization</td>
-<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the Wavefront UI to aggregate raw data points into displayable values.<p>
-Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
+<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the query engine to aggregate raw data points into displayable values.<p>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the query engine aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Display Value</td>
@@ -924,7 +938,7 @@ Consider the following example. The horizontal scale for your chart is "240 poin
 </tr>
 <tr>
 <td>Decimal Precision</td>
-<td>How many values to show after the decimal point. Defaults to 3.  </td>
+<td>How many digits to show after the decimal point. Defaults to 3.  </td>
 </tr>
 <tr>
 <td>Horizontal Position</td>
@@ -1067,8 +1081,8 @@ The color mapping tab lets you define which set of values maps to which colors. 
 </thead>
 <tr>
 <td>Summarization</td>
-<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the Wavefront UI to aggregate raw data points into displayable values.<p>
-Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
+<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the query engine to aggregate raw data points into displayable values.<p>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the query engine aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Number of Bars</td>
@@ -1205,7 +1219,7 @@ If you specify a drilldown link, end users are directed to a target dashboard wh
 ![histogram](images/histogram_chart_v2.png)
 
 Histogram charts have two main uses:
-* Visualize [Wavefront Histograms](proxies_histograms.html). Wavefront histograms let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure – particularly those gathered across many distributed sources.
+* Visualize actual [histograms](proxies_histograms.html). Wavefront histograms let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure – particularly those gathered across many distributed sources.
 * Display a histogram visualization of a time series. That makes it possible, for example, to easily see query results above a certain percentile.
 
 You can zoom in to the histogram as needed by selecting a region.
@@ -1281,7 +1295,7 @@ The Axis tab lets you change the Y axis, and both the X axis dimensions and unit
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
 <li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
-<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
+<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
 <p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
 </td>
@@ -1371,7 +1385,7 @@ The Axis tab lets you change the Y axis, and both the X axis and Y axis dimensio
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
 <li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
-<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
+<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
 <p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
 </td>
@@ -1421,8 +1435,8 @@ A gauge chart displays a single value, in a default color. You can optionally ad
 </thead>
 <tr>
 <td>Summarization</td>
-<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the Wavefront UI to aggregate raw data points into displayable values.<p>
-Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
+<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the query engine to aggregate raw data points into displayable values.<p>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the query engine aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Decimal Precision</td>
@@ -1521,8 +1535,8 @@ The collage above shows both a pie chart and a donut chart for the same data.
 </tr>
 <tr>
 <td>Summarization</td>
-<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the Wavefront UI to aggregate raw data points into displayable values.<p>
-Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
+<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the query engine to aggregate raw data points into displayable values.<p>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the query engine aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Show Percentage</td>

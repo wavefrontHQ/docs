@@ -13,7 +13,7 @@ summary: Reference to the taggify() function
 taggify(<expression>, <newPointTagKey>, "<newPointTagValue>")
 
 taggify(<expression>, metric|source|{tagk, <pointTagKey>}, <newPointTagKey>,
-         [<zeroBasedNodeIndex> [,"<delimiterDefinition>"])
+         <zeroBasedNodeIndex> [,"<delimiterDefinition>"])
 
 taggify(<expression>, metric|source|{tagk, <pointTagKey>}, <newPointTagKey>,
 		 “<regexSearchPattern>”, “<replacementPattern>”)
@@ -60,7 +60,7 @@ Creates a synthetic point tag with the specified key for each time series. The v
 <td>Use these parameters if you want to extract a single node from an existing source name, metric name, or point tag value and use it as the new point tag value.
 <ul>
 <li><code>zeroBasedNodeIndex</code> - Index number that identifies the node to be extracted from the metadata value. Nodes are indexed from left to right, starting with 0. </li>
-<li><code>delimiterDefinition</code> - One or more characters to use as node delimiters. Omitting this parameter is the same as specifying <code>"."</code> <br> For example, specify <code>".-_"</code> to subdivide <code>disk.space-total_environment</code> into 4 nodes (numbered 0-3).  </li>
+<li><code>delimiterDefinition</code> (optional) - One or more characters to use as node delimiters. Omitting this parameter is the same as specifying <code>"."</code> <br> For example, specify <code>".-_"</code> to subdivide <code>disk.space-total_environment</code> into 4 nodes (numbered 0-3).  </li>
 </ul>
 </td>
 </tr>
@@ -251,5 +251,4 @@ Use ".+", "^." or ".*$" as your search pattern to match the entire string only o
 ## Learn More!
 
 * For additional examples, see the [aliasSource() Function](ts_aliasSource.html).
-
-* See the KB article [Working with metadata functions - aliasSource, aliasMetric and taggify](https://help.wavefront.com/hc/en-us/articles/360057122452-Working-with-metadata-functions-aliasSource-aliasMetric-and-taggify)
+* For an in-depth exploration with examples, see [Metadata (Label Manipulation) Functions](query_language_metadata_functions.html)

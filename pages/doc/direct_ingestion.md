@@ -7,19 +7,26 @@ permalink: direct_ingestion.html
 summary: Learn how to send data directly to the Wavefront service.
 ---
 
-You use the direct data ingestion mechanism to send data directly to the Wavefront service instead of a proxy. Direct data ingestion can be the best approach at the beginning and for some use cases. However, most users like to take advantage of proxy benefits:
-* **Prevent data loss, optimize network bandwidth** – The proxy buffers and manages data traffic. Even if there’s a connectivity problem, you don’t lose data points.
-* **Simple firewall configuration** – The proxy receives metrics from many agents on different hosts and forwards those metrics to the Wavefront service. You don’t need to open internet access for each of the agents.
-* **Enrich or filter data** – You can set up the proxy preprocessor to filter data before it’s sent to Wavefront.
-* **Examine bottlenecks** – Each proxy generates its own metrics. You can [learn about incoming and outgoing data](monitoring_proxies.html) in the **Wavefront Service and Proxy** dashboard of the **Wavefront Usage** integration. 
+Tanzu Observability by Wavefront supports mechanisms to send data to the Wavefront service directly (direct ingestion) or to use the Wavefront proxy.
 
-{% include shared/badge.html content="You must have the [**Direct Data Ingestion** permission](permissions_overview.html) to perform direct data ingestion." %}
+* **Direct data ingestion** can be the best approach at the beginning and during a POC.
 
-{% include shared/badge.html content="If you're using Wavefront as part of a free trial or Freemium offering, there are limits on how much data you can add to Wavefront using direct ingestions. Contact support@wavefront.com if you need a higher limit. " %}
+  {% include note.html content="You must have the [**Direct Data Ingestion** permission](permissions_overview.html) to perform direct data ingestion." %}
+
+  {% include note.html content="If you're using Tanzu Observability as part of a free trial or Freemium offering, there are limits on how much data you can send to the Wavefront service using direct ingestions. Contact support@wavefront.com if you need a higher limit. " %}
+
+* In larger environments, most users like to take advantage of **proxy benefits**:
+  * **Prevent data loss, optimize network bandwidth** – The proxy buffers and manages data traffic. Even if there’s a connectivity problem, you don’t lose data points.
+  * **Simple firewall configuration** – The proxy receives metrics from many agents on different hosts and forwards those metrics to the Wavefront service. You don’t need to open internet access for each of the agents.
+  * **Enrich or filter data** – You can set up the proxy preprocessor to filter data before it’s sent to the Wavefront service.
+  * **Examine bottlenecks** – Each proxy generates its own metrics. You can [learn about incoming and outgoing data](monitoring_proxies.html) in the **Wavefront Service and Proxy** dashboard of the **Wavefront Usage** integration.
+
+
+
 
 ## Background
 
-Most customers set up Wavefront so that the host, application, or custom code sends metrics to a [Wavefront proxy](proxies.html) installed in their environment. The proxy forwards metrics to the Wavefront service. In production environments, two proxies behind a load balancer guarantee availability and prevent data loss.
+Most customers set up their environment so that the host, application, or custom code sends metrics to a [Wavefront proxy](proxies.html) installed in their environment. The proxy forwards metrics to the Wavefront service. In production environments, two proxies behind a load balancer guarantee availability and prevent data loss.
 
 ![proxies behind load balancer](/images/proxy_deployment_load_balancer.png)
 
@@ -27,14 +34,14 @@ Because some customers wanted to send data directly to the Wavefront service, we
 
 ## Direct Ingestion Example Commands
 
-The following examples illustrate how to send data to Wavefront.
+The following examples illustrate how to send data directly to the Wavefront service.
 * An [API token](wavefront_api.html#generating-an-api-token) is required. Referred to as `<TOKEN>` in the examples.
-* You must know your Wavefront domain name. These examples use `mydomain.wavefront.com`.
-* Currently, we support only [Wavefront Data Format](wavefront_data_format.html), which is named `wavefront`. If you don't specify `f=wavefront`, we still use that format.
+* You must know your Wavefront instance name. This doc page uses `mydomain.wavefront.com`.
+* Currently, direct ingestion supports only [Wavefront Data Format](wavefront_data_format.html), which is named `wavefront`. If you don't specify `f=wavefront`, we still use that format.
 
 ### Multiple Data Points
 
-Assume `wavefront.txt` contains 1 or more lines in the Wavefront data format. You can send it to Wavefront like this:
+Assume `wavefront.txt` contains 1 or more lines in the Wavefront data format. You can send the data to the Wavefront service like this:
 
 ```
 cat wavefront.txt | curl -H "Authorization: Bearer <TOKEN>" -F file=@- https://mydomain.wavefront.com/report

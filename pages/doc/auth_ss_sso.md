@@ -7,7 +7,7 @@ permalink: auth_self_service_sso.html
 summary: Learn how to enable single-tenant authentication and set up self-service SSO.
 ---
 
-Wavefront supports a number of third-party authentication solutions that use SAML. The SAML (Security Assertion Markup Language) standard enables an identity provider (IdP) to pass authorization credentials to service providers (SP). In environments that use SAML, users log in once and authenticate to many different services.
+Tanzu Observability by Wavefront supports a number of third-party authentication solutions that use SAML. The SAML (Security Assertion Markup Language) standard enables an identity provider (IdP) to pass authorization credentials to service providers (SP). In environments that use SAML, users log in once and authenticate to many different services.
 
 * Self-Service SAML SSO is not available for customers who have set up [multi-tenant authentication](authentication.html#multi-tenant-authentication).
 * Self-Service SAML SSO is not available for trial customers.
@@ -16,7 +16,7 @@ Wavefront supports a number of third-party authentication solutions that use SAM
 
 ## Single-Tenant Authentication
 
-Most Wavefront administrators set up authentication in their environment by setting up SSO using an identity provider (IdP). Authentication integrations with the following IdPs are predefined. SSO setup with other IdPs is also possible.
+Most administrators set up authentication in their environment by setting up SSO using an identity provider (IdP). Authentication integrations with the following IdPs are predefined. SSO setup with other IdPs is also possible.
 
 * [ADFS](adfs.html)
 * [Azure AD](azure_ad.html)
@@ -26,14 +26,14 @@ Most Wavefront administrators set up authentication in their environment by sett
 * [PingOne](pingone.html)
 * [VMware Workspace ONE Access](workspace-one.html).
 
-As an administrator, in single-tenant authentication environments, you can set up SAML SSO and your users will log in to the identity provider. After a user has been successfully authenticated, you can set the permissions for that user. [Permissions](permissions_overview.html) determine what the user can do in Wavefront.
+As an administrator, in single-tenant authentication environments, you can set up SAML SSO and your users will log in to the identity provider. After a user has been successfully authenticated, you can set the permissions for that user. [Permissions](permissions_overview.html) determine what the user can do in the environment.
 
 ## Set Up SAML SSO
 
 {% include note.html content="You must have **SAML IdP Admin** permission to set up SAML SSO for your Wavefront instance."%}
 
-1. Log in to your Wavefront cluster as a user with **SAML IdP Admin** permission.
-2. Click the gear icon <i class="fa fa-cog"/> on the taskbar and select **Self Service SAML**.
+1. Log in to your Wavefront instance as a user with the **SAML IdP Admin** permission.
+2. Click the gear icon <i class="fa fa-cog"/> on the toolbar and select **Self Service SAML**.
 3. From the **Identity Provider** drop-down menu, select the identity provider that is used in your environment.
 4. Click the **Setup Instructions** link. 
    
@@ -54,8 +54,8 @@ As an administrator, in single-tenant authentication environments, you can set u
 
 If the certificate that's used in your setup must be replaced, you can delete the existing setup and set up SAML SSO again.
 
-1. Log in to your Wavefront instance as a user with **SAML IdP Admin** permission.
-2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Self Service SAML**.
+1. Log in to your Wavefront instance as a user with the **SAML IdP Admin** permission.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Self Service SAML**.
 3. Click the **Click Here** link to delete the existing key pair.
 4. Repeat the setup process.
 

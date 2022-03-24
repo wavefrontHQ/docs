@@ -5,16 +5,18 @@ sidebar: doc_sidebar
 permalink: ui_sharing.html
 summary: Share links to dashboards and charts, give dashboard access, and create embedded charts.
 ---
+Tanzu Observability by Wavefront supports sharing links, sharing access, and embedding charts. 
+
 You can
 * Share a link to a dashboard or chart so someone else can see what's going on.
 * Share [access](access.html) to a dashboard if the user is not in a group that has access to that specific dashboard.
-* Embed an interactive chart outside Wavefront.
+* Embed an interactive chart in another product or on a Website.
 
-{% include shared/badge.html content="Every Wavefront user can view dashboards and make temporary changes. You must have the [**Dashboard** permission](permissions_overview.html) to share a link to a dashboard or chart." %}
+{% include note.html content="Every user can view dashboards and make temporary changes. You must have the [**Dashboard** permission](permissions_overview.html) to share a link to a dashboard or chart." %}
 
 ## Video: Sharing Content
 
-This short <a href="https://bcove.video/3DZazeL" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> shows how you can share Wavefront content by using some of the methods described below.
+This short <a href="https://bcove.video/3DZazeL" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> shows how you can share content by using some of the methods described below.
 
 <p>
 <iframe src="https://bcove.video/3DZazeL" width="700" height="400" allowfullscreen="true" alt="Sharing search results, dashboards and charts using short URLs."></iframe>
@@ -39,7 +41,7 @@ To share a link to a dashboard section, use the link icon next to the section.
 
 ## Share a Link with the Share Dialog
 
-Wavefront allows you to share dashboards and charts with other authorized users of your environment. We support two options:
+You can share dashboards and charts with other authorized users of your environment. We support two options:
 
 * Live view -- Changes as the dashboard or alert changes.
 * Non-live view -- Links to a snapshot of what you're looking at right now.
@@ -80,7 +82,7 @@ The process is very similar for dashboards and for alerts.
 
 ## Embed a Chart in Other UIs and Allow or Restrict Access
 
-Wavefront supports the ability to embed an interactive chart outside of Wavefront. You must have the [**Chart Embedding** permission](permissions_overview.html) to create embedded charts.
+You can embed an interactive chart in another product or on a Website. You must have the [**Chart Embedding** permission](permissions_overview.html) to create embedded charts.
 
 ### Embed a Chart in Other UIs
 
@@ -99,7 +101,7 @@ Wavefront supports the ability to embed an interactive chart outside of Wavefron
 
 ### Allow or Deny Access to Embedded Charts
 
-You can apply access policies and deny or allow access to the embedded charts by using the Wavefront REST API. The `Access Policy` controls which IP addresses can access the embedded charts and doesn't affect any other URLs or Wavefront functionality. Learn more about the [categories in the Wavefront API](wavefront_api.html#wavefront-rest-api-categories).
+You can apply access policies and deny or allow access to the embedded charts by using the Wavefront REST API. The `Access Policy` controls which IP addresses can access the embedded charts and doesn't affect any other URLs or other functionality. Learn more about the [categories in the Wavefront API](wavefront_api.html#wavefront-rest-api-categories).
 
 When you apply an access policy rule, take in mind the following:
 
