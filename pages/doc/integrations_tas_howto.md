@@ -4,7 +4,6 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_tas_howto.html
-published: false
 summary: Set up the Tanzu Observability tile and monitor your environment.
 ---
 
@@ -28,56 +27,68 @@ Here's an overview of the flow of data from the Tanzu Application Service Fireho
 
 ## Requirements
 
-VMware Tanzu Observability by Wavefront Nozzle has the following requirements:
-*	Read-only administrative access to the Doppler Firehose and Cloud Controller.
-* Access to a Wavefront instance and an API token. [Service Account API token](wavefront_api.html#generating-an-api-token) is recommended.
-* A VMware Tanzu Quota with at least 8GB of available memory.
+To set up this data pipeline, you need to meet requirements on the Ops Manager side and on the Tanzu Observability side.
+* **Ops Manager Requirements**
+  VMware Tanzu Observability by Wavefront Nozzle has the following requirements:
+  *	Read-only access to the Doppler Firehose and Cloud Controller.
+  * Access to a Wavefront instance and an API token. [Service Account API token](wavefront_api.html#generating-an-api-token) is recommended.
+  * A VMware Tanzu Quota with at least 8GB of available memory.
+  RK>> ??This came from the old nozzle doc, does it still apply??
+* **Tanzu Observability by Wavefront Requirements**
+  To set up the Tanzu Application Service integration on you Wavefront instance, you must have:
+  * Access to a Wavefront instance with a URL like https://<example>.wavefront.com.
+  * At a minimum, **Integrations** permission on that Wavefront instance.
 
-This version of the Tanzu Observability by Wavefront Nozzle is compatible with Wavefront proxy version 10. and later. ???VMware Tanzu Observability by Wavefront Service Broker v0.9.5
+This version of the Tanzu Observability by Wavefront Nozzle is compatible with Wavefront proxy version 10. and later.
+??10.11? That's where we fixed log4j?
+
+???VMware Tanzu Observability by Wavefront Service Broker v0.9.5
 
 For earlier versions of this nozzle, see the **Product Snapshot** [this documentation](https://docs.pivotal.io/wavefront-nozzle/3-x/index.html).
 
-## Install the Tanzu Observability by Wavefront Nozzle
+## Ops Manager: Install the Tanzu Observability by Wavefront Nozzle
 
-1. Download the product file from the Pivotal Network.
-2. Navigate to the Ops Manager Installation Dashboard and click **Import a Product**.
-3. Under  **Import a Product**, click the plus sign (+) next to the version number of VMware Tanzu Observability by Wavefront Nozzle to add the tile to your staging area.
+To install the nozzle:
 
-## Configure the Tanzu Observability by Wavefront Nozzle
+1. Download the VMware Tanzu Observability TAS tile version 4 from [VMware Tanzu Network](https://network.pivotal.io/products/wavefront-nozzle/).
+2. Log in to Ops Manager, select **Installation Dashboard** click **Import a Product**, and upload the file you just downloaded.
+3. Under  **Import a Product**, click the plus sign (+) next to the version number of VMware Tanzu Observability by Wavefront Nozzle. This adds the tile to your staging area.
+
+The tile is now available, but the orange bar at the bottom indicates that the product is not yet configured.
+
+## Ops Manager: Configure the Tanzu Observability by Wavefront Nozzle
 
 <!---For Assign AZs and Networks, using content from https://docs.pivotal.io/healthwatch/2-1/configuring/configuring-healthwatch.html#az  --->
 
-Click the Tanzu Observability by Wavefront tile. With **Settings** selected (the default), start configuration.
+To start configuration click the Tanzu Observability by Wavefront tile. With **Settings** selected (the default), follow these steps:
 
 {% include tip.html content="The first 3 configuration panes are required. The other panes are optional, most users don't make changes to those settings." %}
 
 <table style="width: 100%;">
 <tbody>
    <tr>
-   <td width="50%">1. Click <strong>Assign AZs and Networks</strong>, to configure those settings.
-   <ol><li>Under <strong>Place singleton jobs in</strong>, select the first AZ. Ops Manager runs any job with a single instance in this AZ.</li>
+   <td width="50%"><strong>Step 1.</strong> Click <strong>Assign AZs and Networks</strong>, to configure those settings.
+   <ol><li>Under <strong>Place singleton jobs in</strong>, select the AZ you want to use. Ops Manager runs any job with a single instance in this AZ.</li>
    <li>Under <strong>Balance other jobs in</strong>, select one or more other AZs. Ops Manager balances instances of jobs with more than one instance across the AZs that you specify. </li>
-  <li>From the <strong>Network</strong> dropdown, select the runtime network that you created when you configured the BOSH Director tile.RL>>Correct??</li>
+  <li>From the <strong>Network</strong> dropdown, select the subnet that you created when you configured the BOSH Director tile. That network often has <code>pas</code> or <code>tas</code> in its name. </li>
+  <li>From the <strong>Service Network</strong> dropdown, select the service subnet that you created when you configured the BOSH Director tile. That network often has <code>services</code> in its name. </li>
   <li>Click <strong>Save</strong> </li>
   </ol>
    </td>
-   <td width="50%"><img src="/images/tmc_service_account_create.png" alt="Create service account dialog with name and description filled in."></td>
+   <td width="50%"><img src="/images/tas_to_1.png" alt="Assign AZ and Networks screenshot, with values as discussed in text above."></td>
    </tr>
    <tr>
    <td width="50%">2. Click <strong>Wavefront Proxy Config</strong> and specify:
    <ol><li>The URL of your Wavefront instance, for example, https://longboard.wavefront.com.</li>
    <li>A Wavefront API token. See <a href="wavefront_api.html#generating-an-api-token">Generating an API Token</a></li>
    <li>User-friendly name for the proxy. </li>
-   <li>Click <strong>Custom Proxy Configuration &gt;Custom</strong> to specify <a href="proxies_configuring.html">proxy configuration</a>, <a href="proxy preprocessor rules">proxies_preprocessor_rules.html</a>, and logs ingestion config.
-<!---
-   RK>>How do I set logs ingestion config?? is that for the proxy?? (points to https://docs.wavefront.com/integrations_log_data.html#configuring-the-wavefront-proxy-to-ingest-log-data) but who knows.)<br/>
---->
+   <li>Click <strong>Save</strong> or click <strong>Custom</strong> to specify <a href="proxies_configuring.html">proxy configuration</a>, <a href="proxy preprocessor rules">proxies_preprocessor_rules.html</a>.
    The nozzle ignores the <code> server, hostname, token, pushListenerPorts, opentsdbPorts, idFile, buffer, and preprocessorConfigFile</code> configuration properties.
    </li>
    <li>Click <strong>Save</strong> </li>
    </ol>
    </td>
-   <td width="50%"><img src="/images/tmc_service_account_create.png" alt="Create service account dialog with name and description filled in."></td>
+   <td width="50%"><img src="/images/tas_to_2.png" alt="Proxy Config screenshot, with values as discussed in text above."></td>
    </tr>
    <tr>
    <td width="50%">3. Click <strong>Telegraf Agent Config</strong> and specify: <!---TBD Gabi what this text will be--->
