@@ -638,7 +638,7 @@ entries:
         url: /opentelemetry_java_tutorial.html
         output: web
         
-      - title: Enable Logs
+      - title: Enable Proxy Debug Logs
         url: /opentelemetry_logs.html
         output: web
       
@@ -782,11 +782,11 @@ entries:
     output: web
     folderitems:
 
-      - title: Administer Wavefront
+      - title: Administer Tanzu Observability
         url: /wavefront_administer.html
         output: web
 
-      - title: Wavefront Security
+      - title: Security
         url: /wavefront_security.html
         output: web
 
@@ -820,7 +820,7 @@ entries:
             output: web
 
 
-        - title: Manage Access to Wavefront Objects
+        - title: Manage Access to Objects
           output: web
           subfolderitems:
 
@@ -833,7 +833,7 @@ entries:
             output: web
 
 
-        - title: Authentication in Wavefront
+        - title: Authentication
           output: web
           subfolderitems:
 
@@ -853,7 +853,7 @@ entries:
           output: web
           subfolderitems:
 
-          - title: Examine Overall Wavefront Usage
+          - title: Examine Overall Usage
             url: /examine_usage.html
             output: web
 
@@ -865,7 +865,7 @@ entries:
             url: /wavefront_monitoring.html
             output: web
 
-          - title: Wavefront Service Internal Metrics
+          - title: Internal Metrics
             url: /wavefront-internal-metrics.html
             output: web
 
@@ -885,7 +885,7 @@ entries:
           output: web
           subfolderitems:
 
-          - title: Cardinality and Wavefront
+          - title: Understanding Cardinality
             url: /cardinality.html
             output: web
 
@@ -893,6 +893,6 @@ entries:
             url: /optimize_data_shape.html
             output: web            
 
-          - title: Obsolescence and Remediation
+          - title: Obsolescence Policy
             url: /wavefront_obsolescence_policy.html
             output: web
