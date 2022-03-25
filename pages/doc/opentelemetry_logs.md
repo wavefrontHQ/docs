@@ -1,13 +1,13 @@
 ---
-title: Enable Logs for OpenTelemetry Data
+title: Enable Proxy Debug Logs for OpenTelemetry Data
 tags: [tracing]
 permalink: opentelemetry_logs.html
-summary: Learn how to enable logs for your OpenTelemetry data.
+summary: Learn how to enable debug logs to troubleshoot the OpenTelemetry data.
 ---
 
-Follow these steps to enable logs for your OpenTelemetry data. Once the logs are saved, you can see them in the directory you specified for `log-path` on your `log4j2.xml` file.
+Follow the steps below to enable debug logs for the OpenTelemetry trace data [directly sent to the Wavefront proxy](opentelemetry_tracing.html#send-data-using-the-wavefront-proxy---recommended):
 
-1. Open the [`<wavefront_config_path>`](#paths)`/log4j2.xml` file.
+1. Open the [`<wavefront_config_path>`](proxies_configuring.html#proxy-file-paths)`/log4j2.xml` file.
 2. Add the configurations to enable and manage logs under `<Appenders>`.<br/>
   Example:
 
@@ -44,3 +44,5 @@ Follow these steps to enable logs for your OpenTelemetry data. Once the logs are
       </Loggers>
       ```
 4. Save the file.
+
+Once the proxy debug logs are saved, you can see them in the directory you specified for `log-path` on your `log4j2.xml` file.
