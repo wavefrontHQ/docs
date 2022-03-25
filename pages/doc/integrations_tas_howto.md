@@ -7,7 +7,9 @@ permalink: integrations_tas_howto.html
 summary: Set up the Tanzu Observability tile and monitor your environment.
 ---
 
-[VMware Tanzu Application Service]() previously known as Pivotal Cloud Foundry, is a popular platform for building cloud-native applications. This doc page explains:
+[VMware Tanzu Application Service](), previously known as Pivotal Cloud Foundry, is a popular platform for building cloud-native applications.
+
+This doc page explains:
 * How to install and configure the Tanzu Observability by Wavefront nozzle from Tanzu Ops Manager.
 * How to access the Tanzu Application Service integration, and what you can do there.
 
@@ -15,15 +17,29 @@ summary: Set up the Tanzu Observability tile and monitor your environment.
 
 ## Overview
 
-Tanzu Observability by Wavefront (Wavefront) is a cloud-hosted service for full-featured observability. After you've set up Tanzu Application Service to send data to Wavefront, you can take advantage of preconfigured dashboards, customize predefined alerts, and more. You can clone and customize the predefined dashboards using the powerful Wavefront Query Language and selecting from many display options.
+Tanzu Observability by Wavefront (Wavefront) is a cloud-hosted service for full-featured observability. When you Tanzu Application Service to send data to the Wavefront proxy, you can take advantage of preconfigured dashboards, customize predefined alerts, and more.
 
-The VMware Tanzu Observability by Wavefront Nozzle includes the following key features:
-* Send metrics from your VMware Tanzu Application Service for VMs (TAS for VMs) deployment to Wavefront.
-* Bind Wavefront to any app running on VMware Tanzu Application Service for VMs (TAS for VMs).
+### Data Flow
 
-Here's an overview of the flow of data from the Tanzu Application Service Firehose through the nozzle to the Wavefront service.
+Here's an overview of the flow of data from the Tanzu Application Service Firehose through the nozzle to the Wavefront service. The nozzle consists of these main components:
+- **Healthwatch Exporters**: Exporters are deployed as VMs.
+- **Telegraf**: An open source, lightweight server process for collecting, processing, and aggregating metrics.
+- [**Wavefront Proxy**](proxies.html): Ingests metrics and forwards them to the
+Wavefront service in a secure, fast, and reliable manner
+
+Here's the data pipeline:
+1. The Healthwatch Exporter VMs stream metrics from the TAS Firehose. The tile creates a VM for each Healthwatch exporter a VM for Telegraf and a VM for the Wavefront Proxy.
+2. Telegraf scrapes the VMs at a predefined interval, and converts them to [Wavefront data format](wavefront_data_format.html).RK>>TRUE?? It's not proxy preprocessor rule(s)
+3. The metrics are then sent to the Wavefront Proxy.  RK>>Telegraf sends them?
+4. The proxy send the metrics to the Wavefront service.
 
 ![TAS Firehose to Exporters like pas-sli-exporter, to Telegraf agent, to Wavefront proxy, to Wavefront service](images/tas-to.png)
+
+### Tanzu Observability by Wavefront Features
+
+Tanzu Observability by Wavefront includes an integration for Tanzu Application Service(TAS). The integration supports a set of predefined dashboards that a fairly similar to the existing Healthwatch dashboards for TAS. * Clone any dashboard to customize it by adding charts that use the powerful [Wavefront Query Language](query_language_quickstart.html).
+* Customize the dashboard and chart appearance.
+* [Add alerts](alerts_manage.html) -- or [examine alerts](alerts.html) already included in the integration.
 
 ## Requirements
 
@@ -78,66 +94,51 @@ To start configuration click the Tanzu Observability by Wavefront tile. With **S
    <td width="50%"><img src="/images/tas_to_1.png" alt="Assign AZ and Networks screenshot, with values as discussed in text above."></td>
    </tr>
    <tr>
-   <td width="50%">2. Click <strong>Wavefront Proxy Config</strong> and specify:
+   <td width="50%"><strong>Step 2.</strong> Click <strong>Wavefront Proxy Config</strong> and specify:
    <ol><li>The URL of your Wavefront instance, for example, https://longboard.wavefront.com.</li>
    <li>A Wavefront API token. See <a href="wavefront_api.html#generating-an-api-token">Generating an API Token</a></li>
    <li>User-friendly name for the proxy. </li>
-   <li>Click <strong>Save</strong> or click <strong>Custom</strong> to specify <a href="proxies_configuring.html">proxy configuration</a>, <a href="proxy preprocessor rules">proxies_preprocessor_rules.html</a>.
-   The nozzle ignores the <code> server, hostname, token, pushListenerPorts, opentsdbPorts, idFile, buffer, and preprocessorConfigFile</code> configuration properties.
+   <li>Click <strong>Save</strong> or click <strong>Custom</strong> to specify <a href="proxies_configuring.html">proxy configuration</a>, <a href="proxy preprocessor rules">proxies_preprocessor_rules.html</a> and click <strong>Save</strong>
+   The nozzle ignores these configuration properties because they're already defined in the setup steps:
+   <ul><li>server</li>
+   <li>hostname</li>
+   <li>pushListenerPorts</li>
+  <li>opentsdbPorts</li>
+  <li>idFile</li>
+  <li>buffer</li>
+  <li>preprocessorConfigFile</li></ul>
    </li>
-   <li>Click <strong>Save</strong> </li>
    </ol>
    </td>
    <td width="50%"><img src="/images/tas_to_2.png" alt="Proxy Config screenshot, with values as discussed in text above."></td>
    </tr>
    <tr>
-   <td width="50%">3. Click <strong>Telegraf Agent Config</strong> and specify: <!---TBD Gabi what this text will be--->
+   <td width="50%"><strong>Step 3.</strong> Click <strong>Telegraf Agent Config</strong> and customize the Telegraf Agent config or accept the defaults.
    <ol>
-   <li><strong>Telegraf Agent Interval</strong>  </li>
-   <li><strong>Telegraf Agent Agent Metric Batch Size</strong></li>
-   <li><strong>Telegraf Agent Metric Buffer Limit</strong></li>
-   <li><strong>Foundation Name</strong></li>
+   <li>For <strong>Scrape Interval</strong>, specify the default interval at which Telegraf agent checks for new data.</li>
+   <li>For <strong>Metric Batch Size</strong>, specify the maximum number of points in each batch of metrics that Telegraf sends to the Wavefront proxy. ??IS THAT TRUE??</li>
+   <li>For <strong>Metric Buffer Limit</strong>, specify the Wavefront proxy buffer size. If your environment sends bursty data, use a larger buffer to the proxy can queue and then drain those data.</li>
+   <li>For <strong>Flush Interval</strong>, specify ??WHAT??</li>
+   <li>For <strong>Foundation Name</strong>, specify a unique name for your Tanzu Application Service environment. This name will be added to all metrics as the metrics source (source=). ??IS THAT TRUE??</li>
+   <li>(Optional) Click <strong>Advanced Options</strong> to specify a custom proxy URL, custom proxy port, or additional Telegraf inputs ??RK>>Examples?? Link??</li>
    <li>Click <strong>Save</strong></li>
    </ol>
    </td>
-   <td width="50%"><img src="/images/tmc_service_account_create.png" alt="Create service account dialog with name and description filled in."></td>
+   <td width="50%"><img src="/images/tas_to_3.png" alt="Telegraf Agent Config screenshot, with values as discussed in text above."></td>
    </tr>
    <tr>
-   <td width="50%">4. Click <strong>TAS for VMs Metric Exporter VMs </strong> and specify: <!---TBD Mark whether we need this--->
+   <td width="50%"><strong>Step 4.</strong> Click <strong>Metrics Exporters</strong> to customize metrics export from Tanzu Application Service:
    <ol>
-   <li><strong>Static IP address for counter metric exporter VMs</strong>  </li>
-   <li><strong>Static IP address for gauge metric exporter VMs</strong></li>
-   <li><strong>Static IP address for timer metric exporter VMs</strong></li>
-   <li><strong>Static IP address for TAS for VMs SLI exporter VM</strong></li>
-   <li><strong>Static IP address for certificate expiration metric exporter VM</strong></li>
-   <li>If that makes sense in your environment, click <strong>Skip TLS certificate verification</strong> RK>>Do I have to do special things like upload certs??. </li>
+   <li>Select <strong>Skip TLS Verification When Querying</strong> if you want to turn off TLS verification, for example, during testing or a POC. </li>
+   <li>Select a <strong>BOSH Health Check Availability Zone</strong> if you don't want to use the default zone. </li>
+   <li>Customize the <strong>BOSH Health Check Payload VM Type</strong> to change the default. RK>>LET'S ADD SOME VALUE HERE. </li>
    <li>Click <strong>Save</strong></li>
    </ol>
    </td>
-   <td width="50%"><img src="/images/tmc_service_account_create.png" alt="Create service account dialog with name and description filled in."></td>
+   <td width="50%"><img src="/images/tas_to_4.png" alt="Metric Exporter screenshot, with values as discussed in text above."></td>
    </tr>
    <tr>
-   <td width="50%">5. Click <strong>BOSH Health Metric Exporter VM </strong>. Most users accept the defaults for this pane, but in a custom environment you can specify:<!---TBD whether we can combine all optional fields. --->
-   <ol>
-   <li><strong>Availability Zone</strong>  </li>
-   <li><strong>VM type</strong></li>
-   <li>Click <strong>Save</strong></li>
-   </ol>
-   </td>
-   <td width="50%"><img src="/images/tmc_service_account_create.png" alt="Create service account dialog with name and description filled in."></td>
-   </tr>
-   <tr>
-   <td width="50%">6. Click <strong>BOSH Deployment Metric Exporter VM</strong>. Most users accept the defaults for this pane, but in a custom environment you can specify:
-   <ol>
-   <li><strong>UAA client credentials</strong>  </li>
-   <li><strong>Static IP address for BOSH deployment exporter VM</strong></li>
-   <li>Click <strong>Save</strong></li>
-   </ol>
-   </td>
-   <td width="50%"><img src="/images/tmc_service_account_create.png" alt="Create service account dialog with name and description filled in."></td>
-   </tr>
-   <tr>
-   <td width="50%">7. Click <strong>Errands</strong> and specify: RK>>what might I see here and what would I specify?? When would I change the 2 options
+   <td width="50%"><strong>(Optional) Step 5.</strong> Click <strong>Errands</strong> and specify: RK>>what might I see here and what would I specify?? When would I change the 2 options
    <ol>
    <li><strong>Cleanup</strong>  </li>
    <li><strong>Remove CF SLI User </strong></li>
@@ -147,7 +148,7 @@ To start configuration click the Tanzu Observability by Wavefront tile. With **S
    <td width="50%"><img src="/images/tmc_service_account_create.png" alt="Create service account dialog with name and description filled in."></td>
    </tr>
    <tr>
-   <td width="50%">8. Click <strong>Resource Config</strong> to review the preconfigured configuration. RK>>when would I change anything here??
+   <td width="50%"><strong>(Optional) Step 6. </strong> Click <strong>Resource Config</strong> to review the preconfigured configuration. RK>>when would I change anything here??
    <br/>
    <strong>Note: SM Forwarder</strong> is set to <strong>Automatic:0</strong>. Do not change this setting.
    </td>
@@ -158,10 +159,12 @@ To start configuration click the Tanzu Observability by Wavefront tile. With **S
 
 ## Use Tanzu Application Service Dashboards and Alerts
 
-
-
 After you've completed the Nozzle setup, your data become available in your Wavefront instance inside an integration. Each integration includes several tabs.
 * The **Dashboards** tab includes a rich set of preconfigured dashboards with charts for [examining your data](ui_examine_data.html). Users with Dashboards permission can clone any dashboard and [customize the dashboard](ui_dashboards.html) and the charts. Watch our [dashboard videos](videos_dashboards_charts.html) for some tips and tricks.
 * The **Alerts** tab includes a set of preconfigured alerts. Clone any alert and specify who to notify in your environment. Wavefront supports several levels of severity and allows you to specify email, Pagerduty, and Webhook as notification targets. Watch our [alerts videos](videos_alerts.html) to get you started.
 * Get started with some of our [conceptual videos](videos_quickstart.html) or some of our [hands-on videos](videos_howto_start.html).
 RK>> screenshot here??
+
+## TAS to TObs FAQ
+
+RK>>Add here the items listed in Muhammed's doc? 
