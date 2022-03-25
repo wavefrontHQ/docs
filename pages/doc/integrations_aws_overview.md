@@ -224,7 +224,7 @@ The integration is added to the Amazon Web Services Integrations list. If you wa
 
 ### Register Additional Amazon Web Services
 
-After you set up the AWS integration with a [Role ARN](integrations_aws_overview.html#give-wavefront-read-only-access-to-your-amazon-account), you can additionally register more Amazon Web services.
+After you set up the AWS integration with a [Role ARN](integrations_aws_overview.html#give-read-only-access-to-your-amazon-account), you can additionally register more Amazon Web services.
 
 1. In your Wavefront instance, click **Integrations** on the toolbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
