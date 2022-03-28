@@ -4,22 +4,20 @@ keywords: query language
 tags: [query language]
 sidebar: doc_sidebar
 permalink: query_language_series_matching.html
-summary: Learn how implicit series matching lets you operate on pairs of time series that have corresponding sources and point tags.
+summary: Learn how implicit series matching operates on pairs of time series that have corresponding sources and point tags.
 ---
 
-Certain operators and functions apply to pairs of time series. When you specify two ts() expressions as parameters, Wavefront implicitly performs series matching across these expressions to identify meaningful pairs of individual time series to operate on. For example, implicit series matching in the following operation causes Wavefront to compare metrics for disk reads and disk writes only when they come from the same source and have common point tag values:
+Tanzu Observability by Wavefront performs **series matching** to identify meaningful pairs of individual time series to operate on. For example, because of implicit series matching in the following operation, the query engine compares metrics for disk reads and disk writes only when they come from the same source and have common point tag values:
 
 ```
 ts(~sample.disk.bytes.read) > ts(~sample.disk.bytes.written)
-
 ```
-Implicit series matching also determines whether these operators and functions return any result at all. For example, when you try to subtract one time series from another, Wavefront can't perform the operation if none of the sources match.
 
-**Note:** This page describes implicit series matching, which works well for time series that all have the same set of source tags and point tags. Consider using [`join(...INNER JOIN...)`](query_language_series_joining.html) if you need to match up series whose sources and point tags do not correspond exactly.
+{% include tip.html content="This page describes implicit series matching, which works well for time series that all have the same set of source tags and point tags. Consider using [`join(...INNER JOIN...)`](query_language_series_joining.html) if you need to match up series whose sources and point tags do not correspond exactly." %}
 
-## When Wavefront Performs Implicit Series Matching
+## Implicit Series Matching
 
-Wavefront performs series matching implicitly when you apply certain operators and functions to two or more ts() expressions, where each expression  represents two or more unique metric\|source\|point tag value tuples. The following operators and functions automatically perform series matching:
+The query engine performs series matching implicitly when you apply certain operators and functions to two or more ts() expressions, where each expression  represents two or more unique metric\|source\|point tag value tuples. The following operators and functions automatically perform series matching:
 
 - Arithmetic operators (+, -, /, *)
 - Boolean operators (and, or)
@@ -79,7 +77,7 @@ Suppose you enter the following ts() expression:
 ts("stats.servers.MemTotal", tag="dc1") - ts("stats.servers.MemFree", tag="east")
 ```
 
-Wavefront determines which time series match up and subtracts the value for `stats.servers.MemTotal` from `stats.servers.MemFree` for each matching series.
+The query engine determines which time series match up and subtracts the value for `stats.servers.MemTotal` from `stats.servers.MemFree` for each matching series.
 
 Assume that the source tags `dc1` and `east` have three sources that match up (`app-3`, `app-4`, `app-5`), and four sources that don't (`app-1`, `app-2`, `app-6`, `app-7`). As a result, the chart displays only data associated with `app-3`, `app-4`, and `app-5`. The data for `app-1`, `app-2`, `app-6`, and `app-7` are ignored.
 
@@ -119,7 +117,7 @@ For example, if you replaced `tag="east"` with `source="app-4"`, then the value 
 
 ## Series Matching Example
 
-Here's an example where the Wavefront UI displays a message that starts like this:
+Here's an example where you see a message below the query that starts like this:
 ```
 15 series were not included in all queries (showing up to 5):...
 ```
@@ -278,11 +276,11 @@ With this addition, the query returns the following 6 series, joined with the el
 
 ## Processing Output Metadata From a Series Match
 
-If you don't specify an operator in your query, Wavefront automatically flips the query to the side with more dimensions. To achieve many-to-one and one-to-many series matching and specify which side of a query metadata to have in your query results, use the `groupRight` and `groupLeft` operators.
+If you don't specify an operator in your query, the query engine automatically flips the query to the side with more dimensions. To achieve many-to-one and one-to-many series matching and specify which side of a query metadata to have in your query results, use the `groupRight` and `groupLeft` operators.
 
 ### Automatic Query Flip
 
-Unless you use an operator, such as such as `groupRight` and `groupLeft`, Wavefront automatically flips the query to have the more detailed side of the join be the driver. In the example above, that is the `cpu.idle` part of the query.
+Unless you use an operator, such as such as `groupRight` and `groupLeft`, the query engine automatically flips the query to have the more detailed side of the join be the driver. In the example above, that is the `cpu.idle` part of the query.
 
 ### Series Matching with "groupLeft" and "groupRight" Construct
 
