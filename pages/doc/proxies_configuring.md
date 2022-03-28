@@ -1286,6 +1286,10 @@ The example includes
 * One Wavefront instance that's the server associated with the proxy
 * Two additional Wavefront instances, `mytenant_1` and `mytenant_2`, which receive data based on point a point tag.
 
+The example includes 2 parameters that are not directly related to multicasting. The `buffer=` parameter is required only on MacOS. The `deltaCountersAggregationListenerPorts` assumes we want to listen for delta counters.
+
+{% include tip.html content="comments start with a semicolon (`;`) character. "%}
+
 The `multicastingTenants` property tells the proxy how many tenants to expect
 The other properties use `_*number*` as a suffix.
 
@@ -1295,12 +1299,19 @@ server=https://<instance>.wavefront.com/api
 hostname=my_proxy_host
 token=<instance_1_token>
 pushListenerPorts=2878
+
+; Listener ports for delta counter
 deltaCountersAggregationListenerPorts = 12878
 
+; File name prefix to use for buffering transmissions to be retried.
+; Defaults to /var/spool/wavefront-proxy/buffer
+; This is an example config for MacOS user
 buffer=/tmp/wf-proxy-buffer
 
+; Number of multicasting tenants
 multicastingTenants=2
 
+; Multicasting tenants' name/server/token info
 multicastingTenantName_1=mytenant_1
 multicastingServer_1=https://<t1_example>.wavefront.com/api
 multicastingToken_1=<t1_example_token>
@@ -1318,6 +1329,8 @@ pushValidationLevel=NUMERIC_ONLY
 
 idFile=wavefront_test_id
 ```
+
+
 
 With a proxy configuration like that, you can then send data to one or more tenant. Here's how you'd send the datapoint `sample.data` to tenants `mytenant_1` and `mytenant_2`.
 
@@ -1347,7 +1360,7 @@ sample.data 1 multicastingTenantName=mytenant_1,mytenant_1 <timestamp>
 <tr>
 <td>multicastingTenantName_<em>N</em></td>
 <td>Name of the multi-casting tenant. You append a number to this property that corresponds to the tenant, and use the corresponding server and Token to allow the proxy to perform multicasting to that tenant.</td>
-<td>String. NOT a URL. </td>
+<td>String. NOT a URL. Do not use <code>central</code>, which is a reserved string. </td>
 </tr>
 <tr>
 <td>multicastingServer_<em>N</em></td>
