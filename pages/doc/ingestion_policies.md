@@ -59,15 +59,17 @@ In the **Data** panel, specify the user and service accounts or groups and, opti
 
 {% include note.html content="If you didn't choose to set a PPS limit, this step is skipped."%}
 
-If you set a PPS limit for the ingestion policy, Tanzu Observability creates an ingestion policy alert that queries the percentage of the PPS limit used by the accounts assigned to the policy. You specify [thresholds and severities](alerts_manage.html#step-2-specify-thresholds-and-severities), [recipients](alerts_manage.html#step-3-specify-recipients), and a [name](alerts_manage.html#step-5-name-and-activate-the-alert) for the ingestion policy alert.
+If you set a PPS limit for the ingestion policy, Tanzu Observability creates an ingestion policy alert that queries the percentage of the PPS limit used by the accounts assigned to the policy.
 
-1. In the **Conditions** panel, configure the thresholds and severities.
+1. In the **Conditions** panel, configure the [thresholds and severities](alerts_manage.html#step-2-specify-thresholds-and-severities).
    1. Select the comparison operator for the alert condition. In most cases, you alert when the usage is **greater than** a specified threshold percentage of the PPS limit.
    2. For at least one severity, specify a threshold percentage of the PPS limit and click **Next**.
    
        The threshold percentage becomes visible in the ingestion policy alert chart.
-2. In the **Recipients** panel, specify who will receive the alert notifications and click **Next**.
-3. In the **Activate** panel, enter a name for the alert and, optionally, tags and click **Next**.
+       
+       You can skip the other settings.
+2. In the **Recipients** panel, specify [who will receive the alert notifications](alerts_manage.html#step-3-specify-recipients) and click **Next**.
+3. In the **Activate** panel, enter a name for the alert and, optionally, [tags](tags_overview.html#object-tags-tags-on-alerts-dashboards-events-and-sources) and click **Next**.
 
 After you create the ingestion policy, the associated alert is available in the Alerts Browser.
      
