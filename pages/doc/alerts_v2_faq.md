@@ -111,6 +111,6 @@ However, if you use a more complicated condition that returns 0 or 1, the condit
 
 ### My alert fired for a non-zero value, and now it no longer works
 
-With the old alert experience, it was possible to specify a query `ts(...)`. The alert fired for any non-zero value, positive or negative.
+With the old alert experience, it was possible to specify a query `ts(...)`. An alert for this query fired for any non-zero value, positive or negative.
 
-With the new alert experience, you can explicitly specify `ts(...) !=0` to trigger such an alert. 
+With the new alert experience, you can explicitly specify `ts(...) !=0` to trigger such an alert.
