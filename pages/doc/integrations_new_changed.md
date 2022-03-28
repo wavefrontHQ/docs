@@ -8,7 +8,7 @@ summary: New and changed integrations.
 ---
 Tanzu Observability by Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
-<!--## March 2022
+## March 2022
 
 We added the following integrations in March 2022:
 
@@ -36,7 +36,7 @@ We made minor bug fixes and improvements to the following list of integrations:
   * PingOne
   * OpenTelemetry
   
--->
+
 ## February 2022
 
 We added the following integrations in February 2022:
