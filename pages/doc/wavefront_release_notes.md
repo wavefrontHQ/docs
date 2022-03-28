@@ -53,7 +53,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
     </td>
     <td width="50%">
       <strong>Read More:</strong>
-    
+
       <ul>
         <li><a href="optimize_data_shape.html">Optimizing the Data Shape to Improve Performance</a></li>
         <li><a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a></li>
@@ -100,7 +100,6 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
   </tr>
     </tbody>
   </table>
-
 
 ## 2022-09.x Release Notes
 
