@@ -7,7 +7,7 @@ permalink: ingestion_policies.html
 summary: Monitor usage with ingestion policies, usage dashboards, and alerts.
 ---
 
-As a Super Admin user, you're interested in usage patterns for the whole company, but also for different teams in the company. For such cases, Tanzu Observability by Wavefront supports ingestion policies. You can create different ingestion policies and assign accounts or groups to each policy to see which teams use which part of total ingestion.
+As a Super Admin, you’re interested in usage patterns for the whole company, but also for different teams in the company. For examining the usage by teams, Tanzu Observability by Wavefront supports ingestion policies. You can create ingestion policies and assign accounts or groups to each policy to see which teams use what part of the total ingestion.
 
 {% include note.html content="You must be a Super Admin to view the Usage Portal and manage ingestion policies."%}
 >>>>>>> e1f5e36963b6597a91ef880a64ef93d390a1b0f9
