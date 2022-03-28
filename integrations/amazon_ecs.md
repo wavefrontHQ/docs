@@ -92,12 +92,11 @@ You can see the information about the metrics and dimensions which are published
 
 ### Add an Amazon Cloud Integration
 
-Setting up an Amazon cloud integration requires establishing a trust relationship between Amazon and Wavefront.
+Setting up an Amazon cloud integration requires establishing a trust relationship between Amazon and Tanzu Observability by Wavefront. 
 
-You start by granting Wavefront read-only access to your Amazon account or by giving Wavefront limited access.
+You start by granting Tanzu Observability [read-only access to your Amazon account](https://docs.wavefront.com/integrations_aws_overview.html#give-read-only-access-to-your-amazon-account-and-get-the-role-arn) or by giving [limited access](https://docs.wavefront.com/integrations_aws_overview.html#giving-limited-access).
 
-* [Giving Wavefront Global Read-Only Access](https://docs.wavefront.com/integrations_aws_overview.html#give-wavefront-read-only-access-to-your-amazon-account-and-get-the-role-arn)
-* [Giving Wavefront Limited Access](https://docs.wavefront.com/integrations_aws_overview.html#giving-wavefront-limited-access)
+Then, you register the integration by providing the necessary information. See [AWS Integration Overview](https://docs.wavefront.com/integrations_aws_overview.html) for information about setting up and managing the AWS Cloud integration.
 
 
 
@@ -105,14 +104,6 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 <h2>Alerts</h2>  <ul><li markdown="span"><b>EC2 Instance CPU Usage Too High</b>:Alert reports when the EC2 instance CPU utilization constantly exceeds the defined limit.</li><li markdown="span"><b>EC2 Instance Status Check Failed</b>:Alert reports when the EC2 status check constantly fails.</li></ul>
 
-
-
-
-
-
-## Metrics
-
-See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) for Metrics descriptions.
 
 See [Telegraf documentation](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/ecs/README.md) for Metrics.
 

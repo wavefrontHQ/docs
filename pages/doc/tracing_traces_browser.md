@@ -4,10 +4,10 @@ keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: tracing_traces_browser.html
-summary: Explore traces and spans from the Wavefront UI
+summary: Explore traces and spans from the Traces Browser
 ---
 
-In the Traces Browser, you can explore the context and the details of your application's traces.
+The Traces Browser that is part of Tanzu Observability by Wavefront lets you explore the context and the details of your application's traces.
 
 ## Video
 
@@ -20,11 +20,11 @@ This <a href="https://bcove.video/3vaNJM7" target="_blank">video<img src="/image
 See the Traces Browser:
 
 * Option 1:
-  1. In your web browser, go to your Wavefront cluster and log in. 
+  1. In your web browser, go to your Wavefront instance and log in.
   1. From the taskbar, click **Applications** > **Traces**.
-  
+
 * Option 2:
-  1. In your web browser, go to your Wavefront cluster and log in.
+  1. In your web browser, go to your Wavefront instance and log in.
   1. Drill down to the Traces Browser from the Service Dashboard, application map, table view, or grid view.
 
 ![explore trace browser](images/tracing_traces_browser.png)
@@ -49,12 +49,12 @@ From the Traces Browser, you can:
   You can toggle the panel size for the traces list, service map, or trace details.
 * Export traces by clicking <img src="images/tracing_import_traces.png"
 style="vertical-align:text-bottom;width:25px" alt="import tracing icon"/>, save the JSON file, and view them later using [Offline Traces](#view-traces-offline).
-* Easily analyze your traces hierarchy and RED metrics by clicking the expand or restore icon. 
+* Easily analyze your traces hierarchy and RED metrics by clicking the expand or restore icon.
   * Click the expand icon to expand the RED metrics and view them next to the trace list, and click the same icon again to restore to the default view.
     ![partial expand red metrics](images/tracing_ui_partial_expand_red_metrics.png)
   * Click the expand icon to expand the trace hierarchy and view them next to the trace list, and click the same icon again to restore to the default view.
     ![partial expand trace hierachy](images/tracing_ui_partial_expand_trace_hierarchy.png)
-* Use <img src="images/tracing_link_icon.png"
+* Use the link icon <img src="images/tracing_link_icon.png"
 style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link"/> to get a link and share what you’re seeing right now (NON-LIVE display) with other users.
 
 ## Query for a List of Traces
@@ -87,7 +87,7 @@ In the service map panel, you can:
 * Click on a service to display the RED metrics that reflect the health of the service:
   - Request count, error count, and trace duration at the 95th percentile, over all traces (root spans) that originate in the service.
   - Line charts that indicate the general contour of the RED metrics.
-  - [Fine-tune the time window](ui_examine_data.html#fine-tune-the-time-window) of the RED metrics charts, and see [events](events.html). 
+  - [Fine-tune the time window](ui_examine_data.html#fine-tune-the-time-window) of the RED metrics charts, and see [events](events.html).
 * Navigate to the selected service's dashboard for more service details.
 * Scroll the service map to zoom in or out, and re-center the service map.
 * Look for nodes that are grayed out. These represent services that contribute spans to at least one trace in the list, but not to the trace that is currently selected.
@@ -114,7 +114,7 @@ In the trace details panel, you can:
 
 In the trace details panel, you can view details about a particular span in the trace. If that span came from another service, you can navigate to the dashboard for that service.
 
-{% include note.html content="Wavefront can only retrieve up to 1000 spans for a given trace, and you only see up to 1000 spans when you drill down into spans. Therefore, as a best practice and for optimal performance, configure your application to have less than 1000 spans in a trace."%}
+{% include note.html content="The Wavefront service can only retrieve up to 1000 spans for a given trace, and you only see up to 1000 spans when you drill down into spans. Therefore, as a best practice and for optimal performance, configure your application to have less than 1000 spans in a trace."%}
 
 ![trace span details](images/tracing_span_details_with_logs.png)
 

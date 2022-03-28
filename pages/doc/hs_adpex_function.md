@@ -65,7 +65,7 @@ Use the basic or advanced query format.
       Satisfied threshold.
       <ul>
         <li>
-          If you don't specify the value, it uses the value you define under <a href="tracing_apdex.html#configure-the-threshold-t-value">Application Configurations</a> or the default value of 100 microseconds. 
+          If you don't specify the value, it uses the value you define under <a href="tracing_apdex.html#configure-the-threshold-t-value">Application Configurations</a> or the default value of 100 microseconds.
         </li>
         <li>
           If you specify the value, it overrides the value you define under Application Configurations. The values are in microseconds. For example, if you enter 200, it indicates 200 microseconds.
@@ -78,9 +78,9 @@ Use the basic or advanced query format.
       `4T`
     </td>
     <td>
-      Tolerating threshold. If you don't specify the value, Wavefront uses T*4.
+      Tolerating threshold. If you don't specify the value, the Wavefront service uses T*4.
       {{site.data.alerts.note}}
-        Wavefront does not save the value you define for the tolerating threshold (4T).
+        We don't save the value you define for the tolerating threshold (4T).
       {{site.data.alerts.end}}
       The values are in microseconds. For example, if you enter 800, it indicates 800 microseconds.
     </td>
@@ -97,7 +97,7 @@ Use the basic or advanced query format.
 
 ## Description
 
-You can use the basic or advanced `apdex()` function to query the Apdex score. Wavefront derives the Apdex score for each service. Therefore, you must specify the service you want to get the Apdex data.
+You can use the basic or advanced `apdex()` function to query the Apdex score. Tanzu Observability by Wavefront derives the Apdex score for each service. Therefore, you must specify the service you want to get the Apdex data.
 
 The **basic queries** use `hs(tracing.aggregated.derived.*.duration.micros.m)` as the underlying query to get the Apdex scores. See [Aggregated RED Metrics](trace_data_details.html#aggregated-red-metrics). Basic queries only give you the Apdex score for a given service. Therefore, you need to specify the application and service filters.
 
@@ -116,7 +116,7 @@ Here's how you can use these queries:
     ```
     ![The screenshot shows the above query and the chart that is generated for it.](images/tracing_apdex_basic_query.png)
 
-* Use an advanced query to return the Apdex score of all the services that send data to Wavefront every 30 minutes.
+* Use an advanced query to return the Apdex score of all the services that send data to the Wavefront service every 30 minutes.
     <pre>
 apdex(align(30m, merge(hs(tracing.aggregated.derived.*.duration.micros.m), application, service)))
     </pre>
@@ -129,7 +129,7 @@ apdex(align(1vw, merge(hs(tracing.aggregated.derived.*.m, application=beachshirt
 
     ![The screenshot shows the above query and the chart that is generated for it.](images/tracing_apdex_advanced_guage_chart.png)
 
-    Wavefront rounds the Apdex score to 2 decimal points so that it is easy for you to [interpret the score](tracing_apdex.html#interpreting-the-apdex-score). You need to update the gauge chart settings to get the color to value mapping and round the value to 2 decimal points.
+    The Wavefront service rounds the Apdex score to 2 decimal points so that it is easy for you to [interpret the score](tracing_apdex.html#interpreting-the-apdex-score). You need to update the gauge chart settings to get the color to value mapping and round the value to 2 decimal points.
 
     ![The screenshot shows how you need to configure the format tab of the gauge chart. You need se the decimal points to 2, set the min as 0 and max as 1, and then define the colors for the Apdex range.](images/tracing_apdex_advanced_gauge_cahrt_format_tab.png)
 

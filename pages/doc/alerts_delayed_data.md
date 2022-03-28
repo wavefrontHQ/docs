@@ -58,7 +58,7 @@ If an alert has fired when you didn't expect it, use one of these approaches to 
 Option 1: Examine the chart:
 
 1. On the chart associated with the alert, select a 10 minute live window by zooming in.
-2. Check if the points in the chart arrive a few minutes <i>after</i> the current timestamp. If they do, a data delay is affecting your alert. 
+2. Check if the points in the chart arrive a few minutes <i>after</i> the current timestamp. If they do, a data delay is affecting your alert.
 
 Option 2: Examine an alert notification:
 
@@ -93,7 +93,7 @@ You can use the [`lag()`](ts_lag.html) function in an alert condition to shift t
 
 **Example**
 
-Suppose you want to monitor the number of requests per second, and these requests are sharded across 10 machines. Each machine should be running about 150 requests/second, so the total should add up to more than 1000. You'd like to know if the total drops below 1000 for 2 minutes, so you set **Alert fires** to 2.
+Suppose you want to monitor the number of requests per second, and these requests are sharded across 10 machines. Each machine should be running about 150 requests/second, so the total should add up to more than 1000. You'd like to know if the total drops below 1000 for 2 minutes, so you set **Trigger Window** to 2.
 
 The following alert condition compares the current request count to 1000:
 
@@ -115,16 +115,16 @@ By setting the lag time to `15m`, you tell the alert condition to return data va
 
 ### Lengthen the Alert Check Time Window
 
-You can increase the **Alert fires** or **Alert resolves** time window so that the window is longer than the usual data delay. This allows the alert checker to consider data values that are old enough to include backfilled data. A good estimate is:
+You can increase the **Trigger Window** or **Resolve Window** so that the windows is longer than the default. This allows the alert checker to consider data values that are old enough to include backfilled data. A good estimate is:
 ```  (Number of minutes in delay) + (Number of minutes you want to test) ```
 
 **Example**
 
-Suppose you want to monitor the number of requests per second sharded across 10 machines. You'd like to know if the total number of requests drops below 1000 for 2 minutes. If all series report on time, you can set **Alert fires** to 2.
+Suppose you want to monitor the number of requests per second sharded across 10 machines. You'd like to know if the total number of requests drops below 1000 for 2 minutes. If all series report on time, you can set **Trigger Window** to 2.
 
-Now suppose you know that the series on all 10 machines experience a predictable 15-minute reporting delay. If **Alert fires** is 2, the alert will never fire, because the alert check time window will always contain NO DATA, which is neither true nor false.
+Now suppose you know that the series on all 10 machines experience a predictable 15-minute reporting delay. If **Trigger Window** is 2, the alert will never fire, because the alert check time window will always contain NO DATA, which is neither true nor false.
 
-The solution is to increase the **Alert fires** window to 15 + 2 = 17 minutes. The oldest 2 minutes in the alert check time window will have actual data values backfilled. If both of those minutes have a summarization point < 1000, the alert fires.
+The solution is to increase the **Trigger Window** window to 15 + 2 = 17 minutes. The oldest 2 minutes in the alert check time window will have actual data values backfilled. If both of those minutes have a summarization point < 1000, the alert fires.
 
 ## How Data Delays Affect Alerts
 
@@ -146,4 +146,4 @@ A data delay can change the set of data values that the alert checking process b
 For example, suppose you want your alert to fire 1 true value followed by a predictable 15-minute reporting delay. You can
 
 This setting depends on how often data points arrive, and it accounts for any delays in the application metrics delivery pipeline.
-Changing **Alert fires** can compensate for external delays of metrics. --->
+Changing **Trigger Window** can compensate for external delays of metrics. --->
