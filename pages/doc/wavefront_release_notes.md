@@ -39,8 +39,6 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 We have now made [monitoring](examine_usage.html) of the ingested PPS much easier. As a Wavefront Super Admin, you can track and monitor how ingested data is used, whether you will be billed for more data, and whether you will need to request more data. You can also create [ingestion policies](ingestion_policies.html) and monitor how different accounts contribute to the PPS usage.
 
-{% include note.html content="The new Usage Portal and Ingestion Policy functionality is currently available to some of our customers. It will become available to all customers within the next releases."%}
-
 ![Example of the Usage Summary dashboard.](images/usage_overview.png)
 
 
