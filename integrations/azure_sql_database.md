@@ -72,6 +72,8 @@ Adding a Microsoft Azure cloud integration requires establishing a trust relatio
 * Creating an Azure Active Directory application that represents Tanzu Observability inside Azure and getting the Application ID.
 * Creating a secret key and getting the Application secret.
 
+To register a Microsoft Azure Cloud Integration:
+
 1. In the **Name** text box, enter a meaningful name.
 2. In the **Directory ID** text box, enter your Microsoft Azure Directory ID.
 3. In the **Application ID** text box, enter the Azure Active Directory Application (client) ID.

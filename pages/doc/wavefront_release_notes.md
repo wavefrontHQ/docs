@@ -48,6 +48,16 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
   </tr>
   <tr>
     <td width="50%">
+      <strong>New integrations</strong>:
+      <ul><li>
+      We just released several new integrations and integrations dashboards including a VMware Blockchain integration and a Control Plane dashboard for the Kubernetes integration. See the <a href="integrations_new_changed.html#march-2022">Integrations Release Notes</a> for details.</li></ul>
+      </td>
+    <td width="50%">
+    <br/><img src="/images/kubernetes_control_plane.png" alt="The new alerting menu on the toolbar.">
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
       <strong>Documentation Improvements</strong>:<p>
       We updated the doc set with information that comes from the Tanzu Observability SaaS Value Engineering team. Some information was added, some new doc pages are listed on the right.</p>
     </td>
