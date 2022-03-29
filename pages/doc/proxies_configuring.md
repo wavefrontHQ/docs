@@ -1278,6 +1278,12 @@ Starting with Proxy version 11, you can configure your proxy to support a multic
   - Perform multicasting for data points (metrics, delta counters, histograms, and spans).
   - Handle pushback and local data spooling for each multicasting Wavefront instance.
 
+In the diagram below, we send 2 data points to the central proxy. Each has a value for multicastingTenantName.
+* The data point that is tagged with multicastingTenantName=mytenant_1 is sent to both the central proxy and tenant_1.
+* The data point that is tagged with multicastingTenantName=mytenant_2 is sent to both the central proxy and tenant_2.
+
+![](images/proxies_multicasting.png)
+
 ### Sample Configuration
 
 Here's a sample configuration, followed by a brief discussion of the different config properties.
@@ -1334,11 +1340,11 @@ idFile=wavefront_test_id
 
 With a proxy configuration like that, you can then send data to one or more tenant. Here's how you'd send the datapoint `sample.data` to tenants `mytenant_1` and `mytenant_2`.
 
-RK>> what's the 1?
-RK>>Do we need an example that goes through the proxy? I'm assuming for that example you'd send it to that third tenant (server in the config example above)
+{% include tip.html content="The point tag is `multicastingTenantName`. In contrast, the proxy configuration property, includes a tenant number (multicastingTenantName_*N*).  "%}
+
 
 ```
-sample.data 1 multicastingTenantName=mytenant_1,mytenant_1 <timestamp>
+sample.data 1 multicastingTenantName=mytenant_1,mytenant_2 <timestamp>
 ```
 
 ### Multi-Tenant Setup Configuration Properties
