@@ -23,7 +23,7 @@ Tanzu Observability functions properly and alerts fire. However, the defined web
 
 ## Steps for Troubleshooting
 
-1. From the toolbar, click **Browse** > **Alert Targets** and navigate to the alert target.
+1. From the toolbar, click **Alerting** > **Alert Targets** and navigate to the alert target.
 2. Click the ellipsis icon and select **Edit**.
 3. Verify that the **Alert Firing**, **Alert Status Updated**, and **Alert Resolved** check boxes are selected.
 
@@ -41,23 +41,24 @@ Tanzu Observability functions properly and alerts fire. However, the defined web
    
 6. Check whether the mustache template is catching every scenario. 
 
-    There might be a case in which only one of the properties: `failingAlertSeries`, `newlyFailingAlertSeries` or `recoveredAlertSeries`, is set in the template.
+    There might be a case in which only one of the properties: `failingAlertSeries`, `newlyFailingAlertSeries`, or `recoveredAlertSeries`, is set in the template.
 
     Make sure that all the necessary fields are added and validate the notifications with [webhook](https://webhook.site/). 
 
-    See the template format in [Customizing Alert Notifications](alert_target_customizing.html)
+    See the template format in [Customizing Alert Notifications](alert_target_customizing.html).
     
 
-7. Make sure the **Content Type** is set to **application/json**.
+7. Change back the **Type** to **Webhook**, and make sure the **Content Type** is set to **application/json**.
 
 8. Verify that the included custom authorization headers are configured properly. 
 
    The {secret_value} is an obfuscation and should not be directly copied to the new target.
 
 9. From the toolbar, click **Browse** > **Event**. 
+
 10. Browse through the events to see if there's an event that can be related to the BigPanda alert failures. 
 
-   The event description would provide an idea of what could have gone wrong. 
+    The event description would provide an idea of what could have gone wrong. 
    
 Another frequent issue is when an alert that fired and resolved within Tanzu Observability, appears in BigPanda, but does not resolve. This can be an issue because your external alert target workflows might be dependent on alert resolving notifications. The reason for notifications being missed or alerts not resolving in BigPanda is due to these specific alerts being edited within Tanzu Observability while firing. We're working on improvements for that.
 
