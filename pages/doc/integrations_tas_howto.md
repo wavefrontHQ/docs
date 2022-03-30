@@ -167,4 +167,18 @@ RK>> screenshot here??
 
 ## TAS to TObs FAQ
 
-RK>>Add here the items listed in Muhammed's doc!  
+In this section, we have some answers to frequently asked questions.
+
+### How can I change the scrape interval?
+
+By default, the scrape interval is set to 15 seconds. You can set up your environment to check more frequently by using the **Scrape Interval (seconds)** field in the **Telegraf Agent Config** section.
+
+### How can I send TAS data via a proxy that is deployed outside the tile?
+
+Some customers have a central monitoring/observability team that requires that all data to be sent via a specific set of production proxies. Those proxies are used to filter or alter data before they are sent to the Wavefront service.
+
+You can set up your environment to use production proxies as follows:
+1. Click **Telegraf Agent Config**.
+2. In **Advanced Options**, select **Yes**.
+3. In the Custom Proxy URL field, provide a proxy URL or IP in the Custom Proxy URL (This could also be load balancer URL if external proxies are behind load balancer)
+- Provide proxy port in Proxy Port (Default is 2878)
