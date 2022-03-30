@@ -171,14 +171,40 @@ In this section, we have some answers to frequently asked questions.
 
 ### How can I change the scrape interval?
 
-By default, the scrape interval is set to 15 seconds. You can set up your environment to check more frequently by using the **Scrape Interval (seconds)** field in the **Telegraf Agent Config** section.
+By default, the scrape interval is set to 15 seconds, but you can set up your environment to check more frequently:
+1. In OpsManager, click **Telegraf Agent Config**.
+2. Set the **Scrape Interval (seconds)** field and click **Save**.
 
 ### How can I send TAS data via a proxy that is deployed outside the tile?
 
 Some customers have a central monitoring/observability team that requires that all data to be sent via a specific set of production proxies. Those proxies are used to filter or alter data before they are sent to the Wavefront service.
 
 You can set up your environment to use production proxies as follows:
-1. Click **Telegraf Agent Config**.
+1. In Ops Manager, click **Telegraf Agent Config**.
 2. In **Advanced Options**, select **Yes**.
-3. In the Custom Proxy URL field, provide a proxy URL or IP in the Custom Proxy URL (This could also be load balancer URL if external proxies are behind load balancer)
-- Provide proxy port in Proxy Port (Default is 2878)
+3. In the Custom Proxy URL field, provide a proxy URL or IP in the Custom Proxy URL (This could also be load balancer URL if the external proxies are behind a load balancer)
+4. (Optional) In the **Proxy Port** field, provide a custom proxy port (Default is 2878).
+5. Click **Save**
+
+### How can I customize metrics ingestion?
+
+If you don't want to monitor some of your TAS platform metrics, you can choose not to send them. If those metrics are monitored with any out-of-the-box or custom dashboards or alert, they show up as No Data.
+
+For example, if you don’t want to ingest certificate expiration metrics, then you can remove the VM instance that is assigned to the Cert Expiration Exporter by default. All the metrics that this exporter scrapes will not get ingested.
+1. In Ops Manager, click **Resource Config**.
+2. Find the exporter for which you don't want to emit metrics, set it to 0, and click **Save**. The screenshot below shows how to do this.
+
+![Cert Expiration Exporter is in process of being changed from Automatic to 0](images/tas_to_resource_config.png)
+
+### How can I customize proxy behavior?
+
+The Wavefront proxy allows you to control many aspects of your ingestion pipeline with configuration properties and preprocessor rules.
+- **Configuration file**: The proxy processes data according to a configuration file. You can modify configuration properties -- for example, to create `block` list and `allow` list regex patterns, specify information about certain data formats, and much more. See [Configuring Wavefront Proxies](proxies_configuring.html).
+- **Preprocessor Rules**: Starting with proxy version 4.1, the Wavefront proxy includes a preprocessor that applies user-defined rules before data is sent to the Wavefront service. You can use preprocessor rules to correct certain data quality issues when you can't fix the problem at the emitting source. See [Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules.html).
+
+You can specify custom elements as follows:
+1. In OpsManager, click **Wavefront Proxy Config**
+2. Click **Wavefront Proxy Config**, and then click **Custom**.
+3. Make your changes and click **Save**
+
+RK>>Screenshot here when I know how.
