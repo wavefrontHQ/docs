@@ -1268,6 +1268,7 @@ For either method, the service must return a 2xx code for valid tokens. Accordin
 </tbody>
 </table>
 
+<!---
 ## Proxy Configuration for Multicasting Environments
 
 Starting with Proxy version 11, you can configure your proxy to support a multicasting environment.
@@ -1386,7 +1387,7 @@ sample.data 1 multicastingTenantName=mytenant_1,mytenant_2 <timestamp>
 <tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>
-
+--->
 
 
 ## Troubleshooting

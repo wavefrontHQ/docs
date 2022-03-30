@@ -71,6 +71,7 @@ To enable fault tolerance and higher data rates, production environments typical
 
 {% include note.html content="In environments with more than one proxy, each proxy must have a unique name." %}
 
+<!---
 ### Proxies in a Multi-Tenant Environment
 
 Starting with Proxy version 11, you can configure your proxies to work seamlessly in a multi-tenant environment.
@@ -80,6 +81,8 @@ Starting with Proxy version 11, you can configure your proxies to work seamlessl
   - Register itself to multiple Wavefront instances.
   - Perform multicasting for data points (metrics, delta counters, histograms, and spans).
   - Handle pushback and local data spooling for each multicasting Wavefront instance.
+
+--->
 
 
 ## Proxy Configuration
