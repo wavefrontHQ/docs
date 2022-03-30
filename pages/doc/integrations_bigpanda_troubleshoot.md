@@ -1,14 +1,13 @@
 ---
-title: Troubleshooting Alert Notifications from Tanzu Observability to BigPanda Webhook Targets
+title: Troubleshooting Alert Notifications to BigPanda Webhook Targets
 keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_bigpanda_troubleshooting.html
-summary: Investigate and troubleshoot the different alerting error scenarios and modify them with all the remediation steps.
+summary: Investigate, troubleshoot, and remediate issues with BigPanda Webhook targets.
 ---
 
-In some cases, Tanzu Observability by Wavefront alert payloads are not being received at the BigPanda integration side. BigPanda notifications may also appear as if they've been snoozed allowing for outages to not be properly alerted upon.
-
+BigPanda is an algorithmic event and alert management platform. This integration allows you to create BigPanda tickets from triggered alerts in Tanzu Observability by Wavefront. Tanzu Observability and BigPanda both support webhooks, so you can configure an incoming webhook in BigPanda and an outgoing webhook in Tanzu Observability to pass notifications from Tanzu Observability alerts into BigPanda. 
 
 ## BigPanda Integration Configuration 
 
@@ -16,34 +15,52 @@ Typically, alert targets are configured to use webhooks. A common use case is wh
 
 For information about setting up the BigPanda integration, see [BigPanda setup](https://docs.wavefront.com/bigpanda.html).
 
-## Problem
+## Problems
 
-Tanzu Observability functions properly and alerts fire. However, the defined webhook target does not alert in conjunction with Tanzu Observability, as needed. This is a problem, because we can have dependencies and workflows outside of Tanzu Observability that we rely upon for other functions such as notifications.
+In some cases, Tanzu Observability functions properly and alerts fire. Issues that you might observe:
+
+* The BigPanda integration doesn’t receive Tanzu Observability by Wavefront alert payloads.
+* BigPanda notifications appear as if they’ve been snoozed, and outages are not properly alerted upon.
+	
+This is a problem, because you might have dependencies and workflows outside that rely on those  notifications.
 
 
 ## Steps for Troubleshooting
 
+To troubleshoot issues with notifications, you have to ensure that: 
+
+* The alert fires under the correct circumstances.
+* The Webhook template catches all problems. 
+
+Follow these steps:
+
 1. From the toolbar, click **Alerting** > **Alert Targets** and navigate to the alert target.
 2. Click the ellipsis icon and select **Edit**.
-3. Verify that the **Alert Firing**, **Alert Status Updated**, and **Alert Resolved** check boxes are selected.
-
-   ![A screenshot of an alert target with the Alert Firing, Alert Status Updated, and Alert Resolved options selected as Triggers](images/troubleshoot-bigpanda-alerts.png)
+3. Check that the correct triggers are selected: 
    
-4. You can also verify that other options are set as per your target trigger scenario. [Read more](webhooks_alert_notification.html#create-a-custom-alert-target).
+   1. Verify that the **Alert Firing**, **Alert Status Updated**, and **Alert Resolved** check boxes are selected.
 
-5. From the **Type** drop-down menu select **Email**.
+      ![A screenshot of an alert target with the Alert Firing, Alert Status Updated, and Alert Resolved options selected as Triggers](images/troubleshoot-bigpanda-alerts.png)
    
-   You'll see the exact data that is being sent in the Body Template section 
+    2. If you have a custom trigger scenario, verify that those options are set. [Read more](webhooks_alert_notification.html#create-a-custom-alert-target).
 
-   The [webhook](https://webhook.site/) is a testing site for troubleshooting webhooks and the mustache template as you can see in real time what is coming in with your alert target notifications.
+4. Check whether the correct data is selected.
 
-   You may also consider creating a new alert with the same template as in the problematic alert to test it with webhook, and get more visibility into what is happening for debugging purposes. 
+   * From the **Type** drop-down menu select **Email**.
+   
+     You'll see the exact data that is being sent in the Body Template section 
+
+5. Debug the alert target:
+
+   * Use the [webhook](https://webhook.site/) testing site for troubleshooting webhooks and the mustache template. You can see in real time what is coming in with your alert target notifications.
+
+   * Consider creating a new alert with the same template as in the problematic alert to test it with webhook, and get more visibility into what is happening for debugging purposes. 
    
 6. Check whether the mustache template is catching every scenario. 
 
-    There might be a case in which only one of the properties: `failingAlertSeries`, `newlyFailingAlertSeries`, or `recoveredAlertSeries`, is set in the template.
+    * Ensure that all of the properties: `failingAlertSeries`, `newlyFailingAlertSeries`, or `recoveredAlertSeries`, are set in the template.
 
-    Make sure that all the necessary fields are added and validate the notifications with [webhook](https://webhook.site/). 
+    * Ensure that all the necessary fields are added and validate the notifications with [webhook](https://webhook.site/). 
 
     See the template format in [Customizing Alert Notifications](alert_target_customizing.html).
     
@@ -53,13 +70,15 @@ Tanzu Observability functions properly and alerts fire. However, the defined web
 8. Verify that the included custom authorization headers are configured properly. 
 
    The {secret_value} is an obfuscation and should not be directly copied to the new target.
-
-9. From the toolbar, click **Browse** > **Event**. 
-
-10. Browse through the events to see if there's an event that can be related to the BigPanda alert failures. 
-
-    The event description would provide an idea of what could have gone wrong. 
+   `Margarita: we need an example here.`
    
-Another frequent issue is when an alert that fired and resolved within Tanzu Observability, appears in BigPanda, but does not resolve. This can be an issue because your external alert target workflows might be dependent on alert resolving notifications. The reason for notifications being missed or alerts not resolving in BigPanda is due to these specific alerts being edited within Tanzu Observability while firing. We're working on improvements for that.
+9. Look for alert failure events.
+   
+   1. From the toolbar, click **Browse** > **Events**. 
+
+   2. Look for an event that might be related to the BigPanda alert failures. 
+
+    The event description might indicate what could have gone wrong. 
+   
 
 If the above steps and recommendations don't help and the issue persists, please consider contacting BigPanda to validate if they are receiving the payload and whether it hasn't been suppressed by their team, or [engage the Tanzu Observability Support team](https://docs.wavefront.com/wavefront_support_feedback.html).
