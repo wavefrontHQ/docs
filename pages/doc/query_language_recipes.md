@@ -1,5 +1,5 @@
 ---
-title: Query Language Recipes
+title: Query Language Best Practices
 keywords: query language
 tags: [query language, best practice]
 sidebar: doc_sidebar
@@ -11,7 +11,6 @@ Our Customer Success team has found that customers often want certain informatio
 We have a separate set of [Alert Recipes](alerts_recipes.html) but you can use many of queries in the recipes here in alerts.
 
 {% include note.html content="For improved legibility, we've included line breaks in some of the examples."%}
-
 
 ## Queries for Counting
 
@@ -261,3 +260,7 @@ See [Point Tags in Queries](query_language_point_tags.html) for details.
 ## How to Account for Known Downtimes or Events in Uptime Queries
 
 There are times when there are known and expected downtime periods such as maintenance or testing windows. Our Customer Success team created [this KB article](https://help.wavefront.com/hc/en-us/articles/360058534192-How-to-Account-for-Known-Downtimes-or-Events-in-Uptime-Queries), which discusses one of the ways to approach this.
+
+## Using exists() With Nested If/Else Statements
+
+With nested if/else statements, the `exists()` function sometimes exhibits unexpected behavior because of series matching. See [Using exists with Nested If/Else Statements](using-exists-with-nested-ifelse-statements) for an example and a workaround. 

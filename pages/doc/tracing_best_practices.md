@@ -298,3 +298,7 @@ public class Tier2aEndpoint {
   }
 }
 ```
+
+## Learn More!
+
+[Optimizing the Data Shape to Improve Performance](optimize_data_shape.html) has a focus on time series metrics but some of the guidance applies to trace data as well. 
