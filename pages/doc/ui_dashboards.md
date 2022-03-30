@@ -458,7 +458,10 @@ The Wavefront service can ingest and process very large amounts of data. Here's 
 
 ### Watch for Cardinality Issues
 
-Ensure your data shape works well. Ingest only time series you need -- and then look only at those data you’re interested in. See [Cardinality and Wavefront](cardinality.html) for some background and a video.
+Ensure your data shape works well. Ingest only time series you need -- and then look only at those data you’re interested in.
+
+* See [Cardinality and Wavefront](cardinality.html) for some background and a video.
+* See [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html) for an in-depth discussion with examples. 
 
 ### Optimize Query Performance
 

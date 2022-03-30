@@ -27,8 +27,8 @@ Allows you to tell the Wavefront service to use conservative targets for schedul
 
 ## Description
 
-Wrapping any query expression in `bestEffort()` tells Wavefront to use conservative targets for scheduling workloads. That means we limit thread use and asynchronous operations.
+Wrapping any query expression in `bestEffort()` tells the query engine to use conservative targets for scheduling workloads. That means we limit thread use and asynchronous operations.
 
-This function is associated with the Batch Query Priority permission. When an account with that permission runs queries, then Wavefront treats each of those queries that is run by that account as if it is wrapped in `bestEffort()`.
+This function is associated with the **Batch Query Priority** permission. When an account with that permission runs queries, then the query engine treats each of those queries that is run by that account as if it is wrapped in `bestEffort()`.
 
-For example, use the new permission if you’ve specified a reporter account that performs Wavefront reporting queries. By giving the reporter account the Batch Query Priority permission, you can ensure that the lower priority reporting queries don’t interfere with higher priority queries such as alerts or interactive user queries.
+For example, use the new permission if you’ve specified a reporter account that performs reporting queries in the background. By giving the reporter account the Batch Query Priority permission, you can ensure that the lower priority reporting queries don’t interfere with higher priority queries such as alerts or interactive user queries.
