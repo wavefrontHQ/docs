@@ -4,10 +4,10 @@ keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: tracing_ui_overview.html
-summary: Get an overview of the services and applications that send data to Wavefront.
+summary: Overview of services and applications that send data to Tanzu Observability by Wavefront.
 ---
 
-It is important to get an overview of the services and applications that send data to Wavefront, understand the health of each service, and troubleshoot when your applications or services run into issues. You can get an overview and see the overall health of each application using the application map, table view, and grid view.
+As part of troubleshooting an application, you need an overview of the services and applications that send data to Tanzu Observability by Wavefront. Use our application map to understand the health of each service, and troubleshoot when your applications or services run into issues. You can see the overall health of each application using the application map, table view, and grid view.
 
 <a name="app_map"></a>
 
@@ -20,7 +20,7 @@ This <a href="https://bcove.video/3oDxXaa" target="_blank">video<img src="/image
 <iframe src="https://bcove.video/3oDxXaa" width="700" height="400" allowfullscreen="true" alt="Wavefront intro how-to"></iframe>
 
 See the application map:
-1. In your web browser, go to your Wavefront cluster and log in.
+1. In your web browser, go to your Wavefront instance and log in.
 1. From the taskbar, click **Applications** > **Application Status** and select the Application Map icon ( <img src="images/tracing_appmap_appmap_view_icon.png"
 style="vertical-align:text-bottom;width:28px" alt="icon to click to get the application map view"/> )
 1. Optionally, use <img src="images/tracing_link_icon.png"
@@ -171,7 +171,7 @@ Let's walk through the following scenario to get a quick overview of the applica
 View the list of applications and services. You can see the Request, Error, and Duration (RED) metrics at a glance and sort the data.
 
 See the table view:
-1. In your web browser, go to your Wavefront cluster and log in.
+1. In your web browser, go to your Wavefront instance and log in.
 1. From the taskbar, click **Applications** > **Application Status** and select the Table View icon ( <img src="images/tracing_appmap_table_view_icon.png"
 style="vertical-align:text-bottom;width:28px" alt="icon to click to get the table view"/> )
 
@@ -350,7 +350,7 @@ Using the table view, you can:
 When you select an application, you get an overview of its services.
 
 See the grid view:
-1. In your web browser, go to your Wavefront cluster and log in.
+1. In your web browser, go to your Wavefront instance and log in.
 1. From the taskbar, click **Applications** > **Application Status** and select the Grid View icon ( <img src="images/tracing_appmap_grid_view_icon.png"
 style="vertical-align:text-bottom;width:28px" alt="icon to click to get the table view"/> )
 
@@ -414,7 +414,7 @@ On the page for a particular application, you can:
 
 ## Create Alerts
 
-With Wavefront, you can [create smart alerts](alerts.html#how-alerts-work-video) that filter noise and capture true anomalies. You can:
+[Our smart alerts](alerts.html#how-alerts-work-video) capture true anomalies and filter noise. You can:
 
 * Specify one or more alert targets that receive the alert notification(s).
 * Create a multi-threshold alert to notify different targets depending on alert severity.
@@ -465,4 +465,4 @@ Create an alert from the application status page:
 <!---
   ![Create an alert from the table view page.](images/tracing_creating_an_alert_app_map.png)--->
 
-Once the alert is created, click **Alerting** and search for the alert you created .
+Once the alert is created, click **Alerting > All Alerts** and search for the alert you created .

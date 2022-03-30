@@ -4,14 +4,19 @@ keywords:
 tags: [proxies]
 sidebar: doc_sidebar
 permalink: proxies_preprocessor_rules.html
-summary: Learn how to configure Wavefront proxy preprocessor rules.
+summary: Learn how to write proxy preprocessor rules.
 ---
-The Wavefront proxy includes a preprocessor that applies rules before data is sent to Wavefront. The rules make it possible to address data quality issues in the data flow when it's not possible to fix the problem at the source. For example, you could have a rule "before the point line is parsed, replace invalid characters with underscores" to allow points that would be rejected to get to the Wavefront service.
 
-We support:
+For fine-grained control before data are sent to the Wavefront service, Tanzu Observability by Wavefront supports:
 
 * Point filtering and point altering rules
 * Span filtering and span altering rules
+
+This page explains how to write these preprocessor rules, and includes many examples.
+
+## Overview
+
+The Wavefront proxy includes a preprocessor that applies rules before data is sent to Wavefront. The rules make it possible to address data quality issues in the data flow when it's not possible to fix the problem at the source. For example, you could have a rule "before the point line is parsed, replace invalid characters with underscores" to allow points that would be rejected to get to the Wavefront service.
 
 You can limit when a rule applies using the `if` parameter (proxy 7.0 and later). See [Preprocessor Rule Conditions](proxies_preprocessor_rule_conditions.html) for details.
 
@@ -70,7 +75,7 @@ Additional parameters depend on the rule that you're defining, for example, an `
 
 ### Regex Notes
 
-Wavefront uses Java-style regex pattern. For details see [the Java documentation](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html).
+The Wavefront proxy uses Java-style regex pattern. For details see [the Java documentation](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html).
 
 -   Backslashes in regex patterns must be double-escaped. For example, to match a dot character ("."), use `\\.`.
 -   Regex patterns in the `match` parameter are a full match. For example, a regex to block the point line that contains `stage` substring is `.*stage.*`.
@@ -123,7 +128,7 @@ For earlier versions of the proxy, you have to [restart the proxy](proxies_insta
 
 ### Interactive Testing of Preprocessor Rules
 
-You can test a preprocessor rule before sending data to Wavefront using `-testPreprocessorForPort <port>`.
+You can test a preprocessor rule before sending data to the Wavefront service using `-testPreprocessorForPort <port>`.
 
 How you run the proxy in test mode depends on whether you're using the JVM bundled with the Wavefront proxy. In that case, if the proxy installer detects that java v8, 9, 10 or, 11 already exists in the users path that version of Java is used.
 
@@ -172,7 +177,7 @@ Defines a regex that points must match to be filtered out.
 <td>scope</td>
 <td>Any of the following:
 <ul>
-<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only). </li>
+<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront and Graphite data formats only). </li>
 <li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
 <li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
 <li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point tag key after the point is parsed.</li>
@@ -295,7 +300,7 @@ Replaces arbitrary text in the point line or any of its components:
 <td>scope</td>
 <td>Any of the following:
 <ul>
-<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only). </li>
+<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront and Graphite data formats only). </li>
 <li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
 <li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
 <li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point tag key after the point is parsed.</li>
@@ -472,7 +477,7 @@ extractTagIfNotExists</td>
 <td>source</td>
 <td>Any of the following:
 <ul>
-<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only). </li>
+<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront and Graphite data formats only). </li>
 <li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
 <li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
 <li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point tag key after the point is parsed.</li>
@@ -593,7 +598,7 @@ Converts metric name, source name, or point tag value to lowercase.
 <td>scope</td>
 <td>Any of the following:
 <ul>
-<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only). </li>
+<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront data and Graphite formats only). </li>
 <li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
 <li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
 <li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point tag key after the point is parsed.</li>
@@ -643,7 +648,7 @@ Enforces string length limits for a metric name, source name, or point tag value
 <td>scope</td>
 <td>Any of the following:
 <ul>
-<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only). </li>
+<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront data and Graphite formats only). </li>
 <li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
 <li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
 <li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point tag key after the point is parsed.</li>
@@ -683,7 +688,7 @@ Enforces string length limits for a metric name, source name, or point tag value
     match         : "^metric.*"
 ```
 
-The following example illustrates using a limitLength for a point tag. However, you must consider that the Wavefront default limit applies to the **combination** of key=value. That means even if you set the maxLength to 235, and if the point tag key has 235 characters, the service might reject what the proxy is sending if the point tag value has 22 characters (235 + 22 = 257).
+The following example illustrates using a limitLength for a point tag. However, the default limit applies to the **combination** of key=value. That means even if you set `maxLength` to 235, and if the point tag key has 235 characters, the service might reject what the proxy is sending if the point tag value has 22 characters (235 + 22 = 257).
 
 ```yaml
   # Make sure that the limit that you are setting is not higher

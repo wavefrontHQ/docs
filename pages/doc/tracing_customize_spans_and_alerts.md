@@ -7,7 +7,7 @@ permalink: tracing_customize_spans_and_alerts.html
 summary: Customize span level tags and alerts for RED metrics
 ---
 
-Wavefront derives RED metrics for spans that have the `application`, `service`, `cluster`, `shard`, `component`, or `operationName` span tags by default. See [Indexed and Unindexed Span Tags](trace_data_details.html#indexed-and-unindexed-span-tags) for details. If you want to filter RED metrics data using a span tag that is not a default span tag, you need to propagate it as a custom span tag to the RED metrics.
+Tanzu Observablity by Wavefront derives RED metrics for spans that have the `application`, `service`, `cluster`, `shard`, `component`, or `operationName` span tags by default. See [Indexed and Unindexed Span Tags](trace_data_details.html#indexed-and-unindexed-span-tags) for details. If you want to filter RED metrics data using a span tag that is not a default span tag, you need to propagate it as a custom span tag to the RED metrics.
 
 The following custom span tags are supported by default.
 
@@ -32,7 +32,7 @@ The following custom span tags are supported by default.
 </tbody>
 </table>
 
-Follow the steps given below to propagate custom span tags when sending data from your application. Once the data is in Wavefront, you can use queries to create custom dashboards that help you filter and view the information you need. Let's look at a sample scenario that adds a custom span tag where you can compare the data in the production and staging environments.
+Follow the steps given below to propagate custom span tags when sending data from your application. Once the data is ingested, you can use queries to create custom dashboards that help you filter and view the information you need. Let's look at a sample scenario that adds a custom span tag where you can compare the data in the production and staging environments.
 
 1. Create a custom span-level tag. Assume you have a span that has the `env=` span tag.
 
@@ -47,7 +47,7 @@ Follow the steps given below to propagate custom span tags when sending data fro
         </li>
       </ul>
       A tag with low cardinality has comparatively few unique values that are assigned to it.
-    
+
     {{site.data.alerts.end}}
 
     <ul id="profileTabs" class="nav nav-tabs">
@@ -66,13 +66,13 @@ Follow the steps given below to propagate custom span tags when sending data fro
 wfTracerBuilder.redMetricsCustomTagKeys(new HashSet&lt;String&gt;(Arrays.asList("env")));</pre>
             <p>See the specific GitHub repository for language-specific examples on how to configure your application with the Wavefront OpenTracing SDK.</p>
         </div>
-        
+
         <div role="tabpanel" class="tab-pane" id="openTelemetry">
             <p>OpenTelemetry is still at its early stage. Contact <a href="wavefront_support_feedback.html#support">Wavefront Technical Support</a> for help.</p>
         </div>
-        
+
         <div role="tabpanel" class="tab-pane" id="jaeger">
-        <p>If you are using Jaeger, you send data to Wavefront using <a href="proxies.html">Wavefront proxy</a>. Add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
+        <p>If you are using Jaeger, you send data to a <a href="proxies.html">Wavefront proxy</a>. Add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
             <pre>
 traceDerivedCustomTagKeys=env
             </pre>
@@ -99,7 +99,7 @@ traceDerivedCustomTagKeys=env
             </pre>
         </div>
       </div>
-1. Save the changes, restart the application, and send data to Wavefront.
-1. Once the data is in Wavefront, create a chart that compares the data sent by each environment. Here's an example:
+1. Save the changes, restart the application, and start sending data.
+1. Once the data is ingested, create a chart that compares the data sent by each environment. Here's an example:
     ![create a chart with custom span tags](/images/tracing_custom_span_tags.png)
     {% include note.html content="You won't see this data on the default service dashboard. If you want to customize the queries on the default service dashboard to see data from the custom span tags, you need to [clone and edit the dashboard](ui_dashboards.html#edit-or-clone-a-dashboard)." %}

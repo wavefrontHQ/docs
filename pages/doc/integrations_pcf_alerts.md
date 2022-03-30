@@ -4,7 +4,7 @@ keywords:
 tags: [integrations, proxies]
 sidebar: doc_sidebar
 permalink: integrations_pcf_alerts.html
-summary: Details for Pivotal Cloud Foundry Alerts
+summary: Details for Pivotal Cloud Foundry Alerts.
 ---
 
 The Pivotal Cloud Foundry (PCF) integration includes a rich set of alerts out of the box. You can preview the alerts on the **Alerts** tab of the integration. This page gives details for each alert.

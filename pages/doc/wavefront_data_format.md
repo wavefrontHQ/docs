@@ -1,12 +1,12 @@
 ---
-title: Wavefront Data Format
+title: Data Format
 keywords: data
 tags: [data, proxies]
 sidebar: doc_sidebar
 permalink: wavefront_data_format.html
-summary: Syntax and parameters of the Wavefront native data format.
+summary: Wavefront data format syntax and parameters.
 ---
-The Wavefront data format is supported by Wavefront proxies and by direct ingestion. This page is a reference to the Wavefront data format and includes best practices.
+Tanzu Observability by Wavefront supports the same native data format with Wavefront proxies and with direct ingestion. This page is a reference to the data format and includes best practices.
 
 ## Metrics
 
@@ -24,7 +24,7 @@ The Wavefront data format is supported by Wavefront proxies and by direct ingest
 ### Metrics Data Format Syntax
 
 
-Here's the Wavefront data format for metrics.
+Here's the data format for metrics.
 
 `<metricName> <metricValue> [<timestamp>] source=<source> [pointTags]`
 
@@ -65,7 +65,7 @@ Maximum length for metricName is 256.
 <td>metricValue</td>
 <td>Yes</td>
 <td>Value of the metric.</td>
-<td markdown="span">Number that can be parsed into a double-precision floating point number or a long integer. It can be positive, negative, or 0. In charts, the Wavefront UI represents values using SI and IEC/Binary units.</td>
+<td markdown="span">Number that can be parsed into a double-precision floating point number or a long integer. It can be positive, negative, or 0. Charts can represent values using SI or IEC/Binary units.</td>
 </tr>
 <tr>
 <td>timestamp</td>
@@ -76,7 +76,7 @@ Maximum length for metricName is 256.
 <tr>
 <td>source</td>
 <td>Yes</td>
-<td>Name of an application, host, container, instance, or any other unique source that is sending the metric to Wavefront.</td>
+<td>Name of an application, host, container, instance, or any other unique source that is sending the metric.</td>
 <td>Valid characters are: a-z, A-Z, 0-9, hyphen ("-"), underscore ("_"), dot ("."). The length of the source field should be no more than 128 characters. Using <strong>host=</strong> instead of <strong>source=</strong> is supported for backward compatibility but not recommended.</td>
 </tr>
 <tr>
@@ -158,7 +158,7 @@ Most of our discussion of the histogram and span data formats is on the pages li
 Follow best practices for improved query execution speed and meaningful results.
 
 * Make the metrics the most stable part of your data:
-  - Do not include source names in the metric name. Wavefront captures sources separately.
+  - Do not include source names in the metric name. The Wavefront service captures sources separately.
   - Do not include data or timestamps in the metric name. Each point has an associated timestamp.
 * Aim for a metric hierarchy:
   - Partition the top level of the metric hierarchy by including at least one dot.
@@ -177,9 +177,9 @@ Metric names should reflect a class of comparable data across different sources 
 
 ### Source Names Best Practices
 
-Source names should reflect a unique source that is emitting metrics. Wavefront assumes that source names are unique.
+The Wavefront service assumes that source names are unique. Source names should reflect a unique source that is emitting metrics. For example, consider prefixing the source names with the datacenter name or making source names unique in other ways.
 
-For example, if you have the same machine name in different data centers, and don't separate the two machines when sending data to Wavefront (for example, by prefixing the source names with the datacenter), you can get confusing query results. Time series might oscillate between different values seemingly randomly, or you might see unexpected averaging of points between multiple sources.
+For example, if you have the same machine name in different data centers, and don't separate the two machines when sending data, you can get confusing query results. Time series might oscillate between different values seemingly randomly, or you might see unexpected averaging of points between multiple sources.
 
 When it's not clear which name to use as the source name, use the most unique value for a source name. For higher-level pre-aggregated data, for example, a datacenter-wide metric like power usage, use the name of the datacenter as the name of the source.
 
@@ -201,12 +201,12 @@ Tag names can contain alphanumeric (a-z, A-Z, 0-9), dash (-), underscore (_), an
 
 ### History
 
-Wavefront does not retain the history of alert, event, and source tags. For example, the machine `web004.pax.wavefront.com` might have the source tags `java-17`, `build-24`, and `dc-pax`. If you remove the `build-24` tag from `web004.pax.wavefront.com` and replace it with `build-25`, queries filtered by `build-24` no longer match `web004.pax.wavefront.com.` In other words, only current alert, event, and source tags affect queries because these tags are tied only to those objects, not to data.
+We do not retain the history of alert tags, event tags, and source tags. For example, the machine `web004.pax.wavefront.com` might have the source tags `java-17`, `build-24`, and `dc-pax`. If you remove the `build-24` tag from `web004.pax.wavefront.com` and replace it with `build-25`, queries filtered by `build-24` no longer match `web004.pax.wavefront.com.` In other words, only current alert, event, and source tags affect queries because these tags are tied only to those objects, not to data.
 
 
 ## Learn More!
 
-* [Wavefront and Cardinality](cardinality.html) explores how you can optimize query performance by selecting the best data dimensions.
+* [High Cardinality Data](cardinality.html) explores how you can optimize query performance by selecting the best data dimensions.
 
 The following KB articles provide details on data best practices:
 

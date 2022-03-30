@@ -6,81 +6,24 @@ entries:
   version:
   folders:
 
-  - title: Wavefront Quickstart
+  - title: Quickstart & Tutorials
     output: web
     folderitems:
 
-    - title: "What is Wavefront?"
+    - title: "What is Tanzu Observability?"
       url: /wavefront_introduction.html
       output: web
 
-    - title: Your Wavefront Account
+    - title: Your Account
       url: /users_account_managing.html
       output: web
-
-      subfolders:
-      - title: Reference
-        output: web
-        subfolderitems:
-
-        - title: Query Language Reference
-          url: /query_language_reference.html
-          output: web
-
-        - title: Chart Reference
-          url: /ui_chart_reference.html
-          output: web
-
-        - title: REST API
-          url: /wavefront_api.html
-          output: web
-
-        - title: All Integrations
-          url: /label_integrations%20list.html
-          output: web
-
-
-      - title: Misc.
-        output: web
-        subfolderitems:
-
-        - title: Searching Wavefront
-          url: /wavefront_searching.html
-          output: web
-
-        - title: Accessibility & Keyboard Navigation
-          url: /wavefront_keyboard_shortcuts.html
-          output: web
-
-        - title: Support & Feedback
-          url: /wavefront_support_feedback.html
-          output: web
-
-        - title: Terms of Service
-          url: /terms_of_service.html
-          output: web
-
-        - title: Wavefront Obsolescence Policy
-          url: /wavefront_obsolescence_policy.html
-          output: web
-
-        - title: Wavefront Privacy Policy
-          url: /privacy.html
-          output: web
-
-    - title: Wavefront Glossary
-      url: /glossary.html
-      output: web
-
-  - title: Tutorials & Videos
-    output: web
-    folderitems:
-
-    - title: "Learn Wavefront"
+      
+    - title: "Learn Tanzu Observability"
       url: /tutorial_overview.html
       output: web
 
       subfolders:
+      
       - title: Tutorials
         output: web
         subfolderitems:
@@ -104,7 +47,27 @@ entries:
         - title: "Distributed Tracing Tutorial"
           url: /tracing_java_tutorial.html
           output: web
+        
+      - title: Reference
+        output: web
+        subfolderitems:
 
+        - title: Query Language Reference
+          url: /query_language_reference.html
+          output: web
+
+        - title: Chart Reference
+          url: /ui_chart_reference.html
+          output: web
+
+        - title: REST API
+          url: /wavefront_api.html
+          output: web
+
+        - title: All Integrations
+          url: /label_integrations%20list.html
+          output: web
+          
       - title: Videos
         output: web
         subfolderitems:
@@ -150,11 +113,43 @@ entries:
           output: web
 
 
+      - title: Misc.
+        output: web
+        subfolderitems:
+
+        - title: Use and Save Searches
+          url: /wavefront_searching.html
+          output: web
+
+        - title: Accessibility & Keyboard Navigation
+          url: /wavefront_keyboard_shortcuts.html
+          output: web
+
+        - title: Support & Feedback
+          url: /wavefront_support_feedback.html
+          output: web
+
+        - title: Terms of Service
+          url: /terms_of_service.html
+          output: web
+
+        - title: Obsolescence Policy
+          url: /wavefront_obsolescence_policy.html
+          output: web
+
+        - title: Privacy Policy
+          url: /privacy.html
+          output: web
+
+    - title: Glossary
+      url: /glossary.html
+      output: web
+
   - title: Release Notes
     output: web
     folderitems:
 
-    - title: Wavefront Release Notes
+    - title: Wavefront Service Release Notes
       url: /wavefront_release_notes.html
       output: web
 
@@ -170,16 +165,20 @@ entries:
     output: web
     folderitems:
 
-    - title: Getting Data into Wavefront
+    - title: Set Up Data Ingestion
       url: /wavefront_data_ingestion.html
       output: web
 
-    - title: Wavefront Data Format
+    - title: Data Format
       url: /wavefront_data_format.html
       output: web
 
-    - title: Cardinality and Wavefront
+    - title: Understanding Cardinality
       url: /cardinality.html
+      output: web
+
+    - title: Optimizing Data Shape
+      url: /optimize_data_shape.html
       output: web
 
       subfolders:
@@ -323,6 +322,10 @@ entries:
       url: /alerts_faq.html
       output: web
 
+    - title: New Alerts FAQ
+      url: /alerts_v2_faq.html
+      output: web
+
       subfolders:
       - title: Alert Targets and Notifications
         output: web
@@ -437,6 +440,10 @@ entries:
           url: /query_language_performance.html
           output: web
 
+        - title: Troubleshooting Missing Data
+          url: /missing_data_troubleshooting.html
+          output: web
+
         - title: Aggregating Time Series
           url: /query_language_aggregate_functions.html
           output: web
@@ -449,6 +456,10 @@ entries:
           url: /query_language_series_joining.html
           output: web
 
+        - title: Metadata Functions
+          url: /query_language_metadata_functions.html
+          output: web
+
         - title: Highlighting Trends
           url: /query_language_windows_trends.html
           output: web
@@ -457,7 +468,7 @@ entries:
           url: /query_language_statistical_functions_anomalies.html
           output: web
 
-    - title: Using PromQL in Wavefront
+    - title: Using PromQL with Tanzu Observability
       url: /wavefront_prometheus.html
       output: web
 
@@ -473,7 +484,7 @@ entries:
       url: /integrations.html
       output: web
 
-    - title: List of Wavefront Integrations
+    - title: List of Integrations
       url: /label_integrations%20list.html
       output: web
 
@@ -523,7 +534,7 @@ entries:
             url: /integrations_grafana.html
             output: web
 
-          - title: Send Wavefront Data to CloudHealth
+          - title: Send Data to CloudHealth
             url: /integrations_cloudhealth.html
             output: web
 
@@ -611,6 +622,26 @@ entries:
         url: /wavefront_spring_boot_faq.html
         output: web
 
+  - title: "OpenTelemetry"
+    output: web
+    folderitems:
+      
+      - title: Send Trace Data
+        url: /opentelemetry_tracing.html
+        output: web
+        
+      - title: Send Metrics Data
+        url: /opentelemetry_metrics.html
+        output: web
+      
+      - title: Tutorials
+        url: /opentelemetry_java_tutorial.html
+        output: web
+        
+      - title: Enable Proxy Debug Logs
+        url: /opentelemetry_logs.html
+        output: web
+      
   - title: "Distributed Tracing"
     output: web
     folderitems:
@@ -628,12 +659,12 @@ entries:
         output: web
         subfolderitems:
 
-          - title: OpenTelemetry
-            url: /opentelemetry.html
+          - title: Send Trace Data
+            url: /opentelemetry_tracing.html
             output: web
 
-          - title: OpenTelemetry Tutorial
-            url: /wf_opentelemetry_java_tutorial.html
+          - title: OpenTelemetry Tutorials
+            url: /opentelemetry_java_tutorial.html
             output: web
 
       - title: OpenTracing
@@ -731,19 +762,19 @@ entries:
     output: web
     folderitems:
 
-      - title: Wavefront Interfaces
+      - title: Interfaces
         url: /wavefront_interfaces.html
         output: web
 
-      - title: Wavefront REST API
+      - title: Wavefront REST API 
         url: /wavefront_api.html
         output: web
 
-      - title: Wavefront SDKs
+      - title: Supported SDKs
         url: /wavefront_sdks.html
         output: web
 
-      - title: Wavefront CLIs
+      - title: CLIs for the REST API
         url: /wavefront_clis.html
         output: web
 
@@ -751,11 +782,11 @@ entries:
     output: web
     folderitems:
 
-      - title: Administer Wavefront
+      - title: Administer Tanzu Observability
         url: /wavefront_administer.html
         output: web
 
-      - title: Wavefront Security
+      - title: Security
         url: /wavefront_security.html
         output: web
 
@@ -764,7 +795,7 @@ entries:
           output: web
           subfolderitems:
 
-          - title: Wavefront Authorization Model
+          - title: Authorization Model
             url: /authorization.html
             output: web
 
@@ -789,7 +820,7 @@ entries:
             output: web
 
 
-        - title: Manage Access to Wavefront Objects
+        - title: Manage Access to Objects
           output: web
           subfolderitems:
 
@@ -802,11 +833,11 @@ entries:
             output: web
 
 
-        - title: Authentication in Wavefront
+        - title: Authentication
           output: web
           subfolderitems:
 
-          - title: Wavefront Authentication Model
+          - title: Authentication Model
             url: /wavefront-authentication.html
             output: web
 
@@ -821,20 +852,20 @@ entries:
         - title: Monitoring & Troubleshooting
           output: web
           subfolderitems:
-            
-          - title: Examine Overall Wavefront Usage
+
+          - title: Examine Overall Usage
             url: /examine_usage.html
             output: web
-            
+
           - title: Examine Usage with Ingestion Policies
             url: /ingestion_policies.html
             output: web
-            
+
           - title: Monitor with the Wavefront Usage Integration
             url: /wavefront_monitoring.html
             output: web
 
-          - title: Wavefront Service Internal Metrics
+          - title: Internal Metrics
             url: /wavefront-internal-metrics.html
             output: web
 
@@ -854,10 +885,14 @@ entries:
           output: web
           subfolderitems:
 
-          - title: Cardinality and Wavefront
+          - title: Understanding Cardinality
             url: /cardinality.html
             output: web
 
-          - title: Obsolescence and Remediation
+          - title: Optimizing Data Shape
+            url: /optimize_data_shape.html
+            output: web            
+
+          - title: Obsolescence Policy
             url: /wavefront_obsolescence_policy.html
             output: web

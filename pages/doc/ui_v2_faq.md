@@ -73,22 +73,6 @@ We've streamlined variable configuration for developers. We've made setting vari
 </tbody>
 </table>
 
-## How Do I Switch from v1 to v2?
-
-Switch to the v2 UI for your account from the gear icon:
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="40%">
-<ol>
-<li>Select the gear icon in the top right.</li>
-<li>In the User Information tab, select <strong>UI Version > v2</strong>.</li>
-</ol></td>
-<td width="60%"><img src="images/switch_to_v2.png" alt="pulldown menu with v2 selected."></td>
-</tr>
-</tbody>
-</table>
 
 ## Chart FAQs from v2 Users
 
@@ -133,7 +117,9 @@ A: We're working on improving the copy/paste behavior. For now, please use [the 
 
 ### Q: How can I create an embedded chart in v2?
 
-A: Embedded charts allow you to make a chart available outside Wavefront. We temporarily don't support this functionality for v2, but **all your existing embedded charts** will continue to work.
+A: Embedded charts allow you to make a chart available in a different context, for example, on a Web page.
+* **All embedded charts created in v1** will continue to work.
+* You can **create new embedded charts** for many chart types. However, those charts will render using v1 styling. We're in the process of finalizing embedded chart creation for all chart types with a v2 look and feel.   
 
 
 

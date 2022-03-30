@@ -1,12 +1,12 @@
 ---
-title: Wavefront Security
+title: Security
 tags: [administration]
 sidebar: doc_sidebar
 permalink: wavefront_security.html
-summary: Understand how Wavefront secures your data and supports fine-tuning security for your cluster.
+summary: Understand how Tanzu Observability by Wavefront secures your data and supports fine-tuning security for your cluster.
 ---
 
-Wavefront by VMware protects your data and includes facilities for you to customize authentication and authorization.
+Tanzu Observability by Wavefront protects your data and includes facilities for you to customize authentication and authorization.
 
 This page gives a summary.
 * Download the white paper [VMware Tanzu Observability Security and Privacy](https://tanzu.vmware.com/content/white-papers/vmware-tanzu-observability-security-and-privacy) for a detailed discussion. 
@@ -14,7 +14,7 @@ This page gives a summary.
 
 ## Certifications
 
-Wavefront has successfully completed all requirements for the following certifications and reports:
+Tanzu Observability has successfully completed all requirements for the following certifications and reports:
 
 *	ISO 27001/27017/27018
 *	SOC 2 Type 1
@@ -22,18 +22,18 @@ Wavefront has successfully completed all requirements for the following certific
 
 ## Privacy
 
-Wavefront is used for monitoring applications. Wavefront securely stores user name and password information, but does not collect information about individual users. We do not install agents that collect user information.
+Tanzu Observability is used for monitoring applications. Tanzu Observability securely stores user name and password information, but does not collect information about individual users. We do not install agents that collect user information.
 
-None of the built-in integrations collect user information. However, Wavefront customers can set up Wavefront to collect any type of information they want.
+None of the built-in integrations collect user information. However, our customers can set up their Wavefront instances to collect any type of information they want.
 
 ## Data Protection
 
-Currently, Wavefront uses AWS to run the Wavefront service and to store customer application data.
+Currently, Tanzu Observability uses AWS to run the Wavefront service and to store customer application data.
 
 * The service is served from a single AWS region spread across multiple availability zones for failover.
 * All incoming and outgoing traffic is encrypted.
 * We take advantage of other AWS security features such as encryption at rest and system backups that use asymmetric encryption.
-* Wavefront customer environments are isolated from each other. Data is stored on encrypted data volumes.
+* The customer environments are isolated from each other. Data is stored on encrypted data volumes.
 
 The AWS data centers incorporate physical protection against environmental risks. To
 access the AWS ISO27001 report, see [https://aws.amazon.com/compliance](https://aws.amazon.com/compliance/).
@@ -41,16 +41,16 @@ access the AWS ISO27001 report, see [https://aws.amazon.com/compliance](https://
 For more information on AWS controls, visit:
 [https://cloudsecurityalliance.org/star-registrant/amazon-aws/](https://cloudsecurityalliance.org/star-registrant/amazon-aws/)
 
-Wavefront development, QA, and production use separate equipment and environments, and are managed by separate teams.
+Our development, QA, and production use separate equipment and environments, and are managed by separate teams.
 Customers retain control and ownership of their content. We do not replicate customer content unless the customer asks for it explicitly.
 
 ## High Availability
 
-Wavefront is architected to be highly available. In the event of a hardware failure, we automatically migrate to or restart workloads, on another host machine in the cluster and automatically restart the failed host. If the host machine fails to restart, or the performance of the restarted host is degraded, the service is capable of replacing the failed host in a cluster with an entirely new host within minutes.
+Tanzu Observability is architected to be highly available. In the event of a hardware failure, we automatically migrate to or restart workloads, on another host machine in the cluster and automatically restart the failed host. If the host machine fails to restart, or the performance of the restarted host is degraded, the service is capable of replacing the failed host in a cluster with an entirely new host within minutes.
 
 ## Disaster Recovery
 
-Wavefront supports the option of Disaster Recovery (DR) across regions for customers. Contact your Wavefront representative for details.
+Tanzu Observability supports the option of Disaster Recovery (DR) across regions for customers. Contact your Tanzu Observability representative for details.
 
 ## Networking
 
@@ -64,23 +64,21 @@ The Wavefront proxy uses HTTPS, and we offer options to secure it further:
 * Use an [allow list regex or block list regex](proxies_preprocessor_rules.html#point-filtering-rules) to control traffic to the Wavefront proxy.
 
 
-
-
 ## Authentication
 
-Wavefront supports three methods of authentication.
+Tanzu Observability supports three methods of authentication.
 
 * By using a user name and password.
 
-  Wavefront supports user accounts and service accounts. User accounts [must authenticate](authentication.html) with a user name and password, service accounts authenticate with a token.
+  Tanzu Observability supports user accounts and service accounts. User accounts [must authenticate](authentication.html) with a user name and password, service accounts authenticate with a token.
 
 * SAML SSO
 
-  Wavefront customers can use the authentication provided by Wavefront or use one of our supported authentication integrations. We support several authentication solutions including Azure AD, Google ID, and Okta.
+  You can use the authentication provided by Tanzu Observability or use one of the supported authentication integrations. We support several authentication solutions including Azure AD, Google ID, and Okta.
 
   We also support [self-service SAML SSO](auth_self_service_sso.html) setup.
 
-  If a customer's chosen authentication solution supports two-factor authentication, Wavefront requires two-factor authentication for login.
+  If your chosen authentication solution supports two-factor authentication, Tanzu Observability requires two-factor authentication for login.
 
 * Multi-Tenant SSO
 
@@ -89,10 +87,9 @@ Wavefront supports three methods of authentication.
 
 ## Authorization
 
-Wavefront supports multi-level authorization:
+Tanzu Observability supports multi-level authorization:
 * **Roles and permissions** determine which groups or users can manage which objects or perform certain tasks. For example, you could create a read-only role with no permissions and assign it to a Novice group, or create a Developers role, assign **Dashboards**, **Alerts**, **Proxy**, **Metrics**, and **Chart Embedding** permissions, and assign it to a developer group.
-* [**Access control**](access.html) applies to individual objects (dashboards or alerts). Privileged groups or users can revoke grant access to individual groups or users. To support this feature, Wavefront includes a [Super Admin](users_roles.html#who-is-the-super-admin-user) user.
-  Wavefront supports a [high security mode](access.html#change-the-access-control-security-organization-setting) where only the object creator and the Super Admin user can view and modify new dashboards.
+* [**Access control**](access.html) applies to individual objects (dashboards or alerts). Privileged groups or users can revoke grant access to individual groups or users. Tanzu Observability supports a [high security mode](access.html#change-the-access-control-security-organization-setting) where only the object creator and the [Super Admin](authorization-faq.html#who-is-the-super-admin-user) user can view and modify new dashboards.
 * [**Metrics security policy rules**](metrics_security.html) allow fine-grained control over metrics visibility in dashboards, charts, alerts, etc.
 
 
@@ -107,9 +104,9 @@ You can view changes that were made to dashboards, alerts, etc., by using [versi
 
 ## Integrations
 
-Cloud integrations support monitoring data from different cloud providers using Wavefront. The process is like this:
+Our cloud integrations support monitoring data from different cloud providers. The process is like this:
 1. You open the integration.
-2. You give Wavefront [global read-only access](integrations_aws_overview.html#give-wavefront-read-only-access-to-your-amazon-account-and-get-the-role-arn) or [limited access](integrations_aws_overview.html#giving-wavefront-limited-access).
+2. You give Tanzu Observability [global read-only access](integrations_aws_overview.html#give-read-only-access-to-your-amazon-account-and-get-the-role-arn) or [limited access](integrations_aws_overview.html#giving-limited-access).
 
 For details, see the individual integration.
 

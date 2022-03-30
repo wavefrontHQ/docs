@@ -7,7 +7,7 @@ permalink: tracing_operation_dashboard.html
 summary: Identify potential hot spots of operations.
 ---
 
-Use the Operation Dashboard to identify potential hot spots in each operation, such as the GET operation of the beachshirts application's shopping service, and then drill down to the Traces Browser.
+Use the Operation Dashboard to identify potential hot spots in each operation, such as the GET operation of the beachshirts application's shopping service. From the Operation Dashboard you can then drill down to the Traces Browser.
 
 ## Explore the Default Operation Dashboard
 
@@ -16,13 +16,13 @@ The default, read-only dashboard lets you explore RED metrics of an operation, h
 See the Operation Dashboard:
 
 * Option 1:
-  1. In your web browser, go to your Wavefront cluster and log in. 
+  1. In your web browser, go to your Wavefront instance and log in. 
   1. From the taskbar, click **Applications** > **Operation Dashboard**.
-  
+
 * Option 2:
   Drill down to the Operation Dashboard from the tracing traffic on the application map.
-  
-* Option 3: 
+
+* Option 3:
   Drill down to the Operation Dashboard from the traces browser, click on a trace, click on a span from a specific operation, and click **Go to Operation Dashboard**.
 
 ![examine services](images/tracing_operations_dashboard.png)
@@ -37,14 +37,14 @@ style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link
   * Click **See all operation traces**.
   * Select a region of the histogram chart and click **Search Traces** to view the traces for the selected duration.
   * Click the vertical ellipsis in the top right of any chart, click **Traces**, and click a service.
-    {% include note.html content="If you don’t see **Traces**, check whether your metrics include `application` and `service point` tags.<br/><br/> These tags are defined when you instrument your application for tracing via [Application tags](trace_data_details.html#application-tags). If your application is already sending this data into Wavefront via the Wavefront proxy, you can add point tags using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html#addtag-and-addtagifnotexists)." %}
+    {% include note.html content="If you don’t see **Traces**, check whether your metrics include `application` and `service point` tags.<br/><br/> These tags are defined when you instrument your application for tracing via [Application tags](trace_data_details.html#application-tags). If your application is already sending this data to the Wavefront service via the Wavefront proxy, you can add point tags using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html#addtag-and-addtagifnotexists)." %}
 
 ## Custom Operation Dashboard
 
 The standard dashboard for operations is read-only. To create a customizable copy:
 
 1. Click **Clone** from the ellipsis menu.
-2. In the cloned dashboard, add your own charts or customize the RED metrics charts. 
+2. In the cloned dashboard, add your own charts or customize the RED metrics charts.
 
 After you save the clone, click **Dashboard** on the taskbar and search for your dashboard by its  name. You can use it to drill down to the Traces Browser.
 
@@ -63,7 +63,7 @@ View queries used in the charts of the default Operation Dashboard and save thes
           Click <strong>Save</strong>.
         </li>
         <li>
-          Save the chart to a dashboard: 
+          Save the chart to a dashboard:
           <ul>
             <li>
               To save to an existing dashboard, start typing the name of the dashboard, select a dashboard, and click <strong>Insert</strong>.
