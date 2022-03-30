@@ -112,7 +112,7 @@ You can alert when the query result is greater than or less than the specified t
 <td>3. Optionally, fine-tune and test the condition.
 <ul>
 <li><strong>Trigger Window</strong>: Length of time (in minutes) during which the <strong>Condition</strong> expression must be true before the alert fires. Minimum is 1. For example, if you enter 5, the alerting engine reviews the value of the condition during the last 5-minute window to determine whether the alert should fire. </li>
-<li><strong>Resolve Window</strong>(Optional): By default, the <strong>Resolve Window</strong> is unchecked and set to the same number of minutes as the Trigger Window. Set the <strong>Resolve Window</strong> to greater than or equal to the <strong>Trigger Window</strong> to avoid resolve-fire cycles.
+<li><strong>Resolve Window</strong>(Optional): By default the Resolve Window is set to the same number of minutes as the Trigger Window. Set the <strong>Resolve Window</strong> to greater than or equal to the <strong>Trigger Window</strong> to avoid resolve-fire cycles.
 <br><br>
 The <strong>Resolve Window</strong> is the length of time (in minutes) during which the <strong>Condition</strong> expression must be NOT true before the alert switches to resolved. Minimum is 1.  <br><br>
 </li>
