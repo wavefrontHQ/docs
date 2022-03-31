@@ -22,10 +22,6 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
     {% include important.html content="Ensure that the service accounts in your organization do not depend on the **Everyone** group permissions."%}
 
 
-* **Terraform Provider Updates**
-
-    If you are using the Terraform Provider, update to [version 3.0.1](https://registry.terraform.io/providers/vmware/wavefront/latest/docs). This version is compatible with the new alert experience. See the [FAQ for the New Alert GUI](alerts_v2_faq.html).
-
 ## 2022-11.x Release Notes
 
   <table>
