@@ -198,7 +198,7 @@ The `env` point tag contains the environment information, and you need to access
 
 `aliasSource(ts(prod.my-app.requests), {{source}}/{{env}})`
 
-As described in the [`aliasSource()` documentation](alias_source.html), you can use variables to obtain the value of components of a data point, including that of a specific point tag. If we use `aliasSource()` the query above returns:
+As described in the [`aliasSource()` documentation](ts_aliasSource.html), you can use variables to obtain the value of components of a data point, including that of a specific point tag. If we use `aliasSource()` the query above returns:
 
 ```
 metric name: prod.my-app.requests
