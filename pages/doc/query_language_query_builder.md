@@ -3,6 +3,7 @@ title: Query Builder (v1)
 keywords: query language
 tags: [query language, getting started]
 sidebar: doc_sidebar
+published: false
 permalink: query_language_query_builder.html
 summary: Learn how to create Wavefront Query Language expressions using Query Builder.
 ---
