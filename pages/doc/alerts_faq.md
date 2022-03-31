@@ -25,8 +25,6 @@ You think that your alert should have fired, but it didn't. Here's what you can 
 
 ### Check for Delayed Data Reporting
 
-
-
 <p><span style="font-size: medium; font-weight: 600">Problem</span></p>
 
 If you examine an alert that should have fired in the past, [delayed data reporting](alerts_delayed_data.html#check-for-a-data-delay) might have caused the problem, especially if the data is delayed for longer than the alert trigger time window.
@@ -44,8 +42,6 @@ If you examine an alert that should have fired in the past, [delayed data report
 Here's how you can take action:
 1.Review the alert query on a live data chart to find out if there's lag in reported data.
 2.[Refine your alert condition](alerts_delayed_data.html#minimize-the-impact-of-data-delays-on-alerts) to prevent the alert from evaluating the query until data reporting is complete.
-
-
 
 ### Consider Checking Frequency and Trigger Window Mismatch
 
@@ -136,7 +132,7 @@ The default **Trigger Window** is 5 minutes. You can adjust this property from c
 
 If your metric is backfilled in chunks, for example, if the metric is backfilled in 10-minute chunks, avoid setting **Trigger Window** to less than 10 minutes, or use [moving time window functions](query_language_reference.html#moving-window-time-functions) to make sure that all the incoming data is visible to the alert.
 
-### Understand When Your My Firing Will Alert Resolve
+### Understand When Your Firing Alert Will Resolve
 
 If the alert condition didn't return *any* `true` minutely values during the alert resolve window, Tanzu Observability returns the alert state from FIRING to CHECKING.
 
@@ -144,12 +140,25 @@ The default **Resolve Window** is the same as the **Trigger Window**. You can ad
 
 ### Use Aggregation to Alert on Points from Different Time Series
 
-Yes, you can [aggregate points from multiple time series](query_language_aggregate_functions.html) with or without interpolation depending on your use case. In Tanzu Observability, interpolation is the process of generating a made-up data value for one or more time series where they don't exist, and can only occur between two truly reported values within a series.
+You can [aggregate points from multiple time series](query_language_aggregate_functions.html) with or without interpolation depending on your use case. In Tanzu Observability, interpolation is the process of generating a made-up data value for one or more time series where they don't exist, and can only occur between two truly reported values within a series.
 
 If metrics report at the same time, it might be better to use raw aggregate functions and not interpolating aggregate functions. With standard aggregation functions, interpolation will occur.
 
+## What If a Metric Doesn't Report Values for a Long Time?
+
+* If your alert monitors an *exception* metric, often the alert doesn’t see any data during its trigger window and enters the NO DATA state. For example, suppose your alert condition query is `ts(bad.exception)`, where the `bad.exception` metric reports a value of `1` when an exception occurs and reports no data when there's no exception happening.
+
+  In such cases, you can use one of the following approaches:
+  * Consider the NO DATA state to be normal and take action only when the alert triggers to FIRING, which means the alert sees the presence of reported error data.
+
+    {% include note.html content="Tanzu Observability considers a metric *obsolete* after it hasn’t reported any values for 4 weeks, and obsolete metrics *are not* included in alert evaluations by default. To handle alerting on very infrequently reported errors series, on the **Advanced** tab of the **Data** settings of the alert, select the **Include Obsolete Metrics** check box." %}
+  * Use the [default() missing data function](ts_default.html) to insert a default value depending on how you want to handle the situation where data isn’t being reported.
+  * Use the counter metric rather than the gauge metric, if applicable, so that the metric is cumulative and does not become obsolete. For example, use the `bad.exception.count` metric rather than the `bad.exception` metric.
+
+* If your alert monitors *heartbeat* metrics, you should treat the NO DATA state as an *erroneous* state. Consider [configuring an alert to fire when a time series stops reporting](alerts_missing_data.html).
 
 
+## Learn More
 
 
 
@@ -167,26 +176,14 @@ The minimum and default **Checking Frequency** interval is 1 minute. You can adj
   * If an alert is non-critical, you can check only as often as needed.
   * If an alert condition uses larger moving time windows or aligns to a large interval, you can check less frequently. For example, an alert that compares a `mavg(6h, ...)` to `mavg(48h, ...)` can be safely checked once an hour or even less.
 
+=> Moving to alerts.md. Point to it!
+=> Also another new section in alerts.md, from KB.
 
 
 
-## Why Did My Alert Misfire?
-False positive alerts could be due to:
-  * Utilizing [functions that can introduce interpolation](query_language_discrete_continuous.html#functions-that-use-interpolation-to-create-continuous-data). The process of interpolation can increase a displayed value in the past by including more interpolated values in the calculation once a newly reported value comes into the system.
-  * [Delayed data reporting](alerts_delayed_data.html#check-for-a-data-delay). You can [limit the impact of data delays](alerts_delayed_data.html) by making sure you understand the issue and by fine-tuning the query and time window.
 
-## What If a Metric Doesn't Report Values for a Long Time?
 
-* If your alert monitors an *exception* metric, often the alert doesn’t see any data during its trigger window and enters the NO DATA state. For example, suppose your alert condition query is `ts(bad.exception)`, where the `bad.exception` metric reports a value of `1` when an exception occurs and reports no data when there's no exception happening.
 
-  In such cases, you can use one of the following approaches:
-  * Consider the NO DATA state to be normal and take action only when the alert triggers to FIRING, which means the alert sees the presence of reported error data.
-
-    {% include note.html content="Tanzu Observability considers a metric *obsolete* after it hasn’t reported any values for 4 weeks, and obsolete metrics *are not* included in alert evaluations by default. To handle alerting on very infrequently reported errors series, on the **Advanced** tab of the **Data** settings of the alert, select the **Include Obsolete Metrics** check box." %}
-  * Use the [default() missing data function](ts_default.html) to insert a default value depending on how you want to handle the situation where data isn’t being reported.
-  * Use the counter metric rather than the gauge metric, if applicable, so that the metric is cumulative and does not become obsolete. For example, use the `bad.exception.count` metric rather than the `bad.exception` metric.
-
-* If your alert monitors *heartbeat* metrics, you should treat the NO DATA state as an *erroneous* state. Consider [configuring an alert to fire when a time series stops reporting](alerts_missing_data.html).
 
 ## Troubleshooting
 For troubleshooting, see the KB article [Why did my alert fire or not fire?](https://help.wavefront.com/hc/en-us/articles/360049071471-Why-did-my-alert-fire-or-not-fire-).

@@ -14,13 +14,54 @@ Tanzu Observability by Wavefront supports smart alerts that dynamically filter n
 {% include note.html content="All users can view alerts and perform the tasks on this page. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
 
-## How Alerts Work Video
+## How Alerts Work
+
+This section starts with a video and explores the anatomy of an alert. Go to one of the tutorials if you're ready to start examining alerts right away.
+
+* [Alert Viewer Tutorial](#alert-viewer-tutorial)
+* [Alerts Browser Tutoria](#alerts-browser-tutorial)
+* [Create Alert Tutorial](alerts_manage.html#create-alert-tutorial)
+
+### How Alerts Work Video
 
 In this video, Clement explains how a single-threshold alert works:
 
 <p><a href="https://www.youtube.com/watch?v=VjmWExKiYYg&index=1&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_alerting_clement.png" style="width: 700px;"/></a>
 </p>
 
+### Anatomy of an Alert
+
+An alert consists of:
+* The **Alert Condition** is all about the behavior you monitor, as a query. For example you could check the CPU average or network bytes received. On the **Alerting** page, the alert condition is the currently selected query. In multi-query alerts, you can define several queries and use the results of these queries in the condition query, but only the currently selected query is used as the condition.
+* The **Alert Target** can be an email or Pagerduty key, or the alert creator can specify a [custom alert target (webhook)](webhooks_alert_notification.html).
+* The **Alert Notification** goes to all alert targets that you've specified for a given severity. Many alerts use one of the predefined notification formats, or the alert creator can [customize the alert notification](alert_target_customizing.html), which uses Mustache.
+
+
+### How Are Alerts Evaluated?
+
+To understand the alert evaluation process, review [Alert States and Lifecycles](alerts_states_lifecycle.html). or watch some of our [Alert Videos](videos_alerts.html). Some commonly misunderstood concepts include:
+
+* **Alert checking frequency**: Alerts are checked approximately once per minute
+
+* **Alert time window being reviewed**: Default is 5 minutes. You can change the time window with the **Trigger Window** and **Resolve Window** properties.
+
+* **Minutely summarized values are being evaluated**: If you're conditional query returns more than 1 value per minute, then the query engine perform minutely aggregation using avg() before it evaluates the alert query.
+
+* **Required number of TRUE values needed to trigger an alert**: A TRUE value is any value is any non-zero value returned by your alert query. Within the reviewed time window, an alert triggers if there is at least 1 TRUE value and 0 FALSE values. A FALSE value is any zero value returned by your alert query.
+
+  * The alert is triggered only by a TRUE value. An absence of a value is considered neither TRUE nor FALSE.
+  * A TRUE value is not required at each reporting interval for an alert to trigger.
+
+* **Alerts evaluate on real-time data**: Reviewing data associated with a triggered alert may appear different than it did when the alert was evaluated in real-time. This can typically be contributed to delayed reporting of data or the query construct. Reviewing the alert query in a **Live** 10-minute chart often sheds light on this behavior.
+
+### How Often Are Alerts Evaluated?
+
+The minimum and default **Checking Frequency** interval is 1 minute. You can adjust this property from the **Additional Settings** in the **Conditions** section of the alert.
+
+  * If your alert condition query runs for more than a minute, consider increasing the checking frequency interval. For example, if the query runs for 2-4 minutes, set the **Checking Frequency** interval to 5 minutes.
+  * If your data points are coming much less frequently than once a minute, consider increasing the checking frequency interval. For example, if the query metrics report every 10 minutes, set the **Checking Frequency** interval to 10 minutes.
+  * If an alert is non-critical, you can check only as often as needed.
+  * If an alert condition uses larger moving time windows or aligns to a large interval, you can check less frequently. For example, an alert that compares a `mavg(6h, ...)` to `mavg(48h, ...)` can be safely checked once an hour or even less.
 
 ## Alert Viewer Tutorial
 
@@ -267,6 +308,7 @@ We create [events](events.html) as alerts fire, update, and resolve. You can opt
 ![event icons](images/event_icons.png)
 
 {% include note.html content="If you don't have [access](access.html) to an alert, you also won't see the corresponding alert events." %}
+
 
 ## Do More!
 
