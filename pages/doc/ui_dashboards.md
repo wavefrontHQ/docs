@@ -507,6 +507,28 @@ When a dashboard has a lot of variables with interdependencies, it might make se
 </tbody>
 </table>
 
+### Identify Unused Dashboards
+
+Over time, as more and more dashboards are created, inevitably, there are dashboards that are no longer in use. To keep your environment clean and to ensure that useful dashboards can be located more readily, it's a good practice to clean up unused dashboards from time to time. In order to do that, we must first identify which dashboards are no longer being used or viewed.
+
+* By using the Dashboard Browser, you can sort the dashboards by the number of views over the last day, week, or month in ascending order. This puts the fewest viewed dashboards at the top of the list.
+![Dashboard browser with Sort menu](images/dashboards_unused.png)
+
+* By using the API, you can check for dashboards that have not been viewed over a time window of your choice including longer than a month.
+    1. Get the IDs of all dashboards by using the Dashboard API. The `url` for each entry in the response is the dashboard ID.
+    
+        {% include note.html content="You may need to iterate through all the available dashboards by using the `offset` parameter in the API request."%}
+    
+    2. Find all dashboards that have been viewed over the time window of interest by using the internal metric ``~wavefront.dashboard.<dashboard id>.views``, which views of each dashboard.
+    
+        For example, the following query will return all the IDs of dashboards that have been viewed over the last 12 weeks:
+        
+        ``aliasMetric(mmax(12w, ts(~wavefront.dashboard.*.views)), 2)``
+        
+    3. Find all unviewed dashboards.
+    
+        Now that we have the IDs of all dashboards and the IDs of all dashboards that have been viewed, taking the difference would give us all of the IDs of the unviewed dashboards.
+
 ## Delete and Recover a Deleted Dashboard
 
 You can delete a single or multiple dashboards that you no longer need. After you delete a dashboard, it is moved to the trash for 30 days before it gets permanently deleted. If a dashboard has been permanently deleted, users will no longer be able to restore it without the assistance of a Super Admin. See [Recover a Permanently Deleted Dashboard](access.html#recover-a-permanently-deleted-dashboard) for details.

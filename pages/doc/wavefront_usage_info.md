@@ -138,15 +138,37 @@ The charts in the dashboard show this information:
 
 ## Which Metrics Are Ingested But Not Used?
 
-The easiest way to improve your ingestion rates is to send only data that you actually use.
+The easiest way to improve your ingestion rates is to send only data that you actually use. The main way to use data is to query for it, whether it be in charts or dashboards or in alert conditions.
 
-* Use Wavefront Top to examine which percentage of ingested metrics are accessed.
-* See which metrics are ingested.
-  - The [Metrics Browser](metrics_managing.html) lets you examine metrics and metric namespaces.
-  - The **Wavefront Namespace Usage Explorer** dashboard that's part of the [Wavefront Usage integration](system.html) is available on each cluster and gives details on a per-namespace basis.
-* See which metrics are accessed.
-  - The [`Access` API endpoint](wavefront_api.html#notes-on-the-access-category), provides information on how often an entity has been accessed. Supported entities are metric, histogram, span. Create a script that compares ingested to accessed metrics.
-* See which dashboards are not used in the Dashboards browser.
+1. See which metrics are ingested.
+
+      * The [Metrics Browser](metrics_managing.html) lets you examine non-obsolete metrics and metric namespaces.
+  
+          {% include tip.html content="There is an underlying (undocumented) API that the Metric Browser uses that you can try to take advantage of. Use your browser's developer tools to see the underlying API calls made." %}
+
+      * The **Wavefront Namespace Usage Explorer** dashboard that's part of the [Wavefront Usage integration](system.html) gives details on a per-namespace basis.
+  
+2. See which metrics are accessed.
+
+      * Use the [Wavefront Top](wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy) tool to examine which ingested metrics are accessed during the last lookup period. The default lookback period is 7 days but is configurable.
+  
+          You can sort the namespaces by the *%Acc.* column and drill down to found out the metrics for which the accessed PPS out of the ingested PPS is *0%*.
+  
+          {% include tip.html content="Start with namespaces that have high ingestion rates but low access rates." %}
+  
+      * The [Access API endpoint](wavefront_api.html#notes-on-the-access-category), provides information on how often an entity has been accessed. Supported entities are metric, histogram, and span. The default lookback period is 7 days but is configurable up to 60 days. 
+  
+          You can create a script that compares ingested to accessed metrics. A common strategy is to start with metric namespaces that contribute the most to the overall ingestion rate and then create a script to determine all of the metric names within those namespaces and feed each of those metric names to the Access API. 
+  
+          {% include tip.html content="While it is possible to list all metric names, it is recommended to focus on specific namespaces one at a time due to the possible sheer number of metric names." %}
+  
+      * Use the Dashboards and Alerts browsers to examine metrics usage in queries. The general steps are to determine all of the metric names within a namespace, check whether each metric name is included in any chart queries for all dashboards, and check whether each metric name is included in any alert queries.
+  
+          {% include note.html content="There's a chance that some metrics are only queried for in ad hoc charts. While this is possible, it's more likely that important data is already used in dashboards and alerts." %}
+    
+3. See which dashboards are not used.
+
+    Some metrics might be queried in dashboard charts but the dashboards might be [unused](ui_dashboards.html#identify-unused-dashboards).
 
 ![Dashboard browser with Sort menu](images/dashboard_views.png)
 
