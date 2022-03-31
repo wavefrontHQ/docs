@@ -93,7 +93,7 @@ By default, alert checking frequency is 1 minute, and alert condition queries ar
 For some data sources, for example AWS, the metric is backfilled in chunks, and your alert has to take that into account. For example, if the metric is backfilled in 10-minute chunks, avoid setting **Minutes to Fire** to less than 10 minutes, or use moving time window functions to make sure all the incoming data is visible to the alert.
 
 
-### Does the Alert Query Work for the Data Shape?
+### Does the Query Work for the Data Shape?
 
 Data shape refers to the reporting behavior of the alert data. Behavior such as how often data is reported, the intervals associated with reporting, and a lag in real-time data can all result in an alert that doesn't match your expectation.
 
