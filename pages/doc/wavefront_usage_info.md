@@ -146,7 +146,7 @@ The easiest way to improve your ingestion rates is to send only data that you ac
   
           {% include tip.html content="There is an underlying (undocumented) API that the Metric Browser uses that you can try to take advantage of. Use your browser's developer tools to see the underlying API calls made." %}
 
-      * The **Wavefront Namespace Usage Explorer** dashboard that's part of the [Wavefront Usage integration](system.html) gives details on a per-namespace basis.
+      * The **Wavefront Namespace Usage Explorer** dashboard, which is part of the [Wavefront Usage integration](system.html), gives details on a per-namespace basis.
   
 2. See which metrics are accessed.
 
@@ -170,7 +170,23 @@ The easiest way to improve your ingestion rates is to send only data that you ac
 
     Some metrics might be queried in dashboard charts but the dashboards might be [unused](ui_dashboards.html#identify-unused-dashboards).
 
-![Dashboard browser with Sort menu](images/dashboard_views.png)
+    ![Dashboard browser with Sort menu](images/dashboards_unused.png)
+
+## How Can I Optimize My Ingestion Rate?
+
+Billing for Tanzu Observability is based primarily on the ingestion rate, so it's a good practice to look for ways to optimize and reduce your ingestion rate.
+
+* Examine the largest metric namespaces in terms of ingestion rate.
+
+    The **Wavefront Namespace Usage Explorer** dashboard, which is part of the [Wavefront Usage integration](system.html), is the best place to start for insight into metric namespaces. At a glance, this dashboard displays the largest level 1 namespaces. For each of these top namespaces, you can further examine the level 2 and level 3 namespaces for more insight into the sub-categories of metrics that contribute to the overall ingestion rate.
+    
+    This simple analysis often reveals metric namespaces that users may not have realized contributed so much to their ingestion rate. These namespaces are great areas for optimization.
+    
+  *  granularity you need for your metric data points.
+  
+      Even though Tanzu Observability supports second-level granularity for metric data points, it's rare that all data needs to be that granular. If some data does not need to be that granular, there can be significant savings just by increasing the interval at which that data reports. For example, switching from a 1-second interval to a 1-minute interval results in a 60x reduction in ingestion rate for that set of data.
+      
+      
 
 ## Learn More!
 
