@@ -115,7 +115,11 @@ You can log all the raw blocked data separately or log different entities into t
     {%include tip.html content ="You must update both the `<wavefront_log_path>/log4j2.xml` file and the `<wavefront_config_path>/wavefront.conf` file to get separate log files for blocked entities."%}
 
 
-
+    <table style="width: 100%;">
+    <tbody>
+    <tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+    </tbody>
+    </table>
 
 
 ## Configuration Properties
@@ -677,6 +681,12 @@ Sets the headroom multiplier for traffic shaping when there's backlog.
 </tbody>
 </table>
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
 ### Authentication Proxy Properties
 
 Because the proxy is running in your local network by default, communication **to** the proxy is un-authenticated. If you want to authenticate inbound traffic to the proxy, use the settings in this section.
@@ -766,6 +776,11 @@ Required when authMethod = STATIC_TOKEN. For example, <code>authStaticToken=toke
 </tbody>
 </table>
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ### Tracing Proxy Properties
 
@@ -884,7 +899,11 @@ Required when authMethod = STATIC_TOKEN. For example, <code>authStaticToken=toke
 </tbody>
 </table>
 
-
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ### Histogram Configuration Properties
 
@@ -1160,6 +1179,12 @@ Ex: 40</td>
 </tbody>
 </table>
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
 
 ## Authenticate Incoming HTTP Requests at the Proxy
 
@@ -1236,6 +1261,134 @@ For either method, the service must return a 2xx code for valid tokens. Accordin
 </tr>
 </tbody>
 </table>
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
+<!---
+## Proxy Configuration for Multicasting Environments
+
+Starting with Proxy version 11, you can configure your proxy to support a multicasting environment.
+
+* You set configuration properties for the proxy to recognize endpoints for multicasting tenants and Wavefront instances.
+* The proxy will then:
+  - Register itself to multiple Wavefront instances.
+  - Perform multicasting for data points (metrics, delta counters, histograms, and spans).
+  - Handle pushback and local data spooling for each multicasting Wavefront instance.
+
+In the diagram below, we send 2 data points to the central proxy. Each has a value for multicastingTenantName.
+* The data point that is tagged with multicastingTenantName=mytenant_1 is sent to both the central proxy and tenant_1.
+* The data point that is tagged with multicastingTenantName=mytenant_2 is sent to both the central proxy and tenant_2.
+
+![](images/proxies_multicasting.png)
+
+### Sample Configuration
+
+Here's a sample configuration, followed by a brief discussion of the different config properties.
+
+The example includes
+* One Wavefront instance that's the server associated with the proxy
+* Two additional Wavefront instances, `mytenant_1` and `mytenant_2`, which receive data based on point a point tag.
+
+The example includes 2 parameters that are not directly related to multicasting. The `buffer=` parameter is required only on MacOS. The `deltaCountersAggregationListenerPorts` assumes we want to listen for delta counters.
+
+{% include tip.html content="comments start with a semicolon (`;`) character. "%}
+
+The `multicastingTenants` property tells the proxy how many tenants to expect
+The other properties use `_*number*` as a suffix.
+
+```
+retryThreads=0
+server=https://<instance>.wavefront.com/api
+hostname=my_proxy_host
+token=<instance_1_token>
+pushListenerPorts=2878
+
+; Listener ports for delta counter
+deltaCountersAggregationListenerPorts = 12878
+
+; File name prefix to use for buffering transmissions to be retried.
+; Defaults to /var/spool/wavefront-proxy/buffer
+; This is an example config for MacOS user
+buffer=/tmp/wf-proxy-buffer
+
+; Number of multicasting tenants
+multicastingTenants=2
+
+; Multicasting tenants' name/server/token info
+multicastingTenantName_1=mytenant_1
+multicastingServer_1=https://<t1_example>.wavefront.com/api
+multicastingToken_1=<t1_example_token>
+
+multicastingTenantName_2=mytenant_2
+multicastingServer_2=https://<t2_example>.wavefront.com/api
+multicastingToken_2=<t2_example_token>
+
+pushFlushMaxPoints=40000
+pushFlushInterval=1000
+pushBlockedSamples=5
+
+pushLogLevel=SUMMARY
+pushValidationLevel=NUMERIC_ONLY
+
+idFile=wavefront_test_id
+```
+
+
+
+With a proxy configuration like that, you can then send data to one or more tenant. Here's how you'd send the datapoint `sample.data` to tenants `mytenant_1` and `mytenant_2`.
+
+{% include tip.html content="The point tag is `multicastingTenantName`. In contrast, the proxy configuration property, includes a tenant number (multicastingTenantName_*N*).  "%}
+
+
+```
+sample.data 1 multicastingTenantName=mytenant_1,mytenant_2 <timestamp>
+```
+
+### Multi-Tenant Setup Configuration Properties
+
+<table class="width:100%;">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="34%" /></colgroup>
+<thead>
+<tr><th>Property</th><th>Description</th><th>Format</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>multicastingTenants</td>
+<td>Number of multicasting tenants.  </td>
+<td>Integer </td>
+</tr>
+<tr>
+<td>multicastingTenantName_<em>N</em></td>
+<td>Name of the multi-casting tenant. You append a number to this property that corresponds to the tenant, and use the corresponding server and Token to allow the proxy to perform multicasting to that tenant.</td>
+<td>String. NOT a URL. Do not use <code>central</code>, which is a reserved string. </td>
+</tr>
+<tr>
+<td>multicastingServer_<em>N</em></td>
+<td>URL for the multi-casting server. This is the URL of a Wavefront instance that the data is sent to. You append a number to this property that corresponds to the number that you appended to the tenant. </td>
+<td>URL of a Wavefront instance, for example, <code>https://myserver.wavefront.com</code></td>
+</tr>
+<tr>
+<td>multicastingToken_<em>N</em></td>
+<td>API token for the Wavefront instance that you specified in multicastingServer_<em>N</em>. You need a separate API token for each server. </td>
+<td>API token. See <a href="hwavefront_api.html#generating-an-api-token">Generating an API Token</a></td>
+</tr>
+</tbody>
+</table>
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
+--->
 
 ## Troubleshooting
 

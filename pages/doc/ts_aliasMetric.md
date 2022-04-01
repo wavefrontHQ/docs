@@ -197,9 +197,10 @@ Here is a summary of the sample `aliasMetric()` queries from the examples in the
 
 ## Learn More!
 
+* For an in-depth discussion, see [Metadata (Label Manipulation) Functions](query_language_metadata_functions.html)
 * For additional examples, see the [aliasSource() Function](ts_aliasSource.html).
 
-* For an in-depth exploration with examples, see [Metadata (Label Manipulation) Functions](query_language_metadata_functions.html)
+
 
 <!--- Need to fix this example
 

@@ -4,7 +4,7 @@ keywords: query language reference
 tags: [reference page]
 sidebar: doc_sidebar
 permalink: ts_cumulativeHisto.html
-summary: Reference to the cumulativeHisto() function. Convert Prometheus cumulative histograms to Wavefront ordinary histograms.
+summary: Reference to the cumulativeHisto() function. Convert Prometheus cumulative histograms to Wavefront  histograms.
 ---
 ## Summary
 ```
@@ -51,13 +51,13 @@ When a chart displays the result of this function, it shows the median by defaul
 
 ### Ordinary and Cumulative Histograms
 
-Wavefront histogram distributions are ordinary histograms while some other tools, such as Prometheus and Telegraf, use cumulative histograms.
+Wavefront histogram distributions are ordinary histograms. In contrast, some other tools, such as Prometheus and Telegraf, use cumulative histograms.
 
 ![histogram types](images/histogram_types.png)
 
 (image credit: Wikipedia)
 
-If your data source emits cumulative histograms, you can use this function to visualize your histogram data in Wavefront.
+If your data source emits cumulative histograms, you can use this function to visualize your histogram data in Tanzu Observability by Wavefront dashboards and charts.
 
 ### How to Map Prometheus Queries to Wavefront Queries
 
@@ -97,7 +97,7 @@ source.source_http_requests_latency_including_all_seconds.5.0
 source.source_http_requests_latency_including_all_seconds.10.0
 ```
 
-If you want to use these metrics inside Wavefront:
+If you want to use these metrics with WQL and show them in our dashboards and charts:
 
 1. Extract the buckets as tags using `taggify()`
 2. Apply `cumulativeHisto()`

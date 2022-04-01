@@ -113,7 +113,7 @@ You can use the `gt` operator with time series. You can use more than one operat
 
 The `highpass()` time-series filtering function plots a chart based on all reported data points that are higher than the specified threshold. The function ignores data points if their values are less than or equal to the threshold, resulting in gaps between the remaining points.
 
-You typically use `highpass()` to compare multiple time series to a single threshold or a single time series to multiple thresholds. If `tsExpression1` and `tsExpression2` each describe multiple time series, then Wavefront uses [series matching](query_language_series_matching.html) to determine which pairs of time series to compare.
+You typically use `highpass()` to compare multiple time series to a single threshold or a single time series to multiple thresholds. If `tsExpression1` and `tsExpression2` each describe multiple time series, then the query engine uses [series matching](query_language_series_matching.html) to determine which pairs of time series to compare.
 
 ### Traces Filtering Function
 
