@@ -7,7 +7,7 @@ permalink: integrations_tas_howto.html
 summary: Set up the Tanzu Observability tile and monitor your environment.
 ---
 
-[VMware Tanzu Application Service](), previously known as Pivotal Cloud Foundry, is a popular platform for building cloud-native applications.
+[VMware Tanzu Application Service](), previously known as Pivotal Cloud Foundry, is a popular platform for building cloud-native applications. 
 
 This doc page explains:
 * How to install and configure the Tanzu Observability by Wavefront nozzle from Tanzu Ops Manager.
