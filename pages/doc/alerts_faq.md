@@ -23,7 +23,13 @@ As a rule, all users can view all alerts. But permissions and access control aff
 
 ## Why Did My Alert Not Fire?
 
-You think that your alert should have fired, but it didn't. Here's what you can do:
+You think that your alert should have fired, but it didn't. There are two main reasons:
+* The alert didn't see the data that would have triggered the firing.
+  - There was a delay in reporting
+  - The checking frequency was long and the alert missed that the condition was met for Trigger Window amount of time.
+* A function in the alert query changed the data so that the alert wasn't triggered.
+
+Here's what you can do:
 
 ### Check for Delayed Data Reporting
 
@@ -44,7 +50,6 @@ Here's how you can take action:
 2.[Refine your alert condition](alerts_delayed_data.html#minimize-the-impact-of-data-delays-on-alerts) to prevent the alert from evaluating the query until data reporting is complete.
 
 ### Consider Checking Frequency and Trigger Window Mismatch
-
 
 If the checking frequency interval that is higher than the alert trigger time window, the alert might not fire.
 
@@ -85,7 +90,15 @@ In this scenario, your most recent aggregated values at the time of the alert ev
 
 ## Why Did My Alert Misfire?
 
-False positive alerts can be a big problem because they can lead to alert fatigue--the alert recipients stop paying attention to alerts. Here are some things you can do:
+False positive alerts can be a big problem because they can lead to alert fatigue--the alert recipients stop paying attention to alerts. Reasons for false positive are similar to reasons for the alert firing.
+* The alert sees data that meet the alert condition. However, the actual data changed so the condition wasn't met for a long enough time.
+* Functions in the alert query make it look as if the condition was met for the Trigger Window time.
+
+Here are some things you can do:
+
+### Check for Delayed Data Reporting
+
+Reporting delays can prevent an alert from firing, or can make an alert misfire (false positive). Here, the alert might see a trigger value for the Trigger Window amount of time, but the value already changed at the source. The reporting delay causes the alert to fire. See [Check for Delayed Data Reporting](#check-for-delayed-data-reporting) above.
 
 ### Check If the Alert Condition Query Uses Interpolation
 
@@ -108,9 +121,6 @@ In this scenario, your most recent aggregated values at the time of the alert ev
 Using [missing data functions](query_language_reference.html#missing-data-functions) or raw aggregation functions (like `rawsum()`) can solve the problem in these cases.
 
 
-### Check for Delayed Data Reporting
-
-Reporting delays can prevent an alert from firing, or can make an alert misfire (false positive) See [Check for Delayed Data Reporting](#check-for-delayed-data-reporting) above.
 
 ## Any Tips for Creating an Alert that Works Well?
 
@@ -168,3 +178,4 @@ In such cases, use one of the following approaches:
 * [How Alerts Work](/alerts.html#how-alerts-work) includes a video and discusses the anatomy of an alert (condition, target, notification)
 * [Alerts Best Practices](alerts_best_practices.html) has in-depth discussions on mapping your data to the right alert query, recommendations on alert settings, and more.
 * [Alert States and Lifecycle](alerts_states_lifecycle.html) is required reading (and watching) for all power users.
+* To learn about the migration from the earlier create alert GUI to the new alert experience, see [FAQ for the New Alert GUI](alerts_v2_faq.html)
