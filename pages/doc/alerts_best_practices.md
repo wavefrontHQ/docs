@@ -151,10 +151,12 @@ Data coming from certain sources, such as cloud applications, are often batched 
 Consider carefully which values are best suited for the settings you specify in the **Alerts** UI.
 
 - **Minutes to Fire** - Alerts with very short **Minutes to Fire** time windows can jump over a problem spot and not fire. This might happen in case of delays in the metric pipeline or if **Alert Check Frequency** is higher than **Minutes to Fire**.
+
   For example, if **Minutes to Fire** is  5m, and the **Checking Frequency** is 10m, data might meet the condition within the 5-minute time interval, but the alert never fires because the checking frequency is too high.
 
+  To trigger an alert with a single value, instead of `ts(critical.event.count) > 0` with 1 minute to fire and 30 minutes to resolve, use `ts(critical.event.count) != 0` with 30 minutes to fire and 30 minutes to resolve. The alert still fires immediately when the first non-zero value is encountered.
+
   <!---(picture here!)-->
-  To trigger an alert with a single value, instead of `ts(critical.event.count) > 0` with 1 minute to fire and 30 minutes to resolve, use `highpass(0, ts(critical.event.count))` with 30 minutes to fire and 30 minutes to resolve. The alert still fires immediately when the first non-zero value is encountered.
 - **Alert Check Frequency** - Decrease alert check frequency, that is, increase the interval, for non-critical alerts. Check when the alert really matters to you and check only as often as you must. In development environments, check less frequently.
 
   Increase alert checking frequency for conditions that use larger moving time windows, or align to a large interval. An alert that compares a `mavg(6h, ...)` to `mavg(48h, ...)` can be safely checked once an hour or even less.
