@@ -161,7 +161,7 @@ You can [aggregate points from multiple time series](query_language_aggregate_fu
 
 If metrics report at the same time, it might be better to use raw aggregate functions and not interpolating aggregate functions. With standard aggregation functions, interpolation will occur.
 
-## What If a Metric Doesn't Report Values for a Long Time?
+## What If a Metric Doesn't Report Values for a Long Time? 
 
 If your alert monitors an *exception* metric, the alert might not see any data during its trigger window and enters the NO DATA state. For example, suppose your alert condition query is `ts(bad.exception)`, where the `bad.exception` metric reports a value of `1` when an exception occurs and reports no data when there's no exception happening.
 
