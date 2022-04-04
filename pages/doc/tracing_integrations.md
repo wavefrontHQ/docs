@@ -169,7 +169,7 @@ You can enable logging for your Jaeger and Zipkin integrations.
 
 Follow these steps:
 
-1. Open the [`<wavefront_config_path>`](#paths)`/log4j2.xml` file.
+1. Open the [`<wavefront_config_path>`](proxies_configuring.html#proxy-file-paths)`/log4j2.xml` file.
 2. Add the configurations to enable and manage logs under `<Appenders>`.<br/>
   Example:
 
@@ -211,7 +211,7 @@ Follow these steps:
 
 Follow these steps:
 
-1. Open the [`<wavefront_config_path>`](#paths)`/log4j2.xml` file.
+1. Open the [`<wavefront_config_path>`](proxies_configuring.html#proxy-file-paths)`/log4j2.xml` file.
 2. Add the configurations to enable and manage logs under `<Appenders>`.<br/>
   Example:
 
