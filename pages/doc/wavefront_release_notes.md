@@ -21,9 +21,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
     <!--- {% include important.html content="Ensure that the service accounts in your organization do not depend on the **Everyone** group permissions."%} --->
 
-
-
-## 2022-11.x Release Notes 
+## 2022-11.x Release Notes
 
   <table>
   <tbody>
