@@ -4,9 +4,9 @@ keywords: alerts
 tags: [alerts, events, videos]
 sidebar: doc_sidebar
 permalink: alerts.html
-summary: Learn how alerts work, examine and organize them.
+summary: Learn how alerts work, examine, and organize them.
 ---
-Tanzu Observability supports smart alerts that dynamically filter noise and capture true anomalies.
+Tanzu Observability by Wavefront supports smart alerts that dynamically filter noise and capture true anomalies.
 * When the alert condition is met, an alert notifies one or more **alert targets**, which receive the alert notification(s).
 * The **alert notification** includes an image and a link to see the alert in context.
 * Look all alerts in the **Alert Browser** or examine a single firing alert in the **Alert Viewer**.
@@ -54,7 +54,7 @@ Learn about:
 <tbody>
 <tr>
 <td width="50%">In the top right, examine Related Firing Alerts. <br /><br/>
-When an alert fires, Wavefront scans all the other alerts that have fired within 30 minutes and correlates them with the initial event using AI/ML algorithms. You can filter by alert severity.</td>
+When an alert fires, we scan all the other alerts that have fired within 30 minutes and correlates them with the initial event using AI/ML algorithms. You can filter by alert severity.</td>
 <td width="50%"><img src="/images/alert_viewer_related.png" alt="Related Firing Alerts section supports filters, such as severe, warn, smoke and info."></td>
 </tr>
 </tbody>
@@ -66,7 +66,7 @@ When an alert fires, Wavefront scans all the other alerts that have fired within
 <tr>
 <td width="50%">
 Scroll down and examine the Affected section on the left.<br/><br/>
-When an alert fires, Wavefront analyzes the point tags that are most likely to be related to the firing alert and displays them in ranked order in the Alert Viewer. These point tags are a list of suspects for why the alert is firing. For example, if the alert is caused by an outage in region=us-west-2, Wavefront ranks this tag higher than other tags.</td>
+When an alert fires, we analyze the point tags that are most likely to be related to the firing alert and displays them in ranked order in the Alert Viewer. These point tags are a list of suspects for why the alert is firing. For example, if the alert is caused by an outage in region=us-west-2, this tag is ranked higher than other tags.</td>
 <td width="50%"><img src="/images/alert_viewer_point_tags.png" alt="Affected point tags example"></td>
 </tr>
 </tbody>
@@ -119,13 +119,13 @@ The Alerts Browser allows you to
 <tr>
 <td width="50%">
 <br/>
-On any page in the Wavefront GUI, a colored dot next to <strong>Alerting</strong> indicates that there are firing alerts. The color shows the alert severity.
+On any page in the GUI, a colored dot next to <strong>Alerting</strong> indicates that there are firing alerts. The color shows the alert severity.
 <ol>
-<li>Hover over the <strong>Alerting</strong> button in the taskbar to see how many alerts are currently firing.</li>
-<li>Click <strong>Alerting</strong> in the taskbar to go to the Alerts Browser. </li>
+<li>Hover over <strong>Alerting</strong> on the toolbar to see how many alerts are currently firing.</li>
+<li>Click <strong>Alerting &gt; All Alerts</strong> from the toolbar to go to the Alerts Browser. </li>
 </ol>
 </td>
-<td width="50%"><img src="/images/alerts_taskbar.png" alt="multiple firing alerts on the clock icon next to text Alerting in taskbar."></td>
+<td width="50%"><img src="/images/alerting_all_alerts.png" alt="Alerting All Alerts selected."></td>
 </tr>
 </tbody>
 </table>
@@ -256,13 +256,13 @@ When you have many and complex tag paths, you can search them by parent. For exa
 
 To make copies of an existing alert, then change the copy, you can clone an alert.
 
-1. Click **Alerting** in the taskbar to display the Alerts Browser.
+1. Click **Alerting > All Alerts** in the taskbar to display the Alerts Browser.
 2. Click the ellipsis icon next to the alert.
 3. Select **Clone**, make changes when prompted, and click **Save**.
 
 ## Alert Events
 
-Wavefront creates [events](events.html) as alerts fire, update, and resolve. You can optionally [display those events](charts_events_displaying.html) as icons on a chart's X-axis:
+We create [events](events.html) as alerts fire, update, and resolve. You can optionally [display those events](charts_events_displaying.html) as icons on a chart's X-axis:
 
 ![event icons](images/event_icons.png)
 
@@ -270,12 +270,12 @@ Wavefront creates [events](events.html) as alerts fire, update, and resolve. You
 
 ## Do More!
 
-* Watch some [videos about alerts](videos_alerts.html)
+* Watch some [videos about alerts](videos_alerts.html).
 * [Create and manage alerts](alerts_manage.html).
 * Learn about [alert states and life-cycle](alerts_states_lifecycle.html).
 * For troubleshooting, read the following KBs:
    - [Unable to Create Alerts. Cannot Save Alerts Error](https://help.wavefront.com/hc/en-us/articles/360057759372-Unable-to-create-Alerts-error-message-Cannot-Save-alert-400-)
    - [Why Did My Alert Fire or Not Fire](https://help.wavefront.com/hc/en-us/articles/360049071471-Why-did-my-alert-fire-or-not-fire-)
    - [How to Audit Alert Changes](https://help.wavefront.com/hc/en-us/articles/360055676911-How-to-Audit-Dashboard-and-Alert-Changes)
-* If you want to update multiple alerts using API or CLI, see the KB [How Do I Bulk Update Multiple Alerts?](https://help.wavefront.com/hc/en-us/articles/360057895291-How-Do-I-Bulk-Update-Multiple-Alerts-)
+* If you want to update multiple alerts using API or CLI, see the KB [How Do I Bulk Update Multiple Alerts?](https://help.wavefront.com/hc/en-us/articles/360057895291-How-Do-I-Bulk-Update-Multiple-Alerts-).
    {% include note.html content="The CLI is not maintained by VMware and is not officially supported." %}
