@@ -11,7 +11,7 @@ Amazon Web Services (AWS) is a collection of cloud-computing services that provi
 {% include note.html content="You must have the [**Proxy Management** permission](permissions_overview.html) to set up an AWS integration. If you do not have permission, the UI menu selections, buttons, and links you use to perform the tasks are not visible." %}
 
 You have to set up your Tanzu Observability by Wavefront account with the correct permissions.
-* From within the integration or explicitly, you can [Give Global Read-Only Access](integrations_aws_overview.html##give-read-only-access-to-your-amazon-account-and-get-the-role-arn)
+* From within the integration or explicitly, you can [Give Global Read-Only Access](integrations_aws_overview.html#give-read-only-access-to-your-amazon-account-and-get-the-role-arn)
 * As an alternative, you can [Create an IAM Policy to Specify Limited Access](integrations_aws_overview.html#create-iam-policy-to-specify-limited-access)
 
 
@@ -46,7 +46,7 @@ To configure CloudWatch ingestion:
     - **Instance and Volume Allow List** fields -- Add instances and volumes to an allow list by specifying [EC2 tags](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) (as **&lt;key&gt;=&lt;value&gt;** pairs) defined on the instances and volumes. For example, **organization=&lt;yourcompany&gt;**. When specified as a comma-separated list, the tags are OR'd. To use instance and volume allow lists, you must also add an [AWS Metrics+](#aws-metrics-plus-integration) integration because the AWS tags are imported from the EC2 service. If you don't specify any tags, Tanzu Observability imports metrics from *all* instances and volumes.
     - **Metric Allow List** field -- Adds metrics to an allow list by specifying a regular expression. The regular expression must be a complete match of the entire metric name. For example, if you only want CloudWatch data for `elb` and `rds` (which come under `aws.rds`), then use a regular expression such as: `^aws.(elb|rds).*$`. If you do not specify a regular expression, _all_ CloudWatch metrics are retrieved.
     - **Point Tag Allow List** -- Adds AWS point tags to an allow list by specifying a regular expression. If you do not specify a regular expression, no point tags are added to metrics.
-    - **Service Refresh Rate** -- Number of minutes between requesting metrics. Default: 5.
+    - **Service Refresh Rate** -- Number of minutes between requesting metrics. Default is 5 minutes.
     - **Products** -- Allows you to filter the list of AWS products for which you want to collect metrics by using the CloudWatch integration. The default is **All**. Click **Custom** to see the list of AWS products and to filter them according to your needs.
 1. Click **Save**.
 

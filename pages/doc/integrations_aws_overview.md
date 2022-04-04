@@ -103,39 +103,25 @@ For information about external IDs and how they are used in AWS, see [How to Use
 1. On the **Roles** page, click the newly created role.
 1. Copy the **ARN** value, so that you can use it when you configure your AWS integration.
 
-### CLI Method
+#### CLI Method
 
-1. Log in to your AWS account.
-2. Create a role.
-
-   * Run the following command in the AWS CLI with values for the `stack name` and the `role name` parameters:
-
-      ```
-      aws cloudformation create-stack 
-      --stack-name <stack name> 
-      --template-url <URL for template> 
-      --parameters ParameterKey=ExternalId,ParameterValue=<your external ID> 
-                   ParameterKey=IAMRoleName,ParameterValue=<Role name> 
-      --capabilities CAPABILITY_NAMED_IAM
-      ```
-      * The `stack name` is the name that is associated with the stack. This name must be unique in the Region in which toy are creating the stack.
-      * The `role name` is the name of the role, for example, Wavefront.
-      * You can get the `external ID` parameter value, from the GUI.
-
-    * You can also copy the command from the GUI with the required parameters. 
-      1. Log in to your Wavefront instance and click **Integrations** on the toolbar.
+1. Log in to your AWS account, and open the [AWS Command Line Interface](https://aws.amazon.com/cli/).
+2. Create a role in AWS.
+   
+      1. In another web browser tab, log in to your Wavefront instance and click **Integrations** on the toolbar.
       1. In the Featured section, click the **Amazon Web Services** tile.
       1. Click the **Setup** tab and click **Add Integration**.   
-      1. Click the **CloudWatch and Metric+** or **CloudWatch, Metrics+, and CloudTrail** tile and click **Next**.
+      1. Click the **CloudWatch and Metrics+** or **CloudWatch, Metrics+, and CloudTrail** tile and click **Next**.
       1. Click the **How to get Role ARN?** link.
-      1. On the **AWS CLI Method** tab, enter the stack and role names.
+      1. On the **AWS CLI Method** tab, under **Step 1** of the interactive help page, enter the stack and role names.
          ![Screenshot of the AWS CLI method interactive help page.](images/aws-rolearn-cli-method.png)
-      1. Copy the command displayed in **Step 2** of the interactive help page and run it in the AWS CLI.
-3. Retrieve the Role ARN by running the command:
+      1. Copy the command displayed in **Step 2** of the interactive help page. 
+      1. Run the copied command in the [AWS CLI](https://aws.amazon.com/cli/).
+3. In the [AWS CLI](https://aws.amazon.com/cli/) retrieve the Role ARN by running the command:
 
    ```aws iam get-role --role-name <role name>
    ``` 
-   Here `<role name>` is the name of the role you just created.
+   Here `<role name>` is the name of the role you just created, for example `wavefront`.
    
    In the output, the Role ARN is listed as a value of the `"Arn"` property.
    
@@ -244,7 +230,7 @@ To set up an AWS integration, you must have a Role ARN handy. Use the Role ARN t
 1. In the Featured section, click the **Amazon Web Services** tile.
 1. Click the **Setup** tab and click **Add Integration**.   
 1. Select the AWS services to register and click **Next**.
-   * **CloudWatch and Metric+**
+   * **CloudWatch and Metrics+**
    * **CloudWatch, Metrics+, and CloudTrail**
 
 1. Configure the integration properties:
@@ -277,7 +263,7 @@ To set up an AWS integration, you must have a Role ARN handy. Use the Role ARN t
      
 1. Click **Register**. 
 
-The integration is added to the Amazon Web Services Integrations list. If you want to configure allow lists and refresh rate for the CloudWatch integration, click the **CloudWatch** link in the Types column and follow the instructions in [Configuring CloudWatch Data Ingestion](integrations_aws_metrics.html#configuring-cloudwatch-data-ingestion).
+The integration is added to the Amazon Web Services Integrations list. If you want to configure allow lists and service refresh rate for the CloudWatch integration, click the **CloudWatch** link in the Types column and follow the instructions in [Configuring CloudWatch Data Ingestion](integrations_aws_metrics.html#configuring-cloudwatch-data-ingestion).
 
 
 ### Register Additional Amazon Web Services
