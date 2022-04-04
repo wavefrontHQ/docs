@@ -51,7 +51,7 @@ Intelligent sampling is performed by the Wavefront service itself, not by the pr
 
 {% include note.html content="If you are troubleshooting and need specific spans, annotate those spans with `debug=true`. Make sure to remove the annotation once you are done troubleshooting and don't overuse the annotation. For details on adding span tags via the Wavefront proxy, see [Proxy Preprocessor Rules](proxies_preprocessor_rules.html#spanaddtag-and-spanaddtagifnotexists)." %}
 
-You can [monitor](wavefront_monitoring.html#using-internal-metrics-to-optimize-performance) your span storage by checking the following internal metrics. If you have set up sampling, these metrics report the number of spans after sampling takes place.
+You can [monitor](wavefront-internal-metrics.html) your span storage by checking the following internal metrics. If you have set up sampling, these metrics report the number of spans after sampling takes place.
 <table width="100%">
 <colgroup>
 <col width="50%"/>
