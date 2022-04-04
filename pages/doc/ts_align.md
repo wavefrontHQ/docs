@@ -144,4 +144,4 @@ Aligning merges the histogram distributions "horizontally" to produce a less gra
 ## See Also
 
 * [Bucketing with align()](query_language_align_function.html)
-* [Wavefront Histograms](proxies_histograms.html)
+* [Histograms](proxies_histograms.html)

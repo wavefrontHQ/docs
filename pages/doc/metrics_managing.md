@@ -166,4 +166,5 @@ The selected metrics and metric prefixes appear again as long as they have had a
 
 ## Learn More!
 
-See the KB article [Migrating Objects or Data Between Environments](https://help.wavefront.com/hc/en-us/articles/360053164791-Migrating-Objects-or-Data-Between-Tanzu-Observability-Environments) if your company has several Wavefront instances.
+* [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html)
+* See the KB article [Migrating Objects or Data Between Environments](https://help.wavefront.com/hc/en-us/articles/360053164791-Migrating-Objects-or-Data-Between-Tanzu-Observability-Environments) if your company has several Wavefront instances.

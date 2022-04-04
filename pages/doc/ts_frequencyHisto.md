@@ -12,7 +12,7 @@ frequencyHisto([<timeWindow>,] [<bucketName>,] <tsExpression>
    [,metrics|sources|sourceTags|pointTags|<pointTagKey>] )
 ```
 
-Converts a histogram coming from Google Cloud Platform(GCP) to Wavefront histogram format. When GCP Detailed Histogram Metrics is enabled, Wavefront will additionally ingest bucket counts for GCP distributions, with metric namegcp.<metric>.bucket.
+Converts a histogram coming from Google Cloud Platform(GCP) to Wavefront histogram format. When GCP Detailed Histogram Metrics is enabled, the query engine will additionally ingest bucket counts for GCP distributions, with metric namegcp.<metric>.bucket.
 
 Enabling GCP Detailed Histogram Metrics will increase your ingestion rate and cost.
 
@@ -47,7 +47,7 @@ Use one or more parameters to group by metric names, source names, source tag na
 
 This function converts ordinary histogram data to Wavefront histograms. Histogram data is defined as a set of time series where each series represents the frequency of outcomes in a particular bucket, bounded by a tag such as `lt`.
 
-One use case is to visualize GCP distributions, which can be ingested into Wavefront using the [Google Cloud Platform Integration](gcp.html). Distribution bucket data is ingested as `gcp.<metric>.bucket` with an `lt` tag defining the upper bound of each bucket. You can use `frequencyHisto(ts(gcp.<metric>.bucket))` to convert the bucket data to a Wavefront histogram.
+One use case is to visualize GCP distributions, which can be ingested by the Wavefront service using the [Google Cloud Platform Integration](gcp.html). Distribution bucket data is ingested as `gcp.<metric>.bucket` with an `lt` tag defining the upper bound of each bucket. You can use `frequencyHisto(ts(gcp.<metric>.bucket))` to convert the bucket data to a Wavefront histogram.
 
 When a chart displays the result of this function, it shows the median by default. You can use `percentile()` to change that and, for example, show the 90% percentile.
 
@@ -68,11 +68,11 @@ See [Standard Versus Raw Aggregation Functions](query_language_aggregate_functio
 
 ## Example
 
-The following example shows how to visualize a Google Cloud Platform distribution in Wavefront. Let's say that we have used the GCP Metrics Explorer to find the 95th percentile of a distribution, grouped by `location`.
+The following example shows how to visualize a Google Cloud Platform distribution. Let's say that we have used the GCP Metrics Explorer to find the 95th percentile of a distribution, grouped by `location`.
 
 ![GCP metrics explorer](images/gcp_metrics_explorer_p95.png)
 
-Now let's do the same in Wavefront. The GCP integration ingests the distribution's bucket data, so we can use `ts()` to visualize the bucket data.
+Now let's do the same with WQL. The GCP integration ingests the distribution's bucket data, so we can use `ts()` to visualize the bucket data.
 
 ![GCP bucket data](images/gcp_bucket_data.png)
 
