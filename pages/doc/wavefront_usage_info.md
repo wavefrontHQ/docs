@@ -178,16 +178,27 @@ Billing for Tanzu Observability is based primarily on the ingestion rate, so it'
 
 * Examine the largest metric namespaces in terms of ingestion rate.
 
-    The **Wavefront Namespace Usage Explorer** dashboard, which is part of the [Wavefront Usage integration](system.html), is the best place to start for insight into metric namespaces. At a glance, this dashboard displays the largest level 1 namespaces. For each of these top namespaces, you can further examine the level 2 and level 3 namespaces for more insight into the sub-categories of metrics that contribute to the overall ingestion rate.
+    The **Wavefront Namespace Usage Explorer** dashboard, which is part of the [Wavefront Usage integration](system.html), is the best place to start for insight into metric namespaces. At a glance, this dashboard displays the largest level-1 namespaces. For each of these top namespaces, you can further examine the level-2 and level-3 namespaces for more insight into the sub-categories of metrics that contribute to the overall ingestion rate.
     
-    This simple analysis often reveals metric namespaces that users may not have realized contributed so much to their ingestion rate. These namespaces are great areas for optimization.
+    This simple analysis often reveals metric namespaces that you may not have realized contributed so much to your ingestion rate. These namespaces are great areas for optimization.
     
-  *  granularity you need for your metric data points.
+*  Determine the granularity you need for your metric data points.
   
-      Even though Tanzu Observability supports second-level granularity for metric data points, it's rare that all data needs to be that granular. If some data does not need to be that granular, there can be significant savings just by increasing the interval at which that data reports. For example, switching from a 1-second interval to a 1-minute interval results in a 60x reduction in ingestion rate for that set of data.
+    Even though Tanzu Observability supports second-level granularity for metric data points, it's rare that all data needs to be that granular. If some data does not need to be that granular, there can be significant savings just by increasing the interval at which that data reports. For example, switching from a 1-second interval to a 1-minute interval results in a 60x reduction in ingestion rate for that set of data.
       
+    Another area to explore for adjusting reporting intervals is *constant values*. Since constant values do not, by definition, change often, they are great candidates for increasing reporting intervals. [WFTop](wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy) is helpful for uncovering constant values. The last column in the WFTop output is *Range*. This indicates the range of values (i.e. maximum value minus the minimum) detected by WFTop for each namespace during the time that WFTop is running. If the range is 0, then this data set is most likely reporting constant values. If the range does not change during the entire duration that WFTop is running, it is also possible that only a few fixed values are reported and that data set could also be a candidate for increased reporting intervals.
       
+* Examine unused data
+    If data is ingested but not queried, then that is most likely data that does not need to be ingested. See [Which Metrics Are Ingested But Not Used?](wavefront_usage_info.html#which-metrics-are-ingested-but-not-used) for tips on finding unused data.
 
+* Use histograms.
+
+    If some of your data sets are tracking various statistics (f.e. min, max, mean) such as is the case for Dropwizard or StatsD style histogram data, these are good candidates to consider converting to [histograms](proxies_histograms.html). Histograms store data as distributions rather than as individual data points. For billing purposes, the rate of distributions ingested is converted to a rate of points ingested through a conversion factor. If you don't know your conversion factor, contact your Account Executive.
+    
+    To determine whether there will be PPS savings from sending in metrics data as histogram data, first determine the ingestion rate for the metric data. To illustrate, let's look at an example:
+      
+    Suppose we are ingesting 10 statistics for a specific series of data: min, max, mean, sum, count, p50, p75, p95, p99, p999. Let's say that this data is ingested at 30-second intervals. This would mean that we are ingesting 20 data points every minute. That is equivalent to .33 PPS (20 data points per minute / 60 seconds per minute). For Tanzu Observability Histograms, at the most granular level, there can be one distribution per minute for any particular series. If your conversion factor from distribution per second to points per second is less than 20, this means there will be savings from ingesting this set of data as histograms. On top of these PPS savings, you would also reap all the benefits of histograms, including better and more accurate insight into your data. So, even if the conversion factor results in an equivalent PPS, we would still recommend sending in data as Tanzu Observability Histograms to take advantage of the benefits of using distribution data.      
+      
 ## Learn More!
 
 Our Customer Success Team has put together KB articles that drill down into adoption info.
