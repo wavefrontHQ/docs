@@ -21,7 +21,7 @@ However, when intelligent sampling is on, you might not see some traces when you
 
 Creating a sampling policy affects your cost because the Wavefront services more data for you.
 
-{% include note.html content="Only a [Super Admin user](authorization.html#who-is-the-super-admin-user) or users with [Applications permission](permissions_overview.html) can create sampling policies." %}
+{% include note.html content="Only a [Super Admin user](authorization-faq.html#who-is-the-super-admin-user) or users with [Applications permission](permissions_overview.html) can create sampling policies." %}
 
 To see the number of spans stored per second after a sampling policy is created, see <a href="#track-the-volume-of-stored-trace-data">Track Volume of Stored Trace Data</a>
 
@@ -78,7 +78,7 @@ If you can’t find traces because Intelligent Sampling discarded them, create a
 
 See [Managing Sampling Policies](trace_sampling_policies.html) for details.
 
-{% include note.html content="Only a [Super Admin user](authorization.html#who-is-the-super-admin-user) or users with [Applications permissions](permissions_overview.html) can create sampling policies." %}
+{% include note.html content="Only a [Super Admin user](authorization-faq.html#who-is-the-super-admin-user) or users with [Applications permissions](permissions_overview.html) can create sampling policies." %}
 
 
 

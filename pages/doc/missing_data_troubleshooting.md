@@ -102,7 +102,7 @@ Several Wavefront Query Language (WQL) functions can be used to return only a sa
 * random
 * sample
 
-A second set of functions, listed under [Query-Level Filtering Hides Your Data](#query-level-filtering-hides-your-data), filters the data. The result is the same: you might not see the data that you expect to see.
+A second set of functions, listed under [Query-Level Filtering Hides Your Data](missing_data_troubleshooting.html#check-if-query-level-filtering-hides-your-data), filters the data. The result is the same: you might not see the data that you expect to see.
 
 #### Check if Dashboard-Level Filtering Hides Your Data
 

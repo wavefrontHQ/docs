@@ -42,7 +42,7 @@ Multi-tenancy is set up jointly by the administrator at the customer site and th
    * Creates tenant administrator users with the **Accounts** permission on each tenant.
 1. The administrator at the customer site and the newly specified tenant administrator users with the **Accounts** permission can then:
   * Log in to the tenant.
-  * [Invite users](user-accounts.html#create-and-manage-user-accounts) to the tenant and assign permissions for that tenant.
+  * [Invite users](user-accounts.html#create-edit-and-delete-user-accounts) to the tenant and assign permissions for that tenant.
   * Make other users tenant administrators by granting the [**Accounts** permission](permissions_overview.html) to those invited users.
 
 ## Multi-Tenant Modes
