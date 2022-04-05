@@ -414,7 +414,7 @@ The time series visited by a particular iterator are in one of the following cat
 </tr>
 <tr>
 <td><em>In maintenance</em></td>
-<td markdown="span">Any time series whose source is associated with an ongoing [maintenance window](maintenance_windows_managing.html#using-maintenance-windows). These are time series that continue to be tested against the alert condition, but whose results do not change the alert's state.</td>
+<td markdown="span">Any time series whose source is associated with an ongoing [maintenance window](maintenance_windows_managing.html). These are time series that continue to be tested against the alert condition, but whose results do not change the alert's state.</td>
 </tr>
 </tbody>
 </table>

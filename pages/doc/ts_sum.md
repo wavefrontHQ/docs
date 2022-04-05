@@ -53,12 +53,12 @@ You can specify multiple 'group by' parameters to group the time series based on
 
 ### Interpolation
 
-If any time series has gaps in its data, Wavefront attempts to fill these gaps with interpolated values before applying the function.
+If any time series has gaps in its data, the query engine attempts to fill these gaps with interpolated values before applying the function.
 A value can be interpolated into a time series only if at least one other time series reports a real data value at the same moment in time.
 
 Within a given time series, an interpolated value is calculated from two real reported values on either side of it.
 Sometimes interpolation is not possible--for example, when a new value has not been reported yet in a live-view chart.
-In this case, Wavefront finds the last known reported value in the series, and assigns it to any subsequent moment in time for which a real reported data value is present in some other time series. We use the last known reported value only if interpolation can’t occur _and_ if the last known reported value has been reported within the last 15% of the query time in the chart window.
+In this case, the query engine finds the last known reported value in the series, and assigns it to any subsequent moment in time for which a real reported data value is present in some other time series. We use the last known reported value only if interpolation can’t occur _and_ if the last known reported value has been reported within the last 15% of the query time in the chart window.
 
 You can use [`rawsum()`](ts_rawsum.html) to suppress interpolation.  See [Standard Versus Raw Aggregation Functions](query_language_aggregate_functions.html).
 

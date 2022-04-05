@@ -11,6 +11,8 @@ All users can [examine alerts and drill down to find the problem](alerts.html). 
 
 {% include note.html content="You need the [**Alerts**](permissions_overview.html) permission to create and manage alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
+If you are using the **Terraform Provider**, update to [version 3.0.1](https://registry.terraform.io/providers/vmware/wavefront/latest/docs). Earlier versions are not compatible with the new alert experience. See the [FAQ for the New Alert GUI](alerts_v2_faq.html).
+
 ## Create Alert Video
 
 Users with the **Alerts** permission follow a step-by-step process to create an alert. Watch this 90 second video. You can also watch the video <a href="https://bcove.video/3o9bu6L" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
@@ -112,7 +114,7 @@ You can alert when the query result is greater than or less than the specified t
 <td>3. Optionally, fine-tune and test the condition.
 <ul>
 <li><strong>Trigger Window</strong>: Length of time (in minutes) during which the <strong>Condition</strong> expression must be true before the alert fires. Minimum is 1. For example, if you enter 5, the alerting engine reviews the value of the condition during the last 5-minute window to determine whether the alert should fire. </li>
-<li><strong>Resolve Window</strong>(Optional): By default, the <strong>Resolve Window</strong> is unchecked and set to the same number of minutes as the Trigger Window. Set the <strong>Resolve Window</strong> to greater than or equal to the <strong>Trigger Window</strong> to avoid resolve-fire cycles.
+<li><strong>Resolve Window</strong>(Optional): By default the Resolve Window is set to the same number of minutes as the Trigger Window. Set the <strong>Resolve Window</strong> to greater than or equal to the <strong>Trigger Window</strong> to avoid resolve-fire cycles.
 <br><br>
 The <strong>Resolve Window</strong> is the length of time (in minutes) during which the <strong>Condition</strong> expression must be NOT true before the alert switches to resolved. Minimum is 1.  <br><br>
 </li>

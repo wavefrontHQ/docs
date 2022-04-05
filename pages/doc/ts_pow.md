@@ -11,7 +11,7 @@ summary: Reference to the pow() function
 pow(<base-tsExpression>, <exponent-tsExpression>[, inner])
 ```
 
-Raises the base expression to the power of the exponent expression. 
+Raises the base expression to the power of the exponent expression.
 
 
 ## Parameters
@@ -35,9 +35,9 @@ Raises the base expression to the power of the exponent expression.
 
 ## Description
 
-The `pow()` function produces a time series in which the data values are the values specified by the base expression, raised to a power specified by the exponent expression. 
+The `pow()` function produces a time series in which the data values are the values specified by the base expression, raised to a power specified by the exponent expression.
 
-Either or both parameters may describe a time series or a constant value, and either may be fractional or negative. Wavefront does not currently support imaginary numbers, so `pow(-1, 0.5)` returns no data.
+Either or both parameters may describe a time series or a constant value, and either may be fractional or negative. WQL does not support imaginary numbers, so `pow(-1, 0.5)` returns no data.
 
 By default, the chart legend displays a rounded version of the result. You can cause the legend to display the result with more precision by holding down the shift key when you hover over the time series.
 
