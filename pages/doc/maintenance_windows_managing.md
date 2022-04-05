@@ -167,7 +167,7 @@ You can exclude sources from an alert by configuring the alert condition so that
 
 Suppose an alert condition tests the metrics that flow from sources `app-1`, `app-2`, ..., `app-10`. You decide to decommission `app-2` and replace it with a new `app-11`. The following steps cause the alert to filter out the metrics from the decommissioned source:
 
-1. [Add a source tag](tags_overview.html#add-source-tags) such as `decommissioned` to `app-2` when you are ready to take that source out of service.
+1. [Add a source tag](tags_overview.html#add-source-tags-from-the-ui) such as `decommissioned` to `app-2` when you are ready to take that source out of service.
 2. Modify the alert condition to include `and not tag=decommissioned`, for example:
   ```ts(~sample.cpu.usage.percentage, source=app-* and not tag=decommissioned) > .5 ```.
 
