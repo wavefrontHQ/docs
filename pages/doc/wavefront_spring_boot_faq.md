@@ -36,7 +36,7 @@ Reach out to us on [Slack](https://www.wavefront.com/join-public-slack) and join
 
 ### How do I set up an email/password login to the account?
 
-You can [Invite users and let them send data to the same cluster](wavefront_springboot.html#optional-custom-configurations). To invite yourself, just enter your email address.
+You can [invite users and let them send data to the same cluster](wavefront_springboot.html#custom-configurations). To invite yourself, just enter your email address.
 
 If you added `wavefront.freemium-account=true` to your `application.properties` file, make sure to remove it so that a single-use login URL is no longer requested on startup.
 
