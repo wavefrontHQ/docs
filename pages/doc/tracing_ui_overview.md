@@ -180,7 +180,7 @@ style="vertical-align:text-bottom;width:28px" alt="icon to click to get the tabl
 Using the table view, you can:
 * Examine the applications and services, or search for a particular application or service by applying filters.
   <br/>You can refine your search further by applying one or more filters, such as the cluster, shard, or span.kind.
-* Click the name of the service to [drill down to the Service Dashboard](#explore-the-default-service-dashboard).
+* Click the name of the service to drill down to the Service Dashboard.
 * Sort data:
   - Sort the application and service names alphabetically.
   - Sort the table in the ascending or descending order of the RED metrics.
@@ -367,8 +367,8 @@ On the page for a particular application, you can:
 * Click **Actions** > **Create Alerts** to create smart alerts that filter noise and capture true anomalies. See [Create an alert](#create-alerts).
 * Click **Actions** > **View Alerts** to view alerts that are firing for the service. The number of alerts firing for the service are shown on the red circle next to the service name.
 * Drill down from a service box:
-  - Click the name of the service or **Details** to [explore the dashboard for that service](#explore-the-default-service-dashboard).
-  - Click **All Traces** to [explore the traces](#explore-traces) that originate in that service.
+  - Click the name of the service or **Details** to explore the dashboard for that service.
+  - Click **All Traces** to explore the traces that originate in that service.
 * Update the legend by clicking the settings icon. These settings can be configured by each user and apply to the application map, and table view too.
     <table style = "width: 100;">
       <tr>

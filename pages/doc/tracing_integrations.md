@@ -7,7 +7,7 @@ permalink: tracing_integrations.html
 summary: Learn how to send trace data from Jaeger or Zipkin to Tanzu Observability by Wavefront.
 ---
 
-You can collect [traces](tracing_basics.html#wavefront-trace-data) with Jaeger or Zipkin and send the [trace data](tracing_basics.html) to Tanzu Observability by Wavefront, which:
+You can collect traces  with Jaeger or Zipkin and send the trace data to Tanzu Observability by Wavefront, which:
 * Provides managed, highly scalable storage for your trace data.
 * Allows you to examine and alert on RED metrics that are derived from the spans.
 
