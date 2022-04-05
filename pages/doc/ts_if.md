@@ -39,7 +39,7 @@ If you include <strong>else-tsExpression</strong>:
 </table>
 
 ## Description
-The `if()` conditional function returns data values based on the specified condition. You can determine what values are returned if the condition is true, and what values are returned if the condition is false. The Wavefront system treats a 0 value as false, and all other values as true.
+The `if()` conditional function returns data values based on the specified condition. You can determine what values are returned if the condition is true, and what values are returned if the condition is false. The query engine treats a 0 value as false, and all other values as true.
 
 Each of the [tsExpressions](query_language_reference.html#query-expressions) can be a constant or a query that returns one or more non-constant time series.
 

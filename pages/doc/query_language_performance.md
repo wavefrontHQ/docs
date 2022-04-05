@@ -159,3 +159,8 @@ WQL supports the asterisk (*) as a wildcard character.  [Wildcards](query_langua
 - **Faster**: `ts(‘abc.*.xyz’)` -- Using delimiters around wildcards.
 - **Slower**: `ts(“abc*xyz”)` -- Not using a period as a delimiter.
 - **Slower**: `ts("*abc.xyz")` -- Wildcard character at the beginning of a query.
+
+## Learn More!
+
+* [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html)
+* [Troubleshooting Missing Data](missing_data_troubleshooting.html)

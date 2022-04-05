@@ -115,7 +115,11 @@ You can log all the raw blocked data separately or log different entities into t
     {%include tip.html content ="You must update both the `<wavefront_log_path>/log4j2.xml` file and the `<wavefront_config_path>/wavefront.conf` file to get separate log files for blocked entities."%}
 
 
-
+    <table style="width: 100%;">
+    <tbody>
+    <tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+    </tbody>
+    </table>
 
 
 ## Configuration Properties
@@ -677,6 +681,12 @@ Sets the headroom multiplier for traffic shaping when there's backlog.
 </tbody>
 </table>
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
 ### Authentication Proxy Properties
 
 Because the proxy is running in your local network by default, communication **to** the proxy is un-authenticated. If you want to authenticate inbound traffic to the proxy, use the settings in this section.
@@ -766,6 +776,11 @@ Required when authMethod = STATIC_TOKEN. For example, <code>authStaticToken=toke
 </tbody>
 </table>
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ### Tracing Proxy Properties
 
@@ -884,7 +899,11 @@ Required when authMethod = STATIC_TOKEN. For example, <code>authStaticToken=toke
 </tbody>
 </table>
 
-
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ### Histogram Configuration Properties
 
@@ -1160,6 +1179,12 @@ Ex: 40</td>
 </tbody>
 </table>
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
 
 ## Authenticate Incoming HTTP Requests at the Proxy
 
@@ -1236,6 +1261,13 @@ For either method, the service must return a 2xx code for valid tokens. Accordin
 </tr>
 </tbody>
 </table>
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
 
 ## Troubleshooting
 
