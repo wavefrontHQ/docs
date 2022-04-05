@@ -95,16 +95,16 @@ For some data sources, for example AWS, the metric is backfilled in chunks, and 
 
 ### Does the Query Work for the Data Shape?
 
-Data shape refers to the reporting behavior of the alert data. Behavior such as how often data is reported, the intervals associated with reporting, and a lag in real-time data can all result in an alert that doesn't match your expectation.
+Data shape refers to the reporting behavior of the alert data. Behavior such as how often data is reported, the intervals associated with reporting, and a lag in real-time data can all result in an alert that doesn't match your expectations.
 
 For example, imagine you want to trigger an alert when the total number of errors reported across 10 VMs exceeds expectation. The data shape can impact how you should construct your alert condition query. For this example, pay attention to the following data shape behavior to ensure that your alert meets expectations:
-* **Reporting behavior when no errors occur**: Some environments send a value of 0 if no errors occurred at a reporting interval, while others omit a reported value. If there's no reported value, you might need the [default](ts_default.html) missing data function in order to correctly handle the omitted value.
+* **Reporting behavior when no errors occur**: Some environments send a value of 0 if no errors occurred at a reporting interval, while others omit a reported value. If there's no reported value, you might need the [default](ts_default.html) missing data function to correctly handle the omitted value.
 
-* **Reporting intervals**: Even though each VM in this example likely has the same reporting frequency, the reporting interval may be staggered. It usually makes sense to calculate the `total number of errors reported across 10 VMs` with an aggregation function. But staggered reporting in conjunction with an aggregation funciton introduces interpolated values. Consider whether you want to use a raw or non-raw aggregation function. See [Aggregating Time Series](query_language_aggregate_functions.html) for background and a video.
+* **Reporting intervals**: Even though each VM in this example likely has the same reporting frequency, the reporting interval may be staggered. It usually makes sense to calculate the `total number of errors reported across 10 VMs` with an aggregation function. But staggered reporting in conjunction with an aggregation function introduces interpolated values. Consider whether you want to use a raw or non-raw aggregation function. See [Aggregating Time Series](query_language_aggregate_functions.html) for background and a video.
 
-* **Lag in real-time data**: If the Wavefront service receives the error data in this example with a 5-minute lag, then you need to consider that when setting the Alert Firing time window or constructing your query.
+* **Lag in real-time data**: If the Wavefront service receives the error data with a 5-minute lag, then you need to consider that when setting the Alert Firing time window or constructing your query.
   - If the alert is set to evaluate a 3-minute time window of real-time data, then there would be no reported values to evaluate during the check.
-  - However, if you look at the data 20 minutes after the fact, you see that the total number of errors were exceeded.
+  - If you look at the data 20 minutes after the fact, you see that the total number of errors were exceeded.
 You can increase the **Trigger Window** or use the lag() function to get the correct behavior (alert fires).
 
 
