@@ -26,7 +26,7 @@ In this tutorial, you use the Amazon Web Services (AWS) integration to:
 
 It's an easy setup. You don't have to install anything or make changes to your application code.
 
-We support other cloud integrations, such as Google Cloud Platform (GCP), Microsoft Azure, and many other integrations. See [List of Wavefront Integrations](label_integrations%20list.html).
+We support other cloud integrations, such as Google Cloud Platform (GCP), Microsoft Azure, and many others. See the [list of Integrations](label_integrations%20list.html).
 
 {% include tip.html content="If you are trying this tutorial to understand how to send data by using an integration and don't have an application deployed on AWS, follow the optional step." %}
 
@@ -36,7 +36,7 @@ Follow these steps:
 
 1. In a web browser, go to your Wavefront instance (https://www.&lt;enter_cluster_name&gt;.waverfront.com), and log in. <br/>If you don’t have a cluster, [sign up for a free trial](https://tanzu.vmware.com/observability).
 1. Click **Integrations** on the toolbar
-1. Under Featured, click the **Amazon Web Services (AWS)** tile.
+1. Under Featured, click **Amazon Web Services**.
     <!--![Highlight the AWS integration on the Wavefront Integrations page.](images/hello_tutorial_aws_integration_tile.png)-->
 1. Click the **Setup** tab and click **Add Integration**.
     ![Highlights the Add Integration button on the AWS integration's Setup tab.](images/hello_tutorial_aws_add_integration.png)
@@ -47,9 +47,7 @@ You need the **Account ID** and **External ID** displayed under **How to get Rol
 
 ### Step 2: Create a Wavefront Read-Only Role in Your AWS Account
 
-{{site.data.alerts.note}}
-<p>For this step, you need to log in to your <a href="https://aws.amazon.com/">AWS account</a>. Create a new AWS account if you don’t have one.</p>
-{{site.data.alerts.end}}
+{% include note.html content="For this step, you need to log in to your [AWS account](https://aws.amazon.com/). Create a new AWS account if you don’t have one." %}
 
 Follow these steps:
 
@@ -77,16 +75,16 @@ Follow these steps:
 
 1. Set the **Role name** as `wavefront`.
 1. Click **Create role**.
-1. Once the list of roles appears, click `wavefront` (the role you just created), and copy the **ARN** value.
+1. Once the list of roles appears, click **wavefront** (the role that you just created), and copy the **ARN** value.
 
-{% include note.html content="See [Giving Wavefront Limited Access](integrations_aws_overview.html#giving-wavefront-limited-access) if you want to specify a more restrictive IAM policy for Wavefront." %}
+{% include note.html content="See [Giving Limited Access](integrations_aws_overview.html#giving-limited-access) if you want to specify a more restrictive IAM policy." %}
 
 ### Step 3: Configure the AWS Integration
 
-Go back to the Wavefront cluster where you opened the AWS integration tile, and follow these steps:
+Go back to the Wavefront instance where you opened the AWS integration tile, and follow these steps:
 
 1. Provide a name for the integration.
-1. Paste the **Role ARN** value you copied in the previous step as the value for **“Role ARN” from Amazon IAM**.
+1. Paste the **Role ARN** value you copied in the previous step as the value for **Role ARN from Amazon IAM**.
 1. Click **Register**.
 
 Tanzu Observability by Wavefront can now connect to your AWS account and get data. Once the data starts flowing, you can visualize them. It will take a few minutes for the data to show.
@@ -108,7 +106,7 @@ If you already have an application running on the AWS account, move to the next 
 1. You can select **proceed without a key pair** when prompted to select or create a new key pair.
       {% include important.html content="When you select **proceed without a key pair**, you are not able to SSH into the EC2 instance you deploy. Only use it for this tutorial, as it is not a recommended approach." %}
 -->
-Once the instance is launched, you start to see the data in Wavefront after a few minutes.
+Once the instance is launched, you start to see the data flowing in a few minutes.
 
 ### Step 5: See Metrics and Visualize Data
 
@@ -122,21 +120,23 @@ You see charts with the metrics collected from your AWS account.
 
 Example:
 ![Screenshots of the AWS metrics once the data starts to flow to Wavefront.](images/hello_tutorial_aws_metrics.png)
-{% include note.html content="You see **No Data** if Wavefront can't find any metrics to match the queries in the chart." %}
+{% include note.html content="You see **No Data** if we can't find any metrics to match the queries in the chart." %}
 
 <br/>
 <p><span style="font-size: large; font-weight: 500">View Data on Dashboards</span></p>
 Tanzu Observability includes system dashboards for the AWS integration that help you analyze and gather data.
-1. To see a list of the system dashboards, click **Dashboards**.
+1. To see the list of the system dashboards, click **Dashboards**.
     ![Screenshot of all the predefined dashboards available for Wavefront.](images/hello_tutorial_aws_dahsboards.png)
-1. Click **AWS: Summary**. From the Summary dashboard, you can easily navigate to all other AWS dashboards.
+1. Click **AWS: Summary**. 
+
+    From the **AWS: Summary** dashboard, you can easily navigate to all other AWS dashboards.
     {% include note.html content="You need to configure your AWS account preferences to send billing metrics. See [Configuring CloudWatch Billing Metrics](integrations_aws_metrics.html#configuring-cloudwatch-billing-metrics)." %}
     ![Screenshot of the predefined AWS summary dashboard](images/hello_tutorial_aws_summary_dashboard.png)
-{% include tip.html content="You can't edit the dashboards and the queries in the charts. If you want to customize the dashboards or the queries, you must clone the dashboard and then update the queries in the charts. See [Edit or Clone a Dashboard](ui_dashboards.html#edit-or-clone-a-dashboard)." %}
+{% include tip.html content="You can't edit the system dashboards and the queries in the charts. If you want to customize the dashboards or the queries, you must clone the dashboard and then update the queries in the charts. See [Edit or Clone a Dashboard](ui_dashboards.html#edit-or-clone-a-dashboard)." %}
 
 
 ## Next Steps
 
 * For more information on the AWS integration, see [Amazon Web Services Integration](integrations_aws_overview.html).
-* You can even try to [setup and manage the AWS integration by using the API](integrations_aws_overview_API.html).
+* You can even try to [set up and manage the AWS integration by using the API](integrations_aws_overview_API.html).
 * Try out the [Dashboards Tutorial](tutorial_dashboards.html).
