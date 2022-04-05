@@ -30,7 +30,7 @@ In this section, you learn how to investigate. Here's an overview of the steps:
 
 ![investigate missing data flowchart, content matches steps](images/missing_data_1.png)
 
-{% include tip.html content="This section investigest only missing data. If your query returns a syntax error, look carefully at the [query language reference](query_language_reference.html), examine individual reference pages, and learn from other pages in that section such as [Fine Tune Queries with Point Tags](query_language_point_tags.html)." %} 
+{% include tip.html content="This section investigest only missing data. If your query returns a syntax error, look carefully at the [query language reference](query_language_reference.html), examine individual reference pages, and learn from other pages in that section such as [Fine Tune Queries with Point Tags](query_language_point_tags.html)." %}
 
 
 
@@ -102,7 +102,7 @@ Several Wavefront Query Language (WQL) functions can be used to return only a sa
 * random
 * sample
 
-A second set of functions, listed under [Query-Level Filtering Hides Your Data](#query-level-filtering-hides-your-data), filters the data. The result is the same: you might not see the data that you expect to see.
+A second set of functions, listed under [Query-Level Filtering Hides Your Data](missing_data_troubleshooting.html#check-if-query-level-filtering-hides-your-data), filters the data. The result is the same: you might not see the data that you expect to see.
 
 #### Check if Dashboard-Level Filtering Hides Your Data
 
@@ -298,3 +298,7 @@ For data that is in the Wavefront Data Format, see [this page](wavefront_data_fo
 ### Step 3: Do Proxy Preprocessor Rules Block Data?
 
 The proxy supports setting up [custom preprocessor rules](proxies_preprocessor_rules.html) to allow or block certain data. Ensure that your data meets all the rules set-up at the proxy. You may need to reach out to the team that manages the proxy and/or those rules.
+
+## Learn More
+
+* [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html) might have hints on why you don't see the results you expect. 

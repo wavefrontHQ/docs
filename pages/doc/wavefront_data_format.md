@@ -206,7 +206,9 @@ We do not retain the history of alert tags, event tags, and source tags. For exa
 
 ## Learn More!
 
-* [High Cardinality Data](cardinality.html) explores how you can optimize query performance by selecting the best data dimensions.
+* [High Cardinality Data](cardinality.html) is an introduction with a video.
+* [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html) has in-depth examples. 
+
 
 The following KB articles provide details on data best practices:
 

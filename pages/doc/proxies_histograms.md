@@ -227,4 +227,4 @@ The aggregation intervals do not overlap.  If you are aggregating by the minute,
 
 ## Monitoring Histogram Points
 
-You can use `~collector` metrics to monitor histogram ingestion. See [Understanding ~collector Metrics for Histograms](wavefront_monitoring.html#understanding-collector-metrics-for-histograms).
+You can use `~histogram` metrics to monitor histogram ingestion. See the [Ingest Rate by Source](wavefront_monitoring.html#ingest-rate-by-source) section of the Wavefront Service and Proxy Data dashboard.

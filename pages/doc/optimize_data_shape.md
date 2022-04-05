@@ -142,7 +142,7 @@ The Wavefront service uses several indexes for retrieving data.
 * One index uses the metric name and source name combination.
 * Another index allows retrieval of data based on the point tag key and values combination.
 
-If you are smart about data shaping to optimize how the Wavefront service uses these indexes so that the query engine can return results faster. See [Ask How Data Will Be Queried and Optimize](#optimize_data_shape.html#step-5-ask-how-data-will-be-queried-and-optimize).
+If you are smart about data shaping to optimize how the Wavefront service uses these indexes so that the query engine can return results faster. See [Ask How Data Will Be Queried and Optimize](#step-5-ask-how-data-will-be-queried-and-optimize).
 
 Wavefront identifies data points that measure the same behavior by looking at the **components of each data point** (metric name, source name, and point tag name/value). The unique combination of these components describes what a time series is.
 

@@ -258,7 +258,7 @@ You can manage authorization with user-level permissions or user and group-level
 </tr>
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">[**Source tag**](tags_overview.html#add-source-tags)</td>
+<td markdown="span">[**Source tag**](tags_overview.html#source-tags)</td>
 <td>Source tags allow you to group your sources. For example, you can tag production hosts and development hosts with different source tags, and later run a query over only one group of sources. </td>
 </tr>
 <tr>

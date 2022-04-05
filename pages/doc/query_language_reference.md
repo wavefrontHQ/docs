@@ -238,7 +238,7 @@ source=/(app-10|app-20)/
 </td></tr>
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;sourceTag&gt;</span></td>
-<td>A <a href="tags_overview.html#add-source-tags">source tag</a> that has been assigned to a group of data sources. Specify a source tag with the <strong>tag</strong> keyword.
+<td>A <a href="tags_overview.html#source-tags">source tag</a> that has been assigned to a group of data sources. Specify a source tag with the <strong>tag</strong> keyword.
 Examples:
 <pre>
 tag="appServers"

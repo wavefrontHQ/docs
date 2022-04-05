@@ -76,7 +76,7 @@ Allows you to turn off or turn on the single line color gradient when you're loo
 <a id="line_plot_axis_tab">
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
-The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
+The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-iecbinary-prefixes-in-y-axis-and-legends) for instructions.
 
 <table>
 <tbody>
@@ -268,7 +268,7 @@ You can also use events() queries to <a href="charts_events_displaying.html">Dis
 <a id="point_plot_axis_tab">
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
-The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
+The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-iecbinary-prefixes-in-y-axis-and-legends) for instructions.
 
 <table>
 <tbody>
@@ -451,7 +451,7 @@ The following stack types are supported.
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
 
-The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
+The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-iecbinary-prefixes-in-y-axis-and-legends) for instructions.
 
 <table>
 <tbody>
@@ -620,7 +620,7 @@ You can also use events() queries to <a href="charts_events_displaying.html">Dis
 <a id="stacked_column_axis_tab">
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
-The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
+The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-iecbinary-prefixes-in-y-axis-and-legends) for instructions.
 
 <table>
 <tbody>
