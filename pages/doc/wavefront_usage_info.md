@@ -138,39 +138,35 @@ The charts in the dashboard show this information:
 
 ## Which Metrics Are Ingested But Not Used?
 
-The easiest way to improve your ingestion rates is to send only data that you actually use. The main way to use data is to query for it, whether it be in charts or dashboards or in alert conditions.
+The easiest way to improve your ingestion rates is to send only data that you actually use. The main way to use data is to query for it, whether it be in charts, dashboards, alert conditions, or API calls.
 
 1. See which metrics are ingested.
 
-      * The [Metrics Browser](metrics_managing.html) lets you examine non-obsolete metrics and metric namespaces.
+      * The [Metrics Browser](metrics_managing.html#metrics-browser) lets you examine non-obsolete metrics and metric namespaces.
   
-          {% include tip.html content="There is an underlying (undocumented) API that the Metric Browser uses that you can try to take advantage of. Use your browser's developer tools to see the underlying API calls made." %}
-
       * The **Wavefront Namespace Usage Explorer** dashboard, which is part of the [Wavefront Usage integration](system.html), gives details on a per-namespace basis.
   
-2. See which metrics are accessed.
+2. See which metrics are used.
 
-      * Use the [Wavefront Top](wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy) tool to examine which ingested metrics are accessed during the last lookup period. The default lookback period is 7 days but is configurable.
+      * Use the [Wavefront Top](wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy) tool to examine which ingested metrics are accessed during the last lookback period. The default lookback period is 7 days but is configurable. The *PPS* column shows the ingested rates, and the *%Acc.* column shows the percentages of the ingested rates that are accessed by queries. 
   
-          You can sort the namespaces by the *%Acc.* column and drill down to found out the metrics for which the accessed PPS out of the ingested PPS is *0%*.
+          A common strategy is to start with the namespaces that have high ingestion rates but low access rates. Drill down the namespaces to found out the metrics with access rates of *0%*. 
   
-          {% include tip.html content="Start with namespaces that have high ingestion rates but low access rates." %}
+      * Use the Wavefront API to create a script that compares ingested to accessed metrics. The [Access API endpoint](wavefront_api.html#notes-on-the-access-category) provides information on how often an entity has been accessed. Supported entities are metrics, histograms, and spans. The default lookback period is 7 days but is configurable up to 60 days. 
   
-      * The [Access API endpoint](wavefront_api.html#notes-on-the-access-category), provides information on how often an entity has been accessed. Supported entities are metric, histogram, and span. The default lookback period is 7 days but is configurable up to 60 days. 
+          A common strategy is to start with metric namespaces that contribute the most to the overall ingestion rate. First, create a script to determine all of the metric names within those namespaces, then feed each of those metric names to the Access API. While it is possible to list all metric names, it is recommended to focus on specific namespaces one at a time due to the possible sheer number of metric names.
   
-          You can create a script that compares ingested to accessed metrics. A common strategy is to start with metric namespaces that contribute the most to the overall ingestion rate and then create a script to determine all of the metric names within those namespaces and feed each of those metric names to the Access API. 
+          {% include tip.html content="There is an underlying (undocumented) API that the [Metrics Browser](metrics_managing.html#metrics-browser) uses. To take advantage of that API, use your browser's developer tools to see the underlying API calls." %}
   
-          {% include tip.html content="While it is possible to list all metric names, it is recommended to focus on specific namespaces one at a time due to the possible sheer number of metric names." %}
+      * Use the Dashboards and Alerts browsers to examine metrics usage in queries.
+      
+          A common strategy is first to determine all of the metric names within a namespace, then check whether each metric name is included in any chart query for all dashboards and whether it is included in any condition query for all alerts.
   
-      * Use the Dashboards and Alerts browsers to examine metrics usage in queries. The general steps are to determine all of the metric names within a namespace, check whether each metric name is included in any chart queries for all dashboards, and check whether each metric name is included in any alert queries.
-  
-          {% include note.html content="There's a chance that some metrics are only queried for in ad hoc charts. While this is possible, it's more likely that important data is already used in dashboards and alerts." %}
+          {% include note.html content="There's a chance that some metrics are queried only in ad hoc charts. While this is possible, it's more likely that important data is already used in dashboards and alerts." %}
     
 3. See which dashboards are not used.
 
-    Some metrics might be queried in dashboard charts but the dashboards might be [unused](ui_dashboards.html#identify-unused-dashboards).
-
-    ![Dashboard browser with Sort menu](images/dashboards_unused.png)
+    Some metrics might be queried in dashboard charts but these dashboards might be unused. Examine and, if needed, delete the [unused dashboards](ui_dashboards.html#identify-unused-dashboards).
 
 ## How Can I Optimize My Ingestion Rate?
 
@@ -182,11 +178,13 @@ Billing for Tanzu Observability is based primarily on the ingestion rate, so it'
     
     This simple analysis often reveals metric namespaces that you may not have realized contributed so much to your ingestion rate. These namespaces are great areas for optimization.
     
-*  Determine the granularity you need for your metric data points.
+*  Adjust the granularity for your metric data points.
   
     Even though Tanzu Observability supports second-level granularity for metric data points, it's rare that all data needs to be that granular. If some data does not need to be that granular, there can be significant savings just by increasing the interval at which that data reports. For example, switching from a 1-second interval to a 1-minute interval results in a 60x reduction in ingestion rate for that set of data.
       
-    Another area to explore for adjusting reporting intervals is *constant values*. Since constant values do not, by definition, change often, they are great candidates for increasing reporting intervals. [WFTop](wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy) is helpful for uncovering constant values. The last column in the WFTop output is *Range*. This indicates the range of values (i.e. maximum value minus the minimum) detected by WFTop for each namespace during the time that WFTop is running. If the range is 0, then this data set is most likely reporting constant values. If the range does not change during the entire duration that WFTop is running, it is also possible that only a few fixed values are reported and that data set could also be a candidate for increased reporting intervals.
+    Another area to explore for adjusting reporting intervals is *constant values*. Values that do not change often are great candidates for increasing reporting intervals. [Wavefront Top](wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy) is helpful for uncovering constant values. The *Range* column shows the range of the reported values (the maximum value minus the minimum value) for each namespace.
+    - If the range is *0*, then this data set is most likely reporting constant values.
+    - If the range does not change, it is also possible that only a few fixed values are reported and that data set could also be a candidate for increased reporting intervals.
       
 * Examine unused data
     If data is ingested but not queried, then that is most likely data that does not need to be ingested. See [Which Metrics Are Ingested But Not Used?](wavefront_usage_info.html#which-metrics-are-ingested-but-not-used) for tips on finding unused data.
