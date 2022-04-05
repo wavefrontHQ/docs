@@ -73,7 +73,7 @@ This <a href="https://bcove.video/3kJ6PGT" target="_blank">video<img src="/image
 </p>
 
 By default, dashboards:
-* Show a two-hour time window in each chart. You can configure the default time window as part of the [Dashboard Display Preferences](ui_dashboards.html#set-dashboard-display-preferences).
+* Show a two-hour time window in each chart. You can configure the default time window as part of the [Dashboard Display Preferences](ui_dashboards.html#set-dashboard-display-preferences-and-settings).
 * Display real-time (live) data.
 * Update charts every 30s.
 
@@ -308,4 +308,4 @@ In addition to examining time series data, drilling down on exactly the informat
   * See [Application Status](tracing_ui_overview.html).
   * See [Service Dashboard](tracing_service_dashboard.html).
   * See [Traces Browser](tracing_traces_browser.html).
-* For troubleshooting, see the KB article [Where's My Data: Troubleshooting for Missing Data](https://help.wavefront.com/hc/en-us/articles/360055706512-Where-s-My-Data-Troubleshooting-for-Missing-Data).
+* For an in-depth discussion, see [Troubleshooting Missing Data](missing_data_troubleshooting.html).

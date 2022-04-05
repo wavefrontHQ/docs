@@ -11,7 +11,7 @@ Tanzu Observability by Wavefront continuously adds new integrations to the exist
 
 ## April 2022
 
-Made improvements to the following integrations in April 2022:
+Made improvements to the following integration in April 2022:
 
 * Amazon Web Services -- We updated the format of CloudWatch instance and volume allow lists to JSON format. When you register a new CloudWatch integration or edit an existing one, you can add instances and volumes to allow lists. The format of the tag lists should be in JSON format, for example `{"organization":"yourcompany"}`.
 

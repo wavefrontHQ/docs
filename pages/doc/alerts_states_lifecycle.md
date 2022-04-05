@@ -71,7 +71,7 @@ If an alert is in the FIRING state, it cannot be in the CHECKING state at the sa
 You can set up an alert that triggers if the alert is in a NO DATA state for a specified amount of time. If you do, select **Alert Has No Data** in the corresponding [Alert Target](webhooks_alert_notification.html#create-a-custom-alert-target). For those alert targets, select **Alert Has No Data Resolved** if you want to send a notification when the alert exits the NO DATA state.</td></tr>
 <tr>
 <td><strong>IN MAINTENANCE</strong></td>
-<td>The alert is associated with a <a href="maintenance_windows_managing.html#using-maintenance-windows">maintenance window</a>.
+<td>The alert is associated with a <a href="maintenance_windows_managing.html">maintenance window</a>.
 <ul>
 <li>If an alert has a subset of reporting sources associated with in an ongoing maintenance window, then the state displays as CHECKING/IN MAINTENANCE.</li>
 <li>If an alert has a subset of reporting sources associated with an ongoing maintenance window but other sources are firing, the state displays as FIRING/IN MAINTENANCE.</li></ul></td>

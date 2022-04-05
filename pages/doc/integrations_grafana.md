@@ -23,7 +23,7 @@ To set up Tanzu Observability as a PromQL data source in Grafana, you must provi
 
 4. In the **Name** text box, enter a meaningful name of the data source. 
 
-5. Under **HTTP**, in the **URL** text box, enter the URL of your Wavefront cluster: `https://www.<your-cluster-name>.wavefront.com`.
+5. Under **HTTP**, in the **URL** text box, enter the URL of your Wavefront cluster: `https://<your-cluster-name>.wavefront.com`.
    
    You can ignore or leave the other settings defaults in this section.
    

@@ -71,6 +71,7 @@ To enable fault tolerance and higher data rates, production environments typical
 
 {% include note.html content="In environments with more than one proxy, each proxy must have a unique name." %}
 
+
 ## Proxy Configuration
 
 You can modify proxy behavior in several ways:
@@ -92,7 +93,7 @@ Each type of data uses a different data format. See [Wavefront Data Format](wave
 
 ## Proxies Troubleshooting & Advanced Configuration
 
-<!--- Going out in March 2022
+
 ### Truncate the Proxy Queue
 
 If, for any reason, you have to truncate the proxy queue, you can do it locally by cleaning up the buffer directory, or remotely using the API with the `truncate` flag.
@@ -119,7 +120,7 @@ $curl -X PUT -H 'Authorization: Bearer <TOKEN>' -H 'Content-Type: application/js
 ```
 
 * `MY_INSTANCE` is your Wavefront instance, for example, the URL could start with `https://example.wavefront.com`
-* `PROXY_ID` is the ID, which you can find in the Proxies browser in the Hostname column.--->
+* `PROXY_ID` is the ID, which you can find in the Proxies browser in the Hostname column.
 
 ### More Info
 

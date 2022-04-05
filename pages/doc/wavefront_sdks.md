@@ -74,7 +74,7 @@ Tanzu Observability SDKs let you instrument your application to collect and send
 </tr>
 
 <tr>
-<td markdown="span">[Sender SDK](#sdks-for-sending-raw-data-to-wavefront)  </td>
+<td markdown="span">[Sender SDK](#sdks-for-sending-raw-data)  </td>
 <td align="justify">Lets you send raw values to Tanzu Observability by Wavefront for storage as metrics, histograms, or traces, e.g., to import CSV data.
 </td>
 <td>

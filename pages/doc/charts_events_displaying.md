@@ -80,7 +80,7 @@ There can be alert generated system events, or events that are manually created 
   </tr>
   <tr>
     <td markdown="span">
-       Set an [events() query](events_queries.html) in [dashboard preferences](ui_dashboards.html#set-dashboard-display-preferences), which you can access using the ellipsis menu in the top right corner of the dashboard.
+       Set an [events() query](events_queries.html) in [dashboard preferences](ui_dashboards.html#set-dashboard-display-preferences-and-settings), which you can access using the ellipsis menu in the top right corner of the dashboard.
        <br/><br/>
        For example, `events(name="High CPU Usage")` shows events that have the name `High CPU Usage` on all the charts of the dashboard.
     </td>

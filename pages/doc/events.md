@@ -57,7 +57,7 @@ An event can have one of the following sources.
 - **System** -- When you perform actions, such as when you edit an alert or snooze an alert, or when newly affected sources fail or recover from an alert condition, the source is **System**.
 ![Events system](images/event_system.png)
 
-    - The CloudTrail integration retrieves EC2 event information and creates System events that represent the EC2 events. See [CloudTrail Integration](integrations_aws_metrics.html#cloudtrail-integration).
+    - The CloudTrail integration retrieves EC2 event information and creates System events that represent the EC2 events. See [CloudTrail Integration](integrations_aws_metrics.html#cloudtrail-events-metrics-and-point-tags).
     - For Microsoft Azure, some information from the Azure Activity Log integration is available as events.
 - **User** -- You can [manually create events](events.html#creating-a-user-event) with source **User** to identify user actions. For example, you can create an event for code pushes that affect Tanzu Observability metrics but that occur outside Tanzu Observability. The event is then available on charts that display the metrics.
 

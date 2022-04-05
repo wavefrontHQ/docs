@@ -22,7 +22,7 @@ Returns the per-second rate of change for each time series described by the expr
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr><td markdown="span"> [timeWindow](query_language_reference.html#common-parameters)</td>
-<td>Length of the reporting interval for the time series, to enable Wavefront to avoid rate gaps by inferring initial values. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w). Default is minutes if the unit is not specified.
+<td>Length of the reporting interval for the time series. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w). Default is minutes if the unit is not specified.
 </td></tr>
 <tr>
 <td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
