@@ -19,12 +19,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
     In the next release(s), the service accounts that are still part of the predefined **Everyone** group will be removed from this group. This will not impact any existing functionality and integrations. Last year, all service accounts were added to the new predefined **Service Accounts** group. See the [2021-42.x Release Notes](2021.49.x_release_notes.html#2021-42x-release-notes) for details.
 
-    {% include important.html content="Ensure that the service accounts in your organization do not depend on the **Everyone** group permissions."%}
-
-
-* **Terraform Provider Updates**
-
-    If you are using the Terraform Provider, update to [version 3.0.1](https://registry.terraform.io/providers/vmware/wavefront/latest/docs). This version is compatible with the new alert experience. See the [FAQ for the New Alert GUI](alerts_v2_faq.html).
+    <!--- {% include important.html content="Ensure that the service accounts in your organization do not depend on the **Everyone** group permissions."%} --->
 
 ## 2022-11.x Release Notes
 

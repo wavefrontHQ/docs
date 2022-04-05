@@ -263,4 +263,4 @@ There are times when there are known and expected downtime periods such as maint
 
 ## Using exists() With Nested If/Else Statements
 
-With nested if/else statements, the `exists()` function sometimes exhibits unexpected behavior because of series matching. See [Using exists with Nested If/Else Statements](using-exists-with-nested-ifelse-statements) for an example and a workaround. 
+With nested if/else statements, the `exists()` function sometimes exhibits unexpected behavior because of series matching. See [Using exists with Nested If/Else Statements](ts_exists.html#using-exists-with-nested-ifelse-statements) for an example and a workaround. 

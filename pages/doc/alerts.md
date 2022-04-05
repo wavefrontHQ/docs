@@ -31,28 +31,45 @@ In this video, Clement explains how a single-threshold alert works:
 
 ### Anatomy of an Alert
 
-An alert consists of:
-* The **Alert Condition** is all about the behavior you monitor, as a query. For example you could check the CPU average or network bytes received. On the **Alerting** page, the alert condition is the currently selected query. In multi-query alerts, you can define several queries and use the results of these queries in the condition query, but only the currently selected query is used as the condition.
-* The **Alert Target** can be an email or Pagerduty key, or the alert creator can specify a [custom alert target (webhook)](webhooks_alert_notification.html).
-* The **Alert Notification** goes to all alert targets that you've specified for a given severity. Many alerts use one of the predefined notification formats, or the alert creator can [customize the alert notification](alert_target_customizing.html), which uses Mustache.
+An alert consists of these main components:
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="15%"><strong>Alert Condition </strong>
+</td>
+<td width="85%">The Alert Condition is all about the behavior you monitor, as a query. For example you could check the CPU average or network bytes received. On the **Alerting** page, the alert condition is the currently selected query. In multi-query alerts, you can define several queries and use the results of these queries in the condition query, but only the currently selected query is used as the condition.</td>
+</tr>
+<tr>
+<td width="15%"><strong>Alert Target </strong>
+</td>
+<td width="85%">The Alert Target can be an email or Pagerduty key, or the alert creator can specify a <a href="webhooks_alert_notification.html">custom alert target</a>.</td>
+</tr>
+<tr>
+<td width="15%">
+</td>
+<td width="85%">The Alert Notification goes to all alert targets that you've specified for a given severity. Many alerts use one of the predefined notification formats, or the alert creator can <a href="alert_target_customizing.html">customize the alert notification</a>, which uses Mustache syntax</td>
+</tr>
+</tbody>
+</table>
 
 
 ### How Are Alerts Evaluated?
 
-To understand the alert evaluation process, review [Alert States and Lifecycles](alerts_states_lifecycle.html). or watch some of our [Alert Videos](videos_alerts.html). Some commonly misunderstood concepts include:
+To understand the alert evaluation process, review [Alert States and Lifecycles](alerts_states_lifecycle.html), or watch some of our [Alert Videos](videos_alerts.html). Some commonly misunderstood concepts include:
 
 * **Alert checking frequency**: Alerts are checked approximately once per minute
 
 * **Alert time window being reviewed**: Default is 5 minutes. You can change the time window with the **Trigger Window** and **Resolve Window** properties.
 
-* **Minutely summarized values are being evaluated**: If you're conditional query returns more than 1 value per minute, then the query engine perform minutely aggregation using avg() before it evaluates the alert query.
+* **Minutely summarized values are being evaluated**: If your conditional query returns more than 1 value per minute, then the query engine perform minutely aggregation using `avg()` before it evaluates the alert query.
 
-* **Required number of TRUE values needed to trigger an alert**: A TRUE value is any value is any non-zero value returned by your alert query. Within the reviewed time window, an alert triggers if there is at least 1 TRUE value and 0 FALSE values. A FALSE value is any zero value returned by your alert query.
+* **Required number of TRUE values needed to trigger an alert**: A TRUE value is any non-zero value returned by your alert query. Within the reviewed time window, an alert triggers if there is at least 1 TRUE value and 0 FALSE values. A FALSE value is any zero value returned by your alert query.
 
   * The alert is triggered only by a TRUE value. An absence of a value is considered neither TRUE nor FALSE.
   * A TRUE value is not required at each reporting interval for an alert to trigger.
 
-* **Alerts evaluate on real-time data**: Reviewing data associated with a triggered alert may appear different than it did when the alert was evaluated in real-time. This can typically be contributed to delayed reporting of data or the query construct. Reviewing the alert query in a **Live** 10-minute chart often sheds light on this behavior.
+* **Alerts evaluate on real-time data**: Reviewing data associated with a triggered alert may appear different than it did when the alert was evaluated in real-time. This can be caused by delayed reporting of data or by the query construct. Reviewing the alert query in a **Live** 10-minute chart often sheds light on this behavior.
 
 ### How Often Are Alerts Evaluated?
 
@@ -60,8 +77,8 @@ The minimum and default **Checking Frequency** interval is 1 minute. You can adj
 
   * If your alert condition query runs for more than a minute, consider increasing the checking frequency interval. For example, if the query runs for 2-4 minutes, set the **Checking Frequency** interval to 5 minutes.
   * If your data points are coming much less frequently than once a minute, consider increasing the checking frequency interval. For example, if the query metrics report every 10 minutes, set the **Checking Frequency** interval to 10 minutes.
-  * If an alert is non-critical, you can check only as often as needed.
   * If an alert condition uses larger moving time windows or aligns to a large interval, you can check less frequently. For example, an alert that compares a `mavg(6h, ...)` to `mavg(48h, ...)` can be safely checked once an hour or even less.
+  * If an alert is non-critical, you can check only as often as needed.
 
 ## Alert Viewer Tutorial
 
@@ -248,9 +265,9 @@ You can revert back to a past alert version or clone a past alert version.
 
 ### Step 5: Organize Related Alerts With Tags
 
-You can use alert tags to organize related alerts into categories. Alert tags are especially useful for setting up [maintenance  windows](maintenance_windows_managing.html#using-maintenance-windows). You can:
+You can use alert tags to organize related alerts into categories. Alert tags are especially useful for setting up [maintenance  windows](maintenance_windows_managing.html). You can:
 * [Search or filter](wavefront_searching.html) the list of alerts in the Alerts Browser to show only a category of alerts.
-* Suppress a category of alerts during a [maintenance window](maintenance_windows_managing.html#using-maintenance-windows).
+* Suppress a category of alerts during a [maintenance window](maintenance_windows_managing.html).
 * [Reference a group of alert metrics](alerts_dependencies.html#referencing-alert-metrics) in a single expression.
 
 <table style="width: 100%;">

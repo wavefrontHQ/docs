@@ -282,7 +282,7 @@ entries:
       url: /ui_chart_reference.html
       output: web
 
-    - title: "Wavefront Charts FAQ"
+    - title: "Charts FAQ"
       url: /ui_charts_faq.html
       output: web
 

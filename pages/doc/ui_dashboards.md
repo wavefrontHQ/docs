@@ -282,7 +282,7 @@ You can undo dashboard changes.
 
 For each dashboard, you can customize display preferences and settings.
 
-{% include tip.html content="To use the dark theme, set it as a personal preferences [from the gear icon](users_account_managing.html#configuring-user-preferences)."%}
+{% include tip.html content="To use the dark theme, set it as a personal preferences [from the gear icon](users_account_managing.html#configure-user-preferences)."%}
 
 <table style="width: 100%;">
 <tbody>

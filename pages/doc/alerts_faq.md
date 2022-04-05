@@ -8,13 +8,13 @@ summary: See how our expert's answered Frequently Asked Questions
 ---
 ## Why Can't I View and Edit This Alert?
 
-As a rule, all users can view all alerts. But permissions and access control affect this default.
+By default, all users can view all alerts. But permissions and access control affect this default.
 
   * You must have **Alerts** permission to edit alerts. [Permissions](permissions_overview.html) apply to **all alerts**.
     - Users with the **Alerts** permission can view, create, and modify alerts.
     - Users who don’t have the **Alerts** permissions can only view alerts.
 
-    A user with **Accounts** permissions can assign the permission to you.
+    A user with the **Accounts** permission can assign the permission to you.
   *	If an individual alert is protected by [Access Control](access.html), you might not be able to edit or even view that alert.
     - To view an alert that is under access control, you must have **View** access for the alert.
     - To modify an alert that is under access control, you must have **View & Modify** access for this alert. You also need the **Alerts** permission.
@@ -41,43 +41,43 @@ If you examine an alert that should have fired in the past, [delayed data report
 
 * Consider an alert that has a trigger window of 1 minute, but the data it relies on typically arrives 3 minutes late. In this case, every time the alert is checked, it does not see any data in the trigger window, meaning the alert never fires. However, a user later checking the time series for the alert would see the data as it was backfilled after the alert check.
 
-* Consider an alert that is evaluating a 5-minute time window, but there is a 4-minute lag in reporting. In this case, the alert evaluates only 1 value during each check. Even if a "true" value is going to eventually be followed by 4 "false" values, the alert can still trigger if the "false" values haven't been reported into the system yet because alerts trigger when there is at least 1 "true" value and no "false" values.
+* Consider an alert that is evaluating a 5-minute time window, but there is a 4-minute lag in reporting. In this case, the alert evaluates only 1 value during each check. Even if a TRUE value is going to eventually be followed by 4 FALSE values, the alert can still trigger if the FALSE values haven't been reported into the system yet because alerts trigger when there is at least 1 TRUE value and no FALSE values.
 
 <p><span style="font-size: 1.1em; font-weight: 600">Action</span></p>
 
 Here's how you can take action:
-1.Review the alert query on a live data chart to find out if there's lag in reported data.
+1. Review the alert query on a live data chart to find out if there's lag in the reported data.
 2.[Refine your alert condition](alerts_delayed_data.html#minimize-the-impact-of-data-delays-on-alerts) to prevent the alert from evaluating the query until data reporting is complete.
 
-### Consider Checking Frequency and Trigger Window Mismatch
+### Investigate Checking Frequency and Trigger Window Mismatch
 
-If the checking frequency interval that is higher than the alert trigger time window, the alert might not fire.
+If the checking frequency interval is higher than the alert trigger time window, the alert might not fire.
 
 <p><span style="font-size: 1.1em; font-weight: 600">Example</span></p>
-Suppose the **Trigger Window** interval is 5m and the **Checking Frequency** interval is 10m, data might meet the condition within the 5-minute time interval, but the alert never fires because the checking frequency interval is too high.
+Suppose the **Trigger Window** interval is 5 minutes and the **Checking Frequency** interval is 10 minutes, data might meet the condition within the 5-minute time interval, but the alert never fires because the checking frequency interval is too high.
 
 <p><span style="font-size: 1.1em; font-weight: 600">Action</span></p>
 
 [Edit the alert](alerts_manage.html)  to either change the **Checking Frequency** or **Trigger Window**.
 
-### Examine If Aggregation Masks Spikes
+### Examine if Aggregation Masks Spikes
 
 Aggregation can mask spikes in your data in several ways.
 
-* **Average aggregation**. If your alert query is reporting values more often than once per minute, the query engine aggregates those values using an average. This default average aggregation can mask irregularities with data that should have triggered the alert.
+* **Average aggregation**: If your alert query is reporting values more often than once per minute, the query engine aggregates those values using an average. This default average aggregation can mask irregularities with data that should have triggered the alert.
 
-* **Non-raw aggregation functions**.  With non-raw aggregation, the process of interpolation can increase a displayed value in the past by including more made-up values in the calculation once a newly reported value comes into the system.
+* **Non-raw aggregation functions**:  With non-raw aggregation, the process of interpolation can increase a displayed value in the past by including more made-up values in the calculation once a newly reported value comes into the system.
 
 <p><span style="font-size: 1.1em; font-weight: 600">Example</span></p>
 
-Imagine you are using sum() to aggregate 3 time series. Each time series reports a value every 5 minutes, but the reporting interval is staggered. In this case,
+Imagine you are using sum() to aggregate 3 time series. Each time series reports a value every 5 minutes, but the reporting interval is staggered. In this case:
 * app-1 reports on the :00 and :05 minute boundaries
 * app-2 reports on the :01 and :06 minute boundaries
 * app-3 reports on the :02 and :07 minute boundaries.
 
-Assume you review this data in real time at 12:02p.
-* The aggregated value at 12:00p represents the sum of 3 values because the query engine generates interpolated values at 12:00p for app-2 and app-3.
-* However, the value at 12:02p only represents the sum of 1 value. The query engine can't generate interpolated values for app-1 or app-2 because the next reported values have not come in yet.
+Assume you review this data in real time at 12:02pm.
+* The aggregated value at 12:00pm represents the sum of 3 values because the query engine generates interpolated values at 12:00pm for app-2 and app-3.
+* However, the value at 12:02pm only represents the sum of 1 value. The query engine can't generate interpolated values for app-1 or app-2 because the next reported values have not come in yet.
 
 In this scenario, your most recent aggregated values at the time of the alert evaluation are typically  less than the value you'd expect to see for all 3 time series.
 * The temporary lower values can fall below a specified limit or condition and cause an alert not to fire.
@@ -85,31 +85,33 @@ In this scenario, your most recent aggregated values at the time of the alert ev
 
 <p><span style="font-size: 1.1em; font-weight: 600">Action</span></p>
 
-* Using missing data functions or [raw aggregation functions](query_language_reference.html#aggregation-functions) can help in these cases.
-* Consider applying the [align() function](ts_align.html) to the entire alert condition and fine-tune based on what nuance you want your alert condition query to capture. For example, query on the last value reported, the sum of the values, or the minimum or maximum value of the data point(s).
+* Consider using [missing data functions](query_language_reference.html#missing-data-functions) or [raw aggregation functions](query_language_reference.html#aggregation-functions) can help in these cases.
+* Consider applying the [align() function](ts_align.html) to the entire alert condition and fine-tune based on what nuance you want your alert condition query to capture. For example, query on the last value reported, the sum of the values, or the minimum or maximum value of the data points.
 
 ## Why Did My Alert Misfire?
 
 False positive alerts can be a big problem because they can lead to alert fatigue--the alert recipients stop paying attention to alerts. Reasons for false positive are similar to reasons for the alert firing.
 * The alert sees data that meet the alert condition. However, the actual data changed so the condition wasn't met for a long enough time.
-* Functions in the alert query make it look as if the condition was met for the Trigger Window time.
+* Functions in the alert query make it look as if the condition was met for the **Trigger Window** time.
 
 Here are some things you can do:
 
 ### Check for Delayed Data Reporting
 
-Reporting delays can prevent an alert from firing, or can make an alert misfire (false positive). Here, the alert might see a trigger value for the Trigger Window amount of time, but the value already changed at the source. The reporting delay causes the alert to fire. See [Check for Delayed Data Reporting](#check-for-delayed-data-reporting) above.
+Reporting delays can prevent an alert from firing, or can make an alert misfire (false positive). Here, the alert might see a trigger value for the **Trigger Window** amount of time, but the value already changed at the source. The reporting delay causes the alert to fire. See [Check for Delayed Data Reporting](#check-for-delayed-data-reporting).
 
-### Check If the Alert Condition Query Uses Interpolation
+### Check if the Alert Condition Query Uses Interpolation
 
-Some functions, e.g. `if()`, non-raw aggregation function like `sum()`, and operators (`+` or `-`) [perform interpolation](query_language_discrete_continuous.html#functions-that-use-interpolation-to-create-continuous-data). With interpolation, the query engine generates a data value for 1 or more time series. Interpolation occurs between two reported values within a series.
+Interpolation is useful in many ways, but it means that the raw data that come in isn't the same as the data that the query engine sees. As a result, alerts can fail to fire (discussed above) or can fire even though the condition isn't actually met.
+
+Some functions, such as `if()`, non-raw aggregation function like `sum()`, and operators (`+` or `-`) [perform interpolation](query_language_discrete_continuous.html#functions-that-use-interpolation-to-create-continuous-data). With interpolation, the query engine generates a data value for one or more time series. Interpolation occurs between two reported values within a series.
 
 If a query uses non-raw aggregation functions, interpolation can increase a displayed value in the past by including more made-up values in the calculation when a newly reported value is ingested.
 
 <p><span style="font-size: 1.1em; font-weight: 600">Example</span></p>
 Imagine you are using sum() to aggregate 3 time series. Each time series reports a value every 5 minutes, but the reporting interval is staggered. In this case:
-* app-1 reports on the :00 and :05 minute boundaries
-* app-2 reports on the :01 and :06 minute boundaries,
+* app-1 reports on the :00 and :05 minute boundaries.
+* app-2 reports on the :01 and :06 minute boundaries.
 * app-3 reports on the :02 and :07 minute boundaries.
 
 If we were reviewing this data in real-time at 12:02p, then the aggregated value at 12:00p would represent the sum of 3 values. This occurs because Tanzu Observability could generate interpolated values at 12:00p for app-2 and app-3. However, the value displayed at 12:02p would only represent the sum of 1 value. This is because Tanzu Observability can't generate interpolated values for app-1 or app-2 at that boundary because the next reported values have not come in yet for either.
@@ -124,7 +126,7 @@ Using [missing data functions](query_language_reference.html#missing-data-functi
 
 ## Any Tips for Creating an Alert that Works Well?
 
-[Creating an alert](alerts_manage.html) isn't hard, but creating an effective alert is less trivial. Here are some tips from our SaaS Value Engineering team team.
+[Creating an alert](alerts_manage.html) isn't hard, but creating an effective alert is less trivial. Here are some tips from our SaaS Value Engineering team.
 
 ### Consider How Your Alert Will Evaluate the Condition
 
@@ -136,10 +138,10 @@ The query engine evaluates the reported value against the alert condition for *e
 
 Let’s look at an example over a single minute in the checking interval. Suppose your alert condition is `ts(my.metric) > 8`.
 
-* If `my.metric` reported the data value of `15` during the minute, the query engine evaluates the alert condition for this minute as `true` because the condition is *met*, i.e. the statement `15 > 8` is `true`.
-* If `my.metric` reported the data values of `15`, `6`, and `2` during the minute, the query engine evaluates the alert condition for this minute as `false` because the condition for the aggregated average value is *not met*, i.e. the statement `7.6 > 8` is `false`.
+* If `my.metric` reported the data value of `15` during the minute, the query engine evaluates the alert condition for this minute as TRUE because the condition is *met*, i.e. the statement `15 > 8` is TRUE.
+* If `my.metric` reported the data values of `15`, `6`, and `2` during the minute, the query engine evaluates the alert condition for this minute as FALSE because the condition for the aggregated average value is *not met*, i.e. the statement `7.6 > 8` is FALSE.
 
-After the alert evaluation, Tanzu Observability has a list of `N` minutely values, one value for each minute in the checking interval. Each of the `N` values can be either `true`, `false`, or `no data`.
+After the alert evaluation, Tanzu Observability has a list of `N` minutely values, one value for each minute in the checking interval. Each of the `N` values can be TRUE, FALSE, or NO DATA.
 
 ### Explore When Your Alert Will Fire
 
@@ -161,7 +163,7 @@ You can [aggregate points from multiple time series](query_language_aggregate_fu
 
 If metrics report at the same time, it might be better to use raw aggregate functions and not interpolating aggregate functions. With standard aggregation functions, interpolation will occur.
 
-## What If a Metric Doesn't Report Values for a Long Time? 
+## What if a Metric Doesn't Report Values for a Long Time?
 
 If your alert monitors an *exception* metric, the alert might not see any data during its trigger window and enters the NO DATA state. For example, suppose your alert condition query is `ts(bad.exception)`, where the `bad.exception` metric reports a value of `1` when an exception occurs and reports no data when there's no exception happening.
 

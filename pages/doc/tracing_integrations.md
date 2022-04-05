@@ -265,13 +265,13 @@ For setup details, see the [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-
 
 We don't support an integration for your distributed tracing system, or if you are using your own proprietary tracing system, you can use a sender SDK to send raw trace data to Wavefront service. With a sender SDK, you can write code that obtains the component values from your spans, and assembles those values into the [Wavefront span format](trace_data_details.html#wavefront-span-format). The sender SDK also lets you configure your application to send the trace data to a Wavefront proxy or directly to the Wavefront service.
 
-For SDK setup details, see the [Wavefront sender SDK](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront) for your programming language.
+For SDK setup details, see the [Wavefront sender SDK](wavefront_sdks.html#sdks-for-sending-raw-data) for your programming language.
 
 {%include note.html content="This technique does not automatically derive RED metrics from the spans."%}
 
 ### Use the Wavefront OpenCensus Go Exporter
 
-If you have instrumented your Go application with OpenCensus, you can use the [Wavefront OpenCensus Go Exporter](https://opencensus.io/exporters/supported-exporters/go/wavefront/) to push metrics, histograms, and traces into Wavefront. This exporter is built on the [Wavefront sender SDK](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront) for Go.
+If you have instrumented your Go application with OpenCensus, you can use the [Wavefront OpenCensus Go Exporter](https://opencensus.io/exporters/supported-exporters/go/wavefront/) to push metrics, histograms, and traces into Wavefront. This exporter is built on the [Wavefront sender SDK](wavefront_sdks.html#sdks-for-sending-raw-data) for Go.
 
 
 
