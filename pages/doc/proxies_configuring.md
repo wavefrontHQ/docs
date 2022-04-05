@@ -824,7 +824,7 @@ Required when authMethod = STATIC_TOKEN. For example, <code>authStaticToken=toke
 </tr>
 <tr>
 <td>customTracingListenerPorts</td>
-<td>TCP ports to receive spans and derive RED metrics from the <a href="wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront">SDKs that send raw data to the Wavefront service</a>.
+<td>TCP ports to receive spans and derive RED metrics from the <a href="wavefront_sdks.html#sdks-for-sending-raw-data">SDKs that send raw data to the Wavefront service</a>.
 <br/> Default: None.
 <br/> Version: Since 6.0
 {% include note.html content="<br/>The application name and service name tags are required to generate RED metrics. If these tags are not sent with your span, the application name defaults to <code>wfProxy</code>, and the service name defaults to <code>defaultService</code>."%}
@@ -840,7 +840,7 @@ Required when authMethod = STATIC_TOKEN. For example, <code>authStaticToken=toke
 <div>Ex: 1048576</div></td></tr>
 <tr>
 <td>traceListenerPorts</td>
-<td markdown="span">TCP ports that listen to incoming [spans](tracing_basics.html) from the Wavefront SDKs that [collect trace data](wavefront_sdks.html#sdks-for-collecting-trace-data), [collect metrics and histograms](wavefront_sdks.html#sdks-for-collecting-metrics-and-histograms), and [Wavefront SDKs that instrument frameworks](wavefront_sdks.html#sdks-that-instrument-frameworks). <br/> Default: None.</td>
+<td markdown="span">TCP ports that listen to incoming [spans](tracing_basics.html) from the Wavefront SDKs that [collect trace data](wavefront_sdks.html#sdks-for-collecting-trace-data), [collect metrics and histograms](wavefront_sdks.html#sdks-for-collecting-metrics-and-histograms), and [SDKs for sending raw data](wavefront_sdks.html#sdks-for-sending-raw-data). <br/> Default: None.</td>
 <td>Comma-separated list of available port numbers. Can be a single port.
 <div>Ex: 2878</div>
 <div>Ex: 2878, 2879</div></td>

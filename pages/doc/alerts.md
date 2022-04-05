@@ -207,9 +207,9 @@ You can revert back to a past alert version or clone a past alert version.
 
 ### Step 5: Organize Related Alerts With Tags
 
-You can use alert tags to organize related alerts into categories. Alert tags are especially useful for setting up [maintenance  windows](maintenance_windows_managing.html#using-maintenance-windows). You can:
+You can use alert tags to organize related alerts into categories. Alert tags are especially useful for setting up [maintenance  windows](maintenance_windows_managing.html). You can:
 * [Search or filter](wavefront_searching.html) the list of alerts in the Alerts Browser to show only a category of alerts.
-* Suppress a category of alerts during a [maintenance window](maintenance_windows_managing.html#using-maintenance-windows).
+* Suppress a category of alerts during a [maintenance window](maintenance_windows_managing.html).
 * [Reference a group of alert metrics](alerts_dependencies.html#referencing-alert-metrics) in a single expression.
 
 <table style="width: 100%;">
