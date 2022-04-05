@@ -723,7 +723,7 @@ entries:
       url: /trace_data_query.html
       output: web
 
-    - title: Customize Spans and Alerts for RED Metrics
+    - title: Customize Spans Tags for RED Metrics
       url: /tracing_customize_spans_and_alerts.html
       output: web
 

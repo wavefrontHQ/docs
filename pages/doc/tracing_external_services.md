@@ -7,7 +7,7 @@ permalink: tracing_external_services.html
 summary: Configure your application to show external services or applications
 ---
 
-Tanzu Observability by Wavefront can identify Java AWS services and Java databases in the [application map view](tracing_ui_overview.html#application-map). You can configure your OpenTracing, OpenTelemetry, or Spring Cloud Sleuth application to identify out-of-the-box external services or applications that your service communicates.
+Tanzu Observability by Wavefront can identify Java AWS services and Java databases in the [application map view](tracing_ui_overview.html#application-map-features). You can configure your OpenTracing, OpenTelemetry, or Spring Cloud Sleuth application to identify out-of-the-box external services or applications that your service communicates.
 
 {% include important.html content="This document shows you how to configure external services for your application instrumented with OpenTracing. If you have instrumented your application with OpenTelemetry and want to configure external services, [contact Support](wavefront_support_feedback.html#support) for help." %}
 
@@ -23,7 +23,7 @@ To make Tanzu Observability identify the AWS services:
 1. Configure your application to use the [OpenTracing Java AWS SDK](https://github.com/opentracing-contrib/java-aws-sdk), OpenTelemetry, or Spring Cloud Sleuth.
 1. Configure your application to use one or more AWS services.
 1. Instrument your Java application using the [Wavefront OpenTracing Java SDK](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java) or the [Wavefront Java Tracing Agent](https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java).
-1. [Prepare to send data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data-to-wavefront) using the Wavefront proxy or direct ingestion.
+1. [Prepare to send data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data) using the Wavefront proxy or direct ingestion.
 
 Now, you see the AWS external services on the application map.
 
@@ -87,7 +87,7 @@ To make Tanzu Observability identify the database (DB) services, follow these st
 
 1. Configure your application to use a Java database, such as MySQL, Oracle, or any other database.
 1. Instrument your Java application using the [Wavefront OpenTracing Java SDK](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java) or the [Wavefront Java Tracing Agent](https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java).
-1. [Prepare to send data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data-to-wavefront) using the Wavefront proxy or direct ingestion.
+1. [Prepare to send data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data) using the Wavefront proxy or direct ingestion.
 
 Now, you see the database services on the application map.
 

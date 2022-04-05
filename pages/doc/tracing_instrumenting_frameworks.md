@@ -75,7 +75,7 @@ We support SDKs that implement the [OpenTracing](https://opentracing.io) specifi
       To learn about the specification that works for you, see <a href="https://help.wavefront.com/hc/en-us/articles/360058140212-OpenTracing-or-OpenTelemetry-Which-specification-to-select-for-instrumenting-applications-for-tracing-">OpenTracing or OpenTelemetry</a>.
     </li>
     <li>
-      If your application uses OpenTelemetry, send trace data to the Wavefront service using the Jaeger or Zipkin integration. See <a href="opentelemetry.html#sending-trace-data-to-wavefront">OpenTelemetry</a>.
+      If your application uses OpenTelemetry, see <a href="opentelemetry_tracing.html">OpenTelemetry</a> to send trace data to the Wavefront service.
     </li>
   </ul>
 {{site.data.alerts.end}}
