@@ -19,7 +19,7 @@ By default, all users can view all alerts. But permissions and access control af
     - To view an alert that is under access control, you must have **View** access for the alert.
     - To modify an alert that is under access control, you must have **View & Modify** access for this alert. You also need the **Alerts** permission.
 
-    The creator of the alert or a SuperAdmin user can grant access. 
+    The creator of the alert or a SuperAdmin user can grant access.
 
 ## Why Did My Alert Not Fire?
 
@@ -174,6 +174,120 @@ In such cases, use one of the following approaches:
 * Use a [counter metric](delta_counters.html) with a `cs()` query instead of a gauge metric with a `ts()` query. Counter metrics are cumulative and do not become obsolete. For example, use the `bad.exception.count` metric rather than the `bad.exception` metric.
 
 {% include tip.html content="If your alert monitors *heartbeat* metrics, you should treat the NO DATA state as an *erroneous* state. Consider [configuring an alert to fire when a time series stops reporting](alerts_missing_data.html)." %}
+
+## How Do I Bulk Update Alerts with the API?
+
+There are times when you may want to update multiple alerts in the same way, for example, you might want to remove a user from all alert notifications or replace that user in alert notifications.
+
+The best practice for handling alert notifications is to use Alert Targets rather than specify specific emails or PagerDuty keys while editing an alert. If an alert target specifies the notification target, then you can easily update the alert target. In contrast, you'd have to modify each alert that uses an email or a PagerDuty key -- bulk updates aren't possible.
+
+You can bulk update alerts with the API, discussed in this section, or with the `wf` CLI.
+
+### Prerequisites
+
+Before you start the update:
+* Identify what needs to be updated across all the alerts of interest. For instance, do you want to update the alert target or do you want to update the condition or the time to fire setting?
+
+* Have a process in place to update the field(s) that you want to update.  This can be a script or find and replace with a text editing tool. The objects will be JSON.
+
+
+### Step 1: Extract the Alert IDs for the Alerts You Want to Update
+Determine which alerts need to be updated. If you do not have this information already, you may need to run a search with the API to extract, at minimum, the alert IDs for the alerts of interest.
+
+To run a search:
+1. Use the `POST /api/v2/search/alert/{facet}` API endpoint.
+2. Set the facet to id. In the payload.
+3. Use the query field to specify which alerts to filter for. Valid keys for the query are any of the property keys for an Alert JSON object.
+4. (Optional) If you are unsure of what the available property keys are, use the `GET /api/v2/alert` endpoint and retrieve just one alert to see what the JSON looks like.
+
+**Example**:
+
+This example retrieves the IDs of all the alerts that have a name containing `"prod"`. The query needs to page through the results to obtain the full set of results. The response has a set of IDs.
+
+```
+Request URL: https://CLUSTER.wavefront.com/api/v2/search/alert/id
+
+Payload:
+
+{
+   "query": [
+      {
+         "key": "name",
+         "value": "prod",
+         "matchingMethod": "CONTAINS"
+      }
+   ]
+}
+Response:
+
+{ "status": { "result": "OK", "message": "response limited to 10 items for performance", "code": 200 }, "response": { "items": [ "1600096964756", "940000000009", "940000000006", "940000000004", "940000000002", "940000000005", "940000000003", "940000000001" ], "offset": 0, "limit": 10, "totalItems": 8, "moreItems": false } }
+```
+
+
+### Step 2: Obtain the JSON for Each Alert
+
+Step 2 uses the `GET /api/v2/alert/{id} API` endpoint to obtain the JSON for each alert. The alert JSON is the data within the `"response"` field.
+
+```
+Example:
+
+Request URL: https://CLUSTER.wavefront.com/api/v2/alert/1000000012345
+
+Response:
+
+{ "status": { "result": "OK", "message": "", "code": 200 }, "response": { "targetEndpoints": ["target:9R8xByg3rrJ4aiHt"], "modifyAclAccess": true, "hidden": false, "severity": "SEVERE", "minutes": 5, "name": "Example Prod Alert", "id": "1000000012345", "target": "target:9R8xByg3rrJ4aiHt", "status": [ "CHECKING" ], "tags": { "customerTags": [] }, "created": 1000000012345, "updated": 1000000012345, "hostsUsed": [], "orphan": false, "includeObsoleteMetrics": false, "lastQueryTime": 34, "alertType": "CLASSIC", "metricsUsed": [], "evaluateRealtimeData": false, "inTrash": false, "acl": { "canView": [], "canModify": [ "user@domain.com" ] }, "systemOwned": false, "condition": "ts(my.sample.data) < 1", "conditionQBEnabled": false, "displayExpression": "ts(my.sample.data)", "displayExpressionQBEnabled": false, "resolveAfterMinutes": 5, "failingHostLabelPairs": [], "additionalInformation": "", "inMaintenanceHostLabelPairs": [], "activeMaintenanceWindows": [], "updateUserId": "user@domain.com", "prefiringHostLabelPairs": [], "notificants": ["9R8xByg3rrJ4aiHt"], "createUserId": "user@domain.com", "lastProcessedMillis": 1614890662293, "processRateMinutes": 1, "pointsScannedAtLastQuery": 0, "alertsLastDay": 0, "alertsLastWeek": 0, "alertsLastMonth": 0, "numPointsInFailureFrame": 0, "creatorId": "user@domain.com", "updaterId": "user@domain.com", "createdEpochMillis": 1000000012345, "updatedEpochMillis": 1000000012345, "deleted": false, "targetInfo": [], "failingHostLabelPairLinks": [], "sortAttr": 840, "severityList": [ "SEVERE" ] } }
+```
+
+
+### Step 3: Update the JSON
+
+This step depends on what you want to do. For example, you could replace one user name with another user name, add one or more users, or perform other modifications.
+
+
+
+### Step 4: Update the Alert
+
+You can now update each alert with the updated JSON. Use the `PUT /api/v2/alert/{id}` endpoint and include the updated alert JSON as the payload. After this is completed, you've successfully updated the alerts.
+
+
+
+**Example**:
+This example updates the alert target. Notice in the response that the alert target IDs are now different.
+
+
+```
+Request URL: https://CLUSTER.wavefront.com/api/v2/alert/1000000012345
+
+Payload: updated JSON from Step 3
+
+Response:
+
+{ "status": { "result": "OK", "message": "", "code": 200 }, "response": { "targetEndpoints": ["target:12345yg3rrJ4aiHt"], "modifyAclAccess": true, "hidden": false, "severity": "SEVERE", "minutes": 5, "name": "Example Prod Alert", "id": "1000000012345", "target": "target:12345yg3rrJ4aiHt", "status": [ "CHECKING" ], "tags": { "customerTags": [] }, "created": 1000000012345, "updated": 1000000098765, "hostsUsed": [], "orphan": false, "includeObsoleteMetrics": false, "lastQueryTime": 34, "alertType": "CLASSIC", "metricsUsed": [], "evaluateRealtimeData": false, "inTrash": false, "acl": { "canView": [], "canModify": [ "user@domain.com" ] }, "systemOwned": false, "condition": "ts(my.sample.data) < 1", "conditionQBEnabled": false, "displayExpression": "ts(my.sample.data)", "displayExpressionQBEnabled": false, "resolveAfterMinutes": 5, "failingHostLabelPairs": [], "additionalInformation": "", "inMaintenanceHostLabelPairs": [], "activeMaintenanceWindows": [], "updateUserId": "user@domain.com", "prefiringHostLabelPairs": [], "notificants": ["12345yg3rrJ4aiHt"], "createUserId": "user@domain.com", "lastProcessedMillis": 1614890662293, "processRateMinutes": 1, "pointsScannedAtLastQuery": 0, "alertsLastDay": 0, "alertsLastWeek": 0, "alertsLastMonth": 0, "numPointsInFailureFrame": 0, "creatorId": "user@domain.com", "updaterId": "user@domain.com", "createdEpochMillis": 1000000012345, "updatedEpochMillis": 1000000098765, "deleted": false, "targetInfo": [], "failingHostLabelPairLinks": [], "sortAttr": 840, "severityList": [ "SEVERE" ] } }
+```
+
+## How Do I Bulk Update Alerts with the CLI?
+
+{% include warning.html content="The [Ruby CLI](https://github.com/snltd/wavefront-cli) we use in this section was created by a Wavefront customer. It is not supported by VMware. Direct any issues or concerns to the tool's GitHub page." %}
+
+The CLI makes the same underlying calls to the Tanzu Observability API as described above but simplifies the process for the end user.
+
+### Extract IDs and Find the JSON
+
+The equivalent for the Step 1 and Step 2 above is:
+```
+wf alert search name~prod -f json -M > alert.json
+```
+
+This command exports the JSON for all the alerts with a name that contains `prod`.
+
+### Change the JSON and Apply the Changes
+
+Next, you make the desired changes to the alert JSON and save that file with a new name. Assuming `alert-updated.json` is the updated file, the equivalent for Step 4 above is:
+
+```
+wf alert import alert-updated.json
+```
+
 
 ## Learn More
 
