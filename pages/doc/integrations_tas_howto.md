@@ -7,7 +7,7 @@ permalink: integrations_tas_howto.html
 summary: Set up the Tanzu Observability tile and monitor your environment.
 ---
 
-[VMware Tanzu Application Service](https://tanzu.vmware.com/application-service), previously called Pivotal Cloud Foundry, is a popular platform for building cloud-native applications.
+[VMware Tanzu Application Service](), previously known as Pivotal Cloud Foundry, is a popular platform for building cloud-native applications.
 
 This doc page explains:
 * How to install and configure the Tanzu Observability by Wavefront nozzle from Tanzu Ops Manager. A nozzle is a component dedicated to reading and processing data.
@@ -148,14 +148,14 @@ To start configuration click the Tanzu Observability by Wavefront tile. With **S
    <li>Click <strong>Save</strong></li>
    </ol>
    </td>
-   <td width="50%"><img src="/images/tmc_service_account_create.png" alt="Create service account dialog with name and description filled in."></td>
+   <td width="50%"><img src="/images/tas_to_5.png" alt="Errands is selected, and defaults are show. "></td>
    </tr>
    <tr>
    <td width="50%"><strong>(Optional) Step 6. </strong> Click <strong>Resource Config</strong> to review the preconfigured configuration. RK>>when would I change anything here??
    <br/>
    <strong>Note: SM Forwarder</strong> is set to <strong>Automatic:0</strong>. Do not change this setting.
    </td>
-   <td width="50%"><img src="/images/tmc_service_account_create.png" alt="Create service account dialog with name and description filled in."></td>
+   <td width="50%"><img src="/images/tas_to_6.png" alt="Resource Config is selected and defaults of firs 4 items are shown"></td>
    </tr>
 </tbody>
 </table>
