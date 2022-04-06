@@ -45,7 +45,7 @@ Tanzu Observability by Wavefront includes an integration for Tanzu Application S
 
 To set up this data pipeline, you need to meet requirements on the Ops Manager side and on the Tanzu Observability side.
 * **Ops Manager Requirements**
-  VMware Tanzu Observability by Wavefront Nozzle has the following requirements:
+  VMware Tanzu Observability by Wavefront nozzle has the following requirements:
   *	Read-only access to the Doppler Firehose and Cloud Controller.
   * Access to a Wavefront instance and an API token. [Service Account API token](wavefront_api.html#generating-an-api-token) is recommended.
   * A VMware Tanzu Quota with at least 8GB of available memory.
@@ -55,8 +55,7 @@ To set up this data pipeline, you need to meet requirements on the Ops Manager s
   * Access to a Wavefront instance with a URL like https://<example>.wavefront.com.
   * At a minimum, **Integrations** permission on that Wavefront instance.
 
-This version of the Tanzu Observability by Wavefront Nozzle is compatible with Wavefront proxy version 10. and later.
-??10.11? That's where we fixed log4j?
+This version of the Tanzu Observability by Wavefront nozzle is compatible with Wavefront proxy version 10. and later.
 
 ???VMware Tanzu Observability by Wavefront Service Broker v0.9.5
 
@@ -68,7 +67,7 @@ To install the nozzle:
 
 1. Download the VMware Tanzu Observability TAS tile version 4 from [VMware Tanzu Network](https://network.pivotal.io/products/wavefront-nozzle/).
 2. Log in to Ops Manager, select **Installation Dashboard** click **Import a Product**, and upload the file you just downloaded.
-3. Under  **Import a Product**, click the plus sign (+) next to the version number of VMware Tanzu Observability by Wavefront Nozzle. This adds the tile to your staging area.
+3. Under  **Import a Product**, click the plus sign (+) next to the version number of VMware Tanzu Observability by Wavefront nozzle. This adds the tile to your staging area.
 
 The tile is now available, but the orange bar at the bottom indicates that the product is not yet configured.
 
@@ -78,7 +77,7 @@ The tile is now available, but the orange bar at the bottom indicates that the p
 
 To start configuration click the Tanzu Observability by Wavefront tile. With **Settings** selected (the default), follow these steps:
 
-{% include tip.html content="The first 3 configuration panes are required. The other panes are optional, most users don't make changes to those settings." %}
+{% include tip.html content="??Which ones are required? Most users don't make changes to <strong>Errands</strong> and <strong>Resource Config</strong>." %}
 
 <table style="width: 100%;">
 <tbody>
@@ -98,7 +97,7 @@ To start configuration click the Tanzu Observability by Wavefront tile. With **S
    <ol><li>The URL of your Wavefront instance, for example, https://longboard.wavefront.com.</li>
    <li>A Wavefront API token. See <a href="wavefront_api.html#generating-an-api-token">Generating an API Token</a></li>
    <li>User-friendly name for the proxy. </li>
-   <li>Click <strong>Save</strong> or click <strong>Custom</strong> to specify <a href="proxies_configuring.html">proxy configuration</a>, <a href="proxy preprocessor rules">proxies_preprocessor_rules.html</a> and click <strong>Save</strong>
+   <li>Click <strong>Save</strong> or click <strong>Custom</strong> (see the next step_)
    The nozzle ignores these configuration properties because they're already defined in the setup steps:
    <ul><li>server</li>
    <li>hostname</li>
@@ -108,6 +107,10 @@ To start configuration click the Tanzu Observability by Wavefront tile. With **S
   <li>buffer</li>
   <li>preprocessorConfigFile</li></ul>
    </li>
+   <li>(Optional) Click <strong>Custom</strong> to specify <a href="proxies_configuring.html">proxy configuration</a>, <a href="proxy preprocessor rules">proxies_preprocessor_rules.html</a></li>
+   <ul><li>In the <strong>Config</strong> field, specify one or more configuration properties and values, for example <code>pushRateLimit=10000</code>. RK>> Separated by commas? Spaces? </li>
+   <li>In the <strong>Preprocessor Rules</strong> field, specify one or more peprocessor rules, for example <code>TBD</code>. RK>> Separated by commas? Spaces?  </li> </ul>
+   <li>Click <strong>Save</strong> </li>
    </ol>
    </td>
    <td width="50%"><img src="/images/tas_to_2.png" alt="Proxy Config screenshot, with values as discussed in text above."></td>
@@ -159,7 +162,7 @@ To start configuration click the Tanzu Observability by Wavefront tile. With **S
 
 ## Use Tanzu Application Service Dashboards and Alerts
 
-After you've completed the Nozzle setup, your data become available in your Wavefront instance inside an integration. Each integration includes several tabs.
+After you've completed the nozzle setup, your data become available in your Wavefront instance inside an integration. Each integration includes several tabs.
 * The **Dashboards** tab includes a rich set of preconfigured dashboards with charts for [examining your data](ui_examine_data.html). Users with Dashboards permission can clone any dashboard and [customize the dashboard](ui_dashboards.html) and the charts. Watch our [dashboard videos](videos_dashboards_charts.html) for some tips and tricks.
 * The **Alerts** tab includes a set of preconfigured alerts. Clone any alert and specify who to notify in your environment. Wavefront supports several levels of severity and allows you to specify email, Pagerduty, and Webhook as notification targets. Watch our [alerts videos](videos_alerts.html) to get you started.
 * Get started with some of our [conceptual videos](videos_quickstart.html) or some of our [hands-on videos](videos_howto_start.html).
