@@ -9,7 +9,7 @@ summary: Learn about best practices for alert creation, alert settings, and aler
 
 Tanzu Observability by Wavefront customers use alerts to get notified when something out of the ordinary happens. Alerts monitor your environment's behavior and send notifications based on how you configure the alert. 
 
-This page has some best practices from the Tanzu Observability Technical Support engineers to help you set up truly useful alerts and avoid common problems with alerts.
+This page has some best practices from the Tanzu Observability Technical Support engineers to help you set up truly useful alerts and avoid common problems with alerts. 
 
 ## Know Your Data!
 

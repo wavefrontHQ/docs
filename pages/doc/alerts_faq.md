@@ -19,7 +19,7 @@ By default, all users can view all alerts. But permissions and access control af
     - To view an alert that is under access control, you must have **View** access for the alert.
     - To modify an alert that is under access control, you must have **View & Modify** access for this alert. You also need the **Alerts** permission.
 
-    The creator of the alert or a SuperAdmin user can grant access.
+    The creator of the alert or a SuperAdmin user can grant access. 
 
 ## Why Did My Alert Not Fire?
 
