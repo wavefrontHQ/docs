@@ -99,9 +99,9 @@ In this tutorial, you configure a sample application with the Wavefront OpenTrac
 You use the [Application Map and related pages to visualize the trace data](tracing_basics.html#visualize-distributed-tracing-data) that you collect from your instrumented application.
 
 1. Click **Applications** > **Application Status** to get an overview of the services and applications.
-      * [**Application Map**](tracing_ui_overview.html#application-map) gives you an overview of how the applications and services are linked, lets you focus on a specific service, view Request, Error, and Duration (RED) metrics for each service, and the tracing traffic in the application.
-      * [**Table View**](tracing_ui_overview.html#table-view) gives you a list of the applications and services. You can see the Request, Error, and Duration (RED) metrics at a glance and sort the data.
-      * [**Grid view**](tracing_ui_overview.html#grid-view) lists the application and services in a grid. You can see the RED metrics for each of the application’s services.
+      * [**Application Map**](tracing_ui_overview.html#application-map-features) gives you an overview of how the applications and services are linked, lets you focus on a specific service, view Request, Error, and Duration (RED) metrics for each service, and the tracing traffic in the application.
+      * [**Table View**](tracing_ui_overview.html#table-view-features) gives you a list of the applications and services. You can see the Request, Error, and Duration (RED) metrics at a glance and sort the data.
+      * [**Grid view**](tracing_ui_overview.html#grid-view-features) lists the application and services in a grid. You can see the RED metrics for each of the application’s services.
 
     ![The screenshots shows the foo-beachshirts application on the app map view.](images/tracing_java_tutorial_application_status.png)
 1. Click the Application Map icon ( <img src="images/tracing_appmap_appmap_view_icon.png"

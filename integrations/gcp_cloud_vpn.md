@@ -61,7 +61,7 @@ The overall process involves the following:
 * Giving that account viewer privileges 
 * Downloading a JSON key
 
-To register Google Cloud Platform (GCP) integration:
+To register a Google Cloud Platform (GCP) integration:
 
 1. In the **Name** text box, enter a meaningful name.
 2. In the **JSON key** text box, enter your JSON key to give read-only access to a GCP project.
