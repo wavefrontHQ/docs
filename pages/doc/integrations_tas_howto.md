@@ -7,11 +7,11 @@ permalink: integrations_tas_howto.html
 summary: Set up the Tanzu Observability tile and monitor your environment.
 ---
 
-[VMware Tanzu Application Service](), previously known as Pivotal Cloud Foundry, is a popular platform for building cloud-native applications.
+[VMware Tanzu Application Service](https://tanzu.vmware.com/application-service), previously called Pivotal Cloud Foundry, is a popular platform for building cloud-native applications.
 
 This doc page explains:
-* How to install and configure the Tanzu Observability by Wavefront nozzle from Tanzu Ops Manager.
-* How to access the Tanzu Application Service integration, and what you can do there.
+* How to install and configure the Tanzu Observability by Wavefront nozzle from Tanzu Ops Manager. A nozzle is a component dedicated to reading and processing data.
+* How to access the Tanzu Application Service integration from Tanzu Observability, and how you can examine the data that came from Tanzu Application Service using dashboards and charts.
 
 {% include important.html content="This document is for the Tanzu Application Service nozzle version 4.0 and later. Earlier versions are [documented here](https://docs.pivotal.io/wavefront-nozzle/3-x/). " %}
 
@@ -28,7 +28,7 @@ Here's an overview of the flow of data from the Tanzu Application Service Fireho
 Wavefront service in a secure, fast, and reliable manner
 
 Here's the data pipeline:
-1. The Healthwatch Exporter VMs stream metrics from the TAS Firehose. The tile creates a VM for each Healthwatch exporter a VM for Telegraf and a VM for the Wavefront Proxy.
+1. The Healthwatch Exporter VMs stream metrics from the Tanzu Application Service Firehose. The tile creates a VM for each Healthwatch exporter a VM for Telegraf and a VM for the Wavefront Proxy.
 2. Telegraf scrapes the VMs at a predefined interval, and converts them to [Wavefront data format](wavefront_data_format.html).RK>>TRUE?? It's not proxy preprocessor rule(s)
 3. The metrics are then sent to the Wavefront Proxy.  RK>>Telegraf sends them?
 4. The proxy send the metrics to the Wavefront service.
@@ -165,7 +165,7 @@ After you've completed the Nozzle setup, your data become available in your Wave
 * Get started with some of our [conceptual videos](videos_quickstart.html) or some of our [hands-on videos](videos_howto_start.html).
 RK>> screenshot here??
 
-## TAS to TObs FAQ
+## Tanzu Application Service to Tanzu Observability FAQs
 
 In this section, we have some answers to frequently asked questions.
 
