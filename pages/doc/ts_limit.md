@@ -38,7 +38,7 @@ For example, the result might be NO DATA even if some time series do report data
 <td markdown="span">Limits the number of traces listed by `tracesExpression` in the Traces browser.</td>
 </tr>
 </tbody>
-</table>
+</table> 
 
 
 ## Parameters
