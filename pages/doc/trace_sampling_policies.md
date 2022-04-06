@@ -19,7 +19,7 @@ Let's look at how you can create a sampling policy and get familiar with the pol
 
 ## Create a Sampling Policy
 
-{% include note.html content="Only a [Super Admin user](authorization.html#who-is-the-super-admin-user) or users with [Applications permissions](permissions_overview.html) can create sampling policies." %}
+{% include note.html content="Only a [Super Admin user](authorization-faq.html#who-is-the-super-admin-user) or users with [Applications permissions](permissions_overview.html) can create sampling policies." %}
 
 To create a sampling policy:
 
@@ -77,7 +77,7 @@ To create a sampling policy:
         <td markdown="span">
           The policy is in effect when it is in the active state. Once the policy is active, it affects your costs as you store more data.
 
-          <br/>To see the number of spans stored per second after a sampling policy is created, see <a href="trace_data_sampling.html#track-the-volume-of-stored-data">Track the Volume of Stored Trace Data</a>.
+          <br/>To see the number of spans stored per second after a sampling policy is created, see <a href="trace_data_sampling.html#track-the-volume-of-stored-trace-data">Track the Volume of Stored Trace Data</a>.
         </td>
       </tr>
     </table>

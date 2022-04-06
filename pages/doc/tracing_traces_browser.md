@@ -48,7 +48,7 @@ From the Traces Browser, you can:
 * Examine a trace's percentile indicator to see how the trace's duration compares to the durations of the other listed traces.
   You can toggle the panel size for the traces list, service map, or trace details.
 * Export traces by clicking <img src="images/tracing_import_traces.png"
-style="vertical-align:text-bottom;width:25px" alt="import tracing icon"/>, save the JSON file, and view them later using [Offline Traces](#view-traces-offline).
+style="vertical-align:text-bottom;width:25px" alt="import tracing icon"/>, save the JSON file, and view them later using [Offline Traces](tracing_view_offline_traces.html).
 * Easily analyze your traces hierarchy and RED metrics by clicking the expand or restore icon.
   * Click the expand icon to expand the RED metrics and view them next to the trace list, and click the same icon again to restore to the default view.
     ![partial expand red metrics](images/tracing_ui_partial_expand_red_metrics.png)
@@ -66,7 +66,7 @@ You can view the results in a traces list.
 ![explore traces list](images/tracing_traces_browser_traces_list.png)
 
 Here's how to get started:
-1. Add an Operation or Trace ID. See [Get Started with Trace Queries](trace_data_query.html#get-started-with-trace-queries) for details.
+1. Add an Operation or Trace ID. See [Get Started with Trace Queries](trace_data_query.html#search-and-filter-traces-on-the-traces-browser) for details.
 2. Click **Add Filter** and specify a filter to limit the results.
 3. (Optional) Advanced users can use Query Editor to limit the scope even further.
 

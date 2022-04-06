@@ -69,7 +69,7 @@ Notes:
 * Include `f=histogram` at the end of the `--data` argument to ensure the input is treated as a histogram distribution.
 
 ### Trace Data (Spans)
-You can perform direct ingestion of [trace data](tracing_basics.html#wavefront-trace-data) in Wavefront span format.
+You can perform direct ingestion of trace data in Wavefront [span format](trace_data_details.html#spans).
 
 Here's a simple example:
 ```

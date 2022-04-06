@@ -106,7 +106,7 @@ You can view changes that were made to dashboards, alerts, etc., by using [versi
 
 Our cloud integrations support monitoring data from different cloud providers. The process is like this:
 1. You open the integration.
-2. You give Tanzu Observability [global read-only access](integrations_aws_overview.html#give-wavefront-read-only-access-to-your-amazon-account-and-get-the-role-arn) or [limited access](integrations_aws_overview.html#giving-wavefront-limited-access).
+2. You give Tanzu Observability [global read-only access](integrations_aws_overview.html#give-read-only-access-to-your-amazon-account-and-get-the-role-arn) or [limited access](integrations_aws_overview.html#giving-limited-access).
 
 For details, see the individual integration.
 

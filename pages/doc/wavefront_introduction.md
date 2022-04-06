@@ -68,7 +68,7 @@ After you've set up an alert with that information, we'll send alert notificatio
 <table style="width: 100%;">
 <tbody>
 <tr><td width="50%">The <a href="label_reference%20page.html"><strong>Wavefront query language (WQL)</strong></a> allows you to extract exactly the information you need. With filters and functions you can customize your charts so the signal becomes visible in the noise. <br>
-<br>Users of our v2 UI can use Chart Builder (shown on the right). All other users can use Query Builder. Advanced users work with Query Editor.
+<br>Initially, many users like the ease-of-use of Chart Builder (shown on the right). Advanced users work with Query Editor.
 </td>
 <td width="50%"><img src="/images/chart_builder.png" alt="chart builder"/></td>
 </tr>

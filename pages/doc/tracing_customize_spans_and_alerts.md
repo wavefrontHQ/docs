@@ -4,7 +4,7 @@ keywords: data, distributed tracing, red metrics, customize
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: tracing_customize_spans_and_alerts.html
-summary: Customize span level tags and alerts for RED metrics
+summary: Customize span level tags for RED metrics
 ---
 
 Tanzu Observablity by Wavefront derives RED metrics for spans that have the `application`, `service`, `cluster`, `shard`, `component`, or `operationName` span tags by default. See [Indexed and Unindexed Span Tags](trace_data_details.html#indexed-and-unindexed-span-tags) for details. If you want to filter RED metrics data using a span tag that is not a default span tag, you need to propagate it as a custom span tag to the RED metrics.
@@ -60,7 +60,7 @@ Follow the steps given below to propagate custom span tags when sending data fro
     </ul>
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="tracingApplication">
-            <p>The <a href="tracing_instrumenting_frameworks.html#step-2-get-data-flowing-into-wavefront">Tracing SDK</a> provides a <code>WavefrontTracer</code> to create spans and send them to Wavefront. It also automatically generates and reports RED metrics from your spans. Add the following configuration when building the <code>WavefrontTracer</code>.</p>
+            <p>The <a href="tracing_instrumenting_frameworks.html#step-2-get-data-flowing">Tracing SDK</a> provides a <code>WavefrontTracer</code> to create spans and send them to Wavefront. It also automatically generates and reports RED metrics from your spans. Add the following configuration when building the <code>WavefrontTracer</code>.</p>
             <p>Example:</p>
             <pre>
 wfTracerBuilder.redMetricsCustomTagKeys(new HashSet&lt;String&gt;(Arrays.asList("env")));</pre>
