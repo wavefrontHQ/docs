@@ -97,7 +97,7 @@ Think of your instrumented application as a hierarchic inventory of constructs. 
 </tbody>
 </table>
 
-The Wavefront service uses these names as span tag values, as filters for traces, as components in RED metric names, as [UI labels](tracing_instrumenting_frameworks.html#how-the-wavefront-service-uses-application-tags), and as qualifiers for operation names, for example, `beachshirts.delivery.dispatch`.
+The Wavefront service uses these names as span tag values, as filters for traces, as components in RED metric names, and as qualifiers for operation names, for example, `beachshirts.delivery.dispatch`.
 
 ### Guidelines for Choosing Application Construct Names
 
@@ -232,8 +232,6 @@ The goal of instrumentation is to instrument enough methods to produce traces th
 
 ### Best Practices for Wavefront Observability SDKs
 
-* Automate as much as possible by using [Wavefront framework SDKs](wavefront_sdks.html#sdks-that-instrument-frameworks), if any exist for your languages and framework. Then use a [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data) to instrument operations that are not handled by a framework SDK.
-
 * Limit the number of spans in a trace to < 1000.
 
 * **Java example:** Instantiate a singleton `WavefrontTracer`, pass it to each class, and use it in each method of interest:
@@ -301,4 +299,4 @@ public class Tier2aEndpoint {
 
 ## Learn More!
 
-[Optimizing the Data Shape to Improve Performance](optimize_data_shape.html) has a focus on time series metrics but some of the guidance applies to trace data as well. 
+[Optimizing the Data Shape to Improve Performance](optimize_data_shape.html) has a focus on time series metrics but some of the guidance applies to trace data as well.

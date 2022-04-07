@@ -140,7 +140,7 @@ You can use our SDKs to make your metric a delta counter.
 
 ### Delta Counter Proxy Configuration Properties
 
-We support the following [proxy configuration properties](proxies_configuring.html#general-proxy-properties-and-examples) with delta counters.
+We support the following [proxy configuration properties](proxies_configuring.html#configuration-properties) with delta counters.
 
 - **deltaCounterPorts**: Comma-separated list of ports that accept only delta counter data.
 - **deltaCounterAggregationInterval**: Time that the proxy spends aggregating data before sending them to the Wavefront service. Default is 30 seconds.

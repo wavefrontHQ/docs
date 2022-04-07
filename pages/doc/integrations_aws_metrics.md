@@ -11,7 +11,7 @@ Amazon Web Services (AWS) is a collection of cloud-computing services that provi
 {% include note.html content="You must have the [**Proxy Management** permission](permissions_overview.html) to set up an AWS integration. If you do not have permission, the UI menu selections, buttons, and links you use to perform the tasks are not visible." %}
 
 You have to set up your Tanzu Observability by Wavefront account with the correct permissions.
-* From within the integration or explicitly, you can [Give Global Read-Only Access](integrations_aws_overview.html##give-read-only-access-to-your-amazon-account-and-get-the-role-arn)
+* From within the integration or explicitly, you can [Give Global Read-Only Access](integrations_aws_overview.html#give-read-only-access-to-your-amazon-account-and-get-the-role-arn)
 * As an alternative, you can [Create an IAM Policy to Specify Limited Access](integrations_aws_overview.html#create-iam-policy-to-specify-limited-access)
 
 
@@ -194,7 +194,7 @@ Unless otherwise indicated, Tanzu Observability sets the value of the AWS Metric
 - Service Limit Metrics - capture the current resource limits and usage for your AWS account. These metrics include the point tags `Region` and `category`.
   - `aws.limits.<resource>.limit` - the current limit for an AWS resource in a particular region.
   - `aws.limits.<resource>.usage` - the current usage of an AWS resource in a particular region.
-  
+
     {% include note.html content="To examine these metrics, your account needs at least the Business-level AWS Support plan because the integration uses the Support API to pull service limits. You also need both ReadOnlyAccess and AWSSupportAccess. See [Giving Tanzu Observability Read-Only Access](integrations_aws_overview.html#giving-tanzu-observability-access-to-your-aws-account) for details." %}
 
 <!--## AWS Metrics+ Trusted Advisor Service Limits
