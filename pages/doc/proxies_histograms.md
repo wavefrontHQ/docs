@@ -49,7 +49,7 @@ A histogram distribution allows you to combine multiple points into a complex va
 
 To send a histogram distribution to the Wavefront proxy:
 
-- Send to the **distribution** port listed in the table in [Histogram Proxy Ports](#histogram-proxy-ports).
+- Send to the **distribution** port listed in the table in [Histogram Aggregation Ports](#histogram-aggregation-ports).
 
 - Use the following format:
 

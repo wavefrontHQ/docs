@@ -46,7 +46,7 @@ The `top()` function ranks the time series described by the expression, and then
 * 1 is returned for each time series that is in the specified number of series at the top of the ranking.
 * 0 is returned for each of the remaining time series.
 
-The returned constants are [continuous time series](query_language_reference.html#discrete-versus-continuous-time-series).
+The returned constants are [continuous time series](query_language_discrete_continuous.html).
 
 ### About Ranking
 
