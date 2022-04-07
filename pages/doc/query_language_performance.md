@@ -123,7 +123,7 @@ Example:
 * **More precise**: `avg(ts(~sample.network.bytes.sent))` returns the average over all time series, inserting points so there's a value for each time series at any time there's a value for one time series.
 * **Faster**: `align(1m, mean, ts("my.metric"))` returns the average over all time series, and uses the values at each 1 minute point in time.
 
-In certain cases, the query engine [performs prealignment](query_language_align_function.html#the-pre-align-warning--when-wavefront-applies-align).
+In certain cases, the query engine [performs prealignment](query_language_align_function.html#the-pre-align-warning--when-the-query-engine-applies-align).
 
 ### Use Raw Aggregation Functions
 
