@@ -109,7 +109,8 @@ To start configuration click the Tanzu Observability by Wavefront tile. With **S
    </li>
    <li>(Optional) Click <strong>Custom</strong> to specify <a href="proxies_configuring.html">proxy configuration</a>, <a href="proxy preprocessor rules">proxies_preprocessor_rules.html</a></li>
    <ul><li>In the <strong>Config</strong> field, specify one or more configuration properties and values, for example <code>pushRateLimit=10000</code>. RK>> Separated by commas? Spaces? </li>
-   <li>In the <strong>Preprocessor Rules</strong> field, specify one or more peprocessor rules, for example <code>'2878':
+   <li>In the <strong>Preprocessor Rules</strong> field, specify one or more peprocessor rules, for example <code>
+'2878':
   - rule    : example-replace-badchars
     action  : replaceRegex
     scope   : pointLine
