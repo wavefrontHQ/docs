@@ -63,8 +63,8 @@ Option 1: Examine the chart:
 Option 2: Examine an alert notification:
 
 1. Obtain an alert notification that was triggered by the alert.
-2. Check whether the alert notification includes a [chart image](alerts_notifications.html#chart-images-in-alert-notifications). A chart image shows the original view of the data at the time the alert fired.
-3. Use the alert notification to display a current, [interactive chart](alerts_notifications.html#interactive-charts-linked-by-alert-notifications) for the query that was used in the alert condition. By default, you can click a **View Alert** button to display the chart with a custom date that includes the alert time check window.
+2. Check whether the alert notification includes a [chart image](alerts_notifications.html#static-chart-image-in-notifications). A chart image shows the original view of the data at the time the alert fired.
+3. Use the alert notification to display a current, [interactive chart](alerts_notifications.html#link-to-interactive-chart-in-alert-viewer) for the query that was used in the alert condition. By default, you can click a **View Alert** button to display the chart with a custom date that includes the alert time check window.
 4. Compare the chart image and the interactive chart.
   * A difference indicates that a data delay and backfilling have occurred, so the interactive chart now shows a revised view.
 

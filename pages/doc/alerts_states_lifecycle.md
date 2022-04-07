@@ -159,7 +159,7 @@ Suppose the **Trigger Window** property is set to 5 minutes, and the alert check
 
 ## When Do Alerts Fire?
 
-An alert fires when its [condition](#alert-conditions) evaluates to at least one true value and zero false values present within the given **Trigger Window** time window.
+An alert fires when its condition evaluates to at least one true value and zero false values present within the given **Trigger Window** time window.
 
 ### Alert Firing: Example
 
@@ -202,7 +202,7 @@ By default, the **Resolve Window** is the same length as the **Trigger Window**.
 
 Suppose you define an alert with the following properties:
 * The alert condition is `ts(metric.name) > 0`, where `metric.name` reports once a minute. (The summarization values are therefore the same as the reported values.)
-* The [Checking Frequency interval](#when-alerts-are-checked) = 1 minute (the default).
+* The **Checking Frequency** interval is 1 minute (the default).
 * **Trigger Window** = 5 minutes.
 * **Resolve Window** = 10 minutes.
 

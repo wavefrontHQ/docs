@@ -100,7 +100,7 @@ Effective alerts require planning and testing. Here are some things to keep in m
 
 ![create alert](images/v2_create_alert.png)
 
-In both cases, but especially when you create the query from scratch, it's important that you compose the query carefully. In some cases, the default settings for alerts work well, but in other cases it makes sense to change them. See [Recommendations for Alert Settings](alerts_best_practices.html#recommendations-for-alert-settings)
+In both cases, but especially when you create the query from scratch, it's important that you compose the query carefully. In some cases, the default settings for alerts work well, but in other cases it makes sense to change them. See [Recommendations for Alert Settings](#follow-alert-settings-recommendations)
 
 - **Know your data**. Understanding your data is essential for creating useful and meaningful alerts. See [Know Your Data](alerts_best_practices.html#know-your-data) above.
 
