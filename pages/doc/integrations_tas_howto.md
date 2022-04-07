@@ -9,7 +9,7 @@ summary: Set up the Tanzu Observability tile and monitor your environment.
 
 [VMware Tanzu Application Service](), previously known as Pivotal Cloud Foundry, is a popular platform for building cloud-native applications.
 
-This doc page explains: 
+This doc page explains:
 * How to install and configure the Tanzu Observability by Wavefront nozzle from Tanzu Ops Manager. A nozzle is a component dedicated to reading and processing data.
 * How to access the Tanzu Application Service integration from Tanzu Observability, and how you can examine the data that came from Tanzu Application Service using dashboards and charts.
 
@@ -109,7 +109,18 @@ To start configuration click the Tanzu Observability by Wavefront tile. With **S
    </li>
    <li>(Optional) Click <strong>Custom</strong> to specify <a href="proxies_configuring.html">proxy configuration</a>, <a href="proxy preprocessor rules">proxies_preprocessor_rules.html</a></li>
    <ul><li>In the <strong>Config</strong> field, specify one or more configuration properties and values, for example <code>pushRateLimit=10000</code>. RK>> Separated by commas? Spaces? </li>
-   <li>In the <strong>Preprocessor Rules</strong> field, specify one or more peprocessor rules, for example <code>TBD</code>. RK>> Separated by commas? Spaces?  </li> </ul>
+   <li>In the <strong>Preprocessor Rules</strong> field, specify one or more peprocessor rules, for example <code>
+'2878':
+  - rule    : example-replace-badchars
+    action  : replaceRegex
+    scope   : pointLine
+    search  : "[&\\$\\*]"
+    replace : "_"
+
+  - rule    : drop-az-tag
+    action  : dropTag
+    tag     : az
+    match   : dev.*</code>. </li> </ul>
    <li>Click <strong>Save</strong> </li>
    </ol>
    </td>
