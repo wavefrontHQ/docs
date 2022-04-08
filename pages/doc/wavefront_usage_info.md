@@ -138,64 +138,72 @@ The charts in the dashboard show this information:
 
 ## Which Metrics Are Ingested But Not Used?
 
-The easiest way to [optimize your ingestion rate](#how-can-i-optimize-my-ingestion-rate) is to send only data that you actually use. The main way to use data is to query for it, whether it be in charts, dashboards, alert conditions, or API calls.
+The easiest way to [optimize your ingestion rate](#how-can-i-optimize-my-ingestion-rate) is to send only data that you actually use. The main way to use data is to query for it in charts, dashboards, alert conditions, or API calls.
 
-1. See which metrics are ingested.
+### Step 1: See Which Metrics are Ingested
 
-      * The [Metrics Browser](metrics_managing.html#metrics-browser) lets you examine non-obsolete metrics and metric namespaces.
+* The [Metrics Browser](metrics_managing.html#metrics-browser) lets you examine non-obsolete metrics and metric namespaces.
   
-      * The **Wavefront Namespace Usage Explorer** dashboard, which is part of the [Wavefront Usage integration](system.html), gives details on a per-namespace basis.
+* The **Wavefront Namespace Usage Explorer** dashboard, which is part of the [Wavefront Usage integration](system.html), gives details on a per-namespace basis.
   
-2. See which metrics are not used.
+### Step 2: See Which Metrics Are Not Used
 
-      * Use the [Wavefront Top](wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy) tool to examine which ingested metrics are accessed during the last lookback period. The default lookback period is 7 days but is configurable. The *PPS* column shows the ingested rates, and the *%Acc.* column shows the percentages of the ingested rates that are accessed by queries. 
-  
-          A common strategy is to start with the namespaces that have high ingestion rates but low access rates. Drill down the namespaces to found out the metrics with access rates of *0%*. 
-  
-      * Use the Wavefront API to create a script that compares ingested to accessed metrics. The [Access API endpoint](wavefront_api.html#notes-on-the-access-category) provides information on how often an entity has been accessed. Supported entities are metrics, histograms, and spans. The default lookback period is 7 days but is configurable up to 60 days. 
-  
-          A common strategy is to start with metric namespaces that contribute the most to the overall ingestion rate. First, create a script to determine all of the metric names within those namespaces, then feed each of those metric names to the Access API. While it is possible to list all metric names, it is recommended to focus on specific namespaces one at a time due to the possible sheer number of metric names.
-  
-          {% include tip.html content="There is an underlying (undocumented) API that the [Metrics Browser](metrics_managing.html#metrics-browser) uses. To take advantage of that API, use your browser's developer tools to see the underlying API calls." %}
-  
-      * Use the Dashboards and Alerts browsers to examine metrics usage in queries.
-      
-          A common strategy is first to determine all of the metric names within a namespace, then check whether each metric name is included in any chart query for all dashboards and whether it is included in any condition query for all alerts.
-  
-          {% include note.html content="There's a chance that some metrics are queried only in ad hoc charts. While this is possible, it's more likely that important data is already used in dashboards and alerts." %}
+* Use the [Wavefront Top](wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy) tool to examine which ingested metrics are accessed during the last lookback period. The default lookback period is 7 days but you can configure it in Wavefront Top. The *PPS* column shows the ingested rates, and the *%Acc.* column shows the percentages of the ingested rates that are accessed by queries.
+
+    Start with the namespaces that have high ingestion rates but low access rates. Drill down the namespaces to found out the metrics with access rates of *0%*.
     
-3. See which dashboards are not used.
+* Use the Wavefront API to create a script that compares ingested versus accessed metrics. The [Access API endpoint](wavefront_api.html#notes-on-the-access-category) provides information on how often an entity has been accessed. Supported entities are metrics, histograms, and spans. The default lookback period is 7 days but you can configure it up to 60 days. 
+  
+    Start with metric namespaces that contribute the most to the overall ingestion rate.
+    1. Create a script to determine all of the metric names within those namespaces
+    2. Feed each of those metric names to the Access API.
+          
+        While it is possible to list all metric names, you should focus on specific namespaces one at a time due to the possible sheer number of metric names.
+  
+        {% include tip.html content="There is an underlying (undocumented) API that the [Metrics Browser](metrics_managing.html#metrics-browser) uses. To take advantage of that API, use your browser's developer tools to see the underlying API calls." %}
+  
+* Use the Dashboards and Alerts browsers to examine metrics usage in queries.
+      
+    1. Determine all of the metric names within a namespace
+    
+    2. Check whether each metric name is included in any chart query for all dashboards and whether it is included in any condition query for all alerts.
 
-    Some metrics might be queried in dashboard charts but these dashboards might be unused. Examine and, if needed, delete the [unused dashboards](ui_dashboards.html#identify-unused-dashboards).
+        {% include note.html content="There's a chance that some metrics are queried only in ad hoc charts. While this is possible, it's more likely that important data is already used in dashboards and alerts." %}
+    
+### Step 3: See Which Dashboards Are Not Used
+Some metrics might be queried in dashboard charts but these dashboards might be unused. Examine and, if needed, delete the [unused dashboards](ui_dashboards.html#identify-unused-dashboards).
 
 ## How Can I Optimize My Ingestion Rate?
 
 Billing for Tanzu Observability is based primarily on the ingestion rate, so it's a good practice to look for ways to optimize and reduce your ingestion rate.
 
-* Examine the largest metric namespaces in terms of ingestion rate.
+### Examine the Largest Metric Namespaces in Terms of Ingestion Rate
 
-    The **Wavefront Namespace Usage Explorer** dashboard, which is part of the [Wavefront Usage integration](system.html), is the best place to start for insight into metric namespaces. At a glance, this dashboard displays the largest level-1 namespaces. For each of these top namespaces, you can further examine the level-2 and level-3 namespaces for more insight into the sub-categories of metrics that contribute to the overall ingestion rate.
+The **Wavefront Namespace Usage Explorer** dashboard, which is part of the [Wavefront Usage integration](system.html), is the best place to start for getting an insight into metric namespaces. This dashboard displays the largest level-1 namespaces. For each of these top namespaces, you can further examine the level-2 and level-3 namespaces and drill down to the sub-categories of metrics that contribute to the overall ingestion rate.
     
-    This simple analysis often reveals metric namespaces that you may not have realized contributed so much to your ingestion rate. These namespaces are great areas for optimization.
+This simple analysis often reveals metric namespaces that you may not have realized contributed so much to your ingestion rate. These namespaces are great areas for optimization.
     
-*  Adjust the granularity for your metric data points.
+### Consider Increasing Reporting Intervals
   
-    Even though Tanzu Observability supports second-level granularity for metric data points, it's rare that all data needs to be that granular. If some data does not need to be that granular, there can be significant savings just by increasing the interval at which that data reports. For example, switching from a 1-second interval to a 1-minute interval results in a 60x reduction in ingestion rate for that set of data.
+* Even though Tanzu Observability supports second-level granularity for metric data points, it's rare that all data needs to be that granular. If some data does not need to be that granular, there can be significant savings just by increasing the interval at which that data reports. For example, switching from a 1-second interval to a 1-minute interval results in a 60x reduction in the ingestion rate for that set of data.
       
-    Another area to explore for adjusting reporting intervals is *constant values*. Values that do not change often are great candidates for increasing reporting intervals. [Wavefront Top](wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy) is helpful for uncovering constant values. The *Range* column shows the range of the reported values (the maximum value minus the minimum value) for each namespace.
-    - If the range is *0*, then this data set is most likely reporting constant values.
-    - If the range does not change, it is also possible that only a few fixed values are reported and that data set could also be a candidate for increased reporting intervals.
-      
-* Examine unused data
-    If data is ingested but not queried, then that is most likely data that does not need to be ingested. See [Which Metrics Are Ingested But Not Used?](wavefront_usage_info.html#which-metrics-are-ingested-but-not-used) for tips on finding unused data.
-
-* Consider using [histograms](proxies_histograms.html).
-
-    If some of your data sets are tracking various statistics, for example, `min`, `max`, `mean`, such as is the case for Dropwizard or StatsD style histogram data, these are good candidates to consider converting to histograms. Histograms store data as distributions rather than as individual data points. For billing purposes, the rate of distributions ingested is converted to a rate of points ingested through a conversion factor. If you don't know your conversion factor, contact your Account Executive.
+* Another area to explore for adjusting reporting intervals is *constant values*. Values that do not change often are great candidates for increasing reporting intervals.
     
-    To determine whether there will be PPS savings from sending in metrics data as histogram data, first determine the ingestion rate for the metric data. To illustrate, let's look at an example:
+    You can use [Wavefront Top](wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy) to uncover constant values. The *Range* column shows the range of the reported values (the maximum value minus the minimum value) for each namespace.
+        - If the range is *0*, then this data set is most likely reporting constant values.
+        - If the range does not change, it is also possible that only a few fixed values are reported and the data set can also be a candidate for increased reporting intervals.
       
-    Suppose we are ingesting 10 statistics for a specific series of data: `min`, `max`, `mean`, `sum`, `count`, `p50`, `p75`, `p95`, `p9`9, and `p999`. Let's say that this data is ingested at 30-second intervals. This would mean that we are ingesting 20 data points every minute. That is equivalent to .33 PPS (20 data points per minute / 60 seconds per minute). For histograms, at the most granular level, there can be one distribution per minute for any particular series. If your conversion factor from distribution per second to points per second is less than 20, this means there will be savings from ingesting this set of data as histograms. On top of these PPS savings, you would also reap all the benefits of histograms, including better and more accurate insight into your data. So, even if the conversion factor results in an equivalent PPS, we would still recommend sending in data as histograms to take advantage of the benefits of using distribution data.      
+### Examine Unused Data
+
+If data is ingested but not queried, then that is most likely data that does not need to be ingested. See [Which Metrics Are Ingested But Not Used?](wavefront_usage_info.html#which-metrics-are-ingested-but-not-used) for tips on finding unused data.
+
+### Consider Using Histograms
+
+If some of your data sets are tracking various statistics, for example, `min`, `max`, `mean`, such as in the case for [Dropwizard](https://metrics.dropwizard.io/3.1.0/getting-started) or [StatsD](statsd.html) style histogram data, these are good candidates to consider converting to [histograms](proxies_histograms.html). Histograms store data as distributions rather than as individual data points. For billing purposes, the rate of distributions ingested is converted to a rate of points ingested through a conversion factor. If you don't know your conversion factor, contact your Account Executive.
+    
+To determine whether there will be PPS savings from sending in metrics data as histogram data, first determine the ingestion rate for the metric data. To illustrate, let's look at an example:
+      
+Suppose we are ingesting 10 statistics for a specific series of data: `min`, `max`, `mean`, `sum`, `count`, `p50`, `p75`, `p95`, `p9`9, and `p999`. Let's say that this data is ingested at 30-second intervals. This means that we are ingesting 20 data points every minute. That is equivalent to .33 PPS (20 data points per minute / 60 seconds per minute). For histograms, at the most granular level, there can be one distribution per minute for any particular series. If your conversion factor from distribution per second to PPS is less than 20, this means there will be savings from ingesting this set of data as histograms. On top of these PPS savings, you will also get all the benefits of histograms, including better and more accurate insight into your data. So, even if the conversion factor results in an equivalent PPS, we still recommend sending in data as histograms to take advantage of the benefits of using distribution data.      
       
 ## Learn More!
 

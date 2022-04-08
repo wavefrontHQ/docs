@@ -512,25 +512,34 @@ When a dashboard has a lot of variables with interdependencies, it might make se
 
 ### Identify Unused Dashboards
 
-Over time, as more and more dashboards are created, inevitably, there are dashboards that are no longer in use. To keep your environment clean and to ensure that useful dashboards can be located more readily, it's a good practice to [delete](#delete-and-recover-a-deleted-dashboard) unused dashboards from time to time. In order to do that, we must first identify which dashboards are no longer being used or viewed.
+Over time, as more and more dashboards are created, there will be dashboards that are no longer in use. To keep your environment clean and to ensure that useful dashboards can be easily found, it's a good practice to [delete](#delete-and-recover-a-deleted-dashboard) unused dashboards on a regular basis. To do that, you must first identify which dashboards are no longer being used or viewed.
 
-* By using the Dashboard Browser, you can sort the dashboards in ascending order by the number of views over the last day, week, or month. This puts the fewest viewed dashboards at the top of the list.
+* Use the Dashboard Browser to sort the dashboards in ascending order by the number of views over the last day, week, or month. This puts the fewest viewed dashboards at the top of the list.
 ![Dashboard browser with Sort menu](images/dashboards_unused.png)
 
-* By using the Wavefront API, you can check for dashboards that have not been viewed over a time window of your choice including longer than a month.
-    1. Get the IDs of all dashboards by using the Dashboard API. The `url` for each entry in the response is the dashboard ID.
+* Use the Wavefront API and UI to check for dashboards that have not been viewed over a time window of your choice, including more than 4 weeks (a month).
+    1. Get the IDs of all dashboards.
+        1. From the gear icon on the toolbar, select **API Documentation**.
+        2. Expand the **Dashboard** category, click the `GET api/v2/dashboard` request, and click **Try it out** in the top right of the request.
+        
+            {% include note.html content="You may need to iterate through all the available dashboards by using the `offset` parameter in the API request."%}
+        3. Click **Execute**.
+        
+            The `id` value for each entry in the response is the dashboard ID.
     
-        {% include note.html content="You may need to iterate through all the available dashboards by using the `offset` parameter in the API request."%}
+    2. In the UI, find all dashboards that have been viewed over the time window of interest.
+        
+        The internal metric ``~wavefront.dashboard.<dashboard_id>.views`` tracks the views of each dashboard.
     
-    2. Find all dashboards that have been viewed over the time window of interest by using the internal metric ``~wavefront.dashboard.<dashboard_id>.views``, which tracks the views of each dashboard.
-    
-        For example, the following query will return all the IDs of dashboards that have been viewed over the last 12 weeks:
+        Create a table chart with the query of the type:
         
         ``aliasMetric(mmax(12w, ts(~wavefront.dashboard.*.views)), 2)``
         
+        You will get the IDs of the dashboards that have been viewed over the last 12 weeks.
+        
     3. Find all unviewed dashboards.
     
-        Now that you have the IDs of all dashboards and the IDs of all dashboards that have been viewed, taking the difference would give you all of the IDs of the unviewed dashboards.
+        Now that you have the IDs of all dashboards and the IDs of all dashboards that have been viewed, you can take the difference and get all of the IDs of the unviewed dashboards.
 
 ## Delete and Recover a Deleted Dashboard
 
