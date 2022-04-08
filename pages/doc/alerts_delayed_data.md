@@ -19,7 +19,7 @@ Suppose you need to monitor the total number of users that are sharded across 3 
 
 * At about 9:35, `app-3` finally sends its data points, and these delayed points are backfilled into the time series.
 
-* A few minutes later, you investigate the alert using a Wavefront chart. You query for the total number of users, and adjust the custom time window so you can view the data points in the minutes around the alert check (9:28 to 9:30).
+* A few minutes later, you investigate the alert by using a Tanzu Observability by Wavefront chart. You query for the total number of users, and adjust the custom time window so you can view the data points in the minutes around the alert check (9:28 to 9:30).
 
 * You are surprised to see that the chart shows a total of about 105 users during the alert check window.
 
@@ -35,11 +35,11 @@ If you think an alert has fired or resolved by mistake, it's possible that a dat
 
 ### What is a Data Delay?
 
-A data delay is a noticeable latency between the time that a source collects a data value and the time that Wavefront receives that value. Data delays can occur anywhere in the data pipeline. Data delays can be:
-* Predictable - for example, when a source preprocesses or batches the data values before sending them to Wavefront.
+A data delay is a noticeable latency between the time that a source collects a data value and the time that Tanzu Observability receives that value. Data delays can occur anywhere in the data pipeline. Data delays can be:
+* Predictable - for example, when a source preprocesses or batches the data values before sending them.
 * Unpredictable - for example, when a sudden network slowdown or outage interferes with the flow of data.
 
-When delayed data points arrive, Wavefront backfills them into their time series. Each backfilled point is stored with the timestamp that reflects when the source collected it, not when Wavefront received it.
+When delayed data points arrive, Tanzu Observability backfills them into their time series. Each backfilled point is stored with the timestamp that reflects when the source collected it, not when we received it.
 
 <!---
 If backfilling does not occur,  we call it missing data – i.e., a permanent failure to report – and handle it differently.
@@ -47,24 +47,24 @@ If backfilling does not occur,  we call it missing data – i.e., a permanent fa
 
 ### Did a Data Delay Affect My Alert?
 
-The process of backfilling data values causes Wavefront to revise the affected time series. In effect, there are now two views of the time window in which the delay occurred:
+The process of backfilling data values causes Tanzu Observability to revise the affected time series. In effect, there are now two views of the time window in which the delay occurred:
 * The original view, which exists before backfilling takes place.
 * The revised view, which exists after backfilling takes place. This view consists of the complete set of reported data values.
 
-After backfilling takes place, you can see only the revised view in a Wavefront chart.
+After backfilling takes place, you can see only the revised view in a Tanzu Observability chart.
 
 If an alert has fired when you didn't expect it, use one of these approaches to determine whether a data delay was the cause:
 
 Option 1: Examine the chart:
 
 1. On the chart associated with the alert, select a 10 minute live window by zooming in.
-2. Check if the points in the chart arrive a few minutes <i>after</i> the current timestamp. If they do, a data delay is affecting your alert. 
+2. Check if the points in the chart arrive a few minutes <i>after</i> the current timestamp. If they do, a data delay is affecting your alert.
 
 Option 2: Examine an alert notification:
 
 1. Obtain an alert notification that was triggered by the alert.
-2. Check whether the alert notification includes a [chart image](alerts_notifications.html#chart-images-in-alert-notifications). A chart image shows the original view of the data at the time the alert fired.
-3. Use the alert notification to display a current, [interactive chart](alerts_notifications.html#interactive-charts-linked-by-alert-notifications) for the query that was used in the alert condition. By default, you can click a **View Alert** button to display the chart with a custom date that includes the alert time check window.
+2. Check whether the alert notification includes a [chart image](alerts_notifications.html#static-chart-image-in-notifications). A chart image shows the original view of the data at the time the alert fired.
+3. Use the alert notification to display a current, [interactive chart](alerts_notifications.html#link-to-interactive-chart-in-alert-viewer) for the query that was used in the alert condition. By default, you can click a **View Alert** button to display the chart with a custom date that includes the alert time check window.
 4. Compare the chart image and the interactive chart.
   * A difference indicates that a data delay and backfilling have occurred, so the interactive chart now shows a revised view.
 
@@ -93,7 +93,7 @@ You can use the [`lag()`](ts_lag.html) function in an alert condition to shift t
 
 **Example**
 
-Suppose you want to monitor the number of requests per second, and these requests are sharded across 10 machines. Each machine should be running about 150 requests/second, so the total should add up to more than 1000. You'd like to know if the total drops below 1000 for 2 minutes, so you set **Alert fires** to 2.
+Suppose you want to monitor the number of requests per second, and these requests are sharded across 10 machines. Each machine should be running about 150 requests/second, so the total should add up to more than 1000. You'd like to know if the total drops below 1000 for 2 minutes, so you set **Trigger Window** to 2.
 
 The following alert condition compares the current request count to 1000:
 
@@ -109,22 +109,22 @@ You can correct for the data delay by applying `lag()` to the current request co
 lag(15m, sum(ts("aws.elb.requestcount"))) < 1000
 ```
 
-By setting the lag time to `15m`, you tell the alert condition to return data values whose timestamps are 15 minutes earlier than the alert check time. The alert checking process evaluates 2 minutes' worth of these older values (from 15 to 17 minutes before checking occurs). The 15-minute lag gives Wavefront a chance to backfill the delayed values into the alert check time window.
+By setting the lag time to `15m`, you tell the alert condition to return data values whose timestamps are 15 minutes earlier than the alert check time. The alert checking process evaluates 2 minutes' worth of these older values (from 15 to 17 minutes before checking occurs). The 15-minute lag gives us a chance to backfill the delayed values into the alert check time window.
 
 {% include note.html content="If a data delay lasts longer than 15 minutes, the sample alert condition will return data values before backfilling has a chance take place." %}
 
 ### Lengthen the Alert Check Time Window
 
-You can increase the **Alert fires** or **Alert resolves** time window so that the window is longer than the usual data delay. This allows the alert checker to consider data values that are old enough to include backfilled data. A good estimate is:
+You can increase the **Trigger Window** or **Resolve Window** so that the window is longer than the default. This allows the alert checker to consider data values that are old enough to include backfilled data. A good estimate is:
 ```  (Number of minutes in delay) + (Number of minutes you want to test) ```
 
 **Example**
 
-Suppose you want to monitor the number of requests per second sharded across 10 machines. You'd like to know if the total number of requests drops below 1000 for 2 minutes. If all series report on time, you can set **Alert fires** to 2.
+Suppose you want to monitor the number of requests per second sharded across 10 machines. You'd like to know if the total number of requests drops below 1000 for 2 minutes. If all series report on time, you can set **Trigger Window** to 2.
 
-Now suppose you know that the series on all 10 machines experience a predictable 15-minute reporting delay. If **Alert fires** is 2, the alert will never fire, because the alert check time window will always contain NO DATA, which is neither true nor false.
+Now suppose you know that the series on all 10 machines experience a predictable 15-minute reporting delay. If **Trigger Window** is 2, the alert will never fire, because the alert check time window will always contain NO DATA, which is neither true nor false.
 
-The solution is to increase the **Alert fires** window to 15 + 2 = 17 minutes. The oldest 2 minutes in the alert check time window will have actual data values backfilled. If both of those minutes have a summarization point < 1000, the alert fires.
+The solution is to increase the **Trigger Window** window to 15 + 2 = 17 minutes. The oldest 2 minutes in the alert check time window will have actual data values backfilled. If both of those minutes have a summarization point < 1000, the alert fires.
 
 ## How Data Delays Affect Alerts
 
@@ -146,4 +146,4 @@ A data delay can change the set of data values that the alert checking process b
 For example, suppose you want your alert to fire 1 true value followed by a predictable 15-minute reporting delay. You can
 
 This setting depends on how often data points arrive, and it accounts for any delays in the application metrics delivery pipeline.
-Changing **Alert fires** can compensate for external delays of metrics. --->
+Changing **Trigger Window** can compensate for external delays of metrics. --->

@@ -53,7 +53,7 @@ This chart shows live data for 8 days. `day("Asia/Tokyo")` returns 9 through 16.
 
 **Example 2: Defining an Alert that Fires on Particular Days**
 
-Here we include `(day("Asia/Bangkok") = 10 or between(day("Asia/Bangkok"),14,21))` in a conditional expression to define an alert that fires when the CPU load average rises above 2.5 either on day 10 of the month or from day 14 through day 21.
+Here we include `day("Asia/Bangkok") = 31` in the DATA to define an alert that fires when the CPU load average rises above 0.5 either on day 31 of the month. We specify the threshold in the DATA and a corresponding threshold (0.5) for the desired severity in the CONDITION.
 ![day alert](images/ts_day_alert.png)
 
 ## See Also

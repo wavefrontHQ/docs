@@ -29,10 +29,6 @@ This integration also installs the dashboards. Here's a preview of the Istio Dat
   * Wavefront Collector for Kubernetes: v1.2.0 or later.
   * Prometheus: v2.21.0 or later
 
-**Note:**
-  * For the Istio version 1.7.x or earlier, see Istio Archived.
-
-
 This integration uses
 * [Prometheus](https://istio.io/latest/docs/ops/integrations/prometheus/) server to scrape metrics from Istio and federate them.
 

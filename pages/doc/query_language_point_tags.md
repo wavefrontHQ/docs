@@ -20,7 +20,7 @@ Many of our cloud integrations generate point tags automatically to help you fil
 
 ### Point Tag Maximum
 
-Wavefront has limited the number of point tags to 20 for most clusters. Our experience has shown that a larger number of point tags does not improve the user experience and can lead to performance problems.
+Tanzu Observability by Wavefront supports up 20 point tags per time series. A larger number of point tags does not improve the user experience and can lead to performance problems.
 
 {% include note.html content="If the number of point tags exceeds 20, then we drop the metrics that have those point tags." %}
 
@@ -53,7 +53,7 @@ Each point tag key (e.g., `env` or `az`) can be associated with a high number of
 
 ### Watch the Number of Time Series
 
-Wavefront recommends that you keep the number of distinct time series per metric and host to under 1000. Whether a time series is distinct depends on the combination of the point tag keys and the point tag values.
+Keep the number of distinct time series per metric and host to under 1000. Whether a time series is distinct depends on the combination of the point tag keys and the point tag values.
 
 For example, assume a metric `cpu.idle` and a host `web1`.  If you use that metric and host with the point tags `env=prod` and `datacenter=atl`, a new time series results. If you use `env=dev` and `datacenter=atl`, another distinct time series results.
 
@@ -63,7 +63,7 @@ Using point tags to store highly variable data such as timestamps, login emails,
 
 ###  Don't Use Point Tags with OR Operators
 
-When you use point tags with an OR operator, Wavefront stops executing the query if the first of the OR-ed point tags fails. This improves efficiency but can lead to incorrect results. Use <strong>collect()</strong> with your query instead, for example, <code>collect(ts(metric, my_tag="tag1"), ts(metric, my_tag="tag2")) </code>.
+When you use point tags with an OR operator, The query engine stops executing the query if the first of the OR-ed point tags fails. This improves efficiency but can lead to incorrect results. Use <strong>collect()</strong> with your query instead, for example, <code>collect(ts(metric, my_tag="tag1"), ts(metric, my_tag="tag2")) </code>.
 
 ### More Info
 

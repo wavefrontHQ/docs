@@ -6,20 +6,13 @@ sidebar: doc_sidebar
 permalink: ui_chart_reference.html
 summary: Chart types and configuration options for each chart type.
 ---
+Tanzu Observability by Wavefront provides charts viewing and examining your data. You can <a href="ui_examine_data.html">interact directly with charts in real time</a> -- zoom in, zoom out, change the time window, and so on.
 
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="80%">
-Charts allow you to view and examine your metrics. You can <a href="ui_examine_data.html">interact directly with charts in real time</a> -- zoom in, zoom out, change the time window, and so on.
-<br>
-Users with dashboard permission can customize many aspects of the chart and save their changes. This page is a detailed reference to the tabs in the different chart types. We repeat tab reference for each chart type.</td>
-<td width="20%"><a href="ui_chart_reference_v1.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
-</tr>
-</tbody>
-</table>
+Users with dashboard permission can customize many aspects of the chart and save their changes. This page is a detailed reference to the tabs in the different chart types. We repeat tab reference for each chart type.
 
-{% include shared/badge.html content="While every Wavefront user can view charts and make temporary changes, you must have [Dashboard permission](permissions_overview.html) to save changes you make to charts." %}
+{% include note.html content="While every user can view charts and make temporary changes, you must have [Dashboard permission](permissions_overview.html) to save changes you make to charts." %}
+
+{% include important.html content="This chart reference has all information for charts that are in a dashboard. Many, but <strong>not all</strong> of the same options are available for charts in alerts." %}
 
 
 ## Data Tab (All Charts)
@@ -52,10 +45,8 @@ Missing data is represented by a dashed line. The dashed line only gives a visua
 </thead>
 <tr>
 <td>Summarization</td>
-<td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
-
-Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
+<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the query engine to aggregate raw data points into displayable values.<p>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the query engine aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 
 <tr>
@@ -74,13 +65,18 @@ Allows you to turn off or turn on the single line color gradient when you're loo
 </td>
 </tr>
 
+<tr>
+<td>Decimal Precision</td>
+<td>How many digits to show after the decimal point. Defaults to 3.  </td>
+</tr>
+
 </tbody>
 </table>
 
 <a id="line_plot_axis_tab">
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
-The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
+The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-iecbinary-prefixes-in-y-axis-and-legends) for instructions.
 
 <table>
 <tbody>
@@ -104,9 +100,9 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
 <li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
-<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
+<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
-<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
+<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html">Units in Chart Axes and Legends</a>. </p>
 </td>
 </tr>
 </tbody>
@@ -131,7 +127,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 <td>You can select all or none of the Legend options.
 <ul>
 <li>Fixed Legend -- Even if you don't select this option, you can use Shift+P with the mouse cursor in the chart to add a fixed legend.  </li>
-<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the <strong>Summarization</strong> setting. </li>
+<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the chosen <strong>Summarization</strong> option. </li>
 <li>Disable Legend on Hover -- Select to disable the legend on hover.   </li>
 </ul>
 </td>
@@ -254,15 +250,17 @@ A **point plot** chart displays point buckets *without* any interpolation. Like 
 </thead>
 <tr>
 <td>Summarization</td>
-<td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
-
-Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
+<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the query engine to aggregate raw data points into displayable values.<p>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the query engine aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Display Source Events</td>
 <td>If checked, displays events that were generated by alerts associated with any source displayed on the chart.
 You can also use events() queries to <a href="charts_events_displaying.html">Display events in charts</a>.</td>
+</tr>
+<tr>
+<td>Decimal Precision</td>
+<td>How many digits to show after the decimal point. Defaults to 3.  </td>
 </tr>
 </tbody>
 </table>
@@ -270,7 +268,7 @@ You can also use events() queries to <a href="charts_events_displaying.html">Dis
 <a id="point_plot_axis_tab">
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
-The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
+The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-iecbinary-prefixes-in-y-axis-and-legends) for instructions.
 
 <table>
 <tbody>
@@ -294,9 +292,9 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
 <li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
-<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
+<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
-<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
+<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html">Units in Chart Axes and Legends</a>. </p>
 </td>
 </tr>
 </tbody>
@@ -321,7 +319,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 <td>Supports these options:
 <ul>
 <li>Fixed Legend -- Displays a fixed legend. Even if you don't select this option, you can use Shift+P with the mouse cursor in the chart to add a fixed legend.  </li>
-<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the <strong>Summarization</strong> setting. </li>
+<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the chosen <strong>Summarization</strong> option. </li>
 <li>Disable Legend on Hover -- Select to disable the legend on hover.   </li>
 </ul>
 </td>
@@ -416,10 +414,8 @@ The stacked area chart can help you determine at a glance which queries have the
 </thead>
 <tr>
 <td>Summarization</td>
-<td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
-
-Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
+<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the query engine to aggregate raw data points into displayable values.<p>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the query engine aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Display Source Events</td>
@@ -443,6 +439,10 @@ The following stack types are supported.
 </ul>
 </td>
 </tr>
+<tr>
+<td>Decimal Precision</td>
+<td>How many digits to show after the decimal point. Defaults to 3.  </td>
+</tr>
 </tbody>
 </table>
 
@@ -451,7 +451,7 @@ The following stack types are supported.
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
 
-The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
+The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-iecbinary-prefixes-in-y-axis-and-legends) for instructions.
 
 <table>
 <tbody>
@@ -475,9 +475,9 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
 <li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
-<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
+<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
-<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
+<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html">Units in Chart Axes and Legends</a>. </p>
 </td>
 </tr>
 </tbody>
@@ -502,7 +502,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 <td>Supports these options:
 <ul>
 <li>Fixed Legend -- Displays a fixed legend. Even if you don't select this option, you can use Shift+P with the mouse cursor in the chart to add a fixed legend.  </li>
-<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the <strong>Summarization</strong> setting. </li>
+<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the chosen <strong>Summarization</strong> option. </li>
 <li>Disable Legend on Hover -- Select to disable the legend on hover.   </li>
 </ul>
 </td>
@@ -597,10 +597,8 @@ This chart supports the same tabs and options as the Stacked Area Chart discusse
 </thead>
 <tr>
 <td>Summarization</td>
-<td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
-
-Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
+<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the query engine to aggregate raw data points into displayable values.<p>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the query engine aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Display Source Events</td>
@@ -611,6 +609,10 @@ You can also use events() queries to <a href="charts_events_displaying.html">Dis
 <td>Gap Threshold</td>
 <td>Controls when data is considered missing when there are gaps in the reporting of the data. The gap threshold is expressed in seconds and defaults to 60 seconds. Data considered missing based on the threshold are shown as dotted lines.
 </td></tr>
+<tr>
+<td>Decimal Precision</td>
+<td>How many digits to show after the decimal point. Defaults to 3.  </td>
+</tr>
 </tbody>
 </table>
 
@@ -618,7 +620,7 @@ You can also use events() queries to <a href="charts_events_displaying.html">Dis
 <a id="stacked_column_axis_tab">
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
-The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
+The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-iecbinary-prefixes-in-y-axis-and-legends) for instructions.
 
 <table>
 <tbody>
@@ -642,9 +644,9 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
 <li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
-<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
+<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
-<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
+<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html">Units in Chart Axes and Legends</a>. </p>
 </td>
 </tr>
 </tbody>
@@ -669,7 +671,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 <td>Supports these options:
 <ul>
 <li>Fixed Legend -- Displays a fixed legend. Even if you don't select this option, you can use Shift+P with the mouse cursor in the chart to add a fixed legend.  </li>
-<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the <strong>Summarization</strong> setting. </li>
+<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the chosen <strong>Summarization</strong> option. </li>
 <li>Disable Legend on Hover -- Select to disable the legend on hover.   </li>
 </ul>
 </td>
@@ -757,36 +759,20 @@ A **table** chart allows fine-grained customization in the Format tab but doesn'
 </thead>
 <tr>
 <td>Summarization</td>
-<td>Each line in a table is a summary of all of available data points, as set in the Summarized By field, based on the configured time window.</td></tr>
-<tr>
-<td>Point Tag Columns to Display</td>
-<td>Allows you to show all point tags, only a selected number, or only metrics with a certain tag key.
-</td>
-</tr>
-<tr>
-<td>Show Sources</td>
-<td>Select to display the sources in the table.
-</td>
-</tr>
-<tr>
-<td>Show Labels</td>
-<td>Select to display labels in the table. A label is the metric name associated with the data or the query expression resulting from an aggregation.
-</td>
-</tr>
+<td>Each line in a table chart reports a summarized value of all available data points for the current time window. The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> determines how these values are calculated.</td></tr>
 <tr>
 <td>Show Raw Values</td>
 <td>Select to display the raw metric values (e.g., 212.00 milliseconds) or values using scientific notation (SI), e.g., 212 milliseconds.
 </td>
 </tr>
 <tr>
-<td>Group by Sources</td>
-<td>Whether to group the column results by source.  If you select <strong>Group by Source</strong>, the table lists the grouped sources in the first column and the values for each metric in separate columns.
-</td>
-</tr>
-<tr>
 <td>Sort Values Descending</td>
 <td>Check to sort values descending (largest to smallest) or ascending (smallest to largest).
 </td>
+</tr>
+<tr>
+<td>Decimal Precision</td>
+<td>How many digits to show after the decimal point. Defaults to 3.  </td>
 </tr>
 </tbody>
 </table>
@@ -820,13 +806,53 @@ You can specify a minimum of 200 milliseconds to show only values of interest:
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
 <li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
-<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
+<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
-<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
+<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html">Units in Chart Axes and Legends</a>. </p>
 </td>
 </tr>
 </tbody>
 </table>
+
+
+<a id="columns_tab">
+<p><span style="font-size: large; font-weight: 600">Columns Tab</span></p>
+
+Allows you to select which columns to see in the table chart.
+
+<table>
+<tbody>
+<thead>
+<tr><th width="15%">Option</th><th width="85%">Description</th></tr>
+</thead>
+<tr>
+<td>Show Sources</td>
+<td>Select to display the sources in the table.
+</td>
+</tr>
+<tr>
+<td>Show Labels</td>
+<td>Select to display labels in the table. A label is the metric name associated with the data or the query expression resulting from an aggregation.
+</td>
+</tr>
+<tr>
+<td>Group by Sources</td>
+<td>Whether to group the column results by source.  If you select <strong>Group by Source</strong>, the table lists the grouped sources in the first column and the values for each metric in separate columns.
+</td>
+</tr>
+<tr>
+<td>Point Tag Columns to Display</td>
+<td>Allows you to show all point tags, only a selected number, or only metrics with a certain tag key.
+</td>
+</tr>
+<tr>
+<td>Show Value Column</td>
+<td>Allows you to show or hide the <code>Value</code> column according to your needs.
+</td>
+</tr>
+</tbody>
+</table>
+
 
 <a id="table_drilldown_link_tab">
 <p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
@@ -871,9 +897,9 @@ Chart description which shows up as hover text when users move the mouse over th
 
 A **Markdown** chart allows you to provide in-depth text descriptions of a dashboard and individual charts using Markdown. We support [CommonMark](https://commonmark.org/)
 
-In addition to Markdown formatted text, you can use links, images hosted outside Wavefront, and [dashboard variables](dashboards_variables.html). You can refer to the value of a dashboard variable with the query variable syntax **${var_name}** and the label of the variable using **%{var_name}**. Using a label instead of the variable value could be useful for list variables that might show the dropdown labels such as: Any, 1 Year, 3 Years which could map to opaque values such as -1, 1, 3.
+In addition to Markdown formatted text, you can use links, images hosted at a location of your choice, and [dashboard variables](dashboards_variables.html). You can refer to the value of a dashboard variable with the query variable syntax **${var_name}** and the label of the variable using **%{var_name}**. Using a label instead of the variable value could be useful for list variables that might show the dropdown labels such as: Any, 1 Year, 3 Years which could map to opaque values such as -1, 1, 3.
 
-You can pass a time window as a parameter in markdown. For example, when you create a dynamic link in a markdown chart, from the time selector you can pick a specific time window. When you click the link on the markdown chart, you will see the chart within the current time range that you’ve selected. 
+You can pass a time window as a parameter in markdown. For example, when you create a dynamic link in a markdown chart, from the time selector you can pick a specific time window. When you click the link on the markdown chart, you will see the chart within the current time range that you’ve selected.
 
 When you add a markdown chart with a dashboard dynamic link to an existing dashboard, for example, `[[dashboardURLWithCurrentTimeRange url=/tracing/service/details title=MyChart]]`, clicking the link on the markdown chart, will open a dashboard within the time range that is specified in the parent dashboard, i.e. the dashboard to which you've added the markdown chart.
 
@@ -899,10 +925,8 @@ By default, a **single stat** chart plots a single series on a chart and display
 </thead>
 <tr>
 <td>Summarization</td>
-<td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
-
-Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
+<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the query engine to aggregate raw data points into displayable values.<p>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the query engine aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Display Value</td>
@@ -914,7 +938,7 @@ us to aggregate the raw data values reported in each 30 second interval, and to 
 </tr>
 <tr>
 <td>Decimal Precision</td>
-<td>How many values to show after the decimal point. Defaults to 3.  </td>
+<td>How many digits to show after the decimal point. Defaults to 3.  </td>
 </tr>
 <tr>
 <td>Horizontal Position</td>
@@ -1057,10 +1081,8 @@ The color mapping tab lets you define which set of values maps to which colors. 
 </thead>
 <tr>
 <td>Summarization</td>
-<td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
-
-Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
+<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the query engine to aggregate raw data points into displayable values.<p>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the query engine aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Number of Bars</td>
@@ -1127,10 +1149,10 @@ Allows you to direct end users to a target dashboard if they click this chart. S
 ![node map chart](images/node_map.png)
 
 A **node map** chart shows colored 3-D cubes ordered from highest to lowest. Node maps show data based on source values.
-* By default, the node map uses displays the highest value on the top left to catch the user's eye.
-* When a user clicks a node, a small popup of the corresponding metric for that source results.
-* Use color mapping to determine colors for higher values. The node map uses shading to show transitions. In the example above, values below 0.3 are shown as green, values lower than 0.8 are shown as a shade of yellow.
-* Users can group and can set the metric to display in the top right.
+* By default, the node map displays the highest value on the top left to catch the user's eye.
+* When a user clicks a node, a small popup of the corresponding metric for that source results. You might have to modify the query to ensure that the query returns a source. In some cases, it's necessary to use `aliasSource()` to get the desired results.
+* Use [color mapping](ui_charts_faq.html#how-do-i-set-up-color-mapping) to determine colors for higher values. The node map uses shading to show transitions. In the example above, values below 0.3 are shown as green, values lower than 0.8 are shown as a shade of yellow.
+* Set the group and the metric to display in the top right or in the **Node Map Defaults** tab in the chart editor. When a group is selected, only the top 12 results are displayed.
 * Specify a drilldown link to direct users to a different dashboard if they click on the dashboard.
 
 When you refresh a node map page, a short animation folds out the chart content.
@@ -1197,10 +1219,10 @@ If you specify a drilldown link, end users are directed to a target dashboard wh
 ![histogram](images/histogram_chart_v2.png)
 
 Histogram charts have two main uses:
-* Visualize [Wavefront Histograms](proxies_histograms.html). Wavefront histograms let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure – particularly those gathered across many distributed sources.
+* Visualize actual [histograms](proxies_histograms.html). Wavefront histograms let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure – particularly those gathered across many distributed sources.
 * Display a histogram visualization of a time series. That makes it possible, for example, to easily see query results above a certain percentile.
 
-You can zoom in to the histogram as needed by selecting a region. 
+You can zoom in to the histogram as needed by selecting a region.
 
 The histogram chart shows the aggregate view of the entire window. For both histogram data and time series data, you can visualize the amount of data in a certain percentile, specify color gradient and axis information, and, most importantly, get details about your histogram data by looking at hover text on each bar.
 
@@ -1236,7 +1258,7 @@ You must make sure you're looking at a metric -- it doesn't make sense to select
 <td>Display predefined percentile makers as numbers on the chart. </td>
 </tr>
 <tr><td>Threshold</td>
-<td>A <a href="ui_charts_faq.html#how-do-i-set-up-thresholds-for-histograms-and-heat-map-charts">threshold marker</a> for the data represented by the chart. Can be either a constant value or a variable that is defined by a query. 
+<td>A <a href="ui_charts_faq.html#how-do-i-set-up-thresholds-for-histograms-and-heat-map-charts">threshold marker</a> for the data represented by the chart. Can be either a constant value or a variable that is defined by a query.
 </td>
 </tr>
 </tbody>
@@ -1273,9 +1295,9 @@ The Axis tab lets you change the Y axis, and both the X axis dimensions and unit
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
 <li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
-<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
+<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
-<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
+<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html">Units in Chart Axes and Legends</a>. </p>
 </td>
 </tr>
 </tbody>
@@ -1363,9 +1385,9 @@ The Axis tab lets you change the Y axis, and both the X axis and Y axis dimensio
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
 <li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
-<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
+<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
-<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
+<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html">Units in Chart Axes and Legends</a>. </p>
 </td>
 </tr>
 <tr>
@@ -1413,10 +1435,8 @@ A gauge chart displays a single value, in a default color. You can optionally ad
 </thead>
 <tr>
 <td>Summarization</td>
-<td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
-
-Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
+<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the query engine to aggregate raw data points into displayable values.<p>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the query engine aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Decimal Precision</td>
@@ -1515,10 +1535,8 @@ The collage above shows both a pie chart and a donut chart for the same data.
 </tr>
 <tr>
 <td>Summarization</td>
-<td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
-
-Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
-us to aggregate the raw data values reported in each 30 second interval, and to display the median value as the bucket point.</td>
+<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the query engine to aggregate raw data points into displayable values.<p>
+Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the query engine aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
 <td>Show Percentage</td>
@@ -1560,7 +1578,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 <td>You can select all or none of the Legend options.
 <ul>
 <li>Fixed Legend -- Even if you don't select this option, you can use Shift+P with the mouse cursor in the chart to add a fixed legend.  </li>
-<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the <strong>Summarization</strong> setting. </li>
+<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the chosen <strong>Summarization</strong> option. </li>
 <li>Disable Legend on Hover -- Select to disable the legend on hover.   </li>
 </ul>
 </td>

@@ -4,13 +4,10 @@ keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: tracing_ui_overview.html
-summary: Get an overview of the services and applications that send data to Wavefront.
+summary: Overview of services and applications that send data to Tanzu Observability by Wavefront.
 ---
 
-It is important to get an overview of the services and applications that send data to Wavefront, understand the health of each service, and troubleshoot when your applications or services run into issues. You can get an overview and see the overall health of each application using the application map, table view, and grid view.
-
-
-{% include note.html content="This page refers to the Apdex functionality in a few places. This feature is rolled out with release 2020.42." %}
+As part of troubleshooting an application, you need an overview of the services and applications that send data to Tanzu Observability by Wavefront. Use our application map to understand the health of each service, and troubleshoot when your applications or services run into issues. You can see the overall health of each application using the application map, table view, and grid view.
 
 <a name="app_map"></a>
 
@@ -18,12 +15,12 @@ It is important to get an overview of the services and applications that send da
 
 The application map gives you an overview of how the applications and services are linked, lets you focus on a specific service, view Request, Error, and Duration (RED) metrics for each service, and the tracing traffic in the application. You can also drill down to the Service Dashboard and Tracing Browser.
 
-This video highlights the application map features and settings:
+This <a href="https://bcove.video/3oDxXaa" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights the application map features and settings:
 
 <iframe src="https://bcove.video/3oDxXaa" width="700" height="400" allowfullscreen="true" alt="Wavefront intro how-to"></iframe>
 
 See the application map:
-1. In your web browser, go to your Wavefront cluster and log in.
+1. In your web browser, go to your Wavefront instance and log in.
 1. From the taskbar, click **Applications** > **Application Status** and select the Application Map icon ( <img src="images/tracing_appmap_appmap_view_icon.png"
 style="vertical-align:text-bottom;width:28px" alt="icon to click to get the application map view"/> )
 1. Optionally, use <img src="images/tracing_link_icon.png"
@@ -62,7 +59,7 @@ Let's walk through the following scenario to get a quick overview of the applica
           Duration: Update the legend to highlight the data based on the duration. Select <b>Duration</b> from the dropdown menu and customize the values. The values need to be in ascending order and in milliseconds.
         </li>
         <li>
-          Apdex: Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only <a href="authorization.html#who-is-the-super-admin-user">Super Admin users</a> or users with <a href="permissions_overview.html">Applications permissions</a> can configure the threshold (T).
+          Apdex: Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only <a href="authorization-faq.html#who-is-the-super-admin-user">Super Admin users</a> or users with the <a href="permissions_overview.html"><strong>Applications</strong> permission</a> can configure the threshold (T).
         </li>
       </ul>
     </td>
@@ -128,7 +125,7 @@ Let's walk through the following scenario to get a quick overview of the applica
             <li> Navigate to the Service Dashboard when you click <b>Dashboard</b>.</li>
             <li>Click <b>Create Alerts</b> to create smart alerts that filter noise and capture true anomalies. See <a href="#create-alerts">Create an alert</a>.</li>
             <li>If an alert you created is firing, you see a red dot with a number on the service. The number indicates how many alerts are firing for a specific service. To see the alerts, click <b>view alerts</b>.</li>
-            <li>Click <b>Configure</b> to <a href="tracing_apdex.html">configure the apdex settings</a>. You see this setting only if you are a Super Admin user or users with Applications permissions</li>
+            <li>Click <b>Configure</b> to <a href="tracing_apdex.html">configure the apdex settings</a>. You see this setting only if you are a Super Admin user or a user with the <strong>Applications</strong> permission.</li>
           </ul>
           <li> See the components used by the service. The styling service uses the OpenTracing, Java, Dropwizard, and Jersey components.</li>
         </ul>
@@ -174,7 +171,7 @@ Let's walk through the following scenario to get a quick overview of the applica
 View the list of applications and services. You can see the Request, Error, and Duration (RED) metrics at a glance and sort the data.
 
 See the table view:
-1. In your web browser, go to your Wavefront cluster and log in.
+1. In your web browser, go to your Wavefront instance and log in.
 1. From the taskbar, click **Applications** > **Application Status** and select the Table View icon ( <img src="images/tracing_appmap_table_view_icon.png"
 style="vertical-align:text-bottom;width:28px" alt="icon to click to get the table view"/> )
 
@@ -183,7 +180,7 @@ style="vertical-align:text-bottom;width:28px" alt="icon to click to get the tabl
 Using the table view, you can:
 * Examine the applications and services, or search for a particular application or service by applying filters.
   <br/>You can refine your search further by applying one or more filters, such as the cluster, shard, or span.kind.
-* Click the name of the service to [drill down to the Service Dashboard](#explore-the-default-service-dashboard).
+* Click the name of the service to drill down to the Service Dashboard.
 * Sort data:
   - Sort the application and service names alphabetically.
   - Sort the table in the ascending or descending order of the RED metrics.
@@ -211,7 +208,7 @@ Using the table view, you can:
         Apdex Threshold
       </td>
       <td markdown="span">
-        The threshold Apdex threshold of the service. The default threshold value is set to 100ms, and only a [Super Admin user](authorization.html#who-is-the-super-admin-user) or users with [Applications permissions](permissions_overview.html) can configure the threshold (T).
+        The threshold Apdex threshold of the service. The default threshold value is set to 100ms, and only a [Super Admin user](authorization-faq.html#who-is-the-super-admin-user) or users with the [**Applications** permission](permissions_overview.html) can configure the threshold (T).
       </td>
     </tr>
     <tr>
@@ -312,7 +309,7 @@ Using the table view, you can:
     <tr>
       <td markdown="span">
         **Apdex** <br/>
-        Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only [Super Admin user](authorization.html#who-is-the-super-admin-user) or users with [Applications permissions](permissions_overview.html) can configure the threshold (T).
+        Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only a [Super Admin user](authorization-faq.html#who-is-the-super-admin-user) or users with the [**Applications** permission](permissions_overview.html) can configure the threshold (T).
       </td>
       <td markdown ="span">
         ![The image shows the setting and the legend setting with apdex selected from the drop down.](images/apdex_score_legend_colors.png)
@@ -333,7 +330,7 @@ Using the table view, you can:
       </td>
     </tr>
   </table>
-  
+
 * View specific alerts for a service:
   <table style="width: 100%;">
     <tr>
@@ -353,7 +350,7 @@ Using the table view, you can:
 When you select an application, you get an overview of its services.
 
 See the grid view:
-1. In your web browser, go to your Wavefront cluster and log in.
+1. In your web browser, go to your Wavefront instance and log in.
 1. From the taskbar, click **Applications** > **Application Status** and select the Grid View icon ( <img src="images/tracing_appmap_grid_view_icon.png"
 style="vertical-align:text-bottom;width:28px" alt="icon to click to get the table view"/> )
 
@@ -370,8 +367,8 @@ On the page for a particular application, you can:
 * Click **Actions** > **Create Alerts** to create smart alerts that filter noise and capture true anomalies. See [Create an alert](#create-alerts).
 * Click **Actions** > **View Alerts** to view alerts that are firing for the service. The number of alerts firing for the service are shown on the red circle next to the service name.
 * Drill down from a service box:
-  - Click the name of the service or **Details** to [explore the dashboard for that service](#explore-the-default-service-dashboard).
-  - Click **All Traces** to [explore the traces](#explore-traces) that originate in that service.
+  - Click the name of the service or **Details** to explore the dashboard for that service.
+  - Click **All Traces** to explore the traces that originate in that service.
 * Update the legend by clicking the settings icon. These settings can be configured by each user and apply to the application map, and table view too.
     <table style = "width: 100;">
       <tr>
@@ -395,14 +392,14 @@ On the page for a particular application, you can:
       <tr>
         <td markdown="span">
           **Apdex** <br/>
-          Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only [Super Admin users](authorization.html#who-is-the-super-admin-user) can configure the threshold (T).
+          Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only [Super Admin users](authorization-faq.html#who-is-the-super-admin-user) can configure the threshold (T).
         </td>
         <td markdown ="span">
           ![The image shows the setting and the legend setting with apdex selected from the drop down.](images/apdex_score_legend_colors.png)
         </td>
       </tr>
     </table>
-    
+
 * View specific alerts for a service:
   <table style="width: 100%;">
     <tr>
@@ -417,7 +414,7 @@ On the page for a particular application, you can:
 
 ## Create Alerts
 
-With Wavefront, you can [create smart alerts](alerts.html#how-alerts-work-video) that filter noise and capture true anomalies. You can:
+[Our smart alerts](alerts.html#how-alerts-work-video) capture true anomalies and filter noise. You can:
 
 * Specify one or more alert targets that receive the alert notification(s).
 * Create a multi-threshold alert to notify different targets depending on alert severity.
@@ -426,7 +423,7 @@ With Wavefront, you can [create smart alerts](alerts.html#how-alerts-work-video)
 
 Create an alert from the application status page:
 
-1. Navigate to the app map, table view, or grid view:  
+1. Navigate to the app map, table view, or grid view:
     <table style = "width: 100;">
       <tr>
         <td markdown ="span">
@@ -456,14 +453,16 @@ Create an alert from the application status page:
     </table>
 
 1. Configure the alert:
-    {% include note.html content="Wavefront has two templates to create an alert. The [classic alert](alerts_manage.html#create-a-classic-alert) is simple to use and the [multi-threshold alert](alerts_manage.html#create-a-multi-threshold-alert) lets you add advanced settings. On the App status page, you get the multi-threshold alert template." %}
     1. You can set the alert conditions based on your data. For example, let's create an alert that fires in the:
       * Severe state for the shopping service when the error percentage is greater than 6%
-      * and in the Warn state when it is greater than 3%.
+      * Warn state when it is greater than 3%.
+      See [Create and Manage Alerts](alerts_manage.html) for details.
     1. [Create an alert target](webhooks_alert_notification.html) to receive alert notifications for a variety of messaging platforms (email, pager services) and communication channels.
       <br/>You can also customize your alert targets to [include a link to a service dashboard when the alert fires](alert_target_customizing.html#include-a-link-to-a-tracing-service-dashboard).
     1. Optionally, [use alert tags](alerts.html#step-5-organize-related-alerts-with-tags) to organize related alerts into categories.
 1. Click **Create Alert**.
-  ![Create an alert from the table view page.](images/tracing_creating_an_alert_app_map.png)
 
-Once the alert is created, click **Alerting** and search for the alert you created on the alert browser.
+<!---
+  ![Create an alert from the table view page.](images/tracing_creating_an_alert_app_map.png)--->
+
+Once the alert is created, click **Alerting > All Alerts** and search for the alert you created .

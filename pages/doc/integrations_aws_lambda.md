@@ -4,31 +4,31 @@ keywords:
 tags: [integrations, dashboards]
 sidebar: doc_sidebar
 permalink: integrations_aws_lambda.html
-summary: Learn about AWS Lambda and Wavefront.
+summary: Learn about AWS Lambda and Tanzu Observability by Wavefront.
 ---
-The Wavefront [AWS Lambda Functions integration](aws-lambda-functions.html) includes:
+The [AWS Lambda Functions integration](aws-lambda-functions.html) includes:
 * Setup instructions
 * Information about standard metrics that the integration includes
 * Links to instructions for collecting custom business metrics
 
 On this page, we give some background and details not available on the integration page.
 
-## Wavefront and AWS Lambda
+## Tanzu Observability by Wavefront and AWS Lambda
 
 AWS Lambda is ideal for situations when you want to run a function in response to an event. Use cases include generating thumbnails whenever users upload images to a website or similar scenarios. You define the function in one of the languages that AWS Lambda supports, and the function runs whenever a triggering event occurs. This model is called Function-as-a-Service or serverless.
 
-While it's convenient to stop worrying about function execution, you might want to monitor the function. Wavefront offers these choices to monitor your AWS Lambda function:
-* Use the Wavefront Amazon CloudWatch integration. Using the CloudWatch integration allows access to the full set of standard metrics, but polling CloudWatch and send the data to Wavefront introduces some lag.
-* Use the Wavefront [AWS Lambda Functions integration](aws-lambda-functions.html). The integration collects standard metrics available through the public API. It also allows you to monitor business metrics by using a wrapper in Python, Go, or Node.js.
-  - [Wavefront Go SDK for AWS Lamda](https://github.com/wavefrontHQ/wavefront-lambda-go)
+While it's convenient to stop worrying about function execution, you might want to monitor the function. We offer these choices to monitor your AWS Lambda function:
+* Use the Amazon CloudWatch integration. Using the CloudWatch integration allows access to the full set of standard metrics, but polling CloudWatch and send the data to Tanzu Observability introduces some lag.
+* Use the [AWS Lambda Functions integration](aws-lambda-functions.html). The integration collects standard metrics available through the public API. It also allows you to monitor business metrics by using a wrapper in Python, Go, or Node.js.
+  - [Wavefront Go SDK for AWS Lambda](https://github.com/wavefrontHQ/wavefront-lambda-go)
   - [Wavefront Node.js SDK for AWS Lambda](https://github.com/wavefrontHQ/wavefront-lambda-nodejs)
   - [Wavefront Python SDK for AWS Lambda](https://github.com/wavefrontHQ/wavefront-lambda-python)
 
-## How to Use Wavefront to Monitor AWS Lambda
+## How to Use Tanzu Observability to Monitor AWS Lambda
 
-To support monitoring serverless environments, Wavefront includes a metric type called [delta counter](delta_counters.html). With delta counters, Wavefront points are aggregated to the minute bucket. That avoids point collisions.
+To support monitoring serverless environments, Tanzu Observability includes a metric type called [delta counter](delta_counters.html). With delta counters, Tanzu Observability points are aggregated to the minute bucket. That avoids point collisions.
 
-The Wavefront AWS Lambda Function integration and the SDKs listed above make it easy to collect standard metrics and custom metrics.
+The AWS Lambda Function integration and the SDKs listed above make it easy to collect standard metrics and custom metrics.
 
 <table style="width: 100%;">
 <tbody>

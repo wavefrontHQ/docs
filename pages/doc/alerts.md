@@ -4,9 +4,9 @@ keywords: alerts
 tags: [alerts, events, videos]
 sidebar: doc_sidebar
 permalink: alerts.html
-summary: Learn how alerts work, examine and organize them.
+summary: Learn how alerts work, examine, and organize them.
 ---
-Tanzu Observability supports smart alerts that dynamically filter noise and capture true anomalies.
+Tanzu Observability by Wavefront supports smart alerts that dynamically filter noise and capture true anomalies.
 * When the alert condition is met, an alert notifies one or more **alert targets**, which receive the alert notification(s).
 * The **alert notification** includes an image and a link to see the alert in context.
 * Look all alerts in the **Alert Browser** or examine a single firing alert in the **Alert Viewer**.
@@ -16,7 +16,7 @@ Tanzu Observability supports smart alerts that dynamically filter noise and capt
 
 ## How Alerts Work Video
 
-In this video, Clement explains how single-threshold alerts work:
+In this video, Clement explains how a single-threshold alert works:
 
 <p><a href="https://www.youtube.com/watch?v=VjmWExKiYYg&index=1&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_alerting_clement.png" style="width: 700px;"/></a>
 </p>
@@ -54,7 +54,7 @@ Learn about:
 <tbody>
 <tr>
 <td width="50%">In the top right, examine Related Firing Alerts. <br /><br/>
-When an alert fires, Wavefront scans all the other alerts that have fired within 30 minutes and correlates them with the initial event using AI/ML algorithms. You can filter by alert severity.</td>
+When an alert fires, we scan all the other alerts that have fired within 30 minutes and correlates them with the initial event using AI/ML algorithms. You can filter by alert severity.</td>
 <td width="50%"><img src="/images/alert_viewer_related.png" alt="Related Firing Alerts section supports filters, such as severe, warn, smoke and info."></td>
 </tr>
 </tbody>
@@ -66,7 +66,7 @@ When an alert fires, Wavefront scans all the other alerts that have fired within
 <tr>
 <td width="50%">
 Scroll down and examine the Affected section on the left.<br/><br/>
-When an alert fires, Wavefront analyzes the point tags that are most likely to be related to the firing alert and displays them in ranked order in the Alert Viewer. These point tags are a list of suspects for why the alert is firing. For example, if the alert is caused by an outage in region=us-west-2, Wavefront ranks this tag higher than other tags.</td>
+When an alert fires, we analyze the point tags that are most likely to be related to the firing alert and displays them in ranked order in the Alert Viewer. These point tags are a list of suspects for why the alert is firing. For example, if the alert is caused by an outage in region=us-west-2, this tag is ranked higher than other tags.</td>
 <td width="50%"><img src="/images/alert_viewer_point_tags.png" alt="Affected point tags example"></td>
 </tr>
 </tbody>
@@ -94,6 +94,14 @@ When an alert fires, Wavefront analyzes the point tags that are most likely to b
 </tbody>
 </table>
 
+### Alert Viewer Video
+
+In this video, Pierre gives a 2-minute tour of Alert Viewer:
+
+<p>
+<iframe src="https://bcove.video/3r3PRVe" width="700" height="400" allowfullscreen="true" alt="intro to alert viewer"></iframe>
+</p>
+
 
 ## Alerts Browser Tutorial
 
@@ -111,13 +119,13 @@ The Alerts Browser allows you to
 <tr>
 <td width="50%">
 <br/>
-On any page in the Wavefront GUI, a colored dot next to <strong>Alerting</strong> indicates that there are firing alerts. The color shows the alert severity.
+On any page in the GUI, a colored dot next to <strong>Alerting</strong> indicates that there are firing alerts. The color shows the alert severity.
 <ol>
-<li>Hover over the <strong>Alerting</strong> button in the taskbar to see how many alerts are currently firing.</li>
-<li>Click <strong>Alerting</strong> in the taskbar to go to the Alerts Browser. </li>
+<li>Hover over <strong>Alerting</strong> on the toolbar to see how many alerts are currently firing.</li>
+<li>Click <strong>Alerting &gt; All Alerts</strong> from the toolbar to go to the Alerts Browser. </li>
 </ol>
 </td>
-<td width="50%"><img src="/images/alerts_taskbar.png" alt="multiple firing alerts on the clock icon next to text Alerting in taskbar."></td>
+<td width="50%"><img src="/images/alerting_all_alerts.png" alt="Alerting All Alerts selected."></td>
 </tr>
 </tbody>
 </table>
@@ -152,7 +160,7 @@ Follow these steps for a tour:
   - View the last affected series, including the affected sources and point tags.
   - View the targets.
   For multi-threshold alerts, you see this information for each severity.
-4. Examine [alert tags](#organize-related-alerts-with-alert-tags). You can add a tag to make filtering for the alert easier.
+4. Examine [alert tags](#step-5-organize-related-alerts-with-tags). You can add a tag to make filtering for the alert easier.
 
 <!---
 ### View Alert Details
@@ -170,22 +178,23 @@ For example, for the `Latency Dev Alert` shown above, the chart looks like this:
 --->
 
 
-### Step 4: View Alert History
+### Step 4: View Alert Version History
+
+To access the version alert history, click the ellipsis icon on the left of the alert in the Alerts Browser and click **Versions**.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="60%">
 <br/>
-Alert history shows:
+Alert version history shows:
 <ul>
 <li>The changes that have been made to an alert over time.</li>
 <li>Which user made the changes.</li>
 <li>The date and time the changes were made.</li>
 <li>A description of the changes.</li></ul>
 You can revert back to a past alert version or clone a past alert version.
-<br/><br/>
-To access the alert history, click the ellipsis icon on the left of the alert in the Alerts Browser and click <strong>Versions</strong>.
+<br/><br/>.
 </td>
 <td width="40%"><img src="images/alert_history.png" alt="alert history selected in menu"></td>
 </tr>
@@ -198,9 +207,9 @@ To access the alert history, click the ellipsis icon on the left of the alert in
 
 ### Step 5: Organize Related Alerts With Tags
 
-You can use alert tags to organize related alerts into categories. Alert tags are especially useful for setting up [maintenance  windows](maintenance_windows_managing.html#using-maintenance-windows). You can:
+You can use alert tags to organize related alerts into categories. Alert tags are especially useful for setting up [maintenance  windows](maintenance_windows_managing.html). You can:
 * [Search or filter](wavefront_searching.html) the list of alerts in the Alerts Browser to show only a category of alerts.
-* Suppress a category of alerts during a [maintenance window](maintenance_windows_managing.html#using-maintenance-windows).
+* Suppress a category of alerts during a [maintenance window](maintenance_windows_managing.html).
 * [Reference a group of alert metrics](alerts_dependencies.html#referencing-alert-metrics) in a single expression.
 
 <table style="width: 100%;">
@@ -247,13 +256,13 @@ When you have many and complex tag paths, you can search them by parent. For exa
 
 To make copies of an existing alert, then change the copy, you can clone an alert.
 
-1. Click **Alerting** in the taskbar to display the Alerts Browser.
+1. Click **Alerting > All Alerts** in the taskbar to display the Alerts Browser.
 2. Click the ellipsis icon next to the alert.
 3. Select **Clone**, make changes when prompted, and click **Save**.
 
 ## Alert Events
 
-Wavefront creates [events](events.html) as alerts fire, update, and resolve. You can optionally [display those events](charts_events_displaying.html) as icons on a chart's X-axis:
+We create [events](events.html) as alerts fire, update, and resolve. You can optionally [display those events](charts_events_displaying.html) as icons on a chart's X-axis:
 
 ![event icons](images/event_icons.png)
 
@@ -261,11 +270,12 @@ Wavefront creates [events](events.html) as alerts fire, update, and resolve. You
 
 ## Do More!
 
-* Create a [classic alert](alerts.html#create-a-classic-alert) or a [multi-threshold alert](alerts.html#create-a-multi-threshold-alert).
+* Watch some [videos about alerts](videos_alerts.html).
+* [Create and manage alerts](alerts_manage.html).
 * Learn about [alert states and life-cycle](alerts_states_lifecycle.html).
 * For troubleshooting, read the following KBs:
    - [Unable to Create Alerts. Cannot Save Alerts Error](https://help.wavefront.com/hc/en-us/articles/360057759372-Unable-to-create-Alerts-error-message-Cannot-Save-alert-400-)
    - [Why Did My Alert Fire or Not Fire](https://help.wavefront.com/hc/en-us/articles/360049071471-Why-did-my-alert-fire-or-not-fire-)
    - [How to Audit Alert Changes](https://help.wavefront.com/hc/en-us/articles/360055676911-How-to-Audit-Dashboard-and-Alert-Changes)
-* If you want to update multiple alerts using API or CLI, see the KB [How Do I Bulk Update Multiple Alerts?](https://help.wavefront.com/hc/en-us/articles/360057895291-How-Do-I-Bulk-Update-Multiple-Alerts-)
+* If you want to update multiple alerts using API or CLI, see the KB [How Do I Bulk Update Multiple Alerts?](https://help.wavefront.com/hc/en-us/articles/360057895291-How-Do-I-Bulk-Update-Multiple-Alerts-).
    {% include note.html content="The CLI is not maintained by VMware and is not officially supported." %}

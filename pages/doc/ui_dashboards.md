@@ -6,26 +6,20 @@ permalink: ui_dashboards.html
 summary: Create dashboards, add charts, customize dashboard layout, and troubleshoot dashboards.
 ---
 
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="80%">Wavefront dashboards allow you organize and customize the information about your environment. For example:
+Tanzu Observability by Wavefront includes many out-of-the box dashboards, and supports creation and fine-grained customization of dashboards. You organize the information about your environment and fine-tune what users see. For example:
 <ul>
 <li>Organize charts into sections.</li>
 <li>Perform global operations such as setting the dashboard time window.</li>
-<li>Use dashboard variables.</li></ul></td>
-<td width="20%"><a href="ui_dashboards_v1.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
-</tr>
-</tbody>
-</table>
+<li>Use dashboard variables.</li></ul>
 
-[Examine Data with Dashboards and Charts](ui_examine_data.html) explains how to set dashboard preferences, set the dashboard time window, isolate sources and series, and more. 
+[Examine Data with Dashboards and Charts](ui_examine_data.html) explains how to set dashboard preferences, set the dashboard time window, isolate sources and series, and more.
 
-{% include shared/badge.html content="Every Wavefront user can view dashboards and make some changes such as setting the time window. You must have the [Dashboard permission](permissions_overview.html) and Modify access to save changes you make to dashboards." %}
+{% include note.html content="All users can view dashboards and make some changes such as setting the time window. You must have the [Dashboard permission](permissions_overview.html) and [Modify access](access.html) to save changes you make to dashboards." %}
 
 ## Video
 
-Users with Dashboards permissions can create a new dashboard with one or multiple charts from metrics, a chart type, or an integration.
+Users with Dashboards permissions can create a new dashboard with one or multiple charts from metrics, a chart type, or an integration. You can also watch the video <a href="https://bcove.video/2WxBJoe" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+
 
 <p>
 <iframe src="https://bcove.video/2WxBJoe" width="700" height="400" allowfullscreen="true" alt="creating dashboards video"></iframe>
@@ -48,7 +42,7 @@ It's easy to create a dashboard from metrics data or by selecting a chart.
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">
+<td width="50%">
 <strong>To create a dashboard</strong>:
 <ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the taskbar. </li>
 <li>Drag the <strong>Data</strong> or <strong>New Chart</strong> widget to the canvas</li>
@@ -58,7 +52,7 @@ It's easy to create a dashboard from metrics data or by selecting a chart.
   <li>The Name field supports letters, numbers, characters, and spaces.</li>
   <li>The URL field supports letters, numbers, underscores, and dashes.</li>
 </ul></li></ol></td>
-<td width="60%"><img src="/images/v2_create_dashboard.png" alt="create a dashboard by selecting data or creating a chart"></td>
+<td width="50%"><img src="/images/v2_create_dashboard.png" alt="create a dashboard by selecting data or creating a chart"></td>
 </tr>
 </tbody>
 </table>
@@ -70,7 +64,7 @@ With release 2019.46, you can create a dashboard by specifying an integration da
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">
+<td width="50%">
 <strong>To create a dashboard</strong>:
 <ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the taskbar. </li>
 <li>Drag the <strong> Integration Templates</strong> widget to the canvas. </li>
@@ -81,7 +75,7 @@ With release 2019.46, you can create a dashboard by specifying an integration da
 <li>The URL field supports letters, numbers, underscores, and dashes. </li>
 </ul>
 </li></ol></td>
-<td width="60%"><img src="/images/v2_create_dashboard_template.png" alt="create a dashboard from a template"></td>
+<td width="50%"><img src="/images/v2_create_dashboard_template.png" alt="create a dashboard from a template"></td>
 </tr>
 </tbody>
 </table>
@@ -90,12 +84,12 @@ With release 2019.46, you can create a dashboard by specifying an integration da
 
 The Wavefront service dashboard includes a set of charts to monitor the trace data sent by each service in your application. You can use the service dashboard as a template to create your dashboard and then customize the charts for your environment.
 
-{% include note.html content="To view data in these charts, your applications need to send trace data to Wavefront. See [Instrument Your Applications](tracing_instrumenting_frameworks.html) for details." %}
+{% include note.html content="To view data in these charts, your applications need to send trace data to the Wavefront service. See [Instrument Your Applications](tracing_instrumenting_frameworks.html) for details." %}
 
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">
+<td width="50%">
 <strong>To create a dashboard</strong>:
 <ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the taskbar. </li>
 <li>Drag the <strong>Tracing Templates</strong> widget to the canvas. </li>
@@ -108,7 +102,7 @@ The Wavefront service dashboard includes a set of charts to monitor the trace da
 </li>
 <li>To view data that is specific to an application and service, use the <strong>application</strong> and <strong>service</strong> dropdowns.</li>
 </ol></td>
-<td width="60%"><img src="/images/create_tracing_template.png" alt="create a dashboard from a tracing template"></td>
+<td width="50%"><img src="/images/create_tracing_template.png" alt="create a dashboard from a tracing template"></td>
 </tr>
 </tbody>
 </table>
@@ -121,26 +115,26 @@ The Wavefront service dashboard includes a set of charts to monitor the trace da
 
 The dashboard menu allows you to create a dashboard, edit a dashboard, clone a dashboard, and look at the dashboard version history.
 
-* When you **clone** a dashboard, you copy the dashboard. If you want to customize one of the Wavefront read-only dashboards, such as integration dashboards, just clone the dashboard and edit the clone.
+* When you **clone** a dashboard, you copy the dashboard. If you want to customize one of the read-only dashboards, such as integration dashboards, just clone the dashboard and edit the clone.
 * The dashboard  **version history** tracks each saved version and includes the user who saved the version. The result is an audit trail for the dashboard.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">
+<td width="50%">
 <strong>To edit a dashboard</strong>:
 <ol><li>Click the ellipsis icon in the top right of the dashboard and select <strong>Edit</strong>. </li>
 <li>Make changes to the dashboard in edit mode.</li>
 <li>Save the dashboard.</li></ol></td>
-<td width="60%"><img src="/images/v2_edit_dashboard.png" alt="edit a dashboard"></td>
+<td width="50%"><img src="/images/v2_edit_dashboard.png" alt="edit a dashboard"></td>
 </tr>
 <tr>
-<td width="40%">
+<td width="50%">
 <strong>To clone a dashboard</strong>:
 <ol><li>Click the ellipsis icon in the top right of the dashboard and select <strong>Clone</strong>. </li>
 <li>Accept the suggested URL and dashboard name or specify new ones. Do not include <code>https://</code> in the URL string.  </li>
 <li>Save the cloned dashboard.</li></ol></td>
-<td width="60%"><img src="/images/v2_clone_dashboard.png" alt="clone a dashboard"></td>
+<td width="50%"><img src="/images/v2_clone_dashboard.png" alt="clone a dashboard"></td>
 </tr>
 </tbody>
 </table>
@@ -164,10 +158,19 @@ Here are some examples of what [all users can do](ui_examine_data.html):
 
 When you create a dashboard or when you edit a dashboard, the dashboard is in Edit mode. In Edit mode, you can make several changes at a time, then save all changes to dashboard layout or to charts.
 
-{% include shared/system_dashboard.html %}
+{% include note.html content="System dashboards are *read-only*. To make your own version of a system dashboard, select **Clone** from the ellipsis menu in the top right and make changes to the clone. " %}
 
-<!---
-To remove a change, click the revert icon to the left of **Edit JSON** on the taskbar. The revert icon removes changes starting with the most recent and works backward. You can remove only changes made in the current Edit mode session.--->
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+A system dashboard has a lock icon next to the name.</td>
+<td width="50%"><img src="/images/system_dashboard.png" alt="lock icon next to tutorial dashboard"></td>
+</tr>
+</tbody>
+</table>
+
+Here are some actions you can perform in a dashboard.
 
 ![dashboard in edit mode](images/v2_dashboard_edit.png)
 
@@ -267,49 +270,50 @@ You can undo dashboard changes.
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">
+<td width="50%">
 <ol><li>Edit the dashboard and make one or more changes.</li>
 <li>Click the icons to undo and to redo the operations. </li> </ol></td>
-<td width="60%"><img src="/images/v2_undo.png" alt="Undo and redo icons"/></td>
+<td width="50%"><img src="/images/v2_undo.png" alt="Undo and redo icons"/></td>
 </tr>
 </tbody>
 </table>
 
-### Set Dashboard Display Preferences
+### Set Dashboard Display Preferences and Settings
 
-For each dashboard, you can customize display preferences.
+For each dashboard, you can customize display preferences and settings.
 
-{% include tip.html content="To use the dark theme with your dashboard and all other Wavefront UI components, set your personal preferences [from the gear icon](users_account_managing.html#configuring-user-preferences)."%}
+{% include tip.html content="To use the dark theme, set it as a personal preferences [from the gear icon](users_account_managing.html#configure-user-preferences)."%}
 
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">
-<strong>To set the dashboard display preferences</strong>:
+<td width="50%">
+<strong>To set the dashboard settings</strong>:
 <ol><li>Navigate to a dashboard and click the ellipsis icon in the top right corner of the dashboard.</li>
 <li>Select <strong>Edit</strong>. </li>
 <li>Click <strong>Settings</strong>.</li>
 <li>Make selections in the dialog:
-<ul><li>Set the default time window. You can later override the time window.  </li>
+<ol><li>Set the default time window. You can later override the time window.  </li>
 <li>Hide the variables for the dashboard by default. Users can still show the variables bar using the <img src="/images/show_hide_variable_icon.png"
 style="vertical-align:text-bottom;width:25px" alt="show or hide variable icon" /> icon.  </li>
-<li>Display the <a href="events.html">Events</a> on charts using the Show Events dropdown.<br>
-For more information on the options listed in the Show Events dropdown, see <a href="charts_events_displaying.html#specify-an-events-query-for-a-dashboard">Specify an Events() Query for a Dashboard</a>.
+<li>Click <strong>Advanced</strong></li>
+<li>Select to display the <a href="events.html">Events</a> on charts by entering an event query.<br>
+For more information, see <a href="charts_events_displaying.html#specify-an-events-query-for-a-dashboard">Specify an Events() Query for a Dashboard</a>.
 </li>
-</ul>
+<li>Select to include obsolete metrics and allow queries to return metrics that stopped reporting 4 weeks ago.<br> This setting applies to all charts in the dashboard and dashboard performance might suffer.</li>
+</ol>
 </li>
-<li>Click <strong>Accept</strong>, and click <strong>Save</strong> </li>
+<li>Click <strong>Accept</strong>, and click <strong>Save</strong>. </li>
 </ol></td>
-<td width="60%"><img src="/images/v2_dashboard_prefs.png" alt="set dashboard prefs"></td>
+<td width="50%"><img src="/images/v2_dashboard_prefs.png" alt="set dashboard prefs"></td>
 </tr>
 </tbody>
 </table>
 
-{% include shared/system_dashboard.html %}
 
 ## Edit the Dashboard JSON
 
-Most users create and edit dashboards by using the Wavefront UI or automate the process with the Wavefront REST API. But at times, it's convenient to edit the dashboard JSON directly from the UI and see results immediately.
+Most users create and edit dashboards by using the GUI or automate the process with the Wavefront REST API. But at times, it's convenient to edit the dashboard JSON directly from the UI and see results immediately.
 
 {% include warning.html content="Editing the dashboard JSON might have unintended consequences. Use the JSON editor only if you have some experience with JSON. " %}
 
@@ -441,70 +445,97 @@ After you've saved these changes:
 
 ## Ensure Optimal Dashboard Performance
 
-Wavefront can ingest and process very large amounts of data -- and if you're smart about the data shape and the queries in your charts, dashboard performance is good. By following a few simple guidelines, you can ensure optimal dashboard performance.
+### Video: Optimize Dashboard Performance
 
-* **Specify a time parameter with missing data functions.**
+Watch this video to learn how to optimize dashboard and query performance.
 
-  Use [missing data functions](query_language_reference.html#missing-data-functions) with a specific time parameter. Missing data functions such as `default()`, `last()` and `next()` handle gaps or delays in metrics. If you don't explicitly specify a time window and delay time, Wavefront applies the default value for every second and for gaps up to 28 days. This impacts performance of the query and the dashboard. 
-
-  * **Faster**: `default([<timeWindow>,] [<delayTime>,] <defaultValue>, <tsExpression>)`
-  * **Slower**: `default(0, <tsExpression>)`
- 
-* **Use filters to be as specific as possible in queries**
- 
-  Be as specific in your queries as possible, for better information and faster results. [Filtering functions](query_language_reference.html#filtering-and-comparison-functions) are useful to narrow down the query space. For example, if a query filters metrics by source, the query returns faster because Wavefront knows which metrics to fetch.
-
-  * Faster: `ts(user.metric, source="db-1" and env="prod")` has the relevant information Wavefront needs.
-  * Slower: `ts(user.metric and not env="dev")` is more expensive. With `and not` Waverfront has to search through everything matching `user.metric` which does not have an`env=prod` tag.
-
-  Filter in the base query instead of using an advanced filtering function.
- 
-  * **Faster**: `sum(ts(user.metric, source=app-1)))`
-  * **Slower**: `retainSeries(sum(ts(user.metric)), source=app-1))`
+<p>
+<iframe src="https://bcove.video/3rcTY1w" width="700" height="400" allowfullscreen="true" alt="Optimize Dashboard Performance video"></iframe>
+</p>
 
 
-* **Avoid wildcards in queries when possible**
+The Wavefront service can ingest and process very large amounts of data. Here's what you can do to ensure performance is optimal.
 
-  [Wildcards](query_language_reference.html#partial-regex-wildcards-aliases-and-variables) in queries can result in many time series on a chart, which can be confusing and affect performance. If wildcards make sense for your use case, use delimiters, and don't use a wildcard at the beginning of a query.
+### Watch for Cardinality Issues
 
-  * **Faster**: Use delimiters around wildcards. `ts(‘abc.*.xyz’)` is faster than `ts(“abc*xyz”)`
-  * **Slower**: Don't use a wildcard at the beginning of a query `ts("*abc.xyz")`
+Ensure your data shape works well. Ingest only time series you need -- and then look only at those data you’re interested in.
 
-* **Avoid interpolation when aggregating or working with multiple time series**
+* See [Cardinality and Wavefront](cardinality.html) for some background and a video.
+* See [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html) for an in-depth discussion with examples. 
 
-  When you use [aggregation functions](query_language_aggregate_functions.html), Wavefront estimates values between reported points to get an aggregation that's as accurate as possible. That process is called *[interpolation](query_language_discrete_continuous.html#functions-that-use-interpolation-to-create-continuous-data)*. It can be computationally expensive, and dashboards can take a long time to load. You can improve performance with these options.
+### Optimize Query Performance
 
-  - Use the `align()` function to first align the metrics to exactly the same points in time and then use aggregation functions, for example `sum(align(1m, <tsExpression>))`
- 
-  - Use raw aggregation functions such as `rawsum()` instead of `sum()` Raw aggregation functions do not interpolate values.
+Wavefront Query Language (WQL) has a rich set of options. See [Optimize Query Performance](query_language_performance.html) for details.
 
-* **Set the default time window of a dashboard to match your needs**
+* At times, you have to choose between precision and speed.
+* At other times, customizing your query to filter out data you don't need improves performance significantly.
 
-  By default, Wavefront uses a 2-hour time window for dashboards. You might need to see more data, for example, zoom out to see 12 hours or even a week or more. However, a larger time window means that more metrics have to be fetched from the backend, and eventually, performance suffers.
+### Use Sampling Settings for the Dashboard or Individual Charts
 
-  * If you're interested in past data, don't zoom out but specify the [time window](ui_examine_data_v1.html#set-the-dashboard-time-window) you need.
-  * Consider using [time functions](query_language_reference.html#standard-time-functions) in your queries to see exactly what you need.  
+You can limit the number of time series to 100 either at the dashboard level or for individual charts. See [Improve Display Speed with the Sampling Option](ui_charts.html#improve-display-speed-with-the-sampling-option) for details.
 
-* **Display only the events you need**
- 
-  Querying metrics and querying events are different tasks. However, by default each chart displays all source events and system events as black points or stars at the bottom of each chart. Those events queries affect dashboard performance.
+{% include tip.html content="This option might not be available on older dashboards."%}
 
-  Here's what you can do:
-  * Select an individual chart, click the **Format** tab, and deselect **Display Source Events**.
-  * Adjust events for the whole dashboard by using the **Show Events** dropdown in the top right.
+### Display Only Events You Need
 
-  See [Control Event Overlays](charts_events_displaying.html#control-event-overlays) for details and screenshots.
+Querying metrics and querying events are different tasks. However, by default each chart displays all source events and system events as black points or stars at the bottom of each chart. Those events queries affect dashboard performance.
 
-* **Avoid using expensive queries in dynamic dashboard variables**
- 
-  [Dynamic dashboard variables](dashboards_variables.html#dynamic-dashboard-variables) are used to display a list of possible values to the end user. The values are computed by a query.
+Here's what you can do:
+* Select an individual chart, click the **Format** tab, and deselect **Display Source Events**.
+* Adjust events for the whole dashboard by using the **Show Events** dropdown in the top right.
 
-  If the query for the dynamic dashboard variable is complex, it slows down the dashboard loading. Keep queries simple, and consider using a [derived metric](derived_metrics.html) which uses a query that has already been executed and stored.
- 
+See [Control Event Overlays](charts_events_displaying.html#control-event-overlays) for details and screenshots.
 
-## Troubleshooting
+### Use Dynamic Dashboard Variables with Care
+
+[Dynamic dashboard variables](dashboards_variables.html#dynamic-dashboard-variables) are used to display a list of possible values to the end user. The values are computed by a query.
+
+Avoid using expensive queries in dynamic dashboard variables. If the query for the dynamic dashboard variable is complex, it slows down the dashboard loading. Keep queries simple, and consider using a [derived metric](derived_metrics.html), which uses a query that has already been executed and stored.
+
+### Turn off Dynamic Dashboard Variable Live Refresh
+
+When a dashboard has a lot of variables with interdependencies, it might make sense to turn off live refresh for dynamic variables. Only users with **Dashboards** permission can toggle this setting.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+<ol><li>Open the dashboard for edit, either from the Dashboards browser or from the ellipsis icon in the top right of the dashboard..  </li>
+<li>Click <strong>Settings</strong> </li>
+<li>Check <strong>Disable Variable Refresh in Live Mode</strong>. </li></ol>
+<p>Going forward, <strong>Variable Refresh Disabled</strong> info text show up to the right of the variables bar. Users no longer see the potentially distracting refresh of each chart. An explicit brower refresh updates all variables.</p></td>
+<td width="50%">
+<img src="/images/variable_refresh.png " alt="save to dashboard"></td>
+</tr>
+</tbody>
+</table>
+
+## Delete and Recover a Deleted Dashboard
+
+You can delete a single or multiple dashboards that you no longer need. After you delete a dashboard, it is moved to the trash for 30 days before it gets permanently deleted. If a dashboard has been permanently deleted, users will no longer be able to restore it without the assistance of a Super Admin. See [Recover a Permanently Deleted Dashboard](access.html#recover-a-permanently-deleted-dashboard) for details.
+
+**To delete a dashboard:**
+
+1. Select **Dashboards > All Dashboards**.
+2. Search for and select the check boxes of the dashboards that you want to delete.
+3. Click the delete icon on top and confirm the deletion.
+
+**To restore a deleted dashboard from the trash:**
+
+1. Select **Dashboards > All Dashboards**.
+2. From the **All** menu in the top right of the list of dashboards, select **Deleted**.
+
+   ![Change the dashboard view from all to deleted.](/images/deleted-dashboards.png)
+
+3. Search for and select the dashboard that you want to restore.
+4. Click the ellipsis icon and select **Restore**.
+
+   ![Restore a dashboard from the trash.](/images/restore-dashboard.png)
+
+
+## Troubleshoot and Learn More!
 
 The Customer Success team prepared these KB articles to troubleshoot problems with dashboards.
-* [How to Recover an Inaccessible Dashboard](https://help.wavefront.com/hc/en-us/articles/360055292751-How-to-Recover-an-Inaccessible-Dashboard)
 * [How to Identify Unused Dashboards](https://help.wavefront.com/hc/en-us/articles/360060967432-How-to-Identify-Unused-Dashboards)
 * [How to Audit Dashboard Changes](https://help.wavefront.com/hc/en-us/articles/360055676911-How-to-Audit-Dashboard-and-Alert-Changes)
+* [Migrating Objects or Data Between Environments](https://help.wavefront.com/hc/en-us/articles/360053164791-Migrating-Objects-or-Data-Between-Tanzu-Observability-Environments)

@@ -8,7 +8,7 @@ summary: Main improvements in the v2 UI and some FAQs.
 If you're migrating from v1 dashboards and charts to v2, you'll find most of the changes intuitive. This page highlights new features and has some FAQs.
 
 
-{% include shared/badge.html content="Every Wavefront user can view dashboards and make temporary changes. You must have the Dashboard permission to save dashboards and charts." %}
+{% include note.html content="Every Wavefront user can view dashboards and make temporary changes. You must have the Dashboard permission to save dashboards and charts." %}
 
 ## Main Improvements
 
@@ -73,15 +73,6 @@ We've streamlined variable configuration for developers. We've made setting vari
 </tbody>
 </table>
 
-## Where's the Doc for the New UI?
-
-We've updated the doc for dashboards and charts. From each doc page, you can access the corresponding information for the v1 UI in case you haven't yet switched to the v2 UI.
-
-* [Examine Data with Dashboards and Charts](ui_examine_data.html)
-* [Create and Customize Dashboards](ui_dashboards.html)
-* [Create and Customize Charts](ui_charts.html)
-* [Chart Reference](ui_chart_reference.html)
-* [Chart Builder](chart_builder.html)
 
 ## Chart FAQs from v2 Users
 
@@ -99,7 +90,7 @@ A: The goal of this UI revision is parity, but we've made a few changes:
 
   ![v2 Line plot](images/v2_linechart_single.png)
 
-  Line plots with more than one line look similar to v1 line plots though the colors are different.
+Line plots with more than one line look similar to v1 line plots though the colors are different.
 * **Single Stats** charts with sparklines have a changed look. You can experiment with sparkline position by selecting **Sparkline > Show Sparkline**. Change **Minimum** to 0 for a chart that looks like the v1 chart.
 
 ### Q: How does the new time window selector work?
@@ -126,7 +117,9 @@ A: We're working on improving the copy/paste behavior. For now, please use [the 
 
 ### Q: How can I create an embedded chart in v2?
 
-A: Embedded charts allow you to make a chart available outside Wavefront. We temporarily don't support this functionality for v2, but all your existing embedded charts will continue to work.
+A: Embedded charts allow you to make a chart available in a different context, for example, on a Web page.
+* **All embedded charts created in v1** will continue to work.
+* You can **create new embedded charts** for many chart types. However, those charts will render using v1 styling. We're in the process of finalizing embedded chart creation for all chart types with a v2 look and feel.   
 
 
 

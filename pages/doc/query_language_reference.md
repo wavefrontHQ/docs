@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: query_language_reference.html
 summary: Learn about the query syntax, operators, and functions supported by Wavefront Query Language.
 ---
-The Wavefront Query Language allows you to extract the information you need from your data. You use the query language for queries that display in charts and for alerts. This page is a complete reference to all query language elements and functions. You can click most functions for a page with details and examples.
+Tanzu Observability by Wavefront includes the Wavefront Query Language (WQL), which allows you to extract the information you need from your data. You use the query language for queries that display in charts and for alerts. This page is a complete reference to all query language elements and functions. You can click most functions for a page with details and examples.
 
 
 ## Query Expressions
@@ -70,7 +70,7 @@ avg(hs(users.settings.numberOfApiTokens.m))
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;hsExpression&gt;</span></td>
 <td>
-Describes one or more histogram series. A histogram series is a sequence of histogram distributions Wavefront has computed from the data points of a time series. Each distribution summarizes the points in a time interval (minute, hour, day).  An <strong>hsExpression</strong> may be one of the following:
+Describes one or more histogram series. A histogram series is a sequence of histogram distributions that the Wavefront service has computed from the data points of a time series. Each distribution summarizes the points in a time interval (minute, hour, day).  An <strong>hsExpression</strong> may be one of the following:
 <ul>
 <li>An <a href="hs_function.html"><strong>hs() function</strong></a>, which returns all distributions that match a histogram metric name, filtered by source names, source tags, and point tags.
 <pre>hs(&lt;hsMetricName&gt; [and|or [not] &lt;hsMetricName2&gt;] ...
@@ -192,7 +192,7 @@ lowpass(12ms, spans("beachshirts.styling.makeShirts"))
 Query expressions use a number of common parameters to specify names and values that describe the data of interest. You can use [wildcards or partial regex](#partial-regex-wildcards-aliases-and-variables) to match multiple names or values.
 
 * Rules for valid names are here: [Wavefront Data Format](wavefront_data_format.html#wavefront-data-format-fields).
-* Enclose a metric, source, or tag name, or a tag value, in double quotes if it is also a Wavefront reserved word, such as a function name or keyword. For example, if you're using a point tag named `default`, use `"default"`.
+* Enclose a metric, source, or tag name, or a tag value, in double quotes if it is also a reserved word in the product, such as a function name or keyword. For example, if you're using a point tag named `default`, use `"default"`.
 
 <table style="width: 100%;">
 <colgroup>
@@ -238,7 +238,7 @@ source=/(app-10|app-20)/
 </td></tr>
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;sourceTag&gt;</span></td>
-<td>A <a href="tags_overview.html#add-source-tags">source tag</a> that has been assigned to a group of data sources. Specify a source tag with the <strong>tag</strong> keyword.
+<td>A <a href="tags_overview.html#source-tags">source tag</a> that has been assigned to a group of data sources. Specify a source tag with the <strong>tag</strong> keyword.
 Examples:
 <pre>
 tag="appServers"
@@ -299,7 +299,7 @@ myTagKey?="mytagvalue" // everything that has mytagvalue or doesn't have myTagKe
 <li>Seconds, minutes, hours, days, or weeks (1s, 1m, 1h, 1d, 1w). For example, <strong>3h</strong> specifies 3 hours.</li>
 <li> Time relative to the window length of the chart you are currently looking at (1vw).
 If you are looking at a 30-minute window, <strong>1vw</strong> is one view-window length, and therefore equivalent to <strong>30m</strong>. </li>
-<li>Time relative to the bucket size of the chart (1bw). Wavefront calculates bucket size based on the view window length and screen resolution. You can see bucket size at the bottom left of each chart.</li>
+<li>Time relative to the bucket size of the chart (1bw). We calculate bucket size based on the view window length and screen resolution. You can see bucket size at the bottom left of each chart.</li>
 </ul>
 The default unit is minutes if the unit is not specified.
 </td></tr>
@@ -321,6 +321,10 @@ You can:
 * Use wildcards as shortcuts for specifying multiple names or values.
 * Use query line variables, aliases, and dashboard variables as shortcuts for building queries out of other expressions or predefined strings.
 * Combine wildcards, aliases, query line variables, and dashboard variables in the same query line.
+
+{% include tip.html content="The use of wildcard characters can result in a very large search space and affect performance, for example, if you use a wildcard at the beginning of a metric name." %}
+
+
 
 <table style="width: 100%;" id="wildcardAliasVariable">
 <colgroup>
@@ -421,7 +425,7 @@ ts(/request\.latency.*/, env=prod)
 <td>
 Matches strings or components in a name or a value.
 <ul>
-<li>Use a <strong>"&#42;"</strong> character to indicate where to match strings. Wavefront supports no other wildcard characters. </li>
+<li>Use a <strong>"&#42;"</strong> character to indicate where to match strings. No other wildcard characters are supported. </li>
 </ul>
 Examples:
 <ul>
@@ -463,9 +467,9 @@ join(ts(cpu.load) AS ts1 JOIN ts(request.rate) AS ts2 ON ts1.env = ts2.env, ... 
 <strong>Rules for valid alias names:</strong>
 <ul>
 <li>Best practice: Use alias names that are three characters or longer.</li>
-<li>Don't use a Wavefront reserved word as an alias name. For example, don't use:
+<li>Don't use a reserved word as an alias name. For example, don't use:
   <ul>
-  <li>The name of any Wavefront query function. For example, <strong>sum</strong> is not valid.</li>
+  <li>The name of any Wavefront Query Language function. For example, <strong>sum</strong> is not valid.</li>
   <li>An <a href="https://en.wikipedia.org/wiki/Metric_prefix">SI prefix</a>. For example: p, h, k, M, G, T, P, E, Z, Y are not valid.</li>
   <li>An <a href="https://en.wikipedia.org/wiki/Allen%27s_interval_algebra">Allen's interval algebra operator</a>. For example: m, mi, o, s, d, f are not valid.</li>
   </ul>
@@ -532,7 +536,7 @@ All operations between `tsExpression`s are subject to the matching processes des
 <li markdown="span">`or`, `OR`: Returns 1 if at least one argument is nonzero. Otherwise, returns 0.
 <br>
 <br>
-<strong>Note:</strong> Do not use OR with point tags. Wavefront stops executing the query if the first item fails. Instead, use <strong>collect()</strong>, for example, <code>collect(ts(metric, my_tag="tag1"), ts(metric, my_tag="tag2")) </code>
+<strong>Note:</strong> Do not use OR with point tags. The query engine stops executing the query if the first item fails. Instead, use <strong>collect()</strong>, for example, <code>collect(ts(metric, my_tag="tag1"), ts(metric, my_tag="tag2")) </code>
 </li>
 <li markdown="span">`not`, `NOT`: Use this operator to exclude a source, tag, or metric. See the examples below.</li>
 <li markdown="span">`[and]`, `[AND]`, `[or]`, `[OR]`: Perform strict 'inner join' versions of the Boolean operators. Strict operators match metric/source/point tag combinations on both sides of the operator and filter out unmatched combinations.</li></ul>
@@ -540,10 +544,10 @@ All operations between `tsExpression`s are subject to the matching processes des
 <li markdown="span">**Arithmetic operators** - Perform addition, subtraction, multiplication, or division on corresponding values of time series that are described by the `tsExpression` arguments on either side of the operator. </li>
 <ul><li markdown="span">`+`, `-`, `*`, `/`: Operate on pairs of time series that have matching metric, source, and point tag combinations. If either side of the operator is a 'singleton' -- that is, a single series with a unique metric/source/point tag combination -- it automatically matches up with every time series on the other side of the operator.</li>
 <li markdown="span">`[+]`, `[-]`, `[*]`, `[/]`: Perform strict 'inner join' versions of the arithmetic operators. <span>Strict operators match metric/source/point tag combinations on both sides of the operator and filter out unmatched combinations.</li></ul>
-<p markdown="span">In addition, Wavefront supports the [pow()](ts_pow.html) and [mod()](ts_mod.html) functions, which support power of and modulo arithmetic operations. </p>
+<p markdown="span">In addition, we support the [pow()](ts_pow.html) and [mod()](ts_mod.html) functions, which support power of and modulo arithmetic operations. </p>
 
 <li markdown="span">**Comparison operators** -- Compare corresponding values of time series that are described by the `tsExpression` arguments on either side of the operator.</li>
-<ul><li markdown="span">`<`, `<=`, `>`, `>=`, `!=`, `=`: Returns 1 if the condition is true. Otherwise returns 0. Double equals (==) is not a supported Wavefront operator.</li>
+<ul><li markdown="span">`<`, `<=`, `>`, `>=`, `!=`, `=`: Returns 1 if the condition is true. Otherwise returns 0. Double equals (==) is not a supported WQL operator.</li>
 <li markdown="span">`[<]`, `[<=]`, `[>]`, `[>=]`, `[=]`, `[!=]`: Perform strict 'inner join' versions of the comparison operators. Strict operators match metric/source/point tag combinations on both sides of the operator and filter out unmatched combinations.</li>
 </ul>
 
@@ -575,7 +579,7 @@ All operations between `tsExpression`s are subject to the matching processes des
 
 ## Aggregation Functions
 
-[**Aggregation functions**](query_language_aggregate_functions.html) are a way to combine (aggregate) multiple time series into a single result series. Wavefront provides two types of aggregation functions. They handle data points that do not line up differently:
+[**Aggregation functions**](query_language_aggregate_functions.html) are a way to combine (aggregate) multiple time series into a single result series. When data points do not line up, the two types of aggregation functions handle them differently:
 * Standard aggregation functions like `sum()` interpolate values wherever necessary in each input series. Then the aggregation function itself is applied to the interpolated series.
 * Raw aggregation functions like `rawsum()` do not interpolate the underlying series before aggregation.
 
@@ -1013,6 +1017,8 @@ These functions output continuous time series, with the exception of `integral()
 
 Missing data functions allow you to interpolate data points in time series that have gaps. To check for missing functions see the [`missing()` function](ts_missing.html) and the [`exists()` function](ts_exists.html).
 
+{% include tip.html content="You cannot apply a missing data function to a histogram. Even if you convert the histogram to a tsExpression, an error results if you then apply a missing data function." %}
+
 <table style="width: 100%;">
 <colgroup>
 <col width="40%" />
@@ -1216,7 +1222,7 @@ The `join()` function enables you to:
 * Compare two or more time series, and find matches, or, conversely, find the time series that do not match.
 * Combine the data points from any matching time series to form a new synthetic time series with point tags from one or both of the input series.
 
-The Wavefront `join()` function is modeled after the SQL JOIN operation, and supports inner joins, left outer joins, right outer joins, and full outer joins.
+The WQL `join()` function is modeled after the SQL JOIN operation, and supports inner joins, left outer joins, right outer joins, and full outer joins.
 
 {% include note.html content="Using `join()` for an inner join is an explicit way to perform series matching between two groups of time series. As an alternative for certain simple use cases, you can use an operator that performs [implicit series matching](query_language_series_matching.html). " %}
 
@@ -1483,7 +1489,7 @@ A time series exists if it has reported a data value in the last 4 weeks.  </td>
 <tr>
 <td><a href="ts_bestEffort.html">bestEffort(<strong>&lt;tsExpression&gt;</strong>)</a>
 </td>
-<td>Wrapping any query expression in <strong>bestEffort()</strong> tells Wavefront to use conservative targets for scheduling workloads. That means we limit thread use and asynchronous operations.
+<td>Wrapping any query expression in <strong>bestEffort()</strong> tells the query engine to use conservative targets for scheduling workloads. That means we limit thread use and asynchronous operations.
 </td>
 </tr>
 <tr>
@@ -1510,7 +1516,7 @@ A time series exists if it has reported a data value in the last 4 weeks.  </td>
 
 ## Histogram Functions
 
-You use histogram query functions to access the histogram distributions that Wavefront has computed from a metric. See [Wavefront Histograms](proxies_histograms.html) for background.
+You use histogram query functions to access the histogram distributions that were computed from a metric. See [Wavefront Histograms](proxies_histograms.html) for background.
 
 ### Histogram to Histogram Functions
 
@@ -1644,17 +1650,17 @@ Each histogram output conversion function in the following table takes a time se
 </tr>
 <tr>
 <td><a href="ts_cumulativeHisto.html">cumulativeHisto(&lbrack;<strong>timeWindow</strong>&rbrack;, &lbrack;<strong>&lt;bucketName&gt;, </strong> &rbrack; <strong>&lt;tsExpression&gt;</strong> &lbrack;<strong>,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong> &rbrack;)</a></td>
-<td>Returns a cumulative histogram that comes, for example, from Prometheus or Telegraf, in Wavefront. You can then visualize the histogram in Wavefront charts using functions such as <strong>percentile</strong>.
+<td>Returns a cumulative histogram that comes, for example, from Prometheus or Telegraf. You can then use functions such as <strong>percentile</strong> to visualize the histogram in charts and dashboards.
 </td>
 </tr>
 <tr>
 <td><a href="ts_cumulativePercentile.html">cumulativePercentile(<strong>&lt;percentage&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>)</a></td>
-<td>Calculates the percentile value directly that comes from a Prometheus cumulative histogram in Wavefront. Returns the <strong>percentage</strong> percentile from the histogram distribution described by the &lt;tsExpression&gt;.
+<td>Calculates the percentile value directly that comes from a Prometheus cumulative histogram. Returns the <strong>percentage</strong> percentile from the histogram distribution described by the &lt;tsExpression&gt;.
 </td>
 </tr>
 <tr>
 <td><a href="ts_frequencyHisto.html">frequencyHisto(&lbrack;<strong>timeWindow</strong>&rbrack;, &lbrack;<strong>&lt;bucketName&gt;, </strong> &rbrack; <strong>&lt;tsExpression&gt;</strong> &lbrack;<strong>,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong> &rbrack;)</a></td>
-<td>Converts a histogram coming from Google Cloud Platform(GCP) to Wavefront histogram format. When GCP Detailed Histogram Metrics is enabled, Wavefront will additionally ingest bucket counts for GCP distributions, with metric namegcp.&lt;metric&gt;.bucket. Enabling this increases ingestion rate and cost.
+<td>Converts a histogram coming from Google Cloud Platform(GCP) to Wavefront histogram format. When GCP Detailed Histogram Metrics is enabled, we additionally ingest bucket counts for GCP distributions, with metric namegcp.&lt;metric&gt;.bucket. Enabling this increases ingestion rate and cost.
 </td>
 </tr>
 </tbody>
@@ -1672,7 +1678,7 @@ Event functions let you filter and display [events](events.html).
 
 ### Event to Event Functions
 
-Each function in the following table returns a set of one or more events and can therefore be used as the **eventsExpression** parameter in another query. Some functions filter an event set, so that only events you're interested in are displayed. Other functions return synthetic events, which are displayed by the query, but not stored in Wavefront.
+Each function in the following table returns a set of one or more events and can therefore be used as the **eventsExpression** parameter in another query. Some functions filter an event set, so that only events you're interested in are displayed. Other functions return synthetic events, which are displayed by the query but not stored.
 
 <table style="width: 100%;">
 <colgroup>
@@ -1779,7 +1785,7 @@ Each events conversion function in the following table takes a set of events as 
 
 ## <span id="traceFunctions"></span>Traces Functions
 
-You use traces functions to find and filter any [traces](tracing_basics.html#wavefront-trace-data) that your applications might be sending. Traces functions are available only in the [Query Editor of the Traces browser](trace_data_query.html#use-query-editor-power-users).
+You use traces functions to find and filter any [traces](trace_data_details.html#traces) that your applications might be sending. Traces functions are available only in the [Query Editor of the Traces browser](trace_data_query.html#use-query-editor-power-users).
 
 Each function in the following table returns a set of one or more traces and can therefore be used as the **tracesExpression** parameter in another function.
 
@@ -1833,7 +1839,7 @@ Each function in the following table returns a set of one or more traces and can
 
 ## <span id="spanFunctions"></span>Spans Functions
 
-You use spans functions to find and filter individual [spans](tracing_basics.html#wavefront-trace-data) that your applications might be sending. Spans functions are available only in the [Query Editor of the Traces browser](trace_data_query.html#use-query-editor-power-users).
+You use spans functions to find and filter individual [spans](trace_data_details.html#spans) that your applications might be sending. Spans functions are available only in the [Query Editor of the Traces browser](trace_data_query.html#use-query-editor-power-users).
 
 {% include note.html content="You cannot use spans functions as top-level queries. Instead, you use spans functions to produce a **spansExpression** that you specify as a parameter to a `traces()` function. " %}
 

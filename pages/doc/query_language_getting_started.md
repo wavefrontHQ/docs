@@ -7,12 +7,12 @@ permalink: query_language_getting_started.html
 summary: Watch some videos, run a query, apply filters and functions, and more.
 ---
 
-The Wavefront Query Language lets you retrieve and display the data that has been ingested into Wavefront.
+Tanzu Observability by Wavefront includes the Wavefront Query Language (WQL), which lets you retrieve and display data that has been ingested.
 * **Time series data** The query language is particularly well suited to time series data because it accommodates the periodicity, potential irregularity, and streaming nature of that data type.
 * **Histograms** The query language includes functions for [manipulating histograms](query_language_reference.html#histogram-functions).
 * **Traces and spans** Use the [tracing UI](tracing_traces_browser.html) to query traces and spans.
 
-This page uses primarily the v2 UI, which allows you to examine your data with [chart builder](chart_builder.html) and perform advanced exploration with [query editor](query_editor.html).
+This page uses the v2 UI, which allows you to examine your data with [chart builder](chart_builder.html) and perform advanced exploration with [query editor](query_editor.html).
 
 ## Videos
 
@@ -21,24 +21,26 @@ Watch these videos to get you started. The videos use the v1 UI, but the basic w
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td><strong><font color="blue">Intro to Wavefront Query Language</font></strong><br><br>
-<iframe src="https://bcove.video/3mep1Jv" width="400" height="225" allowfullscreen="true" alt="Intro to Wavefront Query Language"></iframe></td>
-<td><br><br>
-<p>Wavefront query language allows you to shape the data you see in your dashboards. Jason first shows an example of an environment where a single switch in a customer environment had a problem. The example uses the advanced functions if() at() and corr() to find other switches with the same behavior and prevent further problems. Jason then uses the highpass() function on other data to show only true failures in a chart.</p>
+<td width="70%"><strong><font color="#0091DA" size="3">Query Language Basics</font></strong><br><br>
+<iframe src="https://bcove.video/3FqMmPo" width="550" height="275" allowfullscreen="true" alt="Wavefront Query Language Basics"></iframe></td>
+<td width="30%"><br><br>
+<p>Learn about time series metrics, and about how to visualize metrics and filter and group them with Wavefront Query Language. </p>
+<p>You can also watch the video <a href="https://bcove.video/3FqMmPo" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
-<td><strong><font color="blue">Query Language Basics</font></strong><br><br>
-<iframe src="https://bcove.video/3zckmeE" width="400" height="225" allowfullscreen="true" alt="Intro to Wavefront Query Language"></iframe></td>
-<td><br><br>
-<p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. </p>
+<td width="70%"><strong><font color="#0091DA" size="3">Intro to Wavefront Query Language</font></strong><br><br>
+<iframe src="https://bcove.video/3mep1Jv" width="550" height="275" allowfullscreen="true" alt="Intro to Wavefront Query Language"></iframe></td>
+<td width="30%"><br><br>
+<p>Wavefront Query Language allows you to shape the data you see in your dashboards. The example uses the advanced functions if() at() and corr() to find a problem behavior of a switch in other switches and prevent future problems.</p>
+<p>You can also watch the video <a href="https://bcove.video/3mep1Jv" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
-<td><strong><font color="blue">Advanced Query Language Functions</font></strong><br><br>
-<iframe src="https://bcove.video/3zckmeE" width="400" height="225" allowfullscreen="true" alt="Advanced Query Language Functions"></iframe></td>
+<td style="width: 50%;"><strong><font color="#0091DA" size="3">Query Language Advanced  Functions</font></strong><br><br>
+<iframe src="https://bcove.video/3sEAbZh" width="550" height="275" allowfullscreen="true" alt="Advanced Query Language Functions"></iframe></td>
 <td><br><br>
-<p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. </p>
+<p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. <p>You can also watch the video <a href="https://bcove.video/3sEAbZh" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p></p>
 </td>
 </tr>
 </tbody>
@@ -52,8 +54,8 @@ Before you run your first query, let's examine a time series and look at the ana
 
 A time series measures a particular phenomenon over time. In the example below:
 * The time series metric is `temperature`
-* Two types are `ear` and `forehead`. In Wavefront, the types can show up as values of a `location` tag.
-* This diagram does not show sources, but in Wavefront, you can have a source associated with each time series. In this example, we can have a different time series for each patient.
+* Two types are `ear` and `forehead`, and the types can show up as values of a `location` tag.
+* You could also associate a source with each time series. In this example, you could have a different time series for each patient.
 
 ![line chart of 2 temperature time series, one for type== forehead and one for type=ear](images/time_series_basic.png)
 
@@ -290,19 +292,19 @@ What's next depends on the type of data you're interested in, and how you want t
 
 ### Query Types for Different Data
 
-Most Wavefront users query for time series metrics, but we support interacting with other data.
+Most users query for time series metrics, but we support interacting with other data.
 
 Charts for metrics also support the following types of queries:
-* **Events**: Query Wavefront events with [`events()` queries](query_language_reference.html#event-functions).
-* **Histograms**: Query histograms with [`hs()` queries](visualize_histograms.html#querying-histogram-metrics).
+* **Events**: Query events with [`events()` queries](query_language_reference.html#event-functions).
+* **Histograms**: Query histograms with [`hs()` queries](visualize_histograms.html#query-histogram-metrics).
 * **Traces and spans**: Query trace data from the tracing UI with the [tracing Query Builder](trace_data_query.html).
 
 ### Docs, Learning Dashboards, and More!
 
-Wavefront documentation includes tutorials, reference, and guides on the query language. In addition, your Wavefront instance includes an **Interactice Query Language Explorer** dashboard.
+Our documentation includes tutorials, reference, and guides on the query language. In addition, your Wavefront instance includes an **Interactice Query Language Explorer** dashboard.
 
-- **[Query builder](query_language_query_builder.html)** (for v1) and **[Chart builder](chart_builder.html)** (for v2) can help you come up to speed quickly while using the product.
-- If you're logged in to Wavefront, select **Integrations** in the taskbar and find the **Tutorial** or the **Tour Pro** integration. The Tutorial includes an **Interactive Query Language Explorer** dashboars that shows examples for most functions.
+- **[Chart builder](chart_builder.html)** can help you come up to speed quickly while using the product.
+- If you're logged in to your Wavefront instance, select **Integrations** in the taskbar and find the **Tutorial** or the **Tour Pro** integration. The Tutorial includes an **Interactive Query Language Explorer** dashboars that shows examples for most functions.
 - [Wavefront Query Language Reference](query_language_reference.html) lists each function and gives query language syntax element. Each function name is a link to a reference page for the function.
 - For in-depth discussions and examples, we have a **[reference page](label_query%20language.html)** for each function and some [Query Language Recipes](query_language_recipes.html).
 
@@ -325,21 +327,20 @@ This doc set includes videos and explanations from the engineering team that hel
 <td> </td></tr>
 <tr>
 <td>I got a warning about pre-aligned data. Why? </td>
-<td markdown="span">Wavefront improves performance by wrapping `align()` around certain functions. See [Bucketing with align()](query_language_align_function.html). </td>
+<td markdown="span">To improves performance, the query engine wraps `align()` around certain functions. See [Bucketing with align()](query_language_align_function.html). </td>
 <td> </td></tr>
 <tr>
-<td>How can I use Wavefront for anomaly detection?</td>
+<td>How can I do anomaly detection?</td>
 <td markdown="span">You can use [Anomaly Detection on Charts](anomaly_detection.html) or [detect anomalies with functions and statistical functions](query_language_statistical_functions_anomalies.html). </td>
-<td><a href="https://youtu.be/I-Z9d94Zi7Y">Anomaly Detection with Functions</a></ul> </td></tr>
+<td><a href="https://youtu.be/I-Z9d94Zi7Y">Anomaly Detection with Functions</a></td></tr>
 <tr>
 <td>How can I improve query performance?</td>
 <td markdown="span">Consider [bucketing with align()](query_language_align_function.html).
-Investigate [internal metrics for optimizing performance](wavefront_monitoring.html#useful-internal-metrics-for-optimizing-performance).</td> <td> </td></tr>
-
+Investigate [internal metrics for optimizing performance](wavefront-internal-metrics.html).</td> <td> </td></tr>
 </tbody>
 </table>
 
-<!---s
+<!---
 <tr>
 <td>How do time windows work?</td>
 <td markdown=span>Wavefront supports [moving time window functions](). </a>.

@@ -7,12 +7,13 @@ summary: Limits and recommendations to promote efficient resource use.
 ---
 For best performance and cost reduction, Wavefront supports limits. Some limits are recommendations--if your environment exceeds the limits, you'll see significant performance issues. Other limits result in an error if you exceed the limit.
 
+<!--this page is public but we're not pointing to it from elsewhere in the documentation because some companies change their limits (and pay more, potentially) --->
 
 ## Concurrent Query Limits
 
-Starting with release 2020.22x, Wavefront enforces the following concurrent query limits. These limits are subject to change without notice.
+Wavefront enforces the following concurrent query limits. These limits are subject to change without notice.
 
-{% include note.html content="If your environment exceeds any of the query limits, an error results." %}
+{% include important.html content="If your environment exceeds any of the query limits, an error results." %}
 
 ### Per Customer Concurrent Query Limit
 
@@ -25,15 +26,14 @@ Customer concurrent query limit exceeded. Please try again later. Contact suppor
 ```
 
 ### Per User Concurrent Query Limit
-Starting with release 2020.22.x, Wavefront enforces a limit on per-user concurrent queries. The default limit is 100. Contact us if you believe that the setting doesn’t make sense for one of your users (for example, one of your service accounts) and we’ll discuss options with you.
+
+Wavefront enforces a limit on per-user concurrent queries. The default limit is 100. Contact us if you believe that the setting doesn’t make sense for one of your users (for example, one of your service accounts) and we’ll discuss options with you.
 
 The following error results if one of the users exceeds this limit:
 ```
 HTTP 429 TOO_MANY_REQUESTS
 “User concurrent query limit exceeded. Please try again later. Contact support@wavefront.com for help.”
 ```
-
-
 
 ## Default Customer-Specific Limits
 
@@ -48,7 +48,7 @@ You can start with Wavefront either as part of a free trial or as a new customer
 </tr>
 <tr>
 <td>Histogram length limit</td>
-<td>Maximum number of characters for a histogram name. <br/>The maximum number of characters for a histogram name before release 2020-22.x was 128.</td>
+<td>Maximum number of characters for a histogram name.</td>
 <td>256</td>
 </tr>
 <tr>
@@ -128,7 +128,7 @@ Follow best practices to avoid hitting query limits and for improved query execu
   - Organize metric names in a meaningful hierarchy from most general to most specific (i.e. `system.cpu0.loadavg.1m` instead of `1m.loadavg.cpu0.system`)
 * For best performance, keep the number of distinct time series per metric and host to under 1000.
 
-See [Wavefront Data Naming](wavefront_data_naming.html) for more best practices.
+See [Wavefront Data Naming](wavefront_data_format.html#wavefront-data-format-best-practices) for more best practices.
 
 
 

@@ -42,15 +42,10 @@ The returned values are plotted against the times shown on the x-axis. The retur
 
 ## Examples
 
-**Example 2: Showing Years**
+**Example: Showing Years**
 
 This chart shows live data, so `year("UTC")` shows the current year in Coordinated Universal Time. Notice that the year is displayed in SI units (2.018k) on this particular y-axis.  For details on SI units, see Wikipedia or a similar source.
 ![year](images/ts_year.png)
 
 If we set a custom date for the chart from December to May, the series returned by `year("UTC")` shows the change in year.
 ![year change](images/ts_year_change.png)
-
-**Example 2: Defining an Alert that Fires in a Particular Year**
-
-Here we include `year("UTC")=2018` in a conditional expression to define an alert that fires when the CPU load average rises above 2.0 during the year 2018 UTC.
-![year alert](images/ts_year_alert.png)

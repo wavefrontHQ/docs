@@ -12,19 +12,19 @@ When an alert changes state, it sends notifications to one or more alert targets
 
 ## Where and When Notifications Are Sent
 
-The type of alert (classic or multi-threshold) and the type of alert target (simple or webhook-based) determine the notification behavior.
+The type of alert (single-threshold or multi-threshold) and the type of alert target (simple or webhook-based) determines the notification behavior.
 
 **Where** the notification is sent depends on the type of alert.
-* For classic alerts, the notification is sent to all targets and includes the severity that is associated with the change.
-* For multi-threshold alerts, each alert target has an associated severity. The notification is sent to the target(s) that were associated with that severity and all higher severities.
 
+* For multi-threshold alerts, each alert target has an associated severity. The notification is sent to the target(s) that were associated with that severity **and all higher severities**.
    {% include note.html content="Alert targets subscribe to all notifications at their severity and above. For example, an alert target for an INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. Because notifications potentially go to targets of different severities, you cannot associate an alert target with more than one severity. " %}
+* For single-threshold alerts, which have just one severity, the notification is sent to all targets and includes the severity that is associated with the change.
 
 **When** the notification is sent depends on the type of alert target:
 
-* For simple targets (email addresses and PagerDuty keys added directly in the alert's **Target List**), a notification is sent whenever the alert is firing, updated, resolved, snoozed or in a maintenance window.
+* For simple targets (email addresses and PagerDuty keys added directly in the alert's **Recipient List**), a notification is sent whenever the alert is firing, updated, resolved, snoozed or in a maintenance window.
   {% include note.html content="A maximum of 10 email targets is supported. For  multi-threshold alerts, the maximum is 10 email targets per severity. " %}
-* For [custom alert targets](webhooks_alert_notification.html), a notification is sent in response to each triggering event that is specified for the target.
+* For [custom alert targets](webhooks_alert_notification.html), a notification is sent in response to each triggering event. Triggering events are specified as part of alert target creation.
 
 
 ## What's in an Alert Notification
@@ -40,36 +40,37 @@ Each alert notification includes a link to an interactive chart, usually through
 
 * Simple notification **emails** include a **View Alert Chart** link that takes you to the chart view.
 * For PagerDuty, alert target (webhook), and templated email notifications:
-  - The link  target of the `url` mustache template variable directs to the Alert Viewer. 
-  - The mustache context variable `chartUrl` takes you directly to the chart view.
+  - The `url` mustache template variable directs to the Alert Viewer. 
+  - The `chartUrl` mustache template variable directs to the chart view.
 
-The sample email notification above includes a **View Alert** button that users can click to go to the URL and see an interactive chart in [Alert Viewer](alerts.html#alert-viewer-tutorial)
+The sample email notification in the screenshot above includes a **View Alert** button that users can click to go to the URL and see an interactive chart in [Alert Viewer](alerts.html#alert-viewer-tutorial)
 
 
 #### Alert Condition Information
 
-The interactive chart shows the alert condition or display expression:
+The interactive chart that is included in the notification shows the alert condition.
 
-* For a classic alert, the condition is usually not meaningful. However, if the alert's [**Display Expression** field](#alert-properties) is set, the interactive chart shows the time series being tested by the alert.
-* For a multi-threshold alert, the interactive chart shows the alert condition.
+If you're looking at an alert that was created before the alert GUI revamp in winter 2021, you might also see a Display Expression. See [Why Do I See a Display Expression](alerts_v2_faq.html#how-can-i-set-a-display-expression)
 
 
-#### Time Window Considerations and Delayed Data
+#### Misfiring Alerts and Delayed Data
 
-The presence of delayed and then backfilled data in the interactive chart can obscure why the alert fired or did not fire.
+I data were delayed and then backfilled, you might see the data in the chart but it's possible they were not available to the alert engine at an earlier time. Misfiring alerts are the result.
 
-The interactive chart is set to a custom date showing the time window in which the alert was triggered. However, the data in the chart might have been backfilled with data values that were **reported** during that time window, but were not **ingested** until later.  If you suspect a [misfiring alert](alerts_states_lifecycle.html#did-my-alert-misfire), inspect the chart image included in the notification, which shows the state when the alert fired.
+The interactive chart is set to the time window in which the alert was triggered. However, the data in the chart might have been backfilled with data values that were **reported** during that time window, but were not **ingested** until later.
+
+If you suspect a [misfiring alert](alerts_states_lifecycle.html#did-my-alert-misfire), inspect the chart image that is included in the notification. The chart image shows a snapshot of the state when the alert fired, instead of the chart image.
 
 #### Optional Information in the Interactive Chart
 
 Depending on the state change that triggered the alert, the interactive chart might display additional information:
 
-* **&lt;Alert name&gt;** - The display expression if one was specified. Otherwise, the [condition](alerts_manage.html#alert-condition) expression.
-* **Alert Condition** - The [alert condition](alerts_manage.html#alert-condition)
+* **&lt;Alert name&gt;** - The display expression if one was specified. Otherwise, alert the condition expression.
+* **Alert Condition** - The [alert condition](alerts.html#anatomy-of-an-alert)
 * **Alert Firings** - An [events() query](events_queries.html) that shows system events of type `alert` for the alert. These events occur whenever the alert is opened. The query shows both the current firing (an ongoing event) and any past firings (ended events).
 * **Alert Details** - An [events() query](events_queries.html) that shows events of type `alert-detail` for the alert. These system events occur whenever the alert is updated (continues firing while an individual time series changes from recovered to failing, or from failing to recovered).
 
-### Static Chart Image
+### Static Chart Image in Notifications
 
 When an alert starts firing or is updated, the resulting alert notification includes a snapshot of the chart that shows data at the time the alert was triggered. Chart image creation usually takes a few seconds, so you might briefly see a placeholder in the notification. For performance reasons, a chart image is included only if the alert condition query takes a minute or less.
 
@@ -104,14 +105,14 @@ If you want to exclude chart images:
 
 ## PagerDuty Notifications
 
-If you use the out-of-the-box PagerDuty alert target, and you resolve the incident in PagerDuty while the alert is still firing in Wavefront, two scenarios are possible:
+If you use the out-of-the-box PagerDuty alert target, and you resolve the incident in PagerDuty while the alert is still firing in Tanzu Observability by Wavefront, two scenarios are possible:
 
 - If there is a change to the set of sources being affected, that change triggers a new incident in PagerDuty. Changes to the set of sources being affected include:
 
   - Newly affected sources are added to the list of existing affected sources
   - A subset of the existing sources being affected is no longer affected
 
-- If all affected sources are no longer affected and the alert is resolved in Wavefront, then no new incident is logged into PagerDuty.
+- If all affected sources are no longer affected and the alert is resolved in Tanzu Observability, then no new incident is logged into PagerDuty.
 
 You can customize this behavior by creating a custom PagerDuty [alert target](webhooks_alert_notification.html) with different triggers.
 

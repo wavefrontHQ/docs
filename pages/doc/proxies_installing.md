@@ -5,10 +5,9 @@ sidebar: doc_sidebar
 permalink: proxies_installing.html
 summary: Learn how to install and manage Wavefront proxies.
 ---
-In most cases, a Wavefront proxy must be running in your installation before metrics begin streaming to Wavefront from a host or application.
+Tanzu Observability by Wavefront offers several [deployment options](proxies.html#proxy-deployment-options). During development, a single proxy is often sufficient for all data sources. In production, place a team of proxies behind a load balancer.
 
-We offer several [deployment options](proxies.html#proxy-deployment-options). During development, a single proxy is often sufficient for all data sources. In production, place a team of proxies behind a load balancer.
-
+In most cases, a Wavefront proxy must be running in your installation before metrics begin streaming to the Wavefront service from a host or application.
 
 ## Proxy Host Requirements
 
@@ -19,7 +18,7 @@ We offer several [deployment options](proxies.html#proxy-deployment-options). Du
 - Memory - The proxy does not use a lot of CPU, memory, or storage. However, we recommend running the proxy on a host with at least 4GB of free memory.
 - CPU - A standalone proxy can easily handle up to 40K PPS (points per second). If you're sending more, use [multiple proxies behind a load balancer](proxies.html#production-environment-team-of-proxies--load-balancer).
 - Operating system - Wavefront proxy is a Java application and can run on operating systems supported by Java. Java 8 or later is required, the latest version of Java is recommended.
-- Other - Maven 
+- Other - Maven
 
 <a name="single"></a>
 
@@ -32,17 +31,19 @@ Many users install a proxy when they set up an integration. You can also install
 ### Install a Proxy from the UI
 
 To install and run a proxy:
-
-
-1. Log in to your Wavefront instance and select **Browse > Proxies**.
-1. Select **Add > New Proxy** at the top of the filter bar.
-1. Click the **\[Linux \| Mac \| Windows \| Docker ]** tab.
-1. (Windows Only) Download the proxy.
-1. Copy the script and run it on your host.
-    {% include note.html content="On Windows, do not run the installer `.exe` file. Run the script instead." %}
-1. After the proxy contacts the Wavefront service, the proxy name displays under "Checking for new proxies...".
-1. Click **Done**.
-2. Select **Browse > Proxies** and verify that your proxy is listed.
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+<ol><li>Log in to your Wavefront instance and select <strong>Browse &gt; Proxies</strong>. </li>
+<li>Select <strong>Add &gt; New Proxy</strong>.</li>
+<li>On the right, click the tab for your operating system and follow the steps on screen.  </li>
+</ol>
+The screenshot on the right shows the steps for installing a Windows proxy. </td>
+<td width="40%"><img src="/images/add_proxy.png" alt="screenshot of add proxy flow in GUI"></td>
+</tr>
+</tbody>
+</table>
 
 The proxy starts listening on port 2878. You can customize listener ports with the [proxy configuration file](proxies_configuring.html).
 
@@ -50,8 +51,8 @@ The proxy starts listening on port 2878. You can customize listener ports with t
 
 You can use steps in an integration or perform a package install.
 
-* Select **Browse > Integrations** and find the host integration (Mac, Windows, or Linux). The **Setup** tab give the installation script. For Mac and Linux, you can install the proxy with or without the Telegraf agent.
-* To perform a **package install**, see [Installing a Proxy manually](proxies_manual_install.html).
+* **Integration**. Select **Browse > Integrations** and find the host integration (Mac, Windows, or Linux). The **Setup** tab give the installation script. For Mac and Linux, you can install the proxy with or without the Telegraf agent.
+* **Package Install** To perform a **package install**, see [Installing a Proxy manually](proxies_manual_install.html).
 
 <a name="restart"></a>
 ## Manage Proxy Services
@@ -148,23 +149,23 @@ You can test that a proxy is receiving and sending data as follows:
 echo -e "test.metric 1 source=test_host\n" | nc <wavefront_proxy_address> 2878
    ```
    where `<wavefront_proxy_address>` is the address of your Wavefront proxy.
-1. In the Wavefront UI, select **Browse > Metrics**.
+1. Log in to Wavefront instance and select **Browse > Metrics**.
 1. In the Metrics field, type `test.metric`.
 1. Click `test.metric` to display a chart of the metric.
 
 ### Upgrade a Proxy
 
-Wavefront frequently releases new proxy versions with new features. See the [Wavefront proxy github page](https://github.com/wavefrontHQ/java/releases) for details.
+New proxy versions with new features are released frequently. See the [Wavefront proxy github page](https://github.com/wavefrontHQ/java/releases) for details.
 
 {% include note.html content="Upgrading a proxy with a large proxy queue is not a good idea. The proxy will queue your data until the upgrade is complete, but the short-term result can be an even bigger proxy queue." %}
 
-**Upgrade from the UI**
+#### Upgrade from the UI
 
 To upgrade from the UI, select **Browse > Proxies > Add New Proxy**. If an older version of the proxy exists, this process replaces it.
 
 {% include note.html content="On Windows systems, you might have to uninstall the existing proxy first." %}
 
-**Upgrade from the Command Line**
+#### Upgrade from the Command Line
 
 For Linux and Mac OS, can also upgrade a proxy from the command line as follows:
 
@@ -183,6 +184,20 @@ For Linux and Mac OS, can also upgrade a proxy from the command line as follows:
 <td><code>brew update && brew upgrade wfproxy</code></td></tr>
 </tbody>
 </table>
+
+#### Upgrade a Proxy on Docker
+
+On Docker, you don't explicitly update the proxy version, but stop the proxy and then start the new version.
+
+If you use a volume for the proxy buffer (queue) and you update from a version before 7.2 to 7.2 or later, permissions change:
+* For earlier versions of the proxy, the proxy ran as `root:root`.
+* Starting with version 7.2, the proxy runs as `wavefront:wavefront`.
+
+
+{% include warning.html content="Ensure that either the proxy buffer (queue) is empty, or that the files on the buffer directory (volume) are owned by a user with id `1000` and group `2000` (which will translate to user `wavefront` on the docker image)." %}
+
+<!---
+If you performed the update and data are left in the proxy buffer, follow the steps in [Truncate the Proxy Queue](proxies.html#truncate-the-proxy-queue).--->
 
 ### Uninstall a Proxy
 
@@ -213,6 +228,12 @@ sudo yum remove telegraf</code></td></tr>
 ## See Also
 
 Advanced users can export proxy data to a file and perform other customizations.
+
+Here's some additional information in the doc:
+* [Run a Proxy in a Container](proxies_container.html) shows how to install the proxy and Telegraf in a Docker container.
 * [Export Data Queued at the Proxy](https://help.wavefront.com/hc/en-us/articles/360052251811-How-to-export-data-queued-at-the-Proxy)
 * [Install a Proxy in Non-Default Environments](proxies_manual_install.html)
 * Use the [proxy configuration file](proxies_configuring.html) to customize proxy behavior for metrics, histograms, and traces.
+
+Here's a KB article for TLS connections between two proxies:
+* [How to enable TLS connection between two Wavefront Proxies](https://help.wavefront.com/hc/en-us/articles/4408500702100-How-to-enable-TLS-connection-between-two-Wavefront-Proxies)

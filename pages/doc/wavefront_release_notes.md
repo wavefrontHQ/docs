@@ -1,112 +1,132 @@
 ---
-title: Wavefront Release Notes
+title: Release Notes and Announcements
 keywords:
 tags:
 sidebar: doc_sidebar
 permalink: wavefront_release_notes.html
-summary: Learn about new and updated features in Wavefront.
+summary: Announcements and new and updated features in Tanzu Observability by Wavefront.
 ---
 
-This page lists new and updated features in the Wavefront service.
+This page lists new and updated features for the Tanzu Observability by Wavefront service.
 
-* For **Wavefront Proxy**, your go-to place is the [Wavefront proxy github page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
-* For the latest changes and releases of the **Wavefront Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
-* For  **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
+* For **Wavefront Proxy**, your go-to place is the [Wavefront proxy GitHub page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
+* For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
+* For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
-## 2021-35.x Release Notes 
+## Announcements
 
-* **Sampling Policies**: If you can't find traces in Wavefront because Intelligent Sampling discarded them, you can now create a sampling policy. Sampling policies let Wavefront know that you want to keep specific traces. A sampling policy can affect your costs because more trace data is stored. See [Managing Sampling Policies](trace_sampling_policies.html) for details.
+* **Upcoming Removal of the Service Accounts from the Everyone Group**
 
-* **OpenTelemetry**: Reorganized the distributed tracing documentation to include OpenTelemetry.
-  {% include important.html content="OpenTelemetry is still at it is early stage. Therefore, if you run into issues when configuring Wavefront with OpenTelemetry, contact [Wavefront Technical Support](wavefront_support_feedback.html#support) for help." %}
+    In the next release(s), the service accounts that are still part of the predefined **Everyone** group will be removed from this group. This will not impact any existing functionality and integrations. Last year, all service accounts were added to the new predefined **Service Accounts** group. See the [2021-42.x Release Notes](2021.49.x_release_notes.html#2021-42x-release-notes) for details.
 
-## 2021-34.x Release Notes 
+    <!--- {% include important.html content="Ensure that the service accounts in your organization do not depend on the **Everyone** group permissions."%} --->
 
-* **UI performance improvements**: We’ve done extensive revamp of the rendering code for dashboards and charts. Measurements show improvements on all dashboards, some up to 50% faster. Improvements will be especially noticeable in dashboards with many line charts or point plots.
+## 2022-11.x Release Notes
 
-  See [Ensure Optimal Dashboard Performance](ui_dashboards.html#ensure-optimal-dashboard-performance) for suggestions on how you can improve performance even more.
+  <table>
+  <tbody>
+  <tr>
+    <td width="50%">
+      <strong>Wavefront Proxy 11.0</strong>:
+      <ul><li>We recently released Wavefront Proxy version 11.</li>
+      <li>You can now <strong>send OpenTelemetry trace data directly</strong> from your applications to the Wavefront proxy. This is the recommended and simplest approach to get your data into Tanzu Observability.</li>
+      </ul>
+      </td>
+    <td width="50%">
+    <strong>Read More:</strong>
+    <ul>
+        <li><a href="https://github.com/wavefrontHQ/wavefront-proxy/releases">Wavefront Proxy Release Notes on GitHub</a></li>
+        <li><a href="opentelemetry_tracing.html#send-data-using-the-wavefront-proxy---recommended">Send OpenTelemetry Trace Data Directly Using the Wavefront Proxy</a></li>
+        <li><a href="opentelemetry_logs.html">Enable Proxy Debug Logs for OpenTelemetry Data</a></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <strong>New integrations</strong>:
+      <ul><li>
+      We just released several new integrations and integrations dashboards including a VMware Blockchain integration and a Control Plane dashboard for the Kubernetes integration. See the <a href="integrations_new_changed.html#march-2022">Integrations Release Notes</a> for details.</li></ul>
+      </td>
+    <td width="50%">
+    <br/><img src="/images/kubernetes_control_plane.png" alt="The new alerting menu on the toolbar.">
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <strong>Documentation Improvements</strong>:<p>
+      We updated the doc set with information that comes from the Tanzu Observability SaaS Value Engineering team. Some information was added, some new doc pages are listed on the right.</p>
+    </td>
+    <td width="50%">
+      <strong>Read More:</strong>
 
-  {% include note.html content="This feature is rolled out to customers incrementally in the next few weeks"%}
+      <ul>
+        <li><a href="optimize_data_shape.html">Optimizing the Data Shape to Improve Performance</a></li>
+        <li><a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a></li>
+        <li><a href="query_language_metadata_functions.html">Metadata (Label Manipulation) Functions</a></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <strong>Toolbar Improvements</strong>:<br/><br/>
+      All objects and items related to alerts are available from the <strong>Alerting</strong> menu. Instead of clicking <strong>Browse</strong> on the toolbar to access alert targets and maintenance windows, you can click <strong>Alerting</strong> and select:
+      <ul>
+        <li><strong>All Alerts</strong> - to open the Alerts Browser page.</li>
+        <li><strong>Alert Targets</strong> - to open the Alert Targets page.</li>
+        <li><strong>Maintenance Windows</strong> - to open the Maintenance Windows page.</li>
+        <li><strong>Create Alert</strong> - to create a new alert.</li>
+        </ul>
+    </td>
+    <td width="50%">
+      <br/><br/><img src="/images/create_alert_browser.png" alt="The new alerting menu on the toolbar.">
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <strong>Improved User Experience for Slow Loading or Failed Queries</strong>:
+      <ul>
+      <li>New <strong>progress bar</strong> at the bottom of each chart. </li>
+      <li><strong>Slow Loading Queries</strong>: If you see that a chart on a dashboard is loading slowly, you can click a <strong>Stop</strong> button on the chart to stop fetching the data (instead of refreshing the whole browser page). To update the chart, click <strong>Reload</strong>.</li>
+      <li><strong>Failed Queries</strong>: If a query on a chart <strong>fails to load data</strong>, click the <strong>Reload</strong> button to rerun the query.</li>
+      <li>Hovering over the <strong>Stop</strong> button shows information about the <strong>state of the queries</strong> in the chart, such as loading time series, events, and so on.</li></ul>
+    </td>
+    <td width="50%">
+      <br/><br/><br/><img src="/images/stop-reload-chart.png" alt="A chart with reload button and a progress bar at the bottom.">
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <strong>Sorting of Columns in Pinned Legends</strong>:<br/><br/>
+      You can now sort columns in the legend for most chart types after you pin a legend in a chart (Shift+P). See the screenshot on the right.
+    </td>
+    <td width="50%">
+      <br/><img src="/images/sort_legend.png" alt="A pinned legend with up and down arrows for each column.">
+    </td>
+  </tr>
+    </tbody>
+  </table>
+
+## 2022-09.x Release Notes
+
+**Drilldown Links on Charts Improvement**: You can now use drilldown links to send users to a target section of a dashboard. See [How Do Drilldown Links Work](ui_charts_faq.html#how-do-drilldown-links-work).
 
 
-## 2021-33.x Release Notes
-
-* **Maintenance Mode Improvements**:
-   - You can specify point tags when filtering alerts that you want to set to maintenance mode.
-   - You can specify [alternate targets to notify](http://docs-dev.wavefront.com/maintenance_windows_managing.html#step-3-optional-specify-alternate-alert-targets) during a maintenance mode.
+## 2022-08.x Release Notes
 
 
-## 2021-28.x Release Notes
+**Usage Portal**: As more teams use the Tanzu Observability by Wavefront service within an enterprise, the central team (Super Admins) needs a better mechanism to track their points per second (PPS) usage, manage consumption, and also put limits to manage costs.
 
- * **Anomaly Detection on Charts**: With this release, we deprecate the support of AI Genie and replace it with the new [**Anomaly Detection**](anomaly_detection.html) feature, which is available for Line Plot chats.
-   {% include note.html content="This feature is rolled out to customers incrementally in the next few weeks"%}
+We have now made [monitoring](examine_usage.html) of the ingested PPS much easier. As a Wavefront Super Admin, you can track and monitor how ingested data is used, whether you will be billed for more data, and whether you will need to request more data. You can also create [ingestion policies](ingestion_policies.html) and monitor how different accounts contribute to the PPS usage.
 
-   You can:
-     * Turn anomaly detection on and off.
-     * Explore all anomalies, which are highlighted in a different manner depending on their size.
-     * Select a specific anomaly.
-     * [Create alerts by using the `anomalous ()` function](ts_anomalous.html#using-the-anomalous-function-in-alerts), but note, that you must do that with caution, because queries with the `anomalous()` function are resource intensive.
+![Example of the Usage Summary dashboard.](images/usage_overview.png)
 
-   For example, in the line plot below you can see large and small anomalies. Large anomalies are highlighted with square purple borders and small anomalies are highlighted with cycle purple borders.
-
-   ![Anomalies highlighted with purple square and purple circle](images/anomaly_hightlighting.png)
-
-
-* **Delete Alert Target Improvements**: Previously, alert targets could not be deleted if alert target was in used by an alert. Users can now click **Delete Notificant** to delete the alert target even if it is in use by alerts. That action removes the target from any alerts.
-* **Accessibility Improvements**: Additional improvements to color selector options on different product pages.
-
-## 2021-27.x Release Notes
-
-* **PromQL Compatibility Improvements**: Miscellaneous improvements. For example, the `percentile()`, `mpercentile()` and `variance()` functions now work as expected.
-* **New Doc Page**: [Monitor Tanzu Mission Control with Wavefront](integrations_tmc_howto.html)
-
-## 2021-26.x Release Notes
-
-* **Accessibility Improvements**:
-
-  In addition to the already existing keyboard navigation for some of the Wavefront UI pages, now we have [**support for end-to-end keyboard navigation**](wavefront_keyboard_shortcuts.html) for the following UI pages:
-
-  * [Create a dashboard wizard](ui_dashboards.html#create-a-dashboard)
-  * Chart page
-  * Integrations list page
-  * Kubernetes integration page
-  * Sources Browser pages
-  * Maintenance Windows page
-  * User profile page
-  * Metrics Browser page
-
-  We have also improved **drag-and-drop keyboard** navigation when you create or edit charts, or when you create or edit a metrics security policy. To use the drag-and-drop navigation:
-
-  1. To enter drag mode, press **spacebar**.
-  2. Use the arrow keys to move the item, for example a query line.
-  3. Press **spacebar** to drop the item in its new position.
-
-  You can rearrange:
-
-  * Query lines
-  * Functions within a query line in Query Builder
-  * Variables
-  * List values when you add variables to a dashboard
-  * Metrics Security Policy rules
-
-
-  **Colors** in all charts and dashboards, including service and operational dashboards, as well as Amazon Web Services dashboards, now support colorblind accessibility. Random chart colors are theme-specific. We also redesigned the color picker with a new color palette that is different for dark and light UI theme.
-
-    ![Color picker for light theme](images/color-picker.png)
-
-* **Azure AD Integration Improvements**: Updated the setup and the [setup instructions of the Azure AD Integration](azure_ad.html). You can now easily set up the Azure AD integration yourself without the need to contact our support team, so that users can authenticate to Wavefront through Azure AD instead of using a password.
-
-* **New Metrics to Track RED Metrics**: Tracks delta counters, histograms, and points derived as [Tracing RED metrics](trace_data_details.html#red-metrics) that the collector receives. For details, see [Monitor Your Wavefront Service](wavefront_monitoring.html).
-  * ~collector.delta_points.tracing_red.reported
-  * ~collector.histograms.tracing_red.reported
-  * ~collector.points.tracing_red.reported
-
-  {% include note.html content="We have a corresponding direct ingestion metric for each metric. For example, corresponding to `collector.delta_points.tracing_red.reported` we have
-  `collector.direct-ingestion.delta_points.tracing_red.reported`."%}
 
 
 ## Past Release Notes
 
+- [2022-06.x Release Notes](2022-06.x_release_notes.html)
+- [2021-49.x Release Notes](2021.49.x_release_notes.html)
+- [2021-35.x Release Notes](2021.35.x_release_notes.html)
 - [2021-24.x Release Notes](2021.24.x_release_notes.html)
 - [2021-19.x Release Notes](2021.19.x_release_notes.html)
 - [2021-14.x Release Notes](2021.14.x_release_notes.html)

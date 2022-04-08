@@ -4,16 +4,20 @@ keywords: query language, discrete, continuous, interpolation
 tags: [query language]
 sidebar: doc_sidebar
 permalink: query_language_discrete_continuous.html
-summary: Understand discrete and continuous time series and when Wavefront performs interpolation.
+summary: Understand discrete and continuous time series and when the query engine performs interpolation.
 ---
 
-Many Wavefront queries operate on and return data as one or more time series. Each time series is a unique sequence of data points that consists of a data value and a timestamp.
+Tanzu Observability by Wavefront supports both discrete and continuous time series. Understanding how to work with them is important for best performance. 
+
+## Basics
+
+Many queries operate on and return data as one or more time series. Each time series is a unique sequence of data points that consists of a data value and a timestamp.
 
 * A _discrete time series_ consists of data points separated by time intervals that are greater than one second. A discrete time series might have:
   * A data-reporting interval that is infrequent (e.g., 1 point per minute) or irregular (e.g., whenever a user logs in)
   * Gaps where values are missing due to reporting interruptions (e.g., intermittent server or network downtime)
 
-* A _continuous time series_ contains one data point per second. Because Wavefront accepts and stores data at up to 1 second resolution, a continuous time series has a data value corresponding to every moment in time that can be represented on the X-axis of a chart.
+* A _continuous time series_ contains one data point per second. Because we accept and store data at up to 1 second resolution, a continuous time series has a data value corresponding to every moment in time that can be represented on the X-axis of a chart.
 
 {% include tip.html content="Raw aggregation functions directly applied to continuous functions (such as `msum()`) can behave differently than raw aggregation functions applied directly to non-continuous functions. See the discussion below." %}
 
@@ -79,7 +83,7 @@ For example:
 
 The following functions always return continuous time series, even when they operate on an input series that is discrete:
 
-* [Moving time windows](#moving-window-time-functions) except [`integral()`](ts_integral.html).
+* [Moving time windows](query_language_reference.html#moving-window-time-functions) except [`integral()`](ts_integral.html).
 * Missing data functions: [`default()`](ts_default.html), [`last()`](ts_last.html), [`next()`](ts_next.html), [`interpolate()`](ts_interpolate.html)
 * [`if()`](ts_if.html) function, when `expression` is not a constant time series.
 * [`between()`](ts_between.html), [`exists()`](ts_exists.html), and [`random()`](ts_random.html) functions.

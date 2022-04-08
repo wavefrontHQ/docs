@@ -4,6 +4,7 @@
 [submodule "_includes/help"]
 	path = _includes/help
 	url = https://github.com/wavefrontHQ/help
+	branch  = master
 [submodule "_includes/go-metrics-wavefront"]
 	path = _includes/go-metrics-wavefront
 	url = https://github.com/wavefrontHQ/go-metrics-wavefront

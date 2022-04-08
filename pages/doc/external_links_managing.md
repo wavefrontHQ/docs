@@ -6,9 +6,9 @@ sidebar: doc_sidebar
 permalink: external_links_managing.html
 summary: Learn how to manage external links.
 ---
-External links provide integration between Wavefront and external systems.
+External links provide integration between Tanzu Observability by Wavefront and external systems.
 * **External links** are general purpose: you can link through to any type of system accessible from a URL.
-* The **Log integration** lets you drill down from a Wavefront time series to a log entry in a logging system such as Scalyr, ELK, or Splunk. See [Access and Examine External Logs](log_integration.html) for details.
+* The **Log integration** lets you drill down from a time series to a log entry in a logging system such as Scalyr, ELK, or Splunk. See [Access and Examine External Logs](log_integration.html) for details.
 
 
 Here's a video to get you started with external links:
@@ -17,7 +17,7 @@ Here's a video to get you started with external links:
 </p>
 
 
-<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view external links, you must have [External Links Management permission](permissions_overview.html) to manage external links. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
+<div markdown="span" class="alert alert-info" role="alert">While every user can view external links, you must have the [**External Links Management** permission](permissions_overview.html) to manage external links. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
 ## Navigate to an External Link
 
@@ -69,7 +69,7 @@ The link URL template uses [Mustache syntax](https://mustache.github.io/). The t
     </tbody>
 </table>
 
-You can apply functions to transform the URL. All functions begin with the namespace `functions`. Simple examples are in the next section. 
+You can apply functions to transform the URL. All functions begin with the namespace `functions`. Simple examples are in the next section.
 <table>
     <thead>
     <tr><th width="50%">Function</th><th width="50%">Description</th></tr>

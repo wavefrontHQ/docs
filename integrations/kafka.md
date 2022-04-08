@@ -4,13 +4,21 @@ tags: [integrations list]
 permalink: kafka.html
 summary: Learn about the Wavefront Kafka Integration.
 ---
-## Apache Kafka Integration
+## Kafka Integration
 
-Apache Kafka is a distributed streaming platform. This integration installs and configures Telegraf to send Kafka metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+Kafka is a distributed streaming platform. By setting up this integration, you can send Kafka metrics into Wavefront.
 
-In addition to setting up the metrics flow, this integration also installs a dashboard. Here's the broker section of a dashboard displaying Kafka metrics:
+1. **Apache Kafka**: This explains the installation and configuration of Telegraf to send Kafka metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
-{% include image.md src="images/kafka_broker.png" width="80" %}
+2. **Kafka on Kubernetes**: This explains the configuration of Wavefront Collector for Kubernetes to scrape Kafka metrics using auto-discovery.
+
+In addition to setting up the metrics flow, this integration also installs dashboards:
+  * Apache Kafka
+  * Kafka on Kubernetes
+
+Here's the screenshot of Kafka on Kubernetes dashboard displaying Kafka metrics:
+
+{% include image.md src="images/kafka_k8s_dashboard.png" width="80" %}
 
 
 To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
@@ -18,9 +26,15 @@ To see a list of the metrics for this integration, select the integration from <
 
 
 
+Use the instructions on this page for monitoring:
+  * Apache Kafka - Standalone
+  * Kafka on Kubernetes
+
+## Apache Kafka
+
 ### Step 1. Install the Telegraf Agent
 
-This integration uses the Jolokia input plugin for Telegraf to get the Kafka metrics via JMX. If you've already installed Telegraf on your server(s), you can skip to Step 2.
+This integration uses the Jolokia input plugin for Telegraf to get the Kafka metrics via JMX. If you've already installed Telegraf on your servers, you can skip to Step 2.
 
 Log in to your Wavefront instance and follow the instructions in the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
 
@@ -190,11 +204,45 @@ Create a file called `jolokia-kafka.conf` in `/etc/telegraf/telegraf.d` and ente
      paths = ["Count","OneMinuteRate","FiveMinuteRate","FifteenMinuteRate","MeanRate"]
 ```
 {% endraw %}
+
 **Note:** Replace `KAFKA_SERVER_IP_ADDRESS` with the Kafka server IP address.
 
 ### Step 4. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your agent.
+
+## Kafka on Kubernetes
+
+**Note**: These instructions are for monitoring Bitnami Kafka.
+
+**Prerequisite**:
+
+Make sure that Bitnami Kafka with `bitnami/kafka-exporter` and `bitnami/jmx-exporter` are deployed on your cluster.
+
+You can use the following command to deploy Bitnami Kafka with kafka-exporter and jmx-exporter:{% raw %}
+```
+helm repo add bitnami https://charts.bitnami.com/bitnami
+
+helm install <KAFKA_CLUSTER_NAME> --set metrics.kafka.enabled=true --set metrics.kafka.image.registry=docker.io --set metrics.kafka.image.repository=bitnami/kafka-exporter --set metrics.kafka.image.tag=1.3.1-debian-10-r64 --set metrics.kafka.image.pullPolicy=IfNotPresent bitnami/kafka --set metrics.jmx.enabled=true --set metrics.jmx.image.registry=docker.io --set metrics.jmx.image.repository=bitnami/jmx-exporter --set metrics.jmx.image.tag=0.16.1-debian-10-r17 --set metrics.jmx.image.pullPolicy=IfNotPresent
+```
+{% endraw %}
+
+### Configure the Wavefront Collector for Kubernetes
+
+You can configure the Wavefront Collector for Kubernetes to scrape Kafka metrics by using annotation based discovery.
+
+If you do not have the Wavefront Collector for Kubernetes installed on your Kubernetes cluster, follow these instructions to add it to your cluster by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install). You can check the status of Wavefront Collector and Proxy if you are already monitoring the Kubernetes cluster on the `Setup` tab of the Kubernetes integration.
+
+**Annotation Based Discovery**:
+By default, both the JMX exporter and Kafka exporter services are annotated with Prometheus `scrape` and `port`.
+
+* Annotate the jmx-metrics service to add the `path` and prefix `kafkajmx.`.{% raw %}
+```
+kubectl annotate service <KAFKA_CLUSTER_NAME>-jmx-metrics prometheus.io/path=/metrics prometheus.io/prefix=kafkajmx.
+```
+{% endraw %}
+
+**NOTE**: Make sure that auto discovery `enableDiscovery: true` and annotation based discovery `discovery.disable_annotation_discovery: false` are enabled in the Wavefront Collector. They should be enabled by default.
 
 
 

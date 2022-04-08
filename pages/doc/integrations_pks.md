@@ -4,7 +4,7 @@ keywords:
 tags: [integrations, dashboards]
 sidebar: doc_sidebar
 permalink: integrations_tkgi.html
-summary: Learn about predefined alerts, code examples, and more
+summary: Learn about predefined alerts, code examples, and more.
 ---
 The [VMware Tanzu™ Kubernetes Grid™ Integration](tkgi.html) enables operators to provision, operate, and manage enterprise-grade Kubernetes clusters. The integration itself includes an Overview and Setup instructions.
 
@@ -12,7 +12,7 @@ On this page, we list predefined alerts and give other details about the integra
 
 ## Predefined Alerts for the Integration
 
-The Tanzu Kubernetes Grid integration provides the following monitoring alerts for PKS. These alerts are predefined, no additional setup is required. You can [create additional alerts](alerts.html#creating-an-alert) from the **Alerts** browser or from charts in the Wavefront UI.
+The Tanzu Kubernetes Grid integration provides the following monitoring alerts for PKS. These alerts are predefined, no additional setup is required. You can [create additional alerts](alerts.html#creating-an-alert) from the **Alerts** browser or from charts in the Tanzu Observability by Wavefront UI.
 
 <table>
 <tbody>
@@ -20,35 +20,31 @@ The Tanzu Kubernetes Grid integration provides the following monitoring alerts f
 <tr><th width="60%">Name</th><th width="20%">Severity</th><th width="20%">Resolve After (min)</th></tr>
 </thead>
 <tr>
-<td>Node Memory Usage high</td>
+<td>Node memory usage high</td>
 <td>WARN</td>
 <td>10</td></tr>
 <tr>
-<td>Node Memory Usage too high</td>
+<td>Node memory usage too high</td>
 <td>SEVERE</td>
 <td>10</td></tr>
 <tr>
-<td>Node CPU Usage high</td>
+<td>Node CPU usage high</td>
 <td>WARN</td>
 <td>5</td></tr>
 <tr>
-<td>Node CPU Usage too high</td>
+<td>Node CPU usage too high</td>
 <td>SEVERE</td>
 <td>5</td></tr>
 <tr>
-<td>Node Storage Usage high</td>
+<td>Node storage usage high</td>
 <td>WARN</td>
 <td>10</td></tr>
 <tr>
-<td>Node Storage Usage too high</td>
+<td>Node storage usage too high</td>
 <td>SEVERE</td>
 <td>10</td></tr>
 <tr>
-<td>Too many Pods crashing</td>
-<td>SEVERE</td>
-<td>5</td></tr>
-<tr>
-<td>Too many Containers not running</td>
+<td>Too many containers not running</td>
 <td>SEVERE</td>
 <td>5</td></tr>
 <tr>
@@ -61,14 +57,14 @@ The Tanzu Kubernetes Grid integration provides the following monitoring alerts f
 
 ## Tanzu Kubernetes Grid Monitoring Dashboards
 
-Wavefront includes several predefined dashboards for monitoring Tanzu Kubernetes Grid. You can use these dashboards as is, or [clone and customize them](ui_dashboards.html).
+Tanzu Observability by Wavefront includes several predefined dashboards for monitoring Tanzu Kubernetes Grid. You can use these dashboards as is, or [clone and customize them](ui_dashboards.html).
 
 We support dashboards for major functionality including:
 * Home dashboard
 * Nodes dashboard
 * Namespaces dashboard
 * Deployments dashboard
-* Pods dashbord
+* Pods dashboard
 * Pod containers dashboard
 * Services and Replication Sets dashboard
 
@@ -83,7 +79,7 @@ The Wavefront proxy pod includes four containers.
 
 ![pks-arch](images/pks-architecture-rev.png)
 
-Wavefront runs a Wavefront proxy pod inside each Kubernetes cluster created by Tanzu Kubernetes Grid. There are four containers within the Wavefront proxy pod.
+Tanzu Observability by Wavefront runs a Wavefront proxy pod inside each Kubernetes cluster created by Tanzu Kubernetes Grid. There are four containers within the Wavefront proxy pod.
 
 
 ## Troubleshooting the Tanzu Kubernetes Grid Integration

@@ -7,7 +7,7 @@ permalink: alerts_recipes.html
 summary: Queries for common alert scenarios
 ---
 
-The Wavefront Customer Success team has found that customers use certain alerts frequently. For example, customers want to alert on point rate drops or on between specific times.
+The Tanzu Observability by Wavefront Customer Success team has found that customers use certain alerts frequently. For example, customers want to alert on point rate drops or on between specific times.
 
 {% include note.html content="For improved legibility, we've included line breaks in some of the query examples." %}
 
@@ -42,7 +42,16 @@ For example, here's the query for an alert that fires if the number of sample pr
 
 `(ts(~sample.process.num, source="app-5")) > 100`
 
-You can use a query like this with a classic alert or with threshold alert. A [threshold alert](alerts_manage.html#create-a-multi-threshold-alert) allows you to set multiple thresholds associated with different severities.
+If you paste the query into the alert's DATA field as is, you create a single-threshold alert. Specify a severity and associated recipients to send notifications to the recipients when the condition is met.
+
+To create a multi-threshold alert:
+
+1. Use `(ts(~sample.process.num, source="app-5"))` in the alert's DATA field and click **Next**.
+2. Select `greater than`.
+3. Next to each severity, specify the threshold, for example, next to **Severe** type 100 and next to **Warn** type 90.
+4. Specify recipients for each severity.
+
+See [Create and Manage Alerts](alerts_manage.html) for details and a video. 
 
 ## Alert Only Between Specific Times
 
@@ -70,7 +79,7 @@ For example, here's the query for an alert that fires if the number of sample pr
 
 ## Alert on Wavefront Proxy
 
-The data from agents such as collectd, Telegraf, etc., are sent to the Wavefront proxy and the proxy pushes the data to the Wavefront collector service. Make sure that the proxy checks in with Wavefront and that data is being pushed to the collector. You can set up the following alert to monitor the proxy:
+The data from agents such as collectd, Telegraf, etc., are sent to the Wavefront proxy and the proxy pushes the data to the Wavefront Collector service. Make sure that the proxy checks in with the Wavefront service and that data is being pushed to the collector. You can set up the following alert to monitor the proxy:
 
 ```
 mcount(5m,sum(rate(ts(~proxy.check-in)), sources))=0 and mcount(1h, sum(rate(ts(~proxy.check-in)), sources)) !=0

@@ -1730,9 +1730,9 @@ div.sidebarTitle {
     min-height: initial;
 }
 
-@media only screen and (max-width: 1024px)  {
+@media only screen and (max-width: 1199px)  {
     .algolia-autocomplete .aa-dropdown-menu {
-        width: 890px !important;
+        width: 650px !important;
     }
 }
 

@@ -14,7 +14,24 @@ Wavefront is perfect if you want to monitor lots of hosts or lots of metrics. Fo
 
 ## Find Slow Queries and Improve Dashboard Response
 
-You can find queries that are exceptionally slow by checking  the [**Slow Queries** dashboard](wavefront_monitoring.html#examine-slow-queries).
+You can find queries that are exceptionally slow by checking  the **Slow Query** dashboard.
+
+**To open the Slow Queries Dashboard**:
+
+1. Log in to your Wavefront instance.
+2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Slow Query Dashboard**.
+
+   * The **Overview** tab summarizes slow queries in the system. You can quickly see the number of slow queries, which slow queries failed to complete, and which queries took a long time but eventually completed.
+
+     The dashboard also provides you with the number of slow queries by user. The time window buttons [1h, 12h, 1d] control which slow queries you are viewing.
+
+   * The **Top Slow Queries** tab provides details (timestamp, query type, ts() query, points, etc.) about the slow queries. 
+
+     * **Time Taken** shows the time a slow query takes. Queries listed on this page can't return results for more than 5 minutes.
+     * **Points Scanned** shows the number of data points that were queried to show the chart on the screen.
+     * **CPU Seconds** column shows the amount of time that was spent on processing the query.
+
+   * The **Resource Consumption** tab displays each user that ran a slow query and provides details such as time spent, total points scanned, and total CPU consumed.
 
 And even if a query isn't listed there, there are some guidelines for queries:
 
@@ -22,16 +39,16 @@ And even if a query isn't listed there, there are some guidelines for queries:
 * Make the metrics the most stable part of your data. For example, don't include a unique ID in each metric.
 * Keep the number of distinct combinations of metric, source, and tags under 1000. For example, avoid including a timestamp in your metric. Instead, look at the metric over time in chart.
 
-2. In queries, use filters to narrow down results, and topk() or bottomk() to limit the number of lines that your charts display.
+2. In queries, use filters to narrow down results, and `topk()` or `bottomk()` to limit the number of lines that your charts display.
 
 ## Monitor System Usage and Proxy Status
 
 Administrators (and often other team members) are interested in usage data at all levels.
 
-1. Admins who install Wavefront proxies can examine the [proxy information](monitoring_proxies.html) on the system dashboard. Larger environments or production environments rely on a team of load-balanced proxies, as discussed by Clement Pang in [this video about proxies](https://youtu.be/Lrm8UuxrsqA).
+1. Super Admins who install Wavefront proxies can examine the [proxy information](monitoring_proxies.html) on the system dashboard. Larger environments or production environments rely on a team of load-balanced proxies, as discussed by Clement Pang in [this video about proxies](https://youtu.be/Lrm8UuxrsqA).
     Having usage data for the proxy helps administrators during installation and also helps with proxy sizing later.
-2. View the points flowing into the system from the [system usage dashboard](wavefront_monitoring.html#charts-in-the-wavefront-usage-integration-dashboard).
-3. Create custom charts with internal metrics. Our system dashboard information is a great start, but you might benefit from other [internal metrics](wavefront_monitoring.html#using-internal-metrics-to-optimize-performance) and it's easy to create a dashboard with custom charts.
+2. View the points flowing into the system from the [Overall Data Rate section](wavefront_monitoring.html#overall-data-rate) of the Wavefront Service and Proxy Data dashboard.
+3. Create custom charts with internal metrics. Our system dashboard information is a great start, but you might benefit from other [internal metrics](wavefront-internal-metrics.html) and it's easy to create a dashboard with custom charts.
 
    **Note**: We've include the internal metrics that are most useful in the documentation.
 

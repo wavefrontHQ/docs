@@ -7,9 +7,9 @@ permalink: tracing_external_services.html
 summary: Configure your application to show external services or applications
 ---
 
-Wavefront can identify Java AWS services and Java databases in the [application map view](tracing_ui_overview.html#application-map). You can configure your OpenTracing, OpenTelemetry, or Spring Cloud Sleuth application to identify out-of-the-box external services or applications that your service communicates.
+Tanzu Observability by Wavefront can identify Java AWS services and Java databases in the [application map view](tracing_ui_overview.html#application-map-features). You can configure your OpenTracing, OpenTelemetry, or Spring Cloud Sleuth application to identify out-of-the-box external services or applications that your service communicates.
 
-{% include important.html content="This document shows you how to configure external services for your application instrumented with OpenTracing. If you have instrumented your application with OpenTelemetry and want to configure external services, contact [Wavefront Technical Support](wavefront_support_feedback.html#support) for help." %}
+{% include important.html content="This document shows you how to configure external services for your application instrumented with OpenTracing. If you have instrumented your application with OpenTelemetry and want to configure external services, [contact Support](wavefront_support_feedback.html#support) for help." %}
 
 
 ## Configure Out-of-the-Box AWS and Database Services
@@ -18,15 +18,16 @@ Let's take a look at span tags, SDKs, and libraries that are required if you wan
 
 ### External AWS Services for Java Applications
 
-To make Wavefront identify the AWS services:
+To make Tanzu Observability identify the AWS services:
 
 1. Configure your application to use the [OpenTracing Java AWS SDK](https://github.com/opentracing-contrib/java-aws-sdk), OpenTelemetry, or Spring Cloud Sleuth.
 1. Configure your application to use one or more AWS services.
 1. Instrument your Java application using the [Wavefront OpenTracing Java SDK](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java) or the [Wavefront Java Tracing Agent](https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java).
-1. [Prepare to send data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data-to-wavefront) using the Wavefront proxy or direct ingestion.
+1. [Prepare to send data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data) using the Wavefront proxy or direct ingestion.
 
 Now, you see the AWS external services on the application map.
-<br/>Example:
+
+Example:
 
 ![Shows the application map view that has two external AWS services.](images/tracing_aws_external_nodes.png)
 
@@ -82,14 +83,15 @@ You can also see the above span tags on the Trace Browser for any span without e
 
 ### External DB Services for Java Applications
 
-To make Wavefront identify the database (DB) services, follow these steps:
+To make Tanzu Observability identify the database (DB) services, follow these steps:
 
 1. Configure your application to use a Java database, such as MySQL, Oracle, or any other database.
 1. Instrument your Java application using the [Wavefront OpenTracing Java SDK](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java) or the [Wavefront Java Tracing Agent](https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java).
-1. [Prepare to send data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data-to-wavefront) using the Wavefront proxy or direct ingestion.
+1. [Prepare to send data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data) using the Wavefront proxy or direct ingestion.
 
 Now, you see the database services on the application map.
-<br/>Example:
+
+Example:
 
 ![shows the application map with the external services ungrouped. You see the different names you give the database using the db.instance span tag. ](images/tracing_external_nodes_database.png)
 
@@ -122,7 +124,7 @@ You will see external database services on the application map if the spans have
     </td>
     <td>
       The type of the database that you configure your application, such as MySQL, Oracle, is assigned by the library. The value assigned here determines the component icon you see when you click on the external database service.
-      
+
       {{site.data.alerts.note}}
       The values are not case sensitive.
       {{site.data.alerts.end}}
@@ -161,7 +163,7 @@ You can also see the above span tags on the Trace Browser for any span without e
 
 ## Configure Custom External Services
 
-In addition to the out-of-the-box Java AWS and database service, Wavefront can identify your external applications or service. For example, you can see how your application communicates with an Azure service on the application map. For Wavefront to identify custom external service, you need the **required span tags**. You can add the **optional span tags** to define your external service.
+In addition to the out-of-the-box Java AWS and database service, Tanzu Observability can identify your external applications or service. For example, you can see how your application communicates with an Azure service on the application map. We can identify custom external service only if the **required span tags** are defined. You can also add **optional span tags**.
 
 ### Required Span Tags
 
@@ -180,7 +182,7 @@ In addition to the out-of-the-box Java AWS and database service, Wavefront can i
     </td>
     <td markdown="span">
       Identifies the direction of the tracing traffic when a service in your application sends requests to an external service.
-      <br/>For example, the `delivery` service sends requests to an external Redis database. Wavefront now has spans that show this data. Add `_outboundExternalService` to the existing spans to show that the `delivery` service is sending requests to the external Redis service.
+      <br/>For example, the `delivery` service sends requests to an external Redis database. Tanzu Observability now has spans that show this data. Add `_outboundExternalService` to the existing spans to show that the `delivery` service is sending requests to the external Redis service.
       <br/>![Shows the direction of the arrow from the delivery service to the Redis external database.](images/tracing_custom_external_services_inbound_service.png)
     </td>
   </tr>
@@ -190,13 +192,13 @@ In addition to the out-of-the-box Java AWS and database service, Wavefront can i
     </td>
     <td markdown="span">
       Identifies the direction of the tracing traffic when an external service sends requests to a service in your application.
-      <br/>For example, an external load balancer sends requests to the `shopping` service. Wavefront now has spans that show the `shopping` service receiving requests. Add `_inboundExternalService` to the existing spans to show that the external load balancer is sending requests to the `shopping` service.
+      <br/>For example, an external load balancer sends requests to the `shopping` service. Tanzu Observability now has spans that show the `shopping` service receiving requests. Add `_inboundExternalService` to the existing spans to show that the external load balancer is sending requests to the `shopping` service.
       <br/>![Shows the direction of the arrow from the external load balancer service to the shopping service.](images/tracing_custom_external_services_outbound_service.png)
     </td>
   </tr>
 </table>
 
-{% include note.html content=" If your external service has both the `_outboundExternalService` and `_inboundExternalService` span tags, Wavefront uses only the `_outboundExternalService` span tag to show data on the application map." %}
+{% include note.html content=" If your external service has both the `_outboundExternalService` and `_inboundExternalService` span tags, we use only the `_outboundExternalService` span tag to show data on the application map." %}
 
 ### Optional Span Tags
 
@@ -236,7 +238,7 @@ In addition to the out-of-the-box Java AWS and database service, Wavefront can i
       <br/>For example, click a custom external service on the application map and hover over the icons. The name you see is derived from the value you assign this tag.
       <br/><img src="images/tracing_custom_external_services_external_component.png" alt="Shows the nginx icon when you click on the external load balancer"/>
       {{site.data.alerts.note}}
-        Wavefront assigns a default icon for customized components. If you want to add your icon, contact <a href="mailto:support@wavefront.com">support@wavefront.com</a>.
+        A default icon is assigned to customized components. If you want to add your icon, contact <a href="mailto:support@wavefront.com">support@wavefront.com</a>.
       {{site.data.alerts.end}}
     </td>
   </tr>
@@ -247,7 +249,7 @@ In addition to the out-of-the-box Java AWS and database service, Wavefront can i
     <td>
       Use this span tag to create a new category. If you don't define a value, the value defaults to <code>externalCategory</code>.
       {{site.data.alerts.note}}
-        Wavefront assigns a default icon for customized categories. If you want to add your icon, contact <a href="mailto:support@wavefront.com">support@wavefront.com</a>.
+        A default icon is assigned to customized categories. If you want to add your icon, contact <a href="mailto:support@wavefront.com">support@wavefront.com</a>.
       {{site.data.alerts.end}}
     </td>
   </tr>

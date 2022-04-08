@@ -4,12 +4,12 @@ keywords: query language
 tags: [query language]
 sidebar: doc_sidebar
 permalink: query_language_align_function.html
-summary: Learn where to use the align() function and why Wavefront does pre-alignment.
+summary: Learn where to use the align() function and why the query engine does pre-alignment.
 ---
 
-In Wavefront charts, point buckets represent data that has been summarized over a certain length of time.
+In Tanzu Observability by Wavefront charts, point buckets represent data that has been summarized over a certain length of time.
 
-Both the [**Summarize By**](ui_chart_reference.html#general) chart option and the [`align()` function](ts_align.html) group points into buckets and allow you to specify how those points are aggregated (e.g., averaged, counted, summed, etc.).  The `align()` function allows you to specify the desired bucket size. By default, the summarization method that aggregation functions use is based on the bucket size of the [chart resolution](ui_charts.html#chart-resolution).
+Both the **Summarize By** chart option and the [`align()` function](ts_align.html) group points into buckets and allow you to specify how those points are aggregated (e.g., averaged, counted, summed, etc.).  The `align()` function allows you to specify the desired bucket size. By default, the summarization method that aggregation functions use is based on the bucket size of the [chart resolution](ui_charts.html#chart-resolution).
 
 To support bucketing, `align()` supports the value `bw` (bucket window) for the `timeWindow` parameter.
 
@@ -35,7 +35,7 @@ Interpolated require resources, and that can affect the speed at which the query
 
 To improve query speed, align to a larger bucket (e.g., `align(1m, mean, ts("my.metric"))`. Then the number of times that an interpolated value can occur might change from 12 times a minute without `align()` to once a minute with `align()`.
 
-## The Pre-Align Warning -- When Wavefront Applies Align
+## The Pre-Align Warning -- When the Query Engine Applies Align
 
 For some queries you see the warning indicator <i class="fa-exclamation-triangle fa" style="color: red;"/> in a chart and a warning like the following:
 
@@ -47,13 +47,13 @@ aggregation operation. You can wrap the expression with align() to explicitly st
 
 where `sum(ts(<metric>, source=<source>))` is the original query.
 
-That means that Wavefront wrapped your query in `align()` to avoid unacceptable performance issues. Wavefront performs pre-alignment when aggregation functions are applied to more than 100 unique series. In most cases, for instance, where a metric reflects a parameter changing over time, you can ignore the warning.
+That means that the query engine wrapped your query in `align()` to avoid unacceptable performance issues. The query engine performs pre-alignment when aggregation functions are applied to more than 100 unique series. In most cases, for instance, where a metric reflects a parameter changing over time, you can ignore the warning.
 
 The pre-alignment is tied to a window of time and not to the actual unique series reporting data at any given moment. For example, if 100+ series are reporting data at the same time for 50% of your chart window but less than 100 series report for the other 50%, then the entire chart window will be pre-aligned if you attempt to aggregate those series into a single series.
 
 ## Pre-Alignment Side Effects
 
-In most cases, pre-alignment improves query speed and has no undesirable side effects. However, for some very specific use cases, pre-alignment can cause undesirable side effects.  Wavefront displays the warning message if your data set is automatically pre-aligned so you're aware of the possibility of side effects.
+In most cases, pre-alignment improves query speed and has no undesirable side effects. However, for some very specific use cases, pre-alignment can cause undesirable side effects.  If your data set is automatically pre-aligned, you see a warning message below the query.
 
 Here's an example:
 * You have a `http.requests.count` metric that reports values once a minute and represents the total number of HTTP requests per minute.
