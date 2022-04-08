@@ -160,7 +160,7 @@ Follow these steps for a tour:
   - View the last affected series, including the affected sources and point tags.
   - View the targets.
   For multi-threshold alerts, you see this information for each severity.
-4. Examine [alert tags](#organize-related-alerts-with-alert-tags). You can add a tag to make filtering for the alert easier.
+4. Examine [alert tags](#step-5-organize-related-alerts-with-tags). You can add a tag to make filtering for the alert easier.
 
 <!---
 ### View Alert Details

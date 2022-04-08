@@ -201,7 +201,7 @@ The process for creating an alert target is similar for the different types of t
 
 1. Optionally, customize the **Body Template** using the variables and functions described in [Customizing Alert Notifications](alert_target_customizing.html).
 1. Click **Save** to add the alert target and make it visible on the Alert Targets page.
-1. Test your new alert target, and then [add it to an alert](#add-a-custom-alert-target-to-a-wavefront-alert).
+1. Test your new alert target, and then [add it to an alert](#add-a-custom-alert-target-to-an-alert).
 
 
 ## Test a Custom Alert Target

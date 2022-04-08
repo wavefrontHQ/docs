@@ -52,7 +52,7 @@ There can be alert generated system events, or events that are manually created 
   </tr>
   <tr>
     <td markdown="span">
-      **Display events based on source events**:<br/> Select the **Display Source Events** check box in the [chart's' Format tab](ui_chart_reference.html#general) to display events related to alerts that fired for sources in the chart.
+      **Display events based on source events**:<br/> Select the **Display Source Events** check box in the [chart's' Format tab](ui_chart_reference.html) to display events related to alerts that fired for sources in the chart.
       <br/><br/>For example, if the query used in the chart uses metrics that have the application source tag, and these applications have events related to alerts that fired, you see these marked on the chart. See [Metric Data Format](wavefront_data_format.html#metrics) for details.
     </td>
     <td markdown="span">
