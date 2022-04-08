@@ -53,4 +53,4 @@ The `integral()` function depends on the window size and is not compatible with 
 
 ## See Also
 
-[Using Moving and Tumbling Windows to Highlight Trends](https://docs.wavefront.com/query_language_windows_trends.html)
+[Using Moving and Tumbling Windows to Highlight Trends](query_language_windows_trends.html)

@@ -71,12 +71,13 @@ To enable fault tolerance and higher data rates, production environments typical
 
 {% include note.html content="In environments with more than one proxy, each proxy must have a unique name." %}
 
+
 ## Proxy Configuration
 
 You can modify proxy behavior in several ways:
 
 - **Configuration file**: The proxy processes data according to a configuration file. You can modify configuration properties -- for example, to create `block` list and `allow` list regex patterns, specify information about certain data formats, and much more. See [Configuring Wavefront Proxies](proxies_configuring.html).
-- **Source Tags**: If you specify source tags and descriptions in the metric source, the proxy can use that information to filter the incoming metrics. See [Sending source Tags and Source Descriptions Through the Wavefront Proxy](proxies_configuring.html#sending-source-tags-and-source-descriptions-through-the-wavefront-proxy).
+- **Source Tags**: If you specify source tags and descriptions in the metric source, the proxy can use that information to filter the incoming metrics. See [Manage SourceTag and SourceDescription Properties at the Proxy](tags_overview.html#manage-sourcetag-and-sourcedescription-properties-at-the-proxy).
 - **Preprocessor Rules**: Starting with proxy version 4.1, the Wavefront proxy includes a preprocessor that applies user-defined rules before data is sent to the Wavefront service. You can use preprocessor rules to correct certain data quality issues when you can't fix the problem at the emitting source. See [Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules.html).
 
 ![Proxy configuration options](/images/proxy_config_options_rev.png)
@@ -92,7 +93,7 @@ Each type of data uses a different data format. See [Wavefront Data Format](wave
 
 ## Proxies Troubleshooting & Advanced Configuration
 
-<!--- Going out in March 2022
+
 ### Truncate the Proxy Queue
 
 If, for any reason, you have to truncate the proxy queue, you can do it locally by cleaning up the buffer directory, or remotely using the API with the `truncate` flag.
@@ -119,7 +120,7 @@ $curl -X PUT -H 'Authorization: Bearer <TOKEN>' -H 'Content-Type: application/js
 ```
 
 * `MY_INSTANCE` is your Wavefront instance, for example, the URL could start with `https://example.wavefront.com`
-* `PROXY_ID` is the ID, which you can find in the Proxies browser in the Hostname column.--->
+* `PROXY_ID` is the ID, which you can find in the Proxies browser in the Hostname column.
 
 ### More Info
 

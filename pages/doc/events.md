@@ -24,7 +24,7 @@ Watch these videos to get you started!
 <iframe src="https://bcove.video/3iZdNql" width="550" height="275" allowfullscreen="true" alt="Jason discusses system events and user-created events. "></iframe></td>
 <td><br><br>
 <p>Events let you know that something important just happened. Jason shows the Events page and discusses the 3 types of event sources: System, Alert, and User. He then uses filters to drill down on certain events.</p>
-<p>You can also watch the video <a href="https://bcove.video/3iZdNql" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> 
+<p>You can also watch the video <a href="https://bcove.video/3iZdNql" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
@@ -34,7 +34,7 @@ Watch these videos to get you started!
 <td><br><br>
 <p>
 Tanzu Observability by Wavefront creates System and Alert events for you. You can create User events via the UI or API to signal that something of interest has happened. Jason demos how to create an event from a chart and shows how it immediately appears in the UI.</p>
-<p>You can also watch the video <a href="https://bcove.video/3AURJU0" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> 
+<p>You can also watch the video <a href="https://bcove.video/3AURJU0" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
@@ -57,7 +57,7 @@ An event can have one of the following sources.
 - **System** -- When you perform actions, such as when you edit an alert or snooze an alert, or when newly affected sources fail or recover from an alert condition, the source is **System**.
 ![Events system](images/event_system.png)
 
-    - The CloudTrail integration retrieves EC2 event information and creates System events that represent the EC2 events. See [CloudTrail Integration](integrations_aws_metrics.html#cloudtrail-integration).
+    - The CloudTrail integration retrieves EC2 event information and creates System events that represent the EC2 events. See [CloudTrail Integration](integrations_aws_metrics.html#cloudtrail-events-metrics-and-point-tags).
     - For Microsoft Azure, some information from the Azure Activity Log integration is available as events.
 - **User** -- You can [manually create events](events.html#creating-a-user-event) with source **User** to identify user actions. For example, you can create an event for code pushes that affect Tanzu Observability metrics but that occur outside Tanzu Observability. The event is then available on charts that display the metrics.
 
@@ -105,7 +105,7 @@ To view details for an alert associated with a System/Alert event:
 
 The chart includes information about the alert associated with the event, and about the alert itself:
 
-* **&lt;Alert name&gt;** - The display expression if one was specified. Otherwise, the [alert condition](alerts_manage.html#alert-condition) expression. If the display expression is shown, the condition appears in a separate **Alert Condition** field.
+* **&lt;Alert name&gt;** - The display expression if one was specified. Otherwise, the alert condition expression. If the display expression is shown, the condition appears in a separate **Alert Condition** field.
 * **Alert Firings** - An [events() query](events_queries.html) that shows events of type `alert` for the alert. These system events occur whenever the alert is opened. The query shows both the current firing (an ongoing event) and any past firings (ended events).
 * **Alert Details** - An [events() query](events_queries.html) that shows events of type `alert-detail` for the alert. These system events occur whenever the alert is updated (continues firing while an individual time series changes from recovered to failing, or from failing to recovered).
 * **Alert Data** - A query for alert metrics. These metrics are shown when the alert is open or updated.

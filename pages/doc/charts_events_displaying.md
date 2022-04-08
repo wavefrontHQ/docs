@@ -52,7 +52,7 @@ There can be alert generated system events, or events that are manually created 
   </tr>
   <tr>
     <td markdown="span">
-      **Display events based on source events**:<br/> Select the **Display Source Events** check box in the [chart's' Format tab](ui_chart_reference.html#general) to display events related to alerts that fired for sources in the chart.
+      **Display events based on source events**:<br/> Select the **Display Source Events** check box in the [chart's' Format tab](ui_chart_reference.html) to display events related to alerts that fired for sources in the chart.
       <br/><br/>For example, if the query used in the chart uses metrics that have the application source tag, and these applications have events related to alerts that fired, you see these marked on the chart. See [Metric Data Format](wavefront_data_format.html#metrics) for details.
     </td>
     <td markdown="span">
@@ -80,7 +80,7 @@ There can be alert generated system events, or events that are manually created 
   </tr>
   <tr>
     <td markdown="span">
-       Set an [events() query](events_queries.html) in [dashboard preferences](ui_dashboards.html#set-dashboard-display-preferences), which you can access using the ellipsis menu in the top right corner of the dashboard.
+       Set an [events() query](events_queries.html) in [dashboard preferences](ui_dashboards.html#set-dashboard-display-preferences-and-settings), which you can access using the ellipsis menu in the top right corner of the dashboard.
        <br/><br/>
        For example, `events(name="High CPU Usage")` shows events that have the name `High CPU Usage` on all the charts of the dashboard.
     </td>
