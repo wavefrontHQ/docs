@@ -19,3 +19,7 @@
 [submodule "_includes/python-client"]
 	path = _includes/python-client
 	url = https://github.com/wavefrontHQ/python-client
+[submodule "_includes/opentelemetry-examples"]
+	path = _includes/opentelemetry-examples
+	url = https://github.com/wavefrontHQ/opentelemetry-examples
+	branch = shavi-content
