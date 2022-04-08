@@ -138,7 +138,7 @@ The charts in the dashboard show this information:
 
 ## Which Metrics Are Ingested But Not Used?
 
-The easiest way to improve your ingestion rates is to send only data that you actually use. The main way to use data is to query for it, whether it be in charts, dashboards, alert conditions, or API calls.
+The easiest way to [optimize your ingestion rate](#how-can-i-optimize-my-ingestion-rate) is to send only data that you actually use. The main way to use data is to query for it, whether it be in charts, dashboards, alert conditions, or API calls.
 
 1. See which metrics are ingested.
 
@@ -146,7 +146,7 @@ The easiest way to improve your ingestion rates is to send only data that you ac
   
       * The **Wavefront Namespace Usage Explorer** dashboard, which is part of the [Wavefront Usage integration](system.html), gives details on a per-namespace basis.
   
-2. See which metrics are used.
+2. See which metrics are not used.
 
       * Use the [Wavefront Top](wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy) tool to examine which ingested metrics are accessed during the last lookback period. The default lookback period is 7 days but is configurable. The *PPS* column shows the ingested rates, and the *%Acc.* column shows the percentages of the ingested rates that are accessed by queries. 
   
@@ -189,13 +189,13 @@ Billing for Tanzu Observability is based primarily on the ingestion rate, so it'
 * Examine unused data
     If data is ingested but not queried, then that is most likely data that does not need to be ingested. See [Which Metrics Are Ingested But Not Used?](wavefront_usage_info.html#which-metrics-are-ingested-but-not-used) for tips on finding unused data.
 
-* Use histograms.
+* Consider using [histograms](proxies_histograms.html).
 
-    If some of your data sets are tracking various statistics (f.e. min, max, mean) such as is the case for Dropwizard or StatsD style histogram data, these are good candidates to consider converting to [histograms](proxies_histograms.html). Histograms store data as distributions rather than as individual data points. For billing purposes, the rate of distributions ingested is converted to a rate of points ingested through a conversion factor. If you don't know your conversion factor, contact your Account Executive.
+    If some of your data sets are tracking various statistics, for example, `min`, `max`, `mean`, such as is the case for Dropwizard or StatsD style histogram data, these are good candidates to consider converting to histograms. Histograms store data as distributions rather than as individual data points. For billing purposes, the rate of distributions ingested is converted to a rate of points ingested through a conversion factor. If you don't know your conversion factor, contact your Account Executive.
     
     To determine whether there will be PPS savings from sending in metrics data as histogram data, first determine the ingestion rate for the metric data. To illustrate, let's look at an example:
       
-    Suppose we are ingesting 10 statistics for a specific series of data: min, max, mean, sum, count, p50, p75, p95, p99, p999. Let's say that this data is ingested at 30-second intervals. This would mean that we are ingesting 20 data points every minute. That is equivalent to .33 PPS (20 data points per minute / 60 seconds per minute). For Tanzu Observability Histograms, at the most granular level, there can be one distribution per minute for any particular series. If your conversion factor from distribution per second to points per second is less than 20, this means there will be savings from ingesting this set of data as histograms. On top of these PPS savings, you would also reap all the benefits of histograms, including better and more accurate insight into your data. So, even if the conversion factor results in an equivalent PPS, we would still recommend sending in data as Tanzu Observability Histograms to take advantage of the benefits of using distribution data.      
+    Suppose we are ingesting 10 statistics for a specific series of data: `min`, `max`, `mean`, `sum`, `count`, `p50`, `p75`, `p95`, `p9`9, and `p999`. Let's say that this data is ingested at 30-second intervals. This would mean that we are ingesting 20 data points every minute. That is equivalent to .33 PPS (20 data points per minute / 60 seconds per minute). For histograms, at the most granular level, there can be one distribution per minute for any particular series. If your conversion factor from distribution per second to points per second is less than 20, this means there will be savings from ingesting this set of data as histograms. On top of these PPS savings, you would also reap all the benefits of histograms, including better and more accurate insight into your data. So, even if the conversion factor results in an equivalent PPS, we would still recommend sending in data as histograms to take advantage of the benefits of using distribution data.      
       
 ## Learn More!
 
