@@ -629,14 +629,21 @@ entries:
       - title: Send Metrics Data
         url: /opentelemetry_metrics.html
         output: web
+        
+        subfolders:
 
-      - title: Tutorials
-        url: /opentelemetry_java_tutorial.html
-        output: web
+        - title: Tutorials
+          output: web
+          subfolderitems:
 
+          - title: "Manually Instrument Java Applcation"
+            url: /opentelemetry_java_tutorial_manual_instrumentation.html
+            output: web
+            
       - title: Enable Proxy Debug Logs
         url: /opentelemetry_logs.html
         output: web
+
 
   - title: "Distributed Tracing"
     output: web
