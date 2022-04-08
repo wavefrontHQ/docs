@@ -412,6 +412,10 @@ entries:
           url: /query_editor.html
           output: web
 
+        - title: Tips, Tricks & Links
+          url: /query_language_tricks.html
+          output: web
+
       - title: Learn More About WQL
         output: web
         subfolderitems:
