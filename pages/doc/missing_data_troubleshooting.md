@@ -12,6 +12,10 @@ Sometimes users expect to see certain data in Tanzu Observability by Wavefront b
 This doc page, based on the extensive experience of our customer success team, helps you
 investigate, understand, and remedy possible causes.
 
+<!---
+Should probably be some mention of examining sub-queries.  Performing some operations (eg. and or or) on empty subqueries results in No Data propagation (similar to how NaN works in IEEE math), and also suppresses warning messages
+--->
+
 
 ## Problem: You Expect to See Data But They Aren't There
 
@@ -155,12 +159,12 @@ One of the benefits of the Wavefront proxy is queue management. The Wavefront pr
 
 There are several possible reasons for queues at the proxy. The [Monitoring Wavefront Proxies](monitoring_proxies.html) and the **Queuing Reasons** chart in the **Wavefront Service and Proxy Data** dashboard are especially helpful for identifying the cause for queuing, discussed next:
 
-* [Pushback from Backend](#proxy-queue-issues-pushback-from-backend)
-* [Proxy Rate Limit](#proxy-queue-issues-proxy-rate-limit)
-* [Bursty Data](#proxy-queue-issues-bursty-data)
-* [Memory Buffer Overflow](#proxy-queue-issues-memory-buffer)
-* [Network Latency](#proxy-queue-issues-network)
-* [Memory Pressure](#proxy-queue-issues-memory-low-on-proxy-host)
+* [Pushback from Backend](#proxy-queue-reasons-pushback-from-backend)
+* [Proxy Rate Limit](#proxy-queue-reasons-proxy-rate-limit)
+* [Bursty Data](#proxy-queue-reasons-bursty-data)
+* [Memory Buffer](#proxy-queue-reasons-memory-buffer)
+* [Network Issues](#proxy-queue-reasons-network-issues)
+* [Memory Low on Proxy Host](#proxy-queue-reasons-memory-low-on-proxy-host)
 
 #### Proxy Queue Reasons: Pushback from Backend
 

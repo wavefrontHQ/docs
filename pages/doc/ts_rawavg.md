@@ -60,6 +60,6 @@ When we apply `rawavg()` we get a single line.
 
 
 ## See Also
-[Detecting Anomalies With Functions and Statistical Functions](query_language_statistical_functions_anomalies.html#mean-and-median)
+[Detect Anomalies with Mean and Median](query_language_statistical_functions_anomalies.html#detect-anomalies-with-mean-and-median)
 
 [Bucketing with align()](query_language_align_function.html)

@@ -70,7 +70,7 @@ The following list gives an overview of permissions. To learn more, click the li
 
     Service accounts must have this permission to run queries. Only accounts with the **Metrics** permission can manually hide and unhide metrics and metric prefixes. Only accounts with the **Metrics** permission can create and modify [Metrics Security Policy Rules](metrics_security.html).
     
-- **[Proxies](proxies_installing.html#managing-proxy-services)** 
+- **[Proxies](proxies_installing.html#manage-proxy-services)** 
 
     Users with the **Proxies** permission can view, create, and manage proxies and set up external integrations with AWS and other cloud services.
     

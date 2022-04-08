@@ -110,7 +110,7 @@ The query above:
 2. Extracts that information as a point tag value.
 3. Applies it to a point tag key `customer`.
 4. Applies an aggregate function, in this case `min()`.
-5. Groups by customer (see [Grouping](query_language_reference.html#grouping))
+5. Groups by customer (see [Grouping the Aggregation Results](query_language_aggregate_functions.html#grouping-the-aggregation-results)).
 
 `taggify()` lets you specify a new point tag value as:
 
@@ -174,7 +174,7 @@ taggify(ts(pdx.customerA_latency.i49f21a72), metric, cust, 1, "._")
 ```
 ### Matched Substrings
 
-You can use `taggify()` with a regular expression `"regexSearchPattern"` to match one or more substrings from an existing metadata value, and then construct the new metric name `"replacementPattern"` from one or more matched substrings. You can combine these substrings with text and [variables](#replacement-string-with-variables).
+You can use `taggify()` with a regular expression `"regexSearchPattern"` to match one or more substrings from an existing metadata value, and then construct the new metric name `"replacementPattern"` from one or more matched substrings. You can combine these substrings with text and [variables](#string-with-variables).
 
 You must include `metric`, `source` or `tagk, <pointTagKey>` to specify the type of value that you want to apply the regular expression to.
 

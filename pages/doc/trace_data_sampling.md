@@ -179,7 +179,7 @@ You can set up explicit sampling strategies through a [Wavefront proxy](proxies.
     ```
     {% include important.html content="If you have more than one proxy, each proxy must have the same value for the `traceSamplingRate` property. If different proxies send different percentages of spans to the Wavefront service, you get incomplete traces."%}
 3. Save the `wavefront.conf` file.
-4. [Start the proxy](proxies_installing.html#starting-and-stopping-a-proxy).
+4. [Start the proxy](proxies_installing.html#start-and-stop-a-proxy).
 
 ## Setting Up Explicit Sampling in Your Code
 

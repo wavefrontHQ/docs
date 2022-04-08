@@ -185,7 +185,7 @@ This Tanzu Observability by Wavefront glossary defines technical terms that are 
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">[**Object tag**](tags_overview.html#managing-object-tags)</td>
+<td markdown="span">[**Object tag**](tags_overview.html#manage-object-tags)</td>
 <td>Object tags help you filter your display. You apply an object tag to Wavfront UI objects such as dashboards. You can later find and display groups of objects based on their object tag. </td>
 </tr>
 <tr>

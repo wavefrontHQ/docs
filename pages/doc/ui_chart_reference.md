@@ -102,7 +102,7 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
 <p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
-<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
+<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html">Units in Chart Axes and Legends</a>. </p>
 </td>
 </tr>
 </tbody>
@@ -294,7 +294,7 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
 <p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
-<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
+<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html">Units in Chart Axes and Legends</a>. </p>
 </td>
 </tr>
 </tbody>
@@ -477,7 +477,7 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
 <p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
-<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
+<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html">Units in Chart Axes and Legends</a>. </p>
 </td>
 </tr>
 </tbody>
@@ -646,7 +646,7 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
 <p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
-<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
+<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html">Units in Chart Axes and Legends</a>. </p>
 </td>
 </tr>
 </tbody>
@@ -808,7 +808,7 @@ You can specify a minimum of 200 milliseconds to show only values of interest:
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
 <p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
-<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
+<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html">Units in Chart Axes and Legends</a>. </p>
 </td>
 </tr>
 </tbody>
@@ -1297,7 +1297,7 @@ The Axis tab lets you change the Y axis, and both the X axis dimensions and unit
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
 <p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
-<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
+<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html">Units in Chart Axes and Legends</a>. </p>
 </td>
 </tr>
 </tbody>
@@ -1387,7 +1387,7 @@ The Axis tab lets you change the Y axis, and both the X axis and Y axis dimensio
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
 <p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
-<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
+<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html">Units in Chart Axes and Legends</a>. </p>
 </td>
 </tr>
 <tr>
