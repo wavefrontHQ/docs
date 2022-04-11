@@ -27,7 +27,7 @@ This is a problem, because you might have dependencies and workflows outside tha
 
 ## Steps for Troubleshooting
 
-To troubleshoot issues with notifications, you have to ensure that: 
+To troubleshoot issues with notifications, ensure that: 
 
 * The alert fires under the correct circumstances.
 * The Webhook template catches all problems. 
@@ -44,11 +44,9 @@ Follow these steps:
    
     2. If you have a custom trigger scenario, verify that those options are set. [Read more](webhooks_alert_notification.html#create-a-custom-alert-target).
 
-4. Check whether the correct data is selected.
-
-   * From the **Type** drop-down menu select **Email**.
+4. Check whether the body template is correct by selecting **Email** from the **Type** drop-down menu.
    
-     You'll see the exact data that is being sent in the Body Template section 
+   This will allow you to analyze the fields and notifications received in the email for the exact data as defined in the **Body Template** section.
 
 5. Debug the alert target:
 
@@ -58,20 +56,24 @@ Follow these steps:
    
 6. Check whether the mustache template is catching every scenario. 
 
-    * Ensure that all of the properties: `failingAlertSeries`, `newlyFailingAlertSeries`, or `recoveredAlertSeries`, are set in the template.
+    * Ensure that all properties: `failingAlertSeries`, `newlyFailingAlertSeries`, and `recoveredAlertSeries`, are set in the template.
 
     * Ensure that all the necessary fields are added and validate the notifications with [webhook](https://webhook.site/). 
 
     See the template format in [Customizing Alert Notifications](alert_target_customizing.html).
     
 
-7. Change back the **Type** to **Webhook**, and make sure the **Content Type** is set to **application/json**.
+7. Change the **Type** to **Webhook**, and select the **Content Type** as **application/json**.
 
-8. Verify that the included custom authorization headers are configured properly. 
+8. Verify that the **Custom Headers** are configured properly. 
 
-   The {secret_value} is an obfuscation and should not be directly copied to the new target.
-   `Margarita: we need an example here.`
-   
+	 You must check whether the **Name** and the **Value** custom authorization headers are configured properly. 
+	 
+	 * The **Name** text box should be set as `Authorization`.
+	 * The **Value** text box should contain the [BigPanda Bearer Token](bigpanda.html#step-1-create-a-bigpanda-appkey-and-bearer-token).
+
+	 Do not copy the content of the **Value** text box directly to a new target. Copying this value directly might add up spaces or characters and result in errors.
+  
 9. Look for alert failure events.
    
    1. From the toolbar, click **Browse** > **Events**. 
