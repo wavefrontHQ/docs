@@ -37,7 +37,7 @@ This page describes 2 techniques for alerting on missing data:
 
 ## Alerting on Time Series that Fail Together
 
-You can configure an alert to notify you when a group of time series all stop reporting data. To do so, you create a [custom alert target](webhooks_alert_notification.html#creating-a-custom-alert-target) with the trigger set to **Alert Has No Data**.
+You can configure an alert to notify you when a group of time series all stop reporting data. To do so, you create a [custom alert target](webhooks_alert_notification.html#create-a-custom-alert-target) with the trigger set to **Alert Has No Data**.
 
 **Example**
 

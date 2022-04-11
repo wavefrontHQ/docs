@@ -42,7 +42,7 @@ Multi-tenancy is set up jointly by the administrator at the customer site and th
    * Creates tenant administrator users with the **Accounts** permission on each tenant.
 1. The administrator at the customer site and the newly specified tenant administrator users with the **Accounts** permission can then:
   * Log in to the tenant.
-  * [Invite users](user-accounts.html#create-and-manage-user-accounts) to the tenant and assign permissions for that tenant.
+  * [Invite users](user-accounts.html#create-edit-and-delete-user-accounts) to the tenant and assign permissions for that tenant.
   * Make other users tenant administrators by granting the [**Accounts** permission](permissions_overview.html) to those invited users.
 
 ## Multi-Tenant Modes
@@ -77,4 +77,4 @@ If your environment is set up to support multi-tenant SSO, you log in to your Wa
 If you are an administrator in a multi-tenant environment, you sometimes have to switch tenants. Follow these steps:
 
 1. Delete the `.wavefront_id` file. The precise name of the file might differ. It's `/usr/local/etc/wavefront/wavefront-proxy/.wavefront_id` in a Mac environment with no customizations.
-2. [Restart the Wavefront proxy](proxies_installing.html#starting-and-stopping-a-proxy).
+2. [Restart the Wavefront proxy](proxies_installing.html#start-and-stop-a-proxy).

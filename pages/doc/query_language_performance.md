@@ -123,7 +123,7 @@ Example:
 * **More precise**: `avg(ts(~sample.network.bytes.sent))` returns the average over all time series, inserting points so there's a value for each time series at any time there's a value for one time series.
 * **Faster**: `align(1m, mean, ts("my.metric"))` returns the average over all time series, and uses the values at each 1 minute point in time.
 
-In certain cases, the query engine [performs prealignment](query_language_align_function.html#the-pre-align-warning--when-wavefront-applies-align).
+In certain cases, the query engine [performs prealignment](query_language_align_function.html#the-pre-align-warning--when-the-query-engine-applies-align).
 
 ### Use Raw Aggregation Functions
 
@@ -159,3 +159,8 @@ WQL supports the asterisk (*) as a wildcard character.  [Wildcards](query_langua
 - **Faster**: `ts(‘abc.*.xyz’)` -- Using delimiters around wildcards.
 - **Slower**: `ts(“abc*xyz”)` -- Not using a period as a delimiter.
 - **Slower**: `ts("*abc.xyz")` -- Wildcard character at the beginning of a query.
+
+## Learn More!
+
+* [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html)
+* [Troubleshooting Missing Data](missing_data_troubleshooting.html)

@@ -47,9 +47,9 @@ Spans are the fundamental units of trace data. This page provides details about 
 A well-formed Wavefront span consists of fields and span tags that capture span attributes. We use these to identify and describe a span, organize it into a trace, and display the trace according to the service and application that emitted it. Some attributes are required by the OpenTracing specification and others are required by the Wavefront service.
 
 Most use cases do not require you to know exactly how the Wavefront service expects a span to be formatted:
-* When you instrument your application with a [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data), your application emits spans that are automatically constructed by the Wavefront Tracer. (You supply some of the attributes when you instantiate the [ApplicationTags](tracing_instrumenting_frameworks.html#application-tags) object required by the SDK.)
-* When you instrument your application with a [Wavefront sender SDK](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront), your application emits spans that are automatically constructed from raw data you pass as parameters.
-* When you instrument your application with a 3rd party distributed tracing system (Jaeger or Zipkin), your application emits spans that are automatically transformed by the [integration](tracing_integrations.html#tracing-system-integrations) you set up.
+* When you instrument your application with a [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data), your application emits spans that are automatically constructed by the Wavefront Tracer. (You supply some of the attributes when you instantiate the [ApplicationTags](#application-tags) object required by the SDK.)
+* When you instrument your application with a [Wavefront sender SDK](wavefront_sdks.html#sdks-for-sending-raw-data), your application emits spans that are automatically constructed from raw data you pass as parameters.
+* When you instrument your application with a 3rd party distributed tracing system (Jaeger or Zipkin), your application emits spans that are automatically transformed by the [integration](tracing_integrations.html#tracing-system-integrations-and-exporters) you set up.
 
 It is possible to manually construct a well-formed span and send it either [directly to the Wavefront service](direct_ingestion.html#trace-data-spans) or to a TCP port that the Wavefront proxy is listening on for trace data. You might want to do this if you instrumented your application with a proprietary distributed tracing system.
 
@@ -221,7 +221,7 @@ A span without the `parent` or `followsFrom` tag is the root (first) span of a t
 </tbody>
 </table>
 
-The following table lists span tags that describe the architecture of the instrumented application that emitted the span. We use these tags to aggregate and filter trace data at different levels of granularity. These tags correspond to the [application tags](tracing_instrumenting_frameworks.html#how-wavefront-uses-application-tags) you set through a Wavefront observability SDK.
+The following table lists span tags that describe the architecture of the instrumented application that emitted the span. We use these tags to aggregate and filter trace data at different levels of granularity. These tags correspond to the [application tags](#how-the-wavefront-service-uses-application-tags) you set through a Wavefront observability SDK.
 
 <table>
 <colgroup>
@@ -356,7 +356,7 @@ For performance reasons, we automatically index built-in span tags with low card
 
 ## Tracing Traffic
 
-In the [Application Map](tracing_ui_overview.html#application-map), tracing traffic shows how applications and services interact with each other. If you click on a tracing traffic, you can drill down to the trace browser.
+In the [Application Map](tracing_ui_overview.html#application-map-features), tracing traffic shows how applications and services interact with each other. If you click on a tracing traffic, you can drill down to the trace browser.
 
 In the image shown below each arrow shows tracing traffic between application components. The arrows show direction of traffic.
 
@@ -372,7 +372,7 @@ To understand how to query for tracing traffic in the tracing browser, see [Use 
 
 ## RED Metrics
 
-If you instrument your application with a [tracing-system integration](tracing_integrations.html#tracing-system-integrations) or with a [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data), the Wavefront service derives RED metrics from the spans that are sent from the instrumented application. We automatically aggregate and display RED metrics for different levels of detail with no additional configuration or instrumentation on your part.
+If you instrument your application with a [tracing-system integration](tracing_integrations.html#tracing-system-integrations-and-exporters) or with a [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data), the Wavefront service derives RED metrics from the spans that are sent from the instrumented application. We automatically aggregate and display RED metrics for different levels of detail with no additional configuration or instrumentation on your part.
 
 RED metrics are key indicators of the health of your services, and you can use them to help you discover problem traces. RED metrics are measures of:
 
@@ -490,7 +490,7 @@ Find the per-minute error rate for traces that begin with a specific operation:
 cs(tracing.root.derived.beachshirts.shopping.orderShirts.error.count)
 ```
 
-Use a [histogram query](visualize_histograms.html#querying-histogram-metrics) to return durations at the 75th percentile for an operation in a service. (The predefined charts display only the 95th percentile.)
+Use a [histogram query](visualize_histograms.html#query-histogram-metrics) to return durations at the 75th percentile for an operation in a service. (The predefined charts display only the 95th percentile.)
 
 ```
 percentile(75, hs(tracing.derived.beachshirts.delivery.dispatch.duration.micros.m))
@@ -766,7 +766,7 @@ Amazon Simple Notification Service (SNS), and external databases. For details, s
 ## Apdex
 
 The Application Performance Index ([Apdex](https://www.apdex.org)) helps you understand how the response time of a service compares to the predefined response time threshold.
-The Wavefront service detects ingested application trace data as first-class citizens and calculates the Apdex score using the threshold value (T) you define. The default threshold value (T) is set to 100ms, and only a [Super Admin user](authorization.html#who-is-the-super-admin-user) or users with [Application permissions](permissions_overview.html) can configure the threshold value.
+The Wavefront service detects ingested application trace data as first-class citizens and calculates the Apdex score using the threshold value (T) you define. The default threshold value (T) is set to 100ms, and only a [Super Admin user](authorization-faq.html#who-is-the-super-admin-user) or users with the [**Applications** permission](permissions_overview.html) can configure the threshold value.
 
 <!---
 For details on the Apdex score and configuring the response time threshold (T), see [Configure Apdex Settings](tracing_apdex.html).
@@ -844,7 +844,7 @@ When you instrument an application, you set up a mechanism for sending metrics a
 * Sending data to a [Wavefront proxy](proxies.html), which then forwards the data to the Wavefront service.
 
 Your choice is represented in your code as Wavefront Sender object.
-(Most Wavefront SDKs define objects of type `WavefrontSender` or simply `Sender`. A few SDKs define a pair of separate `Client` objects.) A Wavefront sender encapsulates the settings you supply when you instrument your microservice. The settings in your code must match the information you provided in [Step 1. Prepare to Send Data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data-to-wavefront).
+(Most Wavefront SDKs define objects of type `WavefrontSender` or simply `Sender`. A few SDKs define a pair of separate `Client` objects.) A Wavefront sender encapsulates the settings you supply when you instrument your microservice. The settings in your code must match the information you provided in [Step 1. Prepare to Send Data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data).
 
 {% include note.html content="You can use a Wavefront sender to tune performance by setting the frequency for flushing data to the Wavefront proxy or the Wavefront service. If you are using direct ingestion, you can also change the defaults for batching up the data to be sent." %}
 

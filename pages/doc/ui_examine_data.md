@@ -73,7 +73,7 @@ This <a href="https://bcove.video/3kJ6PGT" target="_blank">video<img src="/image
 </p>
 
 By default, dashboards:
-* Show a two-hour time window in each chart. You can configure the default time window as part of the [Dashboard Display Preferences](ui_dashboards.html#set-dashboard-display-preferences).
+* Show a two-hour time window in each chart. You can configure the default time window as part of the [Dashboard Display Preferences](ui_dashboards.html#set-dashboard-display-preferences-and-settings).
 * Display real-time (live) data.
 * Update charts every 30s.
 
@@ -121,7 +121,7 @@ All users can use global filters to customize their dashboard. When you set a gl
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%"><a href="ui_examine_data.html#filter-with-variables-or-filters"> Global filters</a> allow any user to:
+<td width="40%"><a href="dashboards_variables.html"> Global filters</a> allow any user to:
 <ul>
 <li>Specify a key-value pair as a filter for the dashboard. <br><br>All filters show up to the right of any dashboard variables</li> <li>Remove the filter by clicking <strong>X</strong> in the filter bubble. </li></ul></td>
 <td width="60%"><img src="/images/global_filters.png" alt="Global filter set and see"/></td></tr>
@@ -303,9 +303,9 @@ The <strong>Show Events</strong> drop-down menu in the upper right of the taskba
 ## Do More!
 
 In addition to examining time series data, drilling down on exactly the information you need, creating alerts, etc., you can also
-* View [histogram metrics in charts](proxies_histograms.html#viewing-histogram-metrics).
+* View [histogram metrics](proxies_histograms.html).
 * Examine traces, spans, and RED metric sent by your application.
   * See [Application Status](tracing_ui_overview.html).
   * See [Service Dashboard](tracing_service_dashboard.html).
   * See [Traces Browser](tracing_traces_browser.html).
-* For troubleshooting, see the KB article [Where's My Data: Troubleshooting for Missing Data](https://help.wavefront.com/hc/en-us/articles/360055706512-Where-s-My-Data-Troubleshooting-for-Missing-Data).
+* For an in-depth discussion, see [Troubleshooting Missing Data](missing_data_troubleshooting.html).

@@ -74,7 +74,7 @@ Tanzu Observability SDKs let you instrument your application to collect and send
 </tr>
 
 <tr>
-<td markdown="span">[Sender SDK](#sdks-for-sending-raw-data-to-wavefront)  </td>
+<td markdown="span">[Sender SDK](#sdks-for-sending-raw-data)  </td>
 <td align="justify">Lets you send raw values to Tanzu Observability by Wavefront for storage as metrics, histograms, or traces, e.g., to import CSV data.
 </td>
 <td>
@@ -159,7 +159,7 @@ We provide OpenTracing SDKs for:
 
   {% include tip.html content="If you need application observability, but don't want to instrument code for your Java microservices, use the [Wavefront Java Tracing Agent](https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java). For more information, see [this blog post on the Wavefront Java Tracing Agent](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/wavefront-introduces-java-tracing-agent-delivering-out-of-the-box-application-observability)." %}
 
-A Wavefront OpenTracing SDK derives [RED metrics](trace_data_details.html#red-metrics-derived-from-spans) from the spans that are sent from the instrumented application. These RED metrics show the request Rate, Errors, and Duration that are obtained from the reported spans. These out-of-the-box metrics are derived from your spans automatically, with no additional configuration or instrumentation on your part. You can view the RED metrics for each service's operations in [predefined charts](trace_data_details.html#predefined-charts).
+A Wavefront OpenTracing SDK derives [RED metrics](trace_data_details.html#red-metrics) from the spans that are sent from the instrumented application. These RED metrics show the request Rate, Errors, and Duration that are obtained from the reported spans. These out-of-the-box metrics are derived from your spans automatically, with no additional configuration or instrumentation on your part. You can view the RED metrics for each service's operations in [predefined charts](tracing_basics.html#visualize-distributed-tracing-data).
 
 Sample use cases:
 * Suppose your application is already instrumented with a 3rd party distributed tracing system. If that 3rd party system is OpenTracing-compliant, you can replace it with the Wavefront OpenTracing SDK in the same language.

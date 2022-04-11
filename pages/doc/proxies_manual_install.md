@@ -8,9 +8,9 @@ summary: Learn how to manually install a Wavefront proxy and Telegraf agent.
 ---
 Most Tanzu Observability by Wavefront customers use an automated proxy install:
 * Option 1: Install the Wavefront proxy and the Telegraf agent when the set up an integration.
-* Option 2: Perform a [scripted installation](proxies_installing.html#proxy-installation) of the Wavefront proxy and Telegraf agent.
+* Option 2: Perform a [scripted installation](proxies_installing.html#scripted-proxy-installation) of the Wavefront proxy and Telegraf agent.
 
-In some environments, it's necessary to perform a manual installation instead. This page gives some guidance. You can perform additional customization using [proxy configuration properties](proxies_configuring.html#general-proxy-properties-and-examples).
+In some environments, it's necessary to perform a manual installation instead. This page gives some guidance. You can perform additional customization using [proxy configuration properties](proxies_configuring.html#configuration-properties).
 
 {% include note.html content="Because the exact steps depend on your environment, this page can't give details for each use case. [Advanced Proxy Configuration](proxies_configuring.html) gives details about settings you can change in the proxy config file." %}
 
@@ -129,9 +129,9 @@ In some cases, you might need to run the proxy on a host with limited network ac
 ### Prerequisites
 
 - **Networking:** The minimum requirement is an outbound HTTPS connection to the Wavefront service so the proxy can send metrics to the Wavefront service.
-  For metrics, the proxy uses port 2878 by default. You change that and you can configure [additional proxy ports](proxies_installing.html#configuring-proxy-ports-for-metrics-histograms-and-traces) for histograms and traces.
+  For metrics, the proxy uses port 2878 by default. You change that and you can configure [additional proxy ports](proxies_configuring.html#configuration-properties) for histograms and traces.
 
-  You can use an [HTTP proxy](proxies_manual_install.html#connecting-to-wavefront-through-an-http-proxy) for the connection.
+  You can use an [HTTP proxy](#configure-wavefront-proxy-with-an-httphttps-proxy) for the connection.
 
 - **JRE:** The Wavefront proxy is a Java jar file and requires a JRE - for example, openjdk8.  If the JRE is in the execution path you should be able to install the .rpm or .deb file as above.
 
