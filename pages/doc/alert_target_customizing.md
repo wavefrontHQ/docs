@@ -133,7 +133,7 @@ To display and edit a predefined template for a new or existing custom alert tar
 <tbody>
 <tr>
 <td width="50%">
-<ol><li><a href="webhooks_alert_notification.html#hcreate-a-custom-alert-target">Create</a> or <a href="webhooks_alert_notification.html#edit-a-custom-alert-target">edit</a> the custom alert target. </li>
+<ol><li><a href="webhooks_alert_notification.html#create-a-custom-alert-target">Create</a> or <a href="webhooks_alert_notification.html#edit-a-custom-alert-target">edit</a> the custom alert target. </li>
 <li>In the <strong>Body Template</strong> field, click <strong>Template</strong> and select one of the predefined templates. The alert target's type determines the available predefined templates. On the right are the choices for a custom alert target of type <strong>Email</strong>:</li>
 <li>Add, remove, or rearrange alert information and structural elements of the predefined template, or replace the predefined template with a template of your own. </li>
 <li>Scroll to the end of the <strong>Body Template</strong> field and click <strong>Save</strong>.</li></ol></td>
@@ -189,7 +189,7 @@ We define variables for obtaining information about the alert as a whole, such a
 </tr>
 <tr>
 <td markdown="span">`imageLinks`</td>
-<td markdown="span">Iterator returning URLs to [chart images](alerts_notifications.html#chart-images-in-alert-notifications). Currently returns 1 URL to the chart image that shows the alert's display expression at the time the alert fired or was updated.</td>
+<td markdown="span">Iterator returning URLs to [chart images](alerts_notifications.html#static-chart-image-in-notifications). Currently returns 1 URL to the chart image that shows the alert's display expression at the time the alert fired or was updated.</td>
 </tr>
 <tr>
 <td markdown="span">`name`</td>
@@ -213,7 +213,7 @@ We define variables for obtaining information about the alert as a whole, such a
 </tr>
 <tr>
 <td markdown="span">`chartUrl`</td>
-<td markdown="span">Link to an [interactive chart](alerts_notifications.html#interactive-charts-linked-by-alert-notifications) that shows alert firing events or resolved events along with the alert condition.</td>
+<td markdown="span">Link to an [interactive chart](alerts_notifications.html#link-to-interactive-chart-in-alert-viewer) that shows alert firing events or resolved events along with the alert condition.</td>
 </tr>
 <tr>
 <td markdown="span">`alertRoute`</td>
@@ -414,7 +414,7 @@ The time series visited by a particular iterator are in one of the following cat
 </tr>
 <tr>
 <td><em>In maintenance</em></td>
-<td markdown="span">Any time series whose source is associated with an ongoing [maintenance window](maintenance_windows_managing.html#using-maintenance-windows). These are time series that continue to be tested against the alert condition, but whose results do not change the alert's state.</td>
+<td markdown="span">Any time series whose source is associated with an ongoing [maintenance window](maintenance_windows_managing.html). These are time series that continue to be tested against the alert condition, but whose results do not change the alert's state.</td>
 </tr>
 </tbody>
 </table>
@@ -423,7 +423,7 @@ The time series visited by a particular iterator are in one of the following cat
 The names of the iterators follow this convention: <code>&lt;seriesCategory&gt;&lt;InfoIndicator&gt;</code>. For example:
 <ul>
   <li>
-    <code>failingHosts</code> is an iterator that lists the <a href="#list-the-sources-of-an-alerts-time-series">host name</a> of each failing time series.
+    <code>failingHosts</code> is an iterator that lists the <a href="#list-sources-of-an-alerts-time-series">host name</a> of each failing time series.
   </li>
   <li>
     <code>inMaintenanceSeries</code> is an iterator that lists the <a href="#list-the-definitions-of-an-alerts-time-series">defining information</a> of each time series whose source is in maintenance.
@@ -730,7 +730,7 @@ You can access a custom combination of details for the time series that contribu
 1. Use an [alert-series iterator](#alert-series-iterators) to visit each time series in the indicated [category](#series-category).
 2. Use variable within the iterator section to access the [alert-series details](#alert-series-details) you want to include.
 
-This technique gives you complete control over the formatting of the returned information, and allows you to access [statistics](#accessing-series-statistics) from each visited time series.
+This technique gives you complete control over the formatting of the returned information, and allows you to access [statistics](#alert-series-statistics) from each visited time series.
 
 ### Alert-Series Iterators
 
@@ -1039,7 +1039,7 @@ The order of the limit settings determines limit precedence. For example, if you
 
 The `failingLimit` property applies to all iterators in the `failing` category: `failingAlertSeries`, `failingSeries`, `failingHosts`, and `failingHostsToSourceTags`.
 
-See [Setting and Testing Iteration Limits](#example-setting-and-testing-iteration-limits) for an example.
+See **Example: Setting and Testing Iteration Limits** below for an example.
 
 {% include note.html content="If the application that is being integrated requires the full list of items (e.g., `failingHosts`) you can retrieve the `alertId` from the notification and use the Wavefront REST API to get the full list of items." %}
 
@@ -1261,7 +1261,7 @@ Output:1600273622
 
 ## Add Chart Images to Older Custom Alert Targets
 
-The predefined template for a custom HTML email target or a custom Slack target automatically includes the `imageLinks` variable for producing a [chart image](alerts_notifications.html#chart-images-in-alert-notifications) in alert notifications. However, if you created a custom email alert target or a custom Slack alert target before 2018-26.x, you must explicitly update the alert target's template to include a chart image in the alert notifications.
+The predefined template for a custom HTML email target or a custom Slack target automatically includes the `imageLinks` variable for producing a [chart image](alerts_notifications.html#static-chart-image-in-notifications) in alert notifications. However, if you created a custom email alert target or a custom Slack alert target before 2018-26.x, you must explicitly update the alert target's template to include a chart image in the alert notifications.
 
 {% include note.html content="You do not need to update existing custom alert targets of type PagerDuty. All PagerDuty notifications sent in 2018-26.x or later will include chart images." %}
 
@@ -1289,7 +1289,7 @@ Subsequent email notifications will now include a chart image that is generated 
 
 To update the template for a custom Slack alert target that was created before 2018-26.x:
 
-1. Open the custom alert target for [editing](webhooks_alert_notification.html#editing-a-custom-alert-target).
+1. Open the custom alert target for [editing](webhooks_alert_notification.html#edit-a-custom-alert-target).
 1. In a separate browser tab, connect to your Wavefront service and create a new custom alert target of type **Webhook** with the **Slack** template.
 1. In the newly created template, find and copy the section enclosed in the following lines:
     {% raw %}

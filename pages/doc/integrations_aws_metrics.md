@@ -34,7 +34,7 @@ Tanzu Observability retrieves AWS metric and dimension data from AWS services us
 ### Configuring CloudWatch Data Ingestion
 
 You can configure which instances and volumes to ingest metrics from, which metrics to ingest, and the rate at which Tanzu Observability fetches metrics.
-{% include tip.html content="The following &lt;key&gt;=&lt;value&gt; pairs are supported only for EC2 and EBS metrics." %}
+{% include tip.html content="The following examples are supported only for EC2 and EBS metrics." %}
 
 To configure CloudWatch ingestion:
 
@@ -43,7 +43,7 @@ To configure CloudWatch ingestion:
 1. Click the **Setup** tab.
 1. In the Types column, click the **CloudWatch** link in the row of the integration you want to configure.
 1. Configure ingestion properties:
-    - **Instance and Volume Allow List** fields -- Add instances and volumes to an allow list by specifying [EC2 tags](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) (as **&lt;key&gt;=&lt;value&gt;** pairs) defined on the instances and volumes. For example, **organization=&lt;yourcompany&gt;**. When specified as a comma-separated list, the tags are OR'd. To use instance and volume allow lists, you must also add an [AWS Metrics+](#aws-metrics-plus-integration) integration because the AWS tags are imported from the EC2 service. If you don't specify any tags, Tanzu Observability imports metrics from *all* instances and volumes.
+    - **Instance and Volume Allow List** fields -- Add instances and volumes to an allow list by specifying [EC2 tags](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html), defined on the instances and volumes. The allow lists should be in JSON format, for example, `{"organization":"yourcompany"}`. When specified as a comma-separated list, the tags are OR'd. To use instance and volume allow lists, you must also add an [AWS Metrics+](#aws-metrics-data) integration because the AWS tags are imported from the EC2 service. If you don't specify any tags, Tanzu Observability imports metrics from *all* instances and volumes.
     - **Metric Allow List** field -- Adds metrics to an allow list by specifying a regular expression. The regular expression must be a complete match of the entire metric name. For example, if you only want CloudWatch data for `elb` and `rds` (which come under `aws.rds`), then use a regular expression such as: `^aws.(elb|rds).*$`. If you do not specify a regular expression, _all_ CloudWatch metrics are retrieved.
     - **Point Tag Allow List** -- Adds AWS point tags to an allow list by specifying a regular expression. If you do not specify a regular expression, no point tags are added to metrics.
     - **Service Refresh Rate** -- Number of minutes between requesting metrics. Default is 5 minutes.
@@ -79,7 +79,7 @@ Tanzu Observability adds the following point tags to CloudWatch metrics:
 
 ### CloudWatch Pricing
 
-Standard AWS CloudWatch pricing applies each time Tanzu Observability requests metrics using the CloudWatch API. For pricing information, see [AWS \| Amazon CloudWatch \| Pricing](http://aws.amazon.com/cloudwatch/pricing). After selecting a region, you can find the current expected price under **Amazon CloudWatch API Requests**. In addition, custom metrics have a premium price; see the **Amazon CloudWatch Custom Metrics** section of the pricing page. To limit cost, by default Tanzu Observability queries the API every 5 minutes. However, you can [change the request rate](#configuring-cloudwatch-metric-ingestion), which will change the cost.
+Standard AWS CloudWatch pricing applies each time Tanzu Observability requests metrics using the CloudWatch API. For pricing information, see [AWS \| Amazon CloudWatch \| Pricing](http://aws.amazon.com/cloudwatch/pricing). After selecting a region, you can find the current expected price under **Amazon CloudWatch API Requests**. In addition, custom metrics have a premium price; see the **Amazon CloudWatch Custom Metrics** section of the pricing page. To limit cost, by default Tanzu Observability queries the API every 5 minutes. However, you can [change the refresh rate](#configuring-cloudwatch-data-ingestion), which will change the cost.
 
 As an alternative to using the CloudWatch API for EC2 metrics, you can collect these metrics using [a Telegraf collector](telegraf.html) on each AWS instance. In this case, to prevent CloudWatch from requesting those metrics, you should set the **Metric Allow List** property to allow all metrics except EC2. For example:
 
@@ -194,7 +194,7 @@ Unless otherwise indicated, Tanzu Observability sets the value of the AWS Metric
 - Service Limit Metrics - capture the current resource limits and usage for your AWS account. These metrics include the point tags `Region` and `category`.
   - `aws.limits.<resource>.limit` - the current limit for an AWS resource in a particular region.
   - `aws.limits.<resource>.usage` - the current usage of an AWS resource in a particular region.
-  
+
     {% include note.html content="To examine these metrics, your account needs at least the Business-level AWS Support plan because the integration uses the Support API to pull service limits. You also need both ReadOnlyAccess and AWSSupportAccess. See [Giving Tanzu Observability Read-Only Access](integrations_aws_overview.html#giving-tanzu-observability-access-to-your-aws-account) for details." %}
 
 <!--## AWS Metrics+ Trusted Advisor Service Limits

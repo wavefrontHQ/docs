@@ -224,7 +224,7 @@ You can set up an AWS integration, enable and disable it, and delete it. After y
 
 ### Set up an AWS Integration
 
-To set up an AWS integration, you must have a Role ARN handy. Use the Role ARN that you copied from [Give Read-Only Access to Your Amazon Account and Get the Role ARN](#give-read-only-access-to-your-amazon-account-and-get-the-role-arn).
+To set up an AWS integration, you must have a [Role ARN](#give-read-only-access-to-your-amazon-account-and-get-the-role-arn) handy. 
 
 1. Log in to your Wavefront instance and click **Integrations** on the toolbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
@@ -268,7 +268,7 @@ The integration is added to the Amazon Web Services Integrations list. If you wa
 
 ### Register Additional Amazon Web Services
 
-After you set up the AWS integration with a [Role ARN](integrations_aws_overview.html#give-read-only-access-to-your-amazon-account), you can additionally register more Amazon Web services.
+After you set up the AWS integration with a [Role ARN](#give-read-only-access-to-your-amazon-account-and-get-the-role-arn), you can additionally register more Amazon Web services.
 
 1. In your Wavefront instance, click **Integrations** on the toolbar.
 1. In the Featured section, click the **Amazon Web Services** tile.

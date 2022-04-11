@@ -296,7 +296,7 @@ Most users query for time series metrics, but we support interacting with other 
 
 Charts for metrics also support the following types of queries:
 * **Events**: Query events with [`events()` queries](query_language_reference.html#event-functions).
-* **Histograms**: Query histograms with [`hs()` queries](visualize_histograms.html#querying-histogram-metrics).
+* **Histograms**: Query histograms with [`hs()` queries](visualize_histograms.html#query-histogram-metrics).
 * **Traces and spans**: Query trace data from the tracing UI with the [tracing Query Builder](trace_data_query.html).
 
 ### Docs, Learning Dashboards, and More!
@@ -336,7 +336,7 @@ This doc set includes videos and explanations from the engineering team that hel
 <tr>
 <td>How can I improve query performance?</td>
 <td markdown="span">Consider [bucketing with align()](query_language_align_function.html).
-Investigate [internal metrics for optimizing performance](wavefront_monitoring.html#useful-internal-metrics-for-optimizing-performance).</td> <td> </td></tr>
+Investigate [internal metrics for optimizing performance](wavefront-internal-metrics.html).</td> <td> </td></tr>
 </tbody>
 </table>
 

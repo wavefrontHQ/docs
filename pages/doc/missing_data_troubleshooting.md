@@ -102,7 +102,7 @@ Several Wavefront Query Language (WQL) functions can be used to return only a sa
 * random
 * sample
 
-A second set of functions, listed under [Query-Level Filtering Hides Your Data](#query-level-filtering-hides-your-data), filters the data. The result is the same: you might not see the data that you expect to see.
+A second set of functions, listed under [Query-Level Filtering Hides Your Data](missing_data_troubleshooting.html#check-if-query-level-filtering-hides-your-data), filters the data. The result is the same: you might not see the data that you expect to see.
 
 #### Check if Dashboard-Level Filtering Hides Your Data
 
@@ -155,12 +155,12 @@ One of the benefits of the Wavefront proxy is queue management. The Wavefront pr
 
 There are several possible reasons for queues at the proxy. The [Monitoring Wavefront Proxies](monitoring_proxies.html) and the **Queuing Reasons** chart in the **Wavefront Service and Proxy Data** dashboard are especially helpful for identifying the cause for queuing, discussed next:
 
-* [Pushback from Backend](#proxy-queue-issues-pushback-from-backend)
-* [Proxy Rate Limit](#proxy-queue-issues-proxy-rate-limit)
-* [Bursty Data](#proxy-queue-issues-bursty-data)
-* [Memory Buffer Overflow](#proxy-queue-issues-memory-buffer)
-* [Network Latency](#proxy-queue-issues-network)
-* [Memory Pressure](#proxy-queue-issues-memory-low-on-proxy-host)
+* [Pushback from Backend](#proxy-queue-reasons-pushback-from-backend)
+* [Proxy Rate Limit](#proxy-queue-reasons-proxy-rate-limit)
+* [Bursty Data](#proxy-queue-reasons-bursty-data)
+* [Memory Buffer](#proxy-queue-reasons-memory-buffer)
+* [Network Issues](#proxy-queue-reasons-network-issues)
+* [Memory Low on Proxy Host](#proxy-queue-reasons-memory-low-on-proxy-host)
 
 #### Proxy Queue Reasons: Pushback from Backend
 

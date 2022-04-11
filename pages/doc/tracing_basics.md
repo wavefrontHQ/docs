@@ -35,15 +35,14 @@ Watch these videos to listen to our Co-founder Clement Pang introduce distribute
 
 [OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/) and OpenTracing will be deprecated soon.
 
-{% include note.html content="To learn about the specification that works for you, see [OpenTracing or OpenTelemetry](https://help.wavefront.com/hc/en-us/articles/360058140212-OpenTracing-or-OpenTelemetry-Which-specification-to-select-for-instrumenting-applications-for-tracing-)." %}
-
 ### OpenTelemetry
 
-If your application uses OpenTelemetry, you can configure the application to send trace data using the Tanzu Observability (Wavefront) trace exporter. See [Sending Trace Data to Wavefront](opentelemetry.html#sending-trace-data-to-wavefront) and follow the steps to configure your OpenTelemetry application with Tanzu Observability.
+If your application uses an OpenTelemetry SDK, you can configure the application to send trace data to Tanzu Observability using any of the following options:
 
-{% include important.html content="OpenTelemetry is still at its early stage. If you run into issues, contact [Technical Support](wavefront_support_feedback.html#support)." %}
-
-![This diagram shows how to send data to Wavefront if your application has OpenTelemetry.](images/tracing_opentelemetry_trace_exporter_data.png)
+* [**Directly send OpenTelemetry data to the Wavefront proxy**](opentelemetry_tracing.html#send-data-using-the-wavefront-proxy---recommended) - [Recommended]
+  <img src="images/opentelemetry_proxy_tracing.png" alt="A data flow diagram that shows how the data flows from your application to the proxy, and then to Tanzu Observability" style="width:680px;"/>
+* Or [**use the OpenTelemetry Collector and the Wavefront proxy**](opentelemetry_tracing.html#send-data-using-the-opentelemetry-collector)
+  ![A data flow diagram that shows how the data flows from your application to the collector, to the proxy, and then to Tanzu Observability](images/opentelemetry_collector_tracing.png)
 
 ### OpenTracing
 
@@ -57,8 +56,9 @@ An application must be instrumented for tracing before it can send trace data to
 
 * **Configure Applications That are Not Instrumented**
 
-  If you have not yet instrumented your code, you can add instrumentation by using [Wavefront OpenTracing SDKs or the Wavefront Java Tracing Agent](tracing_instrumenting_frameworks.html#step-2-get-data-flowing-into-wavefront).
-  The Wavefront OpenTracing SDKs let you to [choose how to send trace data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data-to-wavefront) -- through a Wavefront proxy or directly to the Wavefront service. Using a Wavefront proxy is generally recommended.
+  The Wavefront OpenTracing SDKs let you to [choose how to send trace data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data) -- through a Wavefront proxy or directly to the Wavefront service. Using a Wavefront proxy is generally recommended.
+  
+  If you have not yet instrumented your code, you can add instrumentation by using [Wavefront OpenTracing SDKs or the Wavefront Java Tracing Agent](tracing_instrumenting_frameworks.html#step-2-get-data-flowing).
 
 ## Visualize Distributed Tracing Data
 
@@ -70,14 +70,14 @@ You can visualize the trace data that you collect from your instrumented applica
 
 Get an overview of how the applications and services are linked, understand the health of each service, and troubleshoot when your applications or services run into issues. You can get an overview and see the overall health of each application using the application map, table view and grid view. See [Application Status](tracing_ui_overview.html).
 
-* [**Application Map**](tracing_ui_overview.html#application-map) view gives you an overview of how the applications and services are linked. You can focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and see the tracing traffic, including the traffic direction.
+* [**Application Map**](tracing_ui_overview.html#application-map-features) view gives you an overview of how the applications and services are linked. You can focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and see the tracing traffic, including the traffic direction.
 
   ![application map](/images/Application_map_intro.png)
 
-* [**Table view**](tracing_ui_overview.html#table-view) lists the applications and services in the form of a table. You can see the Request, Error, and Duration (RED) metrics at a glance and sort the data.
+* [**Table view**](tracing_ui_overview.html#table-view-features) lists the applications and services in the form of a table. You can see the Request, Error, and Duration (RED) metrics at a glance and sort the data.
   <img src="/images/tracing_table_view_intro.png" alt="the image shows the table view of all the applications that send data to Wavefront. It has helpers to show you what to do with each UI section. For example, how to filter applications or services, change the table settings or the legend settings, and how to change back to the application map view or the grid view"/>
 
-* [**Grid view**](tracing_ui_overview.html#grid-view) lists the application and services in a grid. You can see the RED metrics for each of the application’s services.
+* [**Grid view**](tracing_ui_overview.html#grid-view-features) lists the application and services in a grid. You can see the RED metrics for each of the application’s services.
   <img src="/images/tracing_grid_view_overview.png" alt="grid view of the services grouped by the application"/>
 
 ### Examine Application RED Metrics Using Service Dashboard
@@ -118,4 +118,4 @@ The Apdex score helps you compare the response time of a service based on the re
 ## Next Steps
 
 - Familiarize yourself with the tracing concepts. See [Tracing Concepts in Wavefront](trace_data_details.html) for details.
-- A large-scale web application can produce a high volume of traces. Many traces might be reported every minute, and each trace might consist of many spans, each with many tags.  We limit the volume of trace data by performing [intelligent sampling](trace_data_sampling.html#wavefront-intelligent-sampling).
+- A large-scale web application can produce a high volume of traces. Many traces might be reported every minute, and each trace might consist of many spans, each with many tags.  We limit the volume of trace data by performing [intelligent sampling](trace_data_sampling.html#intelligent-sampling).

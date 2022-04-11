@@ -71,7 +71,7 @@ If an alert is in the FIRING state, it cannot be in the CHECKING state at the sa
 You can set up an alert that triggers if the alert is in a NO DATA state for a specified amount of time. If you do, select **Alert Has No Data** in the corresponding [Alert Target](webhooks_alert_notification.html#create-a-custom-alert-target). For those alert targets, select **Alert Has No Data Resolved** if you want to send a notification when the alert exits the NO DATA state.</td></tr>
 <tr>
 <td><strong>IN MAINTENANCE</strong></td>
-<td>The alert is associated with a <a href="maintenance_windows_managing.html#using-maintenance-windows">maintenance window</a>.
+<td>The alert is associated with a <a href="maintenance_windows_managing.html">maintenance window</a>.
 <ul>
 <li>If an alert has a subset of reporting sources associated with in an ongoing maintenance window, then the state displays as CHECKING/IN MAINTENANCE.</li>
 <li>If an alert has a subset of reporting sources associated with an ongoing maintenance window but other sources are firing, the state displays as FIRING/IN MAINTENANCE.</li></ul></td>
@@ -159,7 +159,7 @@ Suppose the **Trigger Window** property is set to 5 minutes, and the alert check
 
 ## When Do Alerts Fire?
 
-An alert fires when its [condition](#alert-conditions) evaluates to at least one true value and zero false values present within the given **Trigger Window** time window.
+An alert fires when its condition evaluates to at least one true value and zero false values present within the given **Trigger Window** time window.
 
 ### Alert Firing: Example
 
@@ -202,7 +202,7 @@ By default, the **Resolve Window** is the same length as the **Trigger Window**.
 
 Suppose you define an alert with the following properties:
 * The alert condition is `ts(metric.name) > 0`, where `metric.name` reports once a minute. (The summarization values are therefore the same as the reported values.)
-* The [Checking Frequency interval](#when-alerts-are-checked) = 1 minute (the default).
+* The **Checking Frequency** interval is 1 minute (the default).
 * **Trigger Window** = 5 minutes.
 * **Resolve Window** = 10 minutes.
 

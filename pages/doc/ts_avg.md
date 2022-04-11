@@ -141,6 +141,6 @@ In the following example, the blue line shows the result of applying `avg()` to 
 Using [`rawavg()`](ts_rawavg.html) instead of `avg()` can significantly improve query performance because `rawavg()` does not perform interpolation.
 
 ## See Also
-* [Mean and Median](query_language_statistical_functions_anomalies.html#mean-and-median)
+* [Detect Anomalies with Mean and Median](query_language_statistical_functions_anomalies.html#detect-anomalies-with-mean-and-median)
 * [Bucketing with align()](query_language_align_function.html)
 * [rawavg()](ts_rawavg.html)
