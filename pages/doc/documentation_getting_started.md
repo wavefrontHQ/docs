@@ -21,15 +21,15 @@ Learn Wavefront with in-product or external resources:
 <tr>
 <td width="40%">The <strong>Getting Started onboarding flow</strong> helps you get data into Wavefront, build a dashboard, and create an alert.
 <ul><li>All trial users go through a Getting Started flow. </li>
-<li>All other users can click <strong>Getting Started</strong> in the taskbar to start.</li></ul>
-You can use the customer-wide or user-level preferences to control whether <strong>Getting Started</strong> is visible in the taskbar.
+<li>All other users can click <strong>Getting Started</strong> on the toolbar to start.</li></ul>
+You can use the customer-wide or user-level preferences to control whether <strong>Getting Started</strong> is visible on the toolbar.
 </td>
 <td width="60%"><img src="/images/get_started.png" alt="screenshot of Getting Started second screen"></td>
 </tr>
 <tr>
 <td>
 The <strong>Tutorial integration</strong> allows you to experiment with charts and alerts to learn (clone the integration to save your results).
-<ol><li>In the taskbar, click <strong>Integrations</strong>. </li>
+<ol><li>Click <strong>Integrations</strong> on the toolbar. </li>
 <li>Click <strong>Wavefront Tutorial</strong> and click the <strong>Dashboards</strong> tab.</li>
 <li>Click a dashboard and follow the instructions on the left to explore the charts (with sample data) on the right.</li> </ol>
 </td>
@@ -40,7 +40,7 @@ The <strong>Tutorial integration</strong> allows you to experiment with charts a
 The <strong>Tour Pro integration</strong> is a deep dive into Wavefront functionality.
 <br/><br/>
 You can explore Tour dashboards and charts, which use sample data to highlight functionality like Anomaly Detection or fine-tuning alerts. The tour also includes single-host and cluster metrics exploration dashboards.
-<ol><li>In the taskbar, click <strong>Integrations</strong>. </li>
+<ol><li>Click <strong>Integrations</strong> on the toolbar. </li>
 <li>Search for and click <strong>Tour Pro</strong> and click the <strong>Dashboards</strong> tab.</li>
 <li>Click any of the dashboards to explore - they can be used independently.</li></ol></td>
 <td width="50%"><img src="/images/tour_example.png" alt="screenshot of cluster metrics exploration dashboard"></td>
@@ -62,7 +62,7 @@ Our docs include reference documentation for API, query language, and chart opti
 <tbody>
 <tr>
 <td width="60%"><strong>REST API</strong> reference documentation is available:
-<ul><li>From the gear icon in the top right on the taskbar inside the product (see screenshot). This option shows you the current version on your cluster.</li>
+<ul><li>From the gear icon in the top right of the toolbar inside the product (see screenshot). This option shows you the current version on your cluster.</li>
 <li>From the <a href="https://code.vmware.com/apis/714/wavefront-rest">VMware Code website</a>. This option shows the most recent version.</li>
 </ul>
 </td>

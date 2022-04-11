@@ -17,7 +17,7 @@ Tanzu Observability by Wavefront provides many different types of charts for exa
 
 ## Create a Chart
 
-You can create a chart from a dashboard or from the taskbar.
+You can create a chart from a dashboard or from the toolbar.
 
 ### Create a Chart from a Dashboard
 
@@ -25,7 +25,7 @@ You can create a chart from a dashboard or from the taskbar.
 <tbody>
 <tr>
 <td width="40%">
-<ol><li>Edit a dashboard or select <strong>Dashboards > Create Dashboard</strong> from the taskbar to create a new one. </li>
+<ol><li>Edit a dashboard or select <strong>Dashboards > Create Dashboard</strong> from the toolbar to create a new one. </li>
 <li>Drag the metrics or chart type widget to the canvas.</li>
 <li>Select metrics, filters, and functions and click <strong>Save</strong> in the top right. </li>
 </ol></td>
@@ -35,7 +35,7 @@ You can create a chart from a dashboard or from the taskbar.
 </table>
 
 
-### Create a Chart from the Taskbar
+### Create a Chart from the Toolbar
 
 
 1. Select **Dashboards > Create Chart**.
@@ -321,7 +321,7 @@ If the **Sampling** preference is **On**:
 
 ![sampling query during chart create](images/sampling_during_chart_create.png)
 
-To temporarily change the sampling behavior for a chart, use the **Sampling** menu in the top right. You cannot save this change (or other changes in this taskbar).
+To temporarily change the sampling behavior for a chart, use the **Sampling** menu in the top right. You cannot save this change (or other changes made through the options this toolbar).
 
 ![sampling toggle during chart edit](images/sampling_toggle.png)
 
