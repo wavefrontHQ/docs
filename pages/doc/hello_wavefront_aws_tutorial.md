@@ -38,8 +38,7 @@ Follow these steps:
 1. Click **Integrations** on the toolbar
 1. Under Featured, click **Amazon Web Services**.
     <!--![Highlight the AWS integration on the Wavefront Integrations page.](images/hello_tutorial_aws_integration_tile.png)-->
-1. Click the **Setup** tab and click **Add Integration**.
-    ![Highlights the Add Integration button on the AWS integration's Setup tab.](images/hello_tutorial_aws_add_integration.png)
+1. Click the **Set up integration** button.
 1. Click the **CloudWatch & Metrics+** tile and click **Next**.
 1. Click the **How to get Role ARN** link and click the **AWS UI Method** tab.
 
@@ -113,7 +112,7 @@ Once the instance is launched, you start to see the data flowing in a few minute
 Once the data starts flowing, you can see metrics and visualize data on dashboards:
 
 <p><span style="font-size: large; font-weight: 500">View Metrics</span></p>
-1. In your Wavefront instance, go to the AWS integration.
+1. In your Wavefront instance, go to your AWS integration.
 1. Click the **Metrics** tab.
 
 You see charts with the metrics collected from your AWS account.

@@ -228,7 +228,7 @@ To set up an AWS integration, you must have a [Role ARN](#give-read-only-access-
 
 1. Log in to your Wavefront instance and click **Integrations** on the toolbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
-1. Click the **Setup** tab and click **Add Integration**.   
+1. Click the **Set up integration** button.   
 1. Select the AWS services to register and click **Next**.
    * **CloudWatch and Metrics+**
    * **CloudWatch, Metrics+, and CloudTrail**
@@ -263,7 +263,7 @@ To set up an AWS integration, you must have a [Role ARN](#give-read-only-access-
      
 1. Click **Register**. 
 
-The integration is added to the Amazon Web Services Integrations list. If you want to configure allow lists and service refresh rate for the CloudWatch integration, click the **CloudWatch** link in the Types column and follow the instructions in [Configuring CloudWatch Data Ingestion](integrations_aws_metrics.html#configuring-cloudwatch-data-ingestion).
+The integration is added to the Amazon Web Services Integrations list. If you want to configure allow lists and service refresh rate for the CloudWatch integration, follow the instructions in [Configuring CloudWatch Data Ingestion](integrations_aws_metrics.html#configuring-cloudwatch-data-ingestion).
 
 
 ### Register Additional Amazon Web Services
@@ -272,18 +272,16 @@ After you set up the AWS integration with a [Role ARN](#give-read-only-access-to
 
 1. In your Wavefront instance, click **Integrations** on the toolbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
-1. Click the **Setup** tab.
-1. Click the **Advanced** link.
-1. In the Cloud Integration page, click **Add Amazon Web Services** and select an option:
-   * To register an AWS Metrics+ service, select **Register AWS Metrics+**, and configure the following integration properties:
+1. On the **Overview** tab, click the ellipsis icon next to an instance, click **Add** and select an option.
+   * To register an AWS Metrics+ service, select **AWS Metrics+**, and configure the following integration properties:
       
       1. **Name** -- Name to identify the integration.
-      2. **Role ARN** -- Select the Role ARN from your Amazon account.
+      2. **Role ARN** -- Select the Role ARN from your Amazon account from the drop-down menu.
    
-   * To register a CloudTrail service, select **Register CloudTrail**, and configure the following integration properties:
+   * To register a CloudTrail service, select **CloudTrail**, and configure the following integration properties:
       
       1. **Name** - Name to identify the integration.
-      2. **Role ARN** -- Select the Role ARN from your Amazon account.
+      2. **Role ARN** -- Select the Role ARN from your Amazon account from the drop-down menu.
       3. **Bucket Name** -- The S3 bucket that contains CloudTrail logs. 
          
          In AWS, go to **CloudTrail** &gt;**Trails** to see the bucket name.
@@ -297,7 +295,7 @@ After you set up the AWS integration with a [Role ARN](#give-read-only-access-to
    * To register a CloudWatch service, select **Register CloudWatch**, and configure the following integration properties:
    
       1. **Name** -- Name to identify the integration.
-      2. **Role ARN** -- Select the Role ARN from your Amazon account.
+      2. **Role ARN** -- Select the Role ARN from your Amazon account from the drop-down menu.
       3. Allow Lists and Service Refresh Rate -- see [Configuring CloudWatch Data Ingestion](integrations_aws_metrics.html#configuring-cloudwatch-data-ingestion).
      
 1.  Click **Register**. The selected integrations are created and added to the Cloud Integrations list.
@@ -308,23 +306,28 @@ Tanzu Observability automatically disables integrations that are experiencing er
 
 1. In your Wavefront instance, click **Integrations** on the toolbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
-1. Click the **Setup** tab.
-1. Click the **Advanced** link.
-1. In the row that contains the integration that you want to enable or disable, click the ellipsis icon, and select **Enable** or **Disable**.
+1. On the **Overview** tab search for the instance that you want to enable or disable.
+1. In the row that contains the integration that you want to enable or disable, click the ellipsis icon, and select an option.
+   * **Enable** > **[Service Name]** 
+   * **Disable** > **[Service Name]**
+   
+   You should select to enable and disable a CloudWatch, Metrics+, or CloudTrail service.
 
 
 ### Delete AWS Integrations
 
-You can delete an AWS integration if you no longer need it:
+You can delete an AWS integration if you no longer need it. New metrics will no longer be fetched from the AWS integration that you deleted. However, existing metrics are not affected.
 
 1. In your Wavefront instance, click **Integrations** on the toolbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
-1. Click the **Setup** tab.
-1. Click the **Advanced** link.
-1. In the row that contains the integration that you want to delete, click the ellipsis icon, and select **Delete**.
+1. On the **Overview** tab search for and select the instance that you want to delete.
+1. Click the **Delete** button.
+
+In addition, you can also delete a single service within an integration instance.
+
+1. In the row that contains the integration service that you want to delete, click the ellipsis icon, and select **Delete** > **[Service Name]**.
 1. Confirm the deletion.
 
-New metrics will no longer be fetched from the AWS integration that you deleted. However, existing metrics are not affected.
 
 ## Viewing AWS Metrics
 
