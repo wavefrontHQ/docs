@@ -6,7 +6,7 @@ permalink: wavefront_usage_info.html
 summary: Monitor usage information for your Wavefront instance.
 ---
 
-Tanzu Observability by Wavefront includes tools and dashboards for examining usage. This page helps administrators learn how much data is coming in, who is sending the data, and how to get alerted if ingested data get close to monthly contracted usage.
+Tanzu Observability by Wavefront includes tools and dashboards for examining usage. This page helps administrators learn how much data is coming in, who is sending the data, how to get alerted if ingested data get close to monthly contracted usage, and how to optimize your ingestion rate.
 
 ## Why Is Usage Information Important?
 
@@ -146,9 +146,9 @@ The easiest way to [optimize your ingestion rate](#how-can-i-optimize-my-ingesti
   
 * The **Wavefront Namespace Usage Explorer** dashboard, which is part of the [Wavefront Usage integration](system.html), gives details on a per-namespace basis.
   
-### Step 2: See Which Metrics Are Not Used
+### Step 2: See Which Metrics Are Not Used or Check the Usage of the Metrics You Are Interested In
 
-* Use the [Wavefront Top](wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy) tool to examine which ingested metrics are accessed during the last lookback period. The default lookback period is 7 days but you can configure it in Wavefront Top. The *PPS* column shows the ingested rates, and the *%Acc.* column shows the percentages of the ingested rates that are accessed by queries.
+* Use the [Wavefront Top](wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy) tool to examine which ingested metrics are accessed during the last lookback period. The default lookback period is 7 days but you can configure it up to 60 days. The *PPS* column shows the ingested rates, and the *%Acc.* column shows the percentages of the ingested rates that are accessed by queries.
 
     Start with the namespaces that have high ingestion rates but low access rates. Drill down the namespaces to found out the metrics with access rates of *0%*.
     
@@ -190,8 +190,10 @@ This simple analysis often reveals metric namespaces that you may not have reali
 * Another area to explore for adjusting reporting intervals is *constant values*. Values that do not change often are great candidates for increasing reporting intervals.
     
     You can use [Wavefront Top](wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy) to uncover constant values. The *Range* column shows the range of the reported values (the maximum value minus the minimum value) for each namespace.
-        - If the range is *0*, then this data set is most likely reporting constant values.
-        - If the range does not change, it is also possible that only a few fixed values are reported and the data set can also be a candidate for increased reporting intervals.
+    
+    - If the range is *0*, then this data set is most likely reporting constant values.
+        
+    - If the range does not change, it is also possible that only a few fixed values are reported and the data set can also be a candidate for increased reporting intervals.
       
 ### Examine Unused Data
 
@@ -209,6 +211,4 @@ Suppose we are ingesting 10 statistics for a specific series of data: `min`, `ma
 
 Our Customer Success Team has put together KB articles that drill down into adoption info.
 * [How to Track Adoption in Your Company with Usage Metadata](https://help.wavefront.com/hc/en-us/articles/360058526192-How-to-Track-Tanzu-Observability-Adoption-with-Usage-Metadata).
-* [How to Identify Unused Data](https://help.wavefront.com/hc/en-us/articles/360058084372-How-to-Identify-Unused-Data).
-* [How to Optimize Your Ingestion Rate PPS](https://help.wavefront.com/hc/en-us/articles/360057995092-How-to-Optimize-Your-Ingestion-Rate-PPS-).
 * [How to Request a PPS Add-On to Current Committed Rate](https://help.wavefront.com/hc/en-us/articles/4402939921044-How-to-request-a-PPS-add-on-to-current-committed-rate).
