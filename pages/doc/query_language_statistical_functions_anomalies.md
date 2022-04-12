@@ -11,7 +11,6 @@ Anomalies can indicate that something's about to go wrong in your environment. I
 <p><a href="https://youtu.be/I-Z9d94Zi7Y"><img src="/images/v_anomaly.png" style="width: 700px;"/></a>
 </p>
 
-
 ## Functions for Anomaly Detection
 
 You can use simple functions, prediction-based functions, or statistical functions to examine trends that might indicate an anomaly.
