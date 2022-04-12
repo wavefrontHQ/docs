@@ -29,8 +29,8 @@ Wavefront service in a secure, fast, and reliable manner
 
 Here's the data pipeline:
 1. The Healthwatch Exporter VMs stream metrics from the Tanzu Application Service Firehose. The tile creates a VM for each Healthwatch exporter a VM for Telegraf and a VM for the Wavefront Proxy.
-2. Telegraf scrapes the VMs at a predefined interval, and converts them to [Wavefront data format](wavefront_data_format.html).RK>>TRUE?? It's not proxy preprocessor rule(s)
-3. The metrics are then sent to the Wavefront Proxy.  RK>>Telegraf sends them?
+2. Telegraf scrapes the VMs at a predefined interval, and converts them to [Wavefront data format](wavefront_data_format.html). Telegraf uses a built-in plugin. It uses the Wavefront golang SDK to convert the data.
+3. Next, Telegraf sends the data to the Wavefront proxy.
 4. The proxy send the metrics to the Wavefront service.
 
 ![TAS Firehose to Exporters like pas-sli-exporter, to Telegraf agent, to Wavefront proxy, to Wavefront service](images/tas-to.png)
@@ -48,16 +48,12 @@ To set up this data pipeline, you need to meet requirements on the Ops Manager s
   VMware Tanzu Observability by Wavefront nozzle has the following requirements:
   *	Read-only access to the Doppler Firehose and Cloud Controller.
   * Access to a Wavefront instance and an API token. [Service Account API token](wavefront_api.html#generating-an-api-token) is recommended.
-  * A VMware Tanzu Quota with at least 8GB of available memory.
-  RK>> ??This came from the old nozzle doc, does it still apply??
 * **Tanzu Observability by Wavefront Requirements**
   To set up the Tanzu Application Service integration on you Wavefront instance, you must have:
   * Access to a Wavefront instance with a URL like https://<example>.wavefront.com.
   * At a minimum, **Integrations** permission on that Wavefront instance.
 
 This version of the Tanzu Observability by Wavefront nozzle is compatible with Wavefront proxy version 10. and later.
-
-???VMware Tanzu Observability by Wavefront Service Broker v0.9.5
 
 For earlier versions of this nozzle, see the **Product Snapshot** [this documentation](https://docs.pivotal.io/wavefront-nozzle/3-x/index.html).
 
@@ -108,8 +104,8 @@ To start configuration click the Tanzu Observability by Wavefront tile. With **S
   <li>preprocessorConfigFile</li></ul>
    </li>
    <li>(Optional) Click <strong>Custom</strong> to specify <a href="proxies_configuring.html">proxy configuration</a>, <a href="proxy preprocessor rules">proxies_preprocessor_rules.html</a></li>
-   <ul><li>In the <strong>Config</strong> field, specify one or more configuration properties and values, for example <code>pushRateLimit=10000</code>. RK>> Separated by commas? Spaces? </li>
-   <li>In the <strong>Preprocessor Rules</strong> field, specify one or more peprocessor rules, for example <code>
+   <ul><li>In the <strong>Config</strong> field, specify one or more configuration properties and values, separated by newline characters. For example <code>pushRateLimit=10000</code>.  </li>
+   <li>In the <strong>Preprocessor Rules</strong> field, specify one or more peprocessor rules, separated by newline characters. For example: <code>
 '2878':
   - rule    : example-replace-badchars
     action  : replaceRegex
@@ -145,24 +141,19 @@ To start configuration click the Tanzu Observability by Wavefront tile. With **S
    <ol>
    <li>Select <strong>Skip TLS Verification When Querying</strong> if you want to turn off TLS verification, for example, during testing or a POC. </li>
    <li>Select a <strong>BOSH Health Check Availability Zone</strong> if you don't want to use the default zone. </li>
-   <li>Customize the <strong>BOSH Health Check Payload VM Type</strong> to change the default. RK>>LET'S ADD SOME VALUE HERE. </li>
+   <li>Optionally select the <strong>BOSH Health Check Payload VM Type</strong> and change the default. In almost all cases users don't change this field. </li>
    <li>Click <strong>Save</strong></li>
    </ol>
    </td>
    <td width="50%"><img src="/images/tas_to_4.png" alt="Metric Exporter screenshot, with values as discussed in text above."></td>
    </tr>
    <tr>
-   <td width="50%"><strong>(Optional) Step 5.</strong> Click <strong>Errands</strong> and specify: RK>>what might I see here and what would I specify?? When would I change the 2 options
-   <ol>
-   <li><strong>Cleanup</strong>  </li>
-   <li><strong>Remove CF SLI User </strong></li>
-   <li>Click <strong>Save</strong></li>
-   </ol>
+   <td width="50%"><strong>(Optional) Step 5.</strong> Most users don't make channges to <strong>Errands</strong>.
    </td>
    <td width="50%"><img src="/images/tas_to_5.png" alt="Errands is selected, and defaults are show. "></td>
    </tr>
    <tr>
-   <td width="50%"><strong>(Optional) Step 6. </strong> Click <strong>Resource Config</strong> to review the preconfigured configuration. RK>>when would I change anything here??
+   <td width="50%"><strong>(Optional) Step 6. Click <strong>Resource Config</strong> to review the VM sizing for the deployment. You can choose smaller than default VMs to save money on small and noncritical foundations, and very large VMs with lots of CPU and MEM to scale for large foundations with high volumes of metrics.</strong>
    <br/>
    <strong>Note: SM Forwarder</strong> is set to <strong>Automatic:0</strong>. Do not change this setting.
    </td>
