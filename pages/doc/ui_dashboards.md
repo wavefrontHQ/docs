@@ -44,7 +44,7 @@ It's easy to create a dashboard from metrics data or by selecting a chart.
 <tr>
 <td width="50%">
 <strong>To create a dashboard</strong>:
-<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the taskbar. </li>
+<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the toolbar. </li>
 <li>Drag the <strong>Data</strong> or <strong>New Chart</strong> widget to the canvas</li>
 <li>Select metrics, filters, and functions now or later. </li>
 <li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard.
@@ -66,7 +66,7 @@ With release 2019.46, you can create a dashboard by specifying an integration da
 <tr>
 <td width="50%">
 <strong>To create a dashboard</strong>:
-<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the taskbar. </li>
+<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the toolbar. </li>
 <li>Drag the <strong> Integration Templates</strong> widget to the canvas. </li>
 <li>Select first the source integration, then the dashboard you want as a template, and then one or more charts from that dashboard.</li>
 <li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard.
@@ -91,7 +91,7 @@ The Wavefront service dashboard includes a set of charts to monitor the trace da
 <tr>
 <td width="50%">
 <strong>To create a dashboard</strong>:
-<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the taskbar. </li>
+<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the toolbar. </li>
 <li>Drag the <strong>Tracing Templates</strong> widget to the canvas. </li>
 <li>Select the charts to import and click <strong>Import Charts</strong>.</li>
 <li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard.
@@ -510,9 +510,40 @@ When a dashboard has a lot of variables with interdependencies, it might make se
 </tbody>
 </table>
 
+### Identify Unused Dashboards
+
+Over time, as more and more dashboards are created, there will be dashboards that are no longer in use. To keep your environment clean and to ensure that useful dashboards can be easily found, it's a good practice to [delete](#delete-and-recover-a-deleted-dashboard) unused dashboards on a regular basis. To do that, you must first identify which dashboards are no longer being used or viewed.
+
+* Use the Dashboard Browser to sort the dashboards in ascending order by the number of views over the last day, week, or month. This puts the fewest viewed dashboards at the top of the list.
+![Dashboard browser with Sort menu](images/dashboards_unused.png)
+
+* Use the Wavefront API and UI to check for dashboards that have not been viewed over a time window of your choice, including more than 4 weeks (a month).
+    1. Get the IDs of all dashboards.
+        1. From the gear icon on the toolbar, select **API Documentation**.
+        2. Expand the **Dashboard** category, click the `GET api/v2/dashboard` request, and click **Try it out** in the top right of the request.
+        
+            {% include note.html content="You may need to iterate through all the available dashboards by using the `offset` parameter in the API request."%}
+        3. Click **Execute**.
+        
+            The `id` value for each entry in the response is the dashboard ID.
+    
+    2. In the UI, find all dashboards that have been viewed over the time window of interest.
+        
+        The internal metric ``~wavefront.dashboard.<dashboard_id>.views`` tracks the views of each dashboard.
+    
+        Create a table chart with the query of the type:
+        
+        ``aliasMetric(mmax(12w, ts(~wavefront.dashboard.*.views)), 2)``
+        
+        You will get the IDs of the dashboards that have been viewed over the last 12 weeks.
+        
+    3. Find all unviewed dashboards.
+    
+        Now that you have the IDs of all dashboards and the IDs of all dashboards that have been viewed, you can take the difference and get all of the IDs of the unviewed dashboards.
+
 ## Delete and Recover a Deleted Dashboard
 
-You can delete a single or multiple dashboards that you no longer need. After you delete a dashboard, it is moved to the trash for 30 days before it gets permanently deleted. If a dashboard has been permanently deleted, users will no longer be able to restore it without the assistance of a Super Admin. See [Recover a Permanently Deleted Dashboard](access.html#recover-a-permanently-deleted-dashboard) for details.
+You can delete a single or multiple dashboards that you [no longer use](#identify-unused-dashboards). After you delete a dashboard, it is moved to the trash for 30 days before it gets permanently deleted. If a dashboard has been permanently deleted, users will no longer be able to restore it without the assistance of a Super Admin. See [Recover a Permanently Deleted Dashboard](access.html#recover-a-permanently-deleted-dashboard) for details.
 
 **To delete a dashboard:**
 
@@ -536,6 +567,5 @@ You can delete a single or multiple dashboards that you no longer need. After yo
 ## Troubleshoot and Learn More!
 
 The Customer Success team prepared these KB articles to troubleshoot problems with dashboards.
-* [How to Identify Unused Dashboards](https://help.wavefront.com/hc/en-us/articles/360060967432-How-to-Identify-Unused-Dashboards)
 * [How to Audit Dashboard Changes](https://help.wavefront.com/hc/en-us/articles/360055676911-How-to-Audit-Dashboard-and-Alert-Changes)
 * [Migrating Objects or Data Between Environments](https://help.wavefront.com/hc/en-us/articles/360053164791-Migrating-Objects-or-Data-Between-Tanzu-Observability-Environments)
