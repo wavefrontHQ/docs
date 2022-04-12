@@ -21,7 +21,7 @@ See the Traces Browser:
 
 * Option 1:
   1. In your web browser, go to your Wavefront instance and log in.
-  1. From the taskbar, click **Applications** > **Traces**.
+  1. From the toolbar, select **Applications** > **Traces**.
 
 * Option 2:
   1. In your web browser, go to your Wavefront instance and log in.

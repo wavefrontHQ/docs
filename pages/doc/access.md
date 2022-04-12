@@ -77,7 +77,7 @@ Initially, all users can *view* all dashboards and alerts. In addition, global p
 
 As a user with the **Accounts** permissions or a Super Admin user, you can restrict access for new dashboards and alerts:
 
-1. Click the gear icon <i class="fa fa-cog"/> on the taskbar, and select **Organization Settings**.
+1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Organization Settings**.
 2. Click the **Security** tab and select **Grant Modify Access To: Object Creator**
 
 After the change, access to new dashboards and new alerts is initially limited to the dashboard creator and the Super Admin users. Those users can share the objects with other groups or individual users by giving View access or View & Modify access.
@@ -86,7 +86,7 @@ After the change, access to new dashboards and new alerts is initially limited t
 
 By default, service accounts don't have browse permissions. However, you can also grant access for new dashboards and alerts to service accounts:
 
-1. Click the gear icon <i class="fa fa-cog"/> on the taskbar, and select **Organization Settings**.
+1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Organization Settings**.
 2. Click the **Security** tab, select **Grant Modify Access To:  Everyone** and **Service Accounts**.
 
 
@@ -110,7 +110,7 @@ An orphan dashboard results if:
 
 To restore an orphan dashboard or alert:
 1. Log in as a Super Admin user. 
-2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Super Admin**.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Super Admin**.
 2. Select the orphaned dashboard or alert and share it with other users or groups.
 
   ![orphan dashboards](/images/orphan_dashboards.png)
@@ -120,7 +120,7 @@ To restore an orphan dashboard or alert:
 A permanently deleted dashboard does not show in the trash and becomes inaccessible to all users, including the Super Admin. As a Super Admin, you can attempt to restore the dashboard by using the Wavefront API.
 
 1. Log in as a Super Admin user. 
-2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **API Documentation**.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **API Documentation**.
 3. Expand the **Dashboard** category, click the `GET api/v2/dashboard/{id}/history/{version}` request and click **Try it out** in the top right of the request.
 4. Enter the dashboard name as the `"id"` parameter. 
    For example, if the dashboard URL is `https://<your_instance>.wavefront.com/dashboards/MY-DASHBOARD`, then the `"id"` that you should enter is **MY-DASHBOARD**.

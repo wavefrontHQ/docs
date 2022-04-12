@@ -122,7 +122,7 @@ The Alerts Browser allows you to
 On any page in the GUI, a colored dot next to <strong>Alerting</strong> indicates that there are firing alerts. The color shows the alert severity.
 <ol>
 <li>Hover over <strong>Alerting</strong> on the toolbar to see how many alerts are currently firing.</li>
-<li>Click <strong>Alerting &gt; All Alerts</strong> from the toolbar to go to the Alerts Browser. </li>
+<li>To go to the Alerts Browser, from the toolbar, select <strong>Alerting &gt; All Alerts</strong>. </li>
 </ol>
 </td>
 <td width="50%"><img src="/images/alerting_all_alerts.png" alt="Alerting All Alerts selected."></td>
@@ -256,7 +256,7 @@ When you have many and complex tag paths, you can search them by parent. For exa
 
 To make copies of an existing alert, then change the copy, you can clone an alert.
 
-1. Click **Alerting > All Alerts** in the taskbar to display the Alerts Browser.
+1. To display the Alerts Browser, from the toolbar, select **Alerting > All Alerts**.
 2. Click the ellipsis icon next to the alert.
 3. Select **Clone**, make changes when prompted, and click **Save**.
 

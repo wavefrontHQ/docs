@@ -39,7 +39,7 @@ Here's a screenshot that shows the different tabs of the Apache Solr integration
 
 Tanzu Observability lets you set up many integrations directly from the product. For other integrations, we give step-by-step instructions -- or you can send your data in other ways, for example, using the Telegraf output plug-in.
 
-- **Built-in integrations** provide assisted installation and configuration. Many integrations also install a dashboard for you. Access the integration by selecting **Integrations** from the taskbar and clicking the **Setup** tab.
+- **Built-in integrations** provide assisted installation and configuration. Many integrations also install a dashboard for you. Access the integration by clicking **Integrations** on the toolbar and clicking the **Setup** tab.
 
 - **Customizable built-in integrations** provide a built-in integration for the initial connection, with additional customization information in this documentation.
 
@@ -83,7 +83,7 @@ Before setting up an integration, you can look into our demo dashboards. These d
 
  {% include note.html content="The Sample Data Dashboards are currently available to some of our customers. They will become available to all customers within the next releases."%}
 
-1. Click **Integrations** on the taskbar.
+1. Click **Integrations** on the toolbar.
 
    ![Sample data dashboards section preview](images/integrations-sample-dashboards.png)
 1. In the **Get to know integration dashboards!** section, click the **Explore** button for a sample integration dashboard.
@@ -131,7 +131,7 @@ To [edit the targets of the integration alerts](webhooks_alert_notification.html
 
 To make further customizations, clone the alert first.
 
-1. Click **Alerting > All Alerts** from the toolbar.
+1. Select **Alerting > All Alerts** from the toolbar.
 2. Click the ellipsis icon next to the alert that you want to clone, and select **Clone**.
 3. Enter a name of the new alert and click **Clone**.
 
