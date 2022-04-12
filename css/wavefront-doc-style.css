@@ -1721,6 +1721,11 @@ div.sidebarTitle {
     background-color: transparent;
 }
 
+.nav li a.wf-suggestion-link p {
+    color: #52606d;
+    font-weight: 600;
+}
+
 .wf-docs-no-results {
     margin: 20px 20px;
     font-weight: 600;
