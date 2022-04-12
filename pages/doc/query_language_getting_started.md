@@ -304,7 +304,7 @@ Charts for metrics also support the following types of queries:
 Our documentation includes tutorials, reference, and guides on the query language. In addition, your Wavefront instance includes an **Interactice Query Language Explorer** dashboard.
 
 - **[Chart builder](chart_builder.html)** can help you come up to speed quickly while using the product.
-- If you're logged in to your Wavefront instance, select **Integrations** in the taskbar and find the **Tutorial** or the **Tour Pro** integration. The Tutorial includes an **Interactive Query Language Explorer** dashboars that shows examples for most functions.
+- If you're logged in to your Wavefront instance, click **Integrations** on the toolbar and find the **Tutorial** or the **Tour Pro** integration. The Tutorial includes an **Interactive Query Language Explorer** dashboard that shows examples for most functions.
 - [Wavefront Query Language Reference](query_language_reference.html) lists each function and gives query language syntax element. Each function name is a link to a reference page for the function.
 - For in-depth discussions and examples, we have a **[reference page](label_query%20language.html)** for each function and some [Query Language Recipes](query_language_recipes.html).
 

@@ -44,7 +44,7 @@ It's easy to create a dashboard from metrics data or by selecting a chart.
 <tr>
 <td width="50%">
 <strong>To create a dashboard</strong>:
-<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the taskbar. </li>
+<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the toolbar. </li>
 <li>Drag the <strong>Data</strong> or <strong>New Chart</strong> widget to the canvas</li>
 <li>Select metrics, filters, and functions now or later. </li>
 <li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard.
@@ -66,7 +66,7 @@ With release 2019.46, you can create a dashboard by specifying an integration da
 <tr>
 <td width="50%">
 <strong>To create a dashboard</strong>:
-<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the taskbar. </li>
+<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the toolbar. </li>
 <li>Drag the <strong> Integration Templates</strong> widget to the canvas. </li>
 <li>Select first the source integration, then the dashboard you want as a template, and then one or more charts from that dashboard.</li>
 <li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard.
@@ -91,7 +91,7 @@ The Wavefront service dashboard includes a set of charts to monitor the trace da
 <tr>
 <td width="50%">
 <strong>To create a dashboard</strong>:
-<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the taskbar. </li>
+<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the toolbar. </li>
 <li>Drag the <strong>Tracing Templates</strong> widget to the canvas. </li>
 <li>Select the charts to import and click <strong>Import Charts</strong>.</li>
 <li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard.
