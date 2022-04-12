@@ -72,7 +72,7 @@ Follow these steps:
 	 * The **Name** text box should be set as `Authorization`.
 	 * The **Value** text box should contain the [BigPanda Bearer Token](bigpanda.html#step-1-create-a-bigpanda-appkey-and-bearer-token).
 
-	 Do not copy the content of the **Value** text box directly to a new target. Copying this value directly might add up spaces or characters and result in errors.
+	    Do not copy the content of the **Value** text box directly to a new target. Copying this value directly might add up spaces or characters and result in errors.
   
 9. Look for alert failure events.
    
