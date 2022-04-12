@@ -533,6 +533,10 @@ entries:
           - title: Send Data to CloudHealth
             url: /integrations_cloudhealth.html
             output: web
+            
+          - title: Troubleshoot BigPanda Webhook Targets
+            url: /integrations_bigpanda_troubleshooting.html
+            output: web            
 
       - title: collectd Integrations
         output: web
