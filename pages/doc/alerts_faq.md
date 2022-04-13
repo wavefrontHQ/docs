@@ -10,9 +10,9 @@ summary: Learn alert customization from Tanzu Observability by Wavefront experts
 Permissions and access control determine who can view, create, and modify an alert.
   * [Permissions](permissions_overview.html) apply to **all alerts**. Users with the **Alerts** permission can create and modify alerts. Users who don’t have the **Alerts** permissions can only view alerts.
   *	[Access control](access.html) applies to **individual alerts**. To view an alert that is under access control, you should be granted **View** or **View & Modify** access for this alert. To modify an alert that is under access control, you should be granted **View & Modify** access for this alert and you should have the **Alerts** permission.
-  
+
 ## What’s the Alert Condition?
-The alert condition is the currently selected query. In multi-query alerts, you can define several queries and use the results of these queries in the condition query, but only the currently selected query will be used as the condition. 
+The alert condition is the currently selected query. In multi-query alerts, you can define several queries and use the results of these queries in the condition query, but only the currently selected query will be used as the condition.
 
 ## How Often Does Tanzu Observability Evaluate the Alert Condition?
 The minimum and default **Checking Frequency** interval is 1 minute. You can adjust this property from the **Additional Settings** in the **Conditions** section of the alert.
@@ -33,11 +33,11 @@ Let’s look at an example over a single minute in the checking interval. Suppos
 
 * If `my.metric` reported the data value of `15` during the minute, Tanzu Observability evaluates the alert condition for this minute as `true` because the condition is *met*, i.e. the statement `15 > 8` is `true`.
 * If `my.metric` reported the data values of `15`, `6`, and `2` during the minute, Tanzu Observability evaluates the alert condition for this minute as `false` because the condition for the aggregated average value is *not met*, i.e. the statement `7.6 > 8` is `false`.
-  
+
 After the alert evaluation, Tanzu Observability has a list of `N` minutely values, one value for each minute in the checking interval. Each of the `N` values can be either `true`, `false`, or `no data`.
-  
+
 ## When Does an Alert Fire?
-If the alert condition returned *at least one* `true` value and *no* `false` minutely values during the alert trigger window, Tanzu Observability switches the alert state from CHECKING to FIRING. 
+If the alert condition returned *at least one* `true` value and *no* `false` minutely values during the alert trigger window, Tanzu Observability switches the alert state from CHECKING to FIRING.
 
 The default **Trigger Window** is 5 minutes. You can adjust this property from condition settings.
 
@@ -70,12 +70,35 @@ False positive alerts could be due to:
 
   In such cases, you can use one of the following approaches:
   * Consider the NO DATA state to be normal and take action only when the alert triggers to FIRING, which means the alert sees the presence of reported error data.
-  
+
     {% include note.html content="Tanzu Observability considers a metric *obsolete* after it hasn’t reported any values for 4 weeks, and obsolete metrics *are not* included in alert evaluations by default. To handle alerting on very infrequently reported errors series, on the **Advanced** tab of the **Data** settings of the alert, select the **Include Obsolete Metrics** check box." %}
   * Use the [default() missing data function](ts_default.html) to insert a default value depending on how you want to handle the situation where data isn’t being reported.
   * Use the counter metric rather than the gauge metric, if applicable, so that the metric is cumulative and does not become obsolete. For example, use the `bad.exception.count` metric rather than the `bad.exception` metric.
 
 * If your alert monitors *heartbeat* metrics, you should treat the NO DATA state as an *erroneous* state. Consider [configuring an alert to fire when a time series stops reporting](alerts_missing_data.html).
+
+## How Can I Audit Alert Changes?
+
+Users need to audit alert changes in several situations:
+* An alert was saved with incorrect changes and the previous configuration isn't known.
+* An alert was changed. An audit needs to determine when it was updated and by whom.
+* An alert was deleted. Audit needs to determine when it was deleted and by whom.
+
+Each time you save an alert, you create an alert version. Up to 100 versions are supported.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+<ol>
+<li>Find the alert in the Alerts Browser. </li>
+<li>Click the ellipsis icon and select <strong>Versions</strong>.</li>
+<li>Select a version.</li>
+</ol>
+</td>
+<td width="40%" markdown="span">![screenshot ellipsis menu to the left of alert in alerts browser](images/alert_versions.png) </td></tr>
+</tbody>
+</table>
 
 ## Troubleshooting
 For troubleshooting, see the KB article [Why did my alert fire or not fire?](https://help.wavefront.com/hc/en-us/articles/360049071471-Why-did-my-alert-fire-or-not-fire-).
