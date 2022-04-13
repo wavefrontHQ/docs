@@ -42,7 +42,7 @@ From the Dashboard Browser, you can find dashboards by using filters and tags. Y
 Many users work in environments with a lot of dashboards.
 
 **To find a dashboard**, you have these options:
-* From the taskbar, select **Dashboards > All Dashboards** and narrow down your search using the fields on the left.
+* From the toolbar, select **Dashboards > All Dashboards** and narrow down your search using the fields on the left.
 * Select **Dashboards > All Dashboards** and start typing the dashboard name in the Search field.
 * From within a dashboard, use the **Search for Dashboards** field in the upper right to find other dashboards. The search string matches dashboard name or URL.
 
@@ -121,7 +121,7 @@ All users can use global filters to customize their dashboard. When you set a gl
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%"><a href="ui_examine_data.html#filter-with-variables-or-filters"> Global filters</a> allow any user to:
+<td width="40%"><a href="dashboards_variables.html"> Global filters</a> allow any user to:
 <ul>
 <li>Specify a key-value pair as a filter for the dashboard. <br><br>All filters show up to the right of any dashboard variables</li> <li>Remove the filter by clicking <strong>X</strong> in the filter bubble. </li></ul></td>
 <td width="60%"><img src="/images/global_filters.png" alt="Global filter set and see"/></td></tr>
@@ -138,7 +138,7 @@ If a dashboard has preconfigured dashboard variables, you can use them to filter
 <td width="60%">
 To show or hide the Variables bar:
 <ol><li>
-Scroll up to right below the Taskbar.</li>
+Scroll up to right below the toolbar.</li>
 <li>Click the up or down double caret.</li></ol></td>
 <td width="40%">
 <img src="images/v2_hide_variables.png" align="center" valign="center" alt="hide or show variables"></td>
@@ -257,7 +257,7 @@ All users can select which events are displayed for all charts.
 <tbody>
 <tr>
 <td width="60%">
-The <strong>Show Events</strong> drop-down menu in the upper right of the taskbar allows you to <a href="charts_events_displaying.html">toggle event overlays</a> on the X-axis of charts.</td>
+The <strong>Show Events</strong> drop-down menu in the upper right of the toolbar allows you to <a href="charts_events_displaying.html">toggle event overlays</a> on the X-axis of charts.</td>
 <td width="40%">
 <img src="images/display_events_v2.png" align="center" valign="center" alt="Show Events menu"></td>
 </tr>
@@ -303,7 +303,7 @@ The <strong>Show Events</strong> drop-down menu in the upper right of the taskba
 ## Do More!
 
 In addition to examining time series data, drilling down on exactly the information you need, creating alerts, etc., you can also
-* View [histogram metrics in charts](proxies_histograms.html#viewing-histogram-metrics).
+* View [histogram metrics](proxies_histograms.html).
 * Examine traces, spans, and RED metric sent by your application.
   * See [Application Status](tracing_ui_overview.html).
   * See [Service Dashboard](tracing_service_dashboard.html).

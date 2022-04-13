@@ -26,7 +26,7 @@ The best practices on this page help you get optimal results from instrumenting 
 
    * If you have already instrumented your application with a 3rd party distributed tracing system such as Jaeger or Zipkin, set up an [**integration**](tracing_integrations.html).
 
-   * **Instrument** each service with the [Wavefront OpenTracing SDK](wavefront_sdks.html##sdks-for-collecting-trace-data) in the service's language.
+   * **Instrument** each service with the [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data) in the service's language.
 
    * Use **consistent instrumentation**, either Wavefront SDKs or a 3rd party tracing system for all services that participate in the same trace. Otherwise, spans cannot link to each other across service boundaries. You can intermix different Wavefront SDKs in different programming languages.
 
@@ -41,7 +41,7 @@ For reliable performance, use a Wavefront proxy to send trace data to the Wavefr
     {% include note.html content="Configure the proxy with the `histogramDistListener=` property. You might overlook this property if you are already using a proxy that is configured for metrics." %}
 
 2. Configure your application code to send data via the Wavefront proxy:
-* Set up a [Wavefront sender](tracing_instrumenting_frameworks.html#wavefront-sender) that can connect to the Wavefront proxy host.
+* Set up a [Wavefront sender](trace_data_details.html#wavefront-sender-object) that can connect to the Wavefront proxy host.
   - Configure the Wavefront sender with the same listener ports you set for the Wavefront proxy.
   - Instantiate a single Wavefront sender per process and share it among SDKs.
 
@@ -55,7 +55,7 @@ For reliable performance, use a Wavefront proxy to send trace data to the Wavefr
   WavefrontSender wavefrontSender = wavefrontClientFactory.getClient();
 ```
 
-{% include tip.html content="Complete setup steps are in the [README file for your Wavefront SDK on GitHub](tracing_instrumenting_frameworks.html#step-2-instrument-your-application)." %}
+{% include tip.html content="Complete setup steps are in the README file for your Wavefront SDK on GitHub." %}
 
 ### Best Practices for Jaeger and Zipkin
 
@@ -97,7 +97,7 @@ Think of your instrumented application as a hierarchic inventory of constructs. 
 </tbody>
 </table>
 
-The Wavefront service uses these names as span tag values, as filters for traces, as components in RED metric names, as [UI labels](tracing_instrumenting_frameworks.html#how-wavefront-uses-application-tags), and as qualifiers for operation names, for example, `beachshirts.delivery.dispatch`.
+The Wavefront service uses these names as span tag values, as filters for traces, as components in RED metric names, and as qualifiers for operation names, for example, `beachshirts.delivery.dispatch`.
 
 ### Guidelines for Choosing Application Construct Names
 
@@ -108,7 +108,7 @@ The Wavefront service uses these names as span tag values, as filters for traces
 
 ### Best Practices for Wavefront Observability SDKs
 
-* Set up an [Application tags object](tracing_instrumenting_frameworks.html#application-tags) in each service to define logical names for the application constructs.
+* Set up an [Application tags object](trace_data_details.html#application-tags) in each service to define logical names for the application constructs.
   - Specify the logical application and service names that apply to the service. Optionally include logical cluster and shard names, if you want to use the physical topology to filter your data.
   - Define a custom tag called `component` if you are using the Wavefront OpenTracing SDK. <br>
 
@@ -135,7 +135,7 @@ The Wavefront service uses these names as span tag values, as filters for traces
       build();
 ```
 
-{% include tip.html content="Complete setup steps are in the [README file for your Wavefront SDK on GitHub](tracing_instrumenting_frameworks.html#step-2-instrument-your-application). " %}
+{% include tip.html content="Complete setup steps are in the README file for your Wavefront SDK on GitHub. " %}
 
 
 ### Best Practices for 3rd Party Tracing Systems
@@ -162,7 +162,7 @@ You must choose unique names for the sources that send spans. The Wavefront serv
 
 ### Best Practices for Wavefront Observability SDKs
 
-* Set up a [WavefrontSpanReporter object](tracing_instrumenting_frameworks.html#wavefronttracer-and-wavefrontspanreporter) to define a source name:
+* Set up a [WavefrontSpanReporter object](trace_data_details.html#wavefronttracer-and-wavefrontspanreporter) to define a source name:
   - Specify the source name explicitly, or leave it unspecified to automatically use the host name. Make sure the host name is unique.
   - If your Wavefront SDK defines additional reporters, specify the same source name in each one. All reporter objects for a particular service must specify the same source.
 
@@ -177,7 +177,7 @@ You must choose unique names for the sources that send spans. The Wavefront serv
     build(wavefrontSender);
 ```
 
-{% include tip.html content="Complete setup steps are in the [README file for your Wavefront SDK on GitHub](tracing_instrumenting_frameworks.html#step-2-instrument-your-application)." %}
+{% include tip.html content="Complete setup steps are in the README file for your Wavefront SDK on GitHub." %}
 
 
 ## Span Names Best Practices
@@ -231,8 +231,6 @@ The goal of instrumentation is to instrument enough methods to produce traces th
   * Identify the classes and methods that implement significant operations within each service, and instrument those methods.
 
 ### Best Practices for Wavefront Observability SDKs
-
-* Automate as much as possible by using [Wavefront framework SDKs](wavefront_sdks.html#sdks-that-instrument-frameworks), if any exist for your languages and framework. Then use a [Wavefront OpenTracing SDK](wavefront_sdks.html##sdks-for-collecting-trace-data) to instrument operations that are not handled by a framework SDK.
 
 * Limit the number of spans in a trace to < 1000.
 
@@ -301,4 +299,4 @@ public class Tier2aEndpoint {
 
 ## Learn More!
 
-[Optimizing the Data Shape to Improve Performance](optimize_data_shape.html) has a focus on time series metrics but some of the guidance applies to trace data as well. 
+[Optimizing the Data Shape to Improve Performance](optimize_data_shape.html) has a focus on time series metrics but some of the guidance applies to trace data as well.

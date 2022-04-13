@@ -533,6 +533,10 @@ entries:
           - title: Send Data to CloudHealth
             url: /integrations_cloudhealth.html
             output: web
+            
+          - title: Troubleshoot BigPanda Webhook Targets
+            url: /integrations_bigpanda_troubleshooting.html
+            output: web            
 
       - title: collectd Integrations
         output: web
@@ -723,7 +727,7 @@ entries:
       url: /trace_data_query.html
       output: web
 
-    - title: Customize Spans and Alerts for RED Metrics
+    - title: Customize Spans Tags for RED Metrics
       url: /tracing_customize_spans_and_alerts.html
       output: web
 

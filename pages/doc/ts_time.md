@@ -32,4 +32,4 @@ The `time.seconds` metric in this example can be created for Macintosh and Linux
 ```
 * * * * * echo "time.seconds $(date +\%s) source=$(hostname)" | curl -H "Authorization: Bearer <TOKEN>" --data @- https://mydomain.wavefront.com/report
 ```
-You'll need to supply your own API token and domain, as described in [Example Commands](direct_ingestion.html#example-commands).
+You'll need to supply your own API token and domain, as described in [Direct Ingestion Example Commands](direct_ingestion.html#direct-ingestion-example-commands).

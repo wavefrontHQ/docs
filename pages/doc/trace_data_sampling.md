@@ -7,7 +7,7 @@ permalink: trace_data_sampling.html
 summary: Learn how the Wavefront service samples trace data and how you can control sampling.
 ---
 
-A cloud-scale web application generates a very large number of [traces](tracing_basics.html#wavefront-trace-data). Tanzu Observability by Wavefront supports sampling to reduce the volume of stored trace data.
+A cloud-scale web application generates a very large number of traces. Tanzu Observability by Wavefront supports sampling to reduce the volume of stored trace data.
 
 ## How It Works
 
@@ -15,7 +15,7 @@ Let's look at the following scenarios to understand how sampling works:
 
 ![The diagram shows intelligent sampling and span policy sampling. Intelligent sampling is the default sampling strategy. Sampling policies give users more control over the sample strategy.](images/tracing_simple_sampling_diagram.png)
 
-Not all the trace data that you send to the Wavefront service are useful. When traces arrive, the Wavefront service identifies the important traces and those that add value to you and retains them. This process is known as [Intelligent Sampling](#wavefront-intelligent-sampling).
+Not all the trace data that you send to the Wavefront service are useful. When traces arrive, the Wavefront service identifies the important traces and those that add value to you and retains them. This process is known as [Intelligent Sampling](#intelligent-sampling).
 
 However, when intelligent sampling is on, you might not see some traces when you search for them on the traces browser. If you and don't want that certain traces are discarded, use [Sampling Policies](#sampling-policies). With a sampling policy in place, the Wavefront service does not perform intelligent sampling on the data sampled by the sampling policy
 
@@ -169,7 +169,8 @@ You can set up explicit sampling strategies through a [Wavefront proxy](proxies.
 {% include note.html content="Explicit sampling through a proxy is supported in Wavefront proxy version 4.34 and later. If you have an older version, make sure to [upgrade your proxy to the latest version](proxies_installing.html#upgrade-a-proxy)."  %}
 
 1. On the proxy host, open the proxy configuration file `wavefront.conf` for editing. The [path to the file](proxies_configuring.html#paths) depends on the host.
-2. Add the [traceSamplingRate](proxies_configuring.html#tracing-proxy-properties-and-examples) property, the [traceSamplingDuration](proxies_configuring.html#tracing-proxy-properties-and-examples) property, or both to the `wavefront.conf` file. In the following example, the `traceSamplingRate` property sends 10% of the trace to the Wavefront service and the `traceSamplingDuration` property sets the minimum sampling duration to 45 milliseconds:
+2. Add the `traceSamplingRate` property, the `traceSamplingDuration` property, or both to the `wavefront.conf` file. See [Tracing Proxy Properties](proxies_configuring.html#tracing-proxy-properties).
+  <br/>In the following example, the `traceSamplingRate` property sends 10% of the trace to the Wavefront service and the `traceSamplingDuration` property sets the minimum sampling duration to 45 milliseconds:
     ```
     # Number from 0.0 to 1.0
     traceSamplingRate=.1
@@ -178,7 +179,7 @@ You can set up explicit sampling strategies through a [Wavefront proxy](proxies.
     ```
     {% include important.html content="If you have more than one proxy, each proxy must have the same value for the `traceSamplingRate` property. If different proxies send different percentages of spans to the Wavefront service, you get incomplete traces."%}
 3. Save the `wavefront.conf` file.
-4. [Start the proxy](proxies_installing.html#starting-and-stopping-a-proxy).
+4. [Start the proxy](proxies_installing.html#start-and-stop-a-proxy).
 
 ## Setting Up Explicit Sampling in Your Code
 

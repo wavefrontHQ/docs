@@ -50,7 +50,7 @@ You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1
 <tr>
 <td>mean&vert;median&vert;min&vert;max&vert;first&vert;last&vert;sum&vert;count </td>
 <td>Summarization method to use for aggregating the data values within each bucket.
-These are similar to the <a href="ui_chart_reference.html#general"><strong>Summarize by</strong> options</a> you can set for a chart.
+These are similar to the <strong>Summarize by</strong> options that you can set for a chart.
 Default is mean (average).</td>
 </tr>
 <tr>

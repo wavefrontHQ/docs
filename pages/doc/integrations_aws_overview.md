@@ -86,7 +86,7 @@ For information about external IDs and how they are used in AWS, see [How to Use
    - **Account ID** - The identifier of the Wavefront account to which you want to grant access. 
      To get the Wavefront account ID:
       1. Navigate to your Wavefront cluster.
-      2. Click **Integrations** in the taskbar and click the **Amazon Web Services** integration tile. 
+      2. Click **Integrations** on the toolbar and click the **Amazon Web Services** integration tile. 
       3. Click the **Setup** tab and click the **How to get Role ARN** link.
       4. Copy the **Account ID** displayed in the instructions.
     

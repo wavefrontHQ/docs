@@ -163,7 +163,7 @@ See the Examples further below.
 
 You create a metrics security policy rule following these steps. See the annotated screenshot below for an example.
 
-1. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Metrics Security Policy** and click **Create Rule**
+1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Metrics Security Policy** and click **Create Rule**
 2. In the **Create Rule** dialog, specify the rule parameters.
   1. Specify a descriptive name. Users might later modify the rule, so a clear name is essential.
   2. Add a description. The description is visible only when you edit the rule. The name is visible on the Metrics Security Policy page.

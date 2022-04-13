@@ -24,7 +24,7 @@ Let's look at how you can create a sampling policy and get familiar with the pol
 To create a sampling policy:
 
 1. In your web browser, go to your Wavefront instance and log in.
-1. From the taskbar, click **Applications** > **Sampling Policies**.
+1. From the toolbar, select **Applications** > **Sampling Policies**.
 1. Click **Create Policy** and enter the details:
     <table style="width: 100%;">
       <thead>
@@ -77,7 +77,7 @@ To create a sampling policy:
         <td markdown="span">
           The policy is in effect when it is in the active state. Once the policy is active, it affects your costs as you store more data.
 
-          <br/>To see the number of spans stored per second after a sampling policy is created, see <a href="trace_data_sampling.html#track-the-volume-of-stored-data">Track the Volume of Stored Trace Data</a>.
+          <br/>To see the number of spans stored per second after a sampling policy is created, see <a href="trace_data_sampling.html#track-the-volume-of-stored-trace-data">Track the Volume of Stored Trace Data</a>.
         </td>
       </tr>
     </table>
