@@ -60,9 +60,9 @@ Suppose the **Trigger Window** interval is 5 minutes and the **Checking Frequenc
 
 [Edit the alert](alerts_manage.html)  to either change the **Checking Frequency** or **Trigger Window**.
 
-### Examine if Aggregation Masks Spikes
+### Examine if Aggregation Masks Spikes or Dips
 
-Aggregation can mask spikes in your data in several ways.
+Aggregation can mask spikes or dips in your data in several ways.
 
 * **Average aggregation**: If your alert query is reporting values more often than once per minute, the query engine aggregates those values using an average. This default average aggregation can mask irregularities with data that should have triggered the alert.
 
@@ -171,7 +171,7 @@ In such cases, use one of the following approaches:
 * Consider the NO DATA state to be normal and take action only when the alert triggers to FIRING, which means the alert sees the presence of reported error data.
   {% include note.html content="A metric is considered *obsolete* if it hasn’t reported any values for 4 weeks. Obsolete metrics *are not* included in alert evaluation by default. To handle alerting on very infrequently reported errors series, on the **Advanced** tab of the **Data** settings of the alert, select the **Include Obsolete Metrics** check box." %}
 * Use the [default() missing data function](ts_default.html) to insert a default value depending on how you want to handle the situation where data isn’t being reported.
-* Use a [counter metric](delta_counters.html) with a `cs()` query instead of a gauge metric with a `ts()` query. Counter metrics are cumulative and do not become obsolete. For example, use the `bad.exception.count` metric rather than the `bad.exception` metric.
+* Send in your data as a [counter metric](delta_counters.html) (instead of a gauge) and query with a `cs()` query. Counter metrics are cumulative and do not become obsolete. For example, use the `bad.exception.count` metric rather than the `bad.exception` metric.
 
 {% include tip.html content="If your alert monitors *heartbeat* metrics, you should treat the NO DATA state as an *erroneous* state. Consider [configuring an alert to fire when a time series stops reporting](alerts_missing_data.html)." %}
 
@@ -179,9 +179,11 @@ In such cases, use one of the following approaches:
 
 There are times when you may want to update multiple alerts in the same way, for example, you might want to remove a user from all alert notifications or replace that user in alert notifications.
 
-The best practice for handling alert notifications is to use Alert Targets rather than specify specific emails or PagerDuty keys while editing an alert. If an alert target specifies the notification target, then you can easily update the alert target. In contrast, you'd have to modify each alert that uses an email or a PagerDuty key -- bulk updates aren't possible. 
+The best practice for handling alert notifications is to use Alert Targets rather than specify specific emails or PagerDuty keys while editing an alert. If an alert target specifies the notification target, then you can easily update the alert target. In contrast, you'd have to modify each alert that uses an email or a PagerDuty key -- bulk updates aren't possible with the GUI.
 
-You can bulk update alerts with the API, discussed in this section, or with the `wf` CLI.
+You can bulk update alerts with the API, discussed in this section, or with [the `wf` CLI](https://github.com/snltd/wavefront-cli).
+
+{% include important.html content="This external CLI is not supported or maintained by the Tanzu Observability team." %}
 
 ### Prerequisites
 
@@ -241,7 +243,7 @@ Response:
 
 ### Step 3: Update the JSON
 
-This step depends on what you want to do. For example, you could replace one user name with another user name, add one or more users, or perform other modifications.
+This step depends on what you want to do. For example, you could change the alert thresholds for the different severities, or perform other modifications.
 
 
 

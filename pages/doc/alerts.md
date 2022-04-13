@@ -62,7 +62,7 @@ To understand the alert evaluation process, review [Alert States and Lifecycles]
 
 * **Alert time window being reviewed**: Default is 5 minutes. You can change the time window with the **Trigger Window** and **Resolve Window** properties.
 
-* **Minutely summarized values are being evaluated**: If your conditional query returns more than 1 value per minute, then the query engine perform minutely aggregation using `avg()` before it evaluates the alert query.
+* **Minutely summarized values are being evaluated**: If your conditional query returns more than 1 value per minute, then the query engine perform minutely aggregation using `align()` before it evaluates the alert query.
 
 * **Required number of TRUE values needed to trigger an alert**: A TRUE value is any non-zero value returned by your alert query. Within the reviewed time window, an alert triggers if there is at least 1 TRUE value and 0 FALSE values. A FALSE value is any zero value returned by your alert query.
 
