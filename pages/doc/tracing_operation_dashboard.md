@@ -17,7 +17,7 @@ See the Operation Dashboard:
 
 * Option 1:
   1. In your web browser, go to your Wavefront instance and log in. 
-  1. From the taskbar, click **Applications** > **Operation Dashboard**.
+  1. From the toolbar, select **Applications** > **Operation Dashboard**.
 
 * Option 2:
   Drill down to the Operation Dashboard from the tracing traffic on the application map.
@@ -28,7 +28,7 @@ See the Operation Dashboard:
 ![examine services](images/tracing_operations_dashboard.png)
 
 On the dashboard for a particular service, you can:
-* Select the time and time zone in the taskbar to customize the chart time properties.
+* Select the time and time zone in the toolbar to customize the chart time properties.
 * Filter the metrics based on the operation, application, service, spankind, HTTP status code, cluster, shard, or source.
 * Select **Detailed View** or **Summarized View** to change the level of detail for charts.
 * Use <img src="images/tracing_link_icon.png"
@@ -43,10 +43,10 @@ style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link
 
 The standard dashboard for operations is read-only. To create a customizable copy:
 
-1. Click **Clone** from the ellipsis menu.
+1. Click the ellipsis icon and select **Clone**.
 2. In the cloned dashboard, add your own charts or customize the RED metrics charts.
 
-After you save the clone, click **Dashboard** on the taskbar and search for your dashboard by its  name. You can use it to drill down to the Traces Browser.
+After you save the clone, click **Dashboard** on the toolbar and search for your dashboard by its  name. You can use it to drill down to the Traces Browser.
 
 ## Save Charts in the Operation Dashboard
 

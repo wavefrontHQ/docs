@@ -291,7 +291,28 @@ wf alert import alert-updated.json
 
 ## Learn More
 
-* [How Alerts Work](/alerts.html#how-alerts-work) includes a video and discusses the anatomy of an alert (condition, target, notification)
-* [Alerts Best Practices](alerts_best_practices.html) has in-depth discussions on mapping your data to the right alert query, recommendations on alert settings, and more.
-* [Alert States and Lifecycle](alerts_states_lifecycle.html) is required reading (and watching) for all power users.
-* To learn about the migration from the earlier create alert GUI to the new alert experience, see [FAQ for the New Alert GUI](alerts_v2_faq.html)
+## How Can I Audit Alert Changes?
+
+Users need to audit alert changes in several situations:
+* An alert was saved with incorrect changes and the previous configuration isn't known.
+* An alert was changed. An audit needs to determine when it was updated and by whom.
+* An alert was deleted. Audit needs to determine when it was deleted and by whom.
+
+Each time you save an alert, you create an alert version. Up to 100 versions are supported.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+<ol>
+<li>Find the alert in the Alerts Browser. </li>
+<li>Click the ellipsis icon and select <strong>Versions</strong>.</li>
+<li>Select a version.</li>
+</ol>
+</td>
+<td width="40%" markdown="span">![screenshot ellipsis menu to the left of alert in alerts browser](images/alert_versions.png) </td></tr>
+</tbody>
+</table>
+
+## Troubleshooting
+For troubleshooting, see the KB article [Why did my alert fire or not fire?](https://help.wavefront.com/hc/en-us/articles/360049071471-Why-did-my-alert-fire-or-not-fire-).
