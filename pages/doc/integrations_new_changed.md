@@ -8,6 +8,13 @@ summary: New and changed integrations.
 ---
 Tanzu Observability by Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
+
+## April 2022
+
+Made improvements to the following integration in April 2022:
+
+* Amazon Web Services -- We updated the format of CloudWatch instance and volume allow lists to JSON format. When you register a new CloudWatch integration or edit an existing one, you can add instances and volumes to allow lists. The format of the tag lists should be in JSON format, for example `{"organization":"yourcompany"}`.
+
 ## March 2022
 
 We added the following integrations in March 2022:
@@ -21,13 +28,13 @@ We added the following integrations in March 2022:
 We made improvements to the following integrations in March 2022:
 
 * Kubernetes Integration
-  * Added a **Kubernetes Control Plane** dashboard to the Kubernetes integration. See the [Release Notes on Github](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases/tag/v1.9.0) for details
-  * You can enable the control plane metrics with helm, or using manual configuration. To see a full list of supported control plane metrics, visit our [github repo](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/metrics.md#control-plane-metrics)
+  * Added a **Kubernetes Control Plane** dashboard to the Kubernetes integration. See the [Release Notes on Github](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases/tag/v1.9.0) for details.
+  * You can enable the control plane metrics with helm, or using manual configuration. To see a full list of supported control plane metrics, visit our [github repo](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/metrics.md#control-plane-metrics).
 
 
 *  Wavefront Usage
-   * Added two new system dashboards to the integration: **Committed rate vs Monthly Usage (PPS P95) Billable** and **Usage vs Remaining Balance (PPS P95) Burndown**
-   * Added three new system alerts: **Percentage of Usage Scanned**, **Percentage of Usage Ingested**, and **Remaining Balance**
+   * Added two new system dashboards to the integration: **Committed rate vs Monthly Usage (PPS P95) Billable** and **Usage vs Remaining Balance (PPS P95) Burndown**.
+   * Added three new system alerts: **Percentage of Usage Scanned**, **Percentage of Usage Ingested**, and **Remaining Balance**.
 
 * Tanzu Application Service -- Updates to the descriptions of the alerts and the setup instructions.
 * Tanzu Application Service (Beta) -- Updated the query metrics in the **Ops Manager Health** dashboard.

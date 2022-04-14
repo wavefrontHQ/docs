@@ -35,6 +35,41 @@ HTTP 429 TOO_MANY_REQUESTS
 “User concurrent query limit exceeded. Please try again later. Contact support@wavefront.com for help.”
 ```
 
+## Timeout Limits
+
+<table>
+<tbody>
+<thead>
+<tr><th width="10%">Category</th><th width="15%">Timeout Limit</th><th width="75%">Explanation and Best Practice</th></tr>
+</thead>
+<tr>
+<td><strong>Query</strong></td>
+<td>300s (5min)</td>
+<td>If a query does not complete in 300s (5 minutes), the chart/API times out.<br/><br/>
+<strong>Best practice</strong>: Use specific sources and/or point tags in the queries to drill down into specific data that is required.</td>
+</tr>
+<tr>
+<td><strong>Alert</strong></td>
+<td>60s (1min)</td>
+<td>When the alerting service runs a query, it must complete in 60s (1 minute). If a query does not complete within a minute, the alert is rendered as functioning.<br/><br/>
+<strong>Best practice</strong>: Use specific sources, point tags, or both in the queries to drill down into specific data that you need.
+</td>
+</tr>
+<tr>
+<td><strong>Dynamic Dashboard Variable</strong></td>
+<td>60s (1min)</td>
+<td><a href="dashboards_variables.html#dynamic-dashboard-variables">Dynamic dashboard variables</a> dropdown menus allow users to make a selection that is based on metadata of a query, for example, a set of sources. If the dynamic variable query does not complete in 60s, it is cancelled by the server to avoid a bottleneck in loading a dashboard.<br/><br/>
+<strong>Best practice</strong>:Do not use wildcard characters in dynamic variables. Use specific sources, point tags, or both in the queries to drill down into specific data that is required. </td>
+</tr>
+<tr>
+<td><strong>Derived Metric</strong></td>
+<td>300s (5min)</td>
+<td>Derived metrics can synthetically create metrics based on existing metrics. The query engine can reingest those metrics. The query that runs for a derived metric, like a regular query, has a 300s or 5 minute timeout.<br/><br/>
+<strong>Best practice</strong>: Use specific sources and/or point tags in the queries to drill down into specific data that is required.</td>
+</tr>
+</tbody>
+</table>
+
 ## Default Customer-Specific Limits
 
 You can start with Wavefront either as part of a free trial or as a new customer. In both cases, a set of out-of-the-box limits applies to that customer account. You can contact our customer success team to request changes. In some cases, a change might involve additional costs.

@@ -15,7 +15,11 @@ limit(<numberOfHistogramSeries>[, <offsetNumber>], <hsExpression>)
 limit(<numberOfTraces>, <tracesExpression>)
 ```
 
-You can use `limit()` with time series, histograms, or traces.
+The `limit()` function shows only a specified number of items. You can use `limit()` with time series, histograms, or traces.
+
+{% include important.html content="The `limit()` function selects randomly from all time series and does not perform a query over all data followed by filtering.  It is possible that the `limit()` function returns NO DATA or might result in incorrect reporting because it examines only the specified number of time series.
+
+For example, the result might be NO DATA even if some time series do report data because the (randomly) selected timeseries show no data." %}
 
 <table style="width: 100%;">
 <colgroup>
@@ -34,9 +38,8 @@ You can use `limit()` with time series, histograms, or traces.
 <td markdown="span">Limits the number of traces listed by `tracesExpression` in the Traces browser.</td>
 </tr>
 </tbody>
-</table>
+</table> 
 
-<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i><b>Note:</b> It is possible that the <code>limit()</code> function returns NO DATA even if there are time-series reporting values within the time window of your chart. This can happen because the limit is applied to all non-obsolete time series matched by the query and it is possible that all of the ones selected by <code>limit()</code> are not currently reporting.</div>
 
 ## Parameters
 
@@ -124,7 +127,8 @@ The `limit()` function lets you use the `numberOfTraces` parameter to specify th
 
 ```limit(50, traces("beachshirts.styling.makeShirts"))```
 
-<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> Because the ordering of traces is unpredictable, you cannot use <code>limit()</code> to page through a set of results and obtain the next group of traces.</div>
+{% include note.html content="Because the ordering of traces is unpredictable, you cannot use `limit()` to page through a set of results and obtain the next group of traces." %}
+
 
 ## Examples
 

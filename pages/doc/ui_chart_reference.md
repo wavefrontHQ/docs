@@ -76,7 +76,7 @@ Allows you to turn off or turn on the single line color gradient when you're loo
 <a id="line_plot_axis_tab">
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
-The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
+The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-iecbinary-prefixes-in-y-axis-and-legends) for instructions.
 
 <table>
 <tbody>
@@ -102,7 +102,7 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
 <p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
-<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
+<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html">Units in Chart Axes and Legends</a>. </p>
 </td>
 </tr>
 </tbody>
@@ -268,7 +268,7 @@ You can also use events() queries to <a href="charts_events_displaying.html">Dis
 <a id="point_plot_axis_tab">
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
-The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
+The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-iecbinary-prefixes-in-y-axis-and-legends) for instructions.
 
 <table>
 <tbody>
@@ -294,7 +294,7 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
 <p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
-<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
+<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html">Units in Chart Axes and Legends</a>. </p>
 </td>
 </tr>
 </tbody>
@@ -451,7 +451,7 @@ The following stack types are supported.
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
 
-The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
+The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-iecbinary-prefixes-in-y-axis-and-legends) for instructions.
 
 <table>
 <tbody>
@@ -477,7 +477,7 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
 <p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
-<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
+<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html">Units in Chart Axes and Legends</a>. </p>
 </td>
 </tr>
 </tbody>
@@ -620,7 +620,7 @@ You can also use events() queries to <a href="charts_events_displaying.html">Dis
 <a id="stacked_column_axis_tab">
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
-The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
+The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-iecbinary-prefixes-in-y-axis-and-legends) for instructions.
 
 <table>
 <tbody>
@@ -646,7 +646,7 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
 <p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
-<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
+<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html">Units in Chart Axes and Legends</a>. </p>
 </td>
 </tr>
 </tbody>
@@ -808,7 +808,7 @@ You can specify a minimum of 200 milliseconds to show only values of interest:
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
 <p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
-<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
+<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html">Units in Chart Axes and Legends</a>. </p>
 </td>
 </tr>
 </tbody>
@@ -1297,7 +1297,7 @@ The Axis tab lets you change the Y axis, and both the X axis dimensions and unit
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
 <p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
-<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
+<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html">Units in Chart Axes and Legends</a>. </p>
 </td>
 </tr>
 </tbody>
@@ -1387,7 +1387,7 @@ The Axis tab lets you change the Y axis, and both the X axis and Y axis dimensio
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
 <p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then the chart uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
-<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
+<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html">Units in Chart Axes and Legends</a>. </p>
 </td>
 </tr>
 <tr>

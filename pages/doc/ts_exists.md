@@ -135,7 +135,7 @@ One way to workaround the `exists()` and nested if/else series matching problem,
 With the same metrics we used above, we could write the following query (including line breaks for legibility):
 
 ```
-retainSeries(collect()
+retainSeries(collect(
   if(exists
       (ts(~sample.cpu.usage.percentage, source=app-1) as var1), $var1 * 100 ),
   if(exists

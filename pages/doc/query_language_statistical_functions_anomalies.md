@@ -11,7 +11,6 @@ Anomalies can indicate that something's about to go wrong in your environment. I
 <p><a href="https://youtu.be/I-Z9d94Zi7Y"><img src="/images/v_anomaly.png" style="width: 700px;"/></a>
 </p>
 
-
 ## Functions for Anomaly Detection
 
 You can use simple functions, prediction-based functions, or statistical functions to examine trends that might indicate an anomaly.
@@ -19,7 +18,7 @@ You can use simple functions, prediction-based functions, or statistical functio
 * Prediction-based functions can help you compare actual values against expected values based on past performance.
 * Statistical functions that return the mean, median, range, standard deviation, and inter-quartile range are great for understanding trends and variability in your data set. You can decide how much variability is normal. When datasets cross a certain threshold, they are detected as an anomaly.
 
-## Detect Anomalies with Simple Functions
+### Detect Anomalies with Simple Functions
 A great way to do dynamic anomaly detection is a query like the following:
 
 `${data} / lag(10m,${data})`
@@ -28,7 +27,7 @@ The result shows a 10-minute range of change as a ratio. You can change the time
 
 This query calculates a rate of change between the current data and data from the series’ past performance.  This results in a ratio of the current metric against the past data.  This ratio helps you detect short-term changes, day-by-day changes, or even week-by-week changes.
 
-## Detect Anomalies with anomalous()
+### Detect Anomalies with anomalous()
 You can use the [`anomalous()`](ts_anomalous.html) prediction-based function to return the percentage of data points that have anomalous (unexpected) values. The function considers values considered anomalous if they fall outside a range of expected values. This range is centered around predictions based on past values. You can widen or narrow the range of expectation, typically to a number of standard deviations around the predictions.
 
 For example, the following query considers points to be anomalous if they fall outside 95% of the expected values, or 2 standard deviations from the predictions:
@@ -36,7 +35,7 @@ For example, the following query considers points to be anomalous if they fall o
 `anomalous(5m, .95, ts(my.metric))`
 
 
-## Detect Anomalies with Mean and Median
+### Detect Anomalies with Mean and Median
 The `avg`/ `mavg` and `percentile`/`mmedian` functions can help you understand the tendency of the data.
 
 * **Mean:** Use `avg` or `mavg` to get the mean (average), that is, the number found in the middle of a set of values. The mean is affected and fluctuates easily even with single outlier.
@@ -56,13 +55,14 @@ The screen shot below shows the corresponding chart:
 
 ![mean_median](images/mean_median.png)
 
-## Detect Anomalies by Analyzing Data Spread
+### Detect Anomalies by Analyzing Data Spread
 
 While the `avg`/ `mavg` and `percentile`/`mmedian` functions can help you understand the tendency of the data, Std Dev and IQR measure the spread of the data. If you want to use a level of dispersion or spread of the data as a function to define normal, you can use these functions to catch anomalies.
 
 Standard deviation and IQR react to outliers (and to skewed data to some extent) in a similar way as  mean and median respectively. Both help you understand the spread of the data over a range, but Std Dev is more sensitive to outliers and skewed data, while IQR is less sensitive.
 
-### Standard Deviation
+
+## Detect Anomalies with Standard Deviation
 
 Standard deviation works well for detecting anomalies in data that is normally distributed. For uses cases like student grades in a class or the annual income across a set of population, which most likely has a normal distribution and tends to create a bell curve distribution, standard deviation can help you detect outliers, which are most likely on the either end of the curve.
 
@@ -165,3 +165,51 @@ IQR|`mpercentile (50m, 75, ${data}) - mpercentile (50m, 25, ${data})`
 The chart below shows the normalized values for all three series. Looking at this chart, with values for the initial query, the standard deviation, and the IQR, illustrates how they differ.
 
 ![normalized_std_dev_iqr](images/normalized_std_dev_iqr.png)
+
+## Comparing Current Behavior to Past Behaviors
+
+
+Comparing current behavior with past behavior requires determining a baseline from past behavior. The strategy (or combination of strategies) that works best depends on your use case.
+
+
+### Using the Previous Week as a Baseline
+
+You can compare current behavior to last week's behavior with the `lag()` function. Assume the query that specifies current behavior can be referenced with the query line variable `${current}`. Then this query compares the current behavior with last week's behavior:
+
+`${current}/lag(1w, ${current})`
+
+
+The query returns the ratio between current behavior and what it was a week ago. It's easy to make this a percentage change instead of a ratio. Or, you could instead compare the current behavior with a different point in time, such as the previous day, instead of the previous week.
+
+
+### Using the Average Behavior of the Last X Weeks as a Baseline
+
+You can also work with several weeks' worth of behavior rather than just the previous week. For example, suppose you to establish a baseline using the last 3 weeks' worth of behavior. You'd have 3 queries to specify the behavior for each of the previous 3 weeks:
+```
+1-week: ${current}/lag(1w, ${current})
+2-week: ${current}/lag(2w, ${current})
+3-week: ${current}/lag(3w, ${current})
+```
+You can find the average behavior from these 3 weeks with this query:
+
+```
+baseline: (${1-week)+${2-week)+${3-week))/3
+```
+
+or
+
+```
+baseline: rawavg(collect(${1-week),${2-week),${3-week)))
+```
+
+Again, you can determine a ratio of the current behavior against this baseline like this:
+
+```
+${current}/${baseline}
+```
+
+Instead of an average, you could calculate other statistics.
+
+## Learn More!
+
+* [Query Language Examples](query_language_recipes.html)

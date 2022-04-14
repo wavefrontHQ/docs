@@ -20,7 +20,7 @@ You can change your password. You can reset a forgotten password if your account
 To change your password:
 
 1. Log in to your Wavefront instance.
-2. Click the gear icon <i class="fa fa-cog"/> in the top right of the taskbar and select your username.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select your username.
 3. On the **User Information** tab, click the **Change Password** link, and enter the current and new passwords as prompted.
 4. Click **Save**.
 
@@ -36,7 +36,7 @@ To reset a forgotten password:
 
 In your user profile, you can configure several preferences, for example, select our dark theme or chart title size.
 
-1. Click the gear icon <i class="fa fa-cog"/> in the top right of the taskbar and select your username.
+1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select your username.
 1. On the **User Information** tab, make the necessary changes.
 
 
@@ -47,7 +47,7 @@ In your user profile, you can configure several preferences, for example, select
 
 Our rendering engine is fast, but it still takes time to render thousands of series. You can limit the number of time series that charts display with the chart sampling preference.
 
-1. Click the gear icon <i class="fa fa-cog"/> in the top right of the taskbar and select your username.
+1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select your username.
 1. On the **User Information** tab, under **Display Settings** make the necessary changes.
 
 You can limit the number of time series to 100 for new charts by changing the **Sampling** default in your preferences.
@@ -67,7 +67,7 @@ Permissions are additive:
 * If permissions or roles were assigned to you explicitly, you get those as well.
 
 You can check the permissions you have and see which groups you belong to.
-1. Click the gear icon <i class="fa fa-cog"/> in the top right of the taskbar and select your username.
+1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select your username.
 2. Click the **Groups, Roles & Permissions** tab to display the permissions you have and why you have them.
 ![groups and permissions](images/groups_and_permissions.png)
 
@@ -85,5 +85,5 @@ Tanzu Observability allows [user accounts](user-accounts.html) and [service acco
 
 To generate an API token for your user account:
 
-1. Click the gear icon <i class="fa fa-cog"/> in the top right of the taskbar and select your username.
+1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select your username.
 2. Click the **API Access** tab and click **Generate**. See [Generating an API Token](wavefront_api.html#generating-an-api-token) for details.
