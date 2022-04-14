@@ -50,7 +50,7 @@ Follow these steps:
 
 5. Debug the alert target:
 
-   * Use the [webhook](https://webhook.site/) testing site for troubleshooting webhooks and the mustache template. You can see in real time what is coming in with your alert target notifications.
+   * Use the Webhook testing site (`https://webhook.site`) for troubleshooting webhooks and the mustache template. You can see in real time what is coming in with your alert target notifications.
 
    * Consider creating a new alert with the same template as in the problematic alert to test it with webhook, and get more visibility into what is happening for debugging purposes. 
    
@@ -58,7 +58,7 @@ Follow these steps:
 
     * Ensure that all properties: `failingAlertSeries`, `newlyFailingAlertSeries`, and `recoveredAlertSeries`, are set in the template.
 
-    * Ensure that all the necessary fields are added and validate the notifications with [webhook](https://webhook.site/). 
+    * Ensure that all the necessary fields are added and validate the notifications with the Webhook testing site (`https://webhook.site/`). 
 
     See the template format in [Customizing Alert Notifications](alert_target_customizing.html).
     
