@@ -37,7 +37,7 @@ Here's the data pipeline:
 
 ### Tanzu Observability by Wavefront Features
 
-Tanzu Observability by Wavefront includes an integration for Tanzu Application Service(TAS). The integration supports a set of predefined dashboards that a fairly similar to the existing Healthwatch dashboards for TAS. * Clone any dashboard to customize it by adding charts that use the powerful [Wavefront Query Language](query_language_quickstart.html).
+Tanzu Observability by Wavefront includes an integration for Tanzu Application Service(TAS). The integration supports a set of predefined dashboards that a fairly similar to the existing Healthwatch dashboards for TAS. * Clone any dashboard to customize it by adding charts that use the powerful [Wavefront Query Language](query_language_getting_started.html).
 * Customize the dashboard and chart appearance.
 * [Add alerts](alerts_manage.html) -- or [examine alerts](alerts.html) already included in the integration.
 
@@ -73,7 +73,7 @@ The tile is now available, but the orange bar at the bottom indicates that the p
 
 To start configuration click the Tanzu Observability by Wavefront tile. With **Settings** selected (the default), follow these steps:
 
-{% include tip.html content="??Which ones are required? Most users don't make changes to <strong>Errands</strong> and <strong>Resource Config</strong>." %}
+{% include tip.html content="Most users don't make changes to <strong>Errands</strong> and <strong>Resource Config</strong>.Required inputs are the three fields on the <strong>Wavefront Proxy Config</strong> tab and the <strong>Foundation Name</strong> on the <strong>Telegraf Agent Config</strong>." %}
 
 <table style="width: 100%;">
 <tbody>
@@ -103,14 +103,10 @@ To start configuration click the Tanzu Observability by Wavefront tile. With **S
   <li>buffer</li>
   <li>preprocessorConfigFile</li></ul>
    </li>
-   <li>(Optional) Click <strong>Custom</strong> to specify <a href="proxies_configuring.html">proxy configuration</a>, <a href="proxy preprocessor rules">proxies_preprocessor_rules.html</a></li>
-<<<<<<< HEAD
+   <li>(Optional) If you click <strong>Custom</strong> you can specify <a href="proxies_configuring.html">proxy configuration</a> properties or <a href="proxies_preprocessor_rules.html"> proxy preprocessor rules</a>.</li>
+
    <ul><li>In the <strong>Config</strong> field, specify one or more configuration properties and values, separated by newline characters. For example <code>pushRateLimit=10000</code>.  </li>
    <li>In the <strong>Preprocessor Rules</strong> field, specify one or more peprocessor rules, separated by newline characters. For example: <code>
-=======
-   <ul><li>In the <strong>Config</strong> field, specify one or more configuration properties and values, for example <code>pushRateLimit=10000</code>. RK>> Separated by commas? Spaces? </li>
-   <li>In the <strong>Preprocessor Rules</strong> field, specify one or more peprocessor rules, for example <code>
->>>>>>> rkempf-sandbox-staging
 '2878':
   - rule    : example-replace-badchars
     action  : replaceRegex
@@ -131,11 +127,11 @@ To start configuration click the Tanzu Observability by Wavefront tile. With **S
    <td width="50%"><strong>Step 3.</strong> Click <strong>Telegraf Agent Config</strong> and customize the Telegraf Agent config or accept the defaults.
    <ol>
    <li>For <strong>Scrape Interval</strong>, specify the default interval at which Telegraf agent checks for new data.</li>
-   <li>For <strong>Metric Batch Size</strong>, specify the maximum number of points in each batch of metrics that Telegraf sends to the Wavefront proxy. ??IS THAT TRUE??</li>
+   <li>For <strong>Metric Batch Size</strong>, specify the maximum number of points in each batch of metrics that Telegraf sends to the Wavefront proxy. <!---??IS THAT TRUE??---></li>
    <li>For <strong>Metric Buffer Limit</strong>, specify the Wavefront proxy buffer size. If your environment sends bursty data, use a larger buffer to the proxy can queue and then drain those data.</li>
-   <li>For <strong>Flush Interval</strong>, specify ??WHAT??</li>
-   <li>For <strong>Foundation Name</strong>, specify a unique name for your Tanzu Application Service environment. This name will be added to all metrics as the metrics source (source=). ??IS THAT TRUE??</li>
-   <li>(Optional) Click <strong>Advanced Options</strong> to specify a custom proxy URL, custom proxy port, or additional Telegraf inputs ??RK>>Examples?? Link??</li>
+   <li>For <strong>Flush Interval</strong>, specify <!---??WHAT??---></li>
+   <li>For <strong>Foundation Name</strong>, specify a unique name for your Tanzu Application Service environment. This name will be added to all metrics as the metrics source (source=). <!---??IS THAT TRUE??---></li>
+   <li>(Optional) Click <strong>Advanced Options</strong> to specify a custom proxy URL, custom proxy port, or additional Telegraf inputs</li>
    <li>Click <strong>Save</strong></li>
    </ol>
    </td>
@@ -173,7 +169,7 @@ After you've completed the nozzle setup, your data become available in your Wave
 * The **Dashboards** tab includes a rich set of preconfigured dashboards with charts for [examining your data](ui_examine_data.html). Users with Dashboards permission can clone any dashboard and [customize the dashboard](ui_dashboards.html) and the charts. Watch our [dashboard videos](videos_dashboards_charts.html) for some tips and tricks.
 * The **Alerts** tab includes a set of preconfigured alerts. Clone any alert and specify who to notify in your environment. Wavefront supports several levels of severity and allows you to specify email, Pagerduty, and Webhook as notification targets. Watch our [alerts videos](videos_alerts.html) to get you started.
 * Get started with some of our [conceptual videos](videos_quickstart.html) or some of our [hands-on videos](videos_howto_start.html).
-RK>> screenshot here??
+<!---RK>> screenshot here??--->
 
 ## Tanzu Application Service to Tanzu Observability FAQs
 
@@ -217,4 +213,4 @@ You can specify custom elements as follows:
 2. Click **Wavefront Proxy Config**, and then click **Custom**.
 3. Make your changes and click **Save**
 
-RK>>Screenshot here when I know how.
+<!---RK>>Screenshot here when I know how.--->
