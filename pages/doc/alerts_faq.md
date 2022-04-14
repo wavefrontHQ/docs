@@ -1,3 +1,12 @@
+---
+title: Alerts FAQ
+keywords: alerts
+tags: [getting started, alerts]
+sidebar: doc_sidebar
+permalink: alerts_faq.html
+summary: Learn alert customization from Tanzu Observability by Wavefront experts.
+---
+
 ## Why Can't I View and Edit This Alert?
 
 By default, all users can view all alerts. But permissions and access control affect this default.
