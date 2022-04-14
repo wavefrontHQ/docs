@@ -790,8 +790,8 @@ entries:
         url: /wavefront_administer.html
         output: web
         
-      - title: Purchase Additional Wavefront Capacity
-        url: /purchase-additional-capacity.html
+      - title: Purchase Additional Capacity
+        url: /purchase_additional_capacity.html
         output: web
 
       - title: Security

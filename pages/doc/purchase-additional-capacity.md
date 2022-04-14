@@ -1,18 +1,18 @@
 ---
-title: Purchase Additional Wavefront Capacity
+title: Purchase Additional Capacity
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
-permalink: purchase-additional-capacity.html
-summary: Learn how to add capacity to your current subscription.
+permalink: purchase_additional_capacity.html
+summary: Learn how to add capacity to your current Tanzu Observability by Wavefront subscription.
 ---
 
-As a Super Admin, you can request more PPS to be added to the active Wavefront subscription of your organization.
+As a Super Admin, you can request more PPS to be added to the active Tanzu Observability subscription of your organization.
 
 {% include note.html content="You must have connected your VMware account to VMware Cloud Services." %}
 
 1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Usage and Subscriptions**.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
 3. Click the **Subscriptions** tab.
 
     You can see a detailed list of all active, inactive, and expired subscriptions of your organization.
