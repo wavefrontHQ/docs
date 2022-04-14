@@ -3,37 +3,46 @@ title: Upgrade Your Trial Version and Purchase Wavefront
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
-permalink: upgrade-and-purchase.html
-summary: Learn how to upgrade and purchase Wavefront from your trial version
+permalink: upgrade_and_purchase.html
+summary: Learn how to upgrade and purchase Tanzu Observability from your trial version
 ---
 
-When you create a Wavefront account and register for the Wavefront trial version, your trial expires after a month. One of the options that we offer to Wavefront Super Admin users, is to purchase Wavefront by themselves. Another option is to contact the Tanzu Observability by Wavefront sales team so that they guide you through the purchase process. For large commitments and more PPS, we strongly recommend the latter option. 
+When you create a Tanzu Observability by Wavefront account and register for the trial version, your trial expires after a month. One of the options that we offer to Tanzu Observability Super Admin users, is to purchase Tanzu Observability by themselves. Another option is to contact the Tanzu Observability by Wavefront sales team so that they guide you through the purchase process. For large commitments and more PPS, we strongly recommend the latter option. 
 
-To purchase Wavefront, you must either have a VMware Cloud services account or create one during the purchase process.
+To purchase Tanzu Observability, you must either have a VMware Cloud services account or create one during the purchase process.
 
-## Purchase Wavefront
-
-A Super Admin user can upgrade from trial version and purchase Wavefront. 
+A Super Admin user can upgrade from trial version and purchase Tanzu Observability. 
 
 Billing depends on the amount of data, measured in points per second (PPS), that you send to Wavefront on a monthly basis. If you exceed the contracted rate for more than 5% of the hours of a given month, you will be charged for the usage above it (the overages). In any case, you do not lose any of your data.
 
 1. Click **Upgrade** on the banner showing you how many days have left from your trial period.
-2. Review the Introduction screen and click **Next**.
+2. Read the information on the Introduction screen carefully and click **Next**.
 3. To connect your VMware account, click **Connect**. 
 
    You are redirected to the VMware Cloud Services Console page.
    
-4. Enter your VMware Cloud services account email address and password and select an organization.
+4. Choose your VMware Cloud services account email address, enter your password and log in. 
    
-   If you don't have an existing VMware Cloud services account and an organization, you must create them.
-   
-   After you successfully connect to your VMware Cloud services account and organization, you are redirected back to your Tanzu Observability by Wavefront cluster.
-   
-5. To continue with the purchase process, click **Next**. 
+   If you don't have an existing VMware Cloud services account, you must create one. 
 
-6. On the **Create Subscription** page, enter the number of KPPS (kilo points per second) to purchase and click **Next**. 
+5. Select an organization or create a new one.
+
+   To create an organization:
    
-   You can also see a chart that shows the billable rate during your trial period. Use this chart as a starting point to decide how many KPPS per month you want to buy.
+   1. In the VMware Cloud Services Console, click **Create New Organization**.
+   2. Enter an organization name.
+   3. Enter the address for your organization or choose and existing one if you have already added an address for your account.
+   4. Enter the payment details information.
+   5. Review the Cloud Services Terms of Service and select the check box to agree. 
+   6. Click **Continue**.
+   
+   After you successfully connect to your VMware Cloud services account and organization, you are redirected back to the Tanzu Observability purchase wizard.
+   
+5. Verify that you are connected to the correct organization and click **Next**. 
+
+6. On the **Create Subscription** page, enter the number of PPS (in kilo points per second) to purchase and click **Next**. 
+   
+   You can also see a chart that shows the billable rate during your trial period. Use this chart as a starting point to decide how many PPS per month you want to buy.
   
 7. Choose the billing terms and conditions and click **Proceed to checkout**.
 
@@ -47,16 +56,3 @@ Billing depends on the amount of data, measured in points per second (PPS), that
 After you purchase Wavefront, you will see a confirmation page and your subscription will become active within the next 24 hours. You will receive the  "Welcome to VMware Tanzu Observability by Wavefront" email.
 
 In case of urgency, you can contact the Wavefront team by sending an email to: `tanzu_saas_ops@vmware.com` with the number of your order and someone from our team will help you.
-
-## Sign Up for VMware Cloud Services
-   
-You can sign up for Wavefront or more VMware Cloud services at https://cloud.vmware.com/ and complete the steps in the onboarding flow.
-   
-During the onboarding process, you create a VMware Cloud services account with your VMware ID. If you do not have a My VMware account, you create one as you sign up. You must also set up an organization. VMware Cloud uses organizations to provide controlled access to one or more services. Your VMware Cloud services account is contained within an organization.
-   
-1. Initiate the onboarding process from the service sign-up or from your invitation link.
-2. Follow the steps to create your VMware Cloud services account.
-3. Log in to the VMware Cloud Services Console with your VMware ID.
-
-For more information, see [Using VMware Cloud Services Console](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-20D62AFF-024B-4901-976D-69BFD71BECC8.html).
-   
