@@ -110,7 +110,7 @@ The query above:
 2. Extracts that information as a point tag value.
 3. Applies it to a point tag key `customer`.
 4. Applies an aggregate function, in this case `min()`.
-5. Groups by customer (see [Grouping](query_language_reference.html#grouping))
+5. Groups by customer (see [Grouping the Aggregation Results](query_language_aggregate_functions.html#grouping-the-aggregation-results)).
 
 `taggify()` lets you specify a new point tag value as:
 
@@ -141,13 +141,13 @@ aliasMetric(ts(aws.instance.price), "Price/{{region}}/{{source}}")
 ```
 {% endraw %}
 
-The specified replacement string acts like a template, in which Wavefront replaces each variable with the requested string value. If `ts(aws.instance.price)` describes a time series that has a point tag `region=us-west-2`, that time series is displayed with a metric name like `Price/us-west-2/mycluster-2c-ha2-i-00e421d1bef7fb88e`.
+The specified replacement string acts like a template, in which the query engine replaces each variable with the requested string value. If `ts(aws.instance.price)` describes a time series that has a point tag `region=us-west-2`, that time series is displayed with a metric name like `Price/us-west-2/mycluster-2c-ha2-i-00e421d1bef7fb88e`.
 
 
 
 ### Single Extracted Node
 
-A common practice is to use naming conventions that provide structure to metric names, source names, or point tag values. Naming conventions typically subdivide  metadata values into nodes, which are substrings that are delimited by certain characters. By default, Wavefront uses periods (".") as node delimiters, but your naming conventions might use other characters.
+A common practice is to use naming conventions that provide structure to metric names, source names, or point tag values. Naming conventions typically subdivide  metadata values into nodes, which are substrings that are delimited by certain characters. By default, the query engine uses periods (".") as node delimiters, but your naming conventions might use other characters.
 
 You can use `taggify()` with a `zeroBasedNodeIndex` to extract a single node from an existing metadata value and use just the extracted node as point tag values for your time series. For example, if you have a time series with a metric name like `pdx.customerA_latency.i49f21a72`, you could use `taggify()` to display it with a point tag like `cust=customerA_latency`.
 
@@ -174,7 +174,7 @@ taggify(ts(pdx.customerA_latency.i49f21a72), metric, cust, 1, "._")
 ```
 ### Matched Substrings
 
-You can use `taggify()` with a regular expression `"regexSearchPattern"` to match one or more substrings from an existing metadata value, and then construct the new metric name `"replacementPattern"` from one or more matched substrings. You can combine these substrings with text and [variables](#replacement-string-with-variables).
+You can use `taggify()` with a regular expression `"regexSearchPattern"` to match one or more substrings from an existing metadata value, and then construct the new metric name `"replacementPattern"` from one or more matched substrings. You can combine these substrings with text and [variables](#string-with-variables).
 
 You must include `metric`, `source` or `tagk, <pointTagKey>` to specify the type of value that you want to apply the regular expression to.
 
@@ -250,6 +250,5 @@ Use ".+", "^." or ".*$" as your search pattern to match the entire string only o
 
 ## Learn More!
 
+* For an in-depth discussion, see [Metadata (Label Manipulation) Functions](query_language_metadata_functions.html)
 * For additional examples, see the [aliasSource() Function](ts_aliasSource.html).
-
-* See the KB article [Working with metadata functions - aliasSource, aliasMetric and taggify](https://help.wavefront.com/hc/en-us/articles/360057122452-Working-with-metadata-functions-aliasSource-aliasMetric-and-taggify)

@@ -6,7 +6,7 @@ permalink: ui_charts.html
 summary: Create charts, add and manage queries, and customize the chart.
 ---
 
-Wavefront charts allow you to examine data, create alerts, and more! For example:
+Tanzu Observability by Wavefront provides many different types of charts for examining data, creating alerts, and more! For example:
 <ul>
 <li>Create a chart and fine-tune the data it displays using filters and functions.</li>
 <li>Customize your charts.</li>
@@ -17,7 +17,7 @@ Wavefront charts allow you to examine data, create alerts, and more! For example
 
 ## Create a Chart
 
-You can create a chart from a dashboard or from the taskbar.
+You can create a chart from a dashboard or from the toolbar.
 
 ### Create a Chart from a Dashboard
 
@@ -25,7 +25,7 @@ You can create a chart from a dashboard or from the taskbar.
 <tbody>
 <tr>
 <td width="40%">
-<ol><li>Edit a dashboard or select <strong>Dashboards > Create Dashboard</strong> from the taskbar to create a new one. </li>
+<ol><li>Edit a dashboard or select <strong>Dashboards > Create Dashboard</strong> from the toolbar to create a new one. </li>
 <li>Drag the metrics or chart type widget to the canvas.</li>
 <li>Select metrics, filters, and functions and click <strong>Save</strong> in the top right. </li>
 </ol></td>
@@ -35,7 +35,7 @@ You can create a chart from a dashboard or from the taskbar.
 </table>
 
 
-### Create a Chart from the Taskbar
+### Create a Chart from the Toolbar
 
 
 1. Select **Dashboards > Create Chart**.
@@ -55,7 +55,7 @@ From the **Data** tab, fine-tune the metrics that are displayed on the chart by 
 
 ### Chart Builder
 
-[Wavefront Chart Builder](chart_builder.html) lets you:
+[Chart Builder](chart_builder.html) lets you:
 * Create a chart by selecting metrics or a chart type.
 * Select one or more metrics directly or start with an integration.
 * Specify filters and functions, e.g., to aggregate multiple time series.
@@ -74,7 +74,8 @@ We can get the metric we selected above with the following query.
 
 `max(ts(~sample.db.queries.duration, source="db-1" OR source="db-5"))`
 
-Many Wavefront users start with Chart Builder as the default and set their default to Query Editor later for more fine-grained control (including chart variables).
+{% include tip.html content="New users often start with Chart Builder as the default and set their default to Query Editor later for more fine-grained control (including chart variables)." %}
+
 
 ## Hide, Clone, or Delete Queries
 
@@ -116,7 +117,7 @@ Users with **Dashboard** permissions can make many other changes, such as select
 
 ### Change the Legend
 
-Wavefront renders the lines or points for different time series in different colors. A legend explains which color maps to which time series. You can change the legend to help users find the information they need, as follows:
+A chart renders the lines or points for different time series in different colors. The legend explains which color maps to which time series. You can change the legend to help users find the information they need, as follows:
 
 
 <table style="width: 100%;">
@@ -148,13 +149,13 @@ For details, see the [Chart Reference](ui_chart_reference.html).
 
 ### Include Metrics That Stopped Reporting Over 4 Weeks Ago
 
-For optimal rendering of displayed results, Wavefront does not include metrics that stopped reporting over 4 weeks ago (obsolete metrics) in charts. If you're interested in including those metrics in a chart, it's easy to do.
+For optimal rendering of displayed results, charts and dashboards do not include metrics that stopped reporting over 4 weeks ago (obsolete metrics) in charts. If you're interested in including those metrics in a chart, it's easy to do.
 
 **To include obsolete metrics**:
 1. Open the chart for edit.
 2. Click the **Advanced** tab, select the **Include Obsolete Metrics** check box, and click **Save**.
 
-You can also include obsolete metrics for all charts within a dashboard. See [Set Dashboard Display Preferences](ui_dashboards.html#set-dashboard-display-preferences).
+You can also include obsolete metrics for all charts within a dashboard. See [Set Dashboard Display Preferences](ui_dashboards.html#set-dashboard-display-preferences-and-settings).
 
 {% include note.html content="Including obsolete metrics on a dashboard level may significantly slow down the dashboard performance." %}
 
@@ -170,7 +171,7 @@ Sometimes charts have a few outliers that make it hard to make out the main part
 
 ### Filter Out Lines with Min and Max
 
-To filter out some lines, you specify a minimum or maximum. By default, Wavefront adjusts the Y axis to show all information. The following screenshot shows the automatic Y axis on the left and a Y axis of 75 on the right to filter out all lines from the development environment.
+To filter out some lines, you specify a minimum or maximum. By default, we adjust the chart's Y axis to show all information. The following screenshot shows the automatic Y axis on the left and a Y axis of 75 on the right to filter out all lines from the development environment.
 
 ![min 75 axis hides lines](images/charts_set_min.png)
 
@@ -213,10 +214,11 @@ Options to show the underlying raw data are not affected - hold the Shift key to
 
 **Time Dynamic Units**
 When an axis is labeled with a unit that exactly matches one of the time units, (ys, zs, as, fs, ps, ns, us, ms, s, min, hr, day, wk, mo, yr), the display logic keeps the magnitude as small as possible:
-1. First Wavefront normalizes the underlying data to seconds.
+
+1. First we normalize the underlying data to seconds.
 2. Then we display the data:
    * If the  normalized magnitude is < 60 results, the result is units ys through s.
-   * If the normalized magnitude is > 60, Wavefront scales the data using a larger time unit.
+   * If the normalized magnitude is > 60, we scale the data using a larger time unit.
 
 For example:
 
@@ -251,7 +253,7 @@ The same chart with the millisecond values in the hundred thousands displays as 
 
 ## Chart Resolution
 
-Wavefront accepts and stores data at up to 1 second resolution. Wavefront charts display that granularity only for small time windows on high-resolution displays. In most cases, the Wavefront UI aggregates data points into time buckets and maps the buckets to display points based on the chosen [summarization option](ui_charts_faq.html#what-does-the-summarization-option-do).
+The Wavefront service accepts and stores data at up to 1 second resolution. Charts display that granularity only for small time windows on high-resolution displays. In most cases, data points are aggregated into time buckets and the buckets are mapped to display points based on the selected [summarization option](ui_charts_faq.html#what-does-the-summarization-option-do).
 
 **Chart resolution** is the bucket time interval. It displays in the **Horizontal Scale** field in the lower-left corner of a chart.
 
@@ -297,15 +299,15 @@ Here is a series of charts with increasing time window for the _same_ display re
 
 ### The align() Function and Resolution
 
-The [`align()` function](query_language_reference.html#filtering-and-comparison-functions) lets you specify the size of the buckets&mdash;45 minute, 2 hour, 1 day, etc.&mdash;into which the points are grouped. However, the supported chart resolution is the most granular view you can get. Therefore, for the 1-week time window + 3840px screen example, specifying `align(15m,...)` does not result in 15 minute buckets being displayed on the screen because the ~30 minute buckets are already associated with the chart. If you were to use the `align()` function, Wavefront first aligns the values to 15 minute buckets, and then takes two aligned values and summarize those based on the Summarize By method.
+The [`align()` function](query_language_reference.html#filtering-and-comparison-functions) lets you specify the size of the buckets&mdash;45 minute, 2 hour, 1 day, etc.&mdash;into which the points are grouped. However, the supported chart resolution is the most granular view you can get. Therefore, for the 1-week time window + 3840px screen example, specifying `align(15m,...)` does not result in 15 minute buckets being displayed on the screen because the ~30 minute buckets are already associated with the chart. If you were to use the `align()` function, the query service first aligns the values to 15 minute buckets, and then takes two aligned values and summarize those based on the Summarize By method.
 
-{% include note.html content="To improve the performance of an aggregation, Wavefront will sometimes pre-align an expression. For details, see [Bucketing with align()](query_language_align_function.html)." %}
+{% include note.html content="To improve the performance of an aggregation, the query service will sometimes pre-align an expression. For details, see [Bucketing with align()](query_language_align_function.html)." %}
 
 ## Improve Display Speed with the Sampling Option
 
-Wavefront is very fast, but sometimes it's not necessary for the user to wait for thousands of series to be rendered. You can limit the number of time series to 100 for new charts.
+It's often not necessary to examine the complete set of time series. That's why you can limit the number of time series to 100 for new charts.
 
-To affect all dashboards, turn on the **Sampling** in your preferences.
+To affect all dashboards, turn on **Sampling** in your preferences.
 1. Click the gear icon in the top right corner.
 2. Click your account name.
 3. Turn **Sampling** on.
@@ -319,7 +321,7 @@ If the **Sampling** preference is **On**:
 
 ![sampling query during chart create](images/sampling_during_chart_create.png)
 
-To temporarily change the sampling behavior for a chart, use the **Sampling** menu in the top right. You cannot save this change (or other changes in this taskbar).
+To temporarily change the sampling behavior for a chart, use the **Sampling** menu in the top right. You cannot save this change (or other changes made through the options this toolbar).
 
 ![sampling toggle during chart edit](images/sampling_toggle.png)
 
@@ -327,6 +329,8 @@ To temporarily change the sampling behavior for a chart, use the **Sampling** me
 ## Do More!
 
 * Customize your chart. See the [Chart Reference](ui_chart_reference.html) for details.
-* [Share a chart](ui_sharing.html#share-a-link-to-a-dashboard-or-chart) with a coworker (or with the customer success team if you need help).
-* [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) outside Wavefront.
-* KB article: [How to Filter a Chart so it Displays Only Metrics with Certain Point Tags] https://help.wavefront.com/hc/en-us/articles/4406632325140-How-to-filter-a-charts-displayed-point-tags-
+* [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) in another product or on another website.
+
+<!--
+* KB article: [How to Filter a Chart so it Displays Only Metrics with Certain Point Tags] (https://help.wavefront.com/hc/en-us/articles/4406632325140-How-to-filter-a-charts-displayed-point-tags 
+-->

@@ -7,13 +7,15 @@ permalink: alerts_manage.html
 summary: Learn how to create and manage alerts.
 ---
 
-All Wavefront users can [examine alerts and drill down to find the problem](alerts.html). Administrators can create and manage alerts.
+All users can [examine alerts and drill down to find the problem](alerts.html). Administrators can create and manage alerts.
 
-{% include note.html content="You need the [Alerts](permissions_overview.html) permission to create and manage alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
+{% include note.html content="You need the [**Alerts**](permissions_overview.html) permission to create and manage alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
+
+If you are using the **Terraform Provider**, update to [version 3.0.1](https://registry.terraform.io/providers/vmware/wavefront/latest/docs). Earlier versions are not compatible with the new alert experience. See the [FAQ for the New Alert GUI](alerts_v2_faq.html).
 
 ## Create Alert Video
 
-Users with Alerts permission follow a step-by-step process to create an alert. Watch this 90 second video. You can also watch the video <a href="https://bcove.video/3o9bu6L" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+Users with the **Alerts** permission follow a step-by-step process to create an alert. Watch this 90 second video. You can also watch the video <a href="https://bcove.video/3o9bu6L" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
 
 <p>
 <iframe src="https://bcove.video/3o9bu6L" width="700" height="400" allowfullscreen="true" alt="creating alerts with step-by-step process"></iframe>
@@ -44,7 +46,7 @@ To start alert creation, do one of the following:
 <tr>
 <td width="50%">
 <ul>
-<li markdown="span"><strong>Alerts Browser</strong> - Click <strong>Alerting</strong> from the taskbar and click the <strong>Create Alert</strong> button located above the filter bar.</li>
+<li markdown="span"><strong>Alerts Browser</strong> - Click <strong>Alerting &gt; Create Alert</strong>.</li>
 </ul></td>
 <td width="50%" markdown="span">![create_alert](images/create_alert_browser.png) </td></tr>
 <tr>
@@ -96,7 +98,7 @@ To start alert creation, do one of the following:
 <td width="50%">
 1. In the <strong>Conditions</strong> section, specify thresholds for the alert. The threshold becomes visible in the chart. <br><br>
 You can alert when the query result is greater than or less than the specified threshold. Specify at least 1 threshold. <br><br>
-<strong>Note</strong>: If your <strong>Data</strong> query is a boolean expression that includes a comparison operator, you can specify only one severity.</td>
+<strong>Note</strong>: If your <strong>Data</strong> query is a Boolean expression that includes a comparison operator, you can specify only one severity.</td>
 <td><img src="images/new_alert_condition.png" alt="Specify data the alert is monitoring">
 </td></tr>
 <tr>
@@ -112,7 +114,7 @@ You can alert when the query result is greater than or less than the specified t
 <td>3. Optionally, fine-tune and test the condition.
 <ul>
 <li><strong>Trigger Window</strong>: Length of time (in minutes) during which the <strong>Condition</strong> expression must be true before the alert fires. Minimum is 1. For example, if you enter 5, the alerting engine reviews the value of the condition during the last 5-minute window to determine whether the alert should fire. </li>
-<li><strong>Resolve Window</strong>(Optional): By default, the <strong>Resolve Window</strong> is unchecked and set to the same number of minutes as the Trigger Window. Set the <strong>Resolve Window</strong> to greater than or equal to the <strong>Trigger Window</strong> to avoid resolve-fire cycles.
+<li><strong>Resolve Window</strong>(Optional): By default the Resolve Window is set to the same number of minutes as the Trigger Window. Set the <strong>Resolve Window</strong> to greater than or equal to the <strong>Trigger Window</strong> to avoid resolve-fire cycles.
 <br><br>
 The <strong>Resolve Window</strong> is the length of time (in minutes) during which the <strong>Condition</strong> expression must be NOT true before the alert switches to resolved. Minimum is 1.  <br><br>
 </li>
@@ -123,7 +125,7 @@ The <strong>Resolve Window</strong> is the length of time (in minutes) during wh
 <td>4. For special cases, click <strong>Additional Settings</strong> to also specify the following settings. The default is often best.
 <ul>
 <li><strong>Checking Frequency</strong>: Number of minutes between checks whether the condition is true. Minimum and default is 1. When an alert is in the <a href="alerts_states_lifecycle.html">INVALID</a> state, the alert is checked approximately every 15 minutes, and not with the specified checking frequency. </li>
-<li><strong>Evaluation Strategy</strong>: Allows you to select <strong>Real-time Alerting</strong>. By default, Wavefront ignores values for the last 1 minute to account for delays. This default evaluation strategy prevents spurious firings because many data sources are updated only at certain points in time. If you select this check box, the alerting engine considers values in the last 1 minute (the alert is evaluated strictly on the ingested data). See <a href="alerts_delayed_data.html">Limiting the Effects of Data Delays</a> for some background. </li>
+<li><strong>Evaluation Strategy</strong>: Allows you to select <strong>Real-time Alerting</strong>. By default, Tanzu Observability by Wavefront ignores values for the last 1 minute to account for delays. This default evaluation strategy prevents spurious firings because many data sources are updated only at certain points in time. If you select this check box, the alerting engine considers values in the last 1 minute (the alert is evaluated strictly on the ingested data). See <a href="alerts_delayed_data.html">Limiting the Effects of Data Delays</a> for some background. </li>
 </ul></td>
 <td><img src="images/condition_options_2.png" alt="Condition options discussed in left column"></td>
 </tr>
@@ -167,8 +169,8 @@ If you already have information that helps recipients find the causes for the al
 </td>
 <td width="50%" markdown="span">![create_alert](images/alert_content_1.png) </td></tr>
 <tr><td>Click <strong>Additional Settings</strong> to further customize the notifications for special cases.
-<ul><li><strong>Resend Notifications</strong>: If checked, Wavefront resends the notification of a firing alert. You can specify interval at which the alert is resent. By default, notifications are sent only when the alert changes state. </li>
-<li><strong>Unique PagerDuty Incidents</strong>: Check this option to receive separate PagerDuty notifications for each series that meets the alert conditions.
+<ul><li><strong>Resend Notifications</strong>: If selected, we resend the notification of a firing alert. You can specify interval at which the alert is resent. By default, notifications are sent only when the alert changes state. </li>
+<li><strong>Unique PagerDuty Incidents</strong>: Select this option to receive separate PagerDuty notifications for each series that meets the alert conditions.
 <br/>For example, you get separate PagerDuty notifications for both the series on the right because the <code>env</code> tag is different.<br>
 <pre>
 #first series
@@ -178,7 +180,7 @@ app.errors source=machine env=prod
 app.errors source=machine env=stage
 </pre>
 </li>
-<li><strong>Secure Metrics Details</strong>: If you are protecting metrics in your environment with <a href="metrics_security.html">metrics security policies</a>, select this  check box to send a simplified alert notification without metric details and alert images.</li></ul>
+<li><strong>Secure Metrics Details</strong>: If you are protecting metrics in your environment with <a href="metrics_security.html">metrics security policies</a>, select this check box to send a simplified alert notification without metric details and alert images.</li></ul>
 </td>
 <td width="50%" markdown="span"> ![screenshot of options in Step 4](images/alert_content_2.png)
 </td>
@@ -233,8 +235,8 @@ If your query does NOT follow the `<expression> <comparisonOperator> <constant>`
 
 ### Who Gets Notified When the Alert Changes State?
 
-Wavefront sends alert notifications when the alert changes state.
-* An alert with a query that follows the pattern `<expression> <comparisonOperator> <constant>` sends a notification with the specified severity to all specified targets. This page calls this type of query **boolean query**.
+We send alert notifications when the alert changes state.
+* An alert with a query that follows the pattern `<expression> <comparisonOperator> <constant>` sends a notification with the specified severity to all specified targets. This page calls this type of query **Boolean query**.
 * A **multi-threshold alert** supports multiple severities and a different target for each severity. When the alert changes state, targets for conditions that meet the severity threshold are notified. Lower severity targets always receive notifications for all higher severities.
 
 For example, an alert [fires](alerts_states_lifecycle.html#when-do-alerts-fire) when a metric stays at a value that indicates a problem for the specified amount of time. But you might also want to be notified when the alert is resolved or when the alert is snoozed. The alert target gives fine-grained control over which state changes trigger a notification.
@@ -252,7 +254,7 @@ When the alert changes state, the recipients are notified. Customize which state
    {% include note.html content="Alert targets subscribe to all notifications at their severity and above. For example, an alert target for an INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. Because notifications potentially go to targets of different severities, you cannot associate an alert target with more than one severity. " %}
 
 The **maximum number** of email alert targets is:
-* 10 for alerts with boolean queries that follow the pattern `<expression> <comparisonOperator> <constant>`.
+* 10 for alerts with Boolean queries that follow the pattern `<expression> <comparisonOperator> <constant>`.
 * 10 per severity for multi-threshold alerts.
 
 If you exceed the number, you receive a message like the following:
@@ -290,7 +292,7 @@ The **Content** section allows you to specify one or more triage dashboards. For
 
 ## Edit Alerts
 
-Users with **Alerts** permission can change an alert at any time. The options are similar to what you see when you create an alert, but you can quickly focus on the things that you want to change.
+Users with the **Alerts** permission can change an alert at any time. The options are similar to what you see when you create an alert, but you can quickly focus on the things that you want to change.
 
 ### Start the Alert Edit
 
@@ -299,7 +301,7 @@ Users with **Alerts** permission can change an alert at any time. The options ar
 <tr>
 <td width="40%">
 <ol>
-<li>Click <strong>Alerting</strong> in the taskbar to display the Alerts Browser. </li>
+<li>Click <strong>Alerting &gt; All Alerts</strong> from the toolbar to display the Alerts Browser. </li>
 <li>Click the alert name, or click the ellipsis icon next to the alert and select <strong>Edit</strong>. <br><br>You can search for the alert by name, status, alert tag, etc. See <a href="wavefront_searching.html">Searching Wavefront</a>.</li>
 </ol>
 </td>
@@ -317,7 +319,7 @@ Users with **Alerts** permission can change an alert at any time. The options ar
 
 {% include warning.html content="If you navigate away from the page or close the browser tab without saving, your changes are lost!"%}
 
-### Make Changes to the Alert
+### Change the Alert Properties
 
 You can change the alert properties when you edit the alert.
 
@@ -392,19 +394,38 @@ Click **Save** in the top right to save your changes.
 
 ## Delete an Alert
 
-You delete an alert from the Alerts Browser page. Only users with **Alerts** permission can delete an alert.
+You delete an alert from the Alerts Browser page. Only users with the **Alerts** permission can delete an alert.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="40%">
 <ol>
-<li>Click <strong>Alerting</strong> in the taskbar to display the Alerts Browser. </li>
+<li>Click <strong>Alerting &gt; All Alerts</strong> from the toolbar to display the Alerts Browser. </li>
 <li>Click the ellipsis icon next to the alert.</li>
 <li>Select <strong>Delete</strong> and confirm the deletion.</li>
 </ol>
 </td>
 <td width="60%" markdown="span">![screenshot ellipsis menu to the left of alert in alerts browser](images/delete_alert.png) </td></tr>
+</tbody>
+</table>
+
+## Restore a Deleted Alert
+
+You can restore an alert from the trash if it was deleted less than 30 days ago or if it wasn't permanently deleted. You restore deleted alerts from the Alerts Browser page. Only users with the **Alerts** permission can restore a deleted alert.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+<ol>
+<li>Click <strong>Alerting &gt; All Alerts</strong> from the toolbar to display the Alerts Browser. </li>
+<li>Click <strong>All</strong> from the top right and select <strong>Deleted</strong>.</li>
+<li>Click the ellipsis icon next to the alert.</li>
+<li>Select <strong>Restore</strong>.</li>
+</ol>
+</td>
+<td width="50%" markdown="span">![screenshot of changing the view to deleted alerts](images/select-deleted-alerts.png) </td></tr>
 </tbody>
 </table>
 

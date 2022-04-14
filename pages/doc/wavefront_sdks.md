@@ -1,22 +1,22 @@
 ---
-title: Wavefront Observability SDKs
+title: Tanzu Observability by Wavefront SDKs
 keywords: getting started
 tags: [getting started]
 sidebar: doc_sidebar
 permalink: wavefront_sdks.html
-summary: Learn about Wavefront SDKs that enable applications to report metrics, histograms, and trace data.
+summary: Learn about Tanzu Observability SDKs that enable applications to report metrics, histograms, and trace data.
 ---
 
-Wavefront supports a suite of open source SDKs that developers can use to instrument applications for observability. The instrumented application collects and sends metrics, histograms, and/or trace data to Wavefront for storage and visualization. The SDKs are available for most popular programming languages, and are available in GitHub.
+Tanzu Observability by Wavefront supports a suite of open source SDKs that developers can use to instrument applications for observability. The instrumented application collects and sends metrics, histograms, and/or trace data to Tanzu Observability for storage and visualization. The SDKs are available for most popular programming languages, and are available in GitHub.
 
-Watch this video to listen to our co-founder Clement Pang talk about how Wavefront expands application monitoring with its observability SDKs:
+Watch this video to listen to our co-founder Clement Pang talk about how Tanzu Observability by Wavefront expands application monitoring with its observability SDKs:
 
 <p><a href="https://youtu.be/56Ql2OQ2NLQ"><img src="/images/v_app_monitoring.png" style="width: 700px;" alt="application monitoring"/></a>
 </p>
 
 ## What Do You Want to Collect?
 
-Wavefront observability SDKs let you instrument your application to collect and send different kinds of observability data.
+Tanzu Observability SDKs let you instrument your application to collect and send different kinds of observability data.
 
 <!--- Writer note: If you add any languages to this table, add links in the corresponding sections below. --->
 
@@ -74,8 +74,8 @@ Wavefront observability SDKs let you instrument your application to collect and 
 </tr>
 
 <tr>
-<td markdown="span">[Sender SDK](#sdks-for-sending-raw-data-to-wavefront)  </td>
-<td align="justify">Lets you send raw values to Wavefront for storage as metrics, histograms, or traces, e.g., to import CSV data into Wavefront.
+<td markdown="span">[Sender SDK](#sdks-for-sending-raw-data)  </td>
+<td align="justify">Lets you send raw values to Tanzu Observability by Wavefront for storage as metrics, histograms, or traces, e.g., to import CSV data.
 </td>
 <td>
 <ul>
@@ -103,12 +103,12 @@ Wavefront observability SDKs let you instrument your application to collect and 
 
 ## SDKs For Collecting Trace Data
 
-Wavefront provides SDKs that implement the [OpenTracing](https://www.opentracing.io) specification for creating, sampling, and reporting spans and traces. You use these SDKs to instrument critical areas in your code to send custom trace data to Wavefront:
+We provide SDKs that implement the [OpenTracing](https://www.opentracing.io) specification for creating, sampling, and reporting spans and traces. You use these SDKs to instrument critical areas in your code to send custom trace data:
 * You can use a Wavefront OpenTracing SDK alone, to instrument an entire application.
 * You can use a Wavefront OpenTracing SDK along with a framework SDK, to instrument any functions that are not handled by the instrumented framework.
 
 
-Wavefront provides OpenTracing SDKs for:
+We provide OpenTracing SDKs for:
 <div class="row">
  <div class="col-md-2 col-sm-6">
      <div class="panel panel-default text-center">
@@ -159,7 +159,7 @@ Wavefront provides OpenTracing SDKs for:
 
   {% include tip.html content="If you need application observability, but don't want to instrument code for your Java microservices, use the [Wavefront Java Tracing Agent](https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java). For more information, see [this blog post on the Wavefront Java Tracing Agent](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/wavefront-introduces-java-tracing-agent-delivering-out-of-the-box-application-observability)." %}
 
-A Wavefront OpenTracing SDK derives [RED metrics](trace_data_details.html#red-metrics-derived-from-spans) from the spans that are sent from the instrumented application. These RED metrics show the request Rate, Errors, and Duration that are obtained from the reported spans. These out-of-the-box metrics are derived from your spans automatically, with no additional configuration or instrumentation on your part. You can view the RED metrics for each service's operations in [predefined charts](trace_data_details.html#predefined-charts).
+A Wavefront OpenTracing SDK derives [RED metrics](trace_data_details.html#red-metrics) from the spans that are sent from the instrumented application. These RED metrics show the request Rate, Errors, and Duration that are obtained from the reported spans. These out-of-the-box metrics are derived from your spans automatically, with no additional configuration or instrumentation on your part. You can view the RED metrics for each service's operations in [predefined charts](tracing_basics.html#visualize-distributed-tracing-data).
 
 Sample use cases:
 * Suppose your application is already instrumented with a 3rd party distributed tracing system. If that 3rd party system is OpenTracing-compliant, you can replace it with the Wavefront OpenTracing SDK in the same language.
@@ -168,11 +168,11 @@ Sample use cases:
 
 ## SDKs For Collecting Metrics and Histograms
 
-Wavefront provides SDKs that implement standard metrics libraries in popular programming languages. You use these SDKs to instrument critical areas in your code, to collect and send custom business metrics, delta counters, and histograms to Wavefront:
+We provide SDKs that implement standard metrics libraries in popular programming languages. You use these SDKs to instrument critical areas in your code, to collect and send custom business metrics, delta counters, and histograms:
 * You can use a metrics SDK alone, to instrument an entire application to report the metrics of your choice.
 * You can use a metrics SDK and a framework SDK to instrument any functions that are not handled by the instrumented framework.
 
-Wavefront provides metrics SDKs for Java, .Net/C#, and Python:
+We provide metrics SDKs for Java, .Net/C#, and Python:
 <div class="row">
  <div class="col-md-2 col-sm-6">
      <div class="panel panel-default text-center">
@@ -229,11 +229,11 @@ Different metrics SDKs provide different capabilities:
 Sample use case:
 * Suppose you have a microservice with a critical backend operation that writes to a proprietary database. Even though you've used a framework-specific SDK to instrument the RESTful APIs, you'd also like to track how many database writes are performed. You can use a metrics SDK to instrument the write operation with a counter.
 
-## SDKs for Sending Raw Data to Wavefront
+## SDKs for Sending Raw Data
 
-Some Wavefront SDKs enable you to send raw values to Wavefront for ingestion as metrics, histograms, or trace data. You normally use these "sender" SDKs indirectly when you use other Wavefront SDKs that depend on them. However, you might use a sender SDK directly, for example, to create a utility that obtains existing values from a data store or CSV file, and sends those values to Wavefront.
+Some SDKs enable you to send raw values to Tanzu Observability for ingestion as metrics, histograms, or trace data. You normally use these "sender" SDKs indirectly when you use other SDKs that depend on them. However, you might use a sender SDK directly, for example, to create a utility that obtains existing values from a data store or CSV file, and sends those values to Tanzu Observability.
 
-Wavefront provides sender SDKs for:
+We provide sender SDKs for:
 
 <div class="row">
  <div class="col-md-2 col-sm-6">
@@ -285,9 +285,9 @@ Wavefront provides sender SDKs for:
 
 {% include note.html content="If you want to instrument your tracing application using a Sender SDK, you won’t see span-level RED metrics by default. See [Instrument Your Application with Wavefront Sender SDKs](tracing_instrumenting_frameworks.html#instrument-your-application-with-wavefront-sender-sdks) to configure your application to send span-level RED metrics using a custom tracing port." %}
 
-A sender SDK is built into each of the other observability SDKs to enable applications to communicate with Wavefront in one of two ways:
-* Send data directly to the Wavefront service ([direct ingestion](direct_ingestion.html)). This technique gets you up and running with minimal preparation, but is best suited for small-scale uses.
-* Send data to a [Wavefront proxy](proxies_installing.html), which then forwards the data to the Wavefront service. This technique is recommended for large-scale deployments, because the proxy provides resilience to internet outages, control over data queuing and filtering, and more.
+A sender SDK is built into each of the other observability SDKs to enable applications to communicate with Tanzu Observability in one of two ways:
+* Send data directly to Tanzu Observability ([direct ingestion](direct_ingestion.html)). This technique gets you up and running with minimal preparation, but is best suited for small-scale uses.
+* Send data to a [Wavefront proxy](proxies_installing.html), which then forwards the data to Tanzu Observability. This technique is recommended for large-scale deployments, because the proxy provides resilience to internet outages, control over data queuing and filtering, and more.
 
 
 <!---

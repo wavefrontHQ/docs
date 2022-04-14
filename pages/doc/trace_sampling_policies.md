@@ -4,11 +4,11 @@ keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: trace_sampling_policies.html
-summary: Learn how to sample your trace data and see them in Wavefront using sampling policies.
+summary: Learn control trace data sampling with sampling policies.
 ---
 
-Wavefront [intelligent sampling](trace_data_sampling.html) reduces the volume of ingested traces. The goal of intelligent sampling is to retain traces that are likely to be informative. But sometimes intelligent sampling discards traces that you want to keep. You can create a sampling policy to fine-tune intelligent sampling and let Wavefront know that you want to keep certain spans. 
-Creating a sampling policy affects your costs as you store more data within Wavefront. 
+Tanzu Observability by Wavefront uses [intelligent sampling](trace_data_sampling.html) to reduce the volume of ingested traces. The goal of intelligent sampling is to retain traces that are likely to be informative. But sometimes intelligent sampling discards traces that you want to keep. You can create a sampling policy to fine-tune intelligent sampling and indicate that you want to keep certain spans.
+Creating a sampling policy affects your costs as you store more data.
 
 You can create a sampling policy, edit, delete, restore, deactivate, and see the version history of the policy you created:
 
@@ -19,12 +19,12 @@ Let's look at how you can create a sampling policy and get familiar with the pol
 
 ## Create a Sampling Policy
 
-{% include note.html content="Only a [Super Admin user](authorization.html#who-is-the-super-admin-user) or users with [Applications permissions](permissions_overview.html) can create sampling policies." %}
+{% include note.html content="Only a [Super Admin user](authorization-faq.html#who-is-the-super-admin-user) or users with [Applications permissions](permissions_overview.html) can create sampling policies." %}
 
-To create a sampling policy: 
+To create a sampling policy:
 
-1. In your web browser, go to your Wavefront cluster and log in.
-1. From the taskbar, click **Applications** > **Sampling Policies**.
+1. In your web browser, go to your Wavefront instance and log in.
+1. From the toolbar, select **Applications** > **Sampling Policies**.
 1. Click **Create Policy** and enter the details:
     <table style="width: 100%;">
       <thead>
@@ -58,7 +58,7 @@ To create a sampling policy:
           **Policy Expression**
         </td>
         <td markdown="span">
-          Define a policy expression to let Wavefront know about the spans you want to keep. This expression needs to be in the YAML format. See [Add a Policy Expression](#add-a-policy-expression) for details.
+          Define a policy expression indicate which spans you want to keep. This expression needs to be in the YAML format. See [Add a Policy Expression](#add-a-policy-expression) for details.
         </td>
       </tr>
       <tr>
@@ -75,13 +75,13 @@ To create a sampling policy:
           **Status**
         </td>
         <td markdown="span">
-          The policy is in effect when it is in the active state. Once the policy is active, it affects your costs as you store more data within Wavefront. 
-          
-          <br/>To see the number of spans stored per second after a sampling policy is created, see <a href="trace_data_sampling.html#track-the-volume-of-trace-data-stored-in-wavefront">Track Volume of Trace Data Stored in Wavefront</a>.
+          The policy is in effect when it is in the active state. Once the policy is active, it affects your costs as you store more data.
+
+          <br/>To see the number of spans stored per second after a sampling policy is created, see <a href="trace_data_sampling.html#track-the-volume-of-stored-trace-data">Track the Volume of Stored Trace Data</a>.
         </td>
       </tr>
     </table>
-    
+
   1. Click **Create Policy**.
 ![the screenshot shows the create policy form with all the UI elements that were described in the table above.](images/tracing-sampling-policies-create-ploicy-form.png)
 
@@ -91,7 +91,7 @@ Now, you see the policy you created listed under sampling policies.
 
 When you [create a sampling policy](trace_sampling_policies.html), you need to define a policy expression that specifies the spans you want to keep. This expression needs to be in the YAML format.
 
-Let's look at a policy expression that asks Wavefront to store traces if the application name is beachshirts.
+Let's look at a policy expression that asks the Wavefront service to store traces if the application name is beachshirts.
 ![](images/trace_sampling_expression.png)
 
 <table style="width: 100%;">
@@ -114,8 +114,8 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
       <ul>
         <li>
           If a span tag key or a default key is used to pass string values, the key needs to be defined between <code>&#123;&#123;&#125;&#125;</code>.
-      
-          <br/>Example: 
+
+          <br/>Example:
           <ul>
             <li>
               <code>&#123;&#123;spanName&#125;&#125;</code>
@@ -127,7 +127,7 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
         </li>
         <li>
           If a span tag key or a default key is used to pass an integer value, the key needs to start with a <code>&#36;</code>.
-          <br/>Example: 
+          <br/>Example:
           <ul>
             <li>
               <code>&#36;startMillis</code>
@@ -148,7 +148,7 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
       Define the values as follows:
       <ul>
         <li>
-          For string values, surround the value with double quotes (<code>""</code>). <br/>Example: Retain spans that have the application name set to <code>beachshirts</code>. 
+          For string values, surround the value with double quotes (<code>""</code>). <br/>Example: Retain spans that have the application name set to <code>beachshirts</code>.
           <pre>&#123;&#123;application&#125;&#125; = "beachshirts"</pre>
         </li>
         <li>
@@ -161,9 +161,9 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
     <td width="20%">
       <b>Operation</b>
     </td>
-    <td width="80%"> 
+    <td width="80%">
       Policy expressions can contain operations that are cases sensitive, and operations that are not case sensitive:
-      
+
       <br/><br/><b>Operations that are case sensitive:</b> These operations match only if the case is the same. For example, <code>&#123;&#123;application&#125;&#125; = "beachshirts"</code> is equal to <code>beachshirts</code> but not <code>beachShirts</code>.
         <ul>
           <li>
@@ -191,13 +191,13 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
           <li>
             <code>in</code>
             {{site.data.alerts.note}}
-            For example, <code>&#123;&#123;http.status_code&#125;&#125; in ("400", "404")</code>  is satisfied if the value is <code>400</code> or <code>404</code>. 
+            For example, <code>&#123;&#123;http.status_code&#125;&#125; in ("400", "404")</code>  is satisfied if the value is <code>400</code> or <code>404</code>.
             {{site.data.alerts.end}}
-            
+
           </li>
         </ul>
-        
-      <b>Operations that are not case sensitive:</b> These operations match even if the case is not the same. 
+
+      <b>Operations that are not case sensitive:</b> These operations match even if the case is not the same.
         <ul>
           <li>
             <code>equalsIgnoreCase</code>
@@ -217,16 +217,16 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
         </ul>
         {{site.data.alerts.note}}
 
-        For example: 
+        For example:
         <ul>
           <li><code>&#123;&#123;application&#125;&#125; equalsIgnoreCase "beachshirts"</code> is equal to <code>beachshirts</code> and <code>beachShirts</code>.
           </li>
-        
+
           <li><code>&#123;&#123;application&#125;&#125; matchesIgnoreCase "beachshirts123" </code> matches <code>beachshirts123</code> and <code>beachShirts123</code>.
           </li>
         </ul>
         {{site.data.alerts.end}}
-      
+
     </td>
   </tr>
 </table>
@@ -235,9 +235,9 @@ Let's look at a policy expression that asks Wavefront to store traces if the app
 
 The following policy expression creates a sampling policy to keep all spans from the `beachshirts` application where the operation starts with `Shopping`, the source contains `prod`, and the status code is `400` or `404`.
 <pre>
-&#123;&#123;application&#125;&#125; = "beachshirts" and 
-&#123;&#123;spanName&#125;&#125; startsWith "Shopping." and 
-&#123;&#123;sourceName&#125;&#125; contains "prod" and 
+&#123;&#123;application&#125;&#125; = "beachshirts" and
+&#123;&#123;spanName&#125;&#125; startsWith "Shopping." and
+&#123;&#123;sourceName&#125;&#125; contains "prod" and
 &#123;&#123;http.status_code&#125;&#125; in ("400", "404")
 </pre>
 
@@ -247,7 +247,7 @@ To edit a sampling policy:
 
 1. Click the vertical ellipsis next to the policy name and click **Edit**.
     ![the screenshot described above, with the edit option highlighted with a red box.](images/tracing_edit_sampling_policy.png)
-    
+
 1. Update the details, and click **Update Policy**.
 
 ## Delete a Sampling Policy
@@ -283,4 +283,4 @@ To activate a sampling policy:
 
 ## Learn More
 
-To learn more about the Wavefront's trace data sampling strategies, see [Trace Sampling](trace_data_sampling.html).
+To learn more about our trace data sampling strategies, see [Trace Sampling](trace_data_sampling.html).

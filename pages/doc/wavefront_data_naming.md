@@ -51,7 +51,8 @@ For more information on tags, see [Organizing with Tags](tags_overview.html).
 
 ## Other Data Best Practices
 
-* [Wavefront and Cardinality](cardinality.html) explores how you can optimize query performance by selecting the best data dimensions.
+* [Wavefront and Cardinality](cardinality.html) has an introduction with a video.
+* [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html) is an in-depth discussion with examples. 
 
 The following KB articles provide details on data best practices:
 

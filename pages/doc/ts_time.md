@@ -15,7 +15,7 @@ Returns a continuous series of epoch seconds corresponding to the seconds on the
 
 ## Description
 
-The `time()` standard time function represents each second on the chart's x-axis as a number of epoch seconds. The returned values are based on the system clock on Wavefront servers.
+The `time()` standard time function represents each second on the chart's x-axis as a number of epoch seconds. The returned values are based on the system clock on the Wavefront instance.
 
 Epoch seconds are the number of seconds that have elapsed since 00:00:00 Coordinated Universal Time (UTC) on January 1, 1970.
 By default, the chart legend displays an abbreviated version of the epoch seconds that represent the timestamp. You can cause the legend to display the entire number of epoch seconds by holding down the shift key when you hover over the time series.
@@ -24,7 +24,7 @@ Note that if the chart's bucket size is greater than 1 second, some of the displ
 
 ## Examples
 
-You can monitor the system clock of a source if it has a metric for sending its system time to Wavefront as epoch seconds. By comparing such a metric to the results of `time()`, you can detect latency or system clock drift. The following chart shows the results of `time()-ts(time.seconds)`, which is the difference between the time maintained by Wavefront servers and a source's system clock (`time.seconds`). Notice that this difference is positive 187 seconds up to 11:59am, which means the Wavefront time is ahead of the source's time by a little over 3 minutes. At 12 noon, the two clocks are synchronized again. 
+You can monitor the system clock of a source if it has a metric for sending its system time to the Wavefront service as epoch seconds. By comparing such a metric to the results of `time()`, you can detect latency or system clock drift. The following chart shows the results of `time()-ts(time.seconds)`, which is the difference between the time maintained by the Wavefront instance and a source's system clock (`time.seconds`). Notice that this difference is positive 187 seconds up to 11:59am, which means the Wavefront time is ahead of the source's time by a little over 3 minutes. At 12 noon, the two clocks are synchronized again. 
 ![time](images/ts_time_clock_drift.png)
 
 The `time.seconds` metric in this example can be created for Macintosh and Linux hosts via [direct data ingestion](direct_ingestion.html). You can set up a `cron` job to generate and send data points directly to the Wavefront service, where each point has the metric name `time.seconds` and a value produced by the host's `date` utility. After opening your `cron` table for editing (`crontab -e`), enter:
@@ -32,4 +32,4 @@ The `time.seconds` metric in this example can be created for Macintosh and Linux
 ```
 * * * * * echo "time.seconds $(date +\%s) source=$(hostname)" | curl -H "Authorization: Bearer <TOKEN>" --data @- https://mydomain.wavefront.com/report
 ```
-You'll need to supply your own API token and domain, as described in [Example Commands](direct_ingestion.html#example-commands).
+You'll need to supply your own API token and domain, as described in [Direct Ingestion Example Commands](direct_ingestion.html#direct-ingestion-example-commands).

@@ -5,7 +5,7 @@ sidebar: doc_sidebar
 permalink: tags_overview.html
 summary: Learn how to use tags to focus and speed up queries display and to unclutter the UI.
 ---
-A tag is custom metadata that adds application-specific meaning to Wavefront objects such alerts, dashboards, events, and sources and metrics.
+Tanzu Observability by Wavefront supports tags for adding application-specific metadata to objects such alerts, dashboards, events, sources, and metrics.
 
 ## Videos
 
@@ -24,7 +24,7 @@ Watch these videos to get started:
 <td><strong><font color="#0091DA" size="3">Organizing with Tags</font></strong><br><br>
 <iframe src="https://bcove.video/3APZACf" width="450" height="275" allowfullscreen="true" alt="Jason shows how to organize data with tags"></iframe></td>
 <td><br>
-<p>Want to learn how to organize information in Wavefront? Jason shows an example of assigning a tag (e.g. training) to several dashboards and how the tag can be used for filtering. He then uses additional tags in a hierarchy of tags (e.g. training.attendee and training.trainer) to support more fine-grained filtering using tag paths. Tag paths are available for dashboards, alerts, and events. Finally, for sources, Jason shows you can add source tags and filter directly from a query. </p>
+<p>Want to learn how to use tags? Jason shows an example of assigning a tag (e.g. training) to several dashboards and how the tag can be used for filtering. He then uses additional tags in a hierarchy of tags (e.g. training.attendee and training.trainer) to support more fine-grained filtering using tag paths. Tag paths are available for dashboards, alerts, and events. Finally, for sources, Jason shows you can add source tags and filter directly from a query. </p>
 <p>You can also watch the video <a href="https://bcove.video/3APZACf" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
@@ -120,7 +120,7 @@ In ts() and events() queries, you can filter:
 
 All tag types support the ability to organize tags in a hierarchy. The hierarchy is defined by separating tag components with a dot (`.`), for example, `MyService.MyApp`.
 
-Dashboards provided by Wavefront start with a tilde at the beginning of the tag, for example, `~welcome.`, `~integration.`, and `~system.`. To improve readability, tags retain case for display but they are treated as case-insensitive for searching, sorting, etc.
+In dashboards, internal tags start with a tilde, for example, `~welcome.`, `~integration.`, and `~system.`. To improve readability, tags retain case for display but they are treated as case-insensitive for searching, sorting, etc.
 
 In the UI you operate on tag paths by selecting a component at a specific node in the hierarchy.  For example:
 * Select all Wavefront dashboards by clicking **wavefront**
@@ -146,7 +146,7 @@ You use point tags to add extra dimensions to your data, and can then focus your
 
 Object tags include alert tags, dashboard tags, event tags, and source tags.
 
-{% include note.html content="While every Wavefront user can view Wavefront objects, you must have [Alert, Dashboard, Event, or Source Tag Management permission](permissions_overview.html) to manage those objects and related object tags. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible." %}
+{% include note.html content="While every user can **view** dashboards, alerts, and other objects, you must have [Alert, Dashboard, Event, or Source Tag Management permission](permissions_overview.html) to manage those objects and related object tags. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible." %}
 
 ### Manage Object Tags
 
@@ -177,11 +177,11 @@ To filter by a tag, click a tag icon. You can click the icon in the filter bar o
 
 ## Source Tags
 
-Any Wavefront metric includes a source name. If source names change frequently or if you want to filter sources, a source tag can help. Source tags are just strings--in contrast, point tags are key-value pairs.
+A metric in Wavefront Data Format includes a source name. If source names change frequently or if you want to filter sources, a source tag can help. Source tags are just strings--in contrast, point tags are key-value pairs.
 
 You can add source tags from the UI or API, or you can inject source tags and source descriptions directly at the proxy.
 
-{% include note.html content="You must have **Source Tags** permission to manage sources and source tags. If you don't have **Source Tags** permission, Wavefront rejects source tags with a 403 error." %}
+{% include note.html content="You must have **Source Tags** permission to manage sources and source tags. If you don't have **Source Tags** permission, the Wavefront service rejects source tags with a 403 error." %}
 
 ### Why Source Tags?
 
@@ -232,7 +232,7 @@ sum(ts(dataingester.report-points, source="dev-2b-*" and tag=mySourceTag), sourc
 
 You can send metrics directly to the Wavefront proxy, and you can add source tags and source descriptions using the `SourceTag` and `SourceDescription` properties. Proxy 4.24 and later supports these properties. Starting with proxy 5.0, each property works with `add`, `save`, and `delete`.
 
-You send these properties to the same listening port as regular metrics. The port defaults to 2878, and you can change it with the `pushListenerPorts` setting in the [proxy configuration file](proxies_configuring.html#proxy-configuration-properties).
+You send these properties to the same listening port as regular metrics. The port defaults to 2878, and you can change it with the `pushListenerPorts` setting in the [proxy configuration file](proxies_configuring.html#configuration-properties).
 
 **Examples**
 
@@ -283,6 +283,6 @@ The syntax is the same for both the SourceTag and the SourceDescription property
 
 ## Learn More!
 
-* See [Wavefront Data Naming](wavefront_data_format.html#wavefront-data-format-best-practices) for examples of tags and tag naming.
+* See [Data Naming](wavefront_data_format.html#wavefront-data-format-best-practices) for examples of tags and tag naming.
 
 * Read the blog post [Skyline Resolves Production Incidents Faster with Alert-Based Health Dashboards](https://tanzu.vmware.com/content/blog/skyline-resolves-production-incidents-faster-with-alert-based-health-dashboards) for a discussion of a real-world example that uses alert tags.

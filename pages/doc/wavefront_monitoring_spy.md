@@ -6,7 +6,7 @@ permalink: wavefront_monitoring_spy.html
 summary: Use HTTP endpoints to get samples data or IDs, or use wftop to examine them with a keyboard-driven UI.
 ---
 
-Your Wavefront instance includes HTTP `spy` endpoints for sampling the data that your Wavefront instance is currently ingesting. Examining these endpoints helps you understand the data shape and avoid slowdown or other problems.
+Tanzu Observability by Wavefront includes HTTP `spy` endpoints for sampling the data that your Wavefront instance is currently ingesting. Examining these endpoints helps you understand the data shape and avoid slowdown or other problems.
 
 {% include note.html content="You need [Direct Data Ingestion permission](permissions_overview.html) to use these HTTP endpoints." %}
 
@@ -28,24 +28,24 @@ The Wavefront `spy` endpoints can provide insight into new data that is being in
 * Verify that your Wavefront instance is ingesting the data points that you expect.
 * Troubleshoot a sudden change in the rate at which new data is ingested.
 
-Wavefront supports the `spy` endpoints shown in the following table:
+Tanzu Observability supports the `spy` endpoints shown in the following table:
 
 <table width="100%">
 <tbody>
 <thead>
 <tr><th markdown="span" width="53%">Spy Endpoint</th><th width="47%">Description</th></tr>
 </thead>
-<tr><td markdown="span">`https://<cluster>.wavefront.com/api/spy/points`</td>
+<tr><td markdown="span">`https://<your_instance>.wavefront.com/api/spy/points`</td>
 <td markdown="span">[Gets new metric data points](#get-ingested-metric-points-with-spy) that are added to existing time series.</td></tr>
-<tr><td markdown="span">`https://<cluster>.wavefront.com/api/spy/deltas`</td>
+<tr><td markdown="span">`https://<your_instance>.wavefront.com/api/spy/deltas`</td>
 <td markdown="span">[Gets new delta counter points](#get-ingested-delta-counters-with-spy) that are added to existing time series.</td></tr>
-<tr><td markdown="span">`https://<cluster>.wavefront.com/api/spy/histograms`</td>
+<tr><td markdown="span">`https://<your_instance>.wavefront.com/api/spy/histograms`</td>
 <td markdown="span">[Gets new histograms](#get-ingested-histograms-with-spy) that are added to existing time series.</td></tr>
-<tr><td markdown="span">`https://<cluster>.wavefront.com/api/spy/spans`</td>
+<tr><td markdown="span">`https://<your_instance>.wavefront.com/api/spy/spans`</td>
 <td markdown="span">[Gets new spans](#get-ingested-spans-with-spy) with existing source names and span tags.</td></tr>
-<tr><td markdown="span">`https://<cluster>.wavefront.com/api/gateway/spy/spanlogs`</td>
+<tr><td markdown="span">`https://<your_instance>.wavefront.com/api/gateway/spy/spanlogs`</td>
 <td markdown="span">[Gets new span logs](#get-ingested-span-logs-with-spy) with the existing trace ID, span ID, and the respective event that created the log.</td></tr>
-<tr><td markdown="span">`https://<cluster>.wavefront.com/api/spy/ids`</td>
+<tr><td markdown="span">`https://<your_instance>.wavefront.com/api/spy/ids`</td>
 <td markdown="span">[Gets newly allocated IDs](#get-new-id-assignments-with-spy) that correspond to new metric names, source names, point tags, or span tags. A new ID generally indicates that a new time series has been introduced.</td></tr>
 
 </tbody>
@@ -53,7 +53,7 @@ Wavefront supports the `spy` endpoints shown in the following table:
 
 Each endpoint displays a header that describes your request, and then lists the results, if any, in close to real time (as soon as they are available). Each returned point, span, or ID is listed on a separate line.
 
-A `spy` endpoint always returns a *sample* of the requested data. Wavefront always uses multiple data ingesters, but the endpoint connects to a single data ingester. The sample is taken from data that is ingested by that one data ingester. As a result, you always get a sample even if you specify a 100% sample size as an endpoint parameter.
+A `spy` endpoint always returns a *sample* of the requested data. Tanzu Observability always uses multiple data ingesters, but the endpoint connects to a single data ingester. The sample is taken from data that is ingested by that one data ingester. As a result, you always get a sample even if you specify a 100% sample size as an endpoint parameter.
 
 ## Get Ingested Metric Points with Spy
 
@@ -65,10 +65,10 @@ Your Wavefront instance includes an HTTP endpoint that returns a sampling of the
 
 ### Endpoint and Parameters for Metric Points
 
-To get a sampling of ingested data points, use the following endpoint. Replace `<cluster>` with the name of your Wavefront instance:
+To get a sampling of ingested data points, use the following endpoint. Replace `<your_instance>` with the name of your Wavefront instance:
 
 ```
-  https://<cluster>.wavefront.com/api/spy/points
+  https://<your_instance>.wavefront.com/api/spy/points
 ```
 
 To get a sampling of points with specific characteristics, add one or more of the following parameters:
@@ -140,7 +140,7 @@ Suppose you have a Wavefront instance named `ex1`.
 
 ## Get Ingested Delta Counters with Spy
 
-Your Wavefront instance includes an HTTP endpoint that returns a sample of ingested [delta counters](delta_counters.html). The data you see are the aggregated points in each minute bucket that Wavefront stores **post aggregation**, not the individual points that were sent to Wavefront.
+Your Wavefront instance includes an HTTP endpoint that returns a sample of ingested [delta counters](delta_counters.html). The data you see are the aggregated points in each minute bucket that Tanzu Observability stores **post aggregation**, not the individual points that were sent to Tanzu Observability.
 
 You can use the returned list to help you answer questions like:
 * Show me some ingested delta counters with names that start with the prefix `Cust`.
@@ -151,10 +151,10 @@ You can use the returned list to help you answer questions like:
 
 ### Endpoint and Parameters for Delta Counters
 
-To get a sample of ingested delta counters (post aggregation), use the following endpoint. Replace `<cluster>` with the name of your Wavefront instance:
+To get a sample of ingested delta counters (post aggregation), use the following endpoint. Replace `<your_instance>` with the name of your Wavefront instance:
 
 ```
-https://<cluster>.wavefront.com/api/spy/deltas
+https://<your_instance>.wavefront.com/api/spy/deltas
 ```
 
 To get a sample of delta counters with specific characteristics, add one or more of the following parameters:
@@ -237,10 +237,10 @@ You can use the returned list of histograms to help you answer questions like th
 
 ### Endpoint and Parameters for Histograms
 
-To get a sampling of ingested histograms, use the following endpoint. Replace `<cluster>` with the name of your Wavefront instance:
+To get a sampling of ingested histograms, use the following endpoint. Replace `<your_instance>` with the name of your Wavefront instance:
 
   ```
-  https://<cluster>.wavefront.com/api/spy/histograms
+  https://<your_instance>.wavefront.com/api/spy/histograms
   ```
 
 To get a sampling of spans with specific characteristics, add one or more of the following parameters:
@@ -322,10 +322,10 @@ Your Wavefront instance includes an HTTP endpoint that returns a sampling of ing
 
 ### Endpoint and Parameters for Spans
 
-To get a sampling of ingested spans, use the following endpoint. Replace `<cluster>` with the name of your Wavefront instance:
+To get a sampling of ingested spans, use the following endpoint. Replace `<your_instance>` with the name of your Wavefront instance:
 
   ```
-  https://<cluster>.wavefront.com/api/spy/spans
+  https://<your_instance>.wavefront.com/api/spy/spans
   ```
 
 
@@ -387,9 +387,9 @@ Suppose you have a Wavefront instance named `ex1`.
 
 ## Get Ingested Span Logs with Spy
 
-Span logs capture span-specific logging information and are supported by the OpenTracing standard. Some Wavefront SDKs include span logs for errors by default. To get access to other span log information, you can customize a Wavefront SDK to include [span log information](tracing_instrumenting_frameworks.html#span-logs) or [instrument your application](tracing_instrumenting_frameworks.html).
+Span logs capture span-specific logging information and are supported by the OpenTracing standard. Some Wavefront SDKs include span logs for errors by default. To get access to other span log information, you can customize a Wavefront SDK to include [span log information](trace_data_details.html#span-logs) or [instrument your application](tracing_instrumenting_frameworks.html).
 
-{% include note.html content="Span logs are disabled by default. If you want to enable span logs on your cluster, contact the Wavefront Customer Success team at [support@wavefront.com](mailto:support@wavefront.com)."%}
+{% include note.html content="Span logs are disabled by default. If you want to enable span logs on your cluster, contact our Customer Success team at [support@wavefront.com](mailto:support@wavefront.com)."%}
 
 You can use the returned list of span logs to find out if it contains the data that you expect.<br/>
 Example:
@@ -400,13 +400,13 @@ Example:
 
 ### Endpoint and Parameters for Span Logs
 
-To get a sample of the ingested span logs, use the following endpoint. Replace `<cluster>` with the name of your Wavefront instance:
+To get a sample of the ingested span logs, use the following endpoint. Replace `<your_instance>` with the name of your Wavefront instance:
 
 ```
-https://<cluster>.wavefront.com/api/gateway/spy/spanlogs
+https://<your_instance>.wavefront.com/api/gateway/spy/spanlogs
 ```
 
-By default, the sampling rate is 1%, which means Wavefront returns 1% of the data. To sample the span logs at a different sampling rate, add the `sampling` parameter to the URL.
+By default, the sampling rate is 1%, which means that Tanzu Observability returns 1% of the data. To sample the span logs at a different sampling rate, add the `sampling` parameter to the URL.
 
 <table width="100%">
 <tbody>
@@ -429,16 +429,16 @@ http://ex1.wavefront.com/api/gateway/spy/spanlogs?sampling=0.05
 
 ## Get New ID Assignments with Spy
 
-During ingestion, Wavefront assigns an ID to each newly added metric name, span name, source name, and <code>key=value</code> string of a point tag or span tag. A new ID generally indicates that a new time series has been introduced.
+During ingestion, Tanzu Observability assigns an ID to each newly added metric name, span name, source name, and <code>key=value</code> string of a point tag or span tag. A new ID generally indicates that a new time series has been introduced.
 
-Your Wavefront instance includes an HTTP endpoint that provides a window into the current stream of new ID assignments. You can use the returned list of ID assignments to see if the data that is currently being ingested has introduced any metrics, sources, spans, or tags that your Wavefront system hasn't seen yet.
+Your Wavefront instance includes an HTTP endpoint that provides a window into the current stream of new ID assignments. You can use the returned list of ID assignments to see if the data that is currently being ingested has introduced any metrics, sources, spans, or tags that your Wavefront instance hasn't seen yet.
 
 ### Endpoint and Parameters for New ID Assignments
 
-To get a list of new ID assignments, use the following endpoint. Replace `<cluster>` with the name of your Wavefront instance:
+To get a list of new ID assignments, use the following endpoint. Replace `<your_instance>` with the name of your Wavefront instance:
 
   ```
-  https://<cluster>.wavefront.com/api/spy/ids
+  https://<your_instance>.wavefront.com/api/spy/ids
   ```
 
 To get ID assignments for a specific type of new item, add one or more of the following parameters:

@@ -197,9 +197,10 @@ Here is a summary of the sample `aliasMetric()` queries from the examples in the
 
 ## Learn More!
 
+* For an in-depth discussion, see [Metadata (Label Manipulation) Functions](query_language_metadata_functions.html)
 * For additional examples, see the [aliasSource() Function](ts_aliasSource.html).
 
-* See the KB article [Working with metadata functions - aliasSource, aliasMetric and taggify](https://help.wavefront.com/hc/en-us/articles/360057122452-Working-with-metadata-functions-aliasSource-aliasMetric-and-taggify)
+
 
 <!--- Need to fix this example
 

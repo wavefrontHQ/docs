@@ -1,29 +1,115 @@
 ---
-title: Wavefront Release Notes
+title: Release Notes and Announcements
 keywords:
 tags:
 sidebar: doc_sidebar
 permalink: wavefront_release_notes.html
-summary: Learn about new and updated features in Wavefront.
+summary: Announcements and new and updated features in Tanzu Observability by Wavefront.
 ---
 
-This page lists new and updated features for the Wavefront service.
+This page lists new and updated features for the Tanzu Observability by Wavefront service. 
 
-* For **Wavefront Proxy**, your go-to place is the [Wavefront proxy github page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
-* For the latest changes and releases of the **Wavefront Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
-* For  **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
+* For **Wavefront Proxy**, your go-to place is the [Wavefront proxy GitHub page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
+* For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
+* For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
-## Announcing Removal of the Service Accounts from the Everyone Group
+## Announcements
 
-In the next release(s), the service accounts that are still part of the predefined **Everyone** group will be removed from this group. This will not impact any existing functionality and integrations. Last year, all service accounts were added to the new predefined **Service Accounts** group. See the [2021-42.x Release Notes](2021.49.x_release_notes.html#2021-42x-release-notes) for details.
+* **Upcoming Removal of the Service Accounts from the Everyone Group**
 
-{% include important.html content="Ensure that the service accounts in your organization do not depend on the **Everyone** group permissions."%}
+    In the next release(s), the service accounts that are still part of the predefined **Everyone** group will be removed from this group. This will not impact any existing functionality and integrations. Last year, all service accounts were added to the new predefined **Service Accounts** group. See the [2021-42.x Release Notes](2021.49.x_release_notes.html#2021-42x-release-notes) for details.
 
-## Announcing Deprecation of v1 Dashboards and Charts
+    <!--- {% include important.html content="Ensure that the service accounts in your organization do not depend on the **Everyone** group permissions."%} --->
 
-In March, all v1 dashboards and charts will be migrated to v2. Users can no longer select the v1 version of dashboards and charts.
+## 2022-11.x Release Notes
 
-{% include important.html content="Most Wavefront users are already using the v2 GUI. However, if your dashboards and charts are migrated, see [What's New in v2 Dashboards & Charts](ui_v2_faq.html) for info. "%}
+  <table>
+  <tbody>
+  <tr>
+    <td width="50%">
+      <strong>Wavefront Proxy 11.0</strong>:
+      <ul><li>We recently released Wavefront Proxy version 11.</li>
+      <li>You can now <strong>send OpenTelemetry trace data directly</strong> from your applications to the Wavefront proxy. This is the recommended and simplest approach to get your data into Tanzu Observability.</li>
+      </ul>
+      </td>
+    <td width="50%">
+    <strong>Read More:</strong>
+    <ul>
+        <li><a href="https://github.com/wavefrontHQ/wavefront-proxy/releases">Wavefront Proxy Release Notes on GitHub</a></li>
+        <li><a href="opentelemetry_tracing.html#send-data-using-the-wavefront-proxy---recommended">Send OpenTelemetry Trace Data Directly Using the Wavefront Proxy</a></li>
+        <li><a href="opentelemetry_logs.html">Enable Proxy Debug Logs for OpenTelemetry Data</a></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <strong>New integrations</strong>:
+      <ul><li>
+      We just released several new integrations and integrations dashboards including a VMware Blockchain integration and a Control Plane dashboard for the Kubernetes integration. See the <a href="integrations_new_changed.html#march-2022">Integrations Release Notes</a> for details.</li></ul>
+      </td>
+    <td width="50%">
+    <br/><img src="/images/kubernetes_control_plane.png" alt="The new alerting menu on the toolbar.">
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <strong>Documentation Improvements</strong>:<p>
+      We updated the doc set with information that comes from the Tanzu Observability SaaS Value Engineering team. Some information was added, some new doc pages are listed on the right.</p>
+    </td>
+    <td width="50%">
+      <strong>Read More:</strong>
+
+      <ul>
+        <li><a href="optimize_data_shape.html">Optimizing the Data Shape to Improve Performance</a></li>
+        <li><a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a></li>
+        <li><a href="query_language_metadata_functions.html">Metadata (Label Manipulation) Functions</a></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <strong>Toolbar Improvements</strong>:<br/><br/>
+      All objects and items related to alerts are available from the <strong>Alerting</strong> menu. Instead of clicking <strong>Browse</strong> on the toolbar to access alert targets and maintenance windows, you can click <strong>Alerting</strong> and select:
+      <ul>
+        <li><strong>All Alerts</strong> - to open the Alerts Browser page.</li>
+        <li><strong>Alert Targets</strong> - to open the Alert Targets page.</li>
+        <li><strong>Maintenance Windows</strong> - to open the Maintenance Windows page.</li>
+        <li><strong>Create Alert</strong> - to create a new alert.</li>
+        </ul>
+    </td>
+    <td width="50%">
+      <br/><br/><img src="/images/create_alert_browser.png" alt="The new alerting menu on the toolbar.">
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <strong>Improved User Experience for Slow Loading or Failed Queries</strong>:
+      <ul>
+      <li>New <strong>progress bar</strong> at the bottom of each chart. </li>
+      <li><strong>Slow Loading Queries</strong>: If you see that a chart on a dashboard is loading slowly, you can click a <strong>Stop</strong> button on the chart to stop fetching the data (instead of refreshing the whole browser page). To update the chart, click <strong>Reload</strong>.</li>
+      <li><strong>Failed Queries</strong>: If a query on a chart <strong>fails to load data</strong>, click the <strong>Reload</strong> button to rerun the query.</li>
+      <li>Hovering over the <strong>Stop</strong> button shows information about the <strong>state of the queries</strong> in the chart, such as loading time series, events, and so on.</li></ul>
+    </td>
+    <td width="50%">
+      <br/><br/><br/><img src="/images/stop-reload-chart.png" alt="A chart with reload button and a progress bar at the bottom.">
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <strong>Sorting of Columns in Pinned Legends</strong>:<br/><br/>
+      You can now sort columns in the legend for most chart types after you pin a legend in a chart (Shift+P). See the screenshot on the right.
+    </td>
+    <td width="50%">
+      <br/><img src="/images/sort_legend.png" alt="A pinned legend with up and down arrows for each column.">
+    </td>
+  </tr>
+    </tbody>
+  </table>
+
+## 2022-09.x Release Notes
+
+**Drilldown Links on Charts Improvement**: You can now use drilldown links to send users to a target section of a dashboard. See [How Do Drilldown Links Work](ui_charts_faq.html#how-do-drilldown-links-work).
+
 
 ## 2022-08.x Release Notes
 
@@ -32,122 +118,13 @@ In March, all v1 dashboards and charts will be migrated to v2. Users can no long
 
 We have now made [monitoring](examine_usage.html) of the ingested PPS much easier. As a Wavefront Super Admin, you can track and monitor how ingested data is used, whether you will be billed for more data, and whether you will need to request more data. You can also create [ingestion policies](ingestion_policies.html) and monitor how different accounts contribute to the PPS usage.
 
-{% include note.html content="The new Usage Portal and Ingestion Policy functionality is currently available to some of our customers. It will become available to all customers within the next releases."%}
-
 ![Example of the Usage Summary dashboard.](images/usage_overview.png)
-
-
-## 2022-06.x Release Notes
-
-* **Updated the Wavefront REST API Documentation UI**: We've updated our in-product interactive API documentation to use the latest Swagger API console. To access the API documentation, either click the gear icon and select **API Documentation**, or go to `https://<your_cluster_name>/api-docs/ui/`.
-* **New Alerts FAQ Page**: Check out the new [Alerts FAQ page](alerts_faq.html) that answers questions like "Why Did My Alert Misfire?" or "When Does an Alert Resolve?".
-* **UI Updates and Improvements**
-
-  <table>
-  <tbody>
-  <tr>
-  <td width="50%">
-  You can now sort columns in the legend for most chart types after you pin a legend in a chart (Shift-P). See the screenshot on the right.
-  </td>
-  <td width="50%"><img src="/images/sort_legend.png" alt="A pinned legend with up and down arrows for each column."></td>
-  </tr>
-  </tbody>
-  </table>
-
-## 2022-05.x Release Notes
-
-* **Create and Manage Alerts Revamp**: Streamlined experience that improves usability and gives alert creators more options.
-  - Straightforward settings during creation and edit.
-  - New Runbooks and Triage Dashboard fields help alert recipients resolve the alert.
-  - Alert notifications include actionable insights.
-
-  See the [FAQ for the New Alert GUI](alerts_v2_faq.html), watch the [Create Alert Video](https://bcove.video/3o9bu6L), or look at the new [Create Alert Tutorial](alerts_manage.html#create-alert-tutorial).
-
-  {% include tip.html content="When you open an existing alert for edit, you'll see it in alerts v2 GUI. However, all APIs work as before. See [FAQ for the New Alert GUI](alerts_v2_faq.html). "%}
-  {% include note.html content="There will be a staggered rollout of this feature over the next few weeks. "%}
-
-* **Turn off Dynamic Dashboard Variable Live Refresh**: Users with **Dashboard** permissions can now toggle whether a dashboard that shows live data performs [refresh of dynamic variables](ui_dashboards.html#turn-off-dynamic-dashboard-variable-live-refresh).
-
-* **Decimal Precision in Charts**: We have included the **Decimal Precision** setting, and you can specify how many digits to show after the decimal point for a number of charts, such as:
-    * Line Plot
-    * Point Plot
-    * Stacked Area
-    * Stacked Column
-    * Table
-
-  See the [Chart Reference](ui_chart_reference.html) for details.
-
-## 2022-04.x Release Notes
-
-* **Obsolete Metrics Toggle for Dashboards**: You can now [include obsolete metrics](ui_examine_data.html#include-or-exclude-obsolete-metrics) in all charts within a dashboard. Doing so, data that have not been reported for 4 weeks or more are included for all the charts on the dashboard.
-
-   {% include important.html content="Dashboard performance might suffer if you include obsolete metrics. Using the setting for individual charts is recommended."%}
-
-* **New Sample Data Dashboards**: We have added new sample data dashboards, that allow you to investigate integrations dashboards and charts that contain sample data for our most used integrations. For details see: [Get to know our integration dashboards](https://docs.wavefront.com/integrations.html#get-to-know-the-integration-dashboards).
-
-   {% include note.html content="The Sample Data Dashboards are currently available to some of our customers. They will become available to all customers within the next releases."%}
-
-* **Set Up and Manage the AWS Integration by Using the API**: Learn how you can [use the Wavefront API to set up and manage the AWS integration](integrations_aws_overview_API.html).
-
-## 2022-03.x Release Notes
-
-We have added a new **API Tokens** permission for user accounts. This change **does not** affect service accounts.
-
-{% include important.html content="All existing users, who were previously able to generate their own API tokens, can still use and manage their existing API tokens. However, going forward, only users who have the **API Tokens** permission can generate new API tokens. "%}
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="60%">
-To enable users to generate API tokens:
-<ol><li>Log in to Wavefront as a user with <strong>Accounts</strong> permission.</li>
-<li>Click the gear icon and select <strong>Accounts</strong></li>
-<li>On the <strong>User Accounts</strong> tab, select one or more users.</li>
-<li>Click <strong>+Permission</strong> and select <strong>API Tokens</strong>.</li></ol>
-</td><td width="40%">
-<img src="/images/API_Tokens_permission_add.png" alt="API Tokens permission.">
-</td>
-</tr>
-</tbody>
-</table>
-
-## 2022-01.x Release Notes
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="50%">
-<strong>Query Editor Insights for Queries and Charts</strong>:
-<ul><li>Click the ellipsis icon for the chart to see <a href="query_language_performance.html#use-statistics-and-suggestions">statistics for all queries in the chart</a>.</li>
-<li>Click the lightbulb icon next to a query for <a href="query_language_performance.html#query-stats-and-suggestions">query stats and suggestions</a>.</li></ul>
-</td>
-<td width="50%"><img src="/images/stats_all.png" alt="Chart stats and query stats."></td>
-</tr>
-<tr>
-<td width="50%">
-<strong>Integration Improvements</strong>: You can now easily filter the integrations by state. See <a href="integrations.html#supported-states">Supported States</a>.
-</td>
-<td width="50%"><img src="/images/integration_state_relnotes.png" alt="List of integrations filtered by active state."></td>
-</tr>
-<!---
-<tr>
-<td width="50%">
-<strong>Application Map Performance Improvements</strong>: The team has improved the App Map performance significantly. <br><br>As part of that effort, the App Map no longer shows the node count by default. Check <strong>Show Node Counts</strong> in the App Map settings to change the default.
-</td>
-<td width="50%"><img src="/images/show_node_counts.png" alt="App Map settings screenshot, show node count not checked."></td>
-</tr>
---->
-</tbody>
-</table>
-
-
-
-
 
 
 
 ## Past Release Notes
 
+- [2022-06.x Release Notes](2022-06.x_release_notes.html)
 - [2021-49.x Release Notes](2021.49.x_release_notes.html)
 - [2021-35.x Release Notes](2021.35.x_release_notes.html)
 - [2021-24.x Release Notes](2021.24.x_release_notes.html)

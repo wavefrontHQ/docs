@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: sources_managing.html
 summary: Learn about sources and how to manage them.
 ---
-A source is a unique application, host, container, or instance that emits metrics. The source is explicitly set in the `source` field of a [Wavefront data format](wavefront_data_format.html) metric. For AWS integrations, the source is extracted from [AWS Cloud Watch service properties or dimensions](integrations_aws_metrics.html#aws_sources).
+In Tanzu Observability by Wavefront, a **source** is a unique application, host, container, or instance that emits metrics. The source is explicitly set in the `source` field of a [Wavefront data format](wavefront_data_format.html) metric. For AWS integrations, the source is extracted from [AWS Cloud Watch service properties or dimensions](integrations_aws_metrics.html#aws_sources).
 
 * To view and manage sources, select **Browse > Sources**.
 * To filter and group in charts, use the Wavefront query language. You can filter by source and [filter and group by source tags](tags_overview.html#source-tags).
@@ -17,7 +17,7 @@ A source is a unique application, host, container, or instance that emits metric
 
 If you don't see metrics in charts that filter by source, you can examine sources in the Source browser.
 
-{% include note.html content="In the Sources browser Wavefront doesn't filter out sources that are older than 4 weeks." %}
+{% include note.html content="The Sources browser doesn't filter out sources that are older than 4 weeks." %}
 
 ### Step 1: Find a Source
 

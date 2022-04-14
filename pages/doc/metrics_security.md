@@ -7,9 +7,9 @@ permalink: metrics_security.html
 summary: Use metrics security to control access to time series, histograms, and delta counters.
 ---
 
-In a large enterprise, certain data are confidential. Wavefront allows you to limit who can see or modify data in several ways.
+In a large enterprise, certain data are confidential. Tanzu Observability by Wavefront allows you to limit who can see or modify data in several ways.
 * **Permissions** are **global** settings.
-  - Some permissions limit who can modify Wavefront objects (e.g. proxies or events). For example, users with **Dashboards** permission can modify all dashboards.
+  - Some permissions limit who can modify objects (e.g. proxies or events). For example, users with **Dashboards** permission can modify all dashboards.
   -  Other permissions make certain information completely invisible. For example, only users with **SAML IdP Admin** permission can see the **Self Service SAML** menu or access that page.
 * **Access Control** allows administrators with the right permissions fine-grained control over individual dashboards or alerts. For example, it's possible to limit view and modify access to a Finance_2020 dashboard to just the Finance department.
 * **Metrics Security** supports even finer-grained control. In the example above, access to the Finance_2020 dashboard is limited to the Finance department. With metrics security, you can limit access to confidential time series, histogram, and delta counter metrics to the leadership team.
@@ -84,7 +84,7 @@ See the Examples below for some scenarios.
 
 ### Alert Notifications
 
-To protect metrics from inclusion in alert notifications, use the **Secure Metrics Details** check box. Wavefront looks at all metrics when determining when an alert status should change and shows them in alert notifications. When the check box is selected, [details are not shown](alerts_notifications.html#alert-notification-with-secured-metrics-details) in the notification.
+To protect metrics from inclusion in alert notifications, use the **Secure Metrics Details** check box. Tanzu Observability looks at all metrics when determining when an alert status should change and shows them in alert notifications. When the check box is selected, [details are not shown](alerts_notifications.html#alert-notification-with-secured-metrics-details) in the notification.
 
 ### Derived Metrics and Events
 
@@ -163,7 +163,7 @@ See the Examples further below.
 
 You create a metrics security policy rule following these steps. See the annotated screenshot below for an example.
 
-1. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Metrics Security Policy** and click **Create Rule**
+1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Metrics Security Policy** and click **Create Rule**
 2. In the **Create Rule** dialog, specify the rule parameters.
   1. Specify a descriptive name. Users might later modify the rule, so a clear name is essential.
   2. Add a description. The description is visible only when you edit the rule. The name is visible on the Metrics Security Policy page.

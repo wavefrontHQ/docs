@@ -6,13 +6,13 @@ sidebar: doc_sidebar
 permalink: query_language_windows_trends.html
 summary: Highlight trends with moving and tumbling windows.
 ---
-You can calculate continuous aggregation over a sliding time window using one of the moving window functions. [Moving time window functions](query_language_reference.html#moving-window-time-functions) are useful if, for example, you want to calculate the moving average over the past 24 hours.
+Tanzu Observability by Wavefront supports moving time window functions for calculating continuous aggregation over a sliding time window. [Moving time window functions](query_language_reference.html#moving-window-time-functions) are useful if, for example, you want to calculate the moving average over the past 24 hours.
 
 But if you want to look at the daily average for each day, you have to create fixed-size time window. This page explains how use moving and fixed-sized time windows.
 
 ## Calculating Continuous Aggregation with Moving Window Functions
 
-The Wavefront [moving window time functions](query_language_reference.html#moving-window-time-functions) allow you to calculate continuous aggregation over sliding time windows. Wavefront offers functions for creating moving windows on various aggregation such as `msum()`,` mavg()`, `mmedian()`, `mcount()`, etc. These functions create continuous moving or sliding windows which can be useful for looking at moving trends.
+The WQL [moving window time functions](query_language_reference.html#moving-window-time-functions) allow you to calculate continuous aggregation over sliding time windows. WQL includes functions for creating moving windows on various aggregation such as `msum()`,` mavg()`, `mmedian()`, `mcount()`, etc. These functions create continuous moving or sliding windows which can be useful for looking at moving trends.
 
 Recalculation happens at different times for [discrete and for continuous time series](query_language_discrete_continuous.html):
 * For discrete time series, the moving windows recalculation is done every second.

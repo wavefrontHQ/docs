@@ -6,9 +6,9 @@ permalink: ui_examine_data.html
 summary: Examine data with dashboards and charts
 ---
 
-With dashboards and charts, all users can examine data, set dashboard time window, zoom in and out, and perform other customizations.
+With dashboards and charts, all Tanzu Observability by Wavefront users can examine data. By default, everyone can explore: set dashboard time window, zoom in and out, and perform other customizations.
 
-{% include note.html content="All users can view and explore charts. You must have the [**Dashboard** permission](permissions_overview.html) to make permanent changes, such as saving a chart to a dashboard." %}
+{% include note.html content="All users can view and explore charts. You must have the [**Dashboards** permission](permissions_overview.html) to make permanent changes, such as saving a chart to a dashboard." %}
 
 ## Video
 
@@ -24,7 +24,7 @@ All users can customize their dashboards to drill down into data. Learn how to f
 
 From the Dashboard Browser, you can find dashboards by using filters and tags. You can make a dashboard a favorite with the star icon. Users with **Dashboard** permissions can also look at versions, grand and remove access, clone dashboards, move a dashboard to the trash, or access a deleted dashboard for up to 30 days.
 
-1. Log in to Wavefront.
+1. Log in to your Wavefront instance.
 2. Select **Dashboards > All Dashboards**
 3. In the Dashboard Browser:
     * Use the search bar at the top to find a dashboard.
@@ -35,14 +35,14 @@ From the Dashboard Browser, you can find dashboards by using filters and tags. Y
     * View dashboard tags (or, add or remove them if you have **Dashboard** permission).
 
 
-![dashboard browser annotated with the items in the bullets above](images/dashboard_browser.png)
+![The dashboard browser annotated with the items in the bullets above](images/dashboard_browser.png)
 
 ### Find a Dashboard
 
-Many Wavefront users work in environments with many dashboards.
+Many users work in environments with a lot of dashboards.
 
 **To find a dashboard**, you have these options:
-* From the taskbar, select **Dashboards > All Dashboards** and narrow down your search using the fields on the left.
+* From the toolbar, select **Dashboards > All Dashboards** and narrow down your search using the fields on the left.
 * Select **Dashboards > All Dashboards** and start typing the dashboard name in the Search field.
 * From within a dashboard, use the **Search for Dashboards** field in the upper right to find other dashboards. The search string matches dashboard name or URL.
 
@@ -55,7 +55,7 @@ After you've selected a dashboard, it displays in your browser.
 
 Here's the anatomy of a dashboard:
 
-![an annotated dashboard with the items in the bullets below](images/ui_dashboard_anatomy.png)
+![An annotated dashboard with the items in the bulleted list below](images/ui_dashboard_anatomy.png)
 
 You can customize what you see, open charts, and more.
 * Select [predefined variables or use a filter](dashboards_variables.html) to limit the display.
@@ -73,7 +73,7 @@ This <a href="https://bcove.video/3kJ6PGT" target="_blank">video<img src="/image
 </p>
 
 By default, dashboards:
-* Show a two-hour time window in each chart. You can configure the default time window as part of the [Dashboard Display Preferences](ui_dashboards.html#set-dashboard-display-preferences).
+* Show a two-hour time window in each chart. You can configure the default time window as part of the [Dashboard Display Preferences](ui_dashboards.html#set-dashboard-display-preferences-and-settings).
 * Display real-time (live) data.
 * Update charts every 30s.
 
@@ -109,10 +109,10 @@ Use the <strong>Jump To</strong> menu to go to a section.</td>
 ## Filter with Global Filters or Dashboard Variables
 
 Global filters and dashboard variables are two ways to narrow down what you see.
-* **Global Filters** allow any Wavefront user to filter by key-value pair. For example, you could specify `source="db-2"` or `env="production"`.
+* **Global Filters** allow any user to filter by key-value pair. For example, you could specify `source="db-2"` or `env="production"`.
 * [**Dashboard Variables**](dashboards_variables.html) are preset by a user with Dashboard permissions. All users can then make selections, for example, select a value from predefined list of strings or an automatically generated list of sources.
 
-If you select both a variable and a global filter, Wavefront uses AND to find results that satisfy both conditions. For example, `source="db-2" AND source="db-1"` results in No Data, but other combinations might get the results you're after.
+If you select both a variable and a global filter, the query engine uses AND to find results that satisfy both conditions. For example, `source="db-2" AND source="db-1"` results in No Data, but other combinations might get the results you're after.
 
 ### Filter with Global Filters
 
@@ -121,7 +121,7 @@ All users can use global filters to customize their dashboard. When you set a gl
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%"><a href="ui_examine_data.html#filter-with-variables-or-filters"> Global filters</a> allow any user to:
+<td width="40%"><a href="dashboards_variables.html"> Global filters</a> allow any user to:
 <ul>
 <li>Specify a key-value pair as a filter for the dashboard. <br><br>All filters show up to the right of any dashboard variables</li> <li>Remove the filter by clicking <strong>X</strong> in the filter bubble. </li></ul></td>
 <td width="60%"><img src="/images/global_filters.png" alt="Global filter set and see"/></td></tr>
@@ -138,7 +138,7 @@ If a dashboard has preconfigured dashboard variables, you can use them to filter
 <td width="60%">
 To show or hide the Variables bar:
 <ol><li>
-Scroll up to right below the Taskbar.</li>
+Scroll up to right below the toolbar.</li>
 <li>Click the up or down double caret.</li></ol></td>
 <td width="40%">
 <img src="images/v2_hide_variables.png" align="center" valign="center" alt="hide or show variables"></td>
@@ -163,7 +163,7 @@ By default, metrics that stopped reporting 4 weeks ago are not included in the c
 
 {% include note.html content="Including obsolete metrics on a dashboard level may significantly slow down the dashboard performance." %}
 
-{% include tip.html content="Everyone can explore obsolete metrics for dashboards and charts. You must have **Dashboards** to save the changes to the settings." %}
+{% include tip.html content="Everyone can explore obsolete metrics for dashboards and charts. You must have the **Dashboards** permission to save the changes to the settings." %}
 
 **To include obsolete metrics for a chart**:
 
@@ -185,7 +185,7 @@ Dashboards on which inclusion of obsolete metrics is turned on have a warning ba
 ![Banner saying that obsolete metrics inclusion is turned on for the dashboard. The banner also has a view settings button.](images/obsolete-metrics-banner.png)
 
 1. Navigate to the dashboard and click **View Settings** in the banner at the top.
-   Refresh your browser if you closed the banner. 
+   Refresh your browser if you closed the banner.
 3. Click **Advanced**.
 4. Deselect the **Include Obsolete Metrics** check box.
 5. Click **Accept**  and explore. If you have **Dashboards** permission click **Save** to save your changes.
@@ -211,7 +211,7 @@ You can focus on a particular source or series in the dashboard view or the sing
 
 You can fine-tune the time window for an individual chart, propagate the time window from one to all charts, and reset a customized time window to the dashboard default.
 
-When you fine-tune the time window, the Wavefront UI dynamically recalculates and updates the chart bucket size and the aggregated values based on the [summarization option](ui_charts_faq.html#what-does-the-summarization-option-do).
+When you fine-tune the time window, the UI dynamically recalculates and updates the chart bucket size and the aggregated values based on the selected [summarization option](ui_charts_faq.html#what-does-the-summarization-option-do).
 
 <table style="width: 100%;">
 <tbody>
@@ -248,7 +248,7 @@ Here's a <a href="https://bcove.video/3sweZ7W" target="_blank">video<img src="/i
 ## Display Events on Charts
 
 The charts in your dashboard can display [events](events.html).
-* Wavefront sends system events, for example, when an alert changes state.
+* The Wavefront service generates system events, for example, when an alert changes state.
 * In addition, users with **Events** permission might have added user events.
 
 All users can select which events are displayed for all charts.
@@ -257,7 +257,7 @@ All users can select which events are displayed for all charts.
 <tbody>
 <tr>
 <td width="60%">
-The <strong>Show Events</strong> drop-down menu in the upper right of the taskbar allows you to <a href="charts_events_displaying.html">toggle event overlays</a> on the X-axis of charts.</td>
+The <strong>Show Events</strong> drop-down menu in the upper right of the toolbar allows you to <a href="charts_events_displaying.html">toggle event overlays</a> on the X-axis of charts.</td>
 <td width="40%">
 <img src="images/display_events_v2.png" align="center" valign="center" alt="Show Events menu"></td>
 </tr>
@@ -303,9 +303,9 @@ The <strong>Show Events</strong> drop-down menu in the upper right of the taskba
 ## Do More!
 
 In addition to examining time series data, drilling down on exactly the information you need, creating alerts, etc., you can also
-* View [histogram metrics in charts](proxies_histograms.html#viewing-histogram-metrics).
+* View [histogram metrics](proxies_histograms.html).
 * Examine traces, spans, and RED metric sent by your application.
   * See [Application Status](tracing_ui_overview.html).
   * See [Service Dashboard](tracing_service_dashboard.html).
   * See [Traces Browser](tracing_traces_browser.html).
-* For troubleshooting, see the KB article [Where's My Data: Troubleshooting for Missing Data](https://help.wavefront.com/hc/en-us/articles/360055706512-Where-s-My-Data-Troubleshooting-for-Missing-Data).
+* For an in-depth discussion, see [Troubleshooting Missing Data](missing_data_troubleshooting.html).

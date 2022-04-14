@@ -6,7 +6,7 @@ permalink: ui_dashboards.html
 summary: Create dashboards, add charts, customize dashboard layout, and troubleshoot dashboards.
 ---
 
-Wavefront dashboards allow you organize and customize the information about your environment. For example:
+Tanzu Observability by Wavefront includes many out-of-the box dashboards, and supports creation and fine-grained customization of dashboards. You organize the information about your environment and fine-tune what users see. For example:
 <ul>
 <li>Organize charts into sections.</li>
 <li>Perform global operations such as setting the dashboard time window.</li>
@@ -14,7 +14,7 @@ Wavefront dashboards allow you organize and customize the information about your
 
 [Examine Data with Dashboards and Charts](ui_examine_data.html) explains how to set dashboard preferences, set the dashboard time window, isolate sources and series, and more.
 
-{% include note.html content="Every Wavefront user can view dashboards and make some changes such as setting the time window. You must have the [Dashboard permission](permissions_overview.html) and [Modify access](access.html) to save changes you make to dashboards." %}
+{% include note.html content="All users can view dashboards and make some changes such as setting the time window. You must have the [Dashboard permission](permissions_overview.html) and [Modify access](access.html) to save changes you make to dashboards." %}
 
 ## Video
 
@@ -44,7 +44,7 @@ It's easy to create a dashboard from metrics data or by selecting a chart.
 <tr>
 <td width="50%">
 <strong>To create a dashboard</strong>:
-<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the taskbar. </li>
+<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the toolbar. </li>
 <li>Drag the <strong>Data</strong> or <strong>New Chart</strong> widget to the canvas</li>
 <li>Select metrics, filters, and functions now or later. </li>
 <li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard.
@@ -66,7 +66,7 @@ With release 2019.46, you can create a dashboard by specifying an integration da
 <tr>
 <td width="50%">
 <strong>To create a dashboard</strong>:
-<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the taskbar. </li>
+<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the toolbar. </li>
 <li>Drag the <strong> Integration Templates</strong> widget to the canvas. </li>
 <li>Select first the source integration, then the dashboard you want as a template, and then one or more charts from that dashboard.</li>
 <li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard.
@@ -84,14 +84,14 @@ With release 2019.46, you can create a dashboard by specifying an integration da
 
 The Wavefront service dashboard includes a set of charts to monitor the trace data sent by each service in your application. You can use the service dashboard as a template to create your dashboard and then customize the charts for your environment.
 
-{% include note.html content="To view data in these charts, your applications need to send trace data to Wavefront. See [Instrument Your Applications](tracing_instrumenting_frameworks.html) for details." %}
+{% include note.html content="To view data in these charts, your applications need to send trace data to the Wavefront service. See [Instrument Your Applications](tracing_instrumenting_frameworks.html) for details." %}
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="50%">
 <strong>To create a dashboard</strong>:
-<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the taskbar. </li>
+<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the toolbar. </li>
 <li>Drag the <strong>Tracing Templates</strong> widget to the canvas. </li>
 <li>Select the charts to import and click <strong>Import Charts</strong>.</li>
 <li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard.
@@ -115,7 +115,7 @@ The Wavefront service dashboard includes a set of charts to monitor the trace da
 
 The dashboard menu allows you to create a dashboard, edit a dashboard, clone a dashboard, and look at the dashboard version history.
 
-* When you **clone** a dashboard, you copy the dashboard. If you want to customize one of the Wavefront read-only dashboards, such as integration dashboards, just clone the dashboard and edit the clone.
+* When you **clone** a dashboard, you copy the dashboard. If you want to customize one of the read-only dashboards, such as integration dashboards, just clone the dashboard and edit the clone.
 * The dashboard  **version history** tracks each saved version and includes the user who saved the version. The result is an audit trail for the dashboard.
 
 <table style="width: 100%;">
@@ -282,7 +282,7 @@ You can undo dashboard changes.
 
 For each dashboard, you can customize display preferences and settings.
 
-{% include tip.html content="To use the dark theme with your dashboard and all other Wavefront UI components, set your personal preferences [from the gear icon](users_account_managing.html#configuring-user-preferences)."%}
+{% include tip.html content="To use the dark theme, set it as a personal preferences [from the gear icon](users_account_managing.html#configure-user-preferences)."%}
 
 <table style="width: 100%;">
 <tbody>
@@ -310,9 +310,10 @@ For more information, see <a href="charts_events_displaying.html#specify-an-even
 </tbody>
 </table>
 
+
 ## Edit the Dashboard JSON
 
-Most users create and edit dashboards by using the Wavefront UI or automate the process with the Wavefront REST API. But at times, it's convenient to edit the dashboard JSON directly from the UI and see results immediately.
+Most users create and edit dashboards by using the GUI or automate the process with the Wavefront REST API. But at times, it's convenient to edit the dashboard JSON directly from the UI and see results immediately.
 
 {% include warning.html content="Editing the dashboard JSON might have unintended consequences. Use the JSON editor only if you have some experience with JSON. " %}
 
@@ -453,15 +454,18 @@ Watch this video to learn how to optimize dashboard and query performance.
 </p>
 
 
-Wavefront can ingest and process very large amounts of data. Here's what you can do to ensure performance is optimal.
+The Wavefront service can ingest and process very large amounts of data. Here's what you can do to ensure performance is optimal.
 
 ### Watch for Cardinality Issues
 
-Ensure your data shape works well. Ingest only time series you need -- and then look only at those data you’re interested in. See [Cardinality and Wavefront](cardinality.html) for some background and a video.
+Ensure your data shape works well. Ingest only time series you need -- and then look only at those data you’re interested in.
+
+* See [Cardinality and Wavefront](cardinality.html) for some background and a video.
+* See [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html) for an in-depth discussion with examples.
 
 ### Optimize Query Performance
 
-Wavefront Query Language has a rich set of options. See [Optimize Query Performance](query_language_performance.html) for details.
+Wavefront Query Language (WQL) has a rich set of options. See [Optimize Query Performance](query_language_performance.html) for details.
 
 * At times, you have to choose between precision and speed.
 * At other times, customizing your query to filter out data you don't need improves performance significantly.
@@ -505,12 +509,85 @@ When a dashboard has a lot of variables with interdependencies, it might make se
 </tr>
 </tbody>
 </table>
- 
 
-## Troubleshoot and Learn More! 
+### Identify Unused Dashboards
+
+Over time, as more and more dashboards are created, there will be dashboards that are no longer in use. To keep your environment clean and to ensure that useful dashboards can be easily found, it's a good practice to [delete](#delete-and-recover-a-deleted-dashboard) unused dashboards on a regular basis. To do that, you must first identify which dashboards are no longer being used or viewed.
+
+* Use the Dashboard Browser to sort the dashboards in ascending order by the number of views over the last day, week, or month. This puts the fewest viewed dashboards at the top of the list.
+![Dashboard browser with Sort menu](images/dashboards_unused.png)
+
+* Use the Wavefront API and UI to check for dashboards that have not been viewed over a time window of your choice, including more than 4 weeks (a month).
+    1. Get the IDs of all dashboards.
+        1. From the gear icon on the toolbar, select **API Documentation**.
+        2. Expand the **Dashboard** category, click the `GET api/v2/dashboard` request, and click **Try it out** in the top right of the request.
+
+            {% include note.html content="You may need to iterate through all the available dashboards by using the `offset` parameter in the API request."%}
+        3. Click **Execute**.
+
+            The `id` value for each entry in the response is the dashboard ID.
+
+    2. In the UI, find all dashboards that have been viewed over the time window of interest.
+
+        The internal metric ``~wavefront.dashboard.<dashboard_id>.views`` tracks the views of each dashboard.
+
+        Create a table chart with the query of the type:
+
+        ``aliasMetric(mmax(12w, ts(~wavefront.dashboard.*.views)), 2)``
+
+        You will get the IDs of the dashboards that have been viewed over the last 12 weeks.
+
+    3. Find all unviewed dashboards.
+
+        Now that you have the IDs of all dashboards and the IDs of all dashboards that have been viewed, you can take the difference and get all of the IDs of the unviewed dashboards.
+
+## Delete and Recover a Deleted Dashboard
+
+You can delete a single or multiple dashboards that you [no longer use](#identify-unused-dashboards). After you delete a dashboard, it is moved to the trash for 30 days before it gets permanently deleted. If a dashboard has been permanently deleted, users will no longer be able to restore it without the assistance of a Super Admin. See [Recover a Permanently Deleted Dashboard](access.html#recover-a-permanently-deleted-dashboard) for details.
+
+**To delete a dashboard:**
+
+1. Select **Dashboards > All Dashboards**.
+2. Search for and select the check boxes of the dashboards that you want to delete.
+3. Click the delete icon on top and confirm the deletion.
+
+**To restore a deleted dashboard from the trash:**
+
+1. Select **Dashboards > All Dashboards**.
+2. From the **All** menu in the top right of the list of dashboards, select **Deleted**.
+
+   ![Change the dashboard view from all to deleted.](/images/deleted-dashboards.png)
+
+3. Search for and select the dashboard that you want to restore.
+4. Click the ellipsis icon and select **Restore**.
+
+   ![Restore a dashboard from the trash.](/images/restore-dashboard.png)
+
+## Audit Dashboard Changes
+
+Users need to audit dashboard changes in several situations:
+* A dashboard was saved with incorrect changes and the previous configuration isn't known.
+* A dashboard was changed. An audit needs to determine when it was updated and by whom.
+* A dashboard was deleted. Audit needs to determine when it was deleted and by whom.
+
+Each time you save a dashboard, you create a dashboard version. Up to 100 versions are supported.
+
+<table style="width: 100%;">
+   <tbody>
+   <tr>
+   <td width="60%">
+   <ol>
+   <li>Find the Dashboard in the Dashboards Browser. </li>
+   <li>Click the ellipsis icon and select <strong>Version History</strong>.</li>
+   <li>Select a version.</li>
+   </ol>
+   </td>
+   <td width="40%" markdown="span">![screenshot ellipsis menu to the left of dashboard in dashboards browser](images/v2_edit_dashboard.png) </td></tr>
+   </tbody>
+</table>
+
+## Troubleshoot and Learn More!
 
 The Customer Success team prepared these KB articles to troubleshoot problems with dashboards.
-* [How to Recover an Inaccessible Dashboard](https://help.wavefront.com/hc/en-us/articles/360055292751-How-to-Recover-an-Inaccessible-Dashboard)
-* [How to Identify Unused Dashboards](https://help.wavefront.com/hc/en-us/articles/360060967432-How-to-Identify-Unused-Dashboards)
 * [How to Audit Dashboard Changes](https://help.wavefront.com/hc/en-us/articles/360055676911-How-to-Audit-Dashboard-and-Alert-Changes)
 * [Migrating Objects or Data Between Environments](https://help.wavefront.com/hc/en-us/articles/360053164791-Migrating-Objects-or-Data-Between-Tanzu-Observability-Environments)

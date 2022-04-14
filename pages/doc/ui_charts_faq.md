@@ -1,16 +1,15 @@
 ---
-title: Wavefront Charts FAQ
+title: Charts FAQ
 tags: [getting started, dashboards, charts]
 sidebar: doc_sidebar
 permalink: ui_charts_faq.html
 summary: Learn chart customization from the experts.
 ---
-
-[Create and Customize Charts](ui_charts.html) describes most of the things you need to know to get started. This page has some special tips and tricks to help you create the user experience you're after.
+Tanzu Observability by Wavefront includes a variety of charts, with many customization options. [Create and Customize Charts](ui_charts.html) describes most of the things you need to know to get started. This page has some special tips and tricks to help you create the user experience you're after.
 
 {% include note.html content="You must have [Dashboard permission](permissions_overview.html) to save a chart to a dashboard. If you do not have permission, the UI menu selections and buttons required to perform the task are not visible." %}
 
-<!--- Consider including Improve Display Speed with Sampling Option here --->  
+<!--- Consider including Improve Display Speed with Sampling Option here --->
 
 ## How Do I Set Up Color Mapping?
 
@@ -73,7 +72,6 @@ You can apply threshold markers for the data represented by histogram and heat m
 
 ## How Do Drilldown Links Work?
 
-
 A drilldown link sends users to a target dashboard when they click on a chart.
 
 * Drilldown on click is available for the following chart types:
@@ -85,10 +83,11 @@ A drilldown link sends users to a target dashboard when they click on a chart.
 
 ### Simple Drilldown
 
-In most cases, you want to send users from a chart to another dashboard.
+In most cases, you want to send users from a chart to another dashboard or a dashboard section.
 1. Open the chart for edit and click the **Drilldown Link** tab.
-2. Start typing the name of the target dashboard, select from the options, and save the chart.
-   ![simple drilldown to send users from a chart to another dashboard](images/simple_drilldown.png)
+2. Start typing the name of the target dashboard and select from the options.
+3. (Optional) Select a target dashboard section and save the chart.
+   ![simple drilldown to send users from a chart to another dashboard section](images/simple_drilldown.png)
 
 ### Drilldown Using Local Settings
 
@@ -121,12 +120,12 @@ An additional outer ring shows how the colors map to the values 1-100 by default
 
 ## What Does the Summarization Option Do?
 
-If the screen real estate dedicated to a particular chart cannot accommodate all raw data points in the current chart time window, the Wavefront UI uses the summarization option to aggregate raw data points into displayable values.
+If the screen real estate dedicated to a particular chart cannot accommodate all raw data points in the current chart time window, the rendering engine uses the summarization option to aggregate raw data points into displayable values.
 
 When displaying metrics:
 
-1. Wavefront determines the [chart resolution](ui_charts.html#chart-resolution) and establishes an appropriate time interval as the chart's bucket size.
-2. Wavefront aggregates (combines) the raw data values that are reported within each such time interval (bucket) and produces a single value to display for each bucket. The chosen summarization option determines how the aggregation is performed.
+1. We first determine the [chart resolution](ui_charts.html#chart-resolution) and establishes an appropriate time interval as the chart's bucket size.
+2. We then aggregate (combines) the raw data values that are reported within each such time interval (bucket) and produces a single value to display for each bucket. The chosen summarization option determines how the aggregation is performed.
 
    - **Average** - Displays the average (mean) of the raw data values in each bucket.
    - **Median** - Displays the median of the raw data values in each bucket.
@@ -137,11 +136,11 @@ When displaying metrics:
    - **First** - Displays the first raw data value to be reported in each bucket.
    - **Last** - Displays the last raw data value to be reported in each bucket.
 
-Consider the following example. The horizontal scale for your chart is `240 point buckets across, 1 bucket – 30 sec (est)`. If you choose **Median**, the Wavefront UI aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.
+Consider the following example. The horizontal scale for your chart is `240 point buckets across, 1 bucket – 30 sec (est)`. If you choose **Median**, the query engine aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.
 
-When you [fine-tune the time window](ui_examine_data.html#fine-tune-the-time-window), the Wavefront UI dynamically recalculates and updates the chart bucket size and the summarized values. You can zoom in the chart time window as much as needed to display the raw data points without any bucketing or summarization.
+When you [fine-tune the time window](ui_examine_data.html#fine-tune-the-time-window), we dynamically recalculate and update the chart bucket size and the summarized values. You can zoom in the chart time window as much as needed to display the raw data points without any bucketing or summarization.
 
-{% include note.html content="The summarization option applies only to the chart visualization in the Wavefront UI. The summarization option does not apply to the chart queries or functions." %}
+{% include note.html content="The summarization option applies only to the chart visualization (what you see). The summarization option does not apply to the chart queries or functions." %}
 
 {% include tip.html content="Choose the most appropriate summarization option for your chart query. If you select a summarization option which doesn’t correspond to your query function, most probably you’ll see misleading results.
 
@@ -152,6 +151,6 @@ For the chart legend, you can choose whether to report raw or summarized values 
 ## Learn More!
 
 * Get the details about each chart type from the [Chart Reference](ui_chart_reference.html).
-* Send [a link to a chart](ui_sharing.html#share-a-link-to-a-dashboard-or-chart) to a coworker (or to the customer success team if you need help).
-* [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) outside Wavefront.
+* Send [a link of a dashboard](ui_sharing.html) to a coworker (or to the customer success team if you need help).
+* [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) in another product or website.
 * See the  KB article [Chart Legend: Sources do not display in the legend](https://help.wavefront.com/hc/en-us/articles/360057842692-Chart-Legend-Sources-do-not-display-in-the-legend) for troubleshooting info.

@@ -113,13 +113,17 @@ function addSearchFunctionForInput(containerId, mobileContainerId, searchInputId
                     },
                     suggestion: function (suggestion) {
                         return '<div class="wf-docs-search-autocomplete-suggestion">' +
-                            '<a class="wf-suggestion-link" href="' + suggestion.url + '">' + suggestion._highlightResult.title.value + '</a>' +
-                            '<p>' + (suggestion.summary || '') + '</p>' +
+                            '<a class="wf-suggestion-link" href="' + suggestion.url + '">' + suggestion._highlightResult.title.value + 
+                            '<p>' + (suggestion.summary || '') + '</p>' + '</a>' +
                             '</div>';
                     }
                 }
-            }).on('autocomplete:selected', function (event, suggestion, dataset) {
-            window.location.href = suggestion.url;
+            }).on('autocomplete:selected', function (event, suggestion, dataset, context) {
+                if (context.selectionMethod == 'click') {
+                    return false;
+                }
+
+                window.location.assign(suggestion.url);
         }).on('autocomplete:opened', function () {
             $body.addClass('wf-search-opened');
         }).on('autocomplete:closed', function () {

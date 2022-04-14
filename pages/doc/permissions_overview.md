@@ -4,12 +4,12 @@ keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: permissions_overview.html
-summary: Learn about Wavefront permissions.
+summary: Learn about the permissions in Tanzu Observability by Wavefront.
 ---
 
-Permissions allow administrators to control access to Wavefront feature sets. Users with the **Accounts** permission can manage permissions for groups or for users.
+Permissions allow administrators to control access to the feature sets in Tanzu Observability by Wavefront. Users with the **Accounts** permission can manage permissions for groups and users.
 
-{% include note.html content="Every Wavefront user can [perform certain tasks](user-accounts.html#what-can-a-new-user-do). However, you must have the appropriate permission to manage objects. If you do not have permission, UI menu selections and buttons required to perform management tasks are not visible." %}
+{% include note.html content="Every user can [perform certain tasks](user-accounts.html#what-can-a-new-user-do). However, you must have the appropriate permission to manage objects. If you do not have permission, UI menu selections and buttons required to perform management tasks are not visible." %}
 
 {% include note.html content="A service account must have **permissions** to perform tasks. To run queries, a service account must have **Metrics** permission. To manage dashboards and alerts, the service account might need both permissions and [access](access.html). " %}
 
@@ -34,11 +34,11 @@ The following list gives an overview of permissions. To learn more, click the li
     
 - **Batch Query Priority** 
 
-    When an account with the **Batch Query Priority** permission runs queries, Wavefront treats every query executed by that account as if it was wrapped in the [`bestEffort()` function](ts_bestEffort.html).
+    When an account with the **Batch Query Priority** permission runs queries, Tanzu Observability treats every query executed by that account as if it was wrapped in the [`bestEffort()` function](ts_bestEffort.html).
     
 - **[Chart Embedding](ui_sharing.html#embed-a-chart-in-other-uis)**  
     
-    Users with the **Chart Embedding** permission can generate HTML snippets of Wavefront charts and embed a corresponding interactive chart outside of Wavefront. Embedded chart URLs are associated with a specific user account. If a user embeds a chart and later that user's Wavefront account is removed, the embedded chart no longer works.
+    Users with the **Chart Embedding** permission can generate HTML snippets of charts in Tanzu Observability and embed a corresponding interactive chart outside of Tanzu Observability. Embedded chart URLs are associated with a specific user account. If a user embeds a chart and later that user's account is removed, the embedded chart no longer works.
     
 - **[Dashboards](ui_dashboards.html)** 
 
@@ -52,7 +52,7 @@ The following list gives an overview of permissions. To learn more, click the li
      
 - **[Direct Data Ingestion](direct_ingestion.html)**
     
-    An account with the **Direct Data Ingestion** permission can directly ingest metrics using the Wavefront API or one of the Wavefront SDKs, bypassing the proxy. Grant Direct Data Ingestion permission only to users who have a deep understanding of APIs and the Wavefront ingestion path.
+    An account with the **Direct Data Ingestion** permission can directly ingest metrics using the Wavefront API or one of the Wavefront SDKs, bypassing the proxy. Grant this permission only to users who have a deep understanding of APIs and the Tanzu Observability ingestion path.
     
 - **[Events](events.html)** 
 
@@ -70,7 +70,7 @@ The following list gives an overview of permissions. To learn more, click the li
 
     Service accounts must have this permission to run queries. Only accounts with the **Metrics** permission can manually hide and unhide metrics and metric prefixes. Only accounts with the **Metrics** permission can create and modify [Metrics Security Policy Rules](metrics_security.html).
     
-- **[Proxies](proxies_installing.html#managing-proxy-services)** 
+- **[Proxies](proxies_installing.html#manage-proxy-services)** 
 
     Users with the **Proxies** permission can view, create, and manage proxies and set up external integrations with AWS and other cloud services.
     

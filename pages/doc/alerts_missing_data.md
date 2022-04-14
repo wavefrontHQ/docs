@@ -7,7 +7,7 @@ permalink: alerts_missing_data.html
 summary: Configure an alert to fire when a time series stops reporting.
 ---
 
-Wavefront enables you to configure alerts that inform you about machine or application faults. When a machine or application crashes, it stops reporting data to Wavefront -- the data from that source is missing.
+Tanzu Observability by Wavefront enables you to configure alerts that inform you about machine or application faults. When a machine or application crashes, it stops reporting data to Tanzu Observability -- the data from that source is missing.
 
 This explains how to configure alerts that detect missing data, so you can identify potential failures and resolve them.
 
@@ -19,7 +19,7 @@ When a time series stops reporting, charts show NO DATA where you'd expect to se
 Missing data might result from:
 
 * Serious faults that require intervention to correct. For example:
-  - A time series might stop reporting data because the source of the series (an application, service, or host machine) has crashed and can no longer generate data points or send them to Wavefront.
+  - A time series might stop reporting data because the source of the series (an application, service, or host machine) has crashed and can no longer generate data points or send them to Tanzu Observability.
   - An application might malfunction intermittently so that it repeatedly stops sending points for short periods of time before resuming.
 
 * Brief interruptions that resolve on their own. For example, a time series might skip data points because a minor network problem has dropped a few packets.
@@ -37,7 +37,7 @@ This page describes 2 techniques for alerting on missing data:
 
 ## Alerting on Time Series that Fail Together
 
-You can configure an alert to notify you when a group of time series all stop reporting data. To do so, you create a [custom alert target](webhooks_alert_notification.html#creating-a-custom-alert-target) with the trigger set to **Alert Has No Data**.
+You can configure an alert to notify you when a group of time series all stop reporting data. To do so, you create a [custom alert target](webhooks_alert_notification.html#create-a-custom-alert-target) with the trigger set to **Alert Has No Data**.
 
 **Example**
 

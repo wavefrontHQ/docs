@@ -7,7 +7,7 @@ permalink: wavefront_monitoring.html
 summary: Monitor and troubleshoot your Wavefront instance and see points per second information.
 ---
 
-You can use the Wavefront Usage integration dashboards to:
+Tanzu Observability by Wavefront includes the Wavefront Usage integration. Use can use the Wavefront Usage integration dashboards to:
 * Get usage information for your Wavefront instance and Wavefront proxy.
 * Drill down into the metrics namespaces to discover trends.
 * Examine the points per second (PPS) based on predefined ingestion policies.
@@ -17,7 +17,7 @@ In addition, you can create your own dashboards, charts, and alerts by using the
 
 See [Monitoring Wavefront Proxies](monitoring_proxies.html) for details on investigating proxy usage.
 
-## Learn About Wavefront Usage with Dashboards
+## Learn About Your Usage with Dashboards
 
 The Wavefront Usage integration includes the following dashboards:
 
@@ -29,7 +29,7 @@ The Wavefront Usage integration includes the following dashboards:
 <tr>
 <td><strong>Wavefront Service and Proxy Data</strong></td>
 <td>Examine <strong>usage data</strong>.</td>
-<td>Provides visibility into your use of the Wavefront service via internal metrics that Wavefront collects automatically. Preconfigured charts monitor the data ingestion rate for points, spans, and distributions, the data scan rate, and different proxy metrics.</td></tr>
+<td>Provides visibility into your use of the Wavefront service via internal metrics that Tanzu Observability collects automatically. Preconfigured charts monitor the data ingestion rate for points, spans, and distributions, the data scan rate, and different proxy metrics.</td></tr>
 <tr>
 <td><strong>Wavefront Namespace Usage Explorer</strong></td>
 <td>Explore metrics namespaces to see the <strong>trend</strong> of your metrics ingestion rate.</td>
@@ -37,7 +37,7 @@ The Wavefront Usage integration includes the following dashboards:
 <tr>
 <td><strong>Wavefront Ingestion Policy Explorer</strong></td>
 <td>In environments where ingestion policies are defined, investigate usage for <strong>each account and ingestion policy</strong>.</td>
-<td markdown="span">Provides a granular breakdown of Wavefront ingestion across your organization by [ingestion policies](ingestion_policies.html), accounts, sources, and types. Use this dashboard to identify who is contributing the most to your Wavefront usage and manage your overall usage.</td></tr>
+<td markdown="span">Provides a granular breakdown of the ingestion across your organization by [ingestion policies](ingestion_policies.html), accounts, sources, and types. Use this dashboard to identify who is contributing the most to your usage and manage your overall usage of the Wavefront service.</td></tr>
 <tr>
 <td><strong>Committed Rate vs Monthly Usage (PPS P95)</strong></td>
 <td>Avoid <strong>exceeding the committed rate</strong> for your instance by exploring dashboards and creating alerts.
@@ -67,7 +67,7 @@ These charts use the following metrics:
    - `~collector.points.reported` -- Points coming from the proxy.
    - `~collector.direct-ingestion.points.reported` -- Points coming through direct ingestion.
    - `~collector.delta_points.reported` -- Delta counter points.
-   - `~externalservices.<*>.points` -- Per-second rate at which Wavefront ingests new points from cloud integrations such as AWS, GCP, and Azure.
+   - `~externalservices.<*>.points` -- Per-second rate at which cloud integrations, such as AWS, GCP, and Azure, ingest new points.
 
    For example, use `~externalservices.ec2.points` for the EC2 points.
    - `externalservices.points.reported` -- Shows how you get billed for external services.
@@ -79,7 +79,7 @@ These charts use the following metrics:
 
 #### Wavefront Stats and Alert Stats
 
-Charts that track the number of Wavefront users during various time windows, the number of dashboards and alerts, and also provide information about the state and types of alerts.
+Charts that track the number of users during various time windows, the number of dashboards and alerts, and also provide information about the state and types of alerts.
 
 These charts use the following metrics: 
 
@@ -132,15 +132,15 @@ Gives insight into the newly created data, such as metrics, sources, point tags,
 
 This dashboard helps you drill down into the metrics namespace and explore the **trend** of your metrics ingestion rate.
 
-Wavefront automatically tracks the number of metrics received for the first 3 levels of your metric namespace as delta counters, which can be queried with `cs(~metric.global.namespace.*)`. The period (`.`) character separates the levels. For example for a metric named `disk.space.total.bytes`, the first level is disk, the second is space, and the third is total. This dashboard includes chart to explore those metrics and trends.
+Tanzu Observability automatically tracks the number of metrics received for the first 3 levels of your metric namespace as delta counters, which can be queried with `cs(~metric.global.namespace.*)`. The period (`.`) character separates the levels. For example for a metric named `disk.space.total.bytes`, the first level is disk, the second is space, and the third is total. This dashboard includes chart to explore those metrics and trends.
 
 ![Screenshot of the Overview section of the Wavefront Namespace Usage Explorer dashboard.](/images/metrics_breakdown.png)
 
 ### Wavefront Ingestion Policy Explorer Dashboard
 
-This dashboard helps you investigate Wavefront usage for each user and ingestion policy.
+This dashboard helps you investigate the usage of the Wavefront service for each user and ingestion policy.
 
-Wavefront supports creation of ingestion policies. You create policies and assign accounts (user or service accounts) or groups to each policy and examine which teams use which part of total ingestion in this Wavefront Ingestion Policy Explorer dashboard. You can even drill down and examine usage of individual users.
+Tanzu Observability supports creation of ingestion policies. You create policies and assign accounts (user or service accounts) or groups to each policy and examine which teams use which part of total ingestion in this Wavefront Ingestion Policy Explorer dashboard. You can even drill down and examine usage of individual users.
 
 The dashboard includes a link to the **Ingestion Policies** page so if you are a Super Admin, you can create, examine, or modify [ingestion policies](ingestion_policies.html).
 
@@ -170,17 +170,17 @@ Customers often tell us that they want to make sure they don't exceed their comm
 2. If you need to reduce usage, you have several options:
    * Start examining ingestion from the **Wavefront Service and Proxy Data** dashboard. 
    
-     The [internal metrics](wavefront_monitoring.html#internal-metrics-overview) shown in this dashboard highlight.
+     The [internal metrics](wavefront-internal-metrics.html) shown in this dashboard highlight.
    * Use the **Wavefront Namespace Usage Explorer** dashboard to drill down into the metrics. 
    
-     Wavefront automatically tracks the number of metrics received for the first 3 levels of your metric namespace as delta counters, and this dashboard presents the metrics in an easy-to-use way.
+     Tanzu Observability automatically tracks the number of metrics received for the first 3 levels of your metric namespace as delta counters, and this dashboard presents the metrics in an easy-to-use way.
    * [Examine the overall usage of your Wavefront service](examine_usage.html).
    * Finally, if you suspect that much of your usage comes from certain accounts (user or service accounts), consider setting up one or more [ingestion policies](ingestion_policies.html).  
 
 
 ## Examine Versions of Dashboards and Alerts
 
-Wavefront stores details about each version of each dashboard and each alert. That means you have an audit trail of changes. When someone saves changes to a dashboard or alert, we create a new version and track the changes, including details about the change and the user who made the change. If you suspect that someone has made changes to a dashboard which results in higher usage, you can check who made the change and what is changed. 
+Tanzu Observability stores details about each version of each dashboard and each alert. That means you have an audit trail of changes. When someone saves changes to a dashboard or alert, we create a new version and track the changes, including details about the change and the user who made the change. If you suspect that someone has made changes to a dashboard which results in higher usage, you can check who made the change and what is changed. 
 
 You can examine dashboard and alert versions from the UI or using the REST API.
 
@@ -196,10 +196,7 @@ The process is the same for alerts.
 
 ## Learn More!
 
-[Find Actionable Usage Information](wavefront_usage_info.html) explains how to use tools and dashboards to learn how much data is coming in, who is sending the data, and how to get alerted if ingested data get close to monthly contracted usage.
+[Find Actionable Usage Information](wavefront_usage_info.html) explains how to use tools and dashboards to learn how much data is coming in, who is sending the data, how to get alerted if ingested data get close to monthly contracted usage, and how to optimize your ingestion rate. 
 
 
-Our Customer Success Team has put together KB articles that drill down into adoption info.
-* [How to Track Adoption in Your Company with Usage Metadata](https://help.wavefront.com/hc/en-us/articles/360058526192-How-to-Track-Tanzu-Observability-Adoption-with-Usage-Metadata).
-* [How to Identify Unused Data](https://help.wavefront.com/hc/en-us/articles/360058084372-How-to-Identify-Unused-Data).
-* [How to Optimize Your Ingestion Rate PPS](https://help.wavefront.com/hc/en-us/articles/360057995092-How-to-Optimize-Your-Ingestion-Rate-PPS-).
+Our Customer Success Team has put together the KB article [How to Track Adoption in Your Company with Usage Metadata](https://help.wavefront.com/hc/en-us/articles/360058526192-How-to-Track-Tanzu-Observability-Adoption-with-Usage-Metadata) that drills down into adoption info.

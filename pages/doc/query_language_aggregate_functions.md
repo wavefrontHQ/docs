@@ -7,7 +7,7 @@ permalink: query_language_aggregate_functions.html
 summary: How to aggregate points from multiple time series with or without interpolation.
 ---
 
-You can combine points from multiple time series using an [**aggregation function**](query_language_reference.html#aggregation-functions) such as `sum()`, `avg()`, `min()`, `count()`, `percentile()` etc.  An aggregation function returns a series of points whose values are calculated from corresponding points in two or more input time series. Wavefront supports aggregation with interpolation or without interpolation:
+You can combine points from multiple time series using an [**aggregation function**](query_language_reference.html#aggregation-functions) such as `sum()`, `avg()`, `min()`, `count()`, `percentile()` etc.  An aggregation function returns a series of points whose values are calculated from corresponding points in two or more input time series. Tanzu Observability by Wavefront supports aggregation with interpolation or without interpolation:
 
 * Standard aggregation functions (e.g. `sum()`, `avg()`, or `max()`) first interpolate the points of the underlying set of series, and then apply the aggregation function to the interpolated series. These functions aggregate multiple series down, usually to a single series.
 * Raw aggregation functions (e.g. `rawsum()`, `rawavg()`) do **not** interpolate the underlying series before aggregation.
@@ -38,7 +38,7 @@ In many cases, the set of time series you specify to an aggregation function wil
 * One input series might report at irregular times that don't match the reporting times of any other input series.
 * One otherwise regular input series might have gaps due to reporting interruptions (e.g., intermittent server or network downtime) which are not experienced by the other input series.
 
-Wavefront provides two kinds of aggregation functions for handling this situation:
+The query engine provides two kinds of aggregation functions for handling this situation:
 * [**Standard aggregation functions**](#standard-aggregation-functions-interpolation) fill in the gaps in each input series by interpolating values, and therefore operate on interpolated values as well as actual reported data points.
 * [**Raw aggregation functions**](#raw-aggregation-functions-no-interpolation) do not interpolate the underlying series before aggregation, but rather operate only on actual reported data points.
 
@@ -61,11 +61,11 @@ The result at 2:34 is more interesting. At this moment in time, only series 1 re
 
 **Requirements for Interpolation**
 
-Wavefront interpolates a value into an input time series only under the following circumstances:
+The query engine interpolates a value into an input time series only under the following circumstances:
 
 * When at least one other input time series reports a real data value at the same moment in time. In our example, no values are interpolated at, say, 4:26:30, because neither input series reports a point at that time.
 
-* When the time series has an actual reported value on either side of it. Sometimes this cannot occur, for example, when a new data point has not been reported yet at the right edge of a live-view chart. In this case, Wavefront inserts implicit points wherever needed, and assigns the last known reported value in the time series to those implicit points.
+* When the time series has an actual reported value on either side of it. Sometimes this cannot occur, for example, when a new data point has not been reported yet at the right edge of a live-view chart. In this case, the query engine inserts implicit points wherever needed, and assigns the last known reported value in the time series to those implicit points.
 (The last known reported value must be reported within the last 15% of the query time in the chart window.)
 
 
@@ -92,6 +92,11 @@ You use an expression to describe the set of time series to be aggregated. When 
 
 Each aggregation function accepts a 'group by' parameter that allows you to subdivide the input time series into groups, and request separate aggregates for each group.
 
+For grouping, we support:
+* The implicit 'group by' parameter after a comma, discussed here.
+* An explicit `by` parameter
+* An explicit `without` parameter.
+
 A chart displays a separate line for each group when you use a 'group by' parameter with an aggregation function. For example, assume your environment uses an `az` point tag to group by availability zone. You call:
 ```
 sum(ts(~sample.cpu.loadavg.1m), az)
@@ -99,7 +104,7 @@ sum(ts(~sample.cpu.loadavg.1m), az)
 The call groups the result of the call to `sum()` into two time series, one for each availability zone.
 
 
-{% include tip.html content="Wavefront has supported grouping by using an implicit parameter from the beginning. Wavefront also supports an explicit `by` parameter and an explicit `without` parameter." %}
+{% include tip.html content="" %}
 
 <table>
 <tbody>
@@ -194,8 +199,8 @@ The lines are different because interpolation occurs with the standard aggregati
 When there is at least 1 true data value reported at a given interval, standard aggregation functions interpolate data values before executing the aggregation.
 
 The data values in the charts above are typically reported once a minute. In the chart that shows the 3 time series, we see that:
-* Between 9:15a and 9:21a, the orange series reports once a minute, on the minute, while the other two series do not. Because the orange series reports at least 1 true data value during this time, Wavefront interpolates the values for the blue and green series before calculating the `sum()` value.
-* Between 9:36a and 9:42a the green and orange series report data values every minute, but the blue series does not. Wavefront does interpolation before aggregation.
+* Between 9:15a and 9:21a, the orange series reports once a minute, on the minute, while the other two series do not. Because the orange series reports at least 1 true data value during this time, the query engine interpolates the values for the blue and green series before calculating the `sum()` value.
+* Between 9:36a and 9:42a the green and orange series report data values every minute, but the blue series does not. The query engine does interpolation before aggregation.
 
 **Example: Raw Aggregation Function**
 

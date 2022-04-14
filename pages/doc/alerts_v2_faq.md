@@ -11,6 +11,7 @@ Wavefront users have asked for a more streamlined alert creation experience, and
 * Under the covers, alerts work the same. But we're including this FAQ to help current alert users.
 
 {% include note.html content="Every Wavefront user can view alerts and make temporary changes. You must have the Alerts permission to save changes to alerts." %}
+{% include important.html content="If you are using the Terraform Provider, update to [version 3.0.1](https://registry.terraform.io/providers/vmware/wavefront/latest/docs). That version is compatible with the new alert experience." %}
 
 ## What Are the Main Improvements?
 
@@ -104,6 +105,12 @@ The chart image will show all the series from all the visible queries.
 
 If you use a simple condition that returns 0 or 1, the **Conditions** section prompts you to specify a single severity and no threshold.
 
-However, if you use a more complicated condition that returns 0 or 1, the condition asks you to specify a severity. If you specify a 0 for the severity that you want to use in the notification, the alert works as expected. 
+However, if you use a more complicated condition that returns 0 or 1, the condition asks you to specify a severity. If you specify a 0 for the severity that you want to use in the notification, the alert works as expected.
 
 ![In Data, boolean query with AND conjoined conditions. In Conditions,and severity 0. ](/images/complex_boolean.png)
+
+### My alert fired for a non-zero value, and now it no longer works
+
+With the old alert experience, it was possible to specify a query `ts(...)`. An alert for this query fired for any non-zero value, positive or negative.
+
+With the new alert experience, you can explicitly specify `ts(...) !=0` to trigger such an alert.
