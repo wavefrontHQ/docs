@@ -12,6 +12,10 @@ Sometimes users expect to see certain data in Tanzu Observability by Wavefront b
 This doc page, based on the extensive experience of our customer success team, helps you
 investigate, understand, and remedy possible causes.
 
+<!---
+Should probably be some mention of examining sub-queries.  Performing some operations (eg. and or or) on empty subqueries results in No Data propagation (similar to how NaN works in IEEE math), and also suppresses warning messages
+--->
+
 
 ## Problem: You Expect to See Data But They Aren't There
 

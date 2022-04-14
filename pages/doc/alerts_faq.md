@@ -1,11 +1,3 @@
----
-title: Alerts FAQ
-keywords: alerts
-tags: [getting started, alerts]
-sidebar: doc_sidebar
-permalink: alerts_faq.html
-summary: See how our expert's answered Frequently Asked Questions
----
 ## Why Can't I View and Edit This Alert?
 
 By default, all users can view all alerts. But permissions and access control affect this default.
@@ -290,6 +282,28 @@ Next, you make the desired changes to the alert JSON and save that file with a n
 wf alert import alert-updated.json
 ```
 
+## How Can I Audit Alert Changes?
+
+Users need to audit alert changes in several situations:
+* An alert was saved with incorrect changes and the previous configuration isn't known.
+* An alert was changed. An audit needs to determine when it was updated and by whom.
+* An alert was deleted. Audit needs to determine when it was deleted and by whom.
+
+Each time you save an alert, the alert version is updated internally. Up to 100 versions are supported.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+<ol>
+<li>Find the alert in the Alerts Browser. </li>
+<li>Click the ellipsis icon and select <strong>Versions</strong>.</li>
+<li>Select a version.</li>
+</ol>
+</td>
+<td width="40%" markdown="span">![screenshot ellipsis menu to the left of alert in alerts browser](images/alert_versions.png) </td></tr>
+</tbody>
+</table>
 
 ## Learn More
 

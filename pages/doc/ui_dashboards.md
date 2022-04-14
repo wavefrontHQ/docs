@@ -461,7 +461,7 @@ The Wavefront service can ingest and process very large amounts of data. Here's 
 Ensure your data shape works well. Ingest only time series you need -- and then look only at those data you’re interested in.
 
 * See [Cardinality and Wavefront](cardinality.html) for some background and a video.
-* See [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html) for an in-depth discussion with examples. 
+* See [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html) for an in-depth discussion with examples.
 
 ### Optimize Query Performance
 
@@ -521,24 +521,24 @@ Over time, as more and more dashboards are created, there will be dashboards tha
     1. Get the IDs of all dashboards.
         1. From the gear icon on the toolbar, select **API Documentation**.
         2. Expand the **Dashboard** category, click the `GET api/v2/dashboard` request, and click **Try it out** in the top right of the request.
-        
+
             {% include note.html content="You may need to iterate through all the available dashboards by using the `offset` parameter in the API request."%}
         3. Click **Execute**.
-        
+
             The `id` value for each entry in the response is the dashboard ID.
-    
+
     2. In the UI, find all dashboards that have been viewed over the time window of interest.
-        
+
         The internal metric ``~wavefront.dashboard.<dashboard_id>.views`` tracks the views of each dashboard.
-    
+
         Create a table chart with the query of the type:
-        
+
         ``aliasMetric(mmax(12w, ts(~wavefront.dashboard.*.views)), 2)``
-        
+
         You will get the IDs of the dashboards that have been viewed over the last 12 weeks.
-        
+
     3. Find all unviewed dashboards.
-    
+
         Now that you have the IDs of all dashboards and the IDs of all dashboards that have been viewed, you can take the difference and get all of the IDs of the unviewed dashboards.
 
 ## Delete and Recover a Deleted Dashboard
@@ -563,6 +563,28 @@ You can delete a single or multiple dashboards that you [no longer use](#identif
 
    ![Restore a dashboard from the trash.](/images/restore-dashboard.png)
 
+## Audit Dashboard Changes
+
+Users need to audit dashboard changes in several situations:
+* A dashboard was saved with incorrect changes and the previous configuration isn't known.
+* A dashboard was changed. An audit needs to determine when it was updated and by whom.
+* A dashboard was deleted. Audit needs to determine when it was deleted and by whom.
+
+Each time you save a dashboard, you create a dashboard version. Up to 100 versions are supported.
+
+<table style="width: 100%;">
+   <tbody>
+   <tr>
+   <td width="60%">
+   <ol>
+   <li>Find the Dashboard in the Dashboards Browser. </li>
+   <li>Click the ellipsis icon and select <strong>Version History</strong>.</li>
+   <li>Select a version.</li>
+   </ol>
+   </td>
+   <td width="40%" markdown="span">![screenshot ellipsis menu to the left of dashboard in dashboards browser](images/v2_edit_dashboard.png) </td></tr>
+   </tbody>
+</table>
 
 ## Troubleshoot and Learn More!
 
