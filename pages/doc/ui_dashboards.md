@@ -588,6 +588,5 @@ Each time you save a dashboard, you create a dashboard version. Up to 100 versio
 
 ## Troubleshoot and Learn More!
 
-The Customer Success team prepared these KB articles to troubleshoot problems with dashboards.
-* [How to Audit Dashboard Changes](https://help.wavefront.com/hc/en-us/articles/360055676911-How-to-Audit-Dashboard-and-Alert-Changes)
+* [How to Audit Dashboard Changes](ui_dashboards.html#audit-dashboard-changes)
 * [Migrating Objects or Data Between Environments](https://help.wavefront.com/hc/en-us/articles/360053164791-Migrating-Objects-or-Data-Between-Tanzu-Observability-Environments)

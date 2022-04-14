@@ -207,10 +207,6 @@ We do not retain the history of alert tags, event tags, and source tags. For exa
 ## Learn More!
 
 * [High Cardinality Data](cardinality.html) is an introduction with a video.
-* [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html) has in-depth examples. 
-
-
-The following KB articles provide details on data best practices:
-
-* [Where is my old data](https://help.wavefront.com/hc/en-us/articles/360051131032-Where-is-my-Old-Data-) explains how to toggle the Obsolete Metrics settings to see data that's older than 4 weeks.
-* [Common Time Limits and Best Practices](https://help.wavefront.com/hc/en-us/articles/360058716512-Common-Tanzu-Observability-time-limits-and-best-practices) shows limits, for example, when a query times out.
+* [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html) has in-depth examples.
+* [Troubleshooting Missing Data](missing_data_troubleshooting.html) explains how to toggle the Obsolete Metrics settings to see data that's older than 4 weeks and has other advice.
+* [Limits and Best Practices](wavefront_limits.html#timeout-limits) explains time limits and more.

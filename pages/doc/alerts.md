@@ -331,10 +331,7 @@ We create [events](events.html) as alerts fire, update, and resolve. You can opt
 
 * Watch some [videos about alerts](videos_alerts.html).
 * [Create and manage alerts](alerts_manage.html).
+* See answers to [Frequently Asked Questions](alerts_faq.html)
 * Learn about [alert states and life-cycle](alerts_states_lifecycle.html).
-* For troubleshooting, read the following KBs:
-   - [Unable to Create Alerts. Cannot Save Alerts Error](https://help.wavefront.com/hc/en-us/articles/360057759372-Unable-to-create-Alerts-error-message-Cannot-Save-alert-400-)
-   - [Why Did My Alert Fire or Not Fire](https://help.wavefront.com/hc/en-us/articles/360049071471-Why-did-my-alert-fire-or-not-fire-)
-   - [How to Audit Alert Changes](https://help.wavefront.com/hc/en-us/articles/360055676911-How-to-Audit-Dashboard-and-Alert-Changes)
-* If you want to update multiple alerts using API or CLI, see the KB [How Do I Bulk Update Multiple Alerts?](https://help.wavefront.com/hc/en-us/articles/360057895291-How-Do-I-Bulk-Update-Multiple-Alerts-).
-   {% include note.html content="The CLI is not maintained by VMware and is not officially supported." %}
+* Learn [How to Audit Alert Changes](alerts_faq.html#how-can-i-audit-alert-changes)
+* Understand how to [bulk update alerts](alerts_faq.html#how-do-i-bulk-update-alerts-with-the-api). 

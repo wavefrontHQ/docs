@@ -224,7 +224,6 @@ There are valid situations where it's appropriate to capture ephemeral informati
 
 ## Learn More!
 
-Our Customer Success team has prepared several KB articles that give additional detail.
 
-* [Common Time Limits and Best Practices](https://help.wavefront.com/hc/en-us/articles/360058716512-Common-Tanzu-Observability-time-limits-and-best-practices).
+* [Limits and Best Practices](wavefront_limits.html#timeout-limits).
 * [Monitoring Metric Data Quality](https://help.wavefront.com/hc/en-us/articles/360055613191-Monitoring-metric-data-quality).

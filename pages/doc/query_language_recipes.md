@@ -259,8 +259,8 @@ See [Point Tags in Queries](query_language_point_tags.html) for details.
 
 ## How to Account for Known Downtimes or Events in Uptime Queries
 
-There are times when there are known and expected downtime periods such as maintenance or testing windows. Our Customer Success team created [this KB article](https://help.wavefront.com/hc/en-us/articles/360058534192-How-to-Account-for-Known-Downtimes-or-Events-in-Uptime-Queries), which discusses one of the ways to approach this.
+There are times when there are known and expected downtime periods such as maintenance or testing windows. [Query for Known Downtimes or Events](maintenance_windows_managing.html#query-for-known-downtimes-or-events) discusses one of the ways to approach this.
 
 ## Using exists() With Nested If/Else Statements
 
-With nested if/else statements, the `exists()` function sometimes exhibits unexpected behavior because of series matching. See [Using exists with Nested If/Else Statements](ts_exists.html#using-exists-with-nested-ifelse-statements) for an example and a workaround. 
+With nested if/else statements, the `exists()` function sometimes exhibits unexpected behavior because of series matching. See [Using exists with Nested If/Else Statements](ts_exists.html#using-exists-with-nested-ifelse-statements) for an example and a workaround.
