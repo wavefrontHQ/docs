@@ -432,7 +432,7 @@ entries:
           url: /query_language_point_tags.html
           output: web
 
-      - title: WQL Tips and Tricks
+      - title: WQL Power User
         output: web
         subfolderitems:
 
@@ -537,10 +537,10 @@ entries:
           - title: Send Data to CloudHealth
             url: /integrations_cloudhealth.html
             output: web
-            
+
           - title: Troubleshoot BigPanda Webhook Targets
             url: /integrations_bigpanda_troubleshooting.html
-            output: web            
+            output: web
 
       - title: collectd Integrations
         output: web

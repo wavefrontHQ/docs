@@ -362,7 +362,7 @@ In the image shown below each arrow shows tracing traffic between application co
 
 ![an image that shows how each service communicates with each other using arrows. These arrows are called tracing traffic in wavefront.](images/tracing_edges_concept.png)
 
-To understand how to query for tracing traffic in the tracing browser, see [Use Spans to Examine Applications and Services](trace_data_query.html#use-spans-to-examine-applications-and-services).
+To understand how to query for tracing traffic in the tracing browser, see [Use Spans to Examine Applications and Services](spans_function.html#spans-operators).
 
 <table style="width: 100%;">
 <tbody>
