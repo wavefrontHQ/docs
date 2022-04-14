@@ -26,7 +26,7 @@ Ranks the time series described by the expression, and returns 1 for the specifi
 <tr>
 <td>mean&vert;median&vert;min&vert;max&vert;sum&vert;count </td>
 <td>Summarization method to use for combining data values in a time series.
-These are similar to the <a href="ui_chart_reference.html#general"><strong>Summarize by</strong> options</a> you can set for a chart.
+These are similar to the <strong>Summarize by</strong> options that you can set for a chart.
 Default is to rank each series according to the value of its last (rightmost) data point on the current chart, if this parameter is not specified.</td>
 </tr>
 <tr>
@@ -46,7 +46,7 @@ The `bottom()` function ranks the time series described by the expression, and t
 * 1 is returned for each time series that is in the specified number of series at the bottom of the ranking.
 * 0 is returned for each of the remaining time series.
 
-The returned constants are [continuous time series](query_language_reference.html#discrete-versus-continuous-time-series).
+The returned constants are [continuous time series](query_language_discrete_continuous.html).
 
 ### About Ranking
 

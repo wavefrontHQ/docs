@@ -73,7 +73,7 @@ Follow these steps:
 1. Click **Create role**.
 1. Once the list of roles appears, click `wavefront` (the role you just created), and copy the **ARN** value.
 
-{% include note.html content="See [Giving Wavefront Limited Access](integrations_aws_overview.html#giving-wavefront-limited-access) if you want to specify a more restrictive IAM policy for Wavefront." %}
+{% include note.html content="See [Giving Wavefront Limited Access](integrations_aws_overview.html#giving-limited-access) if you want to specify a more restrictive IAM policy for Wavefront." %}
 
 ### Step 3: Configure the AWS Integration
 

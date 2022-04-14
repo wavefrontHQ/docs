@@ -7,7 +7,7 @@ permalink: alert_target_customizing.html
 summary: Learn how to customize alert notifications by modifying alert target templates.
 ---
 
-An alert target provides a template that specifies how Wavefront extracts information from the alert, and how to assemble the notification from the alert information.
+An alert target provides a template that specifies how Tanzu Observability by Wavefront extracts information from the alert, and how to assemble the notification from the alert information.
 
 You can customize the predefined template for the alert target type by making and saving changes. The template uses [Mustache syntax](https://mustache.github.io/) to combine literal text with Wavefront-defined _variables_ and _functions_ to produce the structures to be sent to the receiving messaging platform.
 
@@ -45,10 +45,10 @@ The template defined by a custom alert target describes the contents of the noti
 
 Here's what happens:
 1. The alert triggers an event.
-2. The alert template
+2. The alert template:
    * Identifies the information you want to extract from the alert
    * Embeds that information in a formatted structure appropriate for the target's messaging platform.
-3. Wavefront sends the formatted information to the target.
+3. Tanzu Observability sends the formatted information to the target.
 4. The messaging platform interprets the structure and displays it as a readable notification.
 
 For example:
@@ -60,7 +60,7 @@ For example:
 
 ### Predefined Templates
 
-Wavefront provides a predefined template for each type of custom alert target. You can use the predefined template as is, or you can customize it.
+We provide a predefined template for each type of custom alert target. You can use the predefined template as is, or you can customize it.
 
 You can [inspect](#display-and-edit-predefined-templates) a predefined template to see:
 
@@ -74,7 +74,7 @@ The predefined Slack and VictorOps templates contain JSON attributes defined by 
 
 ### Template Variables
 
-Wavefront defines template variables for accessing [information about the alert](#obtain-information-about-the-alert) and about [the time series tested by the alert](#obtain-information-about-the-alerts-time-series). When the alert triggers a notification, Wavefront replaces the variables in the template with strings that represent the requested values. 
+We define template variables for accessing [information about the alert](#obtain-information-about-the-alert) and about [the time series tested by the alert](#obtain-information-about-the-alerts-time-series). When the alert triggers a notification, Tanzu Observability replaces the variables in the template with strings that represent the requested values. 
 
 We support property and iterator variables, which are used differently.
 
@@ -107,7 +107,7 @@ We support property and iterator variables, which are used differently.
 
 ### Template Functions
 
-Wavefront defines template functions for performing various tasks, such as [tailoring the notification content to the trigger type](#tailor-content-to-the-trigger-type), [limiting the number of elements an iterator can return](#limit-list-sizes), and [assisting with JSON or XML formatting](#utility-functions-for-readability).
+We define template functions for performing various tasks, such as [tailoring the notification content to the trigger type](#tailor-content-to-the-trigger-type), [limiting the number of elements an iterator can return](#limit-list-sizes), and [assisting with JSON or XML formatting](#utility-functions-for-readability).
 
 The following snippet shows the basic Mustache syntax for two functions:
 
@@ -133,7 +133,7 @@ To display and edit a predefined template for a new or existing custom alert tar
 <tbody>
 <tr>
 <td width="50%">
-<ol><li><a href="webhooks_alert_notification.html#hcreate-a-custom-alert-target">Create</a> or <a href="webhooks_alert_notification.html#edit-a-custom-alert-target">edit</a> the custom alert target. </li>
+<ol><li><a href="webhooks_alert_notification.html#create-a-custom-alert-target">Create</a> or <a href="webhooks_alert_notification.html#edit-a-custom-alert-target">edit</a> the custom alert target. </li>
 <li>In the <strong>Body Template</strong> field, click <strong>Template</strong> and select one of the predefined templates. The alert target's type determines the available predefined templates. On the right are the choices for a custom alert target of type <strong>Email</strong>:</li>
 <li>Add, remove, or rearrange alert information and structural elements of the predefined template, or replace the predefined template with a template of your own. </li>
 <li>Scroll to the end of the <strong>Body Template</strong> field and click <strong>Save</strong>.</li></ol></td>
@@ -146,7 +146,7 @@ To display and edit a predefined template for a new or existing custom alert tar
 
 ## Obtain Information About the Alert
 
-Wavefront defines variables for obtaining information about the alert as a whole, such as the alert ID, timing, severity, and so on. Each of these variables is a property unless explicitly described as an iterator.
+We define variables for obtaining information about the alert as a whole, such as the alert ID, timing, severity, and so on. Each of these variables is a property unless explicitly described as an iterator.
 
 ### General Information About the Alert
 
@@ -189,7 +189,7 @@ Wavefront defines variables for obtaining information about the alert as a whole
 </tr>
 <tr>
 <td markdown="span">`imageLinks`</td>
-<td markdown="span">Iterator returning URLs to [chart images](alerts_notifications.html#chart-images-in-alert-notifications). Currently returns 1 URL to the chart image that shows the alert's display expression at the time the alert fired or was updated.</td>
+<td markdown="span">Iterator returning URLs to [chart images](alerts_notifications.html#static-chart-image-in-notifications). Currently returns 1 URL to the chart image that shows the alert's display expression at the time the alert fired or was updated.</td>
 </tr>
 <tr>
 <td markdown="span">`name`</td>
@@ -213,7 +213,7 @@ Wavefront defines variables for obtaining information about the alert as a whole
 </tr>
 <tr>
 <td markdown="span">`chartUrl`</td>
-<td markdown="span">Link to an [interactive chart](alerts_notifications.html#interactive-charts-linked-by-alert-notifications) that shows alert firing events or resolved events along with the alert condition.</td>
+<td markdown="span">Link to an [interactive chart](alerts_notifications.html#link-to-interactive-chart-in-alert-viewer) that shows alert firing events or resolved events along with the alert condition.</td>
 </tr>
 <tr>
 <td markdown="span">`alertRoute`</td>
@@ -381,7 +381,7 @@ Notice that, in a template entry such as {% raw %} `"alertId": "{{{alertId}}}"`{
 
 ## Obtain Information About the Alert's Time Series
 
-Wavefront defines variables for obtaining information about the time series that contributed to the alert's state change. Each of these variables is an iterator that visits the time series in a particular category, and returns one of the following kinds of information about the visited series:
+We define variables for obtaining information about the time series that contributed to the alert's state change. Each of these variables is an iterator that visits the time series in a particular category, and returns one of the following kinds of information about the visited series:
 
 * [Each series' source (host)](#list-sources-and-source-tags-of-an-alerts-time-series)
 *
@@ -414,7 +414,7 @@ The time series visited by a particular iterator are in one of the following cat
 </tr>
 <tr>
 <td><em>In maintenance</em></td>
-<td markdown="span">Any time series whose source is associated with an ongoing [maintenance window](maintenance_windows_managing.html#using-maintenance-windows). These are time series that continue to be tested against the alert condition, but whose results do not change the alert's state.</td>
+<td markdown="span">Any time series whose source is associated with an ongoing [maintenance window](maintenance_windows_managing.html). These are time series that continue to be tested against the alert condition, but whose results do not change the alert's state.</td>
 </tr>
 </tbody>
 </table>
@@ -423,7 +423,7 @@ The time series visited by a particular iterator are in one of the following cat
 The names of the iterators follow this convention: <code>&lt;seriesCategory&gt;&lt;InfoIndicator&gt;</code>. For example:
 <ul>
   <li>
-    <code>failingHosts</code> is an iterator that lists the <a href="#list-the-sources-of-an-alerts-time-series">host name</a> of each failing time series.
+    <code>failingHosts</code> is an iterator that lists the <a href="#list-sources-of-an-alerts-time-series">host name</a> of each failing time series.
   </li>
   <li>
     <code>inMaintenanceSeries</code> is an iterator that lists the <a href="#list-the-definitions-of-an-alerts-time-series">defining information</a> of each time series whose source is in maintenance.
@@ -730,7 +730,7 @@ You can access a custom combination of details for the time series that contribu
 1. Use an [alert-series iterator](#alert-series-iterators) to visit each time series in the indicated [category](#series-category).
 2. Use variable within the iterator section to access the [alert-series details](#alert-series-details) you want to include.
 
-This technique gives you complete control over the formatting of the returned information, and allows you to access [statistics](#accessing-series-statistics) from each visited time series.
+This technique gives you complete control over the formatting of the returned information, and allows you to access [statistics](#alert-series-statistics) from each visited time series.
 
 ### Alert-Series Iterators
 
@@ -1039,9 +1039,9 @@ The order of the limit settings determines limit precedence. For example, if you
 
 The `failingLimit` property applies to all iterators in the `failing` category: `failingAlertSeries`, `failingSeries`, `failingHosts`, and `failingHostsToSourceTags`.
 
-See [Setting and Testing Iteration Limits](#example-setting-and-testing-iteration-limits) for an example.
+See **Example: Setting and Testing Iteration Limits** below for an example.
 
-{% include note.html content="If the application that is being integrated requires the full list of items (e.g., `failingHosts`) you can retrieve the `alertId` from the notification and use the Wavefront API to get the full list of items." %}
+{% include note.html content="If the application that is being integrated requires the full list of items (e.g., `failingHosts`) you can retrieve the `alertId` from the notification and use the Wavefront REST API to get the full list of items." %}
 
 
 <table>
@@ -1261,7 +1261,7 @@ Output:1600273622
 
 ## Add Chart Images to Older Custom Alert Targets
 
-The predefined template for a custom HTML email target or a custom Slack target automatically includes the `imageLinks` variable for producing a [chart image](alerts_notifications.html#chart-images-in-alert-notifications) in alert notifications. However, if you created a custom email alert target or a custom Slack alert target before 2018-26.x, you must explicitly update the alert target's template to include a chart image in the alert notifications.
+The predefined template for a custom HTML email target or a custom Slack target automatically includes the `imageLinks` variable for producing a [chart image](alerts_notifications.html#static-chart-image-in-notifications) in alert notifications. However, if you created a custom email alert target or a custom Slack alert target before 2018-26.x, you must explicitly update the alert target's template to include a chart image in the alert notifications.
 
 {% include note.html content="You do not need to update existing custom alert targets of type PagerDuty. All PagerDuty notifications sent in 2018-26.x or later will include chart images." %}
 
@@ -1289,7 +1289,7 @@ Subsequent email notifications will now include a chart image that is generated 
 
 To update the template for a custom Slack alert target that was created before 2018-26.x:
 
-1. Open the custom alert target for [editing](webhooks_alert_notification.html#editing-a-custom-alert-target).
+1. Open the custom alert target for [editing](webhooks_alert_notification.html#edit-a-custom-alert-target).
 1. In a separate browser tab, connect to your Wavefront service and create a new custom alert target of type **Webhook** with the **Slack** template.
 1. In the newly created template, find and copy the section enclosed in the following lines:
     {% raw %}
@@ -1304,7 +1304,7 @@ To update the template for a custom Slack alert target that was created before 2
 
 ## Include a Link to a Tracing Service Dashboard
 
-If the Wavefront query in an alert has an application and service name and meets a specific alert target, you get a link to drill down to the [service dashboard](tracing_service_dashboard.html). The service dashboard lets you see RED metrics of the application or service and identify potential hot spots.
+If the query in an alert has an application and service name and meets a specific alert target, you get a link to drill down to the [service dashboard](tracing_service_dashboard.html). The service dashboard lets you see RED metrics of the application or service and identify potential hot spots.
 
 {% include note.html content="The `tracingDashboardLinks` value is shown in the Alerts Browser. In contrast, the `alertTriageDashboardLinks` values are shown in the **alert notification** if specified as part of the alert. See [Information About Alert Resolution Help](#information-about-alert-resolution-help)"%}
 
@@ -1328,7 +1328,7 @@ Let's walk through a scenario:
     Here we create an alert that fires when the request rate is greater than 3 for the `beachshirts` application's `delivery` service.
     ![a screenshot of the alert.](images/alert_tracing_service_dashboard.png)
 
-If the alert you created moves to the firing stage, Wavefront sends a notification to the users specified in the alert target. The notification includes a link to the service dashboard. For example, in this scenario, the JSON output of your notification looks like this:
+If the alert you created moves to the firing stage, we send a notification to the users specified in the alert target. The notification includes a link to the service dashboard. For example, in this scenario, the JSON output of your notification looks like this:
 ```
 "tracingDashboardLinks": [
   "https://<cluster_name>.wavefront.com/tracing/service/details#_v01(g:(d:1500,s:1619576595),p:(application:(v:beachshirts),service:(v:delivery)))"

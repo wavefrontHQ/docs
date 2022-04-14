@@ -19,7 +19,7 @@ You can find queries that are exceptionally slow by checking  the **Slow Query**
 **To open the Slow Queries Dashboard**:
 
 1. Log in to your Wavefront instance.
-2. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Slow Query Dashboard**.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Slow Query Dashboard**.
 
    * The **Overview** tab summarizes slow queries in the system. You can quickly see the number of slow queries, which slow queries failed to complete, and which queries took a long time but eventually completed.
 

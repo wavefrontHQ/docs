@@ -18,7 +18,7 @@ See [Proxy Custom Install with Incoming TLS/SSL](proxies_manual_install.html#pro
 
 - The Wavefront proxy listener port (2878) can now be used as a direct ingestion endpoint for all data (metrics, histograms, spans/span logs)
 - New preprocessor features:
-  * conditional logic for rules with [`if` parameter](proxies_preprocessor_rules.html#limit-when-a-rule-applies-if-operator).
+  * conditional logic for rules with `if` parameter
   * global and multi-port rules
   * interactive rules tester
 - New proxy installs use Java 11 runtime
@@ -29,10 +29,10 @@ See [Proxy Custom Install with Incoming TLS/SSL](proxies_manual_install.html#pro
 - Significantly improved data parsing performance and throughput.
 - Redesigned and improved storage engine for spooling data to disk.
   {% include note.html content="Proxy 6.1 and later stores spooled data differently from previous versions. If the proxies in your environment have accumulated a substantial backlog, drain the backlog before upgrading to version 6.1 or later." %}
-- New custom tracing listener port and configurations added to the [Wavefront proxy configuration file](proxies_configuring.html).
+- New custom tracing listener port and configurations added to the [Wavefront proxy configuration file](proxies_configuring.html#configuration-properties).
 - [Jaeger integration can now receive data via HTTP](proxies_configuring.html#traceJaegerHttpListenerPorts).
 - Log blocked points for [histograms and spans into separate log files](proxies_configuring.html#logging).
-- [Ability to export data that is queued at the proxy](proxies_installing.html#export-data-queued-at-the-proxy).
+- Ability to export data that is queued at the proxy.
 - Deprecated configuration options:
   - `retryThreads` configuration option is deprecated as it is no longer applicable to the new storage engine.
   - `pushLogLevel` configuration option is deprecated as logging levels are configured through log4j2 configurations.
@@ -83,7 +83,7 @@ This version includes support for the following new functionality:
 * Supports HTTP POST and gzipped streams for Wavefront and OpenTSDB data ingestion endpoints on the same port
 * Tags `~proxy` metrics with `processId` to prevent metric name collisions in case of duplicate proxy instances
 * Limits default memory usage to 8GB
-* Supports a configurable idle timeout for listening ports, which defaults to 5 minutes. See our [Proxy Configuration Properties](proxies_configuring.html#proxy-configuration-properties) documentation for details.
+* Supports a configurable idle timeout for listening ports, which defaults to 5 minutes. See our [Proxy Configuration Properties](proxies_configuring.html#configuration-properties) documentation for details.
 
 
 ## Version 4.27
@@ -104,7 +104,7 @@ This version includes support for the following new functionality:
 
 ## Version 4.25
 - Fixes Java 9 compatibility issue
-- Supports [SourceTag and SourceDescription](proxies_configuring.html#sending-source-tags-and-source-descriptions-through-the-wavefront-proxy) on Wavefront format listening port (2878)
+- Supports `SourceTag` and `SourceDescription` on Wavefront format listening port (2878)
 - Supports tagged Graphite format (Graphite 1.1.x and newer)
 - Enables logging of raw valid points to a separate file (see `log4j2.xml.default` for more details)
 - Supports configurable max number of HTTP connections and automatic retries
@@ -114,7 +114,7 @@ This version includes support for the following new functionality:
 ## Version 4.17
 - Miscellaneous reliability and stability improvements.
 - Accepts timestamps in microsecond and nanosecond format
-- Adds [SourceTag and SourceDescription](proxies_configuring.html#sending-source-tags-and-source-descriptions-through-the-wavefront-proxy)
+- Adds `SourceTag` and `SourceDescription`
 
 ## Version 4.12
 - Compatible with latest Linux kernels patched to address Stack Clash vulnerability

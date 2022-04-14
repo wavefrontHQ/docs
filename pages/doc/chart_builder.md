@@ -9,19 +9,12 @@ summary: Use Chart Builder to display the data you're interested in.
 
 When you get started with Tanzu Observability by Wavefront, Chart Builder is the fasted way to customize which metrics you see and to display them in charts.
 
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="80%">Chart Builder has the tools for creating charts and customizing which metrics you see.
-<ul>
-<li>Construct queries from building blocks</li>
-<li>Show or hide individual queries</li>
-<li>Clone or delete a line</li>
-<li>Create alerts or turn <strong>Anomaly Detection</strong> on for forecasting or anomaly detection on Line Plot charts. </li></ul></td>
-<td width="20%"><a href="query_language_query_builder.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
-</tr>
-</tbody>
-</table>
+Chart Builder has the tools for creating charts and customizing which metrics you see.
+* Construct queries from building blocks
+* Show or hide individual queries
+* Clone or delete a query line
+* Create alerts directly from a query.
+* Turn on [**Anomaly Detection**](anomaly_detection.html). 
 
 
 ## Video

@@ -17,7 +17,7 @@ Tanzu Observability by Wavefront provides many different types of charts for exa
 
 ## Create a Chart
 
-You can create a chart from a dashboard or from the taskbar.
+You can create a chart from a dashboard or from the toolbar.
 
 ### Create a Chart from a Dashboard
 
@@ -25,7 +25,7 @@ You can create a chart from a dashboard or from the taskbar.
 <tbody>
 <tr>
 <td width="40%">
-<ol><li>Edit a dashboard or select <strong>Dashboards > Create Dashboard</strong> from the taskbar to create a new one. </li>
+<ol><li>Edit a dashboard or select <strong>Dashboards > Create Dashboard</strong> from the toolbar to create a new one. </li>
 <li>Drag the metrics or chart type widget to the canvas.</li>
 <li>Select metrics, filters, and functions and click <strong>Save</strong> in the top right. </li>
 </ol></td>
@@ -35,7 +35,7 @@ You can create a chart from a dashboard or from the taskbar.
 </table>
 
 
-### Create a Chart from the Taskbar
+### Create a Chart from the Toolbar
 
 
 1. Select **Dashboards > Create Chart**.
@@ -155,7 +155,7 @@ For optimal rendering of displayed results, charts and dashboards do not include
 1. Open the chart for edit.
 2. Click the **Advanced** tab, select the **Include Obsolete Metrics** check box, and click **Save**.
 
-You can also include obsolete metrics for all charts within a dashboard. See [Set Dashboard Display Preferences](ui_dashboards.html#set-dashboard-display-preferences).
+You can also include obsolete metrics for all charts within a dashboard. See [Set Dashboard Display Preferences](ui_dashboards.html#set-dashboard-display-preferences-and-settings).
 
 {% include note.html content="Including obsolete metrics on a dashboard level may significantly slow down the dashboard performance." %}
 
@@ -321,7 +321,7 @@ If the **Sampling** preference is **On**:
 
 ![sampling query during chart create](images/sampling_during_chart_create.png)
 
-To temporarily change the sampling behavior for a chart, use the **Sampling** menu in the top right. You cannot save this change (or other changes in this taskbar).
+To temporarily change the sampling behavior for a chart, use the **Sampling** menu in the top right. You cannot save this change (or other changes made through the options this toolbar).
 
 ![sampling toggle during chart edit](images/sampling_toggle.png)
 
@@ -329,7 +329,8 @@ To temporarily change the sampling behavior for a chart, use the **Sampling** me
 ## Do More!
 
 * Customize your chart. See the [Chart Reference](ui_chart_reference.html) for details.
-* [Share a chart](ui_sharing.html#share-a-link-to-a-dashboard-or-chart) with a coworker (or with the customer success team if you need help).
+* [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) in another product or on another website.
+
 <!--
-* [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) in another product or on another website.-->
-* KB article: [How to Filter a Chart so it Displays Only Metrics with Certain Point Tags] https://help.wavefront.com/hc/en-us/articles/4406632325140-How-to-filter-a-charts-displayed-point-tags-
+* KB article: [How to Filter a Chart so it Displays Only Metrics with Certain Point Tags] (https://help.wavefront.com/hc/en-us/articles/4406632325140-How-to-filter-a-charts-displayed-point-tags 
+-->

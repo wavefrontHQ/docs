@@ -22,13 +22,13 @@ Tanzu Observability by Wavefront supports two account types:
 When your company signs up with Tanzu Observability, we ask you which users you want to designate as Super Admin users for your Wavefront instance. A Super Admin user:
 * Has all permissions.
 * Has access to all dashboards and alerts.
-* Can [restore orphan dashboards and alerts](access.html#making-orphan-dashboards-visible).
+* Can [restore orphan dashboards and alerts](access.html#make-orphan-dashboards-or-alerts-visible).
 * Can invite other Super Admin users.
 * Can create [ingestion policies](ingestion_policies.html) and [examine the overall Wavefront usage](examine_usage.html).
 
 As a Super Admin user, you can add other Super Admin users:
 
-1. Click the gear icon <i class="fa fa-cog"/> on the taskbar, and select **Super Admin**.
+1. Click the gear icon <i class="fa fa-cog"/> on the toolbar, and select **Super Admin**.
 2. Enter the user name of a user you want to add as a Super Admin.
 
 
