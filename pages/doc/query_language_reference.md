@@ -541,6 +541,7 @@ All operations between `tsExpression`s are subject to the matching processes des
 <li markdown="span">`not`, `NOT`: Use this operator to exclude a source, tag, or metric. See the examples below.</li>
 <li markdown="span">`[and]`, `[AND]`, `[or]`, `[OR]`: Perform strict 'inner join' versions of the Boolean operators. Strict operators match metric/source/point tag combinations on both sides of the operator and filter out unmatched combinations.</li></ul>
 
+
 {% include tip.html content="If you use more than one Boolean operator, use parentheses to indicate order of precedence. We don't guarantee operator precedence." %}
 
 <li markdown="span">**Arithmetic operators** - Perform addition, subtraction, multiplication, or division on corresponding values of time series that are described by the `tsExpression` arguments on either side of the operator. </li>
