@@ -74,7 +74,7 @@ The different SAML providers have the following FedRAMP certification:
 
 --->
 
-## How to Invite New Users After Single Sign-On Has Been Enabled
+## How to Add New Users After Single Sign-On Has Been Enabled
 
 **Problem**
 
@@ -85,6 +85,7 @@ After SSO has been enabled, all authentication is now handled by the Single Sign
   ```
   { "status": { "result": "ERROR", "message": "Cannot process the request when SSO is enabled.", "code": 400 } }
   ```
+
 **Solution**
 
 If any user goes to the Wavefront instance in a web browser, for example, https://example.wavefront.com and provides their email address, the user is redirected to the SSO login page can log in with their SSO credentials.
