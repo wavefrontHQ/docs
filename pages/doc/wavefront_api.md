@@ -197,3 +197,91 @@ This GET endpoint has the following parameters:
 </td></tr>
 </tbody>
 </table>
+
+<!---
+## Troubleshooting
+
+Many customers automate the creation, addition, and deletion of alerts, dashboards, etc. with the Wavefront API. The API support WQL and other things you can do from the GUI.  This section is a living document with troubleshooting information.
+
+### API Code:400 Returned when using unescaped JSON characters
+
+* **Problem**
+
+Some WQL querie requite quotes for the function to operate correctly. If you use a query that omits required quotes, for example, in an alert condition, a `400` error results.
+
+For example, assume you use the following fragment to create an alert:
+
+```
+{
+"name": “Test-Alert-Wavefront”,
+"target": “wavefront@vmware.com",
+"condition": "hideAfter(1m, rawpercentile(95, align(1m, mean, default(5m, 0, ts(stats.timers.promotion-service.getBanners.post_checkout_page.latency.upper_95))))) > 1000 and between(hour("US/Pacific"), 6, 23.5)
+",
+"displayExpression": "hideAfter(1m, rawpercentile(95, align(1m, mean, default(5m, 0, ts(stats.timers.promotion-service.getBanners.post_checkout_page.latency.upper_95))))) > 1000 and between (hour("US/Pacific"), 6, 23.5)
+",
+"minutes": 15,
+"resolveAfterMinutes": 1,
+"severity": "INFO",
+"additionalInformation": “Failure to include JSON Escape Character after double quotes”,
+"tags": {
+"customerTags": [
+"alertTag1"]
+  }
+}
+```
+When you POST that fragment, the following error results.
+
+```
+"message": "Invalid UTF-8 start byte 0x80\n at [Source: (org.glassfish.jersey.message.internal.ReaderInterceptorExecutor$UnCloseableInputStream); line: 2, column: 13]", "code": 400
+```
+
+
+
+* **Solution**
+
+Double Quotes are reserved in JSON and must be properly escaped.
+
+```
+{
+
+  "name": "Test_Alert_Wavefront",
+
+  "target": "wavefront@vmware.com",
+
+  "condition": "hideAfter(1m, rawpercentile(95, align(1m, mean, default(5m, 0, ts(stats.timers.promotion-service.getBanners.post_checkout_page.latency.upper_95))))) > 1000 and between (hour('US/Pacific'), 6, 23.5) ",
+
+  "displayExpression": "hideAfter(1m, rawpercentile(95, align(1m, mean, default(5m, 0, ts(stats.timers.promotion-service.getBanners.post_checkout_page.latency.upper_95))))) > 1000 and between (hour('US/Pacific'), 6, 23.5) ",
+
+  "minutes": 50,
+
+  "resolveAfterMinutes": 1,
+
+  "severity": "INFO",
+
+  "additionalInformation": "Properly formatted JSON",
+
+  "tags": {
+
+    "customerTags": [
+
+      "alertTag1"
+
+    ]
+  }
+}
+```
+
+Additional Details:
+
+The following characters are reserved in JSON and must be properly escaped to be used in strings:
+
+Backspace is replaced with \b
+Form feed is replaced with \f
+Newline is replaced with \n
+Carriage return is replaced with \r
+Tab is replaced with \t
+Double quote is replaced with \"
+Backslash is replaced with \\
+
+For more information around JSON format please reference json.org and JSON Escape Strings.
+--->

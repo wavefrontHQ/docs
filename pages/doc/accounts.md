@@ -101,3 +101,20 @@ To add any new user to additional groups:
   * Click the **x** next to a group name to remove a group. You cannot remove the Everyone group.
 
 Going forward, new users are added to the group. They get the group's permissions and any permissions set as **New User Default Permissions**.
+
+## Troubleshooting User Accounts
+
+* **Problem:** When you invite a new user, an error like the following error appears in the GUI:
+  ```
+  User with id <user@domain.com> is already created in our system.
+  ```
+
+* **Cause:**
+  This error means that the user's email address (id) already exists on the current tenant or on another tenant on the same cluster. An email address cannot exist more than once unless multi-tenant authentication has been enabled explicitly.
+
+* **Solution:**
+  1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Accounts**.
+  2. Search for the user with their email address to check if that user already exists.
+  3. If the user is returned and doesn't know their password, ask them to [reset their password](users_account_managing.html#reset-a-forgotten-password).
+
+  If the user does not exist on the current tenant [open a support ticket](wavefront_support_feedback.html#support).
