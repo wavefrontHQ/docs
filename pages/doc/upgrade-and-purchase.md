@@ -48,11 +48,6 @@ Billing depends on the amount of data, measured in points per second (PPS), that
 9. Choose the billing terms and conditions and click **Proceed to checkout**.
 
    You can choose to subscribe to Tanzu Observability for one, three or five years and pay in full, on a monthly (when you subscribe for one year) or on annually (when you subscribe for three or five years) basis.
-
-10. On the VMware Cloud Services page, you can review and place your order. 
-
-   In case you need to make any modifications and go back, click **Edit Order**.
-
    
 After you purchase Tanzu Observability, you will see a confirmation page and your subscription will become active within the next 24 hours. You will receive the  "Welcome to VMware Tanzu Observability by Wavefront" email.
 
