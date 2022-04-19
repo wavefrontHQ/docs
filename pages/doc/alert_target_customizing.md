@@ -454,7 +454,7 @@ Starting with release 2022.05, users can include information about the alert res
 <td>One or more URLs in which information for alert resolution is stored.</td>
 </tr>
 <tr>
-<td>it is alertTriageDashboardLinks</td>
+<td>alertTriageDashboardLinks</td>
 <td>One or more URLs of dashboards that might help the user resolve the problem for which the alert was triggered. For example, if an alert for disk space is triggered, this could be a link to a dashboard that includes charts for disk usage. </td>
 </tr>
 </tbody>
