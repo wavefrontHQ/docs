@@ -28,8 +28,8 @@ The following proxy versions are scheduled to be deprecated or moved to end-of-l
 </thead>
 <tbody>
 <tr>
-<td>10.10 and earlier</td>
-<td>Deprecated. Wavefront proxy version 10.10 and earlier is impacted by a Log4j vulnerability. We highly recommend that you upgrade to the latest GA release. </td>
+<td>10.12 and earlier</td>
+<td>Deprecated. Wavefront proxy version 10.12 and earlier is impacted by a Log4j vulnerability. Upgrade to at least version 10.14, or to the latest GA release. </td>
 <td>Feb 28, 2022</td>
 </tr>
 <tr>
