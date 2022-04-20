@@ -350,7 +350,6 @@ Here's a specific example of a command, and what it does:
 /opt/wavefront/wavefront-proxy/proxy-jre/java -jar /opt/wavefront/wavefront-proxy/wavefront-push-agent.jar --f /etc/wavefront/wavefront-proxy/wavefront.conf --exportQueuePorts 2878,3000 --exportQueueOutputFile wfproxy --exportQueueRetainData false
 ```
 
-
 The example:
 
 * Exports the data queued at ports 2878 and 3000.
@@ -358,3 +357,128 @@ The example:
 * Deletes all data that’s currently in the proxy queue.
 
 Because the exported file is a newline-delimited plaintext file, it can be resent to the proxy. It is also possible to make changes to the data before resending those data to the proxy.
+
+<!--- Likely makes sense to combine with info in Truncate Proxy Queue in proxies.md.
+## How to Remove Queued Data at the Proxy
+
+The proxy can queue data, for example, in the event of network connectivity issues. However, at times you no longer need queued data. There are, however, times when the queued data is no longer needed. This article covers how to remove the queued data so that they will not get ingested and disk space on the Proxy host can be freed up.
+
+
+
+
+Removing Queued Data at the Proxy:
+There are two main options - delete the buffer file or export the queued data without retaining data.
+
+
+
+Deleting the Buffer Files
+
+1. Navigate to the queue/buffer file directory
+The default locations for the Proxy's buffer location can be found here under the "<wavefront_spool_path>" heading.
+
+Note that this location is configurable via the buffer property so verify if a different location has been set.
+
+You should see file names such as buffer.<data type>.<port>.<#>.spool (if the filename format looks different, you may be on an old Proxy version and should be upgraded).
+
+
+
+2. Delete the relevant buffer files
+The filenames of the buffer files specify the type of data and port number for which data is stored. Delete the files pertaining to the data that you no longer need. For example, if I do not need any of the metrics ingested through port 2878, I would delete all of the files that have filenames starting with buffer.points.2878.
+
+
+
+
+
+3. Restart the Proxy
+Upon restart, the Proxy will recognize that there is no queued data and will report internal metrics indicating this.
+
+
+
+Exporting Without Retaining Data
+An alternative to deleting data is to use the Proxy's ability to export queued data. This approach allows backup of queued data as well as the ability to modify data for re-ingest. However, if you know that the data is un-needed, we can set the exportQueueRetainData flag to false to clear the queued data from the Proxy's buffer location while setting exportQueueOutputFile to /dev/null or some similar temporary location.
+--->
+
+## How to Find the Account Used to Set Up a Specific Proxy
+<!--Link to this from usage monitoring page!--->
+
+This section explains how how to find out the account (whether user or service account) was used to set up a proxy. You must have **Proxies** permission to perform this task.
+
+The proxy name refers to the source name that the proxy uses to report its own metrics.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">
+In the GUI, find and copy the proxy ID.
+<ol>
+<li>Select <strong>Browse > Proxies</strong> and search for the proxy by name.  </li>
+<li>Copy the proxy ID, shown under the name. The screenshot to the right shows the ID for the proxy named zabbix-proxy-container.</li>
+</ol></td>
+<td width="60%"><img src="/images/proxy_id.png" alt="screenshow showing proxy ID for a single proxy"></td>
+</tr>
+<tr>
+<td width="40%">Use the <code>GET /api/v2/proxy/{id}</code> API endpoint to find the user ID.
+<ol>
+<li>From the gear icon, choose <strong>API Documentation</strong>. </li>
+<li>Find the <strong>Proxy</strong> section, and then find the entry for <code>GET /api/v2/proxy/{id}</code>. </li>
+<li>Expand the entry click <strong>Try it out!</strong>.  </li>
+<li>Enter in the ID from the previous step and click <strong>Execute</strong>.</li>
+<li>This is the account used. </li>
+</ol>
+</td>
+<td width="60%"><img src="/images/proxy_api_1.png" alt="screenshow showing proxy ID for a single proxy"><br/>
+<img src="/images/proxy_api_2.png" alt="screenshow showing proxy ID for a single proxy"><br/>
+<img src="/images/proxy_api_3.png" alt="screenshow showing proxy ID for a single proxy">
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+## Enable Proxy Health Checks
+
+The ability to have proactive system performance and reliability begins with regular health checks. This section explains how to set up proxy health checks. We can use the health check information to validate the proxies' availability to a load balancer pool or to allow Kubernetes to check if a proxy restart is required.
+
+{% include tip.html content="The setup requires proxy 9.0 or later. However, because of the log4j security issue with older proxy, using proxy 10.14 or later is highly recommended. "%}
+
+
+1. Open the `wavefront.conf` file for edit. See [Proxy File Paths](/proxies_configuring.html#proxy-file-paths) for the default locations.
+
+2. Update the `Managed HealthCheck Endpoint` section in the `wavefront.conf` file.
+
+  Here's an example that:
+  * Enables the health check status to be returned for http://<<host>>:8880/status.
+  * Sends a return code '200' if healthy and '503' if it fails because the `httpHealthCheckPassStatusCode` is configured.
+
+```
+############################ MANAGED HEALTHCHECK ENDPOINT ########################
+## Comma-delimited list of ports to function as standalone healthchecks.
+## May be used independently of httpHealthCheckAllPorts parameter. Default: none
+httpHealthCheckPorts=8880
+## When true, all listeners that support HTTP protocol also respond to healthcheck requests.
+## May be used independently of httpHealthCheckPorts parameter. Default: false
+httpHealthCheckAllPorts=true
+## Healthcheck's path, for example, '/health'. Default: '/'
+httpHealthCheckPath=/status
+## Optional Content-Type to use in healthcheck response, for example, 'application/json'. Default: none
+httpHealthCheckResponseContentType=text/plain
+## HTTP status code for 'pass' health checks. Default: 200
+httpHealthCheckPassStatusCode=200
+## Optional response body to return with 'pass' health checks. Default: none
+httpHealthCheckPassResponseBody=good to go!
+## HTTP status code for 'fail' health checks. Default: 503
+httpHealthCheckFailStatusCode=503
+## Optional response body to return with 'fail' health checks. Default: none
+httpHealthCheckFailResponseBody=try again later...
+## Enables admin port to control healthcheck status per port. Default: none
+adminApiListenerPort=8888
+## Remote IPs must match this regex to access admin API
+adminApiRemoteIpAllowRegex=^.*$
+```
+
+Here's a screenshot of example test output. The `curl` command checks for status, and the status 200 is returned.
+
+![screenshot with curl command showing health check is enabled](images/proxy_health_check.png)
