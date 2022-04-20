@@ -13,13 +13,36 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
-## Announcements
 
-* **Upcoming Removal of the Service Accounts from the Everyone Group**
+## 2022-17.x Release Notes
 
-    In the next release(s), the service accounts that are still part of the predefined **Everyone** group will be removed from this group. This will not impact any existing functionality and integrations. Last year, all service accounts were added to the new predefined **Service Accounts** group. See the [2021-42.x Release Notes](2021.49.x_release_notes.html#2021-42x-release-notes) for details.
+<table>
+<tbody>
+<tr>
+  <td width="50%">
+    <strong>Service Accounts Removal from the Everyone Group</strong>:
+    <p>
+    Last year, all service accounts were added to the new predefined <strong>Service Accounts</strong> group. Now, all service accounts that were still part of the <strong>Everyone</strong> group are removed from this group. To avoid impact on any existing functionality and integration, we also made the following changes:<br/>
+    <ul>
+    <li>For all dashboards and charts that have the <strong>Everyone</strong> group in their view or view & modify access lists, we also added the <strong>Service Accounts</strong> group to these lists.</li>
+    <li>For all metrics security rules that have the <strong>Everyone</strong> group in their allow or deny access lists, we also added the <strong>Service Accounts</strong> group to these lists.</li>
+    <li>Changed the default permissions for the service accounts to have view and modify access to newly created dashboards and alerts. To revoke these permissions for the service accounts, deselect the <strong>Service Accounts</strong> check box from the security organization settings. See <a href="access.html#change-the-access-control-security-organization-setting">Change the Access Control Security Organization Setting</a> for details.</li>
+    </ul>
+    </p>
+    </td>
+  <td width="50%">
+  <strong>Read More:</strong>
+  <ul>
+  <li><a href="2021.49.x_release_notes.html#2021-42x-release-notes">2021-42.x Release Notes</a></li>
+  <li><a href="service-accounts.html#what-are-service-accounts">What Are Service Accounts</a></li>
+  <li><a href="access.html">Managing Access to Dashboards and Alerts</a></li>
+  <li><a href="metrics_security.html">Metrics Security Policy Rules</a></li>
+  </ul>
+  </td>
+</tr>
+  </tbody>
+</table>
 
-    <!--- {% include important.html content="Ensure that the service accounts in your organization do not depend on the **Everyone** group permissions."%} --->
 
 ## 2022-11.x Release Notes
 
