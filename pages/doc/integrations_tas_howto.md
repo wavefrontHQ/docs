@@ -7,19 +7,30 @@ permalink: integrations_tas_howto.html
 summary: Set up the Tanzu Observability tile and monitor your environment.
 ---
 
-[VMware Tanzu Application Service](), previously known as Pivotal Cloud Foundry, is a popular platform for building cloud-native applications.
+[VMware Tanzu Application Service](https://docs.pivotal.io/application-service/2-12/concepts/overview.html), previously known as Pivotal Cloud Foundry, is a popular platform for building cloud-native applications.
 
-This doc page explains:
-* How to install and configure the Tanzu Observability by Wavefront nozzle from Tanzu Ops Manager. A nozzle is a component dedicated to reading and processing data.
-* How to access the Tanzu Application Service integration from Tanzu Observability, and how you can examine the data that came from Tanzu Application Service using dashboards and charts.
+Tanzu Observability by Wavefront (Wavefront) is a cloud-hosted service for full-featured observability. When you Tanzu Application Service to send data to the Wavefront proxy, you can take advantage of preconfigured dashboards, clone and customize dashboards, and more.
 
 {% include important.html content="This document is for the Tanzu Application Service nozzle version 4.0 and later. Earlier versions are [documented here](https://docs.pivotal.io/wavefront-nozzle/3-x/). " %}
 
-## Overview
+## Process Overview
 
-Tanzu Observability by Wavefront (Wavefront) is a cloud-hosted service for full-featured observability. When you Tanzu Application Service to send data to the Wavefront proxy, you can take advantage of preconfigured dashboards, customize predefined alerts, and more.
+We've streamlined the getting started process so it involves a few simple steps -- some are performed in Tanzu Ops Manager, and some in the Wavefront GUI.
 
-### Data Flow
+![4 steps below shown in an image. First 2 are purple, pivotal, next 2 are blue, wavefront. ](images/tas_to_overview.png)
+
+1. Download the Tanzu Observability by Wavefront nozzle file from the [Tanzu Network](https://network.pivotal.io/)
+2. In Tanzu Ops Manager, install, configure, and deploy the nozzle. See [Ops Manager: Configure the Tanzu Observability by Wavefront Nozzle](#ops-manager-configure-the-tanzu-observability-by-wavefront-nozzle) and [Tanzu Application Service to Tanzu Observability FAQs](#tanzu-application-service-to-tanzu-observability-faqs)
+   After you complete nozzle deployment, metrics are flowing from Tanzu Application Service to the Wavefront proxy and from there to your Wavefront instance. See [Data Flow](#data-flow) below.
+3. Log in to your Wavefront instance (for example, `https://example.wavefront.com`) and confirm that metrics are flowing:
+   1. Click **Integrations** in the toolbar, search for Tanzu Application Service, and select the integration.
+   2. Click the **Metrics** tab and confirm metrics are flowing.
+4. With the integration selected, click the **Dashboards** tab.
+   1. Select from the set of predefined dashboards, which are modeled on the corresponding Healthwatch dashboards but have additional options. For example, you can examine multiple foundations from one dashboard.
+   2. Explore one or two dashboards. [Examine Data with Dashboards and Charts](ui_examine_data.html) has an overview and includes a video.
+   3. As appropriate, clone any of the existing dashboards to add charts, modify queries, and more. See [Create, Customize, and Optimize Dashboards](ui_dashboards.html) and [Create and Customize Charts](ui_charts.html)
+
+## Architecture and Data Flow
 
 Here's an overview of the flow of data from the Tanzu Application Service Firehose through the nozzle to the Wavefront service. The nozzle consists of these main components:
 - **Healthwatch Exporters**: Exporters are deployed as VMs.
@@ -35,27 +46,8 @@ Here's the data pipeline:
 
 ![TAS Firehose to Exporters like pas-sli-exporter, to Telegraf agent, to Wavefront proxy, to Wavefront service](images/tas-to.png)
 
-### Tanzu Observability by Wavefront Features
 
-Tanzu Observability by Wavefront includes an integration for Tanzu Application Service(TAS). The integration supports a set of predefined dashboards that a fairly similar to the existing Healthwatch dashboards for TAS. * Clone any dashboard to customize it by adding charts that use the powerful [Wavefront Query Language](query_language_getting_started.html).
-* Customize the dashboard and chart appearance.
-* [Add alerts](alerts_manage.html) -- or [examine alerts](alerts.html) already included in the integration.
 
-## Requirements
-
-To set up this data pipeline, you need to meet requirements on the Ops Manager side and on the Tanzu Observability side.
-* **Ops Manager Requirements**
-  VMware Tanzu Observability by Wavefront nozzle has the following requirements:
-  *	Read-only access to the Doppler Firehose and Cloud Controller.
-  * Access to a Wavefront instance and an API token. [Service Account API token](wavefront_api.html#generating-an-api-token) is recommended.
-* **Tanzu Observability by Wavefront Requirements**
-  To set up the Tanzu Application Service integration on you Wavefront instance, you must have:
-  * Access to a Wavefront instance with a URL like https://<example>.wavefront.com.
-  * At a minimum, **Integrations** permission on that Wavefront instance.
-
-This version of the Tanzu Observability by Wavefront nozzle is compatible with Wavefront proxy version 10. and later.
-
-For earlier versions of this nozzle, see the **Product Snapshot** [this documentation](https://docs.pivotal.io/wavefront-nozzle/3-x/index.html).
 
 ## Ops Manager: Install the Tanzu Observability by Wavefront Nozzle
 
@@ -154,7 +146,7 @@ To start configuration click the Tanzu Observability by Wavefront tile. With **S
    <td width="50%"><img src="/images/tas_to_5.png" alt="Errands is selected, and defaults are show. "></td>
    </tr>
    <tr>
-   <td width="50%"><strong>(Optional) Step 6. Click <strong>Resource Config</strong> to review the VM sizing for the deployment. You can choose smaller than default VMs to save money on small and noncritical foundations, and very large VMs with lots of CPU and MEM to scale for large foundations with high volumes of metrics.</strong>
+   <td width="50%"><strong>(Optional) Step 6.</strong> Click <strong>Resource Config</strong> to review the VM sizing for the deployment. You can choose smaller than default VMs to save money on small and noncritical foundations, and very large VMs with lots of CPU and MEM to scale for large foundations with high volumes of metrics.
    <br/>
    <strong>Note: SM Forwarder</strong> is set to <strong>Automatic:0</strong>. Do not change this setting.
    </td>
@@ -167,7 +159,7 @@ To start configuration click the Tanzu Observability by Wavefront tile. With **S
 
 After you've completed the nozzle setup, your data become available in your Wavefront instance inside an integration. Each integration includes several tabs.
 * The **Dashboards** tab includes a rich set of preconfigured dashboards with charts for [examining your data](ui_examine_data.html). Users with Dashboards permission can clone any dashboard and [customize the dashboard](ui_dashboards.html) and the charts. Watch our [dashboard videos](videos_dashboards_charts.html) for some tips and tricks.
-* The **Alerts** tab includes a set of preconfigured alerts. Clone any alert and specify who to notify in your environment. Wavefront supports several levels of severity and allows you to specify email, Pagerduty, and Webhook as notification targets. Watch our [alerts videos](videos_alerts.html) to get you started.
+<!---* The **Alerts** tab includes a set of preconfigured alerts. Clone any alert and specify who to notify in your environment. Wavefront supports several levels of severity and allows you to specify email, Pagerduty, and Webhook as notification targets. Watch our [alerts videos](videos_alerts.html) to get you started.--->
 * Get started with some of our [conceptual videos](videos_quickstart.html) or some of our [hands-on videos](videos_howto_start.html).
 <!---RK>> screenshot here??--->
 
@@ -194,7 +186,7 @@ You can set up your environment to use production proxies as follows:
 
 ### How can I customize metrics ingestion?
 
-If you don't want to monitor some of your TAS platform metrics, you can choose not to send them. If those metrics are monitored with any out-of-the-box or custom dashboards or alert, they show up as No Data.
+If you don't want to monitor some of your TAS platform metrics, you can choose not to send them. If those metrics are monitored with any out-of-the-box or custom dashboards, they show up as No Data.
 
 For example, if you don’t want to ingest certificate expiration metrics, then you can remove the VM instance that is assigned to the Cert Expiration Exporter by default. All the metrics that this exporter scrapes will not get ingested.
 1. In Ops Manager, click **Resource Config**.
@@ -212,5 +204,20 @@ You can specify custom elements as follows:
 1. In OpsManager, click **Wavefront Proxy Config**
 2. Click **Wavefront Proxy Config**, and then click **Custom**.
 3. Make your changes and click **Save**
+
+### Things aren't working. What can I do?
+
+Ensure that your environment meet requirements on the Ops Manager side and on the Tanzu Observability side.
+* **Ops Manager Requirements**
+  VMware Tanzu Observability by Wavefront nozzle has the following requirements:
+  *	Read-only access to the Doppler Firehose and Cloud Controller.
+  * Access to a Wavefront instance and an API token. [Service Account API token](wavefront_api.html#generating-an-api-token) is recommended.
+* **Tanzu Observability by Wavefront Requirements**
+  To set up the Tanzu Application Service integration on you Wavefront instance, you must have:
+  * Access to a Wavefront instance with a URL like https://<example>.wavefront.com.
+  * At a minimum, **Integrations** permission on that Wavefront instance.
+  * This version of the Tanzu Observability by Wavefront nozzle is compatible with Wavefront proxy version 10.14 and later.
+
+
 
 <!---RK>>Screenshot here when I know how.--->
