@@ -22,11 +22,12 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
   <td width="50%">
     <strong>Service Accounts Removal from the Everyone Group</strong>:
     <p>
-    Last year, all service accounts were added to the new predefined <strong>Service Accounts</strong> group. Now, all service accounts that were still part of the <strong>Everyone</strong> group are removed from this group. To avoid impact on any existing functionality and integration, we also made the following changes:<br/>
+    Last year, we introduced the <strong>Service Accounts</strong> system group and added all service accounts to this group. Now, we finalized the accounts reorganization in a safe way to avoid any impact on any existing functionality and integration:<br/>
     <ul>
-    <li>For all dashboards and charts that have the <strong>Everyone</strong> group in their view or view & modify access lists, we also added the <strong>Service Accounts</strong> group to these lists.</li>
-    <li>For all metrics security rules that have the <strong>Everyone</strong> group in their allow or deny access lists, we also added the <strong>Service Accounts</strong> group to these lists.</li>
-    <li>Changed the default permissions for the service accounts to have view and modify access to newly created dashboards and alerts. To revoke these permissions for the service accounts, deselect the <strong>Service Accounts</strong> check box from the security organization settings. See <a href="access.html#change-the-access-control-security-organization-setting">Change the Access Control Security Organization Setting</a> for details.</li>
+    <li>Removed any remaining service accounts from the <strong>Everyone</strong> group.</li>
+    <li>For all dashboards and charts that have the <strong>Everyone</strong> group in their view or view & modify access lists, we added the <strong>Service Accounts</strong> group to these lists.</li>
+    <li>For all metrics security rules that have the <strong>Everyone</strong> group in their allow or deny access lists, we added the <strong>Service Accounts</strong> group to these lists.</li>
+    <li>To preserve the current behavior, we changed the default permissions for the service accounts to have view and modify access to newly created dashboards and alerts. To revoke these permissions for the service accounts, deselect the <strong>Service Accounts</strong> check box from the security organization settings.</li>
     </ul>
     </p>
     </td>
@@ -37,6 +38,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
   <li><a href="service-accounts.html#what-are-service-accounts">What Are Service Accounts</a></li>
   <li><a href="access.html">Managing Access to Dashboards and Alerts</a></li>
   <li><a href="metrics_security.html">Metrics Security Policy Rules</a></li>
+  <li><a href="access.html#change-the-access-control-security-organization-setting">Change the Access Control Security Organization Setting</a></li>
   </ul>
   </td>
 </tr>
