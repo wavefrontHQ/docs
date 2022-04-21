@@ -15,7 +15,7 @@ As part of troubleshooting, it's often useful to check is metrics are received a
 
 ### Step 1: Enable Valid Point Logging and Examine Valid Points
 
-To send all valid points thate are received at the proxy to a separate log file, file, enable raw valid point logging.
+To capture all valid points that are received at the proxy to a local log file, enable raw valid point logging.
 
 {% include warning.html content="Enable valid point logging only for a short time during troubleshooting. The log files will use a lot of disk space quickly."%}
 
@@ -114,30 +114,6 @@ To send all blocked points to a separate log file, file, enable blocked point lo
 
 
 This section describes commonly seen messages Wavefront proxy logs, organized by severity.
-
-INFO
-
-Proxy Start-up Messages
-Preprocessor Rule Messages
-Proxy Check-in
-Processed Since Start
-Proxy Queue Size
-WF-300 Cannot Parse
-
-WARN
-
-406 - Cannot Post Push Data
-Global Rate Limit Exceeded
-Disconnected, Unterminated String
-
-ERROR
-
-401 - Unauthorized
-
-CRITICAL
-
-WF-1 - Queues Full
-
 
 ### Proxy INFO Messages
 
