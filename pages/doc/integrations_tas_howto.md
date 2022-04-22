@@ -49,9 +49,17 @@ Here's the data pipeline:
 
 
 
-## Ops Manager: Install the Tanzu Observability by Wavefront Nozzle
+## Process Details
 
-To install the nozzle:
+This section explains each step in the flow in detail.
+
+### Step 1: Download the Nozzle File
+
+Download the Tanzu Observability by Wavefront nozzle file from the [Tanzu Network](https://network.pivotal.io/) to your local filesystem. You must have a Tanzu Network account to perform this task
+
+### Step 2: Ops Manager: Install, Configure, and Deploy the Nozzle
+
+**To install the nozzle:**
 
 1. Download the VMware Tanzu Observability TAS tile version 4 from [VMware Tanzu Network](https://network.pivotal.io/products/wavefront-nozzle/).
 2. Log in to Ops Manager, select **Installation Dashboard** click **Import a Product**, and upload the file you just downloaded.
@@ -59,11 +67,11 @@ To install the nozzle:
 
 The tile is now available, but the orange bar at the bottom indicates that the product is not yet configured.
 
-## Ops Manager: Configure the Tanzu Observability by Wavefront Nozzle
-
 <!---For Assign AZs and Networks, using content from https://docs.pivotal.io/healthwatch/2-1/configuring/configuring-healthwatch.html#az  --->
 
-To start configuration click the Tanzu Observability by Wavefront tile. With **Settings** selected (the default), follow these steps:
+**To configure the nozzle:**
+
+In Ops Manager, click the Tanzu Observability by Wavefront tile. With **Settings** selected (the default), follow these steps:
 
 {% include tip.html content="Most users don't make changes to <strong>Errands</strong> and <strong>Resource Config</strong>.Required inputs are the three fields on the <strong>Wavefront Proxy Config</strong> tab and the <strong>Foundation Name</strong> on the <strong>Telegraf Agent Config</strong>." %}
 
@@ -155,13 +163,27 @@ To start configuration click the Tanzu Observability by Wavefront tile. With **S
 </tbody>
 </table>
 
-## Use Tanzu Application Service Dashboards and Alerts
+{% include important.html content="As a final step, you must deploy the nozzle to get data flowing. Deployment usually takes about 30 minutes. The nozzle tile turns from orange to green when deployment is successful. "%}
 
-After you've completed the nozzle setup, your data become available in your Wavefront instance inside an integration. Each integration includes several tabs.
-* The **Dashboards** tab includes a rich set of preconfigured dashboards with charts for [examining your data](ui_examine_data.html). Users with Dashboards permission can clone any dashboard and [customize the dashboard](ui_dashboards.html) and the charts. Watch our [dashboard videos](videos_dashboards_charts.html) for some tips and tricks.
-<!---* The **Alerts** tab includes a set of preconfigured alerts. Clone any alert and specify who to notify in your environment. Wavefront supports several levels of severity and allows you to specify email, Pagerduty, and Webhook as notification targets. Watch our [alerts videos](videos_alerts.html) to get you started.--->
+### Step 3: Check That Metrics are Flowing and Examine Your Data
+
+Log in to your Wavefront instance (for example, `https://example.wavefront.com`) and confirm that metrics are flowing:
+1. Click **Integrations** in the toolbar, search for Tanzu Application Service, and select the integration.
+2. Click the **Metrics** tab and confirm metrics are flowing.
+
+### Step 4: Use  Dashboard to Examine Your Data
+
+1. With the integration selected, click the **Dashboards** tab.
+2. Select from the set of predefined dashboards, which are modeled on the corresponding Healthwatch dashboards but have additional options. For example, you can examine multiple foundations from one dashboard.
+3. Explore one or two dashboards. [Examine Data with Dashboards and Charts](ui_examine_data.html) has an overview and includes a video.
+4. As appropriate, clone any of the existing dashboards to add charts, modify queries, and more. See [Create, Customize, and Optimize Dashboards](ui_dashboards.html) and [Create and Customize Charts](ui_charts.html)
+
+### Learn More!
+
+* All users can learn about [examining your data](ui_examine_data.html).
+* Users with Dashboards permission can clone any dashboard and [customize the dashboard](ui_dashboards.html) and the charts.
+* Watch our [dashboard videos](videos_dashboards_charts.html) for some tips and tricks.
 * Get started with some of our [conceptual videos](videos_quickstart.html) or some of our [hands-on videos](videos_howto_start.html).
-<!---RK>> screenshot here??--->
 
 ## Tanzu Application Service to Tanzu Observability FAQs
 
