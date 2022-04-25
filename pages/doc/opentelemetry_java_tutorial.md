@@ -19,7 +19,7 @@ With native support for OpenTelemetry, you can get started **without** manually 
 The tutorials on Github are Hello World style examples that support getting data in for different languages. For most languages, we have an example for auto instrumentation and an example for manual instrumentation.
 
 * [Sending Trace Data to Tanzu Observability by Wavefront](https://github.com/wavefrontHQ/opentelemetry-examples) gets you started with an overview.
-* **Java** [Instrumenting Java Apps with Opentelemetry](https://github.com/wavefrontHQ/opentelemetry-examples/tree/master/java-example) has details for manual instrumentation and points to [an existing blog post](https://tanzu.vmware.com/content/blog/getting-started-opentelemetry-vmware-tanzu-observability#devops) for auto-instrumentation.
+* **Java** [Instrumenting Java Apps with Opentelemetry](https://github.com/wavefrontHQ/opentelemetry-examples/tree/master/java-example) has details for manual instrumentation.
 * **DOTNET** [Instrumenting .NET Apps with OpenTelemetry](https://github.com/wavefrontHQ/opentelemetry-examples/tree/master/DOTNET-example) includes steps for both autoinstrumentation and manual instrumentation.
 * **Python** [Instrumenting Python Apps with OpenTelemetry](https://github.com/wavefrontHQ/opentelemetry-examples/tree/master/python-example) includes steps for both autoinstrumentation and manual instrumentation.
 * **Go** [The Go example folder](https://github.com/wavefrontHQ/opentelemetry-examples/tree/master/go-example) includes a folder for auto-instrumentation and a folder for manual instrumentation. 

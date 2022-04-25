@@ -648,6 +648,10 @@ entries:
             url: /opentelemetry_java_tutorial_manual_instrumentation.html
             output: web
             
+          - title: "Tutorials on GitHub"
+            url: /opentelemetry_java_tutorial.html
+            output: web
+            
       - title: Enable Proxy Debug Logs
         url: /opentelemetry_logs.html
         output: web
