@@ -6,8 +6,7 @@ sidebar: doc_sidebar
 permalink: telegraf_details.html
 summary: Troubleshoot your Telegraf installation
 ---
-
-A common way to get data into Tanzu Observability by Wavefront is to send those data from a Telegraf agent to a Wavefront proxy. This doc page has some Telegraf troubleshooting information. See [Proxy Troubleshooting](proxies_troubleshooting.html) for details on resolving proxy problems.
+A common way to collect and send metric data to Tanzu Observability by Wavefront is through the use of a Telegraf agent  configured to relay the metrics to a Wavefront proxy. This doc page has some Telegraf troubleshooting information. See [Proxy Troubleshooting](proxies_troubleshooting.html) for details on resolving proxy problems.
 
 ## Telegraf Connection Errors
 
@@ -55,9 +54,8 @@ Typically the absence of a particular metric or intermittent delivery of a metri
 
 Messages in the Telegraf logs might indicate which of the default settings need adjustment to handle all the metrics that are sent.
 
-* **Metrics dropped**: The following message indicates that:
-  - The buffer has been dropping metrics because the buffer isn't big enough to handle the number of metrics collected.
-  - The buffer has flushed to the output plugin.
+* **Metrics dropped**: The following message indicates that the buffer has been dropping metrics because the buffer isn't big enough to handle the number of metrics collected.
+
   To resolve this issue, you can increase the `metric_buffer_limit`.
 
    ```

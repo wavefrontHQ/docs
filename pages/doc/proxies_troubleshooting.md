@@ -108,8 +108,6 @@ To send all blocked points to a separate log file, file, enable blocked point lo
 
 2. Examine the blocked points entries in the `<wavefront_log_path>/wavefront-blocked-points.log` file. The log file is rolled over every day when its size reaches 100MB.
 
-   See the [log4j2.xml.defaultProxy on Github](https://github.com/wavefrontHQ/wavefront-proxy/blob/master/pkg/etc/wavefront/wavefront-proxy/log4j2.xml.defaultProxy) for more information on logging points from Jaeger tracing spans and Zipkin tracing spans.
-
 ## Common Proxy Log Messages
 
 
