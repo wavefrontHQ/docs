@@ -7,15 +7,17 @@ permalink: wavefront-authentication.html
 summary: Learn about the authentication model in Tanzu Observability by Wavefront.
 ---
 
-Tanzu Observability by Wavefront supports authentication with user name and password, self-service SAML SSO, and multi-tenant SSO. 
+Tanzu Observability by Wavefront supports these authentication options:
+* **Direct authentication**: With direct authentication, users authentication with user name and password and service accounts authenticate with a token.
+* **Authentication through an SSO identity provider**: You can choose from supported self-service SAML SSO provider or request and multi-tenant SSO support.
 
-## User Name and Password
+## Direct Authentication
 
-Tanzu Observability supports both user accounts and service accounts.
+Tanzu Observability supports direct authentication for user accounts and service accounts.
 
 * [User accounts](user-accounts.html) must authenticate with a user name and password.
 
-  As a Supe Admin user or a user with the **Accounts** permission, you can invite new users and then manage the user accounts by adding them to groups with specific roles, for example.
+  As a Super Admin user or a user with the **Accounts** permission, you can invite new users and then manage the user accounts by adding them to groups with specific roles, for example.
 
 * [Service accounts](service-accounts.html) that must authenticate with a token.
 
@@ -42,3 +44,9 @@ If a customer's chosen authentication solution supports two-factor authenticatio
 Large customers can request [multi-tenant SSO](authentication.html#multi-tenant-authentication). Multi-tenancy is set up jointly by the administrator at the customer site and the Tanzu Observability Technical Support team.
 
 Users in different teams inside the company can authenticate to different tenants and cannot access the other tenant's data.
+
+## Learn More
+
+* [Single-Tenant Authentication and Self-Service SAML SSO](auth_self_service_sso.html)
+* [Manage User Accounts](user-accounts.html)
+* [Manage Service Accounts](service-accounts.html)

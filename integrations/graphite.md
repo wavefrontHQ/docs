@@ -11,7 +11,7 @@ The [Wavefront proxy](https://docs.wavefront.com/proxies.html) supports the [pla
 The plaintext Graphite data format is different than the [Wavefront data format](https://docs.wavefront.com/wavefront_data_format.html).  Wavefront supports point tags natively with its data format, and requires a tag named `source` or `host`.  The setup process explains how to extract a source from the Graphite metric name.
 ## Graphite Data Integration Setup
 
-You can send Graphite data to Wavefront only or <a href="#duplicate">duplicate Graphite data</a>, sending it to both Wavefront and Graphite.
+You can send Graphite data to Wavefront only or <a href="#duplicate-graphite-data-to-wavefront-and-graphite-using-carbon-relay">duplicate Graphite data</a>, sending it to both Wavefront and Graphite.
 
 
 

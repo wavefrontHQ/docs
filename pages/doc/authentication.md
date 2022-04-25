@@ -72,9 +72,9 @@ If your environment is set up to support multi-tenant SSO, you log in to your Wa
 
    * When you log out, the logout applies to *all* tenants.
 
-## Switching Tenants in Multi-Tenant Environments
+## Point a Proxy to a Different Tenant in a Multi-Tenant Environment
 
-If you are an administrator in a multi-tenant environment, you sometimes have to switch tenants. Follow these steps:
+If you are an administrator in a multi-tenant environment, you sometimes have to point your proxy or proxies to a different tenant. Follow these steps:
 
 1. Delete the `.wavefront_id` file. The precise name of the file might differ. It's `/usr/local/etc/wavefront/wavefront-proxy/.wavefront_id` in a Mac environment with no customizations.
 2. [Restart the Wavefront proxy](proxies_installing.html#start-and-stop-a-proxy).

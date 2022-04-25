@@ -22,12 +22,12 @@ Learn about visualizing your metrics with dashboards and charts, and how to cust
 </td>
 </tr>
 <tr>
-<td><strong><font color="#0091DA" size="3">Time Windows in Dashboards and Charts (v1 UI) </font></strong><br>
+<td><strong><font color="#0091DA" size="3">Time Windows in Dashboards and Charts</font></strong><br>
 <br>
 <iframe src="https://bcove.video/3kJ6PGT" width="550" height="275" allowfullscreen="true" alt="Jason demonstrates time windows "></iframe>
 </td>
 <td><br>
-<p>This video shows you how to select, sync, and reset time windows so you can annalyze and compare your data.</p>
+<p>Learn how to select, sync, and reset time windows so you can annalyze and compare your data.</p>
 <p>You can also watch the video <a href="https://bcove.video/3kJ6PGT" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
