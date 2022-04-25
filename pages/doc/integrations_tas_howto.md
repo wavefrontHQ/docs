@@ -20,8 +20,12 @@ We've streamlined the getting started process so it involves a few simple steps 
 ![4 steps below shown in an image. First 2 are purple, pivotal, next 2 are blue, wavefront. ](images/tas_to_overview.png)
 
 1. Download the Tanzu Observability by Wavefront nozzle file from the [Tanzu Network](https://network.pivotal.io/)
-2. In Tanzu Ops Manager, install, configure, and deploy the nozzle. See [Ops Manager: Configure the Tanzu Observability by Wavefront Nozzle](#ops-manager-configure-the-tanzu-observability-by-wavefront-nozzle) and [Tanzu Application Service to Tanzu Observability FAQs](#tanzu-application-service-to-tanzu-observability-faqs)
-   After you complete nozzle deployment, metrics are flowing from Tanzu Application Service to the Wavefront proxy and from there to your Wavefront instance. See [Data Flow](#data-flow) below.
+2. In Tanzu Ops Manager, install, configure, and deploy the nozzle. At a minimum:
+  1. In the **Wavefront Proxy Config** section, specify the Wavefront instance and API token (shown in the Wavefront instance in the integration's **Setup** tab) and a user-friendly host name.
+  ![OpsMan Proxy Config tab with the 3 required items highlighted](images/tas_to_proxy_config.png)
+  2. In the **Telegraf Agent Config** section, specify the Foundation name.<br/><br/>
+     See [Ops Manager: Configure the Tanzu Observability by Wavefront Nozzle](#ops-manager-configure-the-tanzu-observability-by-wavefront-nozzle) and [Tanzu Application Service to Tanzu Observability FAQs](#tanzu-application-service-to-tanzu-observability-faqs)
+     After you complete nozzle deployment, metrics are flowing from Tanzu Application Service to the Wavefront proxy and from there to your Wavefront instance. See [Data Flow](#data-flow) below.
 3. Log in to your Wavefront instance (for example, `https://example.wavefront.com`) and confirm that metrics are flowing:
    1. Click **Integrations** in the toolbar, search for Tanzu Application Service, and select the integration.
    2. Click the **Metrics** tab and confirm metrics are flowing.
@@ -46,8 +50,60 @@ Here's the data pipeline:
 
 ![TAS Firehose to Exporters like pas-sli-exporter, to Telegraf agent, to Wavefront proxy, to Wavefront service](images/tas-to.png)
 
+## Tanzu Application Service to Tanzu Observability FAQs
 
+In this section, we have some answers to frequently asked questions.
 
+### How can I change the scrape interval?
+
+By default, the scrape interval is set to 15 seconds, but you can set up your environment to check more frequently:
+1. In OpsManager, click **Telegraf Agent Config**.
+2. Set the **Scrape Interval (seconds)** field and click **Save**.
+
+### How can I send TAS data via a proxy that is deployed outside the tile?
+
+Some customers have a central monitoring/observability team that requires that all data to be sent via a specific set of production proxies. Those proxies are used to filter or alter data before they are sent to the Wavefront service.
+
+You can set up your environment to use production proxies as follows:
+1. In Ops Manager, click **Telegraf Agent Config**.
+2. In **Advanced Options**, select **Yes**.
+3. In the Custom Proxy URL field, provide a proxy URL or IP in the Custom Proxy URL (This could also be load balancer URL if the external proxies are behind a load balancer)
+4. (Optional) In the **Proxy Port** field, provide a custom proxy port (Default is 2878).
+5. Click **Save**
+
+### How can I customize metrics ingestion?
+
+If you don't want to monitor some of your TAS platform metrics, you can choose not to send them. If those metrics are monitored with any out-of-the-box or custom dashboards, they show up as No Data.
+
+For example, if you don’t want to ingest certificate expiration metrics, then you can remove the VM instance that is assigned to the Cert Expiration Exporter by default. All the metrics that this exporter scrapes will not get ingested.
+1. In Ops Manager, click **Resource Config**.
+2. Find the exporter for which you don't want to emit metrics, set it to 0, and click **Save**. The screenshot below shows how to do this.
+
+![Cert Expiration Exporter is in process of being changed from Automatic to 0](images/tas_to_resource_config.png)
+
+### How can I customize proxy behavior?
+
+The Wavefront proxy allows you to control many aspects of your ingestion pipeline with configuration properties and preprocessor rules.
+- **Configuration file**: The proxy processes data according to a configuration file. You can modify configuration properties -- for example, to create `block` list and `allow` list regex patterns, specify information about certain data formats, and much more. See [Configuring Wavefront Proxies](proxies_configuring.html).
+- **Preprocessor Rules**: Starting with proxy version 4.1, the Wavefront proxy includes a preprocessor that applies user-defined rules before data is sent to the Wavefront service. You can use preprocessor rules to correct certain data quality issues when you can't fix the problem at the emitting source. See [Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules.html).
+
+You can specify custom elements as follows:
+1. In OpsManager, click **Wavefront Proxy Config**
+2. Click **Wavefront Proxy Config**, and then click **Custom**.
+3. Make your changes and click **Save**
+
+### Things aren't working. What can I do?
+
+Ensure that your environment meet requirements on the Ops Manager side and on the Tanzu Observability side.
+* **Ops Manager Requirements**
+  VMware Tanzu Observability by Wavefront nozzle has the following requirements:
+  *	Read-only access to the Doppler Firehose and Cloud Controller.
+  * Access to a Wavefront instance and an API token. [Service Account API token](wavefront_api.html#generating-an-api-token) is recommended.
+* **Tanzu Observability by Wavefront Requirements**
+  To set up the Tanzu Application Service integration on you Wavefront instance, you must have:
+  * Access to a Wavefront instance with a URL like https://<example>.wavefront.com.
+  * At a minimum, **Integrations** permission on that Wavefront instance.
+  * This version of the Tanzu Observability by Wavefront nozzle is compatible with Wavefront proxy version 10.14 and later.
 
 ## Process Details
 
@@ -178,67 +234,14 @@ Log in to your Wavefront instance (for example, `https://example.wavefront.com`)
 3. Explore one or two dashboards. [Examine Data with Dashboards and Charts](ui_examine_data.html) has an overview and includes a video.
 4. As appropriate, clone any of the existing dashboards to add charts, modify queries, and more. See [Create, Customize, and Optimize Dashboards](ui_dashboards.html) and [Create and Customize Charts](ui_charts.html)
 
-### Learn More!
+## Learn More!
 
 * All users can learn about [examining your data](ui_examine_data.html).
 * Users with Dashboards permission can clone any dashboard and [customize the dashboard](ui_dashboards.html) and the charts.
 * Watch our [dashboard videos](videos_dashboards_charts.html) for some tips and tricks.
 * Get started with some of our [conceptual videos](videos_quickstart.html) or some of our [hands-on videos](videos_howto_start.html).
 
-## Tanzu Application Service to Tanzu Observability FAQs
 
-In this section, we have some answers to frequently asked questions.
-
-### How can I change the scrape interval?
-
-By default, the scrape interval is set to 15 seconds, but you can set up your environment to check more frequently:
-1. In OpsManager, click **Telegraf Agent Config**.
-2. Set the **Scrape Interval (seconds)** field and click **Save**.
-
-### How can I send TAS data via a proxy that is deployed outside the tile?
-
-Some customers have a central monitoring/observability team that requires that all data to be sent via a specific set of production proxies. Those proxies are used to filter or alter data before they are sent to the Wavefront service.
-
-You can set up your environment to use production proxies as follows:
-1. In Ops Manager, click **Telegraf Agent Config**.
-2. In **Advanced Options**, select **Yes**.
-3. In the Custom Proxy URL field, provide a proxy URL or IP in the Custom Proxy URL (This could also be load balancer URL if the external proxies are behind a load balancer)
-4. (Optional) In the **Proxy Port** field, provide a custom proxy port (Default is 2878).
-5. Click **Save**
-
-### How can I customize metrics ingestion?
-
-If you don't want to monitor some of your TAS platform metrics, you can choose not to send them. If those metrics are monitored with any out-of-the-box or custom dashboards, they show up as No Data.
-
-For example, if you don’t want to ingest certificate expiration metrics, then you can remove the VM instance that is assigned to the Cert Expiration Exporter by default. All the metrics that this exporter scrapes will not get ingested.
-1. In Ops Manager, click **Resource Config**.
-2. Find the exporter for which you don't want to emit metrics, set it to 0, and click **Save**. The screenshot below shows how to do this.
-
-![Cert Expiration Exporter is in process of being changed from Automatic to 0](images/tas_to_resource_config.png)
-
-### How can I customize proxy behavior?
-
-The Wavefront proxy allows you to control many aspects of your ingestion pipeline with configuration properties and preprocessor rules.
-- **Configuration file**: The proxy processes data according to a configuration file. You can modify configuration properties -- for example, to create `block` list and `allow` list regex patterns, specify information about certain data formats, and much more. See [Configuring Wavefront Proxies](proxies_configuring.html).
-- **Preprocessor Rules**: Starting with proxy version 4.1, the Wavefront proxy includes a preprocessor that applies user-defined rules before data is sent to the Wavefront service. You can use preprocessor rules to correct certain data quality issues when you can't fix the problem at the emitting source. See [Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules.html).
-
-You can specify custom elements as follows:
-1. In OpsManager, click **Wavefront Proxy Config**
-2. Click **Wavefront Proxy Config**, and then click **Custom**.
-3. Make your changes and click **Save**
-
-### Things aren't working. What can I do?
-
-Ensure that your environment meet requirements on the Ops Manager side and on the Tanzu Observability side.
-* **Ops Manager Requirements**
-  VMware Tanzu Observability by Wavefront nozzle has the following requirements:
-  *	Read-only access to the Doppler Firehose and Cloud Controller.
-  * Access to a Wavefront instance and an API token. [Service Account API token](wavefront_api.html#generating-an-api-token) is recommended.
-* **Tanzu Observability by Wavefront Requirements**
-  To set up the Tanzu Application Service integration on you Wavefront instance, you must have:
-  * Access to a Wavefront instance with a URL like https://<example>.wavefront.com.
-  * At a minimum, **Integrations** permission on that Wavefront instance.
-  * This version of the Tanzu Observability by Wavefront nozzle is compatible with Wavefront proxy version 10.14 and later.
 
 
 
