@@ -43,7 +43,7 @@ Here's an overview of the flow of data from the Tanzu Application Service Fireho
 Wavefront service in a secure, fast, and reliable manner
 
 Here's the data pipeline:
-1. The Healthwatch Exporter VMs stream metrics from the Tanzu Application Service Firehose. The tile creates a VM for each Healthwatch exporter a VM for Telegraf and a VM for the Wavefront Proxy.
+1. The Healthwatch Exporter VMs stream metrics from the Tanzu Application Service Firehose. The tile creates a VM for each Healthwatch exporter, a VM for Telegraf, and a VM for the Wavefront proxy.
 2. Telegraf scrapes the VMs at a predefined interval, and converts them to [Wavefront data format](wavefront_data_format.html). Telegraf uses a built-in plugin. It uses the Wavefront golang SDK to convert the data.
 3. Next, Telegraf sends the data to the Wavefront proxy.
 4. The proxy send the metrics to the Wavefront service.
@@ -101,7 +101,7 @@ Ensure that your environment meet requirements on the Ops Manager side and on th
   * Access to a Wavefront instance and an API token. [Service Account API token](wavefront_api.html#generating-an-api-token) is recommended.
 * **Tanzu Observability by Wavefront Requirements**
   To set up the Tanzu Application Service integration on you Wavefront instance, you must have:
-  * Access to a Wavefront instance with a URL like https://<example>.wavefront.com.
+  * Access to a Wavefront instance with a URL like `https://example.wavefront.com`.
   * At a minimum, **Integrations** permission on that Wavefront instance.
   * This version of the Tanzu Observability by Wavefront nozzle is compatible with Wavefront proxy version 10.14 and later.
 
@@ -146,7 +146,7 @@ In Ops Manager, click the Tanzu Observability by Wavefront tile. With **Settings
    </tr>
    <tr>
    <td width="50%"><strong>Step 2.</strong> Click <strong>Wavefront Proxy Config</strong> and specify:
-   <ol><li>The URL of your Wavefront instance, for example, https://longboard.wavefront.com.</li>
+   <ol><li>The URL of your Wavefront instance, for example, <code>https://example.wavefront.com</code>.</li>
    <li>A Wavefront API token. See <a href="wavefront_api.html#generating-an-api-token">Generating an API Token</a></li>
    <li>User-friendly name for the proxy. </li>
    <li>Click <strong>Save</strong> or click <strong>Custom</strong> (see the next step_)
@@ -182,13 +182,13 @@ In Ops Manager, click the Tanzu Observability by Wavefront tile. With **Settings
    <tr>
    <td width="50%"><strong>Step 3.</strong> Click <strong>Telegraf Agent Config</strong> and customize the Telegraf Agent config or accept the defaults.
    <ol>
-   <li>For <strong>Scrape Interval</strong>, specify the default interval at which Telegraf agent checks for new data.</li>
-   <li>For <strong>Metric Batch Size</strong>, specify the maximum number of points in each batch of metrics that Telegraf sends to the Wavefront proxy. <!---??IS THAT TRUE??---></li>
-   <li>For <strong>Metric Buffer Limit</strong>, specify the Wavefront proxy buffer size. If your environment sends bursty data, use a larger buffer to the proxy can queue and then drain those data.</li>
-   <li>For <strong>Flush Interval</strong>, specify <!---??WHAT??---></li>
+   <li>For <strong>Scrape Interval (seconds)</strong>, specify the default interval at which Telegraf agent checks for new data.</li>
+   <li>For <strong>Metric Batch Size</strong>, specify the maximum number of points in each batch of metrics that Telegraf sends to the Wavefront proxy.</li>
+   <li>For <strong>Metric Buffer Limit</strong>, specify the size of the buffer that Telegraf uses to queue data. If your environment sends bursty data, use a larger buffer.</li>
+   <li>For <strong>Flush Interval (seconds)</strong>, specify how often data are flushed from each output plugin to the Wavefront proxy. Must be lower than the scrape interval.</li>
    <li>For <strong>Foundation Name</strong>, specify a unique name for your Tanzu Application Service environment. This name will be added to all metrics as the metrics source (source=). <!---??IS THAT TRUE??---></li>
-   <li>(Optional) Click <strong>Advanced Options</strong> to specify a custom proxy URL, custom proxy port, or additional Telegraf inputs</li>
-   <li>Click <strong>Save</strong></li>
+   <li>(Optional) Click <strong>Advanced Options</strong> to specify a custom proxy URL, custom proxy port, or additional Telegraf inputs.</li>
+   <li>Click <strong>Save</strong>.</li>
    </ol>
    </td>
    <td width="50%"><img src="/images/tas_to_3.png" alt="Telegraf Agent Config screenshot, with values as discussed in text above."></td>
@@ -202,10 +202,10 @@ In Ops Manager, click the Tanzu Observability by Wavefront tile. With **Settings
    <li>Click <strong>Save</strong></li>
    </ol>
    </td>
-   <td width="50%"><img src="/images/tas_to_4.png" alt="Metric Exporter screenshot, with values as discussed in text above."></td>
+   <td width="50%"><img src="/images/tas_to_4.png" alt="Metric Exporter screenshot, with values as discussed in text to the left."></td>
    </tr>
    <tr>
-   <td width="50%"><strong>(Optional) Step 5.</strong> Most users don't make channges to <strong>Errands</strong>.
+   <td width="50%"><strong>(Optional) Step 5. Errands</strong> are scripts that can run at the beginning and at the end of an installed product’s availability time. Most users don't make changes to Errands for this nozzle.
    </td>
    <td width="50%"><img src="/images/tas_to_5.png" alt="Errands is selected, and defaults are show. "></td>
    </tr>
@@ -214,7 +214,7 @@ In Ops Manager, click the Tanzu Observability by Wavefront tile. With **Settings
    <br/>
    <strong>Note: SM Forwarder</strong> is set to <strong>Automatic:0</strong>. Do not change this setting.
    </td>
-   <td width="50%"><img src="/images/tas_to_6.png" alt="Resource Config is selected and defaults of firs 4 items are shown"></td>
+   <td width="50%"><img src="/images/tas_to_6.png" alt="Resource Config is selected and defaults of first 4 items are shown"></td>
    </tr>
 </tbody>
 </table>
