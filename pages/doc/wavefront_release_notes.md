@@ -13,6 +13,13 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## Announcements
+
+**Upcoming Removal of the Service Accounts from the Everyone Group**
+
+In the next release(s), the service accounts that are still part of the predefined **Everyone** group will be removed from this group. This will not impact any existing functionality and integrations. Last year, all service accounts were added to the new predefined **Service Accounts** group. See the [2021-42.x Release Notes](2021.49.x_release_notes.html#2021-42x-release-notes) for details.
+
+{% include important.html content="Ensure that the service accounts in your organization do not depend on the **Everyone** group permissions."%}
 
 ## 2022-17.x Release Notes
 
@@ -20,11 +27,20 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 <tbody>
 <tr>
   <td width="50%">
-    <strong>Service Accounts Removal from the Everyone Group</strong>:
+  <strong>API Tokens Management for Administrators</strong>:<p>
+  Users with the <strong>Accounts</strong> permission can now view and revoke the API tokens of any user or service account in the organization. See <a href="wavefront_api.html#view-and-manage-the-api-tokens-in-your-organization">View and Manage the API Tokens in Your Organization</a> for details.</p>
+  </td>
+  <td width="50%">
+  <br/>
+  <img src="/images/API_Tokens_admin.png" alt="The new API Tokens tab under the Accounts menu item.">
+  </td>
+</tr>
+<tr>
+  <td width="50%">
+    <strong>Updates for Customers with Service Accounts in the Everyone Group</strong>:
     <p>
-    Last year, we introduced the <strong>Service Accounts</strong> system group and added all service accounts to this group. Now, we finalized the accounts reorganization in a safe way to avoid any impact on any existing functionality and integration:<br/>
+    Last year, we introduced the <strong>Service Accounts</strong> system group and added all service accounts to this group. To prepare for the <a href="#announcements">upcoming removal</a> of any remaining service accounts from the <strong>Everyone</strong> group, we did the following changes:<br/>
     <ul>
-    <li>Removed any remaining service accounts from the <strong>Everyone</strong> group.</li>
     <li>For all dashboards and charts that have the <strong>Everyone</strong> group in their view or view & modify access lists, we added the <strong>Service Accounts</strong> group to these lists.</li>
     <li>For all metrics security rules that have the <strong>Everyone</strong> group in their allow or deny access lists, we added the <strong>Service Accounts</strong> group to these lists.</li>
     <li>To preserve the current behavior, we changed the default permissions for the service accounts to have view and modify access to newly created dashboards and alerts. To revoke these permissions for the service accounts, deselect the <strong>Service Accounts</strong> check box from the security organization settings.</li>
@@ -41,6 +57,22 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
   <li><a href="access.html#change-the-access-control-security-organization-setting">Change the Access Control Security Organization Setting</a></li>
   </ul>
   </td>
+</tr>
+<tr>
+<td width="50%">
+<strong>Documentation Improvements</strong>:
+<p>
+We updated the doc set with information that comes from the Tanzu Observability SaaS Value Engineering team. Some information was added, some new doc pages are listed on the right.
+</p>
+</td>
+<td width="50%">
+<strong>Read More:</strong>
+<ul>
+<li><a href="ui_dashboards.html#identify-unused-dashboards">Identify Unused Dashboards</a></li>
+<li><a href="wavefront_usage_info.html#which-metrics-are-ingested-but-not-used">Which Metrics Are Ingested But Not Used?</a></li>
+<li><a href="wavefront_usage_info.html#how-can-i-optimize-my-ingestion-rate">How Can I Optimize My Ingestion Rate?</a></li>
+</ul>
+</td>
 </tr>
   </tbody>
 </table>
