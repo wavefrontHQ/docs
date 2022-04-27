@@ -85,9 +85,12 @@ As a user with the **Accounts** permission, you can generate API tokens for [ser
 1. Log in to your Wavefront instance as a user with the **Accounts** permission.
 2. Click the gear icon <i class="fa fa-cog"/> at the top right of the toolbar and select **Accounts**.
 3. On the **Service Accounts** tab, click the ellipsis icon next to the service account for which you want to generate an API token, and select **Edit**.
-4. To generate a new token, in the Tokens section, click **Generate**. You can have up to 20 tokens per service account at any given time.
-   If you want to generate a new token but already have 20 tokens, then you must revoke one of the existing tokens.
-5. To revoke a token, click the **Revoke** button for the token. Revoking a token cannot be undone.
+4. To generate a new token, in the Tokens section, click **Generate**.
+
+    You can have up to 20 tokens per service account at any given time. If you want to generate a new token but already have 20 tokens, then you must revoke one of the existing tokens.
+5. To revoke a token, click the **Revoke** button for the token.
+
+    Revoking a token cannot be undone.
 5. To rename an API token, click the **Edit** icon for the token, enter the name, and press Enter.
 6. Select the appropriate permissions for the service account and click **Update**.
 
