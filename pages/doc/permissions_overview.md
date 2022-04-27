@@ -21,7 +21,7 @@ The following list gives an overview of permissions. To learn more, click the li
 
 - **[Accounts](users_roles.html)** 
     
-    Users with the **Accounts** permission can manage user and service accounts. They can create groups and add accounts to groups, create roles and assign permissions to those roles, and assign roles to groups. They can generate and revoke API tokens for service accounts.
+    Users with the **Accounts** permission can manage user and service accounts. They can create groups and add accounts to groups, create roles and assign permissions to those roles, and assign roles to groups. They can generate API tokens for service accounts and manage the API tokens of all user and service accounts.
     
 - **[Alerts](alerts.html)** 
 

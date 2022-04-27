@@ -15,11 +15,68 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 ## Announcements
 
-* **Upcoming Removal of the Service Accounts from the Everyone Group**
+**Upcoming Removal of the Service Accounts from the Everyone Group**
 
-    In the next release(s), the service accounts that are still part of the predefined **Everyone** group will be removed from this group. This will not impact any existing functionality and integrations. Last year, all service accounts were added to the new predefined **Service Accounts** group. See the [2021-42.x Release Notes](2021.49.x_release_notes.html#2021-42x-release-notes) for details.
+In the next release(s), the service accounts that are still part of the predefined **Everyone** group will be removed from this group. This will not impact any existing functionality and integrations. Last year, all service accounts were added to the new predefined **Service Accounts** group. See the [2021-42.x Release Notes](2021.49.x_release_notes.html#2021-42x-release-notes) for details.
 
-    <!--- {% include important.html content="Ensure that the service accounts in your organization do not depend on the **Everyone** group permissions."%} --->
+{% include important.html content="Ensure that the service accounts in your organization do not depend on the **Everyone** group permissions."%}
+
+## 2022-17.x Release Notes
+
+<table>
+<tbody>
+<tr>
+  <td width="50%">
+  <strong>API Tokens Management for Administrators</strong>:<p>
+  Users with the <strong>Accounts</strong> permission can now view and revoke API tokens of any user or service account in the organization.</p>
+  <p>See <a href="wavefront_api.html#view-and-manage-the-api-tokens-in-your-organization">View and Manage the API Tokens in Your Organization</a> for details.</p>
+  </td>
+  <td width="50%">
+  <br/>
+  <img src="/images/API_Tokens_admin.png" alt="The new API Tokens tab under the Accounts menu item.">
+  </td>
+</tr>
+<tr>
+  <td width="50%">
+    <strong>Updates for Customers with Service Accounts in the Everyone Group</strong>:
+    <p>
+    Last year, we introduced the <strong>Service Accounts</strong> system group and added all service accounts to this group. To prepare for the <a href="#announcements">upcoming removal</a> of any remaining service accounts from the <strong>Everyone</strong> group, we did the following changes:<br/>
+    <ul>
+    <li>For all dashboards and charts that have the <strong>Everyone</strong> group in their view or view & modify access lists, we added the <strong>Service Accounts</strong> group to these lists.</li>
+    <li>For all metrics security rules that have the <strong>Everyone</strong> group in their allow or deny access lists, we added the <strong>Service Accounts</strong> group to these lists.</li>
+    <li>To preserve the current behavior, we changed the default permissions for the service accounts to have view and modify access to newly created dashboards and alerts. To revoke these permissions for the service accounts, deselect the <strong>Service Accounts</strong> check box from the security organization settings.</li>
+    </ul>
+    </p>
+    </td>
+  <td width="50%">
+  <strong>Read More:</strong>
+  <ul>
+  <li><a href="2021.49.x_release_notes.html#2021-42x-release-notes">2021-42.x Release Notes</a></li>
+  <li><a href="service-accounts.html#what-are-service-accounts">What Are Service Accounts</a></li>
+  <li><a href="access.html">Managing Access to Dashboards and Alerts</a></li>
+  <li><a href="metrics_security.html">Metrics Security Policy Rules</a></li>
+  <li><a href="access.html#change-the-access-control-security-organization-setting">Change the Access Control Security Organization Setting</a></li>
+  </ul>
+  </td>
+</tr>
+<tr>
+<td width="50%">
+<strong>Documentation Improvements</strong>:
+<p>
+We updated the doc set with information that comes from the Tanzu Observability SaaS Value Engineering team. Some information was added, some new doc pages are listed on the right.
+</p>
+</td>
+<td width="50%">
+<strong>Read More:</strong>
+<ul>
+<li><a href="alerts_faq.html">Alerts FAQ</a></li>
+<li><a href="wavefront_usage_info.html#how-can-i-optimize-my-ingestion-rate">How Can I Optimize My Ingestion Rate?</a></li>
+</ul>
+</td>
+</tr>
+  </tbody>
+</table>
+
 
 ## 2022-11.x Release Notes
 
