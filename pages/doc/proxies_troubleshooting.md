@@ -9,9 +9,9 @@ summary: Troubleshoot proxy problems
 
 Wavefront proxies give you a lot of flexibility and control over proxies. But with flexibility comes the potential for problems, so our SaaS Value Engineering team has put together some troubleshooting advice.
 
-## Validating Metrics Received at the Proxy
+## Validate Metrics Received at the Proxy
 
-As part of troubleshooting, it's often useful to check is metrics are received at the proxy in the intended format. See [Wavefront data format best practices](wavefront_data_format.html#wavefront-data-format-best-practices) for background.
+As part of troubleshooting, it's often useful to check if metrics are received at the proxy in the intended format. See [Wavefront data format best practices](wavefront_data_format.html#wavefront-data-format-best-practices) for background.
 
 ### Step 1: Enable Valid Point Logging and Examine Valid Points
 
@@ -19,7 +19,7 @@ To capture all valid points that are received at the proxy to a local log file, 
 
 {% include warning.html content="Enable valid point logging only for a short time during troubleshooting. The log files will use a lot of disk space quickly."%}
 
-1. Open the `<wavefront_config_path>/log4j2.xml` file and uncomment the relavant sections below. See [Proxy File Paths](/proxies_configuring.html#proxy-file-paths) for default file locations.
+1. Open the `<wavefront_config_path>/log4j2.xml` file and uncomment the relevant sections below. See [Proxy File Paths](/proxies_configuring.html#proxy-file-paths) for default file locations.
 
    ```
    <Appenders>
@@ -54,16 +54,18 @@ To capture all valid points that are received at the proxy to a local log file, 
    </Loggers>
    ```
 
-2. Check that the `<wavefront_log_path>/wavefront.log` file indicates that logging is enabled as shown below:
+2. Validate that the `<wavefront_log_path>/wavefront.log` file indicates that logging is enabled as shown below:
 
    ```
    2021-04-02 05:53:24,436 INFO [sampling:refreshLoggerState] Valid points logging is now enabled with 100.0% sampling
    ```
 
-3. Examine the log file. By default, valid point entries are logged to a `<wavefront_log_path>/wavefront-valid-points.log` file, for example `/var/log/wavefront/wavefront-valid-points.log` in a typical Linux install.
+3. Examine the log file.
+
+   By default, valid point entries are logged to a `<wavefront_log_path>/wavefront-valid-points.log` file. For example, in a typical Linux install, the file is located at `/var/log/wavefront/wavefront-valid-points.log`.
 
 
-{% include tip.html content="If the metric points are not written to the wavefront-valid-points.log file, verify that the data is not being blocked by logging all the raw blocked data in a separate file for analysis."%}
+{% include tip.html content="If the metric points are not written to the `wavefront-valid-points.log` file, verify that the data is not being blocked by logging all the raw blocked data in a separate file for analysis--see Step 2."%}
 
 
 ### Step 2: Enable Blocked Point Logging and Examine Blocked Points
@@ -106,10 +108,11 @@ To send all blocked points to a separate log file, file, enable blocked point lo
     </Loggers>
    ```
 
-2. Examine the blocked points entries in the `<wavefront_log_path>/wavefront-blocked-points.log` file. The log file is rolled over every day when its size reaches 100MB.
+2. Examine the blocked points entries in the `<wavefront_log_path>/wavefront-blocked-points.log` file.
+
+   The log file is rolled over every day when its size reaches 100MB.
 
 ## Common Proxy Log Messages
-
 
 This section describes commonly seen messages Wavefront proxy logs, organized by severity.
 
@@ -122,7 +125,9 @@ This section describes commonly seen messages Wavefront proxy logs, organized by
    ```
    INFO [proxy:parseArguments] Wavefront Proxy version <Proxy version>, runtime: OpenJDK Runtime Environment (Azul Systems, Inc.) <JDK version>
    ```
-* Explanation: This should be the first start-up message and indicates the version of the Wavefront proxy.
+* Explanation:
+
+  This is the first start-up message. Includes the version of the Wavefront proxy.
 
 <br/>
 <br/>
@@ -131,7 +136,9 @@ This section describes commonly seen messages Wavefront proxy logs, organized by
    ```
    INFO [proxy:lambda$startListeners$7] listening on port: 2878 for Wavefront metrics
    ```
-* Explanation: The proxy has been configured to listen for metrics using the Wavefront Data Format on port 2878. If tracing or histograms are configured, you should see a corresponding message. For example:
+* Explanation:
+
+  The proxy has been configured to listen for metrics using the Wavefront Data Format on port 2878. If tracing or histograms are configured, you should see a corresponding message. For example:
 
   ```
   INFO [proxy:startTraceListener] listening on port: 30000 for trace data
@@ -143,7 +150,9 @@ This section describes commonly seen messages Wavefront proxy logs, organized by
    ```
    INFO [proxy:run] setup complete
    ```
-* Explanation: Proxy setup has completed.
+* Explanation:
+
+  Proxy setup has completed.
 
 
 **Preprocessor Rule INFO Message**
@@ -152,7 +161,9 @@ This section describes commonly seen messages Wavefront proxy logs, organized by
   ```
   INFO [PreprocessorConfigManager:loadFromStream] Loaded <#> rules for port :: <port>
   ```
-* Explanation: A certain number of rules have been detected and loaded for the specified port
+* Explanation:
+
+  A certain number of rules has been detected and loaded for the specified port
 
 **Proxy Check-in INFO Message**
 
@@ -160,7 +171,9 @@ This section describes commonly seen messages Wavefront proxy logs, organized by
    ```
    INFO [proxy:checkin] Checking in: https://<cluster>.wavefront.com/api
    ```
-* Explanation: The proxy has been able to check in with the Wavefront backend. A message like this should appear at one-minute intervals (approximately).
+* Explanation:
+
+  The proxy successfully checked in with the Wavefront backend. A message like this should appear at 1 minute intervals (approximately).
 
 **Processed Since Start INFO Message**
 
@@ -168,7 +181,9 @@ This section describes commonly seen messages Wavefront proxy logs, organized by
   ```
   INFO [AbstractReportableEntityHandler:printTotal] [<port>] <Points/Histograms/Spans/SpanLogs/etc> processed since start: <#>; blocked: <#>
   ```
-* Explanation: Shows the number of data points processed and blocked for the specified type on the specified port since the start of the proxy process.
+* Explanation:
+
+  Shows the number of data points processed and blocked for the specified type on the specified port since the start of the proxy process.
 
 
 **Proxy Queue Size INFO Message**
@@ -177,7 +192,9 @@ This section describes commonly seen messages Wavefront proxy logs, organized by
    ```
    INFO  [QueuedAgentService:lambda$new$5] current retry queue sizes: [<#>/<#>/<#>/<#>]
    ```
-* Explanation: Indicates the size of the proxy's queues.
+* Explanation:
+
+  Indicates the size of the proxy queues.
 
 
 **WF-300 Cannot Parse INFO Message**
@@ -186,11 +203,14 @@ This section describes commonly seen messages Wavefront proxy logs, organized by
 ```
 INFO [AbstractReportableEntityHandler:reject] [<port>] blocked input: [WF-300 Cannot parse: "<data point>"; remote: <address> [<port>]; reason: "Could not parse: <data point>", root cause: "<portion of data point> is not allowed here!"
 ```
-* Explanation: A data point is not formatted properly and was blocked by the proxy.
+* Explanation:
 
-* Potential Resolution: Confirm that the data point conforms to the format configured for the specified port. The proxy can handle various different data formats. Ensure that the data format you've configured for the port matches the format of data arriving at that port.
+  A data point is not formatted properly and was blocked by the proxy.
 
-  If the port is configured for standard Tanzu Observability data format, see the documentation for the proper syntax to cross-check the data point mentioned in the log message.
+* Potential Resolution:
+  Confirm that the data point conforms to the format configured for the specified port. The proxy can handle various different data formats. Ensure that the data format you've configured for the port matches the format of data arriving at that port.
+
+  If the port is configured for standard [Wavefront data format](wavefront_data_format.html), check the format of the data point mentioned in the log message.
 
 
 ### Proxy WARN Messages
@@ -201,11 +221,17 @@ INFO [AbstractReportableEntityHandler:reject] [<port>] blocked input: [WF-300 Ca
    ```
    WARN  [QueuedAgentService:handleTaskRetry] Cannot post push data result to Wavefront servers. Will enqueue and retry later: java.util.concurrent.RejectedExecutionException: Response not accepted by server: 406
   ```
-* Explanation: The proxy has queued up some data and will retry momentarily. This behavior is common and occurs often when the proxy attempts to send a burst of data to the backend. When the burst of data is temporarily is at a higher momentary rate than the backend limit (based on your contract rate), the proxy queues up the data to smooth out your data rate. Typically not a cause for concern.
+* Explanation:
 
-* Potential Resolution: In the **Wavefront Service and Proxy Data** dashboard of **Wavefront Usage** integration, check if the proxy's queue and backlog are staying the same size or growing. If they're growing, then the attempted rate of ingest is higher than allowed by the backend limit. Either lower the rate of data that at the proxies, or contact Support to request a higher backend limit. If your overall rate of data ingest is higher than your contract rate, you may incur overage charges.
+  The proxy has queued up some data and will retry momentarily. This behavior is common and occurs often when the proxy attempts to send a burst of data to the backend. When the burst of data is temporarily at a higher rate than the backend limit (based on your contracted rate), the proxy queues up the data to smooth out your data rate. Typically this is not a cause for concern.
 
-  If the proxy's queue size is spiky (going up and coming down, close to 0), then the proxy is effectively smoothing out bursts in your rate of data ingest. This is normal behavior and is not a cause for concern.
+* Potential Resolution:
+
+  1. Log in to your Wavefront instance and navigate to the **Wavefront Usage** integration.
+  2. In the **Wavefront Service and Proxy Data** dashboard check if the proxy's queue and backlog are staying the same size or growing.
+    * If they're growing, then the attempted rate of ingest is higher than allowed by the backend limit. Either lower the rate of data that at the proxies, or contact VMware Tanzu Observability Support to request a higher backend limit. If your overall rate of data ingestion is higher than your contract rate, you may incur overage charges.
+
+   * If the proxy's queue size is spiky (going up and coming down, close to 0), then the proxy is effectively smoothing out bursts in your rate of data ingestion. This is normal behavior and is not a cause for concern.
 
 
 **Global Rate Limit Exceeded WARN Message**
@@ -214,10 +240,13 @@ INFO [AbstractReportableEntityHandler:reject] [<port>] blocked input: [WF-300 Ca
   ```
   WARN  [QueuedAgentService:run] [RETRY THREAD <#>] Wavefront server rejected the submission (global rate limit exceeded) - will attempt later.
   ```
-* Explanation: The proxy attempted to send data to the backend but the overall ingest rate has exceeded the backend limit. The proxy will continue to keep the data queued. This message is often seen along with the 406 message.
+* Explanation:
+
+  The proxy attempts to send data to the backend but the overall ingestion rate has exceeded the backend limit. The proxy will continue to keep the data queued. This message is often seen along with the 406 message.
 
 * Potential Resolution:
-The current rate of data is higher than the backend limit and data will stay in the queues to be retried momentarily. See 406 - Cannot Post Push Data for more details.
+
+  The current rate of data is higher than the backend limit and the data will stay in the queues until the next retry. See **406 - Cannot Post Push Data WARN Message** for details.
 
 
 **Disconnected, Unterminated String WARN Message**
@@ -226,7 +255,9 @@ The current rate of data is higher than the backend limit and data will stay in 
   ```
   WARN [PlainTextOrHttpFrameDecoder:decodeLast] Client <client address> [<port>] disconnected, leaving unterminated string. Input (<#> bytes) discarded: "<discarded data>"
   ```
-* Explanation: The proxy has received a data point without a line terminator (ie. a newline character). This usually happens when the client disconnects prematurely, leaving the proxy with an incomplete (partially sent) data point.
+* Explanation:
+
+  The proxy has received a data point without a line terminator (ie. a newline character). This usually happens when the client disconnects prematurely, leaving the proxy with an incomplete (partially sent) data point.
 
 * Potential Resolution:
   - Ensure that data points are terminated by a newline character.
@@ -244,11 +275,13 @@ The current rate of data is higher than the backend limit and data will stay in 
    ```
    2021-02-18 22:52:28,376 ERROR [proxy:checkinError] HTTP 401 Unauthorized: Please verify that your server and token settings are correct and that the token has Proxy Management permission!
    ```
-* Explanation: The proxy cannot connect with the token provided. The token or the token's account might have been deleted or might not have the required permissions.
+* Explanation:
+
+  The proxy cannot connect using the token provided. The token or the account associated with the token might have been deleted or might not have the required permissions.
 
 * Potential Resolution:
-  - Validate that the token that the Wavefront is attempting to use is correct and active for the user account or service account.
-  - Ensure the user account or service account that is associated with the token has the Proxies permission.
+  - Validate that the token that the proxy is attempting to use is correct and active for the user account or service account.
+  - Ensure that the user account or service account that is associated with the token has the Proxies permission.
 
 ### Proxy CRITICAL Messages
 
@@ -269,16 +302,15 @@ The current rate of data is higher than the backend limit and data will stay in 
 * Potential Resolution:
   - Ensure that the proxy has enough disk space.
   - Check the size of the buffer files (located at the spool path). If the files are at or near the maximum allowed size, data is likely arriving at the proxy at a higher rate than the backend limit.
-  - Decrease the rate of data arriving at the proxy or distribute your data ingest to another proxy.
+  - Decrease the rate of data arriving at the proxy or distribute your data ingestion to another proxy.
 
+## Manage the Proxy Queue
 
-## How to Export Data Queued at the Proxy
+### Export Data Queued at the Proxy
 
 If you send too much data or if there is a network error, data starts to queue at the Wavefront proxy and create a backlog. Advanced users might consider exporting data that is queued at the proxy, and, for example, remove data that is not required.
 
-
-
-### Export Command
+#### Export Command
 
 Use the following command to export the data that is queued at the proxy.
 
@@ -286,9 +318,9 @@ Use the following command to export the data that is queued at the proxy.
 /opt/wavefront/wavefront-proxy/proxy-jre/java -jar /opt/wavefront/wavefront-proxy/wavefront-push-agent.jar --f /etc/wavefront/wavefront-proxy/wavefront.conf --exportQueuePorts <ports> --exportQueueOutputFile <outputFileNamePrefix> --exportQueueRetainData false
 ```
 
-### Export Command for Containerized Proxies
+#### Export Command for Containerized Proxies
 
-Because containers are stateless, restarting a proxy container normally result in a loss of any data in the proxy’s queues. Exporting the queued data before a persistent storage restart can help retain data.
+Because containers are stateless, restarting a proxy container normally results data loss for the proxy’s queues. Exporting the queued data before a persistent storage restart can help retain the data.
 
 If your proxy is containerized, the command is similar to the following.
 
@@ -296,10 +328,10 @@ If your proxy is containerized, the command is similar to the following.
 java -jar /opt/wavefront/wavefront-proxy/bin/wavefront-proxy.jar --exportQueuePorts <ports> --exportQueueOutputFile <outputFileNamePrefix> --exportQueueRetainData false
 ```
 
-
-### Parameters
+#### Parameters
 
 The command has the following parameters:
+
 <table style="width: 100%;">
 <tbody>
 <thead>
@@ -307,16 +339,17 @@ The command has the following parameters:
 </thead>
 <tr>
 <td markdown="span">exportQueuePorts</td>
-<td>Comma separated list of ports that listen to the data sent to the proxy. Can be a single port.
-exportQueueOutputFile	Prefix you want the output files to have. If the prefix is wfproxy, the name of the file is wfproxy.&lt;DATA TYPE&gt;.&lt;PORT&gt;.&lt;QUEUE #&gt;.txt</td></tr>
+<td>Comma separated list of ports that listen to the data sent to the proxy. Can be a single port.</td></tr>
+<tr>
+<td markdown="span">exportQueueOutputFile</td>
+<td>Prefix you want the output files to have. If the prefix is wfproxy, the name of the file is wfproxy.&lt;DATA TYPE&gt;.&lt;PORT&gt;.&lt;QUEUE #&gt;.txt</td></tr>
 <tr>
 <td>exportQueueRetainData</td>
-<td>When set to false, exports the data and removes the data from the backlog. Default is true. <strong>Note</strong>: Make a backup of the files you export. If you set <code>exportQueueRetainData</code> to false, the exported files are the only copies you have of the backlog.</td></tr>
+<td>When set to false, exports the data and removes the data from the backlog. Default is true. <strong>Note</strong>: Back up the files you export. If you set <code>exportQueueRetainData</code> to false, the exported files are the only copies you have of the backlog.</td></tr>
 </tbody>
 </table>
 
-
-### Export Example
+#### Export Example
 
 Here's a specific example of a command, and what it does:
 
@@ -324,58 +357,62 @@ Here's a specific example of a command, and what it does:
 /opt/wavefront/wavefront-proxy/proxy-jre/java -jar /opt/wavefront/wavefront-proxy/wavefront-push-agent.jar --f /etc/wavefront/wavefront-proxy/wavefront.conf --exportQueuePorts 2878,3000 --exportQueueOutputFile wfproxy --exportQueueRetainData false
 ```
 
-The example:
+This example:
 
 * Exports the data queued at ports 2878 and 3000.
 * Creates output files that have the prefix wfproxy, such as wfproxy.points.2878.0.txt.
 * Deletes all data that’s currently in the proxy queue.
 
-Because the exported file is a newline-delimited plaintext file, it can be resent to the proxy. It is also possible to make changes to the data before resending those data to the proxy.
-
-<!--- Likely makes sense to combine with info in Truncate Proxy Queue in proxies.md.
-## How to Remove Queued Data at the Proxy
-
-The proxy can queue data, for example, in the event of network connectivity issues. However, at times you no longer need queued data. There are, however, times when the queued data is no longer needed. This article covers how to remove the queued data so that they will not get ingested and disk space on the Proxy host can be freed up.
+Because the exported file is a newline-delimited plaintext file, it can be resent to the proxy. It is also possible to make changes to the data before resending the data to the proxy.
 
 
+### Remove Queued Data at the Proxy
+
+If, for any reason, you have to truncate the proxy queue, you can do it locally by cleaning up the buffer directory, or remotely using the API with the `truncate` flag.
+
+{% include warning.html content="Truncating the proxy can lead to data loss, but helps if you cannot safely empty queued proxy data in other ways." %}
 
 
-Removing Queued Data at the Proxy:
-There are two main options - delete the buffer file or export the queued data without retaining data.
+#### Option 1: Delete the Buffer Files
+
+In most cases, you truncate the proxy queue by deleting the files in the proxy queue directory.
+
+1. Connect to the proxy machine and navigate to the queue/buffer file directory.
+   * By default, the proxy buffer files are located under the <wavefront_spool_path>` heading.
+   * The location is configurable via the buffer property. Check whether a different location has been set.
+
+   You should see file names such as buffer.<data type>.<port>.<#>.spool. If the filename looks different, you may be using an old proxy version. Upgrade the proxy.
+2. Stop the proxy.
+3. Delete buffer files. The filenames specify the type of data and port number. For example, if you no longer need any of the metrics ingested through port 2878, delete all of the files that have filenames that start with `buffer.points.2878`.
+3. Restart the proxy. The proxy recognizes that there is no queued data and internal metrics indicate this.
 
 
+#### Option 2: Remove the Files Via Export
 
-Deleting the Buffer Files
-
-1. Navigate to the queue/buffer file directory
-The default locations for the Proxy's buffer location can be found here under the "<wavefront_spool_path>" heading.
-
-Note that this location is configurable via the buffer property so verify if a different location has been set.
-
-You should see file names such as buffer.<data type>.<port>.<#>.spool (if the filename format looks different, you may be on an old Proxy version and should be upgraded).
+An alternative to deleting data is to [export queued data](#how-to-export-data-queued-at-the-proxy).
+* Set the `exportQueueRetainData` flag to false to clear the queued data.
+* Set `exportQueueOutputFile` to `/dev/null` or a similar temporary location.
 
 
+#### Option 3: Truncate Proxy Queue with the API
 
-2. Delete the relevant buffer files
-The filenames of the buffer files specify the type of data and port number for which data is stored. Delete the files pertaining to the data that you no longer need. For example, if I do not need any of the metrics ingested through port 2878, I would delete all of the files that have filenames starting with buffer.points.2878.
+If you can't connect to the proxy machine or don't have permissions for the proxy queue directory, you can truncate the queue with the API.
 
+Run the following command:
 
+```curl
+$curl -X PUT -H 'Authorization: Bearer <TOKEN>' -H 'Content-Type: application/json' "https://MY_INSTANCE.wavefront.com/api/v2/proxy/PROXY_ID" -d {"truncate":true}
+```
 
+In the URL:
+* `MY_INSTANCE` is your Wavefront instance, for example, the URL could start with `https://example.wavefront.com`
+* `PROXY_ID` is the ID, which you can find in the Proxies browser in the Hostname column.
 
-
-3. Restart the Proxy
-Upon restart, the Proxy will recognize that there is no queued data and will report internal metrics indicating this.
-
-
-
-Exporting Without Retaining Data
-An alternative to deleting data is to use the Proxy's ability to export queued data. This approach allows backup of queued data as well as the ability to modify data for re-ingest. However, if you know that the data is un-needed, we can set the exportQueueRetainData flag to false to clear the queued data from the Proxy's buffer location while setting exportQueueOutputFile to /dev/null or some similar temporary location.
---->
 
 ## How to Find the Account Used to Set Up a Specific Proxy
 <!--Link to this from usage monitoring page!--->
 
-This section explains how how to find out the account (whether user or service account) was used to set up a proxy. You must have **Proxies** permission to perform this task.
+You can find out the account--user or service account--that was used to set up a proxy. You must have **Proxies** permission to perform this task.
 
 The proxy name refers to the source name that the proxy uses to report its own metrics.
 
@@ -383,21 +420,21 @@ The proxy name refers to the source name that the proxy uses to report its own m
 <tbody>
 <tr>
 <td width="40%">
-In the GUI, find and copy the proxy ID.
+<strong>Step 1</strong>: In the GUI, find and copy the proxy ID.
 <ol>
-<li>Select <strong>Browse > Proxies</strong> and search for the proxy by name.  </li>
+<li>From the toolbar, select <strong>Browse > Proxies</strong> and search for the proxy by name.  </li>
 <li>Copy the proxy ID, shown under the name. The screenshot to the right shows the ID for the proxy named zabbix-proxy-container.</li>
 </ol></td>
 <td width="60%"><img src="/images/proxy_id.png" alt="screenshow showing proxy ID for a single proxy"></td>
 </tr>
 <tr>
-<td width="40%">Use the <code>GET /api/v2/proxy/{id}</code> API endpoint to find the user ID.
+<td width="40%"><strong>Step 2</strong>:Use the <code>GET /api/v2/proxy/{id}</code> API endpoint to find the user ID.
 <ol>
-<li>From the gear icon, choose <strong>API Documentation</strong>. </li>
-<li>Find the <strong>Proxy</strong> section, and then find the entry for <code>GET /api/v2/proxy/{id}</code>. </li>
-<li>Expand the entry click <strong>Try it out!</strong>.  </li>
-<li>Enter in the ID from the previous step and click <strong>Execute</strong>.</li>
-<li>This is the account used. </li>
+<li>Click the gear icon and select <strong>API Documentation</strong>. </li>
+<li>Expand the <strong>Proxy</strong> category and click <code>GET /api/v2/proxy/{id}</code>. </li>
+<li>Click <strong>Try it out!</strong>.  </li>
+<li>In the <strong>id</strong> text box, enter the proxy ID that you copied in the previous step and click <strong>Execute</strong>.</li>
+<li>In the response body, find the userid. This is the account that created the proxy. </li>
 </ol>
 </td>
 <td width="60%"><img src="/images/proxy_api_1.png" alt="screenshow showing proxy ID for a single proxy"><br/>
@@ -410,11 +447,9 @@ In the GUI, find and copy the proxy ID.
 
 
 
-
-
 ## Enable Proxy Health Checks
 
-The ability to have proactive system performance and reliability begins with regular health checks. This section explains how to set up proxy health checks. We can use the health check information to validate the proxies' availability to a load balancer pool or to allow Kubernetes to check if a proxy restart is required.
+The ability to have proactive system performance and reliability begins with regular health checks. You can set up proxy health checks to validate the proxies' availability to a load balancer pool or to allow Kubernetes to check if a proxy restart is required.
 
 {% include tip.html content="The setup requires proxy 9.0 or later. However, because of the log4j security issue with older proxy, using proxy 10.14 or later is highly recommended. "%}
 
@@ -423,9 +458,7 @@ The ability to have proactive system performance and reliability begins with reg
 
 2. Update the `Managed HealthCheck Endpoint` section in the `wavefront.conf` file.
 
-  Here's an example that:
-  * Enables the health check status to be returned for http://<<host>>:8880/status.
-  * Sends a return code '200' if healthy and '503' if it fails because the `httpHealthCheckPassStatusCode` is configured.
+  Here's a specific example:
 
 ```
 ############################ MANAGED HEALTHCHECK ENDPOINT ########################
@@ -452,7 +485,12 @@ adminApiListenerPort=8888
 ## Remote IPs must match this regex to access admin API
 adminApiRemoteIpAllowRegex=^.*$
 ```
+This example
+* Enables the health check status to be returned for `http://<<host>>:8880/status`.
+* Sends a return code '200' if healthy and '503' if it fails because the `httpHealthCheckPassStatusCode` is configured.
 
-Here's a screenshot of example test output. The `curl` command checks for status, and the status 200 is returned.
+The example test output might look like this.
 
 ![screenshot with curl command showing health check is enabled](images/proxy_health_check.png)
+
+The `curl` command checks for status, and the status 200 is returned.

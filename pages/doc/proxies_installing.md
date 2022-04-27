@@ -196,8 +196,8 @@ If you use a volume for the proxy buffer (queue) and you update from a version b
 
 {% include warning.html content="Ensure that either the proxy buffer (queue) is empty, or that the files on the buffer directory (volume) are owned by a user with id `1000` and group `2000` (which will translate to user `wavefront` on the docker image)." %}
 
-<!---
-If you performed the update and data are left in the proxy buffer, follow the steps in [Truncate the Proxy Queue](proxies.html#truncate-the-proxy-queue).--->
+
+If you performed the update and data are left in the proxy buffer, follow the steps in [Proxy Troubleshooting](proxies_troubleshooting.html#remove-queued-data-at-the-proxy).
 
 ### Uninstall a Proxy
 
