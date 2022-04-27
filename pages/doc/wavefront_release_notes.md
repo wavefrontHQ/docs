@@ -28,7 +28,8 @@ In the next release(s), the service accounts that are still part of the predefin
 <tr>
   <td width="50%">
   <strong>API Tokens Management for Administrators</strong>:<p>
-  Users with the <strong>Accounts</strong> permission can now view and revoke the API tokens of any user or service account in the organization. See <a href="wavefront_api.html#view-and-manage-the-api-tokens-in-your-organization">View and Manage the API Tokens in Your Organization</a> for details.</p>
+  Users with the <strong>Accounts</strong> permission can now view and revoke API tokens of any user or service account in the organization.</p>
+  <p>See <a href="wavefront_api.html#view-and-manage-the-api-tokens-in-your-organization">View and Manage the API Tokens in Your Organization</a> for details.</p>
   </td>
   <td width="50%">
   <br/>
@@ -68,8 +69,7 @@ We updated the doc set with information that comes from the Tanzu Observability 
 <td width="50%">
 <strong>Read More:</strong>
 <ul>
-<li><a href="ui_dashboards.html#identify-unused-dashboards">Identify Unused Dashboards</a></li>
-<li><a href="wavefront_usage_info.html#which-metrics-are-ingested-but-not-used">Which Metrics Are Ingested But Not Used?</a></li>
+<li><a href="alerts_faq.html">Alerts FAQ</a></li>
 <li><a href="wavefront_usage_info.html#how-can-i-optimize-my-ingestion-rate">How Can I Optimize My Ingestion Rate?</a></li>
 </ul>
 </td>
