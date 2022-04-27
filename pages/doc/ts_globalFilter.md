@@ -25,7 +25,7 @@ Filters the expression to display only the time series that match the specified 
 <tr><th width="40%">Parameter</th><th width="60%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [tsExpression | hsExpression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [tsExpression | hsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression that describes the time series or histogram series that you want to filter.</td>
 </tr>
 <tr>

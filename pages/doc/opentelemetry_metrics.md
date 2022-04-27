@@ -42,7 +42,7 @@ This tutorial uses the OpenTelemetry Collector demo. For steps on how to configu
         ```
         remote_write:
           - url: "http://<enter your IP address>:1234/receive"
-        
+
         ```
 {% endraw %}
         
@@ -119,6 +119,7 @@ Once you have configured your OpenTelemetry Collector to send metric data to Wav
                 .build());
 ```
 {% endraw %}
+
 
 ## Next Steps
 Next, log in to your Tanzu Observability instance and examine your data in dashboards and charts:

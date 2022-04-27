@@ -27,9 +27,10 @@ The TAS integration contains a set of predefined dashboards that give you an ove
 - TAS: Logging and Metrics Pipeline - Health check of Logging and Metrics Firehose.
 - TAS: Ops Manager Health - Health check of Ops Manager.
 - TAS: Router - Detailed Gorouter metrics.
-- TAS: TAS Job Details - Detailed view of TAS job information.
-- TAS: TAS MySQL Health - Real-time visibility into the TAS MySQL status.
-- TAS: TAS Workload Monitoring - Information about applications running inside of TAS.
+- TAS: Job Details - Detailed view of TAS job information.
+- TAS: MySQL Health - Real-time visibility into the TAS MySQL status.
+- TAS: Workload Monitoring - Information about applications running inside of TAS.
+- TAS: Doppler - Real-time visibility into Doppler health.
 
 ## Alerts
 

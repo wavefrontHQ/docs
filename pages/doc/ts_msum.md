@@ -53,7 +53,7 @@ You can get an even clearer picture of trends if you pick a bigger time window, 
 
 ## Caveats
 
-Wavefront pre-aligns metrics for performance reasons when more than 100 time series are used in an aggregate function and displays a warning. In most cases, for instance, where a metric reflects a parameter changing over time, you can ignore the warning.
+The query engine pre-aligns metrics for performance reasons when more than 100 time series are used in an aggregate function and displays a warning. In most cases, for instance, where a metric reflects a parameter changing over time, you can ignore the warning.
 
 However, for certain use cases, pre-alignment can cause undesirable side effects. Suppose you have a `http.requests.count` metric that reports values once a minute and represents the total number of HTTP requests per minute. You are trying to calculate the number of HTTP requests over the 1-hour sliding window (i.e. `msum(1h, rawsum(ts(http.requests.count, source="web*"))`. Your data set is pre-aligned to a 2-minute (120s) time window.
 If you are using the default summarization method (Average), then `align(120s, mean)` averages the values for every 2-minute window, effectively cutting the number of values that are available to `msum()` in half and dramatically changing the result of the calculation.

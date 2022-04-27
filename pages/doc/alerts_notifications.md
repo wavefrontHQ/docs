@@ -50,7 +50,7 @@ The sample email notification in the screenshot above includes a **View Alert** 
 
 The interactive chart that is included in the notification shows the alert condition.
 
-If you're looking at an alert that was created before the alert GUI revamp in winter 2021, you might also see a Display Expression. See [Why Do I See a Display Expression](alerts_manage.html#why-do-i-see-a-display-expression)
+If you're looking at an alert that was created before the alert GUI revamp in winter 2021, you might also see a Display Expression. See [Why Do I See a Display Expression](alerts_v2_faq.html#how-can-i-set-a-display-expression)
 
 
 #### Misfiring Alerts and Delayed Data
@@ -65,12 +65,12 @@ If you suspect a [misfiring alert](alerts_states_lifecycle.html#did-my-alert-mis
 
 Depending on the state change that triggered the alert, the interactive chart might display additional information:
 
-* **&lt;Alert name&gt;** - The display expression if one was specified. Otherwise, the [condition](alerts_manage.html#alert-condition) expression.
-* **Alert Condition** - The [alert condition](alerts_manage.html#alert-condition)
+* **&lt;Alert name&gt;** - The display expression if one was specified. Otherwise, alert the condition expression.
+* **Alert Condition** - The [alert condition](alerts.html#anatomy-of-an-alert)
 * **Alert Firings** - An [events() query](events_queries.html) that shows system events of type `alert` for the alert. These events occur whenever the alert is opened. The query shows both the current firing (an ongoing event) and any past firings (ended events).
 * **Alert Details** - An [events() query](events_queries.html) that shows events of type `alert-detail` for the alert. These system events occur whenever the alert is updated (continues firing while an individual time series changes from recovered to failing, or from failing to recovered).
 
-### Static Chart Image
+### Static Chart Image in Notifications
 
 When an alert starts firing or is updated, the resulting alert notification includes a snapshot of the chart that shows data at the time the alert was triggered. Chart image creation usually takes a few seconds, so you might briefly see a placeholder in the notification. For performance reasons, a chart image is included only if the alert condition query takes a minute or less.
 
@@ -105,14 +105,14 @@ If you want to exclude chart images:
 
 ## PagerDuty Notifications
 
-If you use the out-of-the-box PagerDuty alert target, and you resolve the incident in PagerDuty while the alert is still firing in Wavefront, two scenarios are possible:
+If you use the out-of-the-box PagerDuty alert target, and you resolve the incident in PagerDuty while the alert is still firing in Tanzu Observability by Wavefront, two scenarios are possible:
 
 - If there is a change to the set of sources being affected, that change triggers a new incident in PagerDuty. Changes to the set of sources being affected include:
 
   - Newly affected sources are added to the list of existing affected sources
   - A subset of the existing sources being affected is no longer affected
 
-- If all affected sources are no longer affected and the alert is resolved in Wavefront, then no new incident is logged into PagerDuty.
+- If all affected sources are no longer affected and the alert is resolved in Tanzu Observability, then no new incident is logged into PagerDuty.
 
 You can customize this behavior by creating a custom PagerDuty [alert target](webhooks_alert_notification.html) with different triggers.
 

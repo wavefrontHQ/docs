@@ -42,7 +42,7 @@ Multi-tenancy is set up jointly by the administrator at the customer site and th
    * Creates tenant administrator users with the **Accounts** permission on each tenant.
 1. The administrator at the customer site and the newly specified tenant administrator users with the **Accounts** permission can then:
   * Log in to the tenant.
-  * [Invite users](user-accounts.html#create-and-manage-user-accounts) to the tenant and assign permissions for that tenant.
+  * [Invite users](user-accounts.html#create-edit-and-delete-user-accounts) to the tenant and assign permissions for that tenant.
   * Make other users tenant administrators by granting the [**Accounts** permission](permissions_overview.html) to those invited users.
 
 ## Multi-Tenant Modes
@@ -64,7 +64,7 @@ In strict mode, users can access the environment only if they've been invited to
 If your environment is set up to support multi-tenant SSO, you log in to your Wavefront instance with your SSO credentials. After successful authentication, your user experience is like this:
 
    * If you've been invited to only one tenant, then you are logged in to that tenant after authentication.
-   * If you've been invited to more than one tenant, you are logged in to the last tenant you logged in. You can switch to the other tenants by selecting the tenant from the gear icon <i class="fa fa-cog"/> on the taskbar.
+   * If you've been invited to more than one tenant, you are logged in to the last tenant you logged in. You can switch to the other tenants by selecting the tenant from the gear icon <i class="fa fa-cog"/> on the toolbar.
    * For each tenant, you have specific permissions. That means, for example, if you have the **Accounts** permission on Tenant A, you don't necessarily have that permission for Tenant B. See [permissions](permissions_overview.html) for details.
 
 
@@ -72,9 +72,9 @@ If your environment is set up to support multi-tenant SSO, you log in to your Wa
 
    * When you log out, the logout applies to *all* tenants.
 
-## Switching Tenants in Multi-Tenant Environments
+## Point a Proxy to a Different Tenant in a Multi-Tenant Environment
 
-If you are an administrator in a multi-tenant environment, you sometimes have to switch tenants. Follow these steps:
+If you are an administrator in a multi-tenant environment, you sometimes have to point your proxy or proxies to a different tenant. Follow these steps:
 
 1. Delete the `.wavefront_id` file. The precise name of the file might differ. It's `/usr/local/etc/wavefront/wavefront-proxy/.wavefront_id` in a Mac environment with no customizations.
-2. [Restart the Wavefront proxy](proxies_installing.html#starting-and-stopping-a-proxy).
+2. [Restart the Wavefront proxy](proxies_installing.html#start-and-stop-a-proxy).

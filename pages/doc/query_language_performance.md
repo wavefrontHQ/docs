@@ -32,7 +32,7 @@ The Wavefront Query Language lets you retrieve and display the data that has bee
 ## Video: Optimize Dashboard Performance
 
 Watch this video to learn how to optimize dashboard and query performance.
-
+<!---<iframe id="kmsembed-1_ynnxe6tn" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_ynnxe6tn/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>--->
 <p>
 <iframe src="https://bcove.video/3rcTY1w" width="700" height="400" allowfullscreen="true" alt="Optimize Dashboard Performance video"></iframe>
 </p>
@@ -123,7 +123,7 @@ Example:
 * **More precise**: `avg(ts(~sample.network.bytes.sent))` returns the average over all time series, inserting points so there's a value for each time series at any time there's a value for one time series.
 * **Faster**: `align(1m, mean, ts("my.metric"))` returns the average over all time series, and uses the values at each 1 minute point in time.
 
-In certain cases, the query engine [performs prealignment](query_language_align_function.html#the-pre-align-warning--when-wavefront-applies-align).
+In certain cases, the query engine [performs prealignment](query_language_align_function.html#the-pre-align-warning--when-the-query-engine-applies-align).
 
 ### Use Raw Aggregation Functions
 
@@ -159,3 +159,8 @@ WQL supports the asterisk (*) as a wildcard character.  [Wildcards](query_langua
 - **Faster**: `ts(‘abc.*.xyz’)` -- Using delimiters around wildcards.
 - **Slower**: `ts(“abc*xyz”)` -- Not using a period as a delimiter.
 - **Slower**: `ts("*abc.xyz")` -- Wildcard character at the beginning of a query.
+
+## Learn More!
+
+* [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html)
+* [Troubleshooting Missing Data](missing_data_troubleshooting.html)

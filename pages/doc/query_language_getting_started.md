@@ -296,7 +296,7 @@ Most users query for time series metrics, but we support interacting with other 
 
 Charts for metrics also support the following types of queries:
 * **Events**: Query events with [`events()` queries](query_language_reference.html#event-functions).
-* **Histograms**: Query histograms with [`hs()` queries](visualize_histograms.html#querying-histogram-metrics).
+* **Histograms**: Query histograms with [`hs()` queries](visualize_histograms.html#query-histogram-metrics).
 * **Traces and spans**: Query trace data from the tracing UI with the [tracing Query Builder](trace_data_query.html).
 
 ### Docs, Learning Dashboards, and More!
@@ -304,7 +304,7 @@ Charts for metrics also support the following types of queries:
 Our documentation includes tutorials, reference, and guides on the query language. In addition, your Wavefront instance includes an **Interactice Query Language Explorer** dashboard.
 
 - **[Chart builder](chart_builder.html)** can help you come up to speed quickly while using the product.
-- If you're logged in to your Wavefront instance, select **Integrations** in the taskbar and find the **Tutorial** or the **Tour Pro** integration. The Tutorial includes an **Interactive Query Language Explorer** dashboars that shows examples for most functions.
+- If you're logged in to your Wavefront instance, click **Integrations** on the toolbar and find the **Tutorial** or the **Tour Pro** integration. The Tutorial includes an **Interactive Query Language Explorer** dashboard that shows examples for most functions.
 - [Wavefront Query Language Reference](query_language_reference.html) lists each function and gives query language syntax element. Each function name is a link to a reference page for the function.
 - For in-depth discussions and examples, we have a **[reference page](label_query%20language.html)** for each function and some [Query Language Recipes](query_language_recipes.html).
 
@@ -336,7 +336,7 @@ This doc set includes videos and explanations from the engineering team that hel
 <tr>
 <td>How can I improve query performance?</td>
 <td markdown="span">Consider [bucketing with align()](query_language_align_function.html).
-Investigate [internal metrics for optimizing performance](wavefront_monitoring.html#useful-internal-metrics-for-optimizing-performance).</td> <td> </td></tr>
+Investigate [internal metrics for optimizing performance](wavefront-internal-metrics.html).</td> <td> </td></tr>
 </tbody>
 </table>
 

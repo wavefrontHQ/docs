@@ -29,7 +29,7 @@ User accounts log in with a user name and password.
 
 Users with **Accounts** permissions can manage accounts.
 
-1. Click the gear icon <i class="fa fa-cog"/> on the taskbar and select **Accounts**.
+1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Accounts**.
 2. To add an account:
    1. Click **Invite New Users** and specify a comma-separated list of email addresses.
    2. Specify user groups. You cannot remove users from the **Everyone** group.
@@ -52,7 +52,7 @@ Users with **Accounts** permissions can manage accounts.
 
 ## Sign Out a User
 
-As a [super admin user](authorization.html#who-is-the-super-admin-user), you can sign out other users by using the Wavefront REST API. To sign out a user while you are logged in as a Super Admin user, simply run a POST request with the `logout` API call. For example:
+As a [super admin user](authorization-faq.html#who-is-the-super-admin-user), you can sign out other users by using the Wavefront REST API. To sign out a user while you are logged in as a Super Admin user, simply run a POST request with the `logout` API call. For example:
 
 ```
 POST https://<your_instance>.wavefront.com/api/logout/{identifier}
@@ -70,20 +70,20 @@ When you invite a new (human) user to your environment, what that new user can d
   * View existing dashboards and charts.
   * Create and interact with charts – but NOT save charts.
   * Share links to dashboards and charts with other users.
-  * Access the user profile from the gear icon <i class="fa fa-cog"/> on the taskbar.
+  * Access the user profile from the gear icon <i class="fa fa-cog"/> on the toolbar.
 
   {% include note.html content="It's possible that [access to dashboards and alerts](access.html#how-access-control-works) is limited." %}
 
 
-- **New User Permissions:** Users with the **Accounts** permission can view and modify new user default permissions. To do that, from the gear icon <i class="fa fa-cog"/> on the taskbar, select **Organization Settings**. These permissions *do not* apply to service accounts.
-- **New User Default Groups:** Users with the **Accounts** permission can set up default groups for new users. To do that, from the gear icon <i class="fa fa-cog"/> on the taskbar, select **Organization Settings**.  All new user accounts get all permissions assigned to the default user groups. These permissions *do not* apply to service accounts.
+- **New User Permissions:** Users with the **Accounts** permission can view and modify new user default permissions. To do that, from the gear icon <i class="fa fa-cog"/> on the toolbar, select **Organization Settings**. These permissions *do not* apply to service accounts.
+- **New User Default Groups:** Users with the **Accounts** permission can set up a default groups for new users. To do that, from the gear icon <i class="fa fa-cog"/> on the toolbar, select **Organization Settings**.  All new user accounts get all permissions assigned to the default user groups. These permissions *do not* apply to service accounts.
 
 ## Set Default Permissions for New Users
 
 You can set default permissions for new users. By default, all new users can perform a set of new user actions discussed above. In addition, you can create a set of default permissions that are assigned to every new user added to the system later on:
 
-1. Click the gear icon <i class="fa fa-cog"/> on the taskbar and select **Organization Settings**.
-2. On the **New Accounts Defaults** tab, select the set of permissions you want to grant to new users.
+1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Organization Settings**.
+2. On the **New Accounts Defaults** tab select the set of permissions you want to grant to new users.
 
 The default permissions affect only new user accounts that you create after you made the change. They do not affect service accounts.
 
@@ -95,9 +95,26 @@ Each new user is assigned to the **Everyone** group.
 
 To add any new user to additional groups:
 
-1. Click the gear icon <i class="fa fa-cog"/> on the taskbar and select **Organization Settings**.
+1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Organization Settings**.
 2. In the **Default User Groups** text box:
   * Start typing the name of additional groups to add groups.
   * Click the **x** next to a group name to remove a group. You cannot remove the Everyone group.
 
 Going forward, new users are added to the group. They get the group's permissions and any permissions set as **New User Default Permissions**.
+
+## Troubleshooting User Accounts
+
+* **Problem:** When you invite a new user, an error like the following error appears in the GUI:
+  ```
+  User with id <user@domain.com> is already created in our system.
+  ```
+
+* **Cause:**
+  This error means that the user's email address (id) already exists on the current tenant or on another tenant on the same cluster. An email address cannot exist more than once unless multi-tenant authentication has been enabled explicitly.
+
+* **Solution:**
+  1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Accounts**.
+  2. Search for the user with their email address to check if that user already exists.
+  3. If the user is returned and doesn't know their password, ask them to [reset their password](users_account_managing.html#reset-a-forgotten-password).
+
+  If the user does not exist on the current tenant [open a support ticket](wavefront_support_feedback.html#support).

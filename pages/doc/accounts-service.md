@@ -40,7 +40,7 @@ You can disable a service account if you temporarily don't need it, or you can d
 
 Creating a service account is different from creating a user account.
 
-1. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Accounts**.
+1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Accounts**.
 2. Click the **Service Accounts** tab and click **Create New Account**.
 3. On the **New Service Account** page, specify the account details and click **Create**.
 
@@ -114,7 +114,7 @@ Each new service account is assigned to the **Service Accounts** group.
 
 To add any new service accounts to additional groups:
 
-1. Click the gear icon <i class="fa fa-cog"/> on the taskbar and select **Organization Settings**.
+1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Organization Settings**.
 2. In the **Default Service Accounts Groups** text box:
   * Start typing the name of additional groups to add groups.
   * Click the **x** next to a group name to remove a group. You cannot remove the **Service Accounts** group.
