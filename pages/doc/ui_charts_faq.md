@@ -153,4 +153,3 @@ For the chart legend, you can choose whether to report raw or summarized values 
 * Get the details about each chart type from the [Chart Reference](ui_chart_reference.html).
 * Send [a link of a dashboard](ui_sharing.html) to a coworker (or to the customer success team if you need help).
 * [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) in another product or website.
-* See the  KB article [Chart Legend: Sources do not display in the legend](https://help.wavefront.com/hc/en-us/articles/360057842692-Chart-Legend-Sources-do-not-display-in-the-legend) for troubleshooting info.

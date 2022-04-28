@@ -105,7 +105,4 @@ For information about metric, source, and point tag names, see [Wavefront Data N
 ## Learn More!
 
 * For more background and practical advice, see [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html).
-
-Our Customer Success team has prepared several KB articles that give additional detail.
-* [Common time limits and best practices](https://help.wavefront.com/hc/en-us/articles/360058716512-Common-Tanzu-Observability-time-limits-and-best-practices).
-* [Monitoring Metric Data Quality](https://help.wavefront.com/hc/en-us/articles/360055613191-Monitoring-metric-data-quality).
+* For query limits and similar information, see [Limits and Best Practices](wavefront_limits.html).
