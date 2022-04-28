@@ -87,7 +87,7 @@ You can modify proxy behavior in several ways:
 Wavefront proxies support:
 * Time-series metrics
 * Histograms
-* Traces/spans
+* Traces/spans 
 
 Each type of data uses a different data format. See [Wavefront Data Format](wavefront_data_format.html) for details and links.
 
