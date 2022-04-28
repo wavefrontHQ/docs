@@ -27,7 +27,7 @@ In the next release(s), the service accounts that are still part of the predefin
 <tbody>
 <tr>
   <td width="50%">
-  <strong>API Tokens Management for Administrators</strong>:<p>
+  <strong>API Tokens Management</strong>:<p>
   Users with the <strong>Accounts</strong> permission can now view and revoke API tokens of any user or service account in the organization.</p>
   <p>See <a href="wavefront_api.html#view-and-manage-the-api-tokens-in-your-organization">View and Manage the API Tokens in Your Organization</a> for details.</p>
   </td>
@@ -40,11 +40,11 @@ In the next release(s), the service accounts that are still part of the predefin
   <td width="50%">
     <strong>Updates for Customers with Service Accounts in the Everyone Group</strong>:
     <p>
-    Last year, we introduced the <strong>Service Accounts</strong> system group and added all service accounts to this group. To prepare for the <a href="#announcements">upcoming removal</a> of any remaining service accounts from the <strong>Everyone</strong> group, we did the following changes:<br/>
+    Last year, we introduced the <strong>Service Accounts</strong> system group and added all service accounts to this group. To prepare for the <a href="#announcements">upcoming removal</a> of the remaining service accounts from the <strong>Everyone</strong> group, we did the following changes:<br/>
     <ul>
     <li>For all dashboards and charts that have the <strong>Everyone</strong> group in their view or view & modify access lists, we added the <strong>Service Accounts</strong> group to these lists.</li>
     <li>For all metrics security rules that have the <strong>Everyone</strong> group in their allow or deny access lists, we added the <strong>Service Accounts</strong> group to these lists.</li>
-    <li>To preserve the current behavior, we changed the default permissions for the service accounts to have view and modify access to newly created dashboards and alerts. To revoke these permissions for the service accounts, deselect the <strong>Service Accounts</strong> check box from the security organization settings.</li>
+    <li>To preserve the current behavior, we changed the default permissions for the service accounts to have view and modify access to newly created dashboards and alerts. To revoke these permissions for the service accounts, navigate to the <strong>Organization Settings</strong> page and on the <strong>Security</strong> tab, deselect the <strong>Service Accounts</strong> check box.</li>
     </ul>
     </p>
     </td>
@@ -71,6 +71,8 @@ We updated the doc set with information that comes from the Tanzu Observability 
 <ul>
 <li><a href="alerts_faq.html">Alerts FAQ</a></li>
 <li><a href="wavefront_usage_info.html#how-can-i-optimize-my-ingestion-rate">How Can I Optimize My Ingestion Rate?</a></li>
+<li><a href="proxies_troubleshooting.html">Proxy Troubleshooting</a></li>
+<li><a href="integrations_bigpanda_troubleshooting.html">Troubleshooting Alert Notifications to BigPanda Webhook Targets</a></li>
 </ul>
 </td>
 </tr>
