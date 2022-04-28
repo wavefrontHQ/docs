@@ -1926,3 +1926,20 @@ ul#profileTabs {
   padding: 15px;
   border: 1px solid #dedede;
 }
+
+/* Configs from Chloe Jakson to fix the cookie settings pop up on the footer*/
+
+h2#pc-title:before {
+    background-color: transparent;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+    border-top: none;
+    border-bottom: none;
+}
+
+a.powered-by-logo[href^="https://"]:after {
+display:none;
+}
+
+/* end confgi sent by Chloe*/
