@@ -231,7 +231,7 @@ Advanced users can export proxy data to a file and perform other customizations.
 
 Here's some additional information in the doc:
 * [Run a Proxy in a Container](proxies_container.html) shows how to install the proxy and Telegraf in a Docker container.
-* [Export Data Queued at the Proxy](https://help.wavefront.com/hc/en-us/articles/360052251811-How-to-export-data-queued-at-the-Proxy)
+* [Export Data Queued at the Proxy](proxies_troubleshooting.html#manage-the-proxy-queue)
 * [Install a Proxy in Non-Default Environments](proxies_manual_install.html)
 * Use the [proxy configuration file](proxies_configuring.html) to customize proxy behavior for metrics, histograms, and traces.
 
