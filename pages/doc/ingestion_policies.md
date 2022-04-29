@@ -17,6 +17,8 @@ You can examine the performance of your Wavefront instance using [wftop, Wavefro
 
 Ingestion policies allow you to group user accounts and service accounts or any user or service accounts groups and then examine their usage for your Wavefront instance. For example, you can create a policy, add all accounts that joined in the last 6 months, or create a policy for a whole team, for example the Finance team, and examine whether they show unusually high usage because they're not yet experienced. In such a case, you can provide additional training. You can also set a Points per Second (PPS) limit to an ingestion policy, so that you can track how much of the PPS is used and whether the users or the team will need more PPS in the future.
 
+{% include note.html content="When you set a PPS limit for an ingestion policy and the PPS usage is higher than the limit, no changes or implications occur. For example, if a team uses more PPS than the PPS limit set for an ingestion policy, you can increase the PPS limit or provide a training for the users who ingest more data. The system doesn't block or prevent certain users or groups from ingesting more data. "%}
+
 ### Permissions
 
 Super Admin users (users who have all permissions) can create ingestion policies and add accounts or groups to these policies.
@@ -78,7 +80,7 @@ As a Super Admin user, you can examine the usage for accounts or groups assigned
 
 1. Log in to your Wavefront instance as a Super Admin user.
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
-3. On the **Ingestion Policies** tab, click the name of the policy you are interested in.
+3. On the **Ingestion Policies** tab, click the name of the policy in which you are interested.
 
    ![Ingestion policy name link](images/ingestion_policy_team.png)
 
@@ -93,7 +95,7 @@ In the **Ingestion Summary** section of the dashboard, you can see the following
 </thead>
 <tr>
 <td><strong>Usage Limit</strong></td>
-<td>Shows the total usage out of the committed usage.</td></tr>
+<td>Shows the usage for the selected month out of the PPS limit set for the ingestion policy.</td></tr>
 <tr>
 <td><strong>Previous Month to Selected Month</strong></td>
 <td>Shows a comparison of the current month with the previous month.</td>
