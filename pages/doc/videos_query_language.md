@@ -15,10 +15,11 @@ Learn about the Wavefront query language and how you can use PromQL queries in W
 <tbody>
 <tr>
 <td width="70%"><strong><font color="#0091DA" size="3">Query Language Basics</font></strong><br><br>
-<iframe src="https://bcove.video/3FqMmPo" width="550" height="275" allowfullscreen="true" alt="Wavefront Query Language Basics"></iframe></td>
+<iframe id="kmsembed-1_fd1z47ps" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_fd1z47ps/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Wavefront Query Language Basics video"></iframe>
+</td>
 <td width="30%"><br><br>
 <p>Learn about time series metrics, and about how to visualize metrics and filter and group them with Wavefront Query Language. </p>
-<p>You can also watch the video <a href="https://bcove.video/3FqMmPo" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
+<p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_fd1z47ps" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>

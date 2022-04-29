@@ -40,10 +40,11 @@ Tanzu Observability by Wavefront creates System and Alert events for you. You ca
 <tr>
 <td><strong><font color="#0091DA" size="3">Controlling Event Displays</font></strong><br>
 <br>
-<iframe src="https://bcove.video/3AY5jFY" width="550" height="275" allowfullscreen="true" alt="Jason explains how to get the most out of event displays"></iframe></td>
+<iframe id="kmsembed-1_wu95qynh" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_wu95qynh/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Jason explains how to get the most out of event displays"></iframe>
+</td>
 <td><br><br>
 <p>Jason demos how to display or hide source events in charts. Then he shows an example of adding an events query to a chart to display only selected events. He customizes the query to also show events when a specific user receives an email alert.</p>
-<p>You can also watch the video <a href="https://bcove.video/3AY5jFY" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> </td>
+<p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_wu95qynh" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> </td>
 </tr>
 </tbody>
 </table>

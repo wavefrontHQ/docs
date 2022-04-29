@@ -24,11 +24,11 @@ Learn about visualizing your metrics with dashboards and charts, and how to cust
 <tr>
 <td><strong><font color="#0091DA" size="3">Time Windows in Dashboards and Charts</font></strong><br>
 <br>
-<iframe src="https://bcove.video/3kJ6PGT" width="550" height="275" allowfullscreen="true" alt="Jason demonstrates time windows "></iframe>
+<iframe id="kmsembed-1_zew0muhn" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_zew0muhn/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="time window customization video"></iframe>
 </td>
 <td><br>
 <p>Learn how to select, sync, and reset time windows so you can annalyze and compare your data.</p>
-<p>You can also watch the video <a href="https://bcove.video/3kJ6PGT" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
+<p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_zew0muhn" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
@@ -53,9 +53,9 @@ Learn about visualizing your metrics with dashboards and charts, and how to cust
 </tr>
 <tr>
 <td><strong><font color="#0091DA" size="3">Sharing Content</font></strong><br><br>
-<iframe src=" https://bcove.video/3DZazeL" width="550" height="275" allowfullscreen="true" alt="sharing Wavefront content video"></iframe>
+<iframe id="kmsembed-1_0esjgu8b" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_0esjgu8b/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Sharing search results, dashboards and charts using short URLs."></iframe>
 </td>
-<td><br><p>In this video, you'll learn how to share Wavefront content. For example, search results, dashboards, charts, and so on. You will also learn about what live and non-live displays are and how to share a live display of a dashboard.</p><p>You can also watch the video <a href="https://bcove.video/3DZazeL" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p></td>
+<td><br><p>In this video, you'll learn how to share Wavefront content. For example, search results, dashboards, charts, and so on. You will also learn about what live and non-live displays are and how to share a live display of a dashboard.</p><p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_0esjgu8b" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p></td>
 </tr>
 </tbody>
 </table>

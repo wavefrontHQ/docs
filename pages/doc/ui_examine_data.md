@@ -67,10 +67,10 @@ You can customize what you see, open charts, and more.
 
 ## Set the Time Window
 
-This <a href="https://bcove.video/3kJ6PGT" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights how you can select, sync, and reset time windows so you can annalyze and compare your data.
+This <a href="https://vmwaretv.vmware.com/media/t/1_zew0muhn" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights how you can select, sync, and reset time windows so you can annalyze and compare your data.
 
 <p>
-<iframe src="https://bcove.video/3kJ6PGT" width="700" height="400" allowfullscreen="true" alt="customizing dashboards video"></iframe>
+<iframe id="kmsembed-1_zew0muhn" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_zew0muhn/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="time window customization video"></iframe>
 </p>
 
 By default, dashboards:

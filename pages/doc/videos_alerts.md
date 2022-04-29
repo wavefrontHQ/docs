@@ -20,10 +20,12 @@ The following videos explain how alerts work and how to configure them.
 <tr>
 <td><strong><font color="#0091DA" size="3">Create an Alert in 90 Seconds</font></strong><br>
 <br>
-<iframe src="https://bcove.video/3o9bu6L" width="500" height="275" allowfullscreen="true" alt="create alert v2 video"></iframe></td>
+<p>
+<iframe id="kmsembed-1_e655iog1" width="500" height="275" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_e655iog1/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" alt="creating alerts with step-by-step process"></iframe>
+</p></td>
 <td><br>
 <p>Learn how to create and test an alert using the streamlined alert creation GUI.</p>
-<p>You can also watch the video <a href="https://bcove.video/3o9bu6L" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
+<p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_e655iog1" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>

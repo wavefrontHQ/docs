@@ -450,7 +450,7 @@ After you've saved these changes:
 Watch this video to learn how to optimize dashboard and query performance.
 
 <p>
-<iframe src="https://bcove.video/3rcTY1w" width="700" height="400" allowfullscreen="true" alt="Optimize Dashboard Performance video"></iframe>
+<iframe id="kmsembed-1_ynnxe6tn" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_ynnxe6tn/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0"></iframe>
 </p>
 
 
@@ -588,7 +588,7 @@ Each time you save a dashboard, you create a dashboard version. Up to 100 versio
 
 ## Troubleshoot and Learn More!
 
-* [Troubleshooting Missing Data](missing_data_troubleshooting.html) can help if you don't see what you expect. 
+* [Troubleshooting Missing Data](missing_data_troubleshooting.html) can help if you don't see what you expect.
 
 The Customer Success team prepared this KB article about migrating data between environments:
 * [Migrating Objects or Data Between Environments](https://help.wavefront.com/hc/en-us/articles/360053164791-Migrating-Objects-or-Data-Between-Tanzu-Observability-Environments)
