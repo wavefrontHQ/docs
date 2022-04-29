@@ -91,6 +91,33 @@ In the next release(s), the service accounts that are still part of the predefin
 </tr>
 <tr>
 <td width="50%">
+<strong>Import Sections from Other Dashboards</strong>:
+<p>
+When you create or edit a dashboard, you can import sections from other dashboards. In dashboard edit mode, simply click <strong>Dashboard Templates</strong>, select a section, and either navigate through the provided <strong>Dashboard list filters</strong>, or search for the dashboard from which you want to import a section.
+</p>
+</td>
+<td width="50%">
+<br/>
+<img src="/images/import-dashboard-section.png" alt="A screenshot of the Dashboard list filters.">
+</td>
+</tr>
+<tr>
+<td width="50%">
+<strong>Improved Charts Experience</strong>:
+<p>
+<ul><li>
+We have improved the query stats experience. When you click the <strong>lightbulb icon</strong> for a query and hover over Cardinality, Points Scanned, or Duration, you can also see how much the query contributes to the respective chart stats. See the screenshot on the right. </li>
+<li>You can now enter SI or IEC units in the Min and Max fields for the Y Axis across different chart types. For example, 5K for 5000 in SI and 5Ki for 5000 in IEC. If you enter an incorrect unit, you will see an error message.</li>
+</ul>
+</p>
+</td>
+<td width="50%">
+<br/>
+<img src="/images/improved-query-stats.png" alt="A screenshot of the cardinality tooltip for a query.">
+</td>
+</tr>
+<tr>
+<td width="50%">
 <strong>Documentation Improvements</strong>:
 <p>
 We updated the doc set with information that comes from the Tanzu Observability SaaS Value Engineering team. Some information was added, some new doc pages are listed on the right.
