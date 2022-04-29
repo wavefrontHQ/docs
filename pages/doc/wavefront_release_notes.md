@@ -105,7 +105,7 @@ In the next release(s), the service accounts that are still part of the predefin
 <p>
 <ul><li>
 We have improved the query stats experience. When you click the <strong>lightbulb icon</strong> for a query and hover over Cardinality, Points Scanned, or Duration, you can also see how much the query contributes to the respective chart stats. See the screenshot on the right. </li>
-<li>You can now enter SI or IEC units in the Min and Max fields for the Y Axis across different chart types. For example, 5K for 5000 in SI and 5Ki for 5000 in IEC. If you enter an incorrect unit, you will see an error message.</li>
+<li>You can now enter SI or IEC units in the <strong>Min</strong> and <strong>Max</strong> fields for the Y Axis across different chart types. For example, 5K for 5000 in SI and 5Ki for 5000 in IEC. If you enter an incorrect unit, you will see an error message.</li>
 </ul>
 </p>
 </td>
