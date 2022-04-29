@@ -71,14 +71,15 @@ In the next release(s), the service accounts that are still part of the predefin
     <li>Stacked Column</li>
     <li>Table</li>
     <li>TopK</li>
-    <li>Node Map Histogram</li>
+    <li>Node Map</li>
+    <li>Histogram</li>
     <li>Heatmap</li>
     <li>Gauge</li>
     <li>Pie</li>
     </ul>
     </p>
     <p>
-    We also support all types of chart images in alert notifications, Slack notifications, and so on.
+    We also support all types of chart images in alert notifications, Slack notifications, and so on. For example of an image in an alert notification, see the screenshot on the right.
     </p>
     </td>
   <td width="50%">
@@ -87,6 +88,8 @@ In the next release(s), the service accounts that are still part of the predefin
   <li><a href="ui_sharing.html#embed-a-chart-in-other-uis">Embed a Chart in Other UIs</a></li>
   <li><a href="alerts_notifications.html#static-chart-image-in-notifications">Static Chart Image in Notifications</a></li>
   </ul>
+  <br/>
+  <img src="/images/alert_chart_only.png" alt="A screenshot of a chart included in an alert notification email.">
   </td>
 </tr>
 <tr>
