@@ -13,9 +13,10 @@ We update our [integrations release notes](integrations_new_changed.html) on a m
 
 ## Watch a Video
 
-In this video, Jason talks about the different integrations we have, and how you can use them to get your data into Tanzu Observability. You can also watch the video <a href="https://bcove.video/2JTvMgW" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+In this video, Jason talks about the different integrations we have, and how you can use them to get your data into Tanzu Observability. You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_j454pr6u" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
 
-<p><a href="https://bcove.video/2JTvMgW"><img src="/images/v_integrations_v2.png" style="width: 700px;" alt="new intro to integratons"/></a>
+<p>
+<iframe id="kmsembed-1_j454pr6u" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_j454pr6u/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="intro to integrations"></iframe>
 </p>
 
 ## Try an Integration!

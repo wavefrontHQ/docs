@@ -34,9 +34,9 @@ Learn about visualizing your metrics with dashboards and charts, and how to cust
 <tr>
 <td><strong><font color="#0091DA" size="3">Create Dashboards</font></strong><br>
 <br>
-<iframe src="https://bcove.video/2WxBJoe" width="550" height="275" allowfullscreen="true" alt="creating dashboards video"></iframe>
+<iframe id="kmsembed-1_gqelhfur" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gqelhfur/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="creating dashboards video"></iframe>
 </td>
-<td><br><p>Users with Dashboards permissions can create a new dashboard with one or multiple charts from metrics, a chart type, or an integration.  </p><p>You can also watch the video <a href="https://bcove.video/2WxBJoe" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> </td>
+<td><br><p>Users with Dashboards permissions can create a new dashboard with one or multiple charts from metrics, a chart type, or an integration.  </p><p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_gqelhfur" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> </td>
 </tr>
 <tr>
 <td><strong><font color="#0091DA" size="3">Customize Dashboards</font></strong><br>
@@ -47,9 +47,9 @@ Learn about visualizing your metrics with dashboards and charts, and how to cust
 <tr>
 <td><strong><font color="#0091DA" size="3">Create and Modify Charts with Chart Builder</font></strong><br>
 <br>
-<iframe src="https://bcove.video/2Xx9IPz" width="550" height="275" allowfullscreen="true" alt="chart builder video"></iframe>
+<iframe id="kmsembed-1_46pqfyms" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_46pqfyms/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Wavefront intro how-to"></iframe>
 </td>
-<td><br><p>Users with Dashboards permissions can use Chart Builder to select metrics or histograms, apply filters and functions, select a chart type, and customize the chart.  </p><p>You can also watch the video <a href="https://bcove.video/2Xx9IPz" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> </td>
+<td><br><p>Users with Dashboards permissions can use Chart Builder to select metrics or histograms, apply filters and functions, select a chart type, and customize the chart.  </p><p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_46pqfyms" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> </td>
 </tr>
 <tr>
 <td><strong><font color="#0091DA" size="3">Sharing Content</font></strong><br><br>
