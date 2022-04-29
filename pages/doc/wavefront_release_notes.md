@@ -64,9 +64,8 @@ In the next release(s), the service accounts that are still part of the predefin
 </tr>
 <tr>
   <td width="50%">
-    <strong>Full Support for Embedding Charts in Other UIs</strong>:
-    <p>
-    You can now embed all types of charts in other UIs. With this release we have added support for embedding the following types of charts:<br/>
+    <strong>Full Support for Embedded Charts</strong>:
+    <br/>You can now embed all types of charts in other UIs. For example, you can embed a chart in an internal or external Website. With this release we have added support for embedding the following types of charts:
     <ul>
     <li>Stacked Column</li>
     <li>Table</li>
@@ -77,25 +76,32 @@ In the next release(s), the service accounts that are still part of the predefin
     <li>Gauge</li>
     <li>Pie</li>
     </ul>
-    </p>
-    <p>
-    We also support all types of chart images in alert notifications, Slack notifications, and so on. For example of an image in an alert notification, see the screenshot on the right.
-    </p>
-    </td>
+  </td>
   <td width="50%">
   <strong>Read More:</strong>
-  <ul>
-  <li><a href="ui_sharing.html#embed-a-chart-in-other-uis">Embed a Chart in Other UIs</a></li>
-  <li><a href="alerts_notifications.html#static-chart-image-in-notifications">Static Chart Image in Notifications</a></li>
-  </ul>
   <br/>
-  <img src="/images/alert_chart_only.png" alt="A screenshot of a chart included in an alert notification email.">
+  <a href="ui_sharing.html#embed-a-chart-in-other-uis">Embed a Chart in Other UIs</a>
   </td>
 </tr>
 <tr>
   <td width="50%">
+  <strong>Chart Support in Alert Notifications and Other Systems</strong>:
+  <p> We now support all types of chart images in all <a href="alerts_notifications.html#static-chart-image-in-notifications">alert notifications</a>, such as email, Slack, etc. See the sample screenshot on the right.</p>
+  </td>
+  <td width="50%">
+  <br/>
+  <img src="/images/alert_chart_only.png" alt="A screenshot of a chart included in an alert notification email.">
+  </td>
+  </tr>
+<tr>
+  <td width="50%">
   <strong>Importing Dashboard Sections From Other Dashboards</strong>:<p>
-  When you create or edit a dashboard, you can import sections from other dashboards. In dashboard edit mode, simply click <strong>Dashboard Templates</strong>, select a section, and either navigate through the provided <strong>Dashboard list filters</strong>, or search for the dashboard from which you want to import a section.</p>
+  When you create or edit a dashboard, you can import sections from other dashboards. In dashboard edit mode:</p>
+  <ol>
+  <li>Click <strong>Dashboard Templates</strong>.</li>
+  <li>Select a section.</li>
+  <li>Navigate through the provided <strong>Dashboard list filters</strong>, or search for the dashboard from which you want to import a section.</li>
+  </ol>
   </td>
   <td width="50%">
   <br/>
@@ -103,37 +109,37 @@ In the next release(s), the service accounts that are still part of the predefin
   </td>
 </tr>
 <tr>
-<td width="50%">
-<strong>Improved Charts Experience</strong>:
-<p>
-<ul><li>
-We have improved the query stats experience. When you click the <strong>lightbulb icon</strong> for a query and hover over Cardinality, Points Scanned, or Duration, you can also see how much the query contributes to the respective chart stats. See the screenshot on the right. </li>
-<li>You can now enter SI or IEC units in the <strong>Min</strong> and <strong>Max</strong> fields for the Y Axis across different chart types. For example, 5K for 5000 in SI and 5Ki for 5000 in IEC. If you enter an incorrect unit, you will see an error message.</li>
-</ul>
-</p>
-</td>
-<td width="50%">
-<br/>
-<img src="/images/improved-query-stats.png" alt="A screenshot of the cardinality tooltip for a query.">
-</td>
+   <td width="50%">
+   <strong>Improved Charts Experience</strong>:
+   <p>
+   <ul><li>
+   We have improved the query stats experience. When you click the <strong>lightbulb icon</strong> for a query and hover over Cardinality, Points Scanned, or Duration, you can also see how much the query contributes to that chart stat. See the screenshot on the right. </li>
+   <li>You can now enter SI or IEC units in the <strong>Min</strong> and <strong>Max</strong> fields for the Y Axis across different chart types. For example, 5K for 5000 in SI and 5Ki for 5000 in IEC. If you enter an incorrect unit, you will see an error message.</li>
+   </ul>
+   </p>
+   </td>
+  <td width="50%">
+  <br/>
+  <img src="/images/improved-query-stats.png" alt="A screenshot of the cardinality tooltip for a query.">
+  </td>
 </tr>
 <tr>
-<td width="50%">
-<strong>Documentation Improvements</strong>:
-<p>
-We updated the doc set with information that comes from the Tanzu Observability SaaS Value Engineering team. Some information was added, some new doc pages are listed on the right.
-</p>
-</td>
-<td width="50%">
-<strong>Read More:</strong>
-<ul>
-<li><a href="alerts_faq.html">Alerts FAQ</a></li>
-<li><a href="wavefront_usage_info.html#how-can-i-optimize-my-ingestion-rate">How Can I Optimize My Ingestion Rate?</a></li>
-<li><a href="proxies_troubleshooting.html">Proxy Troubleshooting</a></li>
-<li><a href="telegraf_details.html">Telegraf Troubleshooting</a></li>
-<li><a href="integrations_bigpanda_troubleshooting.html">Troubleshooting Alert Notifications to BigPanda Webhook Targets</a></li>
-</ul>
-</td>
+  <td width="50%">
+  <strong>Documentation Improvements</strong>:
+  <p>
+  We updated the doc set with more information that comes from our Tanzu Observability SaaS Value Engineering team. Some information was added, some new doc pages are listed on the right.
+  </p>
+  </td>
+  <td width="50%">
+  <strong>Read More:</strong>
+  <ul>
+  <li><a href="alerts_faq.html">Alerts FAQ (Expanded)</a></li>
+  <li><a href="wavefront_usage_info.html#how-can-i-optimize-my-ingestion-rate">How Can I Optimize My Ingestion Rate?</a></li>
+  <li><a href="proxies_troubleshooting.html">Proxy Troubleshooting</a></li>
+  <li><a href="telegraf_details.html">Telegraf Troubleshooting</a></li>
+  <li><a href="integrations_bigpanda_troubleshooting.html">Troubleshooting Alert Notifications to BigPanda Webhook Targets</a></li>
+  </ul>
+  </td>
 </tr>
   </tbody>
 </table>
