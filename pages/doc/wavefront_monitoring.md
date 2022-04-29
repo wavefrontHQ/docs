@@ -75,13 +75,13 @@ These charts use the following metrics:
 - **Data Scan Rate**
   - `~query.metrics_scanned` -- The per-second rate at which metrics are being queried through dashboards, custom charts, derived metrics, or API calls.
   - `~query.spans_scanned` -- The per-second rate at which spans are being queried through dashboards, custom charts, or API calls.
-  - `~query.histograms_scanned` -- The per-second rate at which histograms are being queried through dashboards, custom charts, derived metrics, or API calls. 
+  - `~query.histograms_scanned` -- The per-second rate at which histograms are being queried through dashboards, custom charts, derived metrics, or API calls.
 
 #### Wavefront Stats and Alert Stats
 
 Charts that track the number of users during various time windows, the number of dashboards and alerts, and also provide information about the state and types of alerts.
 
-These charts use the following metrics: 
+These charts use the following metrics:
 
 - `~wavefront.alerts.*` -- Count, states, and types of the alerts.
 - `~wavefront.dashboard.*`  -- Metrics related to the number of dashboard views.
@@ -168,19 +168,19 @@ Customers often tell us that they want to make sure they don't exceed their comm
 
 1. The **Committed Rate vs Monthly Usage (PPS P95)** dashboard includes charts that show how close you are to consuming 95% of your contracted rate. You can add alerts to charts in this dashboard to get notifications.
 2. If you need to reduce usage, you have several options:
-   * Start examining ingestion from the **Wavefront Service and Proxy Data** dashboard. 
-   
+   * Start examining ingestion from the **Wavefront Service and Proxy Data** dashboard.
+
      The [internal metrics](wavefront-internal-metrics.html) shown in this dashboard highlight.
-   * Use the **Wavefront Namespace Usage Explorer** dashboard to drill down into the metrics. 
-   
+   * Use the **Wavefront Namespace Usage Explorer** dashboard to drill down into the metrics.
+
      Tanzu Observability automatically tracks the number of metrics received for the first 3 levels of your metric namespace as delta counters, and this dashboard presents the metrics in an easy-to-use way.
    * [Examine the overall usage of your Wavefront service](examine_usage.html).
-   * Finally, if you suspect that much of your usage comes from certain accounts (user or service accounts), consider setting up one or more [ingestion policies](ingestion_policies.html).  
+   * Finally, if you suspect that much of your usage comes from certain accounts (user or service accounts), consider setting up one or more [ingestion policies](ingestion_policies.html).
 
 
 ## Examine Versions of Dashboards and Alerts
 
-Tanzu Observability stores details about each version of each dashboard and each alert. That means you have an audit trail of changes. When someone saves changes to a dashboard or alert, we create a new version and track the changes, including details about the change and the user who made the change. If you suspect that someone has made changes to a dashboard which results in higher usage, you can check who made the change and what is changed. 
+Tanzu Observability stores details about each version of each dashboard and each alert. That means you have an audit trail of changes. When someone saves changes to a dashboard or alert, we create a new version and track the changes, including details about the change and the user who made the change. If you suspect that someone has made changes to a dashboard which results in higher usage, you can check who made the change and what is changed.
 
 You can examine dashboard and alert versions from the UI or using the REST API.
 
@@ -196,7 +196,5 @@ The process is the same for alerts.
 
 ## Learn More!
 
-[Find Actionable Usage Information](wavefront_usage_info.html) explains how to use tools and dashboards to learn how much data is coming in, who is sending the data, how to get alerted if ingested data get close to monthly contracted usage, and how to optimize your ingestion rate. 
-
-
-Our Customer Success Team has put together the KB article [How to Track Adoption in Your Company with Usage Metadata](https://help.wavefront.com/hc/en-us/articles/360058526192-How-to-Track-Tanzu-Observability-Adoption-with-Usage-Metadata) that drills down into adoption info.
+* [Find Actionable Usage Information](wavefront_usage_info.html) explains how to use tools and dashboards to learn how much data is coming in, who is sending the data, how to get alerted if ingested data get close to monthly contracted usage, and how to optimize your ingestion rate.
+* [Metadata (Label Manipulation) Functions](query_language_metadata_functions.html) explains how to rename metrics and sources and create point tags with `aliasSource`, `aliasMetric`, and `taggify`.]

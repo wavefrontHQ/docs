@@ -278,8 +278,3 @@ We can use this data to calculate uptime by comparing the number of minutes the 
 
 * We use the `msum()` function to determine how many minutes over a 24-hour time window the service was truly available (there are 24 * 60 minutes over a 24-hour time window).
 * We multiply by 100 to get a percentage rather than a decimal.
-
-
-## Learn More!
-
-* To learn more about using point tags for maintenance windows, see [this KB article](https://help.wavefront.com/hc/en-us/articles/360058003411-How-to-Use-Point-Tags-for-Maintenance-Windows)

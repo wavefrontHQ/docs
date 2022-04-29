@@ -568,7 +568,7 @@ All operations between `tsExpression`s are subject to the matching processes des
 <li markdown="span">`ts(db.query.rate, tag=db and not source="db5.wavefront.com")` returns `db.query.rate` for all sources tagged with `db`, except for the `db5.wavefront.com` source.</li>
 <li markdown="span">`ts("smp-fax*.count" AND NOT "smp-fax*.metrics.wavefront.*", source="-eq*"` returns all metrics that match `"smp-fax*.count"` except for those matching `"smp-fax*.metrics.wavefront.*"` for any sources that start with `-eq`.</li>
 </ul>
-<p markdown="span">For additional examples, see the KB article [Using the AND and OR operators in queries](https://help.wavefront.com/hc/en-us/articles/360058973671-Using-the-AND-and-OR-operators-in-queries)</p>
+<p markdown="span">For additional examples, see the KB article [Using the AND, OR, and NOT operators](query_language_tricks.html#use-and-or-and-not-operators)</p>
 </ul>
 
 

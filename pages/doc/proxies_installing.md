@@ -196,8 +196,8 @@ If you use a volume for the proxy buffer (queue) and you update from a version b
 
 {% include warning.html content="Ensure that either the proxy buffer (queue) is empty, or that the files on the buffer directory (volume) are owned by a user with id `1000` and group `2000` (which will translate to user `wavefront` on the docker image)." %}
 
-<!---
-If you performed the update and data are left in the proxy buffer, follow the steps in [Truncate the Proxy Queue](proxies.html#truncate-the-proxy-queue).--->
+
+If you performed the update and data are left in the proxy buffer, follow the steps in [Proxy Troubleshooting](proxies_troubleshooting.html#remove-queued-data-at-the-proxy).
 
 ### Uninstall a Proxy
 
@@ -231,7 +231,7 @@ Advanced users can export proxy data to a file and perform other customizations.
 
 Here's some additional information in the doc:
 * [Run a Proxy in a Container](proxies_container.html) shows how to install the proxy and Telegraf in a Docker container.
-* [Export Data Queued at the Proxy](https://help.wavefront.com/hc/en-us/articles/360052251811-How-to-export-data-queued-at-the-Proxy)
+* [Export Data Queued at the Proxy](proxies_troubleshooting.html#manage-the-proxy-queue)
 * [Install a Proxy in Non-Default Environments](proxies_manual_install.html)
 * Use the [proxy configuration file](proxies_configuring.html) to customize proxy behavior for metrics, histograms, and traces.
 

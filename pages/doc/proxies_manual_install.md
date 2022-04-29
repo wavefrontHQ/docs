@@ -377,3 +377,88 @@ If you're in an environment with restricted network access:
 ```
    sudo service telegraf start
 ```
+
+
+## How to Chain Proxies
+
+Sometimes, the output from one Wavefront proxy needs to be sent to another Wavefront proxy (proxy chaining).
+
+### Common Use Cases for Chained Proxies
+
+Common use cases include:
+
+* **Restrictions on outbound connections**: In environments where no direct outbound connections to the Wavefront service are possible, you can use a Wavefront proxy that has outbound access to act as a relay and forward data received on its endpoint to the Wavefront service.
+* **Log data filtering**: If you use a proxy to parse log data, you might need to perform filtering or tagging with proxy preprocessor rules. One proxy in a chain can have the job of altering or dropping certain strings before data is sent to the Wavefront service.
+* **Preprocessor rule consolidation**: Proxy chaining can consolidate preprocessing rules to a central proxy. For example, proxies running in containers on a Kubernetes cluster could relay metrics to the chained proxy which has all required defined preprocessor rules.
+
+
+### Set Up the Configuration Files for Chaining
+
+Let's set up proxy chaining. Proxy A sends data to the relay proxy (Proxy B). Proxy B then sends data to the Wavefront service. Follow these steps:
+
+1. On the proxy which will act as the relay (Proxy B) open the proxy configuration file (`wavefront.conf`) for edit. See [Proxy File Paths](proxies_configuring.html#proxy-file-paths) for the default location.
+2. Uncomment  the `pushRelayListenerPorts`  line so the proxy will listen for any relay messages.
+```
+   ## This setting is a comma-separated list of ports. (Default: none)
+   pushRelayListenerPorts=2978
+```
+
+3. On the proxy that will send its metrics to the relay proxy (Proxy A), open the proxy configuration file `wavefront.conf` for editing.
+
+4. Change the server address to the address of relay (Proxy B). Here's an example:
+```
+  # The server should be either the primary Wavefront cloud server, or your custom VPC address.
+  # This will be provided to you by Wavefront.
+  server=http://192.168.xxx.xxx:2978/api/
+```
+  The authentication token that is specified in the `wavefront.conf` of the relay proxy (Proxy B) will be used to send the metrics to the Wavefront instances. An authentication token for Proxy A is not needed.
+
+5. After making the changes, restart both proxies and examine the `wavefront.log` file from the relay proxy (Proxy B). Look for points that are delivered on the relay listener port, as in the following example:
+
+   ```
+  2021-02-04 17:11:50,201 INFO [AbstractReportableEntityHandler:printStats] [2978] Points received rate: 4 pps (1 min), 4 pps (5 min), 0 pps (current).
+  2021-02-04 17:11:50,201 INFO [AbstractReportableEntityHandler:printStats] [2978] Points delivered rate: 4 pps (1 min), 4 pps (5 min)
+  2021-02-04 17:12:00,200 INFO [AbstractReportableEntityHandler:printStats] [2978] Points received rate: 4 pps (1 min), 4 pps (5 min), 0 pps (current).
+  2021-02-04 17:12:00,201 INFO [AbstractReportableEntityHandler:printStats] [2978] Points delivered rate: 4 pps (1 min), 4 pps (5 min)
+   ```
+
+### Test Proxy Host Connectivity
+
+You can test connectivity from the originating proxy to the relay proxy. Pick one option:
+* Use curl
+* Send the points locally and verify that they are delivered by querying the metric in the GUI
+
+In both scenarios the relay proxy uses its own token to authenticate. A separate token for the proxy that's sending the metrics is not needed.
+
+**Test Connectivity Using curl**
+
+Run the following command from the proxy that is sending metrics to the relay proxy (http://192.168.xxx.xxx:2978  is the address/port of the relay proxy.)
+```
+curl -v 'http://192.168.xxx.xxx:2978' -X POST -d "test.metric 100 source=test.source"
+```
+
+Sample output:
+```
+* About to connect() to 192.168.xxx.xxx port 2978 (#0)
+* Trying 192.168.xxx.xxx...
+* Connected to 192.168.xxx.xxx (192.168.xxx.xxx) port 2978 (#0)
+> POST / HTTP/1.1
+> User-Agent: curl/7.29.0
+> Host: 192.168.xxx.xxx:2978
+> Accept: */*
+> Content-Length: 35
+> Content-Type: application/x-www-form-urlencoded
+>
+* upload completely sent off: 35 out of 35 bytes
+< HTTP/1.1 204 No Content
+< content-type: text/plain
+< connection: keep-alive
+```
+**Test Connectivity by Sending Points**
+
+To send points directly:
+1. Run the following command locally on the proxy that sending metrics to the relay proxy.
+   ```
+   `echo 'test.metric 300 source=test.source' | nc localhost 2878`
+   ```
+2. Verify that you can query the metric in the GUI.
