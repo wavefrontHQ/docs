@@ -101,18 +101,6 @@ In the next release(s), the service accounts that are still part of the predefin
 </tr>
 <tr>
 <td width="50%">
-<strong>Import Sections from Other Dashboards</strong>:
-<p>
-When you create or edit a dashboard, you can import sections from other dashboards. In dashboard edit mode, simply click <strong>Dashboard Templates</strong>, select a section, and either navigate through the provided <strong>Dashboard list filters</strong>, or search for the dashboard from which you want to import a section.
-</p>
-</td>
-<td width="50%">
-<br/>
-<img src="/images/import-dashboard-section.png" alt="A screenshot of the Dashboard list filters.">
-</td>
-</tr>
-<tr>
-<td width="50%">
 <strong>Improved Charts Experience</strong>:
 <p>
 <ul><li>
