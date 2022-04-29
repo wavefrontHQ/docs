@@ -14,15 +14,10 @@ With dashboards and charts, all Tanzu Observability by Wavefront users can exami
 
 All users can customize their dashboards to drill down into data. Learn how to find a section, filter using variables or filters, set the time for the dashboard, and share the dashboard with others. You need Dashboards permissions to save your changes.
 
-<!---You can also watch the video <a href="https://bcove.video/2Wux6eP" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.--->
+You can also watch the video <a href="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gunwcmwm/uiConfId/49694343/pbc/252649793/st/0" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
 
 <p>
-<iframe id="kmsembed-1_gunwcmwm" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gunwcmwm/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0" title="Kaltura Player"></iframe>
-</p>
-
-<p> Original Brighcove video</p>
-<p>
-<iframe src="https://bcove.video/2Wux6eP" width="700" height="400" allowfullscreen="true" alt="customizing dashboards video"></iframe>
+<iframe id="kmsembed-1_gunwcmwm" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gunwcmwm/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0"></iframe>
 </p>
 
 
