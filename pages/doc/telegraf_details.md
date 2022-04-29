@@ -140,7 +140,7 @@ If you don't see issues in the Telegraf logs, ensure that the data are in a form
 Check the proxy log for reject errors. The file is at `/var/log/wavefront/wavefront.log` on the proxy machine by default. You might see an error message like the following:
 
 ```
-021-11-08 15:32:24,337 INFO  [AbstractReportableEntityHandler:reject] [2878] blocked input: [WF-300 Cannot parse metric: ""Update" source="rules-service"
+021-11-08 15:32:24,337 INFO  [AbstractReportableEntityHandler:reject] [2878] blocked input: [WF-300 Cannot parse metric: "Update" source="rules-service"
 ```
 
 ### Step 6: Verify Data on Local Drive
