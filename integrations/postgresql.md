@@ -23,9 +23,28 @@ This integration uses the PostgreSQL input plugin for Telegraf. If you've alread
 
 Log in to your Wavefront instance and follow the instructions in the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
 
-### Step 2. Configure PostgreSQL Input Plugin
+### Step 2. Add Extensions
 
-Create a file called `postgresql.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
+On the machine where PostgreSQL runs, in the `postgresql.conf` file, add extension `pg_stat_statements,pg_stat_kcache` to `shared_preload_libraries property` as below and restart the PostgreSQL server.
+
+`shared_preload_libraries = 'pg_stat_statements,pg_stat_kcache'`
+
+You can find the `postgresql.conf` file under a directory such as `/etc/postgresql/<postgressql-version>/main/`.
+
+### Step 3. Enable Extensions
+
+To monitor the database, on the machine where PostgreSQL runs, enable the following extensions.
+{% raw %}
+```
+create extension pg_stat_statements;
+create extension pg_stat_kcache;
+create extension pg_proctab;
+```
+{% endraw %}
+
+### Step 4. Configure PostgreSQL Input Plugin
+
+On the machine where Telegraf runs, create a file called `postgresql.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
 {% raw %}
 ```
 [[inputs.postgresql_extensible]]
@@ -84,7 +103,7 @@ Create a file called `postgresql.conf` in `/etc/telegraf/telegraf.d` and enter t
 ```
 {% endraw %}
 
-### Step 3. Restart Telegraf
+### Step 5. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your agent.
 
