@@ -65,7 +65,7 @@ In the next release(s), the service accounts that are still part of the predefin
 <tr>
   <td width="50%">
     <strong>Full Support for Embedded Charts</strong>:
-    <br/>You can now embed all types of charts in other UIs. For example, you can embed a chart in an internal or external Website. With this release we have added support for embedding the following types of charts:
+    <br/>You can now embed all types of charts in other UIs. For example, you can embed a chart in an internal or external Website. With this release, we have added support for embedding the following types of charts:
     <ul>
     <li>Stacked Column</li>
     <li>Table</li>
@@ -81,16 +81,18 @@ In the next release(s), the service accounts that are still part of the predefin
   <strong>Read More:</strong>
   <br/>
   <a href="ui_sharing.html#embed-a-chart-in-other-uis">Embed a Chart in Other UIs</a>
+  <br/>
+  <img src="/images/embedded_chart_legend.png" alt="A screenshot of an embedded pie chart.">
   </td>
 </tr>
 <tr>
   <td width="50%">
   <strong>Chart Support in Alert Notifications and Other Systems</strong>:
-  <p> We now support all types of chart images in all <a href="alerts_notifications.html#static-chart-image-in-notifications">alert notifications</a>, such as email, Slack, etc. See the sample screenshot on the right.</p>
+  <p> We now support all types of chart images in all <a href="alerts_notifications.html#static-chart-image-in-notifications">alert notifications</a>, as well as Slack messages, etc. See the sample screenshot on the right.</p>
   </td>
   <td width="50%">
   <br/>
-  <img src="/images/alert_chart_only.png" alt="A screenshot of a chart included in an alert notification email.">
+  <img src="/images/chart_embed_slack.png" alt="A screenshot of a chart included in an slack message.">
   </td>
   </tr>
 <tr>
