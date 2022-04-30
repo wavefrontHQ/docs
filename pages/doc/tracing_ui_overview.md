@@ -15,9 +15,9 @@ As part of troubleshooting an application, you need an overview of the services 
 
 The application map gives you an overview of how the applications and services are linked, lets you focus on a specific service, view Request, Error, and Duration (RED) metrics for each service, and the tracing traffic in the application. You can also drill down to the Service Dashboard and Tracing Browser.
 
-This <a href="https://bcove.video/3oDxXaa" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights the application map features and settings:
+This <a href="https://vmwaretv.vmware.com/media/t/1_atlrv7sa" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights the application map features and settings:
 
-<iframe src="https://bcove.video/3oDxXaa" width="700" height="400" allowfullscreen="true" alt="Wavefront intro how-to"></iframe>
+<iframe id="kmsembed-1_atlrv7sa" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_atlrv7sa/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="application map settings"></iframe>
 
 See the application map:
 1. In your web browser, go to your Wavefront instance and log in.
