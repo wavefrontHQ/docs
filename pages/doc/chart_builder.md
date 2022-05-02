@@ -14,14 +14,14 @@ Chart Builder has the tools for creating charts and customizing which metrics yo
 * Show or hide individual queries
 * Clone or delete a query line
 * Create alerts directly from a query.
-* Turn on [**Anomaly Detection**](anomaly_detection.html). 
+* Turn on [**Anomaly Detection**](anomaly_detection.html).
 
 
 ## Video
 
 Here's a 90 second overview of some of the main features.
 
-<iframe src="https://bcove.video/2Xx9IPz" width="700" height="400" allowfullscreen="true" alt="Wavefront intro how-to"></iframe>
+<iframe id="kmsembed-1_46pqfyms" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_46pqfyms/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Wavefront intro how-to"></iframe>
 
 ## Get Started
 

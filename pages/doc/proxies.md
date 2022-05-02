@@ -87,49 +87,13 @@ You can modify proxy behavior in several ways:
 Wavefront proxies support:
 * Time-series metrics
 * Histograms
-* Traces/spans
+* Traces/spans 
 
 Each type of data uses a different data format. See [Wavefront Data Format](wavefront_data_format.html) for details and links.
 
-## Proxies Troubleshooting & Advanced Configuration
 
-
-### Truncate the Proxy Queue
-
-If, for any reason, you have to truncate the proxy queue, you can do it locally by cleaning up the buffer directory, or remotely using the API with the `truncate` flag.
-
-{% include warning.html content="Truncating the proxy can lead to data loss, but helps if you cannot safely empty queued proxy data in other ways." %}
-
-**To truncate the proxy queue:**
-
-In most cases, you truncate the proxy queue by deleting the files in the proxy queue directory.
-
-1. Connect to the proxy machine.
-2. Stop the proxy.
-3. Delete all files in the proxy queue directory
-4. Start the proxy
-
-**To truncate the proxy queue with the API:**
-
-If you can't connect to the proxy machine or don't have permissions for the proxy queue directory, you can truncate the queue with the API.
-
-Run the following command:
-
-```curl
-$curl -X PUT -H 'Authorization: Bearer <TOKEN>' -H 'Content-Type: application/json' "https://MY_INSTANCE.wavefront.com/api/v2/proxy/PROXY_ID" -d {"truncate":true}
-```
-
-* `MY_INSTANCE` is your Wavefront instance, for example, the URL could start with `https://example.wavefront.com`
-* `PROXY_ID` is the ID, which you can find in the Proxies browser in the Hostname column.
-
-### More Info
+## Learn More!
 
 * [Monitor Wavefront Proxies](monitoring_proxies.html) discusses proxy information in the Wavefront Usage dashboard and lists `~proxy` internal metrics.
-
-See the following KB articles for additional proxy troubleshooting help.
-
-* [Orphaned Proxy Instances in Tanzu Observability by Wavefront UI](https://help.wavefront.com/hc/en-us/articles/360060591732-Orphaned-Proxy-instances-in-Tanzu-Observability-UI)
-* [How to Enable Proxy Health Checks for Tanzu Observability by Wavefront](https://help.wavefront.com/hc/en-us/articles/360058952572-How-to-enable-Tanzu-Observability-Proxy-Health-Checks-)
-* [How to Chain Proxies](https://help.wavefront.com/hc/en-us/articles/360056083472-How-to-Proxy-Chain)
-* [Validating Metrics Received at the Proxy](https://help.wavefront.com/hc/en-us/articles/360054622132-Validating-metrics-received-at-the-proxy)
-* [Common Proxy Log Messages](https://help.wavefront.com/hc/en-us/articles/360050483312-Common-Tanzu-Observability-by-Wavefront-Proxy-Log-Messages)
+* [Proxies Troubleshooting](proxies_troubleshooting.html) helps with proxy queue management, proxy messages, and more.
+* * [Telegraf Troubleshooting](telegraf_details.html) has details on troubleshooting and fine-tuning the Telegraf agent.

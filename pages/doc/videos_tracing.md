@@ -32,7 +32,7 @@ Wavefront supports distributed tracing with third-party apps such as Jaeger or y
 </tr>
 <tr>
   <td><strong><font color="#0091DA" size="3"> Traces Browser Features</font></strong><br>
-    <a href="https://bcove.video/3vaNJM7" target="_blank"><img src="/images/traces_browser_video_section.png" alt="Highlights the traces browser features."/></a></td>
+    <a href="https://vmwaretv.vmware.com/media/t/1_guro3vem" target="_blank"><img src="/images/traces_browser_video_section.png" alt="Highlights the traces browser features."/></a></td>
   <td>
     <br>
     <p>
@@ -41,8 +41,8 @@ Wavefront supports distributed tracing with third-party apps such as Jaeger or y
   </td>
 </tr>
 <tr>
-  <td><strong><font color="#0091DA" size="3"> Application Map Features and Settings </font></strong><br>
-    <a href="https://bcove.video/3oDxXaa" target="_blank"><img src="/images/application_map_video_section.png" alt="Highlights the application map features."/></a></td>
+  <td><strong><font color="#0091DA" size="3">Application Map Features and Settings </font></strong><br>
+    <a href="https://vmwaretv.vmware.com/media/t/1_atlrv7sa" target="_blank"><img src="/images/application_map_video_section.png" alt="Highlights the application map features."/></a></td>
   <td>
     <br>
     <p>
