@@ -135,3 +135,8 @@ Next, log in to your Tanzu Observability instance and examine your data in dashb
 
 * Try out the Tutorials listed under the Tutorial section and see how you can send your data to Tanzu Observability!
 * To enable proxy debug logs for the OpenTelemetry data sent directly to the Wavefront Proxy, see [Enable Proxy Debug Logs for OpenTelemetry Data](https://docs.wavefront.com/opentelemetry_logs.html).
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="opentelemetry_send_data.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
