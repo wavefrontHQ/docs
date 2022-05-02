@@ -630,12 +630,8 @@ entries:
     output: web
     folderitems:
 
-      - title: Send Trace Data
-        url: /opentelemetry_tracing.html
-        output: web
-
-      - title: Send Metrics Data
-        url: /opentelemetry_metrics.html
+      - title: Send Data
+        url: /opentelemetry_send_data.html
         output: web
         
         subfolders:
@@ -644,12 +640,20 @@ entries:
           output: web
           subfolderitems:
 
-          - title: "Manually Instrument Java Applcation"
-            url: /opentelemetry_java_tutorial_manual_instrumentation.html
+          - title: "Java"
+            url: /opentelemetry_java_app_tutorial.html
             output: web
             
-          - title: "Tutorials on GitHub"
-            url: /opentelemetry_java_tutorial.html
+          - title: "Go"
+            url: /opentelemetry_go_app_tutorial.html
+            output: web
+            
+          - title: ".Net"
+            url: /opentelemetry_dot_net_app_tutorial.html
+            output: web
+            
+          - title: "Python"
+            url: /opentelemetry_python_app_tutorial.html
             output: web
             
       - title: Enable Proxy Debug Logs
