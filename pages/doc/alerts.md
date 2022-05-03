@@ -157,7 +157,7 @@ When an alert fires, we analyze the point tags that are most likely to be relate
 In this video, Pierre gives a 2-minute tour of Alert Viewer:
 
 <p>
-<iframe src="https://bcove.video/3r3PRVe" width="700" height="400" allowfullscreen="true" alt="intro to alert viewer"></iframe>
+<iframe id="kmsembed-1_qdr0dtwr" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_qdr0dtwr/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="intro to alert viewer"></iframe>
 </p>
 
 

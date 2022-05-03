@@ -61,10 +61,10 @@ To view and manage maintenance windows, select **Alerting > Maintenance Windows*
 <div markdown="span" class="alert alert-info" role="alert">While every user can view maintenance windows, you must have the [**Alerts** permission](permissions_overview.html) to [manage](maintenance_windows_managing.html) maintenance windows. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
 
-Watch this <a href="https://bcove.video/3m7AM4x" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> for an introduction to maintenance windows.
+Watch this <a href="https://vmwaretv.vmware.com/media/t/1_u77s1kyo" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> for an introduction to maintenance windows.
 
 <p>
-<iframe src="https://bcove.video/3m7AM4x" width="700" height="400" allowfullscreen="true" alt="Video of Jason explaining maintenance windows"></iframe>
+<iframe id="kmsembed-1_u77s1kyo" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_u77s1kyo/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Video of Jason explaining maintenance windows"></iframe>
 </p>
 
 ### Creating a Maintenance Window
