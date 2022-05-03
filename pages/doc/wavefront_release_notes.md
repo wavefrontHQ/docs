@@ -65,7 +65,7 @@ In the next release(s), the service accounts that are still part of the predefin
 <tr>
   <td width="50%">
     <strong>Full Support for Embedded Charts</strong>:
-    <br/>You can now embed all types of charts in other UIs. For example, you can embed a chart in an internal or external Website. With this release, we have added support for embedding the following types of charts:
+    <br/>You can now <a href="ui_sharing.html#embed-a-chart-in-other-uis">embed all types of charts in other UIs</a>. For example, you can embed a chart in an internal or external website. With this release, we have added support for embedding the following types of charts:
     <ul>
     <li>Stacked Column</li>
     <li>Table</li>
@@ -76,12 +76,10 @@ In the next release(s), the service accounts that are still part of the predefin
     <li>Gauge</li>
     <li>Pie</li>
     </ul>
+    See the screenshot on the right.
   </td>
   <td width="50%">
-  <strong>Read More:</strong>
-  <br/>
-  <a href="ui_sharing.html#embed-a-chart-in-other-uis">Embed a Chart in Other UIs</a>
-  <br/>
+  <br />
   <img src="/images/embedded_chart_legend.png" alt="A screenshot of an embedded pie chart.">
   </td>
 </tr>
@@ -92,7 +90,7 @@ In the next release(s), the service accounts that are still part of the predefin
   </td>
   <td width="50%">
   <br/>
-  <img src="/images/chart_embed_slack.png" alt="A screenshot of a chart included in an slack message.">
+  <img src="/images/chart_embed_slack.png" alt="A screenshot of a chart included in a slack message.">
   </td>
   </tr>
 <tr>
@@ -104,10 +102,11 @@ In the next release(s), the service accounts that are still part of the predefin
   <li>Select a section.</li>
   <li>Navigate through the provided <strong>Dashboard list filters</strong>, or search for the dashboard from which you want to import a section.</li>
   </ol>
+  See <a href="ui_dashboards.html#create-a-dashboard-by-importing-sections-from-other-dashboards">here</a> for details on how to create a dashboard by importing sections from other dashboards.
   </td>
   <td width="50%">
   <br/>
-  <img src="/images/import_dashboard_section.png" alt="The new Dashboard Templates button.">
+  <img src="/images/import_dashboard_section.png" alt="The new Dashboard Templates button allowing you to select and import dashboard sections.">
   </td>
 </tr>
 <tr>
@@ -116,7 +115,7 @@ In the next release(s), the service accounts that are still part of the predefin
    <p>
    <ul><li>
    We have improved the query stats experience. When you click the <strong>lightbulb icon</strong> for a query and hover over Cardinality, Points Scanned, or Duration, you can also see how much the query contributes to that chart stat. See the screenshot on the right. </li>
-   <li>You can now enter SI or IEC units in the <strong>Min</strong> and <strong>Max</strong> fields for the Y Axis across different chart types. For example, 5K for 5000 in SI and 5Ki for 5000 in IEC. If you enter an incorrect unit, you will see an error message.</li>
+   <li>You can now enter SI or IEC units in the <strong>Min</strong> and <strong>Max</strong> fields for the Y Axis across different chart types.</li>
    </ul>
    </p>
    </td>
@@ -134,6 +133,7 @@ In the next release(s), the service accounts that are still part of the predefin
   </td>
   <td width="50%">
   <strong>Read More:</strong>
+  <br />
   <ul>
   <li><a href="alerts_faq.html">Alerts FAQ (Expanded)</a></li>
   <li><a href="wavefront_usage_info.html#how-can-i-optimize-my-ingestion-rate">How Can I Optimize My Ingestion Rate?</a></li>
