@@ -68,6 +68,7 @@ The metrics used in this section are:
 - `~proxy.jvm.garbage-collectors.*.time` - Garbage collection (GC) activity on the proxy JVM. Anything larger than 200ms is a GC issue, anything near 1s indicates continuous full GCs in the proxy.
 - `~proxy.jvm.memory.heapMax/heapUsed` - Memory usage by the proxy process.
 - `~proxy.push.*.duration.duration.median` - Duration taken by points pushed from the proxy to reach Tanzu Observability. Can help identify network latency issues. You can graph other percentiles.
+- `~proxy.points.*.received.lag.p95` - 95th percentile of time differences (in milliseconds) between the timestamp on a point and the time that the proxy received it. Large numbers indicate backfilling old data, or clock drift in the sending systems.
 - `~proxy.points.*.received.lag.p99` - p99 difference between the timestamp on a point and the time that the proxy received it. High numbers can indicate back-filling old data, or clock drift in sending systems.
 - `~proxy.buffer.queue-time.*` - Latency introduced by queueing.
 
@@ -75,6 +76,24 @@ For example, this row from that section shows latency metrics using `~proxy.push
 
 ![A screenshot of the P95 Network Latency, P75 Network Latency and Median Network Latency charts.](images/proxy_troubleshooting.png)
 
-## Learn More!
+### Monitor the Time a Proxy Is Spending with Preprocessing Rules
 
-* [How to monitor the time Proxy is spending with preprocessing rules](https://help.wavefront.com/hc/en-us/articles/360059103512-How-to-monitor-time-Proxy-is-spending-with-preprocessing-rules)
+You can monitor the time a proxy is spending with [preprocessing rules](proxies_preprocessor_rules.html). Monitoring the preprocessor is useful, because it shows how much time the JVM is spending on each rule and on all rules, in addition to being able to determine the overall effectiveness of the rules. Rules that are not optimized can contribute to data lag, meaning that Tanzu Observability will not  receive the data in a timely manner. 
+
+For best performance, make sure that the expression leverages the [proxy rules best practices](proxies_preprocessor_rules.html#regex-notes) and that your proxy runs the latest version. 
+
+The following charts will help you to understand how much time a proxy spends on preprocessing rules:
+
+* **Preprocessor rules: CPU time per proxy**
+
+  This chart shows an aggregate view of how long each proxy is spending executing all of the preprocessing rules.  
+
+* **Preprocessor rules: CPU time per rule**
+
+  This chart shows an aggregate view across all proxies showing how much time it is taking executing each rule for each message. This chart helps you display outliers and identify preprocessing rules which should be optimized.
+  
+* **Preprocessor rules: hit ratio, %**
+  
+  This chart will help you identify if there are preprocessing rules that are no longer in use or impact a high number of metrics being ingested. Use this chart to identify if there are some rules which should be deprecated or possibly fine-tuned.
+
+![A screenshot of the Preprocessor rules: CPU time per proxy, Preprocessor rules: CPU time per rule, and Preprocessor rules: hit ratio, % charts.](images/preprocessor_rules.png)
