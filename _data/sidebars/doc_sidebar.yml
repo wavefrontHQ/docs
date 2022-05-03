@@ -472,6 +472,22 @@ entries:
       url: /wavefront_prometheus.html
       output: web
 
+  - title: Logging
+    output: web
+    folderitems:
+      
+    - title: Overview
+      url: /logging_overview.html
+      output: web
+    
+    - title: Log Browser
+      url: /logging_log_browser.html
+      output: web
+      
+    - title: Tutorials
+      url: /logging_tutorials.html
+      output: web
+      
   - title: Integrations
     output: web
     folderitems:
