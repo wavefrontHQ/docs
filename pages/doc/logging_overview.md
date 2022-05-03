@@ -13,11 +13,11 @@ In a microservice architecture, the services in an application are distributed, 
 
 You can use metrics to get the numerical data to identify the performance issues in a system, use traces to get an overview of your entire application and discover the services or service requests that don’t perform as expected and use logs to debug the issues.
 
-{%include note.html content="By default, Tanzu Observability retains the logs you send for 14 days. If you want to retain it for a longer time period contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help."%}
+{%include note.html content=Tanzu Observability retains the logs you send for 14 days. If you want to keep the data for a longer time, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help."%}
 
 ## What's a Log?
 
-Logs are structured or unstructured text records of an events that took place at a given time. Logs in Taznu observability include the following attributes:
+Logs are structured or unstructured text records of events that took place at a given time. Logs in Taznu Observability include the following attributes:
 
 ![Gives an overview of the attributes in a log. They are listed in the table below](images/logging_log_image.png)
 
@@ -75,20 +75,20 @@ Logs are structured or unstructured text records of an events that took place at
 
 ## Send Logs to Tanzu Observability
 
-You can send your logs from your logs shipper or directly from your application to the Wavefront proxy.
+You can send logs from your logs shipper, or directly from your application to the Wavefront proxy.
 
-The Wavefront proxy accepts a JSON payload over HTTP. Logs greater than 16 MB are rejected by the Wavefront proxy. If you logs exceed the default limit of 16 MB, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help.
+The Wavefront proxy accepts a JSON payload over HTTP. Logs greater than 16 MB are rejected by the Wavefront proxy. If your logs exceed the default limit of 16 MB, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help.
 
 ![shows how data goes from the log shipper to the wavefront proxy and then to the Wavefront instance](images/logging_send_data.png)
 
 ### Prerequisites
 
 * A Tanzu Observability by Wavefront account, which gives you access to a cluster. If you don’t have a cluster, [sign up for a free trial](https://tanzu.vmware.com/observability-trial).
-* A specific API token to let you send logs data to Tanzu Observability. [HOW TO GET THIS?]
+* A specific API token to send logs to Tanzu Observability. [HOW TO GET THIS?]
 
 ### Configure Your Log Shipper
 
-As a best practice we recommend that you use a log shipper to send your logs to Tanzu Observability. A Logs shipper helps, buffer and scrape your logs before sending it to the Wavefront proxy.
+As a best practice, use a log shipper to send your logs to Tanzu Observability. A Logs shipper helps buffer, and scrape your logs before sending them to the Wavefront proxy.
 
 Configure your log shipper:
   1. Open port to send logs to the Wavefront Proxy by opening port [ENTER PORT] .. [WHAT ELSE?]
@@ -96,12 +96,8 @@ Configure your log shipper:
 
 ### Install Wavefront Proxy 
 
-The Wavefront proxy accepts a JSON payload over HTTP or you can send logs data as a GZIP file. 
-
-Logs greater than 16 MB are rejected by the Wavefront proxy. If you logs exceed the default limit of 16 MB, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help.
-
 Follow these steps:
-1. Install the Wavefront Proxy version [ADD VERSION] or higher.
+1. [Install the Wavefront Proxy](proxies_installing.html) version [ADD VERSION] or higher.
 1. Open the port on the Wavefront Proxy to receive logs from the log shipper [WHAT [PORT]].
 
 ## View Logs in Tanzu Observability
