@@ -873,6 +873,10 @@ entries:
             url: /wavefront-internal-metrics.html
             output: web
 
+          - title: Track Alerts, Users, and Dashboards
+            url: /track_adoption.html
+            output: web
+
           - title: Monitor Wavefront Proxies
             url: /monitoring_proxies.html
             output: web

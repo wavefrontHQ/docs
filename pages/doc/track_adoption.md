@@ -1,0 +1,77 @@
+---
+title: Track Tanzu Observability Alerts, Users, and Dashboards
+keywords: administration
+tags: [administration, dashboards, monitoring]
+sidebar: doc_sidebar
+permalink: track_adoption.html
+summary: Learn how you can track the Tanzu Observability alerts, users, and dashboards with usage metadata.
+---
+
+Tanzu Observability comes with a number of internal metrics that track the usage of your Tanzu Observability instance and provides you with ways to interpret these metrics by using the Wavefront query language. The broad categories of these internal metrics (or Wavefront Stats) are alerts, users, and dashboards. Our SaaS Value Engineering team has put together some best practices to monitor the Tanzu Observability adoption.
+
+You can use the Wavefront Query Language (WQL) to access Tanzu Observability Stats at `~wavefront.` namespace. To see the full list of metrics, in the GUI, click **Browse > Metrics** and search for `~wavefront`. 
+
+Let’s take a detailed look at what is available and how you can interpret this data.
+
+## How to Track the Number of Alerts
+
+Ever wondered how many total alerts have your user base has created over time? How many of these alerts are active at a given time or how many of them are severe and active at a given time? Tanzu Observability provides granular metrics around all alerts configured for your instance under the `~wavefront.alerts` namespace. Some of the metrics that we've made available to you under the `~wavefront.alerts` namespace are:
+
+* `~wavefront.alerts.active`
+* `~wavefront.alerts.active_info`
+* `~wavefront.alerts.active_severe`
+* `~wavefront.alerts.active_smoke`
+* `~wavefront.alerts.active_warn`
+* `~wavefront.alerts.affected_by_maintenance`
+* `~wavefront.alerts.affected_by_maintenance_info`
+* `~wavefront.alerts.affected_by_maintenance_severe`
+* `~wavefront.alerts.affected_by_maintenance_smoke`
+* `~wavefront.alerts.affected_by_maintenance_warn`
+* `~wavefront.alerts.all`
+
+![A screenshot of a ts query with the ~wavefront.alerts namespace entered to display the list of the metrics above.](images/wavefront_alert_namespace.png)
+
+For example:
+
+* To see the total number of alerts configured over time, use the `~wavefront.alerts.all` metric:
+
+  ![A screenshot of a chart displaying all alerts.](images/wavefront_alerts_all.png)
+
+* To see how many alerts were active at a certain time, create a chart by using the `~wavefront.alerts.active` metric:
+
+  ![A screenshot of a chart displaying all active alerts.](images/wavefront_alerts_active.png)
+
+* The active alerts can be further refined into different severity levels by using the `~wavefront.alerts.active_*` metric.
+
+  ![A screenshot of a chart displaying a breakdown of the active alerts by severity.](images/wavefront_alerts_active_breakdown.png)
+
+## Track the Number of Active Tanzu Observability Users
+
+As a Tanzu Observability Super Admin User, you want better statistics on Tanzu Observability adoption. The internal metrics provide you with not only the total number of users that have adopted the platform but also statistics around the Weekly Active Users and Monthly Active Users. 
+
+The user activity metrics accessed through the `~wavefront.users` namespace show you your weekly active users, your monthly active users, and the total number of users. When analyzed over longer periods, they can show you your most active (or least active) days, weeks, or months.
+
+The namespaces to access these statistics are as follows:
+
+* `~wavefront.users.total` -- Total active users.
+* `~wavefront.users.active.7day` -- Weekly active users.
+* `~wavefront.users.active.30day` -- Monthly active users.
+
+![A screenshot of a chart displaying the number of total active users, weekly active users and monthly active users over a 6-months period.](images/user_activity.png)
+
+These statistics provide you with an understanding of how active your user base is and what are the peak periods, if any, when the users access Tanzu Observability.
+
+## Track Dashboards Usage and Popularity
+
+Dashboards are an excellent way of visualizing your data by collecting different charts in a single place. As new applications and services are launched, users often create new dashboards per their need to visualize their metrics in a single place. However, the user needs change over time, and sometimes new dashboards are created without deleting the no longer needed ones. While there is no limit for creating additional dashboards, the dashboards can overpopulate your dashboard organizer with a list of dashboards that are no longer in use.
+
+Tanzu Observability provides metrics not only on the total number of dashboards but also the number of times a particular dashboard has been accessed in the past and exact dates and time it was accessed. 
+
+To access these statistics simply create charts with the `~wavefront.dashboard.<dashboard_name>.views` metric or `~wavefront.dashboard.*.views` for all dashboards:
+
+![An image of a chart displaying all dashboards within the last 6 months.](images/dashboards_total_chart.png)
+
+## Learn More!
+
+* [Find Actionable Usage Information](wavefront_usage_info.html) explains how to use tools and dashboards to learn how much data is coming in, who is sending the data, how to get alerted if ingested data get close to monthly contracted usage, and how to optimize your ingestion rate.
+* [Wavefront Stats and Alert Stats](wavefront_monitoring.html#wavefront-stats-and-alert-stats) explains the charts included in the Wavefront Stats and Alert Stats sections of the **Wavefront Service and Proxy Data** dashboard.
