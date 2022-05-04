@@ -193,10 +193,7 @@ Unless otherwise indicated, Tanzu Observability sets the value of the AWS Metric
   - `aws.limits.<resource>.usage` - The current usage of an AWS resource in a particular region.
 
     {% include note.html content="To examine these metrics, your account needs at least the Business-level AWS Support plan because the integration uses the Support API to pull service limits. You also need both ReadOnlyAccess and AWSSupportAccess. See [Giving Tanzu Observability Read-Only Access](integrations_aws_overview.html#giving-tanzu-observability-access-to-your-aws-account) for details." %}
-    
-- AWS Usage Metrics - Check if throttling is happening and get the number of API calls.
-  - `aws.usage.throttlecount` - Understand whether throttling is happening at the AWS end.
-  - `aws.usage.callcount.*` - Get the number of API calls that goes to AWS. If you know the Service Quota, you can easily calculate the percentage of usages and trigger an alert if the percentage reaches a defined threshold.
+
 
 <!--## AWS Metrics+ Trusted Advisor Service Limits
 
