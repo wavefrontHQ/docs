@@ -97,9 +97,6 @@ The AWS Billing and Cost Management service sends [billing metrics](http://docs.
 
 Tanzu Observability reports the single metric `aws.billing.estimatedcharges`. The `source` field and `ServiceName` point tag identify the AWS services. For the total estimated charge metric, `source` is set to `usd` and `ServiceName` is empty. Tanzu Observability also provides the point tags `accountId`, `Currency`, `LinkedAccount`, and `Region`. Billing metrics are typically reported every 4 hours.
 
-### Retrieve AWS Service Metrics from the API
-
-Our Customer Success team has prepared a KB article that explains how to [Update the CloudWatch integration to retrieve services from the API](https://help.wavefront.com/hc/en-us/articles/360059699691-Updating-Cloudwatch-Integration-to-retrieve-AWS-service-metrics-from-the-API)
 
 ## CloudTrail Events, Metrics, and Point Tags
 
@@ -182,20 +179,24 @@ Unless otherwise indicated, Tanzu Observability sets the value of the AWS Metric
   - `aws.sqs.approximatenumberofmessagesnotvisible` - The number of messages that are "in flight." Messages are considered in flight if they have been sent to a client but have not yet been deleted or have not yet reached the end of their visibility window.
   - `aws.sqs.approximatenumberofmessagesdelayed` - The number of messages in the queue that are delayed and not available for reading immediately. This can happen when the queue is configured as a delay queue or when a message has been sent with a delay parameter.
   - `aws.sqs.approximatenumberofmessages` aliased to the CloudWatch metric `aws.sqs.approximatenumberofmessagesvisible` - The number of messages available for retrieval from the queue.
-- Pricing Metrics - capture the current pricing of EC2 instances. These metrics are available as a preview and subject to change. These metrics have the point tags  `instanceType`, `operatingSystem`, `Region`, `purchaseOption` (All Upfront, Partial Upfront, No Upfront), `leaseContractLength` (1 or 3 years), and `offeringClass` (standard or convertible)). The `source` field is set to the display name of the region. For example, if `Region=us-west2`, then `source=us west (oregon)`.
-  - `~sample.aws.ec2.on-demand.price.hourly` - the hourly price (in US$) of an on-demand instance.
-  - `~sample.aws.ec2.reserved.price.upfront` - the up-front payment (in US$) for a reservation.  This metric reports `0` when `purchaseOption` is No Upfront.
-  - `~sample.aws.ec2.reserved.price.hourly` - the hourly payment (in US$) for a reservation. This metric reports `0` when the `purchaseOption` is All Upfront.
+- Pricing Metrics - Capture the current pricing of EC2 instances. These metrics are available as a preview and subject to change. These metrics have the point tags  `instanceType`, `operatingSystem`, `Region`, `purchaseOption` (All Upfront, Partial Upfront, No Upfront), `leaseContractLength` (1 or 3 years), and `offeringClass` (standard or convertible)). The `source` field is set to the display name of the region. For example, if `Region=us-west2`, then `source=us west (oregon)`.
+  - `~sample.aws.ec2.on-demand.price.hourly` - The hourly price (in US$) of an on-demand instance.
+  - `~sample.aws.ec2.reserved.price.upfront` - The up-front payment (in US$) for a reservation.  This metric reports `0` when `purchaseOption` is No Upfront.
+  - `~sample.aws.ec2.reserved.price.hourly` - The hourly payment (in US$) for a reservation. This metric reports `0` when the `purchaseOption` is All Upfront.
 - RDS Metrics -give insight into Amazon Relational Database Service (RDS)
   - `aws.rds.allocatedstorage` - The amount of storage (in gigabytes) allocated for the database instance.
   - `aws.rds.capacity` - For Amazon Aurora only, RDS capacity.
   - `aws.rds.backtrackconsumedchangerecords` - For Amazon Aurora only, the number of change records stored for Backtrack.
 
-- Service Limit Metrics - capture the current resource limits and usage for your AWS account. These metrics include the point tags `Region` and `category`.
-  - `aws.limits.<resource>.limit` - the current limit for an AWS resource in a particular region.
-  - `aws.limits.<resource>.usage` - the current usage of an AWS resource in a particular region.
+- Service Limit Metrics - Capture the current resource limits and usage for your AWS account. These metrics include the point tags `Region` and `category`.
+  - `aws.limits.<resource>.limit` - The current limit for an AWS resource in a particular region.
+  - `aws.limits.<resource>.usage` - The current usage of an AWS resource in a particular region.
 
     {% include note.html content="To examine these metrics, your account needs at least the Business-level AWS Support plan because the integration uses the Support API to pull service limits. You also need both ReadOnlyAccess and AWSSupportAccess. See [Giving Tanzu Observability Read-Only Access](integrations_aws_overview.html#giving-tanzu-observability-access-to-your-aws-account) for details." %}
+    
+- AWS Usage Metrics - Check if throttling is happening and get the number of API calls.
+  - `aws.usage.throttlecount` - Understand whether throttling is happening at the AWS end.
+  - `aws.usage.callcount.*` - Get the number of API calls that goes to AWS. If you know the Service Quota, you can easily calculate the percentage of usages and trigger an alert if the percentage reaches a defined threshold.
 
 <!--## AWS Metrics+ Trusted Advisor Service Limits
 
