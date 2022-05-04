@@ -53,7 +53,7 @@ These metrics are displayed in a tabular chart:
 
 ## Proxy Troubleshooting
 
-You can also investigate second-level metrics that give you insight into questions, for example:
+In this section, you can also investigate second-level metrics that give you insight into questions, for example:
 * Why are some points blocked?
 * What's the file descriptor usage on the proxy JVM?
 * How long does it take for points to be pushed from the proxy to Tanzu Observability?
@@ -78,7 +78,7 @@ For example, this row from that section shows latency metrics using `~proxy.push
 
 ### Monitor the Time a Proxy Is Spending with Preprocessing Rules
 
-You can monitor the time a proxy is spending with [preprocessing rules](proxies_preprocessor_rules.html). Monitoring the preprocessor is useful, because it shows how much time the JVM is spending on each rule and on all rules, in addition to being able to determine the overall effectiveness of the rules. Rules that are not optimized can contribute to data lag, meaning that Tanzu Observability will not  receive the data in a timely manner. 
+In the **Proxy Troubleshooting** section of the **Wavefront Service and Proxy Data** dashboard, you can also monitor the time a proxy is spending with [preprocessing rules](proxies_preprocessor_rules.html). Monitoring the preprocessor is useful, because it shows how much time the JVM is spending on each rule and on all rules, in addition to being able to determine the overall effectiveness of the rules. Rules that are not optimized can contribute to data lag, meaning that Tanzu Observability will not  receive the data in a timely manner. 
 
 For best performance, make sure that the expression leverages the [proxy rules best practices](proxies_preprocessor_rules.html#regex-notes) and that your proxy runs the latest version. 
 
