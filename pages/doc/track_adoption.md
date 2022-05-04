@@ -13,7 +13,7 @@ You can use the Wavefront Query Language (WQL) to access Wavefront Stats at `~wa
 
 Let’s take a detailed look at what is available and how you can interpret this data.
 
-## How to Track the Alerts Status
+## Track the Number of Alerts
 
 Ever wondered how many total alerts your user base has created over time? How many of these alerts are active at a given time or how many of them are severe and active at a given time? Tanzu Observability provides granular metrics around all alerts configured for your instance under the `~wavefront.alerts` namespace. Some of the metrics that we've made available to you under the `~wavefront.alerts` namespace are:
 
@@ -70,6 +70,23 @@ Tanzu Observability provides metrics not only on the total number of dashboards 
 To access these statistics simply create charts with the `~wavefront.dashboard.<dashboard_name>.views` metric or `~wavefront.dashboard.*.views` for all dashboards:
 
 ![An image of a chart displaying all dashboards within the last 6 months.](images/dashboards_total_chart.png)
+
+## Examine Versions of Dashboards and Alerts
+
+Tanzu Observability stores details about each version of each dashboard and each alert. That means you have an audit trail of changes. When someone saves changes to a dashboard or alert, we create a new version and track the changes, including details about the change and the user who made the change. If you suspect that someone has made changes to a dashboard which results in higher usage, you can check who made the change and what has changed.
+
+You can examine dashboard and alert versions from the UI or using the REST API.
+
+**To examine versions of a dashboard:**
+
+1. Select **Browse > All Dashboards**
+2. Click the three vertical dots to the left of the dashboard you're interested in and select **Versions**.
+3. You can review the changes to the dashboard, revert to a previous version, or clone a previous version.
+
+![A screenshot of the table showing the Dashboard versions. Contains columns with the version number, user who updated the dashboard, date of the update, and descriptions of the changes.](images/dashboard_versions.png)
+
+The process is the same for alerts.
+
 
 ## Learn More!
 
