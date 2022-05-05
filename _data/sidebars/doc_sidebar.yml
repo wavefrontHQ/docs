@@ -518,7 +518,7 @@ entries:
             url: /integrations_aws_overview_API.html
             output: web
 
-          - title: AWS Metrics Integration
+          - title: AWS Integrations
             url: /integrations_aws_metrics.html
             output: web
 
@@ -887,6 +887,10 @@ entries:
 
           - title: Internal Metrics
             url: /wavefront-internal-metrics.html
+            output: web
+
+          - title: Track Alerts, Users, and Dashboards
+            url: /track_adoption.html
             output: web
 
           - title: Monitor Wavefront Proxies
