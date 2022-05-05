@@ -192,22 +192,6 @@ Customers often tell us that they want to make sure they don't exceed their comm
    * Finally, if you suspect that much of your usage comes from certain accounts (user or service accounts), consider setting up one or more [ingestion policies](ingestion_policies.html).
 
 
-## Examine Versions of Dashboards and Alerts
-
-Tanzu Observability stores details about each version of each dashboard and each alert. That means you have an audit trail of changes. When someone saves changes to a dashboard or alert, we create a new version and track the changes, including details about the change and the user who made the change. If you suspect that someone has made changes to a dashboard which results in higher usage, you can check who made the change and what is changed.
-
-You can examine dashboard and alert versions from the UI or using the REST API.
-
-**To examine versions of a dashboard:**
-
-1. Select **Browse > All Dashboards**
-2. Click the three vertical dots to the left of the dashboard you're interested in and select **Versions**.
-3. You can review the changes to the dashboard, revert to a previous version, or clone a previous version.
-
-![A screenshot of the table showing the Dashboard versions. Contains columns with the version number, user who updated the dashboard, date of the update, and descriptions of the changes.](images/dashboard_versions.png)
-
-The process is the same for alerts.
-
 ## Learn More!
 
 * [Find Actionable Usage Information](wavefront_usage_info.html) explains how to use tools and dashboards to learn how much data is coming in, who is sending the data, how to get alerted if ingested data get close to monthly contracted usage, and how to optimize your ingestion rate.
