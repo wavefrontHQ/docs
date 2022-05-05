@@ -103,7 +103,7 @@ As part of CloudWatch we collect metrics that let you check if throttling is hap
 
   - `aws.usage.throttlecount` - Understand whether throttling is happening at the AWS end.
   - `aws.usage.callcount.*` - Get the number of API calls that goes to AWS. If you know the Service Quota, you can easily calculate the percentage of usages and trigger an alert if the percentage reaches a defined threshold.
-
+  
 ## CloudTrail Events, Metrics, and Point Tags
 
 We retrieve CloudTrail event information stored in JSON-formatted log files in an S3 bucket. The CloudTrail integration parses the files for all events that result from an operation that is not a describe, get, or list, and creates a Tanzu Observability [System event](events.html).
@@ -200,6 +200,7 @@ Unless otherwise indicated, Tanzu Observability sets the value of the AWS Metric
 
     {% include note.html content="To examine these metrics, your account needs at least the Business-level AWS Support plan because the integration uses the Support API to pull service limits. You also need both ReadOnlyAccess and AWSSupportAccess. See [Giving Tanzu Observability Read-Only Access](integrations_aws_overview.html#giving-tanzu-observability-access-to-your-aws-account) for details." %}
     
+
 
 
 <!--## AWS Metrics+ Trusted Advisor Service Limits
