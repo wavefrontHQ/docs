@@ -100,7 +100,7 @@ If you use [direct ingestion](direct_ingestion.html), you are required to pass i
 
 ## Audit Trail
 
-You can view changes that were made to dashboards, alerts, etc., by using [versions](wavefront_monitoring.html#examine-versions-of-dashboards-and-alerts) of charts and dashboards.
+You can view changes that were made to dashboards, alerts, etc., by using [versions](track_adoption.html#examine-versions-of-dashboards-and-alerts) of charts and dashboards.
 
 ## Integrations
 

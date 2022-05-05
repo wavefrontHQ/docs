@@ -78,7 +78,7 @@ For example, this row from that section shows latency metrics using `~proxy.push
 
 ### Monitor the Time a Proxy Is Spending with Preprocessing Rules
 
-In the **Proxy Troubleshooting** section of the **Wavefront Service and Proxy Data** dashboard, you can also monitor the time a proxy is spending with [preprocessing rules](proxies_preprocessor_rules.html). The charts show the time the JVM spends on the rules and determine the overall effectiveness of the rules. Rules that are not optimized can contribute to data lag. As a result,Tanzu Observability will not receive the data in a timely manner. 
+In the **Proxy Troubleshooting** section of the **Wavefront Service and Proxy Data** dashboard, you can also monitor the time a proxy is spending with [preprocessing rules](proxies_preprocessor_rules.html). The charts show the time the JVM spends on the rules and determine the overall effectiveness of the rules. Rules that are not optimized can contribute to data lag. As a result, Tanzu Observability will not receive the data in a timely manner. 
 
 For best performance, make sure that the expression leverages the [regex best practices for the proxy rules](proxies_preprocessor_rules.html#regex-notes) and that your proxy runs the latest version. 
 
