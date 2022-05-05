@@ -72,7 +72,7 @@ The collector runs as a DaemonSet for high scalability and supports leader elect
 
 The Wavefront Collector for Kubernetes supports automatic monitoring of host-level metrics and host-level `systemd` metrics. When you set up the collector, it auto-discovers pods and services  in your environment and starts collecting host-level metrics.
 
-You can [filter the metrics](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/blob/main/docs/filtering.md) before they are reported to the Wavefront service.
+You can [filter the metrics](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/blob/master/docs/filtering.md) before they are reported to the Wavefront service.
 
 ### Application Monitoring
 
