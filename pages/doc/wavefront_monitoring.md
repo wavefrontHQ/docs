@@ -39,11 +39,17 @@ The Wavefront Usage integration includes the following dashboards:
 <td>In environments where ingestion policies are defined, investigate usage for <strong>each account and ingestion policy</strong>.</td>
 <td markdown="span">Provides a granular breakdown of the ingestion across your organization by [ingestion policies](ingestion_policies.html), accounts, sources, and types. Use this dashboard to identify who is contributing the most to your usage and manage your overall usage of the Wavefront service.</td></tr>
 <tr>
-<td><strong>Committed Rate vs Monthly Usage (PPS P95)</strong></td>
-<td>Avoid <strong>exceeding the committed rate</strong> for your instance by exploring dashboards and creating alerts.
+<td><strong>Committed Rate vs Monthly Usage (PPS P95) for Billable</strong></td>
+<td>Avoid <strong>exceeding the monthly commitment</strong> for your instance by exploring dashboards and creating alerts.
 </td>
-<td markdown="span">Displays a detailed breakdown of your monthly usage. Enables you to take appropriate action when usage reaches around 95% of your committed usage.</td></tr>
-
+<td><strong>Important:</strong> Use only if you have a billable commit contract with Tanzu Observability.
+<p>Displays a detailed breakdown of your monthly usage against your monthly commitment. Enables you to take appropriate action when usage reaches around 95% of your committed monthly usage.</p></td></tr>
+<tr>
+<td><strong>Usage (PPS) vs Remaining Balance (PPS P95) for Burndown</strong></td>
+<td>Avoid <strong>exceeding the burndown commitment</strong> for your instance by exploring dashboards and creating alerts.
+</td>
+<td><strong>Important:</strong> Use only if you have a burndown commit contract with Tanzu Observability.
+<p>Displays a detailed breakdown of your monthly usage against your remaining burndown balance. Enables you to take appropriate action when usage reaches around 95% of your burndown commitment.</p></td></tr>
 </tbody>
 </table>
 
@@ -146,27 +152,35 @@ The dashboard includes a link to the **Ingestion Policies** page so if you are a
 
 ![Screenshot of part of the Ingestion Policy Explorer dashboard](/images/ingestion_pps_usage_breakdown.png)
 
+{% include note.html content="The information contained in the **Wavefront Ingestion Policy Explorer** dashboard has a 24-hour latency."%}
 
-### Committed Rate vs Monthly Usage (PPS P95) Dashboard
+### PPS P95 Dashboards for Billable and Burndown
 
-This dashboard helps you monitor your **monthly usage** and ensure that you're not ingesting more PPS than your contracted rate allows.
+{% include important.html content="Use only the dashboard for your contract type:<br/>
+    - If you have a billable commit contract with Tanzu Observability, use the **Committed Rate vs Monthly Usage (PPS P95) for Billable** dashboard.<br/>
+    - If you have a burndown commit contract with Tanzu Observability, use the **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboard.<br/>
+"%}
 
-The dashboard gives a detailed breakdown of your Tanzu Observability monthly usage against commitment. When your usage reaches around 95% of your committed rate, you can then take appropriate action.
+The dashboard for your contract type helps you monitor your **monthly usage** and ensure that you're not ingesting more PPS than your contracted rate allows.
 
-For example:
+* The **Committed Rate vs Monthly Usage (PPS P95) for Billable** dashboard gives a detailed breakdown of your Tanzu Observability monthly usage against commitment.
+
+    ![Screenshot of part of the Committed Rate vs Monthly Usage (PPS P95) dashboard](/images/p95_dashboard.png)
+
+* The **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboard gives a detailed breakdown of your Tanzu Observability usage against the remaining burndown commitment.
+
+    ![Screenshot of part of the Committed Rate vs Monthly Usage (PPS P95) dashboard](/images/p95_dashboard.png)
+
+When your usage reaches around 95% of your committed rate, you can then take appropriate action. For example:
 
 * Examine who is using a high percentage of the PPS in the  **Wavefront Ingestion Policy Explorer** dashboard.
 * Implement [ingestion policies](ingestion_policies.html) and examine who is using a high percentage of the PPS.
-
-{% include note.html content="The information contained in the **Usage Summary** and the **Wavefront Ingestion Policy Explorer** dashboards have a 24-hour latency."%}
-
-![Screenshot of part of the Committed Rate vs Monthly Usage (PPS P95) dashboard](/images/p95_dashboard.png)
 
 ## Scenario: Avoid Exceeding the Committed Rate
 
 Customers often tell us that they want to make sure they don't exceed their committed monthly PPS (points per second). Follow these steps to monitor usage and take corrective action.
 
-1. The **Committed Rate vs Monthly Usage (PPS P95)** dashboard includes charts that show how close you are to consuming 95% of your contracted rate. You can add alerts to charts in this dashboard to get notifications.
+1. The **Committed Rate vs Monthly Usage (PPS P95) for Billable** dashboard includes charts that show how close you are to consuming 95% of your contracted rate. You can add alerts to charts in this dashboard to get notifications.
 2. If you need to reduce usage, you have several options:
    * Start examining ingestion from the **Wavefront Service and Proxy Data** dashboard.
 

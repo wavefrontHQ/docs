@@ -23,8 +23,6 @@ If the customer uses more than the contracted rate, VMware bills for those addit
 
 ## How Can I Learn About Ingested Data?
 
-{% include note.html content="The new Usage Portal and Ingestion Policy functionality is currently available to some of our customers. It will become available to all customers within the next releases."%}
-
 <table>
 <tbody>
 <thead>
@@ -43,10 +41,10 @@ If the customer uses more than the contracted rate, VMware bills for those addit
 </td>
 </tr>
 <tr>
-<td>How close am I to my billing limit?</td>
+<td>How close am I to my committed limit?</td>
 <td>
 Use the <a href="examine_usage.html"><strong>Usage Summary</strong></a> dashboard on the <strong>Usage and Ingestion Policies</strong> page to see information about the projected overage and whether you exceed your committed rate.
-<p>Use the <strong>Committed Rate vs Monthly Usage (PPS P95)</strong> dashboard. Consider cloning and customizing this dashboard and adding alerts.</p></td>
+<p>Depending on your contract type, use the <strong>Committed Rate vs Monthly Usage (PPS P95) for Billable</strong> or the <strong>Usage (PPS) vs Remaining Balance (PPS P95) for Burndown</strong> dashboard. Consider cloning and customizing this dashboard and adding alerts.</p></td>
 </tr>
 <tr>
 <td>What are current usage details?</td>
@@ -124,9 +122,9 @@ The [Wavefront Spy API](wavefront_monitoring_spy.html) gives even more detail, b
 
 The first thing you would do is to investigate the charts in the [Usage Summary dashboard](examine_usage.html). They can show you how close you are to exceeding your committed rate and whether you will be billed for overages.
 
-The **Committed Rate vs Monthly Usage (PPS P95)** dashboard that’s part of the Wavefront Usage integration helps you determine whether you’re getting close to meeting the limit. For most Wavefront instances, after the limit is reached data still keeps flowing into Tanzu Observability, but the customer has to pay overage.
+Depending on your contract type, the **Committed Rate vs Monthly Usage (PPS P95) for Billable** dashboard or the **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboard in the Wavefront Usage integration helps you determine whether you’re getting close to meeting the committed usage. For most Wavefront instances, after the committed usage is reached data still keeps flowing into Tanzu Observability, but the customer has to pay overage.
 
-The charts in the dashboard show this information:
+The charts in the dashboards show this information:
 
 * Current PPS vs Committed PPS usage.
 * Usage of the Wavefront service in terms of PPS for your current billing period.
