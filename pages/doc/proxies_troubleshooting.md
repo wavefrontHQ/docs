@@ -208,6 +208,7 @@ INFO [AbstractReportableEntityHandler:reject] [<port>] blocked input: [WF-300 Ca
   A data point is not formatted properly and was blocked by the proxy.
 
 * Potential Resolution:
+
   Confirm that the data point conforms to the format configured for the specified port. The proxy can handle various different data formats. Ensure that the data format you've configured for the port matches the format of data arriving at that port.
 
   If the port is configured for standard [Wavefront data format](wavefront_data_format.html), check the format of the data point mentioned in the log message.
@@ -257,7 +258,7 @@ INFO [AbstractReportableEntityHandler:reject] [<port>] blocked input: [WF-300 Ca
   ```
 * Explanation:
 
-  The proxy has received a data point without a line terminator (ie. a newline character). This usually happens when the client disconnects prematurely, leaving the proxy with an incomplete (partially sent) data point.
+  The proxy has received a data point without a line terminator (i.e. a newline character). This usually happens when the client disconnects prematurely, leaving the proxy with an incomplete (partially sent) data point.
 
 * Potential Resolution:
   - Ensure that data points are terminated by a newline character.
@@ -280,6 +281,7 @@ INFO [AbstractReportableEntityHandler:reject] [<port>] blocked input: [WF-300 Ca
   The proxy cannot connect using the token provided. The token or the account associated with the token might have been deleted or might not have the required permissions.
 
 * Potential Resolution:
+
   - Validate that the token that the proxy is attempting to use is correct and active for the user account or service account.
   - Ensure that the user account or service account that is associated with the token has the Proxies permission.
 
@@ -297,9 +299,12 @@ INFO [AbstractReportableEntityHandler:reject] [<port>] blocked input: [WF-300 Ca
    ```
    CRITICAL (Losing data): WF-1: Error adding task to the queue:
    ```
-* Explanation: The proxy is running out of disk space or the queue (buffer) files are exceeding their maximum allowed size (normally 2GB).
+* Explanation: 
+
+  The proxy is running out of disk space or the queue (buffer) files are exceeding their maximum allowed size (normally 2GB).
 
 * Potential Resolution:
+
   - Ensure that the proxy has enough disk space.
   - Check the size of the buffer files (located at the spool path). If the files are at or near the maximum allowed size, data is likely arriving at the proxy at a higher rate than the backend limit.
   - Decrease the rate of data arriving at the proxy or distribute your data ingestion to another proxy.
@@ -378,10 +383,10 @@ If, for any reason, you have to truncate the proxy queue, you can do it locally 
 In most cases, you truncate the proxy queue by deleting the files in the proxy queue directory.
 
 1. Connect to the proxy machine and navigate to the queue/buffer file directory.
-   * By default, the proxy buffer files are located under the <wavefront_spool_path>` heading.
+   * By default, the proxy buffer files are located under the `<wavefront_spool_path>` heading.
    * The location is configurable via the buffer property. Check whether a different location has been set.
 
-   You should see file names such as buffer.<data type>.<port>.<#>.spool. If the filename looks different, you may be using an old proxy version. Upgrade the proxy.
+   You should see file names such as `buffer.<data type>.<port>.<#>.spool`. If the filename looks different, you may be using an old proxy version. Upgrade the proxy.
 2. Stop the proxy.
 3. Delete buffer files. The filenames specify the type of data and port number. For example, if you no longer need any of the metrics ingested through port 2878, delete all of the files that have filenames that start with `buffer.points.2878`.
 3. Restart the proxy. The proxy recognizes that there is no queued data and internal metrics indicate this.
@@ -425,21 +430,21 @@ The proxy name refers to the source name that the proxy uses to report its own m
 <li>From the toolbar, select <strong>Browse > Proxies</strong> and search for the proxy by name.  </li>
 <li>Copy the proxy ID, shown under the name. The screenshot to the right shows the ID for the proxy named zabbix-proxy-container.</li>
 </ol></td>
-<td width="60%"><img src="/images/proxy_id.png" alt="screenshow showing proxy ID for a single proxy"></td>
+<td width="60%"><img src="/images/proxy_id.png" alt="screenshot showing proxy ID for a single proxy"></td>
 </tr>
 <tr>
 <td width="40%"><strong>Step 2</strong>:Use the <code>GET /api/v2/proxy/{id}</code> API endpoint to find the user ID.
 <ol>
 <li>Click the gear icon and select <strong>API Documentation</strong>. </li>
 <li>Expand the <strong>Proxy</strong> category and click <code>GET /api/v2/proxy/{id}</code>. </li>
-<li>Click <strong>Try it out!</strong>.  </li>
+<li>Click <strong>Try it out</strong>.  </li>
 <li>In the <strong>id</strong> text box, enter the proxy ID that you copied in the previous step and click <strong>Execute</strong>.</li>
 <li>In the response body, find the userid. This is the account that created the proxy. </li>
 </ol>
 </td>
-<td width="60%"><img src="/images/proxy_api_1.png" alt="screenshow showing proxy ID for a single proxy"><br/>
-<img src="/images/proxy_api_2.png" alt="screenshow showing proxy ID for a single proxy"><br/>
-<img src="/images/proxy_api_3.png" alt="screenshow showing proxy ID for a single proxy">
+<td width="60%"><img src="/images/proxy_api_1.png" alt="screenshot showing proxy ID for a single proxy"><br/>
+<img src="/images/proxy_api_2.png" alt="screenshot showing proxy ID for a single proxy"><br/>
+<img src="/images/proxy_api_3.png" alt="screenshot showing proxy ID for a single proxy">
 </td>
 </tr>
 </tbody>
