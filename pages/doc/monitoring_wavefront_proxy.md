@@ -78,22 +78,22 @@ For example, this row from that section shows latency metrics using `~proxy.push
 
 ### Monitor the Time a Proxy Is Spending with Preprocessing Rules
 
-In the **Proxy Troubleshooting** section of the **Wavefront Service and Proxy Data** dashboard, you can also monitor the time a proxy is spending with [preprocessing rules](proxies_preprocessor_rules.html). Monitoring the preprocessor is useful, because it shows how much time the JVM is spending on each rule and on all rules, in addition to being able to determine the overall effectiveness of the rules. Rules that are not optimized can contribute to data lag, meaning that Tanzu Observability will not  receive the data in a timely manner. 
+In the **Proxy Troubleshooting** section of the **Wavefront Service and Proxy Data** dashboard, you can also monitor the time a proxy is spending with [preprocessing rules](proxies_preprocessor_rules.html). The charts show the time the JVM spends on the rules and determine the overall effectiveness of the rules. Rules that are not optimized can contribute to data lag. As a result,Tanzu Observability will not receive the data in a timely manner. 
 
-For best performance, make sure that the expression leverages the [proxy rules best practices](proxies_preprocessor_rules.html#regex-notes) and that your proxy runs the latest version. 
+For best performance, make sure that the expression leverages the [regex best practices for the proxy rules](proxies_preprocessor_rules.html#regex-notes) and that your proxy runs the latest version. 
 
-The following charts will help you to understand how much time a proxy spends on preprocessing rules:
+The following charts help you understand the time a proxy spends on preprocessing rules:
 
 * **Preprocessor rules: CPU time per proxy**
 
-  This chart shows an aggregate view of how long each proxy is spending executing all of the preprocessing rules.  
+  This chart shows an aggregate view of how long each proxy spends executing all the preprocessing rules.  
 
 * **Preprocessor rules: CPU time per rule**
 
-  This chart shows an aggregate view across all proxies showing how much time it is taking executing each rule for each message. This chart helps you display outliers and identify preprocessing rules which should be optimized.
+  This chart shows an aggregate view across all proxies showing how much time it takes to execute each rule for each message. This chart helps you display outliers and identify preprocessing rules which should be optimized.
   
 * **Preprocessor rules: hit ratio, %**
   
-  This chart will help you identify if there are preprocessing rules that are no longer in use or impact a high number of metrics being ingested. Use this chart to identify if there are some rules which should be deprecated or possibly fine-tuned.
+  This chart helps you identify preprocessing rules that are no longer in use or impact a high number of metrics being ingested. Use this chart to identify if there are some rules which should be deprecated or possibly fine-tuned.
 
 ![A screenshot of the Preprocessor rules: CPU time per proxy, Preprocessor rules: CPU time per rule, and Preprocessor rules: hit ratio, % charts.](images/preprocessor_rules.png)
