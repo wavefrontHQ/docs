@@ -96,6 +96,8 @@ As a user with the **Accounts** permission, you can generate API tokens for [ser
 
 ### View and Manage the API Tokens in Your Organization
 
+{% include note.html content="The new API Tokens Management functionality is currently available to some of our customers. It will become available to all customers within the next releases."%}
+
 As a user with the **Accounts** permission, you can view and revoke the API token of any user or service account in your organization.
 
 1. Log in to your Wavefront instance as a user with the **Accounts** permission.

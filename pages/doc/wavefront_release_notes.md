@@ -49,6 +49,8 @@ In the next release(s), the service accounts that are still part of the predefin
 
 ## 2022-17.x Release Notes
 
+{% include note.html content="The new API Tokens Management functionality is currently available to some of our customers. It will become available to all customers within the next releases."%}
+
 <table>
 <tbody>
 <tr>
