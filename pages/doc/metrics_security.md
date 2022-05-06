@@ -210,12 +210,6 @@ Here's a tour:
 
 Before you start, plan your strategy. Here are some common scenarios.
 
-Initially, a single metrics security policy rule is defined:
-
-![Screenshot of a single metrics security policy rule allowing all metrics to everyone.](images/metrics_security_default.png)
-
-All users can access all metrics, meaning **no** restrictions are in place.  Furthermore, if the single **Allow All Metrics** rule was deleted, all users will still have access to all metrics.
-
 ### Example: Restrict Access to Confidential Metrics
 
 This example restricts access to specific ranges of highly-sensitive metrics, say revenue numbers, to select groups of users.
