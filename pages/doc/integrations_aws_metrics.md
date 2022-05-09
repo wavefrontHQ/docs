@@ -52,10 +52,9 @@ To configure CloudWatch ingestion:
       - `aws.dynamodb.successfulrequestlatency.samplecount`
       - `aws.dynamodb.successfulrequestlatency.sum`
       
-       Here, the actual metric name is `aws.dynamodb.successfulrequestlatency`, while `average`, `maximum`, `minimum`, `samplecount`, and `sum` are the aggregation types. When you create the regular expression, you must use only `aws.dynamodb.successfulrequestlatency`. For example, `^aws.dynamodb.successfulrequestlatency.*$`.
+       Here, the actual metric name is `aws.dynamodb.successfulrequestlatency`, while `average`, `maximum`, `minimum`, `samplecount`, and `sum` are the aggregation types. When you create the regular expression, you must use only `aws.dynamodb.successfulrequestlatency`. For example, `^aws.dynamodb.successfulrequestlatency$`.
        
-      If you only want CloudWatch data for `elb` and `rds` (which come under `aws.rds`), then use a regular expression such as: `^aws.(elb|rds).*$`. 
-      
+      If you only want CloudWatch data for `elb` and `rds`, then use a regular expression such as: `^aws.(elb|rds).*$`.
       
       If you do not specify a regular expression, _all_ CloudWatch metrics are retrieved.
       
