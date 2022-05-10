@@ -94,10 +94,6 @@ To register a Microsoft Azure Cloud Integration:
 <h2>Alerts</h2>  <ul><li markdown="span"><b>Azure Instance CPU Usage Too High</b>:Alert reports when the Azure Instance CPU utilization constantly exceeds the defined limit.</li><li markdown="span"><b>Azure Disk IOPS Consumed Percentage Too High</b>:Alert reports when the Azure Disk IOPS consumed percentage constantly exceeds the defined limit.</li></ul>
 
 
-## Metrics
-
-See [Azure documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported) for Metrics descriptions.  
-
 |Metric Name|Description|
 | :--- | :--- |
 |azure.storage.storageaccounts.availability.*|Statistics: average, count, maximum, minimum|
