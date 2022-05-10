@@ -13,15 +13,21 @@ Tanzu Observability by Wavefront continuously adds new integrations to the exist
 
 We made improvements to the following integrations in May 2022:
 
-* Dynatrace -- Updated the list of metrics. For all supported metrics descriptions, see the [Dynatrace documentation](https://www.dynatrace.com/support/help/how-to-use-dynatrace/metrics/built-in-metrics/).
+* Dynatrace:
+  * Improved the readability of the point tags and addressed an issue with duplicate metrics.
+  * Updated the setup instructions. When you generate the API token, you should select not only **Read metrics (metrics.read)**, but also the **Read entities (entities.read)** token scope. 
   
-* Fluentd -- Updated the Fluentd integration and now you can monitor Fluend on Kubernetes.
+* Fluentd -- Updated the Fluentd integration and now you can monitor Fluentd on Kubernetes.
 
 * PostgreSQL -- Updated the setup instructions and configuration with new extensions to monitor the database.
+
 * TAS Beta:
-  * Updates to the dashboards.
-  * Added alerts. These alerts come from an older version of the integration and are not fully supported yet.
-* Kubernetes -- Added Kubernetes control plane alerts.
+  * We made updates to the TAS Beta dashboards.
+  * We have added a number of alerts. These alerts come from an older version of the integration and are not fully supported yet.
+  
+* Kubernetes: 
+  * Added new Kubernetes control plane alerts: **K8s control plane API Server SLO**, **K8s control plane CoreDNS SLO**, and **K8s control plane etcd SLO**.
+  * The **Kubernetes Control Plane** dashboard now uses a new metrics prefix: `kubernetes.controlplane`.
 
 We updated the metrics descriptions for the following list of integrations:
 
