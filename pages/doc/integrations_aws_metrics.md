@@ -53,8 +53,6 @@ To configure CloudWatch ingestion:
       - `aws.dynamodb.successfulrequestlatency.sum`
       
        Here, the actual metric name is `aws.dynamodb.successfulrequestlatency`, while `average`, `maximum`, `minimum`, `samplecount`, and `sum` are the aggregation types. When you create the regular expression, you must use only `aws.dynamodb.successfulrequestlatency`. For example, `^aws.dynamodb.successfulrequestlatency$`.
-       
-      If you only want CloudWatch data for `elb` and `rds`, then use a regular expression such as: `^aws.(elb|rds).*$`.
       
       If you do not specify a regular expression, _all_ CloudWatch metrics are retrieved.
       
@@ -62,6 +60,33 @@ To configure CloudWatch ingestion:
     - **Service Refresh Rate** -- Number of minutes between requesting metrics. Default is `5`.
     - **Products** -- Allows you to filter the list of AWS products for which you want to collect metrics by using the CloudWatch integration. The default is **All**. Click **Custom** to see the list of AWS products and to filter them according to your needs.
 1. Click **Save**.
+
+### How to Use Metric Allow Lists and Products Wisely
+
+If you don't configure the CloudWatch Integration properly and use the metric allow list and products options wisely, you may have performance issues. If you want to monitor all metrics for all services, you don't have to do anything, just leave the **Metric Allow List** empty and the **Products** option set to **All**.
+
+
+#### How to Monitor All Metrics for Specific Services
+
+If you want to monitor all of the metrics for several services, select these services from the **Products** list. For example, if you want to monitor Amazon Relational Database Service and Amazon DynamoDB:
+
+1. Expand the list of **Products**.
+2. Select **Custom**.
+3. Select the **Amazon DynamoDB** and **Amazon Relational Database Service** options.
+
+#### How to Monitor Some Metrics for Specific Services
+
+If you want to monitor some of the metrics for several services, select these services from the **Products** list and use a regular expression to specify the metrics to monitor. For example, if you want to monitor `aws.rds.activetransactions` for Amazon Relational Database Service and `aws.dynamodb.accountmaxreads` for Amazon DynamoDB:
+
+1. In the **Metric Allow List**, enter a regular expression such as: `aws.(rds.activetransactions|dynamodb.accountmaxreads).*`
+2. Expand the list of **Products**.
+3. Select **Custom**.
+4. Select the **Amazon DynamoDB** and **Amazon Relational Database Service** options.
+
+
+#### How to Monitor Only the Metrics for a Service Which Is Not in the Products Lists
+
+If you are ingesting metrics for a service, which is not part of the products list, to monitor the metrics only for this service, you must use a regular expression. 
 
 
 <a name="aws_sources"></a>
