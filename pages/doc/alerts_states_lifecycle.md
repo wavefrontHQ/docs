@@ -9,7 +9,7 @@ summary: Learn about alert conditions and states, when alerts fire, and how aler
 Here's a video to get you started:
 
 <p>
-<iframe src="https://bcove.video/3iYlXiP" width="700" height="400" allowfullscreen="true" alt="alert states and lifecycle video by Jason"></iframe>
+<iframe id="kmsembed-1_vi9pvcz4" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_vi9pvcz4/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="alert states and lifecycle video by Jason"></iframe>
 </p>
 
 

@@ -15,12 +15,12 @@ If you are using the **Terraform Provider**, update to [version 3.0.1](https://r
 
 ## Create Alert Video
 
-Users with the **Alerts** permission follow a step-by-step process to create an alert. Watch this 90 second video. You can also watch the video <a href="https://bcove.video/3o9bu6L" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+Users with the **Alerts** permission follow a step-by-step process to create an alert. Watch this 90 second video.
 
 <p>
-<iframe src="https://bcove.video/3o9bu6L" width="700" height="400" allowfullscreen="true" alt="creating alerts with step-by-step process"></iframe>
+<iframe id="kmsembed-1_e655iog1" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_e655iog1/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" alt="creating alerts with step-by-step process"></iframe>
 </p>
-
+You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_e655iog1" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
 
 ## Create Alert Tutorial
 

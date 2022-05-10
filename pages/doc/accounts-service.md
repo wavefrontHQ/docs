@@ -21,7 +21,7 @@ Service accounts are used for automating management tasks.
 * Each account is automatically added to the **Service Accounts** group. If a role is assigned to that group, the service account gets the permissions from that role.
 * Service accounts can be added to any group to get that group's role (and permissions).
 
-As a user with the **Accounts** permission, you generate (and revoke, if needed) authentication tokens for the service account. It’s also possible to deactivate a service account completely. 
+As a user with the **Accounts** permission, you [generate (and revoke, if needed)](wavefront_api.html#generate-and-manage-the-api-tokens-for-a-service-account) authentication tokens for the service account. It’s also possible to deactivate a service account completely. 
 
 ## How Service Accounts Work
 

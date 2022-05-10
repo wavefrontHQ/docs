@@ -35,16 +35,16 @@ As an administrator, in single-tenant authentication environments, you can set u
 1. Log in to your Wavefront instance as a user with the **SAML IdP Admin** permission.
 2. Click the gear icon <i class="fa fa-cog"/> on the toolbar and select **Self Service SAML**.
 3. From the **Identity Provider** drop-down menu, select the identity provider that is used in your environment.
-4. Click the **Setup Instructions** link. 
-   
+4. Click the **Setup Instructions** link.
+
    The link directs you to the instructions for setting up the provider integration that you selected.
-   
+
 5. Follow the instructions to retrieve the metadata for your identity provider.
 6. In the **Configure Connection** field, paste the metadata and click **Test** to validate the metadata.
 7. Log in to your identity provider.
-   
+
    After the login is successful and if the test was successful, the **Save** button becomes available.
-   
+
 8. Click the **Save** button to save your changes.
 
 ![screenshot with fields filled in & blurred out](images/self_service_sso.png)
@@ -73,3 +73,21 @@ The different SAML providers have the following FedRAMP certification:
 * OneLogin – No FedRAMP compliance.
 
 --->
+
+## How to Add New Users After Single Sign-On Has Been Enabled
+
+**Problem**
+
+After SSO has been enabled, all authentication is now handled by the Single Sign On identity provider.
+* Even SuperAdmin users can no longer invite users from the **Account Management** page. The **Invite New Users** button is not clickable.
+* Attempting to invite a user from the API results in the following error:
+
+  ```
+  { "status": { "result": "ERROR", "message": "Cannot process the request when SSO is enabled.", "code": 400 } }
+  ```
+
+**Solution**
+
+If any user goes to the Wavefront instance in a web browser, for example, https://example.wavefront.com and provides their email address, the user is redirected to the SSO login page can log in with their SSO credentials.
+
+After the user is authenticated, Permissions determine what the user can do. All new users become members of the Everyone group and inherit all permissions assigned to that group. See [Authorization Model](authorization.html) and other doc pages in that section for details.

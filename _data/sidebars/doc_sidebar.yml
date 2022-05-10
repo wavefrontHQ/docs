@@ -432,7 +432,7 @@ entries:
           url: /query_language_point_tags.html
           output: web
 
-      - title: WQL Tips and Tricks
+      - title: WQL Power User
         output: web
         subfolderitems:
 
@@ -502,7 +502,7 @@ entries:
             url: /integrations_aws_overview_API.html
             output: web
 
-          - title: AWS Metrics Integration
+          - title: AWS Integrations
             url: /integrations_aws_metrics.html
             output: web
 
@@ -537,10 +537,10 @@ entries:
           - title: Send Data to CloudHealth
             url: /integrations_cloudhealth.html
             output: web
-            
+
           - title: Troubleshoot BigPanda Webhook Targets
             url: /integrations_bigpanda_troubleshooting.html
-            output: web            
+            output: web
 
       - title: collectd Integrations
         output: web
@@ -871,6 +871,10 @@ entries:
 
           - title: Internal Metrics
             url: /wavefront-internal-metrics.html
+            output: web
+
+          - title: Track Alerts, Users, and Dashboards
+            url: /track_adoption.html
             output: web
 
           - title: Monitor Wavefront Proxies

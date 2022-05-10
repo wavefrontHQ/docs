@@ -5,7 +5,7 @@ sidebar: doc_sidebar
 permalink: ui_sharing.html
 summary: Share links to dashboards and charts, give dashboard access, and create embedded charts.
 ---
-Tanzu Observability by Wavefront supports sharing links, sharing access, and embedding charts. 
+Tanzu Observability by Wavefront supports sharing links, sharing access, and embedding charts.
 
 You can
 * Share a link to a dashboard or chart so someone else can see what's going on.
@@ -16,10 +16,10 @@ You can
 
 ## Video: Sharing Content
 
-This short <a href="https://bcove.video/3DZazeL" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> shows how you can share content by using some of the methods described below.
+This short <a href="https://vmwaretv.vmware.com/media/t/1_0esjgu8b" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> shows how you can share content by using some of the methods described below.
 
 <p>
-<iframe src="https://bcove.video/3DZazeL" width="700" height="400" allowfullscreen="true" alt="Sharing search results, dashboards and charts using short URLs."></iframe>
+<iframe id="kmsembed-1_0esjgu8b" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_0esjgu8b/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Sharing search results, dashboards and charts using short URLs."></iframe>
 </p>
 
 ## Share a Link with a Share Icon
