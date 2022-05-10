@@ -84,10 +84,6 @@ To register a Google Cloud Platform (GCP) integration:
 
 
 
-## Metrics
-
-See [Google Cloud metrics documentation](https://cloud.google.com/monitoring/api/metrics_gcp) for Metrics descriptions. 
-
 |Metric Name|Description|
 | :--- | :--- |
 |gcp.datastore.api.request_count_rate| Rate of the Datastore API calls.|

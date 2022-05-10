@@ -84,10 +84,6 @@ To register a Google Cloud Platform (GCP) integration:
 
 
 
-## Metrics
-
-See [Google Cloud metrics documentation](https://cloud.google.com/monitoring/api/metrics_gcp) for Metrics descriptions.  
-
 |Metric Name|Description|
 | :--- | :--- |
 |gcp.container.container.cpu.reserved_cores| Number of cores of CPU reserved for the container. |

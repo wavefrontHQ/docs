@@ -84,10 +84,6 @@ To register a Google Cloud Platform (GCP) integration:
 
 
 
-## Metrics
-  
-See [Google Cloud metrics documentation](https://cloud.google.com/monitoring/api/metrics_gcp) for Metrics descriptions.  
-
 |Metric Name|Description|
 | :--- | :--- |
 |gcp.storage.api.request_count_rate| Delta count of API calls, grouped by the API method name and response code.|
