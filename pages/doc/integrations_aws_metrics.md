@@ -11,8 +11,8 @@ Amazon Web Services (AWS) is a collection of cloud-computing services that provi
 {% include note.html content="You must have the [**Proxy Management** permission](permissions_overview.html) to set up an AWS integration. If you do not have permission, the UI menu selections, buttons, and links you use to perform the tasks are not visible." %}
 
 You have to set up your Tanzu Observability by Wavefront account with the correct permissions.
-* From within the integration or explicitly, you can [Give Global Read-Only Access](integrations_aws_overview.html#give-read-only-access-to-your-amazon-account-and-get-the-role-arn)
-* As an alternative, you can [Create an IAM Policy to Specify Limited Access](integrations_aws_overview.html#create-iam-policy-to-specify-limited-access)
+* From within the integration or explicitly, you can [Give Global Read-Only Access](integrations_aws_overview.html#give-read-only-access-to-your-amazon-account-and-get-the-role-arn).
+* As an alternative, you can [Create an IAM Policy to Specify Limited Access](integrations_aws_overview.html#create-iam-policy-to-specify-limited-access).
 
 
 ## Supported AWS Integrations
@@ -61,7 +61,7 @@ To configure CloudWatch ingestion:
     - **Products** -- Allows you to filter the list of AWS products for which you want to collect metrics by using the CloudWatch integration. The default is **All**. Click **Custom** to see the list of AWS products and to filter them according to your needs.
 1. Click **Save**.
 
-### How to Use Metric Allow Lists and Products Wisely
+### How to Use Metric Allow List and the Products List
 
 If you don't configure the CloudWatch Integration properly and use the metric allow list and products options wisely, you may have performance issues. If you want to monitor all metrics for all services, you don't have to do anything, just leave the **Metric Allow List** empty and the **Products** option set to **All**.
 
