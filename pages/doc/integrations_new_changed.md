@@ -13,18 +13,31 @@ Tanzu Observability by Wavefront continuously adds new integrations to the exist
 
 Made improvements to the following integrations in May 2022:
 
-* Dynatrace:
-
-  * We made updates to the Dynatrace setup instructions.
-  * Metrics are no longer duplicated.
+* Dynatrace -- Updated the list of metrics. For all supported metrics descriptions, see the [Dynatrace documentation](https://www.dynatrace.com/support/help/how-to-use-dynatrace/metrics/built-in-metrics/).
   
 * Fluentd -- Updated the Fluentd integration and now you can monitor Fluend on Kubernetes.
 
-* PostgreSQL -- Updated the setup instructions.
+* PostgreSQL -- Updated the setup instructions and configuration with new extensions to monitor the database.
 * TAS Beta:
   * Updates to the dashboards.
   * Added alerts. These alerts come from an older version of the integration and are not fully supported yet.
 * Kubernetes -- Added Kubernetes control plane alerts.
+
+We updated the metrics descriptions for the following list of integrations:
+
+* Apache HTTP
+* Apache Tomcat
+* Apache Solr
+* Apache Spark
+* Consul
+* Istio
+* Java
+* mongoDB
+* Spring Cloud Data Flow
+* Windows Service
+* Zabbix
+* ZooKeeper
+
 
 ## April 2022
 
