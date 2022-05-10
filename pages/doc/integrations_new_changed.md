@@ -22,7 +22,7 @@ We made improvements to the following integrations in May 2022:
 * PostgreSQL -- Updated the setup instructions and configuration with new extensions to monitor the database.
 
 * TAS Beta:
-  * We made updates to the TAS Beta dashboards.
+  * We made improvements to the TAS Beta dashboards.
   * We have added a number of alerts. These alerts come from an older version of the integration and are not fully supported yet.
   
 * Kubernetes: 
