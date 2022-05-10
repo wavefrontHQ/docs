@@ -9,6 +9,23 @@ summary: New and changed integrations.
 Tanzu Observability by Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
 
+## May 2022
+
+Made improvements to the following integrations in May 2022:
+
+* Dynatrace:
+
+  * We made updates to the Dynatrace setup instructions.
+  * Metrics are no longer duplicated.
+  
+* Fluentd -- Updated the Fluentd integration and now you can monitor Fluend on Kubernetes.
+
+* PostgreSQL -- Updated the setup instructions.
+* TAS Beta:
+  * Updates to the dashboards.
+  * Added alerts. These alerts come from an older version of the integration and are not fully supported yet.
+* Kubernetes -- Added Kubernetes control plane alerts.
+
 ## April 2022
 
 Made improvements to the following integration in April 2022:
@@ -22,7 +39,6 @@ We added the following integrations in March 2022:
 * VMware Blockchain
 
   VMware Blockchain is an enterprise-grade blockchain platform that enables multi-party workflows. This integration is developed and created by the community and falls into to the **Community Integrations** section of the Tanzu Observability by Wavefront **Integrations** page. We do not validate the community integrations and they are not fully supported by the Tanzu Observability by Wavefront team.
-
 
 
 We made improvements to the following integrations in March 2022:
