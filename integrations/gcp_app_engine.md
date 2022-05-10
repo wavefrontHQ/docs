@@ -84,10 +84,6 @@ To register a Google Cloud Platform (GCP) integration:
 
 
 
-## Metrics
-
-See [Google Cloud metrics documentation](https://cloud.google.com/monitoring/api/metrics_gcp) for Metrics descriptions.    
-
 |Metric Name|Description|
 | :--- | :--- |
 |gcp.appengine.flex.autoscaler.capacity| Utilization capacity multiplied by number of serving VMs.|
