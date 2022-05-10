@@ -13,6 +13,29 @@ Tanzu Observability by Wavefront (Wavefront) is a cloud-hosted service for full-
 
 {% include important.html content="This document is for the Tanzu Application Service nozzle version 4.0 and later. Earlier versions are [documented here](https://docs.pivotal.io/wavefront-nozzle/3-x/). " %}
 
+## Product Snapshot
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">Version, Release Date</td>
+<td width="50%">v4.0.0, May 2022</td>
+</tr>
+<tr>
+<td>Compatible Ops Manager versions</td>
+<td>v2.10 and later</td>
+</tr>
+<tr>
+<td>Compatible Tanzu Application Service versions</td>
+<td>v2.11 and later</td>
+</tr>
+<tr>
+<td>IaaS support</td>
+<td>AWS, Azure, GCP, OpenStack, and vSphere</td>
+</tr>
+</tbody>
+</table>
+
 ## Process Overview
 
 We've streamlined the getting started process so it involves a few simple steps -- some are performed in Tanzu Ops Manager, and some in the Wavefront GUI.
