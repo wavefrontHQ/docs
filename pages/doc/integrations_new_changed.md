@@ -11,7 +11,7 @@ Tanzu Observability by Wavefront continuously adds new integrations to the exist
 
 ## May 2022
 
-Made improvements to the following integrations in May 2022:
+We made improvements to the following integrations in May 2022:
 
 * Dynatrace -- Updated the list of metrics. For all supported metrics descriptions, see the [Dynatrace documentation](https://www.dynatrace.com/support/help/how-to-use-dynatrace/metrics/built-in-metrics/).
   
@@ -41,13 +41,13 @@ We updated the metrics descriptions for the following list of integrations:
 
 ## April 2022
 
-Made improvements to the following integration in April 2022:
+We made improvements to the following integration in April 2022:
 
 * Amazon Web Services -- We updated the format of CloudWatch instance and volume allow lists to JSON format. When you register a new CloudWatch integration or edit an existing one, you can add instances and volumes to allow lists. The format of the tag lists should be in JSON format, for example `{"organization":"yourcompany"}`.
 
 ## March 2022
 
-We added the following integrations in March 2022:
+We added the following integration in March 2022:
 
 * VMware Blockchain
 
