@@ -13,11 +13,11 @@ The collector makes it easy for you to monitor and manage your Kubernetes enviro
 
 * Collects real-time metrics from all layers of a Kubernetes environment (clusters, nodes, pods, containers and the Kubernetes control plane).
 * Supports plugins such as Prometheus, Telegraf and Systemd enabling you to collect metrics from various workloads.
-* [Auto discovery](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/blob/master/docs/discovery.md) of pods and services based on annotation and configuration.
+* [Auto discovery](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/blob/main/docs/discovery.md) of pods and services based on annotation and configuration.
 * Daemonset mode for high scalability with leader election for monitoring cluster-level resources.
-* Rich [filtering](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/blob/master/docs/filtering.md) support.
+* Rich [filtering](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/blob/main/docs/filtering.md) support.
 * Auto reload of configuration changes.
-* [Internal metrics](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/blob/master/docs/metrics.md#collector-health-metrics) for tracking the collector health and source of your Kubernetes metrics.
+* [Internal metrics](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/blob/main/docs/metrics.md#collector-health-metrics) for tracking the collector health and source of your Kubernetes metrics.
 
 ### Dashboards
 
@@ -66,7 +66,8 @@ helm repo update
 
 Refer to the Wavefront [helm chart](https://github.com/wavefrontHQ/helm/tree/master/wavefront) for further options.
 ## Kubernetes Manual Install
-Follow the instructions below to manually set up Kubernetes monitoring.
+Follow the instructions below to manually set up Kubernetes monitoring. For more details about the available options, see the [Wavefront Collector for Kubernetes Configuration](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md).
+
 
 ### Step 1. Deploy a Wavefront Proxy in Kubernetes
 
@@ -79,15 +80,15 @@ The Wavefront proxy and a `wavefront-proxy` service should now be running in Kub
 ### Step 2. Deploy Wavefront Collector for Kubernetes
 
 1. Create a directory named `wavefront-collector-dir` and download the following files to that directory:
-  * [0-collector-namespace.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes-collector/master/deploy/kubernetes/0-collector-namespace.yaml)
-  * [1-collector-cluster-role.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes-collector/master/deploy/kubernetes/1-collector-cluster-role.yaml)
-  * [2-collector-rbac.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes-collector/master/deploy/kubernetes/2-collector-rbac.yaml)
-  * [3-collector-service-account.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes-collector/master/deploy/kubernetes/3-collector-service-account.yaml)
-  * [4-collector-config.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/master/deploy/kubernetes/4-collector-config.yaml)
-  * [5-collector-daemonset.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/master/deploy/kubernetes/5-collector-daemonset.yaml)
+  * [0-collector-namespace.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/main/deploy/kubernetes/0-collector-namespace.yaml)
+  * [1-collector-cluster-role.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/main/deploy/kubernetes/1-collector-cluster-role.yaml)
+  * [2-collector-rbac.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/main/deploy/kubernetes/2-collector-rbac.yaml)
+  * [3-collector-service-account.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/main/deploy/kubernetes/3-collector-service-account.yaml)
+  * [4-collector-config.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/main/deploy/kubernetes/4-collector-config.yaml)
+  * [5-collector-daemonset.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/main/deploy/kubernetes/5-collector-daemonset.yaml)
 
   **NOTE**: Download the following file only for vSphere Tanzu environment.
-  * [0-vsphere-tanzu-rolebinding.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/master/deploy/vsphere-tanzu/0-vsphere-tanzu-rolebinding.yaml)
+  * [0-vsphere-tanzu-rolebinding.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/main/deploy/vsphere-tanzu/0-vsphere-tanzu-rolebinding.yaml)
 
 2. Edit `4-collector-config.yaml` and replace `clusterName: k8s-cluster` with the name of your Kubernetes cluster.
 
@@ -99,7 +100,7 @@ To verify the collector is deployed, run `kubectl get pods -n wavefront-collecto
 
 ### Step 3. (Optional) Deploy the kube-state-metrics Service
 
-The Wavefront Collector natively collects various [metrics](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/metrics.md#kubernetes-state-source) about the state of Kubernetes resources. You can optionally deploy the third party [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) service to collect additional metrics.
+The Wavefront Collector natively collects various [metrics](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/metrics.md#kubernetes-state-source) about the state of Kubernetes resources. You can optionally deploy the third party [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) service to collect additional metrics.
 
 To deploy kube-state-metrics:
 
@@ -201,9 +202,9 @@ You can configure the proxy to change how it processes your data, port numbers, 
 
 The Wavefront Collector supports monitoring of OpenShift clusters:
 
-* To monitor OpenShift Origin 3.9, follow the steps in [Installation and Configuration on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/master/docs/openshift.md).
+* To monitor OpenShift Origin 3.9, follow the steps in [Installation and Configuration on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/main/docs/openshift.md).
 
-* To monitor OpenShift Enterprise 3.11, follow the steps in [Installation and Configuration of Wavefront Collector Operator on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/master/docs/openshift-operator.md)
+* To monitor OpenShift Enterprise 3.11, follow the steps in [Installation and Configuration of Wavefront Collector Operator on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/main/docs/openshift-operator.md)
 
 ## Metrics
 
@@ -214,7 +215,7 @@ The Wavefront Collector supports monitoring of OpenShift clusters:
 * [Telegraf Source](#telegraf-source)
 * [Collector Health](#collector-health-metrics)
 
-This information comes directly from the [Wavefront Collector for Kubernetes github page](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/metrics.md)
+This information comes directly from the [Wavefront Collector for Kubernetes github page](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/metrics.md)
 
 ### Kubernetes Source
 
@@ -620,4 +621,4 @@ These are internal metrics about the health and configuration of the Wavefront C
 |   |   |
 --->
 
-<h2>Alerts</h2>  <ul><li markdown="span"><b>K8s pod CPU usage too high</b>:Alert reports when the CPU millicore utilization of a pod exceeds the CPU millicore limit defined constantly. Having the CPU going over the set limit will cause the pod to suffer from CPU throttling which is going to affect the pod's performance. When this happens, please make sure the CPU resource limitation set for the pod is correctly configured.</li><li markdown="span"><b>K8s pod memory usage too high</b>:Alert reports when the memory utilization of a pod is constantly at high percentage.</li><li markdown="span"><b>K8s too many pods crashing</b>:Alert reports when a pod's running and succeeded phase percentage is below the required level specified.</li><li markdown="span"><b>K8s node CPU usage too high</b>:Alert reports when a node's cpu utilization percentage is constantly high.</li><li markdown="span"><b>K8s node storage usage too high</b>:Alert reports when a node's storage is almost full.</li><li markdown="span"><b>K8s node memory usage too high</b>:Alert reports when the memory utilization of a node is constantly high.</li><li markdown="span"><b>K8s too many containers not running</b>:Alert reports when the percentage of containers not running is constantly high.</li><li markdown="span"><b>K8s node unhealthy</b>:Alert reports when a node's condition is not ready or status is not true.</li><li markdown="span"><b>K8s pod storage usage too high</b>:Alerts reports when the pod's storage is almost full.</li></ul>
+<h2>Alerts</h2>  <ul><li markdown="span"><b>K8s pod CPU usage too high</b>:Alert reports when the CPU millicore utilization of a pod exceeds the CPU millicore limit defined constantly. Having the CPU going over the set limit will cause the pod to suffer from CPU throttling which is going to affect the pod's performance. When this happens, please make sure the CPU resource limitation set for the pod is correctly configured.</li><li markdown="span"><b>K8s pod memory usage too high</b>:Alert reports when the memory utilization of a pod is constantly at high percentage.</li><li markdown="span"><b>K8s too many pods crashing</b>:Alert reports when a pod's running and succeeded phase percentage is below the required level specified.</li><li markdown="span"><b>K8s node CPU usage too high</b>:Alert reports when a node's cpu utilization percentage is constantly high.</li><li markdown="span"><b>K8s node storage usage too high</b>:Alert reports when a node's storage is almost full.</li><li markdown="span"><b>K8s node memory usage too high</b>:Alert reports when the memory utilization of a node is constantly high.</li><li markdown="span"><b>K8s too many containers not running</b>:Alert reports when the percentage of containers not running is constantly high.</li><li markdown="span"><b>K8s node unhealthy</b>:Alert reports when a node's condition is not ready or status is not true.</li><li markdown="span"><b>K8s pod storage usage too high</b>:Alerts reports when the pod's storage is almost full.</li><li markdown="span"><b>K8s control plane API Server SLO</b>:The API Server SLO has been breached. More than 5% of the error budget has been consumed.</li><li markdown="span"><b>K8s control plane CoreDNS SLO</b>:The CoreDNS SLO has been breached. More than 5% of the error budget has been consumed.</li><li markdown="span"><b>K8s control plane etcd SLO</b>:The etcd SLO has been breached. More than 5% of the error budget has been consumed.</li></ul>
