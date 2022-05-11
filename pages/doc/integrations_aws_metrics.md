@@ -63,7 +63,7 @@ To configure CloudWatch ingestion:
 
 ### How to Use the Metric Allow List and the Products List
 
-If you don't configure the CloudWatch Integration properly and use the metric allow list and products options wisely, you may have performance issues. If you want to monitor all metrics for all services, you don't have to do anything, just leave the **Metric Allow List** empty and the **Products** option set to **All**.
+By using the **Metric Allow List** and the **Products** option you can select which services and metrics to monitor. If you want to monitor all metrics for all services, you don't have to do anything, just leave the **Metric Allow List** empty and the **Products** option set to **All**.
 
 
 #### How to Monitor All Metrics for Specific Services
@@ -86,7 +86,7 @@ If you want to monitor only some of the metrics for specific services, select th
 
 #### How to Monitor Only the Metrics for a Service Which Is Not in the Products Lists
 
-If you are ingesting metrics for a service, which is not part of the products list, to monitor the metrics only for this service, you must use a regular expression. 
+If you are ingesting metrics for a service, which is not part of the products list, to monitor the metrics for this service, leave the he **Products** option set to **All** and use a regular expression. 
 
 
 <a name="aws_sources"></a>
