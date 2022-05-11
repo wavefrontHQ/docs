@@ -164,3 +164,4 @@ WQL supports the asterisk (*) as a wildcard character.  [Wildcards](query_langua
 
 * [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html)
 * [Troubleshooting Missing Data](missing_data_troubleshooting.html)
+* [Find Actionable Usage Information](wavefront_usage_info.html)

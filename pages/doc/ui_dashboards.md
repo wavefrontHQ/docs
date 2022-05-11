@@ -598,19 +598,22 @@ Users need to audit dashboard changes in several situations:
 
 Each time you save a dashboard, you create a dashboard version. Up to 100 versions are supported.
 
+**To audit or restore a dashboard:**
+
 <table style="width: 100%;">
    <tbody>
    <tr>
-   <td width="60%">
+   <td width="75%">
    <ol>
    <li>Find the Dashboard in the Dashboards Browser. </li>
    <li>Click the ellipsis icon and select <strong>Version History</strong>.</li>
-   <li>Select a version.</li>
+   <li>Select a version and revert or clone that version.</li>
    </ol>
    </td>
-   <td width="40%" markdown="span">![screenshot ellipsis menu to the left of dashboard in dashboards browser](images/v2_edit_dashboard.png) </td></tr>
+   <td width="25%" markdown="span">![screenshot ellipsis menu, versions highlited](images/dashboard_versions_detail.png) </td></tr>
    </tbody>
 </table>
+![version list, ellipsis menu shows versions](images/dashboard_select_version.png)
 
 ## Troubleshoot and Learn More!
 
