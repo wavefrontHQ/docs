@@ -64,7 +64,7 @@ We made improvements to the following integrations in March 2022:
 
 * Kubernetes Integration
   * Added a **Kubernetes Control Plane** dashboard to the Kubernetes integration. See the [Release Notes on Github](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases/tag/v1.9.0) for details.
-  * You can enable the control plane metrics with helm, or using manual configuration. To see a full list of supported control plane metrics, visit our [github repo](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/metrics.md#control-plane-metrics).
+  * You can enable the control plane metrics with helm, or using manual configuration. To see a full list of supported control plane metrics, visit our [github repo](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/metrics.md#control-plane-metrics).
 
 
 *  Wavefront Usage
