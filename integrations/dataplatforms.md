@@ -46,7 +46,7 @@ See [Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/wavefron
 
 **NOTE**: The Wavefront Collector scrapes all the pods that have Prometheus annotation enabled.
 
-See [annotation based discovery](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/discovery.md#annotation-based-discovery) feature in Wavefront Collector for more information.
+See [annotation based discovery](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/discovery.md#annotation-based-discovery) feature in Wavefront Collector for more information.
 
 - If you wish not to use the annotation based discovery feature in wavefront, edit the Wavefront Collector ConfigMap To add rules based discovery to wavefront, add the following snippet under discovery plugins. Once done, restart the wavefront collectors DaemonSet.
 {% raw %}

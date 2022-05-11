@@ -79,11 +79,11 @@ You can check the permissions you have and see which groups you belong to.
 
 Tanzu Observability allows [user accounts](user-accounts.html) and [service accounts](service-accounts.html) to interact with a Wavefront instance using the [Wavefront REST API](wavefront_api.html).
 
-{% include tip.html content="You generate API tokens for user accounts explicitly. For service accounts, a user with the **Accounts** permission can generate tokens from the Service Accounts page." %}
+{% include tip.html content="You generate API tokens for your user account explicitly. For service accounts, a user with the **Accounts** permission can generate tokens from the Service Accounts page." %}
 
 {% include note.html content="All users can use and manage their existing API tokens. You must have the [API Tokens permission](permissions_overview.html) to generate **new** API tokens for your user account." %}
 
 To generate an API token for your user account:
 
 1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select your username.
-2. Click the **API Access** tab and click **Generate**. See [Generating an API Token](wavefront_api.html#generating-an-api-token) for details.
+2. Click the **API Access** tab and click **Generate**. See [Generate and Manage the API Tokens for Your User Account](wavefront_api.html#generate-and-manage-the-api-tokens-for-your-user-account) for details.

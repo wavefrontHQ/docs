@@ -6,10 +6,16 @@ summary: Learn about the Wavefront Fluentd Integration.
 ---
 ## Fluentd Integration
 
-Fluentd is an open source data collector for a unified logging layer. This integration installs and configures Telegraf to send Fluentd metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+Fluentd is an open source data collector for a unified logging layer. By setting up this integration, you can send Fluentd metrics into Tanzu Observability by Wavefront.
 
-In addition to setting up the metrics flow, this integration also installs a dashboard. Here's a section of a dashboard displaying Fluentd metrics:
+1. **Fluentd**: This integration installs and configures Telegraf to send Fluentd metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+2. **Fluentd on Kubernetes**: This explains the configuration of Wavefront Collector for Kubernetes to scrape Fluentd metrics using auto-discovery and annotation based discovery.
 
+In addition to setting up the metrics flow, this integration also installs dashboards:
+* Fluentd
+* Fluentd on Kubernetes
+
+Here's a section of a dashboard displaying Fluentd metrics:
 {% include image.md src="images/fluentd_dashboard.png" width="80" %}
 
 
@@ -64,7 +70,100 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
 
   Run `sudo service telegraf restart` to restart your Telegraf agent.
 
+## Fluentd on Kubernetes
+
+This integration supports Fluentd deployment as daemonset using standard fluentd-docker images with Prometheus plugin configuration as mentioned below.
+
+
+
+1. Make sure that Fluentd is deployed on your Kubernetes cluster. If not deployed already, you can deploy it by using the sample `.yaml` files as explained below.
+
+2. Add the following match clause in the existing `fluent.conf` file by using ConfigMaps and save the file. You can find the `fluent.conf` file under `/fluentd/etc/`.
+{% raw %}
+```
+<match **>
+  @type stdout
+  @id out_prometheus
+  <buffer>
+    flush_thread_count 8
+    flush_interval 5s
+    chunk_limit_size 2M
+    queue_limit_length 32
+    retry_max_interval 30
+    retry_forever true
+  </buffer>
+</match>
+```
+{% endraw %}
+
+You can override another configuration file using the same ConfigMap, if needed. See the sample [fluentd-config-map.yaml](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/fluentd/fluentd-config-map.yaml) file. 
+
+3. Mount the same `.conf` files present in the `/fluentd/etc/` directory by using volume mount in your Fluentd deployment `.yaml`.
+ For more information, see the sample [fluentd-daemonset.yaml](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/fluentd/fluentd-daemonset.yaml) file.
+
+4. Annotate the Fluentd daemonset to add Prometheus `scrape`, `scheme`, `port`, and `path`.
+
+{% raw %}
+```
+kubectl annotate pod <FLUENTD_POD_NAME> prometheus.io/scrape=true prometheus.io/scheme=http prometheus.io/port=24231 prometheus.io/path=/metrics
+```
+{% endraw %}
+
+For more information, see the following sample `.yaml` files:
+   * [fluentd-config-map.yaml](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/fluentd/fluentd-config-map.yaml)
+   * [fluentd-rbac.yaml](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/fluentd/fluentd-rbac.yaml)
+   * [fluentd-daemonset.yaml](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/fluentd/fluentd-daemonset.yaml)
+
+
+### Configure the Wavefront Collector for Kubernetes
+
+You can configure the Wavefront Collector for Kubernetes to scrape Fluentd metrics exposed to Prometheus by using annotation based discovery. To collect the Fluentd metrics automatically, configure the Wavefront Collector for Kubernetes to use auto-discovery.
+
+If you do not have the Wavefront Collector for Kubernetes installed on your Kubernetes cluster, follow the instructions to add it to your cluster by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install). You can check the status of Wavefront Collector and Proxy if you are already monitoring the Kubernetes cluster on the `Setup` tab of the Kubernetes integration.
+
+**NOTE**: Make sure that auto discovery `enableDiscovery: true` and annotation based discovery `discovery.disable_annotation_discovery: false` are enabled in the Wavefront Collector. They should be enabled by default.
 
 
 
 
+
+
+## Fluentd
+  
+
+|Metric Name|Description|
+| :--- | :--- |
+|fluentd.retry.count |The number of retry attempts.|
+|fluentd.buffer.queue.length|The length of the buffer queue.|
+|fluentd.buffer.total.queued.size|The size of the buffer queue.|
+|fluentd.emit.records|The number of emit records.|
+|fluentd.emit.count|The total number of emit call.|
+|fluentd.emit.size|The total size of emit events.|
+|fluentd.write.count|The total number of write/try_write call.|
+|fluentd.rollback.count|The total number of rollback. Rollback happens when write/try_write failed.|
+|fluentd.slow.flush.count|The total number of slow flush. This count will be incremented when buffer flush is longer than slow_flush_log_threshold.|
+|fluentd.flush.time.count|The total time of buffer flush in milliseconds.|
+|fluentd.buffer.stage.length|The length of staged buffer chunks.|
+|fluentd.buffer.stage.byte.size|The current bytesize of staged buffer chunks.|
+|fluentd.buffer.queue.byte.size|The current bytesize of queued buffer chunks.|
+|fluentd.buffer.available.buffer.space.ratios|Show available space for buffer.|
+
+## Fluentd on Kubernetes
+  
+
+|Metric Name|Description|
+| :--- | :--- |
+|fluentd.output.status.retry.count.gauge|The number of retry attempts.|
+|fluentd.output.status.buffer.queue.length.gauge|The length of the buffer queue.|
+|fluentd.output.status.buffer.total.bytes.gauge|The size of the buffer queue.|
+|fluentd.output.status.emit.records.gauge|The number of emit records.|
+|fluentd.output.status.emit.count.gauge|The total number of emit call.|
+|fluentd.output.status.write.count|The total number of write/try_write call.|
+|fluentd.output.status.rollback.count.gauge|The total number of rollback. Rollback happens when write/try_write failed.|
+|fluentd.output.status.retry.wait.gauge|If write out fails, Fluentd will retry after waiting for retry_wait seconds|
+|fluentd.output.status.slow.flush.count.gauge|The total number of slow flush. This count will be incremented when buffer flush is longer than slow_flush_log_threshold.|
+|fluentd.output.status.flush.time.count.gauge|The total time of buffer flush in milliseconds.|
+|fluentd.output.status.buffer.stage.length.gauge|The length of staged buffer chunks.|
+|fluentd.output.status.buffer.stage.byte.size.gauge|The current bytesize of staged buffer chunks.|
+|fluentd.output.status.queue.bytesize.gauge|The current bytesize of queued buffer chunks.|
+|fluentd.output.status.buffer.available.space.ratio.gauge|Show available space for buffer.|
