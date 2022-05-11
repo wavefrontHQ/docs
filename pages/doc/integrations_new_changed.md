@@ -38,7 +38,7 @@ We updated the metrics descriptions for the following list of integrations:
 * Consul
 * Istio
 * Java
-* mongoDB
+* MongoDB
 * Spring Cloud Data Flow
 * Windows Service
 * Zabbix
