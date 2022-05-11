@@ -11,8 +11,8 @@ Amazon Web Services (AWS) is a collection of cloud-computing services that provi
 {% include note.html content="You must have the [**Proxy Management** permission](permissions_overview.html) to set up an AWS integration. If you do not have permission, the UI menu selections, buttons, and links you use to perform the tasks are not visible." %}
 
 You have to set up your Tanzu Observability by Wavefront account with the correct permissions.
-* From within the integration or explicitly, you can [Give Global Read-Only Access](integrations_aws_overview.html#give-read-only-access-to-your-amazon-account-and-get-the-role-arn)
-* As an alternative, you can [Create an IAM Policy to Specify Limited Access](integrations_aws_overview.html#create-iam-policy-to-specify-limited-access)
+* From within the integration or explicitly, you can [Give Global Read-Only Access](integrations_aws_overview.html#give-read-only-access-to-your-amazon-account-and-get-the-role-arn).
+* As an alternative, you can [Create an IAM Policy to Specify Limited Access](integrations_aws_overview.html#create-iam-policy-to-specify-limited-access).
 
 
 ## Supported AWS Integrations
@@ -44,11 +44,49 @@ To configure CloudWatch ingestion:
 1. In the Types column, click the **CloudWatch** link in the row of the integration you want to configure.
 1. Configure ingestion properties:
     - **Instance and Volume Allow List** fields -- Add instances and volumes to an allow list by specifying [EC2 tags](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html), defined on the instances and volumes. The allow lists should be in JSON format, for example, `{"organization":"yourcompany"}`. When specified as a comma-separated list, the tags are OR'd. To use instance and volume allow lists, you must also add an [AWS Metrics+](#aws-metrics-data) integration because the AWS tags are imported from the EC2 service. If you don't specify any tags, Tanzu Observability imports metrics from *all* instances and volumes.
-    - **Metric Allow List** field -- Adds metrics to an allow list by specifying a regular expression. The regular expression must be a complete match of the entire metric name. For example, if you only want CloudWatch data for `elb` and `rds` (which come under `aws.rds`), then use a regular expression such as: `^aws.(elb|rds).*$`. If you do not specify a regular expression, _all_ CloudWatch metrics are retrieved.
-    - **Point Tag Allow List** -- Adds AWS point tags to an allow list by specifying a regular expression. If you do not specify a regular expression, no point tags are added to metrics.
-    - **Service Refresh Rate** -- Number of minutes between requesting metrics. Default: 5.
+    - **Metric Allow List** field -- Add metrics to an allow list by specifying a regular expression. Metric names consist of the actual metric name and an aggregation type. In the regular expression, you must use the actual metric names without the aggregation types. For example, in the following list of metric names:
+    
+      - `aws.dynamodb.successfulrequestlatency.average`
+      - `aws.dynamodb.successfulrequestlatency.maximum`
+      - `aws.dynamodb.successfulrequestlatency.minimum`
+      - `aws.dynamodb.successfulrequestlatency.samplecount`
+      - `aws.dynamodb.successfulrequestlatency.sum`
+      
+       Here, the actual metric name is `aws.dynamodb.successfulrequestlatency`, while `average`, `maximum`, `minimum`, `samplecount`, and `sum` are the aggregation types. When you create the regular expression, you must use only `aws.dynamodb.successfulrequestlatency`. For example, `^aws.dynamodb.successfulrequestlatency$`.
+      
+      If you do not specify a regular expression, _all_ CloudWatch metrics are retrieved.
+      
+    - **Point Tag Allow List** -- Add AWS point tags to an allow list by specifying a regular expression. If you do not specify a regular expression, no point tags are added to metrics.
+    - **Service Refresh Rate** -- Number of minutes between requesting metrics. Default is `5`.
     - **Products** -- Allows you to filter the list of AWS products for which you want to collect metrics by using the CloudWatch integration. The default is **All**. Click **Custom** to see the list of AWS products and to filter them according to your needs.
 1. Click **Save**.
+
+### How to Use the Metric Allow List and the Products List
+
+By using the **Metric Allow List** and the **Products** option you can select which services and metrics to monitor. If you want to monitor all metrics for all services, you don't have to do anything, just leave the **Metric Allow List** empty and the **Products** option set to **All**.
+
+
+#### How to Monitor All Metrics for Specific Services
+
+If you want to monitor all of the ingested metrics for specific services, select these services from the **Products** list. For example, if you want to monitor Amazon Relational Database Service and Amazon DynamoDB:
+
+1. Expand the list of **Products**.
+2. Select **Custom**.
+3. Select the **Amazon DynamoDB** and **Amazon Relational Database Service** options.
+
+#### How to Monitor Some of the Metrics for Specific Services
+
+If you want to monitor only some of the metrics for specific services, select these services from the **Products** list and use a regular expression to specify the metrics that you want to monitor. For example, if you want to monitor `aws.rds.activetransactions` for Amazon Relational Database Service and `aws.dynamodb.accountmaxreads` for Amazon DynamoDB:
+
+1. In the **Metric Allow List**, enter a regular expression such as: `aws.(rds.activetransactions|dynamodb.accountmaxreads).*`
+2. Expand the list of **Products**.
+3. Select **Custom**.
+4. Select the **Amazon DynamoDB** and **Amazon Relational Database Service** options.
+
+
+#### How to Monitor Only the Metrics for a Service Which Is Not in the Products Lists
+
+If you are ingesting metrics for a service, which is not part of the products list, to monitor the metrics for this service, leave the he **Products** option set to **All** and use a regular expression. 
 
 
 <a name="aws_sources"></a>
