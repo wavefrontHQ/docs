@@ -173,199 +173,200 @@ metricRegistry.register("jvm.thread-states", new ThreadStatesGaugeSet());
 |Metric Name|Description|
 | :--- | :--- |
 |jvm.buffer-pool.direct.*|Metrics for direct (not mapped) JVM buffer pools.|
-|jvm.buffer-pool.direct.count||
-|jvm.buffer-pool.direct.capacity||
-|jvm.buffer-pool.direct.used||
+|jvm.buffer-pool.direct.count|Direct JVM buffer pools count.|
+|jvm.buffer-pool.direct.capacity|Direct JVM buffer pools capacity.|
+|jvm.buffer-pool.direct.used|Used direct JVM buffer pools.|
 |jvm.buffer-pool.mapped.*|Metrics for mapped (not direct) JVM buffer pools.|
-|jvm.buffer-pool.mapped.count||
-|jvm.buffer-pool.mapped.capacity||
-|jvm.buffer-pool.mapped.used||
+|jvm.buffer-pool.mapped.count|Mapped JVM buffer pools count.|
+|jvm.buffer-pool.mapped.capacity|Mapped JVM buffer pools capacity.|
+|jvm.buffer-pool.mapped.used|Used mapped JVM buffer pools.|
 |jvm.buffer.*|JVM buffer metrics.|
-|jvm.buffer.count||
-|jvm.buffer.count.buffers||
-|jvm.buffer.count.buffers.gauge||
+|jvm.buffer.count|JVM buffer pools count.|
+|jvm.buffer.count.buffers|Number of buffers in the JVM pool.|
+|jvm.buffer.count.buffers.gauge|An estimate of the number of buffers in the JVM pool.|
 |jvm.buffer.memory.*|JVM buffer memory metrics.|
-|jvm.buffer.memory.used||
-|jvm.buffer.memory.used.bytes||
-|jvm.buffer.memory.used.bytes.gauge||
+|jvm.buffer.memory.used|The memory that the Java virtual machine is using for this buffer pool.|
+|jvm.buffer.memory.used.bytes|The memory that the Java virtual machine is using for this buffer pool in bytes.|
+|jvm.buffer.memory.used.bytes.gauge|An estimate of the memory that the Java virtual machine is using for this buffer pool.|
 |jvm.buffer.total.capacity.*|JVM total buffer capacity metrics.|
-|jvm.buffer.total.capacity||
-|jvm.buffer.total.capacity.bytes||
-|jvm.buffer.total.capacity.bytes.gauge||
+|jvm.buffer.total.capacity|JVM total buffer capacity.|
+|jvm.buffer.total.capacity.bytes|JVM total buffer capacity in bytes.|
+|jvm.buffer.total.capacity.bytes.gauge|An estimate of the total capacity of the buffers in this pool.|
 |jvm.buffers.direct.*|Metrics for direct (not mapped) JVM buffers.|
-|jvm.buffers.direct.count||
-|jvm.buffers.direct.capacity||
-|jvm.buffers.direct.used||
+|jvm.buffers.direct.count|Number of direct JVM buffers in the pool.|
+|jvm.buffers.direct.capacity|An estimate of the total capacity of the direct JVM buffers in this pool.|
+|jvm.buffers.direct.used|Number of direct JVM buffers used in the pool.|
 |jvm.buffers.mapped.count|Metrics for mapped (not direct) JVM buffers.|
-|jvm.buffers.mapped.capacity||
-|jvm.buffers.mapped.used||
+|jvm.buffers.mapped.capacity|An estimate of the total capacity of the mapped JVM buffers in this pool|
+|jvm.buffers.mapped.used|Number of Mapped JVM buffers used in the pool.|
 |jvm.classes.loaded.*|Metrics for loaded JVM classes|
-|jvm.classes.loaded||
-|jvm.classes.loaded.classes||
-|jvm.classes.loaded.classes.gauge||
-|jvm.classes.unloaded.*|Metrics for unloaded JVM classes|
-|jvm.classes.unloaded||
-|jvm.classes.unloaded.classes.total||
-|jvm.classes.unloaded.classes.total.counter||
+|jvm.classes.loaded|The number of classes that are currently loaded in the JVM.|
+|jvm.classes.loaded.classes|The number of classes that are currently loaded in the JVM.|
+|jvm.classes.loaded.classes.gauge|The estimated number of classes that are currently loaded in the JVM.|
+|jvm.classes.unloaded.*|Metrics for unloaded JVM classes.|
+|jvm.classes.unloaded|Number of unloaded JVM classes.|
+|jvm.classes.unloaded.classes.total|Total number of unloaded JVM classes.|
+|jvm.classes.unloaded.classes.total.counter|Total number of unloaded classes since the JVM has started execution.|
 |jvm.current_time|Current time. |
 |jvm.gc.G1-*-Generation. *|JVM garbage collection metrics (old or young generation)|
-|jvm.gc.G1-Old-Generation.count||
-|jvm.gc.G1-Old-Generation.time||
-|jvm.gc.G1-Young-Generation.count||
-|jvm.gc.G1-Young-Generation.time||
+|jvm.gc.G1-Old-Generation.count|Old generation G1 garbage collections count.|
+|jvm.gc.G1-Old-Generation.time|Time of old generation G1 garbage collections.|
+|jvm.gc.G1-Young-Generation.count|Young generation G1 garbage collections count.|
+|jvm.gc.G1-Young-Generation.time|Time of young generation G1 garbage collections.|
 |jvm.gc.PS-*. *|Metrics for the PS MarkSweep and PS Scavenge Java beans. |
-|jvm.gc.PS-MarkSweep.count||
-|jvm.gc.PS-MarkSweep.time||
-|jvm.gc.PS-Scavenge.count||
-|jvm.gc.PS-Scavenge.time||
+|jvm.gc.PS-MarkSweep.count|PS MarkSweep garbage collections count.|
+|jvm.gc.PS-MarkSweep.time|PS MarkSweep garbage collections time.|
+|jvm.gc.PS-Scavenge.count|PS Scavenge garbage collections count.|
+|jvm.gc.PS-Scavenge.time|PS Scavenge garbage collections time.|
 |jvm.gc.concurrent.phase.time.*|Metrics for JVM concurrent garbage collection (Mark Sweep collector).|
-|jvm.gc.concurrent.phase.time.count||
-|jvm.gc.concurrent.phase.time.max||
-|jvm.gc.concurrent.phase.time.sum||
-|jvm.gc.concurrent.phase.time.avg||
+|jvm.gc.concurrent.phase.time.count|JVM concurrent garbage collection time count.|
+|jvm.gc.concurrent.phase.time.max|JVM concurrent garbage collection maximum time.|
+|jvm.gc.concurrent.phase.time.sum|Sum of the JVM concurrent garbage collection time.|
+|jvm.gc.concurrent.phase.time.avg|Average time spent in JVM concurrent garbage collection.|
 |jvm.gc.live.data.*|Metrics for JVM garbage collection live data.|
-|jvm.gc.live.data.size||
-|jvm.gc.live.data.size.bytes||
-|jvm.gc.live.data.size.bytes.gauge||
+|jvm.gc.live.data.size|The live data size is the size (in bytes) of the old generation after a major garbage collection.|
+|jvm.gc.live.data.size.bytes|The live data size is the size (in bytes) of the old generation after a major garbage collection.|
+|jvm.gc.live.data.size.bytes.gauge|An estimate of the live data size of the old generation after a major garbage collection.|
 |jvm.gc.max.data.*|Metrics for JVM garbage collection max data size.|
-|jvm.gc.max.data.size||
-|jvm.gc.max.data.size.bytes||
-|jvm.gc.max.data.size.bytes.gauge||
-|jvm.gc.memory.allocated||
-|jvm.gc.memory.allocated.bytes.total||
-|jvm.gc.memory.allocated.bytes.total.counter||
+|jvm.gc.max.data.size|The maximum size of long-lived heap memory pool for the old generation (in bytes).|
+|jvm.gc.max.data.size.bytes|The maximum size of long-lived heap memory pool for the old generation (in bytes).|
+|jvm.gc.max.data.size.bytes.gauge|An estimate of the maximum size of long-lived heap memory pool for the old generation (in bytes).|
+|jvm.gc.memory.allocated|Increase in the size of the young heap memory pool after one garbage collection and before the next.|
+|jvm.gc.memory.allocated.bytes.total|Total number of bytes of increase in the size of the young heap memory pool after one garbage collection and before the next.|
+|jvm.gc.memory.allocated.bytes.total.counter|Increase in the size of the young heap memory pool after one garbage collection and before the next (total count number).|
 |jvm.gc.memory.*|Metrics for JVM garbage collection memory.|
-|jvm.gc.memory.promoted||
-|jvm.gc.memory.promoted.bytes.total||
-|jvm.gc.memory.promoted.bytes.total.counter||
-|jvm.gc.pause.*|Pause-related metrics for JVM garbage collection. |
-|jvm.gc.pause.count||
-|jvm.gc.pause.max||
-|jvm.gc.pause.count||
-|jvm.gc.pause.avg||
-|jvm.gc.pause.seconds.count||
-|jvm.gc.pause.seconds.max||
-|jvm.gc.pause.seconds.sum||
-|jvm.gc.pause.seconds.max.gauge||
+|jvm.gc.memory.promoted|Count of positive increases in the size of the old generation memory pool from before garbage collection to after garbage collection.|
+|jvm.gc.memory.promoted.bytes.total|Count of positive increases in the size of the old generation memory pool from before garbage collection to after garbage collection (total number of bytes).|
+|jvm.gc.memory.promoted.bytes.total.counter|Count of positive increases in the size of the old generation memory pool from before garbage collection to after garbage collection (total count of number of bytes).|
+|jvm.gc.pause.*|Pause-related metrics for JVM garbage collection.|
+|jvm.gc.pause.count|Count of JVM garbage collection pauses.|
+|jvm.gc.pause.max|Maximum number of JVM garbage collection pauses.|
+|jvm.gc.pause.count|Count of JVM garbage collection pauses.|
+|jvm.gc.pause.avg|Average JVM garbage collection pauses.|
+|jvm.gc.pause.seconds.count|Time spent in JVM garbage collection pause.|
+|jvm.gc.pause.seconds.max|Maximum time spent in JVM garbage collection pauses.|
+|jvm.gc.pause.seconds.sum|Sum of the duration spent in JVM garbage collection pauses.|
+|jvm.gc.pause.seconds.max.gauge|An estimate of the maximum time spent in JVM garbage collection pauses.|
 |jvm.memory.max*|Maximum JVM memory metrics.|
-|jvm.memory.max||
-|jvm.memory.max.bytes||
-|jvm.memory.max.bytes.gauge||
+|jvm.memory.max|The maximum JVM memory available.|
+|jvm.memory.max.bytes|The maximum amount of memory that can be used for memory management.|
+|jvm.memory.max.bytes.gauge|The maximum JVM memory space.|
 |jvm.memory.committed*|Metrics for JVM committed memory.|
-|jvm.memory.committed||
-|jvm.memory.committed.bytes||
-|jvm.memory.committed.bytes.gauge||
+|jvm.memory.committed|JVM committed memory.|
+|jvm.memory.committed.bytes|JVM committed memory in bytes.|
+|jvm.memory.committed.bytes.gauge|An estimate of the JVM committed memory.|
 |jvm.memory.heap.*|JVM memory heap metrics.|
-|jvm.memory.heap.max||
-|jvm.memory.heap.committed||
-|jvm.memory.heap.init||
-|jvm.memory.heap.usage||
-|jvm.memory.heap.used||
+|jvm.memory.heap.max|Maximum JVM memory heap.|
+|jvm.memory.heap.committed|Committed JVM memory heap.|
+|jvm.memory.heap.init|Initial amount of heap memory (in bytes) that the JVM requests.|
+|jvm.memory.heap.usage|Amount of JVM memory heap.|
+|jvm.memory.heap.used|The amount of used JVM memory heap.|
 |jvm.memory.non-heap.*|JVM memory non-heap metrics.|
-|jvm.memory.non-heap.max||
-|jvm.memory.non-heap.committed||
-|jvm.memory.non-heap.init||
-|jvm.memory.non-heap.usage||
-|jvm.memory.non-heap.used||
+|jvm.memory.non-heap.max|The maximum memory the JVM allocated for purposes other than the heap.|
+|jvm.memory.non-heap.committed|The committed memory the JVM allocated for purposes other than the heap.|
+|jvm.memory.non-heap.init|Initial amount of non-heap memory.|
+|jvm.memory.non-heap.usage|Amount of JVM non-heap memory.|
+|jvm.memory.non-heap.used|The amount of used JVM non-heap memory.|
 |jvm.memory.pools.Code-Cache.*|Metrics for the code cache memory pool.|
-|jvm.memory.pools.Code-Cache.max||
-|jvm.memory.pools.Code-Cache.committed||
-|jvm.memory.pools.Code-Cache.init||
-|jvm.memory.pools.Code-Cache.usage||
-|jvm.memory.pools.Code-Cache.used||
+|jvm.memory.pools.Code-Cache.max|Maximum size of the code cache memory pool.|
+|jvm.memory.pools.Code-Cache.committed|Committed size of the code cache memory pool.|
+|jvm.memory.pools.Code-Cache.init|Initial size of the code cache memory pool.|
+|jvm.memory.pools.Code-Cache.usage|Size of the code cache memory pool.|
+|jvm.memory.pools.Code-Cache.used|Used size of the code cache memory pool.|
 |jvm.memory.pools.Compressed-Class-Space.*|Metrics for the compressed class space memory pool.|
-|jvm.memory.pools.Compressed-Class-Space.max||
-|jvm.memory.pools.Compressed-Class-Space.committed||
-|jvm.memory.pools.Compressed-Class-Space.init||
-|jvm.memory.pools.Compressed-Class-Space.usage||
-|jvm.memory.pools.Compressed-Class-Space.used||
+|jvm.memory.pools.Compressed-Class-Space.max|Maximum size of the compressed class space memory pool.|
+|jvm.memory.pools.Compressed-Class-Space.committed|Committed size of the compressed class space memory pool.|
+|jvm.memory.pools.Compressed-Class-Space.init|Initial size of the compressed class space memory pool.|
+|jvm.memory.pools.Compressed-Class-Space.usage|Size of the compressed class space memory pool.|
+|jvm.memory.pools.Compressed-Class-Space.used|Used size of the compressed class space memory pool.|
 |jvm.memory.pools.G1-Eden-Space.*|Metrics for the G1-Eden-Space memory pool.|
-|jvm.memory.pools.G1-Eden-Space.max||
-|jvm.memory.pools.G1-Eden-Space.committed||
-|jvm.memory.pools.G1-Eden-Space.init||
-|jvm.memory.pools.G1-Eden-Space.usage||
-|jvm.memory.pools.G1-Eden-Space.used||
-|jvm.memory.pools.G1-Eden-Space.used-after-gc||
+|jvm.memory.pools.G1-Eden-Space.max|Maximum size of the G1-Eden-Space memory pool.|
+|jvm.memory.pools.G1-Eden-Space.committed|Committed size of the G1-Eden-Space memory pool.|
+|jvm.memory.pools.G1-Eden-Space.init|Initial size of the G1-Eden-Space memory pool.|
+|jvm.memory.pools.G1-Eden-Space.usage|Size of the G1-Eden-Space memory pool.|
+|jvm.memory.pools.G1-Eden-Space.used|Used size of the G1-Eden-Space memory pool.|
+|jvm.memory.pools.G1-Eden-Space.used-after-gc|Used size of the G1-Eden-Space memory pool after garbage collection.|
 |jvm.memory.pools.G1-Old-Gen.*|Metrics for the G1-Old-Gen memory pool.|
-|jvm.memory.pools.G1-Old-Gen.max||
-|jvm.memory.pools.G1-Old-Gen.committed||
-|jvm.memory.pools.G1-Old-Gen.init||
-|jvm.memory.pools.G1-Old-Gen.usage||
-|jvm.memory.pools.G1-Old-Gen.used||
-|jvm.memory.pools.G1-Old-Gen.used-after-gc||
+|jvm.memory.pools.G1-Old-Gen.max|Maximum size of the G1-Old-Gen memory pool.|
+|jvm.memory.pools.G1-Old-Gen.committed|Committed size of the G1-Old-Gen memory pool.|
+|jvm.memory.pools.G1-Old-Gen.init|Initial size of the G1-Old-Gen memory pool.|
+|jvm.memory.pools.G1-Old-Gen.usage|Size of the G1-Old-Gen memory pool.|
+|jvm.memory.pools.G1-Old-Gen.used|Used size of the G1-Old-Gen memory pool.|
+|jvm.memory.pools.G1-Old-Gen.used-after-gc| G1-Old-Gen memory pool after garbage collection.|
 |jvm.memory.pools.G1-Survivor-Space.*|Metrics for the G1-Survivor-Space memory pool.|
-|jvm.memory.pools.G1-Survivor-Space.max||
-|jvm.memory.pools.G1-Survivor-Space.committed||
-|jvm.memory.pools.G1-Survivor-Space.init||
-|jvm.memory.pools.G1-Survivor-Space.usage||
-|jvm.memory.pools.G1-Survivor-Space.used||
-|jvm.memory.pools.G1-Survivor-Space.used-after-gc||
+|jvm.memory.pools.G1-Survivor-Space.max|Maximum size of the G1-Survivor-Space memory pool.|
+|jvm.memory.pools.G1-Survivor-Space.committed|Committed size of the G1-Survivor-Space memory pool.|
+|jvm.memory.pools.G1-Survivor-Space.init|Initial size of the G1-Survivor-Space memory pool.|
+|jvm.memory.pools.G1-Survivor-Space.usage|Size of the G1-Survivor-Space memory pool.|
+|jvm.memory.pools.G1-Survivor-Space.used|Used size of the G1-Survivor-Space memory pool.|
+|jvm.memory.pools.G1-Survivor-Space.used-after-gc|Used size of the G1-Survivor-Space memory pool after garbage collection.|
 |jvm.memory.pools.Metaspace.*|Metrics for the JVM metaspace memory pool.|
-|jvm.memory.pools.Metaspace.max||
-|jvm.memory.pools.Metaspace.committed||
-|jvm.memory.pools.Metaspace.init||
-|jvm.memory.pools.Metaspace.usage||
-|jvm.memory.pools.Metaspace.used||
-|jvm.memory.pools.PS-Eden-Space.*||
-|jvm.memory.pools.PS-Eden-Space.max|Metrics for the JVM PS-Eden-Space memory pool.|
-|jvm.memory.pools.PS-Eden-Space.committed||
-|jvm.memory.pools.PS-Eden-Space.init||
-|jvm.memory.pools.PS-Eden-Space.usage||
-|jvm.memory.pools.PS-Eden-Space.used||
-|jvm.memory.pools.PS-Eden-Space.used-after-gc||
+|jvm.memory.pools.Metaspace.max|Maximum size of the JVM metaspace memory pool.|
+|jvm.memory.pools.Metaspace.committed|Committed size of the JVM metaspace memory pool.|
+|jvm.memory.pools.Metaspace.init|Initial size of the JVM metaspace memory pool.|
+|jvm.memory.pools.Metaspace.usage|Size of the JVM metaspace memory pool.|
+|jvm.memory.pools.Metaspace.used|Used size of the JVM metaspace memory pool.|
+|jvm.memory.pools.PS-Eden-Space.*|Metrics for Metrics for the JVM PS-Eden-Space memory pool.|
+|jvm.memory.pools.PS-Eden-Space.max|Maximum size of the JVM PS-Eden-Space memory pool.|
+|jvm.memory.pools.PS-Eden-Space.committed|Committed size of the JVM PS-Eden-Space memory pool.|
+|jvm.memory.pools.PS-Eden-Space.init|Initial size of the JVM PS-Eden-Space memory pool.|
+|jvm.memory.pools.PS-Eden-Space.usage|Size of the JVM PS-Eden-Space memory pool.|
+|jvm.memory.pools.PS-Eden-Space.used|Used size of the JVM PS-Eden-Space memory pool.|
+|jvm.memory.pools.PS-Eden-Space.used-after-gc|Used size of the JVM PS-Eden-Space memory pool after garbage collection.|
 |jvm.memory.pools.PS-Old-Gen.max|Metrics for the JVM PS-Old-Gen memory pool.|
-|jvm.memory.pools.PS-Old-Gen.max||
-|jvm.memory.pools.PS-Old-Gen.committed||
-|jvm.memory.pools.PS-Old-Gen.init||
-|jvm.memory.pools.PS-Old-Gen.usage||
-|jvm.memory.pools.PS-Old-Gen.used||
-|jvm.memory.pools.PS-Old-Gen.used-after-gc||
-|jvm.memory.pools.PS-Survivor-Space.*|Metrics for the JVM PS-Survior-Space memory pool.|
-|jvm.memory.pools.PS-Survivor-Space.max||
-|jvm.memory.pools.PS-Survivor-Space.committed||
-|jvm.memory.pools.PS-Survivor-Space.init||
-|jvm.memory.pools.PS-Survivor-Space.usage||
-|jvm.memory.pools.PS-Survivor-Space.used||
-|jvm.memory.pools.PS-Survivor-Space.used-after-gc||
+|jvm.memory.pools.PS-Old-Gen.max|Maximum size of the JVM PS-Old-Gen memory pool.|
+|jvm.memory.pools.PS-Old-Gen.committed|Committed size of the JVM PS-Old-Gen memory pool.|
+|jvm.memory.pools.PS-Old-Gen.init|Initial size of the JVM PS-Old-Gen memory pool.|
+|jvm.memory.pools.PS-Old-Gen.usage|Size of the JVM PS-Old-Gen memory pool.|
+|jvm.memory.pools.PS-Old-Gen.used|Used size of the JVM PS-Old-Gen memory pool.|
+|jvm.memory.pools.PS-Old-Gen.used-after-gc|Used size of the JVM PS-Old-Gen memory pool after garbage collection.|
+|jvm.memory.pools.PS-Survivor-Space.*|Metrics for the JVM PS-Survivor-Space memory pool.|
+|jvm.memory.pools.PS-Survivor-Space.max|Maximum size of the JVM PS-Survivor-Space memory pool.|
+|jvm.memory.pools.PS-Survivor-Space.committed|Committed size of the JVM PS-Survivor-Space memory pool.|
+|jvm.memory.pools.PS-Survivor-Space.init|Initial size of the JVM PS-Survivor-Space memory pool.|
+|jvm.memory.pools.PS-Survivor-Space.usage|Size of the JVM PS-Survivor-Space memory pool.|
+|jvm.memory.pools.PS-Survivor-Space.used|Used size of the JVM PS-Survivor-Space memory pool.|
+|jvm.memory.pools.PS-Survivor-Space.used-after-gc|Used size of the JVM PS-Survivor-Space memory pool after garbage collection.|
 |jvm.memory.total.*|Metrics for total JVM memory.|
-|jvm.memory.total.max||
-|jvm.memory.total.committed||
-|jvm.memory.total.init||
-|jvm.memory.total.used||
+|jvm.memory.total.max|Maximum total JVM memory.|
+|jvm.memory.total.committed|Committed total JVM memory.|
+|jvm.memory.total.init|Initial total JVM memory.|
+|jvm.memory.total.used|Used total JVM memory.|
 |jvm.memory.used|Metrics for used JVM memory.|
-|jvm.memory.used||
-|jvm.memory.used.bytes||
-|jvm.memory.used.bytes.gauge||
+|jvm.memory.used|The amount of used memory.|
+|jvm.memory.used.bytes|The amount of used memory in bytes.|
+|jvm.memory.used.bytes.gauge|An estimate of the used memory.|
 |jvm.thread-states.*|JVM thread state metrics.|
-|jvm.thread-states.count||
-|jvm.thread-states.blocked.count||
-|jvm.thread-states.daemon.count||
-|jvm.thread-states.deadlock.count||
-|jvm.thread-states.new.count||
-|jvm.thread-states.runnable.count||
-|jvm.thread-states.terminated.count||
-|jvm.thread-states.timed_waiting.count||
-|jvm.thread-states.waiting.count||
+|jvm.thread-states.count|JVM thread state number.|
+|jvm.thread-states.blocked.count|JVM blocked thread states number.|
+|jvm.thread-states.daemon.count|JVM daemon thread states number.|
+|jvm.thread-states.deadlock.count|JVM deadlock thread states number.|
+|jvm.thread-states.new.count|JVM new thread states number.|
+|jvm.thread-states.runnable.count|JVM runnable thread states number.|
+|jvm.thread-states.terminated.count|JVM terminated thread states number.|
+|jvm.thread-states.timed_waiting.count|JVM timed_waiting thread states number.|
+|jvm.thread-states.waiting.count|JVM waiting thread states number.|
 |jvm.threads.*|JVM thread metrics|
-|jvm.threads.count||
-|jvm.threads.blocked.count||
-|jvm.threads.daemon.count||
-|jvm.threads.daemon.threads||
-|jvm.threads.daemon.threads.gauge||
-|jvm.threads.deadlock.count||
-|jvm.threads.live||
-|jvm.threads.live.threads||
-|jvm.threads.live.threads.gauge||
-|jvm.threads.new.count||
-|jvm.threads.peak||
-|jvm.threads.peak.threads||
-|jvm.threads.peak.threads.gauge||
-|jvm.threads.runnable.count||
-|jvm.threads.states||
-|jvm.threads.states.threads||
-|jvm.threads.states.threads.gauge||
-|jvm.threads.terminated.count||
-|jvm.threads.timed_waiting.count||
-|jvm.threads.waiting.count||
-|jvm.uptime||
+|jvm.threads.count|JVM threads number.|
+|jvm.threads.blocked.count|JVM blocked threads number.|
+|jvm.threads.daemon.count|JVM daemon threads number.|
+|jvm.threads.daemon.threads|JVM daemon threads.|
+|jvm.threads.daemon.threads.gauge|An estimate of the JVM daemon threads.|
+|jvm.threads.deadlock.count|JVM deadlock threads number.|
+|jvm.threads.live|JVM live threads number.|
+|jvm.threads.live.threads|JVM live threads.|
+|jvm.threads.live.threads.gauge|An estimate of the JVM live threads.|
+|jvm.threads.new.count|JVM new threads number.|
+|jvm.threads.peak|JVM peak threads.|
+|jvm.threads.peak.threads|JVM peak threads number.|
+|jvm.threads.peak.threads.gauge|An estimate of the JVM peak threads.|
+|jvm.threads.runnable.count|JVM runnable threads number.|
+|jvm.threads.states|JVM states threads.|
+|jvm.threads.states.threads|JVM states threads number.|
+|jvm.threads.states.threads.gauge|An estimate of the JVM states threads.|
+|jvm.threads.terminated.count|JVM terminated threads number.|
+|jvm.threads.timed_waiting.count|JVM timed_waiting threads number.|
+|jvm.threads.waiting.count|JVM waiting threads number.|
+|jvm.uptime|JVM uptime.|
+
 

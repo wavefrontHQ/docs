@@ -157,7 +157,7 @@ When an alert fires, we analyze the point tags that are most likely to be relate
 In this video, Pierre gives a 2-minute tour of Alert Viewer:
 
 <p>
-<iframe src="https://bcove.video/3r3PRVe" width="700" height="400" allowfullscreen="true" alt="intro to alert viewer"></iframe>
+<iframe id="kmsembed-1_qdr0dtwr" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_qdr0dtwr/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="intro to alert viewer"></iframe>
 </p>
 
 
@@ -333,5 +333,9 @@ We create [events](events.html) as alerts fire, update, and resolve. You can opt
 * [Create and manage alerts](alerts_manage.html).
 * See answers to [Frequently Asked Questions](alerts_faq.html)
 * Learn about [alert states and life-cycle](alerts_states_lifecycle.html).
-* Learn [How to Audit Alert Changes](alerts_faq.html#how-can-i-audit-alert-changes)
-* Understand how to [bulk update alerts](alerts_faq.html#how-do-i-bulk-update-alerts-with-the-api). 
+* For troubleshooting, look at our Alerts FAQ page:
+  - [Why Did My Alert Not Fire?](alerts_faq.html#why-did-my-alert-not-fire)
+  - [Why Did My Alert Misfire?](alerts_faq.html#why-did-my-alert-misfire)
+  - [How Can I Audit Alert Changes](alerts_faq.html#how-can-i-audit-alert-changes)
+* If you want to update multiple alerts, See [How Do I Bulk Update Alerts with the API](alerts_faq.html#how-do-i-bulk-update-alerts-with-the-api) and [How Do I Bulk Update Alerts with the CLI](alerts_faq.html#how-do-i-bulk-update-alerts-with-the-cli).
+   {% include note.html content="The CLI is not maintained by VMware and is not officially supported." %}

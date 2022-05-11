@@ -193,7 +193,3 @@ You must specify:
 * WAVEFRONT_URL: The URL of your instance (e.g., https://example.wavefront.com)
 * WAVEFRONT_TOKEN: The [Wavefront Token](wavefront_api.html#generating-an-api-token). Creating a service account and using a service account token usually makes sense.
 * The port that the proxy is using; 2878 by default.
-
-## Learn More!
-
-KB article: [Configure a Wavefront Proxy Container to Use wavefront.conf](https://help.wavefront.com/hc/en-us/articles/4409333245460-Configure-a-Wavefront-Proxy-Container-to-Use-wavefront-conf)

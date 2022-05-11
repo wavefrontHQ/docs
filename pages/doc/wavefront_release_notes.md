@@ -15,11 +15,139 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 ## Announcements
 
-* **Upcoming Removal of the Service Accounts from the Everyone Group**
+**Upcoming Removal of the Service Accounts from the Everyone Group**
 
-    In the next release(s), the service accounts that are still part of the predefined **Everyone** group will be removed from this group. This will not impact any existing functionality and integrations. Last year, all service accounts were added to the new predefined **Service Accounts** group. See the [2021-42.x Release Notes](2021.49.x_release_notes.html#2021-42x-release-notes) for details.
+In the next release(s), the service accounts that are still part of the predefined **Everyone** group will be removed from this group. This will not impact any existing functionality and integrations. Last year, all service accounts were added to the new predefined **Service Accounts** group. See the [2021-42.x Release Notes](2021.49.x_release_notes.html#2021-42x-release-notes) for details.
 
-    <!--- {% include important.html content="Ensure that the service accounts in your organization do not depend on the **Everyone** group permissions."%} --->
+<!---{% include important.html content="Ensure that the service accounts in your organization do not depend on the **Everyone** group permissions."%}--->
+
+
+<!---<tr>
+  <td width="50%">
+    <strong>Updates for Customers with Service Accounts in the Everyone Group</strong>:
+    <p>
+    Last year, we introduced the <strong>Service Accounts</strong> system group and added all service accounts to this group. To prepare for the <a href="#announcements">upcoming removal</a> of the remaining service accounts from the <strong>Everyone</strong> group, we did the following changes:<br/>
+    <ul>
+    <li>For all dashboards and alerts that have the <strong>Everyone</strong> group in their view or view & modify access lists, we added the <strong>Service Accounts</strong> group to these lists.</li>
+    <li>For all metrics security rules that have the <strong>Everyone</strong> group in their allow or deny access lists, we added the <strong>Service Accounts</strong> group to these lists.</li>
+    <li>To preserve the current behavior for existing customers, we changed the default permissions for the service accounts to have view and modify access to newly created dashboards and alerts. To revoke these permissions for the service accounts, navigate to the <strong>Organization Settings</strong> page and on the <strong>Security</strong> tab, deselect the <strong>Service Accounts</strong> check box.</li>
+    </ul>
+    </p>
+    </td>
+  <td width="50%">
+  <strong>Read More:</strong>
+  <ul>
+  <li><a href="2021.49.x_release_notes.html#2021-42x-release-notes">2021-42.x Release Notes</a></li>
+  <li><a href="service-accounts.html#what-are-service-accounts">What Are Service Accounts</a></li>
+  <li><a href="access.html">Managing Access to Dashboards and Alerts</a></li>
+  <li><a href="metrics_security.html">Metrics Security Policy Rules</a></li>
+  <li><a href="access.html#change-the-access-control-security-organization-setting">Change the Access Control Security Organization Setting</a></li>
+  </ul>
+  </td>
+</tr>--->
+
+
+## 2022-17.x Release Notes
+
+{% include note.html content="The new API Tokens Management functionality is currently available to some of our customers. It will become available to all customers within the next releases."%}
+
+<table>
+<tbody>
+<tr>
+  <td width="50%">
+  <strong>API Tokens Management</strong>:<p>
+  Users with the <strong>Accounts</strong> permission can now view and revoke API tokens of any user or service account in the organization.</p>
+  <p>See <a href="wavefront_api.html#view-and-manage-the-api-tokens-in-your-organization">View and Manage the API Tokens in Your Organization</a> for details.</p>
+  </td>
+  <td width="50%">
+  <br/>
+  <img src="/images/API_Tokens_admin.png" alt="The new API Tokens tab under the Accounts menu item.">
+  </td>
+</tr>
+<tr>
+  <td width="50%">
+    <strong>Full Support for Embedded Charts</strong>:
+    <br/>You can now <a href="ui_sharing.html#embed-a-chart-in-other-uis">embed all types of charts in other UIs</a>. For example, you can embed a chart in an internal or external website. With this release, we have added support for embedding the following types of charts:
+    <ul>
+    <li>Stacked Column</li>
+    <li>Table</li>
+    <li>TopK</li>
+    <li>Node Map</li>
+    <li>Histogram</li>
+    <li>Heatmap</li>
+    <li>Gauge</li>
+    <li>Pie</li>
+    </ul>
+    See the screenshot on the right.
+  </td>
+  <td width="50%">
+  <br />
+  <img src="/images/embedded_chart_legend.png" alt="A screenshot of an embedded pie chart.">
+  </td>
+</tr>
+<tr>
+  <td width="50%">
+  <strong>Chart Support in Alert Notifications and Other Systems</strong>:
+  <p> We now support all types of chart images in all <a href="alerts_notifications.html#static-chart-image-in-notifications">alert notifications</a>, as well as Slack messages, etc. See the sample screenshot on the right.</p>
+  </td>
+  <td width="50%">
+  <br/>
+  <img src="/images/chart_embed_slack.png" alt="A screenshot of a chart included in a slack message.">
+  </td>
+  </tr>
+<tr>
+  <td width="50%">
+  <strong>Importing Dashboard Sections From Other Dashboards</strong>:<p>
+  When you create or edit a dashboard, you can import sections from other dashboards. In dashboard edit mode:</p>
+  <ol>
+  <li>Click <strong>Dashboard Templates</strong>.</li>
+  <li>Select a section.</li>
+  <li>Navigate through the provided <strong>Dashboard list filters</strong>, or search for the dashboard from which you want to import a section.</li>
+  </ol>
+  See <a href="ui_dashboards.html#create-a-dashboard-by-importing-sections-from-other-dashboards">here</a> for details on how to create a dashboard by importing sections from other dashboards.
+  </td>
+  <td width="50%">
+  <br/>
+  <img src="/images/import_dashboard_section.png" alt="The new Dashboard Templates button allowing you to select and import dashboard sections.">
+  </td>
+</tr>
+<tr>
+   <td width="50%">
+   <strong>Improved Charts Experience</strong>:
+   <p>
+   <ul><li>
+   We have improved the query stats experience. When you click the <strong>lightbulb icon</strong> for a query and hover over Cardinality, Points Scanned, or Duration, you can also see how much the query contributes to that chart stat. See the screenshot on the right. </li>
+   <li>You can now enter SI or IEC units in the <strong>Min</strong> and <strong>Max</strong> fields for the Y Axis across different chart types.</li>
+   </ul>
+   </p>
+   </td>
+  <td width="50%">
+  <br/>
+  <img src="/images/improved-query-stats.png" alt="A screenshot of the cardinality tooltip for a query.">
+  </td>
+</tr>
+<tr>
+  <td width="50%">
+  <strong>Documentation Improvements</strong>:
+  <p>
+  We updated the doc set with more information that comes from our Tanzu Observability SaaS Value Engineering team. Some information was added, some new doc pages are listed on the right.
+  </p>
+  </td>
+  <td width="50%">
+  <strong>Read More:</strong>
+  <br />
+  <ul>
+  <li><a href="alerts_faq.html">Alerts FAQ (Expanded)</a></li>
+  <li><a href="wavefront_usage_info.html#how-can-i-optimize-my-ingestion-rate">How Can I Optimize My Ingestion Rate?</a></li>
+  <li><a href="proxies_troubleshooting.html">Proxy Troubleshooting</a></li>
+  <li><a href="telegraf_details.html">Telegraf Troubleshooting</a></li>
+  <li><a href="integrations_bigpanda_troubleshooting.html">Troubleshooting Alert Notifications to BigPanda Webhook Targets</a></li>
+  </ul>
+  </td>
+</tr>
+  </tbody>
+</table>
+
 
 ## 2022-11.x Release Notes
 

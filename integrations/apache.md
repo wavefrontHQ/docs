@@ -117,7 +117,7 @@ Information about server activity and performance. Metrics descriptions are coll
 |apache.Uptime|Total uptime of the server.|
 |apache.accesses.total.counter|Total number of times this server was accessed.|
 |apache.cpuload.gauge|CPU load for this server. |
-|apache.exporter.build.info.gauge||
+|apache.exporter.build.info.gauge|Apache exporter build information.|
 |apache.scboard.closing|Number of worker threads that are closing a TCP connection (after serving a response).|
 |apache.scboard.dnslookup|Number of worker threads currently performing a DNS lookup.|
 |apache.scboard.finishing|Number of worker threads finishing (part of server shutdown).|

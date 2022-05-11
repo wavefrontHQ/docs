@@ -60,13 +60,16 @@ The overall process involves the following:
 * Giving that account viewer privileges 
 * Downloading a JSON private key
 
-To register a Google Cloud Platform (GCP) integration:
+To register a Google Cloud Platform integration:
 
 1. In the **Name** text box, enter a meaningful name.
 2. In the **JSON key** text box, enter your JSON key to give read-only access to a GCP project.
    **Note**: The JSON key is securely stored and never exposed except for read-only access to the GCP APIs. 
 3. (Optional) Select the categories to fetch.
 4. (Optional) In the **Metric Allow List** text box, you can add metrics to an allow list by entering a regular expression. 
+    
+    For example, to monitor all the CPU metrics coming from the Compute Engine, enter <code>^gcp.compute.instance.cpu.*$</code>.
+    
 5. (Optional) In the **Additional Metric Prefixes** text box, enter a comma separated list of additional metrics prefixes. 
    The metrics names that start with these prefixes will be imported in addition to what you have selected as categories.
 6. (Optional) Change the **Service Refresh Rate**. The default is `5` minutes.
@@ -83,10 +86,6 @@ To register a Google Cloud Platform (GCP) integration:
 
 
 
-
-## Metrics
-
-See [Google Cloud metrics documentation](https://cloud.google.com/monitoring/api/metrics_gcp) for Metrics descriptions.   
 
 |Metric Name|Description|
 | :--- | :--- |

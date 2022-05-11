@@ -105,5 +105,4 @@ For information about metric, source, and point tag names, see [Wavefront Data N
 ## Learn More!
 
 * For more background and practical advice, see [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html).
-* [Limits and Best Practices](wavefront_limits.html#timeout-limits)
-* [Monitoring Metric Data Quality](https://help.wavefront.com/hc/en-us/articles/360055613191-Monitoring-metric-data-quality).
+* For query limits and similar information, see [Limits and Best Practices](wavefront_limits.html).

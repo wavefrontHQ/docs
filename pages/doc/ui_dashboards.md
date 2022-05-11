@@ -18,11 +18,11 @@ Tanzu Observability by Wavefront includes many out-of-the box dashboards, and su
 
 ## Video
 
-Users with Dashboards permissions can create a new dashboard with one or multiple charts from metrics, a chart type, or an integration. You can also watch the video <a href="https://bcove.video/2WxBJoe" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+Users with Dashboards permissions can create a new dashboard with one or multiple charts from metrics, a chart type, or an integration. You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_gqelhfur" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
 
 
 <p>
-<iframe src="https://bcove.video/2WxBJoe" width="700" height="400" allowfullscreen="true" alt="creating dashboards video"></iframe>
+<iframe id="kmsembed-1_gqelhfur" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gqelhfur/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="creating dashboards video"></iframe>
 </p>
 
 
@@ -59,7 +59,7 @@ It's easy to create a dashboard from metrics data or by selecting a chart.
 
 ### Create a Dashboard from Integration Templates
 
-With release 2019.46, you can create a dashboard by specifying an integration dashboard as a template.
+You can create a dashboard by specifying an integration dashboard as a template.
 
 <table style="width: 100%;">
 <tbody>
@@ -110,6 +110,32 @@ The Wavefront service dashboard includes a set of charts to monitor the trace da
 **Take a look at the cool actions you can do using these charts:**
 * [Explore the Default Service Dashboard](tracing_service_dashboard.html) and navigate to the Tracing UI from the Service Dashboard
 * To delete or edit a chart, see [Clone, Delete, or Edit a Chart](#clone-delete-or-edit-a-chart).
+
+### Create a Dashboard by Importing Sections from Other Dashboards
+
+You can create a dashboard by importing sections from other dashboards.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+<strong>To create a dashboard</strong>:
+<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the toolbar. </li>
+<li>Drag the <strong>Dashboard Templates</strong> widget to the canvas. </li>
+<li>Search for a dashboard by its name or use the <strong>Dashboard list filters</strong>.</li>
+<li>Select the sections to import and click <strong>Import sections</strong>.</li>
+<li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard.
+  <ul>
+    <li>The Name field supports letters, numbers, characters, and spaces.</li>
+    <li>The URL field supports letters, numbers, underscores, and dashes.</li>
+  </ul>
+</li>
+</ol></td>
+<td width="50%"><img src="/images/import_dashboard_section.png" alt="The new Dashboard Templates button allowing you to select and import dashboard sections."></td>
+</tr>
+</tbody>
+</table>
+
 
 ## Edit or Clone a Dashboard
 
@@ -450,7 +476,7 @@ After you've saved these changes:
 Watch this video to learn how to optimize dashboard and query performance.
 
 <p>
-<iframe src="https://bcove.video/3rcTY1w" width="700" height="400" allowfullscreen="true" alt="Optimize Dashboard Performance video"></iframe>
+<iframe id="kmsembed-1_ynnxe6tn" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_ynnxe6tn/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0"></iframe>
 </p>
 
 
@@ -588,5 +614,7 @@ Each time you save a dashboard, you create a dashboard version. Up to 100 versio
 
 ## Troubleshoot and Learn More!
 
-* [How to Audit Dashboard Changes](ui_dashboards.html#audit-dashboard-changes)
+* [Troubleshooting Missing Data](missing_data_troubleshooting.html) can help if you don't see what you expect.
+
+The Customer Success team prepared this KB article about migrating data between environments:
 * [Migrating Objects or Data Between Environments](https://help.wavefront.com/hc/en-us/articles/360053164791-Migrating-Objects-or-Data-Between-Tanzu-Observability-Environments)

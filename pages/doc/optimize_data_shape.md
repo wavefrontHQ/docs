@@ -224,6 +224,5 @@ There are valid situations where it's appropriate to capture ephemeral informati
 
 ## Learn More!
 
-
-* [Limits and Best Practices](wavefront_limits.html#timeout-limits).
-* [Monitoring Metric Data Quality](https://help.wavefront.com/hc/en-us/articles/360055613191-Monitoring-metric-data-quality).
+* For query limits and similar information, see [Limits and Best Practices](wavefront_limits.html).
+* For an introduction to data cardinality that includes a video, see [High Cardinality Data](cardinality.html)
