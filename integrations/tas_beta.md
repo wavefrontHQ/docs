@@ -32,7 +32,7 @@ The TAS integration contains a set of predefined dashboards that give you an ove
 - TAS: Workload Monitoring - Information about applications running inside of TAS.
 - TAS: Doppler - Real-time visibility into Doppler health.
 
-## Alerts
+### Alerts
 
 The current set of alerts comes from an older version of this integration. These alerts are not officially supported
 yet, but you can install and use them. Descriptions of the alerts are available in
