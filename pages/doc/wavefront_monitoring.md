@@ -43,13 +43,13 @@ The Wavefront Usage integration includes the following dashboards:
 <td>Avoid <strong>exceeding the monthly commitment</strong> for your instance by exploring dashboards and creating alerts.
 </td>
 <td><strong>Important:</strong> Use only if you have a billable commit contract with Tanzu Observability.
-<p>Displays a detailed breakdown of your monthly usage against your monthly commitment. Enables you to take appropriate action when usage reaches around 95% of your committed monthly usage.</p></td></tr>
+<p>Displays a detailed breakdown of your monthly usage against your monthly commitment. Enables you to take appropriate action when usage reaches around 95% of your monthly commitment.</p></td></tr>
 <tr>
 <td><strong>Usage (PPS) vs Remaining Balance (PPS P95) for Burndown</strong></td>
 <td>Avoid <strong>exceeding the burndown commitment</strong> for your instance by exploring dashboards and creating alerts.
 </td>
 <td><strong>Important:</strong> Use only if you have a burndown commit contract with Tanzu Observability.
-<p>Displays a detailed breakdown of your monthly usage against your remaining burndown balance. Enables you to take appropriate action when usage reaches around 95% of your burndown commitment.</p></td></tr>
+<p>Displays details about your usage against your remaining burndown balance and a breakdown of your usage per billing period. Enables you to take appropriate action when usage reaches around 95% of your burndown commitment.</p></td></tr>
 </tbody>
 </table>
 
@@ -163,11 +163,11 @@ The dashboard includes a link to the **Ingestion Policies** page so if you are a
 
 The dashboard for your contract type helps you monitor your **monthly usage** and ensure that you're not ingesting more PPS than your contracted rate allows.
 
-* The **Committed Rate vs Monthly Usage (PPS P95) for Billable** dashboard gives a detailed breakdown of your Tanzu Observability monthly usage against commitment.
+* The **Committed Rate vs Monthly Usage (PPS P95) for Billable** dashboard provides a detailed breakdown of your Tanzu Observability monthly usage against commitment.
 
     ![Screenshot of part of the Committed Rate vs Monthly Usage (PPS P95) dashboard](/images/p95_dashboard.png)
 
-* The **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboard gives a detailed breakdown of your Tanzu Observability usage against the remaining burndown commitment.
+* The **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboard provides visibility into your Tanzu Observability usage against burndown commitment and a detailed breakdown of your usage per billing period.
 
     ![Screenshot of part of the Committed Rate vs Monthly Usage (PPS P95) dashboard](/images/p95_dashboard.png)
 

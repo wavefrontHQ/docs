@@ -124,15 +124,14 @@ The first thing you would do is to investigate the charts in the [Usage Summary 
 
 Depending on your contract type, the **Committed Rate vs Monthly Usage (PPS P95) for Billable** dashboard or the **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboard in the Wavefront Usage integration helps you determine whether you’re getting close to meeting the committed usage. For most Wavefront instances, after the committed usage is reached data still keeps flowing into Tanzu Observability, but the customer has to pay overage.
 
-The charts in the dashboards show this information:
+The charts in the dashboards show broad information, including::
 
-* Current PPS vs Committed PPS usage.
-* Usage of the Wavefront service in terms of PPS for your current billing period.
-* Usage of the Wavefront service for your current billing period in terms of the data points that are being queried via dashboards, alerts, custom charts, API calls, etc.
-* Total PPS ingested for your current billing period.
-* Hourly usage of the Wavefront service.
-* Usage of the Wavefront service in terms of hourly PPS, data points per second (DPS), or spans per second (SPS) ingested vs scanned for the current billing period.
-* Usage of the Wavefront service in terms of PPS, DPS, or SPS ingested vs scanned for the current billing period.
+* Current usage vs commitment
+* Usage of the Wavefront service in terms of PPS per billing period
+* Ingestion usage of the Wavefront service in terms of points, histograms, and traces
+* Scan usage of the Wavefront service in terms of points, histograms, and edges
+* Ingestion and scan rates per billing period
+* Last 12 months usage of the Wavefront service.
 
 ## Which Metrics Are Ingested But Not Used?
 
