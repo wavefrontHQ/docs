@@ -66,7 +66,8 @@ helm repo update
 
 Refer to the Wavefront [helm chart](https://github.com/wavefrontHQ/helm/tree/master/wavefront) for further options.
 ## Kubernetes Manual Install
-Follow the instructions below to manually set up Kubernetes monitoring.
+Follow the instructions below to manually set up Kubernetes monitoring. For more details about the available options, see the [Wavefront Collector for Kubernetes Configuration](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md).
+
 
 ### Step 1. Deploy a Wavefront Proxy in Kubernetes
 
