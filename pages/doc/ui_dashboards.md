@@ -59,7 +59,7 @@ It's easy to create a dashboard from metrics data or by selecting a chart.
 
 ### Create a Dashboard from Integration Templates
 
-With release 2019.46, you can create a dashboard by specifying an integration dashboard as a template.
+You can create a dashboard by specifying an integration dashboard as a template.
 
 <table style="width: 100%;">
 <tbody>
@@ -110,6 +110,32 @@ The Wavefront service dashboard includes a set of charts to monitor the trace da
 **Take a look at the cool actions you can do using these charts:**
 * [Explore the Default Service Dashboard](tracing_service_dashboard.html) and navigate to the Tracing UI from the Service Dashboard
 * To delete or edit a chart, see [Clone, Delete, or Edit a Chart](#clone-delete-or-edit-a-chart).
+
+### Create a Dashboard by Importing Sections from Other Dashboards
+
+You can create a dashboard by importing sections from other dashboards.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+<strong>To create a dashboard</strong>:
+<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the toolbar. </li>
+<li>Drag the <strong>Dashboard Templates</strong> widget to the canvas. </li>
+<li>Search for a dashboard by its name or use the <strong>Dashboard list filters</strong>.</li>
+<li>Select the sections to import and click <strong>Import sections</strong>.</li>
+<li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard.
+  <ul>
+    <li>The Name field supports letters, numbers, characters, and spaces.</li>
+    <li>The URL field supports letters, numbers, underscores, and dashes.</li>
+  </ul>
+</li>
+</ol></td>
+<td width="50%"><img src="/images/import_dashboard_section.png" alt="The new Dashboard Templates button allowing you to select and import dashboard sections."></td>
+</tr>
+</tbody>
+</table>
+
 
 ## Edit or Clone a Dashboard
 

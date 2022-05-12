@@ -21,6 +21,7 @@ In this initial release of the Dynatrace integration, we have the following limi
 
 * Billing metrics are not allowed and fetched with this release.
 * If the point tags are with Annotations Key Length Limit greater than 64, the metrics associated with the corresponding point tag will be dropped.
+* For metrics with the resolution other than the value of 1 minute (`1m`), there could be data loss as these metrics might have different resolution, such as 5 minutes or 1 hour.
 
 
 **Obtain the Environment ID and Generate an API Token**
@@ -34,7 +35,7 @@ To set up the Dynatrace integration, you must provide the environment ID and a v
 5. Click **Access Tokens** in the navigation menu.
 6. In the **Access Tokens** page, click the **Generate new token** button.
 7. In the **Token name** text box, enter the name for the API token.
-8. From the list of scopes, select **Read metrics (metrics.read)** and click the **Generate** button.
+8. From the list of scopes, select **Read metrics (metrics.read)** and **Read entities (entities.read)**, and click the **Generate** button.
 9. Copy the generated token by clicking the **Copy** button and paste it in a text file.
 
 **Register the Dynatrace Integration**

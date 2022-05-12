@@ -22,7 +22,7 @@ You can manage authorization in your environment by:
 
 User accounts log in with a user name and password.
 * All authenticated users can perform certain tasks such as viewing dashboards and charts or sharing links to charts.
-* **Roles** determine what users can do globally. Each role has one or more permissions. For example, assume that you have created an **Interns** role that has **Dashboard** permissions. All users with the **Interns** role can view and manage all dashboards.
+* **Roles** determine what users can do globally. Each role has one or more permissions. For example, assume that you have created an **Interns** role that has the **Dashboard** permission. All users with the **Interns** role can view and manage all dashboards.
 * **[Access](access.html)** applies to individual objects. For example, some users don't have access to a dashboard with financial data. Users who have modify access for a dashboard or alert can grant or revoke access for that object.
 
 ## Create, Edit, and Delete User Accounts
@@ -72,11 +72,11 @@ When you invite a new (human) user to your environment, what that new user can d
   * Share links to dashboards and charts with other users.
   * Access the user profile from the gear icon <i class="fa fa-cog"/> on the toolbar.
 
-{% include note.html content="It's possible that [access to dashboards and alerts](access.html#how-access-control-works) is limited." %}
+  {% include note.html content="It's possible that [access to dashboards and alerts](access.html#how-access-control-works) is limited." %}
 
 
-- **New User Permissions:** Users with **Accounts** permission can view and modify new user default permissions. To do that, from the gear icon <i class="fa fa-cog"/> on the toolbar, select **Organization Settings**. These permissions *do not* apply to service accounts.
-- **New User Default Groups:** Users with **Accounts** permission can set up a default groups for new users. To do that, from the gear icon <i class="fa fa-cog"/> on the toolbar, select **Organization Settings**.  All new user accounts get all permissions assigned to the default user groups. These permissions *do not* apply to service accounts.
+- **New User Permissions:** Users with the **Accounts** permission can view and modify new user default permissions. To do that, from the gear icon <i class="fa fa-cog"/> on the toolbar, select **Organization Settings**. These permissions *do not* apply to service accounts.
+- **New User Default Groups:** Users with the **Accounts** permission can set up default groups for new users. To do that, from the gear icon <i class="fa fa-cog"/> on the toolbar, select **Organization Settings**.  All new user accounts get all permissions assigned to the default user groups. These permissions *do not* apply to service accounts.
 
 ## Set Default Permissions for New Users
 
@@ -87,11 +87,11 @@ You can set default permissions for new users. By default, all new users can per
 
 The default permissions affect only new user accounts that you create after you made the change. They do not affect service accounts.
 
-**Note:** In many cases, it makes sense to create a group with permissions for new users, and to set that group as the default for new users.
+{% include note.html content="In many cases, it makes sense to create a group with permissions for new users, and to set that group as the default for new users." %}
 
 ## Set the Default User Group for New Users
 
-Each new user is assigned to the Everyone group.
+Each new user is assigned to the **Everyone** group.
 
 To add any new user to additional groups:
 
