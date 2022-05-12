@@ -23,3 +23,4 @@
 [submodule "_includes/opentelemetry-examples"]
 	path = _includes/opentelemetry-examples
 	url = https://github.com/wavefrontHQ/opentelemetry-examples
+	branch = master
