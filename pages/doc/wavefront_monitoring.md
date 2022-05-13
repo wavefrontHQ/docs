@@ -161,15 +161,15 @@ The dashboard includes a link to the **Ingestion Policies** page so if you are a
     - If you have a burndown commit contract with Tanzu Observability, use the **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboard.<br/>
 "%}
 
-The dashboard for your contract type helps you monitor your **monthly usage** and ensure that you're not ingesting more PPS than your contracted rate allows.
+The dashboard for your contract type helps you monitor your usage and ensure that you're not ingesting more PPS than your contracted rate allows.
 
 * The **Committed Rate vs Monthly Usage (PPS P95) for Billable** dashboard provides a detailed breakdown of your Tanzu Observability monthly usage against commitment.
 
-    ![Screenshot of part of the Committed Rate vs Monthly Usage (PPS P95) dashboard](/images/p95_dashboard.png)
+    ![Screenshot of part of the Committed Rate vs Monthly Usage (PPS P95) dashboard](/images/billable.png)
 
 * The **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboard provides visibility into your Tanzu Observability usage against burndown commitment and a detailed breakdown of your usage per billing period.
 
-    ![Screenshot of part of the Committed Rate vs Monthly Usage (PPS P95) dashboard](/images/p95_dashboard.png)
+    ![Screenshot of part of the Committed Rate vs Monthly Usage (PPS P95) dashboard](/images/burndown.png)
 
 When your usage reaches around 95% of your committed rate, you can then take appropriate action. For example:
 
