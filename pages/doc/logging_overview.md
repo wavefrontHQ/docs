@@ -40,10 +40,12 @@ summary: Learn how you can get the unified observability experience with Tanzu O
 
 ## What's a Log?
 
-Logs are structured or unstructured text records of events that took place at a given time. Logs in Tanzu Observability include the following attributes:
+Logs are structured or unstructured text records of events that took place at a given time. You needs to send logs as a JSON payload. 
 
+Example:
 ![Gives an overview of the attributes in a log. They are listed in the table below](images/logging_log_image.png)
 
+Logs in Tanzu Observability include the following attributes:
 
 <table style="width: 100;">
   <tr>
@@ -56,26 +58,26 @@ Logs are structured or unstructured text records of events that took place at a 
   </tr>
   <tr>
     <td>
+       Tags
+    </td>
+    <td>
+      Tags are key value pairs that help you add meta data to your logs. You can filter logs using tags.
+    </td>
+  </tr>
+  <tr>
+    <td>
       Source
     </td>
     <td markdown="span">
-      
+      A source is a unique application, host, container, or instance that emits metrics.
     </td>
   </tr>
   <tr>
     <td>
-      Time
+      Timestamp
     </td>
     <td>
-      
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Source
-    </td>
-    <td>
-      
+      The timestamp the log was created in the Epoch time format.
     </td>
   </tr>
   <tr>
@@ -83,15 +85,12 @@ Logs are structured or unstructured text records of events that took place at a 
       Message
     </td>
     <td>
-      
+      The message includes the details of an event.
     </td>
   </tr>
-  <tr>
-    <td>
-      Tag:Value
-    </td>
-    <td>
-      
-    </td>
-  </tr>
+  
 </table>
+
+## Use logs
+
+Once your send your logs to Tanzu Observability, you can browse them 
