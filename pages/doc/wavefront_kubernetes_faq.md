@@ -7,7 +7,7 @@ permalink: wavefront_kubernetes_faq.html
 summary: Answers about viewing Kubernetes metrics in Tanzu Observability by Wavefront.
 ---
 
-The [Wavefront Collector for Kubernetes on GitHub](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes) enables monitoring Kubernetes clusters and sending metrics to Tanzu Observability. Much of the doc for the project is in the [docs folder on GitHub](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/tree/master/docs). This page has some special tips and tricks to help you create the user experience you're after.
+The [Wavefront Collector for Kubernetes on GitHub](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes) enables monitoring Kubernetes clusters and sending metrics to Tanzu Observability. Much of the doc for the project is in the [docs folder on GitHub](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/tree/main/docs). This page has some special tips and tricks to help you create the user experience you're after.
 
 <!--- Consider including Improve Display Speed with Sampling Option here --->
 
@@ -42,8 +42,8 @@ Many Kubernetes components and applications expose metrics in the Prometheus for
 * Adding specific annotations on a pod to inform the Collector to start collecting metrics from it.
 * Configuring static discovery rules to identify pods by labels, namespaces or image names and information on how to collect metrics from the pods.
 
-See the [auto discovery documentation](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/discovery.md) for details.
+See the [auto discovery documentation](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/discovery.md) for details.
 
 ## How Do I Monitor Popular Third-Party Applications?
 
-The Wavefront Collector supports monitoring over 20 popular applications such as Redis, Memcached, Postgres, MongoDB, etc. Use [static discovery rules](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/discovery.md#rule-based-discovery) to monitor these applications.
+The Wavefront Collector supports monitoring over 20 popular applications such as Redis, Memcached, Postgres, MongoDB, etc. Use [static discovery rules](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/discovery.md#rule-based-discovery) to monitor these applications.
