@@ -14,7 +14,7 @@ In this tutorial, you'll learn how to:
 
 It's an easy setup. You don't have to install anything or make changes to your application code.
 
-{% include tip.html content="Don't have an AWS account? You can [send data from a Window environment](#video-set-up-data-ingestion-from-windows). Or you can explore dashboards with sample data. [Log in](#task-1-how-to-log-in-to-your-wavefront-instance), and then click **Integrations** and search for **Tutorial** or **Tour Pro**." %}
+{% include tip.html content="Don't have an AWS account? You can [send data from a Window environment](#video-set-up-data-ingestion-from-windows). Or you can explore dashboards with sample data. [Log in](#task-1-how-to-log-in-to-your-wavefront-instance), click **Integrations** and search for **Tutorial** or **Tour Pro**." %}
 
 <table style="width: 100%;">
 <tbody>
@@ -26,7 +26,7 @@ It's an easy setup. You don't have to install anything or make changes to your a
 </table>
 
 
-## Task 1: How to Log In to Your Wavefront Instance
+## Task 1: Log In to Your Wavefront Instance
 
 If you've never logged in to your company's Wavefront instance, follow these steps. Go to Task 2 otherwise.
 
@@ -34,11 +34,11 @@ If you've never logged in to your company's Wavefront instance, follow these ste
 2. Click the link in the email.
   * In some environments, you set up your password and you're done.
   * If your admin has configured Single Sign-On (SSO), you're redirected to your company's SSO environment. When you complete the authentication steps, you're redirected to the Wavefront instance.
-3. Going forward, you can log in using the URL `https://<my_instance>.wavefront.com`. The Wavefront instance name is in the invitation email.
+3. Going forward, you can log in using the `https://<my_instance>.wavefront.com` URL. The Wavefront instance name is in the invitation email.
 
 {% include tip.html content="If your company isn't currently a Tanzu Observability customer, [sign up for a free trial](https://tanzu.vmware.com/observability)." %}
 
-## Task 2: How to Set Up the Integration
+## Task 2: Set Up the Integration
 
 In this guide, we'll set up a data ingestion pipeline with AWS.
 
@@ -47,7 +47,7 @@ In this guide, we'll set up a data ingestion pipeline with AWS.
 1. Click **Integrations** on the toolbar.
    An integration tile has:
    * A **Setup** tab which provides step-by-step instructions on ingesting data.
-   * A **Dashboards** tab for accessign out-of-the-box dashboards.
+   * A **Dashboards** tab to access the out-of-the-box dashboards.
    Popular integrations also have an **Alerts** tab with preconfigured alerts.
 2. Click the **Amazon Web Services (AWS)** tile.
     <!--![Highlight the AWS integration on the Wavefront Integrations page.](images/hello_tutorial_aws_integration_tile.png)-->
@@ -67,7 +67,7 @@ Follow these steps:
 1. On a web browser tab, log in to your AWS account.
 1. Search for the **IAM** (AWS Identity and Access Management) service and click it to open the service.
 1. Click **Roles** in the left panel and click **Create role**.
-1. Create an AWS account:
+1. Create aa trusted entity:
     1. Click the **AWS Account** tile and select **Another AWS account**.
     1. Enter the **Account ID**: Copy the **Account ID** value shown in the AWS integration setup instructions and paste it here.
         ![A diagram that shows where the account ID is on the Wavefront integration and an arrow pointing how to copy and paste on the AWS account.](images/hello_tutorial_aws_account_ID.png)
@@ -127,12 +127,12 @@ Once the instance is launched, you start to see the data after a few minutes.
 
 ### Learn More About Data Ingestion and the AWS Integration
 
-* [Set Up Data Ingestion](wavefront_data_ingestion.html) -- info on data ingestion, including a video.
-* [Amazon Web Services Integration](integrations_aws_overview.html) -- More info on the AWS integration.
+* [Set Up Data Ingestion](wavefront_data_ingestion.html) has information on data ingestion, including a video.
+* [Amazon Web Services Integration](integrations_aws_overview.html) has more information on the AWS integration.
 * [Set up and manage the AWS Integration by Using the API](integrations_aws_overview_API.html).
-* See a [List of Wavefront Integrations](label_integrations%20list.html).
+* See the [List of Wavefront Integrations](label_integrations%20list.html).
 
-## Task 3: How to Explore Data with Out-of-the-Box Dashboards
+## Task 3: Explore Data with Out-of-the-Box Dashboards
 
 With data flowing, you can start exploring dashboards and charts:
 
@@ -160,10 +160,11 @@ Tanzu Observability includes system dashboards for the AWS integration that help
 
 This [90-second video](https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gunwcmwm/uiConfId/49694343/pbc/252649793/st/0) gives a great overview of how to interact with dashboards and charts.
 
-## Task 4: How to Set Up and Use an Out-of-the-Box Alert
+## Task 4: Set Up and Use an Out-of-the-Box Alert
 
-For many integrations, we've preconfigured alerts for common use cases. All you have to do is:
-* Clone the alert and set the threshold(s) for the alert
+Many integrations have preconfigured alerts for common use cases. All you have to do is:
+* Clone the alert.
+* Set the threshold(s) (for most alerts).
 * Specify who should get the alert.
 
 <table style="width: 100%;">
@@ -185,14 +186,13 @@ You could now edit the alert directly, but we recommend that you clone the alert
 <tr>
 <td width="50%">
 4. Select <strong>Alerts</strong> in the task bar and search for the alert by name.
-   <br/><br/>In this example, we clone the <strong>EC2 Instance CPU Usage Too High</strong> alert.
+   <br/><br/>In this example, we clone the <strong>EC2 Instance CPU Usage Too High</strong> alert. The alert opens in Edit mode.
 </td>
 <td width="50%" markdown="span">![Screenshot shows AWS integration, Alerts tab selected](images/clone_aws_alert.png) </td></tr>
 <tr>
 <td width="50%" >
-5. Customize one or more of the thresholds, as appropriate.<br/>
-6. Scroll to the <strong>Recipients</strong> section.<br/>
-7. For the lowest severity level that you want notification for:<br/>
+5. Customize the thresholds, for example, you could set up the alert to be SEVERE if 97% of CPU utilization is reached.
+6. Scroll to the <strong>Recipients</strong> section. For the lowest severity level that you want notification for:<br/>
 &nbsp;&nbsp; a. Click the plus (+) icon.<br/>
 &nbsp;&nbsp; b. Type your email address.<br/>
 &nbsp;&nbsp; c. Press Enter.<br/>
@@ -201,7 +201,7 @@ You could now edit the alert directly, but we recommend that you clone the alert
 <td width="50%" markdown="span">![Screenshot shows AWS integration, Alerts tab selected](images/aws_specify_recipient.png) </td></tr>
 <tr>
 <td width="50%" >
-When the threshold is exceeded, you'll now receive an email that includes a link to the alert in the alert viewer. <br/><br/>The annotated screenshot on the right gets you started. <br/><br/>This <a href="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_qdr0dtwr/uiConfId/49694343/pbc/252649793/st/0#">short video]</a> shows what you can do.
+When the threshold is exceeded, you'll now receive an email that includes a link to the alert in the alert viewer. <br/><br/>The annotated screenshot on the right gets you started. <br/><br/>This <a href="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_qdr0dtwr/uiConfId/49694343/pbc/252649793/st/0#">short video</a> shows what you can do.
 </td>
 <td width="50%" markdown="span">![Annotated screenshot of alert viewer](images/alert_viewer.png) </td></tr>
 </tbody>
@@ -226,10 +226,10 @@ You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_0bbz
 
 Our Success Value Engineering team shared some frequently asked questions -- and where you can find the answers.
 
-* How do I manage my account (permissions, preferences, etc)? Start [here](users_account_managing.html)
-* How can admins add other users? Start [here](user-accounts.html)
-* How do admins set up SSO? Start [here](auth_self_service_sso.html)
-* How do I track usage? Start [here](wavefront_monitoring.html)
-* Why did my alert (not) fire? Start [here](alerts_faq.html#why-did-my-alert-not-fire)
+* How do I manage my account (permissions, preferences, etc)? See [Customize Your Account](users_account_managing.html).
+* How can admins add other users? See [Manage User Accounts](user-accounts.html).
+* How do admins set up SSO? See [Single-Tenant Authentication and Self-Service SAML SSO](auth_self_service_sso.html)
+* How do I track usage? See [Monitor Your Wavefront Service with the Wavefront Usage Integration](wavefront_monitoring.html).
+* Why did my alert (not) fire? See [Why Did My Alert Not Fire?](alerts_faq.html#why-did-my-alert-not-fire) and [Why Did My Alert Misfire](alerts_faq.html#why-did-my-alert-misfire).
 * How do I contact support? Start with [the gear icon menu](wavefront_support_feedback.html#support). See [How Do I Engage with Technical Support](https://help.wavefront.com/hc/en-us/articles/360057219171-How-to-Engage-Technical-Support) for details on severity levels, SLAs, and so on.
-* Do you have videos? Yes! Many documentation pages include videos, or you can [start here](videos_howto_start.html) and find more videos in the TOC on the right.
+* Do you have videos? Yes! Many documentation pages include videos, or you can watch [Get Started Videos](videos_howto_start.html) and find videos about specific topics (e.g. alerts) in the TOC on the left.
