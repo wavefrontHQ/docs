@@ -1788,7 +1788,7 @@ Each events conversion function in the following table takes a set of events as 
 
 ## <span id="traceFunctions"></span>Traces Functions
 
-You use traces functions to find and filter any [traces](trace_data_details.html#traces) that your applications might be sending. Traces functions are available only in the [Query Editor of the Traces browser](trace_data_query.html#use-query-editor-power-users).
+You use traces functions to find and filter any [traces](trace_data_details.html#traces) that your applications might be sending. Traces functions are available only in the [Query Editor of the Traces browser](trace_data_query.html#trace-queries-in-query-editor).
 
 Each function in the following table returns a set of one or more traces and can therefore be used as the **tracesExpression** parameter in another function.
 
@@ -1842,7 +1842,7 @@ Each function in the following table returns a set of one or more traces and can
 
 ## <span id="spanFunctions"></span>Spans Functions
 
-You use spans functions to find and filter individual [spans](trace_data_details.html#spans) that your applications might be sending. Spans functions are available only in the [Query Editor of the Traces browser](trace_data_query.html#use-query-editor-power-users).
+You use spans functions to find and filter individual [spans](trace_data_details.html#spans) that your applications might be sending. Spans functions are available only in the [Query Editor of the Traces browser](trace_data_query.html#trace-queries-in-query-editor).
 
 {% include note.html content="You cannot use spans functions as top-level queries. Instead, you use spans functions to produce a **spansExpression** that you specify as a parameter to a `traces()` function. " %}
 

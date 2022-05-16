@@ -394,7 +394,7 @@ In most cases, you truncate the proxy queue by deleting the files in the proxy q
 
 #### Option 2: Remove the Files Via Export
 
-An alternative to deleting data is to [export queued data](#how-to-export-data-queued-at-the-proxy).
+An alternative to deleting data is to [export queued data](#export-data-queued-at-the-proxy).
 * Set the `exportQueueRetainData` flag to false to clear the queued data.
 * Set `exportQueueOutputFile` to `/dev/null` or a similar temporary location.
 

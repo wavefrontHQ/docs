@@ -24,7 +24,7 @@ Watch [this video](https://youtu.be/Lrm8UuxrsqA) for some background on proxy vs
 ### To Prepare for Direct Ingestion
 
 1. Identify the URL of your Wavefront instance. This is the URL you use when you log in, typically something like `https://mywavefront.wavefront.com`.
-2. [Obtain an API token](wavefront_api.html#generating-an-api-token).
+2. [Obtain an API token](wavefront_api.html#managing-api-tokens).
 
 
 ### To Prepare for Using a Wavefront Proxy
