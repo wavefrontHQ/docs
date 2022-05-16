@@ -23,7 +23,7 @@ We'd like to alert you to the following improvements in Tanzu Observability comp
     * Added new `metric_length` metric related to memory buffer. To view: `ts(~proxy.*.metric_length.*)`
     * Updated dependencies versions.
 * **May Integrations Release**: The May integrations release includes important updates to the Fluentd, Dynatrace, and Kubernetes integrations and other enhancements. See the [Integrations Release Notes](https://docs.wavefront.com/integrations_new_changed.html#may-2022) for details. 
-* **Updates for Customers with Service Accounts in the Everyone Group**: We removed all service accounts from the predefined **Everyone** group. With the previous release, we prepared for this removal and there's no impact on any existing functionality and integration.
+* **Updates for Customers with Service Accounts in the Everyone Group**: We removed all service accounts from the predefined **Everyone** group. With the previous release, we prepared for this removal, so that there's no impact on any existing functionality and integration.
 
 
 ## 2022-18.x Release Notes
