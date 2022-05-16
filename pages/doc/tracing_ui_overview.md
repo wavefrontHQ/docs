@@ -15,13 +15,13 @@ As part of troubleshooting an application, you need an overview of the services 
 
 The application map gives you an overview of how the applications and services are linked, lets you focus on a specific service, view Request, Error, and Duration (RED) metrics for each service, and the tracing traffic in the application. You can also drill down to the Service Dashboard and Tracing Browser.
 
-This <a href="https://bcove.video/3oDxXaa" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights the application map features and settings:
+This <a href="https://vmwaretv.vmware.com/media/t/1_atlrv7sa" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights the application map features and settings:
 
-<iframe src="https://bcove.video/3oDxXaa" width="700" height="400" allowfullscreen="true" alt="Wavefront intro how-to"></iframe>
+<iframe id="kmsembed-1_atlrv7sa" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_atlrv7sa/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="application map settings"></iframe>
 
 See the application map:
 1. In your web browser, go to your Wavefront instance and log in.
-1. From the taskbar, click **Applications** > **Application Status** and select the Application Map icon ( <img src="images/tracing_appmap_appmap_view_icon.png"
+1. From the toolbar, select **Applications** > **Application Status** and click the Application Map icon ( <img src="images/tracing_appmap_appmap_view_icon.png"
 style="vertical-align:text-bottom;width:28px" alt="icon to click to get the application map view"/> )
 1. Optionally, use <img src="images/tracing_link_icon.png"
 style="vertical-align:text-bottom;width:20px" alt="icon to click to get the link"/> to get a link and share what you’re seeing right now (NON-LIVE display) with other users.
@@ -172,7 +172,7 @@ View the list of applications and services. You can see the Request, Error, and 
 
 See the table view:
 1. In your web browser, go to your Wavefront instance and log in.
-1. From the taskbar, click **Applications** > **Application Status** and select the Table View icon ( <img src="images/tracing_appmap_table_view_icon.png"
+1. From the toolbar, select **Applications** > **Application Status** and click the Table View icon ( <img src="images/tracing_appmap_table_view_icon.png"
 style="vertical-align:text-bottom;width:28px" alt="icon to click to get the table view"/> )
 
 ![the image shows the table view of all the applications that send data to Wavefront. It has helpers to show you what to do with each UI section. For example, how to filter applications or services, change the table settings or the legend settings, and how to change back to the application map view or the grid view](images/tracing_table_view.png)
@@ -351,7 +351,7 @@ When you select an application, you get an overview of its services.
 
 See the grid view:
 1. In your web browser, go to your Wavefront instance and log in.
-1. From the taskbar, click **Applications** > **Application Status** and select the Grid View icon ( <img src="images/tracing_appmap_grid_view_icon.png"
+1. From the toolbar, select **Applications** > **Application Status** and click the Grid View icon ( <img src="images/tracing_appmap_grid_view_icon.png"
 style="vertical-align:text-bottom;width:28px" alt="icon to click to get the table view"/> )
 
 ![Shows how the offline traces look once you upload the JSOn file that has the imported trace details.](images/tracing_app_services.png)

@@ -1271,18 +1271,5 @@ For either method, the service must return a 2xx code for valid tokens. Accordin
 
 ## Troubleshooting
 
-### TOKEN EXPIRED Error
-
-- **Symptom**: When you select **Browse > Proxies**, you see a `TOKEN EXPIRED` error.
-- **Cause**: This error usually means that the account that owned the token was disabled, for example, because a user left a company. Tokens do not actually expire. We're working on improving the message.
-- **Resolution**: Create a new token for those metrics and update the proxy config file to use that new token.
-
-### KB Articles
-
-See the following KB articles for additional proxy troubleshooting help.
-
-* [Orphaned Proxy Instances in Tanzu Observability by Wavefront UI](https://help.wavefront.com/hc/en-us/articles/360060591732-Orphaned-Proxy-instances-in-Tanzu-Observability-UI)
-* [How to Enable Proxy Health Checks for Tanzu Observability by Wavefront](https://help.wavefront.com/hc/en-us/articles/360058952572-How-to-enable-Tanzu-Observability-Proxy-Health-Checks-)
-* [How to Chain Proxies](https://help.wavefront.com/hc/en-us/articles/360056083472-How-to-Proxy-Chain)
-* [Validating Metrics Received at the Proxy](https://help.wavefront.com/hc/en-us/articles/360054622132-Validating-metrics-received-at-the-proxy)
-* [Common Tanzu Observability by Wavefront Proxy Log Messages](https://help.wavefront.com/hc/en-us/articles/360050483312-Common-Tanzu-Observability-by-Wavefront-Proxy-Log-Messages)
+* [Proxy Troubleshooting] has tips and tricks from our SaaS Value Engineering team for common proxy problems.
+* [Telegraf Troubleshooting](telegraf_details.html) has details on troubleshooting and fine-tuning the Telegraf agent.

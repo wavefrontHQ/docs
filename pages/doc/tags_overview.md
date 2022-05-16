@@ -22,10 +22,10 @@ Watch these videos to get started:
 </tr>
 <tr>
 <td><strong><font color="#0091DA" size="3">Organizing with Tags</font></strong><br><br>
-<iframe src="https://bcove.video/3APZACf" width="450" height="275" allowfullscreen="true" alt="Jason shows how to organize data with tags"></iframe></td>
+<iframe id="kmsembed-1_12xb5gcm" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_12xb5gcm/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Jason shows how to organize data with tags"></iframe></td>
 <td><br>
 <p>Want to learn how to use tags? Jason shows an example of assigning a tag (e.g. training) to several dashboards and how the tag can be used for filtering. He then uses additional tags in a hierarchy of tags (e.g. training.attendee and training.trainer) to support more fine-grained filtering using tag paths. Tag paths are available for dashboards, alerts, and events. Finally, for sources, Jason shows you can add source tags and filter directly from a query. </p>
-<p>You can also watch the video <a href="https://bcove.video/3APZACf" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
+<p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_12xb5gcm" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 </tbody>

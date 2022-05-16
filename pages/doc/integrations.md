@@ -13,9 +13,10 @@ We update our [integrations release notes](integrations_new_changed.html) on a m
 
 ## Watch a Video
 
-In this video, Jason talks about the different integrations we have, and how you can use them to get your data into Tanzu Observability. You can also watch the video <a href="https://bcove.video/2JTvMgW" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+In this video, Jason talks about the different integrations we have, and how you can use them to get your data into Tanzu Observability. You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_j454pr6u" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
 
-<p><a href="https://bcove.video/2JTvMgW"><img src="/images/v_integrations_v2.png" style="width: 700px;" alt="new intro to integratons"/></a>
+<p>
+<iframe id="kmsembed-1_j454pr6u" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_j454pr6u/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="intro to integrations"></iframe>
 </p>
 
 ## Try an Integration!
@@ -39,7 +40,7 @@ Here's a screenshot that shows the different tabs of the Apache Solr integration
 
 Tanzu Observability lets you set up many integrations directly from the product. For other integrations, we give step-by-step instructions -- or you can send your data in other ways, for example, using the Telegraf output plug-in.
 
-- **Built-in integrations** provide assisted installation and configuration. Many integrations also install a dashboard for you. Access the integration by selecting **Integrations** from the taskbar and clicking the **Setup** tab.
+- **Built-in integrations** provide assisted installation and configuration. Many integrations also install a dashboard for you. Access the integration by clicking **Integrations** on the toolbar and clicking the **Setup** tab.
 
 - **Customizable built-in integrations** provide a built-in integration for the initial connection, with additional customization information in this documentation.
 
@@ -83,7 +84,7 @@ Before setting up an integration, you can look into our demo dashboards. These d
 
  {% include note.html content="The Sample Data Dashboards are currently available to some of our customers. They will become available to all customers within the next releases."%}
 
-1. Click **Integrations** on the taskbar.
+1. Click **Integrations** on the toolbar.
 
    ![Sample data dashboards section preview](images/integrations-sample-dashboards.png)
 1. In the **Get to know integration dashboards!** section, click the **Explore** button for a sample integration dashboard.
@@ -131,7 +132,7 @@ To [edit the targets of the integration alerts](webhooks_alert_notification.html
 
 To make further customizations, clone the alert first.
 
-1. Click **Alerting > All Alerts** from the toolbar.
+1. Select **Alerting > All Alerts** from the toolbar.
 2. Click the ellipsis icon next to the alert that you want to clone, and select **Clone**.
 3. Enter a name of the new alert and click **Clone**.
 

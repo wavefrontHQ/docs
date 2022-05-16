@@ -9,21 +9,16 @@ Tanzu Observability by Wavefront is a high-performance streaming analytics platf
 
 ## Intro Videos
 
-The first <a href="https://bcove.video/2AiJk2v" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> is a 90 second overview of **how you can use** explore data and create alerts.
+The first <a href="https://vmwaretv.vmware.com/media/t/1_1rfs66nv" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> is a 90 second overview of **how you can use** explore data and create alerts.
 
-<iframe src="https://bcove.video/2AiJk2v" width="700" height="400" allowfullscreen="true" alt="Wavefront intro how-to"></iframe>
-
-<!---
-<p><a href="https://bcove.video/2AiJk2v" target="_blank"><img src="/images/v_intro_howto.png" style="width: 700px;" alt="Wavefront intro how-to"/></a>
-</p>
---->
+<iframe id="kmsembed-1_1rfs66nv" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_1rfs66nv/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Wavefront intro how-to video"></iframe>
 
 In the second **conceptual** video, Wavefront co-founder Clement Pang explains:
 * How to set up the data ingestion pipeline
 * How dashboards, charts, and alerts allow you to monitor your environment
 * How our histogram and tracing features can give you the full picture of what's going on.
 
-<p><a href="https://youtu.be/90mw6Vcmlt4" target="_blank"><img src="/images/v_intro_clement.png" style="width: 700px;" alt="Wavefront proxies video"/></a>
+<p><a href="https://youtu.be/90mw6Vcmlt4" target="_blank"><img src="/images/v_intro_clement.png" style="width: 608px;" alt="Wavefront proxies video"/></a>
 </p>
 
 

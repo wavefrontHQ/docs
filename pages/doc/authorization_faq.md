@@ -28,7 +28,7 @@ When your company signs up with Tanzu Observability, we ask you which users you 
 
 As a Super Admin user, you can add other Super Admin users:
 
-1. Click the gear icon <i class="fa fa-cog"/> on the taskbar, and select **Super Admin**.
+1. Click the gear icon <i class="fa fa-cog"/> on the toolbar, and select **Super Admin**.
 2. Enter the user name of a user you want to add as a Super Admin.
 
 

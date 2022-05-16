@@ -39,11 +39,17 @@ The Wavefront Usage integration includes the following dashboards:
 <td>In environments where ingestion policies are defined, investigate usage for <strong>each account and ingestion policy</strong>.</td>
 <td markdown="span">Provides a granular breakdown of the ingestion across your organization by [ingestion policies](ingestion_policies.html), accounts, sources, and types. Use this dashboard to identify who is contributing the most to your usage and manage your overall usage of the Wavefront service.</td></tr>
 <tr>
-<td><strong>Committed Rate vs Monthly Usage (PPS P95)</strong></td>
-<td>Avoid <strong>exceeding the committed rate</strong> for your instance by exploring dashboards and creating alerts.
+<td><strong>Committed Rate vs Monthly Usage (PPS P95) for Billable</strong></td>
+<td>Avoid <strong>exceeding the monthly commitment</strong> for your instance by exploring dashboards and creating alerts.
 </td>
-<td markdown="span">Displays a detailed breakdown of your monthly usage. Enables you to take appropriate action when usage reaches around 95% of your committed usage.</td></tr>
-
+<td><strong>Important:</strong> Use only if you have a billable commit contract with Tanzu Observability.
+<p>Provides a detailed breakdown of your monthly usage against your monthly commitment. Enables you to take appropriate action when usage reaches around 95% of your monthly commitment.</p></td></tr>
+<tr>
+<td><strong>Usage (PPS) vs Remaining Balance (PPS P95) for Burndown</strong></td>
+<td>Avoid <strong>exceeding the burndown commitment</strong> for your instance by exploring dashboards and creating alerts.
+</td>
+<td><strong>Important:</strong> Use only if you have a burndown commit contract with Tanzu Observability.
+<p>Provides details about your usage against your remaining burndown balance and a breakdown of your usage per billing period. Enables you to take appropriate action when usage reaches around 95% of your burndown commitment.</p></td></tr>
 </tbody>
 </table>
 
@@ -75,13 +81,13 @@ These charts use the following metrics:
 - **Data Scan Rate**
   - `~query.metrics_scanned` -- The per-second rate at which metrics are being queried through dashboards, custom charts, derived metrics, or API calls.
   - `~query.spans_scanned` -- The per-second rate at which spans are being queried through dashboards, custom charts, or API calls.
-  - `~query.histograms_scanned` -- The per-second rate at which histograms are being queried through dashboards, custom charts, derived metrics, or API calls. 
+  - `~query.histograms_scanned` -- The per-second rate at which histograms are being queried through dashboards, custom charts, derived metrics, or API calls.
 
 #### Wavefront Stats and Alert Stats
 
 Charts that track the number of users during various time windows, the number of dashboards and alerts, and also provide information about the state and types of alerts.
 
-These charts use the following metrics: 
+These charts use the following metrics:
 
 - `~wavefront.alerts.*` -- Count, states, and types of the alerts.
 - `~wavefront.dashboard.*`  -- Metrics related to the number of dashboard views.
@@ -146,60 +152,47 @@ The dashboard includes a link to the **Ingestion Policies** page so if you are a
 
 ![Screenshot of part of the Ingestion Policy Explorer dashboard](/images/ingestion_pps_usage_breakdown.png)
 
+{% include note.html content="The information contained in the **Wavefront Ingestion Policy Explorer** dashboard has a 24-hour latency."%}
 
-### Committed Rate vs Monthly Usage (PPS P95) Dashboard
+### PPS P95 Dashboards for Billable and Burndown
 
-This dashboard helps you monitor your **monthly usage** and ensure that you're not ingesting more PPS than your contracted rate allows.
+{% include important.html content="Use only the dashboard for your contract type:<br/>
+    - If you have a billable commit contract with Tanzu Observability, use the **Committed Rate vs Monthly Usage (PPS P95) for Billable** dashboard.<br/>
+    - If you have a burndown commit contract with Tanzu Observability, use the **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboard.<br/>
+"%}
 
-The dashboard gives a detailed breakdown of your Tanzu Observability monthly usage against commitment. When your usage reaches around 95% of your committed rate, you can then take appropriate action.
+The dashboard for your contract type helps you monitor your usage and ensure that you're not ingesting more PPS than your contracted rate allows.
 
-For example:
+* The **Committed Rate vs Monthly Usage (PPS P95) for Billable** dashboard provides a detailed breakdown of your Tanzu Observability monthly usage against commitment.
+
+    ![Screenshot of part of the Committed Rate vs Monthly Usage (PPS P95) for Billable dashboard](/images/Billable.png)
+
+* The **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboard provides visibility into your Tanzu Observability usage against burndown commitment and a detailed breakdown of your usage per billing period.
+
+    ![Screenshot of part of the Usage (PPS) vs Remaining Balance (PPS P95) for Burndown dashboard](/images/Burndown.png)
+
+When your usage reaches around 95% of your committed rate, you can then take appropriate action. For example:
 
 * Examine who is using a high percentage of the PPS in the  **Wavefront Ingestion Policy Explorer** dashboard.
 * Implement [ingestion policies](ingestion_policies.html) and examine who is using a high percentage of the PPS.
-
-{% include note.html content="The information contained in the **Usage Summary** and the **Wavefront Ingestion Policy Explorer** dashboards have a 24-hour latency."%}
-
-![Screenshot of part of the Committed Rate vs Monthly Usage (PPS P95) dashboard](/images/p95_dashboard.png)
 
 ## Scenario: Avoid Exceeding the Committed Rate
 
 Customers often tell us that they want to make sure they don't exceed their committed monthly PPS (points per second). Follow these steps to monitor usage and take corrective action.
 
-1. The **Committed Rate vs Monthly Usage (PPS P95)** dashboard includes charts that show how close you are to consuming 95% of your contracted rate. You can add alerts to charts in this dashboard to get notifications.
+1. The **Committed Rate vs Monthly Usage (PPS P95) for Billable** dashboard includes charts that show how close you are to consuming 95% of your contracted rate. You can add alerts to charts in this dashboard to get notifications.
 2. If you need to reduce usage, you have several options:
-   * Start examining ingestion from the **Wavefront Service and Proxy Data** dashboard. 
-   
+   * Start examining ingestion from the **Wavefront Service and Proxy Data** dashboard.
+
      The [internal metrics](wavefront-internal-metrics.html) shown in this dashboard highlight.
-   * Use the **Wavefront Namespace Usage Explorer** dashboard to drill down into the metrics. 
-   
+   * Use the **Wavefront Namespace Usage Explorer** dashboard to drill down into the metrics.
+
      Tanzu Observability automatically tracks the number of metrics received for the first 3 levels of your metric namespace as delta counters, and this dashboard presents the metrics in an easy-to-use way.
    * [Examine the overall usage of your Wavefront service](examine_usage.html).
-   * Finally, if you suspect that much of your usage comes from certain accounts (user or service accounts), consider setting up one or more [ingestion policies](ingestion_policies.html).  
+   * Finally, if you suspect that much of your usage comes from certain accounts (user or service accounts), consider setting up one or more [ingestion policies](ingestion_policies.html).
 
-
-## Examine Versions of Dashboards and Alerts
-
-Tanzu Observability stores details about each version of each dashboard and each alert. That means you have an audit trail of changes. When someone saves changes to a dashboard or alert, we create a new version and track the changes, including details about the change and the user who made the change. If you suspect that someone has made changes to a dashboard which results in higher usage, you can check who made the change and what is changed. 
-
-You can examine dashboard and alert versions from the UI or using the REST API.
-
-**To examine versions of a dashboard:**
-
-1. Select **Browse > All Dashboards**
-2. Click the three vertical dots to the left of the dashboard you're interested in and select **Versions**.
-3. You can review the changes to the dashboard, revert to a previous version, or clone a previous version.
-
-![A screenshot of the table showing the Dashboard versions. Contains columns with the version number, user who updated the dashboard, date of the update, and descriptions of the changes.](images/dashboard_versions.png)
-
-The process is the same for alerts.
 
 ## Learn More!
 
-[Find Actionable Usage Information](wavefront_usage_info.html) explains how to use tools and dashboards to learn how much data is coming in, who is sending the data, and how to get alerted if ingested data get close to monthly contracted usage.
-
-
-Our Customer Success Team has put together KB articles that drill down into adoption info.
-* [How to Track Adoption in Your Company with Usage Metadata](https://help.wavefront.com/hc/en-us/articles/360058526192-How-to-Track-Tanzu-Observability-Adoption-with-Usage-Metadata).
-* [How to Identify Unused Data](https://help.wavefront.com/hc/en-us/articles/360058084372-How-to-Identify-Unused-Data).
-* [How to Optimize Your Ingestion Rate PPS](https://help.wavefront.com/hc/en-us/articles/360057995092-How-to-Optimize-Your-Ingestion-Rate-PPS-).
+* [Find Actionable Usage Information](wavefront_usage_info.html) explains how to use tools and dashboards to learn how much data is coming in, who is sending the data, how to get alerted if ingested data get close to monthly contracted usage, and how to optimize your ingestion rate.
+* [Metadata (Label Manipulation) Functions](query_language_metadata_functions.html) explains how to rename metrics and sources and create point tags with `aliasSource`, `aliasMetric`, and `taggify`.]

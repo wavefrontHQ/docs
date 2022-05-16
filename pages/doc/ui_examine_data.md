@@ -12,11 +12,12 @@ With dashboards and charts, all Tanzu Observability by Wavefront users can exami
 
 ## Video
 
-All users can customize their dashboards to drill down into data. Learn how to find a section, filter using variables or filters, set the time for the dashboard, and share the dashboard with others. You need Dashboards permissions to save your changes. You can also watch the video <a href="https://bcove.video/2Wux6eP" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+All users can customize their dashboards to drill down into data. Learn how to find a section, filter using variables or filters, set the time for the dashboard, and share the dashboard with others. You need Dashboards permissions to save your changes.
 
+You can also watch the video <a href="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gunwcmwm/uiConfId/49694343/pbc/252649793/st/0" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
 
 <p>
-<iframe src="https://bcove.video/2Wux6eP" width="700" height="400" allowfullscreen="true" alt="customizing dashboards video"></iframe>
+<iframe id="kmsembed-1_gunwcmwm" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gunwcmwm/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0"></iframe>
 </p>
 
 
@@ -42,7 +43,7 @@ From the Dashboard Browser, you can find dashboards by using filters and tags. Y
 Many users work in environments with a lot of dashboards.
 
 **To find a dashboard**, you have these options:
-* From the taskbar, select **Dashboards > All Dashboards** and narrow down your search using the fields on the left.
+* From the toolbar, select **Dashboards > All Dashboards** and narrow down your search using the fields on the left.
 * Select **Dashboards > All Dashboards** and start typing the dashboard name in the Search field.
 * From within a dashboard, use the **Search for Dashboards** field in the upper right to find other dashboards. The search string matches dashboard name or URL.
 
@@ -66,10 +67,10 @@ You can customize what you see, open charts, and more.
 
 ## Set the Time Window
 
-This <a href="https://bcove.video/3kJ6PGT" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights how you can select, sync, and reset time windows so you can annalyze and compare your data.
+This <a href="https://vmwaretv.vmware.com/media/t/1_zew0muhn" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights how you can select, sync, and reset time windows so you can annalyze and compare your data.
 
 <p>
-<iframe src="https://bcove.video/3kJ6PGT" width="700" height="400" allowfullscreen="true" alt="customizing dashboards video"></iframe>
+<iframe id="kmsembed-1_zew0muhn" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_zew0muhn/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="time window customization video"></iframe>
 </p>
 
 By default, dashboards:
@@ -138,7 +139,7 @@ If a dashboard has preconfigured dashboard variables, you can use them to filter
 <td width="60%">
 To show or hide the Variables bar:
 <ol><li>
-Scroll up to right below the Taskbar.</li>
+Scroll up to right below the toolbar.</li>
 <li>Click the up or down double caret.</li></ol></td>
 <td width="40%">
 <img src="images/v2_hide_variables.png" align="center" valign="center" alt="hide or show variables"></td>
@@ -257,7 +258,7 @@ All users can select which events are displayed for all charts.
 <tbody>
 <tr>
 <td width="60%">
-The <strong>Show Events</strong> drop-down menu in the upper right of the taskbar allows you to <a href="charts_events_displaying.html">toggle event overlays</a> on the X-axis of charts.</td>
+The <strong>Show Events</strong> drop-down menu in the upper right of the toolbar allows you to <a href="charts_events_displaying.html">toggle event overlays</a> on the X-axis of charts.</td>
 <td width="40%">
 <img src="images/display_events_v2.png" align="center" valign="center" alt="Show Events menu"></td>
 </tr>
