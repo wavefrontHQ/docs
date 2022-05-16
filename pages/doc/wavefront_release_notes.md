@@ -13,14 +13,6 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
-## Announcements
-
-**Upcoming Removal of the Service Accounts from the Everyone Group**
-
-In the next release(s), the service accounts that are still part of the predefined **Everyone** group will be removed from this group. With the [2021-49.x release](2021.49.x_release_notes.html#2021-42x-release-notes), we added all service accounts to the new predefined **Service Accounts** group. With the [2022-18.x release](#2022-18x-release-notes), we prepared for the upcoming removal to avoid impact on any existing functionality and integrations.
-
-{% include important.html content="Ensure that the service accounts in your organization do not depend on the **Everyone** group permissions."%}
-
 ## 2022-19.x Release Notes
 
 We'd like to alert you to the following improvements in Tanzu Observability components:
@@ -31,6 +23,7 @@ We'd like to alert you to the following improvements in Tanzu Observability comp
     * Added new `metric_length` metric related to memory buffer. To view: `ts(~proxy.*.metric_length.*)`
     * Updated dependencies versions.
 * **May Integrations Release**: The May integrations release includes important updates to the Fluentd, Dynatrace, and Kubernetes integrations and other enhancements. See the [Integrations Release Notes](https://docs.wavefront.com/integrations_new_changed.html#may-2022) for details. 
+* **Updates for Customers with Service Accounts in the Everyone Group**: We removed all service accounts from the predefined **Everyone** group. With the previous release, we prepared for this removal, so that there's no impact on any existing functionality and integration.
 
 
 ## 2022-18.x Release Notes
