@@ -18,13 +18,12 @@ The following videos get you started:
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="60%"><strong><font color="#0091DA" size="3">Browsing Your Data</font></strong><br>
+<td><strong><font color="#0091DA" size="3">Browsing Your Data</font></strong><br>
 <br>
-<iframe src="https://bcove.video/3n13ulm" width="500" height="275" allowfullscreen="true" alt="browse metrics from source browser or metrics browser"></iframe>
+<iframe id="kmsembed-1_ai5iua3f" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_ai5iua3f/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0"></iframe>
 </td>
-<td width="40%"><br>
-<p>90-second video that shows how you can find and examine metrics from the Sources browser and from the Metrics browser. </p>
-<p>You can also watch the video <a href="https://bcove.video/3n13ulm" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
+<td><br>
+<p>90-second video that shows how you can find and examine metrics from the Sources browser and from the Metrics browser. </p><p>You can also watch the video <a href="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_ai5iua3f/uiConfId/49694343/pbc/252649793/st/0" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
