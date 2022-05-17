@@ -13,6 +13,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+
 ## 2022-19.x Release Notes
 
 We'd like to alert you to the following improvements in Tanzu Observability components:
@@ -22,7 +23,7 @@ We'd like to alert you to the following improvements in Tanzu Observability comp
     * Improved visibility for chained proxies: Client proxies chained to relay proxies now have visible status.
     * Added new `metric_length` metric related to memory buffer. To view: `ts(~proxy.*.metric_length.*)`
     * Updated dependencies versions.
-* **May Integrations Release**: The May integrations release includes important updates to the Fluentd, Dynatrace, and Kubernetes integrations and other enhancements. See the [Integrations Release Notes](https://docs.wavefront.com/integrations_new_changed.html#may-2022) for details. 
+* **May Integrations Release**: The May integrations release includes important updates to the Fluentd, Dynatrace, and Kubernetes integrations and other enhancements. See the [Integrations Release Notes](https://docs.wavefront.com/integrations_new_changed.html#may-2022) for details.
 * **Updates for Customers with Service Accounts in the Everyone Group**: We removed all service accounts from the predefined **Everyone** group. With the previous release, we prepared for this removal, so that there's no impact on any existing functionality and integration.
 
 
