@@ -13,7 +13,9 @@ Use this dashboard to identify who is contributing the most to your Wavefront us
 
 The **Wavefront Namespace Usage Explorer** dashboard breaks down metrics usage based on integrations with the ability to drill-down further into the metric namespaces.
 
-The **Committed Rate and Monthly Usage (PPS P95)** displays a detailed breakdown of your Wavefront monthly usage. This enables you to take appropriate action when your Wavefront usage reaches around 95% of your target/committed usage.
+The **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboard shows your monthly PPS usage against your remaining burndown balance. Applies only to customers who have burndown commit contracts with Tanzu Observability.
+
+The **Committed Rate vs Monthly Usage (PPS P95) for Billable** dashboard shows your monthly PPS usage against your monthly billable commitment. Applies only to customers who have billable commit contracts with Tanzu Observability.
 
 Wavefront internal metrics have the following [prefixes](https://docs.wavefront.com/wavefront_monitoring.html#useful-internal-metrics-for-optimizing-performance).
 
