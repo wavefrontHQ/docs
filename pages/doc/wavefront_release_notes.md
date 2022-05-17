@@ -22,6 +22,7 @@ We'd like to alert you to the following improvements in Tanzu Observability comp
     * Improved visibility for chained proxies: Client proxies chained to relay proxies now have visible status.
     * Added new `metric_length` metric related to memory buffer. To view: `ts(~proxy.*.metric_length.*)`
     * Updated dependencies versions.
+* **OpenTelemetry metrics exporter**: Send metrics data from your applications to Tanzu Observability using the [Tanzu Observability (Wavefront) metrics exporter](opentelemetry_tracing.html#send-metrics-data) for OpenTelemetry, and use Charts and Dashboards to visualize the data.
 * **May Integrations Release**: The May integrations release includes important updates to the Fluentd, Dynatrace, and Kubernetes integrations and other enhancements. See the [Integrations Release Notes](https://docs.wavefront.com/integrations_new_changed.html#may-2022) for details.
 * **Updates for Customers with Service Accounts in the Everyone Group**: We removed all service accounts from the predefined **Everyone** group. With the previous release, we prepared for this removal, so that there's no impact on any existing functionality and integration.
 
