@@ -78,7 +78,7 @@ Our first external integration sends AlertSite monitoring results to Tanzu Obser
 
 We're excited about this contribution and hope to see more soon!
 
-## Get to Know the Integration Dashboards
+<!--## Get to Know the Integration Dashboards
 
 Before setting up an integration, you can look into our demo dashboards. These demo dashboards are for our most used integrations and contain some sample (sandbox) data. You can explore the data and look how the dashboards work. As these are demo dashboards, you cannot edit them.
 
@@ -93,7 +93,7 @@ Before setting up an integration, you can look into our demo dashboards. These d
 
 1. To close the **Sample Data Dashboards** section, click **Close the section** and confirm.
 1. To bring back the demo dashboards section, in the left pane, click **Show Demo Dashboards**.
-
+-->
 ## Installing and Uninstalling Integration Dashboards
 
 You can install and uninstall the system integration dashboards.
