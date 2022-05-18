@@ -31,24 +31,17 @@ Wavefront supports distributed tracing with third-party apps such as Jaeger or y
 </p> </td>
 </tr>
 <tr>
-  <td><strong><font color="#0091DA" size="3"> Traces Browser Features</font></strong><br>
-    <a href="https://vmwaretv.vmware.com/media/t/1_guro3vem" target="_blank"><img src="/images/traces_browser_video_section.png" alt="Highlights the traces browser features."/></a></td>
-  <td>
-    <br>
-    <p>
-      This short video highlights the features of the Traces Browser. You can query traces, filter traces, examine Request, Error, and Duration (RED) metrics of a service on the service map, identify the critical path, see span logs, and much more using the Traces Browser.
-    </p>
-  </td>
+<td><strong><font color="#0091DA" size="3">Traces Browser Features</font></strong><br>
+<br>
+<iframe id="kmsembed-1_guro3vem" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_guro3vem/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0" referrerPolicy="no-referrer-when-downgrade"></iframe></td>
+<td><br><p>This short video highlights the features of the Traces Browser. You can query traces, filter traces, examine Request, Error, and Duration (RED) metrics of a service on the service map, identify the critical path, see span logs, and much more using the Traces Browser.</p><p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_guro3vem" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> </td>
 </tr>
+
 <tr>
-  <td><strong><font color="#0091DA" size="3">Application Map Features and Settings </font></strong><br>
-    <a href="https://vmwaretv.vmware.com/media/t/1_atlrv7sa" target="_blank"><img src="/images/application_map_video_section.png" alt="Highlights the application map features."/></a></td>
-  <td>
-    <br>
-    <p>
-      This video highlights the application map features and settings. The application map gives you an overview of how the applications and services are linked, lets you focus on a specific service, view Request, Error, and Duration (RED) metrics for each service, and the tracing traffic in the application. You can also drill down to the Service Dashboard and Tracing Browser.
-    </p>
-  </td>
+<td><strong><font color="#0091DA" size="3">Application Map Features and Settings</font></strong><br>
+<br>
+<iframe id="kmsembed-1_atlrv7sa" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_atlrv7sa/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0" referrerPolicy="no-referrer-when-downgrade"></iframe></td>
+<td><br><p>This video highlights the application map features and settings. The application map gives you an overview of how the applications and services are linked, lets you focus on a specific service, view Request, Error, and Duration (RED) metrics for each service, and the tracing traffic in the application. You can also drill down to the Service Dashboard and Tracing Browser.</p><p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_guro3vem" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> </td>
 </tr>
 </tbody>
 </table>
