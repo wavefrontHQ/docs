@@ -29,7 +29,7 @@ In addition to setting up the metrics flow, this integration also installs a das
 3. In the right pane, check **Yes** to enable **Wavefront Integration** and enter the account information:
    * **Wavefront URL**: `https://YOUR_CLUSTER.wavefront.com/api`
    * **API Token**: `YOUR_API_TOKEN`
-     * **NOTE:** See [Generating an API Token](https://docs.wavefront.com/wavefront_api.html#generating-an-api-token).
+     * **NOTE:** See [Generating an API Token](https://docs.wavefront.com/wavefront_api.html#managing-api-tokens).
    * **Wavefront Alert Recipient**: `A list of Email addresses and/or Wavefront Target IDs`
      * **NOTE:** This field is required only for version 1.9.0 or earlier.
 4. Click the **Errands** tab and enable the **Create pre-defined Wavefront alerts** errand and the **Delete pre-defined Wavefront alerts** errand.

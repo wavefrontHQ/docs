@@ -12,7 +12,7 @@ On this page, we list predefined alerts and give other details about the integra
 
 ## Predefined Alerts for the Integration
 
-The Tanzu Kubernetes Grid integration provides the following monitoring alerts for PKS. These alerts are predefined, no additional setup is required. You can [create additional alerts](alerts.html#creating-an-alert) from the **Alerts** browser or from charts in the Tanzu Observability by Wavefront UI.
+The Tanzu Kubernetes Grid integration provides the following monitoring alerts for PKS. These alerts are predefined, no additional setup is required. You can [create additional alerts](alerts_manage.html) from the **Alerts** browser or from charts in the Tanzu Observability by Wavefront UI.
 
 <table>
 <tbody>
