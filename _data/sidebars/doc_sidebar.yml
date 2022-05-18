@@ -778,8 +778,8 @@ entries:
       url: /logging_log_browser.html
       output: web
     
-    - title: Logs FAQ
-      url: /logging_faqs.html
+    - title: Logs FAQs
+      url: /logging_faq.html
       output: web
 
   - title: API, SDKs, and CLI
