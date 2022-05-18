@@ -7,19 +7,25 @@ permalink: wavefront_release_notes.html
 summary: Announcements and new and updated features in Tanzu Observability by Wavefront.
 ---
 
-This page lists new and updated features for the Tanzu Observability by Wavefront service. 
+This page lists new and updated features for the Tanzu Observability by Wavefront service.
 
 * For **Wavefront Proxy**, your go-to place is the [Wavefront proxy GitHub page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
-## Announcements
+## 2022-19.x Release Notes
 
-**Upcoming Removal of the Service Accounts from the Everyone Group**
+We'd like to alert you to the following improvements in Tanzu Observability components:
 
-In the next release(s), the service accounts that are still part of the predefined **Everyone** group will be removed from this group. With the [2021-49.x release](2021.49.x_release_notes.html#2021-42x-release-notes), we added all service accounts to the new predefined **Service Accounts** group. With the [2022-18.x release](#2022-18x-release-notes), we prepared for the upcoming removal to avoid impact on any existing functionality and integrations.
+* **Wavefront Proxy 11.1**: The Wavefront Proxy is now using a 6 week release cadence. We made the following improvements to [release 11.1](https://github.com/wavefrontHQ/wavefront-proxy/releases) last week:
+    * Set span future fill limit to 24 hours: Spans sent with a timestamp that's more than 24 hours ahead of the current timestamp will be blocked.
+    * Improved visibility for chained proxies: Client proxies chained to relay proxies now have visible status.
+    * Added new `metric_length` metric related to memory buffer. To view: `ts(~proxy.*.metric_length.*)`
+    * Updated dependencies versions.
+* **OpenTelemetry metrics exporter**: Send metrics data from your applications to Tanzu Observability using the [Tanzu Observability (Wavefront) metrics exporter](opentelemetry_tracing.html#send-metrics-data) for OpenTelemetry, and use Charts and Dashboards to visualize the data.
+* **May Integrations Release**: The May integrations release includes important updates to the Fluentd, Dynatrace, and Kubernetes integrations and other enhancements. See the [Integrations Release Notes](integrations_new_changed.html#may-2022) for details.
+* **Updates for Customers with Service Accounts in the Everyone Group**: We removed all service accounts from the predefined **Everyone** group. With the previous release, we prepared for this removal, so that there's no impact on any existing functionality and integration.
 
-{% include important.html content="Ensure that the service accounts in your organization do not depend on the **Everyone** group permissions."%}
 
 ## 2022-18.x Release Notes
 
@@ -146,7 +152,7 @@ Last year, we [introduced](2021.49.x_release_notes.html#2021-42x-release-notes) 
     <strong>Read More:</strong>
     <ul>
         <li><a href="https://github.com/wavefrontHQ/wavefront-proxy/releases">Wavefront Proxy Release Notes on GitHub</a></li>
-        <li><a href="opentelemetry_tracing.html#send-data-using-the-wavefront-proxy---recommended">Send OpenTelemetry Trace Data Directly Using the Wavefront Proxy</a></li>
+        <li><a href="opentelemetry_tracing.html#directly-send-data-using-the-wavefront-proxy---recommended">Send OpenTelemetry Trace Data Directly Using the Wavefront Proxy</a></li>
         <li><a href="opentelemetry_logs.html">Enable Proxy Debug Logs for OpenTelemetry Data</a></li>
       </ul>
     </td>

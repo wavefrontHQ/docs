@@ -331,6 +331,7 @@ We create [events](events.html) as alerts fire, update, and resolve. You can opt
 
 * Watch some [videos about alerts](videos_alerts.html).
 * [Create and manage alerts](alerts_manage.html).
+* See answers to [Frequently Asked Questions](alerts_faq.html)
 * Learn about [alert states and life-cycle](alerts_states_lifecycle.html).
 * For troubleshooting, look at our Alerts FAQ page:
   - [Why Did My Alert Not Fire?](alerts_faq.html#why-did-my-alert-not-fire)

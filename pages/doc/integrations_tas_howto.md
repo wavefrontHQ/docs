@@ -30,7 +30,7 @@ Here's an overview of the flow of data from the Tanzu Application Service Fireho
 
 VMware Tanzu Observability by Wavefront Nozzle has the following requirements:
 *	Read-only administrative access to the Doppler Firehose and Cloud Controller.
-* Access to a Wavefront instance and an API token. [Service Account API token](wavefront_api.html#generating-an-api-token) is recommended.
+* Access to a Wavefront instance and an API token. [Service Account API token](wavefront_api.html#managing-api-tokens) is recommended.
 * A VMware Tanzu Quota with at least 8GB of available memory.
 
 This version of the Tanzu Observability by Wavefront Nozzle is compatible with Wavefront proxy version 10. and later. ???VMware Tanzu Observability by Wavefront Service Broker v0.9.5
@@ -66,7 +66,7 @@ Click the Tanzu Observability by Wavefront tile. With **Settings** selected (the
    <tr>
    <td width="50%">2. Click <strong>Wavefront Proxy Config</strong> and specify:
    <ol><li>The URL of your Wavefront instance, for example, https://longboard.wavefront.com.</li>
-   <li>A Wavefront API token. See <a href="wavefront_api.html#generating-an-api-token">Generating an API Token</a></li>
+   <li>A Wavefront API token. See <a href="wavefront_api.html#managing-api-tokens">Generating an API Token</a></li>
    <li>User-friendly name for the proxy. </li>
    <li>Click <strong>Custom Proxy Configuration &gt;Custom</strong> to specify <a href="proxies_configuring.html">proxy configuration</a>, <a href="proxy preprocessor rules">proxies_preprocessor_rules.html</a>, and logs ingestion config.
 <!---

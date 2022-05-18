@@ -59,7 +59,6 @@ Jason explains first why intelligent alerts are so useful. He then explores the 
 </table>
 
 
-
 <!---
 <table style="width: 100%;">
 <tbody>

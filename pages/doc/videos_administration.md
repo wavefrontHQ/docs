@@ -22,9 +22,10 @@ The following videos explain how to use Wavefront Top, add or revoke access for 
 </td>
 </tr>
 <tr>
-<td width="30%"><strong><font color="#0091DA" size="3">Metrics Security Policy</font></strong><br><br>
-<iframe src="https://bcove.video/2JgVcXq" width="450" height="225" allowfullscreen="true" alt="Secure your environment with metrics security policy rules"></iframe></td>
-<td width="70%"><br><p>Wavefront supports global Permissions and Access Control (ACLs) for dashboards and alerts.  Users with Metrics permission can also create metrics security policy rules, shown here.</p> <p>You can also watch the video <a href="https://bcove.video/2JgVcXq" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> </td>
+<td><strong><font color="#0091DA" size="3">Metrics Security Policy</font></strong><br>
+<br>
+<iframe id="kmsembed-1_3ea13tor" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_3ea13tor/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0" referrerPolicy="no-referrer-when-downgrade"></iframe></td>
+<td><br><p>All users can customize their dashboards. Learn how to find a section, filter using variables or filters, set the time for the dashboard, and share the dashboard with others.</p><p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_3ea13tor" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> </td>
 </tr>
 </tbody>
 </table>
