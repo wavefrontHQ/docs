@@ -15,7 +15,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 ## 2022-19.x Release Notes
 
-We'd like to alert you to the following improvements in Tanzu Observability components:
+This release includes the following improvements in Tanzu Observability components:
 
 * **Wavefront Proxy 11.1**: The Wavefront Proxy is now using a 6 week release cadence. We made the following improvements to [release 11.1](https://github.com/wavefrontHQ/wavefront-proxy/releases) last week:
     * Set span future fill limit to 24 hours: Spans sent with a timestamp that's more than 24 hours ahead of the current timestamp will be blocked.
