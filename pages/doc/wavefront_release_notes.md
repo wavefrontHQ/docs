@@ -31,7 +31,7 @@ We'd like to alert you to the following improvements in Tanzu Observability comp
 
 **Updates for Customers with Service Accounts in the Everyone Group**
 
-Last year, we [introduced](2021.49.x_release_notes.html#2021-42x-release-notes) the **Service Accounts** system group and added all [service accounts](service-accounts.html#what-are-service-accounts) to this group. To prepare for the [upcoming removal](#announcements) of the remaining service accounts from the **Everyone** group, we did the following changes:
+Last year, we [introduced](2021.49.x_release_notes.html#2021-42x-release-notes) the **Service Accounts** system group and added all [service accounts](service-accounts.html#what-are-service-accounts) to this group. To prepare for the upcoming removal of the remaining service accounts from the **Everyone** group, we did the following changes:
 
 * For all dashboards and alerts that have the **Everyone** group in their view or view & modify access lists, we added the **Service Accounts** group to these lists. See [Managing Access to Dashboards and Alerts](access.html) for details.
 * For all metrics security rules that have the **Everyone** group in their allow or deny access lists, we added the **Service Accounts** group to these lists. See [Metrics Security Policy Rules](metrics_security.html) for details.
