@@ -130,7 +130,7 @@ But we see the information we're after only when we add the IQR query:
 network rate|`align(1m, mean, rate(ts(host=don* and not host=don-*ha*, ifconfig.rxBytes)))`
 top/bottom|`if (top(3, ${networkRate}) or bottom(3, ${networkRate}), ${networkRate})`
 Std Dev|`(${networkRate} - mavg(480m, ${networkRate}))/sqrt(mvar(480m, ${networkRate}))`
-IQR|`({networkRate} - mmedian (480m, ${networkRate}))/(mpercentile(480m, 75, ${networkRate}) - mpercentile(480m, 25, ${networkRate}))`
+IQR|`(${networkRate} - mmedian (480m, ${networkRate}))/(mpercentile(480m, 75, ${networkRate}) - mpercentile(480m, 25, ${networkRate}))`
 
 ![network_rate_iqr](images/network_rate_iqr.png)
 
