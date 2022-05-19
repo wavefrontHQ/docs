@@ -34,8 +34,6 @@ summary: Learn how you can get the unified observability experience with Tanzu O
 </table>
 
 
-
-
 {%include note.html content="Tanzu Observability retains the logs you send for 14 days. If you want to keep the data for a longer time, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help."%}
 
 ## What's a Log?
@@ -90,7 +88,7 @@ Example:
 ![Gives an overview of the attributes in a log. They are listed in the table below](images/logging_log_image.png)
 
 
-## Send Logs
+## Logging Architecture
 
 You can send your logs to Tanzu observability using a Log Shipper. The FluentD log shipper is supported out of the box. If you are using a different log shipper, reach out to [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help.
 
@@ -117,7 +115,7 @@ See all the logs you sent to Tanzu Observability using the log browser. You can:
 
 ![a screenshot of the log browser](images/logging_log_browser.png)
 
-### Drill Down to Logs from Charts
+### Drill in to Logs from Charts
 
 Did you notice data anomalies on your chart and want to debug the issue using the logs you sent? Right-click on the chart and click **Logs**. You navigate to the Log Browser, and you see the logs for the time and source defined on the chart.
 
@@ -125,7 +123,7 @@ If you don’t see logs, see [FAQ](logging_faq.html#dont-see-logs-when-drilling-
 
 ![A screenshot of a chart when you right click it . Click logs to go to the log browser](images/logging_charts_to_logs.png)
 
-### Drill Down to Logs from an Alert
+### Drill in to Logs from an Alert
 
 When an alert fires, you get a notification with the alert details and the logs related to the alert.
 
@@ -142,7 +140,3 @@ For example, the screenshot shows:
 **Additional tags**:
 
 When you create or update an alert, you can configure the alert to filter logs using additional tags. For example, the screenshot shows that the alert was configured to show logs for the given time range and filter the logs further using the wavefront application. See [to add additional log tags to an alert ]()[WILL LINK ONCE I GET A PROPER SCREENSHOT AND UPDATE THIS PAGE]
-
-## Next steps
-
-* Send logs
