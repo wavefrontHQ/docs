@@ -13,12 +13,12 @@ The Wavefront proxy accepts a JSON payload over HTTP. Logs greater than 16 MB ar
 
 ![shows how data goes from the log shipper to the wavefront proxy and then to the Wavefront instance](images/logging_send_data.png)
 
-### Prerequisites
+## Prerequisites
 
 * A Tanzu Observability by Wavefront account, which gives you access to a cluster. If you don’t have a cluster, [sign up for a free trial](https://tanzu.vmware.com/observability-trial).
 * A specific API token to send logs to Tanzu Observability. [HOW TO GET THIS?]
 
-### Configure Your Log Shipper
+## Configure Your Log Shipper
 
 As a best practice, use a log shipper to send your logs to Tanzu Observability. A Logs shipper helps buffer, and scrape your logs before sending them to the Wavefront proxy.
 
@@ -26,7 +26,7 @@ Configure your log shipper:
   1. Open port to send logs to the Wavefront Proxy by opening port [ENTER PORT] .. [WHAT ELSE?]
   1. To view logs specific to your application and service, you need to tag the logs with the application and service name. If the logs do not have the application and service name, the Wavefront proxy will add these tags and add the value as `None` [CHECK AND CONFIRM].
 
-### Install Wavefront Proxy 
+## Install Wavefront Proxy 
 
 Follow these steps:
 1. [Install the Wavefront Proxy](proxies_installing.html) version [ADD VERSION] or higher.
