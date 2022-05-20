@@ -14,7 +14,7 @@ In this tutorial, you'll learn how to:
 
 It's an easy setup. You don't have to install anything or make changes to your application code.
 
-{% include tip.html content="Don't have an AWS account? You can [send data from a Windows environment](#video-set-up-data-ingestion-from-windows). Or you can explore dashboards with sample data. [Log in](#task-1-how-to-log-in-to-your-wavefront-instance), click **Integrations** and search for **Tutorial** or **Tour Pro**." %}
+{% include tip.html content="Don't have an AWS account? You can [send data from a Windows environment](#video-set-up-data-ingestion-from-windows). Or you can explore dashboards with sample data. [Log in](#task-1-log-in-to-your-wavefront-instance), click **Integrations** and search for **Tutorial** or **Tour Pro**." %}
 
 <table style="width: 100%;">
 <tbody>

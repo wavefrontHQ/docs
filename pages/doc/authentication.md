@@ -9,7 +9,7 @@ summary: Learn how to enable multi-tenant authentication.
 
 Most of our customers use [single-tenant authentication](auth_self_service_sso.html). If your company wants to set up different tenants for different teams, Tanzu Observability by Wavefront supports multi-tenancy.
 
-{% include note.html content="Switching tenants in multi-tenant environments require [the extra steps listed below](#switching-tenants-in-multi-tenant-environments)." %}
+{% include note.html content="Switching tenants in multi-tenant environments require [the extra steps listed below](#point-a-proxy-to-a-different-tenant-in-a-multi-tenant-environment)." %}
 
 
 ## Multi-Tenant Authentication

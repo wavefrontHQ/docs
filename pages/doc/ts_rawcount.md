@@ -39,7 +39,7 @@ By default, `rawcount()` produces a single raw count across across all time seri
 
 A raw count is computed only from those time series that actually report real values at a given moment in time.
 No interpolation is performed to fill in data gaps in any time series.
-Use [`count()`](ts_count.html) if you want the counts to include time series with interpolated values wherever possible. Using `ts_rawcount()` instead of `count()` can significantly improve query performance.
+Use [`count()`](ts_count.html) if you want the counts to include time series with interpolated values wherever possible. Using `rawcount()` instead of `count()` can significantly improve query performance.
 
 ### Grouping
 
