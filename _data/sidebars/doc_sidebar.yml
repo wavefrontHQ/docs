@@ -793,11 +793,15 @@ entries:
   - title: Administration
     output: web
     folderitems:
-
+            
       - title: Administer Tanzu Observability
         url: /wavefront_administer.html
         output: web
-
+      
+      - title: Upgrade from Trial Version
+        url: /upgrade_and_purchase.html
+        output: web
+    
       - title: Security
         url: /wavefront_security.html
         output: web
