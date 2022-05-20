@@ -13,6 +13,14 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## 2022-20.x Release Notes
+
+We improved our help panel experience. You can now expand and collapse the help panel from the question mark icon on the toolbar.
+
+In addition, we have improved almost every help page with а **Read More** section that contains links which will bring you to relevant doc pages on [docs.wavefront.com](https://docs.wavefront.com) and with a **Watch Videos** section with links to videos that will help you understand various Tanzu Observability concepts and tasks.
+
+![Question mark button at the top right on the toolbar](/images/help.png)
+
 ## 2022-19.x Release Notes
 
 This release includes the following improvements in Tanzu Observability components:
