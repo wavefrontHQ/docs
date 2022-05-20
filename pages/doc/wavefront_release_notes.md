@@ -15,7 +15,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 ## 2022-19.x Release Notes
 
-We'd like to alert you to the following improvements in Tanzu Observability components:
+This release includes the following improvements in Tanzu Observability components:
 
 * **Wavefront Proxy 11.1**: The Wavefront Proxy is now using a 6 week release cadence. We made the following improvements to [release 11.1](https://github.com/wavefrontHQ/wavefront-proxy/releases) last week:
     * Set span future fill limit to 24 hours: Spans sent with a timestamp that's more than 24 hours ahead of the current timestamp will be blocked.
@@ -31,7 +31,7 @@ We'd like to alert you to the following improvements in Tanzu Observability comp
 
 **Updates for Customers with Service Accounts in the Everyone Group**
 
-Last year, we [introduced](2021.49.x_release_notes.html#2021-42x-release-notes) the **Service Accounts** system group and added all [service accounts](service-accounts.html#what-are-service-accounts) to this group. To prepare for the [upcoming removal](#announcements) of the remaining service accounts from the **Everyone** group, we did the following changes:
+Last year, we [introduced](2021.49.x_release_notes.html#2021-42x-release-notes) the **Service Accounts** system group and added all [service accounts](service-accounts.html#what-are-service-accounts) to this group. To prepare for the upcoming removal of the remaining service accounts from the **Everyone** group, we did the following changes:
 
 * For all dashboards and alerts that have the **Everyone** group in their view or view & modify access lists, we added the **Service Accounts** group to these lists. See [Managing Access to Dashboards and Alerts](access.html) for details.
 * For all metrics security rules that have the **Everyone** group in their allow or deny access lists, we added the **Service Accounts** group to these lists. See [Metrics Security Policy Rules](metrics_security.html) for details.
