@@ -32,7 +32,7 @@ Super Admin users (users who have all permissions) can create ingestion policies
 ### Create an Ingestion Policy
 
 1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
 3. Click the **Ingestion Policies** tab, and click **New Ingestion Policy**.
 4. In the **Data** panel:
    1. Choose the **Scope** of the policy.
@@ -53,7 +53,7 @@ After you create an ingestion policy, if you need, for example, to increase the 
 {% include note.html content="You cannot edit the scope of the policy."%}
 
 1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
 3. On the **Ingestion Policies** tab, click the ellipsis icon next to the policy that you want to edit and click **Edit**.
 4. Apply the necessary changes, and click **Save**.
 
@@ -61,7 +61,7 @@ After you create an ingestion policy, if you need, for example, to increase the 
 ### Delete Ingestion Policies
 
 1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
 3. On the **Ingestion Policies** tab, click the ellipsis icon next to the policy that you want to delete, click **Delete** and confirm.
 
 ### See the Ingestion Policies to Which a Proxy Belongs
@@ -79,7 +79,7 @@ After you create an ingestion policy, if you need, for example, to increase the 
 As a Super Admin user, you can examine the usage for accounts or groups assigned to different ingestion policies by clicking the name of the policy.
 
 1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
 3. On the **Ingestion Policies** tab, click the name of the policy in which you are interested.
 
    ![Ingestion policy name link](images/ingestion_policy_team.png)
