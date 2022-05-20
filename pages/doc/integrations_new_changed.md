@@ -14,7 +14,7 @@ Tanzu Observability by Wavefront continuously adds new integrations to the exist
 We made improvements to the following integrations in May 2022:
 
 * Snowflake:
-  * As Snowflake supports key-pair authentication for enhanced authentication security, we updated the setup steps of the integration. Now, to register Snowflake, you have to provide a private key.
+  * To enhance authentication security, we updated the setup steps of the integration. Now, to register Snowflake, you have to provide a private key.
   * We improved the setup steps instructions with information on how to generate the public and private keys and give Tanzu Observability access to your Snowflake account.
   * Improved the **Snowflake Summary** dashboard and included charts for warehouse load monitoring.
 
