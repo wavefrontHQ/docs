@@ -44,7 +44,7 @@ We include an overview and a Swagger-generated API Reference. We update the refe
 
 The [VMware code website](https://code.vmware.com/samples?categories=Sample&tags=wavefront) also includes some samples, for example, for getting data into Tanzu Observability. We're providing these samples as is - some are from our team, others will come from the community.
 
-
+<a id="generating-an-api-token"></a>
 ## Managing API Tokens
 
 Before you can invoke the Wavefront API using `curl` or from an API client, you must have an API token.
@@ -103,7 +103,7 @@ As a user with the **Accounts** permission, you can view and revoke the API toke
 3. Click the **API Tokens** tab.
 
   You see the API tokens for all user and service accounts in a paginated table format.
-  
+
 ![The API Tokens page shows the tokens table, the search field above the table, and the preconfigured filters and the saved searches in the left panel](/images/API_tokens.png)
 
 {% include important.html content="Revoking a token cannot be undone. Any script that uses a revoked token returns an authorization error." %}
