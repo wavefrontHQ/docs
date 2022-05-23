@@ -38,7 +38,7 @@ summary: Learn how you can get the unified observability experience with Tanzu O
 
 ## What's a Log?
 
-Logs are structured or unstructured text records of events that took place at a given time. You needs to send logs as a JSON payload. 
+Logs are structured or unstructured text records of events that took place at a given time. You need to send logs as a JSON payload. 
 Logs in Tanzu Observability include the following attributes:
 
 <table style="width: 100;">
@@ -55,7 +55,7 @@ Logs in Tanzu Observability include the following attributes:
        Tags
     </td>
     <td>
-      Tags are key value pairs that help you add meta data to your logs. You can filter logs using tags.
+      Tags are key-value pairs that help you add metadata to your logs. You can filter logs using tags.
     </td>
   </tr>
   <tr>
@@ -63,7 +63,7 @@ Logs in Tanzu Observability include the following attributes:
       Source
     </td>
     <td markdown="span">
-      A source is a unique application, host, container, or instance that emits metrics. You can filter logs using source.
+      A source is a unique application, host, container, or instance that emits metrics. You can filter logs using the source.
     </td>
   </tr>
   <tr>
@@ -71,7 +71,7 @@ Logs in Tanzu Observability include the following attributes:
       Timestamp
     </td>
     <td>
-      The timestamp the log was created in the Epoch time format.
+      The timestamp when the log was created in the Epoch time format.
     </td>
   </tr>
   <tr>
@@ -96,7 +96,7 @@ Example:
 
 ## Logging Architecture
 
-You can send your logs to Tanzu observability using a Log Shipper. The FluentD log shipper is supported out of the box. If you are using a different log shipper, reach out to [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help.
+You can send your logs to Tanzu observability using a Log Shipper. The Fluentd log shipper is supported out of the box. If you are using a different log shipper, reach out to [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help.
 
 See [Send logs to Tanzu Observability](logging_send_logs.html) for detailed steps.
 
@@ -173,7 +173,7 @@ When you create or update an alert, you can configure the alert to filter logs u
 ### Drill Into Logs From Traces
 
 You can drill into logs from the application map view page and the traces browser (coming soon!). 
-To see logs for an application and service on the Log Browser, you need to tag the data with the application and service tags on your Log Shipper (example: FluentD) before sending the logs to Tanzu Observability. For more information, see the [logging FAQs](logging_faq.html#dont-see-application-and-service-logs).
+To see logs for an application and service on the Log Browser, you need to tag the data with the application and service tags on your Log Shipper (example: Fluentd) before sending the logs to Tanzu Observability. For more information, see the [logging FAQs](logging_faq.html#dont-see-application-and-service-logs).
 
 * **Drill into logs from the application map view**:<br/>
   Did you notice that a service on the application map has a higher error percentage? Click on the service, click **View Logs** to see the logs, and debug the issue.
