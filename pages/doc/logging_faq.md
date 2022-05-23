@@ -17,7 +17,7 @@ This can happen:
 
 ## Don't See Application and Service Logs
 
-To see logs for an application and service on the Log Browser, you need to tag the data with the `application` and `service` tags on your Log Shipper (example: FluentD) before sending the logs to Tanzu Observability.
+To see logs for an application and service on the Log Browser, you need to tag the data with the `application` and `service` tags on your Log Shipper (example: FluentD) before sending the logs to Tanzu Observability. If the logs do not have the application and service name, the Wavefront proxy adds the service and application tags to the log data, and assigns the value `None`.
 
 {% include note.html content="Distributed tracing uses the `application` and `service` identify applications and service. Therefore, for Tanzu Observability to map the log data to the trace data you need to use the same tags." %}
 
@@ -37,3 +37,13 @@ For example, if you are using FluentD, your `fluent.conf` file can have the foll
 </filter>
 
 ```
+
+## Track Data Dropped by Proxy
+
+Logs are dropped by the Wavefront proxy, if the maximum character limit, for a message, tag, and value are exceeded. To track the data points that were dropped by the proxy:
+1. Click **Dashboards** > **All Dashboards**.
+1. Search for the **Wavefront Service and Proxy Data chart**, click on it to open.
+1. Under the **Proxies overview** section, see the chart **Blocked Logs Per Second** [DOUBLE CHECK NAME WHEN ADDED].
+    ADD SCREENSHOT
+
+You see the number of logs that were dropped at a given time. If you see, spike in dropped logs, make sure that you follow the [best practices](logging_send_logs.html#best-practice) when sending logs to Tanzu Observability.
