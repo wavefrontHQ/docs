@@ -9,7 +9,7 @@ summary: Learn how to upgrade from a trial version and purchase Tanzu Observabil
 
 When you create a Tanzu Observability by Wavefront account and register for the trial version, your trial expires after a month. One of the options that we offer to Tanzu Observability Super Admin users, is to purchase Tanzu Observability by themselves. Another option is to contact the Tanzu Observability by Wavefront sales team so that they guide you through the purchase process. For large commitments and more PPS, we strongly recommend the latter option. 
 
-{% include important.html content="The self-service upgrade from trial version currently provides offers only for monthly billable commit contracts. If you're interested in our offers for burndown commit contracts, contact the Tanzu Observability sales team for assistance. " %}
+{% include important.html content="The self-service upgrade from a trial version currently provides offers only for monthly billable commit contracts. If you're interested in burndown commit offers, contact the Tanzu Observability sales team. " %}
 
 To purchase Tanzu Observability, you must either have a VMware Cloud services account or create one during the purchase process.
 
