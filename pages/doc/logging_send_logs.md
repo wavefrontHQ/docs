@@ -24,18 +24,18 @@ The Wavefront proxy accepts a JSON payload over HTTP. Follow these steps to inst
 1. [Install the Wavefront Proxy](proxies_installing.html) version 11.1 or higher.
 1. Open the `pushListnerPorts` to receive the logs from the log shipper.
     For example:
-    * If you installed the proxy on Linux, Mac, or Windows, open the `wavefront.conf` file and uncomment the `pushListnerPorts` configuration.
+    * If you installed the proxy on Linux, Mac, or Windows, open the [`wavefront.conf`](proxies_configuring.html#proxy-file-paths) file and uncomment the `pushListnerPorts` configuration.
     * If you are running the proxy on Docker using the command on the Tanzu Observability User Interface (UI), the command opens the `pushListnerPorts` of the proxy and sets it to 2878.
 1. [Start the proxy](proxies_installing.html#start-and-stop-a-proxy).
 
 ## Configure Your Log Shipper
 
-As a best practice, we recommend that you use a log shipper to send logs to Tanzu Observability. A Logs shipper helps buffer, and scrape your logs before sending them to the Wavefront proxy.
+As a best practice, we recommend you use a log shipper to send logs to Tanzu Observability. A Logs shipper scrapes and buffers your logs before sending them to the Wavefront proxy.
 
 {% include note.html content="Tanzu Observability supports the Fluentd log shipper. If you are using a different log shipper, reach out to [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help." %}
 
 Configure your log shipper:
-  1. Configure the log shipper to send data to the Wavefront proxy by adding the hostname and port the data is sent to.
+  1. Configure the log shipper to send data to the Wavefront proxy by adding the hostname the proxy runs on and the `pushListnerPorts` you configured in the proxy.
       Shown below is an example configuration if you are running the proxy locally and opened the default `pushListnerPorts` on the proxy, which is 2878:
       ```
       <match wf.**>
