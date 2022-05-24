@@ -27,7 +27,9 @@ The following videos get you started:
 </td>
 </tr>
 <tr>
-<td><strong><font color="#0091DA" size="3">About Cardinality</font></strong><br> <a href="https://youtu.be/8wKPkrIiXKw" target="_blank"><img src="/images/v_cardinality.png" alt="Lightboard video about cardinality"/></a></td>
+<td><strong><font color="#0091DA" size="3">About Cardinality</font></strong><br>
+<iframe id="kmsembed-1_824wsz3p" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_824wsz3p/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0"></iframe>
+</td>
 <td><br><p>Wavefront chief architect and co-founder Clement Pang explains why the concept of cardinality is so important for observability, what high cardinality means, and why we deal so well with high cardinality input.</p> </td>
 </tr>
 </tbody>
