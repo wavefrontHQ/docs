@@ -17,8 +17,10 @@ Use spy to extract information programmatically. This page gives details on the 
 
 Use Wavefront top if you want a keyboard-driven UI that's similar to the Linux top UI. The tool is open source and on [GitHub](https://github.com/wavefrontHQ/wftop). You can also read [the blog that Joanna prepared](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitor-and-optimize-data-ingestion-by-wavefront-across-your-organization-introducing-wavefront-top), or watch a short video.
 
-<p><a href="https://youtu.be/XROitQwFCJs"><img src="/images/v_wftop.png" style="width: 700px;"/></a>
-</p>
+<iframe id="kmsembed-1_yif61rd5" width="708" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_yif61rd5/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Using Wavefront Top"></iframe>
+
+
+You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_yif61rd5" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
 
 
 

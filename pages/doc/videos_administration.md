@@ -11,7 +11,9 @@ The following videos explain how to use Wavefront Top, add or revoke access for 
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="30%"><strong><font color="#0091DA" size="3">Wavefront Top</font></strong><br><a href=" https://youtu.be/XROitQwFCJs" target="_blank"><img src="images/v_wftop.png"  alt="Wavefront Top"/></a></td>
+<td width="30%"><strong><font color="#0091DA" size="3">Wavefront Top</font></strong><br>
+<iframe id="kmsembed-1_yif61rd5" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_yif61rd5/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Using Wavefront Top"></iframe>
+</td>
 <td width="70%"><br><p>Wavefront Top is a keyboard-driven UI for examining Wavefront `spy` endpoints. You see how to drill down into your Wavefront instance and learn about the data that are being ingested. </p> </td>
 </tr>
 <tr>

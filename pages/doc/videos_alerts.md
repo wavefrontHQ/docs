@@ -11,10 +11,11 @@ The following videos explain how alerts work and how to configure them.
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td><strong><font color="#0091DA" size="3">How Alerts Work</font></strong><br>
-<a href="https://www.youtube.com/watch?v=VjmWExKiYYg&index=1&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K" target="_blank"><img src="/images/v_alerting_clement.png"/></a></td>
+<td><strong><font color="#0091DA" size="3">How Alerts Work</font></strong><br><br/>
+<iframe id="kmsembed-1_jdy1nak1" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_jdy1nak1/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Alerting with Tanzu Observability (Lightboard Video)"></iframe>
+</td>
 <td><br>
-<p>In this lightboard video, Clement explains how alerts work in the backend.  </p>
+<p>In this lightboard video, Clement explains how alerts work in the backend.   </p>
 </td>
 </tr>
 <tr>

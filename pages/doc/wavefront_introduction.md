@@ -138,7 +138,8 @@ You can use Tanzu Observability by Wavefront with time-series (metric) data, and
 
 ### Video: Getting Data Into Wavefront
 
-<p><a href="https://www.youtube.com/watch?v=lhrtPSqn8-c&index=2&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_data_into_wavefront.png" style="width: 700px;" alt="getting data into wavefront"/></a>
+<p>
+<iframe id="kmsembed-1_nc4kmszz" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_nc4kmszz/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="Getting Data Into Wavefront"></iframe>
 </p>
 
 ## What Are Supported Interfaces?

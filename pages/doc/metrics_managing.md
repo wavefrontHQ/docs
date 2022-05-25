@@ -39,7 +39,7 @@ The following videos get you started:
 You can also watch the following videos to learn more about working with metrics:
 * [Tagging your Data with Wavefront](https://www.youtube.com/watch?v=9tt4orZHQts)
 * [Time Series and Interpolation](https://www.youtube.com/watch?v=9LnDszVrJs4&t=1s)
-* [Getting Data Into Wavefront](https://www.youtube.com/watch?v=lhrtPSqn8-c&index=2&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K)
+* [Getting Data Into Wavefront](https://vmwaretv.vmware.com/media/t/1_nc4kmszz)
 * [Delta Counters in Wavefront](https://vmwaretv.vmware.com/media/t/1_khsugqea)
 
 ## Time Series Metric Structure
