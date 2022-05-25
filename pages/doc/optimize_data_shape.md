@@ -142,7 +142,7 @@ The Wavefront service uses several indexes for retrieving data.
 * One index uses the metric name and source name combination.
 * Another index allows retrieval of data based on the point tag key and values combination.
 
-If you are smart about data shaping to optimize how the Wavefront service uses these indexes so that the query engine can return results faster. See [Ask How Data Will Be Queried and Optimize](#optimize_data_shape.html#step-5-ask-how-data-will-be-queried-and-optimize).
+If you are smart about data shaping to optimize how the Wavefront service uses these indexes so that the query engine can return results faster. See [Ask How Data Will Be Queried and Optimize](#step-5-ask-how-data-will-be-queried-and-optimize).
 
 Wavefront identifies data points that measure the same behavior by looking at the **components of each data point** (metric name, source name, and point tag name/value). The unique combination of these components describes what a time series is.
 
@@ -224,7 +224,5 @@ There are valid situations where it's appropriate to capture ephemeral informati
 
 ## Learn More!
 
-Our Customer Success team has prepared several KB articles that give additional detail.
-
-* [Common Time Limits and Best Practices](https://help.wavefront.com/hc/en-us/articles/360058716512-Common-Tanzu-Observability-time-limits-and-best-practices).
-* [Monitoring Metric Data Quality](https://help.wavefront.com/hc/en-us/articles/360055613191-Monitoring-metric-data-quality).
+* For query limits and similar information, see [Limits and Best Practices](wavefront_limits.html).
+* For an introduction to data cardinality that includes a video, see [High Cardinality Data](cardinality.html)

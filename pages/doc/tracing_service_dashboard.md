@@ -17,7 +17,7 @@ See the Service Dashboard:
 
 * Option 1:
   1. In your web browser, go to your Wavefront instance and log in.
-  1. From the taskbar, click **Applications** > **Service Dashboard**.
+  1. From the toolbar, click **Applications** > **Service Dashboard**.
 
 * Option 2:
   Drill down to the Service Dashboard from the application map, table view, or grid view.
@@ -27,7 +27,7 @@ See the Service Dashboard:
 {% include note.html content="You can add these charts to a dashboard and customize them using [Tracing Templates](ui_dashboards.html#create-a-dashboard-from-a-tracing-template). " %}
 
 On the dashboard for a particular service, you can:
-* Select the time and time zone in the taskbar to customize the chart time properties.
+* Select the time and time zone in the toolbar to customize the chart time properties.
 * Use the **Jump To** drop-down menu to select a dashboard section:
   - Select **Overview** to examine the RED metrics that are derived from all of the spans for the service. These metrics reflect the health of the service.
   - Select an individual component to examine metrics for just that component of the service. A component could be an instrumented framework (e.g., **Jersey**) or the runtime system (e.g., **JVM**).
@@ -49,10 +49,10 @@ style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link
 
 The standard dashboard for services is read-only. To create a customizable copy:
 
-1. Click **Clone** from the ellipsis menu.
+1. Click the ellipsis icon and select **Clone**.
 2. In the cloned dashboard, add your own charts or customize the RED metrics charts.
 
-After you save the clone, click **Dashboard** on the taskbar and search for your dashboard by its  name. You can use it to drill down to the Traces Browser.
+After you save the clone, click **Dashboard** on the toolbar and search for your dashboard by its  name. You can use it to drill down to the Traces Browser.
 
 ## Save Charts in the Service Dashboard
 

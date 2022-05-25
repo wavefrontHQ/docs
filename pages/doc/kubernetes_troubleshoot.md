@@ -29,7 +29,7 @@ This section focuses on known issues that cannot be fixed, for example, because 
 
 ## Troubleshoot Using the Wavefront Collector Dashboard
 
-The Wavefront Collector emits [internal metrics](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/metrics.md#collector-health-metrics) that you can use to troubleshoot issues.
+The Wavefront Collector emits [internal metrics](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/metrics.md#collector-health-metrics) that you can use to troubleshoot issues.
 
 The Wavefront Collector metrics dashboard in the Kubernetes integration shows these metrics.
 
@@ -75,7 +75,7 @@ Identifying what metrics are and aren’t coming through can help identify where
 * Run `kubectl get pods -l k8s-app=wavefront-collector -n <NAMESPACE>` to verify all collector instances are ready and available.
 * Pods are marked as not ready:
   * If there are errors with starting pods, run `kubectl describe pod pod_name`, and check the events section for errors. For details on errors, see [Troubleshoot Applications on Kubernetes documentation](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/).
-  * If the collector is running but has frequent restarts, only part of the data goes through. See [Check If the Collector Restarts Frequently](#step-4-check-if-the-collector-restarts-frequently) below.
+  * If the collector is running but has frequent restarts, only part of the data goes through. 
 
   <table style="width: 100%;">
   <tbody>
@@ -104,7 +104,7 @@ Identifying what metrics are and aren’t coming through can help identify where
 * List collector pods with `kubectl get pods -l k8s-app=wavefront-collector -n <NAMESPACE>`.
 * Check the collector logs for errors sending points to the proxy with `kubectl logs pod_name`.
 * To make sure that the collector can communicate with the proxy:
-  * Verify that the `proxyAddress` on the [collector sink configuration on the configuration.md file](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#wavefront-sink) is correct.
+  * Verify that the `proxyAddress` on the [collector sink configuration on the configuration.md file](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md#wavefront-sink) is correct.
   * Verify that the proxy service exposes the correct port (typically 2878).
 
   <table style="width: 100%;">
@@ -131,7 +131,7 @@ See [Monitor Wavefront Proxies](https://docs.wavefront.com/monitoring_proxies.ht
 
 ![Highlights the source box on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom-Incomplete_step_1.png)
 
-See the [Wavefront Collector Configurations](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md) to verify that the collector is configured correctly.
+See the [Wavefront Collector Configurations](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md) to verify that the collector is configured correctly.
 
 <table style="width: 100%;">
 <tbody>
@@ -150,7 +150,7 @@ You can filter out data flowing into Tanzu Observability at multiple points:
   1. Filter metrics at the source level.
   2. Filter all metrics sent from the collector to Tanzu Observability.
 
-  Run ```kubectl get configmap collector-config -n <YOUR_NAMESPACE> -o yaml``` and check both your source configuration and sink configuration for filters. See [Prefix, tags, and filter configurations for the Wavefront Collector](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#prefix-tags-and-filters).
+  Run ```kubectl get configmap collector-config -n <YOUR_NAMESPACE> -o yaml``` and check both your source configuration and sink configuration for filters. See [Prefix, tags, and filter configurations for the Wavefront Collector](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md#prefix-tags-and-filters).
 
   ![Highlights the source and sink the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom-Incomplete_step_2.2.png)
 
@@ -166,7 +166,7 @@ You can filter out data flowing into Tanzu Observability at multiple points:
 
 ### Step 3: Verify Metric Naming Configuration
 
-* Check the metric prefixes on the source and sink configurations. You can update the metric prefixes in the [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#common-properties) file.
+* Check the metric prefixes on the source and sink configurations. You can update the metric prefixes in the [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md#common-properties) file.
 
   ![Highlights arrow from the sinker to the wavefront proxy on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_metric_name_step_1.png)
 
@@ -239,7 +239,7 @@ To check for Insufficient CPU, follow these steps:
 
     {{site.data.alerts.tip}}
       <p>
-          Latency should be less than the collection intervals you configure. The <code>defaultCollectionInterval</code> is set to 60 seconds. You configure it on the <a href="https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration-file"><code>configration.md</code></a> file.
+          Latency should be less than the collection intervals you configure. The <code>defaultCollectionInterval</code> is set to 60 seconds. You configure it on the <a href="https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md#configuration-file"><code>configration.md</code></a> file.
       </p>
       <p>
           If the latency is high, the collector might have insufficient CPU to process the metrics, and the collectors stack up in memory and cause an Out Of Memory (OOM) error.
@@ -308,13 +308,13 @@ To solve this, See the remedies section.
   * **Filter metrics**:
 
     * **Configure the Wavefront Collector to remove sources**:
-      If you have statically defined sources, comment out or remove sources that emit a large number of metrics from the `sources` list in the collector [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration-file) file. This method removes metrics that are minimally processed, reducing the CPU and memory load on the collector.
+      If you have statically defined sources, comment out or remove sources that emit a large number of metrics from the `sources` list in the collector [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md#configuration-file) file. This method removes metrics that are minimally processed, reducing the CPU and memory load on the collector.
       {% include important.html content="Do not remove `kubernetes_source` from the `sources` list." %}
 
     * **Filter metrics at the source**: Sources scraped by the collector have a way of filtering out metrics. You can filter the metrics on the source or from the Wavefront Collector:
       * Some applications let you configure the metrics they produce. If your application can do that, you can reduce the metrics collected before the metrics are sent to the collector.
         {% include note.html content = "Only some sources let you filter metrics. Example: kube-state metrics" %}
-      * Change the [Wavefront Collector source configuration](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration) to filter out metrics you don’t need. Note:
+      * Change the [Wavefront Collector source configuration](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md#configuration) to filter out metrics you don’t need. Note:
         {% include note.html content = "Filtering metrics in the source configuration, reduces the collector load. Filtering metrics in the sink configuration will not reduce the collector load." %}
 
   * **Disable Auto-Discovery**:
@@ -383,7 +383,7 @@ Check the source of these metrics to identify the specific Kubernetes node on wh
    time="2021-04-27T14:28:04Z" level=info msg="Finished querying source" latency=42.6569ms name="prometheus_source: http://10.244.0.5:8443/metrics" total_metrics=2938
    ```
 
-4. Look through the [configuration file](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration-file) and for each source verify that:
+4. Look through the [configuration file](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md#configuration-file) and for each source verify that:
   * The formatting is correct.
   * There are no errors in the endpoints, ports, or other configuration information.
 
@@ -395,7 +395,7 @@ Check the source of these metrics to identify the specific Kubernetes node on wh
 
    ![Example of the Points Filtered Per Type graph](images/k8s_points_filter_per_type.png)
 
-3. Look at the filtering in your [configuration file](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#configuration-file) and for each source verify that:
+3. Look at the filtering in your [configuration file](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md#configuration-file) and for each source verify that:
   * The configuration for your metric source is correct.
   * The configuration for your Wavefront sink is correct.
 

@@ -55,7 +55,7 @@ Fields must be space separated and each line must be terminated with the newline
 <td>Name of the metric.</td>
 <td>Valid characters are: a-z, A-Z, 0-9, hyphen ("-"), underscore ("_"), dot ("."). Forward slash ("/") and comma (",") are allowed if metricName is enclosed in double quotes.
 <ul>
-<li markdown="span">Points with invalid characters in metricName are rejected and [logged by the Wavefront proxy](proxies_configuring.html#blocked-point-log). For information on how to configure the proxy to rewrite invalid metric names, see [​Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules.html).</li>
+<li markdown="span">Points with invalid characters in metricName are rejected and [logged by the Wavefront proxy](proxies_configuring.html#blocked-data-log). For information on how to configure the proxy to rewrite invalid metric names, see [​Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules.html).</li>
 <li>Metric searches are case sensitive; ts("my.metric") does not find a metric "my.Metric".</li>
 </ul>
 Maximum length for metricName is 256.
@@ -206,9 +206,7 @@ We do not retain the history of alert tags, event tags, and source tags. For exa
 
 ## Learn More!
 
-* [High Cardinality Data](cardinality.html) explores how you can optimize query performance by selecting the best data dimensions.
-
-The following KB articles provide details on data best practices:
-
-* [Where is my old data](https://help.wavefront.com/hc/en-us/articles/360051131032-Where-is-my-Old-Data-) explains how to toggle the Obsolete Metrics settings to see data that's older than 4 weeks.
-* [Common Time Limits and Best Practices](https://help.wavefront.com/hc/en-us/articles/360058716512-Common-Tanzu-Observability-time-limits-and-best-practices) shows limits, for example, when a query times out.
+* [High Cardinality Data](cardinality.html) is an introduction with a video.
+* [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html) has in-depth examples.
+* [Common Time Limits and Best Practices](wavefront_limits.html) shows limits, for example, when a query times out.
+* [Troubleshooting Missing Data](missing_data_troubleshooting.html) explains, for example, how you can toggle the Obsolete Metrics flag to see data that are older than 4 weeks.

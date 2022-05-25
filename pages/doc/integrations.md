@@ -13,9 +13,10 @@ We update our [integrations release notes](integrations_new_changed.html) on a m
 
 ## Watch a Video
 
-In this video, Jason talks about the different integrations we have, and how you can use them to get your data into Tanzu Observability. You can also watch the video <a href="https://bcove.video/2JTvMgW" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+In this video, Jason talks about the different integrations we have, and how you can use them to get your data into Tanzu Observability. You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_j454pr6u" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
 
-<p><a href="https://bcove.video/2JTvMgW"><img src="/images/v_integrations_v2.png" style="width: 700px;" alt="new intro to integratons"/></a>
+<p>
+<iframe id="kmsembed-1_j454pr6u" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_j454pr6u/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="intro to integrations"></iframe>
 </p>
 
 ## Try an Integration!
@@ -39,7 +40,7 @@ Here's a screenshot that shows the different tabs of the Apache Solr integration
 
 Tanzu Observability lets you set up many integrations directly from the product. For other integrations, we give step-by-step instructions -- or you can send your data in other ways, for example, using the Telegraf output plug-in.
 
-- **Built-in integrations** provide assisted installation and configuration. Many integrations also install a dashboard for you. Access the integration by selecting **Integrations** from the taskbar and clicking the **Setup** tab.
+- **Built-in integrations** provide assisted installation and configuration. Many integrations also install a dashboard for you. Access the integration by clicking **Integrations** on the toolbar and clicking the **Setup** tab.
 
 - **Customizable built-in integrations** provide a built-in integration for the initial connection, with additional customization information in this documentation.
 
@@ -77,22 +78,22 @@ Our first external integration sends AlertSite monitoring results to Tanzu Obser
 
 We're excited about this contribution and hope to see more soon!
 
-## Get to Know the Integration Dashboards
+<!--## Get to Know the Integration Dashboards
 
 Before setting up an integration, you can look into our demo dashboards. These demo dashboards are for our most used integrations and contain some sample (sandbox) data. You can explore the data and look how the dashboards work. As these are demo dashboards, you cannot edit them.
 
  {% include note.html content="The Sample Data Dashboards are currently available to some of our customers. They will become available to all customers within the next releases."%}
 
-1. Click **Integrations** on the taskbar.
-   
+1. Click **Integrations** on the toolbar.
+
    ![Sample data dashboards section preview](images/integrations-sample-dashboards.png)
-1. In the **Get to know integration dashboards!** section, click the **Explore** button for a sample integration dashboard. 
-    
+1. In the **Get to know integration dashboards!** section, click the **Explore** button for a sample integration dashboard.
+
     {% include note.html content="You are redirected to a sandbox data tenant cluster in another tab of your browser. Notice the URL. This sandbox data tenant cluster contains the sample integrations data and dashboards." %}
 
-1. To close the **Sample Data Dashboards** section, click **Close the section** and confirm. 
+1. To close the **Sample Data Dashboards** section, click **Close the section** and confirm.
 1. To bring back the demo dashboards section, in the left pane, click **Show Demo Dashboards**.
-
+-->
 ## Installing and Uninstalling Integration Dashboards
 
 You can install and uninstall the system integration dashboards.
@@ -108,8 +109,8 @@ You can install and uninstall the system integration dashboards.
 
 You cannot modify the system dashboards. Instead, you must clone the dashboards.
 1. Click the ellipsis icon in the top right corner of the dashboard.
-2. Select **Clone**. 
-3. Provide a URL string that's just the name (e.g., `mydashboard` or `dashboard-name-clone`) and not the URL (e.g., `http://mydashboard`). 
+2. Select **Clone**.
+3. Provide a URL string that's just the name (e.g., `mydashboard` or `dashboard-name-clone`) and not the URL (e.g., `http://mydashboard`).
 4. Customize the clone to suit your needs.
 
 ## Installing and Uninstalling Integration Alerts
@@ -127,11 +128,11 @@ Some integrations contain system alerts. You can install and uninstall the prede
 
 ## Editing and Cloning the Integration Alerts
 
-To [edit the targets of the integration alerts](webhooks_alert_notification.html#learn-about-alert-targets), you must have the **Alerts** permission. If you edit the system integration alerts and then reinstall them, all of the changes that you've made are reverted back to their original state. 
+To [edit the targets of the integration alerts](webhooks_alert_notification.html#learn-about-alert-targets), you must have the **Alerts** permission. If you edit the system integration alerts and then reinstall them, all of the changes that you've made are reverted back to their original state.
 
-To make further customizations, clone the alert first. 
+To make further customizations, clone the alert first.
 
-1. Click **Alerting** in the toolbar.
+1. Select **Alerting > All Alerts** from the toolbar.
 2. Click the ellipsis icon next to the alert that you want to clone, and select **Clone**.
 3. Enter a name of the new alert and click **Clone**.
 

@@ -57,9 +57,9 @@ Tanzu Observability supports the option of Disaster Recovery (DR) across regions
 Applications send data to the Wavefront service using either the [Wavefront proxy](proxies.html) or [direct ingestion](direct_ingestion.html). We protect all data traffic with TLS (Transport Layer Security) and HTTPS. If you send data directly to the Wavefront service, we require TLS 1.2 connections.
 
 The Wavefront proxy uses HTTPS, and we offer options to secure it further:
-* Perform a manual install and place the Wavefront proxy [behind an HTTP proxy](proxies_manual_install.html#connecting-to-wavefront-through-an-http-proxy).
+* Perform a manual install and place the Wavefront proxy [behind an HTTP proxy](proxies_manual_install.html#configure-wavefront-proxy-with-an-httphttps-proxy).
 
-* Use proxy [configuration properties](proxies_configuring.html#general-proxy-properties-and-examples) to set ports, connect times, and more.
+* Use proxy [configuration properties](proxies_configuring.html#configuration-properties) to set ports, connect times, and more.
 
 * Use an [allow list regex or block list regex](proxies_preprocessor_rules.html#point-filtering-rules) to control traffic to the Wavefront proxy.
 
@@ -100,7 +100,7 @@ If you use [direct ingestion](direct_ingestion.html), you are required to pass i
 
 ## Audit Trail
 
-You can view changes that were made to dashboards, alerts, etc., by using [versions](wavefront_monitoring.html#examine-versions-of-dashboards-and-alerts) of charts and dashboards.
+You can view changes that were made to dashboards, alerts, etc., by using [versions](track_adoption.html#examine-versions-of-dashboards-and-alerts) of charts and dashboards.
 
 ## Integrations
 

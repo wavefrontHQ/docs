@@ -25,7 +25,7 @@ A production Wavefront instance retains different types data for different amoun
 <tr><td><strong>histograms</strong></td>
 <td>6 months of data retention</td></tr>
 <tr><td><strong>spans</strong></td>
-<td>7 days retention. With spans, we use <a href="trace_data_sampling.html#wavefront-intelligent-sampling">Intelligent Sampling</a>. Use trace sampling policies explicitly exclude certain spans.  </td></tr>
+<td>7 days retention. With spans, we use <a href="trace_data_sampling.html#intelligent-sampling">Intelligent Sampling</a>. Use trace sampling policies explicitly exclude certain spans.  </td></tr>
 </tbody>
 </table>
 

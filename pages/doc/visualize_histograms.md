@@ -82,7 +82,7 @@ Histogram charts are designed especially for histogram visualization:
 ![histogram overview](images/histograms_overview.png)
 
 Histogram charts are interactive. Hover legends give details, and you can go from the ellipsis in the top right to the trace browser for the histogram:
-* Add histogram queries in Query Builder or Chart Builder.
+* Add histogram queries in Chart Builder or Query Editor.
   - Use an `hs()` query to visualize data that were ingested as Wavefront histograms.
   - Use a `ts()` query to visualize **any data** as histograms.
 * Set the Y axis dimensions and X axis minimum, maximum, and units.
@@ -105,7 +105,7 @@ The following diagram uses the same query as the histogram chart above.
 ![annotated heat map](images/heatmap_annotated.png)
 
 The heatmap is interactive and lets you examine the histogram in detail.
-* Add histogram queries in Query Builder or Chart Builder.
+* Add histogram queries in Chart Builder or Query Editor.
   - Use an `hs()` query to visualize data that were ingested as Wavefront histograms.
   - Use a `ts()` query to visualize any data as histograms.
 * Hover over any field to bring up a legend. The legend:

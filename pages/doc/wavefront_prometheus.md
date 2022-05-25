@@ -57,10 +57,10 @@ If an administrator has enabled PromQL support (discussed above), each user can 
 
 ## Video: Wavefront Query Language and PromQL
 
-This short <a href="https://bcove.video/3tLRB6l" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> shows how you can create a PromQL chart and an alert:
+This short <a href="https://vmwaretv.vmware.com/media/t/1_x5xqthax" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> shows how you can create a PromQL chart and an alert:
 
 <p>
-<iframe src="https://bcove.video/3tLRB6l" width="700" height="400" allowfullscreen="true" alt="WQL and PromQL"></iframe>
+<iframe id="kmsembed-1_x5xqthax" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_x5xqthax/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Wavefront and PromQL"></iframe>
 </p>
 
 ## Use PromQL in Charts and Alerts

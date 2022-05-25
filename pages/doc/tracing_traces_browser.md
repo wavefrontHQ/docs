@@ -11,9 +11,11 @@ The Traces Browser that is part of Tanzu Observability by Wavefront lets you exp
 
 ## Video
 
-This <a href="https://bcove.video/3vaNJM7" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights the Traces Browser features and settings:
+This <a href="https://vmwaretv.vmware.com/media/t/1_guro3vem" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights the Traces Browser features and settings:
 
-<iframe src="https://bcove.video/3vaNJM7" width="700" height="400" allowfullscreen="true" alt="Highlights the Wavefront traces browser features."></iframe>
+<p>
+<iframe id="kmsembed-1_guro3vem" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_guro3vem/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Highlights the Wavefront traces browser features."></iframe>
+</p>
 
 ## Explore the Traces Browser
 
@@ -21,7 +23,7 @@ See the Traces Browser:
 
 * Option 1:
   1. In your web browser, go to your Wavefront instance and log in.
-  1. From the taskbar, click **Applications** > **Traces**.
+  1. From the toolbar, select **Applications** > **Traces**.
 
 * Option 2:
   1. In your web browser, go to your Wavefront instance and log in.
@@ -48,7 +50,7 @@ From the Traces Browser, you can:
 * Examine a trace's percentile indicator to see how the trace's duration compares to the durations of the other listed traces.
   You can toggle the panel size for the traces list, service map, or trace details.
 * Export traces by clicking <img src="images/tracing_import_traces.png"
-style="vertical-align:text-bottom;width:25px" alt="import tracing icon"/>, save the JSON file, and view them later using [Offline Traces](#view-traces-offline).
+style="vertical-align:text-bottom;width:25px" alt="import tracing icon"/>, save the JSON file, and view them later using [Offline Traces](tracing_view_offline_traces.html).
 * Easily analyze your traces hierarchy and RED metrics by clicking the expand or restore icon.
   * Click the expand icon to expand the RED metrics and view them next to the trace list, and click the same icon again to restore to the default view.
     ![partial expand red metrics](images/tracing_ui_partial_expand_red_metrics.png)
@@ -66,7 +68,7 @@ You can view the results in a traces list.
 ![explore traces list](images/tracing_traces_browser_traces_list.png)
 
 Here's how to get started:
-1. Add an Operation or Trace ID. See [Get Started with Trace Queries](trace_data_query.html#get-started-with-trace-queries) for details.
+1. Add an Operation or Trace ID. See [Get Started with Trace Queries](trace_data_query.html#search-and-filter-traces-on-the-traces-browser) for details.
 2. Click **Add Filter** and specify a filter to limit the results.
 3. (Optional) Advanced users can use Query Editor to limit the scope even further.
 

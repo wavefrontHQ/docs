@@ -9,7 +9,7 @@ summary: Learn about alert conditions and states, when alerts fire, and how aler
 Here's a video to get you started:
 
 <p>
-<iframe src="https://bcove.video/3iYlXiP" width="700" height="400" allowfullscreen="true" alt="alert states and lifecycle video by Jason"></iframe>
+<iframe id="kmsembed-1_vi9pvcz4" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_vi9pvcz4/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="alert states and lifecycle video by Jason"></iframe>
 </p>
 
 
@@ -33,10 +33,10 @@ Let's look at an example:
 |SMOKE  | 4000  |
 
 This multi-threshold alert notifies targets like this:
-1. Wavefront monitors the alert condition.
+1. Tanzu Observability by Wavefront monitors the alert condition.
 2. If at least one of the threshold values is met for the specified amount of time, for example, if `cpu.loadavg.1m` is greater than 6000, the alert fires.
 3. Notifications are always sent to all alert targets that match the condition, for example, that are equal to or below the severity that triggers the alert. For example, if `cpu.loadavg.1m` is greater than 6000 for 5 minutes, alert targets for SEVERE, WARN, and SMOKE are notified because the condition is satisfied for all. If the value of `cpu.loadavg.1m` satisfies the WARN but not the SEVERE condition, then only alert targets in WARN and SMOKE will be notified.
-4. Wavefront continues checking the alert condition at the specified interval (1 minute by default). If the alert condition for a higher level is no longer met, but lower-level conditions are still met, then the higher-level alert target gets an Alert Resolved notification, and each lower-level alert target gets an Alert Updated notification.
+4. We continue checking the alert condition at the specified interval (1 minute by default). If the alert condition for a higher level is no longer met, but lower-level conditions are still met, then the higher-level alert target gets an Alert Resolved notification, and each lower-level alert target gets an Alert Updated notification.
 
 ![alert multi concept](images/alert_multi_concept.png)
 
@@ -44,9 +44,9 @@ This multi-threshold alert notifies targets like this:
 
 Single-threshold alerts notify all targets at the same time when the alert changes state:
 
-1. Wavefront monitors the alert condition. When the condition is met for the specified amount of time, the alert fires.
-2. When the alert fires, Wavefront sends alert notifications to the alert target(s) specified for the alert, using the severity that's prespecified for the alert.
-3. When the alert resolves or is snoozed, Wavefront sends additional notification to the alert target(s).
+1. Tanzu Observability monitors the alert condition. When the condition is met for the specified amount of time, the alert fires.
+2. When the alert fires, we send alert notifications to the alert target(s) specified for the alert, using the severity that's prespecified for the alert.
+3. When the alert resolves or is snoozed, we send additional notification to the alert target(s).
 
 ## What are Alert States?
 
@@ -59,8 +59,8 @@ An alert can be in one of the following states, shown in the Alerts Browser and 
 </thead>
 <tr>
 <td><strong>CHECKING</strong></td>
-<td>Wavefront checks whether the <strong>Condition</strong> is met for the amount of time specified by the <strong>Trigger Window</strong> property.<br/> <br/>
-If an alert is in the FIRING state, it cannot be in the CHECKING state at the same time but Wavefront checks firing alerts to determine if firing conditions are still met.  A FIRING alert resolves and transitions back to CHECKING when the condition does not evaluate to <strong>true</strong> in the time window, or when the time window contains no data.</td></tr>
+<td>Tanzu Observability checks whether the <strong>Condition</strong> is met for the amount of time specified by the <strong>Trigger Window</strong> property.<br/> <br/>
+If an alert is in the FIRING state, it cannot be in the CHECKING state at the same time but Tanzu Observability checks firing alerts to determine if firing conditions are still met. A FIRING alert resolves and transitions back to CHECKING when the condition does not evaluate to <strong>true</strong> in the time window, or when the time window contains no data.</td></tr>
 <tr>
 <td><strong>FIRING</strong></td>
 <td>The alert meets the <strong>Condition</strong> for the amount of time specified by the <strong>Trigger Window</strong> property. An alert transitions to FIRING when the condition has at least one true value and no false values during a fixed time window.</td>
@@ -71,7 +71,7 @@ If an alert is in the FIRING state, it cannot be in the CHECKING state at the sa
 You can set up an alert that triggers if the alert is in a NO DATA state for a specified amount of time. If you do, select **Alert Has No Data** in the corresponding [Alert Target](webhooks_alert_notification.html#create-a-custom-alert-target). For those alert targets, select **Alert Has No Data Resolved** if you want to send a notification when the alert exits the NO DATA state.</td></tr>
 <tr>
 <td><strong>IN MAINTENANCE</strong></td>
-<td>The alert is associated with a <a href="maintenance_windows_managing.html#using-maintenance-windows">maintenance window</a>.
+<td>The alert is associated with a <a href="maintenance_windows_managing.html">maintenance window</a>.
 <ul>
 <li>If an alert has a subset of reporting sources associated with in an ongoing maintenance window, then the state displays as CHECKING/IN MAINTENANCE.</li>
 <li>If an alert has a subset of reporting sources associated with an ongoing maintenance window but other sources are firing, the state displays as FIRING/IN MAINTENANCE.</li></ul></td>
@@ -149,7 +149,7 @@ The last summarization data point to be evaluated in an alert check time window 
  alert check time (rounded down to nearest minute) - 1 minute
  ```
 
-Wavefront uses this formula to ensure that the alert has a full minute's worth of reported data to summarize and evaluate.
+This formula is used to ensure that the alert has a full minute's worth of reported data to summarize and evaluate.
 
 **Example**
 
@@ -159,7 +159,7 @@ Suppose the **Trigger Window** property is set to 5 minutes, and the alert check
 
 ## When Do Alerts Fire?
 
-An alert fires when its [condition](#alert-conditions) evaluates to at least one true value and zero false values present within the given **Trigger Window** time window.
+An alert fires when its condition evaluates to at least one true value and zero false values present within the given **Trigger Window** time window.
 
 ### Alert Firing: Example
 
@@ -174,7 +174,7 @@ Alert checks are based on data that is summarized every minute.  Consequently, i
 
 ### Viewing Firing Alerts
 
-When you hover over the **Alerting** button in the taskbar, you can see the number of alerts firing.
+When you hover over **Alerting** on the toolbar, you can see how many alerts are firing.
 
 <table style="width: 100%;">
 <tbody>
@@ -202,7 +202,7 @@ By default, the **Resolve Window** is the same length as the **Trigger Window**.
 
 Suppose you define an alert with the following properties:
 * The alert condition is `ts(metric.name) > 0`, where `metric.name` reports once a minute. (The summarization values are therefore the same as the reported values.)
-* The [Checking Frequency interval](#when-alerts-are-checked) = 1 minute (the default).
+* The **Checking Frequency** interval is 1 minute (the default).
 * **Trigger Window** = 5 minutes.
 * **Resolve Window** = 10 minutes.
 

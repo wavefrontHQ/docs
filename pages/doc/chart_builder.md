@@ -9,26 +9,19 @@ summary: Use Chart Builder to display the data you're interested in.
 
 When you get started with Tanzu Observability by Wavefront, Chart Builder is the fasted way to customize which metrics you see and to display them in charts.
 
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="80%">Chart Builder has the tools for creating charts and customizing which metrics you see.
-<ul>
-<li>Construct queries from building blocks</li>
-<li>Show or hide individual queries</li>
-<li>Clone or delete a line</li>
-<li>Create alerts or turn <strong>Anomaly Detection</strong> on for forecasting or anomaly detection on Line Plot charts. </li></ul></td>
-<td width="20%"><a href="query_language_query_builder.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
-</tr>
-</tbody>
-</table>
+Chart Builder has the tools for creating charts and customizing which metrics you see.
+* Construct queries from building blocks
+* Show or hide individual queries
+* Clone or delete a query line
+* Create alerts directly from a query.
+* Turn on [**Anomaly Detection**](anomaly_detection.html).
 
 
 ## Video
 
 Here's a 90 second overview of some of the main features.
 
-<iframe src="https://bcove.video/2Xx9IPz" width="700" height="400" allowfullscreen="true" alt="Wavefront intro how-to"></iframe>
+<iframe id="kmsembed-1_46pqfyms" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_46pqfyms/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Wavefront intro how-to"></iframe>
 
 ## Get Started
 

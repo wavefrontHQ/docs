@@ -20,10 +20,10 @@ In a large enterprise, certain data are confidential. Tanzu Observability by Wav
 
 ## Video: Metrics Security Policy
 
-Watch this <a href="https://bcove.video/2JgVcXq" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> for an overview.
+Watch this <a href="https://vmwaretv.vmware.com/media/t/1_3ea13tor" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> for an overview.
 
 <p>
-<iframe src="https://bcove.video/2JgVcXq" width="700" height="400" allowfullscreen="true" alt="Metrics Security Policy video"></iframe>
+<iframe src="https://vmwaretv.vmware.com/media/t/1_3ea13tor" width="700" height="400" allowfullscreen="true" alt="Metrics Security Policy video"></iframe>
 </p>
 
 ## How Metrics Security Protects Sensitive Data
@@ -163,7 +163,7 @@ See the Examples further below.
 
 You create a metrics security policy rule following these steps. See the annotated screenshot below for an example.
 
-1. From the gear icon <i class="fa fa-cog"/> on the taskbar, select **Metrics Security Policy** and click **Create Rule**
+1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Metrics Security Policy** and click **Create Rule**
 2. In the **Create Rule** dialog, specify the rule parameters.
   1. Specify a descriptive name. Users might later modify the rule, so a clear name is essential.
   2. Add a description. The description is visible only when you edit the rule. The name is visible on the Metrics Security Policy page.
@@ -209,12 +209,6 @@ Here's a tour:
 ## Example for Metrics Security Policies
 
 Before you start, plan your strategy. Here are some common scenarios.
-
-Initially, a single metrics security policy rule is defined:
-
-![Screenshot of a single metrics security policy rule allowing all metrics to everyone.](images/metrics_security_default.png)
-
-All users can access all metrics, meaning **no** restrictions are in place.  Furthermore, if the single **Allow All Metrics** rule was deleted, all users will still have access to all metrics.
 
 ### Example: Restrict Access to Confidential Metrics
 

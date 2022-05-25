@@ -72,15 +72,15 @@ The collector runs as a DaemonSet for high scalability and supports leader elect
 
 The Wavefront Collector for Kubernetes supports automatic monitoring of host-level metrics and host-level `systemd` metrics. When you set up the collector, it auto-discovers pods and services  in your environment and starts collecting host-level metrics.
 
-You can [filter the metrics](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/blob/master/docs/filtering.md) before they are reported to the Wavefront service.
+You can [filter the metrics](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/blob/main/docs/filtering.md) before they are reported to the Wavefront service.
 
 ### Application Monitoring
 
 The Wavefront Collector for Kubernetes automatically starts collecting metrics from many commonly used applications: 
-* The collector auto-discovers endpoints using labels. See [Auto Discovery](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/discovery.md#auto-discovery).
+* The collector auto-discovers endpoints using labels. See [Auto Discovery](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/discovery.md#auto-discovery).
 * The collector also scrapes Prometheus metric endpoints such as API server, etcd, and NGINX.
 
-You can also configure the collector to collect data from Telegraf application sources, such as Redis, RabbitMQ. etc., using the [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md#telegraf_source) file.
+You can also configure the collector to collect data from Telegraf application sources, such as Redis, RabbitMQ. etc., using the [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md#telegraf_source) file.
 
 The following diagram illustrates this:
 

@@ -18,13 +18,12 @@ The following videos get you started:
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="60%"><strong><font color="#0091DA" size="3">Browsing Your Data</font></strong><br>
+<td><strong><font color="#0091DA" size="3">Browsing Your Data</font></strong><br>
 <br>
-<iframe src="https://bcove.video/3n13ulm" width="500" height="275" allowfullscreen="true" alt="browse metrics from source browser or metrics browser"></iframe>
+<iframe id="kmsembed-1_ai5iua3f" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_ai5iua3f/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0"></iframe>
 </td>
-<td width="40%"><br>
-<p>90-second video that shows how you can find and examine metrics from the Sources browser and from the Metrics browser. </p>
-<p>You can also watch the video <a href="https://bcove.video/3n13ulm" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
+<td><br>
+<p>90-second video that shows how you can find and examine metrics from the Sources browser and from the Metrics browser. </p><p>You can also watch the video <a href="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_ai5iua3f/uiConfId/49694343/pbc/252649793/st/0" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
@@ -39,7 +38,7 @@ You can also watch the following videos to learn more about working with metrics
 * [Tagging your Data with Wavefront](https://www.youtube.com/watch?v=9tt4orZHQts)
 * [Time Series and Interpolation](https://www.youtube.com/watch?v=9LnDszVrJs4&t=1s)
 * [Getting Data Into Wavefront](https://www.youtube.com/watch?v=lhrtPSqn8-c&index=2&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K)
-* [Delta Counters in Wavefront](https://bcove.video/39DNLom)
+* [Delta Counters in Wavefront](https://vmwaretv.vmware.com/media/t/1_khsugqea)
 
 ## Time Series Metric Structure
 
@@ -166,4 +165,5 @@ The selected metrics and metric prefixes appear again as long as they have had a
 
 ## Learn More!
 
-See the KB article [Migrating Objects or Data Between Environments](https://help.wavefront.com/hc/en-us/articles/360053164791-Migrating-Objects-or-Data-Between-Tanzu-Observability-Environments) if your company has several Wavefront instances.
+* [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html)
+* See the KB article [Migrating Objects or Data Between Environments](https://help.wavefront.com/hc/en-us/articles/360053164791-Migrating-Objects-or-Data-Between-Tanzu-Observability-Environments) if your company has several Wavefront instances.

@@ -78,11 +78,11 @@ The end-to-end keyboard navigation is fully supported in the UI pages listed bel
 
 * User profile page
 
-  You can access it by navigating to your profile from the gear icon <i class="fa fa-cog"/> on the taskbar.
+  You can access it by navigating to your profile from the gear icon <i class="fa fa-cog"/> on the toolbar.
 
 * Metrics Browser page
 
-  You can access it by navigating to **Browse > Metrics** from the toolbar.
+  Navigate to **Browse > Metrics** from the toolbar.
 
 ## Drag-and-Drop Keyboard Navigation
 
@@ -97,7 +97,7 @@ To use the drag-and-drop navigation:
 With the drag-and-drop keyboard navigation you can rearrange:
 
 * Query lines
-* Functions within a query line in Query Builder
+* Functions within a query line in Query Editor
 * Variables
 * List values when you add variables to a dashboard
 * Metrics Security Policy rules

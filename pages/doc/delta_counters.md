@@ -16,7 +16,7 @@ Tanzu Observability by Wavefront supports [several types of metrics](metric_type
 Learn the difference between cumulative counters and delta counters and see how to manage delta counters from the UI.
 
 <p>
-<iframe src="https://bcove.video/39DNLom" width="700" height="400" allowfullscreen="true" alt="delta counters video, part animation, part screen capture"></iframe>
+<iframe id="kmsembed-1_khsugqea" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_khsugqea/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="delta counters video, part animation, part screen capture"></iframe>
 </p>
 
 ## Counters and Delta Counters Basics
@@ -140,7 +140,7 @@ You can use our SDKs to make your metric a delta counter.
 
 ### Delta Counter Proxy Configuration Properties
 
-We support the following [proxy configuration properties](proxies_configuring.html#general-proxy-properties-and-examples) with delta counters.
+We support the following [proxy configuration properties](proxies_configuring.html#configuration-properties) with delta counters.
 
 - **deltaCounterPorts**: Comma-separated list of ports that accept only delta counter data.
 - **deltaCounterAggregationInterval**: Time that the proxy spends aggregating data before sending them to the Wavefront service. Default is 30 seconds.

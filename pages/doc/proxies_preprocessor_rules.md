@@ -29,7 +29,7 @@ You can limit when a rule applies using the `if` parameter (proxy 7.0 and later)
 
 You define the proxy preprocessor rules in a rule configuration file, usually `<wavefront_config_path>/preprocessor_rules.yaml`, using YAML syntax.
 
-If you want to change the name of the preprocessor rule file, you can specify the filename using the `preprocessorConfigFile` parameter in your [proxy configuration file](proxies_configuring.html#proxy-configuration).
+If you want to change the name of the preprocessor rule file, you can specify the filename using the `preprocessorConfigFile` parameter in your [proxy configuration file](proxies_configuring.html#configuration-properties).
 
 ### Example
 
@@ -149,7 +149,7 @@ For every rule, the Wavefront proxy reports the counter metric`~proxy.preprocess
 
 ## Point Filtering Rules
 
-Point filtering rules support a more flexible version of the proxy [`allow` list and `block` list](proxies_configuring.html#proxy-configuration) properties, and is fully backwards compatible.
+Point filtering rules support a more flexible version of the proxy [`allow` list and `block` list](proxies_configuring.html#configuration-properties) properties, and is fully backwards compatible.
 
 ### block
 

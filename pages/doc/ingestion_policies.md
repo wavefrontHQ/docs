@@ -7,7 +7,11 @@ permalink: ingestion_policies.html
 summary: Monitor usage with ingestion policies, usage dashboards, and alerts.
 ---
 
+<<<<<<< HEAD
 As a Super Admin, you’re interested in usage patterns for the whole company, but also for different teams in the company. For examining the usage by teams, Tanzu Observability by Wavefront supports ingestion policies. You can create ingestion policies and assign accounts or groups to each policy to see which teams use what part of the total ingestion.
+=======
+As a Super Admin user, you're interested in usage patterns for the whole organization, but also for different teams in the organization. For such cases, Tanzu Observability by Wavefront supports ingestion policies. You can create different ingestion policies and assign accounts or groups to each policy to see which teams use which part of total ingestion.
+>>>>>>> 07acd7191a252c1959e964e93eda4dd8c3adbc2c
 
 {% include note.html content="You must be a Super Admin to view the Usage Portal and manage ingestion policies."%}
 >>>>>>> e1f5e36963b6597a91ef880a64ef93d390a1b0f9 
@@ -115,8 +119,8 @@ If you no longer need an ingestion policy, for example, after a reorganization i
 As a Super Admin user, you can examine the usage for accounts or groups assigned to an ingestion policy from the ingestion policy dashboard.
 
 1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal and Subscriptions**.
-3. On the **Ingestion Policies** tab, click the name of the policy you are interested in.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
+3. On the **Ingestion Policies** tab, click the name of the policy in which you are interested.
 
    ![Ingestion policy name link](images/ingestion_policy_team.png)
 
@@ -131,7 +135,7 @@ In the **Ingestion Summary** section of the dashboard, you can see the following
 </thead>
 <tr>
 <td><strong>Usage Limit</strong></td>
-<td>Shows the usage for the current month out of the PPS limit for the policy.</td></tr>
+<td>Shows the usage for the selected month out of the PPS limit set for the ingestion policy.</td></tr>
 <tr>
 <td><strong>Previous Month to Selected Month</strong></td>
 <td>Shows a comparison of the current month's usage with the previous month's usage.</td>
@@ -157,11 +161,11 @@ You can create an ingestion policy for each team to monitor how much data each t
 
 ## Learn More!
 
-You can additionally drill down and get a better understanding of the usage per account by using the [Wavefront Ingestion Policy Explorer dashboard](wavefront_monitoring.html). 
+You can additionally drill down and get a better understanding of the usage per account by using the [Wavefront Ingestion Policy Explorer dashboard](wavefront_monitoring.html).
+
+[Find Actionable Usage Information](wavefront_usage_info.html) explains how to use tools and dashboards to learn how much data is coming in, who is sending the data, how to get alerted if ingested data get close to monthly contracted usage, and how to optimize your ingestion rate. 
 
 Our Customer Success Team has put together KB articles that drill down into adoption info.
 
 * [How to Track Adoption in Your Company with Usage Metadata](https://help.wavefront.com/hc/en-us/articles/360058526192-How-to-Track-Tanzu-Observability-Adoption-with-Usage-Metadata).
-* [How to Identify Unused Data](https://help.wavefront.com/hc/en-us/articles/360058084372-How-to-Identify-Unused-Data).
-* [How to Optimize Your Ingestion Rate PPS](https://help.wavefront.com/hc/en-us/articles/360057995092-How-to-Optimize-Your-Ingestion-Rate-PPS-).
 * [How to Request a PPS Add-On to Current Committed Rate](https://help.wavefront.com/hc/en-us/articles/4402939921044-How-to-request-a-PPS-add-on-to-current-committed-rate).

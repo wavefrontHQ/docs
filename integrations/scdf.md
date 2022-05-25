@@ -148,7 +148,7 @@ Use the following environment variables to configure the Wavefront endpoint, bef
 
 ## Spring Cloud Data Flow Metrics
 
-Spring Cloud Data Flow's generic performance metrics are based on Micrometer and it is registered in Micrometer’s registry with the `spring.cloud.dataflow` prefix. 
+Spring Cloud Data Flow's generic performance metrics are based on Micrometer, and are registered in Micrometer’s registry with the `spring.cloud.dataflow` prefix. 
 
 The following table explains all the metrics in details:
 
@@ -156,7 +156,7 @@ Auto-configuration enables the instrumentation of requests handled by Spring MVC
 
 | Metric Name | Description |
 |------------|---------------|
-| spring.cloud.dataflow.server.* | Metrics for all requests handled by SCDF's Spring MVC application. Statistics: avg, count, max, sum |  
+| spring.cloud.dataflow.server.* | Metrics for all requests handled by SCDF's Spring MVC application. Statistics: avg, count, max, sum. |  
 
 ## Spring Integration Metrics
 
@@ -168,13 +168,13 @@ The following table explains all the metrics in details:
 
 | Metric Name | Description |
 |------------|---------------|
-| spring.integration.receive (type=source)| Message sources messages received |
-| spring.integration.receive (type=channel)| Messages received on pollable message channels| 
-| spring.integration.send (type=handler) | Message handlers' send processing time |
-| spring.integration.send (type=channel) | Message channels' send processing time |
-| spring.integration.channels | Number of MessageChannels in the application |
-| spring.integration.handlers | Number of MessageHandlers in the application |
-| spring.integration.sources  | Number of MessageSources in the application |
+| spring.integration.receive (type=source)| Message sources messages received. |
+| spring.integration.receive (type=channel)| Messages received on pollable message channels.| 
+| spring.integration.send (type=handler) | Message handlers' send processing time. |
+| spring.integration.send (type=channel) | Message channels' send processing time. |
+| spring.integration.channels | Number of MessageChannels in the application. |
+| spring.integration.handlers | Number of MessageHandlers in the application. |
+| spring.integration.sources  | Number of MessageSources in the application. |
 
 
 ## Kafka Client Metrics
@@ -188,12 +188,12 @@ The `Record` stand for a single `Message` exchanged between the `Producer` and t
 
 | Metric Name | Description |
 |------------|---------------|
-| kafka.producer.record.send.rate | The average number of records sent per second for a topic |
-| kafka.consumer.fetch.manager.records.consumed.rate | Average number of records consumed per second for a specific topic or across all topics | 
-| kafka.producer.record.size.* | Size of the records sent per second for a topic: avg, max |
-| kafka.producer.record.error.rate | Average record sends per second that result in errors |
-| kafka.producer.record.retry.rate | Average number of re-tried record sends per-second |
-| kafka_consumer.fetch.manager.records.lag.* | Number of messages consumer is behind producer, either for a specific partition or across all partitions on this client: avg, max |
+| kafka.producer.record.send.rate | The average number of records sent per second for a topic. |
+| kafka.consumer.fetch.manager.records.consumed.rate | Average number of records consumed per second for a specific topic or across all topics. | 
+| kafka.producer.record.size.* | Size of the records sent per second for a topic: avg, max. |
+| kafka.producer.record.error.rate | Average record sends per second that result in errors. |
+| kafka.producer.record.retry.rate | Average number of re-tried record sends per-second. |
+| kafka_consumer.fetch.manager.records.lag.* | Number of messages consumer is behind producer, either for a specific partition or across all partitions on this client: avg, max. |
 
 ### Kafka Producer
 
@@ -202,17 +202,17 @@ Producers' `send request` represents a single interaction between a Producer app
 
 | Metric Name | Description |
 |------------|---------------|
-| kafka.producer.request.rate | The average number of requests sent per second to the broker |
-| kafka.producer.response.rate | The average number of responses received per second |
-| kafka.producer.request.latency.* | The request latency in ms: avg, max |
-| kafka.producer.io.wait.time.ns.avg | The average length of time the I/O thread spent waiting for a socket ready for reads or writes in nanoseconds |
-| kafka.producer.io.wait.ratio | The fraction of time the I/O thread spent waiting |
-| kafka.producer.network.io.rate | The average number per second of network operations, reads or writes, on all connections |
-| kafka.producer.compression.rate.avg | The ratio of data compression in the batches of data the producer sends to the broker. A higher compression rate indicates greater efficiency |
-| kafka.producer.batch.size.avg | Average number of bytes sent per partition per request (e.g. data size send to different partition on the topic) |
-| kafka.producer.outgoing.byte.rate | The average number of outgoing bytes sent per second to all servers - e.g. the producer network throughput |
-| kafka.producer.requests.in.flight | Current number of outstanding requests awaiting a response |
-| kafka.spring.cloud.stream.binder.kafka.offsetproducer.waiting.threads | Number of user threads blocked waiting for buffer memory to enqueue their records |
+| kafka.producer.request.rate | The average number of requests sent per second to the broker. |
+| kafka.producer.response.rate | The average number of responses received per second. |
+| kafka.producer.request.latency.* | The request latency in ms: avg, max. |
+| kafka.producer.io.wait.time.ns.avg | The average length of time the I/O thread spent waiting for a socket ready for reads or writes in nanoseconds. |
+| kafka.producer.io.wait.ratio | The fraction of time the I/O thread spent waiting. |
+| kafka.producer.network.io.rate | The average number per second of network operations, reads or writes, on all connections. |
+| kafka.producer.compression.rate.avg | The ratio of data compression in the batches of data the producer sends to the broker. A higher compression rate indicates greater efficiency. |
+| kafka.producer.batch.size.avg | Average number of bytes sent per partition per request (e.g. data size send to different partition on the topic). |
+| kafka.producer.outgoing.byte.rate | The average number of outgoing bytes sent per second to all servers - e.g. the producer network throughput. |
+| kafka.producer.requests.in.flight | Current number of outstanding requests awaiting a response. |
+| kafka.spring.cloud.stream.binder.kafka.offsetproducer.waiting.threads | Number of user threads blocked waiting for buffer memory to enqueue their records. |
 
 ### Kafka Consumer
 
@@ -220,18 +220,18 @@ Consumer `fetch request` represents a single interaction between a Kafka Broker 
 
 | Metric Name | Description |
 |------------|---------------|
-| kafka.consumer.fetch.manager.fetch.rate | Number of fetch requests per second from the consumer |
-| kafka.consumer.fetch.manager.fetch.latency.* | Time taken for any fetch request: avg, max |
-| kafka.consumer.fetch.manager.bytes.consumed.rate | Average number of bytes consumed per second for a specific topic or across all topics |
+| kafka.consumer.fetch.manager.fetch.rate | Number of fetch requests per second from the consumer. |
+| kafka.consumer.fetch.manager.fetch.latency.* | Time taken for any fetch request: avg, max. |
+| kafka.consumer.fetch.manager.bytes.consumed.rate | Average number of bytes consumed per second for a specific topic or across all topics. |
 
 ### Kafka Stream - Thread
 
 | Metric Name | Description |
 |------------|---------------|
-| kafka.stream.thread.[commit or poll or process or punctuate].rate | The average number of respective operations per second across all tasks |
-| kafka.stream.thread.[commit or poll or process or punctuate].latency.avg | The average execution time in ms, for the respective operation, across all running tasks of this thread |
-| kafka.stream.thread.task.created.rate | The average number of newly-created tasks per second |
-| kafka.stream.thread.task.closed.rate | The average number of tasks closed per second |
+| kafka.stream.thread.[commit or poll or process or punctuate].rate | The average number of respective operations per second across all tasks. |
+| kafka.stream.thread.[commit or poll or process or punctuate].latency.avg | The average execution time in ms, for the respective operation, across all running tasks of this thread. |
+| kafka.stream.thread.task.created.rate | The average number of newly created tasks per second. |
+| kafka.stream.thread.task.closed.rate | The average number of tasks closed per second. |
 
 ### Kafka Stream - Task & Process Node
 
@@ -239,12 +239,12 @@ The metrics are only available if the recording level (e.g. `metrics.recording.l
 
 | Metric Name | Description |
 |------------|---------------|
-| kafka.stream.task.[commit or process].rate | The average number of respective operations per second across all tasks |
-| kafka.stream.task.[commit or process].latency.avg | The average execution time in ns, for the respective operation for this task |
-| kafka.stream.task.dropped.records.rate | The average number of records dropped within this task |
-| kafka.stream.task.record.lateness.* | The observed lateness (stream time - record timestamp) for this task: avg, max |
-| kafka.stream.task.enforced.processing.rate | The average number of enforced processings per second for this task |
-| kafka.stream.processor.node.process.rate | The average number of records processed per second by a source node |
+| kafka.stream.task.[commit or process].rate | The average number of respective operations per second across all tasks. |
+| kafka.stream.task.[commit or process].latency.avg | The average execution time in ns, for the respective operation for this task.|
+| kafka.stream.task.dropped.records.rate | The average number of records dropped within this task. |
+| kafka.stream.task.record.lateness.* | The observed lateness (stream time - record timestamp) for this task: avg, max.|
+| kafka.stream.task.enforced.processing.rate | The average number of enforced processings per second for this task. |
+| kafka.stream.processor.node.process.rate | The average number of records processed per second by a source node. |
 
 
 ## Spring Batch Metrics
@@ -262,7 +262,7 @@ The following table explains all the metrics in details:
 | spring.batch.step (tags: job.name, name, status)| Duration of step execution. |  
 | spring.batch.item.read (tags: job.name, step.name, status) | Duration of item reading. |  
 | spring.batch.item.process (tags: job.name, step.name, status) | Duration of item processing. |  
-| spring.batch.chunk.write | Duration of chunk writing |  
+| spring.batch.chunk.write | Duration of chunk writing. |  
 
 ## Spring Cloud Task Metrics
 
@@ -274,8 +274,8 @@ The following table explains all the metrics in details:
 
 | Metric Name | Description |
 |------------|---------------|
-| spring.cloud.task | Duration of Task execution |  
-| spring.cloud.task.active | Records the run-time status of long-time lasting tasks |  
+| spring.cloud.task | Duration of Task execution. |  
+| spring.cloud.task.active | Records the run-time status of long-time lasting tasks. |  
 
 ## Spring Boot Metrics
 
@@ -285,40 +285,40 @@ Spring Boot registers the following core metrics when applicable:
 
 ### JVM metrics
 
-Reports metrcis for memory and buffer pools, garbage collection statistics, threads utilization, class loaders.
+Reports metrics for memory and buffer pools, garbage collection statistics, threads utilization, class loaders.
 
 | Metric Name | Description | 
 |------------|---------------|
-| jvm.buffer.count |  Number of buffer pools |
-| jvm.buffer.memory.used |  Used buffer pools memory|  
-| jvm.buffer.total.capacity  | Buffer pools total capacity |
-| jvm.classes.loaded | Number of classes loaded |
-| jvm.classes.unloaded   | Number of classes unloaded |
-| jvm.gc.live.data.size   |  |
-| jvm.gc.max.data.size   |  |
-| jvm.gc.memory.allocated   |  |
-| jvm.gc.memory.promoted   |  |
-| jvm.gc.pause.* | Garbage collection pauses Statistics: avg, count, max, sum |
-| jvm.memory.committed  | JVM committed memory |
-| jvm.memory.max |  JMV max available memory |
-| jvm.memory.used | JMV used available memory   |
-| jvm.threads.daemon  | Current number of live daemon threads in this JVM  |
-| jvm.threads.live | Current number of live threads in this JVM|
-| jvm.threads.peak |  The peak number of threads in this JVM |
-| jvm.threads.states | Reports threads states |
+| jvm.buffer.count |  Number of buffer pools. |
+| jvm.buffer.memory.used |  Used buffer pools memory.|  
+| jvm.buffer.total.capacity  | Buffer pools total capacity. |
+| jvm.classes.loaded | Number of classes loaded. |
+| jvm.classes.unloaded   | Number of classes unloaded. |
+| jvm.gc.live.data.size   | The live data size is the size (in bytes) of the old generation after a major garbage collection. |
+| jvm.gc.max.data.size   | The maximum size of long-lived heap memory pool for the old generation (in bytes).  |
+| jvm.gc.memory.allocated   | Increase in the size of the young heap memory pool after one garbage collection and before the next. |
+| jvm.gc.memory.promoted   | Count of positive increases in the size of the old generation memory pool from before garbage collection to after garbage collection. |
+| jvm.gc.pause.* | Garbage collection pauses Statistics: avg, count, max, sum. |
+| jvm.memory.committed  | JVM committed memory. |
+| jvm.memory.max |  JMV max available memory. |
+| jvm.memory.used | JMV used available memory.   |
+| jvm.threads.daemon  | Current number of live daemon threads in this JVM. |
+| jvm.threads.live | Current number of live threads in this JVM.|
+| jvm.threads.peak |  The peak number of threads in this JVM. |
+| jvm.threads.states | Reports threads states. |
    
 ### CPU metrics
 
 | Metric Name | Description | 
 |------------|---------------|
-| process.cpu.usage | Percentage of CPU usage |
+| process.cpu.usage | Percentage of CPU usage. |
 
 ### File descriptor metrics
 
 | Metric Name | Description | 
 |------------|---------------|
-| process.files.max | Maximum allowed file descriptors count |
-| process.files.open | Open file descriptors count |
+| process.files.max | Maximum allowed file descriptors count. |
+| process.files.open | Open file descriptors count. |
 
 ### Log4j2 and Logback metrics 
 
@@ -326,7 +326,7 @@ Records the number of events logged to Log4j2 and Logback at each level.
 
 | Metric Name | Description | 
 |------------|---------------|
-| logback.events |  | 
+| logback.events | Number of events logged to Log4j2 and Logback at each level.| 
 
 ### Uptime metrics 
 
@@ -334,8 +334,8 @@ Reports a gauge for uptime and a fixed gauge representing the application’s ab
 
 | Metric Name | Description | 
 |------------|---------------|
-| process.start.time | fixed gauge representing the application’s absolute start time|  
-| process.uptime | gauge representing the application’s uptime |
+| process.start.time | Fixed gauge representing the application’s absolute start time.|  
+| process.uptime | Gauge representing the application’s uptime. |
 
 ### Spring MVC Metrics
 
@@ -344,7 +344,7 @@ When `management.metrics.web.server.request.autotime.enabled` is `true`, this in
 
 | Metric Name | Description | 
 |------------|---------------|
-| http.server.requests.*  | Statistics: avg, count, max, sum |  
+| http.server.requests.*  | Statistics: avg, count, max, sum. |  
 
 ### Tomcat metrics 
 
@@ -352,11 +352,11 @@ The `server.tomcat.mbeanregistry.enabled` must be set to true for all Tomcat met
 
 | Metric Name | Description | 
 |------------|---------------|
-| tomcat.sessions.active.current | |  
-| tomcat.sessions.active.max |  |
-| tomcat.sessions.alive.max |  |
-| tomcat.sessions.created |  |
-| tomcat.sessions.expired |  |
-| tomcat.sessions.rejected |  |
+| tomcat.sessions.active.current | Number of Tomcat active sessions. |  
+| tomcat.sessions.active.max | Maximum number of active Tomcat sessions. |
+| tomcat.sessions.alive.max | Duration of the maximum Tomcat active sessions. |
+| tomcat.sessions.created | Number of sessions created by Tomcat. |
+| tomcat.sessions.expired | Number of expired Tomcat sessions. |
+| tomcat.sessions.rejected | Number of sessions rejected after exceeding the maximum session configuration. |
 
 

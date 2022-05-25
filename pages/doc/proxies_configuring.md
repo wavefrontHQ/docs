@@ -115,12 +115,16 @@ You can log all the raw blocked data separately or log different entities into t
     {%include tip.html content ="You must update both the `<wavefront_log_path>/log4j2.xml` file and the `<wavefront_config_path>/wavefront.conf` file to get separate log files for blocked entities."%}
 
 
+    <table style="width: 100%;">
+    <tbody>
+    <tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+    </tbody>
+    </table>
 
-
-
+<a id="proxy-configuration-properties"></a>
 ## Configuration Properties
 
-This section gives details on proxy configuration properties. All properties are also listed, in the [wavefront.conf.default file](https://github.com/wavefrontHQ/wavefront-proxy/blob/master/pkg/etc/wavefront/wavefront-proxy/wavefront.conf.default) on Github.
+This section gives details on proxy configuration properties. All properties are also listed, in the [wavefront.conf.default file](https://github.com/wavefrontHQ/wavefront-proxy/blob/master/pkg/etc/wavefront/wavefront-proxy/wavefront.conf.default) on Github. 
 
 
 ### General Configuration Properties
@@ -677,6 +681,12 @@ Sets the headroom multiplier for traffic shaping when there's backlog.
 </tbody>
 </table>
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
 ### Authentication Proxy Properties
 
 Because the proxy is running in your local network by default, communication **to** the proxy is un-authenticated. If you want to authenticate inbound traffic to the proxy, use the settings in this section.
@@ -766,6 +776,11 @@ Required when authMethod = STATIC_TOKEN. For example, <code>authStaticToken=toke
 </tbody>
 </table>
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ### Tracing Proxy Properties
 
@@ -809,7 +824,7 @@ Required when authMethod = STATIC_TOKEN. For example, <code>authStaticToken=toke
 </tr>
 <tr>
 <td>customTracingListenerPorts</td>
-<td>TCP ports to receive spans and derive RED metrics from the <a href="wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront">SDKs that send raw data to the Wavefront service</a>.
+<td>TCP ports to receive spans and derive RED metrics from the <a href="wavefront_sdks.html#sdks-for-sending-raw-data">SDKs that send raw data to the Wavefront service</a>.
 <br/> Default: None.
 <br/> Version: Since 6.0
 {% include note.html content="<br/>The application name and service name tags are required to generate RED metrics. If these tags are not sent with your span, the application name defaults to <code>wfProxy</code>, and the service name defaults to <code>defaultService</code>."%}
@@ -825,7 +840,7 @@ Required when authMethod = STATIC_TOKEN. For example, <code>authStaticToken=toke
 <div>Ex: 1048576</div></td></tr>
 <tr>
 <td>traceListenerPorts</td>
-<td markdown="span">TCP ports that listen to incoming [spans](tracing_basics.html) from the Wavefront SDKs that [collect trace data](wavefront_sdks.html#sdks-for-collecting-trace-data), [collect metrics and histograms](wavefront_sdks.html#sdks-for-collecting-metrics-and-histograms), and [Wavefront SDKs that instrument frameworks](wavefront_sdks.html#sdks-that-instrument-frameworks). <br/> Default: None.</td>
+<td markdown="span">TCP ports that listen to incoming [spans](tracing_basics.html) from the Wavefront SDKs that [collect trace data](wavefront_sdks.html#sdks-for-collecting-trace-data), [collect metrics and histograms](wavefront_sdks.html#sdks-for-collecting-metrics-and-histograms), and [SDKs for sending raw data](wavefront_sdks.html#sdks-for-sending-raw-data). <br/> Default: None.</td>
 <td>Comma-separated list of available port numbers. Can be a single port.
 <div>Ex: 2878</div>
 <div>Ex: 2878, 2879</div></td>
@@ -884,7 +899,11 @@ Required when authMethod = STATIC_TOKEN. For example, <code>authStaticToken=toke
 </tbody>
 </table>
 
-
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ### Histogram Configuration Properties
 
@@ -1160,6 +1179,12 @@ Ex: 40</td>
 </tbody>
 </table>
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
 
 ## Authenticate Incoming HTTP Requests at the Proxy
 
@@ -1237,20 +1262,14 @@ For either method, the service must return a 2xx code for valid tokens. Accordin
 </tbody>
 </table>
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
+
 ## Troubleshooting
 
-### TOKEN EXPIRED Error
-
-- **Symptom**: When you select **Browse > Proxies**, you see a `TOKEN EXPIRED` error.
-- **Cause**: This error usually means that the account that owned the token was disabled, for example, because a user left a company. Tokens do not actually expire. We're working on improving the message.
-- **Resolution**: Create a new token for those metrics and update the proxy config file to use that new token.
-
-### KB Articles
-
-See the following KB articles for additional proxy troubleshooting help.
-
-* [Orphaned Proxy Instances in Tanzu Observability by Wavefront UI](https://help.wavefront.com/hc/en-us/articles/360060591732-Orphaned-Proxy-instances-in-Tanzu-Observability-UI)
-* [How to Enable Proxy Health Checks for Tanzu Observability by Wavefront](https://help.wavefront.com/hc/en-us/articles/360058952572-How-to-enable-Tanzu-Observability-Proxy-Health-Checks-)
-* [How to Chain Proxies](https://help.wavefront.com/hc/en-us/articles/360056083472-How-to-Proxy-Chain)
-* [Validating Metrics Received at the Proxy](https://help.wavefront.com/hc/en-us/articles/360054622132-Validating-metrics-received-at-the-proxy)
-* [Common Tanzu Observability by Wavefront Proxy Log Messages](https://help.wavefront.com/hc/en-us/articles/360050483312-Common-Tanzu-Observability-by-Wavefront-Proxy-Log-Messages)
+* [Proxy Troubleshooting] has tips and tricks from our SaaS Value Engineering team for common proxy problems.
+* [Telegraf Troubleshooting](telegraf_details.html) has details on troubleshooting and fine-tuning the Telegraf agent.

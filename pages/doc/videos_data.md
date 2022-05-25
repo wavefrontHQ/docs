@@ -16,13 +16,12 @@ Learn about getting data into Wavefront and get background info on time series a
 <td width="70%"><br><p>Wavefront gives observability into your cloud environment and packaged applications. To get data into Wavefront, use an integration with preconfigured dashboards or one of the Wavefront SDKs. Send data from several sources to a Wavefront proxy or use direct ingestion. Finally, add dashboards, charts, and alerts to monitor exactly what you need.</p> </td>
 </tr>
 <tr>
-<td><strong><font color="#0091DA" size="3">Browsing your Data</font></strong><br>
+<td><strong><font color="#0091DA" size="3">Browsing Your Data</font></strong><br>
 <br>
-<iframe src="https://bcove.video/3lHbhDd" width="500" height="275" allowfullscreen="true" alt="browse metrics from source browser or metrics browser"></iframe>
+<iframe id="kmsembed-1_ai5iua3f" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_ai5iua3f/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0"></iframe>
 </td>
 <td><br>
-<p>90-second video that shows how you can find and examine metrics from the Sources browser and from the Metrics browser. </p>
-<p>You can also watch the video <a href="https://bcove.video/3lHbhDd" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
+<p>90-second video that shows how you can find and examine metrics from the Sources browser and from the Metrics browser. </p><p>You can also watch the video <a href="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_ai5iua3f/uiConfId/49694343/pbc/252649793/st/0" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
@@ -39,21 +38,21 @@ Learn about getting data into Wavefront and get background info on time series a
 <tr>
 <td><strong><font color="#0091DA" size="3">Integrations</font></strong><br>
 <br>
-<iframe src="https://bcove.video/2JTvMgW" width="500" height="275" allowfullscreen="true" alt="new intro to integrations"></iframe>
+<iframe id="kmsembed-1_j454pr6u" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_j454pr6u/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="intro to integrations"></iframe>
 </td>
 <td><br>
 <p>Jason shows how any user with Integrations permission can browse existing integrations and use the instructions in the Setup tab to get data flowing.</p>
-<p>You can also watch the video <a href="https://bcove.video/2JTvMgW" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
+<p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_j454pr6u" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
 <td><strong><font color="#0091DA" size="3">Getting Windows Host Metrics Into Wavefront</font></strong><br>
 <br>
-<iframe src="https://bcove.video/3rXZ1RY" width="500" height="275" allowfullscreen="true" alt="Setting up a Windows integration"></iframe>
+<iframe id="kmsembed-1_0bbze8os" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_0bbze8os/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Setting up a Windows integration"></iframe>
 </td>
 <td><br>
 <p>Watch this video to learn how to send metrics data from a Windows host machine to Wavefront by using the Wavefront proxy.</p>
-<p>You can also watch the video <a href="https://bcove.video/3rXZ1RY" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
+<p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_0bbze8os" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
@@ -70,11 +69,11 @@ Learn about getting data into Wavefront and get background info on time series a
 <tr>
 <td><strong><font color="#0091DA" size="3">Cumulative Counters and Delta Counters</font></strong><br>
 <br>
-<iframe src="https://bcove.video/39DNLom" width="500" height="275" allowfullscreen="true" alt="delta counters video, part animation, part screen capture"></iframe>
+<iframe id="kmsembed-1_khsugqea" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_khsugqea/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="delta counters video, part animation, part screen capture"></iframe>
 </td>
 <td><br>
 <p>Learn the difference between cumulative counters and delta counters and see how to manage delta counters from the UI.</p>
-<p>You can also watch the video <a href="https://bcove.video/39DNLom" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
+<p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_khsugqea" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 

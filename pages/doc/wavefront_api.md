@@ -15,7 +15,7 @@ The Wavefront REST API enables you to write scripts to perform management tasks,
 
 All interactions between the UI and your Wavefront instance occur through the Wavefront API. You can perform those actions using REST - or you can create an API client using Swagger, discussed below.
 
-The current version of the REST API is v2. You can access the API at `<wavefront_instance>/api/v2`. The v1 API (`<wavefront_instance>/api/`) was deprecated in 2017 and is no longer supported.
+The current version of the REST API is v2. You can access the API at `<your_instance>/api/v2`. The v1 API (`<your_instance>/api/`) was deprecated in 2017 and is no longer supported.
 
 {% include note.html content="The Wavefront REST API is not the same as the `/api` endpoint that you specify for the Wavefront proxy."%}
 
@@ -29,10 +29,10 @@ To access the REST API documentation :
 1. Log in to your Wavefront instance.
 2. Display the doc from the UI or using a URL:
   * In the UI, click the gear icon <i class="fa fa-cog"/> at the top right of the toolbar and select **API Documentation**.
-  * Type `https://<your_instance_name>.com/api-docs/ui/`
+  * Type `https://<your_instance>.com/api-docs/ui/`
 
 
-![REST API in Wavefront instance](/images/rest_api.png)
+![REST API in a Wavefront instance](/images/rest_api.png)
 
 ## API Documentation (VMware code)
 
@@ -44,12 +44,10 @@ We include an overview and a Swagger-generated API Reference. We update the refe
 
 The [VMware code website](https://code.vmware.com/samples?categories=Sample&tags=wavefront) also includes some samples, for example, for getting data into Tanzu Observability. We're providing these samples as is - some are from our team, others will come from the community.
 
+<a id="generating-an-api-token"></a>
+## Managing API Tokens
 
-## Invoking the API
-
-You can invoke the API using `curl` or from an API client. In either case, you must pass in an API token.
-
-### Generating an API Token
+Before you can invoke the Wavefront API using `curl` or from an API client, you must have an API token.
 
 An API token is a string of hexadecimal characters and dashes. For example:
 
@@ -58,51 +56,75 @@ a411c16b-3cf7-4f03-bf11-8ca05aab898d
 ```
 Tanzu Observability by Wavefront allows [user accounts](user-accounts.html) and [service accounts](service-accounts.html) to use the [Wavefront REST API](wavefront_api.html).
 
-{% include tip.html content="You generate API tokens for user accounts explicitly. For service accounts, a user with the **Accounts** permission can generate tokens from the **Service Accounts** page." %}
+{% include tip.html content="You generate API tokens for your user account explicitly. For service accounts, a user with the **Accounts** permission can generate tokens from the **Service Accounts** page." %}
 
-#### Generate an API Token for Your User Account
+### Generate and Manage the API Tokens for Your User Account
 
 {% include note.html content="All users can use and manage their existing API tokens. You must have the [API Tokens permission](permissions_overview.html) to generate new API tokens for your user account." %}
 
 
 1. Log in to your Wavefront instance.
-2. Click the gear icon <i class="fa fa-cog"/> at the top right of the toolbar and select your user name.
-3. On the **API Access** tab, click **Generate**. 
+2. Click the gear icon <i class="fa fa-cog"/>  at the top right of the toolbar and select your user name.
+2. On the **API Access** tab, click **Generate**.
 
-   You can have up to 20 tokens at any given time. If you want to generate a new token but already have 20 tokens, then you must revoke one of the existing tokens.
-4. To revoke a token, click the **Revoke** button next to the token. 
+    You can have up to 20 tokens at any given time. If you want to generate a new token but already have 20 tokens, then you must revoke one of the existing tokens.
+3. To revoke a token, click the **Revoke** button for the token.
 
     If you run a script that uses a revoked token, the script returns an authorization error.
+4. To add a name or rename an API token, click the **Edit** icon for the token, enter the name, and press Enter.
 
 ![Generate API Token](/images/generate_token.png)
 
 
 {% include warning.html content="Do not share your API token with anyone. The token provides full access to the API. Accounts that have the token can authenticate without a username/password."%}
 
-#### Generate an API Token for a Service Account
+### Generate and Manage the API Tokens for a Service Account
 
-{% include note.html content="You must have the [**Accounts** permission](permissions_overview.html) to generate API tokens for your service accounts." %}
+As a user with the **Accounts** permission, you can generate API tokens for [service accounts](service-accounts.html) upon creation or at a later stage. To generate an API token for an existing **service account**:
 
-You generate API tokens for [service accounts](service-accounts.html) upon creation. You can also generate an API token at a later stage. To generate an API token for an existing **service account**:
+1. Log in to your Wavefront instance as a user with the **Accounts** permission.
+2. Click the gear icon <i class="fa fa-cog"/> at the top right of the toolbar and select **Accounts**.
+3. On the **Service Accounts** tab, click the ellipsis icon next to the service account for which you want to generate an API token, and select **Edit**.
+4. To generate a new token, in the Tokens section, click **Generate**.
 
-1. Click the gear icon <i class="fa fa-cog"/> at the top right of the toolbar and select **Accounts**.
-2. On the **Service Accounts** tab, click the ellipsis icon next to the service account for which you want to generate an API token, and select **Edit**.
-3. To generate a new token, in the Tokens section, click **Generate**. 
+    You can have up to 20 tokens per service account at any given time. If you want to generate a new token but already have 20 tokens, then you must revoke one of the existing tokens.
+5. To revoke a token, click the **Revoke** button for the token.
 
-   You can have up to 20 tokens per service account at any given time. If you want to generate a new token but already have 20 tokens, then you must revoke one of the existing tokens.
-4. To revoke a token, click the **Revoke** button next to the token. 
+    Revoking a token cannot be undone.
+5. To rename an API token, click the **Edit** icon for the token, enter the name, and press Enter.
+6. Select the appropriate permissions for the service account and click **Update**.
 
-   Revoking a token cannot be undone. 
-5. Select the appropriate permissions for the service account and click **Update**.
+### View and Manage the API Tokens in Your Organization
+
+As a user with the **Accounts** permission, you can view and revoke the API token of any user or service account in your organization.
+
+1. Log in to your Wavefront instance as a user with the **Accounts** permission.
+2. Click the gear icon <i class="fa fa-cog"/>  at the top right of the toolbar and select **Accounts**.
+3. Click the **API Tokens** tab.
+
+  You see the API tokens for all user and service accounts in a paginated table format.
+
+![The API Tokens page shows the tokens table, the search field above the table, and the preconfigured filters and the saved searches in the left panel](/images/API_tokens.png)
+
+{% include important.html content="Revoking a token cannot be undone. Any script that uses a revoked token returns an authorization error." %}
+
+On the API Tokens page, you can:
+- Sort the API tokens table by column.
+- Search and, optionally, save and share your search.
+- Filter the API tokens by account type, usage, particular accounts, or your saved search.
+- Revoke an API token from the vertical ellipsis icon for the token.
 
 
+## Invoking the API
+
+You can invoke the Wavefront API using `curl` or from an API client. In either case, you must pass in an API token.
 
 ### Example: Invoke the API Using curl
 
 With `curl`, you specify the API token in the `Authorization: Bearer` header. For example, to return all alerts, run the following command:
 
 ```shell
-curl 'https://<wavefront_instance>/api/v2/alert' --header 'Authorization: Bearer <wavefront_api_token>'
+curl 'https://<your_instance>/api/v2/alert' --header 'Authorization: Bearer <your_api_token>'
 ```
 
 ## Generate an API Client Using Swagger
@@ -134,7 +156,7 @@ Here's an example for generating a Java client:
 
 The REST API supports the following objects corresponding to different categories of management tasks:
 
-- **Access Policy** - Lets you allow or deny access to embedded charts. For information, see [Allow or Deny Access to Embedded Charts](ui_sharing.html#ui_sharing.html#allow-or-deny-access-to-embedded-charts).
+- **Access Policy** - Lets you allow or deny access to embedded charts. For information, see [Allow or Deny Access to Embedded Charts](ui_sharing.html#allow-or-deny-access-to-embedded-charts).
 - **Access** - Provides information on the access level of an entity. See [Notes on the Access Category](#access) below.
 - **Account (User and Service Account)** - Allows users with [**Accounts** permission](permissions_overview.html) to retrieve a list of all [accounts](users_roles.html), create, update, and delete accounts and manage permissions and groups associated with accounts.
 - **Alert** - Retrieve active, snoozed, in-maintenance, and invalid alerts. Users with [**Alerts** permission](permissions_overview.html) can create and update alerts.
@@ -197,3 +219,91 @@ This GET endpoint has the following parameters:
 </td></tr>
 </tbody>
 </table>
+
+<!---
+## Troubleshooting
+
+Many customers automate the creation, addition, and deletion of alerts, dashboards, etc. with the Wavefront API. The API support WQL and other things you can do from the GUI.  This section is a living document with troubleshooting information.
+
+### API Code:400 Returned when using unescaped JSON characters
+
+* **Problem**
+
+Some WQL querie requite quotes for the function to operate correctly. If you use a query that omits required quotes, for example, in an alert condition, a `400` error results.
+
+For example, assume you use the following fragment to create an alert:
+
+```
+{
+"name": “Test-Alert-Wavefront”,
+"target": “wavefront@vmware.com",
+"condition": "hideAfter(1m, rawpercentile(95, align(1m, mean, default(5m, 0, ts(stats.timers.promotion-service.getBanners.post_checkout_page.latency.upper_95))))) > 1000 and between(hour("US/Pacific"), 6, 23.5)
+",
+"displayExpression": "hideAfter(1m, rawpercentile(95, align(1m, mean, default(5m, 0, ts(stats.timers.promotion-service.getBanners.post_checkout_page.latency.upper_95))))) > 1000 and between (hour("US/Pacific"), 6, 23.5)
+",
+"minutes": 15,
+"resolveAfterMinutes": 1,
+"severity": "INFO",
+"additionalInformation": “Failure to include JSON Escape Character after double quotes”,
+"tags": {
+"customerTags": [
+"alertTag1"]
+  }
+}
+```
+When you POST that fragment, the following error results.
+
+```
+"message": "Invalid UTF-8 start byte 0x80\n at [Source: (org.glassfish.jersey.message.internal.ReaderInterceptorExecutor$UnCloseableInputStream); line: 2, column: 13]", "code": 400
+```
+
+
+
+* **Solution**
+
+Double Quotes are reserved in JSON and must be properly escaped.
+
+```
+{
+
+  "name": "Test_Alert_Wavefront",
+
+  "target": "wavefront@vmware.com",
+
+  "condition": "hideAfter(1m, rawpercentile(95, align(1m, mean, default(5m, 0, ts(stats.timers.promotion-service.getBanners.post_checkout_page.latency.upper_95))))) > 1000 and between (hour('US/Pacific'), 6, 23.5) ",
+
+  "displayExpression": "hideAfter(1m, rawpercentile(95, align(1m, mean, default(5m, 0, ts(stats.timers.promotion-service.getBanners.post_checkout_page.latency.upper_95))))) > 1000 and between (hour('US/Pacific'), 6, 23.5) ",
+
+  "minutes": 50,
+
+  "resolveAfterMinutes": 1,
+
+  "severity": "INFO",
+
+  "additionalInformation": "Properly formatted JSON",
+
+  "tags": {
+
+    "customerTags": [
+
+      "alertTag1"
+
+    ]
+  }
+}
+```
+
+Additional Details:
+
+The following characters are reserved in JSON and must be properly escaped to be used in strings:
+
+Backspace is replaced with \b
+Form feed is replaced with \f
+Newline is replaced with \n
+Carriage return is replaced with \r
+Tab is replaced with \t
+Double quote is replaced with \"
+Backslash is replaced with \\
+
+For more information around JSON format please reference json.org and JSON Escape Strings.
+--->

@@ -21,6 +21,7 @@ In this initial release of the Dynatrace integration, we have the following limi
 
 * Billing metrics are not allowed and fetched with this release.
 * If the point tags are with Annotations Key Length Limit greater than 64, the metrics associated with the corresponding point tag will be dropped.
+* For metrics with the resolution other than the value of 1 minute (`1m`), there could be data loss as these metrics might have different resolution, such as 5 minutes or 1 hour.
 
 
 **Obtain the Environment ID and Generate an API Token**
@@ -34,7 +35,7 @@ To set up the Dynatrace integration, you must provide the environment ID and a v
 5. Click **Access Tokens** in the navigation menu.
 6. In the **Access Tokens** page, click the **Generate new token** button.
 7. In the **Token name** text box, enter the name for the API token.
-8. From the list of scopes, select **Read metrics (metrics.read)** and click the **Generate** button.
+8. From the list of scopes, select **Read metrics (metrics.read)** and **Read entities (entities.read)**, and click the **Generate** button.
 9. Copy the generated token by clicking the **Copy** button and paste it in a text file.
 
 **Register the Dynatrace Integration**
@@ -62,78 +63,48 @@ After you copy the environment ID and the generated API token, follow these step
 
 ## Metrics
 
-See [Dynatrace documentation](https://www.dynatrace.com/support/help/how-to-use-dynatrace/metrics/built-in-metrics/) for Metrics and Metrics descriptions.  
+See [Dynatrace documentation](https://www.dynatrace.com/support/help/how-to-use-dynatrace/metrics/built-in-metrics/) for all supported Metrics and Metric descriptions.
 
 |Metric Name|Description|
 | :--- | :--- |
-|dynatrace.builtin.synthetic.browser.actionDuration.load|Action duration - load action [browser monitor]|
-|dynatrace.builtin.synthetic.browser.actionDuration.load.geo|Action duration - load action (by geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.availability.location.total|Availability rate (by location) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.availability.location.totalWoMaintenanceWindow|Availability rate - excluding maintenance windows (by location) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.cumulativeLayoutShift.load|Cumulative layout shift - load action [browser monitor]|
-|dynatrace.builtin.synthetic.browser.cumulativeLayoutShift.load.geo|Cumulative layout shift - load action (by geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.domInteractive.load|DOM interactive - load action [browser monitor]|
-|dynatrace.builtin.synthetic.browser.domInteractive.load.geo|DOM interactive - load action (by geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.errorCodes|Error details (by error code) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.errorCodes.geo|Error details (by geolocation, error code) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.actionDuration.load|Action duration - load action (by event) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.actionDuration.load.geo|Action duration - load action (by event, geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.cumulativeLayoutShift.load|Cumulative layout shift - load action (by event) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.cumulativeLayoutShift.load.geo|Cumulative layout shift - load action (by event, geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.domInteractive.load|DOM interactive - load action (by event) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.domInteractive.load.geo|DOM interactive - load action (by event, geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.errorCodes|Error details (by event, error code) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.errorCodes.geo|Error details (by event, geolocation, error code) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.failure|Failed events count (by event) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.failure.geo|Failed events count (by event, geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.firstByte.load|Time to first byte - load action (by event) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.firstByte.load.geo|Time to first byte - load action (by event, geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.largestContentfulPaint.load|Largest contentful paint - load action (by event) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.largestContentfulPaint.load.geo|Largest contentful paint - load action (by event, geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.loadEventEnd.load|Load event end - load action (by event) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.loadEventEnd.load.geo|Load event end - load action (by event, geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.loadEventStart.load|Load event start - load action (by event) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.loadEventStart.load.geo|Load event start - load action (by event, geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.networkContribution.load|Network contribution - load action (by event) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.networkContribution.load.geo|Network contribution - load action (by event, geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.responseEnd.load|Response end - load action (by event) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.responseEnd.load.geo|Response end - load action (by event, geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.serverContribution.load|Server contribution - load action (by event) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.serverContribution.load.geo|Server contribution - load action (by event, geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.speedIndex.load|Speed index - load action (by event) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.speedIndex.load.geo|Speed index - load action (by event, geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.success|Successful events count (by event) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.success.geo|Successful events count (by event, geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.total|Total events count (by event) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.total.geo|Total events count (by event, geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.totalDuration|Total duration (by event) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.totalDuration.geo|Total duration (by event, geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.visuallyComplete.load|Visually complete - load action (by event) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.event.visuallyComplete.load.geo|Visually complete - load action (by event, geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.failure|Failed executions count [browser monitor]|
-|dynatrace.builtin.synthetic.browser.failure.geo|Failed executions count (by geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.firstByte.load|Time to first byte - load action [browser monitor]|
-|dynatrace.builtin.synthetic.browser.firstByte.load.geo|Time to first byte - load action (by geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.largestContentfulPaint.load|Largest contentful paint - load action [browser monitor]|
-|dynatrace.builtin.synthetic.browser.largestContentfulPaint.load.geo|Largest contentful paint - load action (by geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.loadEventEnd.load|Load event end - load action [browser monitor]|
-|dynatrace.builtin.synthetic.browser.loadEventEnd.load.geo|Load event end - load action (by geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.loadEventStart.load|Load event start - load action [browser monitor]	|
-|dynatrace.builtin.synthetic.browser.loadEventStart.load.geo|Load event start - load action (by geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.networkContribution.load|Network contribution - load action [browser monitor]|
-|dynatrace.builtin.synthetic.browser.networkContribution.load.geo|Network contribution - load action (by geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.responseEnd.load|Response end - load action [browser monitor]|
-|dynatrace.builtin.synthetic.browser.responseEnd.load.geo|Response end - load action (by geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.serverContribution.load|Server contribution - load action [browser monitor]|
-|dynatrace.builtin.synthetic.browser.serverContribution.load.geo|Server contribution - load action (by geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.speedIndex.load|Speed index - load action [browser monitor]|
-|dynatrace.builtin.synthetic.browser.speedIndex.load.geo|Speed index - load action (by geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.success|Successful executions count [browser monitor]|
-|dynatrace.builtin.synthetic.browser.success.geo|Successful executions count (by geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.total|Total executions count [browser monitor]|
-|dynatrace.builtin.synthetic.browser.total.geo|Total executions count (by geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.totalDuration|Total duration [browser monitor]|
-|dynatrace.builtin.synthetic.browser.totalDuration.geo|Total duration (by geolocation) [browser monitor]|
-|dynatrace.builtin.synthetic.browser.visuallyComplete.load|Visually complete - load action [browser monitor]|
-|dynatrace.builtin.synthetic.browser.visuallyComplete.load.geo|Visually complete - load action (by geolocation) [browser monitor]|
+|dynatrace.builtin.cloud.kubernetes.cluster.cores_millicores|Total allocatable CPU cores per Kubernetes cluster.|
+|dynatrace.builtin.cloud.kubernetes.cluster.memoryLimit_byte|Total memory limit per Kubernetes cluster.|
+|dynatrace.builtin.cloud.kubernetes.cluster.nodes_count|Total nodes per Kubernetes cluster.|
+|dynatrace.builtin.cloud.kubernetes.node.cores_millicores|Total allocatable CPU cores per Kubernetes node.|
+|dynatrace.builtin.cloud.kubernetes.node.memory_byte|Total allocatable memory per Kubernetes node.|
+|dynatrace.builtin.cloud.kubernetes.pod.containers_count|Number of containers per workload, split by container state.|
+|dynatrace.builtin.cloud.kubernetes.workload.pods_count|Number of pods per workload and phase.|
+|dynatrace.builtin.containers.cpu.limit_millicores|CPU resource limit per container in millicores.|
+|dynatrace.builtin.containers.cpu.logicalCores|Number of logical CPU cores of the host.|
+|dynatrace.builtin.containers.memory.limitPercent|Containers: Memory limit, % of physical memory.|
+|dynatrace.builtin.containers.memory.usagePercent|Containers: Memory usage, % of limit.|
+|dynatrace.builtin.host.cpu.idle_percent|Average CPU idle time over the last period.|
+|dynatrace.builtin.host.cpu.load_ratio|System load.|
+|dynatrace.builtin.host.availability_percent|Host availability %|
+|dynatrace.builtin.host.cpu.steal_percent|Average CPU steal time over the last period.|
+|dynatrace.builtin.host.cpu.system_percent|Average CPU system time over the last period.|
+|dynatrace.builtin.host.disk.avail_byte|Amount of disk available.|
+|dynatrace.builtin.host.disk.bytesRead_bytepersecond|Disk read bytes per second.|
+|dynatrace.builtin.host.disk.inodesTotal_count|Amount of inodes.|
+|dynatrace.builtin.host.dns.errorCount|Number of DNS errors by type.|
+|dynatrace.builtin.host.mem.swap.avail_byte|Amount of swap available.|
+|dynatrace.builtin.host.mem.total_byte|Amount of total memory.|
+|dynatrace.builtin.host.net.bytesRx_bytepersecond|Host bytes received.|
+|dynatrace.builtin.host.net.bytesTx_bytepersecond|Host bytes sent.|
+|dynatrace.builtin.host.osProcessStats.osProcessCount|Number of processes running on host.|
+|dynatrace.builtin.host.osProcessStats.pgiCount|Number of PGIs present on host, includes PGIs not reported to cluster.|
+|dynatrace.builtin.pgi.availability_percent|PGI availability %|
+|dynatrace.builtin.queue.incoming_requests_count|Queue incoming requests.|
+|dynatrace.builtin.queue.outgoing_requests_count|Queue outgoing requests.|
+|dynatrace.builtin.service.cpu.time_microsecond|Service CPU time.|
+|dynatrace.builtin.service.dbconnections.success_count|Successful connections.|
+|dynatrace.builtin.service.errors.fivexx.rate_percent|Failure rate (HTTP 5xx errors).|
+|dynatrace.builtin.service.errors.fourxx.successCount|Number of calls without HTTP 4xx errors.|
+|dynatrace.builtin.tech.customDevice.count|Custom Device Count.|
+|dynatrace.builtin.tech.jvm.memory.gc.activationCount|Garbage collection total activation count.|
+|dynatrace.builtin.tech.jvm.memory.runtime.free_byte|JVM runtime free memory.|
+|dynatrace.builtin.tech.webserver.threads.idle_count|Idle worker thread count.|
+|dynatrace.builtin.synthetic.browser.errorCodes_count|Error details (by error code) [browser monitor].|
+|dynatrace.builtin.synthetic.browser.total_count|Total executions count [browser monitor].|
+|dynatrace.builtin.synthetic.browser.total.geo_count|Total executions count (by geolocation) [browser monitor].|
 

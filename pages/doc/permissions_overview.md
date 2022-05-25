@@ -21,7 +21,7 @@ The following list gives an overview of permissions. To learn more, click the li
 
 - **[Accounts](users_roles.html)** 
     
-    Users with the **Accounts** permission can manage user and service accounts. They can create groups and add accounts to groups, create roles and assign permissions to those roles, and assign roles to groups. They can generate and revoke API tokens for service accounts.
+    Users with the **Accounts** permission can manage user and service accounts. They can create groups and add accounts to groups, create roles and assign permissions to those roles, and assign roles to groups. They can generate API tokens for service accounts and manage the API tokens of all user and service accounts.
     
 - **[Alerts](alerts.html)** 
 
@@ -70,7 +70,7 @@ The following list gives an overview of permissions. To learn more, click the li
 
     Service accounts must have this permission to run queries. Only accounts with the **Metrics** permission can manually hide and unhide metrics and metric prefixes. Only accounts with the **Metrics** permission can create and modify [Metrics Security Policy Rules](metrics_security.html).
     
-- **[Proxies](proxies_installing.html#managing-proxy-services)** 
+- **[Proxies](proxies_installing.html#manage-proxy-services)** 
 
     Users with the **Proxies** permission can view, create, and manage proxies and set up external integrations with AWS and other cloud services.
     

@@ -25,7 +25,7 @@ You can snooze an alert, so it doesn't fire even if the condition is met. You ca
 <tr>
 <td width="50%">
 To snooze or unsnooze one or more alerts:
-<ol><li>Click <strong>Alerting</strong> from the taskbar. </li>
+<ol><li>Click <strong>Alerting &gt; All Alerts</strong> from the toolbar. </li>
 <li>Select the check boxes next to the alerts that you want to snooze.</li>
 <li>Click the <strong>Snooze</strong> drop-down menu and select the desired duration.</li>
 <li>To unsnooze the alerts, click <strong>Unsnooze</strong>.</li>
@@ -35,7 +35,7 @@ To snooze or unsnooze one or more alerts:
 <tr>
 <td width="50%">
 To snooze or unsnooze a single alert:
-<ol><li>Click <strong>Alerting</strong> from the taskbar. </li>
+<ol><li>Click <strong>Alerting &gt; All Alerts</strong> from the toolbar. </li>
 <li>Click the ellipsis icon on the left of the alert and select <strong>Snooze &gt; &lt;Duration&gt;</strong>.</li>
 <li>To unsnooze the alert, click the ellipsis icon on the left of the alert and select <strong>Unsnooze</strong>.</li>
 </ol></td>
@@ -56,15 +56,15 @@ You can:
 * Extend selected maintenance windows.
 * Send alert notifications to an alternate alert target during the maintenance window.
 
-To view and manage maintenance windows, select **Browse > Maintenance Windows**.
+To view and manage maintenance windows, select **Alerting > Maintenance Windows**.
 
-<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view maintenance windows, you must have the [Alert Management permission](permissions_overview.html) to [manage](maintenance_windows_managing.html) maintenance windows. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
+<div markdown="span" class="alert alert-info" role="alert">While every user can view maintenance windows, you must have the [**Alerts** permission](permissions_overview.html) to [manage](maintenance_windows_managing.html) maintenance windows. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
 
-Watch this <a href="https://bcove.video/3m7AM4x" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> for an introduction to maintenance windows.
+Watch this <a href="https://vmwaretv.vmware.com/media/t/1_u77s1kyo" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> for an introduction to maintenance windows.
 
 <p>
-<iframe src="https://bcove.video/3m7AM4x" width="700" height="400" allowfullscreen="true" alt="Video of Jason explaining maintenance windows"></iframe>
+<iframe id="kmsembed-1_u77s1kyo" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_u77s1kyo/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Video of Jason explaining maintenance windows"></iframe>
 </p>
 
 ### Creating a Maintenance Window
@@ -77,7 +77,7 @@ Creating a maintenance window consists of these simple steps:
 
 #### Step 1: Specify Required Maintenance Window Fields
 
-<ol><li>Click <strong>Alerting</strong> or select <strong>Browse > Maintenance Windows</strong> from the taskbar. </li>
+<ol><li>Click <strong>Alerting &gt; Maintenance Windows</strong> from the toolbar. </li>
 <li>Click the <strong>Create Maintenance Window</strong> button.</li>
 <li>Specify the <strong>Name</strong> and <strong>Description</strong> for the maintenance window.</li>
 <li>Specify the <strong>Start Time</strong> and <strong>End Time</strong> for the maintenance window.</li>
@@ -136,7 +136,7 @@ You can extend the duration of a maintenance window. To extend one or more maint
 <tbody>
 <tr>
 <td width="60%">
-<ol><li>Select <strong>Browse > Maintenance Windows</strong>. </li>
+<ol><li>Click <strong>Alerting > Maintenance Windows</strong> from the toolbar. </li>
 <li>Select the check boxes next to the maintenance windows to be extended.</li>
 <li>Click the <strong>Extend</strong> drop-down menu and select the desired duration and confirm.</li>
 </ol></td>
@@ -151,7 +151,7 @@ To extend a single maintenance window, click the ellipsis icon on the left of th
 
 You can close the window to enable alerts before the window is scheduled to finish.
 
-1. Select **Browse > Maintenance Windows**.
+1. Select **Alerting > Maintenance Windows**.
 2. Select the check boxes next to the maintenance windows to be closed.
 3. Click the **Close** button and confirm.
 
@@ -167,14 +167,65 @@ You can exclude sources from an alert by configuring the alert condition so that
 
 Suppose an alert condition tests the metrics that flow from sources `app-1`, `app-2`, ..., `app-10`. You decide to decommission `app-2` and replace it with a new `app-11`. The following steps cause the alert to filter out the metrics from the decommissioned source:
 
-1. [Add a source tag](tags_overview.html#add-source-tags) such as `decommissioned` to `app-2` when you are ready to take that source out of service.
+1. [Add a source tag](tags_overview.html#add-source-tags-from-the-ui) such as `decommissioned` to `app-2` when you are ready to take that source out of service.
 2. Modify the alert condition to include `and not tag=decommissioned`, for example:
   ```ts(~sample.cpu.usage.percentage, source=app-* and not tag=decommissioned) > .5 ```.
 
+## Use Point Tags to Set a Maintenance Windows
 
-## Query for Known Downtime
+It's often helpful to use data that are stored in a point tag to determine which time series should be affected by a maintenance window. For example, you might want to do testing on points in one environment.
+The general idea of this strategy is to make point tags be part of the source name. The `aliasSource()` function is key to this strategy.
+
+### Example Overview
+
+For this example:
+1. Data points include an `env` point tag. A query returns this information:
+
+   ```
+   metric name: prod.my-app.requests
+   source name: app-name
+   point tags: env=prod, az=east, cluster=1a, shard=shard-a
+   ```
+2. The `aliasSource()` function is used to add the `env` value to the source name (`app-name/prod`).
+3. The maintenance window is set up so it applies only to data points that come from the `prod` environment.
+
+You can create maintenance windows based on the environment of the app in a few steps:
+
+### Step 1: Include the Point Tag Value in the Source Name
+
+The `env` point tag contains the environment information, and you need to access the value of that point tag when you configure a maintenance window. Suppose we still wanted to keep the current source name intact. One approach you is to use this query in our alert condition:
+
+
+`aliasSource(ts(prod.my-app.requests), {{source}}/{{env}})`
+
+As described in the [`aliasSource()` documentation](ts_aliasSource.html), you can use variables to obtain the value of components of a data point, including that of a specific point tag. If we use `aliasSource()` the query above returns:
+
+```
+metric name: prod.my-app.requests
+source name: app-name/prod
+point tags: env=prod, az=east, cluster=1a, shard=shard-a
+```
+
+The value of the `env` point tag (`prod` in the example) is now part of the source name (`app-name/prod`). The original source name and the environment are separated by a slash. (Other formats work as well, adjust for your own use case.)
+
+### Step 2: Set Up a Maintenance Window Based on the New Source Name
+
+Now that the source name includes the environment information, you can create a maintenance window.
+
+1. Follow the steps in [Creating a Maintenance Window](#creating-a-maintenance-window)
+2. When you get to Step 2, use the specified source name (`app-name/prod`) in the **Affected Sources** field. For this example, the affected sources look like this:
+
+![Affected Sources dialog with app-name/prod already specified as an affected source](images/sources_for_maint.png)
+
+This maintenance window will affect alerts that have time series from the `prod` environment.
+
+{% include tip.html content="This example explains how to create a maintenance window that pays attention to point tags. You can use the same process while editing an existing maintenance window." %}
+
+## Query for Known Downtimes or Events
 
 Maintainance windows or testing windows result in expected downtime periods. You can exclude these known downtimes from uptime calculations by excluding the times when the maintenance window is active. This section uses the `events()` and `ongoing()` functions to find known downtimes.
+
+{% include note.html content="If you want to exclude certain time periods for the uptime calculation, you can create Maintenance Windows for time periods that have already passed. It's not necessary to schedule a Maintenance Window before the downtime. " %}
 
 
 ### Step 1: Query for Maintenance Window(s)
@@ -183,9 +234,10 @@ To query for maintenance window(s), use the `events()` function and filter by ma
 
 `events(name="OS Upgrade")`
 
+
 ### Step 2: Determine When the Maintenance Window Is Inactive
 
-When calculating uptime, we only care about time periods with no active maintenance windows. The `ongoing()` function returns `1` when the underlying maintenance window is active and `0` otherwise. To determine when the maintenance window is inactive, we can  check when the result is 0:
+When calculating uptime, we only care about time periods with no active maintenance windows. The `ongoing()` function returns `1` when the underlying maintenance window is active and `0` otherwise. To determine when the maintenance window is inactive, we can check when the result is 0:
 
 `ongoing(events(name="OS Upgrade")) = 0`
 
@@ -204,7 +256,7 @@ This example assumes:
 
 The query uses a summarization strategy of minimum (`min()`). If at any second within a minute the maintenance window is active, the `ongoing()` query returns `1`. When comparing that with `0`, the result is `0`, and the result of the `align()` function is `0` for that minute.
 
-### Step 4. Calculating Uptime
+### Step 4. Calculate Uptime
 
 This step varies depending on how you are calculating uptime. For our example:
 * We have a set of canary data that reports at 1-minute intervals when a service is up.
@@ -226,8 +278,3 @@ We can use this data to calculate uptime by comparing the number of minutes the 
 
 * We use the `msum()` function to determine how many minutes over a 24-hour time window the service was truly available (there are 24 * 60 minutes over a 24-hour time window).
 * We multiply by 100 to get a percentage rather than a decimal.
-
-
-## Learn More!
-
-* To learn more about using point tags for maintenance windows, see [this KB article](https://help.wavefront.com/hc/en-us/articles/360058003411-How-to-Use-Point-Tags-for-Maintenance-Windows)
