@@ -19,7 +19,7 @@ Tanzu Observability by Wavefront (Wavefront) is a cloud-hosted service for full-
 <tbody>
 <tr>
 <td width="50%">Version, Release Date</td>
-<td width="50%">v4.0.0, May 2022</td>
+<td width="50%">v4.1, May 2022</td>
 </tr>
 <tr>
 <td>Compatible Ops Manager versions</td>
