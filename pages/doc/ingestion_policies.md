@@ -1,6 +1,5 @@
 ---
 title: Examine Usage with Ingestion Policies
->>>>>>> e1f5e36963b6597a91ef880a64ef93d390a1b0f9
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: ingestion_policies.html
@@ -34,7 +33,7 @@ The policy scope can be either accounts or groups.
 ## Permissions
 
 * Only Super Admin users can create, view, and edit ingestion policies.
-* All users can view the alerts associated with ingestions policies but only Super Admin users can edit or delete these alerts.
+* Users with the **Alerts** permission can view the alerts associated with ingestions policies but only Super Admin users can edit or delete these alerts.
 
 ## Create an Ingestion Policy
 
@@ -88,7 +87,7 @@ After you create an ingestion policy, if you need, for example, to increase the 
 3. On the **Ingestion Policies** tab, click the ellipsis icon next to the policy that you want to edit and click **Edit**.
 4. In each panel, apply the necessary changes and click **Next**, and in the **Create** panel, click **Save**.
 
-{% include note.html content="Removing the PPS limit dissociates the alert from the ingestion policy."%}
+{% include note.html content="Removing the PPS limit dissociates the alert from the ingestion policy and deletes the alert."%}
 
 ## Delete an Ingestion Policy
 
@@ -146,7 +145,10 @@ In the **Ingestion Summary** section of the dashboard, you can see the following
 In the **Optimize Usage** section of the dashboard, you can see a list of charts that lets you investigate further which accounts contribute the most, what is the usage by ingestion source (proxy and direct ingestions), and what is the usage by ingestion type (time series, histograms, and delta counters).
 
  ![Usage summary per ingestion policy](images/usage_summary_per_policy.png)
+ 
+If the ingestion policy has a PPS limit with an alert, the dashboard includes the **Alert** section that provides details about the associated alert.
 
+ ![Usage summary per ingestion policy](images/IP_alert.png)
 
 ## Example: Monitor Which Teams Are Responsible for How Much Ingested Data
 
