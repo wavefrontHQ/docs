@@ -786,6 +786,10 @@ entries:
       url: /logging_log_browser.html
       output: web
     
+    - title: Tutorial
+      url: /logging_kubernetes_tutorial.html
+      output: web
+    
     - title: Logs FAQs
       url: /logging_faq.html
       output: web
