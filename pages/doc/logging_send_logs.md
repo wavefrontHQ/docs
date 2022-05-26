@@ -102,5 +102,5 @@ Once the data is in Tanzu Observability, you can use the Log Browser to filter a
 
 ## Next Steps
 
-* Use Preprocessor rule to update and manage logs sent to Tanzu Observability [Link to doc with examples]
+* Use Preprocessor rules to update and manage logs sent to Tanzu Observability [Link to doc with examples]
 * Have questions? See [Logs FAQs](logging_faq.html).
