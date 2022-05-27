@@ -332,13 +332,9 @@ This doc set includes videos and explanations from the engineering team that hel
 <td markdown="span">To improves performance, the query engine wraps `align()` around certain functions. See [Bucketing with align()](query_language_align_function.html). </td>
 <td> </td></tr>
 <tr>
-<td>How can I do anomaly detection?</td>
-<td markdown="span">You can use [Anomaly Detection on Charts](anomaly_detection.html) or [detect anomalies with functions and statistical functions](query_language_statistical_functions_anomalies.html). </td>
-<td><a href="https://youtu.be/I-Z9d94Zi7Y">Anomaly Detection with Functions</a></td></tr>
-<tr>
 <td>How can I improve query performance?</td>
 <td markdown="span">Consider [bucketing with align()](query_language_align_function.html).
-Investigate [internal metrics for optimizing performance](wavefront-internal-metrics.html).</td> <td> </td></tr>
+Investigate [internal metrics for optimizing performance](wavefront-internal-metrics.html). </td> <td> </td></tr>
 </tbody>
 </table>
 
