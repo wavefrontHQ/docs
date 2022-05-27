@@ -25,8 +25,8 @@ Watch these videos to listen to our Co-founder Clement Pang introduce distribute
 
 <table style="width: 100%;">
 <tbody>
-<tr><td width="48%"><a href="https://youtu.be/Z7mf_oZfcSE"><img src="/images/v_tracing_rev.png" alt="distributed tracing"/></a></td>
-<td width="52%"><a href="https://youtu.be/SlROqypTUYk"><img src="/images/v_tracing_updates.png"  alt="Distributed Tracing Updates"/></a></td>
+<tr><td width="50%"><iframe id="kmsembed-1_41gxt426" width="400" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_41gxt426/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability: Distributed Tracing 1"></iframe></td>
+<td width="50%"><iframe id="kmsembed-1_1g01mwj2" width="400" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_1g01mwj2/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="Distributed Tracing 2"></iframe></td>
 </tr>
 </tbody>
 </table>
@@ -57,7 +57,7 @@ An application must be instrumented for tracing before it can send trace data to
 * **Configure Applications That are Not Instrumented**
 
   The Wavefront OpenTracing SDKs let you to [choose how to send trace data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data) -- through a Wavefront proxy or directly to the Wavefront service. Using a Wavefront proxy is generally recommended.
-  
+
   If you have not yet instrumented your code, you can add instrumentation by using [Wavefront OpenTracing SDKs or the Wavefront Java Tracing Agent](tracing_instrumenting_frameworks.html#step-2-get-data-flowing).
 
 ## Visualize Distributed Tracing Data

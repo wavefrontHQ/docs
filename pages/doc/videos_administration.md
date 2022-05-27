@@ -18,7 +18,10 @@ The following videos explain how to use Wavefront Top, add or revoke access for 
 </tr>
 <tr>
 <td><strong><font color="#0091DA" size="3">Access Control in Wavefront</font></strong><br><br>
-<a href="https://youtu.be/45E4pkann0E" target="_blank"><img src="images/v_access.png" alt="Wavefront access control"/></a></td>
+<p><iframe id="kmsembed-1_lckq6foe" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_lckq6foe/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability: Object-Based Access Control"></iframe></p>
+<p><a href="https://youtu.be/45E4pkann0E"><img src="images/v_access.png" style="width: 700px;" alt="Access control for dashboards"/></a>
+</p>
+</td>
 <td><br>
 <p>Access control allows users with Accounts & Groups permissions to add or revoke access for one or more dashboards or alerts. You can add and revoke access for groups or individual users. The video explains how to use access control and also discusses the Everyone group and the Super Admin user. </p>
 </td>

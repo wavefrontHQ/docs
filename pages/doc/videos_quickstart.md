@@ -41,8 +41,8 @@ summary: Learn the concepts behind Wavefront technology.
 </tr>
 
 <tr>
-<td><strong><font color="#0091DA" size="3">Distributed Tracing in Wavefront</font></strong><br>
-<a href="https://youtu.be/Z7mf_oZfcSE" target="_blank"><img src="/images/v_tracing.png"  alt="Distributed tracing in Wavefront"/></a></td>
+<td><strong><font color="#0091DA" size="3">Distributed Tracing in Wavefront</font></strong><br><br/>
+<iframe id="kmsembed-1_41gxt426" width="400" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_41gxt426/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability: Distributed Tracing 1"></iframe></td>
 <td><br>
 <p>Clement first explains how you can visualize traces collected with Jaeger and Zipkin with the Wavefront UI. He then uses the example of monitoring a ride sharing app where a single trace includes apps on the user’s phone, the driver’s phone, etc. You can visualize the different components with the Wavefront tracing UI - and also use our UI to drill down on potential problems. Because we’re Open Tracing compliant, you can customize the trace with our SDKs and then look at aggregated information that shows how things are connected.  </p>
 </td>

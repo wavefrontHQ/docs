@@ -322,7 +322,7 @@ This doc set includes videos and explanations from the engineering team that hel
 <tr>
 <td>How can I combine multiple series?</td>
 <td markdown="span">[Aggregating Time Series](query_language_aggregate_functions.html) </td>
-<td markdown="span">[Time Series and Interpolation](https://youtu.be/9LnDszVrJs4) </td></tr>
+<td markdown="span">[Time Series and Interpolation](https://vmwaretv.vmware.com/media/t/1_afml14zm) </td></tr>
 <tr>
 <td>Why does my query return NO DATA?</td>
 <td markdown="span">Maybe the time series don't match. See [When Multiple Series Match (Or Not)](query_language_series_matching.html). </td>
