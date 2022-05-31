@@ -11,17 +11,18 @@ The following videos explain how alerts work and how to configure them.
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td><strong><font color="#0091DA" size="3">How Alerts Work</font></strong><br>
-<a href="https://www.youtube.com/watch?v=VjmWExKiYYg&index=1&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K" target="_blank"><img src="/images/v_alerting_clement.png"/></a></td>
+<td><strong><font color="#0091DA" size="3">How Alerts Work</font></strong><br><br/>
+<iframe id="kmsembed-1_jdy1nak1" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_jdy1nak1/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Alerting with Tanzu Observability (Lightboard Video)"></iframe>
+</td>
 <td><br>
-<p>In this lightboard video, Clement explains how alerts work in the backend.  </p>
+<p>In this lightboard video, Clement explains how alerts work in the backend.   </p>
 </td>
 </tr>
 <tr>
 <td><strong><font color="#0091DA" size="3">Create an Alert in 90 Seconds</font></strong><br>
 <br>
 <p>
-<iframe id="kmsembed-1_e655iog1" width="500" height="275" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_e655iog1/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" alt="creating alerts with step-by-step process"></iframe>
+<iframe id="kmsembed-1_e655iog1" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_e655iog1/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" alt="creating alerts with step-by-step process"></iframe>
 </p></td>
 <td><br>
 <p>Learn how to create and test an alert using the streamlined alert creation GUI.</p>
@@ -30,7 +31,7 @@ The following videos explain how alerts work and how to configure them.
 </tr>
 <tr>
 <td><strong><font color="#0091DA" size="3">Introduction to Alerts</font></strong><br><br>
-<iframe id="kmsembed-1_7mg11riu" width="400" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_7mg11riu/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Intro to alerts video"></iframe></td>
+<iframe id="kmsembed-1_7mg11riu" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_7mg11riu/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Intro to alerts video"></iframe></td>
 <td><br>
 <p>
 Jason explains first why intelligent alerts are so useful. He then explores the Alerts browser, which gives alert details such recent changes or which alerts are firing. He also shows different filtering options on the Alerts browser. This video uses the v1 GUI, but the information is still correct! </p>

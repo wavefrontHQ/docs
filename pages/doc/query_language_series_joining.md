@@ -21,7 +21,8 @@ The WQL `join()` function is modeled after the SQL JOIN operation, which correla
 
 Watch Pierre talk about WQL joins and how they're used.
 
-<p><a href="https://www.youtube.com/watch?v=SZhU8AO-SVk&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K&index=22&t=0s"><img src="/images/v_join.png" style="width: 700px;"/></a>
+<p>
+<iframe id="kmsembed-1_82m4iwhv" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_82m4iwhv/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability: The join() Function"></iframe>
 </p>
 
 ## Time Series as Tables
@@ -840,5 +841,3 @@ In this query, the `join()` function performs an left outer join that uses the `
   - `filter-id` is not added to an unmatched output series.
 
 The `removeSeries()` function then filters the results of the `join()` function by removing any `NeedsAttention` series that has a `filter-id` tag. The overall result is a set of time series corresponding to each source that does not have the expected service running on it.
-
-See the [video by Pierre](https://www.youtube.com/watch?v=SZhU8AO-SVk&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K&index=22&t=0s) for examples of a right exclusive join and a full exclusive join.

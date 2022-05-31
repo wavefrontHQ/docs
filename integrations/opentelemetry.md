@@ -12,12 +12,7 @@ OpenTracing and OpenCensus merged to form OpenTelemetry. OpenTelemetry provides 
 
 
 If your application uses OpenTelemetry, you can configure the application to send traces and metrics to Tanzu Observability by Wavefront.
-For detailed  instructions see:
-
-- [Sending trace data to Tanzu Observability](https://docs.wavefront.com/opentelemetry_tracing.html).
-- [Sending metrics data to Tanzu Observability](https://docs.wavefront.com/opentelemetry_metrics.html).
-
-[Try out the Tutorials](https://docs.wavefront.com/opentelemetry_java_tutorial.html) to send your data to Tanzu Observability and then examine the data using dashboards and charts or tracing dashboards!
+For detailed instructions, see [Send OpenTelemetry data to Tanzu Observability](https://docs.wavefront.com/opentelemetry_tracing.html).
 
 
 
