@@ -10,12 +10,12 @@ As a Super Admin user, you're interested in usage patterns for the whole organiz
 
 {% include note.html content="You must be a Super Admin to view the Usage Portal and manage ingestion policies."%}
 
-By using ingestion policies, you can monitor the usage for particular accounts or groups. You can examine:
+By using ingestion policies, you can monitor the usage for a combination of accounts or groups. You can examine:
 - the total usage out of a certain limit for the policy
 - the month-over-month percentage change in the total usage for the policy
 - the hourly usage for the current billing month
 - the accounts that ingest most data
-- the usage by ingestion source (proxy and direct ingestions)
+- the usage by ingestion mechanism (proxy and direct ingestions)
 - the usage by ingestion type (time series, histograms, and delta counters)
 
 To examine the performance of your Wavefront instance, you can use [wftop, Wavefront spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Wavefront Usage integration](wavefront_monitoring.html).
@@ -40,16 +40,16 @@ The policy scope can be either accounts or groups.
 ### Step 0: Start the Ingestion Policy Creation
 
 1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal and Subscriptions**.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
 3. Click the **Ingestion Policies** tab and click **New Ingestion Policy**.
 
 ### Step 1: Specify the Scope and PPS Limit
 
 In the **Data** panel, specify the user and service accounts or groups and, optionally, a PPS limit and click **Next**.
-1. Choose the **Scope** of the policy, either **Accounts** or **Groups**, and enter the user and service accounts or the groups that you want to assign to the policy.
+1. Choose the **Scope** of the policy, either **Accounts** or **Groups**, and select the user and service accounts or the groups that you want to assign to the policy.
   
     After you create the policy, you cannot change the scope. You can change only the assigned accounts or groups depending on the scope.
-2. Choose whether you want to set a PPS limit for the policy. If you select **Set a PPS limit**, you must enter the PPS limit number for the billing month in the **PPS per billing period** text box.
+2. Choose whether you want to set a PPS limit for the policy. If you select **Set PPS Limit**, you must enter the PPS limit number in the **PPS per billing period** text box.
    
     The limit becomes visible in the ingestion policy dashboard charts. If you set a PPS limit, you must create the ingestion policy alert in the next steps.
    
@@ -66,10 +66,10 @@ If you set a PPS limit for the ingestion policy, Tanzu Observability creates an 
        The threshold percentage becomes visible in the ingestion policy alert chart.
        
        You can skip the other settings.
-2. In the **Recipients** panel, specify [who will receive the alert notifications](alerts_manage.html#step-3-specify-recipients) and click **Next**.
-3. In the **Activate** panel, enter a name for the alert and, optionally, [tags](tags_overview.html#object-tags-tags-on-alerts-dashboards-events-and-sources) and click **Next**.
+2. Optionally, in the **Recipients** panel, specify [who will receive the alert notifications](alerts_manage.html#step-3-specify-recipients) and click **Next**.
+3. In the **Alert Name and Tags** panel, enter a name for the alert and, optionally, [tags](tags_overview.html#object-tags-tags-on-alerts-dashboards-events-and-sources) and click **Next**.
 
-After you create the ingestion policy, the associated alert is available in the Alerts Browser.
+After you create the ingestion policy, the associated alert will be available on the ingestion policy dashboard and on the Alerts page.
      
 ### Step 3: Name and Activate the Ingestion Policy
 In the **Create** panel, enter a name for the policy and, optionally, a description and click **Create**.
@@ -83,9 +83,9 @@ After you create an ingestion policy, if you need, for example, to increase the 
 {% include note.html content="You cannot change the policy scope from accounts to groups or the reverse."%}
 
 1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal and Subscriptions**.
-3. On the **Ingestion Policies** tab, click the ellipsis icon next to the policy that you want to edit and click **Edit**.
-4. In each panel, apply the necessary changes and click **Next**, and in the **Create** panel, click **Save**.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
+3. On the **Ingestion Policies** tab, click the ellipsis icon next to the policy that you want to edit and select **Edit**.
+4. In each panel, apply the necessary changes and click **Next**, and in the **Policy Name and Description** panel, click **Save**.
 
 {% include note.html content="Removing the PPS limit dissociates the alert from the ingestion policy and deletes the alert."%}
 
@@ -96,8 +96,8 @@ If you no longer need an ingestion policy, for example, after a reorganization i
 {% include note.html content="Deleting an ingestion policy cannot be undone. Deleting an ingestion policy with a PPS limit, also deletes its associated alert."%}
 
 1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal and Subscriptions**.
-3. On the **Ingestion Policies** tab, click the ellipsis icon next to the policy that you want to delete, click **Delete** and confirm.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
+3. On the **Ingestion Policies** tab, click the ellipsis icon next to the policy that you want to delete, select **Delete** and confirm.
 
 ## See the Ingestion Policies to Which a Proxy Belongs
 
@@ -108,47 +108,63 @@ If you no longer need an ingestion policy, for example, after a reorganization i
 
    If the proxy belongs to many policies, hover over the three horizontal dots and you'll see the rest of the ingestion policies in a tooltip.
 
-## Examine Usage
+## Examine Ingestion Policy Usage
 
-As a Super Admin user, you can examine the usage for accounts or groups assigned to an ingestion policy from the ingestion policy dashboard.
+As a Super Admin user, you can examine the usage by the accounts or groups assigned to an ingestion policy from the ingestion policy dashboard.
 
 1. Log in to your Wavefront instance as a Super Admin user.
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
 3. On the **Ingestion Policies** tab, click the name of the policy in which you are interested.
 
-   ![Ingestion policy name link](images/ingestion_policy_team.png)
+![Ingestion policies page](images/ingestion_policies.png)
 
-Explore the usage for the specific ingestion policy.
+The ingestion policy dashboard consists of the following sections:
 
-In the **Ingestion Summary** section of the dashboard, you can see the following list of charts:
+- In the **Ingestion Summary** section of the dashboard, you can see the following list of charts:
 
-<table style="width: 100%;">
-<tbody>
-<thead>
-<tr><th width="30%">Chart</th><th width="70%">Description</th></tr>
-</thead>
-<tr>
-<td><strong>Usage Limit</strong></td>
-<td>Shows the usage for the selected month out of the PPS limit set for the ingestion policy.</td></tr>
-<tr>
-<td><strong>Previous Month to Selected Month</strong></td>
-<td>Shows a comparison of the current month's usage with the previous month's usage.</td>
-</tr>
-<tr>
-<td><strong>Hourly Usage</strong></td>
-<td>Shows the hourly PPS. The red line represents the PPS limit for the policy.</td>
-</tr>
-</tbody>
-</table>
+  <table style="width: 100%;">
+  <tbody>
+  <thead>
+  <tr><th width="30%">Chart</th><th width="70%">Description</th></tr>
+  </thead>
+  <tr>
+  <td><strong>Usage Limit</strong></td>
+  <td>Shows the usage for the selected month out of the PPS limit set for the ingestion policy.</td></tr>
+  <tr>
+  <td><strong>Previous Month to Selected Month</strong></td>
+  <td>Shows a comparison of the selected month's usage with the previous month's usage.</td>
+  </tr>
+  <tr>
+  <td><strong>Hourly Usage</strong></td>
+  <td>Shows the hourly PPS. The red line represents the PPS limit for the policy.</td>
+  </tr>
+  </tbody>
+  </table>
 
+- In the **Optimize Usage** section of the dashboard, you can see a list of charts that lets you investigate usage further by accounts, ingestion mechanisms, and data types.
 
-In the **Optimize Usage** section of the dashboard, you can see a list of charts that lets you investigate further which accounts contribute the most, what is the usage by ingestion source (proxy and direct ingestions), and what is the usage by ingestion type (time series, histograms, and delta counters).
+  <table style="width: 100%;">
+  <tbody>
+  <thead>
+  <tr><th width="30%">Chart</th><th width="70%">Description</th></tr>
+  </thead>
+  <tr>
+  <td><strong>Top Accounts Contributing to Ingestion</strong></td>
+  <td>Shows which accounts contribute the most.</td></tr>
+  <tr>
+  <td><strong>Usage by Ingestion Source</strong></td>
+  <td>Shows the usage by ingestion mechanism - proxy and direct ingestions.</td>
+  </tr>
+  <tr>
+  <td><strong>Usage by Ingestion Type</strong></td>
+  <td>Shows the usage by data type - time series, histograms, and delta counters.</td>
+  </tr>
+  </tbody>
+  </table>
 
- ![Usage summary per ingestion policy](images/usage_summary_per_policy.png)
+- If the ingestion policy has a PPS limit with an alert, the dashboard includes the **Alert** section that provides details about the associated alert.
  
-If the ingestion policy has a PPS limit with an alert, the dashboard includes the **Alert** section that provides details about the associated alert.
-
- ![Usage summary per ingestion policy](images/IP_alert.png)
+ ![Usage summary per ingestion policy](images/IP_dashboard.png)
 
 ## Example: Monitor Which Teams Are Responsible for How Much Ingested Data
 
