@@ -6,11 +6,7 @@ sidebar: doc_sidebar
 permalink: query_language_statistical_functions_anomalies.html
 summary: Detect anomalies with simple functions, and functions for mean, median, standard deviation, and inter-quartile range.
 ---
-Anomalies can indicate that something's about to go wrong in your environment. If you have a set of points, you can define which points are normal and which should be identified as abnormal. For example, points that cross a certain threshold might create an anomaly. To learn more about anomaly detection, see the blog [Why is Operational Anomaly Detection So Hard?](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/why-is-operational-anomaly-detection-so-hard) and the following video:
-
-<p><a href="https://youtu.be/I-Z9d94Zi7Y"><img src="/images/v_anomaly.png" style="width: 700px;"/></a>
-</p>
-
+Anomalies can indicate that something's about to go wrong in your environment. If you have a set of points, you can define which points are normal and which should be identified as abnormal. For example, points that cross a certain threshold might create an anomaly. To learn more about anomaly detection, see the blog [Why is Operational Anomaly Detection So Hard?](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/why-is-operational-anomaly-detection-so-hard).
 
 ## Functions for Anomaly Detection
 

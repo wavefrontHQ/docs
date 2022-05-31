@@ -148,7 +148,7 @@ This approach to variables is different from PromQL variables:
 
 In many cases the translation from PromQL to WQL is straightforward. You type the PromQL query into the query editor and click WQL to see the corresponding query in WQL.
 
-However, the syntax for for joining queries in PromQL and in WQL is fundamentally different. In addition, WQL does not support `ignore`, `on`, `group_left`, and `group_right` for vector matching with PromQL queries. However, after a bit of practice (and after looking at our examples and [this video](https://www.youtube.com/watch?v=SZhU8AO-SVk&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K&index=22&t=0s)) we expect you'll find joins in WQL quite powerful.
+However, the syntax for for joining queries in PromQL and in WQL is fundamentally different. In addition, WQL does not support `ignore`, `on`, `group_left`, and `group_right` for vector matching with PromQL queries. However, after a bit of practice (and after looking at our examples and [this video](https://vmwaretv.vmware.com/media/t/1_82m4iwhv) we expect you'll find joins in WQL quite powerful.
 
 #### Joining Queries in WQL and PromQL
 

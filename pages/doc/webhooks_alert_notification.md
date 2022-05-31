@@ -53,7 +53,8 @@ For example, you could use a custom alert target to:
 ​
 To view alert targets, select **Alerting > Alert Targets**.
 
-
+<a id="creating-an-alert-target"></a>
+<a id="creating-a-webhook"></a>
 ## Create a Custom Alert Target
 
 The process for creating an alert target is similar for the different types of targets. Setting the **Type** changes which fields are displayed.

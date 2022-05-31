@@ -7,7 +7,7 @@ permalink: query_language_discrete_continuous.html
 summary: Understand discrete and continuous time series and when the query engine performs interpolation.
 ---
 
-Tanzu Observability by Wavefront supports both discrete and continuous time series. Understanding how to work with them is important for best performance. 
+Tanzu Observability by Wavefront supports both discrete and continuous time series. Understanding how to work with them is important for best performance.
 
 ## Basics
 
@@ -60,7 +60,8 @@ Some functions produce a continuous time series by calculating a value from the 
 
 Certain functions produce a continuous time series by starting with data points from a discrete time series and inserting additional points (1 per second) to fill in the intervals and gaps. You see data every second regardless of the reporting interval of the underlying input data. The process is called _interpolation_. In the following video, Wavefrount co-founder Clement Pang explains how it works:
 
-<p><a href="https://youtu.be/9LnDszVrJs4" target="_blank"><img src="/images/v_interpolation.png" style="width: 700px;" alt="time series and interpolation"/></a>
+<p>
+<iframe id="kmsembed-1_afml14zm" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_afml14zm/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability: Time Series and Interpolation"></iframe>
 </p>
 
 For example, the [`last()`](ts_last.html) function produces a new time series that consists of the actual, reported data points from the input series, plus points that are added by interpolation between them. Each interpolated point has the same value as the last reported point before it.
