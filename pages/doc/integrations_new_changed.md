@@ -15,8 +15,17 @@ We made improvements to the following integrations in May 2022:
 
 * Snowflake:
   * To enhance authentication security, we updated the setup steps of the integration. Now, to register Snowflake, you have to provide a private key.
-  * We improved the setup steps instructions with information on how to generate the public and private keys and give Tanzu Observability access to your Snowflake account.
+  * We improved the setup instructions with information on how to generate the public and private keys and give Tanzu Observability access to your Snowflake account.
   * Improved the **Snowflake Summary** dashboard and included charts for warehouse load monitoring.
+
+* Jenkins
+  * You can now fetch metrics from Jenkins Prometheus with an authorized user instead of anonymous user.
+  * We improved the setup instructions with information on how to enable a Prometheus endpoint.
+
+* RabbitMQ -- Fixed issues with the charts in the out of the box dashboard.
+
+* vSphere -- Updated the names of a number of virtual machine charts in the  **vSphere Summary** dashboard.
+
 
 * Dynatrace:
   * Improved the readability of the point tags and addressed an issue with duplicate metrics.
