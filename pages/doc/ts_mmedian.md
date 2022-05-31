@@ -49,8 +49,10 @@ The next example shows how you can compare the `mmedian()` results by doing a Cm
 
 ![mmedian compare](images/ts_mmedian_clicked.png)
 
+<!---
 ## See Also
 The following video shows how you can prevent false alarms with `mmedian()`.
 
 <p><a href="https://www.youtube.com/watch?v=dkHmnH_Dchc&feature=youtu.be"><img src="/images/v_false_alarms.png" style="width: 700px;"/></a>
 </p>
+--->

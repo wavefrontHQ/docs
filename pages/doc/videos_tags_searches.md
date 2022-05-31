@@ -20,8 +20,8 @@ The following videos show how to use tags and searches in the UI to find what yo
 </td>
 </tr>
 <tr>
-<td><strong><font color="#0091DA" size="3">Tagging Your Data with Wavefront </font></strong><br>
-<a href="https://www.youtube.com/watch?v=9tt4orZHQts&index=3&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K" target="_blank"><img src="/images/v_tagging_clement.png"  alt="Tagging in Wavefront"/></a></td>
+<td><strong><font color="#0091DA" size="3">Tagging Your Data with Wavefront </font></strong><br><br/>
+<iframe id="kmsembed-1_3igakxnb" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_3igakxnb/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability: Tagging Data"></iframe></td>
 <td><br>
 <p>Understand how tagging can help you get the results that you need. By default, data include the metric name and the source. Cloud integrations include additional dimensions such as the AWS region, as point tags. You can add point tags to any data source from the UI or the API. Source tags are different. They allow you to group machines, for example, into db machines and web machines. You can then customize your queries to pull out just the data you need.</p>
 </td>

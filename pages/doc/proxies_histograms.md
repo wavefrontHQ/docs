@@ -14,7 +14,8 @@ This page explain how to send histogram distributions. After the data are availa
 ## Getting Started
 
 Watch this video for an introduction to histograms:
-<p><a href="https://www.youtube.com/watch?v=syIKQ2oZk9s&index=4&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_histograms.png" style="width: 700px;" alt="histograms"/></a>
+<p>
+<iframe id="kmsembed-1_om7poavj" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_om7poavj/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability: Histograms"></iframe>
 </p>
 
 The following blog posts give some background information:

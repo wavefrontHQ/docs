@@ -23,7 +23,8 @@ Having a proxy be part of the architecture has benefits:
 
 In this video, Clement contrasts using a Wavefront proxy with using direct ingestion, discusses proxy benefits, and goes over the architecture of most production systems, which includes a fleet of proxies behind a load balancer. The result is more resilience and a better user experience.
 
-<p><a href="https://youtu.be/Lrm8UuxrsqA" target="_blank"><img src="/images/v_proxy_clement.png" style="width: 700px;" alt="Wavefront proxies video"/></a>
+<p>
+<iframe id="kmsembed-1_5wfjti3m" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_5wfjti3m/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Wavefront Proxy"></iframe>
 </p>
 
 
@@ -87,7 +88,7 @@ You can modify proxy behavior in several ways:
 Wavefront proxies support:
 * Time-series metrics
 * Histograms
-* Traces/spans 
+* Traces/spans
 
 Each type of data uses a different data format. See [Wavefront Data Format](wavefront_data_format.html) for details and links.
 

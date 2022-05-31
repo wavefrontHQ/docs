@@ -27,19 +27,24 @@ This integration uses the Prometheus input plugin for Telegraf to extract metric
 
 Log in to your Wavefront instance and follow the instructions in the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
 
-### Step 2. Install Prometheus Plugin
+### Step 2. Install the Prometheus Plugin
 Jenkins metrics can be collected using the Jenkins Prometheus Plugin. Install the plugin like this:
 
 1. Log in to your Jenkins environment as an administrator and select **Manage Jenkins > Manage Plugins**.
-2. Select the **Available** tab, and search for **Prometheus**.
+2. Click the **Available** tab and search for **Prometheus**.
 3. Select the `Prometheus` plugin and install using standard instructions.
 
 For details, see the Jenkins [Managing Plugins](https://jenkins.io/doc/book/managing/plugins/) docs.
 
-### Step 3. Set the Permission for an Anonymous User
-Set the ACL in Jenkins to allow anonymous user to allow Prometheus to read job metrics as it's scraping clients.
+### Step 3. Set the Permission for a User
+Set the access control list in Jenkins to allow a Prometheus user to read job metrics as it's scraping clients.
 
-### Step 4. Enable the Prometheus Input Plugin
+1. In Jenkins, click **Manage Jenkins** and click the **Configure System** link.
+2. Select the **Enable authentication for Prometheus endpoint** check box.
+
+**Note**: The configured user must have access to a Prometheus endpoint.
+
+### Step 4. Enable the Prometheus Input Plugin with Authentication
 
 Create a file called `jenkins.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
 {% raw %}
@@ -48,8 +53,11 @@ Create a file called `jenkins.conf` in `/etc/telegraf/telegraf.d` and enter the 
   ## Prefix to attach to the measurement name
   name_prefix = "jenkins_"
 
-  ## URL of each Jenkins server
+  ## A Jenkins server URL to scrape metrics from.
   urls = ["$JENKINS_URL/prometheus/"]
+  ## If the Jenkins prometheus endpoint is user authenticated, provide the username and password.
+  # username = ""
+  # password = ""
 
   ## Specify timeout duration for slower clients (default is 3s)
   # response_timeout = "3s"
@@ -65,7 +73,7 @@ Create a file called `jenkins.conf` in `/etc/telegraf/telegraf.d` and enter the 
 {% endraw %}
 Update `$JENKINS_URL` with the URL of the Jenkins server.
 
-A single Telegraf agent can poll multiple Jenkins servers for status information. Specify the addresses of the Jenkins server in the `urls` parameter:{% raw %}
+A single Telegraf agent can poll multiple Jenkins servers for status information. Specify the addresses of the Jenkins server in the `urls` parameter in case of anonymous authentication to the Jenkins server:{% raw %}
 ```
 urls = [
    "$JENKINS_URL_1/prometheus/",
@@ -77,7 +85,6 @@ urls = [
 ### Step 5. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your Telegraf agent.
-
 
 
 ## Metrics
