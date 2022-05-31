@@ -9,9 +9,9 @@ summary: New and changed integrations.
 Tanzu Observability by Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
 
-## May 2022
+## June 2022
 
-We made improvements to the following integrations in May 2022:
+We made improvements to the following integrations in June 2022:
 
 * Snowflake:
   * To enhance authentication security, we updated the setup steps of the integration. Now, to register Snowflake, you have to provide a private key.
@@ -26,6 +26,10 @@ We made improvements to the following integrations in May 2022:
 
 * vSphere -- Updated the names of a number of virtual machine charts in the  **vSphere Summary** dashboard.
 
+
+## May 2022
+
+We made improvements to the following integrations in May 2022:
 
 * Dynatrace:
   * Improved the readability of the point tags and addressed an issue with duplicate metrics.
