@@ -33,7 +33,7 @@ The policy scope can be either accounts or groups.
 ## Permissions
 
 * Only Super Admin users can create, view, and edit ingestion policies.
-* Users with the **Alerts** permission can view the alerts associated with ingestions policies but only Super Admin users can edit or delete these alerts.
+* All users can view the alerts associated with ingestions policies but only Super Admin users can edit or delete these alerts.
 
 ## Create an Ingestion Policy
 
