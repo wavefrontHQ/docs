@@ -27,7 +27,7 @@ summary: Learn how you can get the unified observability experience with Tanzu O
     </ul>
   </td>
   <td width="40%" markdown="span">
-    ![shows that tanzu observability supports all three pillars : metrics, traces, and logs.](images/logging_ufo.png)
+    ![shows that Tanzu Observability supports all three pillars : metrics, traces, and logs.](images/logging_ufo.png)
   </td>
 </tr>
 </tbody>
