@@ -25,7 +25,7 @@ The Wavefront proxy accepts a JSON payload over HTTP. Follow these steps to inst
 1. Open the `pushListnerPorts` to receive the logs from the log shipper.
     For example:
     * If you installed the proxy on Linux, Mac, or Windows, open the [`wavefront.conf`](proxies_configuring.html#proxy-file-paths) file and uncomment the `pushListnerPorts` configuration.
-    * If you are running the proxy on Docker using the command on the Tanzu Observability User Interface (UI), the command opens the `pushListnerPorts` of the proxy and sets it to 2878.
+    * If you are running the proxy on Docker using the Tanzu Observability User Interface (UI) command, the command opens the `pushListnerPorts` of the proxy and sets it to 2878.
 1. [Start the proxy](proxies_installing.html#start-and-stop-a-proxy).
 
 ## Configure Your Log Shipper
@@ -55,7 +55,7 @@ Configure your log shipper:
   
 ### Best Practice
 
-If the maximum character limit for a message, tag, and value are exceeded, logs are dropped by the Wavefront proxy. Therefore, as a best practice make sure your logs are within the given limits. See [FAQs](logging_faq.html#track-data-dropped-by-proxy) to monitor the data points dropped by the proxy.
+If the maximum character limit for a message, tag, and value is exceeded, logs are dropped by the Wavefront proxy. Therefore, make sure your logs are within the given limits. See [FAQs](logging_faq.html#track-data-dropped-by-proxy) to monitor the data points dropped by the proxy.
 
 {% include note.html content="If you want to increase the limits, reach out to [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help." %}
 
