@@ -22,7 +22,6 @@ summary: Get answers to your questions about Wavefront for Spring Boot
 
 While this is subject to changes at any time, we currently retain 5 days of data and offer no SLA on the free Wavefront cluster. Production Wavefront clusters currently offer 18 months of full-resolution (no downsampling) data retention for metrics, 6 months for histograms, and 7 days for spans. We also have a 99.95% uptime guarantee, as well as High Availability (HA) and Disaster Recovery (DR) options.
 
-Reach out to us on [Slack](https://www.wavefront.com/join-public-slack) and join the #springboot public channel for more information.
 
 ### Why do I not see a link to access the Wavefront service on start-up?
 

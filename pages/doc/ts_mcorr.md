@@ -61,5 +61,6 @@ The following example shows the correlation between the total requests for app-1
 
 [Using Moving and Tumbling Windows to Highlight Trends](query_language_windows_trends.html)
 
+<!---
 <p><a href="https://www.youtube.com/watch?v=bV9mGSAbD8s&feature=youtu.be"><img src="/images/v_correlation_functions.png" style="width: 700px;"/></a>
-</p>
+</p> --->

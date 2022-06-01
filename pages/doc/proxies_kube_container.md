@@ -245,7 +245,7 @@ To add the CA certificates:
 docker run -it -e WAVEFRONT_URL=xxxxxxx -e WAVEFRONT_TOKEN=xxxxxx -p 2878:2878 -v /Users/user42/wavefront/ca_certs_test/to_docker:/tmp/ca proxy
 ```
 
-You have to specify the URL of your instance (e.g. https://example.wavefront.com) and a [Wavefront Token](wavefront_api.html#generating-an-api-token). Creating a service account and using a service account token usually makes sense.
+You have to specify the URL of your instance (e.g. https://example.wavefront.com) and a [Wavefront Token](wavefront_api.html#managing-api-tokens). Creating a service account and using a service account token usually makes sense.
 --->
 
 ## Learn More!

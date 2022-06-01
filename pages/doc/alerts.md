@@ -26,7 +26,7 @@ This section starts with a video and explores the anatomy of an alert. Go to one
 
 In this video, Clement explains how a single-threshold alert works:
 
-<p><a href="https://www.youtube.com/watch?v=VjmWExKiYYg&index=1&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_alerting_clement.png" style="width: 700px;"/></a>
+<p><iframe id="kmsembed-1_jdy1nak1" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_jdy1nak1/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Alerting with Tanzu Observability (Lightboard Video)"></iframe>
 </p>
 
 ### Anatomy of an Alert
@@ -331,6 +331,7 @@ We create [events](events.html) as alerts fire, update, and resolve. You can opt
 
 * Watch some [videos about alerts](videos_alerts.html).
 * [Create and manage alerts](alerts_manage.html).
+* See answers to [Frequently Asked Questions](alerts_faq.html)
 * Learn about [alert states and life-cycle](alerts_states_lifecycle.html).
 * For troubleshooting, look at our Alerts FAQ page:
   - [Why Did My Alert Not Fire?](alerts_faq.html#why-did-my-alert-not-fire)

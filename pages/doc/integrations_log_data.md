@@ -243,11 +243,5 @@ where `<wavefront_proxy_ip_address>` is the IP address of your Wavefront proxy.
 
 After configuring the Wavefront proxy to send log data, you can issue queries such as:
 
-- **rate(ts(combined_apache_log_lines))**
-- **ts(responseBytes.p99)**
-
-## Video Overview
-
-Here's a video overview of integrating log data:
-
-[Integrating Log Data With Filebeat](https://youtu.be/qll_7mwVmI0)
+- `rate(ts(combined_apache_log_lines))`
+- `ts(responseBytes.p99)`

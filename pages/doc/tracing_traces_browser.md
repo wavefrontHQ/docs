@@ -94,11 +94,6 @@ In the service map panel, you can:
 * Scroll the service map to zoom in or out, and re-center the service map.
 * Look for nodes that are grayed out. These represent services that contribute spans to at least one trace in the list, but not to the trace that is currently selected.
 
-Watch this video to see how a service map can help you pinpoint a performance bottleneck in a microservices architecture:
-
-<p><a href="https://youtu.be/7F1TTmSKN7g"><img src="/images/v_tracing_service_map.png" style="width: 700px;" alt="introduction to service maps"/></a>
-</p>
-
 
 ## Examine Trace Details
 

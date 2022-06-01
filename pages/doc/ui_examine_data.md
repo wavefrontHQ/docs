@@ -241,9 +241,9 @@ You can move the time window into the future. However, unless you are using one 
 </table>
 
 
-Here's a <a href="https://bcove.video/3sweZ7W" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> that illustrates chart time windows. The video uses the v1 UI, but most of the information is still accurate:
+Here's a <a href="https://vmwaretv.vmware.com/media/t/1_zew0muhn" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> that illustrates chart time windows. The video uses the v1 UI, but most of the information is still accurate:
 <p>
-<iframe src="https://bcove.video/3sweZ7W" width="700" height="400" allowfullscreen="true" alt="Video that illustrate how to set time windows for one chart, sync time for all charts on a dashboard, and reset time windows"></iframe>
+<iframe src="https://vmwaretv.vmware.com/media/t/1_zew0muhn" width="700" height="400" allowfullscreen="true" alt="Video that illustrate how to set time windows for one chart, sync time for all charts on a dashboard, and reset time windows"></iframe>
 </p>
 
 ## Display Events on Charts

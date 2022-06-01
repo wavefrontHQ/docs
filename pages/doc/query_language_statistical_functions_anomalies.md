@@ -6,10 +6,7 @@ sidebar: doc_sidebar
 permalink: query_language_statistical_functions_anomalies.html
 summary: Detect anomalies with simple functions, and functions for mean, median, standard deviation, and inter-quartile range.
 ---
-Anomalies can indicate that something's about to go wrong in your environment. If you have a set of points, you can define which points are normal and which should be identified as abnormal. For example, points that cross a certain threshold might create an anomaly. To learn more about anomaly detection, see the blog [Why is Operational Anomaly Detection So Hard?](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/why-is-operational-anomaly-detection-so-hard) and the following video:
-
-<p><a href="https://youtu.be/I-Z9d94Zi7Y"><img src="/images/v_anomaly.png" style="width: 700px;"/></a>
-</p>
+Anomalies can indicate that something's about to go wrong in your environment. If you have a set of points, you can define which points are normal and which should be identified as abnormal. For example, points that cross a certain threshold might create an anomaly. To learn more about anomaly detection, see the blog [Why is Operational Anomaly Detection So Hard?](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/why-is-operational-anomaly-detection-so-hard).
 
 ## Functions for Anomaly Detection
 
@@ -118,7 +115,7 @@ network rate:|`align(1m, mean, rate(ts(host=don* and not host=don-*ha*, ifconfig
 In the second chart, we add queries to see the standard deviation:
 
 network rate:|`align(1m, mean, rate(ts(host=don* and not host=don-*ha*, ifconfig.rxBytes)))`
-top/bottom:|`if (top(3, ${networkRate}) or bottom(3, ${networkRate}), $networkRate})`
+top/bottom:|`if (top(3, ${networkRate}) or bottom(3, ${networkRate}), ${networkRate})`
 Std Dev:|`(${networkRate} - mavg(480m, ${networkRate}))/sqrt(mvar(480m, ${networkRate}))`
 
 ![network_rate_std_dev](images/network_rate_std_dev.png)
@@ -127,9 +124,9 @@ Std Dev:|`(${networkRate} - mavg(480m, ${networkRate}))/sqrt(mvar(480m, ${networ
 But we see the information we're after only when we add the IQR query:
 
 network rate|`align(1m, mean, rate(ts(host=don* and not host=don-*ha*, ifconfig.rxBytes)))`
-top/bottom|`if (top(3, ${networkRate}) or bottom(3, ${networkRate}), $networkRate})`
+top/bottom|`if (top(3, ${networkRate}) or bottom(3, ${networkRate}), ${networkRate})`
 Std Dev|`(${networkRate} - mavg(480m, ${networkRate}))/sqrt(mvar(480m, ${networkRate}))`
-IQR|`({networkRate} - mmedian (480m, ${networkRate}))/(mpercentile(480m, 75, ${networkRate}) - mpercentile(480m, 25, ${networkRate}))`
+IQR|`(${networkRate} - mmedian (480m, ${networkRate}))/(mpercentile(480m, 75, ${networkRate}) - mpercentile(480m, 25, ${networkRate}))`
 
 ![network_rate_iqr](images/network_rate_iqr.png)
 

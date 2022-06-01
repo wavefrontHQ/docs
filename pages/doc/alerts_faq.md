@@ -411,19 +411,23 @@ Users need to audit alert changes in several situations:
 
 Each time you save an alert, the alert version is updated internally. Up to 100 versions are supported.
 
+**To audit or restore an alert:**
+
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="60%">
+<td width="75%">
 <ol>
 <li>Find the alert in the Alerts Browser. </li>
 <li>Click the ellipsis icon and select <strong>Versions</strong>.</li>
-<li>Select a version.</li>
+<li>Select a version and revert or clone that version.</li>
 </ol>
 </td>
-<td width="40%" markdown="span">![screenshot ellipsis menu to the left of alert in alerts browser](images/alert_versions.png) </td></tr>
+<td width="25%" markdown="span">![screenshot ellipsis menu to the left of alert in alerts browser](images/alert_versions_highlighted.png) </td></tr>
 </tbody>
 </table>
+![alert version list, ellipsis menu shows versions](images/alert_history_details.png)
+
 
 ## Learn More
 

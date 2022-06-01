@@ -19,12 +19,12 @@ Choose one of the following ways to send metrics, histograms, and trace data fro
 * **Direct Ingestion**. To get up and running quickly, use direct ingestion to send data directly to the Wavefront service.
 * **Wavefront proxy**. For any production environment, we recommend a Wavefront proxy to forward data from your application to the Wavefront service. [Using a proxy](direct_ingestion.html#proxy-or-direct-ingestion) provides resilience to internet outages, control over data queuing and filtering, and more.
 
-Watch [this video](https://youtu.be/Lrm8UuxrsqA) for some background on proxy vs. direct ingestion.
+Watch [this video](https://vmwaretv.vmware.com/media/t/1_5wfjti3m) for some background on proxy vs. direct ingestion.
 
 ### To Prepare for Direct Ingestion
 
 1. Identify the URL of your Wavefront instance. This is the URL you use when you log in, typically something like `https://mywavefront.wavefront.com`.
-2. [Obtain an API token](wavefront_api.html#generating-an-api-token).
+2. [Obtain an API token](wavefront_api.html#managing-api-tokens).
 
 
 ### To Prepare for Using a Wavefront Proxy

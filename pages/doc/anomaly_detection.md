@@ -24,7 +24,7 @@ Assume that SRE Robin has received an alert that an application is slow.
 
 ## How to Use Anomaly Detection on Charts
 
-Currently, Anomaly Detection is available for Line Plot charts. 
+Currently, Anomaly Detection is available for Line Plot charts.
 
 1. Enable Anomaly Detection from two places:
 
@@ -55,7 +55,7 @@ You can enable Anomaly Detection on dashboards that contain Line Plot charts.
 2. Click the **Anomaly Detection** drop-down menu on top.
 
    ![Anomaly detection menu on top of a dashboard](images/anomaly-detection-dashboard.png)
-   
+
 3. Select an option:
 
     <table>
@@ -72,7 +72,7 @@ You can enable Anomaly Detection on dashboards that contain Line Plot charts.
     </tr>
     <tr>
     <td><strong>on: use single settings for entire dashboard</strong></td>
-    <td>Eenables Anomaly Detection on all Line Plot charts within the dashboard and apply the same settings to all of them. 
+    <td>Eenables Anomaly Detection on all Line Plot charts within the dashboard and apply the same settings to all of them.
     <p>This way, you can change anomaly detection settings from one place for all the Line Plot charts in the current dashboard.</p>
     </td>
     </tr>
@@ -82,7 +82,7 @@ You can enable Anomaly Detection on dashboards that contain Line Plot charts.
     </tbody>
     </table>
 
-4. If you select to use the **on: use single settings for entire dashboard** option, click the modal icon displayed next to the Anomaly Detection switch, and select the Anomaly Detection options. 
+4. If you select to use the **on: use single settings for entire dashboard** option, click the modal icon displayed next to the Anomaly Detection switch, and select the Anomaly Detection options.
 
    ![Anomaly detection options for the whole dashboard.](images/anomaly-detection-dashboard-menu.png)
 
@@ -115,4 +115,4 @@ If you select a specific anomaly, the anomaly is highlighted red on the chart.
 ## Learn More!
 
 * [Detecting Anomalies with Functions and Statistical Functions](query_language_statistical_functions_anomalies.html)
-* KB Article: [Strategies for Anomaly/Outlier Detection](https://help.wavefront.com/hc/en-us/articles/360061382451-Strategies-for-Anomaly-Outlier-Detection) 
+* [Strategies for Anomaly/Outlier Detection](query_language_statistical_functions_anomalies.html#comparing-current-behavior-to-past-behaviors) 

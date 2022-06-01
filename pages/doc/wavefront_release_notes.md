@@ -7,49 +7,58 @@ permalink: wavefront_release_notes.html
 summary: Announcements and new and updated features in Tanzu Observability by Wavefront.
 ---
 
-This page lists new and updated features for the Tanzu Observability by Wavefront service. 
+This page lists new and updated features for the Tanzu Observability by Wavefront service.
 
 * For **Wavefront Proxy**, your go-to place is the [Wavefront proxy GitHub page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
-## Announcements
+## 2022-20.x Release Notes
 
-**Upcoming Removal of the Service Accounts from the Everyone Group**
+<table>
+  <tbody>
+    <tr>
+      <td width="50%">
+        <strong>Improved Help Panel</strong>:<p>
+        You can now expand and collapse the help panel from the question mark icon on the toolbar.</p>
+        <p>In addition, we have improved most of our help pages with the following sections.
+        <ul>
+        <li>The <strong>Read More</strong> section contains links which will bring you to relevant doc pages on <a href="index.html">docs.wavefront.com</a>.</li>
+        <li>The <strong>Watch Videos</strong> section contains links to videos that will help you understand various Tanzu Observability concepts and tasks.</li>
+        </ul></p>
+      </td>
+      <td width="50%">
+        <img src="/images/help.png" alt="Question mark button at the top right on the toolbar.">
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-In the next release(s), the service accounts that are still part of the predefined **Everyone** group will be removed from this group. This will not impact any existing functionality and integrations. Last year, all service accounts were added to the new predefined **Service Accounts** group. See the [2021-42.x Release Notes](2021.49.x_release_notes.html#2021-42x-release-notes) for details.
+## 2022-19.x Release Notes
 
-<!---{% include important.html content="Ensure that the service accounts in your organization do not depend on the **Everyone** group permissions."%}--->
+This release includes the following improvements in Tanzu Observability components:
+
+* **Wavefront Proxy 11.1**: The Wavefront Proxy is now using a 6 week release cadence. We made the following improvements to [release 11.1](https://github.com/wavefrontHQ/wavefront-proxy/releases) last week:
+    * Set span future fill limit to 24 hours: Spans sent with a timestamp that's more than 24 hours ahead of the current timestamp will be blocked.
+    * Improved visibility for chained proxies: Client proxies chained to relay proxies now have visible status.
+    * Added new `metric_length` metric related to memory buffer. To view: `ts(~proxy.*.metric_length.*)`
+    * Updated dependencies versions.
+* **OpenTelemetry metrics exporter**: Send metrics data from your applications to Tanzu Observability using the [Tanzu Observability (Wavefront) metrics exporter](opentelemetry_tracing.html#send-metrics-data) for OpenTelemetry, and use Charts and Dashboards to visualize the data.
+* **May Integrations Release**: The May integrations release includes important updates to the Fluentd, Dynatrace, and Kubernetes integrations and other enhancements. See the [Integrations Release Notes](integrations_new_changed.html#may-2022) for details.
+* **Updates for Customers with Service Accounts in the Everyone Group**: We removed all service accounts from the predefined **Everyone** group. With the previous release, we prepared for this removal, so that there's no impact on any existing functionality and integration.
 
 
-<!---<tr>
-  <td width="50%">
-    <strong>Updates for Customers with Service Accounts in the Everyone Group</strong>:
-    <p>
-    Last year, we introduced the <strong>Service Accounts</strong> system group and added all service accounts to this group. To prepare for the <a href="#announcements">upcoming removal</a> of the remaining service accounts from the <strong>Everyone</strong> group, we did the following changes:<br/>
-    <ul>
-    <li>For all dashboards and alerts that have the <strong>Everyone</strong> group in their view or view & modify access lists, we added the <strong>Service Accounts</strong> group to these lists.</li>
-    <li>For all metrics security rules that have the <strong>Everyone</strong> group in their allow or deny access lists, we added the <strong>Service Accounts</strong> group to these lists.</li>
-    <li>To preserve the current behavior for existing customers, we changed the default permissions for the service accounts to have view and modify access to newly created dashboards and alerts. To revoke these permissions for the service accounts, navigate to the <strong>Organization Settings</strong> page and on the <strong>Security</strong> tab, deselect the <strong>Service Accounts</strong> check box.</li>
-    </ul>
-    </p>
-    </td>
-  <td width="50%">
-  <strong>Read More:</strong>
-  <ul>
-  <li><a href="2021.49.x_release_notes.html#2021-42x-release-notes">2021-42.x Release Notes</a></li>
-  <li><a href="service-accounts.html#what-are-service-accounts">What Are Service Accounts</a></li>
-  <li><a href="access.html">Managing Access to Dashboards and Alerts</a></li>
-  <li><a href="metrics_security.html">Metrics Security Policy Rules</a></li>
-  <li><a href="access.html#change-the-access-control-security-organization-setting">Change the Access Control Security Organization Setting</a></li>
-  </ul>
-  </td>
-</tr>--->
+## 2022-18.x Release Notes
 
+**Updates for Customers with Service Accounts in the Everyone Group**
+
+Last year, we [introduced](2021.49.x_release_notes.html#2021-42x-release-notes) the **Service Accounts** system group and added all [service accounts](service-accounts.html#what-are-service-accounts) to this group. To prepare for the upcoming removal of the remaining service accounts from the **Everyone** group, we did the following changes:
+
+* For all dashboards and alerts that have the **Everyone** group in their view or view & modify access lists, we added the **Service Accounts** group to these lists. See [Managing Access to Dashboards and Alerts](access.html) for details.
+* For all metrics security rules that have the **Everyone** group in their allow or deny access lists, we added the **Service Accounts** group to these lists. See [Metrics Security Policy Rules](metrics_security.html) for details.
+* To preserve the current behavior for existing customers, we changed the default permissions for the service accounts to have view and modify access to newly created dashboards and alerts. To revoke these permissions for the service accounts, navigate to the **Organization Settings** page and on the **Security** tab, deselect the **Service Accounts** check box. See [Change the Access Control Security Organization Setting](access.html#change-the-access-control-security-organization-setting) for details.
 
 ## 2022-17.x Release Notes
-
-{% include note.html content="The new API Tokens Management functionality is currently available to some of our customers. It will become available to all customers within the next releases."%}
 
 <table>
 <tbody>
@@ -164,7 +173,7 @@ In the next release(s), the service accounts that are still part of the predefin
     <strong>Read More:</strong>
     <ul>
         <li><a href="https://github.com/wavefrontHQ/wavefront-proxy/releases">Wavefront Proxy Release Notes on GitHub</a></li>
-        <li><a href="opentelemetry_tracing.html#send-data-using-the-wavefront-proxy---recommended">Send OpenTelemetry Trace Data Directly Using the Wavefront Proxy</a></li>
+        <li><a href="opentelemetry_tracing.html#directly-send-data-using-the-wavefront-proxy---recommended">Send OpenTelemetry Trace Data Directly Using the Wavefront Proxy</a></li>
         <li><a href="opentelemetry_logs.html">Enable Proxy Debug Logs for OpenTelemetry Data</a></li>
       </ul>
     </td>

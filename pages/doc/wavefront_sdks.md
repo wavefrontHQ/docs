@@ -11,7 +11,8 @@ Tanzu Observability by Wavefront supports a suite of open source SDKs that devel
 
 Watch this video to listen to our co-founder Clement Pang talk about how Tanzu Observability by Wavefront expands application monitoring with its observability SDKs:
 
-<p><a href="https://youtu.be/56Ql2OQ2NLQ"><img src="/images/v_app_monitoring.png" style="width: 700px;" alt="application monitoring"/></a>
+<p>
+<iframe id="kmsembed-1_obf0o1tx" width="700" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_obf0o1tx/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="The Future of App Monitoring"></iframe>
 </p>
 
 ## What Do You Want to Collect?

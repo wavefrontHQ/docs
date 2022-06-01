@@ -25,7 +25,7 @@ You can find queries that are exceptionally slow by checking  the **Slow Query**
 
      The dashboard also provides you with the number of slow queries by user. The time window buttons [1h, 12h, 1d] control which slow queries you are viewing.
 
-   * The **Top Slow Queries** tab provides details (timestamp, query type, ts() query, points, etc.) about the slow queries. 
+   * The **Top Slow Queries** tab provides details (timestamp, query type, ts() query, points, etc.) about the slow queries.
 
      * **Time Taken** shows the time a slow query takes. Queries listed on this page can't return results for more than 5 minutes.
      * **Points Scanned** shows the number of data points that were queried to show the chart on the screen.
@@ -45,7 +45,7 @@ And even if a query isn't listed there, there are some guidelines for queries:
 
 Administrators (and often other team members) are interested in usage data at all levels.
 
-1. Super Admins who install Wavefront proxies can examine the [proxy information](monitoring_proxies.html) on the system dashboard. Larger environments or production environments rely on a team of load-balanced proxies, as discussed by Clement Pang in [this video about proxies](https://youtu.be/Lrm8UuxrsqA).
+1. Super Admins who install Wavefront proxies can examine the [proxy information](monitoring_proxies.html) on the system dashboard. Larger environments or production environments rely on a team of load-balanced proxies, as discussed by Clement Pang in [this video about proxies](https://vmwaretv.vmware.com/media/t/1_5wfjti3m).
     Having usage data for the proxy helps administrators during installation and also helps with proxy sizing later.
 2. View the points flowing into the system from the [Overall Data Rate section](wavefront_monitoring.html#overall-data-rate) of the Wavefront Service and Proxy Data dashboard.
 3. Create custom charts with internal metrics. Our system dashboard information is a great start, but you might benefit from other [internal metrics](wavefront-internal-metrics.html) and it's easy to create a dashboard with custom charts.
@@ -66,6 +66,6 @@ Both tools are for situations when the dashboards don't give you enough informat
   * Verify that your Wavefront instance is ingesting the data points that you expect.
   * Troubleshoot a sudden change in the rate at which new data is ingested.
 
-* [**Wavefront Top**](https://github.com/wavefrontHQ/wftop) is an interactive tool for exploring ingested points. For example, you can find out which metric namespaces were used in the last X days. Wavefront Top helps you look at the big picture of what's being ingested -- and the keyboard-driven UI makes it easy to drill down. Watch [this video](https://youtu.be/XROitQwFCJs) for an intro.
+* [**Wavefront Top**](https://github.com/wavefrontHQ/wftop) is an interactive tool for exploring ingested points. For example, you can find out which metric namespaces were used in the last X days. Wavefront Top helps you look at the big picture of what's being ingested -- and the keyboard-driven UI makes it easy to drill down. Watch [this video](https://vmwaretv.vmware.com/media/t/1_yif61rd5) for an intro.
 
 <!--- Discuss new Ingestion Policies here --->
