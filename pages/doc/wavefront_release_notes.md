@@ -18,14 +18,6 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 <table>
   <tbody>
     <tr>
-      <td width="50%" colspan="2" >
-        <strong>Increased Custom Span Tag Limit</strong>:
-        <p>
-          Your spans can now have up to 50 custom span tags. For guidelines on creating custom span tags, see <a href="tracing_best_practices.html#custom-span-tags-best-practices">Best Practices</a>.
-        </p>
-      </td>
-    </tr>
-    <tr>
       <td width="50%">
         <strong>Improved Help Panel</strong>:<p>
         You can now expand and collapse the help panel from the question mark icon on the toolbar.</p>
