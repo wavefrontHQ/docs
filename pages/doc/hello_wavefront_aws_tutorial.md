@@ -91,7 +91,7 @@ Follow these steps:
 
 ### Step 3: Configure the AWS Integration
 
-Go back to the Wavefront cluster where you opened the AWS integration tile, and follow these steps:
+Go back to the Wavefront instance where you opened the AWS integration tile, and follow these steps:
 
 <table style="width: 100%;">
 <tbody>
@@ -131,7 +131,7 @@ Once the instance is launched, you'll see the data after a few minutes.
 * [Set Up Data Ingestion](wavefront_data_ingestion.html) has information on data ingestion, including a video.
 * [Amazon Web Services Integration](integrations_aws_overview.html) has more information on the AWS integration.
 * [Set up and manage the AWS Integration by Using the API](integrations_aws_overview_API.html).
-* See the [List of Wavefront Integrations](label_integrations%20list.html).
+* See the [List of Tanzu Observability by Wavefront Integrations](label_integrations%20list.html).
 
 ## Task 3: Explore Data with Out-of-the-Box Dashboards
 
@@ -145,7 +145,7 @@ You see charts with the metrics collected from your AWS account.
 
 Example:
 ![Screenshot of the AWS metrics once the data starts to flow to Wavefront.](images/hello_tutorial_aws_metrics.png)
-{% include note.html content="You see **No Data** if Wavefront can't find any metrics to match the queries in the chart." %}
+{% include note.html content="You see **No Data** if Tanzu Observability can't find any metrics to match the queries in the chart." %}
 
 <br/>
 <p><span style="font-size: large; font-weight: 500">View Data on Dashboards</span></p>
