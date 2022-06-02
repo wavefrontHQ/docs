@@ -34,7 +34,7 @@ summary: Learn how you can get the unified observability experience with Tanzu O
 </table>
 
 
-{%include note.html content="Tanzu Observability retains the logs you send for 14 days. If you want to keep the data for a longer time, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help."%}
+{%include note.html content="Tanzu Observability retains the logs for the days you specify, which is 7, 14, or 30 days. If you want to keep the data for a longer time, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help."%}
 
 ## What's a Log?
 
@@ -54,7 +54,7 @@ Logs in Tanzu Observability include the following attributes:
     <td>
        Tags
     </td>
-    <td>
+    <td markdown="span">
       Tags are key-value pairs that help you add metadata to your logs. You can filter logs using tags.
       To filter logs for your applications, add the `application` and `service` tags. See [FAQs](logging_faq.html#dont-see-application-and-service-logs) for details.
     </td>

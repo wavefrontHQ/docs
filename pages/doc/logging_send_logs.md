@@ -53,7 +53,7 @@ Configure your log shipper:
       ```
   1. To view logs specific to your application and service, you need to tag the logs with the application and service name. If the logs do not have the application and service name, the Wavefront proxy adds the service and application tags to the log data, and assigns the value `None`. 
   
-### Best Practice
+### Best Practices
 
 If the maximum character limit for a message, tag, and value is exceeded, logs are dropped by the Wavefront proxy. Therefore, make sure your logs are within the given limits. See [FAQs](logging_faq.html#track-data-dropped-by-proxy) to monitor the data points dropped by the proxy.
 
