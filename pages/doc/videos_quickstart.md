@@ -7,6 +7,7 @@ permalink: videos_quickstart.html
 summary: Learn the concepts behind Wavefront technology.
 ---
 
+
 <table style="width: 100%;">
 <tbody>
 <tr>
