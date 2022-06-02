@@ -294,6 +294,8 @@ The **Content** section allows you to specify one or more triage dashboards. For
 
 Users with the **Alerts** permission can change an alert at any time. The options are similar to what you see when you create an alert, but you can quickly focus on the things that you want to change.
 
+{% include tip.html content="The **Alerts** permission does not apply to alerts associated with [ingestion policies](ingestion_policies.html). Only Super Admin users can edit ingestion policy alerts." %}
+
 ### Start the Alert Edit
 
 <table style="width: 100%;">
@@ -395,6 +397,8 @@ Click **Save** in the top right to save your changes.
 ## Delete an Alert
 
 You delete an alert from the Alerts Browser page. Only users with the **Alerts** permission can delete an alert.
+
+{% include tip.html content="The **Alerts** permission does not apply to alerts associated with [ingestion policies](ingestion_policies.html). Only Super Admin users can delete ingestion policy alerts." %}
 
 <table style="width: 100%;">
 <tbody>
