@@ -18,8 +18,7 @@ In the second **conceptual** video, Wavefront co-founder Clement Pang explains:
 * How dashboards, charts, and alerts allow you to monitor your environment
 * How our histogram and tracing features can give you the full picture of what's going on.
 
-<p><a href="https://youtu.be/90mw6Vcmlt4" target="_blank"><img src="/images/v_intro_clement.png" style="width: 608px;" alt="Wavefront proxies video"/></a>
-</p>
+<iframe id="kmsembed-1_jbnj8r75" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_jbnj8r75/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Introduction to Tanzu Observability (Lighboard Video)"></iframe>
 
 
 ## What Can I Do?
@@ -105,7 +104,9 @@ In addition, tight integrations with Spring Boot, Kubernetes, and Tanzu Mission 
 <table style="width: 100%;">
 <tbody>
 <tr><td width="50%">Use our one-click install of the <strong><a href="kubernetes.html"> Wavefront Collector for Kubernetes</a></strong> to collect real-time metrics from all layers of a Kubernetes environment (clusters, nodes, pods, containers and the Kubernetes control plane). You can visualize the metrics in a rich set of predefined dashboards. </td>
-<td width="50%"><a href="https://youtu.be/jbmUKPSIguQ" target="_blank"><img src="/images/v_kubernetes_lightboard.png" alt="Kubernetes and Wavefront with Clement Pang"/></a> </td>
+<td width="50%">
+<iframe id="kmsembed-1_rpculupf" width="400" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_rpculupf/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability and Kubernetes"></iframe>
+ </td>
 </tr>
 </tbody>
 </table>
@@ -139,7 +140,8 @@ You can use Tanzu Observability by Wavefront with time-series (metric) data, and
 
 ### Video: Getting Data Into Wavefront
 
-<p><a href="https://www.youtube.com/watch?v=lhrtPSqn8-c&index=2&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_data_into_wavefront.png" style="width: 700px;" alt="getting data into wavefront"/></a>
+<p>
+<iframe id="kmsembed-1_nc4kmszz" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_nc4kmszz/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="Getting Data Into Wavefront"></iframe>
 </p>
 
 ## What Are Supported Interfaces?

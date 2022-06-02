@@ -8,6 +8,15 @@ summary: Learn about how the Wavefront service deals with cardinality.
 ---
 Tanzu Observability by Wavefront supports high cardinality when dealing with timeseries data and infinite cardinality in its distributed tracing offering.  The Wavefront service can handle more than 200,000 concurrently running containers per Kubernetes cluster. In certain situations, however, high cardinality can cause system slowdown and metrics retrieval issues.
 
+## Video
+
+In the following lightboard video, Clement Pang explains how cardinality works and why it's important to pay attention to your data shape. You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_824wsz3p" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+
+
+<p>
+<iframe id="kmsembed-1_824wsz3p" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_824wsz3p/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="creating dashboards video"></iframe>
+</p>
+
 ## What Is Data Cardinality?
 
 Data cardinality is the number of values in a set. For example, in a database, data cardinality is the number of distinct values in a table column, relative to the number of rows in the table. The more distinct values that you have, the higher cardinality is. In monitoring, data cardinality refers to the number of series in a timeseries.
@@ -81,9 +90,6 @@ The dynamic programming allows for greater query performance at a cost of more s
 
 FoundationDB provides excellent performance on commodity hardware. It is an open-source key-value store that allows you to support very heavy loads.
 
-For more information, watch the following video, in which the Wavefront co-founder Clement Pang explains cardinality.
-
-<a href="https://youtu.be/8wKPkrIiXKw" target="_blank"><img src="/images/v_cardinality.png" style="width: 700px;" alt="about cardinality"/></a>
 
 ## Optimizing High-Cardinality Data
 

@@ -1259,6 +1259,7 @@ Output:1600273622
 </tbody>
 </table>
 
+<!---commenting this out 06/2022. It's now been 4 years...
 ## Add Chart Images to Older Custom Alert Targets
 
 The predefined template for a custom HTML email target or a custom Slack target automatically includes the `imageLinks` variable for producing a [chart image](alerts_notifications.html#static-chart-image-in-notifications) in alert notifications. However, if you created a custom email alert target or a custom Slack alert target before 2018-26.x, you must explicitly update the alert target's template to include a chart image in the alert notifications.
@@ -1301,6 +1302,7 @@ To update the template for a custom Slack alert target that was created before 2
     {% endraw %}
 
 4. Paste the copied section into template of the pre-existing alert target.
+--->
 
 ## Include a Link to a Tracing Service Dashboard
 

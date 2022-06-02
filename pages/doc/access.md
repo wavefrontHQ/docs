@@ -16,8 +16,7 @@ Super Admins or users with the **Accounts** permission who need finer-grained co
 
 This video shows how to limit access for a dashboard, how to give access (share) that dashboard, and how to set the Security organization setting. You can manage access for alerts the same way. The video uses the 2020 version of the UI.
 
-<p><a href="https://youtu.be/45E4pkann0E"><img src="images/v_access.png" style="width: 700px;" alt="Access control for dashboards"/></a>
-</p>
+<p><iframe id="kmsembed-1_lckq6foe" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_lckq6foe/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability: Object-Based Access Control"></iframe></p>
 
 {% include note.html content="After the Access organization setting is set to Object Creator in an environment, only the creator of a new object and the Super Admin can view and modify new objects initially. Those users can give access to the object with other groups or users." %}
 
@@ -92,13 +91,13 @@ By default, service accounts don't have browse permissions. However, you can als
 
 ## Recovering an Inaccessible Dashboard or Alert
 
-If you can no longer access a dashboard or alert, it was either deleted (moved to trash), it was permanently deleted, or the access settings for you or a group you belong to were changed. 
+If you can no longer access a dashboard or alert, it was either deleted (moved to trash), it was permanently deleted, or the access settings for you or a group you belong to were changed.
 
 * If a dashboard was deleted and moved to trash less than 30 days ago, a user with the **Dashboards** permission can [restore the deleted dashboard](ui_dashboards.html#delete-and-recover-a-deleted-dashboard).
 * If an alert was deleted and moved to trash less than 30 days ago, a user with the **Alerts** permission can [restore the deleted alert](alerts_manage.html#restore-a-deleted-alert).
 * If a dashboard was deleted and moved to trash more than 30 days ago, or was permanently deleted, and no one, including the Super Admin, can find the dashboard, the Super Admin can attempt to [restore the dashboard by using the API](access.html#recover-a-permanently-deleted-dashboard).
 * If the access settings to a dashboard or alert have changed, you can ask a Super Admin or a user with the **Accounts** permissions to [restore the access for you](access.html#changing-access-for-individual-dashboards-or-alerts).
-* If all users and groups can no longer access a specific dashboard or alert, a Super Admin may need to check if it is in an orphaned state. A Super Admin user can [make orphan dashboards and alerts visible](access.html#make-orphan-dashboards-or-alerts-visible). 
+* If all users and groups can no longer access a specific dashboard or alert, a Super Admin may need to check if it is in an orphaned state. A Super Admin user can [make orphan dashboards and alerts visible](access.html#make-orphan-dashboards-or-alerts-visible).
 
 Only a Super Admin user, can restore dashboard permissions and attempt to restore a permanently deleted dashboard.
 
@@ -109,29 +108,29 @@ An orphan dashboard results if:
 * Only one user had access to a dashboard or an alert, and that user was deleted.
 
 To restore an orphan dashboard or alert:
-1. Log in as a Super Admin user. 
+1. Log in as a Super Admin user.
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Super Admin**.
 2. Select the orphaned dashboard or alert and share it with other users or groups.
 
   ![orphan dashboards](/images/orphan_dashboards.png)
-  
+
 ### Recover a Permanently Deleted Dashboard
 
 A permanently deleted dashboard does not show in the trash and becomes inaccessible to all users, including the Super Admin. As a Super Admin, you can attempt to restore the dashboard by using the Wavefront API.
 
-1. Log in as a Super Admin user. 
+1. Log in as a Super Admin user.
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **API Documentation**.
 3. Expand the **Dashboard** category, click the `GET api/v2/dashboard/{id}/history/{version}` request and click **Try it out** in the top right of the request.
-4. Enter the dashboard name as the `"id"` parameter. 
+4. Enter the dashboard name as the `"id"` parameter.
    For example, if the dashboard URL is `https://<your_instance>.wavefront.com/dashboards/MY-DASHBOARD`, then the `"id"` that you should enter is **MY-DASHBOARD**.
 5. Enter the last known version of the dashboard as an integer.
-   
+
    If you don't know the version, you can enter **1**. This way, you also determine whether the dashboard `"id"` input has ever existed.
-   
+
 6. Click **Execute**.
-   
+
    If the dashboard `"id"` and the dashboard version don't exist, the API call returns an error like:
-   
+
    ```
      {
       "status":
@@ -142,9 +141,9 @@ A permanently deleted dashboard does not show in the trash and becomes inaccessi
         }
       }
       ```
-7. Copy the **Response body** of the request, that starts after `"response":` up to and including the last but one closing curly bracket (`}`). 
+7. Copy the **Response body** of the request, that starts after `"response":` up to and including the last but one closing curly bracket (`}`).
 
-   
+
    ```
 {
   "modifyAclAccess":true,
@@ -153,19 +152,19 @@ A permanently deleted dashboard does not show in the trash and becomes inaccessi
     "name":"MY DASHBOARD",
     "id":"MY-DASHBOARD",
     ...
-    
+
     "favorite":false,
     "numCharts":2
 }
 
    ```
-8. Click the `POST api/v2/dashboard/` request and click the **Try it out** button in the top right of the request. 
+8. Click the `POST api/v2/dashboard/` request and click the **Try it out** button in the top right of the request.
 9. Paste the copied response data into the **Edit Value** text box and click **Execute** to perform the POST API call.
-   
+
    ![Create a dashboard by using the API. The Edit Value text box contains the response data copied from Step 7.](images/create-dashboard-api-call.png)
-    
+
     This will restore the dashboard.
-    
-10. Validate that the dashboard is now live again. 
-   
-    For example, navigate to `https://<your_instance>.wavefront.com/dashboards/MY-DASHBOARD/history` and you should now be able to review the dashboard history by using the GUI. 
+
+10. Validate that the dashboard is now live again.
+
+    For example, navigate to `https://<your_instance>.wavefront.com/dashboards/MY-DASHBOARD/history` and you should now be able to review the dashboard history by using the GUI.

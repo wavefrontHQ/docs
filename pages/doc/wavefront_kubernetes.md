@@ -17,19 +17,25 @@ summary: Monitor Kubernetes infrastructure and applications. Scale Kubernetes wo
 ## Videos
 
 The following two videos get you started.
-* **Monitor and Scale Kubernetes with Wavefront** (August 2019, 6 minutes) gives you the big picture. It explains the different ways of monitoring Kubernetes with Tanzu Observability.
-* **Kubernetes and Wavefront** (January 2020, 13 minutes) includes more details and some recent developments, including the one-click install of the new [Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes).
+* **Monitor and Scale Kubernetes with Wavefront** (August 2019) gives you the big picture. It explains the different ways of monitoring Kubernetes with Tanzu Observability.
+* **Kubernetes and Wavefront** (January 2020) includes more details and some recent developments, including the one-click install of the new [Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes).
 
 <table style="width: 100%;">
 <tbody>
-<tr><td width="51%"><a href="https://youtu.be/nZnbdNHFNyU"><img src="/images/v_kubernetes_pierre_2.png" alt="monitor and scale Kubernetes"/></a></td>
-<td width="49%"><a href="https://youtu.be/jbmUKPSIguQ"><img src="/images/v_kubernetes_lightboard.png" alt="Kubernetes and Wavefront Details"/></a></td>
+<tr><td width="51%">
+
+<iframe id="kmsembed-1_w7w6o0b4" width="400" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_w7w6o0b4/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Monitor and Scale Kubernetes with Tanzu Observability "></iframe>
+
+</td>
+<td width="50%">
+<iframe id="kmsembed-1_rpculupf" width="400" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_rpculupf/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability and Kubernetes"></iframe>
+</td>
 </tr>
 </tbody>
 </table>
 
 
-## Send Data from Your Kubernetes Environment 
+## Send Data from Your Kubernetes Environment
 
 You can send data to Tanzu Observability in several ways:
 *	**Direct**: Use the Wavefront Collector for Kubernetes to send data directly from your Kubernetes cluster to the Wavefront proxy. The Collector can collect metrics from Prometheus compatible applications and support a number of Telegraf plugins.
@@ -52,8 +58,8 @@ To use the Wavefront Collector for Kubernetes, you need to set up our Kubernetes
 
 ## Monitor Kubernetes with Tanzu Observability
 
-The Wavefront Collector for Kubernetes supports monitoring for your Kubernetes infrastructure at all levels of the stack. 
-* Set up the Wavefront Collector to have much of the monitoring happen automatically. 
+The Wavefront Collector for Kubernetes supports monitoring for your Kubernetes infrastructure at all levels of the stack.
+* Set up the Wavefront Collector to have much of the monitoring happen automatically.
 * Fine-tune and customize the solution with configuration options available in the Wavefront Collector for Kubernetes.
 
 {% include note.html content="See the [list of metrics collected by the Wavefront Collector for Kubernetes](kubernetes.html#metrics)." %}
@@ -76,7 +82,7 @@ You can [filter the metrics](https://github.com/wavefrontHQ/wavefront-kubernetes
 
 ### Application Monitoring
 
-The Wavefront Collector for Kubernetes automatically starts collecting metrics from many commonly used applications: 
+The Wavefront Collector for Kubernetes automatically starts collecting metrics from many commonly used applications:
 * The collector auto-discovers endpoints using labels. See [Auto Discovery](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/discovery.md#auto-discovery).
 * The collector also scrapes Prometheus metric endpoints such as API server, etcd, and NGINX.
 
@@ -95,7 +101,7 @@ Tanzu Observability gives you out-of-the-box dashboards once the Wavefront Colle
 
 ![This image shows the out-of-the box dashboards for Kubernetes: Kubernetes Summary dashboard, Kubernetes Clusters dashboard, Kubernetes Nodes dashboard, Kubernetes Pods dashboard, Kubernetes Containers dashboard, Kubernetes Namespaces dashboard, and Kubernetes Collector Metrics dashboard  ](images/wavefront_kubernetes_dashboards_default.png)
 
-The Kubernetes Summary dashboard gives details on the health of your infrastructure and workloads. You can drill down from this dashboard and identify potential hotspots. 
+The Kubernetes Summary dashboard gives details on the health of your infrastructure and workloads. You can drill down from this dashboard and identify potential hotspots.
 
 {{site.data.alerts.note}}
 <p>These out-of-the-box dashboards are read-only. To create a customizable copy:</p>
@@ -133,7 +139,7 @@ The out-of-the-box dashboards:
       <img src="images/kubernetes_summary_dahsboard.png" alt="a screenshot of the Kubernetes summary dashboard with charts."/>
     </td>
   </tr>
-  <tr>  
+  <tr>
     <td width="20%" markdown="span">
         **Kubernetes Clusters**
     </td>
@@ -141,8 +147,8 @@ The out-of-the-box dashboards:
       Detailed health of your clusters and their nodes, namespaces, pods, and containers.
       <img src="images/kubernetes_cluster_dahsboard.png" alt="a screenshot of the Kubernetes cluster dashboard with charts."/>
     </td>
-  </tr> 
-  <tr> 
+  </tr>
+  <tr>
     <td width="20%" markdown="span">
       **Kubernetes Nodes**
     </td>
@@ -150,8 +156,8 @@ The out-of-the-box dashboards:
       Detailed health of your nodes.
         <img src="images/kubernetes_nodes_dahsboard.png" alt="a screenshot of the Kubernetes nodes dashboard with charts."/>
     </td>
-  </tr> 
-  <tr> 
+  </tr>
+  <tr>
     <td width="20%" markdown="span">
       **Kubernetes Pods**
     </td>
@@ -160,7 +166,7 @@ The out-of-the-box dashboards:
       <img src="images/kubernetes_pods_dahsboard.png" alt="a screenshot of the Kubernetes pods dashboard with charts."/>
     </td>
   </tr>
-  <tr> 
+  <tr>
     <td width="20%" markdown="span">
       **Kubernetes Containers**
     </td>
@@ -169,7 +175,7 @@ The out-of-the-box dashboards:
       <img src="images/kubernetes_container_dahsboard.png" alt="a screenshot of the Kubernetes container dashboard with charts."/>
     </td>
   </tr>
-  <tr> 
+  <tr>
     <td width="20%" markdown="span">
       **Kubernetes Namespaces**
     </td>
@@ -178,7 +184,7 @@ The out-of-the-box dashboards:
       <img src="images/kubernetes_namespaces_dahsboard.png" alt="a screenshot of the Kubernetes namespaces dashboard with charts."/>
     </td>
   </tr>
-  <tr> 
+  <tr>
     <td width="20%" markdown="span">
       **Wavefront Collector for Kubernetes Metrics**
     </td>
