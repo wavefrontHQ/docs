@@ -40,7 +40,7 @@ Follow the steps given below to propagate custom span tags when sending data fro
     <p>When adding custom span-level tags, make sure that it is of low cardinality:</p>
       <ul>
         <li>
-          Do not have more than 25 custom span tags.
+          Do not have more than 50 custom span tags.
         </li>
         <li>
           Do not have more than 100 values assigned to a span tag.
