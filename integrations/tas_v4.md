@@ -1,10 +1,10 @@
 ---
-title: Tanzu Application Service (Beta) Integration
+title: Tanzu Application Service (v4 Beta) Integration
 tags: [integrations list]
-permalink: tas_beta.html
-summary: Learn about the Wavefront Tanzu Application Service (Beta) Integration.
+permalink: tas_v4.html
+summary: Learn about the Wavefront Tanzu Application Service (v4 Beta) Integration.
 ---
-## Tanzu Application Service (Beta) Integration
+## Tanzu Application Service v4 (Beta) Integration
 
 Tanzu Application Service is a popular platform for building cloud-native applications.
 This integration uses the VMware Tanzu Observability by Wavefront Nozzle v4. The integration offers TAS data egress, dashboards and alerting.
@@ -42,16 +42,20 @@ the [Tanzu Observability by Wavefront documentation](https://docs.wavefront.com/
 
 
 
-Supported Versions: TAS v2.11 and later and TAS v2.7 LTS.
+Supported Versions: TAS v2.11 and later.
 
 ### Install VMware Tanzu Observability by Wavefront Nozzle Tile
 
 This integration uses the [VMware Tanzu Observability by Wavefront Nozzle](https://network.pivotal.io/products/wavefront-nozzle)
 tile distributed through the Tanzu network.
 
+See [Monitor Tanzu Application Service with Tanzu Observability by Wavefront](http://docs.wavefront.com/integrations_tas_howto.html) for detailed installation instructions.
+
+### Wavefront Proxy Configuration
 Use the following Wavefront Instance URL and API token for configuring the [Wavefront proxy](http://docs.pivotal.io/partners/wavefront-nozzle/installing.html#install):
+
 Wavefront Instance URL: `https://YOUR_CLUSTER.wavefront.com/api`  
-Wavefront API Token: `YOUR_API_TOKEN`
+Wavefront API Token: `YOUR_API_TOKEN` 
 
 
 

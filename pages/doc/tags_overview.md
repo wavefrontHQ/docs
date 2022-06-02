@@ -18,7 +18,7 @@ Watch these videos to get started:
 <iframe id="kmsembed-1_3igakxnb" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_3igakxnb/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability: Tagging Data"></iframe>
 </td>
 <td><br>
-<p>Understand how tagging can help you get the results that you need. By default, data include the metric name and the source. Cloud integrations include additional dimensions such as the AWS region, as point tags. You can add point tags to any data source from the UI or the API. Source tags are different. They allow you to group machines, for example, into db machines and web machines. You can then customize your queries to pull out just the data you need.</p>
+<p>Understand how tagging can help you get the results that you need. By default, data include the metric name and the source. Cloud integrations include additional dimensions such as the AWS region, as point tags. You can add point tags to any data source from the UI or the API. Source tags are different. They allow you to group machines, for example, into db machines and web machines. You can then customize your queries to pull out just the data you need. You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_3igakxnb" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a> </p>
 </td>
 </tr>
 <tr>
