@@ -15,8 +15,8 @@ You can send logs from your logs shipper, or directly from your application to t
 
 * A Tanzu Observability by Wavefront account, which gives you access to a cluster. If you don’t have a cluster, [sign up for a free trial](https://tanzu.vmware.com/observability-trial).
 * A Tanzu Observability API token linked to an account with Proxy permission. See [Generating an API Token](wavefront_api.html#generating-an-api-token).
-* Whitelist the VMware domain (`*.vmware.com`). 
-  Tanzu Observability uses the VMware log server as part of its architecture. Therefore, to send your log data successfully, you need to whitelist the VMware domain.
+* Whitelist the VMware domain (`*.vmware.com`) on your production enviornment. 
+  Tanzu Observability uses the VMware log cluster. Therefore, to send your log data successfully, you need to whitelist the VMware domain.
 
 ## Install Wavefront Proxy 
 
@@ -42,7 +42,7 @@ Configure your log shipper:
         @type copy
         <store>
           @type http
-          endpoint http://localhost:2878/logs/json_array?f=logs_json_arr
+          endpoint http://<proxy url>:<proxy port e.g. 2878>/logs/json_array?f=logs_json_arr
           open_timeout 2
           json_array true
           <buffer>

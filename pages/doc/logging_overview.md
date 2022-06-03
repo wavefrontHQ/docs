@@ -37,7 +37,7 @@ summary: Learn how you can get the unified observability experience with Tanzu O
 </table>
 
 
-{%include note.html content="Your administrators decide how long they want to keep the logs data in Tanzu Observability, which are 7, 14, or 30 days. If you don't see the logs before a specific time period and want to keep the data for a longer time, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help."%}
+{%include note.html content="Your administrators decide how long they want to keep the log data in Tanzu Observability,  7, 14, or 30 days. If you don’t see the logs before a specific time and want to keep the data for a longer time, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help."%}
 
 ## What's a Log?
 
@@ -67,7 +67,7 @@ Logs in Tanzu Observability include the following attributes:
       Source
     </td>
     <td markdown="span">
-      A source is a unique stable platform that emits logs. For example, an AWS EC2 instance, or a node in Kubernetes. You can filter logs using the source.
+      A source is a unique platform that emits logs. For example, an AWS EC2 instance, or a node in Kubernetes. You can filter logs using the source.
     </td>
   </tr>
   <tr>
@@ -123,7 +123,7 @@ Once your send your logs to Tanzu Observability, you can view all your logs on t
 See all the logs you sent to Tanzu Observability using the [Log Browser](logging_log_browser.html). You can:
 
 * See logs for a selected time range. 
-  {%include note.html content="Your administrators decide how long they want to keep the logs data in Tanzu Observability, which are 7, 14, or 30 days. If you don't see the logs before a specific time period and want to keep the data for a longer time, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help."%}
+  {%include note.html content="Your administrators decide how long they want to keep the log data in Tanzu Observability,  7, 14, or 30 days. If you don’t see the logs before a specific time and want to keep the data for a longer time, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help."%}
 * Filter logs using tags, application, service, and source, or search for logs that have specific keywords.
 * See the total number of logs that are there for a specific time using the histogram chart and identify hotspots.
 * Group logs using tags.
