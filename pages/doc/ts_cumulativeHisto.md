@@ -124,9 +124,11 @@ We can then manipulate the cumulative histogram. First, we use `sum(rate())` to 
 
 ![show only le 60](images/cum_histo_bucket.png)
 
+<!---Humphrey says this doesn't make sense
 Then we use the `cumulativeHisto()` function to return the cumulative histogram for the data.
 
 ![cumulative histo](images/cumulative_histo.png)
+--->
 
 
 ## See Also
