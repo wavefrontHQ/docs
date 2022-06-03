@@ -36,6 +36,7 @@ You can search or filter logs that do not include a source, tag, or keyword:
 
 * Click the not equal sign (≠) next to a **Source** or tag value.
 * Click on a keyword on the search bar, and click **Exclude** > **Apply** > **Search**.
+* Double click a keyword on the **Message** column, and click **Exclude**.
 
 For example, search for logs that do not include the telegraf service and the keyword warn.
 ![shows the example described in text](images/logging_not_include_search.png)

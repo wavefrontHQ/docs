@@ -27,8 +27,8 @@ For example, if you are using FluentD, your `fluent.conf` file can have the foll
   @type record_transformer
   enable_ruby
   <record>
-    service "sample_service" # <INSERT_YOUR_SERVICE_HERE>
-    application "sample_applications" # <INSERT_YOUR_APPLICATION_HERE>
+    service "<INSERT_YOUR_SERVICE_HERE>"
+    application "<INSERT_YOUR_APPLICATION_HERE>" 
     #source "#{ENV['MY_NODE_NAME']}"    
     #service "${record['kubernetes']['labels']['service']}"
     #application "${record['kubernetes']['labels']['application']}"
