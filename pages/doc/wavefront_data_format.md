@@ -71,7 +71,7 @@ Maximum length for metricName is 256.
 <td>timestamp</td>
 <td>No</td>
 <td>Timestamp of the metric.</td>
-<td>Number that reflects the epoch seconds of the metric (e.g. 1382754475). When this field is omitted, the timestamp is set to the current time at the Wavefront proxy when the metric arrives.</td>
+<td>Number that reflects the epoch seconds of the metric (e.g. 1382754475). When this field is omitted, the timestamp is set to the current time at the Wavefront proxy when the metric arrives. Note that even if the timestamp at the proxy is in milliseconds, the Wavefront service backend converts to seconds. </td>
 </tr>
 <tr>
 <td>source</td>
