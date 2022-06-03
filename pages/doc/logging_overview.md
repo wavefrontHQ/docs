@@ -3,7 +3,7 @@ title: Logs Overview
 tags: [getting started, logs]
 sidebar: doc_sidebar
 permalink: logging_overview.html
-summary: Learn how you can get the unified observability experience with Tanzu Observability using metrics, traces, and logs.
+summary: Learn how you can get the unified observability experience with Tanzu Observability using metrics, events, logs, and traces.
 ---
 
 {% include important.html content="This document is work in progress!"%}
@@ -19,10 +19,13 @@ summary: Learn how you can get the unified observability experience with Tanzu O
         Use metrics to get the numerical data and identify the performance issues in a system. 
       </li>
       <li> 
+        Use events to find out that something of interest has happened. For example, the event might show that an alert has changed state from warning to server.
+      </li>
+      <li> 
         Use traces to get an overview of your entire application and discover the services or service requests that don’t perform as expected.
       </li>
       <li> 
-        Use logs to debug the issues.
+        Use logs to find the root cause of issues.
       </li>
     </ul>
   </td>
@@ -34,7 +37,7 @@ summary: Learn how you can get the unified observability experience with Tanzu O
 </table>
 
 
-{%include note.html content="Tanzu Observability retains the logs for the days you specify, which is 7, 14, or 30 days. If you want to keep the data for a longer time, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help."%}
+{%include note.html content="Your administrators decide how long they want to keep the logs data in Tanzu Observability, which are 7, 14, or 30 days. If you don't see the logs before a specific time period and want to keep the data for a longer time, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help."%}
 
 ## What's a Log?
 
@@ -56,7 +59,7 @@ Logs in Tanzu Observability include the following attributes:
     </td>
     <td markdown="span">
       Tags are key-value pairs that help you add metadata to your logs. You can filter logs using tags.
-      To filter logs for your applications, add the `application` and `service` tags. See [FAQs](logging_faq.html#dont-see-application-and-service-logs) for details.
+      <br/><br/>To track the logs sent from the services in applications, you need to add the `service` and `application` tags. See [FAQs](logging_faq.html#dont-see-application-and-service-logs) for details. If `service` and `application` tags are not set, the tags are added by Tanzu Observability and the value is set to `none`.
     </td>
   </tr>
   <tr>
@@ -64,7 +67,7 @@ Logs in Tanzu Observability include the following attributes:
       Source
     </td>
     <td markdown="span">
-      A source is a unique application, host, container, or instance that emits metrics. You can filter logs using the source.
+      A source is a unique stable platform that emits logs. For example, an AWS EC2 instance, or a node in Kubernetes. You can filter logs using the source.
     </td>
   </tr>
   <tr>
@@ -97,7 +100,7 @@ Example:
 
 ## Logging Architecture
 
-You can send your logs to Tanzu observability using a Log Shipper. The Fluentd log shipper is supported out of the box. If you are using a different log shipper, reach out to [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help.
+You can send your logs to Tanzu observability using a Log Shipper that sends logs as a JSON array over HTTP, such as Fluentd.
 
 See [Send logs to Tanzu Observability](logging_send_logs.html) for detailed steps.
 
@@ -117,15 +120,17 @@ Once your send your logs to Tanzu Observability, you can view all your logs on t
 
 ### Search for Logs on The Log  Browser
 
-See all the logs you sent to Tanzu Observability using the log browser. You can:
+See all the logs you sent to Tanzu Observability using the [Log Browser](logging_log_browser.html). You can:
 
-* See logs for a selected time range.
-* Filter logs using tags and source, or search for logs that have specific keywords.
+* See logs for a selected time range. 
+  {%include note.html content="Your administrators decide how long they want to keep the logs data in Tanzu Observability, which are 7, 14, or 30 days. If you don't see the logs before a specific time period and want to keep the data for a longer time, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help."%}
+* Filter logs using tags, application, service, and source, or search for logs that have specific keywords.
 * See the total number of logs that are there for a specific time using the histogram chart and identify hotspots.
 * Group logs using tags.
 * Share the Logs Browser data you see with other users.
 
-![a screenshot of the log browser](images/logging_log_browser.png)
+
+![a screenshot of the Log Browser](images/logging_log_browser.png)
 
 <table style="width: 100%;">
 <tbody>
@@ -139,7 +144,7 @@ Did you notice data anomalies on your chart and want to debug the issue using th
 
 If you don’t see logs, see [logging FAQs](logging_faq.html#dont-see-logs-when-drilling-down-from-a-chart).
 
-![A screenshot of a chart when you right click it . Click logs to go to the log browser](images/logging_charts_to_logs.png)
+![A screenshot of a chart when you right click it . Click logs to go to the Log Browser](images/logging_charts_to_logs.png)
 
 <table style="width: 100%;">
 <tbody>

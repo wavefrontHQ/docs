@@ -15,7 +15,7 @@ Once you have configured your application and log shipper to [send logs to Tanzu
 
 ![An annotated screenshot of the Log Browser.](images/logging_log_browser_annotated_screen.png)
 
-{%include note.html content="Tanzu Observability retains the logs for the days you specify, which is 7, 14, or 30 days. If you want to keep the data for a longer time, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help."%}
+{%include note.html content="Your administrators decide how long they want to keep the logs data in Tanzu Observability, which are 7, 14, or 30 days. If you don't see the logs before a specific time period and want to keep the data for a longer time, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help."%}
 
 ## Search and Filter Logs
 
