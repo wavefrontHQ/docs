@@ -11,11 +11,14 @@ In this tutorial you send logs from your local Kubernetes environment using Mini
 
 ## Prerequisites
 
-* A Tanzu Observability by Wavefront account, which gives you access to a cluster. If you don’t have a cluster, [sign up for a free trial](https://tanzu.vmware.com/observability-trial).
+* A Tanzu Observability by Wavefront account which gives you access to a cluster. If you don’t have a cluster, [sign up for a free trial](https://tanzu.vmware.com/observability-trial).
 * A Tanzu Observability API token linked to an account with Proxy permission. See [Generating an API Token](wavefront_api.html#generating-an-api-token).
 * [Install Docker](https://docs.docker.com/get-docker/). You’ll run the Wavefront proxy on Docker for this tutorial.
 * Install Minikube. Follow [step 1 on the Minikube start guide](https://minikube.sigs.k8s.io/docs/start/).
-* Clone the sample repositorY [TO BE ADDED]().
+* Clone the sample repository.
+    ```
+    git clone https://github.com/wavefrontHQ/logging-examples.git
+    ```
 
 <!-- * Whitelist the VMware domain (`*.vmware.com`).
   Tanzu Observability uses the VMware log server as part of its architecture. Therefore, to send your log data successfully, you need to whitelist the VMware domain. -->
@@ -38,7 +41,7 @@ Follow these steps to install the Wavefront proxy, start Minikube, and then send
 
         {% include note.html content="Replace `{INSTANCE_NAME}` with the name of your Wavefront instance (example: https://example.wavefront.com) and `{TOKEN}` with a Tanzu Observability API token you got in the Prerequisites section."%}
         
-        {% include important.html content="If you ran the proxy on Docker previously, you need to delete the old image in order to download the latest release. Use the commands listed below: " %}
+        {% include important.html content="If you previously started the Wavefront proxy on Docker, delete the old image to download the latest release. Use the commands listed below: " %}
         ```
         # stop the container
         docker stop <running CONTAINER ID>
@@ -71,9 +74,9 @@ Follow these steps to install the Wavefront proxy, start Minikube, and then send
 1. Run the Fluentd log shipper:
     1. Open a new terminal window and navigate to the directory you cloned in the Prerequisites
         ```
-        cd <folder_path>/<ADD_NAME>
+        cd <folder_path>/logging-examples
         ```
-    1. Run the following command to create a configmap from the config file. WHY?
+    1. Run the following command to create a config map from the config file. WHY?
         ```
         kubectl create configmap fluentdconfigmap --from-file=fluent.conf -n kube-system
         ```
@@ -81,7 +84,7 @@ Follow these steps to install the Wavefront proxy, start Minikube, and then send
         ```
         kubectl apply -f fluentd.yaml
         ```
-    1. Run the command given below to verify that you see the Fluentd pod you just installed.
+    1. Run the command below to verify that you see the Fluentd pod you just installed.
         ```
         kubectl get pods -n kube-system
         ```
@@ -101,7 +104,7 @@ Follow these steps to install the Wavefront proxy, start Minikube, and then send
         kubectl apply -f pod_staging.yaml
         ```
 1. Tail the logs of the service:
-    1. On a new terminal window get the name of the development service, and copy the name.
+    1. On a new terminal window, get the name of the development service, and copy the name.
         ```
         kubectl get pods --namespace development
         ```
@@ -115,7 +118,7 @@ Follow these steps to install the Wavefront proxy, start Minikube, and then send
         ```
         kubectl logs  <container_id> --follow --namespace development
         ```
-    1. On a new terminal window get the name of the staging services, and copy the name.
+    1. On a new terminal window, get the name of the staging services, and copy the name.
         ```
         kubectl get pods --namespace staging
         ```
@@ -124,25 +127,25 @@ Follow these steps to install the Wavefront proxy, start Minikube, and then send
         kubectl logs <container_id> --follow --namespace staging
         ```
 1. Access the services you just started:
-    1. Access the development service using the following URL: http://localhost:8080/service1
-    1. Access the staging service using the following URL: http://localhost:8080/service2
+    1. Access the development service using the following URL: [http://localhost:8080/service1](http://localhost:8080/service1)
+    1. Access the staging service using the following URL: [http://localhost:8080/service2](http://localhost:8080/service2)
     
 ## Search and Filter Logs 
 
-Once the data is sent to Tanzu Observability, you can search and filter logs on the log browser, see the logs related to alerts, drill into logs from a chart, Application Map, and the Traces Browser.
+Once Tanzu Observability receives the data, you can search and filter logs on the log browser, see the logs related to alerts, and drill into logs from a chart, Application Map, and the Traces Browser.
 
 Follow these steps:
 1. In your web browser, go to your Wavefront instance and log in.
-1. From the toolbar, select **Logs**. You are taken to the Log Browser.
+1. From the toolbar, select **Logs**. You see the Log Browser.
 1. Click **application** and select **my_app**. 
-    {% include tip.html content="If **Auto Search** is switched on, the search results shows up on the logs browser page. If **Auto Search** is switched off, click **Search** to get the search results. "%}
+    {% include tip.html content="If **Auto Search** is on, the search results show up on the logs browser page when you add a source, tag, or keyword to the search bar. If **Auto Search** is off, click **Search** to get the search results. "%}
     ![a screenshot of the log browser with my_app on the search bar.](images/logging_kubernetes_tutorial_search.png)
 
 To learn more, see [Log Browser](logging_log_browser.html).
 
 ## Clean Up
 
-After running the tutorial, run the following commands to delete the content that was created for this tutorial:
+After running the tutorial, run the following commands to delete the content that you created for this tutorial:
 
 1. Navigate to each terminal that you have service running and press **Ctrl** + **C** to stop them.
 
@@ -154,29 +157,30 @@ After running the tutorial, run the following commands to delete the content tha
     # stop the Proxy
     docker stop <CONTAINER ID>
     ```
+    {% include important.html content="Don't stop the Minikube instance. You need it running to remove the rest of the configurations." %}
 1. Delete the proxy image. 
     ```
     docker rmi wavefronthq/proxy:latest
     ```
-    If you are asked to force remove the image, append `--force` to the end of the above command.
+    If you are prompted to remove the image forcefully, append `--force` to the end of the above command.
 
-1. Delete the fluentd configmap.
+1. Delete the Fluentd config map.
 
     ```
     kubectl delete configmap    fluentdconfigmap  -n   kube-system
     ```
     
-1. Delete the Kubernetes service that was created using the `Fluentd.yaml` file.
+1. Delete the Kubernetes service created using the `Fluentd.yaml` file.
     ```
     kubectl delete -f Fluentd.yaml
     ```
 
-1. Delete the Kubernetes service that was crated using the `pod_dev.yaml` file.
+1. Delete the Kubernetes service created using the `pod_dev.yaml` file.
     ```
     kubectl delete -f pod_dev.yaml
     ```
 
-1. Delete the Kubernetes service that was crated using the `pod_staging.yaml` file.
+1. Delete the Kubernetes service created using the `pod_staging.yaml` file.
     ```
     kubectl delete -f pod_staging.yaml
     ```
