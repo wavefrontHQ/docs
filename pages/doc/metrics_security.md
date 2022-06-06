@@ -20,10 +20,10 @@ In a large enterprise, certain data are confidential. Tanzu Observability by Wav
 
 ## Video: Metrics Security Policy
 
-Watch this <a href="https://vmwaretv.vmware.com/media/t/1_3ea13tor" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> for an overview.
+Watch this <a href="ttps://vmwaretv.vmware.com/media/t/1_3ea13tor" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> for an overview.
 
 <p>
-<iframe src="https://vmwaretv.vmware.com/media/t/1_3ea13tor" width="700" height="400" allowfullscreen="true" alt="Metrics Security Policy video"></iframe>
+<iframe id="kmsembed-1_3ea13tor" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_3ea13tor/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0" referrerPolicy="no-referrer-when-downgrade"></iframe></td>
 </p>
 
 ## How Metrics Security Protects Sensitive Data
