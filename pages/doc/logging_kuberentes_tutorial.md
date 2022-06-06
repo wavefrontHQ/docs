@@ -80,7 +80,7 @@ Follow these steps to install the Wavefront proxy, start Minikube, and then send
         ```
         kubectl create configmap fluentdconfigmap --from-file=fluent.conf -n kube-system
         ```
-    1. Install Fluentd as a daemonset
+    1. Install Fluentd as a daemonset.
         ```
         kubectl apply -f fluentd.yaml
         ```
