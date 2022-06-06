@@ -9,12 +9,6 @@ summary: Learn logs customization and answers to issues you run into.
 
 ## Don't See Logs When Drilling Down From a Chart?
 
-Did you right click on chart, click logs, came to the log browse, and then saw no data on the Log Browser?
-This can happen:
-* If your chart has data from more than one source.
-  You can only search data for a specific source on the the Log Browser. If you have more than once source , you don't see any data. Therefore, select specific source using the **Source** and search again.
-* If you have not tagged your log data when sending the logs from your log shipper. [MORE INFO ON HOW TO TAG]
-
 Did you right-click on a chart, click logs, and saw no data on the Log Browser? This can happen:
 * If your chart has data from more than one source. You can only search data from one source on the Log Browser. Therefore, select a source using **Source** and search again.
 * If you have not tagged your log data using the source, timestamp, message, application, service, and other additional tags when sending the logs from your log shipper. See [What’s a Log?](logging_overview.html#whats-a-log) for details.
