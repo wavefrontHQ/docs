@@ -7,7 +7,7 @@ permalink: logging_kubernetes_tutorial.html
 summary: Learn how to send logs from your Kubernetes cluster to Tanzu Observability
 ---
 
-In this tutorial you send logs from your local Kubernetes environment using Minikube to Tanzu Observability. Once the data is in Tanzu Observability, we use the Log Browser to search and filter logs.
+In this tutorial, you send logs from your local Kubernetes environment using Minikube to Tanzu Observability. Once the data is in Tanzu Observability, we use the Log Browser to search and filter logs.
 
 ## Prerequisites
 
