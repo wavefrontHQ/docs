@@ -22,9 +22,11 @@ We made improvements to the following integrations in June 2022:
   * You can now fetch metrics from Jenkins Prometheus with an authorized user instead of anonymous user.
   * We improved the setup instructions with information on how to enable a Prometheus endpoint.
 
-* RabbitMQ -- Fixed issues with the charts in the out of the box dashboard.
+* Tanzu Application Service -- Fixed issues with the **TAS: RabbitMQ** dashboard.
 
 * vSphere -- Updated the names of a number of virtual machine charts in the  **vSphere Summary** dashboard.
+
+* Wavefront Usage -- Updated the dashboard descriptions and made fixes to alerts.
 
 
 ## May 2022
