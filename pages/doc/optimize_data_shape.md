@@ -18,9 +18,11 @@ In this doc page, we:
 
 ## Video
 
-In the following video Wavefront co-founder Clement Pang explains cardinality and data shape.
+In the following video Wavefront co-founder Clement Pang explains cardinality and data shape. You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_824wsz3p" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
 
-<a href="https://youtu.be/8wKPkrIiXKw" target="_blank"><img src="/images/v_cardinality.png" style="width: 700px;" alt="about cardinality"/></a>
+<p>
+<iframe id="kmsembed-1_824wsz3p" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_824wsz3p/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="creating dashboards video"></iframe>
+</p>
 
 ## Examine Ingested Data: Lag, Backfill, and Metric Type
 

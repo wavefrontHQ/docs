@@ -12,26 +12,29 @@ Learn about getting data into Wavefront and get background info on time series a
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="30%"><strong><font color="#0091DA" size="3">Getting Data Into Wavefront</font></strong><br> <a href="https://www.youtube.com/watch?v=lhrtPSqn8-c&index=2&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K" target="_blank"><img src="/images/v_data_into_wavefront.png" alt="getting data into wavefront"/></a></td>
+<td width="30%"><strong><font color="#0091DA" size="3">Getting Data Into Wavefront</font></strong><br><br/>
+<iframe id="kmsembed-1_nc4kmszz" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_nc4kmszz/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="Getting Data Into Wavefront"></iframe></td>
 <td width="70%"><br><p>Wavefront gives observability into your cloud environment and packaged applications. To get data into Wavefront, use an integration with preconfigured dashboards or one of the Wavefront SDKs. Send data from several sources to a Wavefront proxy or use direct ingestion. Finally, add dashboards, charts, and alerts to monitor exactly what you need.</p> </td>
 </tr>
 <tr>
-<td><strong><font color="#0091DA" size="3">Browsing your Data</font></strong><br>
+<td><strong><font color="#0091DA" size="3">Browsing Your Data</font></strong><br>
 <br>
-<iframe id="kmsembed-1_ubikydhv" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_ubikydhv/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="browse metrics from source browser or metrics browser"></iframe>
+<iframe id="kmsembed-1_ai5iua3f" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_ai5iua3f/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0"></iframe>
 </td>
 <td><br>
-<p>90-second video that shows how you can find and examine metrics from the Sources browser and from the Metrics browser. </p>
-<p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_ubikydhv" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
+<p>90-second video that shows how you can find and examine metrics from the Sources browser and from the Metrics browser. </p><p>You can also watch the video <a href="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_ai5iua3f/uiConfId/49694343/pbc/252649793/st/0" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
-<td width="30%"><strong><font color="#0091DA" size="3">Wavefront Proxy</font></strong><br> <a href="https://youtu.be/Lrm8UuxrsqA" target="_blank"><img src="/images/v_proxy_clement.png " alt="Wavefront proxy video"/></a></td>
+<td width="30%"><strong><font color="#0091DA" size="3">Wavefront Proxy</font></strong><br><br>
+<iframe id="kmsembed-1_5wfjti3m" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_5wfjti3m/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Wavefront Proxy"></iframe>
+</td>
 <td width="70%"><br><p>Clement contrasts using a Wavefront proxy with using direct ingestion, discusses proxy benefits, and goes over the architecture of most production systems, which includes a fleet of proxies behind a load balancer. The result is more resilience and a better user experience. </p> </td>
 </tr>
 <tr>
-<td><strong><font color="#0091DA" size="3">Time Series and Interpolation</font></strong><br>
-<a href="https://youtu.be/9LnDszVrJs4"  target="_blank"><img src="/images/v_interpolation.png" alt="time series and interpolation"/></a></td>
+<td><strong><font color="#0091DA" size="3">Time Series and Interpolation</font></strong><br><br>
+<iframe id="kmsembed-1_afml14zm" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_afml14zm/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability: Time Series and Interpolation"></iframe>
+</td>
 <td><br>
 <p>Interpolation means that Wavefront creates pseudo data points if data are reported at different intervals. To support aggregation of multiple series--e.g. sum()--Wavefront . Wavefront performs automatic alignment data for very large intervals using mean(), but you can select the summarization function. The raw aggregation function includes only actual data points--no automatic interpolation is performed. </p>
 </td>
@@ -57,14 +60,17 @@ Learn about getting data into Wavefront and get background info on time series a
 </td>
 </tr>
 <tr>
-<td><strong><font color="#0091DA" size="3">Tagging Your Data with Wavefront</font></strong><br>
-<a href="https://www.youtube.com/watch?v=9tt4orZHQts&index=3&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K" target="_blank"><img src="/images/v_tagging_clement.png"  alt="Tagging in Wavefront"/></a></td>
+<td><strong><font color="#0091DA" size="3">Tagging Your Data with Wavefront</font></strong><br><br/>
+<iframe id="kmsembed-1_3igakxnb" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_3igakxnb/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="Tanzu Observability: Tagging Data"></iframe>
+</td>
 <td><br>
 <p>By default, data include the metric name and host. With cloud integrations, data include additional dimensions, such as the AWS region, as point tags. You can add point tags explicitly to any data source from the UI or the API. Source tags are different - they allow you to group machines, for example, into db machines and web machines. You can then customize your queries to pull out just the data you need. </p>
 </td>
 </tr>
 <tr>
-<td><strong><font color="#0091DA" size="3">Wavefront Histograms</font></strong><br> <a href="https://www.youtube.com/watch?v=syIKQ2oZk9s&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K&index=16" target="_blank"><img src="/images/v_data_into_wavefront.png" alt="getting data into wavefront"/></a></td>
+<td><strong><font color="#0091DA" size="3">Wavefront Histograms</font></strong><br><br/>
+<iframe id="kmsembed-1_om7poavj" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_om7poavj/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability: Histograms"></iframe>
+</td>
 <td><br><p>Clement explains how Wavefront histograms can help you observe measurements that happen at a high frequency. You learn how Wavefront organizes these high frequency metrics into bins, and how you can use the query language to work with the resulting histograms.  </p> </td>
 </tr>
 <tr>

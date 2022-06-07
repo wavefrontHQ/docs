@@ -54,7 +54,7 @@ Options:
 <tbody>
 <tr>
 <td width="20%"><strong>Token</strong></td>
-<td width="80%" markdown="span">WAVEFRONT_TOKEN is the [API token](wavefront_api.html#generating-an-api-token) for the account</td>
+<td width="80%" markdown="span">WAVEFRONT_TOKEN is the [API token](wavefront_api.html#managing-api-tokens) for the account</td>
 </tr>
 <tr>
 <td width="20%"><strong>Configuration properties</strong></td>
@@ -191,5 +191,5 @@ docker run -it -e WAVEFRONT_URL=xxxxxxx -e WAVEFRONT_TOKEN=xxxxxx -p 2878:2878 -
 
 You must specify:
 * WAVEFRONT_URL: The URL of your instance (e.g., https://example.wavefront.com)
-* WAVEFRONT_TOKEN: The [Wavefront Token](wavefront_api.html#generating-an-api-token). Creating a service account and using a service account token usually makes sense.
+* WAVEFRONT_TOKEN: The [Wavefront Token](wavefront_api.html#managing-api-tokens). Creating a service account and using a service account token usually makes sense.
 * The port that the proxy is using; 2878 by default.

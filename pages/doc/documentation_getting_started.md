@@ -117,8 +117,9 @@ We're continually adding to this set - let us know what else you'd like to see.
 <ul><li>Lightboard videos give conceptual background</li>
 <li>Our task-focus videos show how to get things done.</li></ul>
 
-Here are some task-focus <a href="videos_howto_start.html"> intro videos</a>. Click links in that section for more. </td>
-<td width="50%"><a href="https://youtu.be/90mw6Vcmlt4" target="_blank"><img src="/images/v_intro_clement.png" alt="Introduction to Wavefront video"/></a></td>
+Here are some <a href="videos_howto_start.html">task-based intro videos</a> and <a href="videos_quickstart.html"> lightboard videos</a>. </td>
+<td width="50%"><strong><font color="#0091DA" size="3">Introduction to Wavefront</font></strong><br><br/>
+<iframe id="kmsembed-1_jbnj8r75" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_jbnj8r75/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Introduction to Tanzu Observability (Lighboard Video)"></iframe></td>
 </tr>
 </tbody>
 </table>

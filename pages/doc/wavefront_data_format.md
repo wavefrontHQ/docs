@@ -71,7 +71,7 @@ Maximum length for metricName is 256.
 <td>timestamp</td>
 <td>No</td>
 <td>Timestamp of the metric.</td>
-<td>Number that reflects the epoch seconds of the metric (e.g. 1382754475). When this field is omitted, the timestamp is set to the current time at the Wavefront proxy when the metric arrives.</td>
+<td>Number that reflects the epoch seconds of the metric (e.g. 1382754475). When this field is omitted, the timestamp is set to the current time at the Wavefront proxy when the metric arrives. Note that even if the timestamp at the proxy is in milliseconds, the Wavefront service backend converts to seconds.</td>
 </tr>
 <tr>
 <td>source</td>
@@ -106,8 +106,10 @@ The string "host" is a reserved word. If you specify a point tag host=&lt;tagVal
 
 Watch the following video for an introduction to point tags and source tags:
 
-<p><a href="https://www.youtube.com/watch?v=9tt4orZHQts&index=3&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_tagging_clement.png" style="width: 700px;" alt="tagging"/></a>
+<p>
+<iframe id="kmsembed-1_3igakxnb" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_3igakxnb/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="Tanzu Observability: Tagging Data"></iframe>
 </p>
+
 
 ### Valid and Invalid Metrics Examples
 

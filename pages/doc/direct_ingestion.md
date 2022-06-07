@@ -35,7 +35,7 @@ Because some customers wanted to send data directly to the Wavefront service, we
 ## Direct Ingestion Example Commands
 
 The following examples illustrate how to send data directly to the Wavefront service.
-* An [API token](wavefront_api.html#generating-an-api-token) is required. Referred to as `<TOKEN>` in the examples.
+* An [API token](wavefront_api.html#managing-api-tokens) is required. Referred to as `<TOKEN>` in the examples.
 * You must know your Wavefront instance name. This doc page uses `mydomain.wavefront.com`.
 * Currently, direct ingestion supports only [Wavefront Data Format](wavefront_data_format.html), which is named `wavefront`. If you don't specify `f=wavefront`, we still use that format.
 
@@ -82,7 +82,7 @@ Notes:
   - Include `f=trace` at the end of the `--data` argument to ensure the input is treated as trace data.
   - Include `cluster=none` and `shard=none` for a span that does not have values for the `cluster` and `shard` span tags.
   - Replace `<start_milliseconds>` and `<duration_milliseconds>` with numbers indicating the span's start time and duration.
-* If you ingest spans using a direct ingestion command such the example above, you are limited to using [Query Editor](trace_data_query.html#use-query-editor-power-users) when you want to query for traces containing those spans. (Query Builder cannot find spans ingested in this way).
+* If you ingest spans using a direct ingestion command such the example above, you are limited to using [Query Editor](trace_data_query.html#trace-queries-in-query-editor) when you want to query for traces containing those spans. (Query Builder cannot find spans ingested in this way).
 
 
 ## Proxy or Direct Ingestion?

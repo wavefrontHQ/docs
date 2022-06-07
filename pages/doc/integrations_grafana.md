@@ -13,7 +13,7 @@ When you set up Tanzu Observability as a data source in Grafana, you can view th
 
 ## Set Up Tanzu Observability as a Prometheus Data Source
 
-To set up Tanzu Observability as a PromQL data source in Grafana, you must provide an API Token of a user account or a service account that can run queries. For details on API tokens, see [Generating an API Token](https://docs.wavefront.com/wavefront_api.html#generating-an-api-token).
+To set up Tanzu Observability as a PromQL data source in Grafana, you must provide an API Token of a user account or a service account that can run queries. For details on API tokens, see [Generating an API Token](https://docs.wavefront.com/wavefront_api.html#managing-api-tokens).
 
 1. Log in to your Grafana instance.
 

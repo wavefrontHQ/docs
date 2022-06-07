@@ -299,7 +299,7 @@ INFO [AbstractReportableEntityHandler:reject] [<port>] blocked input: [WF-300 Ca
    ```
    CRITICAL (Losing data): WF-1: Error adding task to the queue:
    ```
-* Explanation: 
+* Explanation:
 
   The proxy is running out of disk space or the queue (buffer) files are exceeding their maximum allowed size (normally 2GB).
 
@@ -394,7 +394,7 @@ In most cases, you truncate the proxy queue by deleting the files in the proxy q
 
 #### Option 2: Remove the Files Via Export
 
-An alternative to deleting data is to [export queued data](#how-to-export-data-queued-at-the-proxy).
+An alternative to deleting data is to [export queued data](#export-data-queued-at-the-proxy).
 * Set the `exportQueueRetainData` flag to false to clear the queued data.
 * Set `exportQueueOutputFile` to `/dev/null` or a similar temporary location.
 
@@ -499,3 +499,11 @@ The example test output might look like this.
 ![screenshot with curl command showing health check is enabled](images/proxy_health_check.png)
 
 The `curl` command checks for status, and the status 200 is returned.
+
+## Proxies FAQ
+
+This section gives answers to some frequently asked questions. We expect to add more questions and answers as we hear from customers.
+
+### Can You Explain wavefront-proxy timestamps and Wavefront Service timestamps?
+
+The wavefront-proxy sends metric timestamps as milliseconds, but the ingestion layer of the Wavefront service converts and stores the information as seconds. 

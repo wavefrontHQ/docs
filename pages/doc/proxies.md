@@ -23,7 +23,8 @@ Having a proxy be part of the architecture has benefits:
 
 In this video, Clement contrasts using a Wavefront proxy with using direct ingestion, discusses proxy benefits, and goes over the architecture of most production systems, which includes a fleet of proxies behind a load balancer. The result is more resilience and a better user experience.
 
-<p><a href="https://youtu.be/Lrm8UuxrsqA" target="_blank"><img src="/images/v_proxy_clement.png" style="width: 700px;" alt="Wavefront proxies video"/></a>
+<p>
+<iframe id="kmsembed-1_5wfjti3m" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_5wfjti3m/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Wavefront Proxy"></iframe>
 </p>
 
 
@@ -61,11 +62,11 @@ We support a rich set of integrations.
 
 You can also use one of [our SDKs](wavefront_sdks.html) to send your metrics to the proxy.
 
-![Agents and metrics collection](/images/proxy_deployment_complex.png)
 
 ### Production Environment: Team of Proxies & Load Balancer
 
 To enable fault tolerance and higher data rates, production environments typically use a load balancer that sends data to multiple proxies, as shown below.
+
 
 ![Proxies using load balancer](/images/proxy_deployment_load_balancer.png)
 
@@ -74,11 +75,11 @@ To enable fault tolerance and higher data rates, production environments typical
 
 ## Proxy Configuration
 
-You can modify proxy behavior in several ways:
+You can modify how the proxy handles data in several ways:
 
-- **Configuration file**: The proxy processes data according to a configuration file. You can modify configuration properties -- for example, to create `block` list and `allow` list regex patterns, specify information about certain data formats, and much more. See [Configuring Wavefront Proxies](proxies_configuring.html).
-- **Source Tags**: If you specify source tags and descriptions in the metric source, the proxy can use that information to filter the incoming metrics. See [Manage SourceTag and SourceDescription Properties at the Proxy](tags_overview.html#manage-sourcetag-and-sourcedescription-properties-at-the-proxy).
-- **Preprocessor Rules**: Starting with proxy version 4.1, the Wavefront proxy includes a preprocessor that applies user-defined rules before data is sent to the Wavefront service. You can use preprocessor rules to correct certain data quality issues when you can't fix the problem at the emitting source. See [Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules.html).
+- **Configuration file**: The proxy processes data according to a configuration file. You can modify configuration properties -- for example, create create `block` list and `allow` list regex patterns, specify information about certain data formats, and much more. See [Configuring Wavefront Proxies](proxies_configuring.html).
+- **Preprocessor Rules**: Use preprocessor rules to correct certain data quality issues when you can't fix the problem at the emitting source. See [Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules.html). If you want to perform conditional preprocession, see [Preprocessor Rule Conditions](proxies_preprocessor_rule_conditions.html).
+- - **Source Tags**: Use source tags and descriptions in the metric source to instruct the proxy to filter the incoming metrics. See [Manage SourceTag and SourceDescription Properties at the Proxy](tags_overview.html#manage-sourcetag-and-sourcedescription-properties-at-the-proxy).
 
 ![Proxy configuration options](/images/proxy_config_options_rev.png)
 
@@ -87,7 +88,7 @@ You can modify proxy behavior in several ways:
 Wavefront proxies support:
 * Time-series metrics
 * Histograms
-* Traces/spans 
+* Traces/spans
 
 Each type of data uses a different data format. See [Wavefront Data Format](wavefront_data_format.html) for details and links.
 

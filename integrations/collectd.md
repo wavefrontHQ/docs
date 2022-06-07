@@ -47,7 +47,7 @@ There are many plugins available with collectd, including SNMP and various datab
 
 See the [write_graphite documentation](https://collectd.org/documentation/manpages/collectd.conf.5.shtml#plugin_write_graphite) for an explanation of the various options. We believe these settings provide the optimal behavior when using Wavefront. If you are running collectd on a different machine from the one where the Wavefront proxy is running, replace `localhost` in the `write_graphite` configuration block. 
 
-The `Prefix` setting causes all the metrics that end up Wavefront to begin with collectd, for example `collectd.cpu.0.cpu.idle`. This can be helpful to allow your collectd metrics to be kept totally separate from those from different sources. However, if you prefer not to have that prefix you can delete or comment out that line in your configuration. If you do that you must also edit `wavefront.conf`, change `graphiteFormat=2` to `graphiteFormat=1`, and restart the [Wavefront proxy](https://docs.wavefront.com/proxies_installing.html#starting-and-stopping-a-proxy).
+The `Prefix` setting causes all the metrics that end up Wavefront to begin with collectd, for example `collectd.cpu.0.cpu.idle`. This can be helpful to allow your collectd metrics to be kept totally separate from those from different sources. However, if you prefer not to have that prefix you can delete or comment out that line in your configuration. If you do that you must also edit `wavefront.conf`, change `graphiteFormat=2` to `graphiteFormat=1`, and restart the [Wavefront proxy](https://docs.wavefront.com/proxies_installing.html#start-and-stop-a-proxy).
  
  
 ### Step 4. Run collectd

@@ -14,11 +14,10 @@ Learn about visualizing your metrics with dashboards and charts, and how to cust
 <tr>
 <td><strong><font color="#0091DA" size="3">Browsing Your Data</font></strong><br>
 <br>
-<iframe src="https://bcove.video/3n13ulm" width="550" height="275" allowfullscreen="true" alt="browse metrics from source browser or metrics browser"></iframe>
+<iframe id="kmsembed-1_ai5iua3f" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_ai5iua3f/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0"></iframe>
 </td>
 <td><br>
-<p>90-second video that shows how you can find and examine metrics from the Sources browser and from the Metrics browser. </p>
-<p>You can also watch the video <a href="https://bcove.video/3n13ulm" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
+<p>90-second video that shows how you can find and examine metrics from the Sources browser and from the Metrics browser. </p><p>You can also watch the video <a href="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_ai5iua3f/uiConfId/49694343/pbc/252649793/st/0" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
@@ -41,8 +40,8 @@ Learn about visualizing your metrics with dashboards and charts, and how to cust
 <tr>
 <td><strong><font color="#0091DA" size="3">Customize Dashboards</font></strong><br>
 <br>
-<iframe src="https://bcove.video/2Wux6eP" width="550" height="275" allowfullscreen="true" alt="customizing dashboard video"></iframe></td>
-<td><br><p>All users can customize their dashboards. Learn how to find a section, filter using variables or filters, set the time for the dashboard, and share the dashboard with others.</p><p>You can also watch the video <a href="https://bcove.video/2Wux6eP" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> </td>
+<iframe id="kmsembed-1_gunwcmwm" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gunwcmwm/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0" referrerPolicy="no-referrer-when-downgrade"></iframe></td>
+<td><br><p>All users can customize their dashboards. Learn how to find a section, filter using variables or filters, set the time for the dashboard, and share the dashboard with others.</p><p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_gunwcmwm/252649793" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> </td>
 </tr>
 <tr>
 <td><strong><font color="#0091DA" size="3">Create and Modify Charts with Chart Builder</font></strong><br>

@@ -16,7 +16,7 @@ traces(<filterName>="<filterValue>" [,|and|or [not] <filter2Name>="<filter2Value
 
 traces(<spansExpression>, [<spansExpression])
 ```
-Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified operation and [span filters](#span-filters). Available only in the [Query Editor in the Traces browser](trace_data_query.html#use-query-editor-power-users). Can be combined with one or more [filtering functions](#filtering-functions).
+Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified operation and [span filters](#span-filters). Available only in the [Query Editor in the Traces browser](trace_data_query.html#trace-queries-in-query-editor). Can be combined with one or more [filtering functions](#filtering-functions).
 
 ## Parameters
 
@@ -49,7 +49,7 @@ Returns the traces that contain one or more qualifying spans, where a qualifying
 ## Description
 The `traces()` function returns a set of traces. Each trace contains at least one qualifying member span. A span qualifies if it matches the description you specify, which might consist of an operation name, one or more [span filters](#span-filters), or a combination of these.
 
-You submit a `traces()` function using the [Query Editor in the Traces browser](trace_data_query.html#use-query-editor-power-users).
+You submit a `traces()` function using the [Query Editor in the Traces browser](trace_data_query.html#trace-queries-in-query-editor).
 Using the `traces()` function is a power-user alternative to using Query Builder.
 
 `traces()` returns a trace:
