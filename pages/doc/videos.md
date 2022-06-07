@@ -4,30 +4,42 @@ keywords: videos
 tags: [getting started, videos]
 sidebar: doc_sidebar
 permalink: videos.html
-summary: Learn about Tanzu Observability with Videos
+summary: Learn about Tanzu Observability with videos
 ---
 This page has playlists of our videos. You can instead watch them from the [Tanzu Observability channel on VMware TV here](https://vmwaretv.vmware.com/channel/Tanzu%2BObservability/252649793)
 
 ## Get Started with Tanzu Observability by Wavefront
-<br><br>
-<iframe src="https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_zcafsh0j/uiConfId/47611883" width="840" height="330" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" frameborder="0" title="Getting Started with Tanzu Observability by Wavefront"></iframe>
+
+This playlist includes videos with conceptual background and some how-to videos. You can also watch the playlist videos <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_zcafsh0j/" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+<br>
+<iframe src="https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_zcafsh0j/uiConfId/47611883" width="840" height="375" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" frameborder="0" title="Getting Started with Tanzu Observability by Wavefront"></iframe>
 
 ## Understand and Ingest Data
-<br><br>
-<iframe src="https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_va4bdzpt/uiConfId/47611883" width="840" height="330" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" frameborder="0" title="Understand and Ingest Data"></iframe>
+
+This playlist includes videos about data ingestion, tagging data, Wavefront Proxy, and more. You can also watch the playlist videos in your browser <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_va4bdzpt/" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+<br>
+<iframe src="https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_va4bdzpt/uiConfId/47611883" width="840" height="375" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" frameborder="0" title="Understand and Ingest Data"></iframe>
 
 ## Examine Data in Dashboards and Charts
-<br><br>
-<iframe src="https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_kt6ngrmf/uiConfId/47611883" width="840" height="330" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" frameborder="0" title="Examine Data in Dashboards and Charts"></iframe>
+
+This playlist includes videos about examining data and fine-tuning your display. You can also watch the playlist videos in your browser <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_kt6ngrmf/" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+<br>
+<iframe src="https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_kt6ngrmf/uiConfId/47611883" width="840" height="375" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" frameborder="0" title="Examine Data in Dashboards and Charts"></iframe>
 
 ## Create, Manage, and Optimize Dashboards and Charts
-<br><br>
-<iframe src="https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_lw8ddnlp/uiConfId/47611883" width="840" height="330" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" frameborder="0" title="Create, Manage, and Optimize Dashboards and Charts"></iframe>
+
+This playlist includes videos about creating and customizing dashboards and charts. You can also watch the playlist videos in your browser <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_lw8ddnlp/" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+<br>
+<iframe src="https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_lw8ddnlp/uiConfId/47611883" width="840" height="375" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" frameborder="0" title="Create, Manage, and Optimize Dashboards and Charts"></iframe>
 
 ## How to Use Tanzu Observability Alerts
-<br><br>
-<iframe src="https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_r6vcinjj/uiConfId/47611883" width="840" height="330" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade"  frameborder="0" title="How to Use Tanzu Observability Alerts"></iframe>
+
+This playlist includes videos about viewing alerts in the alerts browser and creating alerts. You also learn about alert states and lifecycle and about maintenance windows. You can also watch the playlist videos in your browser <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_r6vcinjj/" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+<br>
+<iframe src="https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_r6vcinjj/uiConfId/47611883" width="840" height="375" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade"  frameborder="0" title="How to Use Tanzu Observability Alerts"></iframe>
 
 ## How to Query with WQL or PromQL
-<br><br>
-<iframe src="https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_brmdewqc/uiConfId/47611883" width="740" height="330" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" frameborder="0" title="How to Query with WQL or PromQL"></iframe>
+
+This playlist includes videos with background information about querying data, and about using PromQL in the query editor. You can also watch the playlist videos in your browser <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_brmdewqc/" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+<br>
+<iframe src="https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_brmdewqc/uiConfId/47611883" width="840" height="375" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" frameborder="0" title="How to Query with WQL or PromQL"></iframe>

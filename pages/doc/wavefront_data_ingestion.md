@@ -129,7 +129,7 @@ Alerts and special features such as anomaly detection, histograms, and distribut
 
 ## Learn More!
 
-* Have a look at [some of our intro videos](videos_quickstart.html)
+* Watch the videos in the [Get Started with Tanzu Observability](https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_zcafsh0j/uiConfId/47611883) playlist on VMware TV.
 * Learn more about [histogram](proxies_histograms.html) or [distributed tracing](tracing_basics.html) capabilities.
 * Have a look at some details about [Wavefront proxies](proxies.html)
 

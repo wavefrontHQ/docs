@@ -4,6 +4,7 @@ keywords: videos
 tags: [videos]
 sidebar: doc_sidebar
 permalink: videos_tags_searches.html
+published: false
 summary: Use tags and searches to quickly find what you need.
 ---
 The following videos show how to use tags and searches in the UI to find what you need. Clement's video explains how to use tagging in Wavefront.

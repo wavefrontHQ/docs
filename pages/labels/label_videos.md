@@ -3,6 +3,7 @@ title: "Video Pages"
 tagName: videos
 search: exclude
 permalink: label_videos.html
+published: false
 sidebar: doc_sidebar
 folder: labels
 ---

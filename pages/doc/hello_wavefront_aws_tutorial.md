@@ -232,4 +232,4 @@ Our Success Value Engineering team shared some frequently asked questions -- and
 * How do I track usage? See [Monitor Your Wavefront Service with the Wavefront Usage Integration](wavefront_monitoring.html).
 * Why did my alert (not) fire? See [Why Did My Alert Not Fire?](alerts_faq.html#why-did-my-alert-not-fire) and [Why Did My Alert Misfire](alerts_faq.html#why-did-my-alert-misfire).
 * How do I contact support? Start with [the gear icon menu](wavefront_support_feedback.html#support). See [How Do I Engage with Technical Support](https://help.wavefront.com/hc/en-us/articles/360057219171-How-to-Engage-Technical-Support) for details on severity levels, SLAs, and so on.
-* Do you have videos? Yes! Many documentation pages include videos, or you can watch [Get Started Videos](videos_howto_start.html) and find videos about specific topics (e.g. alerts) in the TOC on the left.
+* Do you have videos? Yes! We have a [Tanzu Observability channel on VMware TV](https://vmwaretv.vmware.com/channel/Tanzu%2BObservability/252649793)! 

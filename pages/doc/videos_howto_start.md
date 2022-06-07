@@ -4,6 +4,7 @@ keywords: videos
 tags: [getting started, videos]
 sidebar: doc_sidebar
 permalink: videos_howto_start.html
+published: false
 summary: Learn how to perform basic tasks in the Wavefront UI.
 ---
 
