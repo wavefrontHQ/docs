@@ -1,7 +1,7 @@
 ---
 title: Log Data Metrics Integration
 keywords:
-tags: [integrations, videos]
+tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_log_data.html
 summary: Learn how to send log data to Tanzu Observability by Wavefront by setting up a proxy and configuring Filebeat or TCP.

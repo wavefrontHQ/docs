@@ -1,7 +1,7 @@
 ---
 title: Alerts
 keywords: alerts
-tags: [alerts, events, videos]
+tags: [alerts, events]
 sidebar: doc_sidebar
 permalink: alerts.html
 summary: Learn how alerts work, examine, and organize them.

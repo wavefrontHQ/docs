@@ -1,12 +1,13 @@
 ---
 title: Tanzu Observability Videos
 keywords: videos
-tags: [getting started, videos]
+tags: [getting started]
 sidebar: doc_sidebar
 permalink: videos.html
 summary: Learn about Tanzu Observability with videos
 ---
 This page has playlists of our videos. You can instead watch them from the [Tanzu Observability channel on VMware TV here](https://vmwaretv.vmware.com/channel/Tanzu%2BObservability/252649793)
+
 
 ## Get Started with Tanzu Observability by Wavefront
 
