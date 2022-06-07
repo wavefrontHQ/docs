@@ -23,21 +23,21 @@ This release includes the following improvements:
 ## 2022-20.x Release Notes
 
 <table>
-<tbody>
-<tr>
-  <td width="50%">
-  <strong>Improved Help Panel</strong>:<p>
-  You can now expand and collapse the help panel from the question mark icon on the toolbar.</p>
-  <p>In addition, we have improved most of our help pages with the following sections.
-  <ul>
-  <li>The <strong>Read More</strong> section contains links which will bring you to relevant doc pages on <a href="index.html">docs.wavefront.com</a>.</li>
-  <li>The <strong>Watch Videos</strong> section contains links to videos that will help you understand various Tanzu Observability concepts and tasks.</li>
-  </ul></p>
-  </td>
-  <td width="50%">
-  <img src="/images/help.png" alt="Question mark button at the top right on the toolbar.">
-  </td>
-</tr>
+  <tbody>
+    <tr>
+      <td width="50%">
+        <strong>Improved Help Panel</strong>:<p>
+        You can now expand and collapse the help panel from the question mark icon on the toolbar.</p>
+        <p>In addition, we have improved most of our help pages with the following sections.
+        <ul>
+        <li>The <strong>Read More</strong> section contains links which will bring you to relevant doc pages on <a href="index.html">docs.wavefront.com</a>.</li>
+        <li>The <strong>Watch Videos</strong> section contains links to videos that will help you understand various Tanzu Observability concepts and tasks.</li>
+        </ul></p>
+      </td>
+      <td width="50%">
+        <img src="/images/help.png" alt="Question mark button at the top right on the toolbar.">
+      </td>
+    </tr>
   </tbody>
 </table>
 

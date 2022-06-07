@@ -212,7 +212,7 @@ You can define custom span tags to let you query and filter for particular subse
 
 ### Guidelines for Defining Custom Span Tags
 
-* Do not have more than 25 custom span tags.
+* Do not have more than 50 custom span tags.
 
 * Do not have more than 100 values assigned to a span tag. Keep the cardinality of custom span tags low.
 

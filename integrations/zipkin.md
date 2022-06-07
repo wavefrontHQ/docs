@@ -27,7 +27,7 @@ Zipkin [deployments](https://zipkin.io/pages/architecture.html) consist of a Zip
 {% endraw %}
    **Note:** See the [documentation](https://docs.wavefront.com/proxies_configuring.html#paths) for the config file location for the different operating systems.
 3. Save and close `wavefront.conf`.
-4. [Restart the proxy](https://docs.wavefront.com/proxies_installing.html#starting-and-stopping-a-proxy).
+4. [Restart the proxy](https://docs.wavefront.com/proxies_installing.html#start-and-stop-a-proxy).
 
 Wavefront will now receive Zipkin trace data on the specified proxy port.
 
