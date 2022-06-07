@@ -37,7 +37,7 @@ summary: Learn how you can get the unified observability experience with Tanzu O
 </table>
 
 
-{%include note.html content="Your administrators decide how long they want to keep the log data in Tanzu Observability,  7, 14, or 30 days. If you don’t see the logs before a specific time and want to keep the data for a longer time, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help."%}
+{%include note.html content="Your administrators decide how long they want to keep the log data in Tanzu Observability,  7, 15, or 30 days. If you don’t see the logs before a specific time and want to keep the data for a longer time, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help."%}
 
 ## What's a Log?
 
