@@ -124,7 +124,7 @@ See all the logs you sent to Tanzu Observability using the [Log Browser](logging
 
 * See logs for a selected time range. 
   {%include note.html content="Your administrators decide how long they want to keep the log data in Tanzu Observability,  7, 14, or 30 days. If you don’t see the logs before a specific time and want to keep the data for a longer time, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help."%}
-* Filter logs using tags, application, service, and source, or search for logs that have specific keywords.
+* Filter logs using tags, application, service, and source, or search for logs that have a specific word(s).
 * See the total number of logs that are there for a specific time using the histogram chart and identify hotspots.
 * Group logs using tags.
 * Share the Logs Browser data you see with other users.

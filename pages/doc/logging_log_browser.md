@@ -25,32 +25,32 @@ To use the Log Browser:
 Auto search is a user-level setting, and you can enable or disable auto search.
 
 * When auto-search is disabled, you need to click **Search** to get the search results.
-* When auto-search is enabled, the search runs each time you add a source, tag, or keyword to the search bar.
+* When auto-search is enabled, the search runs each time you add a source, tag, or text to the search bar.
 
 ## Search and Filter Logs
 
 Follow these steps to search and filter logs:
 
-1. Click the date picker to select a time window you want to see logs. The default time window is 15 minutes.
+1. Click the date picker to select a time window you want to see logs. A default time window is set for you based on your settings.
 1. To get the list of logs you want, you have these options:
   * Click **Source** and select a [source](logging_overview.html#whats-a-log) from the list.
   * Click on a tag and select a value from the list.
-  * Type in a keyword on the search bar, and click **Search** or press Enter when [using the Keyboard to navigate](wavefront_keyboard_shortcuts.html#keyboard-shortcuts-and-their-usage). The keyword is highlighted.
+  * Type in a word(s) on the search bar, and click **Search** or press Enter when [using the Keyboard to navigate](wavefront_keyboard_shortcuts.html#keyboard-shortcuts-and-their-usage).
     <br/>Example:
-    ![Shows the error keyword on the search bad and the logs that contain the word error in them with error highlighted on the log messages](images/logging_search_key_word.png)
-1. When you see the logs on the Log Browser, you can filter logs using source, tags, and keywords, to refine the search results further.
+    ![Shows the error word on the search bad and the logs that contain the word error in them with error highlighted on the log messages](images/logging_search_key_word.png)
+1. When you see the logs on the Log Browser, you can filter logs using source, tags, and words, to refine the search results further.
 
 ## Exclude Logs from Search Results
 
-You streamline what you see in the Log Browser by excluding tags, keywords, or a source. 
+You streamline what you see in the Log Browser by excluding tags, text, or a source. 
 
 * Click the not equal sign (≠) next to a **Source** or tag value.
-* Click on a keyword on the search bar, and click **Exclude** > **Apply** > **Search**.
-* Double click a keyword on the **Message** column, and click **Exclude**.
+* Click on a word(s) on the search bar, and click **Exclude** > **Apply** > **Search**.
+* Double click a word, or select words on the **Message** column, and click **Exclude**.
 
 Example: 
 * Click service, and click ≠ next to telegraph.
-* If you had the keyword warn on the search bar, click the word, and click **Exclude** > **Apply**.
+* If you had the word warn on the search bar, click the word, and click **Exclude** > **Apply**.
 * Click **Search** to get the search results.
 ![shows the example described in text](images/logging_not_include_search.png)
     
