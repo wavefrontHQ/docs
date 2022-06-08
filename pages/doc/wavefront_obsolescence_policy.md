@@ -67,13 +67,7 @@ The following proxy versions are scheduled to be deprecated or moved to end-of-l
 
 ## Delta Counters
 
-Delta counter behavior changed with [Release 2020.26](2020.26.x_release_notes.html).
-* The original delta counter implementation was Deprecated with [Release 2020.26](2020.26.x_release_notes.html). We changed delta counter queries to use `cs()` in the Wavefront Usage integration and tracing RED metrics.
-* The original delta counter implementation is End of Life March 31, 2021.
-
-{% include warning.html content="You have to revise delta counter queries to use `cs()` for any custom dashboard or alert which uses delta counter data. Starting on April 4, 2021, `ts()` queries on delta counters will no longer work. We will no longer store delta counters in two different formats." %}
-
-
+Delta counter behavior changed with [Release 2020.26](2020.26.x_release_notes.html). The original delta counter implementation was Deprecated with [Release 2020.26](2020.26.x_release_notes.html). We changed delta counter queries to use `cs()` in the Wavefront Usage integration and tracing RED metrics. The original delta counter implementation is End of Life March 31, 2021.
 
 ### Automatic Updates and Required Changes
 

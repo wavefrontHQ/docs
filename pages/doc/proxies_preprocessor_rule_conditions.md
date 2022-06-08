@@ -16,38 +16,18 @@ For example, you might want to block list spans only if it
 * has span tags that match both `"span.kind"="server"` and (`"http.status_code"="302"` or `"http.status_code"="404"`)
 * and has no span tags that match `debug=true`
 
-You can use the `if` parameter to fine-tune when a rule applies. For the example above, you can create a rule like this.
+You can use the `if` parameter to fine-tune when a rule applies. Here are the rules for the example above.
+
+{% include important.html content="Upgrade to proxy 10.14 or later to take advantage of the latest security updates. Earlier versions of the proxy are deprecated and will soon be obsolete. " %}
 
 <ul id="profileTabs" class="nav nav-tabs">
-    <li class="active"><a href="#current" data-toggle="tab">Current Format</a></li>
-    <li><a href="#beta" data-toggle="tab">Proxy 9 and Later</a></li>
+    <li class="active"><a href="#9plus" data-toggle="tab">Proxy 9 and Later</a></li>
+    <li><a href="#9minus" data-toggle="tab">Earlier Proxy Versions</a></li>
 </ul>
 <div class="tab-content">
-  <div role="tabpanel" class="tab-pane active" id="current">
-        <pre>
-## drop spans that match the following:
-## "span.kind"="server" and ("http.status_code"="302" or "http.status_code"="404")
-'2878':
-  - rule: test-block-list
-    action: spanBlock
-    if:
-      all:
-        - equals:
-            scope: http.status_code
-            value: ["302, 404"]
-        - equals:
-            scope: span.kind
-            value: "server"
-        - none:
-          - equals:
-              scope: debug
-              value: "true"
 
-        </pre>
-    </div>
-
-    <div role="tabpanel" class="tab-pane" id="beta">
-    <p> The new format, which is in BETA, is a simpler version on how to use the <code>if</code> parameter to fine-tune when a rule applies.</p>
+<div role="tabpanel" class="tab-pane active" id="9plus">
+    <p>In proxy 9 and later, you can use the <code>if</code> parameter to fine-tune when a rule applies.</p>
       <pre>
 ## drop spans that match the following:
 ## "span.kind"="server" and ("http.status_code"="302" or "http.status_code"="404")
@@ -59,7 +39,77 @@ You can use the `if` parameter to fine-tune when a rule applies. For the example
         and not &#123;&#123;debug&#125;&#125; = "true"
     </pre>
     </div>
+
+    <div role="tabpanel" class="tab-pane" id="9minus">
+          <pre>
+  ## drop spans that match the following:
+  ## "span.kind"="server" and ("http.status_code"="302" or "http.status_code"="404")
+  '2878':
+    - rule: test-block-list
+      action: spanBlock
+      if:
+        all:
+          - equals:
+              scope: http.status_code
+              value: ["302, 404"]
+          - equals:
+              scope: span.kind
+              value: "server"
+          - none:
+            - equals:
+                scope: debug
+                value: "true"
+
+          </pre>
+      </div>
   </div>
+
+<!---
+Here's the original
+  <ul id="profileTabs" class="nav nav-tabs">
+      <li class="active"><a href="#current" data-toggle="tab">Current Format</a></li>
+      <li><a href="#beta" data-toggle="tab">Proxy 9 and Later</a></li>
+  </ul>
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="current">
+          <pre>
+  ## drop spans that match the following:
+  ## "span.kind"="server" and ("http.status_code"="302" or "http.status_code"="404")
+  '2878':
+    - rule: test-block-list
+      action: spanBlock
+      if:
+        all:
+          - equals:
+              scope: http.status_code
+              value: ["302, 404"]
+          - equals:
+              scope: span.kind
+              value: "server"
+          - none:
+            - equals:
+                scope: debug
+                value: "true"
+
+          </pre>
+      </div>
+
+      <div role="tabpanel" class="tab-pane" id="beta">
+      <p> The new format, which is in BETA, is a simpler version on how to use the <code>if</code> parameter to fine-tune when a rule applies.</p>
+        <pre>
+  ## drop spans that match the following:
+  ## "span.kind"="server" and ("http.status_code"="302" or "http.status_code"="404")
+  '2878':
+      - rule: test-block-list
+        action: spanBlock
+        if: >
+          &#123;&#123;http.status_code&#125;&#125; in ("302", "404") and &#123;&#123;span.kind&#125;&#125; = "server"
+          and not &#123;&#123;debug&#125;&#125; = "true"
+      </pre>
+      </div>
+    </div>
+    --->
+
 
 
 The `if` parameter is always followed by just one operator, one of the following:
