@@ -136,24 +136,27 @@ Follow these steps to install the Wavefront proxy, start minikube, and then send
     
 ## Search and Filter Logs 
 
-Once Tanzu Observability receives the data, you can search and filter logs on the log browser, see the logs related to alerts, and drill into logs from a chart, Application Map, and the Traces Browser.
+Once Tanzu Observability receives the data, you can:
+* Search and filter logs on the Log Browser.
+* See the logs related to alerts.
+* Drill into logs from a chart, Application Map, and the Traces Browser.
 
 Follow these steps:
 1. In your web browser, go to your Wavefront instance and log in.
-1. From the toolbar, select **Logs**. You see the Log Browser.
+1. On the toolbar, click **Logs**. You see the Log Browser.
 1. Click **application** and select **my_app**. 
-    {% include tip.html content="If **Auto Search** is on, the search results show up on the logs browser page when you add a source, tag, or word to the search bar. If **Auto Search** is off, click **Search** to get the search results. "%}
+    {% include tip.html content="If **Auto Search** is on, the search results show up on theLog Browser page when you add a source, tag, or word(s) to the search bar. If **Auto Search** is off, to get the search results, click **Search**. "%}
     ![a screenshot of the log browser with my_app on the search bar.](images/logging_kubernetes_tutorial_search.png)
 
 To learn more, see [Log Browser](logging_log_browser.html).
 
-## Clean Up
+## Clean Up the Content
 
-After running the tutorial, run the following commands to delete the content that you created for this tutorial:
+Follow these steps to delete the content that you created for this tutorial.
 
-1. Navigate to each terminal that you have service running and press **Ctrl** + **C** to stop them.
+1. Navigate to each terminal where you have a service running and press **Ctrl** + **C** to stop the services.
 
-1. Stop the proxy container running on Docker:
+1. Stop the proxy container running on Docker.
     ```
     # get the container ID for the wavefront Proxy
     docker ps
@@ -161,12 +164,12 @@ After running the tutorial, run the following commands to delete the content tha
     # stop the Proxy
     docker stop <CONTAINER ID>
     ```
-    {% include important.html content="Don't stop the minikube instance. You need it running to remove the rest of the configurations." %}
+    {% include important.html content="Don’t stop minukube. To remove all configurations, you need minikube running till the end of this procedure." %}
 1. Delete the proxy image. 
     ```
     docker rmi wavefronthq/proxy:latest
     ```
-    If you are prompted to remove the image forcefully, append `--force` to the end of the above command.
+    If you are prompted to remove the image forcefully, append `--force` to the end of the command.
 
 1. Delete the Fluentd config map.
 
@@ -174,22 +177,22 @@ After running the tutorial, run the following commands to delete the content tha
     kubectl delete configmap    fluentdconfigmap  -n   kube-system
     ```
     
-1. Delete the Kubernetes service created using the `Fluentd.yaml` file.
+1. Delete the Kubernetes service that you created using the `Fluentd.yaml` file.
     ```
     kubectl delete -f Fluentd.yaml
     ```
 
-1. Delete the Kubernetes service created using the `pod_dev.yaml` file.
+1. Delete the Kubernetes service that you created using the `pod_dev.yaml` file.
     ```
     kubectl delete -f pod_dev.yaml
     ```
 
-1. Delete the Kubernetes service created using the `pod_staging.yaml` file.
+1. Delete the Kubernetes service that you created using the `pod_staging.yaml` file.
     ```
     kubectl delete -f pod_staging.yaml
     ```
     
-1. Stop the minikube instance running on Docker:
+1. Stop the minikube instance running on Docker.
     ```
     # get the container ID for minikube
     docker ps
