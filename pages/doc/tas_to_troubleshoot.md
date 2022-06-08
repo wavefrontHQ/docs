@@ -25,8 +25,10 @@ You have successfully set up the nozzle and the integration. However, you don't 
 
 **Potential Solutions**:
 
+
 * Ensure that the setup flow has completed. Check back a few hours after you perform setup.
 * Verify that the proxy uses the correct API token and Wavefront instance URL. You specify that information in Ops Manager in the **Proxy Config** page.
+* Go through the the [Proxy Troubleshooting information](proxies_troubleshooting.html) and the [Telegraf Troubleshooting information](https://docs.wavefront.com/telegraf_details.html).  
 * Verify that the TO environment has connectivity to the wavefront host
 * In your Tanzu Application Service environment, verify that the Bosh jobs for Wavefront proxy and for the Telegraf agent are running
 
