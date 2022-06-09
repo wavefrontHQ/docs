@@ -28,7 +28,7 @@ Because the Wavefront service runs on AWS, we have to bill based on how much dat
 * Are there dashboards or alerts that ingest data but that are never used?
 * Are your queries looking at too much data, that is, could you filter as part of the query?
 
-Start with [Find Actionable Usage Information](wavefront_usage_info.html) and examine how to improve PPS! 
+Start with [Find Actionable Usage Information](wavefront_usage_info.html) and examine how to improve PPS!
 
 
 ## Why Is Tanzu Observability So Slow?
@@ -54,4 +54,7 @@ Yes! Have a look at [Hello Wavefront!](hello_wavefront_aws_tutorial.html) for
 Yes! To access the APIs, click the gear icon in the top right and select **API Documentation**. See [Wavefront REST API](wavefront_api.html) for details on finding the API token and more.
 
 
-## Other FAQs
+## Do You Have Other FAQs?
+
+Yes! We have FAQs for several areas of the product.
+* 

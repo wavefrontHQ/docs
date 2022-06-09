@@ -4,6 +4,7 @@ keywords: videos
 tags: [getting started, videos]
 sidebar: doc_sidebar
 permalink: videos_quickstart.html
+published: false
 summary: Learn the concepts behind Wavefront technology.
 ---
 
