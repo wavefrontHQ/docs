@@ -4,6 +4,7 @@ keywords: videos
 tags: [videos]
 sidebar: doc_sidebar
 permalink: videos_data.html
+published: false
 summary: Watch videos related to data including integrations, tagging data, and histograms.
 ---
 

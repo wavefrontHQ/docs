@@ -1,7 +1,7 @@
 ---
 title: Maintenance Windows and Snoozing Alerts
 keywords: alerts
-tags: [alerts, videos]
+tags: [alerts]
 sidebar: doc_sidebar
 permalink: maintenance_windows_managing.html
 summary: Learn how to snooze an alert, and how to use maintenance windows to prevent alerts from firing when systems are undergoing maintenance.

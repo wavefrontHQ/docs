@@ -1,7 +1,7 @@
 ---
 title: Optimizing the Data Shape to Improve Performance
 keywords: getting started
-tags: [getting started, cardinality, videos, best practices]
+tags: [getting started, cardinality, best practices]
 sidebar: doc_sidebar
 permalink: optimize_data_shape.html
 summary: Learn how to optimize your data in high-cardinality environments.

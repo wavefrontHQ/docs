@@ -22,6 +22,10 @@ entries:
       url: /tutorial_overview.html
       output: web
 
+    - title: Videos
+      output: web
+      url: /videos.html  
+
       subfolders:
 
       - title: Tutorials
@@ -67,47 +71,6 @@ entries:
         - title: All Integrations
           url: /label_integrations%20list.html
           output: web
-
-      - title: Videos
-        output: web
-        subfolderitems:
-
-        - title: "Intro Videos"
-          url: /videos_howto_start.html
-          output: web
-
-        - title: "Basic Concepts Videos"
-          url: /videos_quickstart.html
-          output: web
-
-        - title: Data & Proxy Videos
-          url: /videos_data.html
-          output: web
-
-        - title: Dashboards & Charts Videos
-          url: /videos_dashboards_charts.html
-          output: web
-
-        - title: Query Language Videos
-          url: /videos_query_language.html
-          output: web
-
-        - title: Tags & Searches Videos
-          url: /videos_tags_searches.html
-          output: web
-
-        - title: Alerts Videos
-          url: /videos_alerts.html
-          output: web
-
-        - title: Administration Videos
-          url: /videos_administration.html
-          output: web
-
-        - title: Tracing Videos
-          url: /videos_tracing.html
-          output: web
-
 
       - title: Misc.
         output: web
@@ -633,7 +596,7 @@ entries:
       - title: Send Data
         url: /opentelemetry_tracing.html
         output: web
-        
+
         subfolders:
 
         - title: Tutorials
@@ -643,19 +606,19 @@ entries:
           - title: "Java"
             url: /opentelemetry_java_app_tutorial.html
             output: web
-            
+
           - title: "Go"
             url: /opentelemetry_go_app_tutorial.html
             output: web
-            
+
           - title: ".Net"
             url: /opentelemetry_dot_net_app_tutorial.html
             output: web
-            
+
           - title: "Python"
             url: /opentelemetry_python_app_tutorial.html
             output: web
-            
+
       - title: Enable Proxy Debug Logs
         url: /opentelemetry_logs.html
         output: web
@@ -672,7 +635,7 @@ entries:
     - title: Key Concepts
       url: /trace_data_details.html
       output: web
-      
+
     - title: OpenTelemetry
       url: /opentelemetry_tracing.html
       output: web

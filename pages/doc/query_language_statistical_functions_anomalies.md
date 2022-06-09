@@ -1,7 +1,7 @@
 ---
 title: Detecting Anomalies with Functions and Statistical Functions
 keywords: query language
-tags: [query language, videos, best practice]
+tags: [query language, best practice]
 sidebar: doc_sidebar
 permalink: query_language_statistical_functions_anomalies.html
 summary: Detect anomalies with simple functions, and functions for mean, median, standard deviation, and inter-quartile range.

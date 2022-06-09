@@ -1,7 +1,7 @@
 ---
 title: Managing External Links
 keywords: external links
-tags: [integrations, videos]
+tags: [integrations]
 sidebar: doc_sidebar
 permalink: external_links_managing.html
 summary: Learn how to manage external links.
