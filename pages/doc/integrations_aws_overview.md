@@ -78,23 +78,27 @@ For information about external IDs and how they are used in AWS, see [How to Use
 
 #### GUI Method
 
+<p><span style="font-size: medium; font-weight: 500">Step 1: Get the Account ID and the External ID</span></p>
+
+To set up the integration, you need an account ID and an external ID. To get the account ID and the external ID, do the following:
+
+1. Log in to your Wavefront cluster.
+2. Click **Integrations** on the toolbar and click the **Amazon Web Services** integration tile. 
+3. Click the **Set up integration** button.
+4. Click the **CloudWatch and Metrics+** or **CloudWatch, Metrics+, and CloudTrail** tile and click **Next**. 
+5. Click the **How to get Role ARN** link and click the **AWS UI Method** tab.
+6. Copy the **Account ID** and the **external ID** displayed in the instructions.
+     
+<p><span style="font-size: medium; font-weight: 500">Step 2: Create a Role in AWS</span></p>
+
 1. Log in to your AWS account.
 1. Search for the **IAM** (AWS Identity and Access Management) service and click it.
 1. Under **Access management** on the left, click **Roles**.
 1. Click **Create role**.
 1. Click the **AWS account** tile, and select the **Another AWS account** radio button.
-1. Enter the Wavefront account information:
-   - **Account ID** - The identifier of the Wavefront account to which you want to grant access. 
-      
-      To get the Wavefront account ID:
-      1. Navigate to your Wavefront cluster.
-      2. Click **Integrations** on the toolbar and click the **Amazon Web Services** integration tile. 
-      3. Click the **Setup** tab and click the **How to get Role ARN** link.
-      4. Copy the **Account ID** displayed in the instructions.
-    
+1. Enter the Wavefront account information.           
+   - **Account ID** - The identifier of the Wavefront account to which you want to grant access.   
    - Select the option **Require external ID** and provide the external ID. 
-   
-       Copy the **External ID** displayed in the instructions on the **Amazon Web Services** integration **Setup** page (in your Wavefront instance UI) and paste it into the text box in the AWS UI.
      
 1. Click **Next**.
 1. On the **Add permissions** screen, search for, and select the **ReadOnlyAccess** check box.
@@ -108,7 +112,7 @@ For information about external IDs and how they are used in AWS, see [How to Use
 1. Log in to your AWS account, and open the [AWS Command Line Interface](https://aws.amazon.com/cli/).
 2. Create a role in AWS.
    
-      1. In another web browser tab, log in to your Wavefront instance and click **Integrations** on the toolbar.
+      1. In a new web browser tab, log in to your Wavefront cluster and click **Integrations** on the toolbar.
       1. In the Featured section, click the **Amazon Web Services** tile.
       1. Click the **Setup** tab and click **Add Integration**.   
       1. Click the **CloudWatch and Metrics+** or **CloudWatch, Metrics+, and CloudTrail** tile and click **Next**.
@@ -121,7 +125,7 @@ For information about external IDs and how they are used in AWS, see [How to Use
 
    ```aws iam get-role --role-name <role name>
    ``` 
-   Here `<role name>` is the name of the role you just created, for example `wavefront`.
+   Here, `<role name>` is the name of the role you just created, for example `wavefront`.
    
    In the output, the Role ARN is listed as a value of the `"Arn"` property.
    
@@ -276,12 +280,12 @@ After you set up the AWS integration with a [Role ARN](#give-read-only-access-to
    * To register an AWS Metrics+ service, select **AWS Metrics+**, and configure the following integration properties:
       
       1. **Name** -- Name to identify the integration.
-      2. **Role ARN** -- Select the Role ARN from your Amazon account from the drop-down menu.
+      2. **Role ARN** -- Select the Role ARN of your Amazon account from the drop-down menu.
    
    * To register a CloudTrail service, select **CloudTrail**, and configure the following integration properties:
       
       1. **Name** - Name to identify the integration.
-      2. **Role ARN** -- Select the Role ARN from your Amazon account from the drop-down menu.
+      2. **Role ARN** -- Select the Role ARN of your Amazon account from the drop-down menu.
       3. **Bucket Name** -- The S3 bucket that contains CloudTrail logs. 
          
          In AWS, go to **CloudTrail** &gt;**Trails** to see the bucket name.
@@ -295,7 +299,7 @@ After you set up the AWS integration with a [Role ARN](#give-read-only-access-to
    * To register a CloudWatch service, select **Register CloudWatch**, and configure the following integration properties:
    
       1. **Name** -- Name to identify the integration.
-      2. **Role ARN** -- Select the Role ARN from your Amazon account from the drop-down menu.
+      2. **Role ARN** -- Select the Role ARN of your Amazon account from the drop-down menu.
       3. Allow Lists and Service Refresh Rate -- see [Configuring CloudWatch Data Ingestion](integrations_aws_metrics.html#configuring-cloudwatch-data-ingestion).
      
 1.  Click **Register**. The selected integrations are created and added to the Cloud Integrations list.
@@ -311,7 +315,7 @@ Tanzu Observability automatically disables integrations that are experiencing er
    * **Enable** > **[Service Name]** 
    * **Disable** > **[Service Name]**
    
-   You should select to enable and disable a CloudWatch, Metrics+, or CloudTrail service.
+   You can select to enable and disable a CloudWatch, Metrics+, or CloudTrail service.
 
 
 ### Delete AWS Integrations
@@ -321,7 +325,7 @@ You can delete an AWS integration if you no longer need it. New metrics will no 
 1. In your Wavefront instance, click **Integrations** on the toolbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
 1. On the **Overview** tab search for and select the instance that you want to delete.
-1. Click the **Delete** button.
+1. Click the **Delete** button and confirm.
 
 In addition, you can also delete a single service within an integration instance.
 
