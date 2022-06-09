@@ -4,6 +4,7 @@ keywords:
 tags: [query language, videos, best practice]
 sidebar: doc_sidebar
 permalink: wavefront_use_cases.html
+published: false
 summary: Watch videos that explain how use sophisticated queries to solve problems.
 ---
 

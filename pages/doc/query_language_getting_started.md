@@ -1,7 +1,7 @@
 ---
 title: Query Language Tutorial
 keywords: query language
-tags: [query language, getting started, videos]
+tags: [query language, getting started]
 sidebar: doc_sidebar
 permalink: query_language_getting_started.html
 summary: Watch some videos, run a query, apply filters and functions, and more.

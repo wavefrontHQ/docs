@@ -4,6 +4,7 @@ keywords: videos
 tags: [videos]
 sidebar: doc_sidebar
 permalink: videos_administration.html
+published: false
 summary: Administrators use Wavefront Top to understand data shapes, and permissions and access for authorization.
 ---
 The following videos explain how to use Wavefront Top, add or revoke access for one or more dashboards, and use Metrics Security Policy rules.

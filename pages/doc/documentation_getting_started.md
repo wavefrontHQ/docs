@@ -11,8 +11,7 @@ Learn Wavefront with in-product or external resources:
 * **Learn Wavefront in Wavefront**:  Getting Started workflow, tutorial and tour integrations, help panel, integration setup examples.
 * **Tutorials, Videos, and More**: Tutorials, Reference documentation, FAQs and Recipes, videos, and more.
   - Start with the [Hello Wavefront!](hello_wavefront_aws_tutorial.html) tutorial.
-  - To do something, check out the [How-to Get Started videos](videos_howto_start.html).
-  - To get some big picture background, watch some [Basic Concepts Videos](videos_quickstart.html).
+  - Watch the videos in the [Get Started with Tanzu Observability](https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_zcafsh0j/uiConfId/47611883) playlist on VMware TV.
 
 ## Learn Wavefront in Wavefront
 
@@ -102,24 +101,8 @@ Our docs include reference documentation for API, query language, and chart opti
 
 This doc set includes a set of tutorials for common use cases and links to short videos that help you get up to speed quickly.
 
+The [Tanzu Observability channel on VMware TV](https://vmwaretv.vmware.com/channel/Tanzu%2BObservability/252649793) offers 50+ videos including conceptual lightboard videos and many short how-to videos.
 
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="40%"><br/><br/>
-<strong>Tutorials</strong> use simple examples to get you up to speed with the different Wavefront components. <br/><br/>
-We're continually adding to this set - let us know what else you'd like to see.
-</td>
-<td width="60%"><a href="query_language_getting_started.html"><img src="/images/query_language_tutorial.png" alt="Screenshot of QL tutorial"/></a></td>
-</tr>
-<tr><br/><br/>
-<td><strong>Videos</strong> have been part of Wavefront learning from the start. Different videos have different focus.
-<ul><li>Lightboard videos give conceptual background</li>
-<li>Our task-focus videos show how to get things done.</li></ul>
-
-Here are some <a href="videos_howto_start.html">task-based intro videos</a> and <a href="videos_quickstart.html"> lightboard videos</a>. </td>
-<td width="50%"><strong><font color="#0091DA" size="3">Introduction to Wavefront</font></strong><br><br/>
-<iframe id="kmsembed-1_jbnj8r75" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_jbnj8r75/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Introduction to Tanzu Observability (Lighboard Video)"></iframe></td>
-</tr>
-</tbody>
-</table>
+You can watch the Getting Started with Tanzu Observability playlist playlist videos <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_zcafsh0j/" target="_blank">on VMware TV<img src="/images/video_camera.png" alt="video camera icon"/></a> or click below to start.
+<br>
+<iframe src="https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_zcafsh0j/uiConfId/47611883" width="840" height="375" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" frameborder="0" title="Getting Started with Tanzu Observability by Wavefront"></iframe>

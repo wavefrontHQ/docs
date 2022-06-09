@@ -160,7 +160,7 @@ Follow these steps to remediate problems:
 ## Learn More
 
 
-* Get started with some of our [conceptual videos](videos_quickstart.html) or some of our [hands-on videos](videos_howto_start.html).
+* Watch the videos in the [Get Started with Tanzu Observability](https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_zcafsh0j/uiConfId/47611883) playlist on VMware TV.
 * [Explore Your Data](ui_examine_data.html) in the predefined Kubernetes dashboards.
 * [Clone any of the predefined dashboards](ui_dashboards.html#edit-or-clone-a-dashboard) and customize them.
 * Learn how to [Monitor and Scale Kubernetes with Wavefront](wavefront_kubernetes.html).

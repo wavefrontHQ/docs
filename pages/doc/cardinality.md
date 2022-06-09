@@ -1,7 +1,7 @@
 ---
 title: High Cardinality Data
 keywords: getting started
-tags: [getting started, cardinality, videos]
+tags: [getting started, cardinality]
 sidebar: doc_sidebar
 permalink: cardinality.html
 summary: Learn about how the Wavefront service deals with cardinality.

@@ -15,7 +15,7 @@
         <div class="col-md-3 col-sm-6">
             <div class="hackathon-quick-links-card">
                 <img src="/images/hackathon_edit.png" alt="icon"/>
-                <a href="label_videos.html">Videos</a>
+                <a href="videos.html">Videos</a>
                 <p>{{site.data.labels.videos}}</p>
             </div>
         </div>

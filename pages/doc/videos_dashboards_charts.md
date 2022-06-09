@@ -4,6 +4,7 @@ keywords: videos
 tags: [videos]
 sidebar: doc_sidebar
 permalink: videos_dashboards_charts.html
+published: false
 summary: Visualize data with dashboards and charts.
 ---
 Learn about visualizing your metrics with dashboards and charts, and how to customize time windows, add legends, configure dashboard variables, and more!

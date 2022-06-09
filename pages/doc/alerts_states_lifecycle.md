@@ -1,6 +1,6 @@
 ---
 title: Alert States and Lifecycle
-tags: [alerts, videos]
+tags: [alerts]
 sidebar: doc_sidebar
 permalink: alerts_states_lifecycle.html
 summary: Learn about alert conditions and states, when alerts fire, and how alerts resolve.
