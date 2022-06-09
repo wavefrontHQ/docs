@@ -1,7 +1,7 @@
 ---
 title: Events
 keywords: events
-tags: [events, alerts, videos]
+tags: [events, alerts]
 sidebar: doc_sidebar
 permalink: events.html
 summary: Learn about events and how to view, create, and close events
@@ -200,4 +200,4 @@ If the Trash icon is grayed out, you don't have permission delete the selected e
 ## Learn More!
 
 * See [Organizing with Tags](tags_overview.html) for details on managing event tags.
-* See [Displaying Event Overlays in Charts](charts_events_displaying.html) for details on customizing event overlays. 
+* See [Displaying Event Overlays in Charts](charts_events_displaying.html) for details on customizing event overlays.

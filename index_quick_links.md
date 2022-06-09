@@ -23,7 +23,7 @@
                     <p>{{site.data.labels.videos}}</p>
                 </div>
                 <div class="panel-footer quick-links-panel-footer">
-                    <a href="label_videos.html">LEARN HERE</a>
+                    <a href="videos.html">LEARN HERE</a>
                 </div>
             </div>
         </div>
@@ -103,4 +103,3 @@
         </div>
     </div>
 </div>
-

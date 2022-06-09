@@ -1,6 +1,6 @@
 ---
 title: Organizing with Tags
-tags: [getting started, alerts, dashboards, events, videos]
+tags: [getting started, alerts, dashboards, events]
 sidebar: doc_sidebar
 permalink: tags_overview.html
 summary: Learn how to use tags to focus and speed up queries display and to unclutter the UI.

@@ -4,6 +4,7 @@ keywords: videos
 tags: [videos]
 sidebar: doc_sidebar
 permalink: videos_tracing.html
+published: false
 summary: Learn about our tracing implementation and watch a demo.
 ---
 Wavefront supports distributed tracing with third-party apps such as Jaeger or you can instrument your app with one of the Wavefront SDKs. Watch these videos for more information.

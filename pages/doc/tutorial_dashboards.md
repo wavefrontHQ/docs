@@ -1,11 +1,10 @@
 ---
-title: Tutorial Explore Data
+title: Explore Data Tutorial
 tags: [getting started, dashboards, charts, alerts, tutorials]
 sidebar: doc_sidebar
 permalink: tutorial_dashboards.html
 summary: Learn using dashboards and charts with sample data.
 ---
-
 
 Want to learn some tips and tricks for exploring your data in dashboards?
 
@@ -129,8 +128,10 @@ Each chart type has chart-specific options. See <a href="ui_chart_reference.html
 
 ## Learn More
 
-* Even if you don't have **Dashboards** permissions, you can do an in-depth analysis of your data. See [Examine Data with Dashboards and Charts](ui_examine_data.html), which includes an intro video.
-* If you have permission to edit and save dashboards and charts, you can:
+* Even if you don't have **Dashboards** permissions, you can do an in-depth analysis of your data.
+  - See [Examine Data with Dashboards and Charts](ui_examine_data.html), which includes an intro video.
+  - Watch some videos in the Examine Data in the Dashboards and Charts playlist in our VMware TV channel <a href="https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_kt6ngrmf/uiConfId/47611883" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>
+* If you have permission to edit and save dashboards and charts, you can do more:
+  - To get started, watch some videos in the Create, Manage, and Optimize Dashboards and Charts in our VMware TV channel <a href="https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_lw8ddnlp/uiConfId/47611883" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>
   - [Create and Customize Dashboards](ui_dashboards.html).
   - [Create and Customize Charts](ui_charts.html).
-  - Watch [Dashboards & Charts videos](videos_dashboards_charts.html).

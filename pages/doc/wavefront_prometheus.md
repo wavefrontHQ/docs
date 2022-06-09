@@ -283,9 +283,12 @@ The bottom row shows the PromQL query execution:
 ## More Info
 
 New to Tanzu Observability by Wavefront? Here are some links to get you started:
-* [Getting Started Videos](videos_howto_start.html)
-* [Dashboards Tutorials](tutorial_dashboards.html)
-* [Alerts](alerts.html)
-* [Query Language Quickstart](query_language_getting_started.html)
-* [Query Language Videos](videos_query_language.html)
-* [Set Up Wavefront as a PromQL Data Source in Grafana](integrations_grafana.html)
+* Videos
+  - Watch videos in the [Get Started with Tanzu Observability](https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_zcafsh0j/uiConfId/47611883) playlist on VMware TV
+  - Watch videos in the [How to Query with WQL and PromQL](https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_brmdewqc/uiConfId/47611883) playlist on VMware TV
+
+* Tutorials & Other Info
+  - [Dashboards Tutorials](tutorial_dashboards.html)
+  - [Alerts](alerts.html)
+  - [Query Language Quickstart](query_language_getting_started.html)
+  - [Set Up Wavefront as a PromQL Data Source in Grafana](integrations_grafana.html)

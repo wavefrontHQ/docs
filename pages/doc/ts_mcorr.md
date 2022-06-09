@@ -1,7 +1,7 @@
 ---
 title: mcorr Function
 keywords: query language reference
-tags: [reference page, videos]
+tags: [reference page]
 sidebar: doc_sidebar
 permalink: ts_mcorr.html
 summary: Reference to the mcorr() function
