@@ -18,7 +18,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 This release of the Wavefront service includes the following improvements:
 * Accessibility improvements (keyboard access, color contrast, etc.) on integration pages.
 
-In addition, the June 2022 integrations release was made available! It includes significant improvements to the Snowflake and Jenkins and more. See the [Integration Release Notes](integrations_new_changed.html#june-2022) for details.
+In addition, the June 2022 integrations release was made available! It includes significant improvements to the Snowflake and Jenkins and more. See the [Integration Release Notes](integrations_new_changed.html#june-2022) for details. 
 
 
 
