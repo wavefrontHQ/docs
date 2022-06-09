@@ -1,7 +1,7 @@
 ---
 title: Wavefront and Kubernetes Videos
 keywords: videos
-tags: [videos, kubernetes]
+tags: [kubernetes]
 sidebar: doc_sidebar
 permalink: videos_kubernetes.html
 summary: Watch our first videos on Tanzu Observability by Wavefront and Kubernetes.
