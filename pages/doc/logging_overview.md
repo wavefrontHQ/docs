@@ -3,7 +3,7 @@ title: Logs Overview
 tags: [getting started, logs]
 sidebar: doc_sidebar
 permalink: logging_overview.html
-summary: Learn how you can get the unified observability experience with Tanzu Observability using metrics, events, logs, and traces.
+summary: Learn about Tanzu Observability metrics, events, logs, and traces.
 ---
 
 {% include important.html content="This document is work in progress!"%}
@@ -12,7 +12,7 @@ summary: Learn how you can get the unified observability experience with Tanzu O
 <tbody>
 <tr>
   <td width="60%" >
-    In a microservice architecture, the services in an application are distributed, and you need to monitor each service carefully to ensure that your overall application runs smoothly. Tanzu Observability helps you monitor your application using metrics, traces, and logs.
+    In a microservice architecture, you need to monitor each service carefully. Tanzu Observability helps you monitor your application using metrics, traces, and logs. 
     For example, you can: 
     <ul>
       <li> 
@@ -37,11 +37,11 @@ summary: Learn how you can get the unified observability experience with Tanzu O
 </table>
 
 
-{%include note.html content="Your administrators decide how long they want to keep the log data in Tanzu Observability,  7, 15, or 30 days. If you don’t see the logs before a specific time and want to keep the data for a longer time, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help."%}
+{%include note.html content="Tanzu Observability retains logs for 7, 15, or 30 days, based on your settings. To keep log data for longer, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support)."%}
 
-## What's a Log?
+## What's a Tanzu Observability Log?
 
-Logs are structured or unstructured text records of events that took place at a given time. You need to send logs as a JSON payload. 
+Logs are structured or unstructured text records of incidents that took place at a given time. You need to send logs as a JSON payload. 
 Logs in Tanzu Observability include the following attributes:
 
 <table style="width: 100;">
@@ -58,8 +58,8 @@ Logs in Tanzu Observability include the following attributes:
        Tags
     </td>
     <td markdown="span">
-      Tags are key-value pairs that help you add metadata to your logs. You can filter logs using tags.
-      <br/><br/>To track the logs sent from the services in applications, you need to add the `service` and `application` tags. See [FAQs](logging_faq.html#dont-see-application-and-service-logs) for details. If `service` and `application` tags are not set, the tags are added by Tanzu Observability and the value is set to `none`.
+      Tags are metadata key-value pairs that are part of your logs. You can filter logs using tags.
+      <br/><br/>For example, to track the logs sent from the services in applications, you need to add the `service` and `application` tags. See [FAQs](logging_faq.html#dont-see-application-and-service-logs) for details. If `service` and `application` tags are not set, the tags are added by Tanzu Observability and the value is set to `none`.
     </td>
   </tr>
   <tr>
@@ -75,7 +75,7 @@ Logs in Tanzu Observability include the following attributes:
       Timestamp
     </td>
     <td>
-      The timestamp when the log was created in the Epoch time format.
+      Timestamp when the log was created, in Epoch time format.
     </td>
   </tr>
   <tr>
@@ -83,7 +83,7 @@ Logs in Tanzu Observability include the following attributes:
       Message
     </td>
     <td>
-      The message includes the details of an event.
+      Details of the event that the log describes.
     </td>
   </tr>
 </table>
@@ -114,16 +114,16 @@ See [Send logs to Tanzu Observability](logging_send_logs.html) for detailed step
 
 ## View Logs and Troubleshoot
 
-Once your send your logs to Tanzu Observability, you can view all your logs on the Log Browser and drill into the Log Browser from charts, alerts, application map, and the traces browser to find the root cause of an issue.
+Once your send your logs to Tanzu Observability, you can view all your logs on the Log Browser and drill into the Log Browser from charts, alerts, application map, and the Traces Browser to find the root cause of an issue.
 
 ![this diagram shows all the UIs that link to logs. they are explained in this section.](images/logging_all_ui.png)
 
-### Search for Logs on The Log  Browser
+### Search for Logs on the Log  Browser
 
 See all the logs you sent to Tanzu Observability using the [Log Browser](logging_log_browser.html). You can:
 
 * See logs for a selected time range. 
-  {%include note.html content="Your administrators decide how long they want to keep the log data in Tanzu Observability,  7, 14, or 30 days. If you don’t see the logs before a specific time and want to keep the data for a longer time, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help."%}
+  {%include note.html content="Tanzu Observability retains logs for 7, 15, or 30 days, based on your settings. To keep log data for longer, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support)."%}
 * Filter logs using tags, application, service, and source, or search for logs that have a specific word(s).
 * See the total number of logs that are there for a specific time using the histogram chart and identify hotspots.
 * Group logs using tags.
@@ -166,7 +166,7 @@ For example, the screenshot shows:
 * It fired because the condition for the alert to fire was met for 2 mins starting at 6.08 AM. 
 * Therefore, when you click **Go To Logs** from the alert, you see the log data from 6.08 AM to 6.10 AM. These logs help you identify the root cause that made the alert fire.
 
-#### Additional Tags
+#### Filter Alert Logs by Tag
 
 When you create or update an alert, you can configure the alert to filter logs using additional tags. For example, the screenshot shows that the alert was configured to show logs for the given time range and filter the logs further using the wavefront application. See [Create and Manage Alerts](alerts_manage.html#step-4-optional-help-alert-recipients-resolve-the-alert) to add additional log tags to an alert.
 
@@ -178,11 +178,13 @@ When you create or update an alert, you can configure the alert to filter logs u
 
 ### Drill Into Logs From Traces
 
-You can drill into logs from the application map view page and the traces browser (coming soon!). 
+You can drill into logs from the application map page and the traces browser (coming soon!). 
 To see logs for an application and service on the Log Browser, you need to tag the data with the application and service tags on your Log Shipper (example: Fluentd) before sending the logs to Tanzu Observability. For more information, see the [Logs FAQs](logging_faq.html#dont-see-application-and-service-logs).
 
 * **Drill into logs from the application map view**:<br/>
-  Did you notice that a service on the application map has a higher error percentage? Click on the service, click **View Logs** to see the logs, and debug the issue.
+  Did you notice that a service on the application map has a higher error percentage? 
+  1. Click on the service.
+  1. click **View Logs** to see the logs, and debug the issue.
   ![A screenshot of a the UI once you click on a service with the view logs link highlighted.](images/logging_app_map_to_logs.png)
   
 * **Drill into logs from the Traces Browser**:<br/>

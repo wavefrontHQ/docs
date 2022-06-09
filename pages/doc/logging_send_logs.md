@@ -7,16 +7,16 @@ permalink: logging_send_logs.html
 summary: Learn how to send logs to Tanzu Observability, view them, and make decisions from the logs data.
 ---
 
-You can send logs from your logs shipper, or directly from your application to the Wavefront proxy.
+You can send logs to the Wavefront proxy from your log shipper or directly from your application. The Wavefront proxy sends the log data to the Wavefront instance. 
 
 ![shows how data goes from the log shipper to the wavefront proxy and then to the Wavefront instance](images/logging_send_logs.png)
 
 ## Prerequisites
 
-* A Tanzu Observability by Wavefront account, which gives you access to a cluster. If you don’t have a cluster, [sign up for a free trial](https://tanzu.vmware.com/observability-trial).
-* A Tanzu Observability API token linked to an account with Proxy permission. See [Generating an API Token](wavefront_api.html#generating-an-api-token).
-* Whitelist the VMware domain (`*.vmware.com`) on your production enviornment. 
-  Tanzu Observability uses the VMware log cluster. Therefore, to send your log data successfully, you need to whitelist the VMware domain.
+* A Wavefront account, which gives you access to a cluster. If you don’t have a cluster, [sign up for a free trial](https://tanzu.vmware.com/observability-trial).
+* A Wavefront API token linked to an account with Proxy permission. See [Generating an API Token](wavefront_api.html#generating-an-api-token).
+* Whitelist the VMware domain (`*.vmware.com`) on your environment. 
+  Tanzu Observability uses a VMware log cluster. Therefore, to send your log data successfully, you need to whitelist the VMware domain.
 
 ## Install Wavefront Proxy 
 
