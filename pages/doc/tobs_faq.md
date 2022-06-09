@@ -3,6 +3,7 @@ title: Tanzu Observability FAQ
 keywords: alerts
 tags: [getting started]
 sidebar: doc_sidebar
+published: false 
 permalink: tobs_faq.html
 summary: Get answers to the top FAQs for Tanzu Observability
 ---
@@ -57,4 +58,4 @@ Yes! To access the APIs, click the gear icon in the top right and select **API D
 ## Do You Have Other FAQs?
 
 Yes! We have FAQs for several areas of the product.
-* 
+*
