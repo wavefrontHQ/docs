@@ -45,14 +45,12 @@ In this guide, we'll set up a data ingestion pipeline with AWS.
 ### Step 1: Start Integration Setup
 
 1. Click **Integrations** on the toolbar.
-   An integration tile has:
-   * A **Setup** tab which provides step-by-step instructions on ingesting data.
-   * A **Dashboards** tab to access the out-of-the-box dashboards.
-   Popular integrations also have an **Alerts** tab with preconfigured alerts.
 2. Click the **Amazon Web Services (AWS)** tile.
     <!--![Highlight the AWS integration on the Wavefront Integrations page.](images/hello_tutorial_aws_integration_tile.png)-->
-3. Click the **Setup** tab and click **Add Integration**.
+3. Click **Set up integration**.
     ![Highlights the Add Integration button on the AWS integration's Setup tab.](images/hello_tutorial_aws_add_integration.png)
+4. Click the **CloudWatch & Metrics+** tile and click **Next**.
+5. Click the **How to get Role ARN** link and click the **AWS UI Method** tab.
 
 You'll see **Account ID** and **External ID** under **How to get Role ARN**. You'll need them to set up the integration.
 
@@ -136,7 +134,7 @@ Once the instance is launched, you start to see the data after a few minutes.
 
 ## Task 3: Explore Data with Out-of-the-Box Dashboards
 
-With data flowing, you can start exploring dashboards and charts:
+<!-- With data flowing, you can start exploring dashboards and charts:
 
 <p><span style="font-size: large; font-weight: 500">View Metrics</span></p>
 1. In your Wavefront instance, go to your AWS integration.
@@ -144,11 +142,12 @@ With data flowing, you can start exploring dashboards and charts:
 
 You see charts with the metrics collected from your AWS account.
 
-Example:
+
 ![Screenshots of the AWS metrics once the data starts to flow to Wavefront.](images/hello_tutorial_aws_metrics.png)
 {% include note.html content="You see **No Data** if we can't find any metrics to match the queries in the chart." %}
 
-<br/>
+<br/>-->
+
 <p><span style="font-size: large; font-weight: 500">View Data on Dashboards</span></p>
 Tanzu Observability includes system dashboards for the AWS integration that help you analyze and gather data.
 1. To see the list of the system dashboards, click **Dashboards**.
@@ -175,16 +174,16 @@ Many integrations have preconfigured alerts for common use cases. All you have t
 <tbody>
 <tr>
 <td width="50%" markdown="span">
-1. Navigate to the Integrations page.
-2. Click on the integration that you want to use.
-   A configured integration has a green tick in the top right.
+1. Navigate to the **Integrations** page.
+2. Click the integration that you want to use.
+   A configured integration has a green tick in the top right corner of the tile.
 </td>
 <td width="50%" markdown="span">![Screenshot of several integrations, icon with green tick in top right](images/featured_integrations.png) </td></tr>
 <tr>
 <td width="50%">
-3. Click the <strong>Alerts</strong> tab and click <strong>Install All</strong>. Here's an example screenshot from the AWS integration. Not all integrations have preconfigured alerts.
+3. Click the <strong>Alerts</strong> tab and click <strong>Preview</strong>. Here's an example screenshot from the AWS integration. Not all integrations have preconfigured alerts.
 <br/><br/>
-You could now edit the alert directly, but we recommend that you clone the alert so you don't interfere with someone else's work.
+Clone the alert.
 </td>
 <td width="50%" markdown="span">![Screenshot shows AWS integration, Alerts tab selected](images/aws_alerts_install.png) </td></tr>
 <tr>
