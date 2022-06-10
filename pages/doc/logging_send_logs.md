@@ -1,5 +1,5 @@
 ---
-title: Sending Logs to Tanzu Observability
+title: Sending Logs to Tanzu Observability (Beta)
 keywords: data, logs
 tags: [getting started, logs]
 sidebar: doc_sidebar
@@ -20,29 +20,32 @@ You can send logs to the Wavefront proxy from your log shipper or directly from 
 
 ## Install Wavefront Proxy 
 
-The Wavefront proxy accepts a JSON payload over HTTP. Follow these steps to install and configure the proxy:
-1. [Install the Wavefront Proxy](proxies_installing.html) version 11.1 or higher.
+The Wavefront proxy accepts a JSON array payload over HTTP. Follow these steps to install and configure the proxy version 11.1 or higher.
+1. Log into the Wavefront instance. 
+1. Select **Browse** > **Proxies**. 
+1. Click **Add Proxy** and follow the instructions on screen. 
 1. Open the `pushListnerPorts` to receive the logs from the log shipper.
-    For example:
-    * If you installed the proxy on Linux, Mac, or Windows, open the [`wavefront.conf`](proxies_configuring.html#proxy-file-paths) file and uncomment the `pushListnerPorts` configuration.
-    * If you are running the proxy on Docker using the Tanzu Observability User Interface (UI) command, the command opens the `pushListnerPorts` of the proxy and sets it to 2878.
-1. [Start the proxy](proxies_installing.html#start-and-stop-a-proxy).
+    <br/>For example:
+    * If you installed the proxy on Linux, Mac, or Windows, open the [`wavefront.conf`](proxies_configuring.html#proxy-file-paths) file and uncomment the `pushListnerPorts` configuration. The port is set to 2878 by default.
+    * If you are running the proxy on Docker, the command you used opens the `pushListnerPorts` and sets it to 2878.
+1. [Start the proxy](proxies_installing.html#start-and-stop-a-proxy) again.
 
 ## Configure Your Log Shipper
 
-As a best practice, we recommend you use a log shipper to send logs to Tanzu Observability. A Logs shipper scrapes and buffers your logs before sending them to the Wavefront proxy.
+As a best practice, we recommend you use a log shipper to send logs to Tanzu Observability. A log shipper scrapes and buffers your logs before sending them to the Wavefront proxy.
 
 {% include note.html content="Tanzu Observability supports the Fluentd log shipper. If you are using a different log shipper, reach out to [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help." %}
 
 Configure your log shipper:
-  1. Configure the log shipper to send data to the Wavefront proxy by adding the hostname the proxy runs on and the `pushListnerPorts` you configured in the proxy.
-      Shown below is an example configuration if you are running the proxy locally and opened the default `pushListnerPorts` on the proxy, which is 2878:
+  1. Configure the log shipper to send data to the Wavefront proxy by adding the hostname of the host that the proxy runs, and the `pushListnerPorts` you configured in the proxy.
+  <br/>Shown below is an example configuration:
+      
       ```
       <match wf.**>
         @type copy
         <store>
           @type http
-          endpoint http://<proxy url>:<proxy port e.g. 2878>/logs/json_array?f=logs_json_arr
+          endpoint http://<proxy url>:<proxy port (example:2878)>/logs/json_array?f=logs_json_arr
           open_timeout 2
           json_array true
           <buffer>
@@ -51,13 +54,13 @@ Configure your log shipper:
         </store>
       </match>
       ```
-  1. To view logs specific to your application and service, you need to tag the logs with the application and service name. If the logs do not have the application and service name, the Wavefront proxy adds the service and application tags to the log data, and assigns the value `None`. 
+  1. To view logs specific to your application and service, tag the logs with the application and service name. If the logs do not have the application and service name, the Wavefront proxy adds the service and application tags to the log data, and assigns the value `none`. 
   
 ### Best Practices
 
-If the maximum character limit for a message, tag, and value is exceeded, logs are dropped by the Wavefront proxy. Therefore, make sure your logs are within the given limits. See [FAQs](logging_faq.html#track-data-dropped-by-proxy) to monitor the data points dropped by the proxy.
+If logs exceed the maximum character limit for a message, tag, and value the Wavefront proxy drops the logs. Make sure your logs are within the given limits. See [FAQs](logging_faq.html#track-data-dropped-by-proxy) to monitor the data points dropped by the proxy.
 
-{% include note.html content="If you want to increase the limits, reach out to [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help." %}
+{% include note.html content="If you want to increase the limits, ask your administrator to reach out to [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help." %}
 
 <table style="width: 100;">
   <tr>
@@ -98,9 +101,9 @@ If the maximum character limit for a message, tag, and value is exceeded, logs a
 
 ## View Logs in Tanzu Observability
 
-Once the data is in Tanzu Observability, you can use the Log Browser to filter and search logs, and drill into logs from charts, alerts, Application Map page, and the Traces Browser. See [View Logs and Troubleshoot](logging_overview.html#view-logs-and-troubleshoot).
+When the data is in Tanzu Observability, you can use the Log Browser to filter and search logs, and drill into logs from charts, alerts, Application Map page, and the Traces Browser. See [View Logs and Troubleshoot](logging_overview.html#view-logs-and-troubleshoot).
 
 ## Next Steps
 
-* Use Preprocessor rules to update and manage logs sent to Tanzu Observability [Link to doc with examples]
+* Use proxy preprocessor rules to update and manage logs sent to Tanzu Observability [Link to doc with examples]
 * Have questions? See [Logs FAQs](logging_faq.html).

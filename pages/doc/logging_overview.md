@@ -1,12 +1,12 @@
 ---
-title: Logs Overview
+title: Logs Overview (Beta)
 tags: [getting started, logs]
 sidebar: doc_sidebar
 permalink: logging_overview.html
 summary: Learn about Tanzu Observability metrics, events, logs, and traces.
 ---
 
-{% include important.html content="This document is work in progress!"%}
+{% include important.html content="Tanzu Observability Logs (Beta) is only enabled for selected customers. If  the Logs (Beta) feature is enabled on your Wavefront cluster, you see the features discussed in this documentation."%}
 
  <table style="width: 100%;">
 <tbody>

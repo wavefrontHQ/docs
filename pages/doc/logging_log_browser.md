@@ -1,5 +1,5 @@
 ---
-title: Find and Examine Logs in the Log Browser
+title: Find and Examine Logs in the Log Browser (Beta)
 keywords: data, logs
 tags: [logs]
 sidebar: doc_sidebar
@@ -64,7 +64,7 @@ Let's look at an example:
 
 1. In the screenshot below, there are three spikes on the histogram chart.
     ![a screenshot of the Log Browser that shows a histogram with 3 spikes.](images/logging_histogram_spikes.png)
-1. You see that the last spike is higher than the other two spikes. To zoom in to that specific time window, place your cursor at the beginning of the time window you want, and click and drag. 
+1. If you want to zoom in to the time window of the last spike, place your cursor at the beginning of the time window you want, and click and drag. 
     ![a screenshot of selecting the area on the histogram to to zoom in.](images/logging_histogram_zoomed_in.png)
 
 1. Now, you see the data for the zoomed-in time window. The logs in the log table below are updated to fit the new time window.

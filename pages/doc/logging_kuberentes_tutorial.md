@@ -1,5 +1,5 @@
 ---
-title: Sending Logs from Your Kubernetes Cluster
+title: Sending Logs from Your Kubernetes Cluster (Beta)
 keywords: data, logs
 tags: [getting started, logs]
 sidebar: doc_sidebar

@@ -1,5 +1,5 @@
 ---
-title: Logs FAQ
+title: Logs FAQ (Beta)
 keywords: logs
 tags: [getting started, logs]
 sidebar: doc_sidebar
