@@ -630,14 +630,14 @@ entries:
           subfolderitems:
 
           - title: TAS Integration
-            url: /tas_beta.html
+            url: /tas.html
             output: web
 
           - title: How to Monitor TAS with Tanzu Observability
             url: /integrations_tas_howto.html
             output: web
 
-          - title: TAS to Tanzu Observability Troubleshooting
+          - title: Troubleshooting for TAS to Tanzu Observability 
             url: /tas_to_troubleshooting.html
             output: web
 

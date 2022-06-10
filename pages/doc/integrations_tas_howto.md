@@ -209,7 +209,7 @@ In Ops Manager, click the Tanzu Observability by Wavefront tile. With **Settings
    <li>For <strong>Metric Batch Size</strong>, specify the maximum number of points in each batch of metrics that Telegraf sends to the Wavefront proxy.</li>
    <li>For <strong>Metric Buffer Limit</strong>, specify the size of the buffer that Telegraf uses to queue data. If your environment sends bursty data, use a larger buffer.</li>
    <li>For <strong>Flush Interval (seconds)</strong>, specify how often data are flushed from each output plugin to the Wavefront proxy. Must be lower than the scrape interval.</li>
-   <li>For <strong>Foundation Name</strong>, specify a unique name for your Tanzu Application Service environment. This name will be added to all metrics as the metrics source (source=). <!---??IS THAT TRUE??---></li>
+   <li>For <strong>Foundation Name</strong>, specify a unique name for your Tanzu Application Service environment. This name will be added to all metrics as the metrics source (source=). </li>
    <li>(Optional) Click <strong>Advanced Options</strong> to specify a custom proxy URL, custom proxy port, or additional Telegraf inputs.</li>
    <li>Click <strong>Save</strong>.</li>
    </ol>
@@ -255,17 +255,10 @@ Log in to your Wavefront instance (for example, `https://example.wavefront.com`)
 1. With the integration selected, click the **Dashboards** tab.
 2. Select from the set of predefined dashboards, which are modeled on the corresponding Healthwatch dashboards but have additional options. For example, you can examine multiple foundations from one dashboard.
 3. Explore one or two dashboards. [Examine Data with Dashboards and Charts](ui_examine_data.html) has an overview and includes a video.
-4. As appropriate, clone any of the existing dashboards to add charts, modify queries, and more. See [Create, Customize, and Optimize Dashboards](ui_dashboards.html) and [Create and Customize Charts](ui_charts.html)
+4. As appropriate, clone any of the existing dashboards to add charts, modify queries, and more. See [Create, Customize, and Optimize Dashboards](ui_dashboards.html) and [Create and Customize Charts](ui_charts.html).
 
 ## Learn More!
 
 * All users can learn about [examining your data](ui_examine_data.html).
 * Users with Dashboards permission can clone any dashboard and [customize the dashboard](ui_dashboards.html) and the charts.
-* Watch our [dashboard videos](videos_dashboards_charts.html) for some tips and tricks.
-* Get started with some of our [conceptual videos](videos_quickstart.html) or some of our [hands-on videos](videos_howto_start.html).
-
-
-
-
-
-<!---RK>>Screenshot here when I know how.--->
+* Go to the [Tanzu Observability VMware TV channel](https://vmwaretv.vmware.com/channel/Tanzu%2BObservability/252649793) for playlists of videos that include Getting Started, How to Use Dashboards and Charts, How to Use Alerts, and more!
