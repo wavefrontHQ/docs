@@ -502,6 +502,15 @@ You can limit the number of time series to 100 either at the dashboard level or 
 
 {% include tip.html content="This option might not be available on older dashboards."%}
 
+### Use Live Mode with Care
+
+Dashboards are either set to a specified time window or to Live mode. In Live mode, the time window for a chart determines how often the charts in a dashboard refresh.
+* Charts with a time window of 5-10 minutes reload every second.
+* Charts with a larger time window (e.g. 4 hours or 1 day) reload every 30 second.
+
+Do not run charts with a 5-10 minute time window for a long time in Live mode. 
+
+
 ### Display Only Events You Need
 
 Querying metrics and querying events are different tasks. However, by default each chart displays all source events and system events as black points or stars at the bottom of each chart. Those events queries affect dashboard performance.

@@ -87,7 +87,14 @@ You can select a larger or smaller time window or view past data instead of real
 - Click the **Live** button to turn on (green) live data and see up-to-date data on the charts.
 - Click the **Live** button again to turn off live data and to look at past data.
 
-Regardless of selection, you can click the time selector for a fine-grained time selection window. To the left of the time selector, you see the currently selected time.
+Regardless of selection, you can click the time selector for a fine-grained time selection window. To the left of the time selector, you see the currently selected time. The time window determines how often the charts in a dashboard refresh.
+* Charts with a time window of 5-10 minutes reload every second.
+* Charts with a larger time window (e.g. 4 hours or 1 day) reload every 30 second.
+
+{% include note.html content="Do not run charts with a 5-10 minute time window for a long time to avoid performance problems." %}
+
+
+
 
 ![time bar with turned off live data](images/time_bar_v2.png)
 
@@ -241,7 +248,7 @@ You can move the time window into the future. However, unless you are using one 
 </table>
 
 
-Here's a <a href="https://vmwaretv.vmware.com/media/t/1_zew0muhn" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> that illustrates chart time windows. 
+Here's a <a href="https://vmwaretv.vmware.com/media/t/1_zew0muhn" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> that illustrates chart time windows.
 <p>
 <iframe id="kmsembed-1_zew0muhn" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_zew0muhn/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Time Windows on Dashboards and Charts"></iframe>
 </p>
