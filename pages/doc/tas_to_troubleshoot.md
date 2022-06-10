@@ -9,6 +9,7 @@ summary: Solve problems with the Tanzu Observability tile and the TAS integratio
 
 This doc page looks at possible causes for problems you might encounter with your Tanzu Application Service (TAS) to Tanzu Observability integration and explains how to address them.
 
+
 ## Sizing and Scaling for Large TAS Foundations
 
 Larger TAS foundations are more demanding to monitor than smaller foundations.
