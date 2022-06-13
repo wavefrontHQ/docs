@@ -135,7 +135,7 @@ Once the instance is launched, you'll see the data after a few minutes.
 
 ## Task 3: Explore Data with Out-of-the-Box Dashboards
 
-<!-- With data flowing, you can start exploring dashboards and charts:
+With data flowing, you can start exploring dashboards and charts:
 
 <p><span style="font-size: large; font-weight: 500">View Metrics</span></p>
 1. In your Wavefront instance, go to your AWS integration.
@@ -148,7 +148,7 @@ Example:
 {% include note.html content="You see **No Data** if Tanzu Observability can't find any metrics to match the queries in the chart." %}
 
 
-<p><span style="font-size: large; font-weight: 500">View Data on Dashboards</span></p>-->
+<p><span style="font-size: large; font-weight: 500">View Data on Dashboards</span></p>
 Tanzu Observability includes system dashboards for the AWS integration that help you analyze and gather data.
 
 1. To see the list of the system dashboards, click the **Dashboards** tab.
@@ -175,14 +175,14 @@ Many integrations have preconfigured alerts for common use cases. All you have t
 <tbody>
 <tr>
 <td width="50%" markdown="span">
-1. Navigate to the **Integrations** page.
+1. Navigate to the **Integrations** page.<br /><br />
 2. Click the integration that you want to use.
    A configured integration has a green tick in the top right corner of the tile.
 </td>
 <td width="50%" markdown="span">![Screenshot of several integrations, icon with green tick in top right](images/featured_integrations.png) </td></tr>
 <tr>
 <td width="50%">
-3. Click the <strong>Alerts</strong> tab, and click <strong>Install Alerts</strong>. Here's an example screenshot from the AWS integration. Not all integrations have preconfigured alerts.
+3. Click the <strong>Alerts</strong> tab, and click <strong>Install Alerts</strong>. <br />Here's an example screenshot from the AWS integration. Not all integrations have preconfigured alerts.
 </td>
 <td width="50%" markdown="span">![Screenshot that shows the Alerts tab of the AWS integration](images/aws_alerts_install.png) </td></tr>
 <tr>
