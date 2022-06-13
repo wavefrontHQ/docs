@@ -7,7 +7,7 @@ permalink: glossary.html
 summary: Learn how we use technical terms.
 ---
 
-This Tanzu Observability by Wavefront glossary defines technical terms that are commonly used in the documentation or in the product. Click the links or search this documentation for details.
+This Tanzu Observability by Wavefront glossary defines technical terms that are commonly used in the documentation or in the product. Click the links or search this documentation for details. 
 
 <table style="width: 100%;">
 <tbody>
