@@ -6,7 +6,7 @@ permalink: logging_overview.html
 summary: Learn about Tanzu Observability metrics, events, logs, and traces.
 ---
 
-{% include important.html content="Tanzu Observability Logs (Beta) is only enabled for selected customers. If  the Logs (Beta) feature is enabled on your Wavefront cluster, you see the features discussed in this documentation."%}
+{% include important.html content="Tanzu Observability Logs (Beta) is only enabled for selected customers. If you like to participate, contact [technical support](wavefront_support_feedback.html#support)."%}
 
  <table style="width: 100%;">
 <tbody>
@@ -37,7 +37,7 @@ summary: Learn about Tanzu Observability metrics, events, logs, and traces.
 </table>
 
 
-{%include note.html content="Tanzu Observability retains logs for 7, 15, or 30 days, based on your settings. To keep log data for longer, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support)."%}
+{%include note.html content="Tanzu Observability retains logs for 7, 15, or 30 days, based on your settings. To keep log data for longer, contact [technical support](wavefront_support_feedback.html#support)."%}
 
 ## What's a Tanzu Observability Log?
 
@@ -57,9 +57,40 @@ Logs in Tanzu Observability include the following attributes:
     <td>
        Tags
     </td>
-    <td markdown="span">
+    <td>
       Tags are metadata key-value pairs that are part of your logs. You can filter logs using tags.
-      <br/><br/>For example, to track the logs sent from the services in applications, you need to add the `service` and `application` tags. See [FAQs](logging_faq.html#dont-see-application-and-service-logs) for details. If `service` and `application` tags are not set, the tags are added by Tanzu Observability and the value is set to `none`.
+      <br/>Make sure to follow the <a href="logging_send_logs.html#best-practices">best practices</a>:
+       <ul>
+        <li>
+          Your tags need to be  of low cardinality.
+        </li>
+        <li>
+          128 characters per tag
+        </li>
+        <li>
+          100 tags per log
+        </li>
+       </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Application
+    </td>
+    <td markdown="span">
+      The name of the application that emits the logs. Make sure the application name is the same name used when sending traces to Tanzu Observability because it maps the logs to your application when you drill down from the Application Map or Traces Browser to the Log Browser.
+      
+      <br/>If the `application` tag is not defined, the tag is added by Tanzu Observability, and the value is set to `none`. See [FAQ](logging_faq.html#dont-see-application-and-service-log) for details.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Service
+    </td>
+    <td markdown="span">
+      The name of the service that emits the log. Make sure the service name is the same name used when sending traces to Tanzu Observability because it maps the logs to your service when you drill down from the Application Map or Traces Browser to the Log Browser.
+      
+      <br/>If the `service` tag is not defined, the tag is added by Tanzu Observability and the value is set to `none`. See [FAQ](logging_faq.html#dont-see-application-and-service-log) for details.
     </td>
   </tr>
   <tr>
@@ -68,6 +99,8 @@ Logs in Tanzu Observability include the following attributes:
     </td>
     <td markdown="span">
       A source is a unique platform that emits logs. For example, an AWS EC2 instance, or a node in Kubernetes. You can filter logs using the source.
+      
+      <br/> Make sure the source used for logs, metrics, and traces are the same. For example, if you are already sending metrics to Tanzu Observability and the Wavefront proxy defines the source for your metrics data, follow the same steps when sending logs to Tanzu Observability.
     </td>
   </tr>
   <tr>

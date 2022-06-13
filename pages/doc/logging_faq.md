@@ -28,8 +28,6 @@ For example, if you are using Fluentd, your `fluent.conf` file can have the foll
     service "<INSERT_YOUR_SERVICE_HERE>"
     application "<INSERT_YOUR_APPLICATION_HERE>" 
     #source "#{ENV['MY_NODE_NAME']}"    
-    #service "${record['kubernetes']['labels']['service']}"
-    #application "${record['kubernetes']['labels']['application']}"
     timestamp ${time.to_datetime().strftime('%Q')}
   </record>
 </filter>
