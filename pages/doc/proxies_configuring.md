@@ -773,6 +773,13 @@ Required when authMethod = STATIC_TOKEN. For example, <code>authStaticToken=toke
 <td> Comma-separated list of available port numbers. Can be a single port.
 <br/> Recommended: 4318</td>
 </tr>
+<tr>
+<a name="otlpResourceAttrsOnMetricsIncluded"></a>
+<td>otlpResourceAttrsOnMetricsIncluded</td>
+<td markdown="span">Set the value to `true` to send metrics data from your application that uses an OpenTelemetry SDK to Tanzu Observability.
+<br/>Default: false</td>
+<td>true or false</td>
+</tr>
 </tbody>
 </table>
 
