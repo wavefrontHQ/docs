@@ -15,13 +15,13 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 ## 2022-24.x Release Notes
 
-This release includes the following improvements in the [ingestion policies](ingestion_policies.html) and [overall usage](examine_usage.html) monitoring from the **Usage Portal**:
+This release includes the following improvements to the [ingestion policies](ingestion_policies.html) and [overall usage](examine_usage.html) monitoring from the **Usage Portal**:
 <table>
   <tbody>
     <tr>
       <td width="40%">
         <strong>New Ingestion Policy Alerts</strong>:<p>
-        When you set an ingestion policy with a PPS limit, now you also configure an alert associated with that PPS limit.</p>
+        When you set an ingestion policy with a PPS limit, you must also configure an alert associated with that PPS limit.</p>
       </td>
       <td width="60%">
         <img src="/images/IP_alert.png" alt="The Conditions stepper in the Create Ingestion Policy wizard. ">
@@ -29,10 +29,10 @@ This release includes the following improvements in the [ingestion policies](ing
     </tr>
     <tr>
       <td width="40%">
-        <strong>Updated Ingestion Policy Dashboard</strong>:<p>
+        <strong>Updated the Ingestion Policy Dashboard</strong>:<p>
         <ul>
         <li>The <strong>Usage Limit</strong> chart is now a progress bar.</li>
-        <li>If you set a PPS limit, the dashboard now includes the <strong>Alerts</strong> section with details about the associated alert.</li>
+        <li>If you set a PPS limit, the dashboard also includes an <strong>Alerts</strong> section with details about the associated alert.</li>
         </ul></p>
       </td>
       <td width="60%">
@@ -41,13 +41,13 @@ This release includes the following improvements in the [ingestion policies](ing
     </tr>
     <tr>
       <td width="40%">
-        <strong>Updated Ingestion Policies Page</strong>:<p>Added the following details to the ingestion policies table:
-        <ul>
+        <strong>Updated the Ingestion Policies Page</strong>:<p>Added the following details to the ingestion policies table:
+        <ol>
         <li>The <strong>State</strong> in terms of PPS limit</li>
         <li>A <strong>Usage per Billing Month</strong> progress bar or usage number</li>
         <li>A <strong>Usage Trend</strong> line chart</li>
         <li>An <strong>Action</strong> in terms of alert association</li>
-        </ul></p>
+        </ol></p>
       </td>
       <td width="60%">
         <img src="/images/IP_list.png" alt="The ingestion policy table. ">
@@ -55,7 +55,7 @@ This release includes the following improvements in the [ingestion policies](ing
     </tr>
     <tr>
       <td width="40%">
-        <strong>Updated Usage Summary Dashboard</strong>:<p>The <strong>Average Usage for the Last Quarter</strong> chart is now a progress bar.
+        <strong>Updated the Usage Summary Dashboard</strong>:<p>The <strong>Average Usage for the Last Quarter</strong> chart is also now a progress bar.
         </p>
       </td>
       <td width="60%">
