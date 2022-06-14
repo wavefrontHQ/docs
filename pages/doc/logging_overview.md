@@ -3,7 +3,7 @@ title: Logs Overview (Beta)
 tags: [getting started, logs]
 sidebar: doc_sidebar
 permalink: logging_overview.html
-summary: Learn about Tanzu Observability metrics, events, logs, and traces.
+summary: Learn about Tanzu Observability metrics, logs, and traces.
 ---
 
 {% include important.html content="Tanzu Observability Logs (Beta) is only enabled for selected customers. If you'd like to participate, contact [technical support](wavefront_support_feedback.html#support)."%}
@@ -17,9 +17,6 @@ summary: Learn about Tanzu Observability metrics, events, logs, and traces.
     <ul>
       <li> 
         Use metrics to get the numerical data and identify the performance issues in a system. 
-      </li>
-      <li> 
-        Use events to find out that something of interest has happened. For example, the event might show that an alert has changed state from warning to server.
       </li>
       <li> 
         Use traces to get an overview of your entire application and discover the services or service requests that don’t perform as expected.

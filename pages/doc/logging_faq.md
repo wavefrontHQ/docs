@@ -38,10 +38,21 @@ For example, if you are using Fluentd, your `fluent.conf` file can have the foll
 
 ## How Do I Track Data Dropped by Proxy?
 
-Wavefront proxy drops the logs that exceed the [maximum character limit](logging_send_logs.html#best-practices) for a message, tag, and value. To track the data points that were dropped by the proxy:
-1. Click **Dashboards** > **All Dashboards**.
-1. Search for the **Wavefront Service and Proxy Data chart**, click on it to open.
-1. Under the **Proxies overview** section, see the chart **Blocked Logs Per Second** [DOUBLE CHECK NAME WHEN ADDED].
-    ADD SCREENSHOT
+Wavefront proxy drops the logs that exceed the [maximum character limit](logging_send_logs.html#best-practices) for a message, tag, and value. To track the data points logs data and the number of logs blocked by the proxy:
+1. Get the integration-systems-with-logs.json file that was shared with you when signing up as a logs beta customer.
+1. Click **Dashboards** > **Create Dashboards**.
+1. Click **JSON** on the top-left corner.
+    ![a screenshot of the UI with the JSON link highlighted.](images/logging_dashboard_json.png)
+1. Select **Code** from the drop-down menu and open the editor.
+    <br/>![Screenshot of the drop down menu mentioned in the step.](images/dashboard_code_view.png)
+1. Copy the content in the JSON file and paste it into the editor.
+1. Click **Accept**.
+1. Now you see the new dashboard. Click **Save**.
+    ![a screenshot of the UI with Save highlighted.](images/logging_dashboard_save.png)
+1. See the charts in the **Proxy Overview** section and get more details about the logs you send to Tanzu Observability.
+    Example:
+    ![A screenshot of the proxy dashboard with the preconfigured charts.](images/logging_proxy_json_dashboard.png)
 
-You see the number of logs that were dropped at a given time. If you see a spike in the number of dropped logs, make sure that you follow the [best practices](logging_send_logs.html#best-practice) when sending logs to Tanzu Observability.
+{% include note.html content="See [Create, Customize, and Optimize Dashboards](ui_dashboards.html) to edit and customize the dashboard." %}
+
+You see the number of logs that were blocked in the **Blocked logs per second** chart. If you see a spike in the number of dropped logs, make sure that you follow the [best practices](logging_send_logs.html#best-practice) when sending logs to Tanzu Observability.
