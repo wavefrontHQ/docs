@@ -101,7 +101,6 @@ If logs exceed the maximum character limit for a message, tag, and value the Wav
   </tr>
 </table>
 
-
 ## View Logs in Tanzu Observability
 
 When the data is in Tanzu Observability, you can use the Log Browser to filter and search logs, and drill into logs from charts, alerts, Application Map page, and the Traces Browser. See [View Logs and Troubleshoot](logging_overview.html#view-logs-and-troubleshoot).
