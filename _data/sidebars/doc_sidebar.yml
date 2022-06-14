@@ -541,37 +541,68 @@ entries:
             url: /integrations_collectd_zookeeper.html
             output: web
 
-  - title: Kubernetes
+  - title: Kubernetes & Tanzu
     output: web
     folderitems:
-
-      - title: Overview
-        url: /wavefront_kubernetes.html
-        output: web
-
-      - title: Set Up Kubernetes
-        url: /kubernetes.html
-        output: web
-
-      - title: Proxy in a Kubernetes Container
-        url: /proxies_kube_container.html
-        output: web
-
-      - title: Monitor Tanzu Mission Control
-        url: /integrations_tmc_howto.html
-        output: web
-
-      - title: Kubernetes FAQ
-        url: /wavefront_kubernetes_faq.html
-        output: web
-
-      - title: Kubernetes Troubleshooting
-        url: /wf_kubernetes_troubleshooting.html
-        output: web
 
       - title: Kubernetes Videos
         url: /videos_kubernetes.html
         output: web
+
+        subfolders:
+        - title: Kubernetes
+          output: web
+          subfolderitems:
+
+          - title: Overview
+            url: /wavefront_kubernetes.html
+            output: web
+
+          - title: Set Up Kubernetes
+            url: /kubernetes.html
+            output: web
+
+          - title: Kubernetes FAQ
+            url: /wavefront_kubernetes_faq.html
+            output: web
+
+          - title: Kubernetes Troubleshooting
+            url: /wf_kubernetes_troubleshooting.html
+            output: web
+
+
+        - title: Tanzu Mission Control
+          output: web
+          subfolderitems:
+
+          - title: Tanzu Misson Control Integration
+            url: /tmc.html
+            output: web
+
+          - title: Generate a Token for TMC
+            url: /integrations_tmc.html
+            output: web
+
+          - title: How to Monitor TMC with Tanzu Observability
+            url: /integrations_tmc_howto.html
+            output: web
+
+
+        - title: Tanzu Application Service
+          output: web
+          subfolderitems:
+
+          - title: TAS Integration
+            url: /tas.html
+            output: web
+
+          - title: How to Monitor TAS with Tanzu Observability
+            url: /integrations_tas_howto.html
+            output: web
+
+          - title: Troubleshooting for TAS to Tanzu Observability 
+            url: /tas_to_troubleshooting.html
+            output: web
 
   - title: Spring Boot
     output: web

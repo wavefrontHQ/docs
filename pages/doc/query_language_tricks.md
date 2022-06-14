@@ -99,7 +99,7 @@ The output  will be a `0` (False) or  `1` (True).
 
 ### Using a Comma to mean AND or OR
 
-{% include tip.html content="For improved legibility, we recommend that you spell out the operator (e.g. AND) instead of using the positional comma. We include this information in the doc set to help you understand queries that might be using this syntax." %}
+{% include tip.html content="For improved legibility, we recommend that you spell out the operator (e.g. AND) instead of using the positional comma. We include this information in the doc set to help you understand queries that might be using this syntax." %} 
 
 **Comma can mean AND**
 
