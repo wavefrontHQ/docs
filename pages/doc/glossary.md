@@ -7,7 +7,7 @@ permalink: glossary.html
 summary: Learn how we use technical terms.
 ---
 
-This Tanzu Observability by Wavefront glossary defines technical terms that are commonly used in the documentation or in the product. Click the links or search this documentation for details.
+This Tanzu Observability by Wavefront glossary defines technical terms that are commonly used in the documentation or in the product. Click the links or search this documentation for details. 
 
 <table style="width: 100%;">
 <tbody>
@@ -46,6 +46,8 @@ This Tanzu Observability by Wavefront glossary defines technical terms that are 
 <td markdown="span">[**Application tags**](trace_data_details.html#application-tags)</td>
 <td markdown="span">Application tags describe the architecture of an application that was instrumented for tracing. Application tags are span tags with the names <code>application</code>, <code>service</code>, <code>cluster</code>, and <code>shard</code>. You can use application tags to aggregate and filter trace data at different levels of granularity.</td>
 </tr>
+
+
 <tr>
 <td><strong><big>B</big></strong></td>
 <td>&nbsp;</td>
@@ -77,8 +79,9 @@ This Tanzu Observability by Wavefront glossary defines technical terms that are 
 <tr>
 <td markdown="span">&nbsp;</td>
 <td markdown="span">[**Counter**](delta_counters.html)</td>
-<td><strong>A cumulative counter, or simply counter, is a monotonically increasing counter. These counters are useful for aggregating metric information such as the number of hits on a web page, how many users log into a portal, etc. They're usually used with `rate()` or a similar function. See also:<strong>Delta counter.</strong></td>
+<td>A <strong>cumulative counter</strong>, or simply counter, is a monotonically increasing counter. These counters are useful for aggregating metric information such as the number of hits on a web page, how many users log into a portal, etc. They're usually used with `rate()` or a similar function. See also:<strong>Delta counter.</strong></td>
 </tr>
+
 <tr>
 <td><strong><big>D</big></strong></td>
 <td>&nbsp;</td>
@@ -113,6 +116,7 @@ This Tanzu Observability by Wavefront glossary defines technical terms that are 
 <td markdown="span">[**Discrete time series**](query_language_discrete_continuous.html)</td>
 <td>A time series whose data points are separated by time intervals that are greater than one second. These longer intervals may be due to reporting that is infrequent, irregular, or interrupted. <strong>See also:</strong> Continuous time series.</td>
 </tr>
+
 <tr>
 <td><strong><big>E</big></strong></td>
 <td>&nbsp;</td>
@@ -137,6 +141,7 @@ This Tanzu Observability by Wavefront glossary defines technical terms that are 
 <td markdown="span">[**External link**](external_links_managing.html)</td>
 <td>External links allow you to go from a chart to an external system such as a log. You can in effect connect your streaming metrics to logs and other external info. </td>
 </tr>
+
 <tr>
 <td><strong><big>H</big></strong></td>
 <td>&nbsp;</td>
@@ -155,6 +160,7 @@ This Tanzu Observability by Wavefront glossary defines technical terms that are 
 <td markdown="span">[**Integration**](integrations.html)</td>
 <td markdown="span">Integrations are one easy way to set up a data pipeline from an external system. We support [**over 200 integrations**](label_integrations%20list.html) with common Web, cloud, monitoring, and other applications and services.  For cloud integrations such as AWS, setup is automated. For other integrations, you follow setup steps which usually involve changes to a configuration file. </td>
 </tr>
+
 <tr>
 <td><strong><big>M</big></strong></td>
 <td>&nbsp;</td>
@@ -194,6 +200,7 @@ This Tanzu Observability by Wavefront glossary defines technical terms that are 
 <td>An operation is a distinct segment of work that a microservice performs. An operation's name is typically the name of a function, method, or procedure that the microservice invokes. An operation might be part of a higher-level request or transaction, and might invoke other, lower-level operations. When you instrument an operation for distributed tracing, each invocation of the operation emits a span.
 </td>
 </tr>
+
 <tr>
 <td><strong><big>P</big></strong></td>
 <td>&nbsp;</td>
@@ -201,7 +208,7 @@ This Tanzu Observability by Wavefront glossary defines technical terms that are 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Permission**](permissions_overview.html)</td>
-<td>Permissions determine the tasks that a user can perform.</td></tr>
+<td>Permissions determine the tasks that a user can perform.
 You can manage authorization with user-level permissions or user and group-level permission. For more fine-grained authorization control, you can perform access management for objects such as dashboards.</td>
 </tr>
 <tr>
@@ -228,6 +235,7 @@ You can manage authorization with user-level permissions or user and group-level
 <td markdown="span">Query</td>
 <td markdown="span">Queries are requests that you submit to find and visualize data. A query consists of expressions built from the [Wavefront Query Language (WQL)](query_language_reference.html). You can compose queries with the [Chart Builder](chart_builder.html) UI, or you can write queries directly in [Query Editor](query_editor.html). Queries let you retrieve and transform ingested data, as well as create and display synthetic data for the duration of the query.</td>
 </tr>
+
 <tr>
 <td><strong><big>R</big></strong></td>
 <td>&nbsp;</td>
@@ -321,5 +329,6 @@ You can manage authorization with user-level permissions or user and group-level
 <td markdown="span">Wavefront service</td>
 <td>The Wavefront service runs the metrics collection engine. It can receive telemetry data from a Wavefront proxy or through direct ingestion. </td>
 </tr>
+
 </tbody>
 </table>

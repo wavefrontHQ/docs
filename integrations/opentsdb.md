@@ -23,7 +23,7 @@ By default, the proxy listens on TCP port 4242 for line messages in OpenTSDB [li
 1. Open the proxy configuration file (<wavefront_config_path>/wavefront.conf) for edit. 
 2. Add or uncomment the line `opentsdbPorts=4242`.  
 
-See [Proxy Configuration File](https://docs.wavefront.com/proxies_configuring.html#proxy-configuration-properties) for details. 
+See [Proxy Configuration File](https://docs.wavefront.com/proxies_configuring.html#configuration-properties) for details. 
 
 ### Step 3. Configure the Collector
 

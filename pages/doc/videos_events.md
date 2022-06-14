@@ -4,6 +4,7 @@ keywords: videos
 tags: [videos]
 sidebar: doc_sidebar
 permalink: videos_events.html
+published: false
 summary: Learn how events work and how they can help you understand your environment.
 ---
 The following videos explain how events work and how to configure them.

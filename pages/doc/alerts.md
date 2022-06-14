@@ -1,7 +1,7 @@
 ---
 title: Alerts
 keywords: alerts
-tags: [alerts, events, videos]
+tags: [alerts, events]
 sidebar: doc_sidebar
 permalink: alerts.html
 summary: Learn how alerts work, examine, and organize them.
@@ -11,7 +11,7 @@ Tanzu Observability by Wavefront supports smart alerts that dynamically filter n
 * The **alert notification** includes an image and a link to see the alert in context.
 * Look all alerts in the **Alert Browser** or examine a single firing alert in the **Alert Viewer**.
 
-{% include note.html content="All users can view alerts and perform the tasks on this page. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
+{% include note.html content="All users can view alerts and perform the tasks on this page. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %} 
 
 
 ## How Alerts Work
@@ -56,7 +56,9 @@ An alert consists of these main components:
 
 ### How Are Alerts Evaluated?
 
-To understand the alert evaluation process, review [Alert States and Lifecycles](alerts_states_lifecycle.html), or watch some of our [Alert Videos](videos_alerts.html). Some commonly misunderstood concepts include:
+To understand the alert evaluation process, review [Alert States and Lifecycles](alerts_states_lifecycle.html), or watch videos [in the Alerting Videos playlist](https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_r6vcinjj/) on VMware TV.
+
+Some commonly misunderstood concepts include:
 
 * **Alert checking frequency**: Alerts are checked approximately once per minute
 
@@ -329,7 +331,7 @@ We create [events](events.html) as alerts fire, update, and resolve. You can opt
 
 ## Do More!
 
-* Watch some [videos about alerts](videos_alerts.html).
+* Watch videos [in the Alerting Videos playlist](https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_r6vcinjj/) on VMware TV.
 * [Create and manage alerts](alerts_manage.html).
 * See answers to [Frequently Asked Questions](alerts_faq.html)
 * Learn about [alert states and life-cycle](alerts_states_lifecycle.html).

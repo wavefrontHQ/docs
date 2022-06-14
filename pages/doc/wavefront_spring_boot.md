@@ -140,6 +140,10 @@ Getting started is easy. Here are some things to know before you start:
   <tr><th width="35%">Wavefront for Spring Boot Version</th><th width="35%">Spring Boot Version</th></tr>
   </thead>
   <tr>
+  <td>2.3.x</td>
+  <td>2.7.x</td>
+  </tr>
+  <tr>
   <td>2.2.x</td>
   <td>2.6.x and 2.5.x</td>
   </tr>

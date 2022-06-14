@@ -62,11 +62,11 @@ We support a rich set of integrations.
 
 You can also use one of [our SDKs](wavefront_sdks.html) to send your metrics to the proxy.
 
-![Agents and metrics collection](/images/proxy_deployment_complex.png)
 
 ### Production Environment: Team of Proxies & Load Balancer
 
 To enable fault tolerance and higher data rates, production environments typically use a load balancer that sends data to multiple proxies, as shown below.
+
 
 ![Proxies using load balancer](/images/proxy_deployment_load_balancer.png)
 
@@ -75,11 +75,11 @@ To enable fault tolerance and higher data rates, production environments typical
 
 ## Proxy Configuration
 
-You can modify proxy behavior in several ways:
+You can modify how the proxy handles data in several ways:
 
-- **Configuration file**: The proxy processes data according to a configuration file. You can modify configuration properties -- for example, to create `block` list and `allow` list regex patterns, specify information about certain data formats, and much more. See [Configuring Wavefront Proxies](proxies_configuring.html).
-- **Source Tags**: If you specify source tags and descriptions in the metric source, the proxy can use that information to filter the incoming metrics. See [Manage SourceTag and SourceDescription Properties at the Proxy](tags_overview.html#manage-sourcetag-and-sourcedescription-properties-at-the-proxy).
-- **Preprocessor Rules**: Starting with proxy version 4.1, the Wavefront proxy includes a preprocessor that applies user-defined rules before data is sent to the Wavefront service. You can use preprocessor rules to correct certain data quality issues when you can't fix the problem at the emitting source. See [Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules.html).
+- **Configuration file**: The proxy processes data according to a configuration file. You can modify configuration properties -- for example, create create `block` list and `allow` list regex patterns, specify information about certain data formats, and much more. See [Configuring Wavefront Proxies](proxies_configuring.html).
+- **Preprocessor Rules**: Use preprocessor rules to correct certain data quality issues when you can't fix the problem at the emitting source. See [Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules.html). If you want to perform conditional preprocession, see [Preprocessor Rule Conditions](proxies_preprocessor_rule_conditions.html).
+- **Source Tags**: Use source tags and descriptions in the metric source to instruct the proxy to filter the incoming metrics. See [Manage SourceTag and SourceDescription Properties at the Proxy](tags_overview.html#manage-sourcetag-and-sourcedescription-properties-at-the-proxy).
 
 ![Proxy configuration options](/images/proxy_config_options_rev.png)
 
@@ -97,4 +97,4 @@ Each type of data uses a different data format. See [Wavefront Data Format](wave
 
 * [Monitor Wavefront Proxies](monitoring_proxies.html) discusses proxy information in the Wavefront Usage dashboard and lists `~proxy` internal metrics.
 * [Proxies Troubleshooting](proxies_troubleshooting.html) helps with proxy queue management, proxy messages, and more.
-* * [Telegraf Troubleshooting](telegraf_details.html) has details on troubleshooting and fine-tuning the Telegraf agent.
+* [Telegraf Troubleshooting](telegraf_details.html) has details on troubleshooting and fine-tuning the Telegraf agent.

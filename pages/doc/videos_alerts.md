@@ -4,6 +4,7 @@ keywords: videos
 tags: [videos]
 sidebar: doc_sidebar
 permalink: videos_alerts.html
+published: false
 summary: Learn how alerts work and how to use them.
 ---
 The following videos explain how alerts work and how to configure them.
