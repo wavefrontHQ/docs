@@ -7,6 +7,8 @@ permalink: logging_faq.html
 summary: Learn how to customize your logging experience and find answers for frequently asked questions.
 ---
 
+{% include important.html content="Tanzu Observability Logs (Beta) is only enabled for selected customers. If you'd like to participate, contact [technical support](wavefront_support_feedback.html#support)."%}
+
 ## Don't See Logs When Drilling Down From a Chart?
 
 Did you right-click on a chart, click logs, and saw no data on the Log Browser? This can happen:

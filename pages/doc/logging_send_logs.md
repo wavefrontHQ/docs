@@ -7,6 +7,8 @@ permalink: logging_send_logs.html
 summary: Learn how to send logs to Tanzu Observability, view them, and make decisions from the logs data.
 ---
 
+{% include important.html content="Tanzu Observability Logs (Beta) is only enabled for selected customers. If you'd like to participate, contact [technical support](wavefront_support_feedback.html#support)."%}
+
 You can send logs to the Wavefront proxy from your log shipper or directly from your application. The Wavefront proxy sends the log data to the Wavefront instance. 
 
 ![shows how data goes from the log shipper to the wavefront proxy and then to the Wavefront instance](images/logging_send_logs.png)
@@ -106,5 +108,6 @@ When the data is in Tanzu Observability, you can use the Log Browser to filter a
 
 ## Next Steps
 
-* Use proxy preprocessor rules to update and manage logs sent to Tanzu Observability [Link to doc with examples]
+<!-- * Use proxy preprocessor rules to update and manage logs sent to Tanzu Observability [Link to doc with examples] -->
 * Have questions? See [Logs FAQs](logging_faq.html).
+* [Try out the tutorial](logging_kubernetes_tutorial.html) to send logs to Tanzu Observability.

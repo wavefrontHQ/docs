@@ -6,6 +6,9 @@ sidebar: doc_sidebar
 permalink: logging_log_browser.html
 summary: Learn how to filter and search logs sent to Tanzu Observability by Wavefront.
 ---
+
+{% include important.html content="Tanzu Observability Logs (Beta) is only enabled for selected customers. If you'd like to participate, contact [technical support](wavefront_support_feedback.html#support)."%}
+
 Did you notice anomalies on your metrics charts or noticed that a service on the application map has large latency value? Use the Log Browser to search and filter logs, and troubleshoot your issues.
 
 ## Get Started with the Log Browser
