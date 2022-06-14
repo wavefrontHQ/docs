@@ -13,6 +13,59 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## 2022-24.x Release Notes
+
+This release includes the following improvements in the [ingestion policies](ingestion_policies.html) and [overall usage](examine_usage.html) monitoring from the **Usage Portal**:
+<table>
+  <tbody>
+    <tr>
+      <td width="40%">
+        <strong>New Ingestion Policy Alerts</strong>:<p>
+        When you set an ingestion policy with a PPS limit, now you also configure an alert associated with that PPS limit.</p>
+      </td>
+      <td width="60%">
+        <img src="/images/IP_alert.png" alt="The Conditions stepper in the Create Ingestion Policy wizard. ">
+      </td>
+    </tr>
+    <tr>
+      <td width="40%">
+        <strong>Updated Ingestion Policy Dashboard</strong>:<p>
+        <ul>
+        <li>The <strong>Usage Limit</strong> chart is now a progress bar.</li>
+        <li>If you set a PPS limit, the dashboard now includes the <strong>Alerts</strong> section with details about the associated alert.</li>
+        </ul></p>
+      </td>
+      <td width="60%">
+        <img src="/images/IP_dashboard_RNs.png" alt="The ingestion policy dashboard. ">
+      </td>
+    </tr>
+    <tr>
+      <td width="40%">
+        <strong>Updated Ingestion Policies Page</strong>:<p>Added the following details to the ingestion policies table:
+        <ul>
+        <li>The <strong>State</strong> in terms of PPS limit</li>
+        <li>A <strong>Usage per Billing Month</strong> progress bar or usage number</li>
+        <li>A <strong>Usage Trend</strong> line chart</li>
+        <li>An <strong>Action</strong> in terms of alert association</li>
+        </ul></p>
+      </td>
+      <td width="60%">
+        <img src="/images/IP_list.png" alt="The ingestion policy table. ">
+      </td>
+    </tr>
+    <tr>
+      <td width="40%">
+        <strong>Updated Usage Summary Dashboard</strong>:<p>The <strong>Average Usage for the Last Quarter</strong> chart is now a progress bar.
+        </p>
+      </td>
+      <td width="60%">
+        <img src="/images/average_usage_last_quarter.png" alt="The Overview section of the Usage Summary dashboard. ">
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
 ## 2022-22.x Release Notes
 
 This release of the Wavefront service includes the following improvements:
