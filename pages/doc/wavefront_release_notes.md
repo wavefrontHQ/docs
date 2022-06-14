@@ -13,6 +13,13 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## 2022-24.x Release Notes
+
+This release includes:
+
+< PLACE HOLDER TO ADD CONTENT (RENATE AND MARIELA) :) >
+
+
 ## 2022-22.x Release Notes
 
 This release of the Wavefront service includes the following improvements:
