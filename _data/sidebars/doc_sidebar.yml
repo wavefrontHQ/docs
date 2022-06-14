@@ -763,30 +763,6 @@ entries:
     - title: Tracing FAQ
       url: /tracing_faq.html
       output: web
-      
-  - title: Logs
-    output: web
-    folderitems:
-      
-    - title: Overview
-      url: /logging_overview.html
-      output: web
-    
-    - title: Send Logs
-      url: /logging_send_logs.html
-      output: web
-      
-    - title: View and Browse Logs
-      url: /logging_log_browser.html
-      output: web
-    
-    - title: Tutorial
-      url: /logging_kubernetes_tutorial.html
-      output: web
-    
-    - title: Logs FAQs
-      url: /logging_faq.html
-      output: web
 
   - title: API, SDKs, and CLI
     output: web
