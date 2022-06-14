@@ -145,6 +145,8 @@ The logs data table has the Timestamp, Source, and Message columns by default. F
 
 ## Next Steps
 
-* Get an overview on how to [send logs to Tanzu Observability](logging_send_logs.html).
-* [Try the tutorial](logging_kubernetes_tutorial.html) to send logs to Tanzu Observability and search for logs on the Logs Browser.
+* Get an overview of [Tanzu Observability logs](logging_overview.html).
+* See how to [send logs to Tanzu Observability](logging_send_logs.html).
+* [Try out the tutorial](logging_kubernetes_tutorial.html) to send logs to Tanzu Observability.
+* Have questions? See [Logs FAQs](logging_faq.html).
     

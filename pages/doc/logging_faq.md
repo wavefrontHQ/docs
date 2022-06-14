@@ -1,5 +1,5 @@
 ---
-title: Logs FAQ (Beta)
+title: Logs FAQs (Beta)
 keywords: logs
 tags: [getting started, logs]
 sidebar: doc_sidebar
@@ -36,7 +36,7 @@ For example, if you are using Fluentd, your `fluent.conf` file can have the foll
 
 ```
 
-## How Do I Track Data Dropped by Proxy?
+## How Do I Track Data Blocked by the Wavefront Proxy?
 
 Wavefront proxy drops the logs that exceed the [maximum character limit](logging_send_logs.html#best-practices) for a message, tag, and value. To track the data points logs data and the number of logs blocked by the proxy:
 1. Get the integration-systems-with-logs.json file that was shared with you when signing up as a logs beta customer.
@@ -56,3 +56,11 @@ Wavefront proxy drops the logs that exceed the [maximum character limit](logging
 {% include note.html content="See [Create, Customize, and Optimize Dashboards](ui_dashboards.html) to edit and customize the dashboard." %}
 
 You see the number of logs that were blocked in the **Blocked logs per second** chart. If you see a spike in the number of dropped logs, make sure that you follow the [best practices](logging_send_logs.html#best-practice) when sending logs to Tanzu Observability.
+
+
+## Nest Steps
+
+* Get an overview of [Tanzu Observability logs](logging_overview.html).
+* See how to [send logs to Tanzu Observability](logging_send_logs.html).
+* Learn how to [view and browse logs](logging_log_browser.html).
+* [Try out the tutorial](logging_kubernetes_tutorial.html) to send logs to Tanzu Observability.

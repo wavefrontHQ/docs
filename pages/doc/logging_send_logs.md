@@ -108,6 +108,7 @@ When the data is in Tanzu Observability, you can use the Log Browser to filter a
 
 ## Next Steps
 
-<!-- * Use proxy preprocessor rules to update and manage logs sent to Tanzu Observability [Link to doc with examples] -->
-* Have questions? See [Logs FAQs](logging_faq.html).
+* Get an overview of [Tanzu Observability logs](logging_overview.html).
+* Learn how to [view and browse logs](logging_log_browser.html).
 * [Try out the tutorial](logging_kubernetes_tutorial.html) to send logs to Tanzu Observability.
+* Have questions? See [Logs FAQs](logging_faq.html).

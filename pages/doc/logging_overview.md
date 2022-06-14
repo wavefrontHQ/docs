@@ -225,3 +225,10 @@ To see logs for an application and service on the Log Browser, you need to tag t
 <tr><td width="90%">&nbsp;</td><td width="10%"><a href="trace_data_details.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>
+
+## Next Steps
+
+* See how to [send logs to Tanzu Observability](logging_send_logs.html).
+* Learn how to [view and browse logs](logging_log_browser.html).
+* [Try out the tutorial](logging_kubernetes_tutorial.html) to send logs to Tanzu Observability.
+* Have questions? See [Logs FAQs](logging_faq.html).
