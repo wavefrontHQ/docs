@@ -41,9 +41,9 @@ To configure CloudWatch ingestion:
 1. Log in to your Wavefront cluster and click **Integrations** on the toolbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
 1. On the **Overview** tab search for the integration that you want to configure.
-1. Click the ellipsis icon and select **Edit** > **CloudWatch**.
+1. Click the ellipsis icon, click **Edit**, and click **CloudWatch**.
 1. Under **Allow Lists**, configure ingestion properties:
-    - **Instance and Volume Allow List** fields -- Add instances and volumes to an allow list by specifying [EC2 tags](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html), defined on the instances and volumes. The allow lists should be in JSON format, for example, `{"organization":"yourcompany"}`. When specified as a comma-separated list, the tags are OR'd. To use instance and volume allow lists, you must also add an [AWS Metrics+](#aws-metrics-data) integration because the AWS tags are imported from the EC2 service. If you don't specify any tags, Tanzu Observability imports metrics from *all* instances and volumes.
+    - **Instance Allow List** and **Volume Allow List** fields -- Add instances and volumes to an allow list by specifying [EC2 tags](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html), defined on the instances and volumes. The allow lists should be in JSON format, for example, `{"organization":"yourcompany"}`. When specified as a comma-separated list, the tags are OR'd. To use instance and volume allow lists, you must also add an [AWS Metrics+](#aws-metrics-data) integration because the AWS tags are imported from the EC2 service. If you don't specify any tags, Tanzu Observability imports metrics from *all* instances and volumes.
     - **Metric Allow List** field -- Add metrics to an allow list by specifying a regular expression. Metric names consist of the actual metric name and an aggregation type. In the regular expression, you must use the actual metric names without the aggregation types. For example, in the following list of metric names:
     
       - `aws.dynamodb.successfulrequestlatency.average`
@@ -59,7 +59,7 @@ To configure CloudWatch ingestion:
     - **Point Tag Allow List** -- Add AWS point tags to an allow list by specifying a regular expression. If you do not specify a regular expression, no point tags are added to metrics.
     - **Service Refresh Rate** -- Number of minutes between requesting metrics. Default is `5`.
     - **Products** -- Allows you to filter the list of AWS products for which you want to collect metrics by using the CloudWatch integration. The default is **All**. Click **Custom** to see the list of AWS products and to filter them according to your needs.
-1. Click **Save**.
+1. Click **Update**.
 
 ### How to Use the Metric Allow List and the Products List
 

@@ -30,7 +30,7 @@ Adding an AWS integration requires establishing a trust relationship between Ama
 * [Give Global Read-Only Access](#give-read-only-access-to-your-amazon-account-and-get-the-role-arn)
 * [Give Limited Access](#giving-limited-access)
 
-After you've set up the integration, you can examine metrics from all AWS services that you subscribe to from Tanzu Observability. The integration includes a predefined dashboard for each service. You can clone and modify the system dashboards, or create your own custom dashboard.
+After you've set up the integration, you can examine metrics from all AWS services that you subscribe to from Tanzu Observability. The integration includes a predefined dashboard for each service. You can clone and modify the system dashboards, or create your own custom dashboards.
 
 <!--### Use Internal Metrics to Monitor AWS Integrations
 
@@ -38,7 +38,7 @@ You can use some Tanzu Observability by Wavefront internal metrics to [monitor y
 
 ### AWS Dashboards
 
-If you set up an [Amazon Web Services integration](integrations.html), Tanzu Observability installs AWS overview dashboards Summary, Pricing, and Billing and the AWS service-specific dashboards: EC2, ECS, ELB, DynamoDB, Lambda, Redshift, and so on. All AWS dashboards have a tag `~integration.aws.<service>`. For example: `~integration.aws.ec2`, `~integration.aws.lambda`, etc.
+If you set up an [Amazon Web Services integration](integrations.html), Tanzu Observability installs AWS overview dashboards Summary, Pricing, and Billing, as well as the AWS service-specific dashboards: EC2, ECS, ELB, DynamoDB, Lambda, Redshift, and so on. All AWS dashboards have a tag `~integration.aws.<service>`. For example: `~integration.aws.ec2`, `~integration.aws.lambda`, etc.
 
 {% include shared/system_dashboard.html %}
 
@@ -76,20 +76,24 @@ To grant Tanzu Observability with read-only access to your Amazon account, you n
 
 For information about external IDs and how they are used in AWS, see [How to Use External ID When Granting Access to Your AWS Resources](https://aws.amazon.com/blogs/security/how-to-use-external-id-when-granting-access-to-your-aws-resources/).
 
-#### GUI Method
+<p><span style="font-size: large; font-weight: 500">GUI Method</span></p>
 
-<p><span style="font-size: medium; font-weight: 500">Step 1: Get the Account ID and the External ID</span></p>
+**Step 1: Get the Account ID and the External ID**
 
-To set up the integration, you need an account ID and an external ID. To get the account ID and the external ID, do the following:
+To provide read-only access through the UI and set up the integration, you need an account ID and an external ID. To get the account ID and the external ID, do the following:
 
 1. Log in to your Wavefront cluster.
 2. Click **Integrations** on the toolbar and click the **Amazon Web Services** integration tile. 
 3. Click the **Set up integration** button.
-4. Click the **CloudWatch and Metrics+** or **CloudWatch, Metrics+, and CloudTrail** tile and click **Next**. 
+4. Select which services you want to set up and click **Next**.
+   * **CloudWatch & Metrics+**
+   * **CloudWatch & Metrics+ & CloudTrail** 
 5. Click the **How to get Role ARN** link and click the **AWS UI Method** tab.
 6. Copy the **Account ID** and the **external ID** displayed in the instructions.
+
+![The AWS setup page after clicking How to get Role ARN link and the AWS UI Method tab selected.](images/hello_tutorial_aws_integration_UI-setup.png)
      
-<p><span style="font-size: medium; font-weight: 500">Step 2: Create a Role in AWS</span></p>
+**Step 2: Create a Role in AWS**
 
 1. Log in to your AWS account.
 1. Search for the **IAM** (AWS Identity and Access Management) service and click it.
@@ -107,15 +111,17 @@ To set up the integration, you need an account ID and an external ID. To get the
 1. On the **Roles** page, click the newly created role.
 1. Copy the **ARN** value, so that you can use it when you configure your AWS integration.
 
-#### CLI Method
+<p><span style="font-size: large; font-weight: 500">CLI Method</span></p>
 
 1. Log in to your AWS account, and open the [AWS Command Line Interface](https://aws.amazon.com/cli/).
 2. Create a role in AWS.
    
       1. In a new web browser tab, log in to your Wavefront cluster and click **Integrations** on the toolbar.
       1. In the Featured section, click the **Amazon Web Services** tile.
-      1. Click the **Setup** tab and click **Add Integration**.   
-      1. Click the **CloudWatch and Metrics+** or **CloudWatch, Metrics+, and CloudTrail** tile and click **Next**.
+      1. Click the **Set up integration** button.
+      1. Select which services you want to set up and click **Next**.
+         * **CloudWatch & Metrics+**
+         * **CloudWatch & Metrics+ & CloudTrail** 
       1. Click the **How to get Role ARN?** link.
       1. On the **AWS CLI Method** tab, under **Step 1** of the interactive help page, enter the stack and role names.
          ![Screenshot of the AWS CLI method interactive help page.](images/aws-rolearn-cli-method.png)
@@ -125,11 +131,12 @@ To set up the integration, you need an account ID and an external ID. To get the
 
    ```aws iam get-role --role-name <role name>
    ``` 
+  
    Here, `<role name>` is the name of the role you just created, for example `wavefront`.
    
    In the output, the Role ARN is listed as a value of the `"Arn"` property.
    
-4. Copy the **Role ARN** value, so that you can use it (i.e. paste it in the **Role ARN" from Amazon IAM** text box) when you configure your AWS integration.   
+4. Copy the **Role ARN** value, so that you can use it (i.e. paste it in the **Role ARN" from Amazon IAM** text box) when you set up your AWS integration.   
 
       
 ### Giving Limited Access
@@ -224,7 +231,7 @@ You can explicitly specify the access permissions in a custom IAM policy, as sho
 
 ## Managing an AWS Integration
 
-You can set up an AWS integration, enable and disable it, and delete it. After you set up an AWS integration, you can register more services to it. You can also [add and manage AWS integrations by using the Wavefront REST API](integrations_aws_overview_API.html).
+You can set up an AWS integration, enable and disable it, edit an integration, and delete it. After you set up an AWS integration, you can register more services to it. You can also [add and manage AWS integrations by using the Wavefront REST API](integrations_aws_overview_API.html).
 
 ### Set up an AWS Integration
 
@@ -236,7 +243,9 @@ To set up an AWS integration, you must have a [Role ARN](#give-read-only-access-
 1. Select the AWS services to register and click **Next**.
    * **CloudWatch and Metrics+**
    * **CloudWatch, Metrics+, and CloudTrail**
-
+   
+   ![AWS setup page where we can click a tile.](images/aws_setup.png)
+   
 1. Configure the integration properties:
      - **Name** - Name to identify the integration.
      - **Role ARN from Amazon IAM** - The Role ARN from your Amazon account.
@@ -267,7 +276,7 @@ To set up an AWS integration, you must have a [Role ARN](#give-read-only-access-
      
 1. Click **Register**. 
 
-The integration is added to the Amazon Web Services Integrations list. If you want to configure allow lists and service refresh rate for the CloudWatch integration, follow the instructions in [Configuring CloudWatch Data Ingestion](integrations_aws_metrics.html#configuring-cloudwatch-data-ingestion).
+The integration is added to the Amazon Web Services Integrations list and you can see it on the **Overview** tab. If you want to configure allow lists and service refresh rate for the CloudWatch integration, follow the instructions in [Configuring CloudWatch Data Ingestion](integrations_aws_metrics.html#configuring-cloudwatch-data-ingestion).
 
 
 ### Register Additional Amazon Web Services
@@ -276,8 +285,8 @@ After you set up the AWS integration with a [Role ARN](#give-read-only-access-to
 
 1. In your Wavefront instance, click **Integrations** on the toolbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
-1. On the **Overview** tab, click the ellipsis icon next to an instance, click **Add** and select an option.
-   * To register an AWS Metrics+ service, select **AWS Metrics+**, and configure the following integration properties:
+1. On the **Overview** tab, click the ellipsis icon next to an instance, click **Add**, and select an option.
+   * To register an AWS Metrics+ service, select **AWS Metrics+** and configure the following integration properties:
       
       1. **Name** -- Name to identify the integration.
       2. **Role ARN** -- Select the Role ARN of your Amazon account from the drop-down menu.
@@ -296,13 +305,14 @@ After you set up the AWS integration with a [Role ARN](#give-read-only-access-to
          
       5. **Region** -- AWS Region where the CloudTrail logs reside.
        
-   * To register a CloudWatch service, select **Register CloudWatch**, and configure the following integration properties:
+   * To register a CloudWatch service, select **CloudWatch**, and configure the following integration properties:
    
       1. **Name** -- Name to identify the integration.
       2. **Role ARN** -- Select the Role ARN of your Amazon account from the drop-down menu.
       3. Allow Lists and Service Refresh Rate -- see [Configuring CloudWatch Data Ingestion](integrations_aws_metrics.html#configuring-cloudwatch-data-ingestion).
      
-1.  Click **Register**. The selected integrations are created and added to the Cloud Integrations list.
+1.  Click **Register**. 
+
 
 ### Enable and Disable AWS Integrations
 
@@ -316,6 +326,38 @@ Tanzu Observability automatically disables integrations that are experiencing er
    * **Disable** > **[Service Name]**
    
    You can select to enable and disable a CloudWatch, Metrics+, or CloudTrail service.
+
+### Edit an AWS Integration
+
+You can edit your AWS integrations. You cannot edit the Role ARN, only some of the settings are editable.
+
+1. In your Wavefront instance, click **Integrations** on the toolbar.
+1. In the Featured section, click the **Amazon Web Services** tile.
+1. On the **Overview** tab, click the ellipsis icon next to an instance, click **Edit**, and select an option.
+   * To edit an AWS Metrics+ service, select **AWS Metrics+** and edit the name of the integration.
+      
+   * To edit a CloudTrail service, select **CloudTrail**, and edit the following integration properties:
+      
+      1. **Name** -- Name to identify the integration.
+      2. **Bucket Name** -- The S3 bucket that contains CloudTrail logs. 
+         
+         In AWS, go to **CloudTrail** &gt;**Trails** to see the bucket name.
+         
+      3. **Prefix** -- A log file prefix specified when you created the CloudTrail. 
+         
+         The default prefix is `AWSLogs`. If you use a custom prefix, you must put it here without using a forward slash at the end of the prefix, i.e. a trailing slash.
+         
+      4. **Region** -- AWS Region where the CloudTrail logs reside.
+       
+   * To edit a CloudWatch service, select **CloudWatch**, and configure the following integration properties:
+   
+      1. **Name** -- Name to identify the integration.
+      2. **Role ARN** -- Select the Role ARN of your Amazon account from the drop-down menu.
+      3. Allow Lists, Service Refresh Rate, and Products -- see [Configuring CloudWatch Data Ingestion](integrations_aws_metrics.html#configuring-cloudwatch-data-ingestion).
+     
+1.  Click **Update**. 
+
+The selected integration is edited.
 
 
 ### Delete AWS Integrations
