@@ -17,12 +17,10 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 This release includes:
 
-< PLACE HOLDER TO ADD CONTENT (RENATE AND MARIELA) :) >
-
-In addition, we released the Tanzu Application Service to Tanzu Observability integration on June 13.
-* [Monitor Tanzu Application Service with Tanzu Observability](integrations_tas_howto.html) explains the process end to end.
-* [Tanzu Observability and TAS Troubleshooting](tas_to_troubleshooting.html) has troubleshooting steps based on what we've learned during the Beta period. 
-
+* **Accessibility Fixes**: We've made significant keyboard navigation improvements to many UI pages
+* **Tanzu Application Service to Tanzu Observability**: We released the Tanzu Application Service to Tanzu Observability integration on June 13.
+  * [Monitor Tanzu Application Service with Tanzu Observability](integrations_tas_howto.html) explains the process end to end.
+  * [Tanzu Observability and TAS Troubleshooting](tas_to_troubleshooting.html) has troubleshooting steps based on what we've learned during the Beta period. 
 
 ## 2022-22.x Release Notes
 
