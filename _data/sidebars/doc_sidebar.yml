@@ -434,7 +434,7 @@ entries:
     - title: Using PromQL with Tanzu Observability
       url: /wavefront_prometheus.html
       output: web
-
+      
   - title: Integrations
     output: web
     folderitems:
