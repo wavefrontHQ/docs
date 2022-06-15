@@ -171,9 +171,11 @@ If you already have information that helps recipients find the causes for the al
     <li>
       <strong>Additional Information: </strong>Any other information that is useful to the alert recipient. This field supports Markdown. Click <strong>Preview</strong> to preview the Markdown output.
     </li>
+    <!--
     <li>
       <strong>Related Logs: </strong>Click the plus button to add log tags. When an alert fires, you get a link to access the logs associated with these tags on the Log Browser. Click <b>Go To Logs</b> to test if the tags work for your log data and refine the log search by adding or removing tags.
   </li>
+  -->
   </ul>
 </td>
 <td width="50%" markdown="span">![create_alert](images/alert_content_1.png) </td></tr>
