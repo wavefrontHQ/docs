@@ -13,7 +13,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
-## 2022-24.x Release Notes
+## 2022-XY.x Release Notes
 
 This release includes the following improvements to the [ingestion policies](ingestion_policies.html) and [overall usage](examine_usage.html) monitoring from the **Usage Portal**:
 <table>
