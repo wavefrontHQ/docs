@@ -10,29 +10,29 @@ How much your company pays for using Tanzu Observability by Wavefront depends on
 * **Data ingestion**. When the Wavefront service ingests data, those data count toward your PPS allocation.
 * **Data analysis**. When you run a query, either as part of an alert or when you look at a dashboard, the backend has to process the data, and those data points count toward your PPS allocation.
 
-This page helps you get value from your PPS and avoid overage (overage is an extra fee that customers with certain contracts have to pay if they consume more data than they paid for).
+This page helps you get value from your PPS and avoid overage (overage is an extra fee that customers with certain contracts pay if they consume more data than they paid for).
 
 ## Where Do I Start?
 
-Each customer has a contract with VMware that allows them to send a predetermined amount of data, measured in points per second (PPS) to their Wavefront instance.
+Each customer has a contract with VMware that allows them to send a predetermined amount of data, measured in points per second (PPS), to their Wavefront instance.
 
 If the customer uses more than the contracted rate, VMware bills for those additional data. Because VMware has to pay the cloud provider for data consumed by each Wavefront instances, we have to ensure that customers pay for the data they consume. But we want for you to get the largest amount of useful information possible from your data. This page has some tips.
 
 ### How Do Find Usage Information?
 
-Your Wavefront instance includes dashboards and charts that help you determine how close you are to your contracted rate and to explore remediation options.
+Your Wavefront instance includes out-of-the-box dashboards and charts that help you determine how close you are to your contracted rate and to explore remediation options.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td>If you're a SuperAdmin and you want to know close you are to exceeding your committed rate and whether you will be billed for overages, you can use the <a href="examine_usage.html">Usage Summary dashboard</a>.
+<td>If you're a SuperAdmin user and you want to know close you are to exceeding your committed rate and whether you will be billed for overages, you can use the <a href="examine_usage.html">Usage Summary dashboard</a>.
 <ol>
 <li>Click the gear icon and select <strong>Usage Portal</strong></li>
 <li>Examine the charts on the dashboard. </li>
 </ol> </td>
 <td width="50%"><img src="/images/usage_overview.png" alt="screenshot of usage summary dashboard"></td></tr>
 <tr>
-<td>If you want to drill down into usage information, you can examine dashboards in the <strong>Wavefront Usage</strong> integration. Your contract with VMware determines which dashboard has the information you need:
+<td>If you want to drill down into usage and pricing information, you can examine dashboards in the <strong>Wavefront Usage</strong> integration. Your contract with VMware determines which dashboard has the information you need:
 <ul><li><strong>Burndown</strong>: If you prepaid, the <strong>Usage (PPS) vs Remaining Balance (PPS P95) for Burndown</strong> has the information you need.</li>
 <li><strong>Billable</strong>: Otherwise, the <strong>Committed Rate vs Monthly Usage (PPS P95) for Billable</strong> dashboard has the information you need. </li>
 </ul></td>
@@ -43,33 +43,39 @@ Your Wavefront instance includes dashboards and charts that help you determine h
 
 ### How Can I Make Improvements?
 
+The rest of this doc page helps you make improvements. This section has an overview, with links to more info.
+
 <table>
 <tbody>
 <thead>
 <tr><th width="25%">Action Item</th><th width="50%">Description</th><th width="25%">More Info</th></tr>
 </thead>
 <tr>
-<td><strong>Ingest only data that you use</strong></td>
-<td>If some teams send a lot of data but don't use those ingested data anywhere (e.g. in alerts, dashboards, etc.) your PPS rate is high but you don't benefit.
-</td>
-<td><a href="#whos-responsible-for-ingested-data">Who's Responsible for Ingested Data?</a></td>
-</tr>
-<tr>
 <td><strong>Find areas with high PPS and take action</strong> </td>
-<td>Your PPS becomes high if you send high cardinality data and if you scan a lot of data during query processing. Query processing happens:
+<td>If your Wavefront instance ingests high-cardinality data or if you scan a lot of data during query processing, high PPS results. Query processing happens:
 <ul><li>When a dashboard renders data.</li>
 <li>When an alert is checked.</li></ul>
 </td>
 <td><a href="#how-can-i-optimize-my-ingestion-rate">How can I optimize my ingestion rate?</a>
-<a href="#how-can-i-optimize-my-scan-rate">How can I optimize my scan rate?</a>
+<br><br><a href="#how-can-i-optimize-my-scan-rate">How can I optimize my scan rate?</a>
 </td>
 </tr>
 <tr>
-<td><strong>Remedy high PPS</strong> </td>
-<td>To remedy high PPS, you can optimize the data shape that you ingest, be smart about queries, and ensure optimal dashboard performance, for example, by limiting the time window in charts, using filters, and more.
+<td><strong>Ingest only data that you use</strong></td>
+<td>Datapoints that are sent in contribute to PPS, so it makes sense to ingest only what's used, to reduce granularity, etc. It might also be necessary to find teams who send data and don't use them. Ensure that someone benefits from all data that's sent in.
 </td>
-<td><a href="optimize_data_shape.html">Optimizing the Data Shape to Improve Performance</a><br>
-<a href="query_language_performance.html">Optimize Query Performance</a><br>
+<td><a href="#how-can-i-optimize-my-ingestion-rate">How can I optimize my ingestion rate?</a> <br><br><a href="#whos-responsible-for-ingested-data">Who's Responsible for Ingested Data?</a></td>
+</tr>
+<tr>
+<td><strong>Remedy high PPS</strong> </td>
+<td>To remedy high PPS, you can optimize ingest rate and the data shape.
+<ul><li>
+Don't use data that changes frequently (e.g. the timestamp) in the metric name.</li>
+<li>Be smart about queries by using filters and time windows.</li>
+<li>Ensure optimal dashboard performance, for example, by limiting the data each chart displays.</li></ul>
+</td>
+<td><a href="optimize_data_shape.html">Optimizing the Data Shape to Improve Performance</a><br><br>
+<a href="query_language_performance.html">Optimize Query Performance</a><br><br>
 <a href="ui_dashboards.html#ensure-optimal-dashboard-performance">Ensure Optimal Dashboard Performance</a></td>
 </tr>
 <tr>
@@ -85,7 +91,7 @@ Your Wavefront instance includes dashboards and charts that help you determine h
 
 ## How Can I Optimize My Ingestion Rate?
 
-Billing for Tanzu Observability is based primarily on the ingestion rate, so it's a good practice to look for ways to optimize and reduce your ingestion rate.
+Billing for Tanzu Observability is based primarily on the ingestion rate. Ingestion is so important because data are ingested again and again--every second for metrics by default. Here's how you can look for ways to optimize and reduce your ingestion rate.
 
 ### Examine Ingestion with the Namespace Usage Explorer
 
@@ -108,7 +114,7 @@ The Namespace Usage Explorer is especially useful if your metrics use hierarchic
 
 ### (Optional) Clone Namespace Explorer and Create Custom Charts
 
-If you don't see the information you need, for example if need to look at histogram ingestion, clone the **Namespace Usage Explorer** dashboard and modify existing charts or create custom charts. You can use `cs()`, `hs()` and `spans()` queries to retrieve information about counters, histograms, and spans. For example, the default dashboard examines `~metric` information, but you can also examine other data using the following format:
+If you don't see the information you need, for example if you need a chart that shows histogram ingestion, [clone](ui_dashboards.html#edit-or-clone-a-dashboard) the **Namespace Usage Explorer** dashboard and modify existing charts or create custom charts. You can use `cs()`, `hs()` and `spans()` queries to retrieve information about counters, histograms, and spans. For example, the default dashboard examines `~metric` information, but you can also examine counter information using the following format:
 
 ```
 cs(~<data_type>.global.namespace.<namespace>.pps, source=<depth_number>)
@@ -125,33 +131,36 @@ rawsum(align(1m, taggify(cs("~metric.global.namespace.*.ppm", source="depth_1"),
 ### Drill Down with Wavefront Top and Wavefront Spy API
 
 If you need more than 3 levels of namespaces or if the dashboard doesn't answer your questions for other reasons, Wavefront Top and the Spy API show in detail what’s happening right now.
-* [Wavefront Top](https://github.com/wavefrontHQ/wftop) supports metrics and IDs.
+* [Wavefront Top](https://github.com/wavefrontHQ/wftop) lets you examine which ingested metrics were accessed during the last lookback period.
 * The [Wavefront Spy API](wavefront_monitoring_spy.html) also supports delta counters, histograms, spans, and span logs.
 
 With Wavefront Top you can:
+* Use the *PPS* column shows ingestion rates.
+* Use the *%Acc.* column shows the percentages of the ingested rates that are accessed by queries.
 * Dive into deeper levels of the namespace than with the Namespace Explorer dashboard.
 * View ingestion rate by source, point tag, or ingestion source.
 * See what percentage of currently ingested data within a namespace is actually accessed in queries over X days. The number of days defaults to 7 and is configurable.
-* See what range of values is sent in for a particular namespace.
-* See the data lag for a particular namespace.
+* See what range of values is sent in for a namespace.
+* See the data lag for a namespace.
 
 {% include tip.html content="You cannot see the information over time from Wavefront Top. Use one of the Wavefront Usage dashboards instead if possible." %}
 
-The [Wavefront Spy API](wavefront_monitoring_spy.html) gives even more detail, but in most cases Wavefront Top is sufficient.
+The [Wavefront Spy API](wavefront_monitoring_spy.html) gives even more detail, but the information in Wavefront Top is usually sufficient.
+
 
 ### Consider Sending Data Less Frequently
 
-Even though Tanzu Observability supports second-level granularity for metric data points,  data rarely needs to be that granular.
+Even though Tanzu Observability supports per second granularity for metric data points,  data rarely needs to be that granular.
 
-* If some data does not need to be that granular, there can be significant savings just by increasing the interval at which that data reports. For example, switching from a 1-second interval to a 1-minute interval results in a 60x reduction in the ingestion rate for that set of data.
+* For data that does not need to be that granular, increase the reporting interval for significant savings. For example, switching from a 1-second interval to a 1-minute interval results in a 60x reduction in the ingestion rate for that set of data.
 
-* Another area to explore for adjusting reporting intervals is *constant values*. Values that do not change often are great candidates for increasing reporting intervals.
+* Values that do not change often (constants) are great candidates for increasing reporting intervals.
 
     You can use [Wavefront Top](wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy) to uncover constant values. The *Range* column shows the range of the reported values (the maximum value minus the minimum value) for each namespace.
 
     - If the range is *0*, then this data set is most likely reporting constant values.
 
-    - If the range does not change, it is also possible that only a few fixed values are reported and the data set can also be a candidate for increased reporting intervals.
+    - If the range does not change, it is also possible that only a few fixed values are reported. The data set is a candidate for higher reporting intervals.
 
 
 ## How Can I Optimize My Scan Rate?
@@ -162,63 +171,77 @@ Each time a query is executed, the points that the query engine looks at are cou
 
 If you ensure that your environment doesn't include unused dashboards or alerts, you can significantly improve your scan rate.
 
+### Examine Data Scan Rate in the Wavefront Usage Integration
+
+Data points are usually scanned because an alert is checked or a dashboard is displayed or updated. You can get a high-level view in the Wavefront Usage integration.
+
 <table>
 <tbody>
-<thead>
-<tr><th width="25%">Action Item</th><th width="50%">Details</th><th width="25%">Links & Examples</th></tr>
-</thead>
 <tr>
-<td><strong>1. Use Namespace Explorere to see which metrics are ingested.</strong></td>
-<td><ul><li>The <strong>Wavefront Namespace Usage Explorer</strong> dashboard, which is part of the <a href="system.html">Wavefront Usage integration</a>, gives details on a per-namespace basis. For example, you could check how much data comes from the <code>kubernetes</code> namespace, then drill down and examine, for each level, if those are data you need.</li>
-<li>The <a href="metrics_managing.html#metrics-browser">Metrics Browser</a> lets you examine non-obsolete metrics and metric namespaces.
-</li></ul>
-</td>
-<td><a href="#examine-ingestion-with-the-namespace-usage-explorer">Examine Ingestion with the Namespace Usage Explorer</a></td>
+<td width="60%"><ol><li>Log in to your Wavefront instance and select <strong>Integrations</strong> </li>
+<li>Select <strong>Wavefront Usage</strong> and select the <strong>Wavefront Service and Proxy Dashboard</strong>.</li>
+<li>Examine the <strong>Data Scan Rate</strong> and <strong>Data Scan Rate by User</strong> chart. </li>
+<li>Click the chart to temporarily change the chart type (for example to topK) or the query. To permanently modify the chart, clone the dashboard.  </li>
+</ol></td>
+<td width="40%"><img src="images/data_scan_by_user_2.png" alt="Data scan by user."></td>
 </tr>
-<tr>
-<td><strong>2. Use Wavefront Top to see which metrics are used.</strong> </td>
-<td markdown="span">[Wavefront Top](wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy) lets you examine which ingested metrics are accessed during the last lookback period. <br><br>
+</tbody>
+</table>
 
-The default lookback period is 7 days but you can configure it up to 60 days. The *PPS* column shows the ingested rates, and the *%Acc.* column shows the percentages of the ingested rates that are accessed by queries.
-<br><br>
-Start with the namespaces that have high ingestion rates but low access rates. Drill down the namespaces to found out the metrics with access rates of *0%*.
-</td>
-<td><a href="#drill-down-with-wavefront-top-and-wavefront-spy-api">Drill Down with Wavefront Top and Wavefront Spy API</a></td>
-</tr>
+**More Info**
+* [Monitor Your Wavefront Service with the Wavefront Usage Integration](wavefront_monitoring.html)
+* <a href="#examine-ingestion-with-the-namespace-usage-explorer">Examine Ingestion with the Namespace Usage Explorer</a> for details.
+
+
+### Examine Points Scanned in the Alerts Browser
+
+Even if an alert has no recipients, the alert query is executed at the predefined Alert Checking Frequency (1 minute by default). To significantly reduce the scan rate:
+* Delete or snooze all alerts that aren't being used.
+* Examine the alert query (or queries) for alerts with high point rates and [optimize query performance](query_language_performance.html) with filters and other strategies.
+
+<table>
+<tbody>
 <tr>
-<td><strong>3. Use the Wavefront API to compare ingested and accessed metrics.</strong> </td>
-<td>Create a script that uses the <a href="wavefront_api.html#notes-on-the-access-category">Access API category</a> to check how often an entity has been accessed. Supported entities are metrics, histograms, and spans. The default lookback period is 7 days but you can configure it up to 60 days.<br><br>
+<td width="70%"><ol><li>Log in to your Wavefront instance and select <strong>Alerts &gt;All Alerts</strong> </li>
+<li>In the top right, select <strong>Points Scanned</strong> from the menu to order the display by points scanned.</li>
+<li>Each alert shows <strong>Points</strong> below the query.  </li>
+<li>For alerts with a high number of points scanned, examine the query and checking frequency to improve performance. </li>
+</ol></td>
+<td width="30%"><img src="images/alerts_points_scanned.png" alt="Menu option starts with Default, shows Points Scanned."></td>
+</tr>
+</tbody>
+</table>
+
+### Optimize Query Performance
+
+You can significantly reduce the load on the query engine by changing your query. For example, use filters to minimize the search space, include a time window with certain operations, and more.
+
+**More Info**
+
+* <a href="query_language_performance.html">Optimize Query Performance</a><br>
+* <a href="ui_dashboards.html#ensure-optimal-dashboard-performance">Ensure Optimal Dashboard Performance</a>
+
+
+### Consider Histograms to Improve PPS
+
+Histograms store data as distributions rather than as individual data points. For billing purposes, the rate of distributions ingested is converted to a rate of points ingested through a conversion factor, 7 by default.
+
+**More Info**
+
+See <a href="proxies_histograms.html#how-histograms-can-improve-pps">How Histograms Can Improve PPS</a> for an example.
+
+### Use the Wavefront API to Compare Ingested and Accessed Metrics
+
+Create a script that uses the <a href="wavefront_api.html#notes-on-the-access-category">Access API category</a> to check how often an entity has been accessed. Supported entities are metrics, histograms, and spans. The default lookback period is 7 days but you can configure it up to 60 days.<br><br>
 Start with metric namespaces that contribute the most to the overall ingestion rate.
 <ol><li>Create a script to determine all of the metric names within those namespaces.</li>
 <li>Feed each of those metric names to the Access API. Focus on specific namespaces one at a time to avoid overload and get actionable information.</li></ol>
 <strong>Tip</strong>: There is an underlying (undocumented) API that the <a href="metrics_managing.html#metrics-browser">Metrics Browser</a> uses. To take advantage of that API, use your browser's developer tools to see the underlying API calls.
-</td>
-<td><a href="wavefront_api.html#notes-on-the-access-category">Access API category</a></td>
-</tr>
-<tr>
-<td><strong>4. Examine metrics usage in queries with the Dashboard browser and Alerts browser.</strong> </td>
-<td>Use the dashboards browser and alerts browser to examine metrics usage.
-<ol><li>Determine all of the metric names within a namespace.</li>
-<li>Check whether each metric name is included in any chart query for all dashboards and whether it is included in any condition query for all alerts.</li></ol>
-<strong>Note</strong>: There's a chance that some metrics are queried only in ad hoc charts, but it's likely that important data is also used in dashboards and alerts.
-</td>
-<td>TBD</td>
-</tr>
-<tr>
-<td><strong>5. Improve query performance.</strong> </td>
-<td>You can significantly reduce the load on the query engine by changing your query. For example, use filters to minimize the search space, include a time window with certain operations, and more.
-</td>
-<td><a href="query_language_performance.html">Optimize Query Performance</a><br>
-<a href="ui_dashboards.html#ensure-optimal-dashboard-performance">Ensure Optimal Dashboard Performance</a></td>
-</tr>
-<tr>
-<td><strong>6. Consider using histograms to improve PPS</strong> </td>
-<td>Histograms store data as distributions rather than as individual data points. For billing purposes, the rate of distributions ingested is converted to a rate of points ingested through a conversion factor, 7 by default.<br><br>
-</td>
-<td>See <a href="proxies_histograms.html#how-histograms-can-improve-pps">How Histograms Can Improve PPS</a> for an example.</td>
-</tr>
-</tbody>
-</table>
+
+**More Info**
+
+<a href="wavefront_api.html#notes-on-the-access-category">Access API category</a>
+
 
 ## Who's Responsible for Ingested Data?
 
@@ -291,5 +314,3 @@ Use the <a href="examine_usage.html"><strong>Usage Summary</strong></a> dashboar
 </tr>
 </tbody>
 </table>
-
-## Learn More!
