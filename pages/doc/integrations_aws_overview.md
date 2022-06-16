@@ -122,7 +122,7 @@ To get the account ID and the external ID, do the following:
 **Task 3: Get the Role ARN**
 
 1. On the **Roles** page, click the newly created role.
-1. Copy the **ARN** value, so that you can use it when you configure your AWS integration. See [Set up and AWS Integration](#set-up-an-aws-integration).
+1. Copy the **ARN** value, so that you can use it when you configure your AWS integration. See Step 5 in [Set up an AWS Integration](#set-up-an-aws-integration).
 
 <a name="CLI"></a> 
 <p><span style="font-size: medium; font-weight: 800">CLI Method</span></p>
@@ -155,7 +155,7 @@ By using this method, the process for getting the account ID and the external ID
    
    In the output, the Role ARN is listed as a value of the `"Arn"` property.
    
-1. Copy the **Role ARN** value, so that you can use it (i.e. paste it in the **Role ARN" from Amazon IAM** text box) when you set up your AWS integration. See [Set up and AWS Integration](#set-up-an-aws-integration).
+1. Copy the **Role ARN** value, so that you can use it (i.e. paste it in the **Role ARN" from Amazon IAM** text box) when you set up your AWS integration. See Step 5 in [Set up an AWS Integration](#set-up-an-aws-integration).
 
       
 ### Giving Limited Access
@@ -164,7 +164,7 @@ Instead of giving global read-only access, you can give Tanzu Observability more
 
 <a name="policy"></a>
 
-<p><span style="font-size: medium; font-weight: 800">Create a Policy in AWS</span></p>
+**Task 1: Create a Policy in AWS**
 
 To create a permission policy in AWS that you can use when you create the role with limited access, follow these steps:
 
@@ -184,7 +184,7 @@ To create a permission policy in AWS that you can use when you create the role w
 1. On the **Review policy** page provide a name and, optionally, a description of the policy and click **Create policy**.
 
 
-<p><span style="font-size: medium; font-weight: 800">Create a Role with Limited Access in AWS</span></p>
+**Task 2: Create a Role with Limited Access in AWS**
 
 After you create the policy with the required permissions, create a role with limited access.
 
