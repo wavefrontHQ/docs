@@ -23,6 +23,10 @@ dimension](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Supp
 
 {% include tip.html content="See [AWS CloudWatch, CloudTrail, and Metrics+ Integrations](integrations_aws_metrics.html)." %}
 
+Before setting up the integration, you can take a look at what is included in the integration and what metrics will be collected.
+
+![The AWS integration overview page before setup where the alerts tile is selected.](images/aws_before_setup.png)
+
 ### Establish a Trust Relationship
 
 Adding an AWS integration requires establishing a trust relationship between Amazon and Tanzu Observability by specifying account information. You have to do that only once, and you have 2 options:
@@ -30,7 +34,7 @@ Adding an AWS integration requires establishing a trust relationship between Ama
 * [Give Global Read-Only Access](#give-read-only-access-to-your-amazon-account-and-get-the-role-arn)
 * [Give Limited Access](#giving-limited-access)
 
-After you've set up the integration, you can examine metrics from all AWS services that you subscribe to from Tanzu Observability. The integration includes a predefined dashboard for each service. You can clone and modify the system dashboards, or create your own custom dashboards.
+After you set up the integration, you can examine metrics from all AWS services that you subscribe to from Tanzu Observability. The integration includes a predefined dashboard for each service. You can clone and modify the system dashboards, or create your own custom dashboards.
 
 <!--### Use Internal Metrics to Monitor AWS Integrations
 
@@ -41,6 +45,9 @@ You can use some Tanzu Observability by Wavefront internal metrics to [monitor y
 If you set up an [Amazon Web Services integration](integrations.html), Tanzu Observability installs AWS overview dashboards Summary, Pricing, and Billing, as well as the AWS service-specific dashboards: EC2, ECS, ELB, DynamoDB, Lambda, Redshift, and so on. All AWS dashboards have a tag `~integration.aws.<service>`. For example: `~integration.aws.ec2`, `~integration.aws.lambda`, etc.
 
 {% include shared/system_dashboard.html %}
+
+
+![The AWS integration overview page after setup where the dashboards tab is selected.](images/aws-setup-dashboards-tab.png)
 
 
 ## Giving Tanzu Observability Access to Your AWS Account
@@ -348,7 +355,11 @@ To set up an AWS integration, you must have a **Role ARN** handy.
      
 1. Click **Register**. 
 
-The integration is added to the Amazon Web Services Integrations list and you can see it on the **Overview** tab. If you want to configure allow lists and service refresh rate for the CloudWatch integration, follow the instructions in [Configuring CloudWatch Data Ingestion](integrations_aws_metrics.html#configuring-cloudwatch-data-ingestion).
+The integration is added to the Amazon Web Services Integrations list. You can now see it on the **Overview** tab and manage it from this tab. 
+
+![Image of the overview tab of the AWS integration after we have set up several integrations.](images/aws-after-setup-overview.png)
+
+If you want to configure allow lists and service refresh rate for the CloudWatch integration, follow the instructions in [Configuring CloudWatch Data Ingestion](integrations_aws_metrics.html#configuring-cloudwatch-data-ingestion).
 
 
 ### Register Additional Amazon Web Services

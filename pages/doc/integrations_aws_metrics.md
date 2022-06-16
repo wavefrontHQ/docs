@@ -12,7 +12,7 @@ Amazon Web Services (AWS) is a collection of cloud-computing services that provi
 
 You have to set up your Tanzu Observability by Wavefront account with the correct permissions.
 * From within the integration or explicitly, you can [Give Global Read-Only Access](integrations_aws_overview.html#give-read-only-access-to-your-amazon-account-and-get-the-role-arn).
-* As an alternative, you can [Create an IAM Policy to Specify Limited Access](integrations_aws_overview.html#create-iam-policy-to-specify-limited-access).
+* As an alternative, you can [Give Limited Access](integrations_aws_overview.html#giving-limited-access).
 
 
 ## Supported AWS Integrations
