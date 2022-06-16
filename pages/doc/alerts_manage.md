@@ -161,11 +161,22 @@ If you already have information that helps recipients find the causes for the al
 <tbody>
 <tr>
 <td width="50%">
-<ul>
-<li><strong>Runbook: </strong>A URL to a wiki page, or another document that helps alert recipients resolve the alert.</li>
-<li><strong>Triage Dashboard(s): </strong>Start typing to select from dashboards on your Wavefront instance that have useful information and pass in information. See <a href="#how-do-i-pass-values-to-triage-dashboards">How Can I Pass a Value to a Triage Dashboard</a>.</li>
-<li><strong>Additional Information: </strong>Any other information that is useful to the alert recipient. This field supports Markdown. Click <strong>Preview</strong> to preview the Markdown output.</li>
-</ul>
+  <ul>
+    <li>
+      <strong>Runbook: </strong>A URL to a wiki page, or another document that helps alert recipients resolve the alert.
+    </li>
+    <li>
+      <strong>Triage Dashboard(s): </strong>Start typing to select from dashboards on your Wavefront instance that have useful information and pass in information. See <a href="#how-do-i-pass-values-to-triage-dashboards">How Can I Pass a Value to a Triage Dashboard</a>.
+    </li>
+    <li>
+      <strong>Additional Information: </strong>Any other information that is useful to the alert recipient. This field supports Markdown. Click <strong>Preview</strong> to preview the Markdown output.
+    </li>
+    <!--
+    <li>
+      <strong>Related Logs: </strong>Click the plus button to add log tags. When an alert fires, you get a link to access the logs associated with these tags on the Log Browser. Click <b>Go To Logs</b> to test if the tags work for your log data and refine the log search by adding or removing tags.
+  </li>
+  -->
+  </ul>
 </td>
 <td width="50%" markdown="span">![create_alert](images/alert_content_1.png) </td></tr>
 <tr><td>Click <strong>Additional Settings</strong> to further customize the notifications for special cases.
