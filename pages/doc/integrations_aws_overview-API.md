@@ -41,31 +41,9 @@ For more information, see [Giving Tanzu Observability Access to Your AWS Account
   }
   ```
 
-### Provide Read-Only Access to Your Amazon Account and Get the Role ARN
+### Give Access to Your Amazon Account and Get the Role ARN
 
-1. Log in to your AWS account.
-1. Search for the **IAM** (AWS Identity and Access Management) service and click it.
-1. Under **Access management** on the left, click **Roles**.
-1. Click **Create role**.
-1. Click the **AWS account** tile, and select the **Another AWS account** radio button.
-1. Enter the Wavefront account information:
-   - **Account ID** - The identifier of the Wavefront account to which you want to grant access.
-     To get the Wavefront account ID:
-     1. Navigate to your Wavefront cluster.
-     2. Click **Integrations** on the toolbar and click the **Amazon Web Services** integration tile.
-     3. Click the **Setup** tab and click the **How to get Role ARN** link.
-     4. Copy the **Account ID** displayed in the instructions.
-
-   - Select the **Require external ID** check box and provide the [external ID that you have copied](integrations_aws_overview_API.html#create-an-external-id).
-
-      You can also copy and paste the **External ID** displayed in the instructions on the **Amazon Web Services** integration **Setup** page (in the Wavefront instance UI).
-
-1. Click **Next**.
-1. On the **Add permissions** screen, search for, and select the **ReadOnlyAccess** check box.
-1. Click **Next**.
-1. In the **Role name** text box, provide a unique name of the role and click **Create role**.
-1. On the **Roles** page, click the newly created role.
-1. Copy the **ARN** value, so that you can use it when you configure your AWS integration.
+Follow the steps in [Giving Tanzu Observability Access to Your AWS Account](integrations_aws_overview.html#giving-tanzu-observability-access-to-your-aws-account).
 
 ## Set Up an AWS Integration
 

@@ -57,14 +57,15 @@ Data flows from AWS only if the account has the required access. You have severa
 <td>ReadOnlyAccess policy (most services)</td>
 <td markdown="span">In most cases, it makes sense to give the `ReadOnlyAccess` policy to the Amazon account.</td></tr>
 <tr>
-<td markdown="span">Access to Service Limit metrics</td>
-<td markdown="span">If you want to collect Service Limit metrics:
-  - You need at least the Business-level AWS Support plan
-  - Grant the `AWSSupportAccess` policy (in addition to the `ReadOnlyAccess` policy)</td>
+<td>Access to Service Limit metrics</td>
+<td>If you want to collect Service Limit metrics:
+   <ul><li> You need at least the Business-level AWS Support plan</li>
+   <li>Grant the <code>AWSSupportAccess</code> policy (in addition to the <code>ReadOnlyAccess</code> policy)</li>
+   </ul></td>
 </tr>
 <tr>
-<td markdown="span">Create IAM policy to specify limited access</td>
-<td markdown="span">Explicitly specify the access settings in a custom IAM policy, as discussed in [Giving Limited Access](#create-iam-policy-to-specify-limited-access).</td>
+<td markdown="span">Create a policy to specify limited access</td>
+<td markdown="span">Explicitly specify the access settings in a custom IAM policy.</td>
 </tr>
 </tbody>
 </table>
@@ -72,15 +73,20 @@ Data flows from AWS only if the account has the required access. You have severa
 
 ### Give Read-Only Access to Your Amazon Account and Get the Role ARN
 
-To grant Tanzu Observability with read-only access to your Amazon account, you need to provide an account ID and external ID. While the account ID is a constant value - the ID (in our case - the Wavefront ID) to which you want to grant access to your resources, the external ID is not a constant value. The external ID is a secret identifier that is known by you and Tanzu Observability by Wavefront (the third-party). The external ID is time-sensitive and regenerated each time you reopen the AWS Integration setup page, and you cannot reuse it.
+To grant Tanzu Observability with read-only access to your Amazon account, you need to create a role and provide an account ID and external ID. While the account ID is a constant value - the ID (in our case - the Wavefront ID) to which you want to grant access to your resources, the external ID is not a constant value. The external ID is a secret identifier that is known by you and Tanzu Observability by Wavefront (the third-party). The external ID is time-sensitive and regenerated each time you reopen the AWS Integration setup page, and you cannot reuse it.
 
 For information about external IDs and how they are used in AWS, see [How to Use External ID When Granting Access to Your AWS Resources](https://aws.amazon.com/blogs/security/how-to-use-external-id-when-granting-access-to-your-aws-resources/).
 
-<p><span style="font-size: large; font-weight: 500">GUI Method</span></p>
+<a name="GUI"></a> 
 
-**Step 1: Get the Account ID and the External ID**
+<p><span style="font-size: medium; font-weight: 800">GUI Method</span></p>
 
-To provide read-only access through the UI and set up the integration, you need an account ID and an external ID. To get the account ID and the external ID, do the following:
+<a name="GetIDs"></a>
+
+
+**Task 1: Get the Account ID and the External ID**
+
+To get the account ID and the external ID, do the following:
 
 1. Log in to your Wavefront cluster.
 2. Click **Integrations** on the toolbar and click the **Amazon Web Services** integration tile. 
@@ -92,56 +98,119 @@ To provide read-only access through the UI and set up the integration, you need 
 6. Copy the **Account ID** and the **external ID** displayed in the instructions.
 
 ![The AWS setup page after clicking How to get Role ARN link and the AWS UI Method tab selected.](images/hello_tutorial_aws_integration_UI-setup.png)
-     
-**Step 2: Create a Role in AWS**
+
+<a name="CreateRole"></a>
+
+**Task 2: Create a Role in AWS**
 
 1. Log in to your AWS account.
 1. Search for the **IAM** (AWS Identity and Access Management) service and click it.
 1. Under **Access management** on the left, click **Roles**.
 1. Click **Create role**.
 1. Click the **AWS account** tile, and select the **Another AWS account** radio button.
-1. Enter the Wavefront account information.           
-   - **Account ID** - The identifier of the Wavefront account to which you want to grant access.   
-   - Select the option **Require external ID** and provide the external ID. 
+1. Paste the copied Wavefront account information.           
+   1. **Account ID** - The identifier of the Wavefront account to which you want to grant access.   
+   2. Select the option **Require external ID** and provide the external ID. 
      
 1. Click **Next**.
 1. On the **Add permissions** screen, search for, and select the **ReadOnlyAccess** check box.
 1. Click **Next**.
 1. In the **Role name** text box, provide a unique name of the role and click **Create role**.
+
+<a name="GetRoleArn"></a>
+
+**Task 3: Get the Role ARN**
+
 1. On the **Roles** page, click the newly created role.
-1. Copy the **ARN** value, so that you can use it when you configure your AWS integration.
+1. Copy the **ARN** value, so that you can use it when you configure your AWS integration. See [Set up and AWS Integration](#set-up-an-aws-integration).
 
-<p><span style="font-size: large; font-weight: 500">CLI Method</span></p>
+<a name="CLI"></a> 
+<p><span style="font-size: medium; font-weight: 800">CLI Method</span></p>
 
-1. Log in to your AWS account, and open the [AWS Command Line Interface](https://aws.amazon.com/cli/).
-2. Create a role in AWS.
-   
-      1. In a new web browser tab, log in to your Wavefront cluster and click **Integrations** on the toolbar.
-      1. In the Featured section, click the **Amazon Web Services** tile.
-      1. Click the **Set up integration** button.
-      1. Select which services you want to set up and click **Next**.
-         * **CloudWatch & Metrics+**
-         * **CloudWatch & Metrics+ & CloudTrail** 
-      1. Click the **How to get Role ARN?** link.
-      1. On the **AWS CLI Method** tab, under **Step 1** of the interactive help page, enter the stack and role names.
-         ![Screenshot of the AWS CLI method interactive help page.](images/aws-rolearn-cli-method.png)
-      1. Copy the command displayed in **Step 2** of the interactive help page. 
-      1. Run the copied command in the [AWS CLI](https://aws.amazon.com/cli/).
-3. In the [AWS CLI](https://aws.amazon.com/cli/) retrieve the Role ARN by running the command:
+By using this method, the process for getting the account ID and the external ID as well as the creation of a role in AWS is automated.
 
-   ```aws iam get-role --role-name <role name>
+**Task 1: Create a role in AWS**
+
+1. Log in to your Wavefront cluster and click **Integrations** on the toolbar.
+1. In the Featured section, click the **Amazon Web Services** tile.
+1. Click the **Set up integration** button.
+1. Select which services you want to set up and click **Next**.
+   * **CloudWatch & Metrics+**
+   * **CloudWatch & Metrics+ & CloudTrail** 
+1. Click the **How to get Role ARN?** link.
+1. On the **AWS CLI Method** tab, under **Step 1** of the interactive help page, enter the stack and role names.
+   ![Screenshot of the AWS CLI method interactive help page.](images/aws-rolearn-cli-method.png)
+
+1. Copy the command displayed in **Step 2** of the interactive help page. 
+1. In another web browser page log in to your AWS account, open the [AWS Command Line Interface](https://aws.amazon.com/cli/), and run the copied command.
+
+**Task 2: Get the Role ARN**
+
+1. Copy the command displayed in **Step 3** of the interactive help page and run it in the [AWS Command Line Interface](https://aws.amazon.com/cli/).
+
+   ```aws iam get-role --role-name wavefront
    ``` 
   
-   Here, `<role name>` is the name of the role you just created, for example `wavefront`.
+   Here, `wavefront` is the name of the role you just created.
    
    In the output, the Role ARN is listed as a value of the `"Arn"` property.
    
-4. Copy the **Role ARN** value, so that you can use it (i.e. paste it in the **Role ARN" from Amazon IAM** text box) when you set up your AWS integration.   
+1. Copy the **Role ARN** value, so that you can use it (i.e. paste it in the **Role ARN" from Amazon IAM** text box) when you set up your AWS integration. See [Set up and AWS Integration](#set-up-an-aws-integration).
 
       
 ### Giving Limited Access
 
-Instead of giving global read-only access, you can give more limited access.
+Instead of giving global read-only access, you can give Tanzu Observability more limited access. To do this, when you create a role in AWS, instead of providing **ReadOnlyAccess**, you can either create a policy with the required permissions and assign it to the role, or select an existing policy.
+
+<a name="policy"></a>
+
+<p><span style="font-size: medium; font-weight: 800">Create a Policy in AWS</span></p>
+
+To create a permission policy in AWS that you can use when you create the role with limited access, follow these steps:
+
+1. Log in to your AWS account.
+1. Search for the **IAM** (AWS Identity and Access Management) service and click it.
+1. Under **Access management** on the left, click **Policies**.
+1. Click **Create Policy**. 
+    * On the **Visual Editor** tab, you can select a service and set the permissions manually. See [Required Permissions for Limited Access](#required_permissions).
+      1. Search for and select a service.
+      1. Specify the actions allowed in the selected service.
+      1. Select the resources, as necessary.
+      1. (Optional) Request conditions.
+      
+    * On the **JSON** tab, you can enter a JSON snippet. See [An Example Snippet of a Policy](#example_snippet).
+  
+1. Click **Next: Tags** and click **Next: Review**.
+1. On the **Review policy** page provide a name and, optionally, a description of the policy and click **Create policy**.
+
+
+<p><span style="font-size: medium; font-weight: 800">Create a Role with Limited Access in AWS</span></p>
+
+After you create the policy with the required permissions, create a role with limited access.
+
+1. Retrieve the account ID and the external ID by following the steps in [Task 1 of the GUI method](#GetIDs).
+2. Create a role in AWS.
+  
+    1. Log in to your AWS account.
+    1. Search for the **IAM** (AWS Identity and Access Management) service and click it.
+    1. Under **Access management** on the left, click **Roles**.
+    1. Click **Create role**.
+    1. Click the **AWS account** tile, and select the **Another AWS account** radio button.
+    1. Paste the copied Wavefront account information.           
+       1. **Account ID** - The identifier of the Wavefront account to which you want to grant access.   
+       2. Select the option **Require external ID** and provide the external ID. 
+         
+    1. Click **Next**.
+    1. On the **Add permissions** screen, search for, and select the check box of the policy you have created.
+    1. Click **Next**.
+    1. In the **Role name** text box, provide a unique name of the role and click **Create role**.
+
+3. Get the Role ARN by following the steps in [Task 3 of the GUI method](#GetRoleArn).
+
+<a name="required_permissions"></a>
+
+<p>
+<span style="font-size: medium; font-weight: 800">Required Permissions for Limited Access</span></p>
 
 The required permissions depend on the integration and on the service you want to monitor, as shown in the following table:
 <table>
@@ -192,9 +261,12 @@ support:DescribeTrustedAdvisorCheckResult<br /></td>
 </tr>
 </table>
 
-### Create IAM Policy to Specify Limited Access
+<a name="example_snippet"></a>
 
-You can explicitly specify the access permissions in a custom IAM policy, as shown in the following example snippet.
+<p>
+<span style="font-size: medium; font-weight: 800">An Example JSON Snippet of a Policy</span></p>
+
+You can explicitly specify the limited access permissions in a custom IAM policy, as shown in the following example JSON snippet.
 
 ```
 {
@@ -235,7 +307,7 @@ You can set up an AWS integration, enable and disable it, edit an integration, a
 
 ### Set up an AWS Integration
 
-To set up an AWS integration, you must have a [Role ARN](#give-read-only-access-to-your-amazon-account-and-get-the-role-arn) handy. 
+To set up an AWS integration, you must have a **Role ARN** handy. 
 
 1. Log in to your Wavefront instance and click **Integrations** on the toolbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
