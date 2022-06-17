@@ -59,7 +59,7 @@ To configure CloudWatch ingestion:
     - **Point Tag Allow List** -- Add AWS point tags to an allow list by specifying a regular expression. If you do not specify a regular expression, no point tags are added to metrics.
     - **Service Refresh Rate** -- Number of minutes between requesting metrics. Default is `5`.
     - **Products** -- Allows you to filter the list of AWS products for which you want to collect metrics by using the CloudWatch integration. The default is **All**. Click **Custom** to see the list of AWS products and to filter them according to your needs.
-1. Click **Save**.
+1. Click **Update**.
 
 ### How to Use the Metric Allow List and the Products List
 
