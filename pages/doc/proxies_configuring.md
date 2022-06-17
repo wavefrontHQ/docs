@@ -776,7 +776,7 @@ Required when authMethod = STATIC_TOKEN. For example, <code>authStaticToken=toke
 <tr>
 <a name="otlpResourceAttrsOnMetricsIncluded"></a>
 <td>otlpResourceAttrsOnMetricsIncluded</td>
-<td markdown="span">Set the value to `true` to send metrics data from your application that uses an OpenTelemetry SDK to Tanzu Observability.
+<td markdown="span">Set the value to `true` to receive the OpenTelemetry resource attributes that your application sends for metrics data.
 <br/>Default: false</td>
 <td>true or false</td>
 </tr>
