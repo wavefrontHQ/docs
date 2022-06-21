@@ -33,8 +33,9 @@ Your Wavefront instance includes out-of-the-box dashboards and charts that help 
 <td width="50%"><img src="/images/usage_overview.png" alt="screenshot of usage summary dashboard"></td></tr>
 <tr>
 <td>If you want to drill down into usage and pricing information, you can examine dashboards in the <strong>Wavefront Usage</strong> integration. Your contract with VMware determines which dashboard has the information you need:
-<ul><li><strong>Burndown</strong>: If you prepaid, the <strong>Usage (PPS) vs Remaining Balance (PPS P95) for Burndown</strong> has the information you need.</li>
-<li><strong>Billable</strong>: Otherwise, the <strong>Committed Rate vs Monthly Usage (PPS P95) for Billable</strong> dashboard has the information you need. </li>
+<ul>
+<li><strong>Billable</strong>: The <strong>Committed Rate vs Monthly Usage (PPS P95) for Billable</strong> dashboard has the information that most users need. </li>
+<li><strong>Burndown</strong>: A few customers have a burndown billing contract. For thos customers, the <strong>Usage (PPS) vs Remaining Balance (PPS P95) for Burndown</strong> has the information you need.</li>
 </ul></td>
 <td width="50%"><img src="/images/wavefront_usage_all_dashboards.png" alt="screenshot of the 5 Wavefront usage dashboards"></td>
 </tr>
@@ -69,8 +70,7 @@ The rest of this doc page helps you make improvements. This section has an overv
 <tr>
 <td><strong>Remedy high PPS</strong> </td>
 <td>To remedy high PPS, you can optimize ingest rate and the data shape.
-<ul><li>
-Don't use data that changes frequently (e.g. the timestamp) in the metric name.</li>
+<ul>
 <li>Be smart about queries by using filters and time windows.</li>
 <li>Ensure optimal dashboard performance, for example, by limiting the data each chart displays.</li></ul>
 </td>
@@ -91,7 +91,7 @@ Don't use data that changes frequently (e.g. the timestamp) in the metric name.<
 
 ## How Can I Optimize My Ingestion Rate?
 
-Billing for Tanzu Observability is based primarily on the ingestion rate. Ingestion is so important because data are ingested again and again--every second for metrics by default. Here's how you can look for ways to optimize and reduce your ingestion rate.
+Billing for Tanzu Observability is based primarily on the ingestion rate. Ingestion is so important because data are ingested again and again. Tanzu Observability supports ingestion every second for metrics. Here's how you can look for ways to optimize and reduce your ingestion rate.
 
 ### Examine Ingestion with the Namespace Usage Explorer
 
@@ -114,7 +114,7 @@ The Namespace Usage Explorer is especially useful if your metrics use hierarchic
 
 ### (Optional) Clone Namespace Explorer and Create Custom Charts
 
-If you don't see the information you need, for example if you need a chart that shows histogram ingestion, [clone](ui_dashboards.html#edit-or-clone-a-dashboard) the **Namespace Usage Explorer** dashboard and modify existing charts or create custom charts. You can use `cs()`, `hs()` and `spans()` queries to retrieve information about counters, histograms, and spans. For example, the default dashboard examines `~metric` information, but you can also examine counter information using the following format:
+If you don't see the information you need, for example if you need a chart that shows histogram ingestion, [clone](ui_dashboards.html#edit-or-clone-a-dashboard) the **Namespace Usage Explorer** dashboard and modify existing charts or create custom charts. You can use `cs()` queries to retrieve information about counters, histograms, and spans. For example, the default dashboard examines `~metric` information, but you can also examine counter information using the following format:
 
 ```
 cs(~<data_type>.global.namespace.<namespace>.pps, source=<depth_number>)
@@ -282,7 +282,7 @@ When you want to find out which teams are using the most data, you several these
 <tr>
 <td>Who is responsible for high usage? </td>
 <td>Use the <strong>Wavefront Ingestion Policy Explorer</strong> dashboard in the <strong>Wavefront Usage</strong> integration to drill down into accounts and find the accounts responsible for the high ingestion.</p>
-<p>Use the <strong>Wavefront Namespace Usage Explorer</strong> dashboard in the <strong>Wavefront Usage</strong> integration to drill down into namespaces and find where the ingested data is coming from.</p>
+<p>Use the <strong>Wavefront Namespace Usage Explorer</strong> dashboard in the <strong>Wavefront Usage</strong> integration to drill down into namespaces and find where the ingested data is coming from.
 </td>
 <td markdown="span">![usage by account](images/usage_by_account.png)<br>
 ![Top 10 Level 1 Metric Namspaces](images/namespace_explorer.png)</td>
@@ -302,7 +302,7 @@ Use the <a href="examine_usage.html"><strong>Usage Summary</strong></a> dashboar
 </tr>
 <tr>
 <td>Why do I have cardinality problems?</td>
-<td>If you know there's been a spike in data (for example, an ID burst), you can use Wavefront Top or the <a href="wavefront_monitoring_spy.html">Wavefront Spy utility </a> to drill down into individual data points and tag values. </td>
+<td>If you know there's a spike in data (for example, an ID burst), you can use Wavefront Top or the <a href="wavefront_monitoring_spy.html">Wavefront Spy utility </a> during the spike to drill down into individual data points and tag values. Those two tools aren't as useful after the spike -- use the Wavefront Usage dashboards instead. </td>
 <td markdown="span">![example screenshot from wftop Github page](images/wftop_small.png)</td>
 </tr>
 <tr>
