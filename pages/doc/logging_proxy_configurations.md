@@ -225,17 +225,233 @@ Converts the tag key to lowercase.
    scope         : sourceName
 ```
 
-### logAddAnnotation
+### logAddTag and logAddTagIfNotExists
 
-### logAddAnnotationIfNotExists
+Add a log tag to all logs.
+* `logAddTag` adds the new log tag and assigns the new value to it. If you want to update the value of a span tag, you need to [drop the log tag](#logdroptag) and add it again.
+* `logAddTagIfNotExists` adds the log tag only if it does not already exist.
 
-### logDropAnnotation
+{% include note.html content="You can add up to 20 span tags. Contact [support@wavefront.com](mailto:support@wavefront.com) if this does not meet your requirements." %}
 
-### logExtractAnnotation
+<font size="3"><strong>Parameters</strong></font>
 
-### logExtractAnnotationIfNotExists
+<table width="100%">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>action</td>
+<td>logAddTag <br>
+logAddTagIfNotExists</td>
+</tr>
+<tr>
+<td>key</td>
+<td>New log tag name.</td>
+</tr>
+<tr>
+<td>value</td>
+<td>New log tag value.</td>
+</tr>
+</tbody>
+</table>
 
-### logRenameAnnotation
+<font size="3"><strong>Example</strong></font>
+
+```yaml
+# adds customTag1:val1 to all the log data.
+- rule          : test-logaddannotation
+  action        : logAddTag
+  key           : customTag1
+  value         : "val1"
+
+################################################################
+
+# adds customTag2:val2 if customTag1 does not already exist
+# this rule will not be active because customTag1 was added in previous rule
+- rule          : test-logaddTagifnotexists
+ action        : logAddTagIfNotExists
+ key           : customTag1
+ value         : "val2"
+
+```
+
+### logDropTag
+
+Removes a log tag that matches a regex string.
+
+<font size="3"><strong>Parameters</strong></font>
+
+<table>
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>action</td>
+<td>logDropTag</td>
+</tr>
+<tr>
+<td>key</td>
+<td>Log tag name (or a regex matching the tag name).</td>
+</tr>
+<tr>
+<td>match (optional)</td>
+<td>If specified, remove a tag only if its value matches this regular expression.</td>
+</tr>
+</tbody>
+</table>
+
+<font size="3"><strong>Examples</strong></font>
+
+```yaml
+# drops the datecenter tag if the value matches az4, az5, az6.
+ - rule          : test-logDropTag
+   action        : logDropTag
+   key           : datacenter
+   match         : "az[4-6]" 
+
+```
+
+### logExtractTag and logExtractTagIfNotExists
+
+Extract a string from a log tag name, or a tag tag value and create a new log tag from that string.
+* For `logExtractTag`, create the new log tag.
+* For `logExtractTagIfNotExists`, do not create the new log tag if at least one tag with this name already exists.
+
+<font size="3"><strong>Parameters</strong></font>
+
+<table>
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description<br />
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>action</td>
+<td>logExtractTag<br>logExtractTagIfNotExists</td>
+</tr>
+<tr>
+<td>key</td>
+<td>New tag name.</td>
+</tr>
+<tr>
+<td>input</td>
+<td>Rule applies to the value of the specified log tag (annotation) key.</li>
+</ul></td>
+</tr>
+<tr>
+<td>match (optional)</td>
+<td>Regular expression. If specified, extract a tag only if the span tag value matches this regular expression.</td>
+</tr>
+<tr>
+<td>search</td>
+<td>Regex pattern to extract the value from.</td>
+</tr>
+<tr>
+<td>replace</td>
+<td>String or pattern that will be used as a value for the new span tag. Empty string is allowed. Refer to a capturing group in the search regex using $ and its number (starting from 1). For example, use $1 to refer to the first group. </td>
+</tr>
+<tr>
+<td>replaceInput (optional)</td>
+<td>Modify the name of the input. Refer to a capturing group in the search regex using $ and its number (starting from 1). For example, use $1 to refer to the first group.</td>
+</tr>
+</tbody>
+</table>
+
+<font size="3"><strong>Examples</strong></font>
+
+```yaml
+# turns tagtoExtract:foobar to tagToExtract:fooar and extractedTag:b
+ - rule          : test-logExtractAnnotation
+   action        : logExtractAnnotation
+   key           : extractedTag
+   input         : tagToExtract
+   search        : "(foo)(b)(ar)"
+   replace       : "$2"
+   replaceInput  : "$1$3"
+
+```
+
+```yaml
+# same as logExtractAnnotation. if tagToExtract already exist, this rule never runs because the tag is already there.
+- rule          : test-logextracttagifnotexists
+  action        : logExtractAnnotationIfNotExists
+  key           : extractedTag
+  input         : tagToExtract
+  search        : "(foo)(b)(ar)"
+  replace       : "$1"
+  replaceInput  : "$2$3"
+```
+
+
+### logRenameTag
+
+Renames a log tag. The renaming does not affect the values stored in a log.
+
+<font size="3"><strong>Parameters</strong></font>
+
+<table>
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>action</td>
+<td>logRenameTag</td>
+</tr>
+<tr>
+<td>key</td>
+<td>The log tag to be renamed.</td>
+</tr>
+<tr>
+<td>newkey</td>
+<td>The new name for the log tag.</td>
+</tr>
+<tr>
+<td>match (optional)</td>
+<td>If specified, renames a log tag if its value matches this regular expression.</td>
+</tr>
+</tbody>
+</table>
+
+<font size="3"><strong>Example</strong></font>
+
+```yaml
+# replaces the tag name myDevice with device
+- rule          : test-logrenameannotation
+ action        : logRenameAnnotation
+ key           : myDevice
+ newkey        : device
+```
 
 ### logLimitLength
 
@@ -243,4 +459,4 @@ Converts the tag key to lowercase.
 
 ### logWhitelistRegex
 
-### logAllowAnnotation
+### logAllowTag
