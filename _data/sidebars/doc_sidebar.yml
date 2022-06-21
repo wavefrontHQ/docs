@@ -24,7 +24,7 @@ entries:
 
     - title: Videos
       output: web
-      url: /videos.html  
+      url: /videos.html
 
       subfolders:
 
@@ -434,7 +434,7 @@ entries:
     - title: Using PromQL with Tanzu Observability
       url: /wavefront_prometheus.html
       output: web
-      
+
   - title: Integrations
     output: web
     folderitems:
@@ -593,14 +593,14 @@ entries:
           subfolderitems:
 
           - title: TAS Integration
-            url: /tas.html
+            url: /tas_v4.html
             output: web
 
           - title: How to Monitor TAS with Tanzu Observability
             url: /integrations_tas_howto.html
             output: web
 
-          - title: Troubleshooting for TAS to Tanzu Observability 
+          - title: Troubleshooting for TAS to Tanzu Observability
             url: /tas_to_troubleshooting.html
             output: web
 
