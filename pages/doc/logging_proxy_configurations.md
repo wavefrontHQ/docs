@@ -455,8 +455,8 @@ Renames a log tag. The renaming does not affect the values stored in a log.
 
 ### logLimitLength
 
-### logBlacklistRegex
+### logBlock
 
-### logWhitelistRegex
+### logAllow
 
 ### logAllowTag
