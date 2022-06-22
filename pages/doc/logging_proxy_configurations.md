@@ -21,7 +21,7 @@ Follow these steps:
 1. [Install the Wavefront Proxy](proxies_installing.html).
     If you have already installed the Wavefront proxy, make sure it is version 11.2 or later. 
 1. Open the [`wavefront.conf` file](proxies_configuring.html#proxy-file-paths):
-    1. Uncomment the `pushListnerPorts` and set it to a preferred port. It is set to 2878 by default to receive both HTTP and TCP data. For details on the proxy configurations, see [Advanced Proxy Configuration](Advanced Proxy Configuration).
+    1. Uncomment the `pushListnerPorts` and set it to a preferred port. It is set to 2878 by default to receive both HTTP and TCP data. For details on the proxy configurations, see [Advanced Proxy Configuration](proxies_configuring.html).
     1. Optionally, uncomment or add the other configurations listed below.
     1. Save the file.
 1. [Start the proxy](proxies_installing.html#start-and-stop-a-proxy).
