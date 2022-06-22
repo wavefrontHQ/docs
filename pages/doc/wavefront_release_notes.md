@@ -20,7 +20,8 @@ This release includes:
 * **Accessibility Fixes**: We've made significant keyboard navigation improvements to many UI pages.
 * **Tanzu Application Service to Tanzu Observability**: We released the Tanzu Application Service to Tanzu Observability integration on June 13.
   * [Monitor Tanzu Application Service with Tanzu Observability](integrations_tas_howto.html) explains the process end to end.
-  * [Tanzu Observability and TAS Troubleshooting](tas_to_troubleshooting.html) has troubleshooting steps based on what we've learned during the Beta period. 
+  * [Tanzu Observability and TAS Troubleshooting](tas_to_troubleshooting.html) has troubleshooting steps based on what we've learned during the Beta period.
+* **Wavefront Proxy**: Proxy [version 11.2](https://github.com/wavefrontHQ/wavefront-proxy/releases/tag/proxy-11.2) is now available.
 
 ## 2022-22.x Release Notes
 
@@ -30,10 +31,6 @@ This release of the Wavefront service includes the following improvements:
 In addition:
 * **Integrations**: The June 2022 integrations release was made available! It includes significant improvements to the Snowflake and Jenkins integrations, and more. See the [Integration Release Notes](integrations_new_changed.html#june-2022) for details.
 * **Videos**: We migrated [all videos](videos.html) to VMware TV and created playlists for easy access.
-
-
-
-
 
 
 ## Past Release Notes
