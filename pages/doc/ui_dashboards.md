@@ -169,7 +169,7 @@ The dashboard menu allows you to create a dashboard, edit a dashboard, clone a d
 
 All users can examine metrics, set the time window, and make temporary changes to dashboards. See [Examine Data](ui_examine_data.html) for details.
 
-![annotated screenshot with the activities below that users can do with a dashboard](images/v2_dashboard_elements.png)
+![An annotated screenshot with the activities listed below that users can do with a dashboard](images/v2_dashboard_elements.png)
 
 Here are some examples of what [all users can do](ui_examine_data.html):
 * Set the dashboard time window
@@ -319,7 +319,7 @@ For each dashboard, you can customize display preferences and settings.
 <li>Select <strong>Edit</strong>. </li>
 <li>Click <strong>Settings</strong>.</li>
 <li>Make selections in the dialog:
-<ol><li>Set the default time window. You can later override the time window.  </li>
+<ol><li>Set the default time window. You can later override the time window. <br />Time window settings on a dashboard level apply to all charts for which you have selected to use the <strong>Default to dashboard time window</strong> option. If you have set a fixed time window on a chart, the time window on that specific chart won’t be affected. </li>
 <li>Hide the variables for the dashboard by default. Users can still show the variables bar using the <img src="/images/show_hide_variable_icon.png"
 style="vertical-align:text-bottom;width:25px" alt="show or hide variable icon" /> icon.  </li>
 <li>Click <strong>Advanced</strong></li>
