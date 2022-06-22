@@ -66,6 +66,39 @@ Identifying what metrics are and aren’t coming through can help identify where
 </tbody>
 </table>
 
+## Troubleshoot Bottlenecks
+
+The data ingestion pipeline is not able to handle the traffic that's coming from your Kubernetes environment. This problem is especially noticable in environments with high cardinality or bursty traffics
+
+You can address this problem in several ways, and might find that combining solutions works best.
+
+**Solution: Manage Cardinality and the Data Shape**
+
+**Solution: Use Proxy Preprocessor Rules**
+
+**Solution: Filter Out Metrics at the Collector**
+
+Filtering out metrics at the collector is much more efficient than filtering out metrics at the Wavefront proxy. See the following doc on Github for details:
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="50%">Exclude pods from auto-discovery.</td>
+<td width="50%"><a href="https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/discovery.md#excluding-annotation-discovered-resources">Excluding annotation discovered resources.</a></td></tr>
+<tr>
+<td width="50%">Refine discovery rules to limit which pods the Collector is collecting from.</td>
+<td width="50%"><a href="https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/discovery.md#rule-based-discovery">Rule-based discovery.</a></td></tr>
+<tr>
+<td width="50%">Filter metrics at the collector.</td>
+<td width="50%"><a href="https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/filtering.md">Excluding annotation discovered resources</a></td>
+</tr>
+<tr>
+<td width="50%">Disable auto-discovery.</td>
+<td width="50%"><a href="">Disabling Auto Discovery</a></td>
+</tr>
+</tbody>
+</table>
+
+
 ## Symptom: No Data Flowing into Tanzu Observability
 
 ### Step 1: Verify that the Collector is Running.
@@ -75,7 +108,7 @@ Identifying what metrics are and aren’t coming through can help identify where
 * Run `kubectl get pods -l k8s-app=wavefront-collector -n <NAMESPACE>` to verify all collector instances are ready and available.
 * Pods are marked as not ready:
   * If there are errors with starting pods, run `kubectl describe pod pod_name`, and check the events section for errors. For details on errors, see [Troubleshoot Applications on Kubernetes documentation](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/).
-  * If the collector is running but has frequent restarts, only part of the data goes through. 
+  * If the collector is running but has frequent restarts, only part of the data goes through.
 
   <table style="width: 100%;">
   <tbody>
