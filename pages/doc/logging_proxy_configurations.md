@@ -111,16 +111,10 @@ See the Wavefront proxy configuration used for logs:
 </tbody>
 </table>
 
-<table style="width: 100%;">
-<tbody>
-<tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
-</tbody>
-</table>
-
 ## Proxy Preprocessor Rules for Logs
 
 The Wavefront proxy includes a preprocessor that applies rules before the log data is sent to Tanzu Observability. Logs store data in tags, that are key-value pairs. The rules listed below, update the log tag value.
-For details on how to configure the rules, see Rule Configuration File](proxies_preprocessor_rules.html#rule-configuration-file).
+For details on how to configure the rules, see [Rule Configuration File](proxies_preprocessor_rules.html#rule-configuration-file).
 
 ### logReplaceRegex
 
