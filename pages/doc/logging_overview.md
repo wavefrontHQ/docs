@@ -6,7 +6,7 @@ permalink: logging_overview.html
 summary: Learn about Tanzu Observability metrics, logs, and traces.
 ---
 
-{% include important.html content="Tanzu Observability Logs (Beta) is only enabled for selected customers. If you'd like to participate, contact [technical support](wavefront_support_feedback.html#support)."%}
+{% include important.html content="Tanzu Observability Logs (Beta) is only enabled for selected customers. If you'd like to participate, contact your [Tanzu Observability account representative](wavefront_support_feedback.html#support)."%}
 
  <table style="width: 100%;">
 <tbody>
@@ -231,4 +231,5 @@ To see logs for an application and service on the Log Browser, you need to tag t
 * See how to [send logs to Tanzu Observability](logging_send_logs.html).
 * Learn how to [view and browse logs](logging_log_browser.html).
 * [Try out the tutorial](logging_kubernetes_tutorial.html) to send logs to Tanzu Observability.
+* Learn more about the [proxy configurations and proxy preprocessor rules](logging_proxy_configurations.html).
 * Have questions? See [Logs FAQs](logging_faq.html).
