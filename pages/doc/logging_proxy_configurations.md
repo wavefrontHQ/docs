@@ -98,7 +98,7 @@ See the Wavefront proxy configuration used for logs:
 <br/> Default: 16 times the value you assigned <code>pushFlushMaxLogs</code>
 <br/> Version: Since 11.0</td>
 <td> Positive integer.
-<br/>Example: 17</td>
+<br/>Example: 1000</td>
 </tr>
 <tr>
 <a name="blockedLogsLoggerName"></a>
