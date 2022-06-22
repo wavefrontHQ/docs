@@ -40,7 +40,7 @@ See the Wavefront proxy configuration used for logs:
 <tr>
 <a name="customTimestampTags"></a>
 <td>customTimestampTags</td>
-<td markdown="span"> A comma-separated list of log tag keys that needs to be treated as the timestamp if the `timestamp` or `log_timestamp` tag is missing.
+<td markdown="log tag"> A comma-separated list of log tag keys that needs to be treated as the timestamp if the `timestamp` or `log_timestamp` tag is missing.
 <br/> Default: None.
 <br/> Version: Since 11.0</td>
 <td> Comma-separated list of tags. Can be a single tag.
@@ -94,8 +94,8 @@ See the Wavefront proxy configuration used for logs:
 <tr>
 <a name="pushMemoryBufferLimitLogs"></a>
 <td>pushMemoryBufferLimitLogs</td>
-<td markdown="span"> Maximum number of logs that can stay in the proxy memory buffers before spooling to disk. Defaults to 16 times pushFlushMaxLogs. The minimum value you can set is the value your defined for pushFlushMaxLogs. If the value is lower than the default value, it reduces memory usage but will force the proxy to spool to disk more frequently when the logs data points arrive at the proxy in short bursts.
-<br/> Default: 16*pushFlushMaxLogs
+<td markdown="span"> Maximum number of logs that can stay in the proxy memory buffers before spooling to disk. Defaults to 16 times `pushFlushMaxLogs`. The minimum value you can set is the value your defined for `pushFlushMaxLogs`. If the value is lower than the default value, it reduces memory usage but will force the proxy to spool to disk more frequently when the logs data points arrive at the proxy in short bursts.
+<br/> Default: 16 times the value you assigned <code>pushFlushMaxLogs</code>
 <br/> Version: Since 11.0</td>
 <td> Positive integer.
 <br/>Example: 17</td>
@@ -119,7 +119,7 @@ See the Wavefront proxy configuration used for logs:
 
 ## Proxy Preprocessor Rules for Logs
 
-The Wavefront proxy includes a preprocessor that applies rules before the log data is sent to Tanzu Observability. Logs store data in tags, that are key value pairs. The rules listed below, update the log tag key and values.
+The Wavefront proxy includes a preprocessor that applies rules before the log data is sent to Tanzu Observability. Logs store data in tags, that are key-value pairs. The rules listed below, update the log tag value.
 For details on how to configure the rules, see Rule Configuration File](proxies_preprocessor_rules.html#rule-configuration-file).
 
 ### logReplaceRegex
@@ -158,7 +158,7 @@ Replaces content in the tag value.
 </tr>
 <tr>
 <td>match (optional)</td>
-<td>Regular expression. If specified, extract the tag only if the span name, source name, or span tag matches this regular expression.</td>
+<td>Regular expression. If specified, extract the tag only if the log tag matches this regular expression.</td>
 </tr>
 <tr>
 <td>iterations (optional)</td>
@@ -166,7 +166,7 @@ Replaces content in the tag value.
 </tr>
 <tr>
 <td>firstMatchOnly (optional)</td>
-<td>If set to true, performs string replacement only on the first matching span tag’s value. Only applicable when scope is a span tag. Default is false.</td>
+<td>If set to true, performs string replacement only on the first matching log tag’s value. Only applicable when scope is a log tag. Default is false.</td>
 </tr>
 </tbody>
 </table>
@@ -202,7 +202,7 @@ Converts the tag key to lowercase.
 <tbody>
 <tr>
 <td>action</td>
-<td>forceLowercase</td>
+<td>logForceLowercase</td>
 </tr>
 <tr>
 <td>scope</td>
@@ -228,10 +228,10 @@ Converts the tag key to lowercase.
 ### logAddTag and logAddTagIfNotExists
 
 Add a log tag to all logs.
-* `logAddTag` adds the new log tag and assigns the new value to it. If you want to update the value of a span tag, you need to [drop the log tag](#logdroptag) and add it again.
+* `logAddTag` adds the new log tag and assigns the new value to it. If you want to update the value of a log tag, you need to [drop the log tag](#logdroptag) and add it again.
 * `logAddTagIfNotExists` adds the log tag only if it does not already exist.
 
-{% include note.html content="You can add up to 20 span tags. Contact [support@wavefront.com](mailto:support@wavefront.com) if this does not meet your requirements." %}
+{% include note.html content="You can add up to 100 log tags. Contact your account representative if this does not meet your requirements." %}
 
 <font size="3"><strong>Parameters</strong></font>
 
@@ -363,7 +363,7 @@ Extract a string from a log tag name, or a tag tag value and create a new log ta
 </tr>
 <tr>
 <td>match (optional)</td>
-<td>Regular expression. If specified, extract a tag only if the span tag value matches this regular expression.</td>
+<td>Regular expression. If specified, extract a tag only if the log tag value matches this regular expression.</td>
 </tr>
 <tr>
 <td>search</td>
@@ -371,7 +371,7 @@ Extract a string from a log tag name, or a tag tag value and create a new log ta
 </tr>
 <tr>
 <td>replace</td>
-<td>String or pattern that will be used as a value for the new span tag. Empty string is allowed. Refer to a capturing group in the search regex using $ and its number (starting from 1). For example, use $1 to refer to the first group. </td>
+<td>String or pattern that will be used as a value for the new log tag. Empty string is allowed. Refer to a capturing group in the search regex using $ and its number (starting from 1). For example, use $1 to refer to the first group. </td>
 </tr>
 <tr>
 <td>replaceInput (optional)</td>
@@ -455,8 +455,157 @@ Renames a log tag. The renaming does not affect the values stored in a log.
 
 ### logLimitLength
 
+Truncate or drop log tags if tag value length exceeds the limit.
+
+Available action subtypes are `truncate`, `truncateWithEllipsis`, and `drop`.
+
+<font size="3"><strong>Parameters</strong></font>
+
+<table>
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>action</td>
+<td>loglimitLength </td>
+</tr>
+<tr>
+<td>scope</td>
+<td>Rule applies to the value of the specified log tag (annotation) key.</td>
+</tr>
+<tr>
+<td>actionSubtype</td>
+<td>Allows you determine how we limit length:
+<ul>
+<li><strong>drop</strong>&mdash;Drops requested scope if value is greater than maxLength. You can't use DROP with the source name.</li>
+<li><strong>truncate</strong>&mdash;Truncates requested scope if value is greater than maxLength.</li>
+<li><strong>truncateWithEllipsis</strong>&mdash;Truncates the requested scope if the value is greater than maxLength but preserving ellipsis (three dots). maxLength must be at least 3 for this action type.</li>
+</ul></td>
+</tr>
+<tr>
+<td>maxLength</td>
+<td>The maximum length of a log tag value. The length of the input must be greater than maxLength for rule to be applied.</td>
+</tr>
+<tr>
+<td>match (optional)</td>
+<td>Regular expression. If specified, remove a tag if its value matches this regular expression.</td>
+</tr>
+</tbody>
+</table>
+
+<font size="3"><strong>Example</strong></font>
+
+```yaml
+# Truncate messages longer than 1000 characters
+- rule          : test-loglimitlength
+  action        : logLimitLength
+  maxLength     : 1000
+  scope         : message
+  actionSubtype : truncate
+```
+
 ### logBlock
+
+Defines a regex that the log tags must match to be filtered out.
+
+<font size="3"><strong>Parameters</strong></font>
+
+<table>
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>action</td>
+<td>logBlock </td>
+</tr>
+<tr>
+<td>scope</td>
+<td> Rule applies to the value of the specified log tag key after the value is parsed.</li>
+</ul></td>
+</tr>
+<tr>
+<td>match</td>
+<td>A regex pattern that input lines must match to be filtered out.</td>
+</tr>
+</tbody>
+</table>
+
+<font size="3"><strong>Examples</strong></font>
+
+```yaml
+# reject all logs that contain tagToBlockList:[only lower case alphabets]
+- rule          : test-logBlock
+  action        : logBlock
+  match         : "^[a-z]+"
+  scope         : tagToBlockList
+```
 
 ### logAllow
 
-### logAllowTag
+Points must match the `allow` list to be accepted. Multiple `allow` rules are allowed. A log tag must match all rules.
+
+<font size="3"><strong>Parameters</strong></font>
+
+<table>
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>action</td>
+<td>logAllow</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>Rule applies to the value of the specified log tag key after the value is parsed.</li>
+</ul></td>
+</tr>
+<tr>
+<td>match</td>
+<td>A regex pattern that input lines must match to be accepted.</td>
+</tr>
+</tbody>
+</table>
+
+<font size="3"><strong>Examples</strong></font>
+
+```yaml
+# only allow logs that contain tagToWhiteList:[only numbers]
+ - rule          : test-logAllowRegex
+   action        : logAllow
+   match         : "^[0-9]+"
+   scope         : tagToWhiteList
+​
+# removes all annotations not in the specified list
+ - rule: test-logAllowAnnotations
+   action: logAllow
+   allow:
+     - customTag1
+     - tagToExtract
+     - extractedTag
+     - device
+     - tagToWhiteList
+```
