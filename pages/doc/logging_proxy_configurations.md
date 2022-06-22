@@ -1,10 +1,12 @@
 ---
-title: Logs Proxy Configurations (Beta)
+title: Logs Proxy Configurations and Preprocessor Rules (Beta)
 tags: [getting started, logs]
 sidebar: doc_sidebar
 permalink: logging_proxy_configurations.html
 summary: Learn about the Tanzu Observability proxy configurations and preprocessor rules.
 ---
+
+{% include important.html content="Tanzu Observability Logs (Beta) is only enabled for selected customers. If you'd like to participate, contact your [Tanzu Observability account representative](wavefront_support_feedback.html#support)."%}
 
 Configure the Wavefront proxy to receive your log data and customize the data you send using preprocessor rules.
 
@@ -17,7 +19,7 @@ This section gives details on proxy configuration properties used for Tanzu Obse
 Follow these steps: 
 
 1. [Install the Wavefront Proxy](proxies_installing.html).
-    If you have already installed the Wavefront proxy, make sure it is version 11 or later. 
+    If you have already installed the Wavefront proxy, make sure it is version 11.2 or later. 
 1. Open the [`wavefront.conf` file](proxies_configuring.html#proxy-file-paths):
     1. Uncomment the `pushListnerPorts` and set it to a preferred port. It is set to 2878 by default to receive both HTTP and TCP data. For details on the proxy configurations, see [Advanced Proxy Configuration](Advanced Proxy Configuration).
     1. Optionally, uncomment or add the other configurations listed below.
@@ -42,7 +44,7 @@ See the Wavefront proxy configuration used for logs:
 <td>customTimestampTags</td>
 <td markdown="log tag"> A comma-separated list of log tag keys that needs to be treated as the timestamp if the `timestamp` or `log_timestamp` tag is missing.
 <br/> Default: None.
-<br/> Version: Since 11.0</td>
+<br/> Version: Since 11.2</td>
 <td> Comma-separated list of tags. Can be a single tag.
 <br/>Example:sent_time</td>
 </tr>
@@ -51,33 +53,33 @@ See the Wavefront proxy configuration used for logs:
 <td>customMessageTags</td>
 <td markdown="span">A comma-separated list of log tag keys that needs to be treated as the message if the `message` or `text` tag is missing.
 <br/> Default: None.
-<br/> Version: Since 11.0</td>
+<br/> Version: Since 11.2</td>
 <td> Comma-separated list of tags. Can be a single tag.
 <br/> Example:debug_log</td>
 </tr>
 <tr>
 <a name="pushFlushMaxLogs"></a>
 <td>pushFlushMaxLogs</td>
-<td markdown="span">Maximum number of logs in a single flush.
-<br/> Default: 50.
-<br/> Version: Since 11.0</td>
-<td> Number from 0-50.</td>
+<td markdown="span">Maximum number of logs in a single flush in MB.
+<br/> Default: 4.
+<br/> Version: Since 11.2</td>
+<td> A number from 1-5.</td>
 </tr>
 <tr>
 <a name="pushRateLimitLogs"></a>
 <td>pushRateLimitLogs</td>
-<td markdown="span">Limit the outgoing logs rate at the proxy.
+<td markdown="span">Limit the outgoing logs rate at the proxy in MB.
 <br/> Default: NO_RATE_LIMIT.
-<br/> Version: Since 11.0</td>
+<br/> Version: Since 11.2</td>
 <td> Positive integer.
-<br/>Example: 10000</td>
+<br/>Example: 1</td>
 </tr>
 <tr>
 <a name="pushFlushIntervalLogs"></a>
-<td>pushRateLimitLogs</td>
+<td>pushFlushIntervalLogs</td>
 <td markdown="span">Milliseconds between sending batches of logs.
 <br/> Default: 1000.
-<br/> Version: Since 11.0</td>
+<br/> Version: Since 11.2</td>
 <td> Number of milliseconds.
 <br/>Example: 2000</td>
 </tr>
@@ -87,25 +89,25 @@ See the Wavefront proxy configuration used for logs:
 <td markdown="span"> Number of threads that flush data to the server. This setting is per push listener port. 
 <br/>If you set a large value, the number of logs that are included in a batch will be small, and it will be expensive because you need to connect to the server several times.
 <br/> Default: 4
-<br/> Version: Since 11.0</td>
+<br/> Version: Since 11.2</td>
 <td> Positive integer.
 <br/>Example: 5</td>
 </tr>
 <tr>
 <a name="pushMemoryBufferLimitLogs"></a>
 <td>pushMemoryBufferLimitLogs</td>
-<td markdown="span"> Maximum number of logs that can stay in the proxy memory buffers before spooling to disk. Defaults to 16 times `pushFlushMaxLogs`. The minimum value you can set is the value you defined for `pushFlushMaxLogs`. If the value is lower than the default value, it reduces memory usage but will force the proxy to spool to disk more frequently when the logs data points arrive at the proxy in short bursts.
-<br/> Default: 16 times the value you assigned <code>pushFlushMaxLogs</code>
-<br/> Version: Since 11.0</td>
+<td markdown="span"> Maximum number of logs that can stay in the proxy memory buffers before spooling to disk. If the value is lower than the default value, it reduces memory usage but will force the proxy to spool to disk more frequently when the logs data points arrive at the proxy in short bursts. If the limit is the same as the memory heap limit, the proxy ignores the limit you have set here.
+<br/> Default: 64
+<br/> Version: Since 11.2</td>
 <td> Positive integer.
-<br/>Example: 1000</td>
+<br/>Example: 70</td>
 </tr>
 <tr>
 <a name="blockedLogsLoggerName"></a>
 <td>blockedLogsLoggerName</td>
 <td markdown="span"> Logger name for blocked logs.
 <br/> Default: RawBlockedLogs
-<br/> Version: Since 11.0</td>
+<br/> Version: Since 11.2</td>
 <td> A string.</td>
 </tr>
 </tbody>
@@ -603,3 +605,11 @@ Points must match the `allow` list to be accepted. Multiple `allow` rules are al
      - device
      - tagToAllowList
 ```
+
+## Next Steps
+
+* Get an overview of [Tanzu Observability logs](logging_overview.html).
+* See how to [send logs to Tanzu Observability](logging_send_logs.html).
+* Learn how to [view and browse logs](logging_log_browser.html).
+* [Try out the tutorial](logging_kubernetes_tutorial.html) to send logs to Tanzu Observability.
+* Have questions? See [Logs FAQs](logging_faq.html).
