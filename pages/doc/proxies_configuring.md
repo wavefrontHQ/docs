@@ -774,7 +774,7 @@ Required when authMethod = STATIC_TOKEN. For example, <code>authStaticToken=toke
 <br/> Recommended: 4318</td>
 </tr>
 <tr>
-<a name=“otlpResourceAttrsOnMetricsIncluded”></a>
+<a name="otlpResourceAttrsOnMetricsIncluded"></a>
 <td>otlpResourceAttrsOnMetricsIncluded</td>
 <td markdown="span">Set the value to `true` to receive the OpenTelemetry resource attributes that your application sends for metrics data.
 <br/>Default: false
