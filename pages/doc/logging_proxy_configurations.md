@@ -46,7 +46,7 @@ See the Wavefront proxy configuration used for logs:
 <br/> Default: None.
 <br/> Version: Since 11.2</td>
 <td> Comma-separated list of tags. Can be a single tag.
-<br/>Example:sent_time</td>
+<br/>Example: sent_time</td>
 </tr>
 <tr>
 <a name="customMessageTags"></a>
@@ -55,7 +55,7 @@ See the Wavefront proxy configuration used for logs:
 <br/> Default: None.
 <br/> Version: Since 11.2</td>
 <td> Comma-separated list of tags. Can be a single tag.
-<br/> Example:debug_log</td>
+<br/> Example: debug_log</td>
 </tr>
 <tr>
 <a name="pushFlushMaxLogs"></a>
@@ -108,7 +108,8 @@ See the Wavefront proxy configuration used for logs:
 <td markdown="span"> Logger name for blocked logs.
 <br/> Default: RawBlockedLogs
 <br/> Version: Since 11.2</td>
-<td> A string.</td>
+<td> A string.
+<br/>Example: blockedLogs</td>
 </tr>
 </tbody>
 </table>
