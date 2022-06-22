@@ -1,5 +1,5 @@
 ---
-title: Logs Poroxy Configurations (Beta)
+title: Logs Proxy Configurations (Beta)
 tags: [getting started, logs]
 sidebar: doc_sidebar
 permalink: logging_proxy_configurations.html
@@ -94,7 +94,7 @@ See the Wavefront proxy configuration used for logs:
 <tr>
 <a name="pushMemoryBufferLimitLogs"></a>
 <td>pushMemoryBufferLimitLogs</td>
-<td markdown="span"> Maximum number of logs that can stay in the proxy memory buffers before spooling to disk. Defaults to 16 times `pushFlushMaxLogs`. The minimum value you can set is the value your defined for `pushFlushMaxLogs`. If the value is lower than the default value, it reduces memory usage but will force the proxy to spool to disk more frequently when the logs data points arrive at the proxy in short bursts.
+<td markdown="span"> Maximum number of logs that can stay in the proxy memory buffers before spooling to disk. Defaults to 16 times `pushFlushMaxLogs`. The minimum value you can set is the value you defined for `pushFlushMaxLogs`. If the value is lower than the default value, it reduces memory usage but will force the proxy to spool to disk more frequently when the logs data points arrive at the proxy in short bursts.
 <br/> Default: 16 times the value you assigned <code>pushFlushMaxLogs</code>
 <br/> Version: Since 11.0</td>
 <td> Positive integer.
@@ -371,7 +371,7 @@ Extract a string from a log tag name, or a tag tag value and create a new log ta
 </tr>
 <tr>
 <td>replace</td>
-<td>String or pattern that will be used as a value for the new log tag. Empty string is allowed. Refer to a capturing group in the search regex using $ and its number (starting from 1). For example, use $1 to refer to the first group. </td>
+<td>String or pattern that will be used as a value for the new log tag. An empty string is allowed. Refer to a capturing group in the search regex using $ and its number (starting from 1). For example, use $1 to refer to the first group. </td>
 </tr>
 <tr>
 <td>replaceInput (optional)</td>
@@ -483,16 +483,16 @@ Available action subtypes are `truncate`, `truncateWithEllipsis`, and `drop`.
 </tr>
 <tr>
 <td>actionSubtype</td>
-<td>Allows you determine how we limit length:
+<td>Allows you to determine how we limit length:
 <ul>
-<li><strong>drop</strong>&mdash;Drops requested scope if value is greater than maxLength. You can't use DROP with the source name.</li>
-<li><strong>truncate</strong>&mdash;Truncates requested scope if value is greater than maxLength.</li>
-<li><strong>truncateWithEllipsis</strong>&mdash;Truncates the requested scope if the value is greater than maxLength but preserving ellipsis (three dots). maxLength must be at least 3 for this action type.</li>
+<li><strong>drop</strong>&mdash;Drops requested scope if the value is greater than maxLength. You can't use DROP with the source name.</li>
+<li><strong>truncate</strong>&mdash;Truncates requested scope if the value is greater than maxLength.</li>
+<li><strong>truncateWithEllipsis</strong>&mdash;Truncates the requested scope if the value is greater than maxLength but preserves the ellipsis (three dots). maxLength must be at least 3 for this action type.</li>
 </ul></td>
 </tr>
 <tr>
 <td>maxLength</td>
-<td>The maximum length of a log tag value. The length of the input must be greater than maxLength for rule to be applied.</td>
+<td>The maximum length of a log tag value. The length of the input must be greater than the maxLength for rule to be applied.</td>
 </tr>
 <tr>
 <td>match (optional)</td>
@@ -597,7 +597,7 @@ Points must match the `allow` list to be accepted. Multiple `allow` rules are al
  - rule          : test-logAllowRegex
    action        : logAllow
    match         : "^[0-9]+"
-   scope         : tagToWhiteList
+   scope         : tagToAllowList
 ​
 # removes all annotations not in the specified list
  - rule: test-logAllowAnnotations
@@ -607,5 +607,5 @@ Points must match the `allow` list to be accepted. Multiple `allow` rules are al
      - tagToExtract
      - extractedTag
      - device
-     - tagToWhiteList
+     - tagToAllowList
 ```
