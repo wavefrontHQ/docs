@@ -7,7 +7,7 @@ permalink: logging_send_logs.html
 summary: Learn how to send logs to Tanzu Observability, view them, and make decisions from the logs data.
 ---
 
-{% include important.html content="Tanzu Observability Logs (Beta) is only enabled for selected customers. If you'd like to participate, contact [technical support](wavefront_support_feedback.html#support)."%}
+{% include important.html content="Tanzu Observability Logs (Beta) is only enabled for selected customers. If you'd like to participate, contact your [Tanzu Observability account representative](wavefront_support_feedback.html#support)."%}
 
 You can send logs to the Wavefront proxy from your log shipper or directly from your application. The Wavefront proxy sends the log data to the Wavefront instance. 
 
@@ -17,7 +17,7 @@ You can send logs to the Wavefront proxy from your log shipper or directly from 
 
 * A Wavefront account, which gives you access to a cluster. If you don’t have a cluster, [sign up for a free trial](https://tanzu.vmware.com/observability-trial).
 * A Wavefront API token linked to an account with Proxy permission. See [Generating an API Token](wavefront_api.html#generating-an-api-token).
-* Whitelist the VMware domain (`*.vmware.com`) on your environment. 
+* Whitelist the VMware domain (`*.vmware.com`) on your environment. If you want to narrow down the whitelisting domain, contact your Tanzu Observability account representative.
   Tanzu Observability uses a VMware log cluster. Therefore, to send your log data successfully, you need to whitelist the VMware domain.
 
 ## Install Wavefront Proxy 
@@ -111,4 +111,5 @@ When the data is in Tanzu Observability, you can use the Log Browser to filter a
 * Get an overview of [Tanzu Observability logs](logging_overview.html).
 * Learn how to [view and browse logs](logging_log_browser.html).
 * [Try out the tutorial](logging_kubernetes_tutorial.html) to send logs to Tanzu Observability.
+* Learn more about the [proxy configurations and proxy preprocessor rules](logging_proxy_configurations.html).
 * Have questions? See [Logs FAQs](logging_faq.html).
