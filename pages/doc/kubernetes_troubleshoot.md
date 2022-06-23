@@ -96,7 +96,7 @@ Filtering out metrics at the collector is much more efficient than filtering out
 </tr>
 <tr>
 <td width="50%">Disable auto-discovery.</td>
-<td width="50%"><a href="">Disabling Auto Discovery</a></td>
+<td width="50%"><a href="https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/discovery.md#excluding-annotation-discovered-resources">Disabling Auto Discovery</a></td>
 </tr>
 </tbody>
 </table>
