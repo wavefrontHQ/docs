@@ -72,11 +72,14 @@ The data ingestion pipeline is not able to handle the traffic that's coming from
 
 You can address this problem in several ways, and might find that combining solutions works best.
 
-**Solution: Manage Cardinality and the Data Shape**
+### Manage Cardinality and the Data Shape
 
-**Solution: Use Proxy Preprocessor Rules**
+All Tanzu Observability users can benefit greatly from managing the shape of the data that's coming in. See the following doc pages for detail:
+* [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html)
+* [Improve PPS Usage and Prevent Overage](http://docs-sandbox-a.wavefront.com/wavefront_usage_info.html)
 
-**Solution: Filter Out Metrics at the Collector**
+
+### Filter Out Metrics at the Collector
 
 Filtering out metrics at the collector is much more efficient than filtering out metrics at the Wavefront proxy. See the following doc on Github for details:
 
@@ -97,6 +100,12 @@ Filtering out metrics at the collector is much more efficient than filtering out
 </tr>
 </tbody>
 </table>
+
+### Use Proxy Preprocessor Rules
+
+You can use [proxy preprocessor rules](proxies_preprocessor_rules.html) to block data that you don't want to send to the Wavefront service. There are block rules for each type of metric, for example `block` for points and `spanBlock` for spans.
+
+{% include tip.html content="Filter metrics at the Collector instead of the proxy where possibly to avoid creating a bottleneck at the proxy." %}
 
 
 ## Symptom: No Data Flowing into Tanzu Observability
