@@ -12,7 +12,7 @@ Tanzu Observability by Wavefront pricing depends on the contract that your compa
 ## Pricing Structure
 
 At the core of the model is the idea of consumption-based pricing. What you pay is based on data throughput, primarily:
-* **Data ingestion**. When the Wavefront service ingests data, those data are consumed and count toward your allocation.
+* **Data ingestion**. When the Wavefront service ingests data, the data is consumed and count toward your allocation.
 * **Data scanning**. When you run a query, either as part of an alert or when you look at a dashboard, the backend has to scan the data. Scanning counts toward your allocation.
 
 The model has this basic pricing structure:
@@ -20,9 +20,9 @@ The model has this basic pricing structure:
 * Each ingested or scanned histogram or derived histogram counts as 7 PPS.
 
 For scans, the pricing structure is as follows:
+* If [intelligent sampling](trace_data_sampling.html#intelligent-sampling) is turned on, the trace data is counted as derived metrics (1 PPS) or derived histograms (7 PPS)
+* If you turn off intelligent sampling, or if you specify trace sampling policies to specifically include certain traces, each tracing span counts as 22 PPS.
 * [Span logs](trace_data_details.html#span-logs) are free.
-* If [intelligent sampling](trace_data_sampling.html#intelligent-sampling) is turned on, the trace data are counted as derived metrics (1 PPS) or derived histograms (7 PPS) 
-* If turn off intelligent sampling, or if you specify trace sampling policies to specifically include certain traces, each tracing span counts as 22 PPS.
 
 ![Metrics 1pps and Histograms 7pps are the basis, distributed tracing is 22 PPS if intelligent sampling is turned off](images/pricing_model_1.png)
 
