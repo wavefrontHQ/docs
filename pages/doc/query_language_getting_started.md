@@ -38,11 +38,11 @@ Watch these videos to get you started. The videos use the v1 UI, but the basic w
 </td>
 </tr>
 <tr>
-<td style="width: 50%;"><strong><font color="#0091DA" size="3">Query Language Advanced  Functions</font></strong><br><br>
-<iframe id="kmsembed-1_fbsf9w8y" width="400" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_fbsf9w8y/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Advanced Query Language Functions video"></iframe>
+<td style="width: 50%;"><strong><font color="#0091DA" size="3">Query Language Advanced Functions</font></strong><br><br>
+<iframe id="kmsembed-1_fbsf9w8y" width="500" height="275" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_kgacc2jb/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Advanced Query Language Functions video"></iframe>
 </td>
 <td><br><br>
-<p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. <p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_fbsf9w8y" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p></p>
+<p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. <p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_l9xarpm6/252649793" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p></p>
 </td>
 </tr>
 </tbody>

@@ -281,10 +281,6 @@ entries:
       url: /alerts_faq.html
       output: web
 
-    - title: New Alerts FAQ
-      url: /alerts_v2_faq.html
-      output: web
-
       subfolders:
       - title: Alert Targets and Notifications
         output: web
@@ -492,7 +488,7 @@ entries:
           - title: vRealize Operations Cloud Integration
             url: /integrations_vrops.html
             output: web
-            
+
           - title: vSphere Integration Details
             url: /integrations_vsphere.html
             output: web

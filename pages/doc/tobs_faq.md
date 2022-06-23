@@ -3,12 +3,11 @@ title: Tanzu Observability FAQ
 keywords: alerts
 tags: [getting started]
 sidebar: doc_sidebar
-published: false
 permalink: tobs_faq.html
 summary: Get answers to the top FAQs for Tanzu Observability
 ---
 
-## Why Can't I Edit This Dashboard? This Alert? 
+## Why Can't I Edit This Dashboard? This Alert?
 
 By default, all users can view dashboards and alerts. They can also edit dashboards and alerts but cannot save their changes. To do more, you need permissions.
 
@@ -42,13 +41,20 @@ Tanzu Observability can handle handle a lot of data, but sometimes you need it f
 
 * **Improve Data Shape and Cardinality** At the heart of improving rendering speed and query execution speed is the shape of your data. If your dashboard or your query look at only the data you're actually interested in, performance improves drastically. See [Optimizing Data Shape to Improve Performance](optimize_data_shape.html) and [Find Ingestion and Query Problems](monitoring_overview.html).
 
-## Do You a Hello World Tutorial?
+## Do You Have Tutorials?
 
-Yes! Have a look at [Hello Wavefront!](hello_wavefront_aws_tutorial.html) for
-* Detailed step-by-step instructions for ingesting data from AWS
-* A video about ingesting data from a Windows machine
-* Links to next steps
+Yes!
+* The [Hello Wavefront!](hello_wavefront_aws_tutorial.html) has:
+  - Detailed step-by-step instructions for ingesting data from AWS
+  - A video about ingesting data from a Windows machine
+  - Links to next steps
+* The [Explore Data Tutorial](tutorial_dashboards.html) gives step-by-step instructions for exploring a sample dashboard. You don't need special permissions follow these steps.
+* The [Query Language Tutorial](query_language_getting_started.html) explores the anatomy of a query, includes a few videos, and includes hands-on practice.
+* The [Alerts Browser Tutorial](alerts.html#alerts-browser-tutorial) and the [Create Alerts Tutorial](alerts_manage.html#create-alert-tutorial) get you started with alerts.
 
+## Do You Have Videos?
+
+Yes! Tanzu Observability has [a channel on VMware TV](https://vmwaretv.vmware.com/channel/Tanzu%2BObservability/252649793) that includes playlists for getting started, query language, alerting, and more.
 
 ## Do You Have APIs?
 
@@ -58,4 +64,9 @@ Yes! To access the APIs, click the gear icon in the top right and select **API D
 ## Do You Have Other FAQs?
 
 Yes! We have FAQs for several areas of the product.
-*
+* [Alerts FAQ](alerts_faq.html) has answers about alerts firing (or not firing), tips for optimizing alerts, and more.
+* [Kubernetes FAQ](wavefront_kubernetes_faq.html) has answers to questions about filtering data, monitoring Prometheus endpoints, and more.
+* [Tracing FAQ](tracing_faq.html) is for users of our tracing offering.
+* [Authorization FAQ](authorization-faq.html) helps administrators who want the important authorization questions answered.
+
+Search the doc set for `FAQ` to find more FAQ pages. 

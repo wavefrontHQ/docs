@@ -264,6 +264,62 @@ Points must match the `allow` list to be accepted. Multiple `allow` rules are al
     scope   : datacenter
     match   : "west.*"
 ```
+<!---
+### metricsFilter
+
+Enables you to pass only metrics that are provided in a `preprocessor_rules.yaml` file to the server. All other metrics are dropped.
+
+{% include note.html content="Only one metricsFilter rule is allowed per port." %}
+
+
+
+<font size="3"><strong>Parameters</strong></font>
+
+<table>
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>action</td>
+<td>metricsFilter </td>
+</tr>
+<tr>
+<td>function</td>
+<td>allow or drop</td>
+</tr>
+<tr>
+<td>names</td>
+<td>list of strings</td>
+</tr>
+<tr>
+<td>opts</td>
+<td>Maximum size of 1,000,000.</td>
+</tr>
+</tbody>
+</table>
+
+<font size="3"><strong>Example</strong></font>
+
+```yaml
+  # only allow points disk.used or disk.free points
+  ###############################################################
+  - rule: allow-disk-metrics
+    action: metricsFilter
+    function: allow
+    names:
+      "disk.used"
+      "disk.free"
+
+```
+--->
 
 ## Point Altering Rules
 
