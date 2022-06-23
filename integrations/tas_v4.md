@@ -1,14 +1,13 @@
 ---
-title: Tanzu Application Service (v4 Beta) Integration
+title: Tanzu Application Service Integration
 tags: [integrations list]
 permalink: tas_v4.html
-summary: Learn about the Wavefront Tanzu Application Service (v4 Beta) Integration.
+summary: Learn about the Wavefront Tanzu Application Service Integration.
 ---
-## Tanzu Application Service v4 (Beta) Integration
+## Tanzu Application Service Integration
 
 Tanzu Application Service is a popular platform for building cloud-native applications.
 This integration uses the VMware Tanzu Observability by Wavefront Nozzle v4. The integration offers TAS data egress, dashboards and alerting.
-This is a beta product and is not feature complete - more dashboards & alerting to come!
 
 This integration scrapes metrics in the TAS Foundation and pushes them to Tanzu Observability. The integration doesn't just use a push-based approach like the earlier versions of the Tanzu Observability by Wavefront nozzle. The new approach supports more predictable and controllable data flow than the earlier versions of the nozzle.
 
@@ -25,6 +24,7 @@ The TAS integration contains a set of predefined dashboards that give you an ove
 - TAS: Certificate Expiration - Detailed view of the validity of the certificates.
 - TAS: Diego/Capacity - Detailed Diego metrics.
 - TAS: Logging and Metrics Pipeline - Health check of Logging and Metrics Firehose.
+- TAS: Nozzle Troubleshooting - Health of the Nozzle's internal systems and services.
 - TAS: Ops Manager Health - Health check of Ops Manager.
 - TAS: Router - Detailed Gorouter metrics.
 - TAS: Job Details - Detailed view of TAS job information.

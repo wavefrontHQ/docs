@@ -84,3 +84,51 @@ To register a Google Cloud Platform integration:
 
 
 
+
+
+
+|Metric Name|Description|
+| :--- | :--- |
+|gcp.spanner.api.api_request_count| The Cloud Spanner API requests. |
+|gcp.spanner.api.received_bytes_count| The uncompressed request bytes received by Cloud Spanner. |
+|gcp.spanner.api.request_count| The rate of Cloud Spanner API requests. |
+|gcp.spanner.api.request_latencies| The distribution of server request latencies for a database. This includes latency of request processing in Cloud Spanner backends and API layer. It does not include network or reverse-proxy overhead between clients and servers. |
+|gcp.spanner.api.sent_bytes_count| The uncompressed response bytes sent by Cloud Spanner. |
+|gcp.spanner.instance.backup.used_bytes| The backup storage used in bytes. |
+|gcp.spanner.instance.cpu.smoothed_utilization| The 24-hour smoothed utilization of provisioned CPU. |
+|gcp.spanner.instance.cpu.utilization| The percent utilization of provisioned CPU. |
+|gcp.spanner.instance.cpu.utilization_by_operation_type| The percent utilization of provisioned CPU, by operation type. Currently, it does not include CPU utilization for system tasks. |
+|gcp.spanner.instance.cpu.utilization_by_priority| The percent utilization of provisioned CPU, by priority. |
+|gcp.spanner.instance.leader_percentage_by_region| The percentage of leaders by cloud region. |
+|gcp.spanner.instance.node_count| The total number of nodes. |
+|gcp.spanner.instance.processing_units| The total number of processing units. |
+|gcp.spanner.instance.session_count| The number of sessions in use. |
+|gcp.spanner.instance.storage.limit_bytes| The storage limit for instance in bytes. |
+|gcp.spanner.instance.storage.limit_bytes_per_processing_unit| The storage limit per processing unit in bytes. |
+|gcp.spanner.instance.storage.used_bytes| The storage used in bytes. |
+|gcp.spanner.instance.storage.utilization| The storage used as a fraction of storage limit. |
+|gcp.spanner.lock_stat.total.lock_wait_time| The total lock wait time for lock conflicts recorded for the entire database. |
+|gcp.spanner.query_count| The count of queries by database name, status, query type, and used optimizer version. |
+|gcp.spanner.query_stat.total.bytes_returned_count| The number of data bytes that the queries returned, excluding transmission encoding overhead. |
+|gcp.spanner.query_stat.total.cpu_time| The number of seconds of CPU time Cloud Spanner spent on operations to execute the queries. |
+|gcp.spanner.query_stat.total.execution_count| The number of times Cloud Spanner saw queries during the interval. |
+|gcp.spanner.query_stat.total.failed_execution_count| The number of times queries failed during the interval. |
+|gcp.spanner.query_stat.total.query_latencies| The distribution of total length of time, in seconds, for query executions within the database. |
+|gcp.spanner.query_stat.total.returned_rows_count| The number of rows that the queries returned. |
+|gcp.spanner.query_stat.total.scanned_rows_count| The number of rows that the queries scanned excluding deleted values. |
+|gcp.spanner.read_stat.total.bytes_returned_count| The total number of data bytes that the reads returned excluding transmission encoding overhead. |
+|gcp.spanner.read_stat.total.client_wait_time| The number of seconds spent waiting due to throttling. |
+|gcp.spanner.read_stat.total.cpu_time| The number of seconds of CPU time Cloud Spanner spent execute the reads excluding prefetch CPU and other overhead. |
+|gcp.spanner.read_stat.total.execution_count| The number of times Cloud Spanner executed the read shapesduring the interval. |
+|gcp.spanner.read_stat.total.leader_refresh_delay| The number of seconds spent coordinating reads across instances in multi-regionconfigurations. |
+|gcp.spanner.read_stat.total.locking_delays| The distribution of total time in seconds spent waiting due to locking. |
+|gcp.spanner.read_stat.total.returned_rows_count| The number of rows that the reads returned. |
+|gcp.spanner.row_deletion_policy.deleted_rows_count| Count of rows deleted by the policy since the last sample. |
+|gcp.spanner.row_deletion_policy.processed_watermark_age| The time between now and the read timestamp of the last successful execution. |
+|gcp.spanner.row_deletion_policy.undeletable_rows| The number of rows in all tables in the database that can't be deleted. |
+|gcp.spanner.transaction_stat.total.bytes_written_count| The number of bytes written by transactions. |
+|gcp.spanner.transaction_stat.total.commit_attempt_count| The number of commit attempts for transactions. |
+|gcp.spanner.transaction_stat.total.commit_retry_count| The number of commit attempts that are retries from previously aborted transaction attempts. |
+|gcp.spanner.transaction_stat.total.participants| The distribution of total number of participants in each commit attempt. |
+|gcp.spanner.transaction_stat.total.transaction_latencies| The distribution of total seconds takenfrom the first operation of the transaction to commit or abort. |
+
