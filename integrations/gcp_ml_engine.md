@@ -84,3 +84,27 @@ To register a Google Cloud Platform integration:
 
 
 
+
+
+
+|Metric Name|Description|
+| :--- | :--- |
+|gcp.ml.prediction.error_count| The cumulative count of prediction errors. |
+|gcp.ml.prediction.latencies| The latency of overhead, model, or user type. |
+|gcp.ml.prediction.online.accelerator.duty_cycle| The average fraction of time over the past sample period during which the accelerators were actively processing. |
+|gcp.ml.prediction.online.accelerator.memory.bytes_used| The amount of accelerator memory allocated by the model replica. |
+|gcp.ml.prediction.online.cpu.utilization| The fraction of CPU allocated by the model replica and currently in use. May exceed 100% if the machine type has multiple CPUs. |
+|gcp.ml.prediction.online.memory.bytes_used| The amount of memory allocated by the model replica and currently in use. |
+|gcp.ml.prediction.online.network.bytes_received| The number of bytes received over the network by the model replica. |
+|gcp.ml.prediction.online.network.bytes_sent| The number of bytes sent over the network by the model replica. |
+|gcp.ml.prediction.online.replicas| The number of active model replicas. |
+|gcp.ml.prediction.online.target_replicas| The aspired number of active model replicas. |
+|gcp.ml.prediction.prediction_count| The cumulative count of predictions. |
+|gcp.ml.prediction.response_count| The cumulative count of different response codes. |
+|gcp.ml.training.accelerator.memory.utilization| The fraction of allocated accelerator memory that is currently in use. |
+|gcp.ml.training.accelerator.utilization| The fraction of allocated accelerator that is currently in use. |
+|gcp.ml.training.cpu.utilization| The fraction of allocated CPU that is currently in use. |
+|gcp.ml.training.memory.utilization| The fraction of allocated memory that is currently in use. |
+|gcp.ml.training.network.received_bytes_count| The number of bytes received by the training job over the network. |
+|gcp.ml.training.network.sent_bytes_count| The number of bytes sent by the training job over the network. |
+
