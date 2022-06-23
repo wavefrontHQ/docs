@@ -50,7 +50,7 @@ Many users work in environments with a lot of dashboards.
 ## Get Started: Dashboards
 
 After you've selected a dashboard, it displays in your browser.
-* **Default time setting** for all charts is 2 hours, live data, with a refresh every 30 seconds.
+* **Default time setting** default is 2 hours, live data, with a refresh every 30 seconds.
 * **Refresh rate** is determined by the time window. A smaller time window refreshes more often. You can force a refresh.
 * **Lazy load** means that charts refresh as you scroll to them to avoid extra computational burden. Sections can improve load behavior -- you can focus on what you need instead of scrolling through charts you don't want to see.
 
