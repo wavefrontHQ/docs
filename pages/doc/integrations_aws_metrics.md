@@ -12,7 +12,7 @@ Amazon Web Services (AWS) is a collection of cloud-computing services that provi
 
 You have to set up your Tanzu Observability by Wavefront account with the correct permissions.
 * From within the integration or explicitly, you can [Give Global Read-Only Access](integrations_aws_overview.html#give-read-only-access-to-your-amazon-account-and-get-the-role-arn).
-* As an alternative, you can [Create an IAM Policy to Specify Limited Access](integrations_aws_overview.html#create-iam-policy-to-specify-limited-access).
+* As an alternative, you can [Give Limited Access](integrations_aws_overview.html#giving-limited-access).
 
 
 ## Supported AWS Integrations
@@ -40,10 +40,10 @@ To configure CloudWatch ingestion:
 
 1. Log in to your Wavefront cluster and click **Integrations** on the toolbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
-1. Click the **Setup** tab.
-1. In the Types column, click the **CloudWatch** link in the row of the integration you want to configure.
-1. Configure ingestion properties:
-    - **Instance and Volume Allow List** fields -- Add instances and volumes to an allow list by specifying [EC2 tags](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html), defined on the instances and volumes. The allow lists should be in JSON format, for example, `{"organization":"yourcompany"}`. The tags specified in the allow lists are OR'd. To use instance and volume allow lists, you must also add an [AWS Metrics+](#aws-metrics-data) integration because the AWS tags are imported from the EC2 service. If you don't specify any tags, Tanzu Observability imports metrics from *all* instances and volumes.
+1. On the **Overview** tab search for the integration that you want to configure.
+1. Click the ellipsis icon, click **Edit**, and click **CloudWatch**.
+1. Under **Allow Lists**, configure ingestion properties:
+    - **Instance Allow List** and **Volume Allow List** fields -- Add instances and volumes to an allow list by specifying [EC2 tags](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html), defined on the instances and volumes. The allow lists should be in JSON format, for example, `{"organization":"yourcompany"}`. The tags specified in the allow lists are OR'd. To use instance and volume allow lists, you must also add an [AWS Metrics+](#aws-metrics-data) integration because the AWS tags are imported from the EC2 service. If you don't specify any tags, Tanzu Observability imports metrics from *all* instances and volumes.
     - **Metric Allow List** field -- Add metrics to an allow list by specifying a regular expression. Metric names consist of the actual metric name and an aggregation type. In the regular expression, you must use the actual metric names without the aggregation types. For example, in the following list of metric names:
     
       - `aws.dynamodb.successfulrequestlatency.average`
