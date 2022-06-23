@@ -773,6 +773,14 @@ Required when authMethod = STATIC_TOKEN. For example, <code>authStaticToken=toke
 <td> Comma-separated list of available port numbers. Can be a single port.
 <br/> Recommended: 4318</td>
 </tr>
+<tr>
+<a name="otlpResourceAttrsOnMetricsIncluded"></a>
+<td>otlpResourceAttrsOnMetricsIncluded</td>
+<td markdown="span">Set the value to `true` to receive the OpenTelemetry resource attributes that your application sends for metrics data.
+<br/>Default: false
+<br/> Version: Since 11.2</td>
+<td>true or false</td>
+</tr>
 </tbody>
 </table>
 

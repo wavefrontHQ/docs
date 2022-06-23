@@ -84,3 +84,13 @@ To register a Google Cloud Platform integration:
 
 
 
+
+
+
+|Metric Name|Description|
+| :--- | :--- |
+|gcp.compute.instance.price| | 
+|gcp.compute.instance.disk.price| |
+|gcp.compute.ondemand.price.daily| |
+|gcp.storage.bucket.price| |
+

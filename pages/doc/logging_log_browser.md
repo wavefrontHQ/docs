@@ -7,7 +7,7 @@ permalink: logging_log_browser.html
 summary: Learn how to filter and search logs sent to Tanzu Observability by Wavefront.
 ---
 
-{% include important.html content="Tanzu Observability Logs (Beta) is only enabled for selected customers. If you'd like to participate, contact [technical support](wavefront_support_feedback.html#support)."%}
+{% include important.html content="Tanzu Observability Logs (Beta) is only enabled for selected customers. If you'd like to participate, contact your [Tanzu Observability account representative](wavefront_support_feedback.html#support)."%}
 
 Did you notice anomalies on your metrics charts or noticed that a service on the application map has large latency value? Use the Log Browser to search and filter logs, and troubleshoot your issues.
 
@@ -148,5 +148,6 @@ The logs data table has the Timestamp, Source, and Message columns by default. F
 * Get an overview of [Tanzu Observability logs](logging_overview.html).
 * See how to [send logs to Tanzu Observability](logging_send_logs.html).
 * [Try out the tutorial](logging_kubernetes_tutorial.html) to send logs to Tanzu Observability.
+* Learn more about the [proxy configurations and proxy preprocessor rules](logging_proxy_configurations.html).
 * Have questions? See [Logs FAQs](logging_faq.html).
     
