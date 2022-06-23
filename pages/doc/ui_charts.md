@@ -162,12 +162,14 @@ You can also include obsolete metrics for all charts within a dashboard. See [Se
 
 ### Set the Time Window on a Chart
 
-You can either set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart:
+You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.
+
+**To set the time window on a chart level:**
 
 1. Open the chart in edit mode.
 2. Click the **Advanced** tab.
-3. Select the **Set a fixed time window** radio button.
-4. Select the chart time window settings.
+3. Click the **Set a fixed time window** radio button.
+4. From the time picker, select the chart time window settings.
 
 ![An image of the menu on the Advanced tab allowing to select a time window on a chart.](images/select_time_window_on_chart.png)
 

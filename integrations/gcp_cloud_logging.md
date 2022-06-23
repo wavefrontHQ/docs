@@ -89,10 +89,13 @@ To register a Google Cloud Platform integration:
 
 |Metric Name|Description|
 | :--- | :--- |
-|gcp.logging.billing.bytes_ingested_rate||
-|gcp.logging.billing.monthly_bytes_ingested||
-|gcp.logging.byte_count_rate||
-|gcp.logging.dropped_log_entry_count_rate||
-|gcp.logging.log_entry_count_rate||
-|gcp.logging.logs_based_metrics_error_count_rate||
+|gcp.logging.billing.bytes_ingested| Log bytes ingested. |
+|gcp.logging.billing.monthly_bytes_ingested| Log bucket month-to-date bytes ingested. |
+|gcp.logging.byte_count| The number of bytes in ingested log entries. |
+|gcp.logging.exports.byte_count| The number of bytes in log entries that were exported. |
+|gcp.logging.exports.error_count| The number of log entries that failed to be exported. |
+|gcp.logging.exports.log_entry_count| The number of log entries that were exported. |
+|gcp.logging.log_entry_count| The number of ingested log entries. |
+|gcp.logging.logs_based_metrics_error_count| The number of ingested log entries that are not counted in system or user-defined logs-based metrics. |
+|gcp.logging.metric_throttled| Indicates if labels or points are being dropped for logs-based metrics due to exceeding active time series (cardinality) limits. |
 

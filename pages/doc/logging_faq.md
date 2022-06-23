@@ -7,7 +7,7 @@ permalink: logging_faq.html
 summary: Learn how to customize your logging experience and find answers for frequently asked questions.
 ---
 
-{% include important.html content="Tanzu Observability Logs (Beta) is only enabled for selected customers. If you'd like to participate, contact [technical support](wavefront_support_feedback.html#support)."%}
+{% include important.html content="Tanzu Observability Logs (Beta) is only enabled for selected customers. If you'd like to participate, contact your [Tanzu Observability account representative](wavefront_support_feedback.html#support)."%}
 
 {% include tip.html content="This document is work in progress!" %}
 
@@ -66,3 +66,4 @@ You see the number of logs that were blocked in the **Blocked logs per second** 
 * See how to [send logs to Tanzu Observability](logging_send_logs.html).
 * Learn how to [view and browse logs](logging_log_browser.html).
 * [Try out the tutorial](logging_kubernetes_tutorial.html) to send logs to Tanzu Observability.
+* Learn more about the [proxy configurations and proxy preprocessor rules](logging_proxy_configurations.html).
