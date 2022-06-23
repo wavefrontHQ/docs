@@ -34,8 +34,8 @@ Your Wavefront instance includes out-of-the-box dashboards and charts that help 
 <tr>
 <td>If you want to drill down into usage and pricing information, you can examine dashboards in the <strong>Wavefront Usage</strong> integration. Your contract with VMware determines which dashboard has the information you need:
 <ul>
-<li><strong>Billable</strong>: The <strong>Committed Rate vs Monthly Usage (PPS P95) for Billable</strong> dashboard has the information that most users need. </li>
-<li><strong>Burndown</strong>: A few customers have a burndown billing contract. For thos customers, the <strong>Usage (PPS) vs Remaining Balance (PPS P95) for Burndown</strong> has the information you need.</li>
+<li><strong>Billable</strong>: Most users need the information on the <strong>Committed Rate vs Monthly Usage (PPS P95) for Billable</strong> dashboard.</li>
+<li><strong>Burndown</strong>: A few customers have a burndown billing contract. For those customers, the <strong>Usage (PPS) vs Remaining Balance (PPS P95) for Burndown</strong> has the information you need.</li>
 </ul></td>
 <td width="50%"><img src="/images/wavefront_usage_all_dashboards.png" alt="screenshot of the 5 Wavefront usage dashboards"></td>
 </tr>
@@ -171,17 +171,18 @@ Each time a query is executed, the points that the query engine looks at are cou
 
 If you ensure that your environment doesn't include unused dashboards or alerts, you can significantly improve your scan rate.
 
-### Examine Data Scan Rate in the Wavefront Usage Integration
+### Examine Data Scan Rate with the Wavefront Usage Integration
 
 Data points are usually scanned because an alert is checked or a dashboard is displayed or updated. You can get a high-level view in the Wavefront Usage integration.
 
 <table>
 <tbody>
 <tr>
-<td width="60%"><ol><li>Log in to your Wavefront instance and select <strong>Integrations</strong> </li>
-<li>Select <strong>Wavefront Usage</strong> and select the <strong>Wavefront Service and Proxy Dashboard</strong>.</li>
+<td width="60%"><ol><li>Log in to your Wavefront instance and select <strong>Integrations</strong>. </li>
+<li>Select the <strong>Wavefront Usage</strong> integration.</li>
+<li>On the <strong>Dashboards</strong> tab, select the <strong>Wavefront Service and Proxy</strong> dashboard. </li>
 <li>Examine the <strong>Data Scan Rate</strong> and <strong>Data Scan Rate by User</strong> chart. </li>
-<li>Click the chart to temporarily change the chart type (for example to topK) or the query. To permanently modify the chart, clone the dashboard.  </li>
+<li>Click a chart to temporarily change the chart type (for example to topK) or the query. To permanently modify the chart, clone the dashboard.  </li>
 </ol></td>
 <td width="40%"><img src="images/data_scan_by_user_2.png" alt="Data scan by user."></td>
 </tr>
@@ -190,7 +191,7 @@ Data points are usually scanned because an alert is checked or a dashboard is di
 
 **More Info**
 * [Monitor Your Wavefront Service with the Wavefront Usage Integration](wavefront_monitoring.html)
-* <a href="#examine-ingestion-with-the-namespace-usage-explorer">Examine Ingestion with the Namespace Usage Explorer</a> for details.
+* <a href="#examine-ingestion-with-the-namespace-usage-explorer">Examine Ingestion with the Namespace Usage Explorer</a>.
 
 
 ### Examine Points Scanned in the Alerts Browser
@@ -203,9 +204,9 @@ Even if an alert has no recipients, the alert query is executed at the predefine
 <tbody>
 <tr>
 <td width="70%"><ol><li>Log in to your Wavefront instance and select <strong>Alerts &gt;All Alerts</strong> </li>
-<li>In the top right, select <strong>Points Scanned</strong> from the menu to order the display by points scanned.</li>
-<li>Each alert shows <strong>Points</strong> below the query.  </li>
-<li>For alerts with a high number of points scanned, examine the query and checking frequency to improve performance. </li>
+<li>To order the display by points scanned, select <strong>Points Scanned</strong> from the menu in the top right.</li>
+<li>The alerts are ordered, and each alert shows <strong>Points</strong> below the query.  </li>
+<li>For alerts with a high number of points scanned, examine the query and checking frequency to find ways to improve performance. </li>
 </ol></td>
 <td width="30%"><img src="images/alerts_points_scanned.png" alt="Menu option starts with Default, shows Points Scanned."></td>
 </tr>
@@ -224,7 +225,7 @@ You can significantly reduce the load on the query engine by changing your query
 
 ### Consider Histograms to Improve PPS
 
-Histograms store data as distributions rather than as individual data points. For billing purposes, the rate of distributions ingested is converted to a rate of points ingested through a conversion factor, 7 by default.
+Histograms store data as distributions rather than as individual data points. For billing purposes, the rate of distributions ingested is converted to a rate of points ingested through a conversion factor, which is 7 by default.
 
 **More Info**
 
@@ -245,7 +246,7 @@ Start with metric namespaces that contribute the most to the overall ingestion r
 
 ## Who's Responsible for Ingested Data?
 
-When you want to find out which teams are using the most data, you several these options.
+You can find out which teams are using the most data with ingestion policies or from the Namespace Usage Explorer dashboard.
 <table>
 <tbody>
 <thead>
@@ -271,18 +272,18 @@ When you want to find out which teams are using the most data, you several these
 <table>
 <tbody>
 <thead>
-<tr><th width="25%">You want to know...</th><th width="40%">You can...</th><th width="35%">For Example</th></tr>
+<tr><th width="25%">You want to know...</th><th width="40%">You can...</th><th width="35%">For example</th></tr>
 </thead>
 <tr>
-<td>What are usage trends for my instance? </td>
-<td>Use the dashboard on the <strong>Wavefront Ingestion Policy Explorer</strong> dashboard or the dashboards in the <strong>Wavefront Usage</strong> integration.
+<td>What are the usage trends for my instance? </td>
+<td>Use the charts on the <strong>Wavefront Ingestion Policy Explorer</strong> dashboard or the dashboards in the <strong>Wavefront Usage</strong> integration.
 </td>
 <td markdown="span">![data ingestion points](images/data_ingestion_usage.png)</td>
 </tr>
 <tr>
 <td>Who is responsible for high usage? </td>
-<td>Use the <strong>Wavefront Ingestion Policy Explorer</strong> dashboard in the <strong>Wavefront Usage</strong> integration to drill down into accounts and find the accounts responsible for the high ingestion.</p>
-<p>Use the <strong>Wavefront Namespace Usage Explorer</strong> dashboard in the <strong>Wavefront Usage</strong> integration to drill down into namespaces and find where the ingested data is coming from.
+<td>Use the <strong>Wavefront Ingestion Policy Explorer</strong> dashboard in the <strong>Wavefront Usage</strong> integration to drill down into accounts and find the accounts responsible for the high ingestion.
+<br><br>Use the <strong>Wavefront Namespace Usage Explorer</strong> dashboard in the <strong>Wavefront Usage</strong> integration to drill down into namespaces and find where the ingested data is coming from.
 </td>
 <td markdown="span">![usage by account](images/usage_by_account.png)<br>
 ![Top 10 Level 1 Metric Namspaces](images/namespace_explorer.png)</td>
@@ -308,7 +309,7 @@ Use the <a href="examine_usage.html"><strong>Usage Summary</strong></a> dashboar
 <tr>
 <td>How much data is coming from my source?</td>
 <td>You have several options:<ol><li>Use the <a href="sources_managing.html#examine-sources-in-the-source-browser">Source Browser</a> for a first look.</li>
-<li>Look at the last section in the Wavefront Service and Proxy Data to see the top sources listed by PPS. </li>
+<li>Look at the last section in the Wavefront Service and Proxy Data dashboard to see the top sources listed by PPS. </li>
 <li>Use the <a href="wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy">Wavefront Top GUI</a> to filter by source and examine what's coming from the selected source.</li></ol> </td>
 <td markdown="span">![Sources rate screenshot](images/top_sources.png) </td>
 </tr>
