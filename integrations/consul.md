@@ -6,7 +6,7 @@ summary: Learn about the Wavefront Consul Integration.
 ---
 ## Consul Integration
 
-Hashicorp Consul allows you to discover and configure services in your environment.
+ Hashicorp Consul allows you to discover and configure services in your environment. This integration provides a real-time status for both **Cloud Managed** and **Open source (Self-managed) Consul** nodes.
 This integration installs and configures Telegraf to send Consul server metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here's a preview of some charts in the Consul dashboard.
@@ -16,6 +16,7 @@ In addition to setting up the metrics flow, this integration also installs a das
 
 To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
 ## Consul Setup
+This integration collects metrics from both **Cloud Managed** and **Open source (Self-managed) Consul** nodes.
 
 
 
