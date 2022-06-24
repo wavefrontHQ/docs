@@ -294,7 +294,7 @@ Enables you to pass only metrics that are provided in a `preprocessor_rules.yaml
 <td>function</td>
 <td><ul>
 <li>allow -- Sends only metrics that match one of the entries listed in <code>names</code> to the Wavefront service. All other metrics are dropped.</li>
-<li>drop -- drops all metrics that match one of the entries listed in <code>names</code>. All other metrics are sent on to the Wavefront service.</li></ul></td>
+<li>drop -- Drops all metrics that match one of the entries listed in <code>names</code>. All other metrics are sent on to the Wavefront service.</li></ul></td>
 </tr>
 <tr>
 <td>names</td>
@@ -303,7 +303,7 @@ Enables you to pass only metrics that are provided in a `preprocessor_rules.yaml
 </tr>
 <tr>
 <td>opts</td>
-<td>Allows you to define the maximum size of the internal cache with the  <code>cacheSize</code> option (1.000.000 by defaul). A bigger cache makes the proxy run faster but consumes more memory. You can examine the size of the cache with the <code>~proxy.preprocessor.[ruleName].regexCache.size</code> metric.
+<td>Allows you to define the maximum size of the internal cache with the  <code>cacheSize</code> option (1.000.000 by default). A bigger cache makes the proxy run faster but consumes more memory. You can examine the size of the cache with the <code>~proxy.preprocessor.[ruleName].regexCache.size</code> metric.
 </td>
 </tr>
 </tbody>
@@ -312,7 +312,7 @@ Enables you to pass only metrics that are provided in a `preprocessor_rules.yaml
 <font size="3"><strong>Example</strong></font>
 
 ```yaml
-  # only allow points disk.used or disk.free points
+  # only allow points listed under "names"
   ###############################################################
   - rule: allow-selected-metrics
     action: metricsFilter
