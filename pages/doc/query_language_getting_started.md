@@ -31,18 +31,18 @@ Watch these videos to get you started. The videos use the v1 UI, but the basic w
 </tr>
 <tr>
 <td width="70%"><strong><font color="#0091DA" size="3">Intro to Wavefront Query Language</font></strong><br><br>
-<iframe id="kmsembed-1_f22x68bt" width="500" height="275" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_f22x68bt/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Intro to Wavefront Query Language video"></iframe></td>
+<iframe id="kmsembed-1_kgacc2jb" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_kgacc2jb/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Query Language Advanced Functions"></iframe></td>
 <td width="30%"><br><br>
 <p>Wavefront Query Language allows you to shape the data you see in your dashboards. The example uses the advanced functions if() at() and corr() to find a problem behavior of a switch in other switches and prevent future problems.</p>
-<p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_f22x68bt" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
+<p>You can also watch the video <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_brmdewqc/1_f22x68bt" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
 <td style="width: 50%;"><strong><font color="#0091DA" size="3">Query Language Advanced Functions</font></strong><br><br>
-<iframe id="kmsembed-1_fbsf9w8y" width="500" height="275" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_kgacc2jb/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Advanced Query Language Functions video"></iframe>
+<iframe id="kmsembed-1_kgacc2jb" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_kgacc2jb/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Query Language Advanced Functions"></iframe>
 </td>
 <td><br><br>
-<p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. <p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_l9xarpm6/252649793" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p></p>
+<p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. <p>You can also watch the video <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_brmdewqc/1_kgacc2jb" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p></p>
 </td>
 </tr>
 </tbody>

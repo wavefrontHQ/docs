@@ -11,7 +11,7 @@ All users can [examine alerts and drill down to find the problem](alerts.html). 
 
 {% include note.html content="You need the [**Alerts**](permissions_overview.html) permission to create and manage alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
-If you are using the **Terraform Provider**, update to [version 3.0.1](https://registry.terraform.io/providers/vmware/wavefront/latest/docs). Earlier versions are not compatible with the new alert experience. See the [FAQ for the New Alert GUI](alerts_v2_faq.html).
+If you are using the **Terraform Provider**, update to [version 3.0.1](https://registry.terraform.io/providers/vmware/wavefront/latest/docs). Earlier versions are not compatible with the 2022 alert experience.
 
 ## Create Alert Video
 
@@ -460,7 +460,7 @@ Each time you save an alert, you create an alert version. Up to 100 versions are
 
 ## Do More!
 
-* Look at the [Alerts FAQ](alerts_faq.html). If you just migrated look at the [FAQ for the New Alert GUI](alerts_v2_faq.html) as well.
+* Look at the [Alerts FAQ](alerts_faq.html).
 * Learn about [alert states and life-cycle](alerts_states_lifecycle.html).
 * The [Alert Viewer Tutorial](alerts.html#alert-viewer-tutorial) shows how to examine a single alert.
 * The [Alerts Browser Tutorial](alerts.html#alerts-browser-tutorial) explains how you can examine and manage all alerts in your environment.

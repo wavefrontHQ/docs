@@ -50,8 +50,6 @@ The sample email notification in the screenshot above includes a **View Alert** 
 
 The interactive chart that is included in the notification shows the alert condition.
 
-If you're looking at an alert that was created before the alert GUI revamp in winter 2021, you might also see a Display Expression. See [Why Do I See a Display Expression](alerts_v2_faq.html#how-can-i-set-a-display-expression)
-
 
 #### Misfiring Alerts and Delayed Data
 
