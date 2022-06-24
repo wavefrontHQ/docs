@@ -191,7 +191,7 @@ Data points are usually scanned because an alert is checked or a dashboard is di
 
 **More Info**
 * [Monitor Your Wavefront Service with the Wavefront Usage Integration](wavefront_monitoring.html)
-* <a href="#examine-ingestion-with-the-namespace-usage-explorer">Examine Ingestion with the Namespace Usage Explorer</a>.
+* <a href="#examine-ingestion-with-the-namespace-usage-explorer-dashboard">Examine Ingestion with the Namespace Usage Explorer Dashboard</a>.
 
 
 ### Examine Points Scanned in the Alerts Browser

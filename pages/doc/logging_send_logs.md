@@ -60,7 +60,7 @@ Configure your log shipper:
   
 ### Best Practices
 
-If logs exceed the maximum character limit for a message, tag, and value the Wavefront proxy drops the logs. Make sure your logs are within the given limits. See [FAQs](logging_faq.html#track-data-dropped-by-proxy) to monitor the data points dropped by the proxy.
+If logs exceed the maximum character limit for a message, tag, and value the Wavefront proxy drops the logs. Make sure your logs are within the given limits. See [FAQs](logging_faq.html#how-do-i-track-data-blocked-by-the-wavefront-proxy) to monitor the data points dropped by the proxy.
 
 {% include note.html content="If you want to increase the limits, ask your administrator to reach out to [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help." %}
 

@@ -77,7 +77,7 @@ Logs in Tanzu Observability include the following attributes:
     <td markdown="span">
       The name of the application that emits the logs. Make sure the application name is the same name used when sending traces to Tanzu Observability because it maps the logs to your application when you drill down from the Application Map or Traces Browser to the Log Browser.
       
-      <br/>If the `application` tag is not defined, the tag is added by Tanzu Observability, and the value is set to `none`. See [FAQ](logging_faq.html#dont-see-application-and-service-log) for details.
+      <br/>If the `application` tag is not defined, the tag is added by Tanzu Observability, and the value is set to `none`. See [FAQ](logging_faq.html#dont-see-application-and-service-logs) for details.
     </td>
   </tr>
   <tr>
@@ -87,7 +87,7 @@ Logs in Tanzu Observability include the following attributes:
     <td markdown="span">
       The name of the service that emits the log. Make sure the service name is the same name used when sending traces to Tanzu Observability because it maps the logs to your service when you drill down from the Application Map or Traces Browser to the Log Browser.
       
-      <br/>If the `service` tag is not defined, the tag is added by Tanzu Observability and the value is set to `none`. See [FAQ](logging_faq.html#dont-see-application-and-service-log) for details.
+      <br/>If the `service` tag is not defined, the tag is added by Tanzu Observability and the value is set to `none`. See [FAQ](logging_faq.html#dont-see-application-and-service-logs) for details.
     </td>
   </tr>
   <tr>
@@ -209,7 +209,7 @@ When you create or update an alert, you can configure the alert to filter logs u
 ### Drill Into Logs From Traces
 
 You can drill into logs from the application map page and the traces browser (coming soon!). 
-To see logs for an application and service on the Log Browser, you need to tag the data with the application and service tags on your Log Shipper (example: Fluentd) before sending the logs to Tanzu Observability. For more information, see the [Logs FAQs](logging_faq.html#dont-see-application-and-service-logs).
+To see logs for an application and service on the Log Browser, you need to tag the data with the application and service tags on your Log Shipper (example: Fluentd) before sending the logs to Tanzu Observability. For more information, see the [Logs FAQs](logging_faq.html#dont-see-application-and-service-logss).
 
 * **Drill into logs from the application map view**:<br/>
   Did you notice that a service on the application map has a higher error percentage? 
