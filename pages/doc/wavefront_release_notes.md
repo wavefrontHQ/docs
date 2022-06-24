@@ -21,7 +21,7 @@ This release includes:
 * **Tanzu Application Service to Tanzu Observability**: We released the Tanzu Application Service to Tanzu Observability integration on June 13.
   * [Monitor Tanzu Application Service with Tanzu Observability](integrations_tas_howto.html) explains the process end to end.
   * [Tanzu Observability and TAS Troubleshooting](tas_to_troubleshooting.html) has troubleshooting steps based on what we've learned during the Beta period.
-* **Wavefront Proxy**: Proxy [version 11.3](https://github.com/wavefrontHQ/wavefront-proxy/releases/tag/proxy-11.3) is now available.
+* **Wavefront Proxy**: Proxy [version 11.3](https://github.com/wavefrontHQ/wavefront-proxy/releases/tag/proxy-11.3) is now available. 
 
   {% include important.html content="Do not install Proxy version 11.2. If you already installed version 11.2, upgrade to version 11.3." %}
 
