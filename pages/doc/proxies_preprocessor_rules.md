@@ -309,7 +309,7 @@ Enables you to pass only metrics that are provided in a `preprocessor_rules.yaml
 </tbody>
 </table>
 
-<font size="3"><strong>Example</strong></font>
+<font size="3"><strong>Example</strong></font> 
 
 ```yaml
   # only allow points listed under "names"
