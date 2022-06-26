@@ -21,7 +21,7 @@ To use the Log Browser:
 
 ![An annotated screenshot of the Log Browser.](images/logging_log_browser_annotated_screen.png)
 
-{%include note.html content="Tanzu Observability retains logs for 7, 15, or 30 days, based on your settings. To keep log data for longer, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support)."%}
+{%include note.html content="Tanzu Observability retains logs for 7, 15, or 30 days, based on your settings."%}
 
 ## Enable or Disable Auto-Search
 
