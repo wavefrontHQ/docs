@@ -162,7 +162,7 @@ You can also include obsolete metrics for all charts within a dashboard. See [Se
 
 ### Set the Time Window on a Chart
 
-You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.
+You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart and you edit the dashboard time window, the time settings of the chart will not be affected.
 
 **To set the time window on a chart level:**
 
