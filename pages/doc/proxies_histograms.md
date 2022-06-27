@@ -33,6 +33,8 @@ timestamp, and source. Using "normal" metrics, we can't measure this because, ra
 One approach to dealing with high frequency data is to calculate an aggregate statistic, such as a percentile, at each source and send only that data. The problem with this approach is that performing an aggregate of a percentile (such as
 a 95th percentile from a variety of sources) does not yield an accurate and valid percentile with high velocity metrics. That might mean that even though you have an outlier in some of the source data, it becomes obscured by all the other data.
 
+### Wavefront Histograms Overview
+
 To address high frequency data, the Wavefront service supports histograms -- a mechanism to compute, store, and use distributions of metrics. You have several options:
 * Send the metrics to a histogram proxy port. The Wavefront service:
   - Converts the metrics to histogram distributions
@@ -42,7 +44,16 @@ To address high frequency data, the Wavefront service supports histograms -- a m
 
 You can query histograms with a set of [functions](query_language_reference.html#histogram-functions) and display them using a histogram charts or heatmap or other chart types.
 
+### How Histograms Can Improve PPS
 
+If some of your data sets are tracking various statistics, for example, `min`, `max`, `mean`, such as in the case for [Dropwizard](https://metrics.dropwizard.io/3.1.0/getting-started) or [StatsD](statsd.html) style histogram data, these are good candidates to consider converting to [histograms](proxies_histograms.html). Histograms store data as distributions rather than as individual data points. For billing purposes, the rate of distributions ingested is converted to a rate of points ingested through a conversion factor, 7 by default.<br><br>
+
+To determine whether there will be PPS savings from sending in metrics data as histogram data, first determine the ingestion rate for the metric data. For example:
+* Suppose that you are ingesting 10 statistics for a specific series of data at 30-second intervals: `min`, `max`, `mean`, `sum`, `count`, `p50`, `p75`, `p95`, `p9`9, and `p999`. This means that we are ingesting 20 data points every minute, or .33 PPS (20 data points per minute / 60 seconds per minute).
+* For histograms there can be one distribution per minute for any particular series at the most granular level.
+* If your conversion factor from distribution per second to PPS is less than 20, savings result from ingesting this set of data as histograms. By default, the conversion factor is 7, but you can confirm with your account representative. 
+
+In addition to these PPS savings, you will also get all the benefits of histograms, including better and more accurate insight into your data. So, even if the conversion factor results in an equivalent PPS, consider sending in data as histograms to take advantage of the benefits of using distribution data.
 
 ## Sending Histogram Distributions
 

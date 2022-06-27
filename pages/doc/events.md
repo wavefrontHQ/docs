@@ -21,21 +21,21 @@ Watch these videos to get you started!
 <tr>
 <td><strong><font color="#0091DA" size="3">Introduction to Events</font></strong><br>
 <br>
-<iframe id="kmsembed-1_sq8p1jhk" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_sq8p1jhk/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Jason discusses system events and user-created events. "></iframe></td>
+<iframe id="kmsembed-1_y50fnn7c" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_y50fnn7c/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Introduction to Events"></iframe></td>
 <td><br><br>
 <p>Events let you know that something important just happened. Jason shows the Events page and discusses the 3 types of event sources: System, Alert, and User. He then uses filters to drill down on certain events.</p>
-<p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_sq8p1jhk" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
+<p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_y50fnn7c/252649793" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
 <td><strong><font color="#0091DA" size="3">Creating an Event</font></strong><br>
 <br>
-<iframe id="kmsembed-1_i1ar4s8f" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_i1ar4s8f/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Jason explains how to create an event"></iframe>
+<iframe id="kmsembed-1_rrrhqlrk" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_rrrhqlrk/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Create Tanzu Observability Events"></iframe>
 </td>
 <td><br><br>
 <p>
-Tanzu Observability by Wavefront creates System and Alert events for you. You can create User events via the UI or API to signal that something of interest has happened. Jason demos how to create an event from a chart and shows how it immediately appears in the UI.</p>
-<p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_i1ar4s8f" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
+Tanzu Observability by Wavefront creates System events and Alert events for you. You can create User events via the UI or API to signal that something of interest has happened. Jason demos how to create an event from a chart and shows how it immediately appears in the UI.</p>
+<p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_rrrhqlrk/252649793" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
