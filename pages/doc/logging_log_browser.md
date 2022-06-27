@@ -15,13 +15,13 @@ Did you notice anomalies on your metrics charts or noticed that a service on the
 
 To use the Log Browser:
 
-1. Configure your application and the log shipper to [send logs to Tanzu Observability](#logging_send_logs.html).
+1. Configure your application and the log shipper to [send logs to Tanzu Observability](logging_send_logs.html).
 1. In your web browser, go to your Wavefront instance and log in.
 1. From the toolbar, select **Logs**. You are taken to the Log Browser.
 
 ![An annotated screenshot of the Log Browser.](images/logging_log_browser_annotated_screen.png)
 
-{%include note.html content="Tanzu Observability retains logs for 7, 15, or 30 days, based on your settings. To keep log data for longer, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support)."%}
+{%include note.html content="Tanzu Observability retains logs for 7, 15, or 30 days, based on your settings."%}
 
 ## Enable or Disable Auto-Search
 
@@ -36,7 +36,7 @@ Follow these steps to search and filter logs:
 
 1. Click the date picker to select a time window you want to see logs. A default time window is set for you based on your settings.
 1. To get the list of logs you want, you have these options:
-  * Click **Source** and select a [source](logging_overview.html#whats-a-log) from the list.
+  * Click **Source** and select a [source](logging_overview.html#whats-a-tanzu-observability-log) from the list.
   * Click on a tag and select a value from the list.
   * Type in a word(s) on the search bar, and click **Search** or press Enter when [using the Keyboard to navigate](wavefront_keyboard_shortcuts.html#keyboard-shortcuts-and-their-usage).
     <br/>Example:
@@ -45,18 +45,18 @@ Follow these steps to search and filter logs:
 
 ## Exclude Logs from Search Results
 
-You streamline what you see in the Log Browser by excluding tags, text, or a source. 
+You streamline what you see in the Log Browser by excluding tags, text, or a source.
 
 * Click the not equal sign (≠) next to a **Source** or tag value.
 * Click on a word(s) on the search bar, and click **Exclude** > **Apply** > **Search**.
 * Double click a word, or select words on the **Message** column, and click **Exclude**.
 
-Example: 
+Example:
 * Click service, and click ≠ next to telegraph.
 * If you had the word warn on the search bar, click the word, and click **Exclude** > **Apply**.
 * Click **Search** to get the search results.
 ![shows the example described in text](images/logging_not_include_search.png)
-    
+
 ## Use The Histogram to Drill Down
 
 At the top of the Log Browser is a histogram that shows the number of logs distributed throughout a time window. The histogram chart is broken into 60 buckets. Therefore, if you have the default 15-minute time window, the bars on the chart show the number of logs for 15-second time intervals.
@@ -67,7 +67,7 @@ Let's look at an example:
 
 1. In the screenshot below, there are three spikes on the histogram chart.
     ![a screenshot of the Log Browser that shows a histogram with 3 spikes.](images/logging_histogram_spikes.png)
-1. If you want to zoom in to the time window of the last spike, place your cursor at the beginning of the time window you want, and click and drag. 
+1. If you want to zoom in to the time window of the last spike, place your cursor at the beginning of the time window you want, and click and drag.
     ![a screenshot of selecting the area on the histogram to to zoom in.](images/logging_histogram_zoomed_in.png)
 
 1. Now, you see the data for the zoomed-in time window. The logs in the log table below are updated to fit the new time window.
@@ -120,7 +120,7 @@ You see the log details in the table below the histogram chart. The data on the 
       Logs that have the term debug.
     </td>
   </tr>
-  
+
   <tr>
     <td>
       Grey
@@ -141,7 +141,7 @@ The logs data table has the Timestamp, Source, and Message columns by default. F
 1. Select the columns that you want to add. The column options you see are the tags you defined when sending the data to Tanzu Observability.
     <br/> Example: Add the **tag** column.
     ![a screenshot of the add column options.](images/logging_log_table_select_columns.png)
-    
+
 
 ## Next Steps
 
@@ -150,4 +150,3 @@ The logs data table has the Timestamp, Source, and Message columns by default. F
 * [Try out the tutorial](logging_kubernetes_tutorial.html) to send logs to Tanzu Observability.
 * Learn more about the [proxy configurations and proxy preprocessor rules](logging_proxy_configurations.html).
 * Have questions? See [Logs FAQs](logging_faq.html).
-    

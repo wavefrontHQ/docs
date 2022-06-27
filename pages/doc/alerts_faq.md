@@ -434,4 +434,3 @@ Each time you save an alert, the alert version is updated internally. Up to 100 
 * [How Alerts Work](/alerts.html#how-alerts-work) includes a video and discusses the anatomy of an alert (condition, target, notification)
 * [Alerts Best Practices](alerts_best_practices.html) has in-depth discussions on mapping your data to the right alert query, recommendations on alert settings, and more.
 * [Alert States and Lifecycle](alerts_states_lifecycle.html) is required reading (and watching) for all power users.
-* To learn about the migration from the earlier create alert GUI to the new alert experience, see [FAQ for the New Alert GUI](alerts_v2_faq.html)

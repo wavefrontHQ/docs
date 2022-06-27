@@ -36,10 +36,10 @@ Super Admin users (users who have all permissions) can create ingestion policies
 3. Click the **Ingestion Policies** tab, and click **New Ingestion Policy**.
 4. In the **Data** panel:
    1. Choose the **Scope** of the policy.
-  
+
       This can be either **Accounts** or **Groups**. After you create the policy, you cannot edit the scope.
    2. Depending on your choice of scope, enter either the user and service accounts or the groups that you want to assign to the policy.
-   3. Select whether you want to set a PPS limit. 
+   3. Select whether you want to set a PPS limit.
       If you choose to set a PPS limit, you must enter the points per second limit number in the **PPS per billing period** text box.
    4. Click **Next**.
 5. Enter the name of the policy and, optionally, a description and click **Create**.
@@ -48,7 +48,7 @@ If a user starts ingesting data through a Wavefront Proxy, you can see the inges
 
 ### Edit an Ingestion Policy
 
-After you create an ingestion policy, if you need, for example, to increase the PPS limit, you can edit the policy. 
+After you create an ingestion policy, if you need, for example, to increase the PPS limit, you can edit the policy.
 
 {% include note.html content="You cannot edit the scope of the policy."%}
 
@@ -68,8 +68,8 @@ After you create an ingestion policy, if you need, for example, to increase the 
 
 1. Log in to your Wavefront instance as a Super Admin user.
 2. Click **Browse > Proxies**.
-   
-   For each proxy the **Ingestion Policies** column shows a list of policies. 
+
+   For each proxy the **Ingestion Policies** column shows a list of policies.
 
    If the proxy belongs to many policies, hover over the three horizontal dots and you'll see the rest of the ingestion policies in a tooltip.
 
@@ -117,15 +117,10 @@ In the **Optimize Usage** section of the dashboard, you can see a list of charts
 
 Consider the following example. You are administering a Wavefront instance for two big teams, `IT Team1` and `IT Team2`, and you want to monitor how much data each of the team uses. `IT Team1` usually needs more PPS data, and you have only 10,000 of committed PPS on a monthly basis.
 
-You can create an ingestion policy for each team to monitor how much data each team uses per month. You can also set a PPS limit for each ingestion policy and if a team consumes more than expected, you can provide additional training on how to use ingested data wisely. 
+You can create an ingestion policy for each team to monitor how much data each team uses per month. You can also set a PPS limit for each ingestion policy and if a team consumes more than expected, you can provide additional training on how to use ingested data wisely.
 
 ## Learn More!
 
 You can additionally drill down and get a better understanding of the usage per account by using the [Wavefront Ingestion Policy Explorer dashboard](wavefront_monitoring.html).
 
-[Find Actionable Usage Information](wavefront_usage_info.html) explains how to use tools and dashboards to learn how much data is coming in, who is sending the data, how to get alerted if ingested data get close to monthly contracted usage, and how to optimize your ingestion rate. 
-
-Our Customer Success Team has put together KB articles that drill down into adoption info.
-
-* [How to Track Adoption in Your Company with Usage Metadata](https://help.wavefront.com/hc/en-us/articles/360058526192-How-to-Track-Tanzu-Observability-Adoption-with-Usage-Metadata).
-* [How to Request a PPS Add-On to Current Committed Rate](https://help.wavefront.com/hc/en-us/articles/4402939921044-How-to-request-a-PPS-add-on-to-current-committed-rate).
+[Improve PPS and Prevent Overage](wavefront_usage_info.html) explains how to use tools and dashboards to learn how much data is coming in, who is sending the data, how to get alerted if ingested data get close to monthly contracted usage, and how to optimize your ingestion rate. 

@@ -13,18 +13,36 @@ Tanzu Observability by Wavefront continuously adds new integrations to the exist
 
 We made improvements to the following integrations in June 2022:
 
+* Tanzu Application Service:
+
+  * The Tanzu Application Service (Beta) integration is now renamed to Tanzu Application Service. It supports TAS v 2.11 and later.
+  * We added a new **TAS: Nozzle Troubleshooting** dashboard that allows you to monitor the metrics coming from the Wavefront Nozzle. 
+  * The Tanzu Application Service integration that supports TAS v2.9 and v2.10 is now moved to the **Archived** section.
+  * Fixed issues with the **TAS: RabbitMQ** dashboard in the archived version of the integration.
+
+* vSphere: 
+  * Updated the vSphere setup documentation with best practices for metric collection and information about enabling custom attributes. See [VMware vSphere Integration Details](integrations_vsphere.html).
+  * Made many fixes to dashboards and charts. For example, now they list hosts which are not in clusters. 
+  * Updated the names of a number of virtual machine charts in the  **vSphere Summary** dashboard.
+    
+* Consul -- Updated the setup steps and the out-of-the-box dashboard to support both Cloud-Managed and Self-Managed Consul nodes.
+
+* Google Cloud Platform -- Added the list of metrics and metric descriptions for a number of services:
+  * Google Cloud Billing
+  * Google Cloud Spanner
+  * Google Cloud Logging
+  * Kubernetes Engine Metrics
+  * Google ML Engine
+
 * Snowflake:
   * To enhance authentication security, we updated the setup steps of the integration. Now, to register Snowflake, you have to provide a private key.
   * We improved the setup instructions with information on how to generate the public and private keys and give Tanzu Observability access to your Snowflake account.
   * Improved the **Snowflake Summary** dashboard and included charts for warehouse load monitoring.
 
-* Jenkins
+* Jenkins:
   * You can now fetch metrics from Jenkins Prometheus with an authorized user instead of anonymous user.
   * We improved the setup instructions with information on how to enable a Prometheus endpoint.
 
-* Tanzu Application Service -- Fixed issues with the **TAS: RabbitMQ** dashboard.
-
-* vSphere -- Updated the names of a number of virtual machine charts in the  **vSphere Summary** dashboard.
 
 * Wavefront Usage -- Updated the dashboard descriptions and made fixes to alerts.
 

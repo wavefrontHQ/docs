@@ -3,6 +3,7 @@ title: FAQ for the New Alert GUI
 tags: [alerts]
 sidebar: doc_sidebar
 permalink: alerts_v2_faq.html
+published: false
 summary: What has changed? What are some tips and tricks?
 ---
 

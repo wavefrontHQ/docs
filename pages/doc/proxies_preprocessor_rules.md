@@ -265,6 +265,71 @@ Points must match the `allow` list to be accepted. Multiple `allow` rules are al
     match   : "west.*"
 ```
 
+### metricsFilter
+
+Enables you to pass only metrics that are provided in a `preprocessor_rules.yaml` file to the server. All other metrics are dropped.
+
+{% include note.html content="Only one metricsFilter rule is allowed per port." %}
+
+
+<font size="3"><strong>Parameters</strong></font>
+
+<table>
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>action</td>
+<td>metricsFilter </td>
+</tr>
+<tr>
+<td>function</td>
+<td><ul>
+<li>allow -- Sends only metrics that match one of the entries listed in <code>names</code> to the Wavefront service. All other metrics are dropped.</li>
+<li>drop -- Drops all metrics that match one of the entries listed in <code>names</code>. All other metrics are sent on to the Wavefront service.</li></ul></td>
+</tr>
+<tr>
+<td>names</td>
+<td>List of metric names or regular expressions. The list specifies which metrics are sent to the Wavefront service or which are dropped.
+</td>
+</tr>
+<tr>
+<td>opts</td>
+<td>Allows you to define the maximum size of the internal cache with the  <code>cacheSize</code> option (1.000.000 by default). A bigger cache makes the proxy run faster but consumes more memory. You can examine the size of the cache with the <code>~proxy.preprocessor.[ruleName].regexCache.size</code> metric.
+</td>
+</tr>
+</tbody>
+</table>
+
+<font size="3"><strong>Example</strong></font> 
+
+```yaml
+  # only allow points listed under "names"
+  ###############################################################
+  - rule: allow-selected-metrics
+    action: metricsFilter
+    function: allow
+    opts:
+      cacheSize: 10000
+    names:
+      - "metrics.1"
+      - "/metrics.2.*/"
+      - "/.*.ok$/"
+      - "metrics.ok.*"
+```
+The example:
+* allows a metric called `metrics.1` but drops `metrics.1.test`
+* allows any metric that ends with  `.ok`
+* allows any metric that ends with `metrics.ok.`
+
 ## Point Altering Rules
 
 

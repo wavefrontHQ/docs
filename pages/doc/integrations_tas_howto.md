@@ -47,8 +47,8 @@ We've streamlined the getting started process so it involves a few simple steps 
     1. In the **Wavefront Proxy Config** section, specify the Wavefront instance and API token (shown in the Wavefront instance in the integration's **Setup** tab) and a user-friendly host name.
    ![OpsMan Proxy Config tab with the 3 required items highlighted](images/tas_to_proxy_config.png)
     2. In the **Telegraf Agent Config** section, specify the Foundation name.<br/><br/>
-     See [Ops Manager: Configure the Tanzu Observability by Wavefront Nozzle](#ops-manager-configure-the-tanzu-observability-by-wavefront-nozzle) and [Tanzu Application Service to Tanzu Observability FAQs](#tanzu-application-service-to-tanzu-observability-faqs)
-     After you complete nozzle deployment, metrics are flowing from Tanzu Application Service to the Wavefront proxy and from there to your Wavefront instance. See [Data Flow](#data-flow) below.
+     See [Ops Manager: Install, Configure, and Deploy the Nozzle](#step-2-ops-manager-install-configure-and-deploy-the-nozzle) and [Tanzu Application Service to Tanzu Observability FAQs](#tanzu-application-service-to-tanzu-observability-faqs)
+     After you complete nozzle deployment, metrics are flowing from Tanzu Application Service to the Wavefront proxy and from there to your Wavefront instance. See [Data Flow](#architecture-and-data-flow) below.
 3. Log in to your Wavefront instance (for example, `https://example.wavefront.com`) and confirm that metrics are flowing:
    1. Click **Integrations** in the toolbar, search for Tanzu Application Service, and select the integration.
    2. Click the **Metrics** tab and confirm metrics are flowing.
