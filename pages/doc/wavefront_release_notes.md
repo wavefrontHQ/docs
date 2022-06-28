@@ -28,6 +28,56 @@ This release includes:
   * [Improve PPS and Prevent Overage](wavefront_usage_info.html)
   * [Tanzu Observability Pricing](wavefront_pricing.html)
   * [vSphere Integration Details](integrations_vsphere.html)
+  
+* **Usage Portal Improvements**: We made the following improvements to the [ingestion policies](ingestion_policies.html) and [overall usage](examine_usage.html) monitoring:
+  <table>
+    <tbody>
+      <tr>
+        <td width="40%">
+          <strong>New Ingestion Policy Alerts</strong>:<p>
+          When you set an ingestion policy with a PPS limit, you must also configure an alert associated with that PPS limit.</p>
+        </td>
+        <td width="60%">
+          <img src="/images/IP_alert.png" alt="The Conditions stepper in the Create Ingestion Policy wizard. ">
+        </td>
+      </tr>
+      <tr>
+        <td width="40%">
+          <strong>Updated the Ingestion Policy Dashboard</strong>:<p>
+          <ul>
+          <li>The <strong>Usage Limit</strong> chart is now a progress bar.</li>
+          <li>If you set a PPS limit, the dashboard also includes an <strong>Alerts</strong> section with details about the associated alert.</li>
+          </ul></p>
+        </td>
+        <td width="60%">
+          <img src="/images/IP_dashboard_RNs.png" alt="The ingestion policy dashboard. ">
+        </td>
+      </tr>
+      <tr>
+        <td width="40%">
+          <strong>Updated the Ingestion Policies Page</strong>:<p>Added the following details to the ingestion policies table:
+          <ol>
+          <li>The <strong>State</strong> in terms of PPS limit</li>
+          <li>A <strong>Usage per Billing Month</strong> progress bar or usage number</li>
+          <li>A <strong>Usage Trend</strong> line chart</li>
+          <li>An <strong>Action</strong> in terms of alert association</li>
+          </ol></p>
+        </td>
+        <td width="60%">
+          <img src="/images/IP_list.png" alt="The ingestion policy table. ">
+        </td>
+      </tr>
+      <tr>
+        <td width="40%">
+          <strong>Updated the Usage Summary Dashboard</strong>:<p>The <strong>Average Usage for the Last Quarter</strong> chart is also now a progress bar.
+          </p>
+        </td>
+        <td width="60%">
+          <img src="/images/average_usage_last_quarter.png" alt="The Overview section of the Usage Summary dashboard. ">
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
 ## 2022-24.x Release Notes
 
