@@ -25,8 +25,8 @@ The following list gives an overview of permissions. To learn more, click the li
     
 - **[Alerts](alerts.html)** 
 
-    Users with the **Alerts** permission can create, edit, and delete alerts as well as maintenance windows, manage alert tags and view alert history, and create, edit, and delete alert targets.
-    {% include note.html content="If the **Security** organization setting is set to Object Creator, **View** access or **View & Modify** access to new alerts has to be granted explicitly." %}
+    Users with the **Alerts** permission can create, edit, and delete alerts as well as maintenance windows, manage alert tags and view alert history, and create, edit, and delete alert targets. 
+    {% include note.html content="The **Alerts** permission does **not** apply to alerts associated with [ingestion policies](ingestion_policies.html#permissions). Also, if the **Security** organization setting is set to Object Creator, **View** access or **View & Modify** access to new alerts has to be granted explicitly." %}
     
 - **[Applications](tracing_apdex.html)** 
 
