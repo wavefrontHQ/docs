@@ -6,7 +6,7 @@ permalink: wavefront_usage_info.html
 summary: Find actionable usage information and learn how to improve PPS.
 ---
 
-How much your company pays for using Tanzu Observability by Wavefront depends on PPS (point per second) consumption. What you pay is based on data throughput, primarily:
+How much your company pays for using Tanzu Observability by Wavefront depends on PPS (points per second) consumption. What you pay is based on data throughput, primarily:
 * **Data ingestion**. When the Wavefront service ingests data, those data count toward your PPS allocation.
 * **Data analysis**. When you run a query, either as part of an alert or when you look at a dashboard, the backend has to process the data, and those data points count toward your PPS allocation.
 
@@ -18,16 +18,16 @@ Each customer has a contract with VMware that allows them to send a predetermine
 
 If the customer uses more than the contracted rate, VMware bills for those additional data. Because VMware has to pay the cloud provider for data consumed by each Wavefront instances, we have to ensure that customers pay for the data they consume. But we want for you to get the largest amount of useful information possible from your data. This page has some tips.
 
-### How Do Find Usage Information?
+### How Do I Find Usage Information?
 
 Your Wavefront instance includes out-of-the-box dashboards and charts that help you determine how close you are to your contracted rate and allow you to explore remediation options.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td>If you're a SuperAdmin user and you want to know how close you are to exceeding your committed rate and whether you will be billed for overages, you can use the <a href="examine_usage.html">Usage Summary dashboard</a>.
+<td>If you're a Super Admin user and you want to know how close you are to exceeding your committed rate and whether you will be billed for overages, you can use the <a href="examine_usage.html">Usage Summary dashboard</a>.
 <ol>
-<li>Click the gear icon in the top right corner and select <strong>Usage Portal</strong></li>
+<li>Click the gear icon in the top right corner and select <strong>Usage Portal</strong>.</li>
 <li>Examine the charts on the dashboard. </li>
 </ol> </td>
 <td width="50%"><img src="/images/usage_overview.png" alt="screenshot of usage summary dashboard"></td></tr>
@@ -52,7 +52,7 @@ You can find information and improve PPS in several ways. The following table gi
 <tr><th width="25%">Action Item</th><th width="50%">Description</th><th width="25%">More Info</th></tr>
 </thead>
 <tr>
-<td><strong>Find areas with high PPS and take action</strong> </td>
+<td><strong>Find areas with high PPS and take action.</strong> </td>
 <td>If your Wavefront instance ingests high-cardinality data or if you scan a lot of data during query processing, you'll get high PPS usage. Query processing happens:
 <ul><li>When a dashboard renders data.</li>
 <li>When an alert is checked.</li></ul>
@@ -62,13 +62,13 @@ You can find information and improve PPS in several ways. The following table gi
 </td>
 </tr>
 <tr>
-<td><strong>Ingest only data that you use</strong></td>
-<td>Datapoints that are sent in contribute to the PPS, so it makes sense to ingest only what's used, to reduce granularity, etc. It might also be necessary to find the teams who send data and don't use them. Ensure that someone benefits from all data that's sent in.
+<td><strong>Ingest only data that you use.</strong></td>
+<td>Datapoints that are sent in contribute to the PPS, so it makes sense to ingest only what's used, to reduce granularity, etc. It might also be necessary to find the teams who send data and don't use it. Ensure that someone benefits from all data that's sent in.
 </td>
 <td><a href="#how-can-i-optimize-my-ingestion-rate">How can I optimize my ingestion rate?</a> <br><br><a href="#whos-responsible-for-ingested-data">Who's Responsible for Ingested Data?</a></td>
 </tr>
 <tr>
-<td><strong>Remedy high PPS</strong> </td>
+<td><strong>Remedy high PPS.</strong> </td>
 <td>To remedy high PPS consumption, you can optimize the ingestion rate and the data shape.
 <ul>
 <li>Be smart about queries by using filters and time windows.</li>
@@ -79,7 +79,7 @@ You can find information and improve PPS in several ways. The following table gi
 <a href="ui_dashboards.html#ensure-optimal-dashboard-performance">Ensure Optimal Dashboard Performance</a></td>
 </tr>
 <tr>
-<td><strong>Find teams with high PPS</strong> </td>
+<td><strong>Find teams with high PPS.</strong> </td>
 <td>If several teams use the Wavefront service, explore which team sends in most data.
 </td>
 <td><a href="#whos-responsible-for-ingested-data">Who's Responsible for Ingested Data?</a></td>
@@ -97,8 +97,8 @@ Billing for Tanzu Observability is based primarily on the ingestion rate. Ingest
 
 The **Wavefront Namespace Usage Explorer** dashboard can help you pinpoint where data are coming from.
 1. Log in to your Wavefront instance.
-2. In the toolbar, select **Integrations**, and click the **Wavefront Usage** integration.
-3. Select the **Dashboards** tab and click the **Wavefront Namespace Usage Explorer** dashboard.
+2. Click **Integrations** from the toolbar, and click the **Wavefront Usage** integration.
+3. On the **Dashboards** tab, click the **Wavefront Namespace Usage Explorer** dashboard.
 
 This dashboard provides not only a current view but also a historical view. Start at the level 1 namespace to identify the top level. Then dive into levels 2 and 3 for finer-grained information to answer these questions:
 * How many different namespaces do I have at each level?
@@ -109,12 +109,12 @@ The screenshot below shows an example from our demo server. The data is prefixed
 
 ![Metrics namespace dashboard screenshot](images/metrics_namespace_dashboard.png)
 
-The Namespace Usage Explorer dashboard is especially useful if your metrics use hierarchical name spaces of up to 3 levels that identify who sends which metrics. For example, some of our customers use namespaces that show the Business Unit (Level 1), team (Level 2), and data source. For example, you might have `monitoring.dev.kubernetes` and `monitoring.sales.kubernetes` for Kubernetes data coming from the dev and sales teams in the monitoring Business Unit.
+The **Namespace Usage Explorer** dashboard is especially useful if your metrics use hierarchical name spaces of up to 3 levels that identify who sends which metrics. For example, some of our customers use namespaces that show the Business Unit (Level 1), team (Level 2), and data source. For example, you might have `monitoring.dev.kubernetes` and `monitoring.sales.kubernetes` for Kubernetes data coming from the dev and sales teams in the monitoring Business Unit.
 
 
 ### (Optional) Clone Namespace Explorer and Create Custom Charts
 
-If you don't see the information you need, for example if you need a chart that shows histogram ingestion, [clone](ui_dashboards.html#edit-or-clone-a-dashboard) the **Namespace Usage Explorer** dashboard and modify existing charts or create custom charts. You can use `cs()` queries to retrieve information about counters, histograms, and spans. For example, the default dashboard examines `~metric` information, but you can also examine counter information using the following format:
+If you don't see the information you need, for example if you need a chart that shows histogram ingestion, [clone](ui_dashboards.html#edit-or-clone-a-dashboard) the **Namespace Usage Explorer** dashboard and modify the existing charts or create custom charts. You can use `cs()` queries to retrieve information about counters, histograms, and spans. For example, the default dashboard examines `~metric` information, but you can also examine counter information using the following format:
 
 ```
 cs(~<data_type>.global.namespace.<namespace>.pps, source=<depth_number>)
@@ -178,10 +178,10 @@ Data points are usually scanned because an alert is checked or a dashboard is di
 <table>
 <tbody>
 <tr>
-<td width="60%"><ol><li>Log in to your Wavefront instance and select <strong>Integrations</strong> on the toolbar. </li>
-<li>Select the <strong>Wavefront Usage</strong> integration.</li>
-<li>On the <strong>Dashboards</strong> tab, select the <strong>Wavefront Service and Proxy</strong> dashboard. </li>
-<li>Examine the <strong>Data Scan Rate</strong> and <strong>Data Scan Rate by User</strong> chart. </li>
+<td width="60%"><ol><li>Log in to your Wavefront instance and click <strong>Integrations</strong> on the toolbar. </li>
+<li>Click the <strong>Wavefront Usage</strong> integration.</li>
+<li>On the <strong>Dashboards</strong> tab, click the <strong>Wavefront Service and Proxy</strong> dashboard. </li>
+<li>Examine the <strong>Data Scan Rate</strong> and <strong>Data Scan Rate by User</strong> charts. </li>
 <li>Click a chart to temporarily change the chart type (for example to topK) or the query. To permanently modify the chart, clone the dashboard.  </li>
 </ol></td>
 <td width="40%"><img src="images/data_scan_by_user_2.png" alt="Data scan by user."></td>
@@ -203,7 +203,7 @@ Even if an alert has no recipients, the alert query is executed at the predefine
 <table>
 <tbody>
 <tr>
-<td width="70%"><ol><li>Log in to your Wavefront instance and select <strong>Alerts &gt;All Alerts</strong> </li>
+<td width="70%"><ol><li>Log in to your Wavefront instance and from the toolbar select <strong>Alerts &gt; All Alerts</strong>. </li>
 <li>To order the display by points scanned, select <strong>Points Scanned</strong> from the menu in the top right.</li>
 <li>The alerts are ordered, and each alert shows <strong>Points</strong> below the query.  </li>
 <li>For alerts with a high number of points scanned, examine the query and checking frequency to find ways to improve performance. </li>
@@ -246,20 +246,20 @@ Start with metric namespaces that contribute the most to the overall ingestion r
 
 ## Who's Responsible for Ingested Data?
 
-You can find out which teams are using the most data with ingestion policies or from the Namespace Usage Explorer dashboard.
+You can find out which teams are using the most data with ingestion policies or from the **Namespace Usage Explorer** dashboard.
 <table>
 <tbody>
 <thead>
 <tr><th width="25%">Action Item</th><th width="50%">Details</th><th width="25%">Links & Examples</th></tr>
 </thead>
 <tr>
-<td><strong>1. Use Ingestion Policies</strong>. </td>
+<td><strong>Use Ingestion Policies</strong>. </td>
 <td markdown="span">Create an [ingestion policy](ingestion_policies.html) for each team and monitor the usage per team.
 </td>
 <td><a href="monitoring_overview.html">Finding Ingestion and Query Problems</a></td>
 </tr>
 <tr>
-<td><strong>2. Examine Ingestion with the Namespace Usage Explorer</strong> </td>
+<td><strong>Examine Ingestion with the Namespace Usage Explorer dashboard</strong> </td>
 <td markdown="span">If many teams in your company use Wavefront, it's good practice to have a policy that includes the team name in each ingested data point. You can then easily determine which teams ingest a lot of data.
 </td>
 <td><a href="ingestion_policies.html#examine-usage">Examine Usage with Ingestion Policies</a></td>
@@ -303,13 +303,13 @@ Use the <a href="examine_usage.html"><strong>Usage Summary</strong></a> dashboar
 </tr>
 <tr>
 <td>Why do I have cardinality problems?</td>
-<td>If you know there's a spike in data (for example, an ID burst), you can use Wavefront Top or the <a href="wavefront_monitoring_spy.html">Wavefront Spy utility </a> during the spike to drill down into individual data points and tag values. Those two tools aren't as useful after the spike -- use the Wavefront Usage dashboards instead. </td>
+<td>If you know there's a spike in data (for example, an ID burst), you can use Wavefront Top or the <a href="wavefront_monitoring_spy.html">Wavefront Spy utility </a> during the spike to drill down into individual data points and tag values. Those two tools aren't as useful after the spike - use the <strong>Wavefront Usage</strong> integration dashboards instead. </td>
 <td markdown="span">![example screenshot from wftop Github page](images/wftop_small.png)</td>
 </tr>
 <tr>
 <td>How much data is coming from my source?</td>
 <td>You have several options:<ol><li>Use the <a href="sources_managing.html#examine-sources-in-the-source-browser">Source Browser</a> for a first look.</li>
-<li>Look at the last section in the Wavefront Service and Proxy Data dashboard to see the top sources listed by PPS. </li>
+<li>Look at the last section in the <strong>Wavefront Service and Proxy Data</strong> dashboard to see the top sources listed by PPS. </li>
 <li>Use the <a href="wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy">Wavefront Top GUI</a> to filter by source and examine what's coming from the selected source.</li></ol> </td>
 <td markdown="span">![Sources rate screenshot](images/top_sources.png) </td>
 </tr>
