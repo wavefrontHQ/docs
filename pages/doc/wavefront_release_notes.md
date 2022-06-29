@@ -19,7 +19,7 @@ This release includes:
 
 * **Time Window Settings of Charts**: You can now specify the time window setting on a chart level. When you do this, even if you change the time window settings of the dashboard in which the chart is included, the time window settings of the chart will not be affected. For more information, see [Set the Time Window on a Chart](ui_charts.html#set-the-time-window-on-a-chart).
 
-* **Override the No Data Message on Charts**: You can override the **No Data** message on charts when there is no data in the current time window and there's no error in your query. You can also select to display a link to the [Troubleshooting Missing Data](missing_data_troubleshooting.html) documentation page. For details, see [Chart Reference](ui_chart_reference.html).
+* **Override the No Data Message on Charts**: You can override the **No Data** message on charts when there is no data in the current time window and there's no error in your query. You can also select to display a link to the [Troubleshooting Missing Data](missing_data_troubleshooting.html) documentation page. For details, see [Override the No Data Message on a Chart](ui_charts.html#override-the-no-data-message-on-a-chart).
 
 * **Integrations**: Another update of the integrations in June 2022. We made significant improvements to the Tanzu Application Service, vSphere, Consul, and Google Cloud Platform integrations. See the [Integration Release Notes](integrations_new_changed.html#june-2022) for details.
 

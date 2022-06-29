@@ -173,6 +173,18 @@ You can set the time window on a chart to be defined on a dashboard level, or yo
 
 ![An image of the menu on the Advanced tab allowing to select a time window on a chart.](images/select_time_window_on_chart.png)
 
+### Override the No Data Message on a Chart
+
+You can override the No Data message on charts when there is no data in the current time window and there are no errors in your query.
+
+**To override the No Data message on a chart:**
+
+1. Open the chart in edit mode.
+2. Click the **Advanced** tab.
+3. Enter the message that you want to be displayed on the chart in the **Override No Data Message** text box.
+4. (Optional) Select to also display a link to the [Troubleshooting Missing Data](missing_data_troubleshooting.html) documentation page.
+
+![A screenshot of the Advanced tab allowing to enter a new message when there's no data.](images/missing_data.png)
 
 ### Use a Logarithmic Y Axis for Skewed Data
 
