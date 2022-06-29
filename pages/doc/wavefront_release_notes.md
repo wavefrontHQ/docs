@@ -45,7 +45,7 @@ This release includes:
         <td width="40%">
           <strong>Updated the Ingestion Policies Page</strong>:<p>Added the following details to the ingestion policies table:
           <ol>
-          <li>The <strong>State</strong> in terms of PPS limit</li>
+          <li>The <strong>State</strong> in terms of PPS limit - exceeded or not reached</li>
           <li>A <strong>Usage per Billing Month</strong> progress bar or usage number</li>
           <li>A <strong>Usage Trend</strong> line chart</li>
           <li>An <strong>Action</strong> in terms of alert association</li>
