@@ -143,7 +143,7 @@ With the drag-and-drop keyboard navigation you can rearrange:
 </td>
 </tr>
 <tr>
-<td><strong>Ctrl</strong></td>
+<td><strong>Ctrl</strong> or <strong>Command</strong> </td>
 <td>Temporarily hide the legend when you hover over a chart.
 </td>
 </tr>
