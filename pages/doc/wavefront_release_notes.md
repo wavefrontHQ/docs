@@ -17,6 +17,56 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 This release includes:
 
+* **Usage Portal Improvements**: We made the following improvements to the [ingestion policies](ingestion_policies.html) and [overall usage](examine_usage.html) monitoring:
+  <table>
+    <tbody>
+      <tr>
+        <td width="40%">
+          <strong>New Ingestion Policy Alerts</strong>:<p>
+          When you set an ingestion policy with a PPS limit, you must also configure an alert associated with that PPS limit.</p>
+        </td>
+        <td width="60%">
+          <img src="/images/IP_alert.png" alt="The Conditions stepper in the Create Ingestion Policy wizard. ">
+        </td>
+      </tr>
+      <tr>
+        <td width="40%">
+          <strong>Updated the Ingestion Policy Dashboard</strong>:<p>
+          <ul>
+          <li>The <strong>Usage Limit</strong> chart is now a progress bar.</li>
+          <li>If you set a PPS limit, the dashboard also includes an <strong>Alerts</strong> section with details about the associated alert.</li>
+          </ul></p>
+        </td>
+        <td width="60%">
+          <img src="/images/IP_dashboard_RNs.png" alt="The ingestion policy dashboard. ">
+        </td>
+      </tr>
+      <tr>
+        <td width="40%">
+          <strong>Updated the Ingestion Policies Page</strong>:<p>Added the following details to the ingestion policies table:
+          <ol>
+          <li>The <strong>State</strong> in terms of PPS limit - exceeded or not reached</li>
+          <li>A <strong>Usage per Billing Month</strong> progress bar or usage number</li>
+          <li>A <strong>Usage Trend</strong> line chart</li>
+          <li>An <strong>Action</strong> in terms of alert association</li>
+          </ol></p>
+        </td>
+        <td width="60%">
+          <img src="/images/IP_list.png" alt="The ingestion policy table. ">
+        </td>
+      </tr>
+      <tr>
+        <td width="40%">
+          <strong>Updated the Usage Summary Dashboard</strong>:<p>The <strong>Average Usage for the Last Quarter</strong> chart is also now a progress bar.
+          </p>
+        </td>
+        <td width="60%">
+          <img src="/images/average_usage_last_quarter.png" alt="The Overview section of the Usage Summary dashboard. ">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
 * **Time Window Settings of Charts**: You can now specify the time window setting on a chart level. When you do this, even if you change the time window settings of the dashboard in which the chart is included, the time window settings of the chart will not be affected. For more information, see [Set the Time Window on a Chart](ui_charts.html#set-the-time-window-on-a-chart).
 
 * **Override the No Data Message on Charts**: You can override the **No Data** message on charts when there is no data in the current time window and there's no error in your query. You can also select to display a link to the [Troubleshooting Missing Data](missing_data_troubleshooting.html) documentation page. For details, see [Override the No Data Message on a Chart](ui_charts.html#override-the-no-data-message-on-a-chart).
@@ -28,7 +78,7 @@ This release includes:
   * [Improve PPS and Prevent Overage](wavefront_usage_info.html)
   * [Tanzu Observability Pricing](wavefront_pricing.html)
   * [vSphere Integration Details](integrations_vsphere.html)
-
+  
 ## 2022-24.x Release Notes
 
 This release includes:
