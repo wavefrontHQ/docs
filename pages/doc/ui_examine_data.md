@@ -50,7 +50,7 @@ Many users work in environments with a lot of dashboards.
 ## Get Started: Dashboards
 
 After you've selected a dashboard, it displays in your browser.
-* **Default time setting** for all charts is 2 hours, live data, with a refresh every 30 seconds.
+* **Default time setting** default is 2 hours, live data, with a refresh every 30 seconds.
 * **Refresh rate** is determined by the time window. A smaller time window refreshes more often. You can force a refresh.
 * **Lazy load** means that charts refresh as you scroll to them to avoid extra computational burden. Sections can improve load behavior -- you can focus on what you need instead of scrolling through charts you don't want to see.
 
@@ -67,7 +67,7 @@ You can customize what you see, open charts, and more.
 
 ## Set the Time Window
 
-This <a href="https://vmwaretv.vmware.com/media/t/1_zew0muhn" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights how you can select, sync, and reset time windows so you can annalyze and compare your data.
+This <a href="https://vmwaretv.vmware.com/media/t/1_zew0muhn" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights how you can select, sync, and reset time windows so you can analyze and compare your data.
 
 <p>
 <iframe id="kmsembed-1_zew0muhn" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_zew0muhn/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="time window customization video"></iframe>
@@ -80,7 +80,7 @@ By default, dashboards:
 
 You can select a larger or smaller time window or view past data instead of real-time data with the time bar controls.
 
-{% include note.html content="When you change the time window, the [chart resolution](ui_charts.html#chart-resolution) and the refresh rate change as well. For example, if you select a 10-minute time window, the charts in the dashboard refresh every second." %}
+{% include note.html content="When you change the time window, the [chart resolution](ui_charts.html#chart-resolution) and the refresh rate change as well. For example, if you select a 10-minute time window, the charts in the dashboard refresh every second. Time window settings on a dashboard level apply to all charts for which you have selected the **Default to dashboard time window** option. If you have set a fixed time window on a chart, the time window on that specific chart won't be affected." %}
 
 **To change the dashboard time window:**
 
