@@ -500,10 +500,26 @@ The example test output might look like this.
 
 The `curl` command checks for status, and the status 200 is returned.
 
+## Cannot Modify the Proxy (Tanzu Observability Installed Through Tanzu Mission Control)
+
+<!---This content also in integrations_tmc_howto.html--->
+
+**Symptom**
+
+You're monitoring your Kubernetes cluster with Tanzu Observability. You installed Tanzu Observability from Tanzu Mission Control. Now you're having problems making a change to the Wavefront proxy.
+
+**Cause**
+
+If you installed Tanzu Observability from Tanzu Mission Control, you cannot make changes to the Wavefront proxy.
+
+**Remediation**
+
+If your environment has a standalone Tanzu Observability instance, use that instance. We are working on resolving the issue.
+
 ## Proxies FAQ
 
 This section gives answers to some frequently asked questions. We expect to add more questions and answers as we hear from customers.
 
 ### Can You Explain wavefront-proxy timestamps and Wavefront Service timestamps?
 
-The wavefront-proxy sends metric timestamps as milliseconds, but the ingestion layer of the Wavefront service converts and stores the information as seconds. 
+The wavefront-proxy sends metric timestamps as milliseconds, but the ingestion layer of the Wavefront service converts and stores the information as seconds.
