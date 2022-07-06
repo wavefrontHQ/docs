@@ -115,7 +115,9 @@ With the drag-and-drop keyboard navigation you can rearrange:
 </tr>
 <tr>
 <td><strong>Arrow keys</strong></td>
-<td>Navigate between items in a list, such as a drop-down menu or any other menu.</td>
+<td><ul><li>Navigate between items in a list, such as a drop-down menu or any other menu.</li>
+<li>Navigate through a group of radio buttons and select a radio button.</li>
+</ul></td>
 </tr>
 <tr>
 <td><strong>Home</strong> and <strong>End</strong> keys or <strong>Cmd+Up</strong> and <strong>Cmd+Down</strong> for Safari</td>
