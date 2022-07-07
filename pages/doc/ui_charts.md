@@ -99,9 +99,9 @@ To clone a query, click the <strong>Clone</strong> icon. A copy of the query app
 
 ## Customize How the Chart Looks
 
-All users can [set the chart time window](ui_examine_data.html#set-the-time-window) and [isolate sources and series](ui_examine_data.html#isolate-sources-or-series) without editing the chart.
+All users can [set the chart time window](ui_examine_data.html#set-the-time-window) and [isolate sources and series](ui_examine_data.html#isolate-sources-or-series) without editing the chart. If you want you can also set the chart time window by editing the chart. The changes you make will not be affected by the changes to the dashboard time window settings.
 
-Users with **Dashboard** permissions can make many other changes, such as selecting the chart type or customizing the axes and colors. Here are some tasks you can perform. In many cases, they're possible only for certain chart types.
+Users with the **Dashboard** permissions can make many other changes, such as selecting the chart type or customizing the axes and colors. Here are some tasks you can perform. In many cases, they're possible only for certain chart types.
 
 {{site.data.alerts.note}}
 <p>Making changes to the UI, for example, changing the units, only affects the UI:</p>
@@ -158,6 +158,33 @@ For optimal rendering of displayed results, charts and dashboards do not include
 You can also include obsolete metrics for all charts within a dashboard. See [Set Dashboard Display Preferences](ui_dashboards.html#set-dashboard-display-preferences-and-settings).
 
 {% include note.html content="Including obsolete metrics on a dashboard level may significantly slow down the dashboard performance." %}
+
+
+### Set the Time Window on a Chart
+
+You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart and you edit the dashboard time window, the time settings of the chart will not be affected.
+
+**To set the time window on a chart level:**
+
+1. Open the chart in edit mode.
+2. Click the **Advanced** tab.
+3. Click the **Set a fixed time window** radio button.
+4. From the time picker, select the chart time window settings.
+
+![An image of the menu on the Advanced tab allowing to select a time window on a chart.](images/select_time_window_on_chart.png)
+
+### Override the No Data Message on a Chart
+
+You can override the No Data message on charts when there is no data in the current time window and there are no errors in your query.
+
+**To override the No Data message on a chart:**
+
+1. Open the chart in edit mode.
+2. Click the **Advanced** tab.
+3. Enter the message that you want to be displayed on the chart in the **Override No Data Message** text box.
+4. (Optional) Select to also display a link to the [Troubleshooting Missing Data](missing_data_troubleshooting.html) documentation page.
+
+![A screenshot of the Advanced tab allowing to enter a new message when there's no data.](images/missing_data.png)
 
 ### Use a Logarithmic Y Axis for Skewed Data
 

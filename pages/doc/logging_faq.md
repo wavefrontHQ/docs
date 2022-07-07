@@ -15,7 +15,7 @@ summary: Learn how to customize your logging experience and find answers for fre
 
 Did you right-click on a chart, click logs, and saw no data on the Log Browser? This can happen:
 * If your chart has data from more than one source. You can only search data from one source on the Log Browser. Therefore, select a source using **Source** and search again.
-* If you have not tagged your log data using the source, application, service, and other additional tags when sending the logs from your log shipper. See [What’s a Log?](logging_overview.html#whats-a-log) for details.
+* If you have not tagged your log data using the source, application, service, and other additional tags when sending the logs from your log shipper. See [What’s a Log?](logging_overview.html#whats-a-tanzu-observability-log) for details.
 
 ## Don't See Application and Service Logs?
 
@@ -30,8 +30,8 @@ For example, if you are using Fluentd, your `fluent.conf` file can have the foll
   enable_ruby
   <record>
     service "<INSERT_YOUR_SERVICE_HERE>"
-    application "<INSERT_YOUR_APPLICATION_HERE>" 
-    #source "#{ENV['MY_NODE_NAME']}"    
+    application "<INSERT_YOUR_APPLICATION_HERE>"
+    #source "#{ENV['MY_NODE_NAME']}"
     timestamp ${time.to_datetime().strftime('%Q')}
   </record>
 </filter>
@@ -57,7 +57,7 @@ Wavefront proxy drops the logs that exceed the [maximum character limit](logging
 
 {% include note.html content="See [Create, Customize, and Optimize Dashboards](ui_dashboards.html) to edit and customize the dashboard." %}
 
-You see the number of logs that were blocked in the **Blocked logs per second** chart. If you see a spike in the number of dropped logs, make sure that you follow the [best practices](logging_send_logs.html#best-practice) when sending logs to Tanzu Observability.
+You see the number of logs that were blocked in the **Blocked logs per second** chart. If you see a spike in the number of dropped logs, make sure that you follow the [best practices](logging_send_logs.html#best-practices) when sending logs to Tanzu Observability.
 
 
 ## Nest Steps

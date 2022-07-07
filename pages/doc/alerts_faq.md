@@ -10,9 +10,10 @@ summary: Learn alert customization from Tanzu Observability by Wavefront experts
 
 By default, all users can view all alerts. But permissions and access control affect this default.
 
-  * You must have **Alerts** permission to edit alerts. [Permissions](permissions_overview.html) apply to **all alerts**.
-    - Users with the **Alerts** permission can view, create, and modify alerts.
-    - Users who don’t have the **Alerts** permissions can only view alerts.
+  * You must have the **Alerts** permission to edit alerts. The [Alerts](permissions_overview.html) permission applies to all alerts **except** [ingestion policy](ingestion_policies.html) alerts.
+    - Users with the **Alerts** permission can view, create, and modify alerts except ingestion policy alerts.
+    - Users who don’t have the **Alerts** permissions can only view alerts, including ingestion policy alerts.
+    - Only Super Admin users can create and modify alerts associated with ingestion policies.
 
     A user with the **Accounts** permission can assign the permission to you.
   *	If an individual alert is protected by [Access Control](access.html), you might not be able to edit or even view that alert.
@@ -434,4 +435,3 @@ Each time you save an alert, the alert version is updated internally. Up to 100 
 * [How Alerts Work](/alerts.html#how-alerts-work) includes a video and discusses the anatomy of an alert (condition, target, notification)
 * [Alerts Best Practices](alerts_best_practices.html) has in-depth discussions on mapping your data to the right alert query, recommendations on alert settings, and more.
 * [Alert States and Lifecycle](alerts_states_lifecycle.html) is required reading (and watching) for all power users.
-* To learn about the migration from the earlier create alert GUI to the new alert experience, see [FAQ for the New Alert GUI](alerts_v2_faq.html)

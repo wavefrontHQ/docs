@@ -126,7 +126,9 @@ You must have the <strong>Dashboards</strong> permission inside Tanzu Observabil
 
 For some general recommendations,  [Kubernetes Troubleshooting](wf_kubernetes_troubleshooting.html). The following causes for failure and remediation steps are especially useful for Tanzu Mission Control troubleshooting.
 
-### Symptoms
+### Integrations Tile Shows Needs Attention
+
+**Symptom**
 
 <table style="width: 100%;">
 <tbody>
@@ -139,7 +141,7 @@ If the integration wasn’t set up successfully, the icon in the Integrations ti
 </tbody>
 </table>
 
-### Causes
+**Possible Causes**
 
 Failures might be caused by several issues including the following:
 
@@ -151,11 +153,27 @@ Failures might be caused by several issues including the following:
 * General issue on the Tanzu Mission Control side
 * Issue with credential, for example, the API token might have been revoked on the Tanzu Observability by Wavefront side.
 
-### Remediation
+**Remediation**
 
 Follow these steps to remediate problems:
 1. Ensure that the cluster you want to connect to isn't protected by an SSO solution. If it is, you might have to explicitly log in to the cluster as a user before you can display the dashboard.
 2. Ensure that the Wavefront API key is active and correctly entered. If the key was revoked, it's no longer valid.
+
+### Cannot Modify Proxy (Tanzu Observability Installed Through Tanzu Mission Control)
+
+<!---This content also in proxies_troubleshooting.html--->
+
+**Symptom**
+
+You're monitoring your Kubernetes cluster with Tanzu Observability. You installed Tanzu Observability from Tanzu Mission Control. Now you're having problems making a change to the Wavefront proxy.
+
+**Cause**
+
+If you installed Tanzu Observability from Tanzu Mission Control, you cannot make changes to the Wavefront proxy.
+
+**Remediation**
+
+If your environment has a standalone Tanzu Observability instance, use that instance. We are working on resolving the issue.
 
 ## Learn More
 
