@@ -86,8 +86,8 @@ Maximum length for metricName is 256.
 <td>An arbitrary number of key-value pairs separated by spaces: &lt;k1&gt;="&lt;v1&gt;" ... &lt;kn&gt;="&lt;vn&gt;".
 Point tags cannot be empty, i.e. <code>tagKey=""</code> and <code>tagKey=</code> are invalid. Point tags must also satisfy these constraints:
 <ul>
-<li><strong>Key</strong> - Valid characters: alphanumeric, hyphen ("-"), underscore ("_"), dot (".")</li>
-<li><strong>Value</strong> - Enclose tag values with double quotes (" "). If you surround the value with double quotes, any character is allowed, including spaces. To include a double quote, escape it with a backslash, for example, `\"`. A backslash cannot be the last character in the tag value.</li>
+<li><strong>Key</strong> - Valid characters: alphanumeric, hyphen ("-"), underscore ("_"), dot ("."). Enclose tag keys in double quotes (" ").</li>
+<li><strong>Value</strong> - Enclose tag values in double quotes (" "). If you surround the value with double quotes, any character is allowed, including spaces. To include a double quote, escape it with a backslash, for example, `\"`. A backslash cannot be the last character in the tag value.</li>
 </ul>
 Maximum allowed length for a combination of a point tag key and value is 254 characters (255 including the "=" separating key and value). If the value is longer, the point is rejected and logged.
 
