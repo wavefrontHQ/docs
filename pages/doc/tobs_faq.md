@@ -15,8 +15,7 @@ By default, all users can view dashboards and alerts. They can also edit dashboa
 
 1. Check your permissions. See [Examine Groups, Roles, and Permissions](users_account_managing.html#examine-groups-roles-and-permissions).
 2. If you don't have the permissions you need, ask a user with the **Accounts** permission to grant you the permissions.
-
-If that doesn't solve the problem, the individual dashboard or alert you're trying to edit might be protected by [access control](access.html). The creator of the alert or dashboard or a Super Admin user can grant access.
+3. If that doesn't solve the problem, the individual dashboard or alert you're trying to edit might be protected by [access control](access.html). The creator of the alert or dashboard or a Super Admin user can grant access.
 
 ## Why Is Our PPS So High? Why Do We Have Overage?
 
