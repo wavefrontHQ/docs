@@ -97,7 +97,7 @@ To get the account ID and the external ID, do the following:
 
 1. Log in to your Wavefront cluster.
 2. Click **Integrations** on the toolbar and click the **Amazon Web Services** integration tile. 
-3. Click the **Set up integration** button.
+3. Click the **Set Up Integration** button.
 4. Select which services you want to set up and click **Next**.
    * **CloudWatch & Metrics+**
    * **CloudWatch & Metrics+ & CloudTrail** 
@@ -140,7 +140,7 @@ By using this method, the process for getting the account ID and the external ID
 
 1. Log in to your Wavefront cluster and click **Integrations** on the toolbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
-1. Click the **Set up integration** button.
+1. Click the **Set Up Integration** button.
 1. Select which services you want to set up and click **Next**.
    * **CloudWatch & Metrics+**
    * **CloudWatch & Metrics+ & CloudTrail** 
@@ -318,7 +318,7 @@ To set up an AWS integration, you must have a **Role ARN** handy.
 
 1. Log in to your Wavefront instance and click **Integrations** on the toolbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
-1. Click the **Set up integration** button.   
+1. Click the **Set Up Integration** button.   
 1. Select the AWS services to register and click **Next**.
    * **CloudWatch and Metrics+**
    * **CloudWatch, Metrics+, and CloudTrail**
@@ -336,7 +336,7 @@ To set up an AWS integration, you must have a **Role ARN** handy.
     </thead>
     <tr>
     <td><strong>Bucket Name</strong></td>
-    <td>Enter the S3 bucket containing CloudTrail logs.<p> In your AWS account, go to <stong>CloudTrail &gt; Trails</stong> to see the bucket name.</p>
+    <td>Enter the S3 bucket containing CloudTrail logs.<p> In your AWS account, go to <strong>CloudTrail &gt; Trails</strong> to see the bucket name.</p>
     </td>
     </tr>
     <tr>
@@ -460,22 +460,39 @@ In addition, you can also delete a single service within an integration instance
 
 ## Viewing AWS Metrics
 
-You can view AWS metrics by selecting **Browse &gt; Metrics** and searching for metrics beginning with `aws.`:
+Once metrics start flowing, you can view them on the **Metrics** tab.
 
-![aws metrics](images/aws_metrics.png)
+You can drill down into the folder for a specific service and click a metric to navigate to a chart that displays that set of data. 
 
-You can drill into the folder for a specific service and click a metric to navigate to a chart that displays that set of data. For example, clicking the folder `aws.ec2.`, then the metric `aws.ec2.cpuutilization`, and then refining the query by the `Region` point tag and the `topk` function yields the following chart:
+![Screenshot of the AWS metrics once the data starts to flow to Wavefront.](images/hello_tutorial_aws_metrics.png)
+
+For example:
+
+1. Click the folder `aws.ec2.`.
+2. Click the metric `aws.ec2.cpuutilization`
+3. Refine the query by the `Region` point tag and the `topk` function.
+
+You'll see a chart similar to:
 
 ![aws cpu utilization](images/aws_cpu_utilization.png)
 
+
 ### AWS Aggregate Metrics
 
-All AWS metrics return the following aggregate metrics: average, maximum, minimum, sample count, and sum. To view the aggregate metrics,
+All AWS metrics return the following aggregate metrics: average, maximum, minimum, sample count, and sum. To view the aggregate metrics:
 
-1.  Search for a specific metric, for example `aws.ec2.cpuutilization`:
-
-    ![aws cpu utilization folder](images/aws_cpu_utilization_metric.png)
-
-2.  Click the metric folder, for example `aws.ec2.cpuutilization.`, to display the aggregate metrics:
-
-    ![aws cpu utilization aggregate metrics](images/aws_cpu_utilization_aggregate_metrics.png)
+<table>
+<tbody>
+<tr>
+<td>1. On the <strong>Metrics</strong> tab, search for a specific metric, for example <code>ec2.cpuutilization</code>:</td>
+<td><img src="/images/aws_cpu_utilization_metric.png" alt="AWS CPU utilization folder. ">
+</td>
+</tr>
+<tr>
+<td>2. Click the metric folder, for example <code>aws.ec2.cpuutilization.</code>, to display the aggregate metrics:
+</td>
+<td><img src="/images/aws_cpu_utilization_aggregate_metrics.png" alt="AWS CPU utilization aggregate metrics. ">
+</td>
+</tr>
+</tbody>
+</table>

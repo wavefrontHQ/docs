@@ -47,7 +47,7 @@ In this task, we'll set up a data ingestion pipeline with AWS.
 1. Click **Integrations** on the toolbar.
 2. Click the **Amazon Web Services (AWS)** tile.
     <!--![Highlight the AWS integration on the Wavefront Integrations page.](images/hello_tutorial_aws_integration_tile.png)-->
-3. Click **Set up integration**.
+3. Click **Set Up Integration**.
     ![Highlights the Set up integration button.](images/hello_tutorial_aws_add_integration.png)
 4. Click the **CloudWatch & Metrics+** tile and click **Next**.
 6. Click the **How to get Role ARN** link and click **AWS UI Method** tab.
@@ -141,8 +141,9 @@ With data flowing, you can start exploring dashboards and charts:
 <p><span style="font-size: large; font-weight: 500">View Metrics</span></p>
 1. In your Wavefront instance, go to your AWS integration.
 1. Click the **Metrics** tab.
+1. Drill down to an individual metric and select it.
 
-You see charts with the metrics collected from your AWS account.
+You see a chart with the metric collected from your AWS account. 
 
 Example:
 ![Screenshot of the AWS metrics once the data starts to flow to Wavefront.](images/hello_tutorial_aws_metrics.png)
