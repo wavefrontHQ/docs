@@ -54,6 +54,73 @@ The standard dashboard for services is read-only. To create a customizable copy:
 
 After you save the clone, click **Dashboard** on the toolbar and search for your dashboard by its  name. You can use it to drill down to the Traces Browser.
 
+## Save and Manage Searches
+
+Because composing a query in a Service Dashboard can be time consuming, you
+* Save a search. Saved searches are available to all members of your organization.
+* Access and delete your saved searches
+* Access saved searches from everyone in your organization.
+
+### Save a Search
+
+After you've performed a search in the Service Dashboard, you can save your search.
+
+<table style="width: 100%;">
+  <tr>
+    <td width="50%">
+      <ol>
+        <li>
+          Put in the search parameters and click <strong>Search</strong>.
+        </li>
+        <li>
+          Click the bookmark icon, specify a name for your saved search, and click <strong>Save</strong>.
+        </li>
+      </ol>
+    </td>
+    <td markdown="span" width="50%">
+      ![Bookmark icon brings up save search dialog](/images/save_a_search_button.png)
+    </td>
+  </tr>
+</table>
+
+### Access or Delete Saved Searches
+
+The Lists button gives you access to your own saved searches and to saved searches from others in your organization.
+
+<table style="width: 100%;">
+  <tr>
+    <td width="50%">
+    1. Click the Lists button to the left of the query.
+    </td>
+    <td markdown="span" width="50%">
+      ![List button](/images/saved_searches_list_button.png)
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+    2. In the dialog that appears:
+    <ul><li>Click <strong>My Recent Searches</strong> for a list of your recent searches. Select from the list.</li>
+    <li>Click <strong>My Saved Searches</strong> for a complete list of your searches. Select from the list. </li>
+    <li>Click <strong>All Saved Searches</strong> for a list of searches in your organization. Select from the list. </li>
+    </ul>
+    </td>
+    <td markdown="span" width="50%">
+      ![List button](/images/saved_searches_list.png)
+    </td>
+  </tr>
+
+  <tr>
+    <td width="50%">
+    3. To delete a saved search from your list, select the list, click <strong>Manage</strong>, and select <strong>Delete</strong> from the ellipsis icon to the left of that saved search.
+    </td>
+    <td markdown="span" width="50%">
+      ![Elipsis icon and delete option](/images/delete_saved_search.png)
+    </td>
+  </tr>
+</table>
+
+
+
 ## Save Charts in the Service Dashboard
 
 View queries used in the charts of the default Service Dashboard and save these charts to your dashboard.
