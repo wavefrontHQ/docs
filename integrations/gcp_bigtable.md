@@ -1,8 +1,8 @@
 ---
-title: Google Container Engine Integration
+title: Google Cloud Bigtable Integration
 tags: [integrations list]
-permalink: gcp_container_engine.html
-summary: Learn about the Wavefront Google Container Engine Integration.
+permalink: gcp_bigtable.html
+summary: Learn about the Wavefront Google Cloud Bigtable Integration.
 ---
 ## Google Cloud Platform Integration
 
@@ -90,13 +90,29 @@ To register a Google Cloud Platform integration:
 
 |Metric Name|Description|
 | :--- | :--- |
-|gcp.container.container.cpu.reserved_cores| Number of cores of CPU reserved for the container. |
-|gcp.container.container.cpu.usage_time| Cumulative CPU usage on all cores in seconds. |
-|gcp.container.container.cpu.utilization| The percentage of the allocated CPU that is currently in use on the container.|
-|gcp.container.container.disk.bytes_total| Total number of bytes of capacity on the disk identified by label ‘device_name’. |
-|gcp.container.container.disk.bytes_used| Total number of bytes used on the disk identified by label ‘device_name’. |
-|gcp.container.container.memory.bytes_total| Memory limit of the container in bytes. |
-|gcp.container.container.memory.bytes_used|Memory usage in bytes, broken down by type: evictable and non-evictable. |
-|gcp.container.container.memory.page_fault_count_rate| Number of page faults, broken down by type: major and minor.|
-|gcp.container.container.uptime|Number of seconds since the container started. |
+|gcp.bigtable.backup.bytes_used| Backup storage used in bytes.|
+|gcp.bigtable.cluster.cluster.autoscaling.max_node_count| Maximum number of nodes in an autoscaled cluster.|
+|gcp.bigtable.cluster.cluster.autoscaling.min_node_count| Minimum number of nodes in an autoscaled cluster.|
+|gcp.bigtable.cluster.cluster.autoscaling.recommended_node_count_for_cpu| Recommended number of nodes in an autoscaled cluster based on CPU usage.|
+|gcp.bigtable.cluster.cluster.autoscaling.recommended_node_count_for_storage| Recommended number of nodes in an autoscaled cluster based on storage usage.|
+|gcp.bigtable.cluster.cpu_load| CPU load of a cluster.|
+|gcp.bigtable.cluster.cpu_load_by_app_profile_by_method_by_table| CPU load of a cluster split by app profile, method, and table.|
+|gcp.bigtable.cluster.cpu_load_hottest_node| CPU load of the busiest node in a cluster.|
+|gcp.bigtable.cluster.disk_load| Utilization of the HDD disks in a cluster.|
+|gcp.bigtable.cluster.node_count| Number of nodes in a cluster.|
+|gcp.bigtable.cluster.storage_utilization| Storage used as a fraction of the total storage capacity.|
+|gcp.bigtable.disk.bytes_used| Amount of compressed data for tables stored in a cluster.|
+|gcp.bigtable.disk.per_node_storage_capacity| Capacity of compressed data for tables that can be stored per node in the cluster.|
+|gcp.bigtable.disk.storage_capacity| Capacity of compressed data for tables that can be stored in a cluster.|
+|gcp.bigtable.replication.latency| Distribution of replication request latencies for a table. Includes only requests that have been received by the destination cluster.|
+|gcp.bigtable.replication.max_delay| Upper bound for replication delay between clusters of a table.|
+|gcp.bigtable.server.error_count| Number of server requests for a table that failed with an error.|
+|gcp.bigtable.server.latencies| Distribution of server request latencies for a table, measured when calls reach Cloud Bigtable.|
+|gcp.bigtable.server.modified_rows_count| Number of rows modified by server requests for a table.|
+|gcp.bigtable.server.multi_cluster_failovers_count| Number of failovers during multi-cluster requests.|
+|gcp.bigtable.server.received_bytes_count| Number of uncompressed bytes of request data received by servers for a table.|
+|gcp.bigtable.server.request_count| Number of server requests for a table.|
+|gcp.bigtable.server.returned_rows_count| Number of rows returned by server requests for a table.|
+|gcp.bigtable.server.sent_bytes_count| Number of uncompressed bytes of response data sent by servers for a table.|
+|gcp.bigtable.table.bytes_used| Amount of compressed data stored in a table.|
 
