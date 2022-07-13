@@ -16,10 +16,10 @@ This section gives details on proxy configuration properties used for Tanzu Obse
 
 ### Configure the properties
 
-Follow these steps: 
+Follow these steps:
 
 1. [Install the Wavefront Proxy](proxies_installing.html).
-    If you have already installed the Wavefront proxy, make sure it is version 11.2 or later. 
+    If you have already installed the Wavefront proxy, make sure it is version 11.3 or later. 
 1. Open the [`wavefront.conf` file](proxies_configuring.html#proxy-file-paths):
     1. Uncomment the `pushListnerPorts` and set it to a preferred port. It is set to 2878 by default to receive both HTTP and TCP data. For details on the proxy configurations, see [Advanced Proxy Configuration](proxies_configuring.html).
     1. Optionally, uncomment or add the other configurations listed below.
@@ -86,7 +86,7 @@ See the Wavefront proxy configuration used for logs:
 <tr>
 <a name="flushThreadsLogs"></a>
 <td>flushThreadsLogs</td>
-<td markdown="span"> Number of threads that flush data to the server. This setting is per push listener port. 
+<td markdown="span"> Number of threads that flush data to the server. This setting is per push listener port.
 <br/>If you set a large value, the number of logs that are included in a batch will be small, and it will be expensive because you need to connect to the server several times.
 <br/> Default: 4
 <br/> Version: Since 11.2</td>
@@ -320,7 +320,7 @@ Removes a log tag that matches a regex string.
  - rule          : test-logDropTag
    action        : logDropTag
    key           : datacenter
-   match         : "az[4-6]" 
+   match         : "az[4-6]"
 
 ```
 
