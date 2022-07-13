@@ -126,9 +126,11 @@ A chart renders the lines or points for different time series in different color
 <td width="60%">
 <strong>Hover Legend</strong> <br> <br>
 For hover legends you can:
-<ul><li>Disable the legend.</li>
+<ul><li>Temporary disable the legend by holding the <strong>Ctrl</strong> key on Windows and <strong>Command</strong> on Mac while you hover over the chart.</li>
 <li>Limit the number of point tags or specify point tags to show in the legend. </li>
-<li>Press <strong>Shift+P</strong> to pin the legend. You can move the pinned legend.</li></ul>
+<li>Show raw data in the legend by pressing the <strong>Shift</strong> key.</li>
+<li>Press <strong>Shift+P</strong> to pin the legend. You can move the pinned legend.</li>
+<li>Selectively highlight the metrics, based on series or sources by performing the <strong>Ctrl+Click</strong> key-mouse combination.</li></ul>
 </td>
 <td width="40%"><img src="/images/hover_legend.png" alt="hover legend"></td></tr>
 <tr>
