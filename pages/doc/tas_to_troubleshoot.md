@@ -18,7 +18,7 @@ Larger TAS foundations are more demanding to monitor than smaller foundations.
 
 If your foundation is large, tune the following parameters, in this order:
 1. Increase the size of your **Telegraf Agent Virtual Machine**. The Telegraf agent is responsible for collecting metrics and transforming them into the Wavefront data format. The is typically CPU and memory bound, so increasing virtual machine size can increase perfrmance.
-2. **Reduce the scrape interval**. If collection times for some scrape targets are greater than 12 seconds, consider changing the scrape interval for your environment to a lower frequency. Typically, 120% of the longest observed collection time is safe.
+2. **Increase the scrape interval**. If collection times for some scrape targets are greater than 12 seconds, consider changing the scrape interval for your environment to a lower frequency. Typically, 120% of the longest observed collection time is safe.
 
 ## Symptom: No Data Flowing or Dashboards Show Now Data
 
@@ -27,11 +27,29 @@ You have successfully set up the nozzle and the integration. However, you don't 
 **Potential Solutions**:
 
 
-* Ensure that the setup flow has completed. Check back a few hours after you perform setup.
+* Ensure that the installation of the Wavefront Nozzle in has completed.
 * Verify that the proxy uses the correct API token and Wavefront instance URL. You specify that information in Ops Manager in the **Proxy Config** page.
-* Go through the the [Proxy Troubleshooting information](proxies_troubleshooting.html) and the [Telegraf Troubleshooting information](telegraf_details.html).
+* In your Tanzu Application Service environment, verify that the Bosh jobs for Wavefront proxy and for the Telegraf agent are running.
+  * Using the BOSH cli, use the `bosh deps` command to identify your wavefront-nozzle deployment, then tail the logs using `bosh ssh`.
+
+```bash
+% bosh deps
+
+% bosh ssh -d wavefront-nozzle-d62c653f58184da09b1d telegraf_agent
+% sudo -i
+% bpm logs -fa telegraf_agent
+```
+If you see errors in the output here, this may help pinpoint a specific issue in the environment. Otherwise, contact support.
+
+If there are no errors in Telegraf, the next step is to check the logs for the wavefront_proxy
+
+```bash
+% bosh ssh -d wavefront-nozzle-d62c653f58184da09b1d wavefront_proxy
+% sudo -i
+% bpm logs -fa wavefront_proxy
+```
+
 * Verify that data are flowing from the Wavefront proxy to your Wavefront instance. See [Proxy Troubleshooting](proxies_troubleshooting.html)
-* In your Tanzu Application Service environment, verify that the Bosh jobs for Wavefront proxy and for the Telegraf agent are running
 
 
 ## Symptom: Higher than Expected PPS Rate
