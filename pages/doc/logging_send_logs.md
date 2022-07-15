@@ -22,7 +22,7 @@ You can send logs to the Wavefront proxy from your log shipper or directly from 
 
 ## Install Wavefront Proxy 
 
-The Wavefront proxy accepts a JSON array payload over HTTP. Follow these steps to install and configure the proxy version 11.1 or higher.
+The Wavefront proxy accepts a JSON array payload over HTTP. Follow these steps to install and configure the proxy version 11.3 or higher.
 1. Log into the Wavefront instance. 
 1. Select **Browse** > **Proxies**. 
 1. Click **Add Proxy** and follow the instructions on screen. 
