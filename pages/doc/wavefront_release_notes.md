@@ -13,6 +13,10 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## 2022-26.x Release Notes
+
+* **Accessibility and Keyboard Navigation Improvements**: We have made accessibility and keyboard navigation improvements. For example, you can now temporarily disable the chart legend, highlight the metrics in a chart, or apply the time window settings from one chart in a dashboard to all the charts in the dashboard. For information see [Keyboard Shortcuts and Their Usage](wavefront_keyboard_shortcuts.html#keyboard-shortcuts-and-their-usage).
+
 ## 2022-25.x Release Notes
 
 This release includes:

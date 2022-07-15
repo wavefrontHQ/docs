@@ -54,6 +54,9 @@ The standard dashboard for services is read-only. To create a customizable copy:
 
 After you save the clone, click **Dashboard** on the toolbar and search for your dashboard by its  name. You can use it to drill down to the Traces Browser.
 
+
+
+
 ## Save Charts in the Service Dashboard
 
 View queries used in the charts of the default Service Dashboard and save these charts to your dashboard.

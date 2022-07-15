@@ -25,7 +25,7 @@ Returns the differences between adjacent values in each time series described by
 </thead>
 <tr>
 <td>lookbackWindow</td>
-<td>Optional time window that specifies how far back an alert should look for the last known value. </td></tr>
+<td>Optional time window that specifies how far the query engine should look for the last known value. </td></tr>
 <tr>
 <td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the time series to return differences for. </td></tr>
@@ -71,9 +71,20 @@ A metric indicates a counter reset by reporting a lower data value immediately a
 
 `ratediff()` never returns a negative change in value.
 
-### Improve Alert Accuracy with lookbackWindow Parameter
+### Improve Alert Accuracy and Add Data Points with lookbackWindow Parameter
 
-The optional first parameter is for situations where an alert does not check far back enough for the last known value and might behave incorrectly. Specify this parameter with the same units as a [time window](query_language_reference.html#common-parameters).
+Use the optional first parameter to have the query engine look at additional data points. Specify this parameter with the same units as a [time window](query_language_reference.html#common-parameters).
+
+* **Alerts**. An alert might behave incorrectly in situations where an alert does not check far back enough for the last known value.
+
+* **Queries**. In the query editor, the start timestamp and end timestamp is set according to the range you pick.
+If you add a `lookbackWindow1` (`ratediff(1m, ts(….))`, the range of data points to compare starts 1m earlier.
+  For example:
+  * Assume you query with this range: 6/29/2022 23:59:00 to 6/30/2022 01:00:00.
+  * If you wrap the query with `ratediff` and use it with the same time range, the query engine calculates the difference with the previous timestamp for each data point. For the first timestamp, the query engine assumes a data point with the value 0.
+  * If you include the `lookbackWindow`, that is, `ratediff(1m, ts(….))`, then the query engine looks at more data for the compare (1 minute if you use `1m`).
+
+
 
 ## Examples
 

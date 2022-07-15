@@ -16,10 +16,10 @@ This section gives details on proxy configuration properties used for Tanzu Obse
 
 ### Configure the properties
 
-Follow these steps: 
+Follow these steps:
 
 1. [Install the Wavefront Proxy](proxies_installing.html).
-    If you have already installed the Wavefront proxy, make sure it is version 11.2 or later. 
+    If you have already installed the Wavefront proxy, make sure it is version 11.3 or later. 
 1. Open the [`wavefront.conf` file](proxies_configuring.html#proxy-file-paths):
     1. Uncomment the `pushListnerPorts` and set it to a preferred port. It is set to 2878 by default to receive both HTTP and TCP data. For details on the proxy configurations, see [Advanced Proxy Configuration](proxies_configuring.html).
     1. Optionally, uncomment or add the other configurations listed below.
@@ -44,7 +44,7 @@ See the Wavefront proxy configuration used for logs:
 <td>customTimestampTags</td>
 <td markdown="log tag"> A comma-separated list of log tag keys that needs to be treated as the timestamp if the `timestamp` or `log_timestamp` tag is missing.
 <br/> Default: None.
-<br/> Version: Since 11.2</td>
+<br/> Version: Since 11.3</td>
 <td> Comma-separated list of tags. Can be a single tag.
 <br/>Example: sent_time</td>
 </tr>
@@ -53,7 +53,7 @@ See the Wavefront proxy configuration used for logs:
 <td>customMessageTags</td>
 <td markdown="span">A comma-separated list of log tag keys that needs to be treated as the message if the `message` or `text` tag is missing.
 <br/> Default: None.
-<br/> Version: Since 11.2</td>
+<br/> Version: Since 11.3</td>
 <td> Comma-separated list of tags. Can be a single tag.
 <br/> Example: debug_log</td>
 </tr>
@@ -62,7 +62,7 @@ See the Wavefront proxy configuration used for logs:
 <td>pushFlushMaxLogs</td>
 <td markdown="span">Maximum number of logs in a single flush in MB.
 <br/> Default: 4.
-<br/> Version: Since 11.2</td>
+<br/> Version: Since 11.3</td>
 <td> A number from 1-5.</td>
 </tr>
 <tr>
@@ -70,7 +70,7 @@ See the Wavefront proxy configuration used for logs:
 <td>pushRateLimitLogs</td>
 <td markdown="span">Limit the outgoing logs rate at the proxy in MB.
 <br/> Default: NO_RATE_LIMIT.
-<br/> Version: Since 11.2</td>
+<br/> Version: Since 11.3</td>
 <td> Positive integer.
 <br/>Example: 1</td>
 </tr>
@@ -79,17 +79,17 @@ See the Wavefront proxy configuration used for logs:
 <td>pushFlushIntervalLogs</td>
 <td markdown="span">Milliseconds between sending batches of logs.
 <br/> Default: 1000.
-<br/> Version: Since 11.2</td>
+<br/> Version: Since 11.3</td>
 <td> Number of milliseconds.
 <br/>Example: 2000</td>
 </tr>
 <tr>
 <a name="flushThreadsLogs"></a>
 <td>flushThreadsLogs</td>
-<td markdown="span"> Number of threads that flush data to the server. This setting is per push listener port. 
+<td markdown="span"> Number of threads that flush data to the server. This setting is per push listener port.
 <br/>If you set a large value, the number of logs that are included in a batch will be small, and it will be expensive because you need to connect to the server several times.
 <br/> Default: 4
-<br/> Version: Since 11.2</td>
+<br/> Version: Since 11.3</td>
 <td> Positive integer.
 <br/>Example: 5</td>
 </tr>
@@ -98,7 +98,7 @@ See the Wavefront proxy configuration used for logs:
 <td>pushMemoryBufferLimitLogs</td>
 <td markdown="span"> Maximum number of logs that can stay in the proxy memory buffers before spooling to disk. If the value is lower than the default value, it reduces memory usage but will force the proxy to spool to disk more frequently when the logs data points arrive at the proxy in short bursts. If the limit is the same as the memory heap limit, the proxy ignores the limit you have set here.
 <br/> Default: 64
-<br/> Version: Since 11.2</td>
+<br/> Version: Since 11.3</td>
 <td> Positive integer.
 <br/>Example: 70</td>
 </tr>
@@ -107,7 +107,7 @@ See the Wavefront proxy configuration used for logs:
 <td>blockedLogsLoggerName</td>
 <td markdown="span"> Logger name for blocked logs.
 <br/> Default: RawBlockedLogs
-<br/> Version: Since 11.2</td>
+<br/> Version: Since 11.3</td>
 <td> A string.
 <br/>Example: blockedLogs</td>
 </tr>
@@ -320,7 +320,7 @@ Removes a log tag that matches a regex string.
  - rule          : test-logDropTag
    action        : logDropTag
    key           : datacenter
-   match         : "az[4-6]" 
+   match         : "az[4-6]"
 
 ```
 
