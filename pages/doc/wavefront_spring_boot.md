@@ -53,8 +53,6 @@ This is the default dashboard when you run the Spring Boot initializer. </li>
 </table>
 
 
-
-
 <!---Not sure this table makes sense any more. It's really about Freemium vs. Customer/trial.
 <table style="width: 100%;">
 <tbody>
