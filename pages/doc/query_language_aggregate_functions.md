@@ -47,7 +47,7 @@ The query engine provides two kinds of aggregation functions for handling this s
 
 Standard aggregation functions fill in the gaps in each input series by interpolating values.
 
-For example, let's start with a pair of series with reporting intervals that do not line up. In the following chart, `series 1` reports once a minute. We can use `align()` or `downsample()` to have `series 2` report only every 150 seconds (2.5 minutes). Both series have data points aligned at the 5 minute marks, but the points in between are not aligned.
+For example, let's start with a pair of series with reporting intervals that do not line up. In the following chart, `series 1` reports once a minute. We can use `align()` to have `series 2` report only every 150 seconds (2.5 minutes). Both series have data points aligned at the 5 minute marks, but the points in between are not aligned.
 
 ![agg mismatch](images/query_language_agg_mismatch.png)
 
@@ -55,7 +55,7 @@ Now we use the `sum()` function (a standard aggregation function) to aggregate t
 
 ![agg mismatch sum](images/query_language_agg_mismatch_sum.png)
 
-The result at 2:34 is more interesting. At this moment in time, only series 1 reports a point, but `sum()` returns the value 368.800. `sum()` produces the return value by adding 176 to an _interpolated_ value from `series 2`. Interpolation inserts an implicit point into `series 2` at 2:34, and assigns an estimated value to that point based on the values of the actual, reported points. `sum()` uses the estimated value (in this case, 213.000) to calculate the value returned at 2:34.
+The result at 6:43 is more interesting. At this moment in time, only series 1 reports a point, but `sum()` returns the value 284.00. `sum()` produces the return value by adding the actual value of series 1 to an _interpolated_ value from `series 2`. Interpolation inserts an implicit point into `series 2` at 6:43, and assigns an estimated value to that point based on the values of the actual, reported points. `sum()` uses the estimated value (in this case, 139) to calculate the value returned at 6:43.
 
 ![agg mismatch onepoint](images/query_language_agg_mismatch_onepoint.png)
 

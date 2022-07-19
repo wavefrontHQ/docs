@@ -63,67 +63,56 @@ Let's take a look at how you can configure your Spring Boot application with Wav
     </dependencyManagement>
     ```
 
-1. Add the following dependency to send trace data to Wavefront using Spring Cloud Sleuth or OpenTracing. Pick either Spring Cloud Sleuth or OpenTracing and use it across all your microservices.
+1. Add the following dependency to send trace data to Wavefront using Spring Cloud Sleuth.
+    1. Open your application and add the following code to your <code>pom.xml</code> file. 
+        ```
+        <dependency>
+          <groupId>org.springframework.cloud</groupId>
+          <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+        ```
+      
+    1. Import the Spring Cloud Bill of Materials (BOM) to your project. Add the following code under <dependencyManagement>.
+        {{site.data.alerts.tip}}
+          <p>Make sure the Spring Cloud dependency is compatible with the Spring Boot release version. See <a href="https://spring.io/projects/spring-cloud#getting-started">Getting Started on the Spring Cloud documentation</a> for details.
+          <br/>
+          For example, if you are using Spring Boot release version 2.5.3, the <code>ADD_VERSION</code> can be 2020.0.3.
+          </p>
+        {{site.data.alerts.end}}
+        ```
+        <dependencyManagement>
+          <dependencies>
+            .....
+            <dependency>
+              <groupId>org.springframework.cloud</groupId>
+              <artifactId>spring-cloud-dependencies</artifactId>
+              <version>{ADD_VERSION}</version>
+              <type>pom</type>
+              <scope>import</scope>
+            </dependency>
+            .....
+          </dependencies>
+        </dependencyManagement>
+        ```
 
-    <ul id="profileTabs" class="nav nav-tabs">
-        <li class="active"><a href="#sleuth" data-toggle="tab">Spring Cloud Sleuth</a></li>
-        <li><a href="#opentracing" data-toggle="tab">OpenTracing</a></li>
-    </ul>
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="sleuth">
-        <ol>
-        <li>
-            <p>Open your application and add the following code to your <code>pom.xml</code> file. </p>
-              <pre>
-&lt;dependency&gt;
-  &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-  &lt;artifactId&gt;spring-cloud-starter-sleuth&lt;/artifactId&gt;
-&lt;/dependency&gt;
-            </pre>
-            </li>
-            <li>
-            <p>Import the Spring Cloud Bill of Materials (BOM) to your project. Add the following code under &lt;dependencyManagement&gt;.</p>
-            {{site.data.alerts.tip}}
-              <p>Make sure the Spring Cloud dependency is compatible with the Spring Boot release version. See <a href="https://spring.io/projects/spring-cloud#getting-started">Getting Started on the Spring Cloud documentation</a> for details.
-              <br/>
-              For example, if you are using Spring Boot release version 2.5.3, the <code>VERSION</code> can be 2020.0.3.
-              </p>
-            {{site.data.alerts.end}}
-            <pre>
-&lt;dependencyManagement&gt;
-&lt;dependencies&gt;
-.....
-&lt;dependency&gt;
-&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-&lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;
-&lt;version&gt;VERSION&lt;/version&gt;
-&lt;type&gt;pom&lt;/type&gt;
-&lt;scope&gt;import&lt;/scope&gt;
-&lt;/dependency&gt;
-.....
-&lt;/dependencies&gt;
-&lt;/dependencyManagement&gt;
-            </pre>
-
-            </li>
-            </ol>
-        </div>
-
-        <div role="tabpanel" class="tab-pane" id="opentracing">
-        <p>Open your application and add the following code to your <code>pom.xml</code> file. </p>
-          <pre>
-&lt;dependency&gt;
-  &lt;groupId&gt;io.opentracing.contrib&lt;/groupId&gt;
-  &lt;artifactId&gt;opentracing-spring-cloud-starter&lt;/artifactId&gt;
-  &lt;version&gt;0.5.7&lt;/version&gt;
-&lt;/dependency&gt;
-        </pre>
-        </div>
-      </div>
+1. Add the `P6Spy` dependency to intercept and log SQL queries. You can intercept most Connection, Statement and ResultSet methods invocations using the P6Spy dependency.
+    {{site.data.alerts.tip}}
+      <p>See the <a href="https://p6spy.readthedocs.io/en/latest/releasenotes.html">P6Spy release notes</a> and enter the latest version in place of <code>{ADD_VERSION}</code>.</p>
+    {{site.data.alerts.end}}
+    ```
+    <dependency>
+      <groupId>p6spy</groupId>
+      <artifactId>p6spy</artifactId>
+      <version>{ADD_VERSION}</version>
+      <scope>runtime</scope>
+    </dependency>
+    ```
+    
 1. Add the following configurations to the `application.properties` file so that your application is named `spring-demo`, and the service is named `spring-petclinic`.
     ```
     wavefront.application.name=spring-demo
     wavefront.application.service=spring-petclinic
+    spring.sleuth.jdbc.p6spy.enable-logging=true
     ```
 1. Restart the application and navigate to [http://localhost:8080](http://localhost:8080/).
 1. Add data by clicking on the pet clinic user interface.

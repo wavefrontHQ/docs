@@ -115,7 +115,9 @@ With the drag-and-drop keyboard navigation you can rearrange:
 </tr>
 <tr>
 <td><strong>Arrow keys</strong></td>
-<td>Navigate between items in a list, such as a drop-down menu or any other menu.</td>
+<td><ul><li>Navigate between items in a list, such as a drop-down menu or any other menu.</li>
+<li>Navigate through a group of radio buttons and select a radio button.</li>
+</ul></td>
 </tr>
 <tr>
 <td><strong>Home</strong> and <strong>End</strong> keys or <strong>Cmd+Up</strong> and <strong>Cmd+Down</strong> for Safari</td>
@@ -136,5 +138,22 @@ With the drag-and-drop keyboard navigation you can rearrange:
 <li>You can also select or deselect check boxes and click buttons by pressing <strong>Enter</strong>, but it is not mandatory.</li>
 <li>Drag-and-drop functionality is supported, for example, when you create or edit charts, when you add list variables, on the Metrics Security Policy page, and so on. To enter drag mode, press <strong>spacebar</strong>, use the arrow keys to rearrange the items, and press <strong>spacebar</strong> again to drop an item in its new position.</li></ul></td>
 </tr>
+<tr>
+<td><strong>Shift</strong></td>
+<td>Show the entire raw data for a chart legend. 
+<p>Change the time window of all charts in a dashboard. <p>For example, you can zoom in or zoom out one of the charts and press the <strong>Shift</strong> key at the same time. The time window changes will apply to all charts in the dashboard for which the time window settings are set to <strong>Default to dashboard time window</strong>.</p></p>
+</td>
+</tr>
+<tr>
+<td><strong>Ctrl</strong> or <strong>Command</strong> for Safari </td>
+<td>Temporarily hide the legend when you hover over a chart.
+</td>
+</tr>
+<tr>
+<td><strong>Ctrl+Click</strong></td>
+<td>Selectively highlight the metrics in a chart, based on series or sources.
+</td>
+</tr>
+
 </tbody>
 </table>
