@@ -9,6 +9,17 @@ summary: New and changed integrations.
 Tanzu Observability by Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
 
+## July 2022
+
+We made improvements to the following integrations in July 2022:
+
+* Google Cloud Platform -- Added a **Google Cloud Bigtable** out-of-the-box dashboard which allows you to monitor the Google Cloud Bigtable service.
+* Microsoft Azure -- Made fixes to the **Azure Cosmos DB** dashboard to avoid showing the NO DATA message on single-stat charts.
+* Fluentd -- Improved the **Fluentd** dashboard and added two new sections to the dashboard: **Buffer** and **Fluentd Statistics**.
+* Wavefront Usage -- Made some fixes and standardized the **Wavefront Service and Proxy Data** dashboard.
+* Tanzu Application Service -- Made minor updates to the **TAS: Certification Expiration** and **TAS: Workload Monitoring** dashboards.
+* Kubernetes -- Improved the Wavefront Collector for Kubernetes Metrics dashboard to show correctly whether the desired number of Collector instances are ready.
+
 ## June 2022
 
 We made improvements to the following integrations in June 2022:
