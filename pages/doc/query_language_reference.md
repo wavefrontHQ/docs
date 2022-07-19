@@ -250,13 +250,12 @@ tag=/(appServer|local)/
 
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;, &lt;pointTagValue&gt;</span></td>
-<td>The key and value of a point tag that is associated with the data of interest. Point tags are a type of custom metadata for identifying a time series and any histogram series computed from a time series.
+<td>The key and value of a point tag that is associated with the data of interest. Point tags are a type of custom metadata for identifying a time series and any histogram series computed from a time series. <strong>Use double quotes</strong> around both key and value.<br>
 Examples:
 <pre>
 region="us-west-2a"
 region="us-west*"
 region="us-west-2a" or region="us-west-2b"
-region=/(us-west-2a|us-west-2b)/
 </pre>
 
 </td></tr>

@@ -22,8 +22,17 @@ Here's a section of a dashboard displaying Fluentd metrics:
 To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
 ## Fluentd Setup
 
-  This integration uses Telegraf's Fluentd input plugin to fetch the metrics from Fluentd and push them to Wavefront.
 
+
+Use the instructions on this page for monitoring:
+  * Fluentd - Standalone
+  * Fluentd on Kubernetes
+
+## Fluentd
+
+  This integration uses the Fluentd input plugin for Telegraf to get the metrics from Fluentd. If you've already installed Telegraf on your servers, you can skip to Step 2.
+
+**NOTE**: Make sure that Telegraf is of version `1.23.0` or later.
   
 
 

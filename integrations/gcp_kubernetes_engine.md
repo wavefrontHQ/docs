@@ -23,6 +23,7 @@ been set up, you can browse the available GCP metrics in the metrics browser.
 
 - Google App Engine
 - Google BigQuery
+- Google Cloud Bigtable
 - Google Cloud Billing
 - Google Cloud Datastore
 - Google Cloud Functions
@@ -83,4 +84,61 @@ To register a Google Cloud Platform integration:
 
 
 
+
+
+
+
+|Metric Name|Description|
+| :--- | :--- |
+|gcp.kubernetes.autoscaler.container.cpu.per_replica_recommended_request_cores| The number of CPU cores for the recommended CPU request for a single replica of the workload. | 
+|gcp.kubernetes.autoscaler.container.memory.per_replica_recommended_request_bytes| The recommended memory request for a single replica of the workload, in bytes. |
+|gcp.kubernetes.container.accelerator.duty_cycle| The percent of time over the past sample period (10s) during which the accelerator was actively processing. |
+|gcp.kubernetes.container.accelerator.memory_total| The total accelerator memory in bytes. |
+|gcp.kubernetes.container.accelerator.memory_used| The total accelerator memory allocated in bytes. |
+|gcp.kubernetes.container.accelerator.request| The number of accelerator devices requested by the container. |
+|gcp.kubernetes.container.cpu.core_usage_time| The cumulative CPU usage on all cores used by the container in seconds. |
+|gcp.kubernetes.container.cpu.limit_cores| CPU cores limit of the container. |
+|gcp.kubernetes.container.cpu.limit_utilization| The fraction of the CPU limit that is currently in use on the instance. This value cannot exceed 1 as usage cannot exceed the limit. |
+|gcp.kubernetes.container.cpu.request_cores| The number of CPU cores requested by the container. |
+|gcp.kubernetes.container.cpu.request_utilization| The fraction of the requested CPU that is currently in use on the instance. This value can be greater than 1 as usage can exceed the request. |
+|gcp.kubernetes.container.ephemeral_storage.limit_bytes| The local ephemeral storage limit in bytes. |
+|gcp.kubernetes.container.ephemeral_storage.request_bytes| The local ephemeral storage request in bytes. |
+|gcp.kubernetes.container.ephemeral_storage.used_bytes| The local ephemeral storage usage in bytes. |
+|gcp.kubernetes.container.memory.limit_bytes| Memory limit of the container in bytes. |
+|gcp.kubernetes.container.memory.limit_utilization| The fraction of the memory limit that is currently in use on the instance. |
+|gcp.kubernetes.container.memory.page_fault_count| The number of page faults, broken down by type: major and minor. |
+|gcp.kubernetes.container.memory.request_bytes| Memory request of the container in bytes. |
+|gcp.kubernetes.container.memory.request_utilization| The fraction of the requested memory that is currently in use on the instance. |
+|gcp.kubernetes.container.memory.used_bytes| Memory usage in bytes. |
+|gcp.kubernetes.container.restart_count| The number of times the container has restarted. |
+|gcp.kubernetes.container.uptime| Time in seconds that the container has been running. |
+|gcp.kubernetes.node.accelerator.duty_cycle| The percent of time over the past sample period (10s) during which the accelerator was actively processing. |
+|gcp.kubernetes.node.accelerator.memory_total| The total accelerator memory in bytes. |
+|gcp.kubernetes.node.accelerator.memory_used| The total accelerator memory allocated in bytes. |
+|gcp.kubernetes.node.cpu.allocatable_cores| The number of allocatable CPU cores on the node. |
+|gcp.kubernetes.node.cpu.allocatable_utilization| The fraction of the allocatable CPU that is currently in use on the instance. |
+|gcp.kubernetes.node.cpu.core_usage_time| Cumulative CPU usage on all cores used on the node in seconds. |
+|gcp.kubernetes.node.cpu.total_cores| The total number of CPU cores on the node. |
+|gcp.kubernetes.node.ephemeral_storage.allocatable_bytes| Local ephemeral storage bytes allocatable on the node. |
+|gcp.kubernetes.node.ephemeral_storage.inodes_free| Free number of inodes on local ephemeral storage. |
+|gcp.kubernetes.node.ephemeral_storage.inodes_total| The total number of inodes on local ephemeral storage. |
+|gcp.kubernetes.node.ephemeral_storage.total_bytes| The total ephemeral storage bytes on the node. |
+|gcp.kubernetes.node.ephemeral_storage.used_bytes| Local ephemeral storage bytes used by the node. |
+|gcp.kubernetes.node.memory.allocatable_bytes| The cumulative memory bytes used by the node. |
+|gcp.kubernetes.node.memory.allocatable_utilization| The fraction of the allocatable memory that is currently in use on the instance. |
+|gcp.kubernetes.node.memory.total_bytes| The number of bytes of memory allocatable on the node. |
+|gcp.kubernetes.node.memory.used_bytes| The cumulative memory bytes used by the node. |
+|gcp.kubernetes.node.network.received_bytes_count| The cumulative number of bytes received by the node over the network. |
+|gcp.kubernetes.node.network.sent_bytes_count| The cumulative number of bytes transmitted by the node over the network. |
+|gcp.kubernetes.node.pid_limit| The max PID of OS on the node. |
+|gcp.kubernetes.node.pid_used| The number of running process in the OS on the node. |
+|gcp.kubernetes.node_daemon.cpu.core_usage_time| The cumulative CPU usage on all cores used by the node level system daemon in seconds. |
+|gcp.kubernetes.node_daemon.memory.used_bytes| The memory usage by the system daemon in bytes. |
+|gcp.kubernetes.pod.ephemeral_storage.used_bytes| The pod ephemeral storage usage in bytes. |
+|gcp.kubernetes.pod.network.policy_event_count| The change in the number of network policy events seen in the dataplane. |
+|gcp.kubernetes.pod.network.received_bytes_count| The cumulative number of bytes received by the pod over the network. |
+|gcp.kubernetes.pod.network.sent_bytes_count| The cumulative number of bytes transmitted by the pod over the network. |
+|gcp.kubernetes.pod.volume.total_bytes| The total number of disk bytes available to the pod. |
+|gcp.kubernetes.pod.volume.used_bytes| The number of disk bytes used by the pod. |
+|gcp.kubernetes.pod.volume.utilization| The fraction of the volume that is currently being used by the instance. |
 

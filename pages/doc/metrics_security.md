@@ -88,7 +88,11 @@ To protect metrics from inclusion in alert notifications, use the **Secure Metri
 
 ### Derived Metrics and Events
 
-The current implementation does not protect metrics in Derived Metrics or in Events.
+
+The current implementation has limitations:
+* Does not protect metrics in events.
+* Does not protect metrics in the **Derived Metrics** browser. When you select **Browse > Derived Metrics**, you still see metrics on that page even if a metrics security policy rule blocks access for you elsewhere in the GUI.
+
 
 ### Warning Messages for Protected Metrics
 

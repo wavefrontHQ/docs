@@ -50,8 +50,6 @@ The sample email notification in the screenshot above includes a **View Alert** 
 
 The interactive chart that is included in the notification shows the alert condition.
 
-If you're looking at an alert that was created before the alert GUI revamp in winter 2021, you might also see a Display Expression. See [Why Do I See a Display Expression](alerts_v2_faq.html#how-can-i-set-a-display-expression)
-
 
 #### Misfiring Alerts and Delayed Data
 
@@ -95,7 +93,7 @@ Chart images are **automatically** included in notifications for:
 
 You can **explicitly** include chart images in notifications for [custom alert targets](webhooks_alert_notification.html).
 
-For custom alert targets created **before release 2018-26.x** you must edit the alert target's template to include chart images in notifications.  See [Adding Chart Images to Older Custom Alert Targets](alert_target_customizing.html#add-chart-images-to-older-custom-alert-targets) for sample setup instructions for updating an email alert target.
+For custom alert targets created **before release 2018-26.x** you must edit the alert target's template to include chart images in notifications. 
 
 #### How to Exclude Chart Images
 

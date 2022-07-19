@@ -22,14 +22,14 @@ You can send logs to the Wavefront proxy from your log shipper or directly from 
 
 ## Install Wavefront Proxy 
 
-The Wavefront proxy accepts a JSON array payload over HTTP. Follow these steps to install and configure the proxy version 11.1 or higher.
+The Wavefront proxy accepts a JSON array payload over HTTP. Follow these steps to install and configure the proxy version 11.3 or higher.
 1. Log into the Wavefront instance. 
 1. Select **Browse** > **Proxies**. 
 1. Click **Add Proxy** and follow the instructions on screen. 
-1. Open the `pushListnerPorts` to receive the logs from the log shipper.
+1. Open the `pushListenerPorts` to receive the logs from the log shipper.
     <br/>For example:
-    * If you installed the proxy on Linux, Mac, or Windows, open the [`wavefront.conf`](proxies_configuring.html#proxy-file-paths) file and uncomment the `pushListnerPorts` configuration. The port is set to 2878 by default.
-    * If you are running the proxy on Docker, the command you used opens the `pushListnerPorts` and sets it to 2878.
+    * If you installed the proxy on Linux, Mac, or Windows, open the [`wavefront.conf`](proxies_configuring.html#proxy-file-paths) file and uncomment the `pushListenerPorts` configuration. The port is set to 2878 by default.
+    * If you are running the proxy on Docker, the command you used opens the `pushListenerPorts` and sets it to 2878.
 1. [Start the proxy](proxies_installing.html#start-and-stop-a-proxy) again.
 
 ## Configure Your Log Shipper
@@ -39,7 +39,7 @@ As a best practice, we recommend you use a log shipper to send logs to Tanzu Obs
 {% include note.html content="Tanzu Observability supports the Fluentd log shipper. If you are using a different log shipper, reach out to [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help." %}
 
 Configure your log shipper:
-  1. Configure the log shipper to send data to the Wavefront proxy by adding the hostname of the host that the proxy runs, and the `pushListnerPorts` you configured in the proxy.
+  1. Configure the log shipper to send data to the Wavefront proxy by adding the hostname of the host that the proxy runs, and the `pushListenerPorts` you configured in the proxy.
   <br/>Shown below is an example configuration:
       
       ```
@@ -60,7 +60,7 @@ Configure your log shipper:
   
 ### Best Practices
 
-If logs exceed the maximum character limit for a message, tag, and value the Wavefront proxy drops the logs. Make sure your logs are within the given limits. See [FAQs](logging_faq.html#track-data-dropped-by-proxy) to monitor the data points dropped by the proxy.
+If logs exceed the maximum character limit for a message, tag, and value the Wavefront proxy drops the logs. Make sure your logs are within the given limits. See [FAQs](logging_faq.html#how-do-i-track-data-blocked-by-the-wavefront-proxy) to monitor the data points dropped by the proxy.
 
 {% include note.html content="If you want to increase the limits, ask your administrator to reach out to [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help." %}
 

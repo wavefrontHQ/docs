@@ -23,6 +23,7 @@ been set up, you can browse the available GCP metrics in the metrics browser.
 
 - Google App Engine
 - Google BigQuery
+- Google Cloud Bigtable
 - Google Cloud Billing
 - Google Cloud Datastore
 - Google Cloud Functions

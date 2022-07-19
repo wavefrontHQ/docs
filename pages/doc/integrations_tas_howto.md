@@ -47,8 +47,8 @@ We've streamlined the getting started process so it involves a few simple steps 
     1. In the **Wavefront Proxy Config** section, specify the Wavefront instance and API token (shown in the Wavefront instance in the integration's **Setup** tab) and a user-friendly host name.
    ![OpsMan Proxy Config tab with the 3 required items highlighted](images/tas_to_proxy_config.png)
     2. In the **Telegraf Agent Config** section, specify the Foundation name.<br/><br/>
-     See [Ops Manager: Configure the Tanzu Observability by Wavefront Nozzle](#ops-manager-configure-the-tanzu-observability-by-wavefront-nozzle) and [Tanzu Application Service to Tanzu Observability FAQs](#tanzu-application-service-to-tanzu-observability-faqs)
-     After you complete nozzle deployment, metrics are flowing from Tanzu Application Service to the Wavefront proxy and from there to your Wavefront instance. See [Data Flow](#data-flow) below.
+     See [Ops Manager: Install, Configure, and Deploy the Nozzle](#step-2-ops-manager-install-configure-and-deploy-the-nozzle) and [Tanzu Application Service to Tanzu Observability FAQs](#tanzu-application-service-to-tanzu-observability-faqs)
+     After you complete nozzle deployment, metrics are flowing from Tanzu Application Service to the Wavefront proxy and from there to your Wavefront instance. See [Data Flow](#architecture-and-data-flow) below.
 3. Log in to your Wavefront instance (for example, `https://example.wavefront.com`) and confirm that metrics are flowing:
    1. Click **Integrations** in the toolbar, search for Tanzu Application Service, and select the integration.
    2. Click the **Metrics** tab and confirm metrics are flowing.
@@ -205,8 +205,7 @@ In Ops Manager, click the Tanzu Observability by Wavefront tile. With **Settings
    <tr>
    <td width="50%"><strong>Step 3.</strong> Click <strong>Telegraf Agent Config</strong> and customize the Telegraf Agent config or accept the defaults.
    <ol>
-   <li>For <strong>Scrape Interval (seconds)</strong>, specify the default interval at which Telegraf agent checks for new data.</li>
-   <li>For <strong>Metric Batch Size</strong>, specify the maximum number of points in each batch of metrics that Telegraf sends to the Wavefront proxy.</li>
+   <li>For <strong>Scrape Interval (seconds)</strong>, specify the default interval at which Telegraf agent checks for new data.</li> 
    <li>For <strong>Metric Buffer Limit</strong>, specify the size of the buffer that Telegraf uses to queue data. If your environment sends bursty data, use a larger buffer.</li>
    <li>For <strong>Flush Interval (seconds)</strong>, specify how often data are flushed from each output plugin to the Wavefront proxy. Must be lower than the scrape interval.</li>
    <li>For <strong>Foundation Name</strong>, specify a unique name for your Tanzu Application Service environment. This name will be added to all metrics as the metrics source (source=). </li>

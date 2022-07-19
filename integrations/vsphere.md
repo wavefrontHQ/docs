@@ -48,7 +48,7 @@ Installing the Wavefront proxy on the same VM as Telegraf is not required.
 
 **Note**: If you want to monitor a vSphere environment running vSphere 6.0 - 7.0, do not install the vSphere integration components on the same machine on which your vCenter Server instance runs.
 
-See [vSphere Integration Details](https://docs.wavefront.com/integrations_vsphere.html) and [vSphere Telegraf plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/vsphere#performance-considerations) for guidance on optimizing performance, e.g. separating real-time and historical metrics.
+See [vSphere Integration Details](https://docs.wavefront.com/integrations_vsphere.html) for guidance on optimizing performance and best practices for metric collection, e.g. separating real-time and historical metrics.
 
 ### Step 1. Install the Telegraf Agent
 

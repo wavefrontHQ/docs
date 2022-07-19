@@ -23,6 +23,7 @@ been set up, you can browse the available GCP metrics in the metrics browser.
 
 - Google App Engine
 - Google BigQuery
+- Google Cloud Bigtable
 - Google Cloud Billing
 - Google Cloud Datastore
 - Google Cloud Functions
@@ -83,4 +84,14 @@ To register a Google Cloud Platform integration:
 
 
 
+
+
+
+
+|Metric Name|Description|
+| :--- | :--- |
+|gcp.compute.instance.price| | 
+|gcp.compute.instance.disk.price| |
+|gcp.compute.ondemand.price.daily| |
+|gcp.storage.bucket.price| |
 

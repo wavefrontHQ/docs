@@ -50,7 +50,7 @@ Many users work in environments with a lot of dashboards.
 ## Get Started: Dashboards
 
 After you've selected a dashboard, it displays in your browser.
-* **Default time setting** for all charts is 2 hours, live data, with a refresh every 30 seconds.
+* **Default time setting** default is 2 hours, live data, with a refresh every 30 seconds.
 * **Refresh rate** is determined by the time window. A smaller time window refreshes more often. You can force a refresh.
 * **Lazy load** means that charts refresh as you scroll to them to avoid extra computational burden. Sections can improve load behavior -- you can focus on what you need instead of scrolling through charts you don't want to see.
 
@@ -67,7 +67,7 @@ You can customize what you see, open charts, and more.
 
 ## Set the Time Window
 
-This <a href="https://vmwaretv.vmware.com/media/t/1_zew0muhn" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights how you can select, sync, and reset time windows so you can annalyze and compare your data.
+This <a href="https://vmwaretv.vmware.com/media/t/1_zew0muhn" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights how you can select, sync, and reset time windows so you can analyze and compare your data.
 
 <p>
 <iframe id="kmsembed-1_zew0muhn" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_zew0muhn/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="time window customization video"></iframe>
@@ -80,14 +80,21 @@ By default, dashboards:
 
 You can select a larger or smaller time window or view past data instead of real-time data with the time bar controls.
 
-{% include note.html content="When you change the time window, the [chart resolution](ui_charts.html#chart-resolution) and the refresh rate change as well. For example, if you select a 10-minute time window, the charts in the dashboard refresh every second." %}
+{% include note.html content="When you change the time window, the [chart resolution](ui_charts.html#chart-resolution) and the refresh rate change as well. For example, if you select a 10-minute time window, the charts in the dashboard refresh every second. Time window settings on a dashboard level apply to all charts for which you have selected the **Default to dashboard time window** option. If you have set a fixed time window on a chart, the time window on that specific chart won't be affected." %}
 
 **To change the dashboard time window:**
 
 - Click the **Live** button to turn on (green) live data and see up-to-date data on the charts.
 - Click the **Live** button again to turn off live data and to look at past data.
 
-Regardless of selection, you can click the time selector for a fine-grained time selection window. To the left of the time selector, you see the currently selected time.
+Regardless of selection, you can click the time selector for a fine-grained time selection window. To the left of the time selector, you see the currently selected time. The time window determines how often the charts in a dashboard refresh.
+* Charts with a time window of 5-10 minutes reload every second.
+* Charts with a larger time window (e.g. 4 hours or 1 day) reload every 30 second.
+
+{% include note.html content="Do not run charts with a 5-10 minute time window for a long time to avoid performance problems." %}
+
+
+
 
 ![time bar with turned off live data](images/time_bar_v2.png)
 
@@ -241,7 +248,7 @@ You can move the time window into the future. However, unless you are using one 
 </table>
 
 
-Here's a <a href="https://vmwaretv.vmware.com/media/t/1_zew0muhn" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> that illustrates chart time windows. 
+Here's a <a href="https://vmwaretv.vmware.com/media/t/1_zew0muhn" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> that illustrates chart time windows.
 <p>
 <iframe id="kmsembed-1_zew0muhn" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_zew0muhn/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Time Windows on Dashboards and Charts"></iframe>
 </p>
