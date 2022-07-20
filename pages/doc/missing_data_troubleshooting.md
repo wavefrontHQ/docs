@@ -101,7 +101,7 @@ To turn off sampling for individual charts (if sampling has been turned on globa
 #### Check if Query-Level Sampling Hides Your Data
 
 Several Wavefront Query Language (WQL) functions can be used to return only a sampling of data, and not all underlying data. If you don't see your data, check if any of the queries for the chart includes the following functions:
-* downsample
+* align
 * limit
 * random
 * sample
@@ -305,4 +305,4 @@ The proxy supports setting up [custom preprocessor rules](proxies_preprocessor_r
 
 ## Learn More
 
-* [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html) might have hints on why you don't see the results you expect. 
+* [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html) might have hints on why you don't see the results you expect.
