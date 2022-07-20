@@ -45,7 +45,7 @@ If you added `wavefront.freemium-account=true` to your `application.properties` 
 * Save the link that you used to access the Wavefront Service dashboard and restart your Spring Boot application. Next, paste the link you saved into a browser to access the dashboard.
 * If you deleted the `~/.wavefront_freemium` file that was saved in the home directory, a new account is created and you will not be able to access the old link you saved to view your existing data.
 
-### (NEW) What's the Spring Boot integration?
+### What's the Spring Boot integration?
 
 Starting in September 2020, we support the [Wavefront Spring Boot starter](https://github.com/wavefrontHQ/wavefront-spring-boot) or with the Spring Boot integration.
 
@@ -66,10 +66,26 @@ If applications are enabled for tracing, you can click the link in the Tracing s
 If you create a new project using [https://start.spring.io](https://start.spring.io/), add the Wavefront dependency, download the project, run it, and click the link on the terminal, you are not taken to the default dashboard.
 That is because the default project stops soon as it starts without a web service. As a result, data is not sent to Wavefront. To avoid this, add a dependency under the Web category, such as the Spring Web dependency, along with the wavefront dependency, and generate a new project.
 
-### (NEW) How can I instrumented with distributed tracing across multiple microservices?
+### How can I instrumented with distributed tracing across multiple microservices?
 
 Assume that you want to write Spring Boot code and instrument for OpenTracing. You want to ensure OpenTracing creates spans that work across multiple microservices.  Here's what you need to know:
 * If you're using Spring Cloud Sleuth, **everything has to be a bean**. For example, if you're using RestTemplates, those have to be beans.
 * You can create a RestTemplate bean yourself, or you can inject via RestTemplateBuilder.
 
 If you use a messaging or HTTP client (not a bean), Sleuth won't work. See [Use Tracing with Spring Boot](tracing_best_practices.html#using-tracing-with-spring-boot) for an example.
+
+<!--
+
+### Why do I get an `Failed to retrieve existing account information` error?
+
+If you have not used your freemium account for sometime, Tanzu Observability by Wavefront deletes the account. Therefore, when you try to run the application and send data to the freemium account that was deleted, your see the following error:
+
+```
+Failed to retrieve existing account information from https://wavefront.surf. The error was:
+
+You are not authorized to perform this operation
+```
+
+To send data to Tanzu Observability, delete the ~/.wavefront_freemium file, and run the application again to create a new account.
+
+-->
