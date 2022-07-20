@@ -9,7 +9,7 @@ summary: Learn how to send logs from your Kubernetes cluster to Tanzu Observabil
 
 {% include important.html content="Tanzu Observability Logs (Beta) is only enabled for selected customers. If you'd like to participate, contact your [Tanzu Observability account representative](wavefront_support_feedback.html#support)."%}
 
-In this tutorial, you'll learn how to send logs from your local Kubernetes environment using minikube to Tanzu Observability. Once the data is in Tanzu Observability, you can use the Log Browser to search and filter logs.
+In this tutorial, you'll learn how to **send logs** from your local Kubernetes environment using **minikube** to **Tanzu Observability**. Once the data is in Tanzu Observability, you can use the Log Browser to search and filter logs.
 
 ## Prerequisites
 
