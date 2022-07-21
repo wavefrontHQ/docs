@@ -11,7 +11,7 @@ Apache Cassandra is a free and open-source distributed NoSQL database management
 This integration installs and configures Telegraf Jolokia2 input plugin to send Cassandra metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 Collecting Cassandra metric requires the installation of Jolokia java-jvm agent. [Jolokia](https://jolokia.org/index.html) is a JMX-HTTP bridge giving an alternative to JSR-160 connectors. It is an agent based approach with support for many platforms. 
-The Cassandra integration collects Cassandra 3 / JVM metrics exposed as MBean's attributes through jolokia REST endpoint.
+The Cassandra integration collects Cassandra / JVM metrics exposed as MBean's attributes through jolokia REST endpoint.
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. For example, here's a screenshot of a dashboard with metrics collected from Cassandra.
 {% include image.md src="images/cassandra_dashboard.png" width="80" %}
@@ -22,21 +22,24 @@ To see a list of the metrics for this integration, select the integration from <
 
 
 
-### Step 1. Install Jolokia agent on your Cassandra server
 
-1. Download Jolokia agent and save it in /usr/share/java
-{% raw %}
-   ```
-   sudo curl -o /usr/share/java/jolokia-jvm-1.6.0-agent.jar -L http://search.maven.org/remotecontent?filepath=org/jolokia/jolokia-jvm/1.6.0/jolokia-jvm-1.6.0-agent.jar
-   ```
-{% endraw %}
+### Step 1. Install the Telegraf Agent
+
+This integration uses the Cassandra input plugin for Telegraf. If you've already installed Telegraf on your servers, you can skip to Step 2.
+
+Log in to your Wavefront instance and follow the instructions in the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
+
+
+### Step 2. Install Jolokia agent on your Cassandra server
+
+1. Download the latest version of the Jolokia JVM-Agent JAR file `jolokia-jvm-x.x.x.jar` from the [Jolokia web site](https://jolokia.org/download.html) and save it in /usr/share/java
 
 1. Enable Jolokia agent in Cassandra
 
     1. Modify /etc/default/cassandra
 {% raw %}
        ```
-       echo "export JVM_EXTRA_OPTS=\"-javaagent:/usr/share/java/jolokia-jvm-1.6.0-agent.jar=port=8778,host=localhost\"" | sudo tee -a /etc/default/cassandra
+       echo "export JVM_EXTRA_OPTS=\"-javaagent:/usr/share/java/jolokia-jvm-1.7.1.jar=port=8778,host=localhost\"" | sudo tee -a /etc/default/cassandra
        ```
 {% endraw %}
 
@@ -45,9 +48,11 @@ To see a list of the metrics for this integration, select the integration from <
        Include the following line at the bottom of the your cassandra-env.sh
 {% raw %}
        ```
-       JVM_OPTS="$JVM_OPTS -javaagent:/usr/share/java/jolokia-jvm-1.6.0-agent.jar=port=8778,host=localhost"
+       JVM_OPTS="$JVM_OPTS -javaagent:/usr/share/java/jolokia-jvm-1.7.1.jar=port=8778,host=localhost"
        ```
 {% endraw %}
+
+  Here `jolokia-jvm-1.7.1.jar` is the latest version used for testing.
 
 1. Restart cassandra
 {% raw %}
@@ -63,11 +68,6 @@ To see a list of the metrics for this integration, select the integration from <
    ```
 {% endraw %}
 
-### Step 2. Install the Telegraf Agent
-
-This integration uses the Cassandra input plugin for Telegraf. If you've already installed Telegraf on your server(s), skip to Step 3.
-
-Log in to your Wavefront instance and follow the instructions in the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
 
 ### Step 3. Configure Cassandra Input Plugin
 
@@ -81,7 +81,7 @@ Create a file called `cassandra.conf` in `/etc/telegraf/telegraf.d` and enter th
   urls = ["http://localhost:8778/jolokia"]
   name_prefix = "cassandra2."
 
-  [[inputs.jolokia2_agent.metrics]]
+  [[inputs.jolokia2_agent.metric]]
     name  = "javaMemory"
     mbean = "java.lang:type=Memory"
 
@@ -169,12 +169,8 @@ Create a file called `cassandra.conf` in `/etc/telegraf/telegraf.d` and enter th
     tag_keys = ["keyspace", "scope", "name"]
     field_prefix = "$3_"
 
-  [inputs.jolokia2_agent.tags]
-    cassandra_host="<server-name>"
 ```
 {% endraw %}
-
-Replace the cassandra_host field with your Cassandra server hostname that have installed Jolokia agent.
 
 
 ### Step 4. Restart Telegraf
