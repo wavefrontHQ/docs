@@ -56,9 +56,9 @@ Some functions and expressions produce a continuous time series in which a const
 Some functions produce a continuous time series by calculating a value from the timestamp of each data point. For example:
 * The [`dayOfYear()`](ts_dayOfYear.html) function produces a time series by correlating every second of a time line with the day of the year it falls on.
 
-## Functions that Use Interpolation to Create Continuous Data
+## Functions and Operators that Use Interpolation to Create Continuous Data
 
-Certain functions produce a continuous time series by starting with data points from a discrete time series and inserting additional points (1 per second) to fill in the intervals and gaps. You see data every second regardless of the reporting interval of the underlying input data. The process is called _interpolation_. In the following video, Wavefrount co-founder Clement Pang explains how it works:
+Certain functions (and operators such as `\`) produce a continuous time series by starting with data points from a discrete time series and inserting additional points (1 per second) to fill in the intervals and gaps. You see data every second regardless of the reporting interval of the underlying input data. The process is called _interpolation_. In the following video, Wavefrount co-founder Clement Pang explains how it works:
 
 <p>
 <iframe id="kmsembed-1_afml14zm" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_afml14zm/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability: Time Series and Interpolation"></iframe>
@@ -79,6 +79,7 @@ Different functions use different techniques to calculate the values of interpol
 For example:
 * Functions such as `last()`, `interpolate()`, and the others [summarized below](#summary-of-functions-that-return-continuous-time-series) use interpolation to fill in all gaps to produce a result series that is guaranteed to be continuous.
 * Standard aggregation functions such as [`sum()`](ts_sum.html) and [`avg()`](ts_avg.html) use interpolation to fill in specific gaps in an input series before including that series in the aggregation. The result series produced by an aggregation function is normally discrete. [Aggregating Time Series](query_language_aggregate_functions.html) gives more details.
+* Operators also perform interpolation. As a result, a query like `A \ B` might have a result even if you see no values for A in the current time window (because the query engine interpolates data points based on existing values outside the current time window). Use `raw` around the operator, for example, `raw(\)` to avoid this problem.
 
 ## Summary of Functions that Return Continuous Time Series
 
