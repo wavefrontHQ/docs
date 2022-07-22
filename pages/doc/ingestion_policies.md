@@ -6,35 +6,34 @@ permalink: ingestion_policies.html
 summary: Monitor usage with ingestion policies, usage dashboards, and alerts.
 ---
 
-As a Super Admin user, you're interested in usage patterns for the whole organization, but also for different teams in the organization. For such cases, Tanzu Observability by Wavefront supports ingestion policies. You can create different ingestion policies and assign accounts or groups to each policy to see which teams use which part of total ingestion.
+In addition to the dashboard for monitoring your [overall usage](examine_usage.html), Tanzu Observability by Wavefront supports ingestion policies for fragmented usage monitoring. For example, it might be valuable to understand the ingestion rates of the different teams or by the different sources. By creating an ingestion policy, you can combine a set of user and service accounts, groups, sources, metric namespaces, or point tags. Then, you can monitor the usage by that usage policy from its dashboard.
 
-{% include note.html content="You must be a Super Admin to view the Usage Portal and manage ingestion policies."%}
-
-By using ingestion policies, you can monitor the usage for a combination of accounts or groups. You can examine:
+On the ingestion policy dashboard, you can examine:
 - the total usage out of a certain limit for the policy
 - the month-over-month percentage change in the total usage for the policy
-- the hourly usage for the current billing month
+- the hourly usage for the current billing period
 - the accounts that ingest most data
 - the usage by ingestion mechanism (proxy and direct ingestions)
 - the usage by ingestion type (time series, histograms, and delta counters)
 
-To examine the performance of your Wavefront instance, you can use [wftop, Wavefront spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Wavefront Usage integration](wavefront_monitoring.html).
+{% include note.html content="All users can view the Usage Portal and the ingestion policies. Only Super Admin users can create and manage ingestion policies."%}
+
+For performance monitoring of your Wavefront instance, you can use [wftop, Wavefront spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Wavefront Usage integration](wavefront_monitoring.html).
 
 ## Ingestion Policy Basics
 
-Ingestion policies allow you to combine user and service accounts or groups, so that you can examine their usage of the Wavefront service. For example, you can create a policy for all accounts that joined in the last 6 months. You can also create a policy for a whole team, for example the Finance team, and monitor whether they show unusually high usage because they're not yet experienced. In such a case, you can provide additional training, for example. Also, you can set a Points per Second (PPS) limit and create an associated alert for an ingestion policy, so that you can receive notifications and track how much of the PPS is used and whether the users or the team will need more PPS in the future.
+Ingestion policies allow you to combine user and service accounts, groups, sources, metric namespaces, or point tags, so that you can examine their usage of the Wavefront service. For example, you can create a policy for all accounts that joined in the last 6 months. You can also create a policy for one or more sources to. Also, you can set a Points per Second (PPS) limit and create an associated alert for an ingestion policy, so that you can receive notifications and track how much of the PPS is used and whether the users or the team will need more PPS in the future.
 
-The policy scope can be either accounts or groups.
-* Once you set the scope to accounts or groups, you cannot change it.
-* Each account or group can belong to more than one policy at a time.
-* You can assign many user and service accounts to the same ingestion policy.
-* You can assign many groups to the same ingestion policy.
+The policy scope can be accounts, groups, sources, namespaces, or point tags.
+* Once you set the scope, you cannot change it.
+* You can change only the object assigned to the policy in accordance with the scope.
+* Each account or object can belong to more than one policy.
 
 ## Permissions
 
-* Only Super Admin users can view, create, and edit ingestion policies.
-* All users can view the alerts associated with ingestions policies. 
+* Only Super Admin users can create and edit ingestion policies.
 * Only Super Admin users can edit or delete alerts associated with ingestions policies. The **Alerts** permission does not apply to ingestion policy alerts.
+* All users can view the ingestion policies, the ingestion policy dashboards, and the ingestion policy alerts.
 
 ## Create an Ingestion Policy
 
@@ -46,10 +45,38 @@ The policy scope can be either accounts or groups.
 
 ### Step 1: Specify the Scope and PPS Limit
 
-In the **Data** panel, specify the user and service accounts or groups and, optionally, a PPS limit and click **Next**.
-1. Choose the **Scope** of the policy, either **Accounts** or **Groups**, and select the user and service accounts or the groups that you want to assign to the policy.
+In the **Data** panel, specify the scope and, optionally, a PPS limit and click **Next**.
+1. Select the **Scope** of the policy and enter the objects from that scope that you want to assign to the policy.
   
-    After you create the policy, you cannot change the scope. You can change only the assigned accounts or groups depending on the scope.
+    <table style="width: 100%;">
+    <tbody>
+    <thead>
+    <tr><th width="30%">Scope</th><th width="70%">Description</th></tr>
+    </thead>
+    <tr>
+    <td><strong>Accounts</strong></td>
+    <td>Individual user and service accounts.</td></tr>
+    <tr>
+    <td><strong>Groups</strong></td>
+    <td>Groups of user and service accounts.</td>
+    </tr>
+    <tr>
+    <td><strong>Sources</strong></td>
+    <td>Sources that emit metrics. You can assign exact source names and names with wildcards, for example, <code>appServer1</code> and <code>appServer*</code>.</td>
+    </tr>
+    <tr>
+    <td><strong>Namespaces</strong></td>
+    <td>Namespaces that group metrics in a hierarchy defined by a name prefix. You can assign exact metric names and namespaces, for example, <code>request.</code> and <code>requests</code>. You can assign names with wildcards, for example, <code>cpuloadavg*</code> and <code>cpu.*</code>.</td>
+    </tr>
+    <tr>
+    <td><strong>Point Tags</strong></td>
+    <td>Point tags that are optional key-value pairs associated with a metric, for example, <code>env="dev"</code>.
+    <p>If you assign more than one point tag, you must select the match criterion - can be either <b>Has tags</b> (individual point tags) or <b>Has all these tags</b> (a combination of point tags).</p></td>
+    </tr>
+    </tbody>
+    </table>
+
+    After you create the policy, you cannot change the scope. You can change only the assigned objects from that scope.
 2. Choose whether you want to set a PPS limit for the policy. If you select **Set PPS Limit**, you must enter the PPS limit number in the **PPS per billing period** text box.
    
     The limit becomes visible in the ingestion policy dashboard charts. If you set a PPS limit, you must create the ingestion policy alert in the next steps.
@@ -81,7 +108,7 @@ If a user assigned to an ingestion policy is ingesting data through a Wavefront 
 
 After you create an ingestion policy, if you need, for example, to increase the PPS limit or add accounts, you can edit the policy. 
 
-{% include note.html content="You cannot change the policy scope from accounts to groups or the reverse."%}
+{% include note.html content="You cannot change the policy scope. You can change only the assigned objects from that scope."%}
 
 1. Log in to your Wavefront instance as a Super Admin user.
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
@@ -89,6 +116,29 @@ After you create an ingestion policy, if you need, for example, to increase the 
 4. In each panel, apply the necessary changes and click **Next**, and in the **Policy Name and Description** panel, click **Save**.
 
 {% include note.html content="Removing the PPS limit dissociates the alert from the ingestion policy and deletes the alert."%}
+
+When you edit an ingestion policy, you create a new version of that policy.
+
+## View Ingestion Policy History
+
+To access the version history of an ingestion policy, on the **Ingestion Policies** page, click the ellipsis icon next the policy and select **Versions**.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+<br/>
+Ingestion policy version history shows:
+<ul>
+<li>The changes that have been made to an ingestion policy over time.</li>
+<li>Which user made the changes.</li>
+<li>The date and time the changes were made.</li>
+<li>A description of the changes.</li></ul>
+</td>
+<td width="40%"><img src="images/ip_new_hires.png" alt="alert history selected in menu"></td>
+</tr>
+</tbody>
+</table>
 
 ## Delete an Ingestion Policy
 
@@ -111,9 +161,9 @@ If you no longer need an ingestion policy, for example, after a reorganization i
 
 ## Examine Ingestion Policy Usage
 
-As a Super Admin user, you can examine the usage by the accounts or groups assigned to an ingestion policy from the ingestion policy dashboard.
+All users can examine the ingestion policy dashboards to understand their usage over time.
 
-1. Log in to your Wavefront instance as a Super Admin user.
+1. Log in to your Wavefront instance.
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
 3. On the **Ingestion Policies** tab, click the name of the policy in which you are interested.
 

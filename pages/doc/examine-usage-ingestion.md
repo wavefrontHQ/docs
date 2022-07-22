@@ -3,28 +3,26 @@ title: Examine the Overall Usage of Your Wavefront Service
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: examine_usage.html
-summary: Monitor overall usage for a given time period.
+summary: Monitor your overall usage per billing month.
 ---
 
-As a Super Admin user, you're interested in how ingested data is used, whether you will be billed for more data, and whether you will need to request more data. Billing is based on the amount of data, measured in Points per Second (PPS), which you send to Tanzu Observability by Wavefront. If you exceed your committed rate, you will be charged more.
+It's important to understand how you use your Tanzu Observability by Wavefront service, whether you will be billed for more data, and whether you will need to request more data. Typically, billing is based on the amount of data, measured in Points per Second (PPS), which you send to Tanzu Observability. If your scan rate exceeds more than 20x the ingestion rate, you will be billed based on the scan rate. If you exceed your committed rate, you will be charged more.
 
+You can examine the overall usage of your Wavefront service by using the **Usage Summary** dashboard in the Tanzu Observability Usage Portal.
 
-{% include note.html content="You must be a Super Admin to view the Usage Portal and manage ingestion policies."%}
+For fragmented usage monitoring by accounts, sources, metric namespaces, and point tags, you can use [ingestion policies](ingestion_policies.html).
 
-You can examine the performance of your Wavefront instance using [wftop, Wavefront spy](wavefront_monitoring_spy.html), and the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response). 
+For performance monitoring of your Wavefront instance, you can use [wftop, Wavefront spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Wavefront Usage integration](wavefront_monitoring.html).
 
-You can also see how data is used by specific accounts or groups, based on the [ingestion policies](ingestion_policies.html) that you create.
+## How to Go to the Usage Summary Dashboard?
 
+You can navigate to the Usage Summary dashboard to get an overview of the ingested and scanned data over a certain billing period. You can go up to 2 years back in time.
 
-## How to Use the Usage Summary Dashboard
-
-You can navigate to the Usage Summary dashboard to get an overview of the ingested and scanned data over a certain month. You can go up to 2 years back in time.
-
-1. Log in to your Wavefront instance as a Super Admin user.
+1. Log in to your Wavefront instance.
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
 
    The **Usage Summary** tab opens. This tab contains the dashboard with an overview of the ingested and scanned rates.
-3. To choose a specific month, from the **Billing Month** drop-down menu, select the month you are interested in.
+3. From the **Billing Month** drop-down menu, select the billing period you are interested in.
    
    
 ## Understand the Data
@@ -82,7 +80,6 @@ The **Overview** section of the dashboard contains the following charts:
 </tbody>
 </table>
 
-    
 ### Scan Rate Charts
 
 Typically, you are billed based on your ingestion rate. If your scan rate becomes 20 times the ingestion rate or more, you will be billed based on the scan rate.
@@ -107,7 +104,6 @@ The **Scan Rate** section of the dashboard contains helps you explore scan rates
 </tr>
 </tbody>
 </table>
-
     
 ## Learn More!
 
