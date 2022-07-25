@@ -81,12 +81,8 @@ We support SDKs that implement the [OpenTracing](https://opentracing.io) specifi
 {{site.data.alerts.end}}
 
 {{site.data.alerts.important}}
-<p>Application or service names that have special characters are rejected and are not supported by the tracing user interfaces.
-</p>
-Example:
-<pre>
-!"#$%&'()*+,-./:;<=>?@[&#92;]^_&#96;{|}~
-</pre>
+<p>The valid characters in an application and service name are: a-z, A-Z, 0-9, hyphen ("-"), underscore ("_"), dot ("."), forward slash ("/") and comma (","). </p>
+<p>If your application or service names have special characters, the Wavefront service replaces each special character with a hyphen ("-"). </p>
 {{site.data.alerts.end}}
 
 ### Instrument Your Application with OpenTracing SDKs
