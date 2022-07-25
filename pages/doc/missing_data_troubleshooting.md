@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Missing Data
+title: Troubleshooting NO DATA Issues
 keywords: query language
 tags: [query language]
 sidebar: doc_sidebar
@@ -15,6 +15,49 @@ investigate, understand, and remedy possible causes.
 <!---
 Should probably be some mention of examining sub-queries.  Performing some operations (eg. and or or) on empty subqueries results in No Data propagation (similar to how NaN works in IEEE math), and also suppresses warning messages
 --->
+
+
+## Techniques: Check, Quote, and Untangle
+
+Before you look at possible reasons for your NO DATA result, follow these steps that our customer success team recommends.
+
+### Step 1: Check for Typos
+
+It might sound surprising, but many NO DATA problems are the result of a typo in the metric name, source name, tag name, etc. Mistakes like that can be difficult to find, but it's well worth the trouble to double-check for typos.
+
+### Step 2: Quote
+
+Because of character limitations imposed by the Wavefront Data Format, it's possible that your queries cannot recognize source names or tag names unless they are surrounded by double quotes. See [Wavefront Data Format Best Practices](wavefront_data_format.html#wavefront-data-format-best-practices).
+
+### Step 3: Untangle
+
+A query can return NO DATA if one of its elements returns NO DATA. An easy way to check which element of your query returns NO DATA is to create a set of separate queries and use variables to refer to the result of the query. You can use the Show/Hide botton in the query line to look at individual results.
+
+Here's a simple example:
+
+You run the following query:
+```
+sum(ts(~sample.requests.latency AND source="app-13")/ ts(~sample.requests.latency AND source="ap-12"))
+```
+The result is NO DATA (because there's a typo).
+
+![query shows NO DATA](/images/query_no_data.png)
+
+The message below the query line already indicates where the problem is, but you decide to be systematic and split up the query. You can use the name of each query as a variable in the query that performs the aggregation.
+
+As part of the process, you can show/hide queries as needed to see which query is the culprit.
+
+![3 query lines instead of just one](/images/queries_untangled.png)
+
+When you correct the problem, the data for both series becomes available and the `sum()` function returns the correct result.
+
+{% include tip.html content="It usually makes sense to continue keeping the queries simple. With this set of queries, it's easy to see when one of the sources stops reporting. " %}
+
+In the example screenshot, we've hidden the two component queries so they don't show up. The sum now returns results.
+
+![1 result in line chart shows sum of series 1 and series 2](/images/aggregate_w_hidden_queries.png)
+
+
 
 
 ## Problem: You Expect to See Data But They Aren't There
