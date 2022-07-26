@@ -44,3 +44,9 @@ This playlist includes videos about viewing alerts in the alerts browser and cre
 This playlist includes videos with background information about querying data, and about using PromQL in the query editor. You can also watch the playlist videos in your browser <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_brmdewqc/" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
 <br>
 <iframe src="https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_brmdewqc/uiConfId/47611883" width="840" height="375" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" frameborder="0" title="How to Query with WQL or PromQL"></iframe>
+
+## Distributed Tracing with Tanzu Observability
+
+This playlist includes videos on how Distributed Tracing works and on how to explore traces with our GUI. You can also watch the playlist videos in your browser <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_kkeyoqx4/" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+<br>
+<iframe src="https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_kkeyoqx4/uiConfId/47611883" width="840" height="375" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" frameborder="0" title="Distributed Tracing with Tanzu Observability"></iframe>
