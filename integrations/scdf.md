@@ -30,7 +30,7 @@ The Spring Cloud Stream applications add an additional `application` metrics tag
 
 ### Streams Monitoring
 
-All [Spring Cloud Stream Applications](https://cloud.spring.io/spring-cloud-stream-app-starters) are instrumented for Wavefront metrics collection.  
+All [Spring Cloud Stream Applications](https://spring.io/projects/spring-cloud-stream-applications) are instrumented for Wavefront metrics collection.  
  
 The Spring Cloud Stream applications add several, stream specific tags (below), 
 that allow metrics aggregation by application type, instance, stream name, and so on:
