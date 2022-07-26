@@ -208,22 +208,31 @@ When you create or update an alert, you can configure the alert to filter logs u
 
 ### Drill Into Logs From Traces
 
-You can drill into logs from the application map page and the traces browser (coming soon!).
+You can drill into logs from the application status page and the traces browser.
 To see logs for an application and service on the Log Browser, you need to tag the data with the application and service tags on your Log Shipper (example: Fluentd) before sending the logs to Tanzu Observability. For more information, see the [Logs FAQs](logging_faq.html#dont-see-application-and-service-logs).
 
 * **Drill into logs from Application Status**:<br/>
-  Did you notice that a service on the application map has a higher error percentage?
+  Did you notice that a service on the application map, table view, or grid view has a higher error percentage?
   * **Application Map**
     1. Click on the service on the applciation.
     1. click **View Logs** to see the logs related to the service., and debug the issue.
     ![A screenshot of a the UI once you click on a service with the view logs link highlighted.](images/logging_app_map_to_logs.png)
-  * **Tabel View**
+  * **Table View**
     Click the vertical ellipsis > **View Logs** to see the logs related to the service.
-  * **Tabel View**
+    ![A screenshot of a the UI once you click vertical ellipsis on the table view](images/logging_table_view_to_logs.png)
+  * **Table View**
     Click **Actions** > **View Logs** to see the logs related to the service.
+    ![A screenshot of a the UI once you click vertical ellipsis on the grid view](images/logging_grid_view_to_logs.png)
 
 * **Drill into logs from the Traces Browser**:<br/>
-    Coming soon!
+    Did you want to see logs of the service that is taking up most of the critical path? Follow these steps:
+    1. Click on the trace you want to examine.
+    1. In the trace details section, click the service you want to focus on.
+    1. Expand the **IDs** section.
+    1. Click **Search Logs with traceID**.
+  
+  ![screenshot of the traces browser with the searhc logs with traceId highlighted](images/logging_traces_browser.png)
+  To learn more about exploring traces and finding hot spots at a glance when the services in your system communicate with each other, see [Traces Browser](tracing_traces_browser.html).
 
 <table style="width: 100%;">
 <tbody>
