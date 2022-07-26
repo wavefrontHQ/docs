@@ -211,11 +211,16 @@ When you create or update an alert, you can configure the alert to filter logs u
 You can drill into logs from the application map page and the traces browser (coming soon!).
 To see logs for an application and service on the Log Browser, you need to tag the data with the application and service tags on your Log Shipper (example: Fluentd) before sending the logs to Tanzu Observability. For more information, see the [Logs FAQs](logging_faq.html#dont-see-application-and-service-logs).
 
-* **Drill into logs from the application map view**:<br/>
+* **Drill into logs from Application Status**:<br/>
   Did you notice that a service on the application map has a higher error percentage?
-  1. Click on the service.
-  1. click **View Logs** to see the logs, and debug the issue.
-  ![A screenshot of a the UI once you click on a service with the view logs link highlighted.](images/logging_app_map_to_logs.png)
+  * **Application Map**
+    1. Click on the service on the applciation.
+    1. click **View Logs** to see the logs related to the service., and debug the issue.
+    ![A screenshot of a the UI once you click on a service with the view logs link highlighted.](images/logging_app_map_to_logs.png)
+  * **Tabel View**
+    Click the vertical ellipsis > **View Logs** to see the logs related to the service.
+  * **Tabel View**
+    Click **Actions** > **View Logs** to see the logs related to the service.
 
 * **Drill into logs from the Traces Browser**:<br/>
     Coming soon!

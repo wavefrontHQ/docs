@@ -13,6 +13,12 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## 2022-29.x Release Notes
+
+* **Tracing Performance Improvements**: The valid characters in an application and service name are: a-z, A-Z, 0-9, hyphen ("-"), underscore ("_"), dot ("."), forward slash ("/") and comma (","). If your application or service names have special characters, the Wavefront service replaces each special character with a hyphen ("-").
+
+* **Accessibility and Keyboard Navigation Improvements**: Keyboard navigation improvements to the **Create Alert** page and the **Maintenance Window** page.
+
 ## 2022-26.x Release Notes
 
 * **Accessibility and Keyboard Navigation Improvements**: We have made accessibility and keyboard navigation improvements. For example, you can now temporarily disable the chart legend, highlight the metrics in a chart, or apply the time window settings from one chart in a dashboard to all the charts in the dashboard. For information see [Keyboard Shortcuts and Their Usage](wavefront_keyboard_shortcuts.html#keyboard-shortcuts-and-their-usage).
