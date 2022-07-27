@@ -17,7 +17,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 * **Tracing Performance Improvements**: The valid characters in an application and service name are: a-z, A-Z, 0-9, hyphen ("-"), underscore ("_"), dot ("."), forward slash ("/") and comma (","). If your application or service names have special characters, the Wavefront service replaces each special character with a hyphen ("-").
 
-* **Accessibility and Keyboard Navigation Improvements**: Keyboard navigation improvements to the **Create Alert** page and the **Maintenance Window** page.
+* **Accessibility and Keyboard Navigation Improvements**: We made keyboard navigation improvements to the **Create Alert** page and the **Maintenance Window** page.
 
 ## 2022-26.x Release Notes
 
