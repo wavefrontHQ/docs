@@ -182,7 +182,7 @@ In Ops Manager, click the Tanzu Observability by Wavefront tile. With **Settings
   <li>buffer</li>
   <li>preprocessorConfigFile</li></ul>
    </li>
-   <li>(TAS v3) If you are currently using the Tanzu Application Service v3 service broker to send metrics from apps to the Wavefront proxy, check this box to ensure existing bindings continue to work. Otherwise, leave the box unchecked. </li>
+   <li>(TAS Nozzle v3) If you are currently using the Tanzu Application Service v3 service broker to send metrics from apps to the Wavefront proxy, check this box to ensure existing bindings continue to work. Otherwise, leave the box unchecked. </li>
    <li>(Optional) If you click <strong>Custom</strong> you can specify <a href="proxies_configuring.html">proxy configuration</a> properties or <a href="proxies_preprocessor_rules.html"> proxy preprocessor rules</a>.</li>
 
    <ul><li>In the <strong>Config</strong> field, specify one or more configuration properties and values, separated by newline characters. For example <code>pushRateLimit=10000</code>.  </li>
