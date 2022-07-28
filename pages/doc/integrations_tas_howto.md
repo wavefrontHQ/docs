@@ -182,6 +182,7 @@ In Ops Manager, click the Tanzu Observability by Wavefront tile. With **Settings
   <li>buffer</li>
   <li>preprocessorConfigFile</li></ul>
    </li>
+   <li>(TAS v3) If you are currently using the Tanzu Application Service v3 service broker to send metrics from apps to the Wavefront proxy, check this box to ensure existing bindings continue to work. Otherwise, leave the box unchecked. </li>
    <li>(Optional) If you click <strong>Custom</strong> you can specify <a href="proxies_configuring.html">proxy configuration</a> properties or <a href="proxies_preprocessor_rules.html"> proxy preprocessor rules</a>.</li>
 
    <ul><li>In the <strong>Config</strong> field, specify one or more configuration properties and values, separated by newline characters. For example <code>pushRateLimit=10000</code>.  </li>
@@ -200,12 +201,12 @@ In Ops Manager, click the Tanzu Observability by Wavefront tile. With **Settings
    <li>Click <strong>Save</strong> </li>
    </ol>
    </td>
-   <td width="50%"><img src="/images/tas_to_2.png" alt="Proxy Config screenshot, with values as discussed in text above."></td>
+   <td width="50%"><img src="/images/tas_to_1_1.png" alt="Proxy Config screenshot, with values as discussed in text above."></td>
    </tr>
    <tr>
    <td width="50%"><strong>Step 3.</strong> Click <strong>Telegraf Agent Config</strong> and customize the Telegraf Agent config or accept the defaults.
    <ol>
-   <li>For <strong>Scrape Interval (seconds)</strong>, specify the default interval at which Telegraf agent checks for new data.</li> 
+   <li>For <strong>Scrape Interval (seconds)</strong>, specify the default interval at which Telegraf agent checks for new data.</li>
    <li>For <strong>Metric Buffer Limit</strong>, specify the size of the buffer that Telegraf uses to queue data. If your environment sends bursty data, use a larger buffer.</li>
    <li>For <strong>Flush Interval (seconds)</strong>, specify how often data are flushed from each output plugin to the Wavefront proxy. Must be lower than the scrape interval.</li>
    <li>For <strong>Foundation Name</strong>, specify a unique name for your Tanzu Application Service environment. This name will be added to all metrics as the metrics source (source=). </li>
