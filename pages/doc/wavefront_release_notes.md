@@ -114,7 +114,6 @@ In addition:
 * **Integrations**: The June 2022 integrations release was made available! It includes significant improvements to the Snowflake and Jenkins integrations, and more. See the [Integration Release Notes](integrations_new_changed.html#june-2022) for details.
 * **Videos**: We migrated [all videos](videos.html) to VMware TV and created playlists for easy access.
 
-
 ## Past Release Notes
 
 - [2022-20.x Release Notes](2022-20.x_release_notes.html)
