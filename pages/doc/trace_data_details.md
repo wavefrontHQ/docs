@@ -383,7 +383,6 @@ RED metrics are key indicators of the health of your services, and you can use t
 * Errors – number of failed requests per minute
 * Duration – per-minute histogram distributions of the amount of time that each request takes
 
-
 ### Span RED Metrics and Trace RED Metrics
 
 The Wavefront service uses ingested spans to derive RED metrics for two kinds of request:
