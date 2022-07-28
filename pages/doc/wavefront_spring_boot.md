@@ -53,8 +53,6 @@ This is the default dashboard when you run the Spring Boot initializer. </li>
 </table>
 
 
-
-
 <!---Not sure this table makes sense any more. It's really about Freemium vs. Customer/trial.
 <table style="width: 100%;">
 <tbody>
@@ -487,6 +485,12 @@ management.endpoints.web.exposure.include=health,info,...,wavefront
 <p><span style="font-size: large; font-weight: 500">Specify Application and Service Names</span></p>
 
 If you have more than one Spring Boot application, you can specify the names of the application and the service in the `application.properties` file.
+
+{{site.data.alerts.important}}
+<p>The valid characters in an application and service name are: a-z, A-Z, 0-9, hyphen ("-"), underscore ("_"), dot ("."), forward slash ("/") and comma (","). </p>
+<p>If your application or service names have any other characters other than the valid characters, the Wavefront service replaces each of those characters with a hyphen ("-").</p>
+{{site.data.alerts.end}}
+
 <br/>Example:
 ```
 wavefront.application.name=my-application
