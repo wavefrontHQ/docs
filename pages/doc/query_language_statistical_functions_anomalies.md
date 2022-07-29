@@ -190,13 +190,13 @@ You can also work with several weeks' worth of behavior rather than just the pre
 You can find the average behavior from these 3 weeks with this query:
 
 ```
-baseline: (${1-week)+${2-week)+${3-week))/3
+baseline: (${1-week}+${2-week}+${3-week})/3
 ```
 
 or
 
 ```
-baseline: rawavg(collect(${1-week),${2-week),${3-week)))
+baseline: rawavg(collect(${1-week},${2-week},${3-week}))
 ```
 
 Again, you can determine a ratio of the current behavior against this baseline like this:
