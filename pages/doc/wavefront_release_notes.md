@@ -13,6 +13,49 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## 2022-30.x Release Notes
+
+{% include note.html content="The self-service upgrade from a trial version currently supports offers only for monthly billable commit contracts. The self-service purchase of additional capacity is currently available only to customers with monthly billable commit contracts who have connected their Tanzu Observability instances to VMware Cloud Services organizations." %}
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+<strong>Self-Service Upgrade From a Trial Version</strong>:<br/>
+<p>Super Admin users can now upgrade from a trial version and purchase Tanzu Observability by themselves.<br/>
+<ol>
+<li>In the Tanzu Observability UI, click the <strong>Upgrade</strong> button on the banner showing the remaining number of days from your trial period.</li>
+<li>When redirected to the VMware Cloud Services Console, connect your account and organization.</li>
+<li>When redirected back to the Tanzu Observability UI, choose your preferred billing model and commit duration and finalize your order.</li>
+</ol>
+</p>
+See <a href="upgrade_and_purchase.html">Upgrade Your Trial Version and Purchase Tanzu Observability</a> for details.
+</td>
+<td width="50%">
+<img src="/images/upgrade_trial.png" alt="The Upgrade button on the trial version banner.">
+</td>
+</tr>
+<tr>
+<td width="50%">
+<strong>Self-Service Purchase of Additional Tanzu Observability Capacity</strong>
+<p>
+Super Admin users can now add more capacity to their existing Tanzu Observability subscriptions.<br/>
+<ol>
+<li>In the Tanzu Observability UI, click the gear icon and select <strong>Usage and Subscriptions</strong>.</li>
+<li>On the <strong>Subscriptions</strong> tab, click <strong>Add more capacity</strong> for your active Tanzu Observability subscription.</li>
+<li>Follow the wizard to increase your monthly commitment of PPS.</li>
+</ol>
+</p>
+See <a href="purchase_additional_capacity.html">Purchase Additional Capacity</a> for details.
+</td>
+<td width="50%">
+<img src="/images/add_more_capacity.png" alt="The Add more capacity button on the Subscriptions tab.">
+</td>
+</tr>
+</tbody>
+</table>
+
+
 ## 2022-29.x Release Notes
 
 * **Tracing Improvements**: If your application or service names have special characters, the Wavefront service now replaces each special character with a hyphen ("-"). A character that isn't in the following list is considered a special character: a-z, A-Z, 0-9, hyphen ("-"), underscore ("_"), dot ("."), forward slash ("/") and comma (",").

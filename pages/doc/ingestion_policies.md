@@ -8,7 +8,7 @@ summary: Monitor usage with ingestion policies, usage dashboards, and alerts.
 
 As a Super Admin user, you're interested in usage patterns for the whole organization, but also for different teams in the organization. For such cases, Tanzu Observability by Wavefront supports ingestion policies. You can create different ingestion policies and assign accounts or groups to each policy to see which teams use which part of total ingestion.
 
-{% include note.html content="You must be a Super Admin to view the Usage Portal and manage ingestion policies."%}
+{% include note.html content="You must be a Super Admin to view the Usage and Subscriptions portal and manage ingestion policies and subscriptions."%}
 
 By using ingestion policies, you can monitor the usage for a combination of accounts or groups. You can examine:
 - the total usage out of a certain limit for the policy
@@ -41,7 +41,7 @@ The policy scope can be either accounts or groups.
 ### Step 0: Start the Ingestion Policy Creation
 
 1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
 3. Click the **Ingestion Policies** tab and click **New Ingestion Policy**.
 
 ### Step 1: Specify the Scope and PPS Limit
@@ -84,7 +84,7 @@ After you create an ingestion policy, if you need, for example, to increase the 
 {% include note.html content="You cannot change the policy scope from accounts to groups or the reverse."%}
 
 1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
 3. On the **Ingestion Policies** tab, click the ellipsis icon next to the policy that you want to edit and select **Edit**.
 4. In each panel, apply the necessary changes and click **Next**, and in the **Policy Name and Description** panel, click **Save**.
 
@@ -97,7 +97,7 @@ If you no longer need an ingestion policy, for example, after a reorganization i
 {% include note.html content="Deleting an ingestion policy cannot be undone. Deleting an ingestion policy with a PPS limit, also deletes its associated alert."%}
 
 1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
 3. On the **Ingestion Policies** tab, click the ellipsis icon next to the policy that you want to delete, select **Delete** and confirm.
 
 ## See the Ingestion Policies to Which a Proxy Belongs
@@ -114,7 +114,7 @@ If you no longer need an ingestion policy, for example, after a reorganization i
 As a Super Admin user, you can examine the usage by the accounts or groups assigned to an ingestion policy from the ingestion policy dashboard.
 
 1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
 3. On the **Ingestion Policies** tab, click the name of the policy in which you are interested.
 
 ![Ingestion policies page](images/ingestion_policies.png)
