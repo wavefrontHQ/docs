@@ -205,7 +205,7 @@ This GET endpoint has the following parameters:
 <td>Entity name,  e.g, cpu.usage (for a metric).</td></tr>
 <tr>
 <td>hostPrefix</td>
-<td>Prefix of the host name, e.g. you can use test-2a-app67 if the whole host name is test-2a-app57-id-12345 <br>
+<td>Prefix of the host name, e.g. you can use test-2a-app67 if the whole host name is test-2a-app67-id-12345 <br>
 <strong>Warning:</strong>hostPrefix must be somewhat specific. There's a limit on how many hosts Tanzu Observability scans.</td></tr>
 <tr>
 <td>usageThresholdDays</td>
