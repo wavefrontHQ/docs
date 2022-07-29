@@ -137,4 +137,4 @@ Alerts and special features such as anomaly detection, histograms, and distribut
 
 * For an in-depth discussion, see [Troubleshooting Missing Data](missing_data_troubleshooting.html).
 * [Telegraf Troubleshooting](telegraf_details.html) has details on troubleshooting and fine-tuning the Telegraf agent.
-* [Proxy Troubleshooting] has tips and tricks from our SaaS Value Engineering team for common proxy problems.
+* [Proxy Troubleshooting](proxies_troubleshooting.html) has tips and tricks from our SaaS Value Engineering team for common proxy problems.
