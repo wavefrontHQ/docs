@@ -11,11 +11,9 @@ When you create a Tanzu Observability by Wavefront account and register for the 
 
 {% include important.html content="The self-service upgrade from a trial version currently provides offers only for monthly billable commit contracts. If you're interested in burndown commit offers, contact the Tanzu Observability sales team. " %}
 
-A Super Admin user can upgrade from trial version and purchase Tanzu Observability.
-
-To purchase Tanzu Observability, you must either have a VMware Cloud services account (VMware account) or create one during the purchase process.
-
 Billing depends on the amount of data, measured in points per second (PPS), that you send to Tanzu Observability  on a monthly basis. If you exceed the contracted rate for more than 5% of the hours of a given month, you will be charged for the usage above it (the overages). In any case, you do not lose any of your data.
+
+{% include note.html content="To upgrade from a trial version, you must be a Super Admin user who is allowed to make purchases on behalf of your company. Also, you must either have a VMware Cloud services account (VMware account) or create one during the purchase process." %}
 
 1. In the UI, on the banner showing you how many days have left from your trial period, click **Upgrade**.
 2. Read the information on the Introduction screen carefully and click **Next**.
@@ -47,7 +45,7 @@ Billing depends on the amount of data, measured in points per second (PPS), that
    
    You can also see a chart that shows the billable rate during your trial period. Use this chart as a starting point to decide how many PPS per month you want to buy.
   
-9. Choose the billing terms and conditions, verify that you are allowed to make purchases on behalf of your company, and click **Place Order**.
+9. Choose the billing terms and conditions, and click **Place Order**.
 
    You can choose to subscribe to Tanzu Observability for one, three or five years and pay in full, on a monthly (when you subscribe for one year) or on annually (when you subscribe for three or five years) basis. The purchase will be charged to the default payment method for your organization as set in the [VMware Cloud Services Console](https://console.cloud.vmware.com).
    
