@@ -59,10 +59,10 @@ When you search and filter logs, you can decide how you want to scroll through t
 You streamline what you see in the Log Browser by excluding tags, text, or a source.
 
 * Click the equal (=) or not equal sign (≠) next to a **Source** or tag value.
-* Click on a filter on the search bar, and click the filter or exclude option.
+* Click on a filter on the search bar and click the filter or exclude option.
 * Double click a word, or select words on the **Message** column, and click **Exclude** or **Include**.
 
-Example: Click the applcaiton filter on the search bar, and click **Exclude application: wavefront**.
+Example: Click the application filter on the search bar, and click **Exclude application: wavefront**.
 ![screenshot of the pop up that pops up when you edit a filter](images/logging_edit_filter_pop_up.png)
 
 ## Use The Histogram to Drill Down

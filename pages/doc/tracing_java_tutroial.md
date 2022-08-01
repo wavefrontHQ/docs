@@ -1,5 +1,5 @@
 ---
-title: Tutorial For Instrumenting An OpenTracing Java Application
+title: Tutorial For Instrumenting an OpenTracing Java Application
 keywords: tracing tutorial
 tags: [tracing, tutorials]
 sidebar: doc_sidebar
@@ -124,5 +124,5 @@ style="vertical-align:text-bottom;width:28px" alt="icon to click to get the appl
 
 ## Next Steps
 
-- Learn how to [instrument your application and view data in the Application Map an related pages](tracing_instrumenting_frameworks.html).
+- Learn how to [instrument your application and view data on the Application Map and related pages](tracing_instrumenting_frameworks.html).
 - Familiarize yourself with the tracing concepts. See [Tracing Concepts in Tanzu Observability](trace_data_details.html) for details.
