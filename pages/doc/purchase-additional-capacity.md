@@ -9,7 +9,7 @@ summary: Learn how to add capacity to your current Tanzu Observability by Wavefr
 
 As a Super Admin, you can request more PPS to be added to the active Tanzu Observability subscription of your organization.
 
-{% include note.html content="Currently, you can buy additional capacity only if you have a monthly billable commit contract and your Tanzu Observability instance is connected to a VMware Cloud Services organization. If your Tanzu Observability instance is not connected to a VMware Cloud Services organization, or if you have a burndown commit contract, contact the Tanzu Observability sales team." %}
+{% include note.html content="Currently, you can buy additional capacity only if you have a monthly billable commit contract and your Wavefront instance is connected to a VMware Cloud Services organization. If your Wavefront instance is not connected to a VMware Cloud Services organization, or if you have a burndown commit contract, contact the Tanzu Observability sales team to add more capacity to your subscription." %}
 
 1. Log in to your Wavefront instance as a Super Admin user.
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.

@@ -15,13 +15,12 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 ## 2022-30.x Release Notes
 
-{% include note.html content="The self-service upgrade from a trial version currently supports offers only for monthly billable commit contracts. The self-service purchase of additional capacity is currently available only to customers with monthly billable commit contracts who have connected their Tanzu Observability instances to VMware Cloud Services organizations." %}
-
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="50%">
 <strong>Self-Service Upgrade From a Trial Version</strong>:<br/>
+{% include note.html content="The self-service upgrade from a trial version currently supports offers only for monthly billable commit contracts." %}
 <p>Super Admin users can now upgrade from a trial version and purchase Tanzu Observability by themselves.<br/>
 <ol>
 <li>In the Tanzu Observability UI, click the <strong>Upgrade</strong> button on the banner showing the remaining number of days from your trial period.</li>
@@ -38,6 +37,7 @@ See <a href="upgrade_and_purchase.html">Upgrade Your Trial Version and Purchase 
 <tr>
 <td width="50%">
 <strong>Self-Service Purchase of Additional Tanzu Observability Capacity</strong>
+{% include note.html content="The self-service purchase of additional capacity is currently available only to customers with monthly billable commit contracts who have connected their Wavefront instances to VMware Cloud Services organizations." %}
 <p>
 Super Admin users can now add more capacity to their existing Tanzu Observability subscriptions.<br/>
 <ol>
