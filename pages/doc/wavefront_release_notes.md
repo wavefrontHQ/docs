@@ -20,15 +20,15 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 <tr>
 <td width="50%">
 <strong>Self-Service Upgrade From a Trial Version</strong>:<br/>
-{% include note.html content="The self-service upgrade from a trial version currently supports offers only for monthly billable commit contracts." %}
 <p>Super Admin users can now upgrade from a trial version and purchase Tanzu Observability by themselves.<br/>
+{% include note.html content="The self-service upgrade from a trial version currently supports offers only for monthly billable commit contracts." %}
 <ol>
 <li>In the Tanzu Observability UI, click the <strong>Upgrade</strong> button on the banner showing the remaining number of days from your trial period.</li>
 <li>When redirected to the VMware Cloud Services Console, connect your account and organization.</li>
 <li>When redirected back to the Tanzu Observability UI, choose your preferred billing model and commit duration and finalize your order.</li>
 </ol>
 </p>
-See <a href="upgrade_and_purchase.html">Upgrade Your Trial Version and Purchase Tanzu Observability</a> for details.
+See <a href="upgrade_and_purchase.html">Upgrade Your Trial Version and Purchase Tanzu Observability</a> for details.<br/>
 </td>
 <td width="50%">
 <img src="/images/upgrade_trial.png" alt="The Upgrade button on the trial version banner.">
@@ -37,9 +37,9 @@ See <a href="upgrade_and_purchase.html">Upgrade Your Trial Version and Purchase 
 <tr>
 <td width="50%">
 <strong>Self-Service Purchase of Additional Tanzu Observability Capacity</strong>
-{% include note.html content="The self-service purchase of additional capacity is currently available only to customers with monthly billable commit contracts who have connected their Wavefront instances to VMware Cloud Services organizations." %}
 <p>
-Super Admin users can now add more capacity to their existing Tanzu Observability subscriptions.<br/>
+We extended the <b>Usage Portal</b> to <b>Usage and Subscriptions</b>, from where Super Admin users can now add more capacity to their existing Tanzu Observability subscriptions.<br/>
+{% include note.html content="The self-service purchase of additional capacity is currently available only to customers with monthly billable commit contracts who have connected their Wavefront instances to VMware Cloud Services organizations." %}
 <ol>
 <li>In the Tanzu Observability UI, click the gear icon and select <strong>Usage and Subscriptions</strong>.</li>
 <li>On the <strong>Subscriptions</strong> tab, click <strong>Add more capacity</strong> for your active Tanzu Observability subscription.</li>
