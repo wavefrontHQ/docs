@@ -124,7 +124,8 @@ remote_write:
   - url: "http://storage-adapter-service.default.svc.cluster.local/receive"
 ```
 {% endraw %}
-Save the configuration file and restart Prometheus.
+
+**NOTE**: In this example, the Wavefront proxy and the Prometheus storage adapter are deployed on the `default` namespace. If they are deployed on a different namespace, make sure to update the namespace.
 
 See the [Integrating Prometheus with Wavefront](https://tanzu.vmware.com/content/blog/prometheus-or-tanzu-observability-by-wavefront-for-kubernetes-an-sre-s-point-of-view-2) blog for more information.
 
