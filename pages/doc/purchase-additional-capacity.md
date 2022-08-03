@@ -23,6 +23,6 @@ As a Super Admin, you can request more PPS to be added to the active Tanzu Obser
 
     The billing model and commit duration for the additional capacity are the same as for the original subscription. Billing model and commit duration cannot be changed.
 
-After you purchase additional capacity, you will receive a confirmation email and your subscription will become updated within the next 24 hours.
+After checking out, you will see an order confirmation message. Typically, it takes 24 hours to fulfil an order. Once your additional capacity becomes available, you'll receive an email notification. 
 
-In case of urgency, you can contact the Wavefront team by sending an email to: `tanzu_saas_ops@vmware.com` with the number of your order and someone from our team will help you.
+In case of urgency, you can contact the Wavefront team by sending an email to `tanzu_saas_ops@vmware.com` with your contact details and someone from our team will help you.
