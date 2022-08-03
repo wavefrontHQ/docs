@@ -23,10 +23,11 @@ This integration uses the PostgreSQL input plugin for Telegraf. You can install 
 
 Log in to your Wavefront instance and follow the instructions in the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
 
-### Step 2. Create the `gpperfmon` database
-The gpperfmon database must be created to see the query and system metrics in the Wavefront. See the [Greenplum documentation](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-gpperfmon-dbref.html) for more details.
+### Step 2. Create the `gpperfmon` Database
 
-### Step 3. Configure PostgreSQL Input Plugin
+To monitor the query and system metrics in Wavefront, you must create the `gpperfmon` database. For details see the [Greenplum documentation](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-gpperfmon-dbref.html).
+
+### Step 3. Configure the PostgreSQL Input Plugin
 
 On the machine where Telegraf runs, create a file called `greenplum.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
 {% raw %}
@@ -182,7 +183,7 @@ Run `sudo service telegraf restart` to restart your agent.
 |greenplum.postgresql.segment.hosts|Number of segment hosts. |
 |greenplum.postgresql.status|The overall status of all segments. |
 |greenplum.postgresql.cpu.idle|Percentage of idle CPU. |
-|greenplum.postgresql.cpu.iowait|The percentage of CPU used waiting on IO requests. |
+|greenplum.postgresql.cpu.iowait|The percentage of CPU used to wait on IO requests. |
 |greenplum.postgresql.cpu.sys|Percentage of time CPU processes are executed in system (kernel) mode. |
 |greenplum.postgresql.cpu.user|Percentage of time CPU processes are executed in user mode. |
 |greenplum.postgresql.disk.rb.rate|Bytes per second for disk read operations. |
@@ -200,8 +201,8 @@ Run `sudo service telegraf restart` to restart your agent.
 |greenplum.postgresql.total.bytes|Total size of the file system storage in bytes. |
 |greenplum.postgresql.upsegments|The number of segments with status Up. |
 |greenplum.postgresql.downsegments|The number of segments with status Down. |
-|greenplum.postgresql.mode.synced|The number of segment instances in sync with its mirror copy. |
-|greenplum.postgresql.mode.nonsynced|The number of segment instances not in sync with its mirror copy. |
+|greenplum.postgresql.mode.synced|The number of segment instances in sync with the mirror copy. |
+|greenplum.postgresql.mode.nonsynced|The number of segment instances not in sync with the mirror copy. |
 |greenplum.postgresql.nonpreferred.role|The number of segments which do not have a current role that was originally assigned at initialization time. |
 |greenplum.postgresql.preferred.role|The number of segments which have a current role that was originally assigned at initialization time. |
 
