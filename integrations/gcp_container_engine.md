@@ -26,6 +26,7 @@ been set up, you can browse the available GCP metrics in the metrics browser.
 - Google Cloud Bigtable
 - Google Cloud Billing
 - Google Cloud Datastore
+- Google Cloud Dataproc
 - Google Cloud Functions
 - Google Cloud Logging
 - Google Cloud Pub/Sub
