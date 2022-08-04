@@ -23,14 +23,14 @@ If your foundation is large, tune the following parameters, in this order:
 ## Using the Nozzle Successfully with Service Broker Bindings
 
 Support for service broker bindings differ for different versions of the Tanzu Observability by Wavefront Nozzle:
-* The Tanzu Observability by Wavefront <strong>Nozzle v4.1</strong> supports Service Broker Bindings.
-  When you configure Nozzle 4.1, select <strong>Enable legacy service broker bindings</strong> in the <strong>Wavefront Proxy Config</strong> tab. See [Install Nozzle 4.1 and Enable Service Broker Bindings](#install-nozzle-41-and-enable-service-broker-bindings).
-* The Tanzu Observability by Wavefront <strong>Nozzle v4.0</strong> DOES NOT support Service Broker Bindings. If you upgraded to nozzle 4.0, you have to:
-  1. Downgrade from Tanzu Observability by Wavefront Nozzle v4 to Tanzu Observability by Wavefront Nozzle v3.
-  1. Upgrade from Tanzu Observability by Wavefront Nozzle v3 to Tanzu Observability by Wavefront Nozzle v4.1. That version of the nozzle includes a checkbox that supports retaining Service Broker Bindings.
-  The process is discussed in this section. 
+* The Tanzu Observability by Wavefront <strong>Nozzle v4.1.1</strong> supports Service Broker Bindings.
+  When you configure Nozzle 4.1.1, select <strong>Enable legacy service broker bindings</strong> in the <strong>Wavefront Proxy Config</strong> tab. See [Install Nozzle 4.1.1 and Enable Service Broker Bindings](#install-nozzle-41-and-enable-service-broker-bindings).
+* The Tanzu Observability by Wavefront <strong>Nozzle v4.1.0</strong> DOES NOT support Service Broker Bindings. If you upgraded to nozzle 4.1.0, you have to:
+  1. Downgrade from Tanzu Observability by Wavefront Nozzle v4.1.0 to Tanzu Observability by Wavefront Nozzle v3.
+  1. Upgrade from Tanzu Observability by Wavefront Nozzle v3 to Tanzu Observability by Wavefront Nozzle v4.1.1. That version of the nozzle includes a checkbox that supports retaining Service Broker Bindings.
+  The process is discussed in this section.
 
-### Downgrade from Nozzle 4.0 to Nozzle 3.0
+### Downgrade from Nozzle 4.1.0 to Nozzle 3.0
 
 This section explains how to downgrade. For clarity, the section uses explicit version numbers.
 
@@ -39,7 +39,7 @@ This section explains how to downgrade. For clarity, the section uses explicit v
 <tr>
 <td width="50%"><strong>Step 1.</strong> Uninstall v4 of the Tanzu Observability by Wavefront Nozzle.
 <ol><li>Log in to Ops Manager.</li>
-<li>In the installaton dashboard, find the Tanzu Observability tile and click the delete icon to stage the deletion. </li>
+<li>In the installation dashboard, find the Tanzu Observability tile and click the delete icon to stage the deletion. </li>
 <li>Click <strong>Review Pending Changes</strong> and uncheck boxes for any products that you don't want redeployed.</li>
 <li>Click <strong>Apply Changes</strong> to complete the deletion process. </li>
 </ol>
@@ -49,7 +49,7 @@ This section explains how to downgrade. For clarity, the section uses explicit v
 <tr>
 <td width="50%"><strong>Step 2.</strong> In the bottom left of the Ops Manager installation dashboard, click <strong>Delete all unused products</strong> and confirm. <br>
 <br><br>
-<strong>Note:</strong> If you don't delete all unused products, the import of the v3 nozzle might fail later with an error like the following:<code>"Metadata already exists for name: wavefront-nozzle and version: 3.0.5"</code>
+<strong>Note:</strong> If you don't delete all unused products, the import of the v3 nozzle might fail later with an error like the following:<code>"Metadata already exists for name: wavefront-nozzle and version: 3.0.5"</code>.
 </td>
 <td width="50%"><img src="/images/tas_delete_unused_products.png" alt="Zoom in on Delete Unused Products, with arrow pointing to trash icon."></td>
 </tr>
@@ -61,18 +61,19 @@ This section explains how to downgrade. For clarity, the section uses explicit v
 <br>
 <strong>Step 4.</strong> Import and install v3 of the nozzle.
 <ol>
-<li>In the Ops Manager Installation Dashboard, click <strong>Import a Product</strong> and select the v3 nozzle that you just downloaded.  </li>
+<li>In the Ops Manager Installation Dashboard, click <strong>Import a Product</strong>. </li>
+<li>Select the v3 nozzle that you just downloaded.  </li>
 </ol>
 </td>
 <td width="50%">&nbsp;</td>
 </tr>
 <tr>
 <td width="50%">
-<strong>Step 5.</strong>Configure and deploy the v3 nozzle
+<strong>Step 5.</strong> Configure and deploy the v3 nozzle:
 <ol>
 <li>Follow the configuration steps in <a href="integrations_tas_howto.html#step-2-ops-manager-install-configure-and-deploy-the-nozzle">Ops Manager: Install, Configure, and Deploy the Nozzle</a></li>
 <li>To deploy the nozzle, click <strong>Review Pending Changes</strong> and uncheck boxes for products that don't need to be redeployed. Click <strong>Apply Changes</strong> to complete the process.</li>
-<li>When installation is complete, click <strong>Change Log</strong> and verify that the older version shows <strong>Added</strong></li>
+<li>When installation is complete, click <strong>Change Log</strong> and verify that the older version shows <strong>Added</strong>.</li>
 </ol>
 </td>
 <td width="50%"><img src="/images/tas_change_log.png" alt="Change log, arrow points to Added text in third column."></td>
@@ -80,7 +81,9 @@ This section explains how to downgrade. For clarity, the section uses explicit v
 </tbody>
 </table>
 
-### Install Nozzle 4.1 and Enable Service Broker Bindings
+### Install Nozzle 4.1.1 and Enable Service Broker Bindings
+
+You enable service broker bindings as part of the <strong>Wavefront Proxy Config</strong> step of nozzle configuration. 
 
 <table style="width: 100%;">
 <tbody>
