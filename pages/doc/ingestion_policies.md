@@ -6,23 +6,26 @@ permalink: ingestion_policies.html
 summary: Monitor usage with ingestion policies, usage dashboards, and alerts.
 ---
 
-In addition to the dashboard for monitoring your [overall usage](examine_usage.html), Tanzu Observability by Wavefront supports ingestion policies for fragmented usage monitoring. For example, it might be valuable to understand the ingestion rates of the different teams or by the different sources. By creating an ingestion policy, you can combine a set of user and service accounts, groups, sources, metric namespaces, or point tags. Then, you can monitor the usage by that usage policy from its dashboard.
+In addition to the dashboard for monitoring your [overall usage](examine_usage.html), Tanzu Observability by Wavefront supports ingestion policies for monitoring your usage by accounts, groups, sources, metric namespaces, and point tags. For example, it might be valuable to understand the ingestion rates by the different teams or by the different sources.
 
-On the ingestion policy dashboard, you can examine:
-- the total usage out of a certain limit for the policy
-- the month-over-month percentage change in the total usage for the policy
-- the hourly usage for the current billing period
+
+By creating an ingestion policy, you combine a set of accounts, groups, sources, metric namespaces, and point tags. Then, you can monitor their PPS usage from the ingestion policy dashboard, which shows:
+- the P95 PPS usage out of a certain limit for the policy
+- the month-over-month percentage change in the PPS usage for the policy
+- the hourly PPS usage for the current billing period
 - the accounts that ingest most data
 - the usage by ingestion mechanism (proxy and direct ingestions)
 - the usage by ingestion type (time series, histograms, and delta counters)
 
-{% include note.html content="All users can view the Usage Portal and the ingestion policies. Only Super Admin users can create and manage ingestion policies."%}
+{% include note.html content="All users can view the ingestion policies. Only Super Admin users can create and manage ingestion policies."%}
 
 For performance monitoring of your Wavefront instance, you can use [wftop, Wavefront spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Wavefront Usage integration](wavefront_monitoring.html).
 
 ## Ingestion Policy Basics
 
-Ingestion policies allow you to combine user and service accounts, groups, sources, metric namespaces, or point tags, so that you can examine their usage of the Wavefront service. For example, you can create a policy for all accounts that joined in the last 6 months. You can also create a policy for one or more sources to. Also, you can set a Points per Second (PPS) limit and create an associated alert for an ingestion policy, so that you can receive notifications and track how much of the PPS is used and whether the users or the team will need more PPS in the future.
+Ingestion policies allow you to combine user and service accounts, groups, sources, metric namespaces, or point tags, so that you can monitor their usage of the Wavefront service. For example, you can create a policy for all accounts that joined in the last 6 months. You can also create a policy for one or more sources. Also, you can set a Points per Second (PPS) limit for the policy and create an alert, so that you can receive notifications if the PPS usage exceeds certain thresholds of the limit.
+
+Tracking the PPS usage by ingestion policies can help you understand how the overall usage is distributed and weather or not particular team will need more PPS in the future or need to reduce their overhead ingestions.
 
 The policy scope can be accounts, groups, sources, namespaces, or point tags.
 * Once you set the scope, you cannot change it.
@@ -55,22 +58,22 @@ In the **Data** panel, specify the scope and, optionally, a PPS limit and click 
     </thead>
     <tr>
     <td><strong>Accounts</strong></td>
-    <td>Individual user and service accounts.</td></tr>
+    <td>Individual <a href="authorization-faq.html#what-are-user--service-accounts">user and service accounts</a>.</td></tr>
     <tr>
     <td><strong>Groups</strong></td>
-    <td>Groups of user and service accounts.</td>
+    <td><a href="users_roles.html#create-a-group">Groups</a> of user and service accounts.</td>
     </tr>
     <tr>
     <td><strong>Sources</strong></td>
-    <td>Sources that emit metrics. You can assign exact source names and names with wildcards, for example, <code>appServer1</code> and <code>appServer*</code>.</td>
+    <td><a href="sources_managing.html">Sources</a> that emit metrics. You can assign exact source names and names with wildcards, for example, <code>appServer1</code> and <code>appServer*</code>.</td>
     </tr>
     <tr>
     <td><strong>Namespaces</strong></td>
-    <td>Namespaces that group metrics in a hierarchy defined by a name prefix. You can assign exact metric names and namespaces, for example, <code>request.</code> and <code>requests</code>. You can assign names with wildcards, for example, <code>cpuloadavg*</code> and <code>cpu.*</code>.</td>
+    <td><a href="metrics_managing.html#metrics-browser">Namespaces</a> that group metrics in a hierarchy defined by a name prefix. You can assign exact metric names and namespaces, for example, <code>request.</code> and <code>requests</code>. You can assign names with wildcards, for example, <code>cpuloadavg*</code> and <code>cpu.*</code>.</td>
     </tr>
     <tr>
     <td><strong>Point Tags</strong></td>
-    <td>Point tags that are optional key-value pairs associated with a metric, for example, <code>env="dev"</code>.
+    <td><a href="metrics_managing.html#time-series-with-tags">Point tags</a> that are optional key-value pairs associated with a metric, for example, <code>env="dev"</code>.
     <p>If you assign more than one point tag, you must select the match criterion - can be either <b>Has tags</b> (individual point tags) or <b>Has all these tags</b> (a combination of point tags).</p></td>
     </tr>
     </tbody>
@@ -85,7 +88,7 @@ In the **Data** panel, specify the scope and, optionally, a PPS limit and click 
 
 {% include note.html content="If you didn't choose to set a PPS limit, this step is skipped."%}
 
-If you set a PPS limit for the ingestion policy, Tanzu Observability creates an ingestion policy alert that queries the percentage of the PPS limit used by the accounts assigned to the policy.
+If you set a PPS limit for the ingestion policy, Tanzu Observability creates an ingestion policy alert that queries the PPS usage by the policy as a percentage of the PPS limit.
 
 1. In the **Conditions** panel, configure the [thresholds and severities](alerts_manage.html#step-2-specify-thresholds-and-severities).
    1. Select the comparison operator for the alert condition. In most cases, you alert when the usage is **greater than** a specified threshold percentage of the PPS limit.
@@ -106,7 +109,7 @@ If a user assigned to an ingestion policy is ingesting data through a Wavefront 
 
 ## Edit an Ingestion Policy
 
-After you create an ingestion policy, if you need, for example, to increase the PPS limit or add accounts, you can edit the policy. 
+After you create an ingestion policy, if you need, for example, to increase the PPS limit or add accounts or point tags, you can edit the policy. 
 
 {% include note.html content="You cannot change the policy scope. You can change only the assigned objects from that scope."%}
 

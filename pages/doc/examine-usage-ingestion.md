@@ -6,17 +6,17 @@ permalink: examine_usage.html
 summary: Monitor your overall usage per billing month.
 ---
 
-It's important to understand how you use your Tanzu Observability by Wavefront service, whether you will be billed for more data, and whether you will need to request more data. Typically, billing is based on the amount of data, measured in Points per Second (PPS), which you send to Tanzu Observability. If your scan rate exceeds more than 20x the ingestion rate, you will be billed based on the scan rate. If you exceed your committed rate, you will be charged more.
+It's important to understand how you use your Tanzu Observability by Wavefront service, whether you will be billed for more data, and whether you will need to request more data. Typically, billing is based on the amount of data that you send to Tanzu Observability, measured in Points per Second (PPS). If your scan rate exceeds more than 20x the ingestion rate, you will be billed based on the scan rate. If you exceed your committed rate, you will be charged more.
 
 You can examine the overall usage of your Wavefront service by using the **Usage Summary** dashboard in the Tanzu Observability Usage Portal.
 
-For fragmented usage monitoring by accounts, sources, metric namespaces, and point tags, you can use [ingestion policies](ingestion_policies.html).
+For usage monitoring by accounts, sources, metric namespaces, and point tags, you can use [ingestion policies](ingestion_policies.html).
 
 For performance monitoring of your Wavefront instance, you can use [wftop, Wavefront spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Wavefront Usage integration](wavefront_monitoring.html).
 
 ## How to Go to the Usage Summary Dashboard?
 
-You can navigate to the Usage Summary dashboard to get an overview of the ingested and scanned data over a certain billing period. You can go up to 2 years back in time.
+You can navigate to the Usage Summary dashboard to get an overview of the ingested and scanned rates over a certain billing period. You can go up to 2 years back in time.
 
 1. Log in to your Wavefront instance.
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
