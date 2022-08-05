@@ -42,20 +42,28 @@ Follow these steps to search and filter logs:
     <br/>Example:
     ![Shows the error word on the search bad and the logs that contain the word error in them with error highlighted on the log messages](images/logging_search_key_word.png)
 1. When you see the logs on the Log Browser, you can filter logs using source, tags, and words, to refine the search results further.
+    
 
-## Exclude Logs from Search Results
+## Enable or Disable Scroll Auto-Load
+
+When you search and filter logs, you can decide how you want to scroll through the results:
+* When you scroll through the results, you need to click **Load More Results** to load the next set of results.
+  ![a screenshot shoing the load more results text](images/logging_load_more_results.png)
+* Enable scroll auto load to load the logs as you scroll through the results. Follow these steps to enable scroll auto-load.
+  1. Click **Options** on the top-right corner of the log results table.
+  1. Select **Scroll Auto-Load**.
+  ![a screenshot of the steps metnioned above](images/logging_scroll_auto_load.png)
+
+## Exclude or Include Logs from Search Results
 
 You streamline what you see in the Log Browser by excluding tags, text, or a source.
 
-* Click the not equal sign (≠) next to a **Source** or tag value.
-* Click on a word(s) on the search bar, and click **Exclude** > **Apply** > **Search**.
-* Double click a word, or select words on the **Message** column, and click **Exclude**.
+* Click the equal (=) or not equal sign (≠) next to a **Source** or tag value.
+* Click on a filter on the search bar and click the filter or exclude option.
+* Double click a word, or select words on the **Message** column, and click **Exclude** or **Include**.
 
-Example:
-* Click service, and click ≠ next to telegraph.
-* If you had the word warn on the search bar, click the word, and click **Exclude** > **Apply**.
-* Click **Search** to get the search results.
-![shows the example described in text](images/logging_not_include_search.png)
+Example: Click the application filter on the search bar, and click **Exclude application: wavefront**.
+![screenshot of the pop up that pops up when you edit a filter](images/logging_edit_filter_pop_up.png)
 
 ## Use The Histogram to Drill Down
 

@@ -67,7 +67,7 @@ The **Overview** section of the dashboard contains the following charts:
 </tr>
 <tr>
 <td><strong>Historical Usage (24 Months)</strong></td>
-<td>Shows your billed usage over the last 2 years. The dashed line represents your commit level.</td>
+<td>Shows your billed usage over the last 2 years.</td>
 </tr>
 <tr>
 <td><strong>Top Metrics by Namespace</strong></td>

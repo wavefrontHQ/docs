@@ -59,6 +59,18 @@ Wavefront proxy drops the logs that exceed the [maximum character limit](logging
 
 You see the number of logs that were blocked in the **Blocked logs per second** chart. If you see a spike in the number of dropped logs, make sure that you follow the [best practices](logging_send_logs.html#best-practices) when sending logs to Tanzu Observability.
 
+## Why do I see a `pattern not match` error in the Fluentd logs?
+
+If your application runs on a Kubernetes cluster, and if you see a `pattern not match` error in the Fluentd logs, Fluentd scrapes the logs on your application but does not send them across to the Wavefront proxy. Add the following configuration to your `fluent.conf` file to resolve the `pattern not match` error:
+
+```
+<pattern>
+  format regexp
+  expression /^(?<time>.+) (?<stream>stdout|stderr)( (.))? (?<log>.*)$/
+  time_format '%Y-%m-%dT%H:%M:%S.%NZ'
+  keep_time_key false
+</pattern>
+```
 
 ## Nest Steps
 
