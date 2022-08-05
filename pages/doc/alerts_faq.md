@@ -105,7 +105,7 @@ Reporting delays can prevent an alert from firing, or can make an alert misfire 
 
 Interpolation is useful in many ways, but it means that the raw data that come in isn't the same as the data that the query engine sees. As a result, alerts can fail to fire (discussed above) or can fire even though the condition isn't actually met.
 
-Some functions, such as `if()`, non-raw aggregation function like `sum()`, and operators (`+` or `-`) [perform interpolation](query_language_discrete_continuous.html#functions-that-use-interpolation-to-create-continuous-data). With interpolation, the query engine generates a data value for one or more time series. Interpolation occurs between two reported values within a series.
+Some functions, such as `if()`, non-raw aggregation function like `sum()`, and operators (`+` or `-`) [perform interpolation](query_language_discrete_continuous.html#functions-and-operators-that-use-interpolation-to-create-continuous-data). With interpolation, the query engine generates a data value for one or more time series. Interpolation occurs between two reported values within a series.
 
 If a query uses non-raw aggregation functions, interpolation can increase a displayed value in the past by including more made-up values in the calculation when a newly reported value is ingested.
 
