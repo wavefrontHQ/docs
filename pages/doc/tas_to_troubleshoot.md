@@ -20,6 +20,87 @@ If your foundation is large, tune the following parameters, in this order:
 1. Increase the size of your **Telegraf Agent Virtual Machine**. The Telegraf agent is responsible for collecting metrics and transforming them into the Wavefront data format. The is typically CPU and memory bound, so increasing virtual machine size can increase perfrmance.
 2. **Increase the scrape interval**. If collection times for some scrape targets are greater than 12 seconds, consider changing the scrape interval for your environment to a lower frequency. Typically, 120% of the longest observed collection time is safe.
 
+## Using the Nozzle Successfully with Service Broker Bindings
+
+Support for service broker bindings differ for different versions of the Tanzu Observability by Wavefront Nozzle:
+* The Tanzu Observability by Wavefront <strong>Nozzle v4.1.1</strong> supports Service Broker Bindings.
+  When you configure Nozzle 4.1.1, select <strong>Enable legacy service broker bindings</strong> in the <strong>Wavefront Proxy Config</strong> tab. See [Install Nozzle 4.1.1 and Enable Service Broker Bindings](#install-nozzle-41-and-enable-service-broker-bindings).
+* The Tanzu Observability by Wavefront <strong>Nozzle v4.1.0</strong> DOES NOT support Service Broker Bindings. If you upgraded to nozzle 4.1.0, you have to:
+  1. Downgrade from Tanzu Observability by Wavefront Nozzle v4.1.0 to Tanzu Observability by Wavefront Nozzle v3.
+  1. Upgrade from Tanzu Observability by Wavefront Nozzle v3 to Tanzu Observability by Wavefront Nozzle v4.1.1. That version of the nozzle includes a checkbox that supports retaining Service Broker Bindings.
+  The process is discussed in this section.
+
+### Downgrade from Nozzle 4.1.0 to Nozzle 3.0
+
+This section explains how to downgrade. For clarity, the section uses explicit version numbers.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%"><strong>Step 1.</strong> Uninstall v4 of the Tanzu Observability by Wavefront Nozzle.
+<ol><li>Log in to Ops Manager.</li>
+<li>In the installation dashboard, find the Tanzu Observability tile and click the delete icon to stage the deletion. </li>
+<li>Click <strong>Review Pending Changes</strong> and uncheck boxes for any products that you don't want redeployed.</li>
+<li>Click <strong>Apply Changes</strong> to complete the deletion process. </li>
+</ol>
+</td>
+<td width="50%"><img src="/images/tas_install_dashboard.png" alt="Ops Manager installation dashboard shows 3 tiles, trash can highlighted."></td>
+</tr>
+<tr>
+<td width="50%"><strong>Step 2.</strong> In the bottom left of the Ops Manager installation dashboard, click <strong>Delete all unused products</strong> and confirm. <br>
+<br><br>
+<strong>Note:</strong> If you don't delete all unused products, the import of the v3 nozzle might fail later with an error like the following:<code>"Metadata already exists for name: wavefront-nozzle and version: 3.0.5"</code>.
+</td>
+<td width="50%"><img src="/images/tas_delete_unused_products.png" alt="Zoom in on Delete Unused Products, with arrow pointing to trash icon."></td>
+</tr>
+<tr>
+<td width="50%"><strong>Step 3.</strong> Download v3 of the Tanzu Observability by Wavefront Nozzle.
+<ol><li>Log in to Tanzu Network and go to <a href="https://network.pivotal.io/products/wavefront-nozzle">https://network.pivotal.io/products/wavefront-nozzle</a>.</li>
+<li>Select v3 of the nozzle and download it. </li>
+</ol>
+<br>
+<strong>Step 4.</strong> Import and install v3 of the nozzle.
+<ol>
+<li>In the Ops Manager Installation Dashboard, click <strong>Import a Product</strong>. </li>
+<li>Select the v3 nozzle that you just downloaded.  </li>
+</ol>
+</td>
+<td width="50%">&nbsp;</td>
+</tr>
+<tr>
+<td width="50%">
+<strong>Step 5.</strong> Configure and deploy the v3 nozzle:
+<ol>
+<li>Follow the configuration steps in <a href="integrations_tas_howto.html#step-2-ops-manager-install-configure-and-deploy-the-nozzle">Ops Manager: Install, Configure, and Deploy the Nozzle</a></li>
+<li>To deploy the nozzle, click <strong>Review Pending Changes</strong> and uncheck boxes for products that don't need to be redeployed. Click <strong>Apply Changes</strong> to complete the process.</li>
+<li>When installation is complete, click <strong>Change Log</strong> and verify that the older version shows <strong>Added</strong>.</li>
+</ol>
+</td>
+<td width="50%"><img src="/images/tas_change_log.png" alt="Change log, arrow points to Added text in third column."></td>
+</tr>
+</tbody>
+</table>
+
+### Install Nozzle 4.1.1 and Enable Service Broker Bindings
+
+You enable service broker bindings as part of the <strong>Wavefront Proxy Config</strong> step of nozzle configuration. 
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">To enable service broker bindings:
+<ol>
+<li>
+Follow the installation steps in <a href="integrations_tas_howto.html#step-2-ops-manager-install-configure-and-deploy-the-nozzle">Ops Manager: Install, Configure, and Deploy the Nozzle</a>.</li>
+<li>In the <strong>Wavefront Proxy Config</strong> tab, select the <strong>Enable legacy service broker bindings</strong> check box. </li>
+</ol>
+</td>
+<td width="50%"><img src="/images/enable_legacy_bindings.png" alt="Proxy Config tab, with arrow pointing to Enable Service Broker Legacy Bindings check box"></td>
+</tr>
+</tbody>
+</table>
+
+
 ## Symptom: No Data Flowing or Dashboards Show Now Data
 
 You have successfully set up the nozzle and the integration. However, you don't see any data for the out-of-the-box dashboards. The most common cause is a problem with sending data to Tanzu Observability.
@@ -55,7 +136,7 @@ If there are no errors in Telegraf, the next step is to check the logs for the w
 ## Symptom: Higher than Expected PPS Rate
 
 The PPS (points-per-second) rate can affect performance and potentially the cost of using Tanzu Observability.
-* **4.x**: The PPS generated by the TAS Nozzle version 4.x should be predictable and relatively consistent for any given foundation, because metrics are scraped at a fixed interval.
+* **4.x**: The PPS generated by the Tanzu Observability by Wavefront Nozzle version 4.x should be predictable and relatively consistent for any given foundation, because metrics are scraped at a fixed interval.
 * **3.x**: Version 3.x of the Nozzle follows a push-based model. PPS varies based on factors such as HTTP requests being served by the gorouter, so PPS is less predictable.
 
 However, it can be difficult to predict the average PPS of a TAS foundation ahead of time because several factors affect the total number of metrics that are generated:
