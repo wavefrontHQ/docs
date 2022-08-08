@@ -262,7 +262,7 @@ You can find out which teams are using the most data with ingestion policies or 
 <td><strong>Examine Ingestion with the Namespace Usage Explorer dashboard</strong> </td>
 <td markdown="span">If many teams in your company use Wavefront, it's good practice to have a policy that includes the team name in each ingested data point. You can then easily determine which teams ingest a lot of data.
 </td>
-<td><a href="ingestion_policies.html#examine-usage">Examine Usage with Ingestion Policies</a></td>
+<td><a href="ingestion_policies.html#examine-ingestion-policy-usage">Examine Usage with Ingestion Policies</a></td>
 </tr>
 </tbody>
 </table>
