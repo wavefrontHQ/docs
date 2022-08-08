@@ -1,8 +1,8 @@
 ---
-title: Google Cloud Logging Integration
+title: Google Dataproc Integration
 tags: [integrations list]
-permalink: gcp_cloud_logging.html
-summary: Learn about the Wavefront Google Cloud Logging Integration.
+permalink: gcp_dataproc.html
+summary: Learn about the Wavefront Google Dataproc Integration.
 ---
 ## Google Cloud Platform Integration
 
@@ -91,13 +91,25 @@ To register a Google Cloud Platform integration:
 
 |Metric Name|Description|
 | :--- | :--- |
-|gcp.logging.billing.bytes_ingested| Log bytes ingested. |
-|gcp.logging.billing.monthly_bytes_ingested| Log bucket month-to-date bytes ingested. |
-|gcp.logging.byte_count| The number of bytes in ingested log entries. |
-|gcp.logging.exports.byte_count| The number of bytes in log entries that were exported. |
-|gcp.logging.exports.error_count| The number of log entries that failed to be exported. |
-|gcp.logging.exports.log_entry_count| The number of log entries that were exported. |
-|gcp.logging.log_entry_count| The number of ingested log entries. |
-|gcp.logging.logs_based_metrics_error_count| The number of ingested log entries that are not counted in system or user-defined logs-based metrics. |
-|gcp.logging.metric_throttled| Indicates if labels or points are being dropped for logs-based metrics due to exceeding active time series (cardinality) limits. |
+|gcp.dataproc.cluster.hdfs.datanodes| Indicates the number of HDFS DataNodes that are running inside a cluster.|
+|gcp.dataproc.cluster.hdfs.storage_capacity| Indicates the capacity of HDFS system running on the cluster, in GB.|
+|gcp.dataproc.cluster.hdfs.storage_utilization| The percentage of HDFS storage currently used.|
+|gcp.dataproc.cluster.hdfs.unhealthy_blocks| Indicates the number of unhealthy blocks inside the cluster.|
+|gcp.dataproc.cluster.job.completion_time| The time jobs took to complete from the time the user submits a job to the time Dataproc reports it is completed.|
+|gcp.dataproc.cluster.job.duration| The time jobs have spent in a given state.|
+|gcp.dataproc.cluster.job.failed_count| Indicates the number of jobs that have failed on a cluster.|
+|gcp.dataproc.cluster.job.running_count| Indicates the number of jobs that are running on a cluster.|
+|gcp.dataproc.cluster.job.submitted_count| Indicates the number of jobs that have been submitted to a cluster.|
+|gcp.dataproc.cluster.operation.completion_time| The time operations took to complete from the time the user submits an operation to the time Dataproc reports it is completed.|
+|gcp.dataproc.cluster.operation.duration| The time operations have spent in a given state.|
+|gcp.dataproc.cluster.operation.failed_count| Indicates the number of operations that have failed on a cluster.|
+|gcp.dataproc.cluster.operation.running_count| Indicates the number of operations that are running on a cluster.|
+|gcp.dataproc.cluster.operation.submitted_count| Indicates the number of operations that have been submitted to a cluster.|
+|gcp.dataproc.cluster.yarn.allocated_memory_percentage| The percentage of YARN memory that is allocated.|
+|gcp.dataproc.cluster.yarn.apps| Indicates the number of active YARN applications.|
+|gcp.dataproc.cluster.yarn.containers| Indicates the number of YARN containers.|
+|gcp.dataproc.cluster.yarn.memory_size| Indicates the YARN memory size in GB.|
+|gcp.dataproc.cluster.yarn.nodemanagers| Indicates the number of YARN NodeManagers running inside the cluster.|
+|gcp.dataproc.cluster.yarn.pending_memory_size| The current memory request, in GB, that is pending to be fulfilled by the scheduler.|
+|gcp.dataproc.cluster.yarn.virtual_cores| Indicates the number of virtual cores in YARN.|
 
