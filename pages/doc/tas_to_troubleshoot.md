@@ -24,7 +24,7 @@ If your foundation is large, tune the following parameters, in this order:
 
 Support for service broker bindings differ for different versions of the Tanzu Observability by Wavefront Nozzle:
 * The Tanzu Observability by Wavefront <strong>Nozzle v4.1.1</strong> supports Service Broker Bindings.
-  When you configure Nozzle 4.1.1, select <strong>Enable legacy service broker bindings</strong> in the <strong>Wavefront Proxy Config</strong> tab. See [Install Nozzle 4.1.1 and Enable Service Broker Bindings](#install-nozzle-41-and-enable-service-broker-bindings).
+  When you configure Nozzle 4.1.1, select <strong>Enable legacy service broker bindings</strong> in the <strong>Wavefront Proxy Config</strong> tab. See [Install Nozzle 4.1.1 and Enable Service Broker Bindings](#install-nozzle-411-and-enable-service-broker-bindings).
 * The Tanzu Observability by Wavefront <strong>Nozzle v4.1.0</strong> DOES NOT support Service Broker Bindings. If you upgraded to nozzle 4.1.0, you have to:
   1. Downgrade from Tanzu Observability by Wavefront Nozzle v4.1.0 to Tanzu Observability by Wavefront Nozzle v3.
   1. Upgrade from Tanzu Observability by Wavefront Nozzle v3 to Tanzu Observability by Wavefront Nozzle v4.1.1. That version of the nozzle includes a checkbox that supports retaining Service Broker Bindings.
