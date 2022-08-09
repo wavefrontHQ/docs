@@ -8,6 +8,19 @@ summary: New and changed integrations.
 ---
 Tanzu Observability by Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
+## August 2022
+
+We added the following integration in August 2022:
+
+* VMware Tanzu Greenplum: 
+  
+  VMware Tanzu Greenplum is a massively parallel processing (MPP) database server that supports next generation data warehousing and large-scale analytics processing. This integration installs and configures Telegraf to send system and query metrics into Tanzu Observability by Wavefront.
+
+We made improvements to the following integrations in August 2022:
+
+* Amazon Web Services -- We added the **Amazon FSx** service integration dashboard.
+* Cassandra -- Made improvements to the Cassandra integration overview and setup instructions. Improved the Cassandra out-of-the-box integration dashboard. 
+* Google Cloud Platform -- 
 
 ## July 2022
 
