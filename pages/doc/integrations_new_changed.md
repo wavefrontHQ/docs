@@ -24,6 +24,9 @@ We made improvements to the following integrations in August 2022:
 * Cassandra -- Made improvements to the Cassandra integration overview and setup instructions. Improved the Cassandra out-of-the-box integration dashboard. 
 * Spring Cloud Data Flow -- Updated the latest document links on the Overview page.
 * MySQL -- We provided descriptions of approximately 1000 metrics. You can see the metrics and their descriptions on the **Metrics** tab of the MySQL integration.
+* Java: 
+  * Added a new **Java Using Telegraf** out-of-the-box dashboard that allows you to collect and monitor JVM metrics by using the Telegraf Jolokia2 Agent plugin.
+  * Added two system alerts that fire when the heap memory usage and the memory usage by the G1 old generation are too high.
 
 ## July 2022
 
