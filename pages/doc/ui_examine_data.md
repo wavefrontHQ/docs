@@ -87,16 +87,38 @@ You can select a larger or smaller time window or view past data instead of real
 - Click the **Live** button to turn on (green) live data and see up-to-date data on the charts.
 - Click the **Live** button again to turn off live data and to look at past data.
 
-Regardless of selection, you can click the time selector for a fine-grained time selection window. To the left of the time selector, you see the currently selected time. The time window determines how often the charts in a dashboard refresh.
+Regardless of selection, you can click the time window selector for a fine-grained time selection window. 
+
+You can select from a set of **preset times** or set a **custom time**. 
+
+**To set a custom time:**
+
+1. Click the **Time window picker**.
+2. In the **Time window settings** window, click the **Custom Times** tab.
+3. Select the start and end date and time, and click **Apply**.
+
+You can see the changes applied to the dashboard. 
+
+**To see the time window settings for a dashboard**:
+
+1. Click the **Time window picker**.
+2. In the **Time window settings** window you can see the time window settings:
+   * If the settings are set from the list of preset times, you'll see the time window highlighted on the **Preset Times** tab.
+   
+     ![Preset time window settings](images/preset_time_window.png)
+
+   * If the settings are custom time window settings, you'll see them on the **Custom Times** tab.
+   
+     ![Custom time window settings](images/custom_time_window.png)
+
+
+The time window determines how often the charts in a dashboard refresh.
 * Charts with a time window of 5-10 minutes reload every second.
 * Charts with a larger time window (e.g. 4 hours or 1 day) reload every 30 second.
 
 {% include note.html content="Do not run charts with a 5-10 minute time window for a long time to avoid performance problems." %}
 
 
-
-
-![time bar with turned off live data](images/time_bar_v2.png)
 
 {% include tip.html content="Live dashboards and charts display data on days in the future as black points. This might happen, for example, if you select **1 week** under **Live**.  " %}
 
