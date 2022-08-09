@@ -18,9 +18,12 @@ We added the following integration in August 2022:
 
 We made improvements to the following integrations in August 2022:
 
-* Amazon Web Services -- We added the **Amazon FSx** service integration dashboard.
+* Amazon Web Services -- We added a new **Amazon FSx** out-of-the-box integration dashboard, so now you can monitor the Amazon FSx service.
+* Prometheus -- Made improvements to the setup instructions. 
+* Google Cloud Platform -- We added a new **Google Dataproc** out-of-the-box integration dashboard, so now you can monitor the Google Dataproc service.
 * Cassandra -- Made improvements to the Cassandra integration overview and setup instructions. Improved the Cassandra out-of-the-box integration dashboard. 
-* Google Cloud Platform -- 
+* Spring Cloud Data Flow -- Updated the latest document links on the Overview page.
+* MySQL -- We provided descriptions of approximately 1000 metrics. You can see the metrics and their descriptions on the **Metrics** tab of the MySQL integration.
 
 ## July 2022
 
