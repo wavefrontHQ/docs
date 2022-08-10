@@ -57,9 +57,10 @@ See <a href="purchase_additional_capacity.html">Purchase Additional Capacity</a>
 <strong>Time Window Picker Changes</strong>:<br/>
 
 We have updated the time window picker for dashboards. You now can see two tabs on it:
-<ul><li><strong>Preset Times</strong> - allows you to set the time window settings on a dashboard level by selecting a time period from a list of preset times.</li>
-<li><strong>Custom Times</strong> - allows you to set a custom time window by selecting the start and end date and time.</li>
+<ul><li><strong>Preset Times</strong> - allows you to set the time window settings by selecting a time period from a list of preset times.</li>
+<li><strong>Custom Times</strong> - allows you to set a custom time window by specifying a start date and time and an end date and time.</li>
 </ul>
+<p>See <a href="ui_examine_data.html#set-the-time-window">Set the Time Window</a> for details.</p>
 </td>
 <td><img src="/images/preset_time_window.png" alt="Preset time window settings.">
 <br />

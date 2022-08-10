@@ -95,21 +95,33 @@ You can select from a set of **preset times** or set a **custom time**.
 
 1. Click the **Time window picker**.
 2. In the **Time window settings** window, click the **Custom Times** tab.
-3. Select the start and end date and time, and click **Apply**.
+3. Select the start date and time and the end date and time.
+4. Click **Apply**.
 
 You can see the changes applied to the dashboard. 
 
-**To see the time window settings for a dashboard**:
+**To see the dashboard time window settings**:
 
 1. Click the **Time window picker**.
 2. In the **Time window settings** window you can see the time window settings:
-   * If the settings are set from the list of preset times, you'll see the time window highlighted on the **Preset Times** tab.
-   
-     ![Preset time window settings](images/preset_time_window.png)
 
-   * If the settings are custom time window settings, you'll see them on the **Custom Times** tab.
-   
-     ![Custom time window settings](images/custom_time_window.png)
+    <table style="width: 100%;">
+    <tbody>
+    <tr>
+    <td width="40%">If the settings are set from the list of preset times, you'll see the time window highlighted on the <strong>Preset Times</strong> tab.
+    </td>
+    <td width="60%"><img src="/images/preset_time_window.png" alt="Preset time window settings.">
+    </td>
+    </tr>
+    <tr>
+    <td width="40%">If the settings are custom time window settings, you'll see them on the <strong>Custom Times</strong> tab.
+    </td>
+    <td width="60%"><img src="/images/custom_time_window.png" alt="Custom time window settings.">
+    </td>
+    </tr>
+    </tbody>
+    </table>
+
 
 
 The time window determines how often the charts in a dashboard refresh.

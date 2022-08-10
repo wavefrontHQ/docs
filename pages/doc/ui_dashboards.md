@@ -172,12 +172,12 @@ All users can examine metrics, set the time window, and make temporary changes t
 ![An annotated screenshot with the activities listed below that users can do with a dashboard](images/v2_dashboard_elements.png)
 
 Here are some examples of what [all users can do](ui_examine_data.html):
-* Set the dashboard time window
+* Set and fine-tune the time window
 * Find a dashboard section
 * Filter with global filters or dashboard variables
 * Find a dashboard
 * Isolate sources or series
-* Fine-tune the time window
+
 
 
 ## Make Changes to a Dashboard in Edit Mode
