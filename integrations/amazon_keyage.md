@@ -33,6 +33,7 @@ Wavefront provides Amazon Web Services overview dashboards **Summary**, **Pricin
 - AWS: ElastiCache
 - AWS: Elasticsearch
 - AWS: Elastic Transcoder
+- AWS: FSx
 - AWS: IoT Core
 - AWS: IAM Access Key Age
 - AWS: Kinesis Data Stream
