@@ -8,6 +8,25 @@ summary: New and changed integrations.
 ---
 Tanzu Observability by Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
+## August 2022
+
+We added the following integration in August 2022:
+
+* VMware Tanzu Greenplum: 
+  
+  VMware Tanzu Greenplum is a massively parallel processing (MPP) database server that supports next generation data warehousing and large-scale analytics processing. This integration installs and configures Telegraf to send system and query metrics into Tanzu Observability by Wavefront.
+
+We made improvements to the following integrations in August 2022:
+
+* Amazon Web Services -- We added a new **Amazon FSx** out-of-the-box integration dashboard, so now you can monitor the Amazon FSx service.
+* Prometheus -- Made improvements to the setup instructions. 
+* Google Cloud Platform -- We added a new **Google Dataproc** out-of-the-box integration dashboard, so now you can monitor the Google Dataproc service.
+* Cassandra -- Made improvements to the Cassandra integration overview and setup instructions. Improved the Cassandra out-of-the-box integration dashboard. 
+* Spring Cloud Data Flow -- Updated the latest document links on the Overview page.
+* MySQL -- We provided descriptions of approximately 1000 metrics. You can see the metrics and their descriptions on the **Metrics** tab of the MySQL integration.
+* Java: 
+  * Added a new **Java Using Telegraf** out-of-the-box dashboard that allows you to collect and monitor JVM metrics by using the Telegraf Jolokia2 Agent plugin.
+  * Added two system alerts that fire when the heap memory usage and the memory usage by the G1 old generation are too high.
 
 ## July 2022
 
