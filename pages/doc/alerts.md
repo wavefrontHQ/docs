@@ -11,7 +11,7 @@ Tanzu Observability by Wavefront supports smart alerts that dynamically filter n
 * The **alert notification** includes an image and a link to see the alert in context.
 * Look all alerts in the **Alert Browser** or examine a single firing alert in the **Alert Viewer**.
 
-{% include note.html content="All users can view alerts and perform the tasks on this page. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %} 
+{% include note.html content="All users can view alerts and perform the tasks on this page. You need [Alerts permissions](permissions_overview.html) to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
 
 ## How Alerts Work
@@ -19,7 +19,7 @@ Tanzu Observability by Wavefront supports smart alerts that dynamically filter n
 This section starts with a video and explores the anatomy of an alert. Go to one of the tutorials if you're ready to start examining alerts right away.
 
 * [Alert Viewer Tutorial](#alert-viewer-tutorial)
-* [Alerts Browser Tutoria](#alerts-browser-tutorial)
+* [Alerts Browser Tutorial](#alerts-browser-tutorial)
 * [Create Alert Tutorial](alerts_manage.html#create-alert-tutorial)
 
 ### How Alerts Work Video
