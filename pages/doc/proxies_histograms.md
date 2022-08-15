@@ -36,10 +36,10 @@ a 95th percentile from a variety of sources) does not yield an accurate and vali
 ### Wavefront Histograms Overview
 
 To address high frequency data, the Wavefront service supports histograms -- a mechanism to compute, store, and use distributions of metrics. You have several options:
-* Send the metrics to a histogram proxy port. The Wavefront service:
+* Send metrics in Wavefront data format to a histogram proxy port. The Wavefront service:
   - Converts the metrics to histogram distributions
   - Adds the extension `.m`, `.h`. or `.d` (for minute, hour, or day distributions).
-* Convert the metric to histogram format on your side and send them in histogram format (prefix `M!`, `H!`, or `D!`, discussed below)
+* Convert the metric to histogram format on your side and send them in Wavefront histogram format (prefix `M!`, `H!`, or `D!`, discussed below)
 * Specify `f=histogram` as part of the [direct ingestion command](direct_ingestion.html#histogram-distribution).
 
 You can query histograms with a set of [functions](query_language_reference.html#histogram-functions) and display them using a histogram charts or heatmap or other chart types.
@@ -51,7 +51,7 @@ If some of your data sets are tracking various statistics, for example, `min`, `
 To determine whether there will be PPS savings from sending in metrics data as histogram data, first determine the ingestion rate for the metric data. For example:
 * Suppose that you are ingesting 10 statistics for a specific series of data at 30-second intervals: `min`, `max`, `mean`, `sum`, `count`, `p50`, `p75`, `p95`, `p9`9, and `p999`. This means that we are ingesting 20 data points every minute, or .33 PPS (20 data points per minute / 60 seconds per minute).
 * For histograms there can be one distribution per minute for any particular series at the most granular level.
-* If your conversion factor from distribution per second to PPS is less than 20, savings result from ingesting this set of data as histograms. By default, the conversion factor is 7, but you can confirm with your account representative. 
+* If your conversion factor from distribution per second to PPS is less than 20, savings result from ingesting this set of data as histograms. By default, the conversion factor is 7, but you can confirm with your account representative.
 
 In addition to these PPS savings, you will also get all the benefits of histograms, including better and more accurate insight into your data. So, even if the conversion factor results in an equivalent PPS, consider sending in data as histograms to take advantage of the benefits of using distribution data.
 
@@ -59,11 +59,11 @@ In addition to these PPS savings, you will also get all the benefits of histogra
 
 A histogram distribution allows you to combine multiple points into a complex value that has a single timestamp.
 
-To send a histogram distribution to the Wavefront proxy:
+To send a histogram distribution  to the Wavefront proxy:
 
 - Send to the **distribution** port listed in the table in [Histogram Aggregation Ports](#histogram-aggregation-ports).
 
-- Use the following format:
+- Use the Wavefront histogram format, which includes the aggregation interval:
 
   ```
   {!M | !H | !D} [<timestamp>] #<points> <metricValue> [... #<points> <metricValue>]
@@ -88,21 +88,22 @@ To send a histogram distribution to the Wavefront proxy:
 
 You can also send a histogram distribution using [direct ingestion](direct_ingestion.html#histogram-distribution). In that case, you must include `f=histogram` or your data are treated as metrics even if you use histogram data format.
 
-You can use [histogram configuration properties](proxies_configuring.html#histogram-configuration-properties) to customize how the Wavefront proxy handles histogram data.
+The proxy supports [histogram configuration properties](proxies_configuring.html#histogram-configuration-properties) to customize how the Wavefront proxy handles histogram data.
 
 ## Histogram Example
+
 
 Suppose you want to send the following points to the Wavefront proxy:
 
 10, 20, 20, 30, 40, 100, 100
 
-If you want an hourly aggregation, you can send those points as a distribution to the histogram distribution listener port:
-* By default, port 2878 for proxy 4.29 and later.
-* By default, 40000 for earlier proxy versions.
+### Option 1: Send Data in Histogram Data Format
+
+Histogram data format always includes the time interval. You can send data in histogram data format to any proxy port. For example:
 
 `!H <timestamp> #1 10 #2 20 #1 30 #2 100 my.metric source=s1`
 
-Here, you specify:
+Histogram data format includes:
 * the interval, in this case hours (!H)
 * timestamp (optional)
 * a set of sequences. Each sequence starts with #, followed by the number of points and the value of the points. In this example, we have 2 for 20 because we’re sending 2 points with the value 20.
@@ -110,7 +111,12 @@ Here, you specify:
 * source
 * optional point tag keys and values
 
-You can also send the histogram data to one of the histogram proxy ports in [Wavefront data format](wavefront_data_format.html). For this example, we use the hour port (40002). You have to send each point separately and include a timestamp, and all points have to arrive within the hour. For example, if you sent a point in the range 3:00-3:59 with !H, it shows at 3:00 with an `hs()` query.
+
+### Option 2: Convert Metrics to Histogram by Using Histogram Proxy Port
+
+You can send the data in [Wavefront data format](wavefront_data_format.html) to one of the histogram proxy ports (for this example, we use the hour port, 40002). Here are the requirements:
+* You have to send each point separately and include a timestamp
+* All points have to arrive within the time interval (in this example, within the hour).
 
 ```
 my.metric 10 <t1> <source>
@@ -122,9 +128,13 @@ my.metric 100 <t6> <source>
 my.metric 100 <t7> <source>
 ```
 
-The proxy aggregates the points and sends only the histogram distribution to the Wavefront service. The service knows only what each bin is and how many points are in each bin. The service doesn't store the value of each single histogram point, it computes and stores the distribution.
+The proxy aggregates the points and sends only the histogram distribution to the Wavefront service. The Wavefront service knows only what each bin is and how many points are in each bin. The service doesn't store the value of each single histogram point, it computes and stores the distribution.
 
-You can now apply other functions to the histogram, for example, you can try to find out what the 85th percentile of the histogram is. For this example, you could now write a query like this:
+## Histogram Functions
+
+After the histogram have been sent to the Wavefront service, you can manipulate the data with [histogram functions](query_language_reference.html#histogram-functions).
+
+For example, you can try to find out what the 85th percentile of the histogram is by writing a query like this:
 
 `percentile (85, hs(my.metric))`
 
