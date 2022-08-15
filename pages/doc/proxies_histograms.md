@@ -57,13 +57,11 @@ In addition to these PPS savings, you will also get all the benefits of histogra
 
 ## Sending Histogram Distributions
 
-A histogram distribution allows you to combine multiple points into a complex value that has a single timestamp.
+A histogram distribution allows you to combine multiple points into a complex value that has a single timestamp. You can either send metrics data to a histogram port, or send histogram data to any proxy port.
 
-To send a histogram distribution  to the Wavefront proxy:
+### Send Data in Wavefront Histogram Format
 
-- Send to the **distribution** port listed in the table in [Histogram Aggregation Ports](#histogram-aggregation-ports).
-
-- Use the Wavefront histogram format, which includes the aggregation interval:
+You can send data in Wavefront **histogram** format, which includes the aggregation interval, to any proxy port:
 
   ```
   {!M | !H | !D} [<timestamp>] #<points> <metricValue> [... #<points> <metricValue>]
@@ -87,6 +85,16 @@ To send a histogram distribution  to the Wavefront proxy:
   {% include note.html content="Unlike the Wavefront data format, which is `<metricName> <metricValue> <timestamp>`, histogram data format inverts the ordering of components in a data point: `<timestamp> #<points> <metricValue> <metricName>`." %}
 
 You can also send a histogram distribution using [direct ingestion](direct_ingestion.html#histogram-distribution). In that case, you must include `f=histogram` or your data are treated as metrics even if you use histogram data format.
+
+### Send Data in Wavefront Data Format
+
+You can send metric data in Wavefront **data** format to one of the **histogram** ports. Different ports are for different aggregation intervals. Here are the defaults, see [Histogram Aggregation Ports](#histogram-aggregation-ports) for details.
+
+* minute - 40001
+* hour -	40002
+* day -	40003
+
+### Histogram Configuration Properties
 
 The proxy supports [histogram configuration properties](proxies_configuring.html#histogram-configuration-properties) to customize how the Wavefront proxy handles histogram data.
 
