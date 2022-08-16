@@ -57,11 +57,13 @@ In addition to these PPS savings, you will also get all the benefits of histogra
 
 ## Sending Histogram Distributions
 
-A histogram distribution allows you to combine multiple points into a complex value that has a single timestamp. You can either send metrics data to a histogram port, or send histogram data to any proxy port.
+A histogram distribution allows you to combine multiple points into a complex value that has a single timestamp. You can either send metrics data to a specialized histogram port, or send histogram data to a proxy port that accepts histogram data.
 
 ### Send Data in Wavefront Histogram Format
 
-You can send data in Wavefront **histogram** format, which includes the aggregation interval, to any proxy port:
+You can send data in Wavefront **histogram** format, which includes the aggregation interval, to a proxy port that is accepting histogram data. The ports are defined by `pushListenerPorts` (default: 2878) or `histogramDistListenerPorts` (default: 40000) in the proxy configuration file.
+
+Here's the syntax:
 
   ```
   {!M | !H | !D} [<timestamp>] #<points> <metricValue> [... #<points> <metricValue>]
@@ -88,7 +90,7 @@ You can also send a histogram distribution using [direct ingestion](direct_inges
 
 ### Send Data in Wavefront Data Format
 
-You can send metric data in Wavefront **data** format to one of the **histogram** ports. Different ports are for different aggregation intervals. Here are the defaults, see [Histogram Aggregation Ports](#histogram-aggregation-ports) for details.
+You can send metric data in Wavefront **data** format to one of the **histogram aggregation ports**. Different ports are for different aggregation intervals. Here are the defaults, see [Histogram Aggregation Ports](#histogram-aggregation-ports) for details.
 
 * minute - 40001
 * hour -	40002
@@ -107,7 +109,9 @@ Suppose you want to send the following points to the Wavefront proxy:
 
 ### Option 1: Send Data in Histogram Data Format
 
-Histogram data format always includes the time interval. You can send data in histogram data format to any proxy port. For example:
+Histogram data format always includes the time interval. You can send data in histogram data format to a proxy port that is accepting histogram data. The ports are defined by `pushListenerPorts` (default: 2878) or `histogramDistListenerPorts` (default: 40000) in the proxy configuration file.
+
+For example:
 
 `!H <timestamp> #1 10 #2 20 #1 30 #2 100 my.metric source=s1`
 
@@ -122,7 +126,7 @@ Histogram data format includes:
 
 ### Option 2: Convert Metrics to Histogram by Using Histogram Proxy Port
 
-You can send the data in [Wavefront data format](wavefront_data_format.html) to one of the histogram proxy ports (for this example, we use the hour port, 40002). Here are the requirements:
+You can send the data in [Wavefront data format](wavefront_data_format.html) to one of the histogram aggregation proxy ports (for this example, we use the hour port, which defaults to 40002). Here are the requirements:
 * You have to send each point separately and include a timestamp
 * All points have to arrive within the time interval (in this example, within the hour).
 
@@ -163,9 +167,12 @@ In some special circumstances, you might want to set up histograms to overwrite 
 ## Histogram Aggregation Ports
 
 The port you use depends on your intention.
-* If you are already sending histogram distributions to the proxy directly, you can use the same port you use for your regular metric traffic (usually 2878, see `pushListenerPorts`).
+* If you are already sending histogram distributions to the proxy directly:
+  - You can use the same port you use for your regular metric traffic `pushListenerPorts`, which defaults to 2878.
+  - You can use the general histogram port ` histogramDistListenerPorts`, which defaults to 40000.
+  - You cannot use one of the histogram aggregation ports.
 
-* If you want to aggregate high-velocity metric data into histogram distributions, use one of the following ports:
+* If you want to aggregate high-velocity metric data into histogram distributions, use one of the histogram aggregation ports:
 
 <table>
 <colgroup>
