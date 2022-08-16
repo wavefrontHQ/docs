@@ -83,7 +83,7 @@ This section explains how to downgrade. For clarity, the section uses explicit v
 
 ### Install Nozzle 4.1.1 and Enable Service Broker Bindings
 
-You enable service broker bindings as part of the <strong>Wavefront Proxy Config</strong> step of nozzle configuration. 
+You enable service broker bindings as part of the <strong>Wavefront Proxy Config</strong> step of nozzle configuration.
 
 <table style="width: 100%;">
 <tbody>
@@ -172,3 +172,20 @@ Here are some things you can do.
 In the Ops Manager tile:
 * Increase the size of the Telegraf Agent Virtual Machine
 * Increase the Telegraf scrape interval
+
+## Symptom: No Data Flowing In
+
+No data are flowing in from one or more of your foundations. When you check the proxy log, you see an error like the following:
+```
+2022-06-05T08:17:37Z E! [outputs.wavefront::wavefront-pipeline-2] wavefront flushing error: error reporting wavefront format data to Wavefront: "Post \https://wavefront-proxy.service.internal:4443/report?f=wavefront\: x509: certificate signed by unknown authority"
+```
+
+**Cause**
+
+This error results if the TLS connection between the Telegraf VM and the Proxy VM fails because the Tanzu Ops Manager root CA was not included during setup.
+
+**Solution**
+
+Include the root CA by clicking the check box. The following screenshot shows a BOSH Director for GCP setup with **Include Tanzu Ops Manager Root CA in Trusted Certs** checked.
+
+![Screenshot of Security tab shows Include Tanzu Ops Manager Root CA in Trusted Certs ](images/tas_include_root_ca.png)
