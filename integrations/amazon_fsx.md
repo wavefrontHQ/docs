@@ -1,8 +1,8 @@
 ---
-title: Amazon ECS Integration
+title: Amazon FSx Integration
 tags: [integrations list]
-permalink: amazon_ecs.html
-summary: Learn about the Wavefront Amazon ECS Integration.
+permalink: amazon_fsx.html
+summary: Learn about the Wavefront Amazon FSx Integration.
 ---
 ## Amazon Web Services Integration
 
@@ -106,75 +106,23 @@ Then, you register the integration by providing the necessary information. See [
 <h2>Alerts</h2>  <ul><li markdown="span"><b>EC2 Instance CPU Usage Too High</b>:Alert reports when the EC2 instance CPU utilization constantly exceeds the defined limit.</li><li markdown="span"><b>EC2 Instance Status Check Failed</b>:Alert reports when the EC2 status check constantly fails.</li></ul>
 
 
-See [Telegraf documentation](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/ecs/README.md) for Metrics.
-
 |Metric Name|Description|
 | :--- | :--- |
-|aws.ecs.cpureservation.*|Statistics: average, maximum, minimum, samplecount, sum|
-|aws.ecs.cpuutilization.*|Statistics: average, maximum, minimum, samplecount, sum|
-|aws.ecs.memoryreservation.*|Statistics: average, maximum, minimum, samplecount, sum|
-|aws.ecs.memoryutilization.*|Statistics: average, maximum, minimum, samplecount, sum|
-|telegraf.ecs.container.blkio.io.service.bytes.recursive.async||
-|telegraf.ecs.container.blkio.io.service.bytes.recursive.read||
-|telegraf.ecs.container.blkio.io.service.bytes.recursive.sync||
-|telegraf.ecs.container.blkio.io.service.bytes.recursive.total||
-|telegraf.ecs.container.blkio.io.service.bytes.recursive.write||
-|telegraf.ecs.container.blkio.io.serviced.recursive.async||
-|telegraf.ecs.container.blkio.io.serviced.recursive.read||
-|telegraf.ecs.container.blkio.io.serviced.recursive.sync||
-|telegraf.ecs.container.blkio.io.serviced.recursive.total||
-|telegraf.ecs.container.blkio.io.serviced.recursive.write||
-|telegraf.ecs.container.cpu.throttling.periods||
-|telegraf.ecs.container.cpu.throttling.throttled.periods||
-|telegraf.ecs.container.cpu.throttling.throttled.time||
-|telegraf.ecs.container.cpu.usage.in.kernelmode||
-|telegraf.ecs.container.cpu.usage.in.usermode||
-|telegraf.ecs.container.cpu.usage.percent||
-|telegraf.ecs.container.cpu.usage.system||
-|telegraf.ecs.container.cpu.usage.total||
-|telegraf.ecs.container.mem.active.anon||
-|telegraf.ecs.container.mem.active.file||
-|telegraf.ecs.container.mem.cache||
-|telegraf.ecs.container.mem.hierarchical.memory.limit||
-|telegraf.ecs.container.mem.inactive.anon||
-|telegraf.ecs.container.mem.inactive.file||
-|telegraf.ecs.container.mem.limit||
-|telegraf.ecs.container.mem.mapped.file||
-|telegraf.ecs.container.mem.max.usage||
-|telegraf.ecs.container.mem.pgfault||
-|telegraf.ecs.container.mem.pgmajfault||
-|telegraf.ecs.container.mem.pgpgin||
-|telegraf.ecs.container.mem.pgpgout||
-|telegraf.ecs.container.mem.rss||
-|telegraf.ecs.container.mem.rss.huge||
-|telegraf.ecs.container.mem.total.active.anon||
-|telegraf.ecs.container.mem.total.active.file||
-|telegraf.ecs.container.mem.total.cache||
-|telegraf.ecs.container.mem.total.inactive.anon||
-|telegraf.ecs.container.mem.total.inactive.file||
-|telegraf.ecs.container.mem.total.mapped.file||
-|telegraf.ecs.container.mem.total.pgfault||
-|telegraf.ecs.container.mem.total.pgmajfault||
-|telegraf.ecs.container.mem.total.pgpgin||
-|telegraf.ecs.container.mem.total.pgpgout||
-|telegraf.ecs.container.mem.total.rss||
-|telegraf.ecs.container.mem.total.rss.huge||
-|telegraf.ecs.container.mem.total.unevictable||
-|telegraf.ecs.container.mem.total.writeback||
-|telegraf.ecs.container.mem.unevictable||
-|telegraf.ecs.container.mem.usage||
-|telegraf.ecs.container.mem.usage.percent||
-|telegraf.ecs.container.mem.writeback||
-|telegraf.ecs.container.meta.limit.cpu||
-|telegraf.ecs.container.meta.limit.mem||
-|telegraf.ecs.container.net.rx.bytes||
-|telegraf.ecs.container.net.rx.dropped||
-|telegraf.ecs.container.net.rx.errors||
-|telegraf.ecs.container.net.rx.packets||
-|telegraf.ecs.container.net.tx.bytes||
-|telegraf.ecs.container.net.tx.dropped||
-|telegraf.ecs.container.net.tx.errors||
-|telegraf.ecs.container.net.tx.packets||
-|telegraf.ecs.task.limit.cpu||
-|telegraf.ecs.task.limit.mem||
+|aws.fsx.compressionratio.*| The ratio of compressed storage usage to uncompressed storage usage on the OpenZFS file system.<br>Statistics: average, maximum, minimum, samplecount, sum|
+|aws.fsx.datareadbytes.*| The number of bytes for read operations on the FSx file system.<br>Statistics: average, maximum, minimum, samplecount, sum|
+|aws.fsx.datareadoperations.*| The number of read operations on the FSx file system.<br>Statistics: average, maximum, minimum, samplecount, sum|
+|aws.fsx.datawritebytes.*| The number of bytes for write operations on the FSx file system.<br>Statistics: average, maximum, minimum, samplecount, sum|
+|aws.fsx.datawriteoperations.*| The number of write operations on the FSx file system.<br>Statistics: average, maximum, minimum, samplecount, sum|
+|aws.fsx.freedatastoragecapacity.*| The amount of available storage capacity on Lustre file system.<br>Statistics: average, maximum, minimum, samplecount, sum|
+|aws.fsx.freestoragecapacity.*| The number of bytes of storage capacity on Windows File Server file system.<br>Statistics: average, minimum|
+|aws.fsx.logicaldatastored.*| The total number of bytes of logical data stored on the NetApp ONTAP file system, on both the primary (SSD) tier and the capacity pool tier.<br>Statistics: average, maximum, minimum|
+|aws.fsx.metadataoperations.*| The number of metadata operations on the Lustre, Windows File Server, and NetApp ONTAP file systems.<br>Statistics: average, maximum, minimum, samplecount, sum|
+|aws.fsx.nfsbadcalls.*| The number of calls rejected by NFS server Remote Procedure Call (RPC) mechanism on the OpenZFS file system.<br>Statistics: average, maximum, minimum, samplecount, sum|
+|aws.fsx.storagecapacity.*| The total storage capacity on the OpenZFS file system, equal to the sum of used and available storage capacity.<br>Statistics: average, maximum, minimum, samplecount, sum|
+|aws.fsx.storageused.*| The total number of bytes of physical data stored on the NetApp ONTAP file system.<br>Statistics: average, maximum, minimum|
+|aws.fsx.usedstoragecapacity.*| The amount of storage used on the OpenZFS file system.<br>Statistics: average, maximum, minimum, samplecount, sum|
+|aws.fsx.filesused.*| The number of files (or inodes) used on the NetApp ONTAP volume.<br>Statistics: average, maximum, minimum|
+|aws.fsx.filescapacity.*| The total number of inodes that can be created on the NetApp ONTAP volume.<br>Statistics: maximum|
+|aws.fsx.physicaldiskusage.*| The amount of storage physically occupied by the Lustre file system data (compressed).<br>Statistics: average, maximum, minimum, samplecount, sum|
+|aws.fsx.logicaldiskusage.*| The amount of logical data stored (uncompressed) stored on the Lustre file system.<br>Statistics: average, maximum, minimum, samplecount, sum|
 

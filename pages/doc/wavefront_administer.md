@@ -12,6 +12,7 @@ Super Admin users and users with the **Accounts** permission can perform a varie
 * Manage the authorization and access to the Wavefront environment.
 * Select the authentication model in the Wavefront environment. For example by setting up SSO using an identity provider (IdP).
 * Monitor and troubleshoot the Wavefront environment and usage.
+* Purchase initial and additional Tanzu Observability capacity by using the self-service workflows in the UI.
 
 ## Authorization
 
@@ -40,3 +41,7 @@ As a Super Admin user, you can use the Wavefront Usage integration dashboards to
 * In addition, you can create your own dashboards, charts, and alerts by using the internal metrics to investigate the problem.
 
 As a Super Admin user, you can also [monitor the overall Wavefront usage](examine_usage.html) and see how data is used by specific accounts or groups, based on the [ingestion policies](ingestion_policies.html) that you create.
+
+## Purchase Tanzu Observability Capacity
+
+As a Super Admin user, you can [upgrade](upgrade_and_purchase.html) your Wavefront instance from a trial version to a billable subscription. You can also [add more PPS](purchase_additional_capacity.html) to your active subscription.

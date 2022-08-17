@@ -14,6 +14,9 @@ For fine-grained control before data are sent to the Wavefront service, Tanzu Ob
 
 This page explains how to write these preprocessor rules, and includes many examples.
 
+{% include tip.html content="See the [Metrics Data Format Syntax](wavefront_data_format.html#metrics-data-format-syntax) for some background. A point line uses several elements to describe a metric, for example, `test-spy.objectName 1 source=localhost tagKey=production`. " %}
+
+
 ## Overview
 
 The Wavefront proxy includes a preprocessor that applies rules before data is sent to Wavefront. The rules make it possible to address data quality issues in the data flow when it's not possible to fix the problem at the source. For example, you could have a rule "before the point line is parsed, replace invalid characters with underscores" to allow points that would be rejected to get to the Wavefront service.
@@ -309,7 +312,7 @@ Enables you to pass only metrics that are provided in a `preprocessor_rules.yaml
 </tbody>
 </table>
 
-<font size="3"><strong>Example</strong></font> 
+<font size="3"><strong>Example</strong></font>
 
 ```yaml
   # only allow points listed under "names"
@@ -514,7 +517,7 @@ Removes a point tag.
 
 ### extractTag and extractTagIfNotExists
 
-Extracts a string from the metric name, source name, or point tag value and creates a new point tag from it.
+Extracts a string from the metric name, source name, point line, or point tag value and creates a new point tag from it.
 * For `extractTag` create the new point tag.
 * For `extractTagIfNotExists` create the new point tag but do not replace the existing value with the new value if the tag already exists.
 

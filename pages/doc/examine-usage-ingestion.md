@@ -9,7 +9,7 @@ summary: Monitor overall usage for a given time period.
 As a Super Admin user, you're interested in how ingested data is used, whether you will be billed for more data, and whether you will need to request more data. Billing is based on the amount of data, measured in Points per Second (PPS), which you send to Tanzu Observability by Wavefront. If you exceed your committed rate, you will be charged more.
 
 
-{% include note.html content="You must be a Super Admin to view the Usage Portal and manage ingestion policies."%}
+{% include note.html content="You must be a Super Admin to view the Usage and Subscriptions menu and manage ingestion policies."%}
 
 You can examine the performance of your Wavefront instance using [wftop, Wavefront spy](wavefront_monitoring_spy.html), and the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response). 
 
@@ -21,7 +21,7 @@ You can also see how data is used by specific accounts or groups, based on the [
 You can navigate to the Usage Summary dashboard to get an overview of the ingested and scanned data over a certain month. You can go up to 2 years back in time.
 
 1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
 
    The **Usage Summary** tab opens. This tab contains the dashboard with an overview of the ingested and scanned rates.
 3. To choose a specific month, from the **Billing Month** drop-down menu, select the month you are interested in.

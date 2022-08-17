@@ -27,7 +27,7 @@ Your Wavefront instance includes out-of-the-box dashboards and charts that help 
 <tr>
 <td>If you're a Super Admin user and you want to know how close you are to exceeding your committed rate and whether you will be billed for overages, you can use the <a href="examine_usage.html">Usage Summary dashboard</a>.
 <ol>
-<li>Click the gear icon in the top right corner and select <strong>Usage Portal</strong>.</li>
+<li>Click the gear icon in the top right corner and select <strong>Usage and Subscriptions</strong>.</li>
 <li>Examine the charts on the dashboard. </li>
 </ol> </td>
 <td width="50%"><img src="/images/usage_overview.png" alt="screenshot of usage summary dashboard"></td></tr>
@@ -262,7 +262,7 @@ You can find out which teams are using the most data with ingestion policies or 
 <td><strong>Examine Ingestion with the Namespace Usage Explorer dashboard</strong> </td>
 <td markdown="span">If many teams in your company use Wavefront, it's good practice to have a policy that includes the team name in each ingested data point. You can then easily determine which teams ingest a lot of data.
 </td>
-<td><a href="ingestion_policies.html#examine-usage">Examine Usage with Ingestion Policies</a></td>
+<td><a href="ingestion_policies.html#examine-ingestion-policy-usage">Examine Usage with Ingestion Policies</a></td>
 </tr>
 </tbody>
 </table>
