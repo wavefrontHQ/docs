@@ -27,7 +27,7 @@ Your Wavefront instance includes out-of-the-box dashboards and charts that help 
 <tr>
 <td>If you're a Super Admin user and you want to know how close you are to exceeding your committed rate and whether you will be billed for overages, you can use the <a href="examine_usage.html">Usage Summary dashboard</a>.
 <ol>
-<li>Click the gear icon in the top right corner and select <strong>Usage Portal</strong>.</li>
+<li>Click the gear icon in the top right corner and select <strong>Usage and Subscriptions</strong>.</li>
 <li>Examine the charts on the dashboard. </li>
 </ol> </td>
 <td width="50%"><img src="/images/usage_overview.png" alt="screenshot of usage summary dashboard"></td></tr>

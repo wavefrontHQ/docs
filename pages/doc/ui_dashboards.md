@@ -172,12 +172,12 @@ All users can examine metrics, set the time window, and make temporary changes t
 ![An annotated screenshot with the activities listed below that users can do with a dashboard](images/v2_dashboard_elements.png)
 
 Here are some examples of what [all users can do](ui_examine_data.html):
-* Set the dashboard time window
+* Set and fine-tune the time window
 * Find a dashboard section
 * Filter with global filters or dashboard variables
 * Find a dashboard
 * Isolate sources or series
-* Fine-tune the time window
+
 
 
 ## Make Changes to a Dashboard in Edit Mode
@@ -320,8 +320,9 @@ For each dashboard, you can customize display preferences and settings.
 <li>Click <strong>Settings</strong>.</li>
 <li>Make selections in the dialog:
 <ol><li>Set the default time window. You can later override the time window. <br />Time window settings on a dashboard level apply to all charts for which you have selected to use the <strong>Default to dashboard time window</strong> option. If you have set a fixed time window on a chart, the time window on that specific chart won’t be affected. </li>
-<li>Hide the variables for the dashboard by default. Users can still show the variables bar using the <img src="/images/show_hide_variable_icon.png"
+<li>Deselect the <strong>Show Variable Bar by Default</strong> check box to hide the variables for the dashboard. Users can still show the variables bar using the <img src="/images/show_hide_variable_icon.png"
 style="vertical-align:text-bottom;width:25px" alt="show or hide variable icon" /> icon.  </li>
+<li>Select whether you want to turn off live refresh for dynamic variables.</li>
 <li>Click <strong>Advanced</strong></li>
 <li>Select to display the <a href="events.html">Events</a> on charts by entering an event query.<br>
 For more information, see <a href="charts_events_displaying.html#specify-an-events-query-for-a-dashboard">Specify an Events() Query for a Dashboard</a>.
@@ -537,7 +538,7 @@ When a dashboard has a lot of variables with interdependencies, it might make se
 <td width="50%">
 <ol><li>Open the dashboard for edit, either from the Dashboards browser or from the ellipsis icon in the top right of the dashboard..  </li>
 <li>Click <strong>Settings</strong> </li>
-<li>Check <strong>Disable Variable Refresh in Live Mode</strong>. </li></ol>
+<li>Select <strong>Disable Variable Refresh in Live Mode</strong>. </li></ol>
 <p>Going forward, <strong>Variable Refresh Disabled</strong> info text show up to the right of the variables bar. Users no longer see the potentially distracting refresh of each chart. An explicit brower refresh updates all variables.</p></td>
 <td width="50%">
 <img src="/images/variable_refresh.png " alt="save to dashboard"></td>
