@@ -24,7 +24,7 @@ Wrapping a query in `align()` is often a good idea:
 The speed at which a query is executed and displayed is partly based on how many data points have to be displayed on the chart. Consider a 60-minute chart with data values reported every 60 seconds (assume resolution is ~30s). It takes longer to render and display 60 values than it  would take to display 6 values that are aligned at 10-minute buckets. As the time window increases, the effect is more noticeable.
 
 ### Reducing Unnecessary Interpolation
-Using `align()` can also improve query speed if [aggregation functions](query_language_aggregate_functions.html#standard-aggregation-functions-interpolation) perform [interpolation](query_language_discrete_continuous.html#functions-that-use-interpolation-to-create-continuous-data).
+Using `align()` can also improve query speed if [aggregation functions](query_language_aggregate_functions.html#standard-aggregation-functions-interpolation) perform [interpolation](query_language_discrete_continuous.html#functions-and-operators-that-use-interpolation-to-create-continuous-data).
 
 Here's a simple example:
 * You have 10 series that typically report every 60 seconds and that you want to average over a 2-hour window.
