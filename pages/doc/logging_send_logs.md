@@ -90,7 +90,7 @@ If logs exceed the maximum character limit for a message, tag, and value the Wav
       Log tags
     </td>
     <td>
-      Tags need to be of log cardinality. <br/>
+      Tags need to be of low cardinality. <br/>
       128 characters per tag.<br/>
       100 tags per log.
     </td>
