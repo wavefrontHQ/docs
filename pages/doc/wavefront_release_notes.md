@@ -16,7 +16,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 ## 2022-33.x Release Notes
 
 * The [ingestion policy dashboard](ingestion_policies.html#examine-ingestion-policy-usage) now shows the P95 usage by the policy.
-* **Integrations**: The August 2022 integrations release was made available! It includes new VMware Tanzu Greenplum integration, Amazon FSx integration dashboard, Google Dataproc integration dashboard, Java Using Telegraf integration dashboard, as well as two new Java alerts and several improvements to other integrations. See the [Integration Release Notes](integrations_new_changed.html#august-2022) for details.
+* **Integrations**: The August 2022 integrations release was made available! It includes new VMware Tanzu Greenplum integration, Amazon FSx integration dashboard, Google Dataproc integration dashboard, Java Using Telegraf integration dashboard, as well as two new Java alerts and improvements to several other integrations. See the [Integration Release Notes](integrations_new_changed.html#august-2022) for details.
 
 ## 2022-32.x Release Notes
 
