@@ -15,7 +15,8 @@ You can send logs to the Wavefront proxy from your log shipper or directly from 
 
 ## Prerequisites
 
-* A Wavefront account, which gives you access to a cluster. If you don’t have a cluster, [sign up for a free trial](https://tanzu.vmware.com/observability-trial).
+* A Wavefront account, which gives you access to a cluster. 
+  <!--If you don’t have a cluster, [sign up for a free trial](https://tanzu.vmware.com/observability-trial).-->
 * A Wavefront API token linked to an account with Proxy permission. See [Generating an API Token](wavefront_api.html#generating-an-api-token).
 * Whitelist the VMware domain (`*.vmware.com`) on your environment. If you want to narrow down the whitelisting domain, contact your Tanzu Observability account representative.
   Tanzu Observability uses a VMware log cluster. Therefore, to send your log data successfully, you need to whitelist the VMware domain.
@@ -34,14 +35,17 @@ The Wavefront proxy accepts a JSON array payload over HTTP. Follow these steps t
 
 ## Configure Your Log Shipper
 
-As a best practice, we recommend you use a log shipper to send logs to Tanzu Observability. A log shipper scrapes and buffers your logs before sending them to the Wavefront proxy.
+As a best practice, we recommend you use a log shipper to send logs to Tanzu Observability. A log shipper scrapes and buffers your logs before sending them to the Wavefront proxy. 
 
-{% include note.html content="Tanzu Observability supports the Fluentd log shipper. If you are using a different log shipper, reach out to [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help." %}
+Tanzu Observability supports the [Fluentd](https://docs.fluentd.org/) log shipper. If you are using a different log shipper, reach out to [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support) for help. 
+
 
 Configure your log shipper:
+  1. Install the log shipper. For example, [install Fluentd](https://docs.fluentd.org/installation).
+  
   1. Configure the log shipper to send data to the Wavefront proxy by adding the hostname of the host that the proxy runs, and the `pushListenerPorts` you configured in the proxy.
-  <br/>Shown below is an example configuration:
-      
+  <br/>Example: Configure the `fluent.conf` file to send data to a proxy:
+     
       ```
       <match wf.**>
         @type copy
@@ -86,7 +90,7 @@ If logs exceed the maximum character limit for a message, tag, and value the Wav
       Log tags
     </td>
     <td>
-      Tags need to be of log cardinality. <br/>
+      Tags need to be of low cardinality. <br/>
       128 characters per tag.<br/>
       100 tags per log.
     </td>

@@ -59,6 +59,71 @@ Wavefront proxy drops the logs that exceed the [maximum character limit](logging
 
 You see the number of logs that were blocked in the **Blocked logs per second** chart. If you see a spike in the number of dropped logs, make sure that you follow the [best practices](logging_send_logs.html#best-practices) when sending logs to Tanzu Observability.
 
+## Why do I See a `pattern not match` Error in the Fluentd Logs?
+
+If your application runs on a Kubernetes cluster, and if you see a `pattern not match` error in the Fluentd logs, Fluentd scrapes the logs on your application but does not send them across to the Wavefront proxy. Add the following configuration to your `fluent.conf` file to resolve the `pattern not match` error:
+
+```
+<pattern>
+  format regexp
+  expression /^(?<time>.+) (?<stream>stdout|stderr)( (.))? (?<log>.*)$/
+  time_format '%Y-%m-%dT%H:%M:%S.%NZ'
+  keep_time_key false
+</pattern>
+```
+
+## How Do I Know If the Proxy Receives Data?
+
+Don't see your data on the Logs Browser and don't know if it is your log shipper (example: Fluentd) or the Wavefront proxy that's not sending the data? Follow the steps below to confirm that the Wavefront proxy is sending data. 
+
+1. Run the following curl command to send a log to the proxy as a JSON payload:
+
+    ```
+    curl --location --request POST 'http://<Proxy_Host>:<Proxy_Port>/logs/json_array?f=logs_json_arr' \
+    --header 'Content-Type: application/json' \
+    --data-raw '[
+        {
+            "message": "test message",
+            "source": "localhost",
+            "application": "test_application",
+            "test_label": "label1"
+        }
+    ]'
+    ```
+    {% include tip.html content="For information on the attributes that you can send for logs, see [What’s a Tanzu Observability Log?](logging_overview.html#whats-a-tanzu-observability-log)" %}
+
+    Example: Use the following command if you are running the proxy locally and using port 2878:
+
+    ```
+    curl --location --request POST 'http://localhost:2878/logs/json_array?f=logs_json_arr' \
+    --header 'Content-Type: application/json' \
+    --data-raw '[
+        {
+            "message": "test message",
+            "source": "localhost",
+            "application": "test_application",
+            "test_label": "label1"
+        }
+    ]'
+    ```
+    {% include note.html content="If the proxy is not up and running, you get the following error message: **Failed to connect to localhost port 2878: Connection refused**." %}
+
+1. To confirm that the data sent to the proxy, is sent to the service:
+    1. In your web browser, go to your Wavefront instance and log in.
+    1. From the toolbar, select **Logs**. You are taken to the Log Browser.
+    1. Click **applications** under **All Tags**.
+    1. Click **test_application** (this is the value of the application tag in the log message you sent). You see the test data you sent on the chart.
+
+{{site.data.alerts.note}}
+  <ul>
+    <li>
+      If you don't see the data, you need to check your proxy configurations.
+    </li>
+    <li>
+      If the proxy is sending data, you need to check the logs shipper is configurations.  
+    </li>
+  </ul>
+{{site.data.alerts.end}}
 
 ## Nest Steps
 

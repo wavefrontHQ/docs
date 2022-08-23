@@ -77,6 +77,8 @@ To start alert creation, do one of the following:
 </tbody>
 </table>
 
+{% include tip.html content="Click the lighbulb icon to the right of the query for statistics and suggestions for the alert query. See [Use Statistics and Suggestions](query_language_performance.html#use-statistics-and-suggestions)." %}
+
 ### Step 1b: Customize the Chart (Optional)
 
 <table style="width: 100%;">

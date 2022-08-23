@@ -54,12 +54,8 @@ Most use cases do not require you to know exactly how the Wavefront service expe
 It is possible to manually construct a well-formed span and send it either [directly to the Wavefront service](direct_ingestion.html#trace-data-spans) or to a TCP port that the Wavefront proxy is listening on for trace data. You might want to do this if you instrumented your application with a proprietary distributed tracing system.
 
 {{site.data.alerts.important}}
-<p>Application or service names that have special characters are rejected by Wavefront service and are not supported by the tracing user interfaces.
-</p>
-Example:
-<pre>
-!"#$%&'()*+,-./:;<=>?@[&#92;]^_&#96;{|}~
-</pre>
+<p>The valid characters in an application and service name are: a-z, A-Z, 0-9, hyphen ("-"), underscore ("_"), dot ("."), forward slash ("/") and comma (","). </p>
+<p>If your application or service names have any other characters other than the valid characters, the Wavefront service replaces each of those characters with a hyphen ("-"). </p>
 {{site.data.alerts.end}}
 
 <table style="width: 100%;">
@@ -237,13 +233,20 @@ The following table lists span tags that describe the architecture of the instru
 <tr>
 <td markdown="span">`application`</td>
 <td markdown="span">Yes</td>
-<td markdown="span">Name of the instrumented application that emitted the span. </td>
+<td>Name of the instrumented application that emitted the span. 
+  <p>The valid characters are: a-z, A-Z, 0-9, hyphen ("-"), underscore ("_"), dot ("."), forward slash ("/") and comma (","). </p>
+  <p>If your application or service names have special characters, the Wavefront service replaces each special character with a hyphen ("-"). </p>
+</td>
 <td markdown="span">String</td>
 </tr>
 <tr>
 <td markdown="span">`service`</td>
 <td markdown="span">Yes</td>
-<td markdown="span">Name of the instrumented microservice that emitted the span.</td>
+<td>
+  Name of the instrumented microservice that emitted the span.
+  <p>The valid characters are: a-z, A-Z, 0-9, hyphen ("-"), underscore ("_"), dot ("."), forward slash ("/") and comma (","). </p>
+  <p>If your application or service names have special characters, the Wavefront service replaces each special character with a hyphen ("-"). </p>
+</td>
 <td markdown="span">String</td>
 </tr>
 <tr>
@@ -379,7 +382,6 @@ RED metrics are key indicators of the health of your services, and you can use t
 * Rate of requests – number of requests being served per minute
 * Errors – number of failed requests per minute
 * Duration – per-minute histogram distributions of the amount of time that each request takes
-
 
 ### Span RED Metrics and Trace RED Metrics
 

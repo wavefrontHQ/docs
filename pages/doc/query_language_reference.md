@@ -548,6 +548,8 @@ All operations between `tsExpression`s are subject to the matching processes des
 <li markdown="span">`[+]`, `[-]`, `[*]`, `[/]`: Perform strict 'inner join' versions of the arithmetic operators. <span>Strict operators match metric/source/point tag combinations on both sides of the operator and filter out unmatched combinations.</li></ul>
 <p markdown="span">In addition, we support the [pow()](ts_pow.html) and [mod()](ts_mod.html) functions, which support power of and modulo arithmetic operations. </p>
 
+{% include important.html content="Operators perform interpolation. As a result, a query like `A \ B` might have a result even if you see no values for A in the current time window (because the query engine interpolates data points based on existing values outside the current time window). Use `raw` around the operator, for example, `raw(\)` to avoid this problem." %}
+
 <li markdown="span">**Comparison operators** -- Compare corresponding values of time series that are described by the `tsExpression` arguments on either side of the operator.</li>
 <ul><li markdown="span">`<`, `<=`, `>`, `>=`, `!=`, `=`: Returns 1 if the condition is true. Otherwise returns 0. Double equals (==) is not a supported WQL operator.</li>
 <li markdown="span">`[<]`, `[<=]`, `[>]`, `[>=]`, `[=]`, `[!=]`: Perform strict 'inner join' versions of the comparison operators. Strict operators match metric/source/point tag combinations on both sides of the operator and filter out unmatched combinations.</li>

@@ -87,16 +87,50 @@ You can select a larger or smaller time window or view past data instead of real
 - Click the **Live** button to turn on (green) live data and see up-to-date data on the charts.
 - Click the **Live** button again to turn off live data and to look at past data.
 
-Regardless of selection, you can click the time selector for a fine-grained time selection window. To the left of the time selector, you see the currently selected time. The time window determines how often the charts in a dashboard refresh.
+Regardless of selection, you can click the time window selector for a fine-grained time selection window. 
+
+You can select from a set of **preset times** or set a **custom time**. 
+
+**To set a custom time:**
+
+1. Click the **Time window picker**.
+2. In the **Time window settings** window, click the **Custom Times** tab.
+3. Select the start date and time and the end date and time.
+4. Click **Apply**.
+
+You can see the changes applied to the dashboard. 
+
+**To see the dashboard time window settings**:
+
+1. Click the **Time window picker**.
+2. In the **Time window settings** window you can see the time window settings:
+
+    <table style="width: 100%;">
+    <tbody>
+    <tr>
+    <td width="40%">If the settings are set from the list of preset times, you'll see the time window highlighted on the <strong>Preset Times</strong> tab.
+    </td>
+    <td width="60%"><img src="/images/preset_time_window.png" alt="Preset time window settings.">
+    </td>
+    </tr>
+    <tr>
+    <td width="40%">If the settings are custom time window settings, you'll see them on the <strong>Custom Times</strong> tab.
+    </td>
+    <td width="60%"><img src="/images/custom_time_window.png" alt="Custom time window settings.">
+    </td>
+    </tr>
+    </tbody>
+    </table>
+
+
+
+The time window determines how often the charts in a dashboard refresh.
 * Charts with a time window of 5-10 minutes reload every second.
 * Charts with a larger time window (e.g. 4 hours or 1 day) reload every 30 second.
 
 {% include note.html content="Do not run charts with a 5-10 minute time window for a long time to avoid performance problems." %}
 
 
-
-
-![time bar with turned off live data](images/time_bar_v2.png)
 
 {% include tip.html content="Live dashboards and charts display data on days in the future as black points. This might happen, for example, if you select **1 week** under **Live**.  " %}
 

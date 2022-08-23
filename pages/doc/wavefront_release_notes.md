@@ -13,6 +13,77 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## 2022-32.x Release Notes
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+<strong>Self-Service Upgrade From a Trial Version</strong>:<br/>
+<p>Super Admin users can now upgrade from a trial version and purchase Tanzu Observability.<br/>
+{% include note.html content="The self-service upgrade from a trial version currently supports only monthly billable commit contracts." %}
+<ol>
+<li>In the Tanzu Observability UI, click the <strong>Upgrade</strong> button on the banner showing the remaining number of days from your trial period.</li>
+<li>Connect your VMware account and organization when redirected to the VMware Cloud Services Console.</li>
+<li>Choose your preferred billing model and commit duration and finalize your order when redirected back to the Tanzu Observability UI.</li>
+</ol>
+</p>
+See <a href="upgrade_and_purchase.html">Upgrade Your Trial Version and Purchase Tanzu Observability</a> for details.<br/>
+</td>
+<td width="50%">
+<img src="/images/upgrade_trial.png" alt="The Upgrade button on the trial version banner.">
+</td>
+</tr>
+<tr>
+<td width="50%">
+<strong>Self-Service Purchase of Additional Tanzu Observability Capacity</strong>
+<p>
+We extended the <b>Usage Portal</b> to <b>Usage and Subscriptions</b>, so Super Admin users can now add more capacity to their existing Tanzu Observability subscriptions.<br/>
+{% include note.html content="The self-service purchase of additional capacity is currently available only to customers with monthly billable commit contracts who have connected their Wavefront instances to VMware Cloud Services organizations." %}
+<ol>
+<li>In the Tanzu Observability UI, click the gear icon and select <strong>Usage and Subscriptions</strong>.</li>
+<li>On the <strong>Subscriptions</strong> tab, click <strong>Add more capacity</strong> for your active Tanzu Observability subscription.</li>
+<li>Follow the wizard to increase your monthly commitment of PPS.</li>
+</ol>
+</p>
+See <a href="purchase_additional_capacity.html">Purchase Additional Capacity</a> for details.
+</td>
+<td width="50%">
+<img src="/images/add_more_capacity.png" alt="The Add more capacity button on the Subscriptions tab.">
+</td>
+</tr>
+<tr> 
+<td width="50%">
+<strong>Time Window Picker Changes</strong>:<br/>
+
+We have updated the time window picker for dashboards. You now can see two tabs on it:
+<ul><li><strong>Preset Times</strong> - allows you to set the time window settings by selecting a time period from a list of preset times.</li>
+<li><strong>Custom Times</strong> - allows you to set a custom time window by specifying a start date and time and an end date and time.</li>
+</ul>
+<p>See <a href="ui_examine_data.html#set-the-time-window">Set the Time Window</a> for details.</p>
+</td>
+<td><img src="/images/preset_time_window.png" alt="Preset time window settings.">
+<br />
+<br />
+<img src="/images/custom_time_window.png" alt="Custom time window settings.">
+
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+## 2022-29.x Release Notes
+
+* **Tracing Improvements**: If your application or service names have special characters, the Wavefront service now replaces each special character with a hyphen ("-"). A character that isn't in the following list is considered a special character: a-z, A-Z, 0-9, hyphen ("-"), underscore ("_"), dot ("."), forward slash ("/") and comma (",").
+
+* **Accessibility and Keyboard Navigation Improvements**: We made keyboard navigation improvements to the **Create Alert** page and the **Maintenance Window** page.
+
+* **Query Stats and Suggestions for Alerts**: You can now examine statistics and explore suggestions for alert queries by clicking on the lightbulb icon. See [Use Statistics and Suggestions](query_language_performance.html#use-statistics-and-suggestions). 
+
+![alert edit, lightbulb icon to right of query selected](images/alert_show_query_stats.png)
+
 ## 2022-26.x Release Notes
 
 * **Accessibility and Keyboard Navigation Improvements**: We have made accessibility and keyboard navigation improvements. For example, you can now temporarily disable the chart legend, highlight the metrics in a chart, or apply the time window settings from one chart in a dashboard to all the charts in the dashboard. For information see [Keyboard Shortcuts and Their Usage](wavefront_keyboard_shortcuts.html#keyboard-shortcuts-and-their-usage).
@@ -70,7 +141,7 @@ This release includes:
       </tr>
     </tbody>
   </table>
-  
+
 * **Time Window Settings of Charts**: You can now specify the time window setting on a chart level. When you do this, even if you change the time window settings of the dashboard in which the chart is included, the time window settings of the chart will not be affected. For more information, see [Set the Time Window on a Chart](ui_charts.html#set-the-time-window-on-a-chart).
 
 * **Override the No Data Message on Charts**: You can override the **No Data** message on charts when there is no data in the current time window and there's no error in your query. You can also select to display a link to the [Troubleshooting Missing Data](missing_data_troubleshooting.html) documentation page. For details, see [Override the No Data Message on a Chart](ui_charts.html#override-the-no-data-message-on-a-chart).
@@ -82,7 +153,7 @@ This release includes:
   * [Improve PPS and Prevent Overage](wavefront_usage_info.html)
   * [Tanzu Observability Pricing](wavefront_pricing.html)
   * [vSphere Integration Details](integrations_vsphere.html)
-  
+
 ## 2022-24.x Release Notes
 
 This release includes:
@@ -91,7 +162,7 @@ This release includes:
 * **Tanzu Application Service to Tanzu Observability**: We released the Tanzu Application Service to Tanzu Observability integration on June 13.
   * [Monitor Tanzu Application Service with Tanzu Observability](integrations_tas_howto.html) explains the process end to end.
   * [Tanzu Observability and TAS Troubleshooting](tas_to_troubleshooting.html) has troubleshooting steps based on what we've learned during the Beta period.
-* **Wavefront Proxy**: Proxy [version 11.3](https://github.com/wavefrontHQ/wavefront-proxy/releases/tag/proxy-11.3) is now available. 
+* **Wavefront Proxy**: Proxy [version 11.3](https://github.com/wavefrontHQ/wavefront-proxy/releases/tag/proxy-11.3) is now available.
 
   {% include important.html content="Do not install Proxy version 11.2. If you already installed version 11.2, upgrade to version 11.3." %}
 
@@ -103,7 +174,6 @@ This release of the Wavefront service includes the following improvements:
 In addition:
 * **Integrations**: The June 2022 integrations release was made available! It includes significant improvements to the Snowflake and Jenkins integrations, and more. See the [Integration Release Notes](integrations_new_changed.html#june-2022) for details.
 * **Videos**: We migrated [all videos](videos.html) to VMware TV and created playlists for easy access.
-
 
 ## Past Release Notes
 
