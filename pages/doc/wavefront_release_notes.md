@@ -17,6 +17,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 * The [ingestion policy dashboard](ingestion_policies.html#examine-ingestion-policy-usage) now contains the **P95 Usage vs Limit** chart.
 * **Integrations**: The August 2022 integrations release was made available! We made significant improvements to a number of integrations and also added the VMware Tanzu Greenplum integration. See the [Integration Release Notes](integrations_new_changed.html#august-2022) for details.
+* New proxy release (11.4) is going to be GA this week. 
 
 ## 2022-32.x Release Notes
 
@@ -57,7 +58,7 @@ See <a href="purchase_additional_capacity.html">Purchase Additional Capacity</a>
 <img src="/images/add_more_capacity.png" alt="The Add more capacity button on the Subscriptions tab.">
 </td>
 </tr>
-<tr> 
+<tr>
 <td width="50%">
 <strong>Time Window Picker Changes</strong>:<br/>
 
