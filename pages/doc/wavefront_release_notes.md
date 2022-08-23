@@ -17,7 +17,17 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 * The **Usage Limit** chart on the [ingestion policy dashboard](ingestion_policies.html#examine-ingestion-policy-usage) now shows the P95 usage by the policy out of the PPS limit.
 * **Integrations**: The August 2022 integrations release was made available! We made significant improvements to a number of integrations and also added the VMware Tanzu Greenplum integration. See the [Integration Release Notes](integrations_new_changed.html#august-2022) for details.
-* New proxy release (11.4) is going to be GA this week. 
+
+New proxy release (11.4) is going to be GA this week. Check the [Proxy Releases Page](https://GitHub.com/wavefrontHQ/java/releases) to ensure the version is available. 
+- Added the following internal metrics for proxy logs:
+	- `~proxy.logs.*.received.messageLength`: Size of log message fields before validation
+	- `~proxy.logs.*.received.tagLength`: Size of label per log message
+	- `~proxy.logs.*.received.batches`: Number of incoming batches of logs
+- For preprocessor rules `extractTag` and `extractTagIfNotExists`, applied rule to tag key values when source is pointLine.
+- Improved accuracy of exponential delta histograms at the lowest percentiles.
+- Completed fix to block points with EOT characters.
+- Fixed an issue where the span log sampling policy was not synced with the Wavefront server.
+- Updated the dependency versions.
 
 ## 2022-32.x Release Notes
 
