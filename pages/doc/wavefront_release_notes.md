@@ -15,7 +15,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 ## 2022-33.x Release Notes
 
-* The **Usage Limit** chart on the [ingestion policy dashboard](ingestion_policies.html#examine-ingestion-policy-usage) now shows the P95 usage by the policy out of the PPS limit.
+* The **Usage Limit** chart on the [ingestion policy dashboard](ingestion_policies.html#examine-ingestion-policy-usage) now shows the P95 PPS usage by the policy out of the PPS limit.
 * **Integrations**: The August 2022 integrations release was made available! We made significant improvements to a number of integrations and also added the VMware Tanzu Greenplum integration. See the [Integration Release Notes](integrations_new_changed.html#august-2022) for details.
 
 ## 2022-32.x Release Notes
