@@ -129,7 +129,7 @@ The ingestion policy dashboard consists of the following sections:
   <tr><th width="30%">Chart</th><th width="70%">Description</th></tr>
   </thead>
   <tr>
-  <td><strong>P95 Usage vs Limit</strong></td>
+  <td><strong>Usage Limit</strong></td>
   <td>Shows the 95th percentile PPS usage by the policy out of the PPS limit for the selected billing period.</td></tr>
   <tr>
   <td><strong>Previous Month to Selected Month</strong></td>
