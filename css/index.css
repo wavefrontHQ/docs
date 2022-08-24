@@ -118,8 +118,8 @@
 }
 
 .choose-path-card img {
-    height: 88px;
-    width: 88px;
+    height: 58px;
+    width: 58px;
 }
 
 .choose-path-card > * {
@@ -135,6 +135,8 @@
 .choose-path-card-links a::after {
     content: none;
 }
+
+
 
 /* End Choose Path styles */
 .quick-links-container {
@@ -156,8 +158,8 @@
 }
 
 .quick-links-panel img {
-    height: 48px;
-    width: 48px;
+    height: 40px;
+    width: 40px;
     margin-top: 0 !important;
 }
 
