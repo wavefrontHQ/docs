@@ -1,3 +1,2 @@
-1. Enter the alert target ID into the Alert Target field.
-1. Select the alert target from the dropdown list to add the list of targets.
-1. Click **Save**.
+1. Enter the alert target ID into the **Alert Target** field and select the alert target from the drop-down list to add the list of targets.
+2. Click **Save**.
