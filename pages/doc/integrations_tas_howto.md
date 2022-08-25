@@ -58,7 +58,7 @@ Watch these videos to get started:
 <iframe id="kmsembed-1_sl2d1g42" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_sl2d1g42/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Integrating TAS with Tanzu Observability: How to Get Started"></iframe>
 </td>
 <td><br><br>
-<p>This video is a complete walk-through of the steps required to get your data flowing from Tanzu Application Service to Tanzu Observability. You learn what's required when you set up the nozzle in Ops Manager, and how you can view your data in preconfigured Tanzu Observability dashboards. </p>
+<p>This video is a complete walk-through of the steps required to get your data flowing from Tanzu Application Service to Tanzu Observability. You learn how to set up the nozzle in Ops Manager, how to get data flowing, and how you can view your data in preconfigured Tanzu Observability dashboards. </p>
 <p>You can also watch the video in the Tanzu Observability Integrations playlist <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_jycyrkuw/" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
@@ -166,7 +166,7 @@ This section explains each step in the flow in detail.
 ### Prerequisites
 
 * You must have a Tanzu Network account to configure the Tanzu Observability Nozzle in Ops Manager.
-* You must have login credentials for a Wavefront instance to configure the integration. 
+* You must have login credentials for a Wavefront instance to configure the integration.
 * Ensure that the root certificate for Ops Manager is included in data coming from Tanzu Application Service. See the [No Data Flowing and Certificate Error](tas_to_troubleshooting.html#symptom-no-data-flowing-in-and-certificate-error) troubleshooting section.
 
 
