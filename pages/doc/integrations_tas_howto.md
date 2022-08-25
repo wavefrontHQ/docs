@@ -36,6 +36,35 @@ Tanzu Observability by Wavefront (Wavefront) is a cloud-hosted service for full-
 </tbody>
 </table>
 
+## Videos
+
+Watch these videos to get started:
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td><strong><font color="#0091DA" size="3">TAS Monitoring and Alerting with Tanzu Observability</font></strong><br>
+<br>
+<iframe id="kmsembed-1_cjv5gbqy" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_cjv5gbqy/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="TAS Monitoring and Alerting with Tanzu Observability"></iframe>
+</td>
+<td><br><br>
+<p>This 60-second video gives an overview of the architecture, installation process, and benefits of the Tanzu Observability integration for Tanzu Application Service. </p>
+<p>You can also watch the video in the Tanzu Observability Integrations playlist <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_jycyrkuw/" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
+</td>
+</tr>
+<tr>
+<td><strong><font color="#0091DA" size="3">Integrating TAS with Tanzu Observability: How to Get Started</font></strong><br>
+<br>
+<iframe id="kmsembed-1_sl2d1g42" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_sl2d1g42/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Integrating TAS with Tanzu Observability: How to Get Started"></iframe>
+</td>
+<td><br><br>
+<p>This video is a complete walk-through of the steps required to get your data flowing from Tanzu Application Service to Tanzu Observability. You learn how to set up the nozzle in Ops Manager, how to get data flowing, and how you can view your data in preconfigured Tanzu Observability dashboards. </p>
+<p>You can also watch the video in the Tanzu Observability Integrations playlist <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_jycyrkuw/" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
 ## Process Overview
 
 We've streamlined the getting started process so it involves a few simple steps -- some are performed in Tanzu Ops Manager, and some in the Wavefront GUI.
@@ -128,9 +157,18 @@ Ensure that your environment meet requirements on the Ops Manager side and on th
   * At a minimum, **Integrations** permission on that Wavefront instance.
   * This version of the Tanzu Observability by Wavefront nozzle is compatible with Wavefront proxy version 10.14 and later.
 
+See [Tanzu Observability and TAS Troubleshooting](tas_to_troubleshooting.html) for more.
+
 ## Process Details
 
 This section explains each step in the flow in detail.
+
+### Prerequisites
+
+* You must have a Tanzu Network account to configure the Tanzu Observability Nozzle in Ops Manager.
+* You must have login credentials for a Wavefront instance to configure the integration.
+* Ensure that the root certificate for Ops Manager is included in data coming from Tanzu Application Service. See the [No Data Flowing and Certificate Error](tas_to_troubleshooting.html#symptom-no-data-flowing-in-and-certificate-error) troubleshooting section.
+
 
 ### Step 1: Download the Nozzle File
 
