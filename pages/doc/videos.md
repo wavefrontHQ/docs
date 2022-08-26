@@ -50,3 +50,14 @@ This playlist includes videos with background information about querying data, a
 This playlist includes videos on how Distributed Tracing works and on how to explore traces with our GUI. You can also watch the playlist videos in your browser <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_kkeyoqx4/" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
 <br>
 <iframe src="https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_kkeyoqx4/uiConfId/47611883" width="840" height="375" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" frameborder="0" title="Distributed Tracing with Tanzu Observability"></iframe>
+
+## Integrations for Tanzu Observability
+
+This playlist includes videos on:
+* Sending metrics data from a Windows host to the Wavefront service.
+* Using the Tanzu Application Service integration with Tanzu Observability.
+* Setting up the Wavefront Operator for Kubernetes.
+
+You can also watch the playlist videos in your browser <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_jycyrkuw/" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+<br>
+<iframe src="https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_jycyrkuw/uiConfId/47611883" width="740" height="330" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" frameborder="0" title="Integrations for Tanzu Observability"></iframe>
