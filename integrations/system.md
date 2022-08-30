@@ -17,7 +17,7 @@ The **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboard shows 
 
 The **Committed Rate vs Monthly Usage (PPS P95) for Billable** dashboard shows your monthly PPS usage against your monthly billable commitment. Applies only to customers who have billable commit contracts with Tanzu Observability.
 
-Wavefront internal metrics have the following [prefixes](https://docs.wavefront.com/wavefront_monitoring.html#useful-internal-metrics-for-optimizing-performance).
+Wavefront internal metrics have the following [prefixes](https://docs.wavefront.com/wavefront-internal-metrics.html#internal-metrics-overview).
 
 To modify the **Wavefront Usage alerts**, install them and clone them. You must update the required fields in cloned alerts.
 

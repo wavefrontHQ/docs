@@ -24,44 +24,45 @@ After a privileged user has added the Wavefront application to Slack, all Slack 
 
 ## Slack Webhook Integration Setup
 
-Wavefront and Slack both support webhooks so you can easily configure an incoming webhook in Slack and an outgoing webhook in Wavefront to pass the notifications from Wavefront alerts into your Slack channels. 
+Wavefront and Slack both support webhooks so you can easily configure an incoming webhook in Slack and an outgoing webhook in Wavefront to pass the notifications from Wavefront alerts into your Slack channels.
+
+**Note:** To perform the steps as described below, you must have administrator permissions on the workspace that you want to configure.
 
 
 
 ### Step 1. Build a Custom Integration for Your Slack Channel
-1. In Slack, click the **team** dropdown menu in the top left hand of the Slack application and select the **Customize Slack** link:
-{% include image.md width="15" src="images/customize_slack.png" %}
-
-    The Customize Your Team page opens in your browser.
-1. Click the **Configure Apps** link under the menu list:
-{% include image.md width="10" src="images/configure_apps.png" %}
-1. On the App Directory page, click the **Custom Integrations** and then **Incoming WebHooks** links:
-{% include image.md width="30" src="images/incoming_webhooks.png" %}
-1. Click the **Add Configuration** button.
-1. In the Post to Channel dropdown list, select the Slack channel where your incoming webhook will post messages to and click the **Add Incoming WebHooks integration** button:
-{% include image.md width="30" src="images/webhook_testing.png" %}
-1. Customize the incoming webhook.
-{% include image.md width="30" src="images/customize_incoming_webhook.png" %}
-
-   In the Custom Name field, type the name that will appear in your Slack channel as a sender of the message.  You can also add additional details such as description, icon, etc. Refer to [Incoming Webhooks](https://api.slack.com/incoming-webhooks) for detailed instructions.
-1. Click the **Copy URL** link.
-1. Click **Save Settings**.
+1. In Slack, from the **workspace** drop-down menu in the top left corner, navigate to **Customize _Workspace_Name_**. The **Customize Your Workspace** page opens in your browser.
+2. Click **Configure apps** from the menu on the left:
+   {% include image.md width="15" src="images/configure_apps.png" %}
+3. On the **App Directory** page, click **Custom Integrations**.
+4. Search for and select **Incoming WebHooks**.
+   {% include image.md width="50" src="images/custom_integrations_select_webhooks.png" %}
+5. Click the **Add to Slack** button.
+   {% include image.md width="50" src="images/add_to_slack.png" %}
+6. From the **Post to Channel** drop-down menu, select the Slack channel where your incoming webhook will post messages to, and click the **Add Incoming WebHooks integration** button:
+   {% include image.md width="50" src="images/channel_settings.png" %}
+7. On the **Edit configuration** page, scroll down to the **Integration Settings** section and customize the incoming webhook.
+      {% include image.md width="50" src="images/integration_settings.png" %} 
+     a) In the **Customize Name** text box, enter the name that will appear in your Slack channel as a sender of the message.  
+     b) You can also add additional details such as description, icon, etc. See [Incoming Webhooks](https://api.slack.com/incoming-webhooks) for detailed instructions.
+8. Under the **Webhook URL** text box, click **Copy URL**.
+9. Click **Save Settings**.
 
 ### Step 2. Create a Slack Alert Target
 
 {% include webhooks_create.md %}
 1. In the [content type](https://docs.wavefront.com/webhooks_alert_notification.html#creating-a-webhook) field, select `application/json`.
-1. Select **Alert Target POST Body Template > TEMPLATE > Slack**.
-1. Customize the [template](https://docs.wavefront.com/alert_target_customizing.html).
-1. Click **Save**. The alert target is added to the Alert Targets page.
-1. In the Name column, note the ID of the alert target under the alert target description.
+2. Select **Alert Target POST Body Template > TEMPLATE > Slack**.
+3. Customize the [template](https://docs.wavefront.com/alert_target_customizing.html).
+4. Click **Save**. The alert target is added to the Alert Targets page.
+5. In the Name column, under the alert target description, note the ID of the alert target.
 
 ### Step 3. Add the Slack Alert Target to an Alert
 
 {% include alerts.md %}
 {% include webhooks_select.md %}
 
-Setup of your Slack Webhook is now complete. Going forward, specified users receive alert notifications in Slack. 
+The setup of your Slack Webhook is now complete. Going forward, specified users will receive alert notifications in Slack.
 
 ## Slack URL Unfurler Setup (Chart Images in Slack)
 
@@ -70,14 +71,29 @@ The Slack URL Unfurler has completely different functionality from the Webhook s
 To implement URL Unfurl functionality for links to Wavefront pages, follow these steps:
 
 1. A Slack admin user with the right privileges <a href="https://slack.com/oauth/v2/authorize?client_id=2279130001.809926228192&scope=commands,links:write,users:read&user_scope=links:read"> installs the Wavefront application into Slack</a>. This user must have the permission to add apps to the Slack workspace. Who that person is depends on the Slack setup at your site. 
-1. After that, any user who pastes a link to a Wavefront instance -- usually a link to a chart -- into Slack is prompted as follows:
+2. After that, any user who pastes a link to a Wavefront instance - usually a link to a chart - into Slack is prompted as follows:
   * Unfurl links to Wavefront instances
   * Don't unfurl links to this Wavefront instance
   * Don't unfurl links.
 
-  The following image illustrates this:
+    The following image illustrates this:
 
-  {% include image.md width="50" src="images/slack_user_message.png" %}
+    {% include image.md width="70" src="images/slack_user_message.png" %}
 
+3. Click **Yes (Authenticate via Browser)** and you will be prompted to link your accounts to enable the unfurl process.
+
+Now, you will be able to observe dashboards and charts directly within Slack.
+
+### Troubleshooting
+
+If you are unable to unfurl a link, before opening a support request with the VMware Tanzu Observability Support, do the following:
+
+1. In the Slack interface, run the `/unignore <domain>` command and make sure that the Tanzu Observability by Wavefront domain has not been ignored.
+2. Check whether the Wavefront Slack Unfurl app is muted.
+
+   1. In the Slack interface, navigate to **Administration** > **Manage Apps**.
+   2. Click **Muted Apps**.
+
+   If the Wavefront Slack Unfurl app is muted, try to unmute it. See the [Muted Apps](https://my.slack.com/apps/manage/mutes) Slack documentation.
 
 
