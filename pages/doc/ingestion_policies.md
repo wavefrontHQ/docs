@@ -8,7 +8,7 @@ summary: Monitor usage with ingestion policies, usage dashboards, and alerts.
 
 In addition to the dashboard for monitoring your [overall usage](examine_usage.html), Tanzu Observability by Wavefront supports ingestion policies for monitoring your usage by accounts, groups, sources, metric namespaces, and point tags. For example, it might be valuable to understand the ingestion rates by the different teams or by the different sources.
 
-By creating an ingestion policy, you combine a set of accounts, groups, sources, metric namespaces, and point tags. Then, you can monitor their PPS usage from the ingestion policy dashboard, which shows:
+By creating an ingestion policy, you combine a set of accounts, groups, sources, metric namespaces, or point tags. Then, you can monitor their PPS usage from the ingestion policy dashboard, which shows:
 - the P95 PPS usage out of a certain limit for the policy
 - the month-over-month percentage change in the PPS usage for the policy
 - the hourly PPS usage for the current billing period
@@ -16,15 +16,15 @@ By creating an ingestion policy, you combine a set of accounts, groups, sources,
 - the usage by ingestion mechanism (proxy and direct ingestions)
 - the usage by ingestion type (time series, histograms, and delta counters)
 
-{% include note.html content="All users can view the ingestion policies. Only Super Admin users can create and manage ingestion policies."%}
+{% include note.html content="All users can view the ingestion policies. Only Super Admin users can create, edit, and delete ingestion policies."%}
 
 For performance monitoring of your Wavefront instance, you can use [wftop, Wavefront spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Wavefront Usage integration](wavefront_monitoring.html).
 
 ## Ingestion Policy Basics
 
-Ingestion policies allow you to combine user and service accounts, groups, sources, metric namespaces, or point tags, so that you can monitor their usage of the Wavefront service. For example, you can create a policy for all accounts that joined in the last 6 months. You can also create a policy for one or more sources. Also, you can set a Points per Second (PPS) limit for the policy and create an alert, so that you can receive notifications if the PPS usage exceeds certain thresholds of the limit.
+Ingestion policies allow you to combine user and service accounts, groups, sources, metric namespaces, or point tags, so that you can monitor their usage of the Wavefront service. For example, you can create a policy for a group of new hires. You can also create a policy for one or more source virtual machines. Also, you can set a Points per Second (PPS) limit for the policy and create an alert, so that you can receive notifications if the PPS usage exceeds certain thresholds of the limit.
 
-Tracking the PPS usage by ingestion policies can help you understand how the overall usage is distributed and weather or not particular team will need more PPS in the future or need to reduce their overhead ingestions.
+Tracking the PPS usage by ingestion policy can help you understand how the overall usage is distributed and weather or not particular team will need more PPS in the future or need to reduce their overhead ingestions.
 
 The policy scope can be accounts, groups, sources, namespaces, or point tags.
 * Once you set the scope, you cannot change it.
@@ -215,7 +215,5 @@ Consider the following example. You are administering a Wavefront instance for t
 You can create an ingestion policy for each team to monitor how much data each team uses per month. You can also set a PPS limit for each ingestion policy and if a team consumes more than expected, you will receive an alert notification, so that you can provide additional training on how to use ingested data wisely. 
 
 ## Learn More!
-
-You can additionally drill down and get a better understanding of the usage per account by using the [Wavefront Ingestion Policy Explorer dashboard](wavefront_monitoring.html).
 
 [Improve PPS and Prevent Overage](wavefront_usage_info.html) explains how to use tools and dashboards to learn how much data is coming in, who is sending the data, how to get alerted if ingested data get close to monthly contracted usage, and how to optimize your ingestion rate. 
