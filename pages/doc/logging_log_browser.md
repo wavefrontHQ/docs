@@ -113,7 +113,7 @@ You see the log details in the table below the histogram chart. The data on the 
   </tr>
   <tr>
     <td>
-      Yellow
+      <img src="images/logs_yellow_warning.png"/>
     </td>
     <td>
       Logs that have the term warn or warning.
@@ -121,7 +121,32 @@ You see the log details in the table below the histogram chart. The data on the 
   </tr>
   <tr>
     <td>
-      Red
+      <img src="images/logs_color_critical.png"/>
+    </td>
+    <td>
+      Logs that have the term critical.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="images/logs_color_debug.png"/>
+    </td>
+    <td>
+      Logs that have the term debug.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="images/logs_color_trace.png"/>
+    </td>
+    <td>
+      Logs that have the term trace.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="images/logs_error_light_theme_warning.png"/>  Light theme 
+      <br/><img src="images/logs_error_dark_theme_warning.png"/>  Dark theme 
     </td>
     <td>
       Logs that have the term error.
@@ -129,24 +154,8 @@ You see the log details in the table below the histogram chart. The data on the 
   </tr>
   <tr>
     <td>
-      Purple
-    </td>
-    <td>
-      Logs that have the term fatal error.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Blue
-    </td>
-    <td>
-      Logs that have the term debug.
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      Grey
+      <img src="images/logs_no_term_light_theme.png"/>  Light theme 
+      <br/><img src="images/logs_no_term_dark_theme.png"/>  Dark theme 
     </td>
     <td>
       Logs that don't have any of the above terms.
