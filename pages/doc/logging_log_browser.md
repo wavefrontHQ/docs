@@ -39,20 +39,35 @@ Follow these steps to search and filter logs:
   * Click **Source** and select a [source](logging_overview.html#whats-a-tanzu-observability-log) from the list.
   * Click on a tag and select a value from the list.
   * Type in a word(s) on the search bar, and click **Search** or press Enter when [using the Keyboard to navigate](wavefront_keyboard_shortcuts.html#keyboard-shortcuts-and-their-usage).
-    <br/>Example:
+  <br/>Example:
     ![Shows the error word on the search bad and the logs that contain the word error in them with error highlighted on the log messages](images/logging_search_key_word.png)
+      
 1. When you see the logs on the Log Browser, you can filter logs using source, tags, and words, to refine the search results further.
+
+{{site.data.alerts.note}}
+      <ul>
+        <li>
+          If you type in a word(s) or type in <code>message={word(s)}</code>, the search results you see matches <code>message={word(s)}</code>. <br/>For example, if you type <code>warn</code> or <code>message=warn</code>, you see the search results for <code>message=warn</code>. 
+        </li>
+        <li>
+          If you type <code>=error</code> on the search bar, you see search results for <code>message= =error</code>.
+        </li>
+        <li>
+          If you type <code>hello=</code> on the search bar, you see search results for <code>message= hello=</code>.
+        </li>
+      </ul>
+    {{site.data.alerts.end}}
     
 
 ## Enable or Disable Scroll Auto-Load
 
 When you search and filter logs, you can decide how you want to scroll through the results:
 * When you scroll through the results, you need to click **Load More Results** to load the next set of results.
-  ![a screenshot shoing the load more results text](images/logging_load_more_results.png)
+  ![a screenshot showing the load more results text](images/logging_load_more_results.png)
 * Enable scroll auto load to load the logs as you scroll through the results. Follow these steps to enable scroll auto-load.
   1. Click **Options** on the top-right corner of the log results table.
   1. Select **Scroll Auto-Load**.
-  ![a screenshot of the steps metnioned above](images/logging_scroll_auto_load.png)
+  ![a screenshot of the steps mentioned above](images/logging_scroll_auto_load.png)
 
 ## Exclude or Include Logs from Search Results
 
