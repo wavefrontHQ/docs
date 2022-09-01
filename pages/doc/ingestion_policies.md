@@ -8,10 +8,10 @@ summary: Monitor usage with ingestion policies, usage dashboards, and alerts.
 
 In addition to the dashboard for monitoring your [overall usage](examine_usage.html), Tanzu Observability by Wavefront supports ingestion policies for monitoring your usage by particular accounts, groups, sources, metric namespaces, and point tags. For example, it might be valuable to understand the ingestion rates by the different teams or by the different sources and manage their consumption, cost, overage, etc.
 
-By creating an ingestion policy, you combine a set of accounts, groups, sources, metric namespaces, or point tags. Then, you can monitor their PPS usage from the ingestion policy dashboard, which shows:
+By creating an ingestion policy, you combine a set of accounts, groups, sources, metric namespaces, or point tags. Then, you can monitor their PPS usage per [billing period](glossary.html#b) from the ingestion policy dashboard, which shows:
 - the P95 PPS usage out of a certain limit for the policy
 - the month-over-month percentage change in the PPS usage for the policy
-- the hourly PPS usage for the current billing period
+- the hourly PPS usage
 - the accounts that ingest most data
 - the usage by ingestion mechanism (proxy and direct ingestions)
 - the usage by ingestion type (time series, histograms, and delta counters)

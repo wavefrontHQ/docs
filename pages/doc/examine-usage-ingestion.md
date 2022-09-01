@@ -22,7 +22,7 @@ You can navigate to the Usage Summary dashboard to get an overview of the ingest
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
 
    The **Usage Summary** tab opens. This tab contains the dashboard with an overview of the ingested and scanned rates.
-3. From the **Billing Month** drop-down menu, select the billing period you are interested in.
+3. From the **Billing Month** drop-down menu, select the <a href="glossary.html#b">billing period</a> you are interested in.
    
    
 ## Understand the Data

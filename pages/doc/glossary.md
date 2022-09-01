@@ -49,7 +49,7 @@ This Tanzu Observability by Wavefront glossary defines technical terms that are 
 
 
 <tr>
-<td><strong><big>B</big></strong></td>
+<td id="b"><strong><big>B</big></strong></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td></tr>
 <tr>
@@ -60,7 +60,10 @@ This Tanzu Observability by Wavefront glossary defines technical terms that are 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">Billing period</td>
-<td markdown="span">Each billing period starts each month on the day of your contract start date and ends on the same day of the next month. At the end of each billing period, we calculate your P95 (95th percentile) PPS usage for the billing period. If you have a billable contract, we compare your P95 PPS usage with your contract commitment and bill you for overage if any. If you have a burndown contract, we extract your P95 PPS usage from your burndown commitment and calculate your remaining balance till the end of the contract period.</td>
+<td>Each billing period starts each month on the day of your contract start date and ends on the same day of the next month. At the end of each billing period, we calculate your P95 (95th percentile) PPS usage for the billing period. See the <a href="examine_usage.html">Usage Summary dashboard</a> for details.
+<ul>
+<li>If you have a billable contract, we compare your P95 PPS usage for the billing period with your contract commitment. If there's an overage, you will be charged for the number of PPS above your commitment.</li>
+<li>If you have a burndown contract, we extract your P95 PPS usage for each billing period from your burndown commitment and calculate your remaining balance till the end of the contract period.</li></ul></td>
 </tr>
 <tr>
 <td><strong><big>C</big></strong></td>
