@@ -1942,4 +1942,18 @@ a.powered-by-logo[href^="https://"]:after {
 display:none;
 }
 
+
+pre.highlight > button {
+  opacity: 0;
+}
+
+pre.highlight:hover > button {
+  opacity: 1;
+}
+
+pre.highlight > button:active,
+pre.highlight > button:focus {
+  opacity: 1;
+}
+
 /* end confgi sent by Chloe*/
