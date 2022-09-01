@@ -6,7 +6,7 @@ permalink: ingestion_policies.html
 summary: Monitor usage with ingestion policies, usage dashboards, and alerts.
 ---
 
-In addition to the dashboard for monitoring your [overall usage](examine_usage.html), Tanzu Observability by Wavefront supports ingestion policies for monitoring your usage by accounts, groups, sources, metric namespaces, and point tags. For example, it might be valuable to understand the ingestion rates by the different teams or by the different sources.
+In addition to the dashboard for monitoring your [overall usage](examine_usage.html), Tanzu Observability by Wavefront supports ingestion policies for monitoring your usage by particular accounts, groups, sources, metric namespaces, and point tags. For example, it might be valuable to understand the ingestion rates by the different teams or by the different sources and manage their consumption, cost, overage, etc.
 
 By creating an ingestion policy, you combine a set of accounts, groups, sources, metric namespaces, or point tags. Then, you can monitor their PPS usage from the ingestion policy dashboard, which shows:
 - the P95 PPS usage out of a certain limit for the policy
@@ -24,7 +24,7 @@ For performance monitoring of your Wavefront instance, you can use [wftop, Wavef
 
 Ingestion policies allow you to combine user and service accounts, groups, sources, metric namespaces, or point tags, so that you can monitor their usage of the Wavefront service. For example, you can create a policy for a group of new hires. You can also create a policy for one or more source virtual machines. Also, you can set a Points per Second (PPS) limit for the policy and create an alert, so that you can receive notifications if the PPS usage exceeds certain thresholds of the limit.
 
-Tracking the PPS usage by ingestion policy can help you understand how the overall usage is distributed and weather or not particular team will need more PPS in the future or need to reduce their overhead ingestions.
+Tracking the PPS usage by ingestion policy can help you understand how the overall usage is distributed and whether or not particular team will need more PPS in the future or need to reduce their overhead ingestions.
 
 The policy scope can be accounts, groups, sources, namespaces, or point tags.
 * Once you set the scope, you cannot change it.
