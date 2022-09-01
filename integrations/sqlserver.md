@@ -13,9 +13,9 @@ In addition to setting up the metrics flow, this integration also installs a das
 
 ## Microsoft SQL Server Setup
 
-This integration uses the MSSqlServer input plugin for Telegraf.
+This integration uses the Microsoft SQL Server input plugin for Telegraf.
 
-**Note:** This integration provides the most recent dashboard and setup instructions for the SQL server. For setup instructions of previous versions, log in to the Wavefront instance and see **SQL Server (Archived)**.
+**Note:** This integration provides the most recent dashboard and setup instructions for SQL Server. For setup instructions of earlier versions, see the **SQL Server (Archived)** integration.
 
 
 
@@ -24,24 +24,59 @@ This integration is supported only on Windows.
 ### Step 1: Set up a Wavefront Proxy
 
 - If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, install a proxy.
-- If you are using **MSSQL Server 13** configure the following [preprocessor rule](https://docs.wavefront.com/proxies_preprocessor_rules.html) for the Wavefront proxy.
+- If you are using **Microsoft SQL Server 13** configure the following [preprocessor rule](https://docs.wavefront.com/proxies_preprocessor_rules.html) for the Wavefront proxy.
 {% raw %}
 ```
-    - rule    : remove-empty-point-tags
-      action  : replaceRegex
-      scope   : pointLine
-      search  : "\\s([\"\\.a-zA-Z0-9_-]*)=('[\\s]*'|\"[\\s]*\"|$|\\s)"
-      replace : " "
+# rules for port 2878
+'2878':
+  ################################################################
+  # Make sure that the limit that you are setting is not higher
+  # than the default Wavefront limit.
+  ################################################################
+  - rule          : limit-length-example
+    action        : limitLength
+    scope         : "statement_text"
+    actionSubtype : truncateWithEllipsis
+    maxLength     : 235
+
+  ###############################################################
+  # Rename the point tag keys ending with quotes (").
+  ###############################################################
+  - rule    : rename-database-name
+    action  : renameTag
+    tag     : database_name"
+    newtag  : database_name
+
+  - rule    : rename-server-name
+    action  : renameTag
+    tag     : server_name"
+    newtag  : server_name
+
+  - rule    : rename-measurement-db-type
+    action  : renameTag
+    tag     : measurement_db_type"
+    newtag  : measurement_db_type
+
+  ###############################################################
+  # Replace the value of point tag "volume_mount_point"
+  # ending with quotes (") by empty string.
+  # C:" -> C:
+  ###############################################################
+  - rule    : example-cluster-name
+    action  : replaceRegex
+    scope   : volume_mount_point
+    search  : "\""
+    replace : ""
 ```
 {% endraw %}
 
 ### Step 2: Install the Telegraf Agent
 
-If you've already installed Telegraf on your server(s), you can skip to step 3.
+If you've already installed Telegraf on one of your servers, you can skip to step 3.
 
 {% include windows_telegraf.md %}
 
-### Step 3. Configure MSSQLServer Input Plugin
+### Step 3. Configure the Microsoft SQL Server Input Plugin
 
 Create an SQL user with the required permissions on every SQL Server from which you plan to collect metrics. Use the following script after connecting to your SQL Server.
 {% raw %}

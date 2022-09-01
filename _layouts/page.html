@@ -62,3 +62,8 @@ layout: default
     {% endif %}
 
 </div>
+
+{% if page.content contains "pre" or "code" %}
+<script src=js/clipboard.js>
+  </script>
+{% endif %}
