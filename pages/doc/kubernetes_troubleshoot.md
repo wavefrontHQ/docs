@@ -68,7 +68,7 @@ Identifying what metrics are and aren’t coming through can help identify where
 
 ## Troubleshoot Bottlenecks
 
-The data ingestion pipeline is not able to handle the traffic that's coming from your Kubernetes environment. This problem is especially noticable in environments with high cardinality or bursty traffics
+The data ingestion pipeline is not able to handle the traffic that's coming from your Kubernetes environment. This problem is especially noticeable in environments with high cardinality or bursty traffics
 
 You can address this problem in several ways, and might find that combining solutions works best.
 
@@ -360,7 +360,7 @@ To solve this, See the remedies section.
         {% include note.html content = "Filtering metrics in the source configuration, reduces the collector load. Filtering metrics in the sink configuration will not reduce the collector load." %}
 
   * **Disable Auto-Discovery**:
-    If the load is still high, you might be scraping pods based on annotations that the collector finds, which is standard for helm charts or widely used containers. Disable autodiscovery and see if the load reduces. If this works and you don't want the pods to be scrapped in the future, remove the annotations.
+    If the load is still high, you might be scraping pods based on annotations that the collector finds, which is standard for helm charts or widely used containers. Disable auto-discovery and see if the load reduces. If this works and you don't want the pods to be scraped in the future, remove the annotations.
 
 <table style="width: 100%;">
 <tbody>
