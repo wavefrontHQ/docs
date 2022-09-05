@@ -13,6 +13,16 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## 2022-35.x Release Notes
+
+**Improved System Alerts Experience**: Some integrations contain [predefined system alerts](integrations.html#installing-and-uninstalling-integration-alerts). We have made several user experience improvements:
+  
+* No settings can be edited in Preview mode.
+* All settings that cannot be modified in Edit mode are now shown as non-editable.
+* We have implemented a **Clone** button on top of each system integration which allows you easily to clone the integration alert right after you open the alert in Edit mode.
+	
+![Example screenshot that shows the clone button](images/alerts-clone.png)
+
 ## 2022-34.x Release Notes
 
 We published several new videos to VMware TV:
