@@ -23,14 +23,22 @@ The TAS integration contains a set of predefined dashboards that give you an ove
 - TAS: CLI Health - Health of CLI within TAS.
 - TAS: Certificate Expiration - Detailed view of the validity of the certificates.
 - TAS: Diego/Capacity - Detailed Diego metrics.
+- TAS: Doppler - Real-time visibility into Doppler health.
+- TAS: Job Details - Detailed view of TAS job information.
 - TAS: Logging and Metrics Pipeline - Health check of Logging and Metrics Firehose.
 - TAS: Nozzle Troubleshooting - Health of the Nozzle's internal systems and services.
 - TAS: Ops Manager Health - Health check of Ops Manager.
+- TAS: Platform MySQL - Real-time visibility into the TAS MySQL status.
 - TAS: Router - Detailed Gorouter metrics.
-- TAS: Job Details - Detailed view of TAS job information.
-- TAS: MySQL Health - Real-time visibility into the TAS MySQL status.
 - TAS: Workload Monitoring - Information about applications running inside of TAS.
-- TAS: Doppler - Real-time visibility into Doppler health.
+
+#### Service Dashboards
+
+The TAS integration also includes dashboards for monitoring TAS services.
+
+- TAS Services: MySQL - Detailed metrics about TAS MySQL service instances.
+- TAS Services: RabbitMQ - Detailed metrics about TAS RabbitMQ service instances.
+- TAS Services: Redis - Detailed metrics about TAS Redis service instances.
 
 ### Alerts
 
