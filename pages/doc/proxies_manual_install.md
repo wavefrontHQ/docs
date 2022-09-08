@@ -20,16 +20,18 @@ Follow these steps to install a proxy on a host with full network access (incomi
 
 ### Prerequisites
 
-Before you begin the installation process, [test connectivity](proxies_manual_install.html#testing-proxy-host-connectivity) between the host being configured and your Wavefront service.
+- **Networking:** [Test connectivity](proxies_manual_install.html#testing-proxy-host-connectivity) between the target proxy host and your Wavefront service.
 
+- **JRE:** The Wavefront proxy is a Java jar file and requires a JRE - for example, openjdk8. Before you can install the proxy `.rpm` or `.deb` file, you must have the JRE in the execution path.
 
+    {% include note.html content="<br/>Starting with Wavefront proxy 11.1, the proxy installation packages don't include JRE. You must have installed Java JRE prior to the proxy installation. " %}
+        
 ### Step 1: Download the Proxy
 
 If your system accepts incoming traffic, you can download the proxy file as follows:
 
 1. Download the proxy `.rpm` or `.deb` file from [packagecloud.io/wavefront/proxy](http://packagecloud.io/wavefront/proxy).
 2. Run `sudo rpm -U <name_of_file.rpm>` or `sudo dpkg -i <name_of_file.deb>`.
-    {% include note.html content="<br/>If no Java JRE is in the path, this command installs JRE locally under `/opt/wavefront/wavefront-proxy/proxy-jre`." %}
 
 ### Step 2: Determine Proxy Settings
 
@@ -128,13 +130,15 @@ In some cases, you might need to run the proxy on a host with limited network ac
 
 ### Prerequisites
 
-- **Networking:** The minimum requirement is an outbound HTTPS connection to the Wavefront service so the proxy can send metrics to the Wavefront service.
-  For metrics, the proxy uses port 2878 by default. You change that and you can configure [additional proxy ports](proxies_configuring.html#configuration-properties) for histograms and traces.
+- **Networking:** The minimum requirement is an outbound HTTPS connection to the Wavefront service, so the proxy can send metrics to the Wavefront service.
+  For metrics, the proxy uses port 2878 by default. You can change this port and you can configure [separate proxy ports](proxies_configuring.html#configuration-properties) for histograms and traces.
 
   You can use an [HTTP proxy](#configure-wavefront-proxy-with-an-httphttps-proxy) for the connection.
 
-- **JRE:** The Wavefront proxy is a Java jar file and requires a JRE - for example, openjdk8.  If the JRE is in the execution path you should be able to install the .rpm or .deb file as above.
-
+- **JRE:** The Wavefront proxy is a Java jar file and requires a JRE - for example, openjdk8. Before you can install the proxy `.rpm` or `.deb` file, you must have the JRE in the execution path.
+  
+    {% include note.html content="<br/>Starting with Wavefront proxy 11.1, the proxy installation packages don't include JRE. You must have installed Java JRE prior to the proxy installation. " %}
+    
 ### Installation and Configuration
 
 Installation and configuration is similar to environments with full network access but might require additional work.
