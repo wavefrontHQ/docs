@@ -165,8 +165,8 @@ This [90-second video](https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1
 
 Many integrations have preconfigured alerts for common use cases. All you have to do is:
 * Clone the alert.
-* Set the threshold(s) (for most alerts).
-* Specify who should get the alert, i.e. the recipient of the alert.
+* Edit the thresholds (for most alerts).
+* Specify who should receive the alert notification, i.e. the recipient of the alert.
 
 <table style="width: 100%;">
 <tbody>
@@ -181,15 +181,15 @@ Many integrations have preconfigured alerts for common use cases. All you have t
 <td width="50%" markdown="span">![Screenshot of several integrations, icon with green tick in top right](images/featured_integrations.png) </td></tr>
 <tr>
 <td width="50%">
-3. Click the <strong>Alerts</strong> tab and click <strong>Install All</strong>. Here's an example screenshot from the AWS integration. Not all integrations have preconfigured alerts.
+3. On the <strong>Alerts</strong> tab click <strong>Install All</strong>. Here's an example screenshot from the AWS integration. Not all integrations have preconfigured alerts.
 <br/><br/>
-You can now edit the alert directly, but we recommend that you clone the alert so you don't interfere with someone else's work.
+You can now edit the alert directly, but we recommend that you clone the alert so you don't lose your changes in case you reinstall the alerts.
 </td>
 <td width="50%" markdown="span">![Screenshot that shows the Alerts tab of the AWS integration](images/aws_alerts_install.png) </td></tr>
 <tr>
 <td width="50%">
 4. From the toolbar, select <strong>Alerting > All Alerts</strong> and search for the alert by name.
-   <br/><br/>In this example, we'll clone the <strong>EC2 Instance CPU Usage Too High</strong> alert. The alert opens in Edit mode.
+   <br/><br/>In this example, we'll clone the <strong>EC2 Instance CPU Usage Too High</strong> alert. When you clone the alert, the new alert opens in Edit mode.
 </td>
 <td width="50%" markdown="span">![Screenshot of the Alerts Browser, where we've searched for the ECS instance CPU usage too high alert](images/clone_aws_alert.png) </td></tr>
 <tr>
