@@ -181,7 +181,7 @@ Many integrations have preconfigured alerts for common use cases. All you have t
 <td width="50%" markdown="span">![Screenshot of several integrations, icon with green tick in top right](images/featured_integrations.png) </td></tr>
 <tr>
 <td width="50%">
-3. On the <strong>Alerts</strong> tab click <strong>Install All</strong>. Here's an example screenshot from the AWS integration. Not all integrations have preconfigured alerts.
+3. On the <strong>Alerts</strong> tab, click <strong>Install All</strong>. Here's an example screenshot from the AWS integration. Not all integrations have preconfigured alerts.
 <br/><br/>
 You can now edit the alert directly, but we recommend that you clone the alert so you don't lose your changes in case you reinstall the alerts.
 </td>
