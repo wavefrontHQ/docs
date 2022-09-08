@@ -19,7 +19,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
   
 * No settings can be edited in Preview mode.
 * All settings that cannot be modified in Edit mode are now shown as non-editable.
-* We have implemented a **Clone** button on top of each system integration which allows you easily to clone the integration alert right after you open the alert in Edit mode.
+* We have implemented a **Clone** button on top of each system integration alert. The button allows you to easily clone the integration alert right after you open it in Edit mode.
 	
 ![Example screenshot that shows the clone button](images/alerts-clone.png)
 
