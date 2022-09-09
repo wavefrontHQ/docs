@@ -24,7 +24,7 @@ Follow these steps to install a proxy on a host with full network access (incomi
 
 - **JRE:** The Wavefront proxy is a Java jar file and requires a JRE - for example, openjdk11. See the requirements in the [Wavefront Proxy README file](https://github.com/wavefrontHQ/wavefront-proxy#requirements).
 
-    {% include note.html content="<br/>Starting with Wavefront proxy 11.1, the proxy installation packages don't include JRE. Before you can install the proxy `.rpm` or `.deb` file, you must have the JRE in the execution path. " %}
+    {% include note.html content="Starting with Wavefront proxy 11.1, the proxy installation packages don't include JRE. Before you can install the proxy `.rpm` or `.deb` file, you must have the JRE in the execution path." %}
         
 ### Step 1: Download the Proxy
 
@@ -130,15 +130,13 @@ In some cases, you might need to run the proxy on a host with limited network ac
 
 ### Prerequisites
 
-- **Networking:** The minimum requirement is an outbound HTTPS connection to the Wavefront service, so the proxy can send metrics to the Wavefront service.
-
-  For metrics, the proxy uses port 2878 by default. You can change this port and you can configure [separate proxy ports](proxies_configuring.html#configuration-properties) for histograms and traces.
+- **Networking:** The minimum requirement is an outbound HTTPS connection to the Wavefront service, so the proxy can send metrics to the Wavefront service. For metrics, by default the proxy uses port 2878. You can change this port and you can configure [separate proxy ports](proxies_configuring.html#configuration-properties) for histograms and traces.
 
   You can use an [HTTP proxy](#configure-wavefront-proxy-with-an-httphttps-proxy) for the connection.
 
 - **JRE:** The Wavefront proxy is a Java jar file and requires a JRE - for example, openjdk11. See the requirements in the [Wavefront Proxy README file](https://github.com/wavefrontHQ/wavefront-proxy#requirements).
   
-    {% include note.html content="<br/>Starting with Wavefront proxy 11.1, the proxy installation packages don't include JRE. Before you can install the proxy `.rpm` or `.deb` file, you must have the JRE in the execution path. " %}
+    {% include note.html content="Starting with Wavefront proxy 11.1, the proxy installation packages don't include JRE. Before you can install the proxy `.rpm` or `.deb` file, you must have the JRE in the execution path." %}
     
 ### Installation and Configuration
 
