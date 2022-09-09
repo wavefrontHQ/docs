@@ -17,7 +17,7 @@ In most cases, a Wavefront proxy must be running in your installation before met
   - For egress, ensure that port 443 is available.
 - Memory - The proxy does not use a lot of CPU, memory, or storage. However, we recommend running the proxy on a host with at least 4GB of free memory.
 - CPU - A standalone proxy can easily handle up to 40K PPS (points per second). If you're sending more, use [multiple proxies behind a load balancer](proxies.html#production-environment-team-of-proxies--load-balancer).
-- Operating system and JRE - Wavefront proxy is a Java application and can run on operating systems supported by Java. Java 8 or later is required, the latest version of Java is recommended.
+- Operating system and JRE - Wavefront proxy is a Java application and can run on operating systems supported by Java. Java 8, 9, 10 or 11 is required. See the requirements in the [Wavefront Proxy README file](https://github.com/wavefrontHQ/wavefront-proxy#requirements).
 - Other - Maven
 
 {% include note.html content="The proxy uses disk space only for queue and buffering of metrics. The size of the buffer depends on the metrics size and the number of data points received and sent by the proxy. The **Wavefront Service and Proxy Data** dashboard in the **Wavefront Usage** integration has several charts that allow you to examine proxy backlog size and related metrics. See [Monitoring Proxies](monitoring_proxies.html)." %}
