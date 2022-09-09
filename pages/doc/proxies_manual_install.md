@@ -135,9 +135,9 @@ In some cases, you might need to run the proxy on a host with limited network ac
 
   You can use an [HTTP proxy](#configure-wavefront-proxy-with-an-httphttps-proxy) for the connection.
 
-  - **JRE:** The Wavefront proxy is a Java jar file and requires a JRE - for example, openjdk11. See the requirements in the [Wavefront Proxy README file](https://github.com/wavefrontHQ/wavefront-proxy#requirements).
+- **JRE:** The Wavefront proxy is a Java jar file and requires a JRE - for example, openjdk11. See the requirements in the [Wavefront Proxy README file](https://github.com/wavefrontHQ/wavefront-proxy#requirements).
   
-      {% include note.html content="<br/>Starting with Wavefront proxy 11.1, the proxy installation packages don't include JRE. Before you can install the proxy `.rpm` or `.deb` file, you must have the JRE in the execution path. " %}
+    {% include note.html content="<br/>Starting with Wavefront proxy 11.1, the proxy installation packages don't include JRE. Before you can install the proxy `.rpm` or `.deb` file, you must have the JRE in the execution path. " %}
     
 ### Installation and Configuration
 
