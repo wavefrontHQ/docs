@@ -131,6 +131,7 @@ In some cases, you might need to run the proxy on a host with limited network ac
 ### Prerequisites
 
 - **Networking:** The minimum requirement is an outbound HTTPS connection to the Wavefront service, so the proxy can send metrics to the Wavefront service.
+
   For metrics, the proxy uses port 2878 by default. You can change this port and you can configure [separate proxy ports](proxies_configuring.html#configuration-properties) for histograms and traces.
 
   You can use an [HTTP proxy](#configure-wavefront-proxy-with-an-httphttps-proxy) for the connection.
