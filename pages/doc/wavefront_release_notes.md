@@ -15,8 +15,8 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 ## 2022-36.x Release Notes
 
-* **Accessibility and Keyboard Navigation Improvements:**: When setting a custom time in the Time window picker, you can now use the keyboard to enter the months for the start and end dates.
-* **Integrations**: The September 2022 integrations release was made available! We made significant improvements to a number of integrations and also added the Cassandra on Kubernetes integration. See the [Integration Release Notes](integrations_new_changed.html#september-2022) for details.
+* **Accessibility and Keyboard Navigation Improvements**: When you set a custom time window for a dashboard or a chart, in the Time window picker, you can now use the keyboard to enter the months for the start and end dates.
+* **Integrations**: We had an integrations release in September! We made a lot of bug fixes and significant improvements to a number of integrations. See the [Integration Release Notes](integrations_new_changed.html#september-2022) for details.
 
 ## 2022-35.x Release Notes
 
