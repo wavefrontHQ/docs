@@ -13,6 +13,11 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## 2022-36.x Release Notes
+
+* **Accessibility and Keyboard Navigation Improvements**: When you set a custom time window for a dashboard or a chart, in the Time window picker, you can now use the keyboard to enter the months for the start and end dates.
+* **Integrations**: We had an integrations release in September! We made a lot of bug fixes and significant improvements to a number of integrations. See the [Integration Release Notes](integrations_new_changed.html#september-2022) for details.
+
 ## 2022-35.x Release Notes
 
 **Improved System Alerts Experience**: Some integrations contain [predefined system alerts](integrations.html#installing-and-uninstalling-integration-alerts). We have made several user experience improvements:
