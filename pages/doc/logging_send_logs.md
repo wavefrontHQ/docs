@@ -33,6 +33,24 @@ The Wavefront proxy accepts a JSON array payload over HTTP. Follow these steps t
     * If you are running the proxy on Docker, the command you used opens the `pushListenerPorts` and sets it to 2878.
 1. [Start the proxy](proxies_installing.html#start-and-stop-a-proxy) again.
 
+### Proxy Recommendations for Logs
+
+When sending logs to the proxy we recommend the following:
+
+* A standalone proxy cluster that only receives logs payloads.
+* CPU: 2 vCPUs
+* Memory: 4 GB RAM
+* 2 instances of the proxy working behind a load balancer
+* Add the following configurations:
+    Example: 
+    ```
+      - name: JAVA_HEAP_USAGE
+        value: 2G
+      
+      - name: JVM_USE_CONTAINER_OPTS
+        value: "false"
+    ```
+
 ## Configure Your Log Shipper
 
 As a best practice, we recommend you use a log shipper to send logs to Tanzu Observability. A log shipper scrapes and buffers your logs before sending them to the Wavefront proxy. 
@@ -105,8 +123,11 @@ If logs exceed the maximum character limit for a message, tag, and value the Wav
   </tr>
 </table>
 
+## Map The Traces and Metrics to Logs
 
-## View Logs in Tanzu Observability
+To get the unified observability experience and drill down from traces to logs and metrics to logs, you need to update your settings so that your traces and metrics map to the logs sent from your application. Contact [technical support](wavefront_support_feedback.html#support) to update the settings.
+
+## View Logs 
 
 When the data is in Tanzu Observability, you can use the Log Browser to filter and search logs, and drill into logs from charts, alerts, Application Map page, and the Traces Browser. See [View Logs and Troubleshoot](logging_overview.html#view-logs-and-troubleshoot).
 

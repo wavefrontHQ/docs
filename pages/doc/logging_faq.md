@@ -21,7 +21,17 @@ Did you right-click on a chart, click logs, and saw no data on the Log Browser? 
 
 To see logs for an application and service on the Log Browser, you need to tag the data with the `application` and `service` tags on your log shipper (example: Fluentd) before sending the logs to Tanzu Observability. If the logs do not have the application and service tags, the Wavefront proxy adds the application and service tags to the log data and assigns the value `none`.
 
-{% include note.html content="Distributed tracing uses the concept of application and service. Therefore, for Tanzu Observability to map the log data to the trace data you need to use the same tags." %}
+{{site.data.alerts.note}}
+  <ul>
+    <li>
+      There may be a marginal cost increase for additional tags. For more information, contact [technical support](wavefront_support_feedback.html#support).
+    </li>
+    <li>
+      Distributed tracing uses the concept of application and service. Therefore, for Tanzu Observability to map the log data to the trace data you need to use the same tags.
+    </li>
+  </ul>
+{{site.data.alerts.end}}
+
 
 For example, if you are using Fluentd, your `fluent.conf` file can have the following configurations:
 ```
