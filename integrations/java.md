@@ -212,7 +212,7 @@ Download the latest version of the Jolokia JVM-Agent JAR file `jolokia-jvm-x.x.x
 
 ### Step 4. Configure the Jolokia2 Agent Telegraf Input Plugin
 
-You can find a sample configuration of the Jolokia2 Agent input plugin for Java in the [Jolokia2 Agent Plugin GitHub repository](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/jolokia2/examples/java.conf).
+You can find a sample configuration of the Jolokia2 Agent input plugin for Java in the [Jolokia2 Agent Plugin GitHub repository](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/jolokia2_agent/examples/java.conf).
 
 Create a file called `java.conf` in the `/etc/telegraf/telegraf.d` directory and enter the following snippet:
 {% raw %}
@@ -290,7 +290,7 @@ Create a file called `java.conf` in the `/etc/telegraf/telegraf.d` directory and
 ```
 {% endraw %}
 
-For details, see [Jolokia2 Agent Plugin Configuration](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/jolokia2#jolokia-agent-configuration) and [Jolokia Metric Configuration](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/jolokia2#jolokia-metric-configuration).
+For details, see [Jolokia2 Agent Plugin Configuration](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/jolokia2_agent#configuration) and [Jolokia Metric Configuration](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/jolokia2_agent#metric-configuration).
 
 In addition, you can configure several MBeans in the Telegraf configuration. For example:{% raw %}
 ```

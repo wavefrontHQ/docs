@@ -22,7 +22,7 @@ The TAS integration contains a set of predefined dashboards that give you an ove
 - TAS: BOSH Director Health - Detailed view of BOSH Director health.
 - TAS: CLI Health - Health of CLI within TAS.
 - TAS: Certificate Expiration - Detailed view of the validity of the certificates.
-- TAS: Diego/Capacity - Detailed Diego metrics.
+- TAS: Diego / Capacity - Detailed Diego metrics.
 - TAS: Doppler - Real-time visibility into Doppler health.
 - TAS: Job Details - Detailed view of TAS job information.
 - TAS: Logging and Metrics Pipeline - Health check of Logging and Metrics Firehose.
