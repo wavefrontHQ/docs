@@ -24,7 +24,7 @@ To see logs for an application and service on the Log Browser, you need to tag t
 {{site.data.alerts.note}}
   <ul>
     <li>
-      There may be a marginal cost increase for additional tags. For more information, contact [technical support](wavefront_support_feedback.html#support).
+      There may be a marginal cost increase for additional tags. For more information, contact <a href="wavefront_support_feedback.html#support">technical support</a>.
     </li>
     <li>
       Distributed tracing uses the concept of application and service. Therefore, for Tanzu Observability to map the log data to the trace data you need to use the same tags.
