@@ -35,6 +35,7 @@ The Wavefront proxy accepts a JSON array payload over HTTP. Follow these steps t
 
 {% include note.html content="To learn more about the proxy configurations and preprocessor rules, see [Logs Proxy Configurations and Preprocessor Rules](logging_proxy_configurations.html)." %}
 
+<!--
 ### Proxy Recommendations for Logs
 
 When sending logs to the proxy we recommend the following:
@@ -52,6 +53,8 @@ When sending logs to the proxy we recommend the following:
       - name: JVM_USE_CONTAINER_OPTS
         value: "false"
     ```
+
+-->
 
 ## Configure Your Log Shipper
 
