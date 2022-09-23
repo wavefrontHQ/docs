@@ -33,6 +33,8 @@ The Wavefront proxy accepts a JSON array payload over HTTP. Follow these steps t
     * If you are running the proxy on Docker, the command you used opens the `pushListenerPorts` and sets it to 2878.
 1. [Start the proxy](proxies_installing.html#start-and-stop-a-proxy) again.
 
+{% include note.html content="To learn more about the proxy configurations and preprocessor rules, see [Logs Proxy Configurations and Preprocessor Rules](logging_proxy_configurations.html)." %}
+
 ### Proxy Recommendations for Logs
 
 When sending logs to the proxy we recommend the following:
