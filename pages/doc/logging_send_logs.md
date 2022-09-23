@@ -38,8 +38,8 @@ The Wavefront proxy accepts a JSON array payload over HTTP. Follow these steps t
 When sending logs to the proxy we recommend the following:
 
 * A standalone proxy cluster that only receives logs payloads.
-* CPU: 2 vCPUs
-* Memory: 4 GB RAM
+* 2 CPUs
+* 4 GB memory
 * 2 instances of the proxy working behind a load balancer
 * Add the following configurations:
     Example: 
@@ -125,7 +125,7 @@ If logs exceed the maximum character limit for a message, tag, and value the Wav
 
 ## Map The Traces and Metrics to Logs
 
-To get the unified observability experience and drill down from traces to logs and metrics to logs, you need to update your settings so that your traces and metrics map to the logs sent from your application. Contact [technical support](wavefront_support_feedback.html#support) to update the settings.
+To get the unified observability experience and drill down from traces to logs and metrics in dashboards or charts to logs, you need to update your settings so that your traces and metrics map to the logs sent from your application. Contact [technical support](wavefront_support_feedback.html#support) to update the settings.
 
 ## View Logs 
 

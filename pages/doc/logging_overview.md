@@ -172,7 +172,7 @@ See all the logs you sent to Tanzu Observability using the [Log Browser](logging
 
 Did you notice data anomalies on your chart and want to debug the issue using the logs you sent? Right-click on the chart and click **Logs**. You navigate to the Log Browser, and you see the logs for the time and source defined on the chart.
 
-{% include note.html content=" To drill down from metrics to logs, you need to update your settings so that your metrics map to the logs sent from your application. Contact [technical support](wavefront_support_feedback.html#support) to update the settings." %}
+{% include note.html content=" To drill down from metrics in dashboards or charts to logs, you need to update your settings so that your metrics map to the logs sent from your application. Contact [technical support](wavefront_support_feedback.html#support) to update the settings." %}
 
 If you don’t see logs, see [logging FAQs](logging_faq.html#dont-see-logs-when-drilling-down-from-a-chart).
 
