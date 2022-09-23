@@ -115,37 +115,37 @@ TEST
 <tr>
 <a name="customApplicationTags"></a>
 <td>customApplicationTags</td>
-<td markdown="span"> The value that needs to assigned to the application tag if the application tag is not defined in a log.
+<td markdown="span"> A comma-separated list of log tag keys that needs to be treated as the application name if the `application` tag is missing.
 <br/> Default: none
 <br/> Version: Since 11.3</td>
-<td> Comma separated list of log tags.
+<td> Comma separated list of log tags. Can be a single tag.
 <br/>Example: supermarket</td>
 </tr>
 <tr>
-<a name="customApplicationTags"></a>
-<td>customApplicationTags</td>
-<td markdown="span"> The value that needs to assigned to the service tag if the service tag is not defined in a log.
+<a name="customServiceTags"></a>
+<td>customServiceTags</td>
+<td markdown="span"> A comma-separated list of log tag keys that needs to be treated as the service name if the `service` tag is missing.
 <br/> Default: none
 <br/> Version: Since 11.3</td>
-<td> Comma separated list of log tags.
+<td> Comma separated list of log tags. Can be a single tag.
 <br/>Example: groceries, payment</td>
 </tr>
 <tr>
 <a name="customExceptionTags"></a>
 <td>customExceptionTags</td>
-<td markdown="span"> The value that needs to assigned to the exception tag if the exception tag is not defined in a log.
-<br/> Default: exception, error_nam
+<td markdown="span"> A comma-separated list of log tag keys that needs to be treated as the exception message if the `exception` tag is missing.
+<br/> Default: exception, error_name
 <br/> Version: Since 11.5</td>
-<td> Comma separated list of log tag.
+<td> Comma separated list of log tag. Can be a single tag.
 <br/>Example:404_Error</td>
 </tr>
 <tr>
 <a name="customLevelTags"></a>
 <td>customLevelTags</td>
-<td markdown="span"> The value that needs to assigned to the log level tag if the log level tag is not defined in a log.
+<td markdown="span"> A comma-separated list of log tag keys that needs to be treated as the log level, such as warning and error, if the `level` tag is missing.
 <br/> Default: level, log_level
 <br/> Version: Since 11.5</td>
-<td> Comma separated list of log tag.
+<td> Comma separated list of log tag. Can be a single tag.
 <br/>Example: debug, info, warn, error</td>
 </tr>
 </tbody>
