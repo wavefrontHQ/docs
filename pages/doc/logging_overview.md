@@ -34,7 +34,7 @@ summary: Learn about Tanzu Observability metrics, logs, and traces.
 </table>
 
 
-{%include note.html content="Tanzu Observability retains logs for 7, 15, or 30 days, based on your settings. To keep log data for longer, contact [technical support](wavefront_support_feedback.html#support)."%}
+{%include note.html content="Tanzu Observability retains logs for 7, 15, or 30 days, based on your settings. For longer retention needs, contact [technical support](wavefront_support_feedback.html#support)."%}
 
 ## What's a Tanzu Observability Log?
 
@@ -153,7 +153,7 @@ Once your send your logs to Tanzu Observability, you can view all your logs on t
 See all the logs you sent to Tanzu Observability using the [Log Browser](logging_log_browser.html). You can:
 
 * See logs for a selected time range.
-  {%include note.html content="Tanzu Observability retains logs for 7, 15, or 30 days, based on your settings. To keep log data for longer, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support)."%}
+  {%include note.html content="Tanzu Observability retains logs for 7, 15, or 30 days, based on your settings. For longer retention needs, contact [technical support](wavefront_support_feedback.html#support)."%}
 * Filter logs using tags, application, service, and source, or search for logs that have a specific word(s).
 * See the total number of logs that are there for a specific time using the histogram chart and identify hotspots.
 * Group logs using tags.
@@ -171,6 +171,8 @@ See all the logs you sent to Tanzu Observability using the [Log Browser](logging
 ### Drill Into Logs from Charts
 
 Did you notice data anomalies on your chart and want to debug the issue using the logs you sent? Right-click on the chart and click **Logs**. You navigate to the Log Browser, and you see the logs for the time and source defined on the chart.
+
+{% include note.html content=" To drill down from metrics in dashboards or charts to logs, you need to update your settings so that your metrics map to the logs sent from your application. Contact [technical support](wavefront_support_feedback.html#support) to update the settings." %}
 
 If you don’t see logs, see [logging FAQs](logging_faq.html#dont-see-logs-when-drilling-down-from-a-chart).
 
@@ -210,6 +212,8 @@ When you create or update an alert, you can configure the alert to filter logs u
 
 You can drill into logs from the application status page and the traces browser.
 To see logs for an application and service on the Log Browser, you need to tag the data with the application and service tags on your Log Shipper (example: Fluentd) before sending the logs to Tanzu Observability. For more information, see the [Logs FAQs](logging_faq.html#dont-see-application-and-service-logs).
+
+{% include note.html content=" To drill down from traces to logs, you need to update your settings so that your traces map to the logs sent from your application. Contact [technical support](wavefront_support_feedback.html#support) to update the settings." %}
 
 #### Drill Into Logs from Application Status
 

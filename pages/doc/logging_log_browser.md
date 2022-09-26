@@ -21,7 +21,73 @@ To use the Log Browser:
 
 ![An annotated screenshot of the Log Browser.](images/logging_log_browser_annotated_screen.png)
 
-{%include note.html content="Tanzu Observability retains logs for 7, 15, or 30 days, based on your settings."%}
+{%include note.html content="Tanzu Observability retains logs for 7, 15, or 30 days, based on your settings. For longer retention needs, contact [technical support](wavefront_support_feedback.html#support)."%}
+
+You see the log details in the table below the histogram chart. The data on the table is color-coordinated, so you can spot logs that need attention at a glance.
+
+<table style="width: 100%;">
+  <tr>
+    <th width="20%">
+      Color
+    </th>
+    <th width="80%">
+      Description
+    </th>
+  </tr>
+  <tr>
+    <td>
+      <img src="images/logs_yellow_warning.png"/>
+    </td>
+    <td>
+      Logs that have the term warn or warning.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="images/logs_color_critical.png"/>
+    </td>
+    <td>
+      Logs that have the term critical.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="images/logs_color_debug.png"/>
+    </td>
+    <td>
+      Logs that have the term debug.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="images/logs_color_trace.png"/>
+    </td>
+    <td>
+      Logs that have the term trace.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="images/logs_error_light_theme_warning.png"/>  Light theme 
+      <br/><img src="images/logs_error_dark_theme_warning.png"/>  Dark theme 
+    </td>
+    <td>
+      Logs that have the term error.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="images/logs_no_term_light_theme.png"/>  Light theme 
+      <br/><img src="images/logs_no_term_dark_theme.png"/>  Dark theme 
+    </td>
+    <td>
+      Logs that don't have any of the above terms.
+    </td>
+  </tr>
+</table>
+
+Example:
+![a screenshot of the logs table with the different colors at the beginning of the log message row.](images/logging_logs_table_colors.png)
 
 ## Enable or Disable Auto-Search
 
@@ -99,72 +165,6 @@ Let's look at an example:
     ![a screenshot with the zoom out options highlighted with a red box](images/logging_histogram_zoom_out.png)
 
 ## Customize the Log Data Table
-
-You see the log details in the table below the histogram chart. The data on the table is color-coordinated, so you can spot logs that need attention at a glance.
-
-<table style="width: 100%;">
-  <tr>
-    <th width="20%">
-      Color
-    </th>
-    <th width="80%">
-      Description
-    </th>
-  </tr>
-  <tr>
-    <td>
-      <img src="images/logs_yellow_warning.png"/>
-    </td>
-    <td>
-      Logs that have the term warn or warning.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="images/logs_color_critical.png"/>
-    </td>
-    <td>
-      Logs that have the term critical.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="images/logs_color_debug.png"/>
-    </td>
-    <td>
-      Logs that have the term debug.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="images/logs_color_trace.png"/>
-    </td>
-    <td>
-      Logs that have the term trace.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="images/logs_error_light_theme_warning.png"/>  Light theme 
-      <br/><img src="images/logs_error_dark_theme_warning.png"/>  Dark theme 
-    </td>
-    <td>
-      Logs that have the term error.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="images/logs_no_term_light_theme.png"/>  Light theme 
-      <br/><img src="images/logs_no_term_dark_theme.png"/>  Dark theme 
-    </td>
-    <td>
-      Logs that don't have any of the above terms.
-    </td>
-  </tr>
-</table>
-
-Example:
-![a screenshot of the logs table with the different colors at the beginning of the log message row.](images/logging_logs_table_colors.png)
 
 The logs data table has the Timestamp, Source, and Message columns by default. Follow these steps to add other columns with additional data from your logs.
 
