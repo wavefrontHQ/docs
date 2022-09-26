@@ -111,7 +111,6 @@ See the Wavefront proxy configuration used for logs:
 <td> A string.
 <br/>Example: blockedLogs</td>
 </tr>
-TEST
 <tr>
 <a name="customApplicationTags"></a>
 <td>customApplicationTags</td>
