@@ -124,7 +124,7 @@ You can log all the raw blocked data separately or log different entities into t
 <a id="proxy-configuration-properties"></a>
 ## Configuration Properties
 
-This section gives details on proxy configuration properties. All properties are also listed, in the [wavefront.conf.default file](https://github.com/wavefrontHQ/wavefront-proxy/blob/master/pkg/etc/wavefront/wavefront-proxy/wavefront.conf.default) on Github. 
+This section gives details on proxy configuration properties. All properties are also listed, in the [wavefront.conf.default file](https://github.com/wavefrontHQ/wavefront-proxy/blob/master/pkg/etc/wavefront/wavefront-proxy/wavefront.conf.default) on Github.
 
 
 ### General Configuration Properties
@@ -1279,5 +1279,5 @@ For either method, the service must return a 2xx code for valid tokens. Accordin
 
 ## Troubleshooting
 
-* [Proxy Troubleshooting] has tips and tricks from our SaaS Value Engineering team for common proxy problems.
+* [Proxy Troubleshooting](proxies_troubleshooting.html) has tips and tricks from our SaaS Value Engineering team for common proxy problems.
 * [Telegraf Troubleshooting](telegraf_details.html) has details on troubleshooting and fine-tuning the Telegraf agent.
