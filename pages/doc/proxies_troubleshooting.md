@@ -398,6 +398,7 @@ An alternative to deleting data is to [export queued data](#export-data-queued-a
 * Set the `exportQueueRetainData` flag to false to clear the queued data.
 * Set `exportQueueOutputFile` to `/dev/null` or a similar temporary location.
 
+<!--- Currently an issue with this, reported by SVE team. Added single quotes around {"truncate":true}, requested by SVE team.
 
 #### Option 3: Truncate Proxy Queue with the API
 
@@ -406,13 +407,13 @@ If you can't connect to the proxy machine or don't have permissions for the prox
 Run the following command:
 
 ```curl
-$curl -X PUT -H 'Authorization: Bearer <TOKEN>' -H 'Content-Type: application/json' "https://MY_INSTANCE.wavefront.com/api/v2/proxy/PROXY_ID" -d {"truncate":true}
+$curl -X PUT -H 'Authorization: Bearer <TOKEN>' -H 'Content-Type: application/json' "https://MY_INSTANCE.wavefront.com/api/v2/proxy/PROXY_ID" -d '{"truncate":true}'
 ```
 
 In the URL:
 * `MY_INSTANCE` is your Wavefront instance, for example, the URL could start with `https://example.wavefront.com`
 * `PROXY_ID` is the ID, which you can find in the Proxies browser in the Hostname column.
-
+--->
 
 ## How to Find the Account Used to Set Up a Specific Proxy
 <!--Link to this from usage monitoring page!--->
