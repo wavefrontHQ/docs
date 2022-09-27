@@ -128,7 +128,7 @@ If logs exceed the maximum character limit for a message, tag, and value the Wav
   </tr>
 </table>
 
-## Map The Traces and Metrics to Logs
+## Map the Traces and Metrics to Logs
 
 To get the unified observability experience and drill down from traces to logs and metrics in dashboards or charts to logs, you need to update your settings so that your traces and metrics map to the logs sent from your application. Contact [technical support](wavefront_support_feedback.html#support) to update the settings.
 
