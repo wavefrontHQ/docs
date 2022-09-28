@@ -14,7 +14,7 @@ In this tutorial, you’ll learn how to send logs to Tanzu Observability.
 Use the [demo application](https://github.com/wavefrontHQ/demo-app) to send data to Tanzu Observability. You can:
 
 * Deploy with helm or kubectl using the preconfigured containers.
-* Or You can also build, package, and push to your registry and deploy from there.
+* Build, package, push to your registry, and deploy from there.
 
 Once Tanzu Observability receives the data, you can see the logs on the Logs browser. To learn more, see [Log Browser](logging_log_browser.html).
 
