@@ -5,7 +5,6 @@ tags: [getting started, logs]
 sidebar: doc_sidebar
 permalink: logging_kubernetes_tutorial.html
 summary: Learn how to send logs from your Kubernetes cluster to Tanzu Observability
-published: false
 ---
 
 In this tutorial, you’ll learn how to send logs to Tanzu Observability.
