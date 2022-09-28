@@ -140,6 +140,6 @@ When the data is in Tanzu Observability, you can use the Log Browser to filter a
 
 * Get an overview of [Tanzu Observability logs](logging_overview.html).
 * Learn how to [view and browse logs](logging_log_browser.html).
-* [Try out the tutorial](logging_kubernetes_tutorial.html) to send logs to Tanzu Observability.
+* [Try out the tutorial on GitHub](https://github.com/wavefrontHQ/demo-app) to send logs to Tanzu Observability.
 * Learn more about the [proxy configurations and proxy preprocessor rules](logging_proxy_configurations.html).
 * Have questions? See [Logs FAQs](logging_faq.html).

@@ -648,5 +648,5 @@ Points must match the `allow` list to be accepted. Multiple `allow` rules are al
 * Get an overview of [Tanzu Observability logs](logging_overview.html).
 * See how to [send logs to Tanzu Observability](logging_send_logs.html).
 * Learn how to [view and browse logs](logging_log_browser.html).
-* [Try out the tutorial](logging_kubernetes_tutorial.html) to send logs to Tanzu Observability.
+* [Try out the tutorial on GitHub](https://github.com/wavefrontHQ/demo-app) to send logs to Tanzu Observability.
 * Have questions? See [Logs FAQs](logging_faq.html).
