@@ -13,6 +13,43 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## 2022-39.x Release Notes
+
+* **Ingestion Policies Improvements**: We made the following improvements to the [ingestion policies](ingestion_policies.html):
+  <table>
+    <tbody>
+      <tr>
+        <td width="40%">
+          <strong>New Ingestion Policy Scopes</strong>:<p>
+          We added sources, namespaces, and point tags as scope options for ingestion policies. When you create an ingestion policy, you can now select the scope from five options - accounts, groups, sources, namespaces, or point tags.</p>
+        </td>
+        <td width="60%">
+          <img src="/images/IP_sources_namespaces_tags.png" alt="In addition to Accounts and Groups, the Scope options include Sources, Namespace, and Point tags.">
+        </td>
+      </tr>
+      <tr>
+        <td width="40%">
+          <strong>New Ingestion Policy Version History</strong>:<p>
+          When you edit an ingestion policy, you now create a version of that policy. To see the changes that have been made to an ingestion policy over time:
+          <ol>
+          <li>From the gear icon on the toolbar, select <strong>Usage and Subscriptions</strong> and click the <strong>Ingestion Policies</strong> tab.</li>
+          <li>Click the ellipsis icon next to the policy and select <strong>Versions</strong>.</li>
+          </ol></p>
+        </td>
+        <td width="60%">
+          <img src="/images/IP_versions.png" alt="The ingestion policy versions. ">
+        </td>
+      </tr>
+      <tr>
+        <td width="40%">
+          <strong></strong><p></p>
+        </td>
+        <td width="60%">
+                  </td>
+      </tr>
+      </tbody>
+  </table> 
+
 ## 2022-36.x Release Notes
 
 * **Accessibility and Keyboard Navigation Improvements**: When you set a custom time window for a dashboard or a chart, in the Time window picker, you can now use the keyboard to enter the months for the start and end dates.

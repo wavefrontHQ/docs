@@ -6,11 +6,11 @@ permalink: ingestion_policies.html
 summary: Monitor usage with ingestion policies, usage dashboards, and alerts.
 ---
 
-In addition to the dashboard for monitoring your [overall usage](examine_usage.html), Tanzu Observability by Wavefront supports ingestion policies for monitoring your usage by particular accounts, groups, sources, metric namespaces, and point tags. For example, it might be valuable to understand the ingestion rates by the different teams or by the different sources and manage their consumption, cost, overage, etc.
+In addition to the dashboard for monitoring your [overall usage](examine_usage.html), Tanzu Observability by Wavefront supports ingestion policies for monitoring usage by particular accounts, groups, sources, metric namespaces, and point tags. For example, it might be valuable to understand the ingestion rates by the different teams or by the different sources and manage their consumption, cost, overage, etc.
 
-By creating an ingestion policy, you combine a set of accounts, groups, sources, metric namespaces, or point tags. Then, you can monitor their PPS usage per [billing period](glossary.html#b) from the ingestion policy dashboard, which shows:
-- the P95 PPS usage out of a certain limit for the policy
-- the month-over-month percentage change in the PPS usage for the policy
+By creating an ingestion policy, you group a set of accounts, groups, sources, metric namespaces, or point tags. Optionally, you can set a PPS limit associated with an alert. After you created an ingestion policy, you can start monitoring the policy PPS usage per [billing period](glossary.html#b) from the ingestion policy dashboard, which shows:
+- the P95 PPS usage out of the limit, if configured
+- the month-over-month percentage change in the PPS usage
 - the hourly PPS usage
 - the accounts that ingest most data
 - the usage by ingestion mechanism (proxy and direct ingestions)
@@ -24,11 +24,11 @@ For performance monitoring of your Wavefront instance, you can use [wftop, Wavef
 
 Ingestion policies allow you to combine user and service accounts, groups, sources, metric namespaces, or point tags, so that you can monitor their usage of the Wavefront service. For example, you can create a policy for a group of new hires. You can also create a policy for one or more source virtual machines. Also, you can set a Points per Second (PPS) limit for the policy and create an alert, so that you can receive notifications if the PPS usage exceeds certain thresholds of the limit.
 
-Tracking the PPS usage by ingestion policy can help you understand how the overall usage is distributed and whether or not particular team will need more PPS in the future or need to reduce their overhead ingestions.
+Tracking the PPS usage by ingestion policy can help you understand how the overall usage is distributed and whether or not a particular team will need more PPS in the future or will need to reduce their overhead ingestions.
 
 The policy scope can be accounts, groups, sources, namespaces, or point tags.
 * Once you set the scope, you cannot change it.
-* You can change only the object assigned to the policy in accordance with the scope.
+* You can change only the accounts or objects assigned to the policy in accordance with the scope.
 * Each account or object can belong to more than one policy.
 
 ## Permissions
@@ -121,7 +121,7 @@ When you edit an ingestion policy, you create a new version of that policy.
 
 ## View Ingestion Policy History
 
-To access the version history of an ingestion policy, on the **Ingestion Policies** page, click the ellipsis icon next the policy and select **Versions**.
+To access the version history of an ingestion policy, on the **Ingestion Policies** page, click the ellipsis icon next to the policy and select **Versions**.
 
 <table style="width: 100%;">
 <tbody>
