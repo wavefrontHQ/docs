@@ -13,7 +13,7 @@ BigPanda is an algorithmic event and alert management platform. This integration
 
 Typically, alert targets are configured to use webhooks. A common use case is when Tanzu Observability is configured to have BigPanda alert targets, by using the webhook feature.
 
-For information about setting up the BigPanda integration, see [BigPanda setup](https://docs.wavefront.com/bigpanda.html).
+For information about setting up the BigPanda integration, see [BigPanda setup](bigpanda.html).
 
 ## Problems
 
@@ -83,4 +83,4 @@ Follow these steps:
     The event description might indicate what could have gone wrong. 
    
 
-If the above steps and recommendations don't help and the issue persists, please consider contacting BigPanda to validate if they are receiving the payload and whether it hasn't been suppressed by their team, or [engage the Tanzu Observability Support team](https://docs.wavefront.com/wavefront_support_feedback.html).
+If the above steps and recommendations don't help and the issue persists, please consider contacting BigPanda to validate if they are receiving the payload and whether it hasn't been suppressed by their team, or [engage the Tanzu Observability Support team](wavefront_support_feedback.html).

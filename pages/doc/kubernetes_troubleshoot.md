@@ -76,7 +76,7 @@ You can address this problem in several ways, and might find that combining solu
 
 All Tanzu Observability users can benefit greatly from managing the shape of the data that's coming in. See the following doc pages for detail:
 * [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html)
-* [Improve PPS Usage and Prevent Overage](http://docs-sandbox-a.wavefront.com/wavefront_usage_info.html)
+* [Improve PPS Usage and Prevent Overage](wavefront_usage_info.html)
 
 
 ### Filter Out Metrics at the Collector
@@ -159,7 +159,7 @@ You can use [proxy preprocessor rules](proxies_preprocessor_rules.html) to block
 
 ![Highlights arrow from the Wavefront proxy to the Wavefront service on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_step_4.png)
 
-See [Monitor Wavefront Proxies](https://docs.wavefront.com/monitoring_proxies.html) for monitoring and troubleshooting the proxy.
+See [Monitor Wavefront Proxies](monitoring_proxies.html) for monitoring and troubleshooting the proxy.
 
 <table style="width: 100%;">
 <tbody>
@@ -196,7 +196,7 @@ You can filter out data flowing into Tanzu Observability at multiple points:
 
   ![Highlights the source and sink the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom-Incomplete_step_2.2.png)
 
-* Filter or rename metrics at the Proxy before sending them. See [Wavefront proxy preprocessor rules](https://docs.wavefront.com/proxies_preprocessor_rules.html). More information can be found in [Monitoring Wavefront Proxies](monitoring_proxies.html).
+* Filter or rename metrics at the Proxy before sending them. See [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html). More information can be found in [Monitoring Wavefront Proxies](monitoring_proxies.html).
 
   ![Highlights arrow from the sinker to the wavefront proxy on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_step_2.png)
 
@@ -212,7 +212,7 @@ You can filter out data flowing into Tanzu Observability at multiple points:
 
   ![Highlights arrow from the sinker to the wavefront proxy on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_metric_name_step_1.png)
 
-* Rename metrics to different names in the proxy configuration. See [Wavefront proxy preprocessor rules](https://docs.wavefront.com/proxies_preprocessor_rules.html).
+* Rename metrics to different names in the proxy configuration. See [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html).
 
   ![Highlights arrow from the sinker to the wavefront proxy on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_step_2.png)
 

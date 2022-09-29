@@ -158,7 +158,7 @@ You cannot save the event overlay settings from the GUI, but can make the change
 
 **To set event overlay defaults for a dashboard**
 
-1. Open the dashboard [JSON file for edit](https://docs.wavefront.com/ui_dashboards.html#edit-the-dashboard-json).
+1. Open the dashboard [JSON file for edit](ui_dashboards.html#edit-the-dashboard-json).
 
 2. Set `eventFilterType` setting to one of the following and save the JSON. Going forward, the **Show Events** setting for this dashboard defaults to the setting specified in `eventFilterType`.
 
