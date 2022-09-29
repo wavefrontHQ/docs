@@ -783,8 +783,8 @@ Required when authMethod = STATIC_TOKEN. For example, <code>authStaticToken=toke
 </tr>
 <tr>
 <a name="otlpAppTagsOnMetricsIncluded"></a>
-<td>otlpResourceAttrsOnMetricsIncluded</td>
-<td markdown="span"> Set the value to false to exclude the OpenTelemetry resource attributes (1application`, `service.name``, `shard`, and `cluster`) that your application sends for metrics data. 
+<td>otlpAppTagsOnMetricsIncluded</td>
+<td markdown="span"> Set the value to false to exclude the OpenTelemetry resource attributes (`application`, `service.name``, `shard`, and `cluster`) that your application sends for metrics data. 
 <br/>Default: true
 <br/> Version: Since 11.5</td>
 <td>true or false</td>
