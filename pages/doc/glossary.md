@@ -74,12 +74,12 @@ This Tanzu Observability by Wavefront glossary defines technical terms that are 
 <tr>
 <td markdown="span">&nbsp;</td>
 <td markdown="span">[**Continuous time series**](query_language_discrete_continuous.html)</td>
-<td>A time series that contains one data point per second. Because the Wavefront service accepts and stores data at up to 1 second resolution, a continuous time series has a data value for each moment in time that can be represented on the X-axis of a chart. <strong>See also:</strong> Discrete time series.</td>
+<td>A time series that contains one data point per second. Because the Wavefront service accepts and stores data at up to 1 second resolution, a continuous time series has a data value for each moment in time that can be represented on the X-axis of a chart. See also: <strong>Discrete time series</strong>.</td>
 </tr>
 <tr>
 <td markdown="span">&nbsp;</td>
 <td markdown="span">[**Counter**](delta_counters.html)</td>
-<td>A <strong>cumulative counter</strong>, or simply counter, is a monotonically increasing counter. These counters are useful for aggregating metric information such as the number of hits on a web page, how many users log into a portal, etc. They're usually used with `rate()` or a similar function. See also:<strong>Delta counter.</strong></td>
+<td>A <strong>cumulative counter</strong>, or simply counter, is a monotonically increasing counter. These counters are useful for aggregating metric information such as the number of hits on a web page, how many users log into a portal, etc. They're usually used with `rate()` or a similar function. See also: <strong>Delta counter</strong>.</td>
 </tr>
 
 <tr>
@@ -99,7 +99,7 @@ This Tanzu Observability by Wavefront glossary defines technical terms that are 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Delta counter**](delta_counters.html)</td>
-<td>Delta counters bin metrics to a minute timestamp and they treat write operations to the same bin as deltas. Delta counters are especially useful in serverless Function-as-a-Service environments or if you want to combine points that come in at the same time from several sources. Use a `cs()` query to have your metric treated as a delta counter. See also:<strong>Delta counter.</strong></td>
+<td>Delta counters bin metrics to a minute timestamp and they treat write operations to the same bin as deltas. Delta counters are especially useful in serverless Function-as-a-Service environments or if you want to combine points that come in at the same time from several sources. Use a `cs()` query to have your metric treated as a delta counter. </td>
 </tr>
 <tr>
 <td>&nbsp;</td>
@@ -114,7 +114,7 @@ This Tanzu Observability by Wavefront glossary defines technical terms that are 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Discrete time series**](query_language_discrete_continuous.html)</td>
-<td>A time series whose data points are separated by time intervals that are greater than one second. These longer intervals may be due to reporting that is infrequent, irregular, or interrupted. <strong>See also:</strong> Continuous time series.</td>
+<td>A time series whose data points are separated by time intervals that are greater than one second. These longer intervals may be due to reporting that is infrequent, irregular, or interrupted. See also: <strong>Continuous time series</strong>.</td>
 </tr>
 
 <tr>
@@ -183,7 +183,7 @@ This Tanzu Observability by Wavefront glossary defines technical terms that are 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Multi-tenant SSO**](authentication.html#multi-tenant-authentication)</td>
-<td>If one of our customers uses an Identity Provider (IP), all users authenticate with that IP and see the same information by default. Multi-tenant SSO allows customers to request multiple tenants, each with a tenant administrator. Tenant administrators can invite other users. Users who authenticate to the IP can then access the tenant(s) to which they have been invited. </td>
+<td>If one of our customers uses an Identity Provider (IdP), all users authenticate with that IdP and see the same information by default. Multi-tenant SSO allows customers to request multiple tenants, each with a tenant administrator. Tenant administrators can invite other users. Users who authenticate to the IdP can then access the tenants to which they have been invited. </td>
 </tr>
 <tr>
 <td><strong><big>O</big></strong></td>
@@ -192,7 +192,7 @@ This Tanzu Observability by Wavefront glossary defines technical terms that are 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Object tag**](tags_overview.html#manage-object-tags)</td>
-<td>Object tags help you filter your display. You apply an object tag to Wavfront UI objects such as dashboards. You can later find and display groups of objects based on their object tag. </td>
+<td>Object tags help you filter your display. You apply an object tag to Wavefront UI objects such as dashboards. You can later find and display groups of objects based on their object tag. </td>
 </tr>
 <tr>
 <td>&nbsp;</td>
@@ -219,7 +219,7 @@ You can manage authorization with user-level permissions or user and group-level
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">**PPS**</td>
-<td markdown="span">Points per Seconds. Telemetry data points per second ingested by the Wavefront service. All customers are billed based on their PPS. We support dashboards and tools to <a href="https://docs.wavefront.com/wavefront_usage_info.html">Find Actionable Usage Information</a>  </td>
+<td markdown="span">Points per Second. Telemetry data points per second ingested by the Wavefront service. All customers are billed based on their PPS. We support dashboards and tools to [Find Actionable Usage Information](wavefront_usage_info.html).  </td>
 </tr>
 <tr>
 <td>&nbsp;</td>
@@ -243,7 +243,7 @@ You can manage authorization with user-level permissions or user and group-level
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**RED metrics**](trace_data_details.html#red-metrics)</td>
-<td>RED metrics are key health metrics for applications that are instrumented for distributed tracing. RED metrics measure the Request Rate (number of requests per minute), Errors (number of failed requests per minute), and Duration of the spans that are generated by an application or one of its services. <strong>See also:</strong> Span RED metrics, Trace RED metrics.</td>
+<td>RED metrics are key health metrics for applications that are instrumented for distributed tracing. RED metrics measure the Request Rate (number of requests per minute), Errors (number of failed requests per minute), and Duration of the spans that are generated by an application or one of its services. See also: <strong>Span RED metrics</strong> and <strong>Trace RED metrics</strong>.</td>
 </tr>
 <tr>
 <td><strong><big>S</big></strong></td>
@@ -252,7 +252,7 @@ You can manage authorization with user-level permissions or user and group-level
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Sampling**](trace_data_sampling.html)</td>
-<td>Sampling is a technique for limiting the volume of trace data that is actually sent to to the Wavefront service for storage and visualization. A sampling strategy is a policy for deciding which traces to send. </td>
+<td>Sampling is a technique for limiting the volume of trace data that is actually sent to the Wavefront service for storage and visualization. A sampling strategy is a policy for deciding which traces to send. </td>
 </tr>
 <tr>
 <td>&nbsp;</td>
@@ -291,22 +291,22 @@ You can manage authorization with user-level permissions or user and group-level
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Tag**](tags_overview.html)</td>
-<td>Tags are metadata that is associated with your observability data. You can use tags to filter the results of a query, or to apply an operation to a group of objects (such as suppressing a group of alerts during a maintenance window). We support several types of tags, including source tags, point tags, event tags, alert tags, and span tags. <strong>See also:</strong> Point tag, Source tag. </td>
+<td>Tags are metadata that is associated with your observability data. You can use tags to filter the results of a query, or to apply an operation to a group of objects (such as suppressing a group of alerts during a maintenance window). We support several types of tags, including source tags, point tags, event tags, alert tags, and span tags. See also: <strong>Point tag</strong> and <strong>Source tag</strong>. </td>
 </tr>
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">Telemetry data</td>
-<td>See Observability data.</td>
+<td>See <strong>Observability data</strong>.</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">Tenant</td>
-<td> If your company has several teams, and if each team wants to work independently, you can request a multi-tenant SSO setup. Afterwards, users can be invited to individual tenants only - and users who belong to multiple teams can be invited to multiple tenants. <strong>See also:</strong> Multi-tenant SSO. </td>
+<td> If your company has several teams, and if each team wants to work independently, you can request a multi-tenant SSO setup. Afterwards, users can be invited to individual tenants only - and users who belong to multiple teams can be invited to multiple tenants. See also: <strong>Multi-tenant SSO</strong>. </td>
 </tr>
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">Time series</td>
-<td markdown="span">A time series is a data set that consists of a sequence of data points over time. Each data point in a time series combines a single data value with a unique timestamp. Every time series is identified by unique metadata (combination of metric name, source name, and point tag values). In the Wavefront query language, you use the [ts() function](ts_function.html) to describe and visualize a time series. <strong>See also:</strong> Continuous time series and Discrete time series.</td>
+<td markdown="span">A time series is a data set that consists of a sequence of data points over time. Each data point in a time series combines a single data value with a unique timestamp. Every time series is identified by unique metadata (combination of metric name, source name, and point tag values). In the Wavefront query language, you use the [ts() function](ts_function.html) to describe and visualize a time series. See also: <strong>Continuous time series</strong> and <strong>Discrete time series</strong>.</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
