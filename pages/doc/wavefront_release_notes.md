@@ -13,15 +13,15 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
-## 2022-39.x Release Notes
+## 2022-40.x Release Notes
 
-* **Ingestion Policies Improvements**: We made the following improvements to the [ingestion policies](ingestion_policies.html):
+* **Usage Portal Improvements**: We made the following improvements to the [ingestion policies](ingestion_policies.html) and [overall usage](examine_usage.html) monitoring:
   <table>
     <tbody>
       <tr>
         <td width="40%">
           <strong>New Ingestion Policy Scopes</strong>:<p>
-          We added sources, namespaces, and point tags as scope options for ingestion policies. When you create an ingestion policy, you can now select the scope from five options - accounts, groups, sources, namespaces, or point tags.</p>
+          We added sources, namespaces, and point tags as scope options for ingestion policies. When you create an ingestion policy, you can now select the scope from these options - accounts, groups, sources, namespaces, or point tags.</p>
         </td>
         <td width="60%">
           <img src="/images/IP_sources_namespaces_tags.png" alt="In addition to Accounts and Groups, the Scope options include Sources, Namespace, and Point tags.">
@@ -30,7 +30,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
       <tr>
         <td width="40%">
           <strong>New Ingestion Policy Version History</strong>:<p>
-          When you edit an ingestion policy, you now create a version of that policy. To see the changes that have been made to an ingestion policy over time:
+          When you edit an ingestion policy, you now create a version of that policy. As a Super Admin user, to see the changes that have been made to an ingestion policy over time:
           <ol>
           <li>From the gear icon on the toolbar, select <strong>Usage and Subscriptions</strong> and click the <strong>Ingestion Policies</strong> tab.</li>
           <li>Click the ellipsis icon next to the policy and select <strong>Versions</strong>.</li>
@@ -42,10 +42,36 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
       </tr>
       <tr>
         <td width="40%">
-          <strong></strong><p></p>
+          <strong>New View Permissions Model</strong>:<p>
+          All users now have read-only access to the Usage Summary dashboard and the ingestion policies. If you are not a Super Admin user:
+          <ol>
+          <li>From the gear icon on the toolbar, select <strong>Usage Portal</strong>.</li>
+          <li>On the <strong>Usage Summary</strong> tab, examine the dashboard for the overall PPS usage over time.</li>
+          <li>On the <strong>Ingestion Policies</strong> tab, click the name of a policy and examine the policy PPS usage since the policy was created.</li>
+          </ol>
+          Still, only Super Admin users can create, edit, and delete ingestion policies and the associated alerts.</p>
         </td>
         <td width="60%">
-                  </td>
+          <img src="/images/IP_view_permission.png" alt="The ingestion policy versions. ">
+        </td>
+      </tr>
+      <tr>
+        <td width="40%">
+          <strong>Sorting Ingestion Policies by Current Usage</strong>:<p>
+          You can now sort the ingestion policies by their PPS usage within the last 1 hour.</p>
+        </td>
+        <td width="60%">
+          <img src="/images/IP_usage_sort.png" alt="The ingestion policy versions. ">
+        </td>
+      </tr>
+      <tr>
+        <td width="40%">
+          <strong>Downloading Usage Portal Dashboards</strong>:<p>
+          All users can now export the Usage Summary dashboard and the ingestion policy dashboards in PDF format.</p>
+        </td>
+        <td width="60%">
+          <img src="/images/IP_dashboard_export.png" alt="The ingestion policy versions. ">
+        </td>
       </tr>
       </tbody>
   </table> 

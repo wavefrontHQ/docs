@@ -35,6 +35,7 @@ The policy scope can be accounts, groups, sources, namespaces, or point tags.
 
 * Only Super Admin users can create and edit ingestion policies.
 * Only Super Admin users can edit or delete alerts associated with ingestions policies. The **Alerts** permission does not apply to ingestion policy alerts.
+* Only Super Admin users can view ingestion policy versions.
 * All users can view the ingestion policies, the ingestion policy dashboards, and the ingestion policy alerts.
 
 ## Create an Ingestion Policy
@@ -155,58 +156,61 @@ If you no longer need an ingestion policy, for example, after a reorganization i
 All users can examine the ingestion policy dashboards to understand their usage over time.
 
 1. Log in to your Wavefront instance.
-2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
-3. On the **Ingestion Policies** tab, click the name of the policy in which you are interested.
+2. Navigate to the usage portal.
 
+    - If you are a Super Admin user, from the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
+    - If you are not a Super Admin user, from the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
+3. Click the **Ingestion Policies** tab and view all existing policies.
 ![Ingestion policies page](images/ingestion_policies.png)
+4. Click the name of the policy in which you are interested and examine the policy dashboard.
 
-The ingestion policy dashboard consists of the following sections:
+    The ingestion policy dashboard consists of the following sections:
 
-- In the **Ingestion Summary** section of the dashboard, you can see the following list of charts:
+    - In the **Ingestion Summary** section of the dashboard, you can see the following list of charts:
 
-  <table style="width: 100%;">
-  <tbody>
-  <thead>
-  <tr><th width="30%">Chart</th><th width="70%">Description</th></tr>
-  </thead>
-  <tr>
-  <td><strong>Usage Limit</strong></td>
-  <td>Shows the 95th percentile PPS usage by the policy out of the PPS limit for the selected billing period.</td></tr>
-  <tr>
-  <td><strong>Previous Month to Selected Month</strong></td>
-  <td>Shows a comparison of the selected month's usage with the previous month's usage.</td>
-  </tr>
-  <tr>
-  <td><strong>Hourly Usage</strong></td>
-  <td>Shows the hourly PPS. The red line represents the PPS limit for the policy.</td>
-  </tr>
-  </tbody>
-  </table>
+      <table style="width: 100%;">
+      <tbody>
+      <thead>
+      <tr><th width="30%">Chart</th><th width="70%">Description</th></tr>
+      </thead>
+      <tr>
+      <td><strong>Usage Limit</strong></td>
+      <td>Shows the 95th percentile PPS usage by the policy out of the PPS limit for the selected billing period.</td></tr>
+      <tr>
+      <td><strong>Previous Month to Selected Month</strong></td>
+      <td>Shows a comparison of the selected month's usage with the previous month's usage.</td>
+      </tr>
+      <tr>
+      <td><strong>Hourly Usage</strong></td>
+      <td>Shows the hourly PPS. The red line represents the PPS limit for the policy.</td>
+      </tr>
+      </tbody>
+      </table>
 
-- In the **Optimize Usage** section of the dashboard, you can see a list of charts that lets you investigate usage further by accounts, ingestion mechanisms, and data types.
+    - In the **Optimize Usage** section of the dashboard, you can see a list of charts that lets you investigate usage further by accounts, ingestion mechanisms, and data types.
 
-  <table style="width: 100%;">
-  <tbody>
-  <thead>
-  <tr><th width="30%">Chart</th><th width="70%">Description</th></tr>
-  </thead>
-  <tr>
-  <td><strong>Top Accounts Contributing to Ingestion</strong></td>
-  <td>Shows which accounts contribute the most.</td></tr>
-  <tr>
-  <td><strong>Usage by Ingestion Source</strong></td>
-  <td>Shows the usage by ingestion mechanism - proxy and direct ingestions.</td>
-  </tr>
-  <tr>
-  <td><strong>Usage by Ingestion Type</strong></td>
-  <td>Shows the usage by data type - time series, histograms, and delta counters.</td>
-  </tr>
-  </tbody>
-  </table>
+      <table style="width: 100%;">
+      <tbody>
+      <thead>
+      <tr><th width="30%">Chart</th><th width="70%">Description</th></tr>
+      </thead>
+      <tr>
+      <td><strong>Top Accounts Contributing to Ingestion</strong></td>
+      <td>Shows which accounts contribute the most.</td></tr>
+      <tr>
+      <td><strong>Usage by Ingestion Source</strong></td>
+      <td>Shows the usage by ingestion mechanism - proxy and direct ingestions.</td>
+      </tr>
+      <tr>
+      <td><strong>Usage by Ingestion Type</strong></td>
+      <td>Shows the usage by data type - time series, histograms, and delta counters.</td>
+      </tr>
+      </tbody>
+      </table>
 
-- If the ingestion policy has a PPS limit with an alert, the dashboard includes the **Alert** section that provides details about the associated alert.
+    - If the ingestion policy has a PPS limit with an alert, the dashboard includes the **Alert** section that provides details about the associated alert.
  
- ![Usage summary per ingestion policy](images/IP_dashboard.png)
+    ![Usage summary per ingestion policy](images/IP_dashboard.png)
 
 ## Example: Monitor Which Teams Are Responsible for How Much Ingested Data
 

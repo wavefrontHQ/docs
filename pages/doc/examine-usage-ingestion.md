@@ -3,7 +3,7 @@ title: Examine the Overall Usage of Your Wavefront Service
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: examine_usage.html
-summary: Monitor your overall usage per billing month.
+summary: Monitor your overall usage per billing period.
 ---
 
 It's important to understand how you use your Tanzu Observability by Wavefront service, whether you will be billed for more data, and whether you will need to request more data. Typically, billing is based on the amount of data that you send to Tanzu Observability, measured in Points per Second (PPS). If your scan rate exceeds more than 20x the ingestion rate, you will be billed based on the scan rate. If you exceed your committed rate, you will be charged more.
@@ -16,13 +16,17 @@ For performance monitoring of your Wavefront instance, you can use [wftop, Wavef
 
 ## How to Go to the Usage Summary Dashboard?
 
-You can navigate to the Usage Summary dashboard to get an overview of the ingested and scanned rates over a certain billing period. You can go up to 2 years back in time.
+You can navigate to the Usage Summary dashboard to get an overview of the ingested and scanned rates over a certain [billing period](glossary.html#b). You can go up to 2 years back in time.
 
 1. Log in to your Wavefront instance.
-2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
+
+2. Navigate to the usage portal.
+
+    - If you are a Super Admin user, from the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
+    - If you are not a Super Admin user, from the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
 
    The **Usage Summary** tab opens. This tab contains the dashboard with an overview of the ingested and scanned rates.
-3. From the **Billing Month** drop-down menu, select the <a href="glossary.html#b">billing period</a> you are interested in.
+3. From the **Billing Month** drop-down menu, select the billing period you are interested in.
    
    
 ## Understand the Data
