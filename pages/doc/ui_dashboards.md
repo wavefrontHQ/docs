@@ -556,7 +556,7 @@ Over time, as more and more dashboards are created, there will be dashboards tha
 * Use the Wavefront API and UI to check for dashboards that have not been viewed over a time window of your choice, including more than 4 weeks (a month).
     1. Get the IDs of all dashboards.
         1. From the gear icon on the toolbar, select **API Documentation**.
-        2. Expand the **Dashboard** category, click the `GET api/v2/dashboard` request, and click **Try it out** in the top right of the request.
+        2. Expand the **Dashboard** category and click the `GET api/v2/dashboard` request.
 
             {% include note.html content="You may need to iterate through all the available dashboards by using the `offset` parameter in the API request."%}
         3. Click **Execute**.
