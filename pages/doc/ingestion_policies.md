@@ -6,15 +6,15 @@ permalink: ingestion_policies.html
 summary: Monitor usage with ingestion policies, usage dashboards, and alerts.
 ---
 
-In addition to the dashboard for monitoring your [overall usage](examine_usage.html), Tanzu Observability by Wavefront supports ingestion policies for monitoring usage by particular accounts, groups, sources, metric namespaces, and point tags. For example, it might be valuable to understand the ingestion rates by the different teams or by the different sources and manage their consumption, cost, overage, etc.
+In addition to the dashboard for monitoring your [overall usage](examine_usage.html), Tanzu Observability by Wavefront supports ingestion policies for monitoring usage by particular accounts, groups, sources, metric namespaces, or point tags. For example, it might be valuable to understand the ingestion rates of the different teams in your organization or by the different sources and manage their consumption, cost, overage, etc.
 
-By creating an ingestion policy, you group a set of accounts, groups, sources, metric namespaces, or point tags. Optionally, you can set a PPS limit associated with an alert. After you created an ingestion policy, you can start monitoring the policy PPS usage per [billing period](glossary.html#b) from the ingestion policy dashboard, which shows:
-- the P95 PPS usage out of the limit, if configured
-- the month-over-month percentage change in the PPS usage
-- the hourly PPS usage
-- the accounts that ingest most data
-- the usage by ingestion mechanism (proxy and direct ingestions)
-- the usage by ingestion type (time series, histograms, and delta counters)
+By creating an ingestion policy, you group a set of accounts, groups, sources, metric namespaces, or point tags. Optionally, you can set a PPS limit associated with an alert. After you create an ingestion policy, you can start monitoring the policy PPS usage per [billing period](glossary.html#b) from the ingestion policy dashboard, which shows:
+- The P95 PPS usage out of the limit, if configured
+- The month-over-month percentage change in the PPS usage
+- The hourly PPS usage
+- The accounts that ingest most data
+- The usage by ingestion mechanism (proxy and direct ingestions)
+- The usage by ingestion type (time series, histograms, and delta counters)
 
 {% include note.html content="All users can view the ingestion policies. Only Super Admin users can create, edit, and delete ingestion policies."%}
 
@@ -24,7 +24,7 @@ For performance monitoring of your Wavefront instance, you can use [wftop, Wavef
 
 Ingestion policies allow you to combine user and service accounts, groups, sources, metric namespaces, or point tags, so that you can monitor their usage of the Wavefront service. For example, you can create a policy for a group of new hires. You can also create a policy for one or more source virtual machines. Also, you can set a Points per Second (PPS) limit for the policy and create an alert, so that you can receive notifications if the PPS usage exceeds certain thresholds of the limit.
 
-Tracking the PPS usage by ingestion policy can help you understand how the overall usage is distributed and whether or not a particular team will need more PPS in the future or will need to reduce their overhead ingestions.
+Tracking the PPS usage by ingestion policy can help you understand how the overall usage is distributed and whether a particular team will need more PPS in the future or will need to reduce their overhead ingestions.
 
 The policy scope can be accounts, groups, sources, namespaces, or point tags.
 * Once you set the scope, you cannot change it.
@@ -69,7 +69,7 @@ In the **Data** panel, specify the scope and, optionally, a PPS limit and click 
     </tr>
     <tr>
     <td><strong>Namespaces</strong></td>
-    <td><a href="metrics_managing.html#metrics-browser">Namespaces</a> that group metrics in a hierarchy defined by a name prefix. You can assign exact metric names and namespaces, for example, <code>request.</code> and <code>requests</code>. You can assign names with wildcards, for example, <code>cpuloadavg*</code> and <code>cpu.*</code>.</td>
+    <td><a href="metrics_managing.html#metrics-browser">Namespaces</a> that group metrics in a hierarchy defined by a name prefix. You can assign exact metric names and namespaces, for example, <code>request.</code> and <code>requests</code>. You can also assign names with wildcards, for example, <code>cpuloadavg*</code> and <code>cpu.*</code>.</td>
     </tr>
     <tr>
     <td><strong>Point Tags</strong></td>
@@ -79,8 +79,8 @@ In the **Data** panel, specify the scope and, optionally, a PPS limit and click 
     </tbody>
     </table>
 
-    After you create the policy, you cannot change the scope. You can change only the assigned objects from that scope.
-2. Choose whether you want to set a PPS limit for the policy. If you select **Set PPS Limit**, you must enter the PPS limit number in the **PPS per billing period** text box.
+    {% include note.html content="After you create the policy, you cannot change the scope. You can change only the assigned accounts or objects from that scope."%}
+    2. Choose whether you want to set a PPS limit for the policy. If you select **Set PPS Limit**, you must enter the PPS limit number in the **PPS per billing period** text box.
    
     The limit becomes visible in the ingestion policy dashboard charts. If you set a PPS limit, you must create the ingestion policy alert in the next steps.
    
@@ -96,25 +96,26 @@ If you set a PPS limit for the ingestion policy, Tanzu Observability creates an 
    
        The threshold percentage becomes visible in the ingestion policy alert chart.
        
-       You can skip the other settings.
+       You can skip the other settings in the **Conditions** panel.
 2. Optionally, in the **Recipients** panel, specify [who will receive the alert notifications](alerts_manage.html#step-3-specify-recipients) and click **Next**.
 3. In the **Alert Name and Tags** panel, enter a name for the alert and, optionally, [tags](tags_overview.html#object-tags-tags-on-alerts-dashboards-events-and-sources) and click **Next**.
 
-After you create the ingestion policy, the associated alert will be available on the ingestion policy dashboard and on the Alerts page.
+After you create the ingestion policy, the associated alert will be available on the ingestion policy dashboard and on the Alerts Browser page.
      
 ### Step 3: Name and Activate the Ingestion Policy
 In the **Create** panel, enter a name for the policy and, optionally, a description and click **Create**.
 
 ## Edit an Ingestion Policy
 
-After you create an ingestion policy, if you need, for example, to increase the PPS limit or add accounts or point tags, you can edit the policy. 
+After you create an ingestion policy, if you need, for example, to increase the PPS limit, or add more accounts or point tags, you can edit the policy. 
 
 {% include note.html content="You cannot change the policy scope. You can change only the assigned objects from that scope."%}
 
 1. Log in to your Wavefront instance as a Super Admin user.
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
 3. On the **Ingestion Policies** tab, click the ellipsis icon next to the policy that you want to edit and select **Edit**.
-4. In each panel, apply the necessary changes and click **Next**, and in the **Policy Name and Description** panel, click **Save**.
+4. In each panel, apply the necessary changes and click **Next**.
+5. In the **Policy Name and Description** panel, click **Save**.
 
 {% include note.html content="Removing the PPS limit dissociates the alert from the ingestion policy and deletes the alert."%}
 
@@ -132,7 +133,7 @@ To access the version history of an ingestion policy, on the **Ingestion Policie
 Ingestion policy version history shows:
 <ul>
 <li>The changes that have been made to an ingestion policy over time.</li>
-<li>Which user made the changes.</li>
+<li>The user who made the changes.</li>
 <li>The date and time the changes were made.</li>
 <li>A description of the changes.</li></ul>
 </td>
@@ -143,7 +144,7 @@ Ingestion policy version history shows:
 
 ## Delete an Ingestion Policy
 
-If you no longer need an ingestion policy, for example, after a reorganization in your company, you might want to remove an ingestion policy.
+If you no longer need an ingestion policy, for example, after a reorganization in your company, you might want to delete an ingestion policy.
 
 {% include note.html content="Deleting an ingestion policy cannot be undone. Deleting an ingestion policy with a PPS limit, also deletes its associated alert."%}
 
@@ -156,15 +157,24 @@ If you no longer need an ingestion policy, for example, after a reorganization i
 All users can examine the ingestion policy dashboards to understand their usage over time.
 
 1. Log in to your Wavefront instance.
-2. Navigate to the usage portal.
+2. Navigate to the list of ingestion policies.
 
     - If you are a Super Admin user, from the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
     - If you are not a Super Admin user, from the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
 3. Click the **Ingestion Policies** tab and view all existing policies.
 ![Ingestion policies page](images/ingestion_policies.png)
+On the **Ingestion Policies** tab, for each policy you can see:
+
+    - The state of the policy, i.e. whether the limit is exceeded, or the limit is not reached or not set.
+    - The name of the policy. If you click the name, you can examine the respective ingestion policy dashboard.
+    - The current usage vs limit for the current billing period.
+    - The usage trend for the current billing period.
+    - The PPS limit, if any.
+    - Whether the ingestion policy has an alert associated with it.
+    - Last updated information.
 4. Click the name of the policy in which you are interested and examine the policy dashboard.
 
-    The ingestion policy dashboard consists of the following sections:
+    The ingestion policy dashboard consists two main and one optional section.
 
     - In the **Ingestion Summary** section of the dashboard, you can see the following list of charts:
 
@@ -208,7 +218,7 @@ All users can examine the ingestion policy dashboards to understand their usage 
       </tbody>
       </table>
 
-    - If the ingestion policy has a PPS limit with an alert, the dashboard includes the **Alert** section that provides details about the associated alert.
+    - If the ingestion policy has a PPS limit with an alert, the dashboard also includes the **Alert** section that provides details about the associated alert.
  
     ![Usage summary per ingestion policy](images/IP_dashboard.png)
 
