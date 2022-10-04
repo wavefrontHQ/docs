@@ -146,7 +146,7 @@ You streamline what you see in the Log Browser by excluding tags, text, or a sou
 Example: Click the application filter on the search bar, and click **Exclude application: wavefront**.
 ![screenshot of the pop up that pops up when you edit a filter](images/logging_edit_filter_pop_up.png)
 
-## Use The Histogram to Drill Down
+## Use the Chart to Drill Down
 
 At the top of the Log Browser is a histogram that shows the number of logs distributed throughout a time window. The histogram chart is broken into 60 buckets. Therefore, if you have the default 15-minute time window, the bars on the chart show the number of logs for 15-second time intervals.
 
@@ -164,7 +164,7 @@ Let's look at an example:
 1. Click the button with the (-) icon or the predefined time windows to zoom out of the histogram.
     ![a screenshot with the zoom out options highlighted with a red box](images/logging_histogram_zoom_out.png)
 
-## Customize the Log Data Table
+## Customize the Logs Data Table
 
 The logs data table has the Timestamp, Source, and Message columns by default. Follow these steps to add other columns with additional data from your logs.
 
@@ -179,6 +179,6 @@ The logs data table has the Timestamp, Source, and Message columns by default. F
 
 * Get an overview of [Tanzu Observability logs](logging_overview.html).
 * See how to [send logs to Tanzu Observability](logging_send_logs.html).
-* [Try out the tutorial](logging_kubernetes_tutorial.html) to send logs to Tanzu Observability.
+* [Try out the tutorial on GitHub](https://github.com/wavefrontHQ/demo-app) to send logs to Tanzu Observability.
 * Learn more about the [proxy configurations and proxy preprocessor rules](logging_proxy_configurations.html).
 * Have questions? See [Logs FAQs](logging_faq.html).
