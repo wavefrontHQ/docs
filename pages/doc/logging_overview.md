@@ -1,4 +1,4 @@
-logging_overview.html---
+---
 title: Logs Overview (Beta)
 tags: [getting started, logs]
 sidebar: doc_sidebar

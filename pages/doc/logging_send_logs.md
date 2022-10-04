@@ -142,10 +142,10 @@ When the data is in Tanzu Observability, you can use the Log Browser to filter a
 
 ## Next Steps
 
-* [Send logs to Tanzu Observability](logging_send_logs.html).
-* [View and browse logs](logging_log_browser.html).
-* Learn about [proxy configurations and proxy preprocessor rules](logging_proxy_configurations.html).
-* See [Logs FAQs](logging_faq.html).
+* [Understand the big picture](logging_overview.html)
+* [View and browse logs](logging_log_browser.html)
+* Learn about [proxy configurations and proxy preprocessor rules](logging_proxy_configurations.html)
+* [Get answers to FAQs](logging_faq.html)
 
 <!---
 [Try out the demo app tutorial on GitHub](https://github.com/wavefrontHQ/demo-app) to send logs to Tanzu Observability.
