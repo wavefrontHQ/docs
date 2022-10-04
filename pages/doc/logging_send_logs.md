@@ -67,10 +67,11 @@ Configure your log shipper:
   1. Install the log shipper. For example, [install Fluentd](https://docs.fluentd.org/installation).
 
   1. Configure the log shipper to send data to the Wavefront proxy.
-    1. Add the hostname of the host where the proxy runs
-    2. Add the `pushListenerPorts` that you configured in the proxy.
-  <br/>For example, edit the `fluent.conf` file to send data to a proxy as follows:
 
+     a. Add the hostname of the host where the proxy runs.
+
+     b. Add the `pushListenerPorts` that you configured in the proxy.
+     <br/>For example, edit the `fluent.conf` file to send data to a proxy as follows:
       ```
       <match wf.**>
         @type copy
@@ -89,7 +90,7 @@ Configure your log shipper:
 
 ### Best Practices
 
-If logs exceed the maximum character limit for a message, tag, and value, the Wavefront proxy drops the logs. Ensure that your logs are within the given limits. See [How Do I track Data Blocked by the Wavefront Proxy](logging_faq.html#how-do-i-track-data-blocked-by-the-wavefront-proxy).
+If logs exceed the maximum character limit for a message, tag, or value, the Wavefront proxy drops the logs. Ensure that your logs are within the given limits. See [How Do I track Data Blocked by the Wavefront Proxy](logging_faq.html#how-do-i-track-data-blocked-by-the-wavefront-proxy).
 
 {% include note.html content="To increase the limits, ask your administrator to reach out to [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support)." %}
 
