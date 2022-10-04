@@ -19,7 +19,7 @@ This section gives details on proxy configuration properties used for Tanzu Obse
 Follow these steps:
 
 1. [Install the Wavefront Proxy](proxies_installing.html).
-    If you have already installed the Wavefront proxy, make sure it is version 11.3 or later. 
+    If you have already installed the Wavefront proxy, make sure it is version 11.3 or later.
 1. Open the [`wavefront.conf` file](proxies_configuring.html#proxy-file-paths):
     1. Uncomment the `pushListenerPorts` and set it to a preferred port. It is set to 2878 by default to receive both HTTP and TCP data. For details on the proxy configurations, see [Advanced Proxy Configuration](proxies_configuring.html).
     1. Optionally, uncomment or add the other configurations listed below.
@@ -645,8 +645,11 @@ Points must match the `allow` list to be accepted. Multiple `allow` rules are al
 
 ## Next Steps
 
-* Get an overview of [Tanzu Observability logs](logging_overview.html).
-* See how to [send logs to Tanzu Observability](logging_send_logs.html).
-* Learn how to [view and browse logs](logging_log_browser.html).
-* [Try out the tutorial on GitHub](https://github.com/wavefrontHQ/demo-app) to send logs to Tanzu Observability.
-* Have questions? See [Logs FAQs](logging_faq.html).
+* [Send logs to Tanzu Observability](logging_send_logs.html).
+* [View and browse logs](logging_log_browser.html).
+* Learn about [proxy configurations and proxy preprocessor rules](logging_proxy_configurations.html).
+* See [Logs FAQs](logging_faq.html).
+
+<!---
+[Try out the demo app tutorial on GitHub](https://github.com/wavefrontHQ/demo-app) to send logs to Tanzu Observability.
+--->

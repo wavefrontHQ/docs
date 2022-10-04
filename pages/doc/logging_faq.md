@@ -7,27 +7,25 @@ permalink: logging_faq.html
 summary: Learn how to customize your logging experience and find answers for frequently asked questions.
 ---
 
-{% include important.html content="Tanzu Observability Logs (Beta) is only enabled for selected customers. If you'd like to participate, contact your [Tanzu Observability account representative](wavefront_support_feedback.html#support)."%}
+{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. If you'd like to participate, contact your Tanzu Observability account representative."%}
 
-{% include tip.html content="This document is work in progress!" %}
+## Why Don't I See Logs When I Drill Down From a Chart?
 
-## Don't See Logs When Drilling Down From a Chart?
+If you right-click on a chart and select **Logs**, you're directed to the Log Browser. If ou don't see data on the Log Browser, here are some things to explore:
+* If your chart has data from more than one source, the Log Browser cannot show the logs because it can show logs from only one log. To see the data corresponding to the chart query but focused on one source, select a sourc in the Log Browser and click **Search**.
+* If you have not tagged your log data using the source, application, service, or other tags when you sent the logs from your log shipper, you might see no search results in the Log Browser. See [What’s a Log?](logging_overview.html#whats-a-tanzu-observability-log) for details on the log syntax.
 
-Did you right-click on a chart, click logs, and saw no data on the Log Browser? This can happen:
-* If your chart has data from more than one source. You can only search data from one source on the Log Browser. Therefore, select a source using **Source** and search again.
-* If you have not tagged your log data using the source, application, service, and other additional tags when sending the logs from your log shipper. See [What’s a Log?](logging_overview.html#whats-a-tanzu-observability-log) for details.
+## Why Don't I See Application and Service Logs?
 
-## Don't See Application and Service Logs?
-
-To see logs for an application and service on the Log Browser, you need to tag the data with the `application` and `service` tags on your log shipper (example: Fluentd) before sending the logs to Tanzu Observability. If the logs do not have the application and service tags, the Wavefront proxy adds the application and service tags to the log data and assigns the value `none`.
+To see logs for an application and service on the Log Browser, the data must include the `application` and `service` tags when they're sent by your log shipper (e.g. Fluentd). If the logs do not have the `application` and `service` tags, the Wavefront proxy adds the application and service tags to the log data and assigns the value `none`.
 
 {{site.data.alerts.note}}
   <ul>
     <li>
-      There may be a marginal cost increase for additional tags. For more information, contact <a href="wavefront_support_feedback.html#support">technical support</a>.
+      There may be a marginal cost increase for additional tags.
     </li>
     <li>
-      Distributed tracing uses the concept of application and service. Therefore, for Tanzu Observability to map the log data to the trace data you need to use the same tags.
+      If you're using our [distributed tracing](tracing_basics.html) solution, use the same `application` and `service` tags in both places to map from the tracing GUI to the Log Browser.
     </li>
   </ul>
 {{site.data.alerts.end}}
@@ -50,28 +48,27 @@ For example, if you are using Fluentd, your `fluent.conf` file can have the foll
 
 ## How Do I Track Data Blocked by the Wavefront Proxy?
 
-Wavefront proxy drops the logs that exceed the [maximum character limit](logging_send_logs.html#best-practices) for a message, tag, and value. To track the data points logs data and the number of logs blocked by the proxy:
-1. Get the integration-systems-with-logs.json file that was shared with you when signing up as a logs beta customer.
-1. Click **Dashboards** > **Create Dashboards**.
-1. Click **JSON** on the top-left corner.
+The Wavefront proxy drops the logs that exceed the [maximum character limit](logging_send_logs.html#best-practices) for a message, tag, and value. To track the incoming log data and the number of logs that are blocked by the proxy:
+1. Find the integration-systems-with-logs.json file that was shared with you when signing up as a logs Beta customer.
+1. Log in to your Wavefront instance and select **Dashboards** > **Create Dashboards**.
+1. Click **JSON** in the top-left corner.
     ![a screenshot of the UI with the JSON link highlighted.](images/logging_dashboard_json.png)
 1. Select **Code** from the drop-down menu and open the editor.
     <br/>![Screenshot of the drop down menu mentioned in the step.](images/dashboard_code_view.png)
-1. Copy the content in the JSON file and paste it into the editor.
-1. Click **Accept**.
-1. Now you see the new dashboard. Click **Save**.
+1. Copy the content in the JSON file, paste it into the editor, and click **Accept**.
+1. In the top right of the dashboard that appears, click **Save**.
     ![a screenshot of the UI with Save highlighted.](images/logging_dashboard_save.png)
-1. See the charts in the **Proxy Overview** section and get more details about the logs you send to Tanzu Observability.
-    Example:
+1. Examine the charts in the **Proxy Overview** section to get details about the logs you are sending.
+
     ![A screenshot of the proxy dashboard with the preconfigured charts.](images/logging_proxy_json_dashboard.png)
 
-{% include note.html content="See [Create, Customize, and Optimize Dashboards](ui_dashboards.html) to edit and customize the dashboard." %}
+{% include note.html content="[Examine Data with Dashboards and charts](ui_examine.html) explains how explore dashboards and includes videos and links." %}
 
-You see the number of logs that were blocked in the **Blocked logs per second** chart. If you see a spike in the number of dropped logs, make sure that you follow the [best practices](logging_send_logs.html#best-practices) when sending logs to Tanzu Observability.
+In the **Blocked logs per second** chart you see how many logs were blocked. If you see a spike in the number of dropped logs, ensure that you follow [best practices](logging_send_logs.html#best-practices) when sending logs.
 
 ## Why do I See a `pattern not match` Error in the Fluentd Logs?
 
-If your application runs on a Kubernetes cluster, and if you see a `pattern not match` error in the Fluentd logs, Fluentd scrapes the logs on your application but does not send them across to the Wavefront proxy. Add the following configuration to your `fluent.conf` file to resolve the `pattern not match` error:
+If your application runs on a Kubernetes cluster, and if you see a `pattern not match` error in the Fluentd logs, Fluentd scrapes the logs on your application but does not send them to the Wavefront proxy. Add the following configuration to your `fluent.conf` file to resolve the `pattern not match` error:
 
 ```
 <pattern>
@@ -84,7 +81,7 @@ If your application runs on a Kubernetes cluster, and if you see a `pattern not 
 
 ## How Do I Know If the Proxy Receives Data?
 
-Don't see your data on the Logs Browser and don't know if it is your log shipper (example: Fluentd) or the Wavefront proxy that's not sending the data? Follow the steps below to confirm that the Wavefront proxy is sending data. 
+You don't see your data on the Log Browser. You don't know if there's a problem with the log shipper (e.g. Fluentd) or with the Wavefront proxy not sending the data to the Wavefront service? To confirm that the Wavefront proxy is sending data, follow these steps:
 
 1. Run the following curl command to send a log to the proxy as a JSON payload:
 
@@ -102,7 +99,7 @@ Don't see your data on the Logs Browser and don't know if it is your log shipper
     ```
     {% include tip.html content="For information on the attributes that you can send for logs, see [What’s a Tanzu Observability Log?](logging_overview.html#whats-a-tanzu-observability-log)" %}
 
-    Example: Use the following command if you are running the proxy locally and using port 2878:
+    For example, use the following command if you are running the proxy locally and using port 2878:
 
     ```
     curl --location --request POST 'http://localhost:2878/logs/json_array?f=logs_json_arr' \
@@ -116,29 +113,25 @@ Don't see your data on the Logs Browser and don't know if it is your log shipper
         }
     ]'
     ```
-    {% include note.html content="If the proxy is not up and running, you get the following error message: **Failed to connect to localhost port 2878: Connection refused**." %}
+    {% include note.html content="If you get the following error message: **Failed to connect to localhost port 2878: Connection refused**, the problem is likely that the proxy is not running." %}
 
-1. To confirm that the data sent to the proxy, is sent to the service:
-    1. In your web browser, go to your Wavefront instance and log in.
-    1. From the toolbar, select **Logs**. You are taken to the Log Browser.
-    1. Click **applications** under **All Tags**.
-    1. Click **test_application** (this is the value of the application tag in the log message you sent). You see the test data you sent on the chart.
+1. Verify that the data that is sent from the Log Shipper to the proxy is then sent by the proxy to the Wavefront service, as follows:
+    1. Log in to your Wavefront instance.
+    1. On the toolbar, click **Logs**.
+    1. In the Log Browser, click **applications** under **All Tags**.
+    1. Click **test_application** (or the value of the application tag in the log message you sent).
 
-{{site.data.alerts.note}}
-  <ul>
-    <li>
-      If you don't see the data, you need to check your proxy configurations.
-    </li>
-    <li>
-      If the proxy is sending data, you need to check the logs shipper is configurations.  
-    </li>
-  </ul>
-{{site.data.alerts.end}}
+* If the proxy is sending data but you don't see your log data, check that the Logs Shipper is configured correctly.
+* If you don't see the data, check your proxy configuration and ensure, for example, that the port and URL are correct.
 
-## Nest Steps
 
-* Get an overview of [Tanzu Observability logs](logging_overview.html).
-* See how to [send logs to Tanzu Observability](logging_send_logs.html).
-* Learn how to [view and browse logs](logging_log_browser.html).
-* [Try out the tutorial on GitHub](https://github.com/wavefrontHQ/demo-app) to send logs to Tanzu Observability.
-* Learn more about the [proxy configurations and proxy preprocessor rules](logging_proxy_configurations.html).
+## Next Steps
+
+* [Send logs to Tanzu Observability](logging_send_logs.html).
+* [View and browse logs](logging_log_browser.html).
+* Learn about [proxy configurations and proxy preprocessor rules](logging_proxy_configurations.html).
+* See [Logs FAQs](logging_faq.html).
+
+<!---
+[Try out the demo app tutorial on GitHub](https://github.com/wavefrontHQ/demo-app) to send logs to Tanzu Observability.
+--->
