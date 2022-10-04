@@ -4,12 +4,12 @@ keywords: data, logs
 tags: [logs]
 sidebar: doc_sidebar
 permalink: logging_log_browser.html
-summary: Learn how to filter and search logs sent to Tanzu Observability by Wavefront.
+summary: Learn how to filter and search logs in the Log Browser.
 ---
 
-{% include important.html content="Tanzu Observability Logs (Beta) is only enabled for selected customers. If you'd like to participate, contact your [Tanzu Observability account representative](wavefront_support_feedback.html#support)."%}
+{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative."%}
 
-Did you notice anomalies on your metrics charts or noticed that a service on the application map has large latency value? Use the Log Browser to search and filter logs, and troubleshoot your issues.
+If you notice anomalies on your metrics charts or see that a service on the application map has large latency value, yse the Log Browser to troubleshoot your issues.
 
 ## Get Started with the Log Browser
 
@@ -17,14 +17,18 @@ To use the Log Browser:
 
 1. Configure your application and the log shipper to [send logs to Tanzu Observability](logging_send_logs.html).
 1. In your web browser, go to your Wavefront instance and log in.
-1. From the toolbar, select **Logs**. You are taken to the Log Browser.
+1. On the toolbar, click **Logs**.
+
+The Log Browser offers the following information and options.
 
 ![An annotated screenshot of the Log Browser.](images/logging_log_browser_annotated_screen.png)
 
-{%include note.html content="Tanzu Observability retains logs for 7, 15, or 30 days, based on your settings. For longer retention needs, contact [technical support](wavefront_support_feedback.html#support)."%}
 
-You see the log details in the table below the histogram chart. The data on the table is color-coordinated, so you can spot logs that need attention at a glance.
+<!--TBD: List of items as text to improve accessibility--->
 
+
+The information is color-coded, as follows:
+<!---TBD: Is it useful to give this list? Will any of our users look at it or will they just look at the GUI?---> 
 <table style="width: 100%;">
   <tr>
     <th width="20%">
@@ -68,8 +72,8 @@ You see the log details in the table below the histogram chart. The data on the 
   </tr>
   <tr>
     <td>
-      <img src="images/logs_error_light_theme_warning.png"/>  Light theme 
-      <br/><img src="images/logs_error_dark_theme_warning.png"/>  Dark theme 
+      <img src="images/logs_error_light_theme_warning.png"/>  Light theme
+      <br/><img src="images/logs_error_dark_theme_warning.png"/>  Dark theme
     </td>
     <td>
       Logs that have the term error.
@@ -77,8 +81,8 @@ You see the log details in the table below the histogram chart. The data on the 
   </tr>
   <tr>
     <td>
-      <img src="images/logs_no_term_light_theme.png"/>  Light theme 
-      <br/><img src="images/logs_no_term_dark_theme.png"/>  Dark theme 
+      <img src="images/logs_no_term_light_theme.png"/>  Light theme
+      <br/><img src="images/logs_no_term_dark_theme.png"/>  Dark theme
     </td>
     <td>
       Logs that don't have any of the above terms.
@@ -107,13 +111,13 @@ Follow these steps to search and filter logs:
   * Type in a word(s) on the search bar, and click **Search** or press Enter when [using the Keyboard to navigate](wavefront_keyboard_shortcuts.html#keyboard-shortcuts-and-their-usage).
   <br/>Example:
     ![Shows the error word on the search bad and the logs that contain the word error in them with error highlighted on the log messages](images/logging_search_key_word.png)
-      
+
 1. When you see the logs on the Log Browser, you can filter logs using source, tags, and words, to refine the search results further.
 
 {{site.data.alerts.note}}
       <ul>
         <li>
-          If you type in a word(s) or type in <code>message={word(s)}</code>, the search results you see matches <code>message={word(s)}</code>. <br/>For example, if you type <code>warn</code> or <code>message=warn</code>, you see the search results for <code>message=warn</code>. 
+          If you type in a word(s) or type in <code>message={word(s)}</code>, the search results you see matches <code>message={word(s)}</code>. <br/>For example, if you type <code>warn</code> or <code>message=warn</code>, you see the search results for <code>message=warn</code>.
         </li>
         <li>
           If you type <code>=error</code> on the search bar, you see search results for <code>message= =error</code>.
@@ -123,7 +127,7 @@ Follow these steps to search and filter logs:
         </li>
       </ul>
     {{site.data.alerts.end}}
-    
+
 
 ## Enable or Disable Scroll Auto-Load
 
