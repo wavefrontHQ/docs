@@ -34,7 +34,7 @@ The policy scope can be accounts, groups, sources, namespaces, or point tags.
 ## Permissions
 
 * Only Super Admin users can create and edit ingestion policies.
-* Only Super Admin users can edit or delete alerts associated with ingestions policies. The **Alerts** permission does not apply to ingestion policy alerts.
+* Only Super Admin users can edit or delete alerts associated with ingestions policies. Even if you have the **Alerts** permission, you cannot edit or delete ingestion policy alerts unless you are a Super Admin user.
 * Only Super Admin users can view ingestion policy versions.
 * All users can view the ingestion policies, the ingestion policy dashboards, and the ingestion policy alerts.
 
@@ -78,9 +78,9 @@ In the **Data** panel, specify the scope and, optionally, a PPS limit and click 
     </tr>
     </tbody>
     </table>
-
+    
     {% include note.html content="After you create the policy, you cannot change the scope. You can change only the assigned accounts or objects from that scope."%}
-    2. Choose whether you want to set a PPS limit for the policy. If you select **Set PPS Limit**, you must enter the PPS limit number in the **PPS per billing period** text box.
+2. Choose whether you want to set a PPS limit for the policy. If you select **Set PPS Limit**, you must enter the PPS limit number in the **PPS per billing period** text box.
    
     The limit becomes visible in the ingestion policy dashboard charts. If you set a PPS limit, you must create the ingestion policy alert in the next steps.
    
@@ -174,7 +174,7 @@ On the **Ingestion Policies** tab, for each policy you can see:
     - Last updated information.
 4. Click the name of the policy in which you are interested and examine the policy dashboard.
 
-    The ingestion policy dashboard consists two main and one optional section.
+    The ingestion policy dashboard consists of two main and one optional section.
 
     - In the **Ingestion Summary** section of the dashboard, you can see the following list of charts:
 
