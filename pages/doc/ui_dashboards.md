@@ -324,20 +324,21 @@ For each dashboard, you can customize display preferences and settings.
 style="vertical-align:text-bottom;width:25px" alt="show or hide variable icon" /> icon.  </li>
 <li>Select whether you want to turn off live refresh for dynamic variables.</li>
 </ol>
-Optionally, change Advanced settings. <strong>Warning:</strong> Making changes to the advanced settings can negatively affect performance or result in missed warnings. Use with care!
+</li>
+<li>Optionally, change the advanced settings.
 <ol>
 <li>Click <strong>Advanced</strong>.<br/>
 </li>
 <li>Enter an event query to display the <a href="events.html">Events</a> on charts.<br>
 See <a href="charts_events_displaying.html#specify-an-events-query-for-a-dashboard">Specify an Events() Query for a Dashboard</a>.
 </li>
-<li>Select <strong>Include Obsolete Metrics</strong> to allow queries to return metrics that stopped reporting 4 weeks ago.<br> This setting applies to all charts in the dashboard and dashboard performance might suffer.</li>
-<li>Select <strong>Hide Warning Icons on Charts</strong> to stop showing warning icons on any chart on the dashboard. The result is a cleaner-looking chart, but users might miss important information. </li>
+<li>Select <strong>Include Obsolete Metrics</strong> to allow queries to return metrics that stopped reporting 4 weeks ago.<br> <strong>Warning</strong>: Including obsolete metrics might negatively affect performance. It applies to all charts in the dashboard and dashboard performance might suffer.</li>
+<li>Select <strong>Hide Warning Icons on Charts</strong> to stop showing warning icons on any chart in the dashboard. <br><strong>Warning</strong>: The result is a cleaner-looking chart, but you might miss important information. </li>
 </ol>
 </li>
 <li>Click <strong>Accept</strong>, and click <strong>Save</strong>. </li>
 </ol></td>
-<td width="50%"><img src="/images/v2_dashboard_prefs.png" alt="set dashboard prefs"></td>
+<td width="50%"><img src="/images/v2_dashboard_prefs.png" alt="Set the dashboard preferences"></td>
 </tr>
 </tbody>
 </table>
