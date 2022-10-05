@@ -4,12 +4,12 @@ keywords: data, logs
 tags: [logs]
 sidebar: doc_sidebar
 permalink: logging_log_browser.html
-summary: Learn how to filter and search logs in the Log Browser.
+summary: Learn how to filter and explore logs in the Log Browser.
 ---
 
 {% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative."%}
 
-If you notice anomalies on your metrics charts or see that a service on the application map has large latency value, yse the Log Browser to troubleshoot your issues.
+If you notice anomalies on your metrics charts or see that a service on the application map has large latency value, use the Log Browser to troubleshoot your issues.
 
 ## Get Started with the Log Browser
 
@@ -23,18 +23,25 @@ The Log Browser offers the following information and options.
 
 ![An annotated screenshot of the Log Browser.](images/logging_log_browser_annotated_screen.png)
 
-
+* In the toolbar you can set the time window and time zone.
+* In the search bar, you can explicitly add filter expressions. When you select expressions in the filter pane, those items are added to the search bar.
+* In the log histogram chart, you can see how many logs were sent in each time bucket and zoom in on smaller time windows.
+* In the filter pane, you can specify filters and tags.
 <!--TBD: List of items as text to improve accessibility--->
 
 
-The information is color-coded, as follows:
+The information is color-coded. The following example shows several log entries, with the color corresponding to the text found in the log to the left of the date.
+
+![a screenshot of the logs table with the different colors at the beginning of the log message row.](images/logging_logs_table_colors.png)
+
+The following table maps colors to logs:
 <!---TBD: Is it useful to give this list? Will any of our users look at it or will they just look at the GUI?--->
 <table style="width: 100%;">
   <tr>
-    <th width="20%">
+    <th width="35%">
       Color
     </th>
-    <th width="80%">
+    <th width="65%">
       Description
     </th>
   </tr>
@@ -73,7 +80,7 @@ The information is color-coded, as follows:
   <tr>
     <td>
       <img src="images/logs_error_light_theme_warning.png"/>  Light theme
-      <br/><img src="images/logs_error_dark_theme_warning.png"/>  Dark theme
+      &nbsp; <img src="images/logs_error_dark_theme_warning.png"/>  Dark theme
     </td>
     <td>
       Logs that have the term error.
@@ -81,8 +88,8 @@ The information is color-coded, as follows:
   </tr>
   <tr>
     <td>
-      <img src="images/logs_no_term_light_theme.png"/>  Light theme
-      <br/><img src="images/logs_no_term_dark_theme.png"/>  Dark theme
+      <img src="images/logs_no_term_light_theme.png"/>  Light theme &nbsp;
+      <img src="images/logs_no_term_dark_theme.png"/>  Dark theme
     </td>
     <td>
       Logs that don't have any of the above terms.
@@ -90,12 +97,14 @@ The information is color-coded, as follows:
   </tr>
 </table>
 
-Example:
-![a screenshot of the logs table with the different colors at the beginning of the log message row.](images/logging_logs_table_colors.png)
+
+
 
 ## Enable or Disable Auto-Search
 
-Auto search is a user-level setting, and you can enable or disable auto search.
+Auto search is a user-level setting. You can enable or disable auto search.
+
+<!---How can I enable/disable it?--->
 
 * When auto-search is disabled, you need to click **Search** to get the search results.
 * When auto-search is enabled, the search runs each time you add a source, tag, or text to the search bar.
@@ -104,15 +113,15 @@ Auto search is a user-level setting, and you can enable or disable auto search.
 
 Follow these steps to search and filter logs:
 
-1. Click the date picker to select a time window you want to see logs. A default time window is set for you based on your settings.
+1. (Optional) Click the date picker to select a time window you want to see logs for.
 1. To get the list of logs you want, you have these options:
   * From the **Source** drop-down menu, select a [source](logging_overview.html#whats-a-tanzu-observability-log). You can filter logs by only one source.
   * In the **All Tags** list, click a tag and select a value from the list. You can filter logs by a combination of tags.
-  * In the search bar, enter a word or expression and click **Search** or press Enter when [using the Keyboard to navigate](wavefront_keyboard_shortcuts.html#keyboard-shortcuts-and-their-usage). You can filter logs by a combination of words and expressions in the log messages.
+  * In the search bar, enter a word or expression and click **Search** or press Enter if you're [using the Keyboard to navigate](wavefront_keyboard_shortcuts.html#keyboard-shortcuts-and-their-usage). You can filter logs by a combination of words and expressions in the log messages.
   <br/>**Example: Combination of search terms**:
     ![Shows the error word on the search bad and the logs that contain the word error in them with error highlighted on the log messages](images/logging_search_key_word.png)
 
-1. When you see the logs on the Log Browser, you can refine the search results further by using source, tags, and words or expressions as filters.
+1. When you see the logs on the Log Browser, you can refine the search results.
 
 **Example:**
 <ul>
@@ -154,7 +163,7 @@ When you search and filter logs, you can decide how you want to scroll through t
 
 ## Use the Chart to Drill Down
 
-The histogram chart at the top of the Log Browser shows the number of logs distributed over the selected time window. The chart consists of 60 buckets. With the default 15-minute time window, each bar on the chart shows the number of logs for a 15-second time intervals.
+The histogram chart at the top of the Log Browser shows the number of logs distributed over the selected time window. The chart consists of 60 buckets. With a 15-minute time window, each bar on the chart shows the number of logs for each 15-second time interval.
 
 If you notice a spike--which means more logs were sent--you can zoom in on the chart to analyze the data. As you zoom in, the table with the log data below the chart shows the data for the new time window.
 
@@ -180,7 +189,7 @@ The logs data table has the **Timestamp**, **Source**, and **Message** columns b
 
 Here's an example that shows how to add the **tag** column.
 
-    ![a screenshot of the add column options.](images/logging_log_table_select_columns.png)
+![a screenshot of the add column options.](images/logging_log_table_select_columns.png)
 
 
 ## Next Steps

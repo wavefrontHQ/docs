@@ -38,23 +38,41 @@ summary: Learn about Tanzu Observability metrics, logs, and traces.
 
 ## What's a Tanzu Observability Log?
 
-Logs are structured or unstructured text records of incidents that took place at a given time. Tanzu Observability ingests logs in JSON format. Logs have the following attributes:
+Logs are structured or unstructured text records of incidents that took place at a given time. Tanzu Observability ingests logs in JSON format.
+
+Each log has required attributes, optional attributes, and tags.
 
 <table style="width: 100;">
   <tr>
-    <th width="20%">
-      Attribute
-    </th>
-    <th width="80%">
-      Description
-    </th>
+    <td width="20%">
+      <strong>Required attributes</strong>
+    </td>
+    <td width="80%" markdown="span">
+    Required are `timestamp` and `message`. Your log shipper includes these attributes.
+    </td>
   </tr>
   <tr>
     <td>
-       Tags
+      <strong>Optional attributes</strong>
     </td>
     <td>
-      Tags are metadata key-value pairs that are part of your logs. You can filter logs using tags. Follow <a href="logging_send_logs.html#best-practices">best practices</a>:
+    Set the following optional attributes as needed. By default, we add the <code>application</code> and <code>service</code> tag and set the value to <code>none</code>.
+    <ul>
+    <li><strong>source</strong>: A source is a unique platform that emits logs, such as an AWS EC2 instance or a node in Kubernetes. Ensure that logs, metrics, and traces are using the same source. For example, if you are already sending metrics to Tanzu Observability, and the Wavefront proxy defines the source for your metrics data, use the same source when sending logs to Tanzu Observability.</li>
+    <li><strong>application </strong>: Name of the application that emits the logs.  <br/>If you're also sending traces, ensure that you're using the same application name. When you drill down from the application map or traces browser to the Log Browser, the application name is used to map the logs to the application.
+      <br/>If the `application` tag is not defined, we add the tag and set the value to `none`.</li>
+    <li><strong>service </strong>: Name of the service that emits the log.
+     <br/>If you're also sending traces, ensure that you're same service name in both paces. When you drill down from the application map or traces browser to the Log Browser, the sevice name is used for mapping.
+    <br/>If the `service` tag is not defined, we add the tag and set the value to `none`.</li>
+    </ul>
+    </td>
+  </tr>
+<tr>
+    <td>
+    <strong>Tags</strong>
+    </td>
+    <td>
+      Tags are metadata key-value pairs that are part of your logs. You can filter logs using tags.
        <ul>
         <li>
           Low-cardinality tags. Many of the recommendations in <a href="optimize_data_shape.html">Optimizing Data Shape to Improve Performance</a> apply.
@@ -66,59 +84,11 @@ Logs are structured or unstructured text records of incidents that took place at
           100 tags per log
         </li>
        </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Application
-    </td>
-    <td markdown="span">
-      Name of the application that emits the logs.
-
-      <br/>If you're also sending traces, ensure that you're using the same application name. When you drill down from the application map or traces browser to the Log Browser, the application name is used to map the logs to the application.
-
-      <br/>If the `application` tag is not defined, we add the tag and set the value to `none`.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Service
-    </td>
-    <td markdown="span">
-      Name of the service that emits the log.
-
-      <br/>If you're also sending traces, ensure that you're same service name in both paces. When you drill down from the application map or traces browser to the Log Browser, the sevice name is used for mapping.
-
-      <br/>If the `service` tag is not defined, we add the tag and set the value to `none`.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Source
-    </td>
-    <td markdown="span">
-      A source is a unique platform that emits logs, such as an AWS EC2 instance or a node in Kubernetes. You can filter logs using the source.
-
-      <br/> Make sure that logs, metrics, and traces are using the same source. For example, if you are already sending metrics to Tanzu Observability, and the Wavefront proxy defines the source for your metrics data, use the same source when sending logs to Tanzu Observability.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Timestamp
-    </td>
-    <td>
-      Timestamp when the log was created, in Epoch time format.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Message
-    </td>
-    <td>
-      Details of the event that the log describes.
+    <p>See <a href="logging_send_logs.html#limits-for-logs">Limits for Logs</a> for details.</p>
     </td>
   </tr>
 </table>
+
 
 ### Log Data Format Example
 
@@ -133,9 +103,7 @@ Logs are structured or unstructured text records of incidents that took place at
 
 ## Send Logs to Tanzu Observability
 
-You can send your logs using a log shipper, such as Fluentd, that sends logs as a JSON array over HTTP.
-
-See [Send logs to Tanzu Observability](logging_send_logs.html) for detailed steps.
+You can send your logs using a log shipper, such as Fluentd, that sends logs as a JSON array over HTTP. See [Send logs to Tanzu Observability](logging_send_logs.html).
 
 ![the images shows how logs are sent from a log shipper to the tanzu observability components](images/logging_send_logs.png)
 
@@ -191,9 +159,16 @@ If you don’t see logs, see [logging FAQs](logging_faq.html#dont-see-logs-when-
 
 ### Drill into Logs from an Alert
 
-When an alert fires, you get a notification with the alert details and the logs related to the alert.
+To drill into logs from an alert:
+1. Go to the [alert viewer](alerts.html#alert-viewer-tutorial) for an alert.
+    * Click the link in the alert notification.
+    * In the [alert browser](alerts.html#alerts-browser-tutorial), find FIRING alerts, and click to drill down to the alert viewer.
+1.  In the **Related Logs** section, click **Go to logs**.
+
 
 ![A screenshot of an alert with the logs tags](images/logging_alerts_to_logs.png)
+
+#### Log Time Range
 
 A time range tag is generated by default from the time the condition to fire the alert is met to the time the alert is fired. When you click **Go to Logs**, then you see the log data for that time range.
 
@@ -204,13 +179,13 @@ For example, in the screenshot above:
 
 The logs help you identify the root cause for the alert.
 
-### Add Log Tags to an Alert
+#### Log Tags for an Alert
 
 When you create or edit an alert, you can configure the alert to filter logs using additional tags.
 
-<!---TBD steps for adding the log tag. Does it work on yaob-21?--->
+<!---Maybe steps for adding the log tag. Does it work on yaob-21?--->
 
-For example, the screenshot shows that the alert was configured to show logs for the given time range and filter the logs further using the wavefront application. See [Create and Manage Alerts](alerts_manage.html#step-4-optional-help-alert-recipients-resolve-the-alert) to add additional log tags to an alert.
+For example, the screenshot above shows that the alert was configured to show logs for the given time range and filter the logs further using the `wavefront` application. See [Create and Manage Alerts](alerts_manage.html#step-4-optional-help-alert-recipients-resolve-the-alert) to add log tags to an alert.
 
 <table style="width: 100%;">
 <tbody>

@@ -1,13 +1,16 @@
 ---
-title: Sending Logs to Tanzu Observability (Beta)
+title: Send Logs to Tanzu Observability (Beta)
 keywords: data, logs
 tags: [getting started, logs]
 sidebar: doc_sidebar
 permalink: logging_send_logs.html
-summary: Learn how to send logs to Tanzu Observability and view those logs.
+summary: Learn about sending logs to Tanzu Observability.
 ---
 
 {% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. If you'd like to participate, contact your Tanzu Observability account representative."%}
+
+
+{% include tip.html content="This doc page gets you started. [Try out the demo app tutorial on GitHub](https://github.com/wavefrontHQ/demo-app) to experiment with sending logs to Tanzu Observability."%}
 
 You can send logs to the Wavefront proxy from your log shipper or directly from your application. The Wavefront proxy sends the log data to the Wavefront instance.
 
@@ -17,13 +20,17 @@ You can send logs to the Wavefront proxy from your log shipper or directly from 
 
 * A Wavefront account, which gives you access to a Wavefront instance.
   <!--If you don’t have a cluster, [sign up for a free trial](https://tanzu.vmware.com/observability-trial).-->
-* A Wavefront API token linked to an account with Proxy permission. See [Generating an API Token](wavefront_api.html#generating-an-api-token).
 * Add the VMware domain (`*.vmware.com`) to the allowlist in your environment. If you want to narrow down the domain, contact your Tanzu Observability account representative.
   Because Tanzu Observability uses a VMware log cluster, you need to add the VMware domain to your allowlist to send log data successfully.
 
-## Install Wavefront Proxy
+<!---Token is needed to get from proxy to service. If I generate proxy from GUI, don't need to specify one. * A Wavefront API token linked to an account with Proxy permission. See [Generating an API Token](wavefront_api.html#generating-an-api-token).--->
 
-The Wavefront proxy accepts a JSON array payload over HTTP. Follow these steps to install and configure the proxy version 11.3 or later.
+## Install a Wavefront Proxy
+
+Our logging solution currently requires a Wavefront proxy and does not support direct ingestion. The Wavefront proxy accepts a JSON array payload over HTTP and forwards it to the Wavefront service.
+
+Follow these steps to install and configure a new proxy version 11.3 or later.
+
 1. Log into your Wavefront instance.
 1. Select **Browse** > **Proxies**.
 1. Click **Add Proxy** and follow the instructions on screen.
@@ -33,9 +40,11 @@ The Wavefront proxy accepts a JSON array payload over HTTP. Follow these steps t
     * If you installed the proxy on Docker, the command you use opens the `pushListenerPorts` and sets it to 2878.
 1. [Start the proxy](proxies_installing.html#start-and-stop-a-proxy).
 
+<!--Is the proxy started as part of the Add Proxy workflow?? If yes, we don't need the last step.--->
+
 {% include note.html content="To learn more about the proxy configuration properties and preprocessor rules for logs, see [Logs Proxy Configurations and Preprocessor Rules](logging_proxy_configurations.html)." %}
 
-<!--
+<!--This was commented out by Shavi. Confirm with team whether we want to add it back.
 ### Proxy Recommendations for Logs
 
 When sending logs to the proxy we recommend the following:
@@ -58,9 +67,9 @@ When sending logs to the proxy we recommend the following:
 
 ## Configure the Log Shipper
 
-During Beta, use a log shipper, which scrapes and buffers your logs before sending them to the Wavefront proxy.
+The log shipper sends your data to the Wavefront proxy.
 
-We support the [Fluentd](https://docs.fluentd.org/) log shipper. If you are using a different log shipper, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support).
+During Beta, we support the [Fluentd](https://docs.fluentd.org/) log shipper, which scrapes and buffers your logs before sending them to the Wavefront proxy specified in the `fluent.conf` file. If you want to use a different log shipper, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support).
 
 
 Configure your log shipper:
@@ -86,11 +95,12 @@ Configure your log shipper:
         </store>
       </match>
       ```
-  1. Tag the logs with the application and service name as part of preprocessing. Otherwise, the Wavefront proxy adds the service and application tags to the log data and assigns the value `none`.
+  1. As part of preprocessing, tag the logs with the application and service name to ensure you can drill down from traces to logs. By default, the Wavefront proxy adds the `service` and `application` tags to the log data and assigns the value `none`.
+  2. (Optional)If you're already using a logging solution, specify alternate strings required and optional log properties in the [proxy configuration file](logging_proxy_configurations.html)
 
-### Best Practices
+### Limits for Logs
 
-If logs exceed the maximum character limit for a message, tag, or value, the Wavefront proxy drops the logs. Ensure that your logs are within the given limits. See [How Do I track Data Blocked by the Wavefront Proxy](logging_faq.html#how-do-i-track-data-blocked-by-the-wavefront-proxy).
+If logs exceed the maximum character limit for a message, tag, or value, the Wavefront proxy drops the logs. Ensure that your logs are within the given limits. See [How Do I Track Data Blocked by the Wavefront Proxy](logging_faq.html#how-do-i-track-data-blocked-by-the-wavefront-proxy).
 
 {% include note.html content="To increase the limits, ask your administrator to reach out to [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support)." %}
 

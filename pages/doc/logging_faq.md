@@ -9,6 +9,35 @@ summary: Learn how to customize your logging experience and find answers for fre
 
 {% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. If you'd like to participate, contact your Tanzu Observability account representative."%}
 
+## My Logging Solution Doesn't Use timestamp, message, or Optional Attributes
+
+You can use a [proxy configuration file](logging_proxy_configurations.html) to map attributes your logs are using to attributes our logging solution expects, as follows:
+
+<table>
+<tr>
+  <th width="30%">
+  Expected log attribute
+  </th>
+  <th width="70%">
+  Proxy property to change the attribute
+  </th>
+</tr>
+<tr>
+<td>timestamp </td>
+<td>customTimestampTags</td> </tr>
+<tr><td>message </td>
+<td>customMessageTags </td> </tr>
+<tr><td>application </td>
+<td>customApplicationTags  </td> </tr>
+<tr><td>service </td>
+<td>customServiceTags </td> </tr>
+<tr><td>level </td>
+<td>customLevelTags </td> </tr>
+<tr><td>exception </td>
+<td>customExceptionTags </td> </tr>
+</table>
+
+
 ## Why Don't I See Logs When I Drill Down From a Chart?
 
 If you right-click on a chart and select **Logs**, you're directed to the Log Browser. If ou don't see data on the Log Browser, here are some things to explore:
@@ -48,7 +77,7 @@ For example, if you are using Fluentd, your `fluent.conf` file can have the foll
 
 ## How Do I Track Data Blocked by the Wavefront Proxy?
 
-The Wavefront proxy drops the logs that exceed the [maximum character limit](logging_send_logs.html#best-practices) for a message, tag, and value. To track the incoming log data and the number of logs that are blocked by the proxy:
+The Wavefront proxy drops the logs that exceed the [maximum character limit](logging_send_logs.html#limits-for-logs) for a message, tag, and value. To track the incoming log data and the number of logs that are blocked by the proxy:
 1. Find the integration-systems-with-logs.json file that was shared with you when signing up as a logs Beta customer.
 1. Log in to your Wavefront instance and select **Dashboards** > **Create Dashboards**.
 1. Click **JSON** in the top-left corner.
@@ -64,7 +93,7 @@ The Wavefront proxy drops the logs that exceed the [maximum character limit](log
 
 {% include note.html content="[Examine Data with Dashboards and charts](ui_examine.html) explains how explore dashboards and includes videos and links." %}
 
-In the **Blocked logs per second** chart you see how many logs were blocked. If you see a spike in the number of dropped logs, ensure that you follow [best practices](logging_send_logs.html#best-practices) when sending logs.
+In the **Blocked logs per second** chart you see how many logs were blocked. If you see a spike in the number of dropped logs, check the [limits for logs](logging_send_logs.html#limits-for-logs).
 
 ## Why do I See a `pattern not match` Error in the Fluentd Logs?
 
