@@ -128,7 +128,7 @@ If logs exceed the maximum character limit for a message, tag, and value the Wav
   </tr>
 </table>
 
-## Map The Traces and Metrics to Logs
+## Map the Traces and Metrics to Logs
 
 To get the unified observability experience and drill down from traces to logs and metrics in dashboards or charts to logs, you need to update your settings so that your traces and metrics map to the logs sent from your application. Contact [technical support](wavefront_support_feedback.html#support) to update the settings.
 
@@ -140,6 +140,6 @@ When the data is in Tanzu Observability, you can use the Log Browser to filter a
 
 * Get an overview of [Tanzu Observability logs](logging_overview.html).
 * Learn how to [view and browse logs](logging_log_browser.html).
-* [Try out the tutorial](logging_kubernetes_tutorial.html) to send logs to Tanzu Observability.
+* [Try out the tutorial on GitHub](https://github.com/wavefrontHQ/demo-app) to send logs to Tanzu Observability.
 * Learn more about the [proxy configurations and proxy preprocessor rules](logging_proxy_configurations.html).
 * Have questions? See [Logs FAQs](logging_faq.html).
