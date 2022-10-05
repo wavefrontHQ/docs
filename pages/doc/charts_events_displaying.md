@@ -92,7 +92,7 @@ There can be alert generated system events, or events that are manually created 
 
 ### View Events on Dashboards and Charts
 
-Let's look at how you can view the events you added to the charts and dashboards in the above examples using the **Show Events** dropdown in the middle of the time bar.
+Let's look at how you can view the events you added to the charts and dashboards in the above examples using the **Show Events** drop-down menu in the top right.
 
 <table style="width: 100%;">
   <tr>
@@ -101,7 +101,7 @@ Let's look at how you can view the events you added to the charts and dashboards
   </tr>
   <tr>
     <td markdown="span">
-       **From Chart**: Displays events based on the selection of the **Display Source Events** checkbox (default setting) and the `events()` query in a chart.
+       **From Chart**: Displays events based on the selection of the **Display Source Events** checkbox and the `events()` query in a chart.
     </td>
     <td markdown="span">
       ![](/images/events_show_events_from_chart.png)
@@ -141,7 +141,7 @@ Let's look at how you can view the events you added to the charts and dashboards
   </tr>
   <tr>
     <td markdown="span">
-       **None**: Hides all events from every chart in the dashboard.
+       **None**: Hides all events from every chart in the dashboard (default setting).
     </td>
     <td markdown="span">
       ![](/images/events_show_events_none.png)
