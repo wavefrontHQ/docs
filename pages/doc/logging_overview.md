@@ -1,5 +1,5 @@
 ---
-title: Logs Overview (Beta)
+title: Get Started with Logs (Beta)
 tags: [getting started, logs]
 sidebar: doc_sidebar
 permalink: logging_overview.html
@@ -40,7 +40,11 @@ summary: Learn about Tanzu Observability metrics, logs, and traces.
 
 Logs are structured or unstructured text records of incidents that took place at a given time. Tanzu Observability ingests logs in JSON format.
 
+### Log Attributes
+
 Each log has required attributes, optional attributes, and tags.
+
+{%include tip.html content="If your logging solution doesn't use exactly the same tags, you can use a proxy configuration file to map your tags to the expected attributes and tags. See [My Logging Solution Doesn't Use the Default Attributes](logging_faq.html#my-logging-solution-doesnt-use-the-default-attributes). "%}
 
 <table style="width: 100;">
   <tr>
@@ -48,7 +52,7 @@ Each log has required attributes, optional attributes, and tags.
       <strong>Required attributes</strong>
     </td>
     <td width="80%" markdown="span">
-    Required are `timestamp` and `message`. Your log shipper includes these attributes.
+    Required are `timestamp` and `message`. If your log shipper doesn't includes these attributes use the `customTimestampTags` and `customMessageTag` in the proxy configuration file to establish the mapping.
     </td>
   </tr>
   <tr>
@@ -56,14 +60,16 @@ Each log has required attributes, optional attributes, and tags.
       <strong>Optional attributes</strong>
     </td>
     <td>
-    Set the following optional attributes as needed. By default, we add the <code>application</code> and <code>service</code> tag and set the value to <code>none</code>.
+    Specify the following optional attributes as needed. If your log shipper sends the attributes but uses a different name, see <a href="logging_proxy_configurations.html#properties-for-changing-log-tags">Properties for Changing Log Tags</a>
     <ul>
     <li><strong>source</strong>: A source is a unique platform that emits logs, such as an AWS EC2 instance or a node in Kubernetes. Ensure that logs, metrics, and traces are using the same source. For example, if you are already sending metrics to Tanzu Observability, and the Wavefront proxy defines the source for your metrics data, use the same source when sending logs to Tanzu Observability.</li>
-    <li><strong>application </strong>: Name of the application that emits the logs.  <br/>If you're also sending traces, ensure that you're using the same application name. When you drill down from the application map or traces browser to the Log Browser, the application name is used to map the logs to the application.
+    <li><strong>application </strong>: Name of the application that emits the logs.  <br/>If you're also sending traces, use the same application name to drill down from the application map or traces browser to the Log Browser.
       <br/>If the `application` tag is not defined, we add the tag and set the value to `none`.</li>
     <li><strong>service </strong>: Name of the service that emits the log.
-     <br/>If you're also sending traces, ensure that you're same service name in both paces. When you drill down from the application map or traces browser to the Log Browser, the sevice name is used for mapping.
+     <br/>If you're also sending traces, use same service name in both paces tp drill down from the application map or traces browser to the Log Browser.
     <br/>If the `service` tag is not defined, we add the tag and set the value to `none`.</li>
+    <li><strong>exception, error_name </strong>: Name of any exception tag keys that the log shipper sends. Use the `customExceptionTags` proxy configuration property to add exception tags. </li>
+    <li><strong>level, log level </strong>Name of any error level tag keys that the log shipper sends. Use the `customLevelTags` proxy configuration property to add error level tags.</li>
     </ul>
     </td>
   </tr>
@@ -116,19 +122,19 @@ You can send your logs using a log shipper, such as Fluentd, that sends logs as 
 ## View Logs and Troubleshoot
 
 When logs have started flowing into your Wavefront instance, you can:
-* View your logs on the Log Browser
+* Go to the Log Browser directly to view and explore logs.
 * Drill into the Log Browser from charts, alerts, application map, and the Traces Browser.
 
 ![diagram shows all the UIs that link to logs. they are explained in this section.](images/logging_all_ui.png)
 
 ### Examine Logs in the Log Browser
 
-You can examine logs that were sent to Tanzu Observability on the [Log Browser](logging_log_browser.html). You can:
+You can examine logs that were sent to Tanzu Observability on the [Log Browser](logging_log_browser.html):
 
-* See logs for the time range set for your Wavefront instance (7, 15, or 30 days)
+* See logs for the time range set for your Wavefront instance (7, 15, or 30 days).
 * Filter logs using application, service, source or other tags.
 * Search for logs that have a messages containing a specific word(s), for example, ERROR.
-* See the total number of logs that are there for a specific time using the chart at the top of the Log Browser and identify hotspots.
+* In the chart at the top of the Log Browser, see the total number of logs for each time bucket, zoom in, and identify hotspots.
 * Group logs using tags.
 * Share the Log Browser data you see with other users that have the required permissions.
 
@@ -145,7 +151,7 @@ You can examine logs that were sent to Tanzu Observability on the [Log Browser](
 
 If you notice data anomalies on a chart and want to debug the issue using logs, right-click the chart and click **Logs**. On the Log Browser, see the logs for the time and source used by the chart.
 
-{% include note.html content="This feature works only if it's been enabled for your Wavefront instance. Contact [technical support](wavefront_support_feedback.html#support) to request an update of the settings." %}
+{% include note.html content="Even if logging is enabled for your environment, this feature might have to be enabled separately. Contact [technical support](wavefront_support_feedback.html#support)." %}
 
 If you don’t see logs, see [logging FAQs](logging_faq.html#dont-see-logs-when-drilling-down-from-a-chart).
 
@@ -158,6 +164,8 @@ If you don’t see logs, see [logging FAQs](logging_faq.html#dont-see-logs-when-
 </table>
 
 ### Drill into Logs from an Alert
+
+{% include note.html content="Even if logging is enabled for your environment, this feature might have to be enabled separately. Contact [technical support](wavefront_support_feedback.html#support)." %}
 
 To drill into logs from an alert:
 1. Go to the [alert viewer](alerts.html#alert-viewer-tutorial) for an alert.
@@ -198,7 +206,7 @@ For example, the screenshot above shows that the alert was configured to show lo
 You can drill into logs from the application status page and the traces browser.
 To see logs for an application and service on the Log Browser, you need to tag the data with the application and service tags on your log shipper. See the [Logs FAQs](logging_faq.html#dont-see-application-and-service-logs).
 
-{% include note.html content="The drill-down from traces to logs, works only if the technical support team has updated your settings. Contact [technical support](wavefront_support_feedback.html#support)." %}
+{% include note.html content="Even if logging is enabled for your environment, the drill-down from traces to logs might have to be enabled separately. Contact [technical support](wavefront_support_feedback.html#support)." %}
 
 
 #### Application Map
@@ -210,12 +218,13 @@ If you notice that a service on the application map, table view, or grid view ha
   1. Click **View Logs** to see logs related to the service and debug the issue.
   ![A screenshot of a the UI once you click on a service with the view logs link highlighted.](images/logging_app_map_to_logs.png)
 * **Start with the Table view**
-  Click the vertical ellipsis and select **View Logs** to see logs related to the service.
+  1. Click the vertical ellipsis.
+  2. Select **View Logs** to see logs related to the service.
   ![A screenshot of a the UI once you click vertical ellipsis on the table view](images/logging_table_view_to_logs.png)
 
 #### Service Dashboard
 
-In the service tile, click **Actions** and select **View Logs** to see logs related to the service.
+In a service tile, click **Actions** and select **View Logs** to see logs related to the service.
   ![A screenshot of a the UI once you click vertical ellipsis on the grid view](images/logging_grid_view_to_logs.png)
 
 #### Traces Browser

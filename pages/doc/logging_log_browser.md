@@ -102,12 +102,28 @@ The following table maps colors to logs:
 
 ## Enable or Disable Auto-Search
 
-Auto search is a user-level setting. You can enable or disable auto search.
+When auto-search is off, you need to click **Search** to get the search results.
+Otherwise, the search runs each time you add a source, tag, or text to the search bar. That might slow things down.
 
-<!---How can I enable/disable it?--->
+Each user can enable or disable auto search, as follows:
 
-* When auto-search is disabled, you need to click **Search** to get the search results.
-* When auto-search is enabled, the search runs each time you add a source, tag, or text to the search bar.
+<table>
+<tr>
+  <td>
+  <ol>
+  <li>In the top right of the toolbar, select the Auto-Search box.</li>
+  <li>Pick <strong>On</strong> or <strong>Off</strong> </li>
+  </ol>
+  </td>
+  <td>
+    <img src="images/auto_search.png"/>
+  </td>
+</tr>
+</table>
+
+
+
+
 
 ## Search and Filter Logs
 
@@ -161,11 +177,11 @@ When you search and filter logs, you can decide how you want to scroll through t
   ![a screenshot of the steps mentioned above](images/logging_scroll_auto_load.png)
 
 
-## Use the Chart to Drill Down
+## Drill Down from the Log Chart
 
 The histogram chart at the top of the Log Browser shows the number of logs distributed over the selected time window. The chart consists of 60 buckets. With a 15-minute time window, each bar on the chart shows the number of logs for each 15-second time interval.
 
-If you notice a spike--which means more logs were sent--you can zoom in on the chart to analyze the data. As you zoom in, the table with the log data below the chart shows the data for the new time window.
+If you notice a spike--which means that more logs were sent--you can zoom in on the chart to analyze the data. As you zoom in, the table with the log data below the chart shows the data for the new time window.
 
 Let's look at an example:
 
@@ -194,7 +210,7 @@ Here's an example that shows how to add the **tag** column.
 
 ## Next Steps
 
-* [Understand the big picture](logging_overview.html)
+* [Get started with logs](logging_overview.html)
 * [Send logs to Tanzu Observability](logging_send_logs.html)
 * Learn about [proxy configurations and proxy preprocessor rules](logging_proxy_configurations.html)
 * [Get answers to FAQs](logging_faq.html)

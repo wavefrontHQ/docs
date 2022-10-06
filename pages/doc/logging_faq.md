@@ -9,7 +9,7 @@ summary: Learn how to customize your logging experience and find answers for fre
 
 {% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. If you'd like to participate, contact your Tanzu Observability account representative."%}
 
-## My Logging Solution Doesn't Use timestamp, message, or Optional Attributes
+## My Logging Solution Doesn't Use the Default Attributes
 
 You can use a [proxy configuration file](logging_proxy_configurations.html) to map attributes your logs are using to attributes our logging solution expects, as follows:
 
@@ -95,7 +95,7 @@ The Wavefront proxy drops the logs that exceed the [maximum character limit](log
 
 In the **Blocked logs per second** chart you see how many logs were blocked. If you see a spike in the number of dropped logs, check the [limits for logs](logging_send_logs.html#limits-for-logs).
 
-## Why do I See a `pattern not match` Error in the Fluentd Logs?
+## Why Do I See a `pattern not match` Error in the Fluentd Logs?
 
 If your application runs on a Kubernetes cluster, and if you see a `pattern not match` error in the Fluentd logs, Fluentd scrapes the logs on your application but does not send them to the Wavefront proxy. Add the following configuration to your `fluent.conf` file to resolve the `pattern not match` error:
 
@@ -156,7 +156,7 @@ You don't see your data on the Log Browser. You don't know if there's a problem 
 
 ## Next Steps
 
-* [Understand the big picture](logging_overview.html)
+* [Get started with logs](logging_overview.html)
 * [Send logs to Tanzu Observability](logging_send_logs.html).
 * [View and browse logs](logging_log_browser.html).
 * Learn about [proxy configurations and proxy preprocessor rules](logging_proxy_configurations.html).
