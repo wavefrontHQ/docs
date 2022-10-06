@@ -20,7 +20,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 <tr>
 <td width="50%">
 <br/>
-<strong>Hide Warning Messages on Charts</strong>:<br/>
+<strong>Hide Warning Icons on Charts</strong>:<br/>
 You can now turn off the warning icons for all charts in a dashboard from the <strong>Dashboard Settings</strong> dialog. See <a href="ui_dashboards.html#set-dashboard-display-preferences-and-settings">Set Dashboard Display Preferences and Settings</a>.<br/>
 </td>
 <td width="50%"><img src="/images/hide_warning_icon.png" alt="Dashboard Advanced Settings supports hiding warning icons">
