@@ -13,10 +13,12 @@ If you notice anomalies on your metrics charts or see that a service on the appl
 
 ## Get Started with the Log Browser
 
+The Log Browser supports in-depth exploration of your logs. You can zoom into a time window from the chart, and you can search or filter your logs so you see exactly what you're interested in.
+
 To use the Log Browser:
 
 1. Configure your application and the log shipper to [send logs to Tanzu Observability](logging_send_logs.html).
-1. In your web browser, go to your Wavefront instance and log in.
+1. In your web browser, log in to your Wavefront instance.
 1. On the toolbar, click **Logs**.
 
 The Log Browser offers the following information and options.
@@ -30,7 +32,7 @@ The Log Browser offers the following information and options.
 <!--TBD: List of items as text to improve accessibility--->
 
 
-The information is color-coded. The following example shows several log entries, with the color corresponding to the text found in the log to the left of the date.
+The information in the Log Details table is color-coded. The following screenshot shows several log entries. The color corresponding to the text found in the log is to the left of the date.
 
 ![a screenshot of the logs table with the different colors at the beginning of the log message row.](images/logging_logs_table_colors.png)
 
@@ -127,22 +129,22 @@ Each user can enable or disable auto search, as follows:
 
 ## Search and Filter Logs
 
-Follow these steps to search and filter logs:
+It's cumbersome to examine all logs for a time window, but you can customize what the Log Browser shows. Follow these steps to search and filter logs:
 
 1. (Optional) Click the date picker to select a time window you want to see logs for.
 1. To get the list of logs you want, you have these options:
   * From the **Source** drop-down menu, select a [source](logging_overview.html#whats-a-tanzu-observability-log). You can filter logs by only one source.
   * In the **All Tags** list, click a tag and select a value from the list. You can filter logs by a combination of tags.
-  * In the search bar, enter a word or expression and click **Search** or press Enter if you're [using the Keyboard to navigate](wavefront_keyboard_shortcuts.html#keyboard-shortcuts-and-their-usage). You can filter logs by a combination of words and expressions in the log messages.
+  * In the search bar, enter a word or expression and click **Search** or press Enter if you're using the Keyboard to navigate. You can filter logs by a combination of words and expressions in the log messages.
   <br/>**Example: Combination of search terms**:
     ![Shows the error word on the search bad and the logs that contain the word error in them with error highlighted on the log messages](images/logging_search_key_word.png)
 
 1. When you see the logs on the Log Browser, you can refine the search results.
 
-**Example:**
+### Search Example
 <ul>
         <li>
-          If you type in a word(s) or type in <code>message={word(s)}</code>, the search results you see matches <code>message={word(s)}</code>. <br/>For example, if you type <code>warn</code> or <code>message=warn</code>, you see the search results for <code>message=warn</code>.
+          If you type in a word(s) or type in <code>message={word(s)}</code>, you see search for <code>message={word(s)}</code>. <br/>For example, if you type <code>warn</code> or <code>message=warn</code>, you see the search results for <code>message=warn</code>.
         </li>
         <li>
           If you type <code>=error</code> on the search bar, you see search results for <code>message= =error</code>.
@@ -169,9 +171,11 @@ Click the application filter on the search bar, and click **Exclude application:
 ## Enable or Disable Auto-Load During Scroll
 
 When you search and filter logs, you can decide how you want to scroll through the results:
-* By default, you have to click **Load More Results** to load the next set of results.
+
+By default, you have to click **Load More Results** to load the next set of results.
   ![a screenshot showing the load more results text](images/logging_load_more_results.png)
-* Enable scroll auto load to load logs as you scroll through the results, as follows:
+
+Enable scroll auto load to load logs as you scroll through the results, as follows:
   1. Click **Options** above the log results table (top right).
   1. Turn on **Scroll Auto-Load**.
   ![a screenshot of the steps mentioned above](images/logging_scroll_auto_load.png)
@@ -195,15 +199,15 @@ Let's look at an example:
 1. Click the minus (-) icon or one of the preset time windows (e.g. 30m) to zoom out.
     ![a screenshot with the zoom out options highlighted with a red box](images/logging_histogram_zoom_out.png)
 
-## Customize the Log Data Table
+## Customize the Log Details Table
 
-The logs data table has the **Timestamp**, **Source**, and **Message** columns by default. Follow these steps to add columns with additional log data.
+The log details table has the **Timestamp**, **Source**, and **Message** columns by default. Follow these steps to add columns.
 
 1. Click the add columns icon in the top left of the table.
     ![a screenshot of the table with the add column button highlighted](images/logging_log_table_add_column.png)
-1. Select the columns that you want to add. The options you see are the tags you defined when sending the data to Tanzu Observability.
+1. Select the columns that you want to add. The options you see are the tags you defined during log shipper configuration.
 
-Here's an example that shows how to add the **tag** column.
+Here's an example that shows how to add the **tag** column to the table.
 
 ![a screenshot of the add column options.](images/logging_log_table_select_columns.png)
 

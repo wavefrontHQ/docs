@@ -44,9 +44,13 @@ If you right-click on a chart and select **Logs**, you're directed to the Log Br
 * If your chart has data from more than one source, the Log Browser cannot show the logs because it can show logs from only one log. To see the data corresponding to the chart query but focused on one source, select a sourc in the Log Browser and click **Search**.
 * If you have not tagged your log data using the source, application, service, or other tags when you sent the logs from your log shipper, you might see no search results in the Log Browser. See [What’s a Log?](logging_overview.html#whats-a-tanzu-observability-log) for details on the log syntax.
 
-## Why Don't I See Application and Service Logs?
+## Why Are Some of the Logs Tags Missing?
 
-To see logs for an application and service on the Log Browser, the data must include the `application` and `service` tags when they're sent by your log shipper (e.g. Fluentd). If the logs do not have the `application` and `service` tags, the Wavefront proxy adds the application and service tags to the log data and assigns the value `none`.
+Our logging solution expects that certain tags are defined in the logs that you send in. If they're not defined, we add those tags to the logs and assign the value `none`.
+
+For example, to see logs for an application and service on the Log Browser, the data that is sent by your log shipper must include the `application` and `service` tags. If the logs do not have the `application` and `service` tags, the Wavefront proxy adds the application and service tags to the log data and assigns the value `none`.
+
+You can use proxy configuration properties to map the tags that your log shipper is using to the tags that our solution expects. See [Logs Proxy Configurations and Preprocessor Rules](logging_proxy_configurations.html).
 
 {{site.data.alerts.note}}
   <ul>
@@ -60,7 +64,7 @@ To see logs for an application and service on the Log Browser, the data must inc
 {{site.data.alerts.end}}
 
 
-For example, if you are using Fluentd, your `fluent.conf` file can have the following configurations:
+If you are using Fluentd, you can specify the `application` and `service` in the `fluent.conf` file as follows:
 ```
 <filter **>
   @type record_transformer
@@ -110,7 +114,9 @@ If your application runs on a Kubernetes cluster, and if you see a `pattern not 
 
 ## How Do I Know If the Proxy Receives Data?
 
-You don't see your data on the Log Browser. You don't know if there's a problem with the log shipper (e.g. Fluentd) or with the Wavefront proxy not sending the data to the Wavefront service? To confirm that the Wavefront proxy is sending data, follow these steps:
+If you don't see your data on the Log Browser, you might not know if there's a problem with the log shipper or with the Wavefront proxy.
+
+To confirm that the Wavefront proxy is sending data, follow these steps:
 
 1. Run the following curl command to send a log to the proxy as a JSON payload:
 
@@ -126,7 +132,7 @@ You don't see your data on the Log Browser. You don't know if there's a problem 
         }
     ]'
     ```
-    {% include tip.html content="For information on the attributes that you can send for logs, see [What’s a Tanzu Observability Log?](logging_overview.html#whats-a-tanzu-observability-log)" %}
+    {% include tip.html content="For information on the log format, see [What’s a Tanzu Observability Log?](logging_overview.html#whats-a-tanzu-observability-log)" %}
 
     For example, use the following command if you are running the proxy locally and using port 2878:
 
@@ -144,13 +150,13 @@ You don't see your data on the Log Browser. You don't know if there's a problem 
     ```
     {% include note.html content="If you get the following error message: **Failed to connect to localhost port 2878: Connection refused**, the problem is likely that the proxy is not running." %}
 
-1. Verify that the data that is sent from the Log Shipper to the proxy is then sent by the proxy to the Wavefront service, as follows:
+1. Verify that the data that is sent from the log shipper to the proxy is then sent by the proxy to the Wavefront service, as follows:
     1. Log in to your Wavefront instance.
     1. On the toolbar, click **Logs**.
     1. In the Log Browser, click **applications** under **All Tags**.
     1. Click **test_application** (or the value of the application tag in the log message you sent).
 
-* If the proxy is sending data but you don't see your log data, check that the Logs Shipper is configured correctly.
+* If the proxy is sending data but you don't see your log data, check that the log shipper is configured correctly.
 * If you don't see the data, check your proxy configuration and ensure, for example, that the port and URL are correct.
 
 

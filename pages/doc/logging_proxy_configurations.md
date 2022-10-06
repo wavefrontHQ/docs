@@ -3,14 +3,14 @@ title: Logs Proxy Configurations and Preprocessor Rules (Beta)
 tags: [getting started, logs]
 sidebar: doc_sidebar
 permalink: logging_proxy_configurations.html
-summary: Learn about the Tanzu Observability proxy configurations and preprocessor rules.
+summary: Proxy configuration properties and preprocessor rules for logging.
 ---
 
 {% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your [Tanzu Observability account representative](wavefront_support_feedback.html#support)."%}
 
-Configure the Wavefront proxy to receive your log data and customize the data you send using preprocessor rules.
+Proxy configuration properties let you customize proxy behavior. Proxy preprocessor rules let you block, allow, or replace parts of the incoming traffic. This doc page is a reference to properties specific to this logging Beta. See [Advanced Proxy Configuration](proxies_configuring.html) and [Proxy Preprocessor Rules](proxies_preprocessor_rules.html) for the properties and rule options for other kind of data.
 
-## Configure the Proxy
+## Proxy Configuration for Logs
 
 If your logs don't use include the attributes that our logging solution expects, or if you want to customize proxy behavior otherwise, you can use proxy configuration properties to do that.
 
@@ -29,7 +29,7 @@ Follow these steps:
 
 ### Proxy Configuration Properties for Logs
 
-We've added configuration properties to the already existing [proxy configuration properties](proxies_configuring.html).
+We've added configuration properties for logs to the already existing [proxy configuration properties](proxies_configuring.html).
 
 #### Properties for Changing Log Tags
 
@@ -126,7 +126,7 @@ We've added configuration properties to the already existing [proxy configuratio
 <tr>
 <a name="pushRateLimitLogs"></a>
 <td>pushRateLimitLogs</td>
-<td markdown="span">Limit the outgoing logs rate at the proxy in MB/s.
+<td markdown="span">Limit the outgoing logs rate at the proxy, in MB/s.
 <br/> Default: NO_RATE_LIMIT.
 <br/> Version: Since 11.3</td>
 <td> Positive integer.
@@ -145,7 +145,7 @@ We've added configuration properties to the already existing [proxy configuratio
 <a name="flushThreadsLogs"></a>
 <td>flushThreadsLogs</td>
 <td markdown="span"> Number of threads that flush data to the server. This setting is per push listener port.
-<br/>If you set a large value, for example 10, then the number of logs that are included in a batch will be small. Sending logs will be expensive (e.g. CPU-intensive) because you need to connect to the server several times.
+<br/>If you set a large value, for example 10, then the number of logs that are included in a batch will be small and sending logs will be expensive (e.g. CPU-intensive) because you need to connect to the server several times.
 <br/> Default: 4
 <br/> Version: Since 11.3</td>
 <td> Positive integer.
@@ -154,7 +154,7 @@ We've added configuration properties to the already existing [proxy configuratio
 <tr>
 <a name="pushMemoryBufferLimitLogs"></a>
 <td>pushMemoryBufferLimitLogs</td>
-<td> Maximum number of logs that can stay in the proxy memory buffers before spooling to disk. Change this property based on how much memory capacity for the proxy your system has.
+<td> Maximum number of logs that can stay in the proxy memory buffer before spooling to disk. Change this property based on how much memory capacity for the proxy your system has.
 <ul>
 <li>
  If the value is higher, the proxy is better able to handle surges. </li>
@@ -678,6 +678,6 @@ Points must match the `allow` list to be accepted. Multiple `allow` rules are al
 * [View and browse logs](logging_log_browser.html)
 * [Get answers to FAQs](logging_faq.html)
 
-<!---
+<!---RK>>Only added this link to Send Logs. 
 [Try out the demo app tutorial on GitHub](https://github.com/wavefrontHQ/demo-app) to send logs to Tanzu Observability.
 --->

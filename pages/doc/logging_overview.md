@@ -52,7 +52,7 @@ Each log has required attributes, optional attributes, and tags.
       <strong>Required attributes</strong>
     </td>
     <td width="80%" markdown="span">
-    Required are `timestamp` and `message`. If your log shipper doesn't includes these attributes use the `customTimestampTags` and `customMessageTag` in the proxy configuration file to establish the mapping.
+    Required are `timestamp` and `message`. If your log shipper sends these attributes with a different name, use the `customTimestampTags` and `customMessageTag` in the proxy configuration file to establish the mapping.
     </td>
   </tr>
   <tr>
@@ -60,16 +60,16 @@ Each log has required attributes, optional attributes, and tags.
       <strong>Optional attributes</strong>
     </td>
     <td>
-    Specify the following optional attributes as needed. If your log shipper sends the attributes but uses a different name, see <a href="logging_proxy_configurations.html#properties-for-changing-log-tags">Properties for Changing Log Tags</a>
+    Specify the following optional attributes as needed. If your log shipper sends the attributes with a different name, see <a href="logging_proxy_configurations.html#properties-for-changing-log-tags">Properties for Changing Log Tags</a>.
     <ul>
-    <li><strong>source</strong>: A source is a unique platform that emits logs, such as an AWS EC2 instance or a node in Kubernetes. Ensure that logs, metrics, and traces are using the same source. For example, if you are already sending metrics to Tanzu Observability, and the Wavefront proxy defines the source for your metrics data, use the same source when sending logs to Tanzu Observability.</li>
-    <li><strong>application </strong>: Name of the application that emits the logs.  <br/>If you're also sending traces, use the same application name to drill down from the application map or traces browser to the Log Browser.
+    <li><strong>source</strong>: A source is a unique platform that emits logs, such as an AWS EC2 instance or a node in Kubernetes. Ensure that logs, metrics, and traces are using the same string to identify the source. For example, use the same source for logs and metrics.</li>
+    <li><strong>application</strong>: Name of the application that emits the logs.  <br/>If you're also sending traces, use the same application name so you can drill down from the application map or Traces Browser to the Log Browser.
       <br/>If the `application` tag is not defined, we add the tag and set the value to `none`.</li>
-    <li><strong>service </strong>: Name of the service that emits the log.
+    <li><strong>service</strong>: Name of the service that emits the log.
      <br/>If you're also sending traces, use same service name in both paces tp drill down from the application map or traces browser to the Log Browser.
     <br/>If the `service` tag is not defined, we add the tag and set the value to `none`.</li>
-    <li><strong>exception, error_name </strong>: Name of any exception tag keys that the log shipper sends. Use the `customExceptionTags` proxy configuration property to add exception tags. </li>
-    <li><strong>level, log level </strong>Name of any error level tag keys that the log shipper sends. Use the `customLevelTags` proxy configuration property to add error level tags.</li>
+    <li><strong>exception, error_name</strong>: Name of any exception tag keys that the log shipper sends. Use the `customExceptionTags` proxy configuration property to add exception tags. </li>
+    <li><strong>level, log level</strong>: Name of any error level tag keys that the log shipper sends. Use the `customLevelTags` proxy configuration property to add error level tags.</li>
     </ul>
     </td>
   </tr>
@@ -78,7 +78,7 @@ Each log has required attributes, optional attributes, and tags.
     <strong>Tags</strong>
     </td>
     <td>
-      Tags are metadata key-value pairs that are part of your logs. You can filter logs using tags.
+      Tags are metadata key-value pairs that are part of your logs. You can filter logs using tags. Follow these guidelines:
        <ul>
         <li>
           Low-cardinality tags. Many of the recommendations in <a href="optimize_data_shape.html">Optimizing Data Shape to Improve Performance</a> apply.
@@ -111,7 +111,7 @@ Each log has required attributes, optional attributes, and tags.
 
 You can send your logs using a log shipper, such as Fluentd, that sends logs as a JSON array over HTTP. See [Send logs to Tanzu Observability](logging_send_logs.html).
 
-![the images shows how logs are sent from a log shipper to the tanzu observability components](images/logging_send_logs.png)
+![the images shows how logs are sent from a log shipper to the tanzu observability components](images/logging_send_logs_rev.png)
 
 <table style="width: 100%;">
 <tbody>
@@ -133,7 +133,7 @@ You can examine logs that were sent to Tanzu Observability on the [Log Browser](
 
 * See logs for the time range set for your Wavefront instance (7, 15, or 30 days).
 * Filter logs using application, service, source or other tags.
-* Search for logs that have a messages containing a specific word(s), for example, ERROR.
+* Search for logs that have a messages that contain a specific word, for example, ERROR.
 * In the chart at the top of the Log Browser, see the total number of logs for each time bucket, zoom in, and identify hotspots.
 * Group logs using tags.
 * Share the Log Browser data you see with other users that have the required permissions.
@@ -168,9 +168,9 @@ If you don’t see logs, see [logging FAQs](logging_faq.html).
 {% include note.html content="Even if logging is enabled for your environment, this feature might have to be enabled separately. Contact [technical support](wavefront_support_feedback.html#support)." %}
 
 To drill into logs from an alert:
-1. Go to the [alert viewer](alerts.html#alert-viewer-tutorial) for an alert.
+1. Go to the [alert viewer](alerts.html#alert-viewer-tutorial) for an alert. You have these options:
     * Click the link in the alert notification.
-    * In the [alert browser](alerts.html#alerts-browser-tutorial), find FIRING alerts, and click to drill down to the alert viewer.
+    * In the [alert browser](alerts.html#alerts-browser-tutorial), find FIRING alerts and click to drill down to the alert viewer.
 1.  In the **Related Logs** section, click **Go to logs**.
 
 
@@ -236,7 +236,8 @@ If you want to see logs for a service, follow these steps:
 1. Click **Search Logs with traceID**.
 
 ![screenshot of the traces browser with the search logs with traceId highlighted](images/logging_traces_browser.png)
-To learn more about exploring traces and finding hot spots at a glance when the services in your system communicate with each other, see [Traces Browser](tracing_traces_browser.html).
+<br/>
+To learn more about exploring traces and about finding hot spots at a glance, see [Traces Browser](tracing_traces_browser.html).
 
 <table style="width: 100%;">
 <tbody>
@@ -251,6 +252,6 @@ To learn more about exploring traces and finding hot spots at a glance when the 
 * Learn about [proxy configurations and proxy preprocessor rules](logging_proxy_configurations.html).
 * See [Logs FAQs](logging_faq.html).
 
-<!---
+<!---RK>>Pointing to the github tutorial only from logging_send_logs. Could change that, not sure.
 [Try out the demo app tutorial on GitHub](https://github.com/wavefrontHQ/demo-app) to send logs to Tanzu Observability.
 --->
