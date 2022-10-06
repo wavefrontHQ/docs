@@ -91,7 +91,7 @@ The Wavefront proxy drops the logs that exceed the [maximum character limit](log
 
     ![A screenshot of the proxy dashboard with the preconfigured charts.](images/logging_proxy_json_dashboard.png)
 
-{% include note.html content="[Examine Data with Dashboards and charts](ui_examine.html) explains how explore dashboards and includes videos and links." %}
+{% include note.html content="[Examine Data with Dashboards and charts](ui_examine_data.html) explains how explore dashboards and includes videos and links." %}
 
 In the **Blocked logs per second** chart you see how many logs were blocked. If you see a spike in the number of dropped logs, check the [limits for logs](logging_send_logs.html#limits-for-logs).
 

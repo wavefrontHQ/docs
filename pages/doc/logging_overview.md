@@ -153,7 +153,7 @@ If you notice data anomalies on a chart and want to debug the issue using logs, 
 
 {% include note.html content="Even if logging is enabled for your environment, this feature might have to be enabled separately. Contact [technical support](wavefront_support_feedback.html#support)." %}
 
-If you don’t see logs, see [logging FAQs](logging_faq.html#dont-see-logs-when-drilling-down-from-a-chart).
+If you don’t see logs, see [logging FAQs](logging_faq.html).
 
 ![A screenshot of a chart with the right-click menu that includes a Logs option.](images/logging_charts_to_logs.png)
 
@@ -204,7 +204,7 @@ For example, the screenshot above shows that the alert was configured to show lo
 ### Drill into Logs from Traces
 
 You can drill into logs from the application status page and the traces browser.
-To see logs for an application and service on the Log Browser, you need to tag the data with the application and service tags on your log shipper. See the [Logs FAQs](logging_faq.html#dont-see-application-and-service-logs).
+To see logs for an application and service on the Log Browser, you need to tag the data with the application and service tags on your log shipper. See the [Logs FAQs](logging_faq.html).
 
 {% include note.html content="Even if logging is enabled for your environment, the drill-down from traces to logs might have to be enabled separately. Contact [technical support](wavefront_support_feedback.html#support)." %}
 
