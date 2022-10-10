@@ -99,53 +99,71 @@ If the convergence run begins taking too long, apps or Tasks may be crashing wit
 
 ## TAS BOSH VM CPU Used
 
-Percentage of CPU spent in user processes. Set an alert and investigate further if the CPU utilization is too high for a job.
+Percentage of CPU spent in user processes. 
 
-For monitoring Gorouter performance, CPU utilization of the Gorouter VM is the key capacity scaling indicator VMware recommends. For more information, see [Router VM CPU Utilization](https://docs.pivotal.io/application-service/operating/monitoring/key-cap-scaling.html#system.cpu.user) in Key Capacity Scaling Indicators.
+1. Investigate the cause of the spike.
+2. If the cause is a normal workload increase, then scale up the affected jobs.
+
+[//]: # (TODO -- For Gorouter CPU utilization see Whatever the go router section is)
 
 ## TAS BOSH VM Disk Used
 
-Percentage of the system disk used on the VM. Set an alert to indicate when the system disk is almost full. Investigate what is filling the jobs system partition.
+Percentage of the system disk used on the VM. 
 
 This partition should not typically fill because BOSH deploys jobs to use ephemeral and persistent disks.
+
+1. Investigate what is filling the jobs system partition.
 
 ## TAS BOSH VM Ephemeral Disk Used
 
-Percentage of the ephemeral disk used on the VM. Set an alert and investigate if the ephemeral disk usage is too high for a job over an extended period.
+Percentage of the ephemeral disk used on the VM. 
 
-1. Run bosh `vms --details` to view jobs on affected deployments.
-2. Determine the cause of the data consumption, and, if appropriate, increase disk space or scale out the affected jobs.
+Investigate if the ephemeral disk usage is too high for a job over an extended period.
 
-This partition should not typically fill because BOSH deploys jobs to use ephemeral and persistent disks.
+1. Run `bosh vms --details` to view jobs on affected deployments.
+2. Determine the cause of the data consumption, and, if appropriate, increase disk space or scale the affected jobs.
 
 ## TAS BOSH VM Health
 
-This is the most important BOSH metric to monitor. It indicates if the VM emitting the metric is healthy. Review this metric for all VMs to estimate the overall health of the system.
+This is the most important BOSH metric to monitor. 
+It indicates if the VM emitting the metric is healthy. 
 
 * 1 means the system is healthy.
 * 0 means the system is not healthy.
 
 Multiple unhealthy VMs signals problems with the underlying IAAS layer.
 
+1. Investigate TAS for VMs logs for the unhealthy components.
+
 ## TAS BOSH VM Memory Used
 
 Percentage of memory used on the VM.
 
+The response depends on the job the metric is associated with. 
+
+1. If appropriate, scale affected jobs and monitor for improvement.
+
 ## TAS BOSH VM Persistent Disk Used
 
-Percentage of the persistent disk used on the VM. Set an alert and investigate if the persistent disk usage is too high for a job over an extended period.
-1. Run `bosh vms --details` to view jobs on affected deployments.
-2. Determine cause of the data consumption, and, if appropriate, increase disk space or scale out the affected jobs.
+Percentage of the persistent disk used on the VM.
 
-This partition should not typically fill because BOSH deploys jobs to use ephemeral and persistent disks.
+Investigate if the persistent disk usage is too high for a job over an extended period.
+
+1. Run `bosh vms --details` to view jobs on affected deployments.
+2. Determine cause of the data consumption, and, if appropriate, increase disk space or scale the affected jobs.
 
 ## TAS Cloud Controller and Diego Not in Sync
 
-Indicates if the `cf-apps` Domain is up-to-date, meaning that TAS app requests from Cloud Controller are synchronized to `bbs.LRPsDesired` (Diego-desired AIs) for execution.
+Indicates if the `cf-apps` Domain is up-to-date, meaning that TAS app requests from Cloud Controller are synchronized to `tas.bbs.LRPsDesired` (Diego-desired AIs) for execution.
+
 * 1 means cf-apps Domain is up-to-date
-* No data received means cf-apps Domain is not up-to-date: If the cf-apps Domain does not stay up-to-date, changes requested in the Cloud Controller are not guaranteed to propagate throughout the system. If the Cloud Controller and Diego are out of sync, then apps running could vary from those desired.
-   1. Check the BBS and Clock Global (Cloud Controller clock) logs.
-   2. If the problem continues, pull the BBS logs and Clock Global (Cloud Controller clock) logs and contact VMware Tanzu Support to say that the `cf-apps` domain is not being kept fresh.
+* No data received means cf-apps Domain is not up-to-date
+
+If the cf-apps Domain does not stay up-to-date, changes requested in the Cloud Controller are not guaranteed to propagate throughout the system.
+If the Cloud Controller and Diego are out of sync, then apps running could vary from those desired.
+
+1. Check the BBS and Clock Global (Cloud Controller clock) logs.
+2. If the problem continues, pull the BBS logs and Clock Global (Cloud Controller clock) logs and contact VMware Tanzu Support to say that the `cf-apps` domain is not being kept fresh.
 
 ## TAS Diego Cell Container Capacity
 
@@ -154,15 +172,16 @@ Percentage of remaining container capacity for a given Diego Cell. Monitor this 
 * The metric `rep.CapacityRemainingContainers` indicates the remaining number of containers this Diego Cell can host.
 * The metric `rep.CapacityTotalContainer` indicates the total number of containers this Diego Cell can host.
 
-Recommended threshold: < avg(35%)
 
 ## TAS Diego Cell Disk Capacity
+
+[//]: # (TODO -- Start here tomorrow)
+Remaining amount of disk in MiB available for this Diego Cell to allocate to containers.
 
 Percentage of remaining disk capacity for a given Diego Cell. Monitor this derived metric across all Diego Cells in a deployment.
 * The metric `rep.CapacityRemainingDisk` indicates the remaining amount in MiB of disk available for this Diego Cell to allocate to containers.
 * The metric `rep.CapacityTotalDisk` indicates the total amount in MiB of disk available for this Diego Cell to allocate to containers.
 
-Recommended threshold: < avg(35%)
 
 ## TAS Diego Cell Memory Capacity
 
@@ -170,7 +189,6 @@ Percentage of remaining memory capacity for a given Diego cell. Monitor this der
 * The metric `rep.CapacityRemainingMemory` indicates the remaining amount in MiB of memory available for this Diego Cell to allocate to containers.
 * The metric `rep.CapacityTotalMemory` indicates the total amount in MiB of memory available for this Diego Cell to allocate to containers.
 
-Recommended threshold: < avg(35%)
 
 ## TAS Diego Cell Replication Bulk Sync Duration
 
