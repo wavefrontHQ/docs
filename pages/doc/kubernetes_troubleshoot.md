@@ -1,12 +1,13 @@
 ---
-title: Troubleshooting Kubernetes Integration
+title: Troubleshooting Kubernetes Integration (Legacy)
 keywords: containers, kubernetes
 tags: [containers, kubernetes]
 sidebar: doc_sidebar
 permalink: wf_kubernetes_troubleshooting.html
-summary: Get help when you have problems with your Kubernetes setup.
+summary: This page contains information about troubleshooting the Helm-managed and installed version of the Wavefront proxy and Wavefront Collector for Kubernetes.
 ---
 
+For troubleshooting the latest version of the Kubernetes integration, see [Troubleshooting Kubernetes](kubernetes_troubleshooting.html).
 
 Depending on your setup, you typically deploy the following components into your Kubernetes cluster:
 * **[Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes)** -- runs as a DaemonSet
