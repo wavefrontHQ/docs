@@ -571,7 +571,7 @@ entries:
             output: web
 
           - title: Kubernetes Troubleshooting
-            url: /wf_kubernetes_troubleshooting.html
+            url: /kubernetes_troubleshooting.html
             output: web
 
 

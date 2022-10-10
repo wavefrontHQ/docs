@@ -1,5 +1,5 @@
 ---
-title: Kubernetes Troubleshooting
+title: Troubleshooting Kubernetes Integration
 keywords: containers, kubernetes
 tags: [containers, kubernetes]
 sidebar: doc_sidebar
@@ -18,7 +18,7 @@ Once deployed, the collector instances gather data at regular intervals from var
 
 This section focuses on known issues that cannot be fixed, for example, because of an issue with Kubernetes itself. Other issues are usually addressed by the team quickly and are not listed here.
 
-### Pod in terminating state with flapping metrics
+### Pod in Terminating State with Flapping Metrics
 
 **Problem:** Sometimes Kubernetes leaves pods in a terminating state indefinitely. If that happens, the reported metrics for the pod might oscillate (flap) between their actual values and zero.
 
@@ -27,7 +27,7 @@ This section focuses on known issues that cannot be fixed, for example, because 
 **Solution:** Forcibly delete the pod that is stuck in the terminating state.
 
 
-## Troubleshoot Using the Wavefront Collector Dashboard
+## Troubleshoot by Using the Wavefront Collector Dashboard
 
 The Wavefront Collector emits [internal metrics](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/metrics.md#collector-health-metrics) that you can use to troubleshoot issues.
 
@@ -35,7 +35,7 @@ The Wavefront Collector metrics dashboard in the Kubernetes integration shows th
 
 ![screenshot of Kubernetes metrics](images/kubernetes_monitoring.png)
 
-## Troubleshooting Using the Data Collection Flow
+## Troubleshoot by Using the Data Collection Flow
 
 In Kubernetes, a Node can be considered a virtual machine, and can have several applications and services running on it. These applications and services are referred to as Pods. The Wavefront Collector deploys itself on each Node to collect metrics from the Pods.
 
@@ -110,7 +110,7 @@ You can use [proxy preprocessor rules](proxies_preprocessor_rules.html) to block
 
 ## Symptom: No Data Flowing into Tanzu Observability
 
-### Step 1: Verify that the Collector is Running.
+### Step 1: Verify That the Collector Is Running.
 
 ![Highlights Wavefront Collector on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_step_1.png)
 
@@ -125,7 +125,7 @@ You can use [proxy preprocessor rules](proxies_preprocessor_rules.html) to block
   </tbody>
   </table>
 
-### Step 2: Verify that the Proxy is Running
+### Step 2: Verify That the Proxy Is Running
 
 ![Highlights Wavefront proxy on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_step_2.png)
 
@@ -139,7 +139,7 @@ You can use [proxy preprocessor rules](proxies_preprocessor_rules.html) to block
 </tbody>
 </table>
 
-### Step 3: Verify that the Collector Can Connect to the Proxy
+### Step 3: Verify That the Collector Can Connect to the Proxy
 
 ![Highlights arrow from the sinker to the wavefront proxy on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_step_3.png)
 
@@ -155,7 +155,7 @@ You can use [proxy preprocessor rules](proxies_preprocessor_rules.html) to block
   </tbody>
   </table>
 
-### Step 4: Verify that the Proxy Can Connect to the Wavefront Service
+### Step 4: Verify That the Proxy Can Connect to the Wavefront Service
 
 ![Highlights arrow from the Wavefront proxy to the Wavefront service on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_step_4.png)
 
@@ -169,7 +169,7 @@ See [Monitor Wavefront Proxies](monitoring_proxies.html) for monitoring and trou
 
 ## Symptom: Incomplete Data in Tanzu Observability
 
-### Step 1: Verify Collection Source Configurations
+### Step 1: Verify the Collection Source Configurations
 
 ![Highlights the source box on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom-Incomplete_step_1.png)
 
@@ -181,7 +181,7 @@ See the [Wavefront Collector Configurations](https://github.com/wavefrontHQ/wave
 </tbody>
 </table>
 
-### Step 2: Verify Filter Configuration
+### Step 2: Verify the Filter Configuration
 
 You can filter out data flowing into Tanzu Observability at multiple points:
 * In some cases, the application (App Pod) can filter metrics and decide on the metrics are available to collect.
@@ -222,7 +222,7 @@ You can filter out data flowing into Tanzu Observability at multiple points:
 </tbody>
 </table>
 
-### Step 4: Check Collector Health
+### Step 4: Check the Collector Health
 
 
 #### Check for Leader Health Problems
