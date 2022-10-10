@@ -52,19 +52,6 @@ This metric is cumulative over the lifetime of the Auctioneer job. Failing Task 
 3. Consider scaling additional Diego Cells using Ops Manager.
 4. If scaling Diego Cells does not solve the problem, pull Diego Brain logs and BBS logs for troubleshooting and contact VMware Tanzu Support for additional troubleshooting. Inform VMware Tanzu Support that Task auctions are failing.
 
-## TAS Auctioneer Time to Fetch Diego Cell State
-
-Time in ns that the Auctioneer took to fetch state from all the Diego Cells when running its auction. Indicates how the Diego Cells themselves are performing. Alerting on this metric helps alert that app staging requests to Diego may be failing.
-1. Check the health of the Diego Cells by reviewing the logs and looking for errors.
-2. Review IaaS console metrics.
-3. Inspect the Auctioneer logs to determine if one or more Diego Cells is taking significantly longer to fetch state than other Diego Cells. Relevant log lines have wording like `fetched Diego Cell state`. Pull Diego Brain logs, Diego Cell logs, and Auctioneer logs and contact VMware Tanzu Support telling them that fetching Diego Cell states is taking too long.
-
-## TAS BBS Crashed App Instances
-
-Total number of LRP instances that have crashed. Indicates how many instances in the deployment are in a crashed state. An increase in `bbs.CrashedActualLRPs` can indicate several problems, from a bad app with many instances associated, to a platform issue that is resulting in app crashes. this metric to help create a baseline for your deployment. After you have a baseline, you can create a deployment-specific alert to notify of a spike in crashes above the trend line. Tune alert values to your deployment. Frequency: 30 s
-1. Look at the BBS logs for apps that are crashing and at the Diego Cell logs to see if the problem is with the apps themselves, rather than a platform issue.
-2. Before contacting VMware Tanzu Support, pull the BBS logs and, if particular apps are the problem, pull the logs from their Diego Cells too.
-
 ## TAS BBS Fewer App Instances Than Expected
 
 Total number of LRP instances that are desired but have no record in the BBS. When Diego wants to add more apps, the BBS sends a request to the Auctioneer to spin up additional LRPs. `LRPsMissing` is the total number of LRP instances that are desired but have no BBS record. If Diego has less LRP running than expected, there may be problems with the BBS. An app push with many instances can temporarily spike this metric. However, a sustained spike in `bbs.LRPsMissing` is unusual and should be investigated. Frequency: 30 s
@@ -72,25 +59,11 @@ Total number of LRP instances that are desired but have no record in the BBS. Wh
 1. Review the BBS logs for proper operation or errors, looking for detailed error messages.
 2. If the condition persists, pull the BBS logs and contact VMware Tanzu Support.
 
-## TAS BBS Master Elected
-
-Indicates when there is a BBS master election. A BBS master election takes place when a BBS instance has taken over as the active instance. A value of 1 is emitted when the election takes place. This metric emits when a redeployment of the BBS occurs. If this metric is emitted frequently outside of a deployment, this may be a signal of underlying problems that should be investigated. If the active BBS is continually changing, this can cause app push downtime.
-
 ## TAS BBS More App Instances Than Expected
 
 Total number of LRP instances that are no longer desired but still have a BBS record. When Diego wants to add more apps, the BBS sends a request to the Auctioneer to spin up additional LRPs. `LRPsExtra` is the total number of LRP instances that are no longer desired but still have a BBS record. If Diego has more LRPs running than expected, there may be problems with the BBS. Deleting an app with many instances can temporarily spike this metric. However, a sustained spike in `bbs.LRPsExtra` is unusual and should be investigated. Frequency: 30 s
 1. Review the BBS logs for proper operation or errors, looking for detailed error messages.
 2. If the condition persists, pull the BBS logs and contact VMware Tanzu Support.
-
-## TAS BBS Running App Instances Rate of Change
-
-`DYNAMIC ALERT: NEGATIVE 10` is a placeholder. Rate of change in the average number of app instances being started or stopped on the platform. It is derived from `bbs.LRPsRunning` and represents the total number of LRP instances that are running on Diego cells.
-
-This Delta reflects a DOWNWARD trend for app instances started or stopped. It helps to provide a picture of the overall (lack of) growth trend of the environment for capacity planning. You may want to alert on delta values outside of an expected range.
-
-## TAS BBS Task Count is Elevated
-
-This elevated BBS task metric is a KPI tracked by the internal Tanzu Web Services team. Contact the Diego team to investigate if the cause is not clear.
 
 ## TAS BBS Time to Handle Requests
 
@@ -214,17 +187,6 @@ The Diego Cell periodically checks its health against the Garden back end. For D
   4. Contact VMware Tanzu Support.
 3. As a last resort, if you cannot wait for VMware Tanzu Support, it sometimes helps to recreate the Diego Cell by running bosh recreate. For information about the bosh recreate command syntax, see Deployments in Commands in the BOSH documentation. Warning: Recreating a Diego Cell destroys its logs. To enable a root cause analysis of the Diego Cell’s problem, save out its logs before running `bosh recreate`.
 
-## TAS Gorouter 502 Bad Gateway
-
-The number of bad gateways, or 502 responses, from the Gorouter itself, emitted per Gorouter instance. The Gorouter emits a 502 bad gateway error when it has a route in the routing table and, in attempting to make a connection to the back end, finds that the back end does not exist.
-
-Use: Indicates that route tables might be stale. Stale routing tables suggest an issue in the route register management plane, which indicates that something has likely changed with the locations of the containers. Always investigate unexpected increases in this metric.
-
-Actions: Check the Gorouter and Route Emitter logs to see if they are experiencing issues when connecting to NATS. Check the BOSH logs to see if the NATS, Gorouter, or Route Emitter VMs are failing. Look broadly at the health of all VMs, particularly Diego-related VMs. If problems persist, pull Gorouter and Route Emitter logs and contact VMware Tanzu Support to say there has been an unusual increase in Gorouter bad gateway responses.
-* First inspect logs for network issues and indications of misbehaving backends.
-* If it appears that the Gorouter needs to scale due to ongoing traffic congestion, do not scale on the latency metric alone. You should also look at the CPU utilization of the Gorouter VMs and keep it within a maximum 60-70% range.
-* Resolve high utilization by scaling the Gorouter.
-
 ## TAS Gorouter File Descriptor
 
 Number of file descriptors currently used by the Gorouter job. Indicates an impending issue with the Gorouter. Without proper mitigation, it is possible for an unresponsive app to eventually exhaust available Gorouter file descriptors and cause route starvation for other apps running on TAS. Under heavy load, this unmitigated situation can also result in the Gorouter losing its connection to NATS and all routes being pruned.
@@ -234,31 +196,6 @@ While a drop in `gorouter.total_routes` or an increase in `gorouter.ms_since_las
 The Gorouter limits the number of file descriptors to 100,000 per job. Once the limit is met, the Gorouter is unable to establish any new connections. To reduce the risk of DDoS attacks, VMware recommends doing one or both of the following:
 * Within TAS for VMs, set **Maximum connections per back end** to define how many requests can be routed to any particular app instance. This prevents a single app from using all Gorouter connections. The value specified should be determined by the operator based on the use cases for that foundation.
 * Add rate limiting at the load balancer level.
-
-## TAS Gorouter Handling Latency
-
-Measures the amount of time a Gorouter takes to handle requests to backend endpoints, including both apps, CC and UAA. This is a 30-minute moving average round trip response time, including route handling. It indicates how Gorouter jobs in TAS impact overall responsiveness. Latencies above 100 ms can indicate problems with the network, misbehaving backends, or a need to scale the Gorouter due to traffic congestion.
-
-ACTIONS:
-* First inspect logs for network issues and indications of misbehaving backends.
-* If it appears that the Gorouter needs to scale due to ongoing traffic congestion, do not scale on the latency metric alone. You should also look at the CPU utilization of the Gorouter VMs and keep it within a maximum 60-70% range.
-* Resolve high utilization by scaling the Gorouter.
-
-## TAS Gorouter Server Error
-
-The number of requests completed by the Gorouter VM for HTTP status family 5xx, server errors, emitted per Gorouter instance.
-
-A repeatedly crashing app is often the cause of a big increase in 5xx responses. However, response issues from apps can also cause an increase in 5xx responses. Always investigate an unexpected increase in this metric.
-
-## TAS Gorouter Throughput
-
-Measures the number of requests completed by the Gorouter VM, emitted per Gorouter instance. The aggregation of these values across all Gorouters provide insight into the overall traffic flow of a deployment. Unusually high spikes, if not known to be associated with an expected increase in demand, could indicate a DDoS risk. For performance and capacity management, consider this metric a measure of router throughput per job, converting it to requests-per-second, by looking at the delta value of `gorouter.total_requests` and deriving back to 1s, or `gorouter.total_requests.delta)/5`, as this is a 5-second metric.
-
-For optimizing the Gorouter, consider the requests-per-second derived metric in the context of router latency and Gorouter VM CPU utilization. From performance and load testing of the Gorouter, VMware has observed that at approximately 2500 requests per second, latency can begin to increase.
-
-ACTIONS:
-
-To increase throughput and maintain low latency, scale the Gorouters either horizontally or vertically and ensure that the `system.cpu.user` metric for the Gorouter stays in the suggested range of 60-70% CPU Utilization. For more information about the `system.cpu.user` metric, see VM CPU Utilization.
 
 ## TAS Gorouter Time Since Last Route Register Received
 
