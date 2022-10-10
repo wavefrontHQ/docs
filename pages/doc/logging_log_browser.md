@@ -133,7 +133,7 @@ It's cumbersome to examine all logs for a time window, but you can customize wha
 
 1. (Optional) Click the date picker to select a time window you want to see logs for.
 1. To get the list of logs you want, you have these options:
-  * From the **Source** drop-down menu, select a [source](logging_overview.html#whats-a-tanzu-observability-log). You can filter logs by only one source.
+  * From the **Source** drop-down menu, select a [source](logging_overview.html#whats-a-tanzu-observability-log).
   * In the **All Tags** list, click a tag and select a value from the list. You can filter logs by a combination of tags.
   * In the search bar, enter a word or expression and click **Search** or press Enter if you're using the Keyboard to navigate. You can filter logs by a combination of words and expressions in the log messages.
   <br/>**Example: Combination of search terms**:
