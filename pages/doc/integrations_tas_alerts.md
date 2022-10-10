@@ -21,16 +21,23 @@ If the ActiveLocks count is not equal to the expected value, there is likely a p
 3. Focus triage on the BBS first:
    - A healthy BBS shows obvious activity around starting or claiming LRPs.
    - An unhealthy BBS leads to the Auctioneer showing minimal or no activity. The BBS sends work to the Auctioneer.
-   - Reference the BBS-level Locket metric `bbs.LockHeld`. A value of 0 indicates Locket issues at the BBS level. For more information, see Locks Held by BBS.
+   - Reference the BBS-level Locket metric `tas.bbs.LockHeld`. A value of 0 indicates Locket issues at the BBS level. For more information, see Locks Held by BBS.
 4. If the BBS appears healthy, then check the Auctioneer to ensure it is processing auction payloads.
    - Recent logs for Auctioneer should show all but one of its instances are currently waiting on locks, and the active Auctioneer should show a record of when it last attempted to execute work. This attempt should correspond to app development activity, such as `cf push`.
-   - Reference the Auctioneer-level Locket metric `auctioneer.LockHeld`. A value of 0 indicates Locket issues at the Auctioneer level. For more information, see Locks Held by Auctioneer.
+   - Reference the Auctioneer-level Locket metric `tas.auctioneer.LockHeld`. A value of 0 indicates Locket issues at the Auctioneer level. For more information, see Locks Held by Auctioneer.
 5. The TPS Watcher is primarily active when app instances crash. Therefore, if the TPS Watcher is suspected, review the most recent logs.
 6. If you are unable to resolve on-going excessive active locks, pull logs from the Diego BBS and Auctioneer VMs, which includes the Locket service component logs, and contact VMware Tanzu Support.
 
 ## TAS Auctioneer Fetch State Duration Taking Too Long
 
-App stage requests for Diego may be failing. Consult your VMware Expert.
+Time that the Auctioneer took to fetch state from all the Diego Cells when running its auction.
+
+Indicates how the Diego Cells themselves are performing. Alerting on this metric helps alert that app staging requests to Diego may be failing.
+1. Check the health of the Diego Cells by reviewing the logs and looking for errors.
+2. Review IaaS console metrics.
+3. Inspect the Auctioneer logs to determine if one or more Diego Cells is taking significantly longer to fetch state than other Diego Cells. Relevant log lines have wording like `fetched Diego Cell state`.
+4. Pull Diego Brain logs, Diego Cell logs, and Auctioneer logs and contact Support telling them that fetching Diego Cell states is taking too long.
+
 
 ## TAS Auctioneer LRP Auctions Failed
 
@@ -54,20 +61,26 @@ This metric is cumulative over the lifetime of the Auctioneer job. Failing Task 
 
 ## TAS BBS Fewer App Instances Than Expected
 
-Total number of LRP instances that are desired but have no record in the BBS. When Diego wants to add more apps, the BBS sends a request to the Auctioneer to spin up additional LRPs. `LRPsMissing` is the total number of LRP instances that are desired but have no BBS record. If Diego has less LRP running than expected, there may be problems with the BBS. An app push with many instances can temporarily spike this metric. However, a sustained spike in `bbs.LRPsMissing` is unusual and should be investigated. Frequency: 30 s
+Total number of LRP instances that are desired but have no record in the BBS. When Diego wants to add more apps, the BBS sends a request to the Auctioneer to spin up additional LRPs. `tas.bbs.LRPsMissing` is the total number of LRP instances that are desired but have no BBS record.
+
+If Diego has less LRP running than expected, there may be problems with the BBS. An app push with many instances can temporarily spike this metric. However, a sustained spike in `tas.bbs.LRPsMissing` is unusual and should be investigated.
 
 1. Review the BBS logs for proper operation or errors, looking for detailed error messages.
 2. If the condition persists, pull the BBS logs and contact VMware Tanzu Support.
 
 ## TAS BBS More App Instances Than Expected
 
-Total number of LRP instances that are no longer desired but still have a BBS record. When Diego wants to add more apps, the BBS sends a request to the Auctioneer to spin up additional LRPs. `LRPsExtra` is the total number of LRP instances that are no longer desired but still have a BBS record. If Diego has more LRPs running than expected, there may be problems with the BBS. Deleting an app with many instances can temporarily spike this metric. However, a sustained spike in `bbs.LRPsExtra` is unusual and should be investigated. Frequency: 30 s
+Total number of LRP instances that are no longer desired but still have a BBS record. When Diego wants to add more apps, the BBS sends a request to the Auctioneer to spin up additional LRPs. `tas.bbs.LRPsExtra` is the total number of LRP instances that are no longer desired but still have a BBS record.
+
+If Diego has more LRPs running than expected, there may be problems with the BBS. Deleting an app with many instances can temporarily spike this metric. However, a sustained spike in `tas.bbs.LRPsExtra` is unusual and should be investigated.
 1. Review the BBS logs for proper operation or errors, looking for detailed error messages.
 2. If the condition persists, pull the BBS logs and contact VMware Tanzu Support.
 
 ## TAS BBS Time to Handle Requests
 
-The maximum observed latency time over the past 60 seconds that the BBS took to handle requests across all its API endpoints. If this metric rises, the TAS API is slowing. Response to certain cf CLI commands is slow if request latency is high.
+The maximum observed latency time over the past 60 seconds that the BBS took to handle requests across all its API endpoints.
+
+If this metric rises, the TAS API is slowing. Response to certain cf CLI commands is slow if request latency is high.
 1. Check CPU and memory statistics in Ops Manager.
 2. Check BBS logs for faults and errors that can indicate issues with BBS.
 3. Try scaling the BBS VM resources up. For example, add more CPUs and memory depending on its `system.cpu`/`system.memory` metrics.
@@ -76,7 +89,9 @@ The maximum observed latency time over the past 60 seconds that the BBS took to 
 
 ## TAS BBS Time to Run LRP Convergence
 
-Time that the BBS took to run its LRP convergence pass. If the convergence run begins taking too long, apps or Tasks may be crashing without restarting. This symptom can also indicate loss of connectivity to the BBS database.
+Time that the BBS took to run its LRP convergence pass.
+
+If the convergence run begins taking too long, apps or Tasks may be crashing without restarting. This symptom can also indicate loss of connectivity to the BBS database.
 1. Check BBS logs for errors.
 2. Try vertically scaling the BBS VM resources up. For example, add more CPUs or memory depending on its `system.cpu`/`system.memory` metrics.
 3. Consider vertically scaling the TAS backing database, if `system.cpu` and `system.memory` metrics for the database instances are high.
@@ -86,7 +101,7 @@ Time that the BBS took to run its LRP convergence pass. If the convergence run b
 
 Percentage of CPU spent in user processes. Set an alert and investigate further if the CPU utilization is too high for a job.
 
-For monitoring Gorouter performance, CPU utilization of the Gorouter VM is the key capacity scaling indicator VMware recommends. For more information, see Router VM CPU Utilization in Key Capacity Scaling Indicators.
+For monitoring Gorouter performance, CPU utilization of the Gorouter VM is the key capacity scaling indicator VMware recommends. For more information, see [Router VM CPU Utilization](https://docs.pivotal.io/application-service/operating/monitoring/key-cap-scaling.html#system.cpu.user) in Key Capacity Scaling Indicators.
 
 ## TAS BOSH VM Disk Used
 
