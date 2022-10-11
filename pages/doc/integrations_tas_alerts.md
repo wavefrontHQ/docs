@@ -175,33 +175,40 @@ Percentage of remaining container capacity for a given Diego Cell. Monitor this 
 
 ## TAS Diego Cell Disk Capacity
 
-[//]: # (TODO -- Start here tomorrow)
-Remaining amount of disk in MiB available for this Diego Cell to allocate to containers.
+[//]: # (TODO -- Ask about chunks)
+Remaining amount of disk in MiB available for each Diego Cell to allocate to containers.
 
-Percentage of remaining disk capacity for a given Diego Cell. Monitor this derived metric across all Diego Cells in a deployment.
-* The metric `rep.CapacityRemainingDisk` indicates the remaining amount in MiB of disk available for this Diego Cell to allocate to containers.
-* The metric `rep.CapacityTotalDisk` indicates the total amount in MiB of disk available for this Diego Cell to allocate to containers.
+Insufficient free disk on Diego Cells prevents the staging or starting of apps or tasks, resulting in error messages like 
+```
+ERR Failed to stage app: insufficient resources
+```
 
+1. Assign more resources to the Diego Cells or assign more Diego Cells.
+2. Scale additional Diego Cells using Ops Manager.
 
+[//]: # (TODO -- Ask about chunks)
 ## TAS Diego Cell Memory Capacity
 
-Percentage of remaining memory capacity for a given Diego cell. Monitor this derived metric across all Diego cells in a deployment.
-* The metric `rep.CapacityRemainingMemory` indicates the remaining amount in MiB of memory available for this Diego Cell to allocate to containers.
-* The metric `rep.CapacityTotalMemory` indicates the total amount in MiB of memory available for this Diego Cell to allocate to containers.
+Percentage of remaining memory capacity for a given Diego cell.
 
+Indicates the available Diego Cell memory. Insufficient Diego Cell memory can prevent pushing and scaling apps.
+
+1. Assign more resources to the Diego Cells or assign more Diego Cells.
+2. Scale additional Diego Cells using Ops Manager.
 
 ## TAS Diego Cell Replication Bulk Sync Duration
 
-Time that the Diego Cell Rep took to sync the ActualLRPs that it claimed with its actual garden containers.  Sync times that are too high can indicate issues with the BBS.
-Yellow: warning (2265 5 s)
-Red: critical (2265 10 s)
+Time that the Diego Cell Rep took to sync the ActualLRPs that it claimed with its actual garden containers.
 
-ACTION: Investigate BBS logs for faults and errors. If a one or more Diego cells appear problematic, pull the logs for those Diego cells and the BBS logs before contacting VMware Tanzu Support.
+Sync times that are too high can indicate issues with the BBS.
+
+1. Investigate BBS logs for faults and errors. 
+2. If a one or more Diego cells appear problematic, pull the logs for those Diego cells and the BBS logs before contacting VMware Tanzu Support.
 
 [//]: # (TODO This seems like a dynamic metric that needs tuning)
 ## TAS Diego Cell Route Emitter Sync Duration
 
-Time in ns that the active Route Emitter took to perform its synchronization pass.
+Time that the active Route Emitter took to perform its synchronization pass.
 
 Increases in this metric indicate that the Route Emitter may have trouble maintaining an accurate routing table to broadcast to the Gorouters. 
 Tune your alerting values to your deployment based on historical data and adjust based on observations over time.
