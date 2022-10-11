@@ -198,69 +198,128 @@ Red: critical (2265 10 s)
 
 ACTION: Investigate BBS logs for faults and errors. If a one or more Diego cells appear problematic, pull the logs for those Diego cells and the BBS logs before contacting VMware Tanzu Support.
 
-
+[//]: # (TODO This seems like a dynamic metric that needs tuning)
 ## TAS Diego Cell Route Emitter Sync Duration
 
-Time the active Route Emitter took to perform its synchronization pass. Increases in this metric indicate that the Route Emitter may have trouble maintaining an accurate routing table to broadcast to the Gorouters. Tune your alerting values to your deployment based on historical data and adjust based on observations over time. The suggested starting point is ≥ 5 for the yellow threshold and ≥ 10 for the critical threshold. Above 10 seconds, the BBS may be failing.
-* Yellow warning: > 5s
-* Red critical: >10 s
+Time in ns that the active Route Emitter took to perform its synchronization pass.
 
-ACTION:
-If all or many jobs showing as impacted, there is likely an issue with Diego. * Investigate the Route Emitter and Diego BBS logs for errors.
-* Verify that app routes are functional by making a request to an app, pushing an app, and pinging it, or if applicable, checking that your smoke tests have passed. If one or a few jobs showing as impacted, there is likely a connectivity issue and the impacted job should be investigated further.
+Increases in this metric indicate that the Route Emitter may have trouble maintaining an accurate routing table to broadcast to the Gorouters. 
+Tune your alerting values to your deployment based on historical data and adjust based on observations over time.
+The suggested starting point is ≥ 5 for the yellow threshold and ≥ 10 for the critical threshold.
+Above 10 seconds, the BBS may be failing.
+
+If all or many jobs showing as impacted, there is likely an issue with Diego. 
+1. Investigate the Route Emitter and Diego BBS logs for errors.
+2. Verify that app routes are functional by making a request to an app, pushing an app, and pinging it, or if applicable, checking that your smoke tests have passed. 
+
+If one or a few jobs showing as impacted, there is likely a connectivity issue and the impacted job should be investigated further.
 
 ## TAS Garden Health Check Failed
 
-The Diego Cell periodically checks its health against the Garden back end. For Diego Cells, 0 means healthy, and 1 means unhealthy. Set an alert for further investigation if multiple unhealthy Diego Cells are detected in the given time window. If one Diego Cell is impacted, it does not participate in auctions, but end-user impact is usually low. If multiple Diego Cells are impacted, this can indicate a larger problem with Diego, and should be considered a more critical investigation need.
+The Diego Cell periodically checks its health against the Garden back end. 
+
+* 0 means healthy
+* 1 means unhealthy
+
+If multiple Diego Cells are impacted, this can indicate a larger problem with Diego, and should be considered a more critical investigation need.
+
+If one Diego Cell is impacted: 
+ * in a lower capacity environment, this situation could result in negative end-user impact if left unresolved.
+ * in a higher capacity environment, it does not participate in auctions, but end-user impact is usually low. 
+
 1. Investigate Diego Cell servers for faults and errors.
 2. If a particular Diego Cell or Diego Cells appear problematic:
-  1. Determine a time interval during which the metrics from the Diego Cell changed from healthy to unhealthy.
-  2. Pull the logs that the Diego Cell generated over that interval. The Diego Cell ID is the same as the BOSH instance ID.
-  3. Pull the BBS logs over that same time interval.
-  4. Contact VMware Tanzu Support.
+   1. Determine a time interval during which the metrics from the Diego Cell changed from healthy to unhealthy.
+   2. Pull the logs that the Diego Cell generated over that interval. The Diego Cell ID is the same as the BOSH instance ID.
+   3. Pull the BBS logs over that same time interval.
+   4. Contact VMware Tanzu Support.
 3. As a last resort, if you cannot wait for VMware Tanzu Support, it sometimes helps to recreate the Diego Cell by running bosh recreate. For information about the bosh recreate command syntax, see Deployments in Commands in the BOSH documentation. Warning: Recreating a Diego Cell destroys its logs. To enable a root cause analysis of the Diego Cell’s problem, save out its logs before running `bosh recreate`.
 
 ## TAS Gorouter File Descriptor
 
-Number of file descriptors currently used by the Gorouter job. Indicates an impending issue with the Gorouter. Without proper mitigation, it is possible for an unresponsive app to eventually exhaust available Gorouter file descriptors and cause route starvation for other apps running on TAS. Under heavy load, this unmitigated situation can also result in the Gorouter losing its connection to NATS and all routes being pruned.
+Number of file descriptors currently used by the Gorouter job. 
 
+Indicates an impending issue with the Gorouter. 
+Without proper mitigation, it is possible for an unresponsive app to eventually exhaust available Gorouter file descriptors and cause route starvation for other apps running on TAS. 
+Under heavy load, this unmitigated situation can also result in the Gorouter losing its connection to NATS and all routes being pruned.
+
+[//]: # (TODO Check metric names)
 While a drop in `gorouter.total_routes` or an increase in `gorouter.ms_since_last_registry_update` helps to surface that the issue may already be occurring, alerting on `gorouter.file_descriptors` indicates that such an issue is impending.
 
-The Gorouter limits the number of file descriptors to 100,000 per job. Once the limit is met, the Gorouter is unable to establish any new connections. To reduce the risk of DDoS attacks, VMware recommends doing one or both of the following:
+The Gorouter limits the number of file descriptors to 100,000 per job.
+Once the limit is met, the Gorouter is unable to establish any new connections.
+To reduce the risk of DDoS attacks, VMware recommends doing one or both of the following:
+
 * Within TAS for VMs, set **Maximum connections per back end** to define how many requests can be routed to any particular app instance. This prevents a single app from using all Gorouter connections. The value specified should be determined by the operator based on the use cases for that foundation.
 * Add rate limiting at the load balancer level.
 
+1. Identify which app(s) are requesting excessive connections and resolve the impacting issues with these apps.
+2. If the above mitigation steps have not already been taken, do so.
+3. Consider adding more Gorouter VM resources to increase the number of available file descriptors.
+
 ## TAS Gorouter Time Since Last Route Register Received
 
-Time since the last route register was received, emitted per Gorouter instance. Indicates if routes are not being registered to apps correctly.
-Red critical: > 30 sec
+Time since the last route register was received, emitted per Gorouter instance. 
 
-ACTIONS:
-* Search the Gorouter and Route Emitter logs for connection issues to NATS.
-* Check the BOSH logs to see if the NATS, Gorouter, or Route Emitter VMs are failing.
-* Look more broadly at the health of all VMs, particularly Diego-related VMs.
-* If problems persist, pull the Gorouter and Route Emitter logs and contact VMware Tanzu Support to say there are consistently long delays in route registry.
+Indicates if routes are not being registered to apps correctly.
+
+1. Search the Gorouter and Route Emitter logs for connection issues to NATS.
+2. Check the BOSH logs to see if the NATS, Gorouter, or Route Emitter VMs are failing.
+3. Look more broadly at the health of all VMs, particularly Diego-related VMs.
+4. If problems persist, pull the Gorouter and Route Emitter logs and contact VMware Tanzu Support to say there are consistently long delays in route registry.
 
 ## TAS Locks Held by Auctioneer
 
-Whether an Auctioneer instance holds the expected Auctioneer lock (in Locket). 1 means the active Auctioneer holds the lock, and 0 means the lock was lost. This metric is complimentary to Active Locks, and it offers an Auctioneer-level version of the Locket metrics. Although it is emitted per Auctioneer instance, only 1 active lock is held by Auctioneer. Therefore, the expected value is 1. The metric may occasionally be 0 when the Auctioneer instances are performing a leader transition, but a prolonged value of 0 indicates an issue with Auctioneer.
+Whether an Auctioneer instance holds the expected Auctioneer lock (in Locket). 
+
+* 1 means the active Auctioneer holds the lock
+* 0 means the lock was lost
+
+This metric is complimentary to Active Locks, and it offers an Auctioneer-level version of the Locket metrics. 
+Although it is emitted per Auctioneer instance, only 1 active lock is held by Auctioneer. 
+Therefore, the expected value is 1. 
+The metric may occasionally be 0 when the Auctioneer instances are performing a leader transition, but a prolonged value of 0 indicates an issue with Auctioneer.
 
 1. Run `monit` status on the Diego Database VM to check for failing processes.
-2. If there are no failing processes, then review the logs for Auctioneer. Recent logs for Auctioneer should show all but one of its instances are currently waiting on locks, and the active Auctioneer should show a record of when it last attempted to execute work. This attempt should correspond to app development activity, such as `cf push`.
+2. If there are no failing processes, then review the logs for Auctioneer. 
+   * Recent logs for Auctioneer should show all but one of its instances are currently waiting on locks, and the active Auctioneer should show a record of when it last attempted to execute work. This attempt should correspond to app development activity, such as `cf push`.
 3. If you are unable to resolve the issue, pull logs from the Diego BBS and Auctioneer VMs, which includes the Locket service component logs, and contact VMware Tanzu Support.
 
 ## TAS Locks Held by BBS
 
-Whether a BBS instance holds the expected BBS lock (in Locket). 1 means the active BBS server holds the lock, and 0 means the lock was lost. This metric is complimentary to Active Locks, and it offers a BBS-level version of the Locket metrics. Although it is emitted per BBS instance, only 1 active lock is held by BBS. Therefore, the expected value is 1. The metric may occasionally be 0 when the BBS instances are performing a leader transition, but a prolonged value of 0 indicates an issue with BBS.
+Whether a BBS instance holds the expected BBS lock (in Locket). 
+* 1 means the active BBS server holds the lock
+* 0 means the lock was lost
+
+This metric is complimentary to Active Locks, and it offers a BBS-level version of the Locket metrics. 
+Although it is emitted per BBS instance, only 1 active lock is held by BBS. 
+Therefore, the expected value is 1. 
+The metric may occasionally be 0 when the BBS instances are performing a leader transition, but a prolonged value of 0 indicates an issue with BBS.
 
 1. Run `monit` status on the Diego database VM to check for failing processes.
 2. If there are no failing processes, then review the logs for BBS.
-  * A healthy BBS shows obvious activity around starting or claiming LRPs.
-  * An unhealthy BBS leads to the Auctioneer showing minimal or no activity. The BBS sends work to the Auctioneer.
+   * A healthy BBS shows obvious activity around starting or claiming LRPs.
+   * An unhealthy BBS leads to the Auctioneer showing minimal or no activity. The BBS sends work to the Auctioneer.
 3. If you are unable to resolve the issue, pull logs from the Diego BBS, which include the Locket service component logs, and contact VMware Tanzu Support.
 
 ## TAS UAA Latency is Elevated
- 
-A quick way to confirm user-impacting behavior is to try `login.run.pivotal.io` and see if you receive a delayed response.
+Description	Time in milliseconds that UAA took to process a request that the Gorouter sent to UAA endpoints.
 
-Restart the UAA instances to solve this problem: `bosh -e prod -d cf-cfapps-io2 restart uaa` Restarting the instances will cause any active sessions to be lost, which will cause users to have to log in again.
+Indicates how responsive UAA has been to requests sent from the Gorouter.
+Some operations may take longer to process, such as creating bulk users and groups. It is important to correlate latency observed with the endpoint and evaluate this data in the context of overall historical latency from that endpoint.
+Unusual spikes in latency could indicate the need to scale UAA VMs.
+
+Latency depends on the endpoint and operation being used. 
+It is important to correlate the latency with the endpoint and evaluate this data in the context of the historical latency from that endpoint.
+
+1. Inspect which endpoints requests are hitting. Use historical data to determine if the latency is unusual for that endpoint. For a list of UAA endpoints, see the UAA API documentation.
+2. If it appears that UAA needs to be scaled due to ongoing traffic congestion, do not scale based on the latency metric alone. You should also ensure that the system.cpu.user metric for UAA stays in the suggested range of 80-90% maximum CPU utilization.
+3. Resolve high utilization by scaling UAA VMs horizontally. To scale UAA, navigate to the Resource Config pane of the TAS for VMs tile and edit the number of your UAA VM instances.
+
+[//]: # ( TODO -- should this original text be used?)
+[//]: # (1. A quick way to confirm user-impacting behavior is to try `login.run.pivotal.io` and see if you receive a delayed response.)
+
+[//]: # ()
+[//]: # (Restart the UAA instances to solve this problem: `bosh -e prod -d cf-cfapps-io2 restart uaa` )
+
+[//]: # (Restarting the instances will cause any active sessions to be lost, which will cause users to have to log in again.)
