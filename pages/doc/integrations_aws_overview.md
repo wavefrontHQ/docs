@@ -96,6 +96,9 @@ For information about external IDs and how they are used in AWS, see [How to Use
      
 1. Click **Next**.
 1. On the **Add permissions** screen, search for, and select the **ReadOnlyAccess** check box.
+
+   You get many results when you search for ReadOnlyAccess. Scroll down and browse through the pages until you find ReadOnlyAccess or click the **Policy name** column name to get the results sorted in reverse alphabetical order.
+
 1. Click **Next**.
 1. In the **Role name** text box, provide a unique name of the role and click **Create role**.
 1. On the **Roles** page, click the newly created role.
