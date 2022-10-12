@@ -772,6 +772,30 @@ entries:
       url: /tracing_faq.html
       output: web
 
+  - title: Logs (Beta)
+    output: web
+    folderitems:
+
+      - title: Get Started
+        url: /logging_overview.html
+        output: web
+
+      - title: Send Logs
+        url: /logging_send_logs.html
+        output: web
+
+      - title: View Logs
+        url: /logging_log_browser.html
+        output: web
+
+      - title: Configure Wavefront Proxy for Logs
+        url: /logging_proxy_configurations.html
+        output: web
+        
+      - title: Logs Troubleshooting
+        url: /logging_faq.html
+        output: web
+
   - title: API, SDKs, and CLI
     output: web
     folderitems:
