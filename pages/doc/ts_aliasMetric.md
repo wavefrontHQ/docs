@@ -104,7 +104,7 @@ aliasMetric(sum(ts("customer.user.total"),customer), "Total Users")
 You can specify a replacement string with variables if you want the new metric name for each time series to contain one or more metadata values from that series. You can use any combination of variables and embed them in text. The following variables obtain the actual metric name, the source name, or the value of a specified point tag:
 
 {% raw %}
-`"{{metric}}"  "{{source}}"  "{{<pointTagKey}}"`
+`"{{metric}}"  "{{source}}"  "{{<pointTagKey>}}"`
 {% endraw %}
 
 Suppose you have a metric `ts(aws.instance.price)` that has a `region` point tag, and you want to display a chart in which the metric name of each time series consists of the string `Price`, followed by the value of the `region` tag and the source name, separated by slashes. The following function accomplishes this:
