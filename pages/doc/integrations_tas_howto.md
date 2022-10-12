@@ -120,9 +120,9 @@ You can set up your environment to use production proxies as follows:
 1. In Ops Manager, click **Telegraf Agent Config**.
 2. In **Advanced Options**, select **Yes**.
 3. In the Custom Proxy URL field, provide a proxy URL or IP in the Custom Proxy URL. 
-    This could also be load balancer URL if the external proxies are behind a load balancer
+    This could also be load balancer URL if the external proxies are behind a load balancer.
 4. (Optional) In the **Proxy Port** field, provide a custom proxy port (Default is 2878).
-5. Click **Save**
+5. Click **Save**.
 
 ### How can I customize metrics ingestion?
 
@@ -142,9 +142,9 @@ The Wavefront proxy allows you to control many aspects of your ingestion pipelin
 - **Preprocessor Rules**: Starting with proxy version 4.1, the Wavefront proxy includes a preprocessor that applies user-defined rules before data is sent to the Wavefront service. You can use preprocessor rules to correct certain data quality issues when you can't fix the problem at the emitting source. See [Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules.html).
 
 You can specify custom elements as follows:
-1. In OpsManager, click **Wavefront Proxy Config**
+1. In OpsManager, click **Wavefront Proxy Config**.
 2. Click **Wavefront Proxy Config**, and then click **Custom**.
-3. Make your changes and click **Save**
+3. Make your changes and click **Save**.
 
 ### Things aren't working. What can I do?
 
@@ -174,7 +174,7 @@ This section explains each step in the flow in detail.
 
 ### Step 1: Download the Nozzle File
 
-Download the Tanzu Observability by Wavefront nozzle file from the [Tanzu Network](https://network.pivotal.io/) to your local filesystem. You must have a Tanzu Network account to perform this task
+Download the Tanzu Observability by Wavefront nozzle file from the [Tanzu Network](https://network.pivotal.io/) to your local filesystem. You must have a Tanzu Network account to perform this task.
 
 ### Step 2: Ops Manager: Install, Configure, and Deploy the Nozzle
 
@@ -203,7 +203,7 @@ In Ops Manager, click the Tanzu Observability by Wavefront tile. With **Settings
    <li>Under <strong>Balance other jobs in</strong>, select one or more other AZs. Ops Manager balances instances of jobs with more than one instance across the AZs that you specify. </li>
   <li>From the <strong>Network</strong> drop-down menu, select the subnet that you created when you configured the BOSH Director tile. That network often has <code>pas</code> or <code>tas</code> in its name. </li>
   <li>From the <strong>Service Network</strong> drop-down menu, select the service subnet that you created when you configured the BOSH Director tile. That network often has <code>services</code> in its name. </li>
-  <li>Click <strong>Save</strong> </li>
+  <li>Click <strong>Save</strong>. </li>
   </ol>
    </td>
    <td width="50%"><img src="/images/tas_to_1.png" alt="Assign AZ and Networks screenshot, with values as discussed in text above."></td>
@@ -239,7 +239,7 @@ In Ops Manager, click the Tanzu Observability by Wavefront tile. With **Settings
     action  : dropTag
     tag     : az
     match   : dev.*</code>. </li> </ul>
-   <li>Click <strong>Save</strong> </li>
+   <li>Click <strong>Save</strong>. </li>
    </ol>
    </td>
    <td width="50%"><img src="/images/tas_to_1_1.png" alt="Proxy Config screenshot, with values as discussed in text above."></td>
@@ -264,7 +264,7 @@ In Ops Manager, click the Tanzu Observability by Wavefront tile. With **Settings
    <li>Select a <strong>BOSH Health Check Availability Zone</strong> if you don't want to use the default zone. </li>
    <li>Optionally, select the <strong>BOSH Health Check Payload VM Type</strong> and change the default. In almost all cases users don't change this field. </li>
    <li>To collect metrics of all the apps bound to a service instance, select the <strong>Retrieve Service Binding Metrics</strong> check box. <br> This way you can, for example, find the Redis instance or MySQL database that is bound to a particular app. If you turn this setting on, you might experience performance issues, because the information is retrieved by making API calls to the CAPI component within Tanzu Application Service. In some environments that might add too much load on the CAPI servers.</li>
-   <li>Click <strong>Save</strong></li>
+   <li>Click <strong>Save</strong>.</li>
    </ol>
    </td>
    <td width="50%"><img src="/images/tas_to_4.png" alt="Metric Exporter screenshot, with values as discussed in text to the left."></td>
