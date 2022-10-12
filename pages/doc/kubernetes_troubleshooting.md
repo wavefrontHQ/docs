@@ -7,7 +7,7 @@ permalink: kubernetes_troubleshooting.html
 summary: Get help and troubleshooting instructions when you have problems with your Kubernetes setup.  
 ---
 
-For an in depth overview of the integration and how it is deployed, navigate to our [GitHub page](https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes). 
+For an in depth overview of the integration and how it is deployed, navigate to our [GitHub readme page](https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes#readme). 
 
 **Note**: If you currently use the Helm-managed and installed version of the Wavefront proxy and Wavefront Collector for Kubernetes, see our [legacy troubleshooting page](wf_kubernetes_troubleshooting.html) for instructions on how to troubleshoot your integration. 
 
@@ -25,8 +25,8 @@ If you identify that there is a problem with data flowing into Tanzu Observabili
  The command returns a result similar to the following example:
  
  ```
-NAME                     STATUS     PROXY             CLUSTER-COLLECTOR    NODE-COLLECTOR    LOGGING           AGE
-observability-system     Healthy    Running (1/1)     Running (1/1)        Running (3/3)     Running (3/3)     2m4s
+ NAME        STATUS    PROXY           CLUSTER-COLLECTOR   NODE-COLLECTOR   LOGGING         AGE    MESSAGE
+ wavefront   Healthy   Running (1/1)   Running (1/1)       Running (3/3)    Running (3/3)   3h3m   All components are healthy
 ```
 
 
@@ -111,8 +111,8 @@ Run `kubectl get wavefront -n observability-system` to check the status of the c
 The command will return a result similar to:
 
 ```
-NAME                     STATUS     PROXY             CLUSTER-COLLECTOR    NODE-COLLECTOR    LOGGING           AGE
-observability-system     Healthy    Running (1/1)     Running (1/1)        Running (3/3)     Running (3/3)     2m4s
+NAME        STATUS    PROXY           CLUSTER-COLLECTOR   NODE-COLLECTOR   LOGGING         AGE    MESSAGE
+wavefront   Healthy   Running (1/1)   Running (1/1)       Running (3/3)    Running (3/3)   3h3m   All components are healthy
 ```
 
 If the STATUS is Healthy, then all the components are healthy. If the STATUS is Unhealthy, the component that is causing the issue might not be running.
