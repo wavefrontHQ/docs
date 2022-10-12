@@ -279,7 +279,8 @@ Properties specific to histogram distributions, listed in a <a href="#histogram-
 </tr>
 <tr>
 <td>hostname</td>
-<td>A name unique across your account representing the machine that the proxy is running on. The hostname is not used to tag your metrics; rather, it's used to tag proxy metrics, such as JVM statistics, per-proxy point rates, and so on.</td>
+<td>A name unique across your account representing the machine that the proxy is running on. The hostname is not used to tag your metrics; rather, it's used to tag proxy metrics, such as JVM statistics, per-proxy point rates, and so on.
+{% include note.html content="Deprecated since version 11.5 with the introduction of the proxyname property and the hostname tag for the metric metrics." %}</td>
 <td>A string containing alphanumeric characters and periods.</td>
 <td>&nbsp;</td>
 </tr>
@@ -392,6 +393,12 @@ Default: &lt;cfg_path&gt;/logsIngestion.yaml.</td>
 <td>A string.
 <div>Ex: proxy.local</div></td>
 <td>3.23</td>
+</tr>
+<tr>
+<td>proxyname</td>
+<td>A name unique across your account representing the name of the proxy. The proxyname is used for the source tag of the proxy metrics, such as JVM statistics, per-proxy point rates, and so on.</td>
+<td>A string containing alphanumeric characters and periods.</td>
+<td>11.5</td>
 </tr>
 <tr>
 <td>proxyPassword</td>
@@ -779,6 +786,14 @@ Required when authMethod = STATIC_TOKEN. For example, <code>authStaticToken=toke
 <td markdown="span">Set the value to `true` to receive the OpenTelemetry resource attributes that your application sends for metrics data.
 <br/>Default: false
 <br/> Version: Since 11.3</td>
+<td>true or false</td>
+</tr>
+<tr>
+<a name="otlpAppTagsOnMetricsIncluded"></a>
+<td>otlpAppTagsOnMetricsIncluded</td>
+<td markdown="span">Set the value to `false` to include the OpenTelemetry resource attributes (`application`, `service.name`, `shard`, and `cluster`) that your application sends for metrics data. 
+<br/>Default: true
+<br/> Version: Since 11.5</td>
 <td>true or false</td>
 </tr>
 </tbody>
