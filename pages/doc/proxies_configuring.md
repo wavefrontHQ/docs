@@ -280,7 +280,7 @@ Properties specific to histogram distributions, listed in a <a href="#histogram-
 <tr>
 <td>hostname</td>
 <td>A name unique across your account representing the machine that the proxy is running on. The hostname is not used to tag your metrics; rather, it's used to tag proxy metrics, such as JVM statistics, per-proxy point rates, and so on.
-{% include note.html content="Deprecated since version 11.5 with the introduction of the proxyname property and the hostname tag for the metric metrics." %}</td>
+{% include note.html content="Deprecated since version 11.5 with the introduction of the proxyname property and the hostname tag for the proxy metrics." %}</td>
 <td>A string containing alphanumeric characters and periods.</td>
 <td>&nbsp;</td>
 </tr>
