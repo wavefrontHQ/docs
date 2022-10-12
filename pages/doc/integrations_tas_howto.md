@@ -119,7 +119,8 @@ Some customers have a central monitoring/observability team that requires that a
 You can set up your environment to use production proxies as follows:
 1. In Ops Manager, click **Telegraf Agent Config**.
 2. In **Advanced Options**, select **Yes**.
-3. In the Custom Proxy URL field, provide a proxy URL or IP in the Custom Proxy URL (This could also be load balancer URL if the external proxies are behind a load balancer)
+3. In the Custom Proxy URL field, provide a proxy URL or IP in the Custom Proxy URL. 
+    This could also be load balancer URL if the external proxies are behind a load balancer
 4. (Optional) In the **Proxy Port** field, provide a custom proxy port (Default is 2878).
 5. Click **Save**
 
@@ -129,7 +130,8 @@ If you don't want to monitor some of your TAS platform metrics, you can choose n
 
 For example, if you don’t want to ingest certificate expiration metrics, then you can remove the VM instance that is assigned to the Cert Expiration Exporter by default. All the metrics that this exporter scrapes will not get ingested.
 1. In Ops Manager, click **Resource Config**.
-2. Find the exporter for which you don't want to emit metrics, set it to 0, and click **Save**. The screenshot below shows how to do this.
+2. Find the exporter for which you don't want to emit metrics, set it to 0, and click **Save**. 
+   The screenshot below shows how to do this.
 
 ![Cert Expiration Exporter is in process of being changed from Automatic to 0](images/tas_to_resource_config.png)
 
@@ -179,8 +181,9 @@ Download the Tanzu Observability by Wavefront nozzle file from the [Tanzu Networ
 **To install the nozzle:**
 
 1. Download the VMware Tanzu Observability TAS tile version 4 from [VMware Tanzu Network](https://network.pivotal.io/products/wavefront-nozzle/).
-2. Log in to Ops Manager, select **Installation Dashboard** click **Import a Product**, and upload the file you just downloaded.
-3. Under  **Import a Product**, click the plus sign (+) next to the version number of VMware Tanzu Observability by Wavefront nozzle. This adds the tile to your staging area.
+2. Log in to Ops Manager, select **Installation Dashboard**, click **Import a Product**, and upload the file you just downloaded.
+3. Under  **Import a Product**, click the plus sign (+) next to the version number of VMware Tanzu Observability by Wavefront nozzle. 
+   This adds the tile to your staging area.
 
 The tile is now available, but the orange bar at the bottom indicates that the product is not yet configured.
 
@@ -190,16 +193,16 @@ The tile is now available, but the orange bar at the bottom indicates that the p
 
 In Ops Manager, click the Tanzu Observability by Wavefront tile. With **Settings** selected (the default), follow these steps:
 
-{% include tip.html content="Most users don't make changes to <strong>Errands</strong> and <strong>Resource Config</strong>.Required inputs are the three fields on the <strong>Wavefront Proxy Config</strong> tab and the <strong>Foundation Name</strong> on the <strong>Telegraf Agent Config</strong>." %}
+{% include tip.html content="Most users don't make changes to <strong>Errands</strong> and <strong>Resource Config</strong>. Required inputs are the three fields on the <strong>Wavefront Proxy Config</strong> tab and the <strong>Foundation Name</strong> on the <strong>Telegraf Agent Config</strong>." %}
 
 <table style="width: 100%;">
 <tbody>
    <tr>
-   <td width="50%"><strong>Step 1.</strong> Click <strong>Assign AZs and Networks</strong>, to configure those settings.
+   <td width="50%"><strong>Step 1.</strong> Click <strong>Assign AZs and Networks</strong>, to configure the availability zone and network settings.
    <ol><li>Under <strong>Place singleton jobs in</strong>, select the AZ you want to use. Ops Manager runs any job with a single instance in this AZ.</li>
    <li>Under <strong>Balance other jobs in</strong>, select one or more other AZs. Ops Manager balances instances of jobs with more than one instance across the AZs that you specify. </li>
-  <li>From the <strong>Network</strong> dropdown, select the subnet that you created when you configured the BOSH Director tile. That network often has <code>pas</code> or <code>tas</code> in its name. </li>
-  <li>From the <strong>Service Network</strong> dropdown, select the service subnet that you created when you configured the BOSH Director tile. That network often has <code>services</code> in its name. </li>
+  <li>From the <strong>Network</strong> drop-down menu, select the subnet that you created when you configured the BOSH Director tile. That network often has <code>pas</code> or <code>tas</code> in its name. </li>
+  <li>From the <strong>Service Network</strong> drop-down menu, select the service subnet that you created when you configured the BOSH Director tile. That network often has <code>services</code> in its name. </li>
   <li>Click <strong>Save</strong> </li>
   </ol>
    </td>
@@ -208,9 +211,9 @@ In Ops Manager, click the Tanzu Observability by Wavefront tile. With **Settings
    <tr>
    <td width="50%"><strong>Step 2.</strong> Click <strong>Wavefront Proxy Config</strong> and specify:
    <ol><li>The URL of your Wavefront instance, for example, <code>https://example.wavefront.com</code>.</li>
-   <li>A Wavefront API token. See <a href="wavefront_api.html#generating-an-api-token">Generating an API Token</a></li>
+   <li>A Wavefront API token. See <a href="wavefront_api.html#generating-an-api-token">Generating an API Token</a>.</li>
    <li>User-friendly name for the proxy. </li>
-   <li>Click <strong>Save</strong> or click <strong>Custom</strong> (see the next step_)
+   <li>Click <strong>Save</strong> or click <strong>Custom</strong> (see the next step).
    The nozzle ignores these configuration properties because they're already defined in the setup steps:
    <ul><li>server</li>
    <li>hostname</li>
@@ -220,11 +223,11 @@ In Ops Manager, click the Tanzu Observability by Wavefront tile. With **Settings
   <li>buffer</li>
   <li>preprocessorConfigFile</li></ul>
    </li>
-   <li>(TAS Nozzle v3) If you are currently using the Tanzu Application Service v3 service broker to send metrics from apps to the Wavefront proxy, check this box to ensure existing bindings continue to work. Otherwise, leave the box unchecked. </li>
+   <li>(TAS Nozzle v3) If you are currently using the Tanzu Application Service v3 service broker to send metrics from apps to the Wavefront proxy, select this check box to ensure existing bindings continue to work. Otherwise, leave the check box deselected. </li>
    <li>(Optional) If you click <strong>Custom</strong> you can specify <a href="proxies_configuring.html">proxy configuration</a> properties or <a href="proxies_preprocessor_rules.html"> proxy preprocessor rules</a>.</li>
 
    <ul><li>In the <strong>Config</strong> field, specify one or more configuration properties and values, separated by newline characters. For example <code>pushRateLimit=10000</code>.  </li>
-   <li>In the <strong>Preprocessor Rules</strong> field, specify one or more peprocessor rules, separated by newline characters. For example: <code>
+   <li>In the <strong>Preprocessor Rules</strong> field, specify one or more preprocessor rules, separated by newline characters. For example: <code>
 '2878':
   - rule    : example-replace-badchars
     action  : replaceRegex
@@ -255,11 +258,12 @@ In Ops Manager, click the Tanzu Observability by Wavefront tile. With **Settings
    <td width="50%"><img src="/images/tas_to_3.png" alt="Telegraf Agent Config screenshot, with values as discussed in text above."></td>
    </tr>
    <tr>
-   <td width="50%"><strong>Step 4.</strong> Click <strong>Metrics Exporters</strong> to customize metrics export from Tanzu Application Service:
+   <td width="50%"><strong>Step 4.</strong> Click <strong>Metrics Exporters</strong> to customize metrics export from Tanzu Application Service.
    <ol>
    <li>Select <strong>Skip TLS Verification When Querying</strong> if you want to turn off TLS verification, for example, during testing or a POC. </li>
    <li>Select a <strong>BOSH Health Check Availability Zone</strong> if you don't want to use the default zone. </li>
-   <li>Optionally select the <strong>BOSH Health Check Payload VM Type</strong> and change the default. In almost all cases users don't change this field. </li>
+   <li>Optionally, select the <strong>BOSH Health Check Payload VM Type</strong> and change the default. In almost all cases users don't change this field. </li>
+   <li>To collect metrics of all the apps bound to a service instance, select the <strong>Retrieve Service Binding Metrics</strong> check box. <br> This way you can, for example, find the Redis instance or MySQL database that is bound to a particular app. If you turn this setting on, you might experience performance issues, because the information is retrieved by making API calls to the CAPI component within Tanzu Application Service. In some environments that might add too much load on the CAPI servers.</li>
    <li>Click <strong>Save</strong></li>
    </ol>
    </td>
