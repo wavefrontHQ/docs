@@ -173,9 +173,9 @@ Percentage of remaining container capacity for a given Diego Cell. Monitor this 
 * The metric `rep.CapacityTotalContainer` indicates the total number of containers this Diego Cell can host.
 
 
-## TAS Diego Cell Disk Capacity
+## TAS Diego Cell Disk Chunks Available
 
-[//]: # (TODO -- Ask about chunks)
+[//]: # (TODO -- Ask ab out chunks)
 Remaining amount of disk in MiB available for each Diego Cell to allocate to containers.
 
 Insufficient free disk on Diego Cells prevents the staging or starting of apps or tasks, resulting in error messages like 
@@ -187,11 +187,19 @@ ERR Failed to stage app: insufficient resources
 2. Scale additional Diego Cells using Ops Manager.
 
 [//]: # (TODO -- Ask about chunks)
-## TAS Diego Cell Memory Capacity
+## TAS Diego Cell Memory Chunks Available
 
-Percentage of remaining memory capacity for a given Diego cell.
+Indicates the available Diego Cell memory, by number of chunks. Insufficient Diego Cell memory can prevent pushing and scaling apps.
 
-Indicates the available Diego Cell memory. Insufficient Diego Cell memory can prevent pushing and scaling apps.
+The default chunk size used is 4 GB for this alert
+
+Use: Indicates the available Diego Cell memory. Insufficient Diego Cell memory can prevent pushing and scaling apps.
+
+The strongest operational value of this metric is to understand a deployment’s average app size and monitor/alert on ensuring that at least some Cells have large enough capacity to accept standard app size pushes. For example, if pushing a 4 GB app, Diego would have trouble placing that app if there is no one Diego Cell with sufficient capacity of 4 GB or greater.
+
+As an example, Pivotal Cloud Ops uses a standard of 4 GB, and computes and monitors for the number of Diego Cells with at least 4 GB free. When the number of Diego Cells with at least 4 GB falls below a defined threshold, this is a scaling indicator alert to increase capacity. This free chunk count threshold should be tuned to the deployment size and the standard size of apps being pushed to the deployment.
+
+Recommended Response
 
 1. Assign more resources to the Diego Cells or assign more Diego Cells.
 2. Scale additional Diego Cells using Ops Manager.
