@@ -18,17 +18,36 @@ If you identify that there is a problem with data flowing into Tanzu Observabili
 
 ### Step 1: Check the Status of the Wavefront Integration Locally
 
- To verify that the system is healthy, run:
- 
- `kubectl get wavefront -n observability-system`
- 
- The command returns a result similar to the following example:
+To verify that the system is healthy, run:
  
  ```
- NAME        STATUS    PROXY           CLUSTER-COLLECTOR   NODE-COLLECTOR   LOGGING         AGE    MESSAGE
- wavefront   Healthy   Running (1/1)   Running (1/1)       Running (3/3)    Running (3/3)   3h3m   All components are healthy
-```
+ kubectl get wavefront -n observability-system
+ ```
+ 
+ The command returns a result with information, such as:
 
+<table style="width: 100%;">
+<tr>
+<td width="10%">NAME</td>
+<td width="10%">STATUS</td>
+<td width="10%">PROXY</td>
+<td width="15%">CLUSTER-COLLECTOR</td>
+<td width="15%">NODE-COLLECTOR</td>
+<td width="10%">LOGGING</td>
+<td width="10%">AGE</td>
+<td width="20%">MESSAGE</td>
+</tr>
+<tr>
+<td>wavefront</td>
+<td>Healthy</td>
+<td>Running (1/1)</td>
+<td>Running (1/1)</td>
+<td>Running (3/3)</td>
+<td>Running (3/3)</td>
+<td>3h3m</td>
+<td>All components are healthy</td>
+</tr>
+</table>
 
 ### Step 2: Verify That the Proxy Is Running
 
@@ -45,7 +64,7 @@ The most common Wavefront proxy log errors are:
 1. If you see this error, run the following command to get your current API token and confirm that it is correctly configure: 
 
    ```
-kubectl get secrets wavefront-secret -n observability-system -o json | jq '.data' | cut -d '"' -f 4 | tr -d '{}' | base64 --decode
+   kubectl get secrets wavefront-secret -n observability-system -o json | jq '.data' | cut -d '"' -f 4 | tr -d '{}' | base64 --decode
    ```
 
 2. Follow the resolution steps from [HTTP 401 Unauthorized ERROR Message](proxies_troubleshooting.html#proxy-error-messages).
@@ -87,8 +106,16 @@ kubectl get secrets wavefront-secret -n observability-system -o json | jq '.data
 
 Check the logs for errors:
 
-* Run `kubectl logs deployment/wavefront-cluster-collector -n observability-system` to see the Wavefront Cluster logs.
-* Run `kubectl logs daemonset/wavefront-node-collector -n observability-system` to see the Wavefront Node logs.
+* To see the Wavefront Cluster logs, run: 
+  
+  ```
+  kubectl logs deployment/wavefront-cluster-collector -n observability-system
+  ```
+* To see the Wavefront node collector logs, run:
+
+   ```
+   kubectl logs daemonset/wavefront-node-collector -n observability-system
+   ```
 
 
 ### Step 4: Verify That Logging Is Running
@@ -106,16 +133,38 @@ If you experience gaps in data, where you can't see expected metrics or expected
 
 ### Check the Status of All System Components
 
-Run `kubectl get wavefront -n observability-system` to check the status of the components. 
-
-The command will return a result similar to:
+Check the status of the components:
 
 ```
-NAME        STATUS    PROXY           CLUSTER-COLLECTOR   NODE-COLLECTOR   LOGGING         AGE    MESSAGE
-wavefront   Healthy   Running (1/1)   Running (1/1)       Running (3/3)    Running (3/3)   3h3m   All components are healthy
+kubectl get wavefront -n observability-system
 ```
 
-If the STATUS is Healthy, then all the components are healthy. If the STATUS is Unhealthy, the component that is causing the issue might not be running.
+ The command returns a result with information, such as:
+
+<table style="width: 100%;">
+<tr>
+<td width="10%">NAME</td>
+<td width="10%">STATUS</td>
+<td width="10%">PROXY</td>
+<td width="15%">CLUSTER-COLLECTOR</td>
+<td width="15%">NODE-COLLECTOR</td>
+<td width="10%">LOGGING</td>
+<td width="10%">AGE</td>
+<td width="20%">MESSAGE</td>
+</tr>
+<tr>
+<td>wavefront</td>
+<td>Healthy</td>
+<td>Running (1/1)</td>
+<td>Running (1/1)</td>
+<td>Running (3/3)</td>
+<td>Running (3/3)</td>
+<td>3h3m</td>
+<td>All components are healthy</td>
+</tr>
+</table>
+
+If the STATUS is Healthy, then all the components are healthy. If the STATUS is Unhealthy, the component that is causing the issue might be not running.
 
 ### Check the Proxy Backlog Status
 
@@ -160,3 +209,12 @@ If the STATUS is Unhealthy, check the Status > Message for any configuration err
 ```
 kubectl get wavefront -n observability-system -o=jsonpath='{.items[*].status.message}'
 ```
+
+## Running Workloads Are Not Discovered or Monitored
+
+* Check the **Wavefront Collector Troubleshooting** dashboard in the Kubernetes integration for collection errors. You can use the **Collection Errors per Type** and **Collection Errors per Endpoint** charts to find the sources with metrics that are not being collected.
+* See the [example scenario](https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes/blob/main/deploy/kubernetes/scenarios/wavefront-full-config.yaml) for configuring sources for metric collection.
+* Check the cluster collector logs to verify that the source was configured so that the metrics can be collected.
+  ```
+  kubectl logs deployment/wavefront-cluster-collector -n observability-system
+  ```
