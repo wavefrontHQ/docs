@@ -14,9 +14,11 @@ Tanzu Observability by Wavefront supports monitoring of your Wavefront proxies. 
 
 [Wavefront proxies](proxies.html) emit metrics that you can use to check if your Wavefront proxy is behaving as expected.
 
-The Proxy Health section of the System Usage dashboard includes commonly used internal metrics, such as the `~proxy.points` counter metrics, which measure the data traffic on each port of the proxy. These metrics show the rate at which each proxy receives points, the rate at which the proxy sends points to Tanzu Observability, and any queued or blocked points. Here's an overview of metrics on this dashboard:
+The **Proxies Overview** section of the **Wavefront Service and Proxy Data** dashboard includes commonly used internal metrics, such as the `~proxy.points` counter metrics, which measure the data traffic on each port of the proxy. These metrics show the rate at which each proxy receives points, the rate at which the proxy sends points to Tanzu Observability, and any queued or blocked points. Here's an overview of the metrics on this dashboard:
 
 - `~proxy.points.*.received` - Counter showing the total points the proxy receives, as a per-second rate. To look at the overall rate of points received across all the ports, you can sum up these series and look at the aggregate rate for a proxy. You can also look at the overall rate across all proxies by summing this up further.
+
+- `~proxy.points.*.delivered` - Counter showing the number of points successfully delivered to Tanzu Observability, broken down by listening port.
 
 - `~proxy.points.*.queued` - Counter showing the number of points being queued to be sent to Tanzu Observability from the proxy, as a per-second rate. Queueing usually happens for one of the following reasons:
 
@@ -38,7 +40,6 @@ The Proxy Health section of the System Usage dashboard includes commonly used in
 - `~proxy.buffer.points-count` - Gauge of the number of points currently in the queue.
 - `~proxy.points.*.blocked` - Counter of the points being blocked at the proxy, as a per-second rate. If this rate is above 0, you can look at the charts in the [Proxy Troubleshooting](#proxy-troubleshooting) section of this dashboard to determine if the metrics contain invalid characters or bad timestamps, or if they are failing configurable regular expressions. A small sample of blocked points -- up to `pushBlockedSamples` -- and a complete list of blocked points is written to the proxy log file. See the `/var/log/wavefront/wavefront-blocked-points.log` file  for a complete list. See   `/etc/wavefront/wavefront-proxy/log4j2.xml` for configuring for details on enabling and configuring the proxy log file.
 
-![proxy_health](images/proxy_health.png)
 
 These `~proxy metrics` describe behavior at the Wavefront proxy:
 
