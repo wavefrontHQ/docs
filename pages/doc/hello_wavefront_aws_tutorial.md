@@ -79,7 +79,7 @@ Follow these steps:
     1. Click **Next**.
 1. Set Permissions:
     1. Search for the **ReadOnlyAccess** permission and select it.
-        {% include note.html content="You get many results when you search for ReadOnlyAccess. Scroll down until you find ReadOnlyAccess, as shown in the screenshot below."%}
+        {% include note.html content="You get many results when you search for ReadOnlyAccess. Scroll down and browse through the pages until you find ReadOnlyAccess, as shown in the screenshot below."%}
         ![A screenshot that shows the ReadOnlyAccess permission selected.](images/hello_tutorial_readonly_permission.png)
     1. Click **Next**.
 

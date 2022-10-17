@@ -8,6 +8,18 @@ summary: New and changed integrations.
 ---
 Tanzu Observability by Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
+## October 2022
+
+We made improvements and bug fixes to the following integrations in October 2022:
+
+* Wavefront Usage – Made significant improvements to the **Committed Rate vs Monthly Usage (PPS P95) for Billable** and **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboards. You can use the data displayed on the dashboard that suits your commit contract. For example, if you have a billable commit contract, only the **Committed Rate vs Monthly Usage (PPS P95) for Billable** dashboard will contain charts populated with data. The **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboard will be empty.
+* Java -- Fixed the links to the Jolokia 2 Agent documentation.
+* Tanzu Application Service -- Made minor updates and fixes to the Tanzu Application Service dashboards and charts.
+* Kubernetes -- Added a new system alert to the integration. You can now get notified when the Kubernetes observability status becomes unhealthy.
+* Google Cloud Platform -- The **Google Dataproc** dashboard is now improved with information that you must create a derived metric if you see a delay in the loading of variables.
+* Wavefront Tutorial  -- Made some minor fixes to the **Introduction** dashboard.
+
+
 ## September 2022
 
 We made improvements to the following integrations in September 2022:
