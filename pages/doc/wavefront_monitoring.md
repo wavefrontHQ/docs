@@ -63,7 +63,7 @@ The charts show internal metrics information and allow you to examine many aspec
 
 #### Overall Data Rate
 
-The Overall Data Rate section shows the overall point rate being processed by the Wavefront servers.
+The **Overall Data Rate** section shows the overall point rate being processed by the Wavefront servers.
 
 ![Overall data rate section. Contains charts for data ingestion rate per points, spans and distributions, as well as data scan rate charts.](images/overall_section.png)
 
@@ -115,7 +115,7 @@ The available metrics for the AWS integration are:
 
 #### Ingest Rate by Source
 
-This section gives insight into the shape of your data. It shows the total number of sources reporting. It also monitors the rate of metrics creation and breaks it down by source.
+The **Ingest Rate by Source** section gives insight into the shape of your data. It shows the total number of sources reporting. It also monitors the rate of metrics creation and breaks it down by source.
 
 ![Ingestion rate by source showing a chart with the number of reporting sources and the top 20 sources.](images/point_rate_breakdown.png)
 
@@ -129,7 +129,7 @@ The metrics used in this section are:
 
 #### Rate of New Data Creations
 
-Gives insight into the newly created data, such as metrics, sources, point tags, delta counters, histograms and spans.
+The **Rate of New Data Creations** section gives an insight into the newly created data, such as metrics, sources, point tags, delta counters, histograms and spans.
 
 ![Rate of new data creations section of the dashboard.](images/new_data_creations.png)
 
