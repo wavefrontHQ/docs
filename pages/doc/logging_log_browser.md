@@ -1,25 +1,25 @@
 ---
-title: Find and Examine Logs in the Log Browser (Beta)
+title: Find and Examine Logs in the Logs Browser (Beta)
 keywords: data, logs
 tags: [logs]
 sidebar: doc_sidebar
 permalink: logging_log_browser.html
-summary: Learn how to filter and explore logs in the Log Browser.
+summary: Learn how to filter and explore logs in the Logs Browser.
 ---
 
 {% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative."%}
 
-If you notice anomalies on your metrics charts or see that a service on the application map has large latency value, use the Log Browser to troubleshoot your issues.
+If you notice anomalies on your metrics charts or see that a service on the application map has large latency value, use the Logs Browser to troubleshoot your issues.
 
-## Get Started with the Log Browser
+## Get Started with the Logs Browser
 
-The Logs Browser supports in-depth exploration of your logs. You can zoom into a time window, and you can filter and search your logs, so you see exactly what you're interested in.
+The Logs Browser supports in-depth exploration of your logs. You can zoom into a time window, and you can filter and search your logs, so that you see exactly what you're interested in.
 
 To use the Logs Browser:
 
 1. Configure your application and the log shipper to [send logs to Tanzu Observability](logging_send_logs.html).
-1. In your web browser, log in to your Wavefront instance.
-1. On the toolbar, click **Logs**.
+1. In a web browser, log in to your Wavefront instance.
+1. On the toolbar, click **Logs (Beta)**.
 
 On the Logs Browser, you can filter and examine logs for a selected period.
 
@@ -93,7 +93,7 @@ On the Logs Browser, you can filter and examine logs for a selected period.
 
 ## Enable or Disable Auto-Search
 
-When auto-search is off, after you change the time window or the search query, you need to click **Search** to get the search results. Otherwise, the search runs each time you change the time window or the search query, but that might slow things down.
+When auto-search is OFF, after you change the time window or the search query, to get the search results, you must click **Search** . Otherwise, the search runs each time you change the time window or the search query, but that might slow things down.
 
 To enable or disable auto-search:
 
@@ -116,18 +116,18 @@ You can narrow down the logs list to show only logs from a particular time windo
 
 ![An annotated screenshot of the Logs Browser.](images/logs_time.png)
 
-* From the **Timezone** drop-down menu, you can select your preferred time zone, so the timestamp values of the logs convert to the time zone that you selected.
+* From the **Timezone** drop-down menu, you can select your preferred time zone, so that the timestamp values of the logs convert to the time zone that you selected.
 * From the **Time window picker**, you can select either a preset time or custom start and end dates and times.
 * After you get the first search results, you can examine the logs histogram chart and further adjust the time window. See [Drill Down from the Logs Histogram Chart](#drill-down-from-the-logs-histogram-chart).
 
 Each time you change the time window, the predefined **Source** and **All Tags** filters update to show only the tag values that exist within the selected time window.
 
-If auto-search is off, after you change the time window, you must click **Search** to update the logs table and the logs histogram to show only the logs with timestamp values within the selected time window.
+If auto-search is OFF, after you change the time window, you must click **Search** to update the logs table and the logs histogram to show only the logs with timestamp values within the selected time window.
 
 ## Build Your Search Query
 To narrow down the logs list and show only the logs that match certain criteria, you can build and run a search query in the search bar. The search query consists of one or more filter expressions.
 
-{% include note.html content="The logical operator between the different filter types in the search query is `AND`. The logical operators between the filters of the same type is described in the following table."%}
+{% include note.html content="The logical operator between the different filter types in the search query is `AND`. The logical operators between the filters of the same type are described in the following table."%}
 
 ### Filter Types and Logical Operators
 
@@ -147,7 +147,7 @@ To narrow down the logs list and show only the logs that match certain criteria,
     <td>
       Include tag filter, which retrieves only the logs that have the specified tag key-value pair.
       <ul>
-      <li>If you add multiple include tag filters with different tag keys, the logical operator between them and is <code>AND</code>.</li>
+      <li>If you add multiple include tag filters with different tag keys, the logical operator between them is <code>AND</code>.</li>
       <li>If you add multiple include tag filters with the same tag key but different tag values, the logical operator between them is <code>OR</code> in parentheses.</li>
       </ul>
       <p>For example, if you add the following combination of filters:<br/>
@@ -163,7 +163,12 @@ To narrow down the logs list and show only the logs that match certain criteria,
     </td>
     <td>
       <p>Exclude tag filter, which retrieves only the logs that don't have the specified tag key-value pair.</p>
-      <p>If you add multiple exclude tag filters, the logical operator between them is <code>AND</code>.</p>      
+      <p>If you add multiple exclude tag filters, the logical operator between them is <code>AND</code>.</p>
+      <p>For example, if you add the following combination of filters:<br/>
+      <code>source != dc1 source != dc2 region != us-west</code><br/>
+      We parse them as follows:<br/>
+      <code>source != dc1 AND source != dc2 AND region != us-west</code>
+      </p>
     </td>
   </tr>
   <tr>
@@ -173,6 +178,11 @@ To narrow down the logs list and show only the logs that match certain criteria,
     <td>
       <p>Include message filter, which retrieves only the logs that have the specified <code>keyword</code>.</p>
       <p>If you add multiple include message filters, the logical operator between them is <code>AND</code>.</p> 
+      <p>For example, if you add the following combination of filters:<br/>
+      <code>message = hello message = hi</code><br/>
+      We parse them as follows:<br/>
+      <code>message = hello AND message = hi</code>
+      </p>
     </td>
   </tr>
   <tr>
@@ -181,7 +191,12 @@ To narrow down the logs list and show only the logs that match certain criteria,
     </td>
     <td>
     <p>Exclude message filter, which retrieves only the logs that don't have the specified <code>keyword</code>.</p>
-    <p>If you add multiple exclude message filters, the logical operator between them is <code>AND</code>.</p> 
+    <p>If you add multiple exclude message filters, the logical operator between them is <code>AND</code>.</p>
+    <p>For example, if you add the following combination of filters:<br/>
+    <code>message != hello message != hi</code><br/>
+    We parse them as follows:<br/>
+    <code>message != hello AND message != hi</code>
+    </p> 
     </td>
   </tr>
 </table>
@@ -203,18 +218,18 @@ You can add search filters from the predefined filters in the left panel and fro
       <li>Select the target tag value and the filter type.
       <ul>
       <li>To add an include tag filter, select the equal (=) sign for the target tag value.</li>
-      <li>To add an exclude tag filter, select the not-equal (!=) sign for the target tag value.</li>
+      <li>To add an exclude tag filter, select the not equal (!=) sign for the target tag value.</li>
       </ul></li>
       </ol></p>
     </td>
     <td>
-      <img src="images/logs_source_filter.png"/><br/>
-      <img src="images/logs_tag_filter.png"/>
+      <p><img src="images/logs_source_filter.png"/></p>
+      <p><img src="images/logs_tag_filter.png"/></p>
     </td>
   </tr>
   <tr>
     <td>
-      <p>To add a tag filter from the log viewer:
+      <p>To add a tag filter from the **Log Details** window:
       <ol>
       <li>In the logs table, click a target log message to open it.</li>
       <li>Select the target tag key-value pair.
@@ -223,12 +238,12 @@ You can add search filters from the predefined filters in the left panel and fro
       <li>To add any other filter, click the target tag key-value par at the bottom of the log viewer.</li>
       </ul></li>
       <li>From the drop-down menu, select <strong>Include</strong> or <strong>Exclude</strong> depending on the type of filter that you want to add.</li>
-      <li>Close the log viewer.</li>
+      <li>Close the **Log Details** window.</li>
       </ol></p>
     </td>
     <td>
-      <img src="images/logs_message_source.png"/><br/>
-      <img src="images/logs_message_tags.png"/>
+      <p><img src="images/logs_message_source.png"/></p>
+      <p><img src="images/logs_message_tags.png"/></p>
     </td>
   </tr>
   </table>
@@ -240,12 +255,12 @@ You can add search filters from the predefined filters in the left panel and fro
 <table style="width: 100%;">
 <tr>
   <td>
-    <p>To add a message filter from the log viewer: 
+    <p>To add a message filter from the **Log Details** window: 
     <ol>
     <li>In the logs table, click a target log message to open it.</li>
     <li>Select the keyword for which you want to add a search filter.</li>
     <li>Select <strong>Include</strong> or <strong>Exclude</strong> depending on the type of filter that you want to add.</li>
-    <li>Close the log viewer.</li>
+    <li>Close the **Log Details** window.</li>
     </ol></p>
   </td>
   <td>
@@ -260,10 +275,10 @@ You can add search filters from the predefined filters in the left panel and fro
       <p>You added an include message filter. For example, if you enter <code>hello</code> and press Enter, the resulting search filter is <code>message = hello</code>.</p></li>
       <li>If you want to change the filter to an exclude type, click the filter and select <strong>Exclude Expression</strong>.</li>
       </ol></p>
-      <p>If you want to directly add an exclude message filter, you must enter the entire filter expression, for example, enter <code>message!=hi</code> and press Enter.</p>
+      <p>If you want to directly add an exclude message filter, enter the entire filter expression, for example, <code>message!=hi</code>, and press Enter.</p>
     </td>
     <td>
-      <img src="images/logs_message_filter.png"/>
+      <p><img src="images/logs_message_filter.png"/></p>
     </td>
   </tr>
   <tr>
@@ -320,10 +335,10 @@ If you notice a spike, which means that more logs were sent, you can zoom in on 
 
 Let's look at an example:
 
-1. In the screenshot below, the histogram chart has three spikes. If you want to zoom in to the time window of the last spike, drag-select the area of interest and, if auto-search is off, click **Search**.
+1. In the screenshot below, the histogram chart has three spikes. If you want to zoom into the time window of the last spike, drag-select the area of interest and, if auto-search is off, click **Search**.
     ![a screenshot of selecting the area on the histogram to to zoom in.](images/logging_histogram_zoomed_in.png)
 
-   The logs histogram shows the data for the zoomed-in time window and the logs table updates to correspond to the new time window.
+   The logs histogram shows the data for the zoomed-in time window and the logs table is updated so that it shows the logs from the new time window.
 1. Hover over the area above the right side of the histogram, click the plus (+) icon to zoom in further as needed and, if auto-search is off, click **Search**.
     ![a screenshot with the zoom in options highlighted with a red box](images/logging_histogram_zoom_in_in.png)
     
