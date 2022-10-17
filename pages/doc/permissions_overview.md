@@ -66,6 +66,10 @@ The following list gives an overview of permissions. To learn more, click the li
 
     Users with the **Integrations** permission can install and uninstall integration dashboards, alerts, etc.
     
+- **[Logs](logging_overview.html) (Beta)**
+
+    Users with the **Logs** permission can view the Logs Browser and drill into logs from charts, alerts, and traces (Beta).
+        
 - **[Metrics](metric_types.html)**
 
     Service accounts must have this permission to run queries. Only accounts with the **Metrics** permission can manually hide and unhide metrics and metric prefixes. Only accounts with the **Metrics** permission can create and modify [Metrics Security Policy Rules](metrics_security.html).

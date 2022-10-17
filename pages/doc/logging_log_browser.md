@@ -11,14 +11,16 @@ summary: Learn how to filter and explore logs in the Logs Browser.
 
 If you notice anomalies on your metrics charts or see that a service on the application map has large latency value, use the Logs Browser to troubleshoot your issues.
 
+{% include note.html content="Only users with the [**Logs** permission](permissions_overview.html) can view the Logs Browser."%}
+
 ## Get Started with the Logs Browser
 
-The Logs Browser supports in-depth exploration of your logs. You can zoom into a time window, and you can filter and search your logs, so that you see exactly what you're interested in.
+The Logs Browser supports in-depth exploration of your logs. As a user with the **Logs** permission, you can zoom into a time window, and you can filter and search your logs, so that you see exactly what you're interested in.
 
 To use the Logs Browser:
 
 1. Configure your application and the log shipper to [send logs to Tanzu Observability](logging_send_logs.html).
-1. In a web browser, log in to your Wavefront instance.
+1. In a web browser, log in to your Wavefront instance as user with the **Logs** permission.
 1. On the toolbar, click **Logs (Beta)**.
 
 On the Logs Browser, you can filter and examine logs for a selected period.

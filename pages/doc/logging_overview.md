@@ -36,6 +36,8 @@ summary: Learn about Tanzu Observability metrics, logs, and traces.
 
 {%include note.html content="Tanzu Observability retains logs for 7, 15, or 30 days, based on your settings."%}
 
+{% include note.html content="Only users with the [**Logs** permission](permissions_overview.html) can view the Logs Browser and drill down into logs from charts, alerts, and traces."%}
+
 ## What's a Tanzu Observability Log?
 
 Logs are structured or unstructured text records of incidents that took place at a given time. Tanzu Observability ingests logs in JSON format.
@@ -121,7 +123,7 @@ You can send your logs using a log shipper, such as Fluentd, that sends logs as 
 
 ## View Logs and Troubleshoot
 
-When logs have started flowing into your Wavefront instance, you can:
+When logs have started flowing into your Wavefront instance, as a user with the **Logs** permission, you can:
 * Go to the Log Browser directly to view and explore logs.
 * Drill into the Log Browser from charts, alerts, application map, and the Traces Browser.
 
