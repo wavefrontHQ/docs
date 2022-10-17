@@ -229,7 +229,7 @@ You can add search filters from the predefined filters in the left panel and fro
   </tr>
   <tr>
     <td>
-      <p>To add a tag filter from the **Log Details** window:
+      <p>To add a tag filter from the <strong>Log Details</strong> window:
       <ol>
       <li>In the logs table, click a target log message to open it.</li>
       <li>Select the target tag key-value pair.
@@ -238,7 +238,7 @@ You can add search filters from the predefined filters in the left panel and fro
       <li>To add any other filter, click the target tag key-value par at the bottom of the log viewer.</li>
       </ul></li>
       <li>From the drop-down menu, select <strong>Include</strong> or <strong>Exclude</strong> depending on the type of filter that you want to add.</li>
-      <li>Close the **Log Details** window.</li>
+      <li>Close the <strong>Log Details</strong> window.</li>
       </ol></p>
     </td>
     <td>
@@ -255,12 +255,12 @@ You can add search filters from the predefined filters in the left panel and fro
 <table style="width: 100%;">
 <tr>
   <td>
-    <p>To add a message filter from the **Log Details** window: 
+    <p>To add a message filter from the <strong>Log Details</strong> window: 
     <ol>
     <li>In the logs table, click a target log message to open it.</li>
     <li>Select the keyword for which you want to add a search filter.</li>
     <li>Select <strong>Include</strong> or <strong>Exclude</strong> depending on the type of filter that you want to add.</li>
-    <li>Close the **Log Details** window.</li>
+    <li>Close the <strong>Log Details</strong> window.</li>
     </ol></p>
   </td>
   <td>
