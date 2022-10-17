@@ -85,15 +85,15 @@ For best performance, make sure that the expression leverages the [regex best pr
 
 The following charts help you understand the time a proxy spends on preprocessing rules:
 
-* **Preprocessor rules: CPU time per proxy**
+* **Preprocessor Rules: CPU Time per Proxy**
 
   This chart shows an aggregate view of how long each proxy spends executing all the preprocessing rules.  
 
-* **Preprocessor rules: CPU time per rule**
+* **Preprocessor Rules: CPU Time per Rule**
 
   This chart shows an aggregate view across all proxies showing how much time it takes to execute each rule for each message. This chart helps you display outliers and identify preprocessing rules which should be optimized.
   
-* **Preprocessor rules: hit ratio, %**
+* **Preprocessor Rules: Hit Ratio**
   
   This chart helps you identify preprocessing rules that are no longer in use or impact a high number of metrics being ingested. Use this chart to identify if there are some rules which should be deprecated or possibly fine-tuned.
 
