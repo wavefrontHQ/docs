@@ -28,6 +28,12 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 * **Wavefront Top**: We have released the 1.2 version of the [wftop utility](https://github.com/wavefrontHQ/wftop) that has fixes for multiple CVE issues.
 
+* **Wavefront Proxy**: We’ve just released Wavefront Proxy 11.5. For details on the changes, see the [Wavefront proxy GitHub page](https://github.com/wavefrontHQ/wavefront-proxy/releases).
+
+* **Integrations**: We had an integrations release in October! We made a lot of bug fixes and improvements to a number of integrations, including the Wavefront Usage integration. See the [Integration Release Notes](integrations_new_changed.html#october-2022) for details.
+
+
+
 
 ## Past Release Notes
 
