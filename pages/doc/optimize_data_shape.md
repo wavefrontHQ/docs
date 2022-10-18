@@ -166,7 +166,7 @@ The answers determine what the **components** of the data points should be. Comp
 * source name
 * (optional) point tags.
 
-To optimize for the most frequent/common situation, let's start with source name and metric name. One of the indexes ues the combination of these two.
+To optimize for the most frequent/common situation, let's start with source name and metric name. One of the indexes uses the combination of these two.
 
 
 #### Pick the Optimal Source Name
