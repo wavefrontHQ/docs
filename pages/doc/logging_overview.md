@@ -40,7 +40,7 @@ summary: Learn about Tanzu Observability metrics, logs, and traces.
 
 ## What's a Tanzu Observability Log?
 
-Logs are structured or unstructured text records of incidents that took place at a given time. Tanzu Observability ingests logs in JSON format.
+Logs are structured or unstructured text records of events that took place at a given time. Tanzu Observability ingests logs in JSON format.
 
 ### Log Attributes
 

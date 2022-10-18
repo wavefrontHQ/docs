@@ -27,71 +27,67 @@ On the Logs Browser, you can filter and examine logs for a selected period.
 
 ![An annotated screenshot of the Logs Browser.](images/logs_browser.png)
 
-* From the toolbar, you can set the time zone and time window for which you want to filter the logs.
+* From the toolbar, you can set the time window and the time zone for which you want to filter the logs.
 * From the predefined **Source** and **All Tags** filters, you can select tag key-value pairs that you want to include or exclude from the logs search results. The include and exclude filters that you select are added to the search query in the search bar.
 * In the search bar, you can directly enter include and exclude filters and add them to the search query.
 * The logs histogram chart shows how many logs matching the search query were sent in each time bucket for the selected time window. You can zoom in on smaller time windows. You can also group the number of logs by the values of a particular tag. 
-* The logs table lists the logs matching the search query for the selected time window. You can click a log to see the log message. Each log is marked with one of the following colors.
-<table style="width: 100%;">
-  <tr>
-    <th width="35%">
-      Color
-    </th>
-    <th width="65%">
-      Description
-    </th>
-  </tr>
-  <tr>
-    <td>
-      <img src="images/logs_yellow_warning.png"/>
-    </td>
-    <td>
-      Logs that have the term <code>warn</code> or <code>warning</code>.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="images/logs_color_critical.png"/>
-    </td>
-    <td>
-      Logs that have the term <code>critical</code>.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="images/logs_color_debug.png"/>
-    </td>
-    <td>
-      Logs that have the term <code>debug</code>.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="images/logs_color_trace.png"/>
-    </td>
-    <td>
-      Logs that have the term <code>trace</code>.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="images/logs_error_light_theme_warning.png"/>  Light theme
-      &nbsp; <img src="images/logs_error_dark_theme_warning.png"/>  Dark theme
-    </td>
-    <td>
-      Logs that have the term <code>error</code>.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="images/logs_no_term_light_theme.png"/>  Light theme &nbsp;
-      <img src="images/logs_no_term_dark_theme.png"/>  Dark theme
-    </td>
-    <td>
-      Logs that don't have any of the above terms.
-    </td>
-  </tr>
-</table>
+* The logs table lists the logs matching the search query for the selected time window. You can click a log to see the log message. Each log is classified by one of the following colors.
+
+    <table style="width: 100%;">
+      <tr>
+        <th width="35%">
+          Color
+        </th>
+        <th width="65%">
+          Description
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/logs_color_yellow.png"/>
+        </td>
+        <td>
+          Logs that have the term <code>warn</code> or <code>warning</code>.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/logs_color_purple.png"/> 
+        </td>
+        <td>
+          Logs that have the term <code>debug</code> or <code>trace</code>.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/logs_color_red.png"/>  Light theme
+          &nbsp; <img src="images/logs_color_orange.png"/>  Dark theme
+        </td>
+        <td>
+          Logs that have the term <code>error</code> or <code>critical</code>.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/logs_color_blue_light_theme.png"/>  Light theme
+          &nbsp; <img src="images/logs_color_blue_dark_theme.png"/>  Dark theme
+        </td>
+        <td>
+          Logs that have the term <code>info</code>.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/logs_color_unclassified_light_theme.png"/>  Light theme &nbsp;
+          <img src="images/logs_color_unclassified_dark_theme.png"/>  Dark theme
+        </td>
+        <td>
+          Unclassified logs that don't have any of the above terms.
+        </td>
+      </tr>
+    </table>
+
+* From the Link button on the left, you can copy and share a link to your current logs search query.
 
 ## Enable or Disable Auto-Search
 
@@ -118,8 +114,8 @@ You can narrow down the logs list to show only logs from a particular time windo
 
 ![An annotated screenshot of the Logs Browser.](images/logs_time.png)
 
-* From the **Timezone** drop-down menu, you can select your preferred time zone, so that the timestamp values of the logs convert to the time zone that you selected.
 * From the **Time window picker**, you can select either a preset time or custom start and end dates and times.
+* From the **Timezone** drop-down menu, you can select your preferred time zone, so that the timestamp values of the logs convert to the time zone that you selected.
 * After you get the first search results, you can examine the logs histogram chart and further adjust the time window. See [Drill Down from the Logs Histogram Chart](#drill-down-from-the-logs-histogram-chart).
 
 Each time you change the time window, the predefined **Source** and **All Tags** filters update to show only the tag values that exist within the selected time window.
@@ -213,9 +209,9 @@ You can add search filters from the predefined filters in the left panel and fro
       <p>To add a tag filter from a predefined filter:
       <ol><li>Select the target tag key.
       <ul><li>To add a <code>source</code> tag filter, click the <strong>Source</strong> filter in the left panel.
-      <p>The filter lists the <code>source</code> values that exist in the system for the selected time window and the current search query. For each <code>source</code> value, the list shows the number of logs matching that value.</p></li>
+      <p>The filter lists the <code>source</code> values for the selected time window and the current search query. For each <code>source</code> value, the list shows the number of logs matching that value.</p></li>
       <li>To add any other tag filter, click the <strong>All Tags</strong> filter in the left panel and expand the target tag key.
-      <p>The filter lists all tag keys that exist in the system for the logs retention period and all tag values that exist in the system for the selected time window and the current search query. For each tag value, the list shows the number of logs matching that value.</p></li></ul>
+      <p>The filter lists all tag keys from the beginning of the logs ingestion and all tag values for the selected time window and the current search query. For each tag value, the list shows the number of logs matching that value.</p></li></ul>
       </li>
       <li>Select the target tag value and the filter type.
       <ul>
@@ -280,6 +276,7 @@ You can add search filters from the predefined filters in the left panel and fro
       <p>If you want to directly add an exclude message filter, enter the entire filter expression, for example, <code>message!=hi</code>, and press Enter.</p>
     </td>
     <td>
+      <p><img src="images/logs_message_filter1.png"/></p>
       <p><img src="images/logs_message_filter.png"/></p>
     </td>
   </tr>
@@ -318,16 +315,14 @@ You can add search filters from the predefined filters in the left panel and fro
 
 ## Enable or Disable Auto-Load During Scroll
 
-When you search and filter logs, you can decide how you want to scroll through the results:
+When you search and filter logs, you can decide how you want to load the results in the logs table.
 
-By default, you have to click **Load More Results** to load the next set of results.
-  ![a screenshot showing the load more results text](images/logging_load_more_results.png)
+By default, scroll auto-load is enabled and logs load as you scroll through the logs table. If scroll auto-load is disabled, to load the next set of results, you must click **Load More Results**.
 
-Enable scroll auto-load to load logs as you scroll through the results, as follows:
+To disable scroll auto-load:
   1. Click **Options** above the log results table (top right).
-  1. Turn on **Scroll Auto-Load**.
-  ![a screenshot of the steps mentioned above](images/logging_scroll_auto_load.png)
-
+  1. Turn off **Scroll Auto-Load**.
+  ![a screenshot showing the load more results text](images/logging_load_more_results.png)
 
 ## Drill Down from the Logs Histogram Chart
 
