@@ -49,10 +49,17 @@ resource "wavefront_alert" "test_alert" {
     "terraform"
   ]
 }
+
+data "wavefront_alerts" "alerts" {
+}
+
+data "wavefront_alert" "alert" {
+  id = "sample-alert-id"
+}
 ```
 {% endraw %}
 
-- In the `provider` block, provide your wavefront address and api token from your account.
+- In the `provider` block, provide your Wavefront address and the API token for your account.
   - You can also export the address (WAVEFRONT_ADDRESS) and token (WAVEFRONT_TOKEN) as environment variables
 to avoid committing them to source control (We highly recommend you to do this for the token!).
 - In the resource block, each field corresponds to an alert object field. You use those alert object fields
@@ -60,7 +67,7 @@ when creating alerts with the Wavefront API.
 
 ### Step 3.  Running the plugin
 
-- Check that your wavefront account has permission `Alert Management`.
+- Verify that your Wavefront account has the Alerts permission.
 
   **Note:** Before running `terraform init`, if you use terraform version 0.13 and later, run `terraform 0.13upgrade`.
 

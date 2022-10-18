@@ -106,7 +106,7 @@ aliasSource(ts("sample.db.connections.*"), "Source.Test")
 You can specify a replacement string with variables if you want the new source name for each time series to contain one or more metadata values from that series. You can use any combination of variables and embed them in text. The following variables obtain the metric name, the original source name, or the value of a specified point tag:
 
 {% raw %}
-`"{{metric}}"  "{{source}}"  "{{<pointTagKey}}"`
+`"{{metric}}"  "{{source}}"  "{{<pointTagKey>}}"`
 {% endraw %}
 
 Suppose you have a metric that has a `region` point tag, and you want to display a chart in which the source of each time series consists of the string `Price`, followed by the value of the `region` tag and the source name, separated by slashes. The following function accomplishes this:
