@@ -120,7 +120,6 @@ investigated.
 1. Review the BBS logs for proper operation or errors, looking for detailed error messages.
 2. If the condition persists, pull the BBS logs and contact VMware Tanzu Support.
 
-[//]: # (TODO: Resume here)
 ## TAS BBS Time to Handle Requests
 
 The maximum observed latency time over the past 60 seconds that the BBS took to handle requests across all its API
@@ -128,23 +127,41 @@ endpoints.
 
 If this metric rises, the TAS API is slowing. Response to certain cf CLI commands is slow if request latency is high.
 
+[//]: # (TODO: Ask Bob if these metrics are the same as in dashboard)
 1. Check CPU and memory statistics in Ops Manager.
 2. Check BBS logs for faults and errors that can indicate issues with BBS.
-3. Try scaling the BBS VM resources up. For example, add more CPUs and memory depending on its `system.cpu`
-   /`system.memory` metrics.
-4. Consider vertically scaling the TAS backing database, if `system.cpu` and `system.memory` metrics for the database
-   instances are high.
+3. Check BBS VM resources. To find these metrics:
+   1. Go to the "TAS: Job Details" dashboard.
+   2. Under "Job" dropdown, select "diego_database".
+   3. Look at charts "CPU Usage" and "Memory Usage".
+4. If resources are low, try scaling them up. For example, add more CPUs and memory depending on its CPU memory metrics.
+5. Check VM resources for the TAS backing database, and if they are high, consider vertically scaling them. To find
+   these metrics:
+
+[//]: # (TODO: Ask bob where to find `TAS backing database` metrics)
+   1. Go to the "TAS: Job Details" dashboard.
+   2. Under "Job" dropdown, select "mysql".
+   3. Look at charts "CPU Usage" and "Memory Usage".
+
 5. If the above steps do not solve the issue, collect a sample of the Diego Cell logs from the BBS VMs and contact
    VMware Tanzu Support to troubleshoot further.
 
+[//]: # (TODO: Resume here)
 ## TAS BBS Time to Run LRP Convergence
 
 Time that the BBS took to run its LRP convergence pass.
 
-If the convergence run begins taking too long, apps or Tasks may be crashing without restarting. This symptom can also indicate loss of connectivity to the BBS database.
+If the convergence run begins taking too long, apps or Tasks may be crashing without restarting. This symptom can also
+indicate loss of connectivity to the BBS database.
+
 1. Check BBS logs for errors.
-2. Try vertically scaling the BBS VM resources up. For example, add more CPUs or memory depending on its `system.cpu`/`system.memory` metrics.
-3. Consider vertically scaling the TAS backing database, if `system.cpu` and `system.memory` metrics for the database instances are high.
+2. Try vertically scaling the BBS VM resources up. For example, add more CPUs or memory depending on its CPU and memory
+ metrics.
+   1. Go to the "TAS: Job Details" dashboard.
+   2. Under "Job" dropdown, select "diego_database".
+   3. Look at charts "CPU Usage" and "Memory Usage".
+3. Consider vertically scaling the TAS backing database, if `system.cpu` and `system.memory` metrics for the database
+   instances are high.
 4. If that does not solve the issue, pull the BBS logs and contact VMware Tanzu Support for additional troubleshooting.
 
 ## TAS BOSH VM CPU Used
