@@ -47,7 +47,7 @@ On the Logs Browser, you can filter and examine logs for a selected period.
           <img src="images/logs_color_yellow.png"/>
         </td>
         <td>
-          Logs that have the term <code>warn</code> or <code>warning</code>.
+          <p>Logs that have the term <code>warn</code> or <code>warning</code>.</p>
         </td>
       </tr>
       <tr>
@@ -55,7 +55,7 @@ On the Logs Browser, you can filter and examine logs for a selected period.
           <img src="images/logs_color_purple.png"/> 
         </td>
         <td>
-          Logs that have the term <code>debug</code> or <code>trace</code>.
+          <p>Logs that have the term <code>debug</code> or <code>trace</code>.</p>
         </td>
       </tr>
       <tr>
@@ -64,7 +64,7 @@ On the Logs Browser, you can filter and examine logs for a selected period.
           &nbsp; <img src="images/logs_color_orange.png"/>  Dark theme
         </td>
         <td>
-          Logs that have the term <code>error</code> or <code>critical</code>.
+          <p>Logs that have the term <code>error</code> or <code>critical</code>.</p>
         </td>
       </tr>
       <tr>
@@ -73,7 +73,7 @@ On the Logs Browser, you can filter and examine logs for a selected period.
           &nbsp; <img src="images/logs_color_blue_dark_theme.png"/>  Dark theme
         </td>
         <td>
-          Logs that have the term <code>info</code>.
+          <p>Logs that have the term <code>info</code>.</p>
         </td>
       </tr>
       <tr>
@@ -82,7 +82,7 @@ On the Logs Browser, you can filter and examine logs for a selected period.
           <img src="images/logs_color_unclassified_dark_theme.png"/>  Dark theme
         </td>
         <td>
-          Unclassified logs that don't have any of the above terms.
+          <p>Unclassified logs that don't have any of the above terms.</p>
         </td>
       </tr>
     </table>
