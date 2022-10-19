@@ -7,85 +7,135 @@ permalink: integrations_tas_alerts.html
 summary: Details for Tanzu Application Service Alerts.
 ---
 
-The Tanzu Application Service (TAS) integration includes a rich set of out of the box alerts. You can preview, install, and uninstall the alerts on the **Alerts** tab of the integration. This page gives details for each alert.
+The Tanzu Application Service (TAS) integration includes a rich set of out of the box alerts. You can preview, install,
+and uninstall the alerts on the **Alerts** tab of the integration. This page gives details for each alert.
 
-{% include note.html content="If you already have installed the Pivotal Cloud Foundry (PCF) alerts, and want to migrate to the Tanzu Application Service integration, uninstall the PCF alerts, so that you don't have duplicate versions of the same alerts. See [installing and uninstalling integration alerts](integrations.html#installing-and-uninstalling-integration-alerts). Note that any changes to the PCF alerts that you have made will not be migrated and will be lost. You have to apply them manually after setting up the Tanzu Application Service integration." %}
+{% include note.html content="If you already have installed the Pivotal Cloud Foundry (PCF) alerts, and want to migrate
+to the Tanzu Application Service integration, uninstall the PCF alerts, so that you don't have duplicate versions of the
+same alerts.
+See [installing and uninstalling integration alerts](integrations.html#installing-and-uninstalling-integration-alerts).
+Note that any changes to the PCF alerts that you have made will not be migrated and will be lost. You have to apply them
+manually after setting up the Tanzu Application Service integration." %}
 
 ## TAS Active Locks Alerts
 
 Total count of how many locks the system components are holding.
 
 If the ActiveLocks count is not equal to the expected value, there is likely a problem with Diego.
+
 1. Run `monit` status to inspect for failing processes.
-2. If there are no failing processes, then review the logs for the components using the Locket service: BBS, Auctioneer, TPS Watcher, Routing API, and Clock Global (Cloud Controller clock). Look for indications that only one of each component is active at a time.
+2. If there are no failing processes, then review the logs for the components using the Locket service: BBS, Auctioneer,
+   TPS Watcher, Routing API, and Clock Global (Cloud Controller clock). Look for indications that only one of each
+   component is active at a time.
 3. Focus triage on the BBS first:
    - A healthy BBS shows obvious activity around starting or claiming LRPs.
    - An unhealthy BBS leads to the Auctioneer showing minimal or no activity. The BBS sends work to the Auctioneer.
-   - Reference the BBS-level Locket metric `tas.bbs.LockHeld`. A value of 0 indicates Locket issues at the BBS level. For more information, see Locks Held by BBS.
+   - Reference the BBS-level Locket metric `tas.bbs.LockHeld`. A value of 0 indicates Locket issues at the BBS level.
+     For more information, see Locks Held by BBS.
 4. If the BBS appears healthy, then check the Auctioneer to ensure it is processing auction payloads.
-   - Recent logs for Auctioneer should show all but one of its instances are currently waiting on locks, and the active Auctioneer should show a record of when it last attempted to execute work. This attempt should correspond to app development activity, such as `cf push`.
-   - Reference the Auctioneer-level Locket metric `tas.auctioneer.LockHeld`. A value of 0 indicates Locket issues at the Auctioneer level. For more information, see Locks Held by Auctioneer.
-5. The TPS Watcher is primarily active when app instances crash. Therefore, if the TPS Watcher is suspected, review the most recent logs.
-6. If you are unable to resolve on-going excessive active locks, pull logs from the Diego BBS and Auctioneer VMs, which includes the Locket service component logs, and contact VMware Tanzu Support.
+   - Recent logs for Auctioneer should show all but one of its instances are currently waiting on locks, and the active
+     Auctioneer should show a record of when it last attempted to execute work. This attempt should correspond to app
+     development activity, such as `cf push`.
+   - Reference the Auctioneer-level Locket metric `tas.auctioneer.LockHeld`. A value of 0 indicates Locket issues at the
+     Auctioneer level. For more information, see Locks Held by Auctioneer.
+5. The TPS Watcher is primarily active when app instances crash. Therefore, if the TPS Watcher is suspected, review the
+   most recent logs.
+6. If you are unable to resolve on-going excessive active locks, pull logs from the Diego BBS and Auctioneer VMs, which
+   includes the Locket service component logs, and contact VMware Tanzu Support.
 
 ## TAS Auctioneer Fetch State Duration Taking Too Long
 
 Time that the Auctioneer took to fetch state from all the Diego Cells when running its auction.
 
-Indicates how the Diego Cells themselves are performing. Alerting on this metric helps alert that app staging requests to Diego may be failing.
+Indicates how the Diego Cells themselves are performing. Alerting on this metric helps alert that app staging requests
+to Diego may be failing.
+
 1. Check the health of the Diego Cells by reviewing the logs and looking for errors.
 2. Review IaaS console metrics.
-3. Inspect the Auctioneer logs to determine if one or more Diego Cells is taking significantly longer to fetch state than other Diego Cells. Relevant log lines have wording like `fetched Diego Cell state`.
-4. Pull Diego Brain logs, Diego Cell logs, and Auctioneer logs and contact Support telling them that fetching Diego Cell states is taking too long.
+3. Inspect the Auctioneer logs to determine if one or more Diego Cells is taking significantly longer to fetch state
+   than other Diego Cells. Relevant log lines have wording like `fetched Diego Cell state`.
+4. Pull Diego Brain logs, Diego Cell logs, and Auctioneer logs and contact Support telling them that fetching Diego Cell
+   states is taking too long.
 
 
 ## TAS Auctioneer LRP Auctions Failed
 
 The number of Long Running Process (LRP) instances that the Auctioneer failed to place on Diego Cells.
 
-This metric can indicate that TAS is out of container space or that there is a lack of resources within your environment. This indicator also increases when the LRP is requesting an isolation segment, volume drivers, or a stack that is unavailable, either not deployed or lacking sufficient resources to accept the work. This metric is emitted on event, and therefore gaps in receipt of this metric can be normal during periods of no app instances being scheduled. This error is most common due to capacity issues. For example, if Diego Cells do not have enough resources, or if Diego Cells are going back and forth between a healthy and unhealthy state.
-1. To best determine the root cause, examine the Auctioneer logs. Depending on the specific error and resource constraint, you may also find a failure reason in the Cloud Controller (CC) API.
+This metric can indicate that TAS is out of container space or that there is a lack of resources within your
+environment. This indicator also increases when the LRP is requesting an isolation segment, volume drivers, or a stack
+that is unavailable, either not deployed or lacking sufficient resources to accept the work. This metric is emitted on
+event, and therefore gaps in receipt of this metric can be normal during periods of no app instances being scheduled.
+This error is most common due to capacity issues. For example, if Diego Cells do not have enough resources, or if Diego
+Cells are going back and forth between a healthy and unhealthy state.
+
+1. To best determine the root cause, examine the Auctioneer logs. Depending on the specific error and resource
+   constraint, you may also find a failure reason in the Cloud Controller (CC) API.
 2. Investigate the health of your Diego Cells to determine if they are the resource type causing the problem.
 3. Consider scaling additional Diego Cells using Ops Manager.
-4. If scaling Diego Cells does not solve the problem, pull Diego Brain logs and BBS node logs and contact VMware Tanzu Support telling them that LRP auctions are failing.
+4. If scaling Diego Cells does not solve the problem, pull Diego Brain logs and BBS node logs and contact VMware Tanzu
+   Support telling them that LRP auctions are failing.
 
 ## TAS Auctioneer Task Auctions Failed
 
 The number of Tasks that the Auctioneer failed to place on Diego Cells.
 
-This metric is cumulative over the lifetime of the Auctioneer job. Failing Task auctions indicate a lack of resources within your environment and that you likely need to scale. This indicator increases when the Task is requesting an isolation segment, volume drivers, or a stack that is unavailable, either not deployed or lacking sufficient resources to accept the work. This metric is emitted on event, and therefore gaps in receipt of this metric can be normal during periods of no tasks being scheduled. This error is most common due to capacity issues. For example, if Diego Cells do not have enough resources, or if Diego Cells are going back and forth between a healthy and unhealthy state.
-1. In order to best determine the root cause, examine the Auctioneer logs. Depending on the specific error or resource constraint, you may also find a failure reason in the CC API.
+This metric is cumulative over the lifetime of the Auctioneer job. Failing Task auctions indicate a lack of resources
+within your environment and that you likely need to scale. This indicator increases when the Task is requesting an
+isolation segment, volume drivers, or a stack that is unavailable, either not deployed or lacking sufficient resources
+to accept the work. This metric is emitted on event, and therefore gaps in receipt of this metric can be normal during
+periods of no tasks being scheduled. This error is most common due to capacity issues. For example, if Diego Cells do
+not have enough resources, or if Diego Cells are going back and forth between a healthy and unhealthy state.
+
+1. In order to best determine the root cause, examine the Auctioneer logs. Depending on the specific error or resource
+   constraint, you may also find a failure reason in the CC API.
 2. Investigate the health of Diego Cells.
 3. Consider scaling additional Diego Cells using Ops Manager.
-4. If scaling Diego Cells does not solve the problem, pull Diego Brain logs and BBS logs for troubleshooting and contact VMware Tanzu Support for additional troubleshooting. Inform VMware Tanzu Support that Task auctions are failing.
+4. If scaling Diego Cells does not solve the problem, pull Diego Brain logs and BBS logs for troubleshooting and contact
+   VMware Tanzu Support for additional troubleshooting. Inform VMware Tanzu Support that Task auctions are failing.
 
 ## TAS BBS Fewer App Instances Than Expected
 
-Total number of LRP instances that are desired but have no record in the BBS. When Diego wants to add more apps, the BBS sends a request to the Auctioneer to spin up additional LRPs. `tas.bbs.LRPsMissing` is the total number of LRP instances that are desired but have no BBS record.
+Total number of LRP instances that are desired but have no record in the BBS. When Diego wants to add more apps, the BBS
+sends a request to the Auctioneer to spin up additional LRPs. `tas.bbs.LRPsMissing` is the total number of LRP instances
+that are desired but have no BBS record.
 
-If Diego has less LRP running than expected, there may be problems with the BBS. An app push with many instances can temporarily spike this metric. However, a sustained spike in `tas.bbs.LRPsMissing` is unusual and should be investigated.
+If Diego has less LRP running than expected, there may be problems with the BBS. An app push with many instances can
+temporarily spike this metric. However, a sustained spike in `tas.bbs.LRPsMissing` is unusual and should be
+investigated.
 
 1. Review the BBS logs for proper operation or errors, looking for detailed error messages.
 2. If the condition persists, pull the BBS logs and contact VMware Tanzu Support.
 
 ## TAS BBS More App Instances Than Expected
 
-Total number of LRP instances that are no longer desired but still have a BBS record. When Diego wants to add more apps, the BBS sends a request to the Auctioneer to spin up additional LRPs. `tas.bbs.LRPsExtra` is the total number of LRP instances that are no longer desired but still have a BBS record.
+Total number of LRP instances that are no longer desired but still have a BBS record. When Diego wants to add more apps,
+the BBS sends a request to the Auctioneer to spin up additional LRPs. `tas.bbs.LRPsExtra` is the total number of LRP
+instances that are no longer desired but still have a BBS record.
 
-If Diego has more LRPs running than expected, there may be problems with the BBS. Deleting an app with many instances can temporarily spike this metric. However, a sustained spike in `tas.bbs.LRPsExtra` is unusual and should be investigated.
+If Diego has more LRPs running than expected, there may be problems with the BBS. Deleting an app with many instances
+can temporarily spike this metric. However, a sustained spike in `tas.bbs.LRPsExtra` is unusual and should be
+investigated.
+
 1. Review the BBS logs for proper operation or errors, looking for detailed error messages.
 2. If the condition persists, pull the BBS logs and contact VMware Tanzu Support.
 
+[//]: # (TODO: Resume here)
 ## TAS BBS Time to Handle Requests
 
-The maximum observed latency time over the past 60 seconds that the BBS took to handle requests across all its API endpoints.
+The maximum observed latency time over the past 60 seconds that the BBS took to handle requests across all its API
+endpoints.
 
 If this metric rises, the TAS API is slowing. Response to certain cf CLI commands is slow if request latency is high.
+
 1. Check CPU and memory statistics in Ops Manager.
 2. Check BBS logs for faults and errors that can indicate issues with BBS.
-3. Try scaling the BBS VM resources up. For example, add more CPUs and memory depending on its `system.cpu`/`system.memory` metrics.
-4. Consider vertically scaling the TAS backing database, if `system.cpu` and `system.memory` metrics for the database instances are high.
-5. If the above steps do not solve the issue, collect a sample of the Diego Cell logs from the BBS VMs and contact VMware Tanzu Support to troubleshoot further.
+3. Try scaling the BBS VM resources up. For example, add more CPUs and memory depending on its `system.cpu`
+   /`system.memory` metrics.
+4. Consider vertically scaling the TAS backing database, if `system.cpu` and `system.memory` metrics for the database
+   instances are high.
+5. If the above steps do not solve the issue, collect a sample of the Diego Cell logs from the BBS VMs and contact
+   VMware Tanzu Support to troubleshoot further.
 
 ## TAS BBS Time to Run LRP Convergence
 
