@@ -137,13 +137,11 @@ If this metric rises, the TAS API is slowing. Response to certain cf CLI command
 4. If resources are low, try scaling them up. For example, add more CPUs and memory depending on its CPU memory metrics.
 5. Check VM resources for the TAS backing database, and if they are high, consider vertically scaling them. To find
    these metrics:
-
-[//]: # (TODO: Ask bob where to find `TAS backing database` metrics)
+   [//]: # (TODO: Ask bob where to find `TAS backing database` metrics)
    1. Go to the "TAS: Job Details" dashboard.
    2. Under "Job" dropdown, select "mysql".
    3. Look at charts "CPU Usage" and "Memory Usage".
-
-5. If the above steps do not solve the issue, collect a sample of the Diego Cell logs from the BBS VMs and contact
+6. If the above steps do not solve the issue, collect a sample of the Diego Cell logs from the BBS VMs and contact
    VMware Tanzu Support to troubleshoot further.
 
 [//]: # (TODO: Resume here)
