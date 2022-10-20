@@ -85,9 +85,9 @@ These charts use the following metrics:
 
 #### Logs Stats
 
-{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative."%}
+The **Logs Stats** section contains charts that track the amount of logs that are successfully delivered and successfully queried by the Wavefront service. Also, the section shows charts that track the amount of logs that are received, queued, and blocked by the Wavefront proxy.
 
-The **Logs Stats** section shows charts that track the amount of logs that are successfully delivered and successfully queried by the Wavefront service. Also, the section shows charts that track the amount of logs that are received, queued, and blocked by the Wavefront proxy.
+{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative."%}
 
 These charts use the following metrics:
 
