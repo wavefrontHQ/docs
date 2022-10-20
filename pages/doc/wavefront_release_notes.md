@@ -14,7 +14,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
 
-## 2022-40.x Release Notes
+## 2022-41.x Release Notes
 
 * **Accessibility Improvements**: With this release we have made a lot of accessibility-related fixes. For example:
   
