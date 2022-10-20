@@ -83,6 +83,26 @@ These charts use the following metrics:
   - `~query.spans_scanned` -- The per-second rate at which spans are being queried through dashboards, custom charts, or API calls.
   - `~query.histograms_scanned` -- The per-second rate at which histograms are being queried through dashboards, custom charts, derived metrics, or API calls.
 
+#### Logs Stats
+
+{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative."%}
+
+The **Logs Stats** section shows charts that track the amount of logs that are successfully delivered and successfully queried by the Wavefront service. Also, the section shows charts that track the amount of logs that are received, queued, and blocked by the Wavefront proxy.
+
+These charts use the following metrics:
+
+- `~agent.logs.*.delivered` -- Number of log bytes successfully delivered.
+- `~wavefront.logservice.api.bytesQueried.total.bytes` -- Number of log bytes successfully queried.
+- `~proxy.logs.*.received.bytes` -- Number of log bytes received by the proxy.
+- `~agent.logs.*.received.max-burst-rate` -- Maximum burst rate of incoming logs.
+- `~proxy.buffer.logs-count` -- Number of delayed log bytes stored on disk. Logs can be queued for the following reasons:
+    - Intermittent failures in communication with the backend.
+    - A surge of incoming data in excess of thread buffer size.
+    - Memory pressure in the proxy.
+    - Rate limiting.
+- `~proxy.logs.*.blocked` -- Number of log objects blocked by the preprocessor.
+- `~proxy.logs.*.queued` -- Number of queued log bytes.
+
 #### Wavefront Stats and Alert Stats
 
 Charts that track the number of users during various time windows, the number of dashboards and alerts, and also provide information about the state and types of alerts.
