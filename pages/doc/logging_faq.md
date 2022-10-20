@@ -40,15 +40,13 @@ You can use a [proxy configuration file](logging_proxy_configurations.html) to m
 
 ## Why Don't I See Logs When I Drill Down From a Chart?
 
-If you right-click on a chart and select **Logs**, you're directed to the Log Browser. If ou don't see data on the Log Browser, here are some things to explore:
-* If your chart has data from more than one source, the Log Browser cannot show the logs because it can show logs from only one log. To see the data corresponding to the chart query but focused on one source, select a sourc in the Log Browser and click **Search**.
-* If you have not tagged your log data using the source, application, service, or other tags when you sent the logs from your log shipper, you might see no search results in the Log Browser. See [What’s a Log?](logging_overview.html#whats-a-tanzu-observability-log) for details on the log syntax.
+If you right-click on a chart and select **Logs**, you're directed to the Logs Browser. If ou don't see data on the Logs Browser, here are some things to explore:
+* If your chart has data from more than one source, the Logs Browser cannot show the logs because it can show logs from only one log. To see the data corresponding to the chart query but focused on one source, select a sourc in the Logs Browser and click **Search**.
+* If you have not tagged your log data using the source, application, service, or other tags when you sent the logs from your log shipper, you might see no search results in the Logs Browser. See [What’s a Log?](logging_overview.html#whats-a-tanzu-observability-log) for details on the log syntax.
 
 ## Why Are Some of the Logs Tags Missing?
 
-Our logging solution expects that certain tags are defined in the logs that you send in. If they're not defined, we add those tags to the logs and assign the value `none`.
-
-For example, to see logs for an application and service on the Log Browser, the data that is sent by your log shipper must include the `application` and `service` tags. If the logs do not have the `application` and `service` tags, the Wavefront proxy adds the application and service tags to the log data and assigns the value `none`.
+Our logging solution expects that certain tags are defined in the logs that you send in.
 
 You can use proxy configuration properties to map the tags that your log shipper is using to the tags that our solution expects. See [Logs Proxy Configurations and Preprocessor Rules](logging_proxy_configurations.html).
 
@@ -58,7 +56,7 @@ You can use proxy configuration properties to map the tags that your log shipper
       There may be a marginal cost increase for additional tags.
     </li>
     <li>
-      If you're using our [distributed tracing](tracing_basics.html) solution, use the same `application` and `service` tags in both places to map from the tracing GUI to the Log Browser.
+      If you're using our [distributed tracing](tracing_basics.html) solution, use the same `application` and `service` tags in both places to map from the tracing GUI to the Logs Browser.
     </li>
   </ul>
 {{site.data.alerts.end}}
@@ -114,7 +112,7 @@ If your application runs on a Kubernetes cluster, and if you see a `pattern not 
 
 ## How Do I Know If the Proxy Receives Data?
 
-If you don't see your data on the Log Browser, you might not know if there's a problem with the log shipper or with the Wavefront proxy.
+If you don't see your data on the Logs Browser, you might not know if there's a problem with the log shipper or with the Wavefront proxy.
 
 To confirm that the Wavefront proxy is sending data, follow these steps:
 
@@ -153,7 +151,7 @@ To confirm that the Wavefront proxy is sending data, follow these steps:
 1. Verify that the data that is sent from the log shipper to the proxy is then sent by the proxy to the Wavefront service, as follows:
     1. Log in to your Wavefront instance.
     1. On the toolbar, click **Logs**.
-    1. In the Log Browser, click **applications** under **All Tags**.
+    1. In the Logs Browser, click **applications** under **All Tags**.
     1. Click **test_application** (or the value of the application tag in the log message you sent).
 
 * If the proxy is sending data but you don't see your log data, check that the log shipper is configured correctly.

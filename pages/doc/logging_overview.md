@@ -65,11 +65,9 @@ Each log has required attributes, optional attributes, and tags.
     Specify the following optional attributes as needed. If your log shipper sends the attributes with a different name, see <a href="logging_proxy_configurations.html#properties-for-changing-log-tags">Properties for Changing Log Tags</a>.
     <ul>
     <li><strong>source</strong>: A source is a unique platform that emits logs, such as an AWS EC2 instance or a node in Kubernetes. Ensure that logs, metrics, and traces are using the same string to identify the source. For example, use the same source for logs and metrics.</li>
-    <li><strong>application</strong>: Name of the application that emits the logs.  <br/>If you're also sending traces, use the same application name so you can drill down from the application map or Traces Browser to the Log Browser.
-      <br/>If the `application` tag is not defined, we add the tag and set the value to `none`.</li>
+    <li><strong>application</strong>: Name of the application that emits the logs.  <br/>If you're also sending traces, use the same application name so you can drill down from the application map or Traces Browser to the Logs Browser.</li>
     <li><strong>service</strong>: Name of the service that emits the log.
-     <br/>If you're also sending traces, use same service name in both paces tp drill down from the application map or traces browser to the Log Browser.
-    <br/>If the `service` tag is not defined, we add the tag and set the value to `none`.</li>
+     <br/>If you're also sending traces, use same service name in both paces tp drill down from the application map or traces browser to the Logs Browser.</li>
     <li><strong>exception, error_name</strong>: Name of any exception tag keys that the log shipper sends. Use the `customExceptionTags` proxy configuration property to add exception tags. </li>
     <li><strong>level, log level</strong>: Name of any error level tag keys that the log shipper sends. Use the `customLevelTags` proxy configuration property to add error level tags.</li>
     </ul>
@@ -124,24 +122,24 @@ You can send your logs using a log shipper, such as Fluentd, that sends logs as 
 ## View Logs and Troubleshoot
 
 When logs have started flowing into your Wavefront instance, as a user with the **Logs** permission, you can:
-* Go to the Log Browser directly to view and explore logs.
-* Drill into the Log Browser from charts, alerts, application map, and the Traces Browser.
+* Go to the Logs Browser directly to view and explore logs.
+* Drill into the Logs Browser from charts, alerts, application map, and the Traces Browser.
 
 ![diagram shows all the UIs that link to logs. they are explained in this section.](images/logging_all_ui.png)
 
-### Examine Logs in the Log Browser
+### Examine Logs in the Logs Browser
 
-You can examine logs that were sent to Tanzu Observability on the [Log Browser](logging_log_browser.html):
+You can examine logs that were sent to Tanzu Observability on the [Logs Browser](logging_log_browser.html):
 
 * See logs for the time range set for your Wavefront instance (7, 15, or 30 days).
 * Filter logs using application, service, source or other tags.
 * Search for logs that have a messages that contain a specific word, for example, ERROR.
-* In the chart at the top of the Log Browser, see the total number of logs for each time bucket, zoom in, and identify hotspots.
+* In the chart at the top of the Logs Browser, see the total number of logs for each time bucket, zoom in, and identify hotspots.
 * Group logs using tags.
-* Share the Log Browser data you see with other users that have the required permissions.
+* Share the Logs Browser data you see with other users that have the required permissions.
 
 
-![a screenshot of the Log Browser](images/logging_log_browser.png)
+![a screenshot of the Logs Browser](images/logging_log_browser.png)
 
 <table style="width: 100%;">
 <tbody>
@@ -151,7 +149,7 @@ You can examine logs that were sent to Tanzu Observability on the [Log Browser](
 
 ### Drill into Logs from Charts
 
-If you notice data anomalies on a chart and want to debug the issue using logs, right-click the chart and click **Logs**. On the Log Browser, see the logs for the time and source used by the chart.
+If you notice data anomalies on a chart and want to debug the issue using logs, right-click the chart and click **Logs**. On the Logs Browser, see the logs for the time and source used by the chart.
 
 {% include note.html content="Even if logging is enabled for your environment, this feature might have to be enabled separately. Contact [technical support](wavefront_support_feedback.html#support)." %}
 
@@ -206,7 +204,7 @@ For example, the screenshot above shows that the alert was configured to show lo
 ### Drill into Logs from Traces
 
 You can drill into logs from the application status page and the traces browser.
-To see logs for an application and service on the Log Browser, you need to tag the data with the application and service tags on your log shipper. See the [Logs FAQs](logging_faq.html).
+To see logs for an application and service on the Logs Browser, you need to tag the data with the application and service tags on your log shipper. See the [Logs FAQs](logging_faq.html).
 
 {% include note.html content="Even if logging is enabled for your environment, the drill-down from traces to logs might have to be enabled separately. Contact [technical support](wavefront_support_feedback.html#support)." %}
 

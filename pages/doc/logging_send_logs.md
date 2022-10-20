@@ -96,7 +96,7 @@ Configure your log shipper:
         </store>
       </match>
       ```
-  1. As part of preprocessing, tag the logs with the application and service name to ensure you can drill down from traces to logs. By default, the Wavefront proxy adds the `service` and `application` tags to the log data and assigns the value `none`.
+  1. As part of preprocessing, tag the logs with the application and service name to ensure you can drill down from traces to logs.
   2. (Optional) If you're already using a logging solution, specify alternate strings for required and optional log attributes in the [proxy configuration file](logging_proxy_configurations.html). See also [My Logging Solution Doesn't Use the Default Attributes](logging_faq.html#my-logging-solution-doesnt-use-the-default-attributes).
 
 ### Limits for Logs
@@ -149,7 +149,7 @@ To get the unified observability experience and drill down from traces to logs a
 
 ## View Logs
 
-When the data is in Tanzu Observability, you can use the Log Browser to filter and search logs, and drill into logs from charts, alerts, Application Map page, and the Traces Browser. See [View Logs and Troubleshoot](logging_overview.html#view-logs-and-troubleshoot).
+When the data is in Tanzu Observability, you can use the Logs Browser to filter and search logs, and drill into logs from charts, alerts, Application Map page, and the Traces Browser. See [View Logs and Troubleshoot](logging_overview.html#view-logs-and-troubleshoot).
 --->
 
 ## Next Steps
