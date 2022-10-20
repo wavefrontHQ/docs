@@ -158,8 +158,12 @@ indicate loss of connectivity to the BBS database.
    1. Go to the "TAS: Job Details" dashboard.
    2. Under "Job" dropdown, select "diego_database".
    3. Look at charts "CPU Usage" and "Memory Usage".
-3. Consider vertically scaling the TAS backing database, if `system.cpu` and `system.memory` metrics for the database
-   instances are high.
+3. Check VM resources for the TAS backing database, and if they are high, consider vertically scaling them. To find
+   these metrics:
+   [//]: # (TODO: Ask bob where to find `TAS backing database` metrics)
+    1. Go to the "TAS: Job Details" dashboard.
+    2. Under "Job" dropdown, select "mysql".
+    3. Look at charts "CPU Usage" and "Memory Usage".
 4. If that does not solve the issue, pull the BBS logs and contact VMware Tanzu Support for additional troubleshooting.
 
 ## TAS BOSH VM CPU Used
@@ -188,6 +192,7 @@ Investigate if the ephemeral disk usage is too high for a job over an extended p
 1. Run `bosh vms --details` to view jobs on affected deployments.
 2. Determine the cause of the data consumption, and, if appropriate, increase disk space or scale the affected jobs.
 
+[//]: # (TODO -- Ask the team about tcprouter exclusion from this alert)
 ## TAS BOSH VM Health
 
 This is the most important BOSH metric to monitor. 
@@ -197,6 +202,10 @@ It indicates if the VM emitting the metric is healthy.
 * 0 means the system is not healthy.
 
 Multiple unhealthy VMs signals problems with the underlying IAAS layer.
+
+This alert excludes UAA and Gorouter metrics. Separate alerts "TAS UAA VM Health" and "TAS Gorouter VM Health" monitor
+these specific components. bosh-health-check metrics are excluded because it is emits an unhealthy metric as part of its
+normal operations.
 
 1. Investigate TAS for VMs logs for the unhealthy components.
 
