@@ -226,6 +226,7 @@ Investigate if the persistent disk usage is too high for a job over an extended 
 1. Run `bosh vms --details` to view jobs on affected deployments.
 2. Determine cause of the data consumption, and, if appropriate, increase disk space or scale the affected jobs.
 
+[//]: # (TODO: Devon and Jeanette stopped here working up from the bottom)
 ## TAS Cloud Controller and Diego Not in Sync
 
 Indicates if the `cf-apps` Domain is up-to-date, meaning that TAS app requests from Cloud Controller are synchronized to `tas.bbs.LRPsDesired` (Diego-desired AIs) for execution.
@@ -243,59 +244,51 @@ If the Cloud Controller and Diego are out of sync, then apps running could vary 
 
 Percentage of remaining container capacity for a given Diego Cell. Monitor this derived metric across all Diego Cells in a deployment.
 
-* The metric `rep.CapacityRemainingContainers` indicates the remaining number of containers this Diego Cell can host.
-* The metric `rep.CapacityTotalContainer` indicates the total number of containers this Diego Cell can host.
+* The metric `tas.rep.CapacityRemainingContainers` indicates the remaining number of containers this Diego Cell can host.
+* The metric `tas.rep.CapacityTotalContainer` indicates the total number of containers this Diego Cell can host.
 
+The default threshold of 35% assumes Diego Cells are spread across three AZs.
 
-## TAS Diego Cell Disk Chunks Available
+## TAS Percentage of Diego Cells with Enough Disk to Stage Apps
 
-[//]: # (TODO -- Ask ab out chunks)
-Remaining amount of disk in MiB available for each Diego Cell to allocate to containers.
+Percentage of Diego Cells with at least one chunk of Disk space available to stage an application.
 
 Insufficient free disk on Diego Cells prevents the staging or starting of apps or tasks, resulting in error messages like 
 ```
 ERR Failed to stage app: insufficient resources
 ```
 
+A Diego Cell will not stage an application if it has less than 6 GB remaining, so that is chosen as the default chunk size.
+
 1. Assign more resources to the Diego Cells or assign more Diego Cells.
 2. Scale additional Diego Cells using Ops Manager.
 
-[//]: # (TODO -- Ask about chunks)
 ## TAS Diego Cell Memory Chunks Available
 
-Indicates the available Diego Cell memory, by number of chunks. Insufficient Diego Cell memory can prevent pushing and scaling apps.
+Indicates the available Diego Cell memory, by number of available full chunks for a given deployment. Insufficient Diego Cell memory can prevent pushing and scaling apps.
 
-The default chunk size used is 4 GB for this alert
-
-Use: Indicates the available Diego Cell memory. Insufficient Diego Cell memory can prevent pushing and scaling apps.
+The default chunk size used is 4 GB for this alert.
 
 The strongest operational value of this metric is to understand a deployment’s average app size and monitor/alert on ensuring that at least some Cells have large enough capacity to accept standard app size pushes. For example, if pushing a 4 GB app, Diego would have trouble placing that app if there is no one Diego Cell with sufficient capacity of 4 GB or greater.
-
-As an example, Pivotal Cloud Ops uses a standard of 4 GB, and computes and monitors for the number of Diego Cells with at least 4 GB free. When the number of Diego Cells with at least 4 GB falls below a defined threshold, this is a scaling indicator alert to increase capacity. This free chunk count threshold should be tuned to the deployment size and the standard size of apps being pushed to the deployment.
-
-Recommended Response
 
 1. Assign more resources to the Diego Cells or assign more Diego Cells.
 2. Scale additional Diego Cells using Ops Manager.
 
 ## TAS Diego Cell Replication Bulk Sync Duration
 
-Time that the Diego Cell Rep took to sync the ActualLRPs that it claimed with its actual garden containers.
+Time that the Diego Cell Rep took to sync the ActualLRPs that it claimed with its actual garden containers. Sync times that are too high can indicate issues with the BBS.
 
-Sync times that are too high can indicate issues with the BBS.
+The suggested starting point is ≥ 5 for the yellow threshold and ≥ 10 for the critical threshold, but you can tune your alerting values to your deployment based on historical data and adjust based on observations over time.
 
 1. Investigate BBS logs for faults and errors. 
 2. If a one or more Diego cells appear problematic, pull the logs for those Diego cells and the BBS logs before contacting VMware Tanzu Support.
 
-[//]: # (TODO This seems like a dynamic metric that needs tuning)
 ## TAS Diego Cell Route Emitter Sync Duration
 
 Time that the active Route Emitter took to perform its synchronization pass.
 
 Increases in this metric indicate that the Route Emitter may have trouble maintaining an accurate routing table to broadcast to the Gorouters. 
-Tune your alerting values to your deployment based on historical data and adjust based on observations over time.
-The suggested starting point is ≥ 5 for the yellow threshold and ≥ 10 for the critical threshold.
-Above 10 seconds, the BBS may be failing.
+The suggested starting point is ≥ 5 for the yellow threshold and ≥ 10 for the critical threshold, but you can tune your alerting values to your deployment based on historical data and adjust based on observations over time.
 
 If all or many jobs showing as impacted, there is likely an issue with Diego. 
 1. Investigate the Route Emitter and Diego BBS logs for errors.
@@ -322,9 +315,9 @@ If one Diego Cell is impacted:
    2. Pull the logs that the Diego Cell generated over that interval. The Diego Cell ID is the same as the BOSH instance ID.
    3. Pull the BBS logs over that same time interval.
    4. Contact VMware Tanzu Support.
-3. As a last resort, if you cannot wait for VMware Tanzu Support, it sometimes helps to recreate the Diego Cell by running bosh recreate. For information about the bosh recreate command syntax, see Deployments in Commands in the BOSH documentation. Warning: Recreating a Diego Cell destroys its logs. To enable a root cause analysis of the Diego Cell’s problem, save out its logs before running `bosh recreate`.
+3. As a last resort, if you cannot wait for VMware Tanzu Support, it sometimes helps to recreate the Diego Cell by running `bosh recreate`. For information about the bosh recreate command syntax, see [Deployments](https://bosh.io/docs/cli-v2/#deployment-mgmt) under Commands in the BOSH documentation. Warning: Recreating a Diego Cell destroys its logs. To enable a root cause analysis of the Diego Cell’s problem, save out its logs before running `bosh recreate`.
 
-## TAS Gorouter File Descriptor
+## TAS Gorouter File Descriptors
 
 Number of file descriptors currently used by the Gorouter job. 
 
@@ -332,8 +325,7 @@ Indicates an impending issue with the Gorouter.
 Without proper mitigation, it is possible for an unresponsive app to eventually exhaust available Gorouter file descriptors and cause route starvation for other apps running on TAS. 
 Under heavy load, this unmitigated situation can also result in the Gorouter losing its connection to NATS and all routes being pruned.
 
-[//]: # (TODO Check metric names)
-While a drop in `gorouter.total_routes` or an increase in `gorouter.ms_since_last_registry_update` helps to surface that the issue may already be occurring, alerting on `gorouter.file_descriptors` indicates that such an issue is impending.
+While a drop in `tas.gorouter.total_routes` or an increase in `tas.gorouter.ms_since_last_registry_update` helps to surface that the issue may already be occurring, alerting on `tas.gorouter.file_descriptors` indicates that such an issue is impending.
 
 The Gorouter limits the number of file descriptors to 100,000 per job.
 Once the limit is met, the Gorouter is unable to establish any new connections.
@@ -343,7 +335,7 @@ To reduce the risk of DDoS attacks, VMware recommends doing one or both of the f
 * Add rate limiting at the load balancer level.
 
 1. Identify which app(s) are requesting excessive connections and resolve the impacting issues with these apps.
-2. If the above mitigation steps have not already been taken, do so.
+2. If both of the above mitigation steps have not already been taken, try applying them.
 3. Consider adding more Gorouter VM resources to increase the number of available file descriptors.
 
 ## TAS Gorouter Time Since Last Route Register Received
@@ -369,7 +361,7 @@ Although it is emitted per Auctioneer instance, only 1 active lock is held by Au
 Therefore, the expected value is 1. 
 The metric may occasionally be 0 when the Auctioneer instances are performing a leader transition, but a prolonged value of 0 indicates an issue with Auctioneer.
 
-1. Run `monit` status on the Diego Database VM to check for failing processes.
+1. Run `monit status` on the Diego Database VM to check for failing processes.
 2. If there are no failing processes, then review the logs for Auctioneer. 
    * Recent logs for Auctioneer should show all but one of its instances are currently waiting on locks, and the active Auctioneer should show a record of when it last attempted to execute work. This attempt should correspond to app development activity, such as `cf push`.
 3. If you are unable to resolve the issue, pull logs from the Diego BBS and Auctioneer VMs, which includes the Locket service component logs, and contact VMware Tanzu Support.
@@ -385,30 +377,25 @@ Although it is emitted per BBS instance, only 1 active lock is held by BBS.
 Therefore, the expected value is 1. 
 The metric may occasionally be 0 when the BBS instances are performing a leader transition, but a prolonged value of 0 indicates an issue with BBS.
 
-1. Run `monit` status on the Diego database VM to check for failing processes.
+1. Run `monit status` on the Diego database VM to check for failing processes.
 2. If there are no failing processes, then review the logs for BBS.
    * A healthy BBS shows obvious activity around starting or claiming LRPs.
    * An unhealthy BBS leads to the Auctioneer showing minimal or no activity. The BBS sends work to the Auctioneer.
 3. If you are unable to resolve the issue, pull logs from the Diego BBS, which include the Locket service component logs, and contact VMware Tanzu Support.
 
 ## TAS UAA Latency is Elevated
-Description	Time in milliseconds that UAA took to process a request that the Gorouter sent to UAA endpoints.
+Time in milliseconds that UAA took to process a request that the Gorouter sent to UAA endpoints.
 
 Indicates how responsive UAA has been to requests sent from the Gorouter.
 Some operations may take longer to process, such as creating bulk users and groups. It is important to correlate latency observed with the endpoint and evaluate this data in the context of overall historical latency from that endpoint.
 Unusual spikes in latency could indicate the need to scale UAA VMs.
 
-Latency depends on the endpoint and operation being used. 
-It is important to correlate the latency with the endpoint and evaluate this data in the context of the historical latency from that endpoint.
+This metric is emitted only for the routers serving the UAA system component and is not emitted per isolation segment even if you are using isolated routers.
 
-1. Inspect which endpoints requests are hitting. Use historical data to determine if the latency is unusual for that endpoint. For a list of UAA endpoints, see the UAA API documentation.
-2. If it appears that UAA needs to be scaled due to ongoing traffic congestion, do not scale based on the latency metric alone. You should also ensure that the system.cpu.user metric for UAA stays in the suggested range of 80-90% maximum CPU utilization.
-3. Resolve high utilization by scaling UAA VMs horizontally. To scale UAA, navigate to the Resource Config pane of the TAS for VMs tile and edit the number of your UAA VM instances.
+1. A quick way to confirm user-impacting behavior is to try `login.run.pivotal.io` and see if you receive a delayed response.
+2. Inspect which endpoints the slow requests are hitting. Use historical data to determine if the latency is unusual for that endpoint. For more information about UAA, see the [UAA API documentation](https://docs.cloudfoundry.org/api/uaa/).
+3. Restarting UAA instances can solve this problem: `bosh --environment prod --deployment cf-cfapps-io2 restart uaa` (Restarting the instances will cause any active sessions to be lost, which will cause users to have to log in again.)
+4. If it appears that UAA needs to be scaled due to ongoing traffic congestion, confirm that CPU utilization would benefit from scaling. UAA suggested maximum CPU utilization is 80-90%.
+5. Resolve high utilization by scaling UAA VMs horizontally. To scale UAA, navigate to the Resource Config pane of the TAS for VMs tile and edit the number of your UAA VM instances.
 
-[//]: # ( TODO -- should this original text be used?)
-[//]: # (1. A quick way to confirm user-impacting behavior is to try `login.run.pivotal.io` and see if you receive a delayed response.)
 
-[//]: # ()
-[//]: # (Restart the UAA instances to solve this problem: `bosh -e prod -d cf-cfapps-io2 restart uaa` )
-
-[//]: # (Restarting the instances will cause any active sessions to be lost, which will cause users to have to log in again.)
