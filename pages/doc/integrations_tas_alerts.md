@@ -375,6 +375,16 @@ The metric may occasionally be 0 when the BBS instances are performing a leader 
    * An unhealthy BBS leads to the Auctioneer showing minimal or no activity. The BBS sends work to the Auctioneer.
 3. If you are unable to resolve the issue, pull logs from the Diego BBS, which include the Locket service component logs, and contact VMware Tanzu Support.
 
+## TAS Ops Manager Availability
+
+A result code of a poll to the Ops Manager URL.
+
+A result code of zero indicates a successful poll. For a description of the error codes see
+[telegraf HTTP Response Input Plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/http_response#result--result_code).
+
+1. Check to see if the affected Ops Manager is running.
+2. Then check your foundation's networking, capacity, and VM health.
+
 ## TAS UAA Latency is Elevated
 Time in milliseconds that UAA took to process a request that the Gorouter sent to UAA endpoints.
 
