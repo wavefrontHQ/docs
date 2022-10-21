@@ -100,8 +100,8 @@ You can install and uninstall the system integration dashboards.
 
 <div markdown="span" class="alert alert-info" role="alert">While every user can view integrations, you must have [**Integration Management** permission](permissions_overview.html) to install and uninstall integration dashboards. If you do not have this permission, buttons to perform these tasks are not visible.</div>
 
-1. Click **Integrations**.
-1. Click the integration tile.
+1. Click **Integrations** on the toolbar.
+1. Click an integration tile.
 1. Click the **Dashboards** tab.
 1. Click **\[Install \| Uninstall\] Dashboards**.
 
@@ -115,12 +115,14 @@ You cannot modify the system dashboards. Instead, you must clone the dashboards.
 
 ## Installing and Uninstalling Integration Alerts
 
-Some integrations contain system alerts. You can install and uninstall the predefined integration alerts or preview them before setting up the integration.
+Some integrations contain system alerts. You can preview the system alerts even before setting up an integration by clicking **Preview**. In Preview mode, you cannot do any customizations to these alerts. You can also install and uninstall the predefined integration alerts to explore them further. After you install the system alerts, you edit some of their settings.
 
 {% include note.html content="All users can view alerts. You must have the **Alerts** permission to install and uninstall or modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
-1. Click **Integrations**.
-1. Click the integration tile.
+**To install the system alerts**:
+
+1. Click **Integrations** on the toolbar.
+1. Click an integration tile.
 1. Click the **Alerts** tab.
 1. Click **\[Install All\| Uninstall All\]**.
 
@@ -130,13 +132,27 @@ Some integrations contain system alerts. You can install and uninstall the prede
 
 To [edit the targets of the integration alerts](webhooks_alert_notification.html#learn-about-alert-targets), you must have the **Alerts** permission. If you edit the system integration alerts and then reinstall them, all of the changes that you've made are reverted back to their original state.
 
-To make further customizations, clone the alert first.
+By default, when integration alerts are installed, you can edit the following alert settings:
 
-1. Select **Alerting > All Alerts** from the toolbar.
-2. Click the ellipsis icon next to the alert that you want to clone, and select **Clone**.
-3. Enter a name of the new alert and click **Clone**.
+* **Tags** -- You can add additional tags, as necessary.
+* **Alert Condition** threshold values -- You can edit the threshold values but NOT the operator.
+* **Recipients** -- Specify the email address, PagerDuty key, or alert targets that will receive alert notifications
+* **Runbook**, **Triage Dashboard(s)**, and **Additional Information** settings -- Allow you to add runbook URLs and specify other information that can help with alert resolution.
 
-After you clone an alert, snooze the original system integration alert to avoid running a duplicate version of the alert. For more information about cloning and editing alerts, see [Manage Alerts](alerts_manage.html).
+Clone the alert before making any customizations so that you don't lose your changes. 
+
+**To clone an integration alert:**
+
+1. Click **Integrations** on the toolbar.
+1. Click **Edit** next to the alert that you want to clone.
+   The alert opens in Edit mode.
+1. Click the **Clone** button in the top right corner of the alert.
+
+   ![Example screenshot that shows the clone button](images/alerts-clone.png)
+   
+1. Enter a name of the new alert and click **Clone**.
+
+After you clone an alert, snooze the original system integration alert to avoid running a duplicate version of the alert. For more information about editing alerts, see [Manage Alerts](alerts_manage.html).
 
 
 ## Integration States

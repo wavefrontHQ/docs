@@ -124,7 +124,7 @@ You can log all the raw blocked data separately or log different entities into t
 <a id="proxy-configuration-properties"></a>
 ## Configuration Properties
 
-This section gives details on proxy configuration properties. All properties are also listed, in the [wavefront.conf.default file](https://github.com/wavefrontHQ/wavefront-proxy/blob/master/pkg/etc/wavefront/wavefront-proxy/wavefront.conf.default) on Github. 
+This section gives details on proxy configuration properties. All properties are also listed, in the [wavefront.conf.default file](https://github.com/wavefrontHQ/wavefront-proxy/blob/master/pkg/etc/wavefront/wavefront-proxy/wavefront.conf.default) on Github.
 
 
 ### General Configuration Properties
@@ -279,7 +279,8 @@ Properties specific to histogram distributions, listed in a <a href="#histogram-
 </tr>
 <tr>
 <td>hostname</td>
-<td>A name unique across your account representing the machine that the proxy is running on. The hostname is not used to tag your metrics; rather, it's used to tag proxy metrics, such as JVM statistics, per-proxy point rates, and so on.</td>
+<td>A name unique across your account representing the machine that the proxy is running on. The hostname is not used to tag your metrics; rather, it's used to tag proxy metrics, such as JVM statistics, per-proxy point rates, and so on.
+{% include note.html content="Deprecated since version 12.0 with the introduction of the proxyname property and the hostname tag for the proxy metrics." %}</td>
 <td>A string containing alphanumeric characters and periods.</td>
 <td>&nbsp;</td>
 </tr>
@@ -392,6 +393,12 @@ Default: &lt;cfg_path&gt;/logsIngestion.yaml.</td>
 <td>A string.
 <div>Ex: proxy.local</div></td>
 <td>3.23</td>
+</tr>
+<tr>
+<td>proxyname</td>
+<td>A name unique across your account representing the name of the proxy. The proxyname is used for the source tag of the proxy metrics, such as JVM statistics, per-proxy point rates, and so on.</td>
+<td>A string containing alphanumeric characters and periods.</td>
+<td>12.0</td>
 </tr>
 <tr>
 <td>proxyPassword</td>
@@ -776,9 +783,17 @@ Required when authMethod = STATIC_TOKEN. For example, <code>authStaticToken=toke
 <tr>
 <a name="otlpResourceAttrsOnMetricsIncluded"></a>
 <td>otlpResourceAttrsOnMetricsIncluded</td>
-<td markdown="span">Set the value to `true` to receive the OpenTelemetry resource attributes that your application sends for metrics data.
+<td markdown="span">Set the value to `true` to include the OpenTelemetry resource attributes that your application sends for metrics data.
 <br/>Default: false
 <br/> Version: Since 11.3</td>
+<td>true or false</td>
+</tr>
+<tr>
+<a name="otlpAppTagsOnMetricsIncluded"></a>
+<td>otlpAppTagsOnMetricsIncluded</td>
+<td markdown="span">Set the value to `false` to exclude the OpenTelemetry resource attributes (`application`, `service.name`, `shard`, and `cluster`) that your application sends for metrics data. 
+<br/>Default: true
+<br/> Version: Since 12.0</td>
 <td>true or false</td>
 </tr>
 </tbody>
@@ -1279,5 +1294,5 @@ For either method, the service must return a 2xx code for valid tokens. Accordin
 
 ## Troubleshooting
 
-* [Proxy Troubleshooting] has tips and tricks from our SaaS Value Engineering team for common proxy problems.
+* [Proxy Troubleshooting](proxies_troubleshooting.html) has tips and tricks from our SaaS Value Engineering team for common proxy problems.
 * [Telegraf Troubleshooting](telegraf_details.html) has details on troubleshooting and fine-tuning the Telegraf agent.

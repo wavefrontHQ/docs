@@ -8,6 +8,39 @@ summary: New and changed integrations.
 ---
 Tanzu Observability by Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
+## October 2022
+
+We made improvements and bug fixes to the following integrations in October 2022:
+
+* Wavefront Usage – Made significant improvements to the **Committed Rate vs Monthly Usage (PPS P95) for Billable** and **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboards. You can use the data displayed on the dashboard that suits your commit contract. For example, if you have a billable commit contract, only the **Committed Rate vs Monthly Usage (PPS P95) for Billable** dashboard will contain charts populated with data. The **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboard will be empty.
+* Java -- Fixed the links to the Jolokia 2 Agent documentation.
+* Tanzu Application Service -- Made minor updates and fixes to the Tanzu Application Service dashboards and charts.
+* Kubernetes -- Added a new system alert to the integration. You can now get notified when the Kubernetes observability status becomes unhealthy.
+* Google Cloud Platform -- The **Google Dataproc** dashboard is now improved with information that you must create a derived metric if you see a delay in the loading of variables.
+* Wavefront Tutorial  -- Made some minor fixes to the **Introduction** dashboard.
+
+
+## September 2022
+
+We made improvements to the following integrations in September 2022:
+
+* vSphere -- Made fixes to the **Cluster** dashboard. Updated the cluster variable to all charts in the **Virtual Machine Operations for a Data Center - 1 Hour** section.
+* Elasticsearch -- Made a fix to the query of the chart that displays the number of nodes, and updated the descriptions of charts.
+* Microsoft SQL Server -- Added proxy preprocessor rules in the Microsoft SQL Server setup instructions to avoid database read/write metrics getting dropped because of an extra quote (“) in a few point-tag keys.
+* Wavefront Usage -- Made minor updates to the Overview tab of the integration. The link to the Wavefront service internal metrics is corrected.
+* Slack -- Updated the setup instructions and added information on how to troubleshoot the Slack URL Unfurler.
+* Cassandra -- We updated the integration and now you can monitor Cassandra on Kubernetes.
+* Tanzu Application Service -- We added three new dashboards for monitoring TAS services: 
+  * MySQL -- Provides detailed metrics about TAS MySQL service instances.
+  * RabbitMQ -- Provides detailed metrics about TAS RabbitMQ service instances.
+  * Redis -- Provides detailed metrics about TAS Redis service instances.
+* Terraform Provider:
+  * Upgraded the Terraform-plugin-sdk/v2 from version 2.6.1 to version 2.21.0 because of security vulnerability fix.
+  * Upgraded the `go` package from version 1.16 to version 1.17 because of security vulnerability fix.
+  * We now use an email address instead of an id for the `wavefront_user` email field.
+
+* Tesla -- We removed this integration and it is no longer available.
+
 ## August 2022
 
 We added the following integration in August 2022:
