@@ -188,8 +188,7 @@ Percentage of the ephemeral disk used on the VM.
 
 Investigate if the ephemeral disk usage is too high for a job over an extended period.
 
-1. Run `bosh vms --details` to view jobs on affected deployments.
-2. Determine the cause of the data consumption, and, if appropriate, increase disk space or scale the affected jobs.
+1. Determine the cause of the data consumption, and, if appropriate, increase disk space or scale the affected jobs.
 
 ## TAS BOSH VM Memory Used
 
@@ -204,8 +203,7 @@ Percentage of the persistent disk used on the VM.
 
 Investigate if the persistent disk usage is too high for a job over an extended period.
 
-1. Run `bosh vms --details` to view jobs on affected deployments.
-2. Determine cause of the data consumption, and, if appropriate, increase disk space or scale the affected jobs.
+1. Determine cause of the data consumption, and, if appropriate, increase disk space or scale the affected jobs.
 
 [//]: # (TODO: Devon and Jeanette stopped here working up from the bottom)
 ## TAS Cloud Controller and Diego Not in Sync
