@@ -43,6 +43,19 @@ If the ActiveLocks count is not equal to the expected value, there is likely a p
 6. If you are unable to resolve on-going excessive active locks, pull logs from the Diego BBS and Auctioneer VMs, which
    includes the Locket service component logs, and contact VMware Tanzu Support.
 
+[//]: # (TODO: Ask Bob on what VM Apps Manager runs. Is it a CF app?)
+## TAS Apps Manager Availability
+
+A result code of a poll to the Apps Manager URL.
+
+A result code of zero indicates a successful poll. For a description of the error codes see
+[telegraf HTTP Response Input Plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/http_response#result--result_code).
+
+If your Apps Manager is unresponsive, this could indicate that your app developers are affected.
+
+1. Check to see if the affected Apps Manager is running.
+2. Then check your foundation's networking, capacity, and VM health.
+
 ## TAS Auctioneer Fetch State Duration Taking Too Long
 
 Time that the Auctioneer took to fetch state from all the Diego Cells when running its auction.
