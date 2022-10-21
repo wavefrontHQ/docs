@@ -144,7 +144,6 @@ If this metric rises, the TAS API is slowing. Response to certain cf CLI command
 6. If the above steps do not solve the issue, collect a sample of the Diego Cell logs from the BBS VMs and contact
    VMware Tanzu Support to troubleshoot further.
 
-[//]: # (TODO: Resume here)
 ## TAS BBS Time to Run LRP Convergence
 
 Time that the BBS took to run its LRP convergence pass.
@@ -192,30 +191,12 @@ Investigate if the ephemeral disk usage is too high for a job over an extended p
 1. Run `bosh vms --details` to view jobs on affected deployments.
 2. Determine the cause of the data consumption, and, if appropriate, increase disk space or scale the affected jobs.
 
-[//]: # (TODO -- Ask the team about tcprouter exclusion from this alert)
-## TAS BOSH VM Health
-
-This is the most important BOSH metric to monitor. 
-It indicates if the VM emitting the metric is healthy. 
-
-* 1 means the system is healthy.
-* 0 means the system is not healthy.
-
-Multiple unhealthy VMs signals problems with the underlying IAAS layer.
-
-This alert excludes UAA and Gorouter metrics. Separate alerts "TAS UAA VM Health" and "TAS Gorouter VM Health" monitor
-these specific components. bosh-health-check metrics are excluded because it is emits an unhealthy metric as part of its
-normal operations.
-
-1. Investigate TAS for VMs logs for the unhealthy components.
-
 ## TAS BOSH VM Memory Used
 
 Percentage of memory used on the VM.
 
-The response depends on the job the metric is associated with. 
-
-1. If appropriate, scale affected jobs and monitor for improvement.
+1. The response depends on the job the metric is associated with. If appropriate, scale affected jobs and monitor for
+   improvement.
 
 ## TAS BOSH VM Persistent Disk Used
 
