@@ -58,12 +58,12 @@ The Wavefront Usage integration includes the following dashboards:
 
 The **Wavefront Service and Proxy Data** dashboard helps you find reasons for system slowdown.
 
-The charts show internal metrics information and allow you to examine many aspects of your Wavefront instance. See [Monitoring Wavefront Proxies](monitoring_proxies.html) for details on the **Proxy Health** and **Proxy Troubleshooting** sections.
+The charts show internal metrics information and allow you to examine many aspects of your Wavefront instance. See [Monitoring Wavefront Proxies](monitoring_proxies.html) for details on the **Proxy Overview** and **Proxy Troubleshooting** sections.
 
 
 #### Overall Data Rate
 
-The Overall Data Rate section shows the overall point rate being processed by the Wavefront servers.
+The **Overall Data Rate** section shows the overall point rate being processed by the Wavefront servers.
 
 ![Overall data rate section. Contains charts for data ingestion rate per points, spans and distributions, as well as data scan rate charts.](images/overall_section.png)
 
@@ -115,7 +115,7 @@ The available metrics for the AWS integration are:
 
 #### Ingest Rate by Source
 
-This section gives insight into the shape of your data. It shows the total number of sources reporting. It also monitors the rate of metrics creation and breaks it down by source.
+The **Ingest Rate by Source** section gives insight into the shape of your data. It shows the total number of sources reporting. It also monitors the rate of metrics creation and breaks it down by source.
 
 ![Ingestion rate by source showing a chart with the number of reporting sources and the top 20 sources.](images/point_rate_breakdown.png)
 
@@ -129,12 +129,12 @@ The metrics used in this section are:
 
 #### Rate of New Data Creations
 
-Gives insight into the newly created data, such as metrics, sources, point tags, delta counters, histograms and spans.
+The **Rate of New Data Creations** section gives an insight into the newly created data, such as metrics, sources, point tags, delta counters, histograms and spans.
 
 ![Rate of new data creations section of the dashboard.](images/new_data_creations.png)
 
 
-### Wavefront Metric Namespace Usage Explorer Dashboard
+### Wavefront Namespace Usage Explorer Dashboard
 
 This dashboard helps you drill down into the metrics namespace and explore the **trend** of your metrics ingestion rate.
 
@@ -157,8 +157,8 @@ The dashboard includes a link to the **Ingestion Policies** page so if you are a
 ### PPS P95 Dashboards for Billable and Burndown
 
 {% include important.html content="Use only the dashboard for your contract type:<br/>
-    - If you have a billable commit contract with Tanzu Observability, use the **Committed Rate vs Monthly Usage (PPS P95) for Billable** dashboard.<br/>
-    - If you have a burndown commit contract with Tanzu Observability, use the **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboard.<br/>
+    - If you have a billable commit contract, use the **Committed Rate vs Monthly Usage (PPS P95) for Billable** dashboard.<br/>
+    - If you have a burndown commit contract, use the **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboard.<br/>
 "%}
 
 The dashboard for your contract type helps you monitor your usage and ensure that you're not ingesting more PPS than your contracted rate allows.

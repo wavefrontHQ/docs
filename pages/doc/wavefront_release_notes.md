@@ -13,7 +13,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
-## 2022-40.x Release Notes
+## 2022-xx.x Release Notes
 
 * **Usage Portal Improvements**: We made the following improvements to the [ingestion policies](ingestion_policies.html) and [overall usage](examine_usage.html) monitoring:
   <table>
@@ -82,6 +82,22 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
       </tr>
       </tbody>
   </table> 
+  
+## 2022-39.x Release Notes
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+<br/>
+<strong>Hide Warning Icons on Charts</strong>:<br/>
+You can now turn off the warning icons for all charts in a dashboard from the <strong>Dashboard Settings</strong> dialog. See <a href="ui_dashboards.html#set-dashboard-display-preferences-and-settings">Set Dashboard Display Preferences and Settings</a>.<br/>
+</td>
+<td width="50%"><img src="/images/hide_warning_icon.png" alt="Dashboard Advanced Settings supports hiding warning icons">
+</td>
+</tr>
+</tbody>
+</table>
 
 ## 2022-36.x Release Notes
 
@@ -91,11 +107,11 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 ## 2022-35.x Release Notes
 
 **Improved System Alerts Experience**: Some integrations contain [predefined system alerts](integrations.html#installing-and-uninstalling-integration-alerts). We have made several user experience improvements:
-  
+
 * No settings can be edited in Preview mode.
 * All settings that cannot be modified in Edit mode are now shown as non-editable.
 * We have implemented a **Clone** button on top of each system integration alert. The button allows you to easily clone the integration alert right after you open it in Edit mode.
-	
+
 ![Example screenshot that shows the clone button](images/alerts-clone.png)
 
 ## 2022-34.x Release Notes
