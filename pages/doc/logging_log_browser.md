@@ -30,7 +30,7 @@ On the Logs Browser, you can filter and examine logs for a selected period.
 * From the toolbar, you can set the time window and the time zone for which you want to filter the logs.
 * From the predefined **Source** and **All Tags** filters, you can select tag key-value pairs that you want to include or exclude from the logs search results. The include and exclude filters that you select are added to the search query in the search bar.
 * In the search bar, you can directly enter include and exclude filters and add them to the search query.
-* The logs histogram chart shows how many logs matching the search query were sent in each time bucket for the selected time window. You can zoom in on smaller time windows. You can also group the number of logs by the values of a particular tag. 
+* The logs chart shows how many logs matching the search query were sent in each time bucket for the selected time window. You can zoom in on smaller time windows. You can also group the number of logs by the values of a particular tag. 
 * The logs table lists the logs matching the search query for the selected time window. You can click a log to see the log message. Each log is classified by one of the following colors.
 
     <table style="width: 100%;">
@@ -116,11 +116,11 @@ You can narrow down the logs list to show only logs from a particular time windo
 
 * From the **Time window picker**, you can select either a preset time or custom start and end dates and times.
 * From the **Timezone** drop-down menu, you can select your preferred time zone, so that the timestamp values of the logs convert to the time zone that you selected.
-* After you get the first search results, you can examine the logs histogram chart and further adjust the time window. See [Drill Down from the Logs Histogram Chart](#drill-down-from-the-logs-histogram-chart).
+* After you get the first search results, you can examine the logs chart and further adjust the time window. See [Drill Down from the Logs Chart](#drill-down-from-the-logs-chart).
 
 Each time you change the time window, the predefined **Source** and **All Tags** filters update to show only the tag values that exist within the selected time window.
 
-If auto-search is OFF, after you change the time window, you must click **Search** to update the logs table and the logs histogram to show only the logs with timestamp values within the selected time window.
+If auto-search is OFF, after you change the time window, you must click **Search** to update the logs table and the logs chart to show only the logs with timestamp values within the selected time window.
 
 ## Build Your Search Query
 To narrow down the logs list and show only the logs that match certain criteria, you can build and run a search query in the search bar. The search query consists of one or more filter expressions.
@@ -324,26 +324,26 @@ To disable scroll auto-load:
   1. Turn off **Scroll Auto-Load**.
   ![a screenshot showing the load more results text](images/logging_load_more_results.png)
 
-## Drill Down from the Logs Histogram Chart
+## Drill Down from the Logs Chart
 
-The histogram chart at the top of the Logs Browser shows the number of logs distributed over the selected time window. The chart consists of 60 buckets. With a 15-minute time window, each bar on the chart shows the number of logs for each 15-second time interval.
+The chart at the top of the Logs Browser shows the number of logs distributed over the selected time window. The chart consists of 60 buckets. With a 15-minute time window, each bar on the chart shows the number of logs for each 15-second time interval.
 
 If you notice a spike, which means that more logs were sent, you can zoom in on the chart to examine the data. As you zoom in, the logs table below the chart shows the data for the new time window.
 
 Let's look at an example:
 
-1. In the screenshot below, the histogram chart has three spikes. If you want to zoom into the time window of the last spike, drag-select the area of interest and, if auto-search is off, click **Search**.
-    ![a screenshot of selecting the area on the histogram to to zoom in.](images/logging_histogram_zoomed_in.png)
+1. In the screenshot below, the logs chart has three spikes. If you want to zoom into the time window of the last spike, drag-select the area of interest and, if auto-search is off, click **Search**.
+    ![a screenshot of selecting the area on the chart to zoom in.](images/logging_histogram_zoomed_in.png)
 
-   The logs histogram shows the data for the zoomed-in time window and the logs table is updated so that it shows the logs from the new time window.
-1. Hover over the area above the right side of the histogram, click the plus (+) icon to zoom in further as needed and, if auto-search is off, click **Search**.
+   The logs chart shows the data for the zoomed-in time window and the logs table is updated so that it shows the logs from the new time window.
+1. Hover over the area above the right side of the logs chart, click the plus (+) icon to zoom in further as needed and, if auto-search is off, click **Search**.
     ![a screenshot with the zoom in options highlighted with a red box](images/logging_histogram_zoom_in_in.png)
     
-1. To group the logs in the histogram by the values of a particular tag key, from the **Groups** drop-down menu, select the grouping tag key.
+1. To group the logs in the logs chart by the values of a particular tag key, from the **Groups** drop-down menu, select the grouping tag key.
     The legend explains which color maps to which value of the grouping tag key.
     ![a screenshot with the zoom in options highlighted with a red box](images/logging_histogram_grouped.png)
     
-    {% include note.html content="The logs that don't have the grouping tag key are excluded from the logs histogram. The logs table doesn't update by the selected grouping tag key."%}  
+    {% include note.html content="The logs that don't have the grouping tag are excluded from the logs chart. The logs table doesn't update by the selected grouping tag key."%}  
 
 ## Customize the Log Details Table
 
@@ -358,12 +358,12 @@ Here's an example that shows how to add the **tag** column to the table.
 ![a screenshot of the add column options.](images/logging_log_table_select_columns.png)
 
 
-## Next Steps
+## Learn More!
 
-* [Get started with logs](logging_overview.html)
-* [Send logs to Tanzu Observability](logging_send_logs.html)
-* Learn about [proxy configurations and proxy preprocessor rules](logging_proxy_configurations.html)
-* [Get answers to FAQs](logging_faq.html)
+* [Get started with logs](logging_overview.html).
+* [Send logs to Tanzu Observability](logging_send_logs.html).
+* Learn about the [proxy configurations and proxy preprocessor rules for logs](logging_proxy_configurations.html).
+* See [Logs troubleshooting](logging_faq.html).
 
 <!---
 [Try out the demo app tutorial on GitHub](https://github.com/wavefrontHQ/demo-app) to send logs to Tanzu Observability.

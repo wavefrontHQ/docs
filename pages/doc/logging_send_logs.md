@@ -31,7 +31,22 @@ You can send logs to the Wavefront proxy from your log shipper or directly from 
 
 Our logging solution currently requires a Wavefront proxy and does not support direct ingestion. The Wavefront proxy accepts a JSON array payload over HTTP or HTTPS and forwards it to the Wavefront service.
 
-Follow these steps to install and configure a new proxy version 11.3 or later.
+{% include note.html content="For optimal performance, install a standalone proxy cluster that receives only logs payload, typically two proxy instances behind a load balancer." %}
+
+System Requirements:
+
+* 2 CPUs
+* 4 GB memory
+* Additional proxy configuration settings:
+
+  ```
+  - name: JAVA_HEAP_USAGE
+  value:2G
+  -name: JVM_USE_CONTAINER_OPTS
+  value: "false"
+  ```
+
+To install and configure a new proxy version 11.3 or later:
 
 1. Log in to your Wavefront instance and select **Browse** > **Proxies**.
 1. Click **Add Proxy** and follow the instructions on screen.
@@ -39,6 +54,8 @@ Follow these steps to install and configure a new proxy version 11.3 or later.
     <br/>For example:
     * If you installed the proxy on Linux, Mac, or Windows, open the [`wavefront.conf`](proxies_configuring.html#proxy-file-paths) file, uncomment the `pushListenerPorts` configuration property, and save the file. The port is set to 2878 by default.
     * If you installed the proxy on Docker, the command you use opens the `pushListenerPorts` and sets it to 2878.
+1. Optionally, uncomment or add other [logs proxy configurations](logging_proxy_configurations.html#proxy-configuration-properties-for-logs) the `wavefront.conf` file.
+1. Optionally, configure [preprocessor rules](logging_proxy_configurations.html#proxy-preprocessor-rules-for-logs) for logs in the `preprocessor_rules.yaml` file.
 1. [Start the proxy](proxies_installing.html#start-and-stop-a-proxy).
 
 <!--Is the proxy started as part of the Add Proxy workflow?? If yes, we don't need the last step.--->
@@ -128,16 +145,9 @@ If logs exceed the maximum character limit for a message, tag, or value, the Wav
     </td>
     <td>
       Low cardinality. Many of the recommendations in <a href="optimize_data_shape.html">Optimizing Data Shape to Improve Performance</a> apply.<br/>
-      128 characters per tag.<br/>
-      100 tags per log.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Tag value
-    </td>
-    <td>
-      128 characters
+      128 characters per tag key<br/>
+      128 characters per tag value<br/>
+      100 tags per log
     </td>
   </tr>
 </table>
@@ -152,12 +162,12 @@ To get the unified observability experience and drill down from traces to logs a
 When the data is in Tanzu Observability, you can use the Logs Browser to filter and search logs, and drill into logs from charts, alerts, Application Map page, and the Traces Browser. See [View Logs and Troubleshoot](logging_overview.html#view-logs-and-troubleshoot).
 --->
 
-## Next Steps
+## Learn More!
 
-* [Get started with logs](logging_overview.html)
-* [View and browse logs](logging_log_browser.html)
-* Learn about [proxy configurations and proxy preprocessor rules](logging_proxy_configurations.html)
-* [Get answers to FAQs](logging_faq.html)
+* [Get started with logs](logging_overview.html).
+* [View and browse logs](logging_log_browser.html).
+* Learn about the [proxy configurations and proxy preprocessor rules for logs](logging_proxy_configurations.html).
+* See [Logs troubleshooting](logging_faq.html).
 
 <!---
 [Try out the demo app tutorial on GitHub](https://github.com/wavefrontHQ/demo-app) to send logs to Tanzu Observability.

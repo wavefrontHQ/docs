@@ -783,13 +783,13 @@ entries:
       - title: Send Logs
         url: /logging_send_logs.html
         output: web
-
-      - title: View Logs
-        url: /logging_log_browser.html
+        
+      - title: Proxy Configurations for Logs
+        url: /logging_proxy_configurations.html
         output: web
 
-      - title: Configure Wavefront Proxy for Logs
-        url: /logging_proxy_configurations.html
+      - title: Examine Logs
+        url: /logging_log_browser.html
         output: web
         
       - title: Logs Troubleshooting
