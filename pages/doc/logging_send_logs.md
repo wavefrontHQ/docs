@@ -16,24 +16,13 @@ You can send logs to the Wavefront proxy from your log shipper or directly from 
 
 ![shows how data goes from the log shipper to the wavefront proxy and then to the Wavefront instance](images/logging_send_logs_rev.png)
 
-## Prerequisites
-
-* Ensure that you have access to a Wavefront instance.
-  <!--If you don’t have a cluster, [sign up for a free trial](https://tanzu.vmware.com/observability-trial).-->
-* Add the VMware domain (`*.vmware.com`) to the allowlist in your environment. Because Tanzu Observability uses a VMware log cluster, you need to add the VMware domain to your allowlist to send log data successfully.
-
-  If you want to narrow down the domain, contact your Tanzu Observability account representative.
-
-
-<!---Token is needed to get from proxy to service. If I generate proxy from GUI, don't need to specify one. * A Wavefront API token linked to an account with Proxy permission. See [Generating an API Token](wavefront_api.html#generating-an-api-token).--->
-
 ## Install a Wavefront Proxy
 
 Our logging solution currently requires a Wavefront proxy and does not support direct ingestion. The Wavefront proxy accepts a JSON array payload over HTTP or HTTPS and forwards it to the Wavefront service.
 
 {% include note.html content="For optimal performance, install a standalone proxy cluster that receives only logs payload, typically two proxy instances behind a load balancer." %}
 
-System Requirements:
+System requirements:
 
 * 2 CPUs
 * 4 GB memory
@@ -89,6 +78,9 @@ The log shipper sends your data to the Wavefront proxy. During Beta, we support 
 
 If you want to use a different log shipper, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support).
 
+**Prerequisite**:
+
+Add the VMware domain (`*.vmware.com`) to the allowlist in your environment. Because Tanzu Observability uses a VMware log cluster, you need to add the VMware domain to your allowlist to send log data successfully. If you want to narrow down the domain, contact your Tanzu Observability account representative.
 
 Configure your log shipper:
   1. Install the log shipper. For example, [install Fluentd](https://docs.fluentd.org/installation).
