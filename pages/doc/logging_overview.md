@@ -135,7 +135,7 @@ When logs have started flowing into your Wavefront instance, as a user with the 
 * Go to the Logs Browser directly to view and explore logs.
 * Drill into the Logs Browser from charts, alerts, application map, and the Traces Browser.
 
-![A diagram shows all the UIs that link to logs. They are explained in this section.](images/logging_all_ui.png)
+![A diagram that shows all the UI pages that link to logs (charts, alerts, application map and Traces Browser). How to navigate from each one of them to the Logs Browser is explained in the sections below.](images/logging_all_ui.png)
 
 ### Examine Logs in the Logs Browser
 
@@ -177,7 +177,7 @@ The Logs Browser opens in a new tab with the following configuration:
 - The search query contains the include `source` tag filter for the source that you right-clicked.
 
 ![A screenshot of a search query and selected time window in the Logs Browser.](images/logging_from_chart.png)
-In this example, the Log Browser opens with the filter `source = db-5` and the time window `01:20 PM to 01:30 PM` (starting 5 minutes before and ending 5 minutes after `01:25 PM`).
+In this example, the Logs Browser opens with the filter `source = db-5` and the time window `01:20 PM to 01:30 PM` (starting 5 minutes before and ending 5 minutes after `01:25 PM`).
 
 {%include note.html content="If you selected more than one source on the chart, the Logs Browser opens only with the corresponding time window. The search query is empty because this feature supports only one source filter. See [Logs Troubleshooting](logging_faq.html) for details."%}
 
@@ -235,7 +235,7 @@ To drill into the related logs of a firing alert:
 
 ### Drill into Logs from Traces
 
-If you have the **Logs** permission, you can drill into logs from the application status page and the traces browser.
+If you have the **Logs** permission, you can drill into logs from the application status page and the Traces Browser.
 
 {% include note.html content="Even if logging is enabled for your environment, the drill-down from traces to logs might have to be enabled separately. Contact [technical support](wavefront_support_feedback.html#support)." %}
 
@@ -250,7 +250,7 @@ If you notice that a service on the application map, table view, or grid view of
   1. Select **View Logs (Beta)**.
   ![A screenshot of a the UI once you click on a service with the view logs link highlighted.](images/logging_app_map_to_logs.png)
 * **From the Table View**
-  1. Click the vertical ellipsis for the service.
+  1. Click the ellipsis for the service.
   2. Select **View Logs (Beta)**.
   ![A screenshot of a the UI once you click vertical ellipsis on the table view](images/logging_table_view_to_logs.png)
 * **From the Grid View**
@@ -322,7 +322,7 @@ If you have the **Logs** and **Dashboards** permissions, in the [Chart Builder](
 </tr>
 <tr>
   <td width="40%">
-  <p>3. Optionally, from the <strong>Functions</strong> drop-down menu, the <strong>Count</strong> function drop-down menu, select one or more tags by which you want to group the number of logs, and click <strong>Apply</strong>.
+  <p>3. Optionally, next to the <strong>Functions</strong> drop-down menu, click <strong>Count</strong>, select one or more tags by which you want to group the number of logs, and click <strong>Apply</strong>.
   {% include note.html content="The logs that don't have at least one of the grouping tags are excluded from the logs chart."%}</p>
     </td>
   <td width="60%">

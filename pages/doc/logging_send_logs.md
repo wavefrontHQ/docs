@@ -20,7 +20,7 @@ You can send logs to the Wavefront proxy from your log shipper or directly from 
 
 Our logging solution currently requires a Wavefront proxy and does not support direct ingestion. The Wavefront proxy accepts a JSON array payload over HTTP or HTTPS and forwards it to the Wavefront service.
 
-{% include note.html content="For optimal performance, install a standalone proxy cluster that receives only logs payload, typically two proxy instances behind a load balancer." %}
+{% include note.html content="For optimal performance, install a standalone proxy cluster that receives only logs payload. Typically two proxy instances behind a load balancer are sufficient." %}
 
 System requirements:
 
