@@ -252,6 +252,19 @@ Investigate if the persistent disk usage is too high for a job over an extended 
 #### Troubleshooting
 1. Determine cause of the data consumption, and, if appropriate, increase disk space or scale the affected jobs.
 
+## TAS Certificate Expiration
+
+The number of seconds until expiration of each certificate in the foundation. Negative values indicate that the
+certificate expired in the past.
+
+By default, this alert will fire if any of the certificates on your foundation will expire within 30 days.
+
+By default, entries appear in red when the expiration time is under 7 days, orange under 30 days, and green
+otherwise.
+
+#### Troubleshooting
+1. Update your certificates.
+
 [//]: # (TODO: Devon and Jeanette stopped here working up from the bottom)
 ## TAS Cloud Controller and Diego Not in Sync
 
