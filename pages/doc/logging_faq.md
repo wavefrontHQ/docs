@@ -91,7 +91,17 @@ The Wavefront proxy drops the logs that exceed the [maximum character limit](log
 
     {% include note.html content="[Examine Data with Dashboards and charts](ui_examine_data.html) explains how explore dashboards and includes videos and links." %}
 
-    In the **Blocked logs per second** chart you see how many logs were blocked. If you see a spike in the number of dropped logs, check the [limits for logs](logging_send_logs.html#limits-for-logs).
+    - In the **Blocked Logs per Second** chart, you can see how many logs were blocked.
+    - In the **Proxy Backlog Size (Bytes)** chart, non-zero values indicate that the proxy is having issues delivering data.
+1. In the [Metrics Browser](metrics_managing.html), search for metrics in the `~proxy.log.*` namespace. Can be `logSourceMissing`, `logSourceTooLong`, `logMessageTooLong`, `tooManyLogTags`, `logAnnotationKeyTooLong`, `logAnnotationKeyBadChars`, `logAnnotationValueEmpty`, and `logAnnotationValueTooLong`
+  
+    {% include note.html content="If you see `~proxy.log.*TooLong` or `~proxy.log.tooManyLogTags` metrics, check the [limits for logs](logging_send_logs.html#limits-for-logs). If you want to increase the logs limits for your Wavefront instance, contact [technical support](wavefront_support_feedback.html#support)." %}
+1. In the [Logs Browser](logging_log_browser.html), search for logs containing the following message:
+
+```
+INFO  [AbstractReportableEntityHandler:reject] [2878] blocked input:
+```
+You can see why the log was rejected and log message itself.
 
 ## Why Do I See a `pattern not match` Error in the Fluentd Logs?
 
