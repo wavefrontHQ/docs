@@ -98,10 +98,10 @@ The Wavefront proxy drops the logs that exceed the [maximum character limit](log
     {% include note.html content="If you see `~proxy.log.*TooLong` or `~proxy.log.tooManyLogTags` metrics, check the [limits for logs](logging_send_logs.html#limits-for-logs). If you want to increase the logs limits for your Wavefront instance, contact [technical support](wavefront_support_feedback.html#support)." %}
 1. In the [Logs Browser](logging_log_browser.html), search for logs containing the following message:
 
-```
-INFO  [AbstractReportableEntityHandler:reject] [2878] blocked input:
-```
-You can see why the log was rejected and log message itself.
+    ```
+    INFO  [AbstractReportableEntityHandler:reject] [2878] blocked input:
+    ```
+    You can see why the log was rejected and log message itself.
 
 ## Why Do I See a `pattern not match` Error in the Fluentd Logs?
 
