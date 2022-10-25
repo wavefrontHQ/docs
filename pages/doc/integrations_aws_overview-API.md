@@ -27,7 +27,7 @@ For more information, see [Giving Tanzu Observability Access to Your AWS Account
 1. Click the gear icon in the top right and select **API Documentation**.
 1. Expand the **Cloud Integration** category.
 1. To create a new cloud integration, click the `POST /api/v2/cloudintegration/awsExternalId` request.
-1. Click the **Try it out** button in the top right of the request and click **Execute**.
+1. Click **Execute**.
 1. Copy the external ID from the response body of the request.
 
    ```
@@ -76,7 +76,6 @@ You can add an AWS integration by using the Wavefront REST API.
 1. Click the gear icon in the top right and select **API Documentation**.
 1. Expand the **Cloud Integration** category.
 1. To create a new cloud integration, click the `POST /api/v2/cloudintegration` request.
-1. Click the **Try it out** button in the top right of the request.
 1. To add an integration, in the **Edit Value** text box enter one of the following examples for each AWS integration.
 
    You can add one integration at a time. You cannot use a single API request to register all AWS services together.
@@ -160,7 +159,7 @@ We also add the metrics for these services to a metric allow list by using a reg
 
 
 1. In the Wavefront REST API documentation, click the `GET/api/v2/cloudintegration` request.
-1. Click the **Try it out** button in the top right of the request and click **Execute**.
+1. Click **Execute**.
 
    In the **Response Body** section, under `namespaces` you can see the list of all configured cloud services integrations. For example:
 
@@ -269,7 +268,6 @@ We also add the metrics for these services to a metric allow list by using a reg
    ```
 
 1. In the Wavefront REST API documentation, click the `PUT /api/v2/cloudintegration/{id}` request.
-1. Click the **Try it out** button in the top right of the request.
 1. Under **Parameters**, in the **id** text box enter the ID of the integration that you copied.
 1. In **Edit Value** text box enter the edited response body with the new services.
 1. Click **Execute**.
@@ -280,7 +278,7 @@ We also add the metrics for these services to a metric allow list by using a reg
 Tanzu Observability automatically disables integrations that are experiencing errors due to invalid credentials. To enable an integration after the credential has been corrected or to manually disable an integration, you need the integration ID.
 
 1. In the Wavefront REST API documentation, click the `GET/api/v2/cloudintegration` request.
-1. Click the **Try it out** button in the top right of the request and click **Execute**.
+1. Click **Execute**.
 
    In the **Response Body** section, you can see the list of all configured cloud services integrations. For example:
 
@@ -330,7 +328,7 @@ Tanzu Observability automatically disables integrations that are experiencing er
 To delete a cloud service integration that you no longer want to use, you need the integration ID. If you decide to move the integration to the recycle bin, you can recover it at a later stage.
 
 1. In the Wavefront REST API documentation, click the `GET/api/v2/cloudintegration` request.
-1. Click the **Try it out** button in the top right of the request and click **Execute**.
+1. Click **Execute**.
 
    In the **Response Body** section, you can see the list of all configured cloud services integrations. For example:
 
@@ -373,7 +371,6 @@ To delete a cloud service integration that you no longer want to use, you need t
    ```
 1. Copy the value of the `"id"` parameter of the integration that you want to delete.
 1. To delete the integration, click the `DELETE /api/v2/cloudintegration/{id}` request.
-1. Click the **Try it out** button in the top right of the request.
    1. Under **Parameters**, in the **id** text box enter the integration ID that you copied.
    1. From the **skipTrash** drop-down menu select whether you want to keep the deleted integration in the recycle bin.
 
@@ -381,6 +378,6 @@ To delete a cloud service integration that you no longer want to use, you need t
       * Select **true**, to delete the integration forever. You won't be able to recover it.
 
    1. Click **Execute**.
-1. To recover an integration from the recycle bin, i.e., an integration that was not permanently deleted, in the Wavefront REST API documentation, click the `POST /api/v2/cloudintegration/{id}/undelete` request and click **Try it out**.
+1. To recover an integration from the recycle bin, i.e., an integration that was not permanently deleted, in the Wavefront REST API documentation, click the `POST /api/v2/cloudintegration/{id}/undelete` request.
    1. Under **Parameters**, in the **id** text box enter the ID of the integration that you want to recover.
    1. Click **Execute**.

@@ -120,7 +120,7 @@ A permanently deleted dashboard does not show in the trash and becomes inaccessi
 
 1. Log in as a Super Admin user.
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **API Documentation**.
-3. Expand the **Dashboard** category, click the `GET api/v2/dashboard/{id}/history/{version}` request and click **Try it out** in the top right of the request.
+3. Expand the **Dashboard** category and click the `GET api/v2/dashboard/{id}/history/{version}` request.
 4. Enter the dashboard name as the `"id"` parameter.
    For example, if the dashboard URL is `https://<your_instance>.wavefront.com/dashboards/MY-DASHBOARD`, then the `"id"` that you should enter is **MY-DASHBOARD**.
 5. Enter the last known version of the dashboard as an integer.
@@ -158,7 +158,7 @@ A permanently deleted dashboard does not show in the trash and becomes inaccessi
 }
 
    ```
-8. Click the `POST api/v2/dashboard/` request and click the **Try it out** button in the top right of the request.
+8. Click the `POST api/v2/dashboard/` request.
 9. Paste the copied response data into the **Edit Value** text box and click **Execute** to perform the POST API call.
 
    ![Create a dashboard by using the API. The Edit Value text box contains the response data copied from Step 7.](images/create-dashboard-api-call.png)
