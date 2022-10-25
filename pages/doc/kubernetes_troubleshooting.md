@@ -17,9 +17,9 @@ For an in depth overview of the integration and how it is deployed, navigate to 
 You might see a message containing information that there are not enough instances of the Wavefront components, such as:
 
 * Wavefront proxy
-* Wavefront Cluster Collector
-* Wavefront Node Collector
-* Wavefront Logging
+* Wavefront cluster collector
+* Wavefront node collector
+* Wavefront logging
 
 In such as case, upon initial deployment, allow some time for the integration components to complete installing. This issue is observed more often in more resource-constrained environments, such as `kind` and `minikube`.
 
@@ -30,18 +30,18 @@ If the issue persists, check the logs for more details:
   ```
   kubectl logs deployment/wavefront-proxy -n observability-system
   ```
-* For the Wavefront Cluster Collector logs, run:
+* For the Wavefront node collector logs, run:
 
   ```
   kubectl logs daemonset/wavefront-node-collector -n observability-system
   ```
-* For the Wavefront Node Collector logs, run:
+* For the Wavefront cluster collector logs, run:
   ```
-  kubectl logs daemonset/wavefront-node-collector -n observability-system
+  kubectl logs deployment/wavefront-cluster-collector -n observability-system
   ```
-* For the Wavefront Logging logs, run:
+* For the Wavefront logging logs, run:
   ```
-  kubectl logs daemonset/wavefront-node-collector -n observability-system
+  kubectl logs daemonset/wavefront-logging -n observability-system
   ```
   
 ## No Data Flowing into Tanzu Observability
@@ -138,7 +138,7 @@ The most common Wavefront proxy log errors are:
 
 Check the logs for errors:
 
-* To see the Wavefront Cluster logs, run: 
+* To see the Wavefront cluster collector logs, run: 
   
   ```
   kubectl logs deployment/wavefront-cluster-collector -n observability-system
