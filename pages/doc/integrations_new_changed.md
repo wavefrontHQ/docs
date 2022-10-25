@@ -29,7 +29,6 @@ We made improvements and bug fixes to the following integrations in October 2022
 * Google Cloud Platform -- The **Google Dataproc** dashboard is now improved with information that you must create a derived metric if you see a delay in the loading of variables.
 * Wavefront Tutorial  -- Made some minor fixes to the **Introduction** dashboard.
 
-
 ## September 2022
 
 We made improvements to the following integrations in September 2022:
