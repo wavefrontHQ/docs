@@ -265,6 +265,22 @@ otherwise.
 #### Troubleshooting
 1. Update your certificates.
 
+## TAS CLI Command Status
+
+The total number of times the App SLI Smoke Test Suite fails. With the default thresholds, the alert will fire after 2
+consecutive failures.
+
+The App SLI Smoke Test Suite gets metrics from the TAS for VMs SLI exporter VM, pas-sli-exporter, which tests the
+functionality of the cf CLI (e.g. `cf push`, `cf login`) every 5 minutes. These tests are intended to give Platform
+Operators confidence that Application Developers can successfully interact with and manage applications on the platform.
+The tests will also report a failure if any task takes more than 5 minutes to complete.
+
+For more information on the test, see documentation
+on [TAS for VMs SLI Exporter VM](https://docs.pivotal.io/healthwatch/metrics.html#platform-sli).
+
+#### Troubleshooting
+1. If a failure occurs, attempt to use the failed CLI command in a terminal to see why it is failing.
+
 [//]: # (TODO: Devon and Jeanette stopped here working up from the bottom)
 ## TAS Cloud Controller and Diego Not in Sync
 
