@@ -7,7 +7,7 @@ permalink: logging_send_logs.html
 summary: Learn about sending logs to Tanzu Observability.
 ---
 
-{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative."%}
+{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
 
 {% include tip.html content="This doc page gets you started. [Try out the demo app tutorial on GitHub](https://github.com/wavefrontHQ/demo-app) to experiment with sending logs to Tanzu Observability."%}

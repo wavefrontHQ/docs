@@ -6,7 +6,7 @@ permalink: logging_overview.html
 summary: Learn about Tanzu Observability metrics, logs, and traces.
 ---
 
-{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative or contact [technical support](wavefront_support_feedback.html#support)."%}
+{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
  <table style="width: 100%;">
 <tbody>

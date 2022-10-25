@@ -7,7 +7,7 @@ permalink: logging_faq.html
 summary: Learn how to customize your logging experience and find answers for frequently asked questions.
 ---
 
-{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. If you'd like to participate, contact your Tanzu Observability account representative."%}
+{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. If you'd like to participate, contact your Tanzu Observability account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
 ## My Logging Solution Doesn't Use the Default Attributes
 
