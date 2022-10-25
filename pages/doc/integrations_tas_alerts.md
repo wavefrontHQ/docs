@@ -470,6 +470,15 @@ A result code of zero indicates a successful poll. For a description of the erro
 1. Check to see if the affected Ops Manager is running.
 2. Then check your foundation's networking, capacity, and VM health.
 
+## TAS Telegraf Gatherer and Exporter Scrape Errors
+
+The TAS integration uses Telegraf and the Prometheus and HTTP input plugins to gather metrics. If any of these fail, the
+counter `tas.observability.telegraf.internal_agent.gather_errors` increases. By default, an alert fires if the metric
+has been increasing for 10 minutes.
+
+#### Troubleshooting
+1. Inspect the Telegraf logs.
+
 ## TAS UAA Latency is Elevated
 Time in milliseconds that UAA took to process a request that the Gorouter sent to UAA endpoints.
 
