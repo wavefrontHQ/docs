@@ -434,7 +434,7 @@ The names of the iterators follow this convention: <code>&lt;seriesCategory&gt;&
 </ul>
 {{site.data.alerts.end}}
 
-## Information about Alert Resolution Help
+## Information About Alert Resolution Help
 
 Starting with release 2022.05, users can include information about the alert resolution such as a runbook. We support several variables for extracting or setting those fields.
 
@@ -576,7 +576,7 @@ This portion of the Generic Webhook alert target template shows iterators that r
   ```
   {% endraw %}
 
-**Example: Alert Sources in Output From the Sample Template**
+**Example: Alert Sources in Output from the Sample Template**
 
 Here is a sample alert target output generated with the preceding template:
 
@@ -700,7 +700,7 @@ This portion of the Generic Webhook alert target template shows iterators that r
 ```
 {% endraw %}
 
-**Example: Time Series Information in Output From The Sample Template**
+**Example: Time Series Information in Output from The Sample Template**
 
 Here is a sample alert target output generated with the preceding template:
 
