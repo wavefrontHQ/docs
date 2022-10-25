@@ -83,6 +83,8 @@ To verify that the system is healthy, run:
 
 ### Step 2: Verify That the Proxy Is Running
 
+The Wavefront proxy forwards logs, metrics, traces, and spans from all components to Tanzu Observability. If no data is flowing into Tanzu Observability might mean that the proxy is not running.
+
 To check the Wavefront proxy logs for errors, run:
 
 ```
@@ -200,10 +202,10 @@ If the STATUS is Healthy, then all the components are healthy. If the STATUS is 
 
 ### Check the Proxy Backlog Status
 
-Check whether the Wavefront proxy has backlog issues by following the instructions in our [Proxy Troubleshooting](https://docs.wavefront.com/proxies_troubleshooting.html#proxy-warn-messages) page. If your proxy is having some backlog issues, try to:
+Check whether the Wavefront proxy has backlog issues by following the instructions in our [Proxy Troubleshooting](proxies_troubleshooting.html#proxy-warn-messages) page. If your proxy is having some backlog issues, try to:
 
 * Filter more metrics -- See the [example scenario](https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes/blob/main/deploy/kubernetes/scenarios/wavefront-collector-filtering.yaml) for filtering metrics.
-* Increase limits -- Follow the resolution in our [Proxy Troubleshooting](https://docs.wavefront.com/proxies_troubleshooting.html#proxy-warn-messages) page.
+* Increase limits -- Follow the resolution in our [Proxy Troubleshooting](proxies_troubleshooting.html#proxy-warn-messages) page.
 
 ### Check Whether Metrics Are Being Dropped
 
@@ -213,10 +215,9 @@ Check the Wavefront proxy logs.
 kubectl logs deployment/wavefront-proxy -n observability-system
 ```
 
-If, in the proxy logs, you see the error “Too many point tags”, try to:
+If, in the proxy logs, you see the error `Too many point tags`, try to:
 
 * Drop tags -- Use `tagExclude` to drop tags. See our [example scenario](https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes/blob/main/deploy/kubernetes/scenarios/wavefront-full-config.yaml) for details.
-* Increase limits -- Use the [limitLength](https://docs.wavefront.com/proxies_preprocessor_rules.html#limitlength) proxy preprocessor rule. See our [example scenarios](https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes/blob/main/deploy/kubernetes/scenarios/wavefront-proxy-preprocessor-rules.yaml) on adding proxy preprocessor rules.
 
 
 ### Check Whether Metrics Are Being Filtered
@@ -236,11 +237,8 @@ Check the status of Wavefront components.
 kubectl get wavefront -n observability-system
 ```
 
-If the STATUS is Unhealthy, check the Status > Message for any configuration errors.
+If there are any configuration or validation errors, the MESSAGE column in the results will describe the error.
 
-```
-kubectl get wavefront -n observability-system -o=jsonpath='{.items[*].status.message}'
-```
 
 ## Running Workloads Are Not Discovered or Monitored
 
