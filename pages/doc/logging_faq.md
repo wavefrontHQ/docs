@@ -101,7 +101,7 @@ The Wavefront proxy drops the logs that exceed the [maximum character limit](log
     ```
     INFO  [AbstractReportableEntityHandler:reject] [2878] blocked input:
     ```
-    You can see why the log was rejected and log message itself.
+    You can see why the log was rejected and the actual log message.
 
 ## Why Do I See a `pattern not match` Error in the Fluentd Logs?
 
