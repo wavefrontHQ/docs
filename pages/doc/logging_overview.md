@@ -6,7 +6,7 @@ permalink: logging_overview.html
 summary: Learn about Tanzu Observability metrics, logs, and traces.
 ---
 
-{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative."%}
+{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative or contact [technical support](wavefront_support_feedback.html#support)."%}
 
  <table style="width: 100%;">
 <tbody>
@@ -173,7 +173,7 @@ To drill into the related logs from a chart:
 In this example, you right-click the metric chart for source `db-5` at `01:25 PM`.
 
 The Logs Browser opens in a new tab with the following configuration:
-- The selected time window is a 10-minute period, starting 5 minutes before and ending 5 minutes after the time of the point that you right-clicked on the chart.
+- The search time window is a 10-minute period, starting 5 minutes before and ending 5 minutes after the time of the point that you right-clicked on the chart.
 - The search query contains the include `source` tag filter for the source that you right-clicked.
 
 ![A screenshot of a search query and selected time window in the Logs Browser.](images/logging_from_chart.png)
@@ -214,8 +214,8 @@ To drill into the related logs of a firing alert:
     In the **Related Logs** panel, the `time range` filter is populated with the trigger window during which the alert condition was met and the alert transitioned to firing state.
 1. Optionally, in the **Related Logs** panel, adjust the filters for the logs search query.
 
-    * Click **Edit related Logs**, add and remove filters, and save the alert.
-    * Click the eye icons of the related logs filters that you want to hide from the logs search query. To unhide a filter, you must click the eye-hide icon.
+    1. Click **Edit related Logs**, add and remove filters, and save the alert.
+    1. Click the eye icons of the related logs filters that you want to hide from the logs search query. To unhide a filter, you must click the eye-hide icon.
     
     You cannot remove or hide the `time range` filter.
 1. In the **Related Logs** panel, click **Go to Logs (Beta)**.
@@ -223,7 +223,7 @@ To drill into the related logs of a firing alert:
   
   The Logs Browser opens in a new tab with the configurations from the **Related Logs** panel:
   
-  * The selected time window corresponds to `time range` value.
+  * The search time window corresponds to `time range` value.
   * The search query contains the unhidden filters (with the eye icons).
     ![The search query and the selected time window in the Logs Browser.](images/logs_drill_alert_search.png)
 
@@ -246,21 +246,24 @@ If you notice that a service on the application map, table view, or grid view of
 {% include note.html content="You must have tagged the traces and the logs from the same applications and services with equivalent application and service tag values."%}
 
 * **From the Map View**
+  1. Select the time window of interest.
   1. Click the service on the application map.
   1. Select **View Logs (Beta)**.
   ![A screenshot of a the UI once you click on a service with the view logs link highlighted.](images/logging_app_map_to_logs.png)
 * **From the Table View**
+  1. Select the time window of interest.
   1. Click the ellipsis for the service.
-  2. Select **View Logs (Beta)**.
+  1. Select **View Logs (Beta)**.
   ![A screenshot of a the UI once you click vertical ellipsis on the table view](images/logging_table_view_to_logs.png)
 * **From the Grid View**
+  1. Select the time window of interest.
   1. In a service tile, click **Actions**.
-  2. Select **View Logs (Beta)**.
+  1. Select **View Logs (Beta)**.
   ![A screenshot of a the UI once you click vertical ellipsis on the grid view](images/logging_grid_view_to_logs.png)
 
 The Logs Browser opens in a new tab with the following configurations:
   
-* The selected time window corresponds to the time window on the Application Status page.
+* The search time window corresponds to the time window on the Application Status page.
 * The search query contains the corresponding include `service` and `application` tag filters.
 ![The search query and the selected time window in the Logs Browser.](images/logging_app_serv_search.png)
 
@@ -281,7 +284,7 @@ To see the logs for a trace:
 
 The Logs Browser opens in a new tab with the following configurations:
   
-* The selected 1-second time window corresponds to the time of the event on the RED metrics charts.
+* The search time window corresponds to the trace time window per the RED metrics charts.
 * The search query contains the corresponding include `traceId`, `source`, `application`, and `service` tag filters.
 ![screenshot of the traces browser with the search logs with traceId highlighted](images/logging_traces_search.png)
 
