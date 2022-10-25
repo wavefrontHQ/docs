@@ -22,18 +22,29 @@ Our logging solution currently requires a Wavefront proxy and does not support d
 
 {% include note.html content="For optimal performance, install a standalone proxy cluster that receives only logs payload. Typically two proxy instances behind a load balancer are sufficient." %}
 
-System requirements:
-
-* 2 CPUs
-* 4 GB memory
-* Additional proxy configuration settings:
-
-  ```
-  - name: JAVA_HEAP_USAGE
-  value:2G
-  -name: JVM_USE_CONTAINER_OPTS
-  value: "false"
-  ```
+<table style="width: 100;">
+  <tr>
+    <td width="50%" >
+      Proxy System Requirements:
+      <ul><li>2 CPUs</li>
+      <li>4 GB memory</li>
+      <li>Additional proxy configuration settings:
+<code>
+- name: JAVA_HEAP_USAGE
+value:2G
+- name: JVM_USE_CONTAINER_OPTS
+value: "false"</code>
+      </li>
+      </ul>
+    </td>
+    <td width="50%" >
+      Proxy Kubernetes Requirements:
+      <ul><li>Request resources: 1 CPU and 2 GB memory</li>
+      <li>Limit resources: 2 CPUs and 4 GB memory</li>
+      <li>1 GB heap memory</li></ul>
+    </td>
+  </tr>
+</table>
 
 To install and configure a new proxy version 11.3 or later:
 
@@ -47,30 +58,7 @@ To install and configure a new proxy version 11.3 or later:
 1. Optionally, configure [preprocessor rules](logging_proxy_configurations.html#proxy-preprocessor-rules-for-logs) for logs in the `preprocessor_rules.yaml` file.
 1. [Start the proxy](proxies_installing.html#start-and-stop-a-proxy).
 
-<!--Is the proxy started as part of the Add Proxy workflow?? If yes, we don't need the last step.--->
-
 {% include note.html content="To learn more about the proxy configuration properties and preprocessor rules for logs, see [Logs Proxy Configurations and Preprocessor Rules](logging_proxy_configurations.html)." %}
-
-<!--This was commented out by Shavi. Confirm with team whether we want to add it back.
-### Proxy Recommendations for Logs
-
-When sending logs to the proxy we recommend the following:
-
-* A standalone proxy cluster that only receives logs payloads.
-* 2 CPUs
-* 4 GB memory
-* 2 instances of the proxy working behind a load balancer
-* Add the following configurations:
-    Example:
-    ```
-      - name: JAVA_HEAP_USAGE
-        value: 2G
-
-      - name: JVM_USE_CONTAINER_OPTS
-        value: "false"
-    ```
-
--->
 
 ## Configure the Log Shipper
 
