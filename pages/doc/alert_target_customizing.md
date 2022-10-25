@@ -70,7 +70,7 @@ You can [inspect](#display-and-edit-predefined-templates) a predefined template 
 
 The predefined Slack and VictorOps templates contain JSON attributes defined by the messaging platform. See the product documentation for the platform for details.
 
-{% include note.html content="The predefined Webhook Generic template contains JSON attributes that do not conform to any particular message platform's Webhook endpoint specification. This template simply demonstrates how to access the different kinds of alert information for a Webhook endpoint." %}
+{% include note.html content="The predefined Webhook Generic template contains JSON attributes that do not conform to any particular message platform's Webhook endpoint specification. This template simply demonstrates how to access the different kinds of alert information about a Webhook endpoint." %}
 
 ### Template Variables
 
@@ -438,7 +438,7 @@ The names of the iterators follow this convention: <code>&lt;seriesCategory&gt;&
 
 Starting with release 2022.05, users can include information about the alert resolution such as a runbook. We support several variables for extracting or setting those fields.
 
-{% include note.html content="This information is included with the **alert notification** if specified as part of the alert. In contrast, tracingDashboardLinks, discussed in [Include a Link to a Tracing Service Dashboard](alert_target_customizing.html#include-a-link-to-a-tracing-service-dashboard) is shown in the Alerts Browser."%}
+{% include note.html content="This information is included with the **alert notification** if specified as part of the [alert](alerts_manage.html#how-do-i-pass-values-to-triage-dashboards). In contrast, tracingDashboardLinks, discussed in [Include a Link to a Tracing Service Dashboard](alert_target_customizing.html#include-a-link-to-a-tracing-service-dashboard) is shown in the Alerts Browser."%}
 
 <table id="resolution-category">
 <colgroup>
@@ -451,11 +451,11 @@ Starting with release 2022.05, users can include information about the alert res
 <tbody>
 <tr>
 <td>runbookLinks</td>
-<td>One or more URLs in which information for alert resolution is stored.</td>
+<td>One or more URLs in which information about alert resolution is stored.</td>
 </tr>
 <tr>
 <td>alertTriageDashboardLinks</td>
-<td>One or more URLs of dashboards that might help the user resolve the problem for which the alert was triggered. For example, if an alert for disk space is triggered, this could be a link to a dashboard that includes charts for disk usage. </td>
+<td>One or more dashboard URLs. These are URLs to dashboards that might help you resolve the problem for which the alert was triggered. For example, if an alert fires because of high CPU usage, <code>alertTriageDashboardLinks</code> could be a link to a dashboard that includes charts for monitoring the CPU usage of your system. </td>
 </tr>
 </tbody>
 </table>
