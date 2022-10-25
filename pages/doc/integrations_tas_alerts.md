@@ -400,6 +400,17 @@ To reduce the risk of DDoS attacks, VMware recommends doing one or both of the f
 2. If both of the above mitigation steps have not already been taken, try applying them.
 3. Consider adding more Gorouter VM resources to increase the number of available file descriptors.
 
+## TAS Gorouter HIGH CPU Utilization
+
+The Gorouter is experiencing average CPU utilization above 65% (warn) or 70% (severe).
+
+High CPU utilization of the Gorouter VMs can increase latency and cause throughput and/or requests per/second to
+level-off. It is recommended to keep the CPU utilization within a maximum range of 60-70% for best Gorouter performance.
+
+#### Troubleshooting
+1. Scale the Gorouters horizontally, or vertically by editing the Router VM in the Resource Config pane of the Tanzu
+   Application Service tile.
+
 ## TAS Gorouter Time Since Last Route Register Received
 
 Time since the last route register was received, emitted per Gorouter instance. 
