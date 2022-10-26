@@ -13,6 +13,18 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## 2022-42.x Release Notes
+
+With this release, we launch the Initial Availability of our **Logs (Beta)** feature.
+
+{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. If you'd like to participate, contact your Tanzu Observability account representative or [technical support](wavefront_support_feedback.html#support)."%}
+
+![The UI of the Logs Browser](images/logs_RNs.png)
+
+If the logs feature is enabled on your account:
+* You can start [sending logs](logging_send_logs.html) and correlate them with traces and metrics for unified observability and root cause analysis.
+* If you have the [**Logs** permission](permissions_overview.html), you can start using the [Logs Browser](logging_log_browser.html) to examine the ingested logs and find the root cause of critical issues. Click **Logs (Beta)** on the toolbar or drill into logs from charts, alerts, and traces. See [Get Started with Logs (Beta)](logging_overview.html) for details.
+* You can use the **Linux Host** and **Wavefront Usage** integrations that we improved for logs. See the [Integrations Release Notes](integrations_new_changed.html#october-2022) for details.
 
 ## 2022-41.x Release Notes
 

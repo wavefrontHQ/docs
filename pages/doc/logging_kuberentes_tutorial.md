@@ -16,7 +16,7 @@ Use the [demo application](https://github.com/wavefrontHQ/demo-app) to send data
 * Deploy with helm or kubectl using the preconfigured containers.
 * Build, package, push to your registry, and deploy from there.
 
-Once Tanzu Observability receives the data, you can see the logs on the Logs browser. To learn more, see [Log Browser](logging_log_browser.html).
+Once Tanzu Observability receives the data, you can see the logs on the Logs browser. To learn more, see [Logs Browser](logging_log_browser.html).
 
 ![A screenshot of the logs browser that shows the logs sent by the demo app.](images/logs_demo_app_log_browser.png)
 
