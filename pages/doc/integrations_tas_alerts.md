@@ -412,12 +412,15 @@ Indicates if routes are not being registered to apps correctly.
 
 ## TAS Gorouter VM Health
 
-[This alert measures ...]
-The Tanzu Application Service Router being down prevents users from interacting with applications and services on the
+Measures the state of the processes running on the Gorouter VM. 1 means the system is healthy, and 0 means the system is
+not healthy.
+
+The Tanzu Application Service Gorouter being down prevents users from interacting with applications and services on the
 platform.
 
 Troubleshooting Steps:
-Review detailed Tanzu Application Service Router metrics and logs for details on the cause of the error.
+1. Inspect the TAS: Router dashboard.
+2. Review detailed Gorouter metrics and logs for details on the cause of the error.
 
 ## TAS Locks Held by Auctioneer
 
@@ -455,6 +458,17 @@ The metric may occasionally be 0 when the BBS instances are performing a leader 
    * An unhealthy BBS leads to the Auctioneer showing minimal or no activity. The BBS sends work to the Auctioneer.
 3. If you are unable to resolve the issue, pull logs from the Diego BBS, which include the Locket service component logs, and contact VMware Tanzu Support.
 
+## TAS Low Proxy Points Received
+
+Measures the total PPS received by the Wavefront proxy.
+
+#### Troubleshooting
+
+1. Check the health of the `wavefront_proxy` VM on the `wavefront-nozzle` deployment. Inspect the proxy logs for
+   the `wavefront_proxy` job.
+2. Check the health of the `telegraf_agent` VM on the `wavefront-nozzle` deployment. Inspect the Telegraf logs from
+   the `telegraf_agent` job.
+
 ## TAS Ops Manager Availability
 
 A result code of a poll to the Ops Manager URL.
@@ -473,7 +487,7 @@ counter `tas.observability.telegraf.internal_agent.gather_errors` increases. By 
 has been increasing for 10 minutes.
 
 #### Troubleshooting
-1. Inspect the Telegraf logs.
+1. Inspect the Telegraf logs from the `telegraf_agent` job on the `wavefront-nozzle` deployment.
 
 ## TAS UAA Latency is Elevated
 Time in milliseconds that UAA took to process a request that the Gorouter sent to UAA endpoints.
