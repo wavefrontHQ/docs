@@ -25,7 +25,7 @@ The following videos get you started.
 <br>
 <iframe id="kmsembed-1_chq9tgn6" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_chq9tgn6/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="Wavefront Operator for Kubernetes"></iframe></td>
 <td><br><br>
-<p>This video is about recent changes to the install process and shows a demo. You can then get started by going to the following Github pages:
+<p>This video is about recent changes to the install process and shows a demo. You can then get started by going to the following GitHub pages:
 <ul>
 <li><a href="https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes">Wavefront Operator for Kubernetes README</a></li>
 <li><a href="https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes/blob/main/docs/migration.md">Wavefront Operator for Kubernetes Migration</a></li>
@@ -110,7 +110,7 @@ You can [filter the metrics](https://github.com/wavefrontHQ/wavefront-kubernetes
 
 The Wavefront Collector for Kubernetes automatically starts collecting metrics from many commonly used applications:
 * The collector auto discovers endpoints using labels. See [Auto Discovery](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/discovery.md#auto-discovery).
-* The collector also scrapes Prometheus metric endpoints such as API server, etcd, and NGINX.
+* The collector also scrapes Prometheus metric endpoints such as API server, `etcd`, and NGINX.
 
 You can also configure the Collector to collect data from Telegraf application sources, such as Redis, RabbitMQ. etc., using the [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md#telegraf_source) file.
 
