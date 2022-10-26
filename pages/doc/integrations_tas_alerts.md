@@ -469,6 +469,22 @@ Measures the total PPS received by the Wavefront proxy.
 2. Check the health of the `telegraf_agent` VM on the `wavefront-nozzle` deployment. Inspect the Telegraf logs from
    the `telegraf_agent` job.
 
+## TAS MySQL Status
+
+The TAS backing database is used for persistent data storage by several TAS components. This alert uses the metric from
+the SQL database used by system components, not from the MySQL service used by applications. TAS components that use
+system databases include the Cloud Controller, Diego Brain, Gorouter, and User Authorization and Authentication (UAA)
+server. See [TAS Components](https://docs.pivotal.io/application-service/concepts/architecture/index.html) for details.
+
+`1` indicates that TAS backing database is available, and `0` indicates that it is unavailable.
+
+#### Troubleshooting
+
+1. Inspect the troubleshooting metrics on the TAS: Platform MySQL dashboard.
+2. Check the MySQL Server logs for errors. 
+
+[//]: # (3. If your service plan is a highly available &#40;HA&#41; cluster, you can also run mysql-diag to check logs for errors.)
+
 ## TAS Ops Manager Availability
 
 A result code of a poll to the Ops Manager URL.
