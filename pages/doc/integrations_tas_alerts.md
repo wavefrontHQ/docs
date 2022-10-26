@@ -44,10 +44,9 @@ If the ActiveLocks count is not equal to the expected value, there is likely a p
 6. If you are unable to resolve on-going excessive active locks, pull logs from the Diego BBS and Auctioneer VMs, which
    includes the Locket service component logs, and contact VMware Tanzu Support.
 
-[//]: # (TODO: Ask Bob on what VM Apps Manager runs. Is it a CF app?)
 ## TAS Apps Manager Availability
 
-A result code of a poll to the Apps Manager URL.
+A result code of a poll to the [Apps Manager](https://docs.pivotal.io/application-service/console/index.html) URL.
 
 A result code of zero indicates a successful poll. For a description of the error codes see
 [telegraf HTTP Response Input Plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/http_response#result--result_code).
@@ -55,7 +54,7 @@ A result code of zero indicates a successful poll. For a description of the erro
 If your Apps Manager is unresponsive, this could indicate that your app developers are affected.
 
 #### Troubleshooting
-1. Check to see if the affected Apps Manager is running.
+1. Use the `cf` CLI to check if the Apps Manager app is running.
 2. Then check your foundation's networking, capacity, and VM health.
 
 ## TAS Auctioneer Fetch State Duration Taking Too Long
@@ -147,22 +146,16 @@ endpoints.
 
 If this metric rises, the TAS API is slowing. Response to certain cf CLI commands is slow if request latency is high.
 
-[//]: # (TODO: Ask Bob if these metrics are the same as in dashboard)
 #### Troubleshooting
-1. Check CPU and memory statistics in Ops Manager.
-2. Check BBS logs for faults and errors that can indicate issues with BBS.
-3. Check BBS VM resources. To find these metrics:
+1. Check BBS logs for faults and errors that can indicate issues with BBS.
+2. Check BBS VM resources. To find these metrics:
    1. Go to the "TAS: Job Details" dashboard.
    2. Under "Job" dropdown, select "diego_database".
    3. Look at charts "CPU Usage" and "Memory Usage".
-4. If resources are low, try scaling them up. For example, add more CPUs and memory depending on its CPU memory metrics.
-5. Check VM resources for the TAS backing database, and if they are high, consider vertically scaling them. To find
-   these metrics:
-   [//]: # (TODO: Ask bob where to find `TAS backing database` metrics)
-   1. Go to the "TAS: Job Details" dashboard.
-   2. Under "Job" dropdown, select "mysql".
-   3. Look at charts "CPU Usage" and "Memory Usage".
-6. If the above steps do not solve the issue, collect a sample of the Diego Cell logs from the BBS VMs and contact
+3. If resources are low, try scaling them up. For example, add more CPUs and memory depending on its CPU memory metrics.
+4. Check VM resources for the TAS backing database. To find these metrics, go to the "TAS: Platform MySQL" dashboard to
+   check its health. If resources are low, try scaling them up.
+5. If the above steps do not solve the issue, collect a sample of the Diego Cell logs from the BBS VMs and contact
    VMware Tanzu Support to troubleshoot further.
 
 ## TAS BBS Time to Run LRP Convergence
@@ -179,12 +172,8 @@ indicate loss of connectivity to the BBS database.
    1. Go to the "TAS: Job Details" dashboard.
    2. Under "Job" dropdown, select "diego_database".
    3. Look at charts "CPU Usage" and "Memory Usage".
-3. Check VM resources for the TAS backing database, and if they are high, consider vertically scaling them. To find
-   these metrics:
-   [//]: # (TODO: Ask bob where to find `TAS backing database` metrics)
-    1. Go to the "TAS: Job Details" dashboard.
-    2. Under "Job" dropdown, select "mysql".
-    3. Look at charts "CPU Usage" and "Memory Usage".
+3.  Check VM resources for the TAS backing database. To find these metrics, go to the "TAS: Platform MySQL" dashboard to
+    check its health. If resources are low, try scaling them up.
 4. If that does not solve the issue, pull the BBS logs and contact VMware Tanzu Support for additional troubleshooting.
 
 ## TAS BOSH Director Health
@@ -214,8 +203,6 @@ Percentage of CPU spent in user processes.
 #### Troubleshooting
 1. Investigate the cause of the spike.
 2. If the cause is a normal workload increase, then scale up the affected jobs.
-
-[//]: # (TODO -- For Gorouter CPU utilization see Whatever the go router section is)
 
 ## TAS BOSH VM Disk Used
 
@@ -281,7 +268,6 @@ on [TAS for VMs SLI Exporter VM](https://docs.pivotal.io/healthwatch/metrics.htm
 #### Troubleshooting
 1. If a failure occurs, attempt to use the failed CLI command in a terminal to see why it is failing.
 
-[//]: # (TODO: Devon and Jeanette stopped here working up from the bottom)
 ## TAS Cloud Controller and Diego Not in Sync
 
 Indicates if the `cf-apps` Domain is up-to-date, meaning that TAS app requests from Cloud Controller are synchronized to `tas.bbs.LRPsDesired` (Diego-desired AIs) for execution.
@@ -422,6 +408,16 @@ Indicates if routes are not being registered to apps correctly.
 2. Check the BOSH logs to see if the NATS, Gorouter, or Route Emitter VMs are failing.
 3. Look more broadly at the health of all VMs, particularly Diego-related VMs.
 4. If problems persist, pull the Gorouter and Route Emitter logs and contact VMware Tanzu Support to say there are consistently long delays in route registry.
+
+
+## TAS Gorouter VM Health
+
+[This alert measures ...]
+The Tanzu Application Service Router being down prevents users from interacting with applications and services on the
+platform.
+
+Troubleshooting Steps:
+Review detailed Tanzu Application Service Router metrics and logs for details on the cause of the error.
 
 ## TAS Locks Held by Auctioneer
 
