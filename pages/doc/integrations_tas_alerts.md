@@ -505,6 +505,19 @@ has been increasing for 10 minutes.
 #### Troubleshooting
 1. Inspect the Telegraf logs from the `telegraf_agent` job on the `wavefront-nozzle` deployment.
 
+## TAS UAA VM Health
+
+Measures the state of the processes running on the UAA VM. 1 means the system is healthy, and 0 means the system is
+not healthy.
+
+If UAA is down, developers and operators cannot authenticate to access the platform.
+
+#### Troubleshooting
+1. Check UAA logs.
+2. View UAA on the TAS Job Details page.
+3. Scale the UAA VMs in BOSH
+4. See the [UAA Documentation](https://docs.pivotal.io/application-service/uaa-overview.html) for more details.
+
 ## TAS UAA Latency is Elevated
 Time in milliseconds that UAA took to process a request that the Gorouter sent to UAA endpoints.
 
