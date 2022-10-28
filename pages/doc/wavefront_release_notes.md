@@ -13,6 +13,12 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## 2022-43.x Release Notes
+
+* The **Query Suggestions** for charts and alerts are now actionable. To apply a suggestion and improve the query performance, just click a suggestion and your query updates accordingly. See [Use Performance Improvement Suggestions](query_language_performance.html#use-performance-improvement-suggestions) for details.
+* The `alertTriageDashboardLinks` value for [alert resolution help](alert_target_customizing.html#information-about-alert-resolution-help) is now one or more URLs of [the LIVE dashboard displays](ui_sharing.html#share-a-link-with-the-share-dialog).
+* Improved the user experience when creating alerts from charts.
+
 ## 2022-42.x Release Notes
 
 With this release, we launch the Initial Availability of our **Logs (Beta)** feature.
