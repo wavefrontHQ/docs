@@ -518,13 +518,13 @@ Dashboards are either set to a specified time window or to Live mode. In Live mo
 Do not run charts with a 5-10 minute time window for a long time in Live mode.
 
 
-### Display Only Events You Need
+### Display the Events You Need
 
-Querying metrics and querying events are different tasks. However, by default each chart displays all source events and system events as black points or stars at the bottom of each chart. Those events queries affect dashboard performance.
+Querying metrics and querying events are different tasks. By default, each chart displays all source events and system events as black points or stars at the bottom of each chart. Those queries affect chart and dashboard performance. With the 2022-40.x release, the default option for newly created dashboards is set to **None**, i.e. all events from every chart in the dashboard are hidden by default.
 
-Here's what you can do:
+You can:
 * Select an individual chart, click the **Format** tab, and deselect **Display Source Events**.
-* Adjust events for the whole dashboard by using the **Show Events** dropdown in the top right.
+* Adjust events for the whole dashboard by using the **Show Events** drop-down menu in the top right.
 
 See [Control Event Overlays](charts_events_displaying.html#control-event-overlays) for details and screenshots.
 

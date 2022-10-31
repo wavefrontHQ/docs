@@ -10,15 +10,35 @@ Tanzu Observability by Wavefront continuously adds new integrations to the exist
 
 ## October 2022
 
+
+Logs (Beta) Related Changes:
+
+{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative or [technical support](wavefront_support_feedback.html#support)." %}
+
+
+With the Initial Availability of our Logs (Beta) feature, we have made improvements to the following integrations:
+  
+* Linux Host -- Now contains Linux Logs Setup (Beta) instructions. If Logs (Beta) is enabled for you, you can set up your Linux integration to [send logs](logging_send_logs.html) to Tanzu Observability. For details on Tanzu Observability Logs (Beta), see [Get Started with Logs (Beta)](logging_overview.html). For detailed steps on setting up the Linux Host integration, see [Linux Logs Setup (Beta)](linux.html).
+* Wavefront Usage -- We added a Logs Stats section. It contains charts that track the amount of logs that are successfully delivered and successfully queried by the Wavefront service. Also, the section shows charts that track the amount of logs that are received, queued, and blocked by the Wavefront proxy. [Read more](wavefront_monitoring.html#logs-stats).
+
 We made improvements and bug fixes to the following integrations in October 2022:
 
-* Wavefront Usage – Made significant improvements to the **Committed Rate vs Monthly Usage (PPS P95) for Billable** and **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboards. You can use the data displayed on the dashboard that suits your commit contract. For example, if you have a billable commit contract, only the **Committed Rate vs Monthly Usage (PPS P95) for Billable** dashboard will contain charts populated with data. The **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboard will be empty.
+* Wavefront Usage:
+  - Made significant improvements to the **Committed Rate vs Monthly Usage (PPS P95) for Billable** and **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboards. You can use the data displayed on the dashboard that suits your commit contract. For example, if you have a billable commit contract, only the **Committed Rate vs Monthly Usage (PPS P95) for Billable** dashboard will contain charts populated with data. The **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboard will be empty.
+  - Made a minor fix to the **Wavefront Service and Proxy Data** dashboard.
+* Terraform Provider:
+  - We added data source support for alerts, dashboards, events, derived metrics, maintenance windows, and external links.
+  - Added support for checking frequency of Terraform Wavefront Alert.
+  - User groups and roles can be now fetched by ID.
+  - We added a data source example to the sample Terraform Provider script.
+* Tanzu Application Service:
+  - Made minor updates and fixes to the Tanzu Application Service dashboards and charts.
+  - Updated the **Application CPU %** chart in the **Workload Monitoring** dashboard.
+  - Made a fix to [Step 2: Ops Manager: Install, Configure, and Deploy the Nozzle](integrations_tas_howto.html#step-2-ops-manager-install-configure-and-deploy-the-nozzle) in the Tanzu Application Service documentation.
 * Java -- Fixed the links to the Jolokia 2 Agent documentation.
-* Tanzu Application Service -- Made minor updates and fixes to the Tanzu Application Service dashboards and charts.
 * Kubernetes -- Added a new system alert to the integration. You can now get notified when the Kubernetes observability status becomes unhealthy.
 * Google Cloud Platform -- The **Google Dataproc** dashboard is now improved with information that you must create a derived metric if you see a delay in the loading of variables.
 * Wavefront Tutorial  -- Made some minor fixes to the **Introduction** dashboard.
-
 
 ## September 2022
 
