@@ -88,7 +88,7 @@ If the query uses certain functions in ways that often cause performance degrada
 <tbody>
 <tr>
 <td width="40%">
-The dot symbol on the lightbulb icon for a query indicates that Tanzu Observability has suggestions for improving the query performance.</td>
+A dot symbol on the lightbulb icon for a query indicates that Tanzu Observability has suggestions for improving the query performance.</td>
 <td width="60%"><img src="/images/lightbulb_w_dot.png" alt="screenshot highlighting the lightbulb icon with the dot"></td>
 </tr>
 <tr>
