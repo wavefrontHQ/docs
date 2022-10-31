@@ -88,18 +88,18 @@ If the query uses certain functions in ways that often cause performance degrada
 <tbody>
 <tr>
 <td width="40%">
-A dot symbol on lightbulb icon for a query indicates that Tanzu Observability has suggestions for improving the query performance.</td>
+The dot symbol on the lightbulb icon for a query indicates that Tanzu Observability has suggestions for improving the query performance.</td>
 <td width="60%"><img src="/images/lightbulb_w_dot.png" alt="screenshot highlighting the lightbulb icon with the dot"></td>
 </tr>
 <tr>
 <td width="40%">
-To see the performance improvement suggestions for a query:
+To see and, optionally, apply the performance improvement suggestions for a query:
 <ol><li>Click the lightbulb icon with the dot symbol.
 <p>The query performance panel opens on the right. You can see expandable suggestions for the functions that you can improve.</p></li>
 <li>Examine the suggestions:
 <ul><li>Expand a suggestion and see the function in the query to which it applies. The corresponding function is highlighted.</li>
 <li>Select a function in the query and see the suggestion that applies to it, if any. The corresponding suggestion expands.</li></ul></li>
-<li>To apply a suggestion, click a value or function in the suggestion.
+<li>To apply a suggestion, click a value or function link in the suggestion.
 <p>A tooltip confirms that the suggestion is successfully applied to the query. The query is updated and the suggestion disappears from the panel on the right.</p></li></ol></td>
 <td width="60%"><img src="/images/query_suggestions.png" alt="screenshot highlighting the lightbulb icon and suggestions on the right"></td>
 </tr>
