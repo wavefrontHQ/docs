@@ -15,11 +15,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 ## 2022-43.x Release Notes
 
-We’ve made the following improvements to the Wavefront service:
-
-* The `alertTriageDashboardLinks` value for [alert resolution help](alert_target_customizing.html#information-about-alert-resolution-help) is now one or more URLs of [the LIVE dashboard displays](ui_sharing.html#share-a-link-with-the-share-dialog).
-
-* The **Query Suggestions** for charts and alerts are now actionable. To apply a suggestion and improve the query performance, click a suggestion and your query updates accordingly. See [Use Performance Improvement Suggestions](query_language_performance.html#use-performance-improvement-suggestions) for details.
+The **Query Suggestions** for charts and alerts are now actionable. To apply a suggestion and improve the query performance, click a suggestion and your query updates accordingly. See [Use Performance Improvement Suggestions](query_language_performance.html#use-performance-improvement-suggestions) for details.
 ![screenshot of a query and the Suggestions panel with clickable values](images/Query_suggestions_RNs.png)
 
 
