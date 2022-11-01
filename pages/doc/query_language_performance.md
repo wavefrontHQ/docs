@@ -71,7 +71,7 @@ To see the performance statistics for a particular query of a chart or alert:
 <li>Open the chart or alert in edit mode.</li>
 <li>Click the lightbulb icon for the query.
 <p>The query performance panel opens on the right. On the top of the panel, you can see the stats for the query.</p>
-</p>For a chart query, you can see how much the query contributes to the <a href ="#view-chart-statistics">overall chart performance</a>.</p></li>
+<p>For a chart query, you can see how much the query contributes to the <a href ="#view-chart-statistics">overall chart performance</a>.</p></li>
 <li>For a chart query, hover over each characteristic in the stats and see the query contributions as percentages of the overall chart stats. </li>
 <li>Check for <a href ="#use-performance-improvement-suggestions">suggestions</a> to improve the query performance.</li></ol>
 </td>
