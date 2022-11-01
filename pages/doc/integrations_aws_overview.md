@@ -107,9 +107,9 @@ For information about external IDs and how they are used in AWS, see [How to Use
 
 ### Giving Limited Access
 
-Instead of giving global read-only access, you can give more limited access.
+Instead of giving global read-only access, you can give more limited access.  
 
-The required permissions depend on the integration and on the service you want to monitor, as shown in the following table:
+The required permissions depend on the integration and on the service you want to monitor, as shown in the table below. Limited access is sufficient for monitoring your AWS services.
 <table>
 <thead>
 <tr><th width="20%">Integration</th><th width="45%">Description</th><th width="35%">Required Permissions</th></tr>
@@ -136,7 +136,7 @@ The required permissions depend on the integration and on the service you want t
     <td>ec2:DescribeVolumes<br />
       ec2:DescribeInstances<br />
     ec2:DescribeReservedInstances <br />
-    rds:DescribeDBClusters<br />
+    rds:Describe*<br />
     sqs:ListQueue*<br />
     sqs:GetQueue*<br />
     dynamodb:ListTables<br />
@@ -173,7 +173,7 @@ You can explicitly specify the access permissions in a custom IAM policy, as sho
                 "ec2:Describe*",
                 "s3:List*",
                 "s3:Get*",
-                "rds:DescribeDBClusters",
+                "rds:Describe*",
                 "sqs:ListQueue*",
                 "sqs:GetQueue*",
                 "dynamodb:ListTables",
