@@ -98,9 +98,9 @@ To see and, optionally, apply the performance improvement suggestions for a quer
 <p>The query performance panel opens on the right. You can see expandable suggestions for the functions that you can improve.</p></li>
 <li>Examine the suggestions:
 <ul><li>Expand a suggestion and see the function in the query to which it applies. The corresponding function is highlighted.</li>
-<li>Select a function in the query and see the suggestion that applies to it, if any. The corresponding suggestion expands.</li></ul></li>
+<li>Click a function in the Query Builder or double-click a function in the Query Editor, and see the suggestion that applies to that function, if any. The corresponding suggestion expands.</li></ul></li>
 <li>To apply a suggestion, click a value or function link in the suggestion.
-<p>A tooltip confirms that the suggestion is successfully applied to the query. The query is updated and the suggestion disappears from the panel on the right.</p></li></ol></td>
+<p>The query is updated and the suggestion disappears from the panel on the right. In the Query Builder a tooltip confirms that the suggestion is successfully applied to the query.</p></li></ol></td>
 <td width="60%"><img src="/images/query_suggestions.png" alt="screenshot highlighting the lightbulb icon and suggestions on the right"></td>
 </tr>
 </tbody>
