@@ -123,13 +123,13 @@ If this metric rises, the TAS API is slowing down. Response to certain `cf` CLI 
 **Troubleshooting**
 1. Check BBS logs for faults and errors that can indicate issues with BBS.
 2. Check BBS VM resources. To find these metrics:
-   1. In your TAS integration, on the **Dashboards** tab, click the **Job Details** dashboard.
+   1. In your TAS integration, on the **Dashboards** tab, click the **TAS: Job Details** dashboard.
    2. From the **Job** drop-down menu, select **diego_database**.
    3. Look at the charts **CPU Usage** and **Memory Usage**.
 3. If resources are low, try scaling them up. For example, add more CPUs and memory depending on the CPU memory metrics.
 4. Check VM resources for the TAS backing database. 
    
-   To find these metrics, go to the **Platform MySQL** dashboard to check the health. If resources are low, try scaling them up.
+   To find these metrics, go to the **TAS: Platform MySQL** dashboard to check the health. If resources are low, try scaling them up.
 5. If the above steps do not solve the issue, collect a sample of the Diego Cell logs from the BBS VMs and contact VMware Tanzu Support to troubleshoot further.
 
 ## TAS BBS Time to Run LRP Convergence
@@ -142,12 +142,12 @@ If the convergence run begins to take long time, apps or Tasks may be crashing w
 1. Check BBS logs for errors.
 2. Try vertically scaling the BBS VM resources up. For example, add more CPUs or memory depending on its CPU and memory
  metrics.
-   1. In your TAS integration, on the **Dashboards** tab, click the **Job Details** dashboard.
+   1. In your TAS integration, on the **Dashboards** tab, click the **TAS: Job Details** dashboard.
    2. From the **Job** drop-down menu, select **diego_database**.
    3. Look at the charts **CPU Usage** and **Memory Usage**.
 3. Check VM resources for the TAS backing database. 
     
-   To find these metrics, go to the **Platform MySQL** dashboard to check the health. If resources are low, try scaling them up.
+   To find these metrics, go to the **TAS: Platform MySQL** dashboard to check the health. If resources are low, try scaling them up.
 4. If that does not solve the issue, pull the BBS logs and contact VMware Tanzu Support for additional troubleshooting.
 
 ## TAS BOSH Director Health
@@ -270,7 +270,7 @@ Insufficient free disk on Diego Cells prevents the staging or starting of apps o
  
 `ERR Failed to stage app: insufficient resources`
 
-A Diego Cell will not stage an application if the Cell has less than 6 GB remaining, which is the default chunk size.
+A Diego Cell will not stage an application if the Cell has less than 6 GB remaining.
 
 **Troubleshooting**
 
@@ -399,7 +399,7 @@ platform.
 
 **Troubleshooting**
 
-1. In you TAS integration, on the **Dashboards** tab, click the **Router** dashboard.
+1. In you TAS integration, on the **Dashboards** tab, click the **TAS: Router** dashboard.
 2. Review detailed Gorouter metrics and logs for details on the cause of the error.
 
 ## TAS Locks Held by Auctioneer
@@ -431,7 +431,7 @@ Therefore, the expected value is 1. The metric can occasionally be 0 when the BB
 1. Run `monit status` on the Diego database VM to check for failing processes.
 2. If there are no failing processes, then review the logs for BBS.
    * A healthy BBS shows obvious activity around starting or claiming LRPs.
-   * An unhealthy BBS leads to the Auctioneer showing minimal or no activity. 
+   * The BBS sends work to the Auctioneer, an unhealthy BBS leads to the Auctioneer showing minimal or no activity. 
      
      The BBS sends work to the Auctioneer.
 3. If you are unable to resolve the issue, pull logs from the Diego BBS, which include the Locket service component logs, and contact VMware Tanzu Support.
@@ -457,9 +457,9 @@ server. See [TAS Components](https://docs.pivotal.io/application-service/concept
 
 **Troubleshooting**
 
-1. Inspect the troubleshooting metrics on the **Platform MySQL** dashboard of the TAS integration.
+1. Inspect the troubleshooting metrics on the **TAS: Platform MySQL** dashboard of the TAS integration.
 2. Check the MySQL Server logs for errors. 
-3. If your service plan is a highly available (HA) cluster, you can also run `mysql-diag` to check the logs for errors.
+
 
 ## TAS Ops Manager Availability
 
