@@ -438,7 +438,6 @@ The proxy name refers to the source name that the proxy uses to report its own m
 <ol>
 <li>Click the gear icon and select <strong>API Documentation</strong>. </li>
 <li>Expand the <strong>Proxy</strong> category and click <code>GET /api/v2/proxy/{id}</code>. </li>
-<li>Click <strong>Try it out</strong>.  </li>
 <li>In the <strong>id</strong> text box, enter the proxy ID that you copied in the previous step and click <strong>Execute</strong>.</li>
 <li>In the response body, find the userid. This is the account that created the proxy. </li>
 </ol>
