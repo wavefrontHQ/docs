@@ -162,7 +162,8 @@ support:DescribeTrustedAdvisorCheckResult<br /></td>
 
 You can explicitly specify the access permissions in a custom IAM policy, as shown in the following example snippet. 
 
-**Note**: This snippet contains the minimum required list of services and permissions. If you delete a service and its permission from the list, you will probably see an error and the integration won't work.
+**Note**: This snippet contains the minimum required list of services and permissions. If you delete a service and its permission from the list, some of the integration functionality might get impacted.
+
 ```
 {
     "Version": "2012-10-17",
