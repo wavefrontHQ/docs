@@ -116,7 +116,7 @@ To restore an orphan dashboard or alert:
 
 ### Recover a Permanently Deleted Dashboard
 
-A permanently deleted dashboard does not show in the trash and becomes inaccessible to all users, including the Super Admin. As a Super Admin, you can attempt to restore the dashboard by using the Wavefront API.
+A permanently deleted dashboard does not show in the trash and becomes inaccessible to all users, including the Super Admin. As a Super Admin, you can try to restore the dashboard by using the Wavefront API.
 
 1. Log in as a Super Admin user.
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **API Documentation**.
