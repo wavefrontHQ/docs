@@ -152,7 +152,7 @@ If the convergence run begins to take long time, apps or Tasks may be crashing w
 
 ## TAS BOSH Director Health
 
-The total number of times the BOSH health SLI test suite fails. A failed test suite is one in which any number of tests within the test suite fail. With the default thresholds, the alert will fire after 2 consecutive failures. 
+The total number of times the BOSH health SLI test suite has failed. A failed test suite is one in which any number of tests within the test suite fail. With the default thresholds, the alert will fire after 2 consecutive failures. 
 
 The BOSH health metric exporter VM, bosh-health-exporter, creates a BOSH deployment called bosh-health every ten minutes. This BOSH deployment deploys another VM, bosh-health-check, which runs a suite of SLI tests to validate the functionality of the BOSH Director. After the SLI tests are complete, the BOSH health metric exporter VM collects the metrics from the bosh-health-check VM, then deletes the bosh-health deployment and the bosh-health-check VM.
 
@@ -229,7 +229,7 @@ By default, entries appear with the following color-coding:
 
 ## TAS CLI Command Status
 
-The total number of times the App SLI Smoke Test Suite fails. With the default thresholds, the alert will fire after 2 consecutive failures.
+The total number of times the App SLI Smoke Test Suite has failed. With the default thresholds, the alert will fire after 2 consecutive failures.
 
 The App SLI Smoke Test Suite gets metrics from the TAS for VMs SLI exporter VM, pas-sli-exporter, which tests the functionality of the `cf` CLI (e.g. `cf push`, `cf login`) every 5 minutes. These tests are intended to give Platform Operators confidence that Application Developers can successfully interact with and manage applications on the platform. The tests will also report a failure if any task takes more than 5 minutes to complete.
 
