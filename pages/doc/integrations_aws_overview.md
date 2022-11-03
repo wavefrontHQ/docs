@@ -107,9 +107,10 @@ For information about external IDs and how they are used in AWS, see [How to Use
 
 ### Giving Limited Access
 
-Instead of giving global read-only access, you can give more limited access.
+Instead of giving global read-only access, you can give more limited access.  
 
-The required permissions depend on the integration and on the service you want to monitor, as shown in the following table:
+The required permissions depend on the integration and on the services you want to monitor, as shown in the table below. Limited access is sufficient for monitoring your AWS services, but you need to include the whole list of minimum required services and permissions as shown in the [example snippet](integrations_aws_overview.html#create-iam-policy-to-specify-limited-access). 
+
 <table>
 <thead>
 <tr><th width="20%">Integration</th><th width="45%">Description</th><th width="35%">Required Permissions</th></tr>
@@ -136,7 +137,7 @@ The required permissions depend on the integration and on the service you want t
     <td>ec2:DescribeVolumes<br />
       ec2:DescribeInstances<br />
     ec2:DescribeReservedInstances <br />
-    rds:DescribeDBClusters<br />
+    rds:Describe*<br />
     sqs:ListQueue*<br />
     sqs:GetQueue*<br />
     dynamodb:ListTables<br />
@@ -160,7 +161,9 @@ support:DescribeTrustedAdvisorCheckResult<br /></td>
 
 ### Create IAM Policy to Specify Limited Access
 
-You can explicitly specify the access permissions in a custom IAM policy, as shown in the following example snippet.
+You can explicitly specify the access permissions in a custom IAM policy, as shown in the following example snippet. 
+
+**Note**: This snippet contains the minimum required list of services and permissions. If you delete a service and its permission from the list, some of the integration functionality might get impacted.
 
 ```
 {
@@ -173,7 +176,7 @@ You can explicitly specify the access permissions in a custom IAM policy, as sho
                 "ec2:Describe*",
                 "s3:List*",
                 "s3:Get*",
-                "rds:DescribeDBClusters",
+                "rds:Describe*",
                 "sqs:ListQueue*",
                 "sqs:GetQueue*",
                 "dynamodb:ListTables",
