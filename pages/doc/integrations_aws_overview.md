@@ -109,7 +109,7 @@ For information about external IDs and how they are used in AWS, see [How to Use
 
 Instead of giving global read-only access, you can give more limited access.  
 
-The required permissions are specific for the integration and the services you want to monitor. Limited access is sufficient for monitoring your AWS services, but you need to include the whole list of minimum required services and permissions as shown in the [example snippet](integrations_aws_overview.html#create-iam-policy-to-specify-limited-access). 
+The required permissions for limited access, shown in the table below, are sufficient for monitoring your AWS services. You need to include the whole list of minimum required services and permissions as shown in the [example snippet](integrations_aws_overview.html#create-iam-policy-to-specify-limited-access). 
 
 <table>
 <thead>
