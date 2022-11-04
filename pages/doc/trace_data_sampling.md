@@ -161,7 +161,7 @@ For example, suppose you set the sampling rate to 20% and the sampling duration 
 
 As a result, the ingested sample will contain somewhat more than 20% of the generated traces, with some spans that are shorter than 45ms.
 
-{% include note.html content="A span that contains an error is always sent to the Wavefront service, regardless of the span's duration or whether it falls in a specified sampling percentage. " %}
+{% include note.html content="A span that contains an error is always removed and not sent to the Wavefront service. " %}
 
 ## Setting Up Explicit Sampling Through the Proxy
 
