@@ -109,7 +109,7 @@ For information about external IDs and how they are used in AWS, see [How to Use
 
 Instead of giving global read-only access, you can give more limited access.  
 
-The required permissions depend on the integration and on the services you want to monitor, as shown in the table below. Limited access is sufficient for monitoring your AWS services, but you need to include the whole list of minimum required services and permissions as shown in the [example snippet](integrations_aws_overview.html#create-iam-policy-to-specify-limited-access). 
+The required permissions for limited access, shown in the table below, are sufficient for monitoring your AWS services. You need to include the whole list of minimum required services and permissions as shown in the [example snippet](integrations_aws_overview.html#create-iam-policy-to-specify-limited-access). 
 
 <table>
 <thead>
@@ -124,15 +124,15 @@ The required permissions depend on the integration and on the services you want 
 </tr>
 <tr>
     <td>CloudTrail <br /></td>
-    <td>Retrieves EC2 event information and creates Tanzu Observability System events </td>
+    <td>Retrieves EC2 event information and creates Tanzu Observability System events. </td>
     <td>List and Get permissions on the S3 bucket where the logs are delivered.
     </td>
 </tr>
 <tr>
     <td>AWS Metrics+ </td>
     <td>Retrieves additional metrics, tags and other metadata using AWS APIs.<ul>
-    <li>The <strong>es:</strong> permissions are needed if you want to extract AWS tags and associate them (as tags) with metrics. These permissions are especially useful when you're using ElasticSearch. </li>
-    <li>The <strong>iam:</strong> permission is needed if you want to pull not only numeric account IDs but also the corresponding human-readable account IDs.   </li>
+    <li>The <strong>es:</strong> permissions extract AWS tags and associate them (as tags) with metrics. These permissions are especially useful when you're using ElasticSearch. </li>
+    <li>The <strong>iam:</strong> permission pulls not only numeric account IDs but also the corresponding human-readable account IDs.   </li>
     </ul> </td>
     <td>ec2:DescribeVolumes<br />
       ec2:DescribeInstances<br />
