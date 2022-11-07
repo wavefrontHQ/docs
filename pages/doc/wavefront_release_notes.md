@@ -13,11 +13,12 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
-## 2022-43.x Release Notes
+## 2022-44.x Release Notes
 
-The **Query Suggestions** for charts and alerts are now actionable. To apply a suggestion and improve the query performance, click a suggestion and your query updates accordingly. See [Use Performance Improvement Suggestions](query_language_performance.html#use-performance-improvement-suggestions) for details.
-![screenshot of a query and the Suggestions panel with clickable values](images/Query_suggestions_RNs.png)
+* The **Query Suggestions** for charts and alerts are now actionable. To apply a suggestion and improve the query performance, click a suggestion and your query updates accordingly. See [Use Performance Improvement Suggestions](query_language_performance.html#use-performance-improvement-suggestions) for details.
 
+    ![screenshot of a query and the Suggestions panel with clickable values](images/Query_suggestions_RNs.png)
+* We made major improvements to our help docs to fix some issues and include more help pages.
 
 ## 2022-42.x Release Notes
 
