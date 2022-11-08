@@ -115,9 +115,22 @@ To get the account ID and the external ID, do the following:
 1. Under **Access management** on the left, click **Roles**.
 1. Click **Create role**.
 1. Click the **AWS account** tile, and select the **Another AWS account** radio button.
-1. Paste the copied Wavefront account information.           
-   1. **Account ID** - The identifier of the Wavefront account to which you want to grant access.   
-   2. Select the option **Require external ID** and provide the external ID. 
+1. Paste the copied Wavefront account information.
+   
+   <table>
+   <tbody>
+   <thead><tr><th width="35%">Option</th><th width="65%">Description</th></tr></thead>
+   <tr>
+   <td><strong>Account ID</strong></td>
+   <td>The identifier of the Wavefront account to which you want to grant access.</td>
+   </tr>
+   <tr>
+   <td><strong>Require external ID</strong></td>
+   <td>Select the option <strong>Require external ID</strong> and provide the external ID.</td>
+   </tr>
+   </tbody>
+   </table>
+   
      
 1. Click **Next**.
 1. On the **Add permissions** screen, search for, and select the **ReadOnlyAccess** check box.
@@ -207,9 +220,19 @@ After you create the policy with the required permissions, create a role with li
     1. Click **Create role**.
     1. Click the **AWS account** tile, and select the **Another AWS account** radio button.
     1. Paste the copied Wavefront account information.           
-       1. **Account ID** - The identifier of the Wavefront account to which you want to grant access.   
-       2. Select the option **Require external ID** and provide the external ID. 
-         
+        <table>
+        <tbody>
+        <thead><tr><th width="35%">Option</th><th width="65%">Description</th></tr></thead>
+        <tr>
+        <td><strong>Account ID</strong></td>
+        <td>The identifier of the Wavefront account to which you want to grant access.</td>
+        </tr>
+        <tr>
+        <td><strong>Require external ID</strong></td>
+        <td>Select the option <strong>Require external ID</strong> and provide the external ID.</td>
+        </tr>
+        </tbody>
+        </table>
     1. Click **Next**.
     1. On the **Add permissions** screen, search for, and select the check box of the policy you have created.
     1. Click **Next**.
@@ -220,9 +243,10 @@ After you create the policy with the required permissions, create a role with li
 <a name="required_permissions"></a>
 
 <p>
-<span style="font-size: medium; font-weight: 800">Required Permissions for Limited Access</span></p>
+<span style="font-size: medium; font-weight: 800">Minimum Required Permissions for Limited Access</span></p>
 
-The required permissions depend on the integration and on the service you want to monitor, as shown in the following table:
+The required permissions for limited access, shown in the table below, are sufficient for monitoring your AWS services. You need to include the whole list of minimum required services and permissions as shown in the [example snippet](#example_snippet).
+
 <table>
 <thead>
 <tr><th width="20%">Integration</th><th width="45%">Description</th><th width="35%">Required Permissions</th></tr>
@@ -277,6 +301,8 @@ support:DescribeTrustedAdvisorCheckResult<br /></td>
 <span style="font-size: medium; font-weight: 800">An Example JSON Snippet of a Policy</span></p>
 
 You can explicitly specify the limited access permissions in a custom IAM policy, as shown in the following example JSON snippet.
+
+**Note**: This snippet contains the minimum required list of services and permissions. If you delete a service and its permission from the list, some of the integration functionality might get impacted.
 
 ```
 {
