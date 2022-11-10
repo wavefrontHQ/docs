@@ -99,7 +99,6 @@ This initial release of the VMware vRealize Operations Cloud integration has the
 * In this release, you will see all the vCenter Server instances that you have configured in vRealize Operations Cloud. To shortlist the vCenter Server instances you want to monitor, apply a filter by using the REST API. 
   1. In your Wavefront cluster, click the gear icon on top right, and select **API Documentation**.
   2. Expand **Cloud Integration** and click the `GET /api/v2/cloudintegration` request.
-  3. Click **Try it out**.
      
      You will see the list of the cloud integrations in the **Response Body** in JSON format. 
 
@@ -126,7 +125,7 @@ This initial release of the VMware vRealize Operations Cloud integration has the
        
        **Leave only the names of the vCenter Server instances that you want to monitor.**
     
-    7. After you create the JSON file, click the `PUT /api/v2/cloudintegration/{id}` request, and click **Try it out**.
+    7. After you create the JSON file, click the `PUT /api/v2/cloudintegration/{id}` request.
     8. In the **id** text box, enter the ID of the integration that you copied in Step 5.
     9. In the **Edit Value** text box, enter the contents of the JSON file that you created in Step 6.
     10. Click **Execute**. 
