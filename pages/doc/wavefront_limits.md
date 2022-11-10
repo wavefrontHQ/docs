@@ -119,7 +119,7 @@ You can start with Wavefront either as part of a free trial or as a new customer
 <tr>
 <td>Span annotations count limit</td>
 <td>Maximum number of point tags associated with a span. </td>
-<td>20</td>
+<td>50</td>
 </tr>
 <tr>
 <td>Span annotations key length limit</td>
