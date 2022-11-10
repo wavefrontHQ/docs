@@ -37,39 +37,71 @@ Watch this video to learn how to optimize dashboard and query performance.
 <iframe id="kmsembed-1_ynnxe6tn" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_ynnxe6tn/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0"></iframe>
 </p>
 
-## Use Statistics and Suggestions
+## Use Performance Statistics
 
-In the query editor, you can show query stats for the whole chart or stats and suggestions for each query. We collect the following statistics for the chart and for each query:
+You can see performance statistics for the whole chart and for each query of the chart. For the performance statistics, we measure the following characteristics:
+- **Cardinality**: Number of unique time series. A unique time series has unique metric name, source name and point tags (key and value). For example, you might receive `networks_bytes_received` from multiple sources and with multiple point tags (e.g. `availability_zone`). You can lower cardinality for each query (and the chart) by filtering, for example, limiting the query to certain sources, certain availability zones, etc.
 - **Points Scanned**: Number of data points that were queried to show the chart on the screen. You can affect this number by including the time window in the query or by changing the time window interactively.
 - **Duration**: Time between query start and return of result.
-- **Cardinality**: Number of unique time series. A unique time series has unique metric name, source name and point tags (key and value). For example, you might receive `networks_bytes_received` from multiple sources and with multiple point tags (e.g. `availability_zone`). You can lower cardinality for each query (and the chart) by filtering, for example, limiting the query to certain sources, certain availability zones, etc.
 
-### Chart Performance Stats
+### View Chart Statistics
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="40%">
-To see chart performance stats:
-<ol><li>
-Put the chart in Edit mode or click the chart name.</li>
-<li>Click the ellipsis icon and select <strong>Show Chart Stats</strong>.</li></ol></td>
-<td width="60%"><img src="/images/chart_stats_problem.png" alt="screenshot shows chart stats"></td>
+To see the overall performance statistics for a chart:
+<ol>
+<li>Navigate to the dashboard containing the chart and, optionally, open the chart in edit mode.</li>
+<li>Click the ellipsis icon for the chart and select <strong>Show Chart Stats</strong>.</li></ol>
+<p>The chart stats window opens. You can move the chart stats window within the chart borders.</p></td>
+<td width="60%"><img src="/images/chart_stats.png" alt="screenshot shows the ellipsis drop-down menu and the chart stats"></td>
 </tr>
 </tbody>
 </table>
 
-### Query Stats and Suggestions
+### View Query Statistics
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="40%">
-To see information for a single query, click the <strong>lightbulb icon</strong>. In the panel to the right you see:
-<ul><li>
-The query execution statistics for running the query in the current environment. See <a href="#use-statistics-and-suggestions"> Use Statistics and Suggestions</a> for details on what the statistics mean and how to remedy problems.</li>
-<li>If the query uses certain functions in ways that often cause performance degradation, the Suggestions field shows how to improve the query, and includes a link to the doc for details. </li></ul></td>
-<td width="60%"><img src="/images/query_stats_annotated.png" alt="screenshot highlighting Show/Hide stats icon, stats, and suggestions"></td>
+To see the performance statistics for a particular query of a chart or alert:
+<ol>
+<li>Open the chart or alert in edit mode.</li>
+<li>Click the lightbulb icon for the query.
+<p>The query performance panel opens on the right. On the top of the panel, you can see the stats for the query.</p>
+<p>For a chart query, you can see how much the query contributes to the <a href ="#view-chart-statistics">overall chart performance</a>.</p></li>
+<li>For a chart query, hover over each characteristic in the stats and see the query contributions as percentages of the overall chart stats. </li>
+<li>Check for <a href ="#use-performance-improvement-suggestions">suggestions</a> to improve the query performance.</li></ol>
+</td>
+<td width="60%"><img src="/images/query_stats_annotated.png" alt="screenshot highlighting the lightbulb icon and the query stats on the right"></td>
+</tr>
+</tbody>
+</table>
+
+## Use Performance Improvement Suggestions
+
+If the query uses certain functions in ways that often cause performance degradation, Tanzu Observability shows actionable suggestions for improving the query performance. The suggestions also include links to documentation and videos for details.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">
+A dot symbol on the lightbulb icon for a query indicates that Tanzu Observability has suggestions for improving the query performance.</td>
+<td width="60%"><img src="/images/lightbulb_w_dot.png" alt="screenshot highlighting the lightbulb icon with the dot"></td>
+</tr>
+<tr>
+<td width="40%">
+To see and, optionally, apply the performance improvement suggestions for a query:
+<ol><li>Click the lightbulb icon with the dot symbol.
+<p>The query performance panel opens on the right. You can see expandable suggestions for the functions that you can improve.</p></li>
+<li>Examine the suggestions:
+<ul><li>Expand a suggestion and see the function in the query to which it applies. The corresponding function is highlighted.</li>
+<li>Click a function in the Query Builder or double-click a function in the Query Editor, and see the suggestion that applies to that function, if any. The corresponding suggestion expands.</li></ul></li>
+<li>To apply a suggestion, click a value or function link in the suggestion.
+<p>The query is updated and the suggestion disappears from the panel on the right. In the Query Builder a tooltip confirms that the suggestion is successfully applied to the query.</p></li></ol></td>
+<td width="60%"><img src="/images/query_suggestions.png" alt="screenshot highlighting the lightbulb icon and suggestions on the right"></td>
 </tr>
 </tbody>
 </table>
