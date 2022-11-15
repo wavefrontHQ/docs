@@ -26,6 +26,8 @@ We made improvements to the following integrations in November 2022:
 * Microsoft Azure:
   - Updated the **Top 10 CPU Utilization** chart in the **Azure: Virtual Machine** dashboard to use the average value instead of the total value.
   - Updated the **Overview** tab to show information about the metric names. The default value for all azure metrics is the total value.
+  
+* Tanzu Application Service -- Made significant updates and improvements to the TAS integration system alerts. In addition, to improve customer experience, we have added new alerts and deleted the alerts that are no longer needed. For more information and troubleshooting steps, see [Tanzu Application Service Alerts](integrations_tas_alerts.html).
 
 ## October 2022
 
