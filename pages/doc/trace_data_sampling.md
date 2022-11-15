@@ -157,7 +157,7 @@ For example, suppose you set the sampling rate to 20% and the sampling duration 
 
 As a result, the ingested sample will contain somewhat more than 20% of the generated traces, with some spans that are shorter than 45ms.
 
-{% include note.html content="A span that contains an error, the same way as any other span, follows the rules for rate-based sampling and the duration-based sampling. Therefore, the error tag is ignored unless you create a sampling policy to keep the spans that contain errors." %}
+{% include note.html content="A span that contains an error follows the rules for rate-based sampling and duration-based sampling in the same way as any other span. Therefore, the error tag is ignored unless you create a sampling policy to keep the spans that contain errors." %}
 
 ## Setting Up Explicit Sampling Through the Proxy
 
