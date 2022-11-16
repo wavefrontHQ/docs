@@ -124,7 +124,7 @@ You can set up your environment to use production proxies as follows:
 4. (Optional) In the **Proxy Port** field, provide a custom proxy port (Default is 2878).
 5. Click **Save**.
 
-### How can I customize metrics ingestion?
+### How can I customize metrics ingestion per component?
 
 If you don't want to monitor some of your TAS platform metrics, you can choose not to send them. If those metrics are monitored with any out-of-the-box or custom dashboards, they show up as No Data.
 
@@ -135,15 +135,24 @@ For example, if you don’t want to ingest certificate expiration metrics, then 
 
 ![Cert Expiration Exporter is in process of being changed from Automatic to 0](images/tas_to_resource_config.png)
 
-### How can I customize proxy behavior?
+### How can I set up a metrics filter (allow/block list)?
+
+If you only want to consume a subset of your metrics, you can achieve that through the use of an allow list or block list.
+
+You can specify the filter as follows:
+1. In OpsManager, click the **Wavefront Proxy Config** pane.
+2. In that pane, scroll down to **Filter metrics by metric name**, and select whether you want an allow list or a block list.
+3. Enter one or more regex patterns for your chosen list. Each pattern must begin and end with **/** and be on its own line.
+
+### How can I further customize proxy behavior?
 
 The Wavefront proxy allows you to control many aspects of your ingestion pipeline with configuration properties and preprocessor rules.
 - **Configuration file**: The proxy processes data according to a configuration file. You can modify configuration properties -- for example, to create `block` list and `allow` list regex patterns, specify information about certain data formats, and much more. See [Configuring Wavefront Proxies](proxies_configuring.html).
 - **Preprocessor Rules**: Starting with proxy version 4.1, the Wavefront proxy includes a preprocessor that applies user-defined rules before data is sent to the Wavefront service. You can use preprocessor rules to correct certain data quality issues when you can't fix the problem at the emitting source. See [Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules.html).
 
 You can specify custom elements as follows:
-1. In OpsManager, click **Wavefront Proxy Config**.
-2. Click **Wavefront Proxy Config**, and then click **Custom**.
+1. In OpsManager, click the **Wavefront Proxy Config** pane.
+2. In that pane, under **Custom Proxy Config**, click **Custom**.
 3. Make your changes and click **Save**.
 
 ### Things aren't working. What can I do?
