@@ -29,6 +29,8 @@ We made improvements to the following integrations in November 2022:
   
 * Tanzu Application Service -- Made significant updates and improvements to the TAS integration system alerts. In addition, to improve customer experience, we have added new alerts and deleted the alerts that are no longer needed. For more information and troubleshooting steps, see [Tanzu Application Service Alerts](integrations_tas_alerts.html).
 
+* VMware GemFire (previously, VMware Tanzu GemFire) -- Replaced the dashboard for the GemFire for Kubernetes v1.0 operator with the dashboard for Gemfire for Kubernetes v2.0/v2.1 operator.
+
 ## October 2022
 
 Logs (Beta) Related Changes:
