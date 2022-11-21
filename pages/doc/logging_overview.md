@@ -55,7 +55,7 @@ Each log has required attributes, standard attributes, and custom tags. We token
     </td>
     <td width="80%">
     <ul>
-    <li><strong>timestamp</strong>: The time when the log was created. The value must be in Epoch milliseconds.
+    <li><strong>timestamp</strong> or <strong>log_timestamp</strong>: The time when the log was created. The value must be in Epoch milliseconds.
     <p>If your log shipper sends this attribute with a different name, use the <code>customTimestampTags</code> proxy configuration property to establish the mapping.</p>
     <p>If you don't send or map this attribute, we set the value by using our system time.</p>
     </li>
