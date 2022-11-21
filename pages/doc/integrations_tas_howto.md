@@ -270,14 +270,20 @@ In Ops Manager, click the Tanzu Observability by Wavefront tile. With **Settings
    <br/><br/>Select to use advanced options, if you are an advanced user and want to configure an additional Telegraf VM for scraping additional metric endpoints that are not covered by the original Telegraf tile.
    <ol><li>Enter the custom proxy URL and port number.
    </li>
-   <li>In the <strong>Advanced Telegraf VM Inputs</strong> text field, enter the inputs that you use to scrape data from different data sources.
+   <li>In the <strong>Additional Telegraf VM Inputs</strong> text field, enter the inputs that you use to scrape data from different data sources.
    <br/><br/> The formatting in this field follows normal Telegraf TOML syntax.</li>
+   <li>Update the following additional Telgraf VM options per your needs:
+    <ul><li>The scrape interval (in seconds)</li>
+    <li>The metric buffer limit (in points)</li>
+    <li>The flush interval (in seconds).</li>
+    </ul>
+    </li>
+   <li>Select the <strong>Additional Telegraf VM Convert Paths</strong> check box to set convert paths.
+   <br/><br/>
+   Convert paths is used on metrics to replace all underscores with the metric separator that you specify.
+   </li>
    <li>In the <strong>Additional Telegraf VM Metric Separator</strong> text field, enter the characters that you use as the separators when converting metric path names.
    <br/><br/>This can be a single character or a set of characters.
-   </li>
-   <li>In the <strong>Additional Telegraf VM Convert Paths</strong> text field, enter the flag to set convert paths.
-   <br/><br/>
-   Convert paths is used on metrics to replace all underscores with the metric separator.
    </li>
    </ol>
    
