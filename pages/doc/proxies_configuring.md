@@ -396,7 +396,8 @@ Default: &lt;cfg_path&gt;/logsIngestion.yaml.</td>
 </tr>
 <tr>
 <td>proxyname</td>
-<td>A name unique across your account representing the name of the proxy. The proxyname is used for the source tag of the proxy metrics, such as JVM statistics, per-proxy point rates, and so on.</td>
+<td>A name unique across your account representing the name of the proxy. The proxyname is used for the source tag of the proxy metrics, such as JVM statistics, per-proxy point rates, and so on.<br/>
+Default: hostname.</td>
 <td>A string containing alphanumeric characters and periods.</td>
 <td>12.0</td>
 </tr>
