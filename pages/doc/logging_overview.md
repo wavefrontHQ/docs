@@ -59,7 +59,7 @@ Each log has required attributes, standard attributes, and custom tags. We token
     <p>If your log shipper sends this attribute with a different name, use the <code>customTimestampTags</code> proxy configuration property to establish the mapping.</p>
     <p>If you don't send or map this attribute, we set the value by using our system time.</p>
     </li>
-    <li><strong>message</strong>: The body of the log entry. Can be up to 20k characters.
+    <li><strong>message</strong> or <strong>text</strong>: The body of the log entry. Can be up to 20k characters.
     <p>If your log shipper sends this attribute with a different name, use the <code>customMessageTag</code> proxy configuration property to establish the mapping.</p></li>
     </ul>
     </td>
