@@ -284,7 +284,7 @@ To see the logs for a trace:
 
 The Logs Browser opens in a new tab with the following configurations:
   
-* The search time window corresponds to the trace time window per the RED metrics charts.
+* The search time window corresponds to the trace duration.
 * The search query contains the corresponding include `traceId`, `source`, `application`, and `service` tag filters.
 ![screenshot of the traces browser with the search logs with traceId highlighted](images/logging_traces_search.png)
 
