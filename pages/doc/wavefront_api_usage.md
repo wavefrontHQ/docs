@@ -4,7 +4,7 @@ keywords: getting started
 tags: [getting started]
 sidebar: doc_sidebar
 permalink: using_wavefront_api.html
-summary: Learn how to use the REST API outside of the in-product documentation UI.
+summary: Learn how to use the REST API outside of the in-product API documentation UI.
 ---
 
 The [REST API](wavefront_api.html) enables you to interact with the Wavefront service by using standard REST API tools. You can use the REST API to automate commonly executed operations, for example, to tag sources automatically.
