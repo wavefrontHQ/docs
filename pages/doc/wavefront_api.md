@@ -117,15 +117,7 @@ On the API Tokens page, you can:
 
 ## Invoking the API
 
-You can invoke the Wavefront API using `curl` or from an API client. In either case, you must pass in an API token.
-
-### Example: Invoke the API Using curl
-
-With `curl`, you specify the API token in the `Authorization: Bearer` header. For example, to return all alerts, run the following command:
-
-```shell
-curl 'https://<your_instance>/api/v2/alert' --header 'Authorization: Bearer <your_api_token>'
-```
+You can invoke the Wavefront API using `curl` or from an API client. In either case, you must use an API token. See [Use the Wavefront REST API](using_wavefront_api.html) for details and examples.
 
 ## Generate an API Client Using Swagger
 

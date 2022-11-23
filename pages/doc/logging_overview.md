@@ -55,11 +55,11 @@ Each log has required attributes, standard attributes, and custom tags. We token
     </td>
     <td width="80%">
     <ul>
-    <li><strong>timestamp</strong>: The time when the log was created. The value must be in Epoch milliseconds.
+    <li><strong>timestamp</strong> or <strong>log_timestamp</strong>: The time when the log was created. The value must be in Epoch milliseconds.
     <p>If your log shipper sends this attribute with a different name, use the <code>customTimestampTags</code> proxy configuration property to establish the mapping.</p>
     <p>If you don't send or map this attribute, we set the value by using our system time.</p>
     </li>
-    <li><strong>message</strong>: The body of the log entry. Can be up to 20k characters.
+    <li><strong>message</strong> or <strong>text</strong>: The body of the log entry. Can be up to 20k characters.
     <p>If your log shipper sends this attribute with a different name, use the <code>customMessageTag</code> proxy configuration property to establish the mapping.</p></li>
     </ul>
     </td>
@@ -284,7 +284,7 @@ To see the logs for a trace:
 
 The Logs Browser opens in a new tab with the following configurations:
   
-* The search time window corresponds to the trace time window per the RED metrics charts.
+* The search time window corresponds to the trace duration.
 * The search query contains the corresponding include `traceId`, `source`, `application`, and `service` tag filters.
 ![screenshot of the traces browser with the search logs with traceId highlighted](images/logging_traces_search.png)
 

@@ -32,7 +32,7 @@ We've added the following configuration properties for logs to the already exist
 <tr>
 <a name="customTimestampTags"></a>
 <td>customTimestampTags</td>
-<td markdown="log tag"> Comma-separated list of log tag keys that are treated as the timestamp if your logging solution doesn't send a `timestamp` or `log_timestamp` tag.
+<td markdown="log tag"> Comma-separated list of log tag keys that are treated as the timestamp if your logging solution doesn't send a <code>timestamp</code> or <code>log_timestamp</code> tag.
 <br/> Default: None.
 <br/> Version: Since 11.3</td>
 <td> Comma-separated list of tags. Can be a single tag.
