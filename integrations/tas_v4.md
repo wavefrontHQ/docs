@@ -92,6 +92,8 @@ For more details about the metrics listed below, see [Key Performance Indicators
 |tas.bbs.LRPsExtra|Total number of LRP instances that are no longer desired but still have a BBS record. When Diego wants to add more apps, the BBS sends a request to the Auctioneer to spin up additional LRPs. LRPsExtra is the total number of LRP instances that are no longer desired but still have a BBS record.|
 |tas.bbs.LRPsMissing|Total number of LRP instances that are desired but have no record in the BBS.|
 |tas.bbs.LRPsRunning|The total number of LRP instances that are running on Diego Cells.|
+|tas.capi.info|Exposes the TAS version as tags.|
+|tas.capi.servicedbindings|Exposes information about services and bound apps as tags.|
 |tas.bbs.RequestLatency|The maximum observed latency time over the past 60 seconds that the BBS took to handle requests across all its API endpoints.|
 |tas.gorouter.backend_exhausted_conns|The lifetime number of requests that have been rejected by the Gorouter VM due to the Max Connections Per Backend limit being reached across all tried back ends.|
 |tas.gorouter.bad_gateways|The lifetime number of bad gateways, or 502 responses, from the Gorouter itself, emitted per Gorouter instance.|
