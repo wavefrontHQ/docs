@@ -57,7 +57,7 @@ Tanzu Observability provides a comprehensive solution for monitoring Kubernetes.
     1. In the **Cluster Name** text box provide the name of your Kubernetes cluster.
     1. Choose the **Kubernetes Cluster** as a distribution type. 
 1. Choose whether you want to see the logs for your cluster. By default, the **Logs (Beta)** option is enabled.
-1. Choose whether you want to enable or disable **App Auto-Discovery & Metrics**. By default, the **App Auto-Discovery & Metrics** option is enabled.
+1. Choose whether you want to enable or disable **Metrics**. By default, the **Metrics** option is enabled.
 1. Choose whether you want to use an **HTTP Proxy**. 
    If you enable HTTP proxy, to allow outbound traffic, you must add these URLs to your proxy rules:
     * **Logs (Beta)**: https://data.mngmt.cloud.vmware.com
