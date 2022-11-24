@@ -6,7 +6,7 @@ permalink: logging_overview.html
 summary: Learn about Tanzu Observability metrics, logs, and traces.
 ---
 
-{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative."%}
+{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
  <table style="width: 100%;">
 <tbody>
@@ -36,13 +36,15 @@ summary: Learn about Tanzu Observability metrics, logs, and traces.
 
 {%include note.html content="Tanzu Observability retains logs for 7, 15, or 30 days, based on your settings."%}
 
+{% include note.html content="Only users with the [**Logs** permission](permissions_overview.html) can view the Logs Browser and drill down into logs from charts, alerts, and traces."%}
+
 ## What's a Tanzu Observability Log?
 
-Logs are structured or unstructured text records of incidents that took place at a given time. Tanzu Observability ingests logs in JSON format.
+Logs are structured or unstructured text records of events that took place at a given time. Tanzu Observability ingests logs in JSON format.
 
 ### Log Attributes
 
-Each log has required attributes, optional attributes, and tags.
+Each log has required attributes, standard attributes, and custom tags. We tokenize the values of these attributes and tags, so that you can filter and search logs.
 
 {%include tip.html content="If your logging solution doesn't use exactly the same tags, you can use a proxy configuration file to map your tags to the expected attributes and tags. See [My Logging Solution Doesn't Use the Default Attributes](logging_faq.html#my-logging-solution-doesnt-use-the-default-attributes). "%}
 
@@ -51,46 +53,54 @@ Each log has required attributes, optional attributes, and tags.
     <td width="20%">
       <strong>Required attributes</strong>
     </td>
-    <td width="80%" markdown="span">
-    Required are `timestamp` and `message`. If your log shipper sends these attributes with a different name, use the `customTimestampTags` and `customMessageTag` in the proxy configuration file to establish the mapping.
+    <td width="80%">
+    <ul>
+    <li><strong>timestamp</strong> or <strong>log_timestamp</strong>: The time when the log was created. The value must be in Epoch milliseconds.
+    <p>If your log shipper sends this attribute with a different name, use the <code>customTimestampTags</code> proxy configuration property to establish the mapping.</p>
+    <p>If you don't send or map this attribute, we set the value by using our system time.</p>
+    </li>
+    <li><strong>message</strong> or <strong>text</strong>: The body of the log entry. Can be up to 20k characters.
+    <p>If your log shipper sends this attribute with a different name, use the <code>customMessageTag</code> proxy configuration property to establish the mapping.</p></li>
+    </ul>
     </td>
   </tr>
   <tr>
     <td>
-      <strong>Optional attributes</strong>
+      <strong>Standard attributes</strong>
     </td>
     <td>
-    Specify the following optional attributes as needed. If your log shipper sends the attributes with a different name, see <a href="logging_proxy_configurations.html#properties-for-changing-log-tags">Properties for Changing Log Tags</a>.
+    These attributes are required if you want to drill into logs from charts and traces.
     <ul>
-    <li><strong>source</strong>: A source is a unique platform that emits logs, such as an AWS EC2 instance or a node in Kubernetes. Ensure that logs, metrics, and traces are using the same string to identify the source. For example, use the same source for logs and metrics.</li>
-    <li><strong>application</strong>: Name of the application that emits the logs.  <br/>If you're also sending traces, use the same application name so you can drill down from the application map or Traces Browser to the Log Browser.
-      <br/>If the `application` tag is not defined, we add the tag and set the value to `none`.</li>
-    <li><strong>service</strong>: Name of the service that emits the log.
-     <br/>If you're also sending traces, use same service name in both paces tp drill down from the application map or traces browser to the Log Browser.
-    <br/>If the `service` tag is not defined, we add the tag and set the value to `none`.</li>
-    <li><strong>exception, error_name</strong>: Name of any exception tag keys that the log shipper sends. Use the `customExceptionTags` proxy configuration property to add exception tags. </li>
-    <li><strong>level, log level</strong>: Name of any error level tag keys that the log shipper sends. Use the `customLevelTags` proxy configuration property to add error level tags.</li>
+    <li><strong>source</strong>: A unique platform that emits the log, such as an AWS EC2 instance or a node in Kubernetes. To ensure that you can drill into logs from charts, use matching source values for logs and metrics. To ensure that you can drill into logs from traces, use matching source values for logs and traces.
+    </li>
+    <li><strong>application</strong>: Name of the application that emits the log. To ensure that you can drill into logs from traces, use matching application values for logs and traces.
+    <p>If your log shipper sends this attribute with a different name, use the <code>customApplicationTags</code> proxy configuration property to establish the mapping.</p></li>
+    <li><strong>service</strong>: Name of the service that emits the log. To ensure that you can drill into logs from traces, use matching service values for logs and traces.
+    <p>If your log shipper sends this attribute with a different name, use the <code>customServiceTags</code> proxy configuration property to establish the mapping.</p></li>
     </ul>
     </td>
   </tr>
 <tr>
     <td>
-    <strong>Tags</strong>
+    <strong>Custom Tags</strong>
     </td>
-    <td>
-      Tags are metadata key-value pairs that are part of your logs. You can filter logs using tags. Follow these guidelines:
+    <td>You can send logs with additional custom tag key-value pairs of your choice. Follow these guidelines:
        <ul>
         <li>
           Low-cardinality tags. Many of the recommendations in <a href="optimize_data_shape.html">Optimizing Data Shape to Improve Performance</a> apply.
         </li>
         <li>
-          128 characters per tag
+          128 characters per tag key
+        </li>
+        <li>
+          128 characters per tag value
         </li>
         <li>
           100 tags per log
         </li>
        </ul>
     <p>See <a href="logging_send_logs.html#limits-for-logs">Limits for Logs</a> for details.</p>
+    {%include important.html content="Currently, the **level** and **exception** tag key names are unsupported."%}
     </td>
   </tr>
 </table>
@@ -98,7 +108,7 @@ Each log has required attributes, optional attributes, and tags.
 
 ### Log Data Format Example
 
-![Image giving an overview of the attributes in a log. They are listed in the table below](images/logging_log_image.png)
+![Image giving an overview of the attributes in a log. They are listed in the table above.](images/logging_log_image.png)
 
 <table style="width: 100%;">
 <tbody>
@@ -111,7 +121,7 @@ Each log has required attributes, optional attributes, and tags.
 
 You can send your logs using a log shipper, such as Fluentd, that sends logs as a JSON array over HTTP. See [Send logs to Tanzu Observability](logging_send_logs.html).
 
-![the images shows how logs are sent from a log shipper to the tanzu observability components](images/logging_send_logs_rev.png)
+![A diagram shows how logs are sent from a log shipper to the Tanzu Observability components](images/logging_send_logs_rev.png)
 
 <table style="width: 100%;">
 <tbody>
@@ -121,25 +131,24 @@ You can send your logs using a log shipper, such as Fluentd, that sends logs as 
 
 ## View Logs and Troubleshoot
 
-When logs have started flowing into your Wavefront instance, you can:
-* Go to the Log Browser directly to view and explore logs.
-* Drill into the Log Browser from charts, alerts, application map, and the Traces Browser.
+When logs have started flowing into your Wavefront instance, as a user with the **Logs** permission, you can:
+* Go to the Logs Browser directly to view and explore logs.
+* Drill into the Logs Browser from charts, alerts, application map, and the Traces Browser.
 
-![diagram shows all the UIs that link to logs. they are explained in this section.](images/logging_all_ui.png)
+![A diagram that shows all the UI pages that link to logs (charts, alerts, application map and Traces Browser). How to navigate from each one of them to the Logs Browser is explained in the sections below.](images/logging_all_ui.png)
 
-### Examine Logs in the Log Browser
+### Examine Logs in the Logs Browser
 
-You can examine logs that were sent to Tanzu Observability on the [Log Browser](logging_log_browser.html):
+You can examine logs that were sent to Tanzu Observability on the [Logs Browser](logging_log_browser.html):
 
-* See logs for the time range set for your Wavefront instance (7, 15, or 30 days).
+* See logs for a specific the time range within the logs retention period for your Wavefront instance (7, 15, or 30 days).
 * Filter logs using application, service, source or other tags.
-* Search for logs that have a messages that contain a specific word, for example, ERROR.
-* In the chart at the top of the Log Browser, see the total number of logs for each time bucket, zoom in, and identify hotspots.
-* Group logs using tags.
-* Share the Log Browser data you see with other users that have the required permissions.
+* Search for logs that have a messages that contain a specific word, for example, `error`.
+* In the histogram chart at the top of the Logs Browser, see the number of logs for each time bucket, zoom in, and identify hotspots. Group the number of logs by the values of a specific tag.
+* Share the Logs Browser data you see with other users that have the **Logs** permission.
 
 
-![a screenshot of the Log Browser](images/logging_log_browser.png)
+![a screenshot of the Logs Browser](images/logging_log_browser.png)
 
 <table style="width: 100%;">
 <tbody>
@@ -149,13 +158,28 @@ You can examine logs that were sent to Tanzu Observability on the [Log Browser](
 
 ### Drill into Logs from Charts
 
-If you notice data anomalies on a chart and want to debug the issue using logs, right-click the chart and click **Logs**. On the Log Browser, see the logs for the time and source used by the chart.
+If you have the **Logs** permission, you can drill into logs from charts, for example, if you notice data anomalies on a chart and want to debug the issue.
 
 {% include note.html content="Even if logging is enabled for your environment, this feature might have to be enabled separately. Contact [technical support](wavefront_support_feedback.html#support)." %}
 
-If you don’t see logs, see [logging FAQs](logging_faq.html).
+{% include note.html content="You must have tagged the metrics and the logs from the same source with equivalent source tag values." %}
 
-![A screenshot of a chart with the right-click menu that includes a Logs option.](images/logging_charts_to_logs.png)
+To drill into the related logs from a chart:
+
+1. Position your pointer over the metric for the source of concern, on the location of the anomaly.
+1. Right-click that point on the chart and select **Logs (Beta)**.
+
+![A screenshot of a chart with the right-click menu that includes the Logs option.](images/logging_charts_to_logs.png)
+In this example, you right-click the metric chart for source `db-5` at `01:25 PM`.
+
+The Logs Browser opens in a new tab with the following configuration:
+- The search time window is a 10-minute period, starting 5 minutes before and ending 5 minutes after the time of the point that you right-clicked on the chart.
+- The search query contains the include `source` tag filter for the source that you right-clicked.
+
+![A screenshot of a search query and selected time window in the Logs Browser.](images/logging_from_chart.png)
+In this example, the Logs Browser opens with the filter `source = db-5` and the time window `01:20 PM to 01:30 PM` (starting 5 minutes before and ending 5 minutes after `01:25 PM`).
+
+{%include note.html content="If you selected more than one source on the chart, the Logs Browser opens only with the corresponding time window. The search query is empty because this feature supports only one source filter. See [Logs Troubleshooting](logging_faq.html) for details."%}
 
 <table style="width: 100%;">
 <tbody>
@@ -165,35 +189,43 @@ If you don’t see logs, see [logging FAQs](logging_faq.html).
 
 ### Drill into Logs from an Alert
 
+If you have the **Logs** permission, to investigate a firing alert, you can drill into logs from the [Alert Viewer](alerts.html#alert-viewer-tutorial). For optimal logs search results, you can configure related logs for an alert.
+
 {% include note.html content="Even if logging is enabled for your environment, this feature might have to be enabled separately. Contact [technical support](wavefront_support_feedback.html#support)." %}
 
-To drill into logs from an alert:
-1. Go to the [alert viewer](alerts.html#alert-viewer-tutorial) for an alert. You have these options:
+<table style="width: 100%;">
+<tr>
+  <td width="40%">
+  <p>When you <a href="alerts_manage.html">create or edit</a> an alert, in the <strong>Related Logs</strong> panel, you can add multiple tag filters. This way, you can prepare the <a href="logging_log_browser.html#build-your-search-query">logs search query</a> that you can run when the alert fires.</p>
+  </td>
+  <td width="60%">
+    <img src="images/logs_alert_create.png" alt="The Related Logs panel with a drop-down menu for selecting include and exclude tag filters."/>
+  </td>
+</tr>
+</table>
+
+To drill into the related logs of a firing alert:
+
+1. Go to the Alert Viewer for the alert. You have these options:
+
     * Click the link in the alert notification.
-    * In the [alert browser](alerts.html#alerts-browser-tutorial), find FIRING alerts and click to drill down to the alert viewer.
-1.  In the **Related Logs** section, click **Go to logs**.
+    * In the [Alerts Browser](alerts.html#alerts-browser-tutorial), locate the firing alert and click **View firing details**.
+  
+    In the **Related Logs** panel, the `time range` filter is populated with the trigger window during which the alert condition was met and the alert transitioned to firing state.
+1. Optionally, in the **Related Logs** panel, adjust the filters for the logs search query.
 
-
-![A screenshot of an alert with the logs tags](images/logging_alerts_to_logs.png)
-
-#### Log Time Range
-
-A time range tag is generated by default from the time the condition to fire the alert is met to the time the alert is fired. When you click **Go to Logs**, then you see the log data for that time range.
-
-For example, in the screenshot above:
-* The alert started to fire at 6.10 AM.
-* It fired because the condition was met for 2 mins (starting at 6.08 AM).
-* When you click **Go to Logs** from the alert, you see the log data from 6.08 AM to 6.10 AM.
-
-The logs help you identify the root cause for the alert.
-
-#### Log Tags for an Alert
-
-When you create or edit an alert, you can configure the alert to filter logs using additional tags.
-
-<!---Maybe steps for adding the log tag. Does it work on yaob-21?--->
-
-For example, the screenshot above shows that the alert was configured to show logs for the given time range and filter the logs further using the `wavefront` application. See [Create and Manage Alerts](alerts_manage.html#step-4-optional-help-alert-recipients-resolve-the-alert) to add log tags to an alert.
+    1. Click **Edit related Logs**, add and remove filters, and save the alert.
+    1. Click the eye icons of the related logs filters that you want to hide from the logs search query. To unhide a filter, you must click the eye-hide icon.
+    
+    You cannot remove or hide the `time range` filter.
+1. In the **Related Logs** panel, click **Go to Logs (Beta)**.
+  ![The related Logs panel populated with time range filter and other custom filters with eye and eye-hide icons.](images/logs_drill_alert.png)
+  
+  The Logs Browser opens in a new tab with the configurations from the **Related Logs** panel:
+  
+  * The search time window corresponds to `time range` value.
+  * The search query contains the unhidden filters (with the eye icons).
+    ![The search query and the selected time window in the Logs Browser.](images/logs_drill_alert_search.png)
 
 <table style="width: 100%;">
 <tbody>
@@ -203,39 +235,59 @@ For example, the screenshot above shows that the alert was configured to show lo
 
 ### Drill into Logs from Traces
 
-You can drill into logs from the application status page and the traces browser.
-To see logs for an application and service on the Log Browser, you need to tag the data with the application and service tags on your log shipper. See the [Logs FAQs](logging_faq.html).
+If you have the **Logs** permission, you can drill into logs from the application status page and the Traces Browser.
 
 {% include note.html content="Even if logging is enabled for your environment, the drill-down from traces to logs might have to be enabled separately. Contact [technical support](wavefront_support_feedback.html#support)." %}
 
+#### Application Status
 
-#### Application Map
+If you notice that a service on the application map, table view, or grid view of the [Application Status page](tracing_ui_overview.html) has a high error percentage, you can drill down into the related logs.
 
-If you notice that a service on the application map, table view, or grid view has a high error percentage, you can drill down into logs.
+{% include note.html content="You must have tagged the traces and the logs from the same applications and services with equivalent application and service tag values."%}
 
-* **Start with the Map View**
-  1. Click on the service on the application map.
-  1. Click **View Logs** to see logs related to the service and debug the issue.
+* **From the Map View**
+  1. Select the time window of interest.
+  1. Click the service on the application map.
+  1. Select **View Logs (Beta)**.
   ![A screenshot of a the UI once you click on a service with the view logs link highlighted.](images/logging_app_map_to_logs.png)
-* **Start with the Table view**
-  1. Click the vertical ellipsis.
-  2. Select **View Logs** to see logs related to the service.
+* **From the Table View**
+  1. Select the time window of interest.
+  1. Click the ellipsis for the service.
+  1. Select **View Logs (Beta)**.
   ![A screenshot of a the UI once you click vertical ellipsis on the table view](images/logging_table_view_to_logs.png)
-
-#### Service Dashboard
-
-In a service tile, click **Actions** and select **View Logs** to see logs related to the service.
+* **From the Grid View**
+  1. Select the time window of interest.
+  1. In a service tile, click **Actions**.
+  1. Select **View Logs (Beta)**.
   ![A screenshot of a the UI once you click vertical ellipsis on the grid view](images/logging_grid_view_to_logs.png)
+
+The Logs Browser opens in a new tab with the following configurations:
+  
+* The search time window corresponds to the time window on the Application Status page.
+* The search query contains the corresponding include `service` and `application` tag filters.
+![The search query and the selected time window in the Logs Browser.](images/logging_app_serv_search.png)
 
 #### Traces Browser
 
-If you want to see logs for a service, follow these steps:
-1. Click the trace that you want to examine.
-1. In the Trace Details section, click the service you want to focus on.
-1. Expand the **IDs** section.
-1. Click **Search Logs with traceID**.
+If you notice a critical path through a trace in the [Traces Browser](tracing_traces_browser.html), you can drill down into the related logs.
 
+{% include note.html content="You must have tagged the traces and the logs from the same applications and services with equivalent application and service tag values."%}
+
+{% include note.html content="You must have tagged the traces and the logs from the same sources, applications, and services with equivalent source, application, and service tag values." %}
+
+To see the logs for a trace:
+1. Click the trace that you want to examine.
+1. In the Trace Details section, click the service on which you want to focus.
+1. Expand the **IDs** section.
+1. Click **Search Logs (Beta) with traceId**.
 ![screenshot of the traces browser with the search logs with traceId highlighted](images/logging_traces_browser.png)
+
+The Logs Browser opens in a new tab with the following configurations:
+  
+* The search time window corresponds to the trace duration.
+* The search query contains the corresponding include `traceId`, `source`, `application`, and `service` tag filters.
+![screenshot of the traces browser with the search logs with traceId highlighted](images/logging_traces_search.png)
+
 <br/>
 To learn more about exploring traces and about finding hot spots at a glance, see [Traces Browser](tracing_traces_browser.html).
 
@@ -245,12 +297,52 @@ To learn more about exploring traces and about finding hot spots at a glance, se
 </tbody>
 </table>
 
-## Next Steps
+## Create a Logs Chart
+
+If you have the **Logs** and **Dashboards** permissions, in the [Chart Builder](chart_builder.html) you can create logs charts. A logs chart shows the number of logs by certain criteria. For example, see the logs chart in the [Logs Browser](logging_log_browser.html).
+
+{% include important.html content="The Chart Builder supports only one logs query per chart. If you have multiple queries, you must move the target logs query to the top as the first query in the list."%}
+
+{% include note.html content="Node map, histogram, and heatmap are unsupported chart types for logs."%}
+
+<table style="width: 100%;">
+<tr>
+  <td width="40%">
+  <p>1. From the <strong>Data</strong> drop-down menu, select <strong>Logs (Beta)</strong>.</p>
+  </td>
+  <td width="60%">
+    <img src="images/logs_histogram_data.png" alt="The Data drop-down menu."/>
+  </td>
+</tr>
+<tr>
+  <td width="40%">
+  <p>2. From the <strong>Filters</strong> drop-down menu, add one or more tag filters.</p>
+  <p>You can add include and exclude tag filters. See <a href="logging_log_browser.html#filter-types-and-logical-operators">Filter Types and Logical Operators</a> for details.</p>
+  </td>
+  <td width="60%">
+    <img src="images/logs_histogram_filters.png" alt="The Filters drop-down menu."/>
+  </td>
+</tr>
+<tr>
+  <td width="40%">
+  <p>3. Optionally, next to the <strong>Functions</strong> drop-down menu, click <strong>Count</strong>, select one or more tags by which you want to group the number of logs, and click <strong>Apply</strong>.
+  {% include note.html content="The logs that don't have at least one of the grouping tags are excluded from the logs chart."%}</p>
+    </td>
+  <td width="60%">
+    <img src="images/logs_histogram_functions.png" alt="The Count drop-down menu."/>
+  </td>
+</tr>
+</table>
+
+The resulting chart shows the number of logs matching the selected filters distributed over the [selected time window](ui_charts.html#set-the-time-window-on-a-chart). The logs are grouped by the values of the selected grouping tags. You can zoom in on smaller time windows.
+![Logs histogram chart](images/logs_histogram_chart.png)
+
+## Learn More!
 
 * [Send logs to Tanzu Observability](logging_send_logs.html).
 * [View and browse logs](logging_log_browser.html).
-* Learn about [proxy configurations and proxy preprocessor rules](logging_proxy_configurations.html).
-* See [Logs FAQs](logging_faq.html).
+* Learn about the [proxy configurations and proxy preprocessor rules for logs](logging_proxy_configurations.html).
+* See [Logs troubleshooting](logging_faq.html).
 
 <!---RK>>Pointing to the github tutorial only from logging_send_logs. Could change that, not sure.
 [Try out the demo app tutorial on GitHub](https://github.com/wavefrontHQ/demo-app) to send logs to Tanzu Observability.

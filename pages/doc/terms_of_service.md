@@ -10,7 +10,6 @@ The terms of service and data retention for Tanzu Observability by Wavefront dif
 
 {% include tip.html content="Details vary depending on when you became a customer and on your Service Agreement with VMware." %}
 
-
 ## Data Retention
 
 A production Wavefront instance retains different types data for different amounts of time. While this is subject to change, here are the default settings:
@@ -37,8 +36,8 @@ Production clusters currently offer 18 months of full-resolution (no downsamplin
 
 If you became a customer on or after August 17, 2017:
 
-| Terms of Service: | [VMware Terms of Service](http://www.vmware.com/download/eula/wavefront-terms-of-service.html) |
-| Privacy Policy: | See above Terms of Service |
+| Terms of Service: | See the [VMware General Terms](https://www.vmware.com/agreements.html) and the [VMware Cloud Services Guide](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/agreements/vmware-cloud-services-guide.pdf). |
+| Privacy Policy: | See above General Terms |
 
 If you became a customer before August 17, 2017:
 

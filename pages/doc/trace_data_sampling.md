@@ -143,13 +143,9 @@ Choose sampling in your instrumented code when you want to:
 
 An ingested trace can be complete (a trace ingested with all of its member spans) or partial (a trace that is missing one or more spans). The completeness of the traces in a sample depends in part on the sampling strategy:
 
-* Rate-based sampling attempts to send complete traces. That is, the sampler selects the specified percentage of trace IDs, and then sends all of the spans that belong to each selected trace.
+* Rate-based sampling attempts to send complete traces. That is, the sampler selects the specified percentage of trace IDs, and then sends all of the spans that belong to each selected trace. A partial trace can occur if it has spans from multiple services, and you use sampling policy to set up different sampling rates for those services.
 
 * Duration-based sampling considers only individual spans. That is, the sampler selects all spans of an appropriate duration, regardless of whether they form complete traces.
-
-Partial traces can also occur in the following situations:
-* If a span contains an error. Each such span is sent individually, without the other spans in the same trace.
-* If a trace has spans from multiple services, and you set up different sampling rates for those services.
 
 ### Result of Combining Explicit Sampling Strategies
 
@@ -161,7 +157,7 @@ For example, suppose you set the sampling rate to 20% and the sampling duration 
 
 As a result, the ingested sample will contain somewhat more than 20% of the generated traces, with some spans that are shorter than 45ms.
 
-{% include note.html content="A span that contains an error is always sent to the Wavefront service, regardless of the span's duration or whether it falls in a specified sampling percentage. " %}
+{% include note.html content="A span that contains an error follows the rules for rate-based sampling and duration-based sampling in the same way as any other span. However, intelligent sampling will give preference to traces that contain at least one span with an error. You can also create a sampling policy to keep all the spans that contain errors." %}
 
 ## Setting Up Explicit Sampling Through the Proxy
 
