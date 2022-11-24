@@ -6,32 +6,17 @@ permalink: logging_proxy_configurations.html
 summary: Proxy configuration properties and preprocessor rules for logging.
 ---
 
-{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your [Tanzu Observability account representative](wavefront_support_feedback.html#support)."%}
+{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
 Proxy configuration properties let you customize proxy behavior. Proxy preprocessor rules let you block, allow, or replace parts of the incoming traffic. This doc page is a reference to properties specific to this logging Beta. See [Advanced Proxy Configuration](proxies_configuring.html) and [Proxy Preprocessor Rules](proxies_preprocessor_rules.html) for the properties and rule options for other kind of data.
 
-## Proxy Configuration for Logs
+## Proxy Configuration Properties for Logs
 
-If your logs don't use include the attributes that our logging solution expects, or if you want to customize proxy behavior otherwise, you can use proxy configuration properties to do that.
+If your logs don't use the attributes that our logging solution expects, or if you want to customize proxy behavior otherwise, you can use proxy configuration properties to do that.
 
-<!---RK Not sure we need this section--->
-### Change the Proxy Configuration
+We've added the following configuration properties for logs to the already existing [proxy configuration properties](proxies_configuring.html).
 
-Follow these steps:
-
-1. [Install the Wavefront Proxy](proxies_installing.html).
-    If you have already installed the Wavefront proxy, make sure it is version 11.3 or later.
-1. Open the [`wavefront.conf` file](proxies_configuring.html#proxy-file-paths):
-    1. Uncomment the `pushListenerPorts` and set it to a preferred port. It is set to 2878 by default to receive both HTTP and TCP data. For details on the proxy configurations, see [Advanced Proxy Configuration](proxies_configuring.html).
-    1. Optionally, uncomment or add the other configurations listed below.
-    1. Save the file.
-1. [Start the proxy](proxies_installing.html#start-and-stop-a-proxy).
-
-### Proxy Configuration Properties for Logs
-
-We've added configuration properties for logs to the already existing [proxy configuration properties](proxies_configuring.html).
-
-#### Properties for Changing Log Tags
+### Properties for Changing Log Tags
 
 {% include tip.html content="See [My Logging Solution Doesn't Use the Default Attributes](logging_faq.html#my-logging-solution-doesnt-use-the-default-attributes)."%}
 
@@ -47,7 +32,7 @@ We've added configuration properties for logs to the already existing [proxy con
 <tr>
 <a name="customTimestampTags"></a>
 <td>customTimestampTags</td>
-<td markdown="log tag"> Comma-separated list of log tag keys that are treated as the timestamp if your logging solution doesn't send a `timestamp` or `log_timestamp` tag.
+<td markdown="log tag"> Comma-separated list of log tag keys that are treated as the timestamp if your logging solution doesn't send a <code>timestamp</code> or <code>log_timestamp</code> tag.
 <br/> Default: None.
 <br/> Version: Since 11.3</td>
 <td> Comma-separated list of tags. Can be a single tag.
@@ -80,29 +65,11 @@ We've added configuration properties for logs to the already existing [proxy con
 <td> Comma separated list of tags. Can be a single tag.
 <br/>Example: groceries, payment</td>
 </tr>
-<tr>
-<a name="customExceptionTags"></a>
-<td>customExceptionTags</td>
-<td markdown="span">Comma-separated list of log tag keys that are treated as the exception message if your logging solution doesn't send an `exception` tag.
-<br/> Default: exception, error_name
-<br/> Version: Since 11.5</td>
-<td> Comma separated list of log tag. Can be a single tag.
-<br/>Example:404_Error</td>
-</tr>
-<tr>
-<a name="customLevelTags"></a>
-<td>customLevelTags</td>
-<td markdown="span">Comma-separated list of log tag keys that is treated as the log level, such as warning and error, if your logging solution doesn't send a `level` tag.
-<br/> Default: level, log_level
-<br/> Version: Since 11.5</td>
-<td> Comma separated list of log tag. Can be a single tag.
-<br/>Example: debug, info, warn, error</td>
-</tr>
 </tbody>
 </table>
 
 
-#### Properties for Modifying Proxy Behavior
+### Properties for Modifying Proxy Behavior
 
 <table style="width: 100%;">
 <thead>
@@ -671,12 +638,12 @@ Points must match the `allow` list to be accepted. Multiple `allow` rules are al
      - tagToAllowList
 ```
 
-## Next Steps
+## Learn More!
 
-* [Get started with logs](logging_overview.html)
-* [Send logs to Tanzu Observability](logging_send_logs.html)
-* [View and browse logs](logging_log_browser.html)
-* [Get answers to FAQs](logging_faq.html)
+* [Get started with logs](logging_overview.html).
+* [Send logs to Tanzu Observability](logging_send_logs.html).
+* [View and browse logs](logging_log_browser.html).
+* See [Logs troubleshooting](logging_faq.html).
 
 <!---RK>>Only added this link to Send Logs. 
 [Try out the demo app tutorial on GitHub](https://github.com/wavefrontHQ/demo-app) to send logs to Tanzu Observability.

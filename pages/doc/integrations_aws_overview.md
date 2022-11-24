@@ -107,9 +107,10 @@ For information about external IDs and how they are used in AWS, see [How to Use
 
 ### Giving Limited Access
 
-Instead of giving global read-only access, you can give more limited access.
+Instead of giving global read-only access, you can give more limited access.  
 
-The required permissions depend on the integration and on the service you want to monitor, as shown in the following table:
+The required permissions for limited access, shown in the table below, are sufficient for monitoring your AWS services. You need to include the whole list of minimum required services and permissions as shown in the [example snippet](integrations_aws_overview.html#create-iam-policy-to-specify-limited-access). 
+
 <table>
 <thead>
 <tr><th width="20%">Integration</th><th width="45%">Description</th><th width="35%">Required Permissions</th></tr>
@@ -123,20 +124,20 @@ The required permissions depend on the integration and on the service you want t
 </tr>
 <tr>
     <td>CloudTrail <br /></td>
-    <td>Retrieves EC2 event information and creates Tanzu Observability System events </td>
+    <td>Retrieves EC2 event information and creates Tanzu Observability System events. </td>
     <td>List and Get permissions on the S3 bucket where the logs are delivered.
     </td>
 </tr>
 <tr>
     <td>AWS Metrics+ </td>
     <td>Retrieves additional metrics, tags and other metadata using AWS APIs.<ul>
-    <li>The <strong>es:</strong> permissions are needed if you want to extract AWS tags and associate them (as tags) with metrics. These permissions are especially useful when you're using ElasticSearch. </li>
-    <li>The <strong>iam:</strong> permission is needed if you want to pull not only numeric account IDs but also the corresponding human-readable account IDs.   </li>
+    <li>The <strong>es:</strong> permissions extract AWS tags and associate them (as tags) with metrics. These permissions are especially useful when you're using ElasticSearch. </li>
+    <li>The <strong>iam:</strong> permission pulls not only numeric account IDs but also the corresponding human-readable account IDs.   </li>
     </ul> </td>
     <td>ec2:DescribeVolumes<br />
       ec2:DescribeInstances<br />
     ec2:DescribeReservedInstances <br />
-    rds:DescribeDBClusters<br />
+    rds:Describe*<br />
     sqs:ListQueue*<br />
     sqs:GetQueue*<br />
     dynamodb:ListTables<br />
@@ -160,7 +161,9 @@ support:DescribeTrustedAdvisorCheckResult<br /></td>
 
 ### Create IAM Policy to Specify Limited Access
 
-You can explicitly specify the access permissions in a custom IAM policy, as shown in the following example snippet.
+You can explicitly specify the access permissions in a custom IAM policy, as shown in the following example snippet. 
+
+**Note**: This snippet contains the minimum required list of services and permissions. If you delete a service and its permission from the list, some of the integration functionality might get impacted.
 
 ```
 {
@@ -173,7 +176,7 @@ You can explicitly specify the access permissions in a custom IAM policy, as sho
                 "ec2:Describe*",
                 "s3:List*",
                 "s3:Get*",
-                "rds:DescribeDBClusters",
+                "rds:Describe*",
                 "sqs:ListQueue*",
                 "sqs:GetQueue*",
                 "dynamodb:ListTables",
