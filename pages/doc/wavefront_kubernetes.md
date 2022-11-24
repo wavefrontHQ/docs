@@ -68,17 +68,17 @@ You can send data to Tanzu Observability in several ways:
 
 ![The diagram shows the different components and ways you can send data from your Kubernetes environment. The details are explained above.](images/kubernetes_overview_diagram.png)
 
-To use the Wavefront Collector for Kubernetes, you need to set up our Kubernetes integration. Use one of the following options:
-* [**Recommended**] Directly through the Tanzu Observability user interface.
+To use the Wavefront Collector for Kubernetes, you must set up our Kubernetes integration. Use one of the following options:
+* [**Recommended**] Directly by using the Tanzu Observability user interface.
   1. Log in to your Wavefront instance and click **Integrations** on the toolbar.
   1. Search for the Kubernetes integration and click it.
-  1. Install the integration using Kubernetes cluster or OpenShift. You can [preview the setup steps here](kubernetes.html).
+  1. Install the integration using a Kubernetes cluster or OpenShift. You can [preview the setup steps here](kubernetes.html).
   
   ![A screenshot of the deployment options.](/images/kubernetes_installing_options.png)
   
 * Follow the guidelines given in the [Bitnami guide](https://bitnami.com/stack/wavefront/helm).
 
-{% include tip.html content="After installing  by using the Kubernetes integration, you can customize it to fit the needs of your environment and use case. See the [docs on GitHub](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes#configuration) and examples for different use cases. " %}
+{% include tip.html content="After installing the Wavefront Collector for Kubernetes by using the Kubernetes integration, you can customize it to fit the needs of your environment and use case. See the [docs on GitHub](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes#configuration) and examples for different use cases. " %}
 
 
 
@@ -102,7 +102,7 @@ The collector runs as a DaemonSet for high scalability and supports leader elect
 
 ### Host-Level Monitoring
 
-The Wavefront Collector for Kubernetes supports automatic monitoring of host-level metrics and host-level `systemd` metrics. When you set up the collector, it auto-discovers pods and services  in your environment and starts collecting host-level metrics.
+The Wavefront Collector for Kubernetes supports automatic monitoring of host-level metrics and host-level `systemd` metrics. When you set up the collector, it auto-discovers pods and services in your environment and starts collecting host-level metrics.
 
 You can [filter the metrics](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/blob/main/docs/filtering.md) before they are reported to the Wavefront service.
 
