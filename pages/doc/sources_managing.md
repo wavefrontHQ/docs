@@ -30,7 +30,7 @@ When you select **Browse > Sources** the Sources browser offers many options to 
 Filter sources by status.
 <ul>
 <li><strong>Obsolete</strong>&mdash;Sources that didn't emit metrics for a certain period (obsolescence period). (Maps to <code>~status.error</code>.)
-{% include note.html content="By default, the obsolescence period for metrics and sources is 4 weeks. To change this configuration, contact [Technical Support](wavefront_support_feedback.html)." %}</li>
+{% include note.html content="By default, the obsolescence period for metrics and sources is 4 weeks. You can see your current configuration from the Advanced settings of any [chart](ui_charts.html#include-metrics-that-stopped-reporting) or [dashboard](ui_dashboards.html#set-dashboard-display-preferences-and-settings). To change this configuration, contact [Technical Support](wavefront_support_feedback.html)." %}</li>
 <li><strong>Recent Metrics</strong>&mdash;Sources with metrics received in the last 2 days. (Maps to <code>~status.new</code> and <code>~status.ok</code>.)</li>
 <li><strong>Metrics Stopped</strong>&mdash;Sources with no metrics received in the last 2 days. (Maps to <code>~status.stopped</code>.)</li>
 </ul> </td>

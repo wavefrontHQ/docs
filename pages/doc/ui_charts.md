@@ -155,7 +155,10 @@ For optimal rendering of displayed results, charts and dashboards do not include
 
 **To include obsolete metrics**:
 1. Open the chart for edit.
-2. Click the **Advanced** tab, select the **Include Obsolete Metrics** check box, and click **Save**.
+2. Click the **Advanced** tab and select the **Include Obsolete Metrics** check box,
+
+    {% include tip.html content="To see the obsolescence period for your metrics and sources, hover over the **Include Obsolete Metrics** information icon." %}
+3. Click **Save**.
 
 You can also include obsolete metrics for all charts within a dashboard. See [Set Dashboard Display Preferences](ui_dashboards.html#set-dashboard-display-preferences-and-settings).
 
