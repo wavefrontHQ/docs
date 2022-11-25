@@ -19,9 +19,11 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
   - Improved the search time window when you [drill drown](logging_overview.html#traces-browser) from the Traces browser into the related logs. By default, the search time window starts 5 seconds before the trace and ends 5 seconds after the trace, but it's configurable.
   - Added an autocomplete functionality to the search bar, so that you can quickly enter log filters by using the keyboard.
   
-* **Obsolescence period for metrics and sources**: The period of inactivity, after which metrics and source become *obsolete*, is now configurable. By default, the obsolescence period for metrics and sources is 4 weeks. See [Obsolete Metrics](metrics_managing.html#obsolete-metrics) and [Obsolete Sources](sources_managing.html#step-1-find-a-source) for details.
+* **Obsolescence period for metrics and sources**: The period of inactivity, after which metrics and sources become *obsolete*, is now configurable. By default, the obsolescence period for metrics and sources is 4 weeks. See [Obsolete Metrics](metrics_managing.html#obsolete-metrics) and [Obsolete Sources](sources_managing.html#step-1-find-a-source) for details.
 
-* **Integrations**: We had an integrations release in November! We added the Tanzu Service Mesh integration and made a lot of improvements to a number of integrations, including the Kubernetes integration. See the [Integration Release Notes](integrations_new_changed.html#november-2022) for details.
+* **Delta Counters**: We no longer ingest the legacy delta counters as cumulative counter metrics. See [here](wavefront_obsolescence_policy.html#delta-counters) for details.
+
+* **Integrations**: We had an integrations release in November! We added the Tanzu Service Mesh integration and made a lot of improvements to a number of integrations. We also introduce new setup UI for the Kubernetes integration. See the [Integration Release Notes](integrations_new_changed.html#november-2022) for details.
 
 ## 2022-44.x Release Notes
 

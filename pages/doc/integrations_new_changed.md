@@ -18,6 +18,16 @@ We added the following integration in November 2022:
     
 We made improvements to the following integrations in November 2022:
 
+* Kubernetes -- New setup experience.
+  
+  - The new Kubernetes UI setup experience helps you streamline the deployment and initial configuration of the Kubernetes Observability Operator. You can enable key features, such as Logs (Beta), validate the integration, and get directed to key platform areas to start observing your Kubernetes environment. See [Add a Kubernetes Integration](kubernetes.html#add-a-kubernetes-integration) for details.
+  
+  ![Screenshot of the new Kubernetes setup UI experience.](images/k8s-setup-UI.png)
+  
+  - We have added a new [troubleshooting page](kubernetes_troubleshooting.html) for Kubernetes.
+
+* Snowflake -- Updated the setup steps and the UI of the Snowflake integration with more details on the Snowflake account identifier that you have to enter. See [Add a Snowflake Integration](snowflake.html#add-a-snowflake-integration) for details.
+
 * Terraform Provider:
   - Improved the dashboard resource to set the default summarization to <code>MEAN</code>.
   - Added examples on how to include dashboard sections from external files.
