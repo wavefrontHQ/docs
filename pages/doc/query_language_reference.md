@@ -1475,7 +1475,7 @@ Predictive functions enable you to forecast data values and find outlier data va
 <a href="ts_exists.html">exists(<strong>&lt;tsExpression&gt;</strong>)</a>
 </td>
 <td>Returns 1 if any time series described by the expression exists. Otherwise, returns 0.
-A time series exists if it has reported a data value in the last 4 weeks.  </td>
+A time series exists if it has recently reported a data value, so that it hasn't become <a href="metrics_managing.html#obsolete-metrics">obsolete</a>.  </td>
 </tr>
 <tr>
 <td>

@@ -199,7 +199,7 @@ In the example on the right, a <strong>Region</strong> dashboard variable has be
 
 ## Include or Exclude Obsolete Metrics
 
-By default, metrics that stopped reporting 4 weeks ago are not included in the charts unless you explicitly decide to include these metrics. You can:
+By default, [obsolete metrics](metrics_managing.html#obsolete-metrics) are not included in the charts unless you explicitly decide to include these metrics. You can:
 * Explicitly include obsolete metrics for each chart.
 * Explicitly include obsolete metrics on a dashboard level. This way, obsolete metrics will be included in all the charts within a dashboard.
 

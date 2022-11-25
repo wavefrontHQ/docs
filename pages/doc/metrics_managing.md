@@ -86,10 +86,19 @@ When you add filters for `env` and `az`, the information makes sense.
 
 ![screenshot of time series ~sample.disk.space.used filtered by az and env showing fewer lines](images/metrics_with_filter.png)
 
+## Obsolete Metrics
+
+If a metric stops sending data points for a certain period (obsolescence period), it becomes *obsolete*.
+
+{% include note.html content="By default, the obsolescence period for metrics and sources is 4 weeks. To change this configarion, contact [Technical Support](wavefront_support_feedback.html)."%}
+
+In the Metrics browser and Query Editor, obsolete metrics are no longer shown in the autocomplete drop-down lists.
 
 ## Metrics Browser
 
-Select **Browse > Metrics** to display the Metrics Browser. Use the Metrics Browser to find metrics that sent at least one data point within the last four weeks.
+Select **Browse > Metrics** to display the Metrics Browser. Use the Metrics Browser to find metrics that are actively sending data points.
+
+{% include note.html content="The Metrics browser filters out the obsolete metrics." %}
 
 To make search easier, you can
 * Drill down and go up the hierarchy.
@@ -121,11 +130,11 @@ To make search easier, you can
 
 ## Hide and Redisplay Metrics
 
-You can manually hide metrics from the Metrics browser. Those metrics become unavailable from the auto-complete menu as well. Manually hiding metrics does not permanently delete a metric or metric namespace.
+While obsolete metrics are automatically hidden, you can manually hide metrics from the Metrics browser. Manually hiding metrics does not permanently delete a metric or metric namespace.
 
 {% include shared/permissions.html entity="metrics" entitymgmt="Metric" %}
 
-{% include tip.html content="While hidden metrics are removed from the autocomplete dropdown, those metrics can still be used in a query as long as data points exist." %}
+{% include note.html content="Hidden metrics are removed from the autocomplete drop-down lists, but you can still use these metrics in queries as long as data points exist." %}
 
 <table style="width: 100%;">
 <tbody>
@@ -159,7 +168,8 @@ You can manually hide metrics from the Metrics browser. Those metrics become una
 <li>Click the <strong>Manage Hidden Metrics</strong> button.</li>
 <li>Click the <strong>Unhide</strong> button to the right of the metric or metric prefix to unhide and click <strong>Save</strong>.</li>
 </ol>
-The selected metrics and metric prefixes appear again as long as they have had at least 1 reported data value in the last 4 weeks. </td>
+The selected metrics and metric prefixes appear again as long as they are not obsolete.
+</td>
 <td width="40%"><img src="images/viewing_hidden_metrics.png" alt="view hidden metrics"></td>
 </tr>
 </tbody>

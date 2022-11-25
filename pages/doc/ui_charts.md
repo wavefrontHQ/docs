@@ -149,9 +149,9 @@ For fixed legends you can:
 
 For details, see the [Chart Reference](ui_chart_reference.html).
 
-### Include Metrics That Stopped Reporting Over 4 Weeks Ago
+### Include Metrics That Stopped Reporting
 
-For optimal rendering of displayed results, charts and dashboards do not include metrics that stopped reporting over 4 weeks ago (obsolete metrics) in charts. If you're interested in including those metrics in a chart, it's easy to do.
+For optimal rendering of displayed results, charts and dashboards do not include [obsolete metrics](metrics_managing.html#obsolete-metrics) in charts. If you're interested in including those metrics in a chart, it's easy to do.
 
 **To include obsolete metrics**:
 1. Open the chart for edit.
