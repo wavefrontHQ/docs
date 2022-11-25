@@ -15,7 +15,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 ## 2022-47.x Release Notes
 
-* **Logs(Beta)**:
+* **Logs (Beta)**:
   - Improved the search time window when you [drill drown](logging_overview.html#traces-browser) from the Traces browser into the related logs. By default, the search time window starts 5 seconds before the trace and ends 5 seconds after the trace, but it's configurable.
   - Added an autocomplete functionality to the search bar, so that you can quickly enter log filters by using the keyboard.
   
