@@ -51,6 +51,12 @@ Integrations use [Wavefront Collector for Kubernetes](https://github.com/wavefro
 Tanzu Observability provides a comprehensive solution for monitoring Kubernetes. To set up the Kubernetes integration, you must install and configure the Wavefront Collector and a Wavefront Proxy. The setup process varies based on the distribution type that you choose to monitor. 
 
 
+1. Log in to your Wavefront cluster: https://your-wavefront-cluster.wavefront.com.
+2. Click **Integrations** on the toolbar.
+3. In the **Featured** section, click the **Kubernetes** tile.
+4. Click **Add Integration**.
+
+
 ### Set Up in a Kubernetes Cluster
 
 1. In the **Collector Configuration** section, configure the deployment options for the cluster.
@@ -80,13 +86,11 @@ Tanzu Observability provides a comprehensive solution for monitoring Kubernetes.
 
 ### Set Up in an OpenShift Cluster
 
+
+* Complete the steps below and click **Finish**.
+
 **Note**: Logs (Beta) is not supported when you use OpenShift.
 
-1. In the **Collector Configuration** section, configure the deployment options for the cluster.
-    1. In the **Cluster Name** text box provide the name of your Kubernetes cluster.
-    1. Choose the **OpenShift Cluster** as a distribution type. 
-
-1. Follow the instructions below.
 
 #### Install and Configure the Wavefront Helm Chart on OpenShift Enterprise 4.x
     
@@ -112,7 +116,7 @@ This section contains the installation and configuration steps for full-stack mo
     
    Because default parameters are used, the Collector runs as a Daemonset and uses <code>wavefront-proxy</code> as a sink. The Collector auto discovers the pods and services that expose metrics and dynamically starts collecting metrics for the targets. It collects metrics from the Kubernetes API server, if configured.
     
-   Now, go back to your Wavefront cluster and search for the <code><OPENSHIFT_CLUSTER_NAME></code in the Kubernetes integration dashboards.
+   Now, go back to your Wavefront cluster and search for the <code>OPENSHIFT_CLUSTER_NAME</code> in the Kubernetes integration dashboards.
     
 **Configure the Collector to Use an Existing Proxy**    
 

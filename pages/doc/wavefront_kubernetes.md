@@ -69,9 +69,13 @@ You can send data to Tanzu Observability in several ways:
 ![The diagram shows the different components and ways you can send data from your Kubernetes environment. The details are explained above.](images/kubernetes_overview_diagram.png)
 
 To use the Wavefront Collector for Kubernetes, you must set up our Kubernetes integration. Use one of the following options:
-* [**Recommended**] Directly by using the Tanzu Observability user interface.
+* [**Recommended**] Directly by using the Tanzu Observability user interface. 
+
+  The new [Wavefront Operator for Kubernetes](https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes#configuration) supports deploying the Wavefront Collector and the Wavefront Proxy in Kubernetes.
+  
   1. Log in to your Wavefront instance and click **Integrations** on the toolbar.
-  1. Search for the Kubernetes integration and click it.
+  1. In the Featured section, click the **Kubernetes** integration tile.
+  1. On the **Setup** tab, click **Add Integration**.
   1. Install the integration using a Kubernetes cluster or OpenShift. You can [preview the setup steps here](kubernetes.html).
   
   ![A screenshot of the deployment options.](/images/kubernetes_installing_options.png)
@@ -125,9 +129,9 @@ Tanzu Observability gives you out-of-the-box dashboards once the Wavefront Colle
 1. Search for the Kubernetes integration and click it.
 1. Click the **Dashboards** tab.
 
-![This image shows the out-of-the box dashboards for Kubernetes: Kubernetes Summary dashboard, Kubernetes Clusters dashboard, Kubernetes Nodes dashboard, Kubernetes Pods dashboard, Kubernetes Containers dashboard, Kubernetes Namespaces dashboard, and Kubernetes Collector Metrics dashboard  ](images/wavefront_kubernetes_dashboards_default.png)
+![This image shows the out-of-the box dashboards for Kubernetes: Kubernetes Status dashboard, Kubernetes Summary dashboard, Kubernetes Clusters dashboard, Kubernetes Nodes dashboard, Kubernetes Pods dashboard, Kubernetes Containers dashboard, Kubernetes Namespaces dashboard, and Kubernetes Collector Metrics dashboard  ](images/wavefront_kubernetes_dashboards_default.png)
 
-The Kubernetes Summary dashboard gives details on the health of your infrastructure and workloads. You can drill down from this dashboard and identify potential hotspots.
+The Kubernetes Status dashboard gives details about the health of your integration. The Kubernetes Summary dashboard gives details on the health of your infrastructure and workloads. You can drill down from this dashboard and identify potential hotspots.
 
 {{site.data.alerts.note}}
 <p>These out-of-the-box dashboards are read-only. To create a customizable copy:</p>
@@ -156,6 +160,15 @@ The out-of-the-box dashboards:
       </th>
     </tr>
   </thead>
+  <tr>
+    <td width="20%" markdown="span">
+      **Kubernetes Status**
+    </td>
+    <td width="80%">
+       Details on the use of the Kubernetes Integration.
+      <!--<img src="images/kubernetes_status_dashboard.png" alt="a screenshot of the Kubernetes status dashboard with charts."/>-->
+    </td>
+  </tr>
   <tr>
     <td width="20%" markdown="span">
       **Kubernetes Summary**
