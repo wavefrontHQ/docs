@@ -13,6 +13,16 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## 2022-47.x Release Notes
+
+* **Logs(Beta)**:
+  - Improved the search time window when you [drill drown](logging_overview.html#traces-browser) from the Traces browser into the related logs. By default, the search time window starts 5 seconds before the trace and ends 5 seconds after the trace, but it's configurable.
+  - Added an autocomplete functionality to the search bar, so that you can quickly enter log filters by using the keyboard.
+  
+* **Obsolescence period for metrics and sources**: The period of inactivity, after which metrics and source become *obsolete*, is now configurable. By default, the obsolescence period for metrics and sources is 4 weeks. See [Obsolete Metrics](metrics_managing.html#obsolete-metrics) and [Obsolete Sources](sources_managing.html#step-1-find-a-source) for details.
+
+* **Integrations**: We had an integrations release in November! We added the Tanzu Service Mesh integration and made a lot of improvements to a number of integrations, including the Kubernetes integration. See the [Integration Release Notes](integrations_new_changed.html#november-2022) for details.
+
 ## 2022-44.x Release Notes
 
 * The **Query Suggestions** for charts and alerts are now actionable. To apply a suggestion and improve the query performance, click a suggestion and your query updates accordingly. See [Use Performance Improvement Suggestions](query_language_performance.html#use-performance-improvement-suggestions) for details.
