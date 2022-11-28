@@ -25,7 +25,9 @@ You can use `count()` with time series, with histograms, and with events.
 <tr>
 <td markdown="span"> Time series <br>aggregation function</td>
 <td markdown="span">Returns the number of reporting time series described by the `tsExpression` at each moment in time.
-A time series is counted as reporting even if it has interpolated values.</td></tr>
+A time series is counted as reporting even if it has interpolated values.<br>
+Use the [`mcount ()` function](ts_mcount.html), if you want to add together the number of data points reported by a time series over a shifting time window.
+</td></tr>
 <tr>
 <td markdown="span">Histogram <br>conversion function</td>
 <td markdown="span">Returns time series that consist of the number of values in each histogram distribution described by the `hsExpression`.</td>
@@ -37,7 +39,6 @@ A time series is counted as reporting even if it has interpolated values.</td></
 </tbody>
 </table>
 
-If a time series stops reporting data, use the [`mcount()` function](ts_mcount.html) -- it continues for 2x the specified time window, and then stops. The `mcount()` function returns the moving count for each time series described by the expression. The moving count is the number of data points reported by a time series over a shifting time window. For example, `mcount(10m, ts(my.metric))` returns, at each point, the number data values over the previous 10 minutes for each specified time series.
 
 ## Parameters
 
