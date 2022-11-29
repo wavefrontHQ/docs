@@ -14,7 +14,7 @@ summary: Learn about sending logs to Tanzu Observability.
 
 You can send logs to the Wavefront proxy from your log shipper or directly from your application. The Wavefront proxy sends the log data to the Wavefront instance.
 
-![shows how data goes from the log shipper to the wavefront proxy and then to the Wavefront instance](images/logging_send_logs_rev.png)
+![shows how data goes from the log shipper to the wavefront proxy and then to the Wavefront instance](images/logging_send_logs2.png)
 
 ## Install a Wavefront Proxy
 
@@ -49,7 +49,7 @@ value: "false"</code>
 To install and configure a new proxy version 11.3 or later:
 
 1. Log in to your Wavefront instance and select **Browse** > **Proxies**.
-1. Click **Add Proxy** and follow the instructions on screen.
+1. Click **Add new proxy** and follow the instructions on the screen.
 1. Edit the `wavefront.conf` file to open the `pushListenerPorts` to receive logs from the log shipper.
     <br/>For example:
     * If you installed the proxy on Linux, Mac, or Windows, open the [`wavefront.conf`](proxies_configuring.html#proxy-file-paths) file, uncomment the `pushListenerPorts` configuration property, and save the file. The port is set to 2878 by default.
@@ -62,7 +62,7 @@ To install and configure a new proxy version 11.3 or later:
 
 ## Configure the Log Shipper
 
-The log shipper sends your data to the Wavefront proxy. During Beta, we support the [Fluentd](https://docs.fluentd.org/) log shipper, which scrapes and buffers your logs before sending them to the Wavefront proxy specified in the `fluent.conf` file.
+The log shipper sends your data to the Wavefront proxy. During Beta, we support the [Fluentd](https://docs.fluentd.org/) and [Fluent Bit](https://docs.fluentbit.io/) log shippers, which scrape and buffer your logs before sending them to the Wavefront proxy.
 
 If you want to use a different log shipper, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support).
 
@@ -71,7 +71,7 @@ If you want to use a different log shipper, contact [technical support](https://
 Add the VMware domain (`*.vmware.com`) to the allowlist in your environment. Because Tanzu Observability uses a VMware log cluster, you need to add the VMware domain to your allowlist to send log data successfully. If you want to narrow down the domain, contact your Tanzu Observability account representative.
 
 Configure your log shipper:
-  1. Install the log shipper. For example, [install Fluentd](https://docs.fluentd.org/installation).
+  1. Install the log shipper. For example, [install Fluentd](https://docs.fluentd.org/installation) or [install Fluent Bit](https://docs.fluentbit.io/manual/installation/getting-started-with-fluent-bit).
 
   1. Configure the log shipper to send data to the Wavefront proxy.
 
