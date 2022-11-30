@@ -4,10 +4,10 @@ keywords: containers, kubernetes
 tags: [containers, kubernetes]
 sidebar: doc_sidebar
 permalink: kubernetes_troubleshooting.html
-summary: Get help and troubleshooting instructions when you have problems with your Kubernetes setup.  
+summary: Get help and troubleshooting instructions when you have problems with your Kubernetes integration setup.  
 ---
 
-{% include note.html content="This doc page is intended to help you troubleshoot issues only with your Kubernetes Operator for Tanzu Observability setup." %}
+{% include note.html content="This page is intended to help you troubleshoot issues with your Kubernetes integration only when set up by using the Wavefront Operator for Kubernetes." %}
 
 For an in depth overview of the Kubernetes integration and how it is deployed, navigate to our [GitHub readme page](https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes#readme). 
 
