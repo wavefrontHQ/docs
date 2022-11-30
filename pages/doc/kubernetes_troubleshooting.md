@@ -7,9 +7,11 @@ permalink: kubernetes_troubleshooting.html
 summary: Get help and troubleshooting instructions when you have problems with your Kubernetes setup.  
 ---
 
-For an in depth overview of the integration and how it is deployed, navigate to our [GitHub readme page](https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes#readme). 
+{% include note.html content="This doc page is intended to help you troubleshoot issues only with your Kubernetes Operator for Tanzu Observability setup." %}
 
-**Note**: If you currently use the Helm-managed and installed version of the Wavefront proxy and Wavefront Collector for Kubernetes, see our [legacy troubleshooting page](wf_kubernetes_troubleshooting.html) for instructions on how to troubleshoot your integration. 
+For an in depth overview of the Kubernetes integration and how it is deployed, navigate to our [GitHub readme page](https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes#readme). 
+
+{% include note.html content="If you currently use the Helm-managed and installed version of the Wavefront proxy and Wavefront Collector for Kubernetes, see our [legacy troubleshooting page](wf_kubernetes_troubleshooting.html) for instructions on how to troubleshoot your integration." %}
 
 
 ## Not Enough Instances of Tanzu Observability Components
