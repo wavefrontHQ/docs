@@ -21,7 +21,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
   
 * **Obsolescence Period for Metrics and Sources**: The period of inactivity, after which metrics and sources become *obsolete*, is now customizable. By default, the obsolescence period for metrics and sources is 4 weeks. See [Obsolete Metrics](metrics_managing.html#obsolete-metrics) and [Obsolete Sources](sources_managing.html#step-1-find-a-source) for details.
 
-* **Delta Counters**: We no longer ingest the legacy delta counters as cumulative counter metrics. See [here](wavefront_obsolescence_policy.html#delta-counters) for details.
+* **Delta Counters**: We no longer ingest the legacy delta counters as cumulative counter metrics. The original delta counters implementation has reached End of Life on March 31, 2021. See [here](wavefront_obsolescence_policy.html#delta-counters) for details.
 
 * **Integrations**: We had an integrations release in November! We added the Tanzu Service Mesh integration and made a lot of improvements to a number of integrations. We also introduce new setup UI for the Kubernetes integration. See the [Integration Release Notes](integrations_new_changed.html#november-2022) for details.
 
