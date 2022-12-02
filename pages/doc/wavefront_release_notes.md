@@ -13,7 +13,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
-## 2022-47.x Release Notes
+## 2022-48.x Release Notes
 
 * **Logs (Beta)**:
   - Improved the search time window when you [drill drown](logging_overview.html#traces-browser) from the Traces browser into the related logs. By default, the search time window starts 5 seconds before the trace and ends 5 seconds after the trace, but it's customizable.
