@@ -155,3 +155,11 @@ For the above example if the data measured across 3 minutes had been a total of:
 #### New Implementation
 
 Starting with release 2020.26, a new data type for storing delta counters is part of the product. Data ingestion of delta counters remains unchanged, and a delta (∆) is still required to indicate a delta counter, but the data is now queried via `cs()` instead of `ts()`. The original delta counters still report minutely, but instead of maintaining a monotonically increasing count they report the total number of increments that occurred within each minute. In our example, `cs(errors.count)` displays values of 10, 15, and 5. See [Counters and Delta Counters](delta_counters.html#counters-and-delta-counters-basics) for details and examples.
+
+## Kubernetes Integration
+
+Starting with the 2022-48.x release, we introduce a new Kubernetes Operator, which helps simplifying the management and configuration of the Kubernetes Observability integration and all of the deployed components (such as Wavefront Collector for Kubernetes, Wavefront proxy, Logs (Beta), and so on). The Kubernetes Operator replaces the functionality of the deprecated Helm or manually installed Wavefront Collector for Kubernetes and Wavefront proxy for all Kubernetes Distributions - except for OpenShift Container Platform. 
+
+If you are currently leveraging the Helm or manually-installed Wavefront Collector for Kubernetes and Wavefront proxy, the deprecation will NOT affect you and you won't experience any disruptions. However, support (including bug fixes, security vulnerabilities, new functionality, etc.) will be discontinued on **Jan 31, 2023**, for the legacy collector and proxy installation methods.
+
+**Note**: You should begin migrating to the Kubernetes Observability Operator as soon as possible to ensure that you the most secure and up-to-date Kubernetes Observability experience.
