@@ -20,6 +20,8 @@ By creating an ingestion policy, you group a set of accounts, groups, sources, m
 
 For performance monitoring of your Wavefront instance, you can use [wftop, Wavefront spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Wavefront Usage integration](wavefront_monitoring.html).
 
+{% include important.html content="The Usage Portal improvements introduced with the [2022-48.x release](wavefront_release_notes.html#2022-48x-release-notes) are not available for all customers."%}
+
 ## Ingestion Policy Basics
 
 Ingestion policies allow you to combine user and service accounts, groups, sources, metric namespaces, or point tags, so that you can monitor their usage of the Wavefront service. For example, you can create a policy for a group of new hires. You can also create a policy for one or more source virtual machines. Also, you can set a Points per Second (PPS) limit for the policy and create an alert, so that you can receive notifications if the PPS usage exceeds certain thresholds of the limit.
