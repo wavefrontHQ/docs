@@ -96,7 +96,7 @@ Wavefront service in a secure, fast, and reliable manner
 
 Here's the data pipeline:
 1. The Healthwatch Exporter VMs stream metrics from the Tanzu Application Service Firehose. The tile creates a VM for each Healthwatch exporter, a VM for Telegraf, and a VM for the Wavefront proxy.
-2. Telegraf scrapes the VMs at a predefined interval, and converts them to [Wavefront data format](wavefront_data_format.html). Telegraf uses a built-in plugin. It uses the Wavefront golang SDK to convert the data.
+2. Telegraf scrapes the VMs at a predefined interval, and converts them to [Wavefront data format](wavefront_data_format.html). Telegraf uses a built-in plugin. It uses the Wavefront Go SDK to convert the data.
 3. Next, Telegraf sends the data to the Wavefront proxy.
 4. The proxy send the metrics to the Wavefront service.
 
@@ -106,13 +106,13 @@ Here's the data pipeline:
 
 In this section, we have some answers to frequently asked questions.
 
-### How can I change the scrape interval?
+### How Can I Change the Scrape Interval?
 
 By default, the scrape interval is set to 15 seconds, but you can set up your environment to check more frequently:
-1. In OpsManager, click **Telegraf Agent Config**.
+1. In Ops Manager, click **Telegraf Agent Config**.
 2. Set the **Scrape Interval (seconds)** field and click **Save**.
 
-### How can I send TAS data via a proxy that is deployed outside the tile?
+### How Can I Send TAS Data via a Proxy That Is Deployed Outside the Tile?
 
 Some customers have a central monitoring/observability team that requires that all data to be sent via a specific set of production proxies. Those proxies are used to filter or alter data before they are sent to the Wavefront service.
 
@@ -124,29 +124,44 @@ You can set up your environment to use production proxies as follows:
 4. (Optional) In the **Proxy Port** field, provide a custom proxy port (Default is 2878).
 5. Click **Save**.
 
-### How can I customize metrics ingestion?
+### How Can I Customize Metrics Ingestion per Component?
 
 If you don't want to monitor some of your TAS platform metrics, you can choose not to send them. If those metrics are monitored with any out-of-the-box or custom dashboards, they show up as No Data.
 
 For example, if you don’t want to ingest certificate expiration metrics, then you can remove the VM instance that is assigned to the Cert Expiration Exporter by default. All the metrics that this exporter scrapes will not get ingested.
 1. In Ops Manager, click **Resource Config**.
 2. Find the exporter for which you don't want to emit metrics, set it to 0, and click **Save**. 
+   
    The screenshot below shows how to do this.
 
 ![Cert Expiration Exporter is in process of being changed from Automatic to 0](images/tas_to_resource_config.png)
 
-### How can I customize proxy behavior?
+
+### How Can I Set Up a Metrics Filter?
+
+If you want to consume only a subset of your metrics, you can use an allow list or block list.
+
+You can specify the filter as follows:
+
+1. In Ops Manager, click **Wavefront Proxy Config**.
+2. Scroll down to **Filter metrics by metric name**, and select whether you want to use an allow list or a block list.
+3. Enter one or more regular expression patterns for your selected list. 
+   
+   Each pattern must begin and end with a slash (/) and be on its own line.
+
+
+### How Can I Further Customize Proxy Behavior?
 
 The Wavefront proxy allows you to control many aspects of your ingestion pipeline with configuration properties and preprocessor rules.
 - **Configuration file**: The proxy processes data according to a configuration file. You can modify configuration properties -- for example, to create `block` list and `allow` list regex patterns, specify information about certain data formats, and much more. See [Configuring Wavefront Proxies](proxies_configuring.html).
 - **Preprocessor Rules**: Starting with proxy version 4.1, the Wavefront proxy includes a preprocessor that applies user-defined rules before data is sent to the Wavefront service. You can use preprocessor rules to correct certain data quality issues when you can't fix the problem at the emitting source. See [Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules.html).
 
 You can specify custom elements as follows:
-1. In OpsManager, click **Wavefront Proxy Config**.
-2. Click **Wavefront Proxy Config**, and then click **Custom**.
+1. In Ops Manager, click **Wavefront Proxy Config**.
+2. Under **Custom Proxy Config**, click **Custom**.
 3. Make your changes and click **Save**.
 
-### Things aren't working. What can I do?
+### Things Aren't Working. What Can I Do?
 
 Ensure that your environment meet requirements on the Ops Manager side and on the Tanzu Observability side.
 * **Ops Manager Requirements**
@@ -199,10 +214,10 @@ In Ops Manager, click the Tanzu Observability by Wavefront tile. With **Settings
 <tbody>
    <tr>
    <td width="50%"><strong>Step 1.</strong> Click <strong>Assign AZs and Networks</strong>, to configure the availability zone and network settings.
-   <ol><li>Under <strong>Place singleton jobs in</strong>, select the AZ you want to use. Ops Manager runs any job with a single instance in this AZ.</li>
-   <li>Under <strong>Balance other jobs in</strong>, select one or more other AZs. Ops Manager balances instances of jobs with more than one instance across the AZs that you specify. </li>
-  <li>From the <strong>Network</strong> drop-down menu, select the subnet that you created when you configured the BOSH Director tile. That network often has <code>pas</code> or <code>tas</code> in its name. </li>
-  <li>From the <strong>Service Network</strong> drop-down menu, select the service subnet that you created when you configured the BOSH Director tile. That network often has <code>services</code> in its name. </li>
+   <ol><li>Under <strong>Place singleton jobs in</strong>, select the AZ you want to use. <br/><br/> Ops Manager runs any job with a single instance in this AZ.</li>
+   <li>Under <strong>Balance other jobs in</strong>, select one or more other AZs.<br/><br/> Ops Manager balances instances of jobs with more than one instance across the AZs that you specify. </li>
+  <li>From the <strong>Network</strong> drop-down menu, select the subnet that you created when you configured the BOSH Director tile. <br/><br/>That network often has <code>pas</code> or <code>tas</code> in its name. </li>
+  <li>From the <strong>Service Network</strong> drop-down menu, select the service subnet that you created when you configured the BOSH Director tile. <br/><br/>That network often has <code>services</code> in its name. </li>
   <li>Click <strong>Save</strong>. </li>
   </ol>
    </td>
@@ -248,22 +263,50 @@ In Ops Manager, click the Tanzu Observability by Wavefront tile. With **Settings
    <td width="50%"><strong>Step 3.</strong> Click <strong>Telegraf Agent Config</strong> and customize the Telegraf Agent config or accept the defaults.
    <ol>
    <li>For <strong>Scrape Interval (seconds)</strong>, specify the default interval at which Telegraf agent checks for new data.</li>
-   <li>For <strong>Metric Buffer Limit</strong>, specify the size of the buffer that Telegraf uses to queue data. If your environment sends bursty data, use a larger buffer.</li>
-   <li>For <strong>Flush Interval (seconds)</strong>, specify how often data are flushed from each output plugin to the Wavefront proxy. Must be lower than the scrape interval.</li>
-   <li>For <strong>Foundation Name</strong>, specify a unique name for your Tanzu Application Service environment. This name will be added to all metrics as the metrics source (source=). </li>
-   <li>(Optional) Click <strong>Advanced Options</strong> to specify a custom proxy URL, custom proxy port, or additional Telegraf inputs.</li>
-   <li>Click <strong>Save</strong>.</li>
+   <li>For <strong>Metric Buffer Limit</strong>, specify the size of the buffer that Telegraf uses to queue data.<br/><br/> If your environment sends bursty data, use a larger buffer.</li>
+   <li>For <strong>Flush Interval (seconds)</strong>, specify how often data are flushed from each output plugin to the Wavefront proxy.<br/><br/> Must be lower than the scrape interval.</li>
+   <li>For <strong>Foundation Name</strong>, specify a unique name for your Tanzu Application Service environment. <br/><br/>This name will be added to all metrics as the metrics source (source=). </li>
+   <li>(Optional) Under <strong>Advanced Options</strong>, click <strong>Yes</strong> to specify a custom proxy URL, custom proxy port, and additional Telegraf inputs.
+   <br/><br/>Select to use advanced options, if you are an advanced user and want to configure an additional Telegraf VM for scraping additional metric endpoints that are not covered by the original Telegraf tile.
+   <ol><li>Enter the custom proxy URL and port number.
+   </li>
+   <li>In the <strong>Additional Telegraf VM Inputs</strong> text field, enter the inputs that you use to scrape data from different data sources.
+   <br/><br/> The formatting in this field follows normal Telegraf TOML syntax.</li>
+   <li>Update the following additional Telgraf VM options per your needs:
+    <ul><li>The scrape interval (in seconds)</li>
+    <li>The metric buffer limit (in points)</li>
+    <li>The flush interval (in seconds).</li>
+    </ul>
+    </li>
+   <li>Select the <strong>Additional Telegraf VM Convert Paths</strong> check box to set convert paths.
+   <br/><br/>
+   Convert paths is used on metrics to replace all underscores with the metric separator that you specify.
+   </li>
+   <li>In the <strong>Additional Telegraf VM Metric Separator</strong> text field, enter the characters that you use as the separators when converting metric path names.
+   <br/><br/>This can be a single character or a set of characters.
+   </li>
+   </ol>
+   
+   </li>
+   <li>Click <strong>Save</strong>.
+   
+   </li>
    </ol>
    </td>
-   <td width="50%"><img src="/images/tas_to_3.png" alt="Telegraf Agent Config screenshot, with values as discussed in text above."></td>
+   <td width="50%"><img src="/images/tas_to_3.png" alt="Telegraf Agent Config screenshot, with values till Foundation name text field, as discussed in text above.">
+   <br/><br/>
+   <img src="/images/tas-additional-telegraf-settings.png" alt="Telegraf Agent Config screenshot, with the Advanced options set to on.">
+   </td>
+   
    </tr>
    <tr>
    <td width="50%"><strong>Step 4.</strong> Click <strong>Metrics Exporters</strong> to customize metrics export from Tanzu Application Service.
    <ol>
    <li>Select <strong>Skip TLS Verification When Querying</strong> if you want to turn off TLS verification, for example, during testing or a POC. </li>
    <li>Select a <strong>BOSH Health Check Availability Zone</strong> if you don't want to use the default zone. </li>
-   <li>Optionally, select the <strong>BOSH Health Check Payload VM Type</strong> and change the default. In almost all cases users don't change this field. </li>
-   <li>To collect metrics of all the apps bound to a service instance, select the <strong>Retrieve Service Binding Metrics</strong> check box. <br> This way you can, for example, find the Redis instance or MySQL database that is bound to a particular app. If you turn this setting on, you might experience performance issues, because the information is retrieved by making API calls to the CAPI component within Tanzu Application Service. In some environments that might add too much load on the CAPI servers.</li>
+   <li>Optionally, select the <strong>BOSH Health Check Payload VM Type</strong> and change the default. <br/><br/>
+   In almost all cases users don't change this field. </li>
+   <li>To collect metrics of all the apps bound to a service instance, select the <strong>Retrieve Service Binding Metrics</strong> check box. <br/><br/> This way you can, for example, find the Redis instance or MySQL database that is bound to a particular app. If you turn this setting on, you might experience performance issues, because the information is retrieved by making API calls to the CAPI component within Tanzu Application Service. In some environments that might add too much load on the CAPI servers.</li>
    <li>Click <strong>Save</strong>.</li>
    </ol>
    </td>
@@ -275,8 +318,12 @@ In Ops Manager, click the Tanzu Observability by Wavefront tile. With **Settings
    <td width="50%"><img src="/images/tas_to_5.png" alt="Errands is selected, and defaults are show. "></td>
    </tr>
    <tr>
-   <td width="50%"><strong>(Optional) Step 6.</strong> Click <strong>Resource Config</strong> to review the VM sizing for the deployment. You can choose smaller than default VMs to save money on small and noncritical foundations, and very large VMs with lots of CPU and MEM to scale for large foundations with high volumes of metrics.
-   <br/>
+   <td width="50%"><strong>(Optional) Step 6.</strong> Click <strong>Resource Config</strong> to review the VM sizing for the deployment. 
+   <br/><br/>
+   You can choose smaller than default VMs to save money on small and noncritical foundations, and very large VMs with lots of CPU and MEM to scale for large foundations with high volumes of metrics.
+   <br/><br/>
+   If, in Step 3, you have selected to use an additional Telegraf VM, set <strong>Additional Telegraf Agent</strong> option to <strong>Automatic:1</strong>.
+   <br/><br/>
    <strong>Note: SM Forwarder</strong> is set to <strong>Automatic:0</strong>. Do not change this setting.
    </td>
    <td width="50%"><img src="/images/tas_to_6.png" alt="Resource Config is selected and defaults of first 4 items are shown"></td>
