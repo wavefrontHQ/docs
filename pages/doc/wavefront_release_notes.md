@@ -13,6 +13,95 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## 2022-48.x Release Notes
+
+* **New Kubernetes Integration Setup UI Experience**: With this release, we introduce new setup UI for the Kubernetes integration. See the [Integration Release Notes](integrations_new_changed.html#december-2022) for details.
+
+  
+* **Usage Portal Improvements**: We made the following improvements to the [ingestion policies](ingestion_policies.html) and [overall usage](examine_usage.html) monitoring:
+
+    {% include important.html content="Currently, the Usage Portal improvements are not available for all customers." %}
+
+    <table>
+      <tbody>
+        <tr>
+          <td width="40%">
+            <strong>New Ingestion Policy Scopes</strong>:<p>
+            We added sources, namespaces, and point tags as scope options for ingestion policies. As a Super Admin user, when you create an ingestion policy, you can now select the scope from one of these options:
+            <ul>
+            <li>Accounts</li>
+            <li>Groups</li>
+            <li>Sources</li>
+            <li>Namespaces</li>
+            <li>Point tags</li>
+            </ul></p>
+          </td>
+          <td width="60%">
+            <img src="/images/IP_sources_namespaces_tags.png" alt="In addition to Accounts and Groups, the Scope options include Sources, Namespace, and Point tags.">
+          </td>
+        </tr>
+        <tr>
+          <td width="40%">
+            <strong>New Ingestion Policy Version History</strong>:<p>
+            As a Super Admin user, when you edit an ingestion policy, you now create a version of that policy. As a Super Admin user, to see the changes that have been made to an ingestion policy over time:
+            <ol>
+            <li>From the gear icon on the toolbar, select <strong>Usage and Subscriptions</strong> and click the <strong>Ingestion Policies</strong> tab.</li>
+            <li>Click the ellipsis icon next to the policy and select <strong>Versions</strong>.</li>
+            </ol></p>
+          </td>
+          <td width="60%">
+            <img src="/images/IP_versions.png" alt="The ingestion policy versions. ">
+          </td>
+        </tr>
+        <tr>
+          <td width="40%">
+            <strong>New View Permissions Model</strong>:<p>
+            All users now have read-only access to the <strong>Usage Summary</strong> dashboard and the ingestion policies. If you are not a Super Admin user:
+            <ol>
+            <li>From the gear icon on the toolbar, select <strong>Usage Portal</strong>.</li>
+            <li>On the <strong>Usage Summary</strong> tab, you can examine the dashboard for the overall PPS usage over time.</li>
+            <li>On the <strong>Ingestion Policies</strong> tab, click the name of a policy and examine the policy PPS usage since the policy was created.</li>
+            </ol>
+            Only Super Admin users can create, edit, and delete ingestion policies and the associated alerts.</p>
+          </td>
+          <td width="60%">
+            <img src="/images/IP_view_permission.png" alt="The ingestion policy versions. ">
+          </td>
+        </tr>
+        <tr>
+          <td width="40%">
+            <strong>Sorting Ingestion Policies by Current Usage</strong>:<p>
+            You can now sort the ingestion policies by PPS usage within the last 1 hour.</p>
+          </td>
+          <td width="60%">
+            <img src="/images/IP_usage_sort.png" alt="The ingestion policy versions. ">
+          </td>
+        </tr>
+        <tr>
+          <td width="40%">
+            <strong>Downloading Usage Portal Dashboards</strong>:<p>
+            All users can now export the <strong>Usage Summary</strong> dashboard and the ingestion policy dashboards in PDF format.</p>
+          </td>
+          <td width="60%">
+            <img src="/images/IP_dashboard_export.png" alt="The ingestion policy versions. ">
+          </td>
+        </tr>
+        </tbody>
+    </table>
+
+* **Logs (Beta)**:
+
+  {% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. If you'd like to participate, contact your Tanzu Observability account representative or [technical support](wavefront_support_feedback.html#support)."%}
+
+  - Improved the search time window when you [drill down](logging_overview.html#traces-browser) from the Traces browser into the related logs. By default, the search time window now starts 5 seconds before the trace and ends 5 seconds after the trace, but it's customizable.
+  - Added an autocomplete functionality to the search bar, so that you can quickly enter log filters by using the keyboard.
+        
+* **Obsolescence Period for Metrics and Sources**: The period of inactivity, after which metrics and sources become *obsolete*, is now customizable. By default, the obsolescence period for metrics and sources is 4 weeks. See [Obsolete Metrics](metrics_managing.html#obsolete-metrics) and [Obsolete Sources](sources_managing.html#step-1-find-a-source) for details.
+
+* **Delta Counters**: We no longer ingest the legacy delta counters as cumulative counter metrics. The original delta counters implementation has reached End of Life on March 31, 2021. See [here](wavefront_obsolescence_policy.html#delta-counters) for details.
+
+* **Integrations**: We had an integrations release in November! We added the Tanzu Service Mesh integration and made a lot of improvements to a number of integrations. 
+
 ## 2022-44.x Release Notes
 
 * The **Query Suggestions** for charts and alerts are now actionable. To apply a suggestion and improve the query performance, click a suggestion and your query updates accordingly. See [Use Performance Improvement Suggestions](query_language_performance.html#use-performance-improvement-suggestions) for details.
