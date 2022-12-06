@@ -46,7 +46,9 @@ value: "false"</code>
   </tr>
 </table>
 
-To install and configure a new proxy version 11.3 or later:
+{% include important.html content="For logs payload in JSON arrays from a Fluentd log shipper, you must install proxy version 11.3 or later. For logs payload in JSON lines from a Fluent Bit log shipper, you must install proxy version 12.1 or later." %}
+
+To install and configure a new proxy:
 
 1. Log in to your Wavefront instance and select **Browse** > **Proxies**.
 1. Click **Add new proxy** and follow the instructions on the screen.
@@ -75,24 +77,38 @@ Configure your log shipper:
 
   1. Configure the log shipper to send data to the Wavefront proxy.
 
-     a. Add the hostname of the host where the proxy runs.
-
-     b. Add the `pushListenerPorts` that you configured in the proxy.
-     <br/>For example, edit the `fluent.conf` file to send data to a proxy as follows:
-      ```
-      <match wf.**>
-        @type copy
-        <store>
-          @type http
-          endpoint http://<proxy url>:<proxy port (example:2878)>/logs/json_array?f=logs_json_arr
-          open_timeout 2
-          json_array true
-          <buffer>
-            flush_interval 10s
-          </buffer>
-        </store>
-      </match>
-      ```
+     1. Add the hostname of the host where the proxy runs.
+     1. Add the `pushListenerPorts` that you configured in the proxy.
+         
+     For example:
+     - Edit the  Fluentd configuration file (`fluent.conf`) to send data to a proxy as follows:
+    
+     ```
+     <match wf.**>
+       @type copy
+       <store>
+         @type http
+         endpoint http://<proxy url>:<proxy port (example:2878)>/logs/json_array?f=logs_json_arr
+         open_timeout 2
+         json_array true
+         <buffer>
+           flush_interval 10s
+         </buffer>
+       </store>
+     </match>
+     ```
+     - Edit the  Fluent Bit configuration file  (`fluent-bit-<os>.conf`) to send data to a proxy as follows:
+    
+     ```
+     [OUTPUT]
+         Name http
+         Host <proxy url>
+         Port <proxy port>(example: 2878)
+         URI /logs/?f=logs_json_lines
+         Format json_lines
+         json_date_key timestamp
+         json_date_format epoch
+     ```
   1. As part of preprocessing, tag the logs with the application and service name to ensure you can drill down from traces to logs.
   2. (Optional) If you're already using a logging solution, specify alternate strings for required and optional log attributes in the [proxy configuration file](logging_proxy_configurations.html). See also [My Logging Solution Doesn't Use the Default Attributes](logging_faq.html#my-logging-solution-doesnt-use-the-default-attributes).
 
