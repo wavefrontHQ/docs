@@ -18,7 +18,7 @@ You can send logs to the Wavefront proxy from your log shipper or directly from 
 
 ## Install a Wavefront Proxy
 
-Our logging solution currently requires a Wavefront proxy and does not support direct ingestion. The Wavefront proxy accepts JSON arrays and JSON lines payload over HTTP or HTTPS and forwards it to the Wavefront service.
+Our logging solution currently requires a Wavefront proxy and does not support direct ingestion. The Wavefront proxy accepts logs as JSON array and JSON lines payload over HTTP or HTTPS and forwards it to the Wavefront service.
 
 {% include note.html content="For optimal performance, install a standalone proxy cluster that receives only logs payload. Typically two proxy instances behind a load balancer are sufficient." %}
 
@@ -46,7 +46,7 @@ value: "false"</code>
   </tr>
 </table>
 
-{% include important.html content="For logs payload in JSON arrays from a Fluentd log shipper, you must install proxy version 11.3 or later. For logs payload in JSON lines from a Fluent Bit log shipper, you must install proxy version 12.1 or later." %}
+{% include important.html content="Starting with proxy version 11.3, you can send logs in the JSON array format. Starting with proxy version 12.1, you can send logs also in the JSON lines format." %}
 
 To install and configure a new proxy:
 
@@ -83,32 +83,32 @@ Configure your log shipper:
      For example:
      - Edit the  Fluentd configuration file (`fluent.conf`) to send data to a proxy as follows:
     
-     ```
-     <match wf.**>
-       @type copy
-       <store>
-         @type http
-         endpoint http://<proxy url>:<proxy port (example:2878)>/logs/json_array?f=logs_json_arr
-         open_timeout 2
-         json_array true
-         <buffer>
-           flush_interval 10s
-         </buffer>
-       </store>
-     </match>
+       ```
+       <match wf.**>
+         @type copy
+         <store>
+           @type http
+           endpoint http://<proxy url>:<proxy port (example:2878)>/logs/json_array?f=logs_json_arr
+           open_timeout 2
+           json_array true
+           <buffer>
+             flush_interval 10s
+           </buffer>
+         </store>
+       </match>
      ```
      - Edit the  Fluent Bit configuration file  (`fluent-bit-<os>.conf`) to send data to a proxy as follows:
     
-     ```
-     [OUTPUT]
-         Name http
-         Host <proxy url>
-         Port <proxy port>(example: 2878)
-         URI /logs/?f=logs_json_lines
-         Format json_lines
-         json_date_key timestamp
-         json_date_format epoch
-     ```
+       ```
+       [OUTPUT]
+           Name http
+           Host <proxy url>
+           Port <proxy port>(example: 2878)
+           URI /logs/?f=logs_json_lines
+           Format json_lines
+           json_date_key timestamp
+           json_date_format epoch
+       ```
   1. As part of preprocessing, tag the logs with the application and service name to ensure you can drill down from traces to logs.
   2. (Optional) If you're already using a logging solution, specify alternate strings for required and optional log attributes in the [proxy configuration file](logging_proxy_configurations.html). See also [My Logging Solution Doesn't Use the Default Attributes](logging_faq.html#my-logging-solution-doesnt-use-the-default-attributes).
 
