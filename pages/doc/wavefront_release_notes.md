@@ -20,6 +20,8 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
   
 * **Usage Portal Improvements**: We made the following improvements to the [ingestion policies](ingestion_policies.html) and [overall usage](examine_usage.html) monitoring:
 
+    {% include important.html content="Currently, the Usage Portal improvements are not available for all customers." %}
+
     <table>
       <tbody>
         <tr>
@@ -88,7 +90,10 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
     </table>
 
 * **Logs (Beta)**:
-  - Improved the search time window when you [drill down](logging_overview.html#traces-browser) from the Traces browser into the related logs. By default, the search time window starts 5 seconds before the trace and ends 5 seconds after the trace, but it's customizable.
+
+  {% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. If you'd like to participate, contact your Tanzu Observability account representative or [technical support](wavefront_support_feedback.html#support)."%}
+
+  - Improved the search time window when you [drill down](logging_overview.html#traces-browser) from the Traces browser into the related logs. By default, the search time window now starts 5 seconds before the trace and ends 5 seconds after the trace, but it's customizable.
   - Added an autocomplete functionality to the search bar, so that you can quickly enter log filters by using the keyboard.
         
 * **Obsolescence Period for Metrics and Sources**: The period of inactivity, after which metrics and sources become *obsolete*, is now customizable. By default, the obsolescence period for metrics and sources is 4 weeks. See [Obsolete Metrics](metrics_managing.html#obsolete-metrics) and [Obsolete Sources](sources_managing.html#step-1-find-a-source) for details.
