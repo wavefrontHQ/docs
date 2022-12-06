@@ -164,4 +164,4 @@ Starting with the 2022-48.x release, we introduce a new Kubernetes Operator, whi
 
 If you are currently leveraging the Helm or manually-installed Wavefront Collector for Kubernetes and Wavefront proxy, the deprecation will NOT affect you and you won't experience any disruptions. However, support (including bug fixes, security vulnerabilities, new functionality, etc.) will be discontinued on **Feb 28, 2023**, for the legacy collector and proxy installation methods.
 
-{% include note.html content="You should begin migrating to the Kubernetes Observability Operator as soon as possible to ensure that you the most secure and up-to-date Kubernetes Observability experience."%}
+{% include note.html content="You should begin [migrating to the Kubernetes Observability Operator](https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes/blob/main/docs/migration.md) as soon as possible to ensure that you have the most secure and up-to-date Kubernetes Observability experience."%}
