@@ -158,7 +158,7 @@ Starting with release 2020.26, a new data type for storing delta counters is par
 
 ## Kubernetes Integration
 
-Starting with the 2022-48.x release, we introduce a new Kubernetes Operator, which helps simplifying the management and configuration of the Kubernetes integration and the deployed components (such as Wavefront Collector for Kubernetes, Wavefront proxy, Logs (Beta), and so on). The Kubernetes Operator replaces the functionality of the deprecated Helm or manually-installed Wavefront Collector for Kubernetes and Wavefront proxy for all Kubernetes distributions, except for OpenShift Container Platform. 
+Starting with the 2022-48.x release, we introduce a new Kubernetes Operator, which helps simplifying the management and configuration of the Kubernetes integration and the deployed components (such as Wavefront Collector for Kubernetes, Wavefront proxy, Logs (Beta), and so on). The Kubernetes Operator replaces the deprecated Helm or manual installation of the Wavefront Collector for Kubernetes and Wavefront proxy for all Kubernetes distributions, except for OpenShift Container Platform. 
 
 {% include important.html content="This change does not affect other integrations running on Kubernetes clusters."%}
 
