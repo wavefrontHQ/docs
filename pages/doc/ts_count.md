@@ -25,7 +25,9 @@ You can use `count()` with time series, with histograms, and with events.
 <tr>
 <td markdown="span"> Time series <br>aggregation function</td>
 <td markdown="span">Returns the number of reporting time series described by the `tsExpression` at each moment in time.
-A time series is counted as reporting even if it has interpolated values.</td></tr>
+A time series is counted as reporting even if it has interpolated values.<br>
+Use the [`mcount ()` function](ts_mcount.html), if you want to add together the number of data points reported by a time series over a shifting time window.
+</td></tr>
 <tr>
 <td markdown="span">Histogram <br>conversion function</td>
 <td markdown="span">Returns time series that consist of the number of values in each histogram distribution described by the `hsExpression`.</td>
@@ -99,6 +101,7 @@ The `count()` aggregate function adds together the number of reporting time seri
 By default, `count()` produces a single count across all time series. You can optionally group the time series based on one or more characteristics, and obtain a separate count for each group.
 
 If a time series has data gaps, `count()` fills them in by interpolation whenever possible. A time series with an interpolated value is considered to be reporting and is included in the current count.  When a value cannot be interpolated into a time series (or if the series stops reporting altogether), the series is excluded from the count.
+
 
 #### Grouping
 

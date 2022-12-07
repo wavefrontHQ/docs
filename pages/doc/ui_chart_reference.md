@@ -193,7 +193,7 @@ Chart description which shows up as hover text when users move the mouse over th
 </thead>
 <tr>
 <td>Include Obsolete Metrics</td>
-<td>Select this check box to display metrics that have not reported data values in the last 4 weeks. Selecting this option is useful if you are looking at data from 4 or more weeks ago; however, performance is slower when this option is turned on.</td>
+<td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
 <td>Chart Time Window</td>
@@ -394,7 +394,7 @@ Chart description which shows up as hover text when users move the mouse over th
 </thead>
 <tr>
 <td>Include Obsolete Metrics</td>
-<td>Select this check box to display metrics that have not reported data values in the last 4 weeks. Selecting this option is useful if you are looking at data from 4 or more weeks ago; however, performance is slower when this option is turned on.</td>
+<td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
 <td>Chart Time Window</td>
@@ -586,7 +586,7 @@ Chart description which shows up as hover text when users move the mouse over th
 </thead>
 <tr>
 <td>Include Obsolete Metrics</td>
-<td>Select this check box to display metrics that have not reported data values in the last 4 weeks. Selecting this option is useful if you are looking at data from 4 or more weeks ago; however, performance is slower when this option is turned on.</td>
+<td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
 <td>Chart Time Window</td>
@@ -759,7 +759,7 @@ Chart description which shows up as hover text when users move the mouse over th
 </thead>
 <tr>
 <td>Include Obsolete Metrics</td>
-<td>Select this check box to display metrics that have not reported data values in the last 4 weeks. Selecting this option is useful if you are looking at data from 4 or more weeks ago; however, performance is slower when this option is turned on.</td>
+<td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
 <td>Chart Time Window</td>
@@ -918,7 +918,7 @@ Chart description which shows up as hover text when users move the mouse over th
 </thead>
 <tr>
 <td>Include Obsolete Metrics</td>
-<td>Select this check box to display metrics that have not reported data values in the last 4 weeks. Selecting this option is useful if you are looking at data from 4 or more weeks ago; however, performance is slower when this option is turned on.</td>
+<td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
 <td>Chart Time Window</td>
@@ -1114,7 +1114,7 @@ Chart description which shows up as hover text when users move the mouse over th
 </thead>
 <tr>
 <td>Include Obsolete Metrics</td>
-<td>Select this check box to display metrics that have not reported data values in the last 4 weeks. Selecting this option is useful if you are looking at data from 4 or more weeks ago; however, performance is slower when this option is turned on.</td>
+<td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
 <td>Chart Time Window</td>
@@ -1225,7 +1225,7 @@ Chart description which shows up as hover text when users move the mouse over th
 </thead>
 <tr>
 <td>Include Obsolete Metrics</td>
-<td>Select this check box to display metrics that have not reported data values in the last 4 weeks. Selecting this option is useful if you are looking at data from 4 or more weeks ago; however, performance is slower when this option is turned on.</td>
+<td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
 <td>Chart Time Window</td>
@@ -1322,7 +1322,7 @@ Chart description which shows up as hover text when users move the mouse over th
 </thead>
 <tr>
 <td>Include Obsolete Metrics</td>
-<td>Select this check box to display metrics that have not reported data values in the last 4 weeks. Selecting this option is useful if you are looking at data from 4 or more weeks ago; however, performance is slower when this option is turned on.</td>
+<td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
 <td>Chart Time Window</td>
@@ -1435,7 +1435,7 @@ The Axis tab lets you change the Y axis, and both the X axis dimensions and unit
 </thead>
 <tr>
 <td>Include Obsolete Metrics</td>
-<td>Select this check box to display metrics that have not reported data values in the last 4 weeks. Selecting this option is useful if you are looking at data from 4 or more weeks ago; however, performance is slower when this option is turned on.</td>
+<td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
 <td>Chart Time Window</td>
@@ -1538,7 +1538,7 @@ The Axis tab lets you change the Y axis, and both the X axis and Y axis dimensio
 </thead>
 <tr>
 <td>Include Obsolete Metrics</td>
-<td>Select this check box to display metrics that have not reported data values in the last 4 weeks. Selecting this option is useful if you are looking at data from 4 or more weeks ago; however, performance is slower when this option is turned on.</td>
+<td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
 <td>Chart Time Window</td>
@@ -1639,7 +1639,7 @@ Chart description which shows up as hover text when users move the mouse over th
 </thead>
 <tr>
 <td>Include Obsolete Metrics</td>
-<td>Select this check box to display metrics that have not reported data values in the last 4 weeks. Selecting this option is useful if you are looking at data from 4 or more weeks ago; however, performance is slower when this option is turned on.</td>
+<td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
 <td>Chart Time Window</td>
@@ -1792,7 +1792,7 @@ Chart description which shows up as hover text when users move the mouse over th
 </thead>
 <tr>
 <td>Include Obsolete Metrics</td>
-<td>Select this check box to display metrics that have not reported data values in the last 4 weeks. Selecting this option is useful if you are looking at data from 4 or more weeks ago; however, performance is slower when this option is turned on.</td>
+<td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
 <td>Chart Time Window</td>
