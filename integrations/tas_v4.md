@@ -7,63 +7,64 @@ summary: Learn about the Wavefront Tanzu Application Service Integration.
 ## Tanzu Application Service Integration
 
 Tanzu Application Service is a popular platform for building cloud-native applications.
-This integration uses the VMware Tanzu Observability by Wavefront Nozzle v4. The integration offers TAS data egress, dashboards and alerting.
+This integration uses the VMware Tanzu Observability by Wavefront Nozzle v4.
+The integration offers TAS data egress, system dashboards, and alerts.
+A TAS environment with many foundations can be difficult to debug.
+Tanzu Observability can help.
+With an easy setup, TAS specific SLIs,
+ability to monitor across your foundations and out-of-the-box dashboards and alerts,
+you'll be up and running in no time.
 
-This integration scrapes metrics in the TAS Foundation and pushes them to Tanzu Observability. The integration doesn't just use a push-based approach like the earlier versions of the Tanzu Observability by Wavefront nozzle. The new approach supports more predictable and controllable data flow than the earlier versions of the nozzle.
+Supported Versions: TAS v2.11 and later and TAS v2.7 LTS.
+
+## Benefits
+
+- Multi-foundation capabilities: Explore the data from all your foundations by using dashboard variables.
+- Opinionated monitoring:
+  Collection of critical metrics that allow you to monitor and visualize the health of Tanzu Application Service (TAS).
+- PPS management: Customize the nozzle in Ops Manager, for example update the scrape interval.
 
 {% include image.md src="images/screen-1.png" width="80" %}
 
-### Dashboards
+## How It Works
 
-The TAS integration contains a set of predefined dashboards that give you an overview of your TAS deployment and specific TAS components:
+The Tanzu Observability Nozzle for TAS has three major components.
 
-- TAS: All Jobs - Overall health of the TAS deployment.
-- TAS: App Instances - Detailed view of number and status of Application Instances (AIs).
-- TAS: BOSH Director Health - Detailed view of BOSH Director health.
-- TAS: CLI Health - Health of CLI within TAS.
-- TAS: Certificate Expiration - Detailed view of the validity of the certificates.
-- TAS: Diego / Capacity - Detailed Diego metrics.
-- TAS: Doppler - Real-time visibility into Doppler health.
-- TAS: Job Details - Detailed view of TAS job information.
-- TAS: Logging and Metrics Pipeline - Health check of Logging and Metrics Firehose.
-- TAS: Nozzle Troubleshooting - Health of the Nozzle's internal systems and services.
-- TAS: Ops Manager Health - Health check of Ops Manager.
-- TAS: Platform MySQL - Real-time visibility into the TAS MySQL status.
-- TAS: Router - Detailed Gorouter metrics.
-- TAS: Workload Monitoring - Information about applications running inside of TAS.
+1. The Healthwatch exporters are VMs that stream metrics from the TAS Firehose.
+2. Telegraf scrapes these metrics, converts them to Wavefront data format, and streams them to the Wavefront proxy.
+3. The Wavefront proxy sends the metrics to the Wavefront service.
 
-#### Service Dashboards
-
-The TAS integration also includes dashboards for monitoring TAS services.
-
-- TAS Services: MySQL - Detailed metrics about TAS MySQL service instances.
-- TAS Services: RabbitMQ - Detailed metrics about TAS RabbitMQ service instances.
-- TAS Services: Redis - Detailed metrics about TAS Redis service instances.
-
-### Alerts
-
-The current set of alerts comes from an older version of this integration. These alerts are not officially supported
-yet, but you can install and use them. Descriptions of the alerts are available in
-the [Tanzu Observability by Wavefront documentation](https://docs.wavefront.com/integrations_tas_alerts.html).
-
-## Tanzu Application Service Setup
+{% include image.md src="images/screen-2.png" width="80" %}
 
 
 
-Supported Versions: TAS v2.11 and later.
+{% include image.md src="images/screen-3.png" width="80" %}
 
-### Install VMware Tanzu Observability by Wavefront Nozzle Tile
+### Step 1: Download the Tanzu Obervability Nozzle Tile
 
-This integration uses the [VMware Tanzu Observability by Wavefront Nozzle](https://network.pivotal.io/products/wavefront-nozzle)
-tile distributed through the Tanzu network.
+The Tanzu Observability Nozzle is the code that sends data from Tanzu Application Service to Tanzu Observability.
 
-See [Monitor Tanzu Application Service with Tanzu Observability by Wavefront](http://docs.wavefront.com/integrations_tas_howto.html) for detailed installation instructions.
+<a href="https://network.pivotal.io/products/wavefront-nozzle/" class="btn btn-sm btn-default">Download nozzle</a>
 
-### Wavefront Proxy Configuration
-Use the following Wavefront Instance URL and API token for configuring the [Wavefront proxy](http://docs.pivotal.io/partners/wavefront-nozzle/installing.html#install):
+### Step 2: Upload, Configure, and Deploy the Nozzle Tile in Ops Manager
 
-Wavefront Instance URL: `https://YOUR_CLUSTER.wavefront.com/api`  
-Wavefront API Token: `YOUR_API_TOKEN` 
+1. Log in to Ops Manager.
+2. Upload the TAS Integration for Tanzu Observability.
+3. Configure the nozzle. At a minimum, specify the:
+    - Wavefront Proxy Configuration: Wavefront instance, API token, and a user-friendly host name
+      {% include image.md src="images/screen-4.png" width="80" %}
+    - Telegraf Agent Configuration: Foundation name
+
+See the [documentation](https://docs.wavefront.com/integrations_tas_howto.html) for details and FAQs.
+
+### Step 3: Confirm that Metrics are Flowing
+
+After the tile is deployed in Ops Manager, metrics are sent to Tanzu Observability.
+To confirm, click the **Metrics** tab.
+
+### Step 4: Explore TAS Metrics with the System Dashboards
+
+Examine your foundation data with the out-of-the-box dashboards on the **Dashboards** tab.
 
 
 ## Tanzu Application Service Metrics Overview
