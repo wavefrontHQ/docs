@@ -88,7 +88,7 @@ Configure your log shipper:
          @type copy
          <store>
            @type http
-           endpoint http://<proxy url>:<proxy port (example:2878)>/logs/json_array?f=logs_json_arr
+           endpoint http://<proxy url>:<proxy port (example:2878)>/logs?f=logs_json_arr
            open_timeout 2
            json_array true
            <buffer>
@@ -104,10 +104,8 @@ Configure your log shipper:
            Name http
            Host <proxy url>
            Port <proxy port>(example: 2878)
-           URI /logs/?f=logs_json_lines
+           URI /logs?f=logs_json_lines
            Format json_lines
-           json_date_key timestamp
-           json_date_format epoch
        ```
   1. As part of preprocessing, tag the logs with the application and service name to ensure you can drill down from traces to logs.
   2. (Optional) If you're already using a logging solution, specify alternate strings for required and optional log attributes in the [proxy configuration file](logging_proxy_configurations.html). See also [My Logging Solution Doesn't Use the Default Attributes](logging_faq.html#my-logging-solution-doesnt-use-the-default-attributes).
