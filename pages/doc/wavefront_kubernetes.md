@@ -25,7 +25,7 @@ The following videos get you started.
 <br>
 <iframe id="kmsembed-1_chq9tgn6" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_chq9tgn6/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="Wavefront Operator for Kubernetes"></iframe></td>
 <td><br><br>
-<p>This video is about recent changes to the install process and shows a demo. You can then get started by going to the following Github pages:
+<p>This video is about recent changes to the install process and shows a demo. You can then get started by going to the following GitHub pages:
 <ul>
 <li><a href="https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes">Wavefront Operator for Kubernetes README</a></li>
 <li><a href="https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes/blob/main/docs/migration.md">Wavefront Operator for Kubernetes Migration</a></li>
@@ -59,8 +59,6 @@ This video gives you the big picture. It explains the different ways of monitori
 
 
 
-
-
 ## Send Data from Your Kubernetes Environment
 
 You can send data to Tanzu Observability in several ways:
@@ -70,15 +68,21 @@ You can send data to Tanzu Observability in several ways:
 
 ![The diagram shows the different components and ways you can send data from your Kubernetes environment. The details are explained above.](images/kubernetes_overview_diagram.png)
 
-To use the Wavefront Collector for Kubernetes, you need to set up our Kubernetes integration. Use one of the following options:
-* [**Recommended**] Directly through your Wavefront instance user interface.
-  1. Log in to your Wavefront instance and click **Integrations** on the toolbar.
-  1. Search for the Kubernetes integration and click it.
-  1. Install the integration using Helm (Tanzu cluster or Kubernetes cluster) or OpenShift. You can [preview the setup steps here](kubernetes.html).
-    ![Shows the three options to install the Kubernetes collector](images/kubernetes_installing_options.png)
-* Or follow the guidelines given in the [Bitnami guide](https://bitnami.com/stack/wavefront/helm).
+To use the Wavefront Collector for Kubernetes, you must set up our Kubernetes integration. Use one of the following options:
+* [**Recommended**] Directly by using the Tanzu Observability user interface. 
 
-{% include tip.html content="After installing the Wavefront Collector for Kubernetes via the Kubernetes integration, you can customize it to fit the needs of your environment and use case. See the [docs on GitHub](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes#configuration) and examples for different use cases. " %}
+  The new [Wavefront Operator for Kubernetes](https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes#configuration) supports deploying the Wavefront Collector and the Wavefront Proxy in Kubernetes.
+  
+  1. Log in to your Wavefront instance and click **Integrations** on the toolbar.
+  1. In the Featured section, click the **Kubernetes** integration tile.
+  1. On the **Setup** tab, click **Add Integration**.
+  1. Install the integration using a Kubernetes cluster or OpenShift. You can [preview the setup steps here](kubernetes.html).
+  
+  ![A screenshot of the deployment options.](/images/kubernetes_installing_options.png)
+  
+* Follow the guidelines given in the [Bitnami guide](https://bitnami.com/stack/wavefront/helm).
+
+{% include tip.html content="After installing the Wavefront Collector for Kubernetes by using the Kubernetes integration, you can customize it to fit the needs of your environment and use case. See the [docs on GitHub](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes#configuration) and examples for different use cases. " %}
 
 
 
@@ -94,7 +98,7 @@ The Wavefront Collector for Kubernetes supports monitoring for your Kubernetes i
 
 Our Collector for Kubernetes collects metrics to give comprehensive insight into all layers of your Kubernetes environment, such as nodes, pods, services, and config maps.
 
-Depending on the selected setup, metrics are sent to the Wavefront proxy and from there to the Wavefront service. It's possible to send metrics using direct ingestion, but the Wavefront proxy is preferred for most cases.
+Depending on the selected setup, metrics are sent to the Wavefront proxy and from there to the Tanzu Observability service. It's possible to send metrics using direct ingestion, but the Wavefront proxy is preferred for most cases.
 
 ![kubernetes core monitoring](/images/kubernetes_core.png)
 
@@ -102,21 +106,21 @@ The collector runs as a DaemonSet for high scalability and supports leader elect
 
 ### Host-Level Monitoring
 
-The Wavefront Collector for Kubernetes supports automatic monitoring of host-level metrics and host-level `systemd` metrics. When you set up the collector, it auto-discovers pods and services  in your environment and starts collecting host-level metrics.
+The Wavefront Collector for Kubernetes supports automatic monitoring of host-level metrics and host-level `systemd` metrics. When you set up the collector, it auto-discovers pods and services in your environment and starts collecting host-level metrics.
 
 You can [filter the metrics](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/blob/main/docs/filtering.md) before they are reported to the Wavefront service.
 
 ### Application Monitoring
 
 The Wavefront Collector for Kubernetes automatically starts collecting metrics from many commonly used applications:
-* The collector auto-discovers endpoints using labels. See [Auto Discovery](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/discovery.md#auto-discovery).
-* The collector also scrapes Prometheus metric endpoints such as API server, etcd, and NGINX.
+* The collector auto discovers endpoints using labels. See [Auto Discovery](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/discovery.md#auto-discovery).
+* The collector also scrapes Prometheus metric endpoints such as API server, `etcd`, and NGINX.
 
-You can also configure the collector to collect data from Telegraf application sources, such as Redis, RabbitMQ. etc., using the [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md#telegraf_source) file.
+You can also configure the Collector to collect data from Telegraf application sources, such as Redis, RabbitMQ. etc., using the [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md#telegraf_source) file.
 
 The following diagram illustrates this:
 
-![kubernetes application monitoring](/images/kubernetes_apps.png)
+![Kubernetes application monitoring](/images/kubernetes_apps.png)
 
 ## Visualize Kubernetes Data
 
@@ -125,16 +129,16 @@ Tanzu Observability gives you out-of-the-box dashboards once the Wavefront Colle
 1. Search for the Kubernetes integration and click it.
 1. Click the **Dashboards** tab.
 
-![This image shows the out-of-the box dashboards for Kubernetes: Kubernetes Summary dashboard, Kubernetes Clusters dashboard, Kubernetes Nodes dashboard, Kubernetes Pods dashboard, Kubernetes Containers dashboard, Kubernetes Namespaces dashboard, and Kubernetes Collector Metrics dashboard  ](images/wavefront_kubernetes_dashboards_default.png)
+![This image shows the out-of-the box dashboards for Kubernetes: Kubernetes Status dashboard, Kubernetes Summary dashboard, Kubernetes Clusters dashboard, Kubernetes Nodes dashboard, Kubernetes Pods dashboard, Kubernetes Containers dashboard, Kubernetes Namespaces dashboard, and Kubernetes Collector Metrics dashboard  ](images/wavefront_kubernetes_dashboards_default.png)
 
-The Kubernetes Summary dashboard gives details on the health of your infrastructure and workloads. You can drill down from this dashboard and identify potential hotspots.
+The Kubernetes Status dashboard gives details about the health of your integration. The Kubernetes Summary dashboard gives details on the health of your infrastructure and workloads. You can drill down from this dashboard and identify potential hotspots.
 
 {{site.data.alerts.note}}
 <p>These out-of-the-box dashboards are read-only. To create a customizable copy:</p>
 
 <ol>
   <li>
-    Click the ellipsis icon and select <strong>Clone</strong>.
+    Open a dashboard, click the ellipsis icon in the top right, and select <strong>Clone</strong>.
   </li>
   <li>
     In the cloned dashboard, add your own charts or customize the RED metrics charts.
@@ -156,6 +160,15 @@ The out-of-the-box dashboards:
       </th>
     </tr>
   </thead>
+  <tr>
+    <td width="20%" markdown="span">
+      **Kubernetes Status**
+    </td>
+    <td width="80%">
+       Details on the use of the Kubernetes Integration.
+      <!--<img src="images/kubernetes_status_dashboard.png" alt="a screenshot of the Kubernetes status dashboard with charts."/>-->
+    </td>
+  </tr>
   <tr>
     <td width="20%" markdown="span">
       **Kubernetes Summary**
@@ -219,6 +232,15 @@ The out-of-the-box dashboards:
       <img src="images/kubernetes_collector_metrics_dahsboard.png" alt="a screenshot of the Kubernetes collector metrics dashboard with charts."/>
     </td>
   </tr>
+  <tr>
+  <td width="20%" markdown="span">
+  **Kubernetes Control Plane**
+  </td>
+  <td width="80%">
+    Details on the Kubernetes control plane components.
+    <img src="images/kubernetes_control_plane_dahsboard.png" alt="a screenshot of the Kubernetes control plane dashboard with charts."/>
+  </td>
+</tr>
 </table>
 
 
@@ -228,10 +250,10 @@ The default Kubernetes infrastructure can include a [Horizontal Pod Autoscaler](
 
 The [Wavefront Horizontal Pod Autoscaler Adapter](https://www.github.com/wavefrontHQ/wavefront-kubernetes-adapter) allows you to scale based on *any* metric that it knows about.
 
-For example, you could scale based on networking or disk metrics, or any application metrics that are available to Tanzu Observability. The Autoscaler Adapter sends the recommendation to the Horizontal Pod Autoscaler, and the Kubernetes environment is kept healthy as a result.
+For example, you can scale based on networking or disk metrics, or any application metrics that are available to Tanzu Observability. The Autoscaler Adapter sends the recommendation to the Horizontal Pod Autoscaler, and the Kubernetes environment is kept healthy as a result.
 
 ![kubernetes scaling diagram](/images/kubernetes_scaling.png)
 
 ## Next Steps
 
-* To use the Kubernetes collector, install the [Wavefront's Kubernetes integration](kubernetes.html).
+* To monitor your Kubernetes clusters, set up the [Wavefront Kubernetes integration](kubernetes.html).
