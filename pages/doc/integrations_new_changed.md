@@ -25,8 +25,38 @@ We made improvements to the following integrations in December 2022:
     {% include important.html content="This change does not affect other integrations running on Kubernetes clusters."%}
     
   - We have added a new [troubleshooting page](kubernetes_troubleshooting.html) for Kubernetes.
+  
+  - Removed the **etcd** chart from the **Kubernetes Control Plane** dashboard because Kubernetes no longer provides information about etcd.
+  - Added a new **Kubernetes Status** dashboard. It allows you to monitor the Kubernetes integration health.
+  
+* Tanzu Application Service:
 
-* Snowflake -- Updated the setup steps and the UI of the Snowflake integration with more details on the Snowflake account identifier that you have to enter. See [Add a Snowflake Integration](snowflake.html#add-a-snowflake-integration) for details.
+  - We updated the **Overview** and **Setup** tabs to simplify the user experience.
+  
+  - Added `tas.capi` metrics to the metrics documentation.
+
+  
+* Snowflake: 
+
+  - Updated the setup steps and the UI of the Snowflake integration with more details on the Snowflake account identifier that you have to enter. See [Add a Snowflake Integration](snowflake.html#add-a-snowflake-integration) for details.
+  - Added support for ingesting Warehouse load history metrics real-time. These metrics earlier had a 3-hour delay.
+
+* NVIDIA: 
+
+  - We added a new dashboard for GPU monitoring on the Kubernetes environments.
+  - We also updated the setup instructions on how to set up the integration and monitor NVIDIA on Kubernetes
+
+* SNMP: 
+  - Updated the queries in the **Transmitted BPS** and **Received BPS** charts.
+
+* Apache Impala:
+  -  Updated the setup instructions with Telegraf HTTP input plugin and starlark processor configuration to replace the Telegraf Exec input plugin.
+
+* Delta Counters - Related Changes:
+
+  - With the 2022-48.x release we stopped ingesting delta counter metrics. Therefore, we have removed the delta counters charts from the Amazon Web Services, Google Cloud Platform, and Azure integrations **Metrics** tab.
+  - Updated the **Rate Limits Exceeded** system integration alert queries to use the counter series `cs()` function.
+
 
 
 ## November 2022

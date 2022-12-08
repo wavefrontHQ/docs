@@ -131,9 +131,8 @@ Tanzu Observability gives you out-of-the-box dashboards once the Wavefront Colle
 
 ![This image shows the out-of-the box dashboards for Kubernetes: Kubernetes Summary dashboard, Kubernetes Clusters dashboard, Kubernetes Nodes dashboard, Kubernetes Pods dashboard, Kubernetes Containers dashboard, Kubernetes Namespaces dashboard, and Kubernetes Collector Metrics dashboard  ](images/wavefront_kubernetes_dashboards_default.png)
 
-<!--The image needs to be replaced when we release the new status dashboard-->
 
-<!--The Kubernetes Status dashboard gives details about the health of your integration.--> The Kubernetes Summary dashboard gives details on the health of your infrastructure and workloads. You can drill down from this dashboard and identify potential hotspots.
+The Kubernetes Status dashboard gives details about the health of your integration. The Kubernetes Summary dashboard gives details on the health of your infrastructure and workloads. You can drill down from this dashboard and identify potential hotspots.
 
 {{site.data.alerts.note}}
 <p>These out-of-the-box dashboards are read-only. To create a customizable copy:</p>
@@ -162,15 +161,15 @@ The out-of-the-box dashboards:
       </th>
     </tr>
   </thead>
-  <!--<tr>
+  <tr>
     <td width="20%" markdown="span">
       **Kubernetes Status**
     </td>
     <td width="80%">
        Details on the use of the Kubernetes Integration.
-      <img src="images/kubernetes_status_dashboard.png" alt="a screenshot of the Kubernetes status dashboard with charts."/>
+      <!--<img src="images/kubernetes_status_dashboard.png" alt="a screenshot of the Kubernetes status dashboard with charts."/>-->
     </td>
-  </tr>-->
+  </tr>
   <tr>
     <td width="20%" markdown="span">
       **Kubernetes Summary**
