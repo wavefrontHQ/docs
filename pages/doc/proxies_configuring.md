@@ -399,8 +399,8 @@ Default:<code><i><a href="proxies_configuring.html#proxy-file-paths">&lt;wf_conf
 </tr>
 <tr>
 <td>proxyname <a name="proxyname"></a></td>
-<td>A name unique across your account representing the name of the proxy. The value is used for the <code>source</code> tag of the proxy metrics, such as JVM statistics, per-proxy point rates, and so on.<br/>
-Default: <i>proxy_hostname</i></td>
+<td>A name unique across your account representing the name of the proxy. The value is used for the <code>source</code> tag of the proxy metrics, such as JVM statistics, per-proxy point rates, and so on.
+{% include note.html content="Defaults to the hostname if not specified." %}</td>
 <td>A string containing alphanumeric characters and periods.</td>
 <td>12.0</td>
 </tr>
@@ -502,7 +502,7 @@ Default: <i>proxy_hostname</i></td>
 </tr>
 <tr>
 <td>pushMemoryBufferLimit</td>
-<td>Maximum number of points that can stay in memory buffers before spooling to disk. Setting this value lower than default reduces memory usage but forces the proxy to queue points by spooling to disk more frequently, if you have points arriving at the proxy in short bursts. Default: 16 * <i>&lt;pushFlushMaxPoints_value&gt;</i><br/>Minimum: <i>&lt;pushFlushMaxPoints_value&gt;</i></td>
+<td>Maximum number of points that can stay in memory buffers before spooling to disk. Setting this value lower than default reduces memory usage but forces the proxy to queue points by spooling to disk more frequently, if you have points arriving at the proxy in short bursts. Default: 16 * <i>&lt;pushFlushMaxPoints&gt;</i><br/>Minimum: <i>&lt;pushFlushMaxPoints&gt;</i></td>
 <td>Positive integer.
 <div>Ex: <code>640000</code></div></td>
 <td>4.1</td>

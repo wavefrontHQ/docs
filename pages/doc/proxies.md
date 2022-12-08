@@ -78,8 +78,6 @@ To enable fault tolerance and higher data rates, production environments typical
 You can modify how the proxy handles data in several ways:
 
 - **Configuration file**: The proxy processes data according to a configuration file. You can modify configuration properties -- for example, create `block` list and `allow` list regex patterns, specify information about certain data formats, and much more. See [Configuring Wavefront Proxies](proxies_configuring.html).
-
-  {% include note.html content="**Proxy 12.0 and later**:<br/> It's a best practice to configure a unique name for each proxy by setting the [`proxyname`](proxies_configuring.html#proxyname) property in the `wavefront.conf` file." %}
 - **Preprocessor Rules**: Use preprocessor rules to correct certain data quality issues when you can't fix the problem at the emitting source. See [Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules.html). If you want to perform conditional preprocession, see [Preprocessor Rule Conditions](proxies_preprocessor_rule_conditions.html).
 - **Source Tags**: Use source tags and descriptions in the metric source to instruct the proxy to filter the incoming metrics. See [Manage SourceTag and SourceDescription Properties at the Proxy](tags_overview.html#manage-sourcetag-and-sourcedescription-properties-at-the-proxy).
 
