@@ -48,7 +48,9 @@ Integrations use [Wavefront Collector for Kubernetes](https://github.com/wavefro
 
 ## Add a Kubernetes Integration
 
-Tanzu Observability provides a comprehensive solution for monitoring Kubernetes. To set up the Kubernetes integration, you must install and configure the Wavefront Collector and a Wavefront Proxy. The setup process varies based on the distribution type that you choose to monitor. 
+Tanzu Observability provides a comprehensive solution for monitoring Kubernetes. To set up the Kubernetes integration, you must install and configure the Wavefront Collector and a Wavefront Proxy. With the 2022-48.x we introduce a new Kubernetes Operator which simplifies the deployment. 
+
+The setup process varies based on the distribution type that you choose to monitor. 
 
 
 1. Log in to your Wavefront cluster: https://your-wavefront-cluster.wavefront.com.
@@ -57,7 +59,7 @@ Tanzu Observability provides a comprehensive solution for monitoring Kubernetes.
 4. Click **Add Integration**.
 
 
-### Set Up in a Kubernetes Cluster
+### Kubernetes Quick Install Using the Kubernetes Operator
 
 1. In the **Collector Configuration** section, configure the deployment options for the cluster.
     1. In the **Cluster Name** text box provide the name of your Kubernetes cluster.
@@ -84,7 +86,7 @@ Tanzu Observability provides a comprehensive solution for monitoring Kubernetes.
     1. Run the script in your Kubernetes cluster.
 1. After successful installation, return back to the Tanzu Observability GUI, and click **Finish**.
 
-### Set Up in an OpenShift Cluster
+### Kubernetes Install in an OpenShift Cluster
 
 
 * Complete the steps below and click **Finish**.
@@ -185,7 +187,7 @@ The Wavefront Collector supports monitoring of OpenShift clusters:
 
 ### Kubernetes Quick Install Using Helm
 
-**Note**: We will deprecate the Helm or manually-installed Wavefront Collector for Kubernetes and Wavefront proxy next year. Our new Kubernetes Operator replaces the Helm or manually installed Wavefront Collector for Kubernetes and Wavefront proxy for all Kubernetes Distributions except for OpenShift Container Platform. For more information, see [Kubernetes Integration](https://docs.wavefront.com/wavefront_obsolescence_policy.html#kubernetes-integration).
+**Note**: We will deprecate the Helm or manually-installed Wavefront Collector for Kubernetes and Wavefront proxy next year. Our new Kubernetes Operator replaces the Helm or manually installed Wavefront Collector for Kubernetes and Wavefront proxy for all Kubernetes Distributions except for OpenShift Container Platform. For more information, see [Obsolescence and Remediation](https://docs.wavefront.com/wavefront_obsolescence_policy.html#kubernetes-integration).
 
 1. Ensure that you have installed [helm](https://helm.sh/docs/intro/).
 2. Add the Wavefront helm repo:
@@ -211,7 +213,7 @@ Refer to the Wavefront [helm chart](https://github.com/wavefrontHQ/helm/tree/mas
 
 ### Kubernetes Manual Install
 
-**Note**: We will deprecate the Helm or manually-installed Wavefront Collector for Kubernetes and Wavefront proxy next year. Our new Kubernetes Operator replaces the Helm or manually installed Wavefront Collector for Kubernetes and Wavefront proxy for all Kubernetes Distributions except for OpenShift Container Platform. For more information, see [Kubernetes Integration](https://docs.wavefront.com/wavefront_obsolescence_policy.html#kubernetes-integration).
+**Note**: We will deprecate the Helm or manually-installed Wavefront Collector for Kubernetes and Wavefront proxy next year. Our new Kubernetes Operator replaces the Helm or manually installed Wavefront Collector for Kubernetes and Wavefront proxy for all Kubernetes Distributions except for OpenShift Container Platform. For more information, see [Obsolescence and Remediation](https://docs.wavefront.com/wavefront_obsolescence_policy.html#kubernetes-integration).
 
 Follow the instructions below to manually set up Kubernetes monitoring. For more details about the available options, see the [Wavefront Collector for Kubernetes Configuration](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md).
 
