@@ -26,7 +26,6 @@ We made improvements to the following integrations in December 2022:
     
   - We have added a new [troubleshooting page](kubernetes_troubleshooting.html) for Kubernetes.
   
-  - Removed the **etcd** chart from the **Kubernetes Control Plane** dashboard because Kubernetes no longer provides information about etcd.
   - Added a new **Kubernetes Status** dashboard. It allows you to monitor the Kubernetes integration health.
   
 * Tanzu Application Service:
