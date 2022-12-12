@@ -13,6 +13,10 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## 2022-49.x Release Notes
+
+* **Charts Improvement**: You can now create an event from within a new chart and save the chart to a dashboard.
+
 ## 2022-48.x Release Notes
 
 * **New Kubernetes Integration Setup UI Experience**: With this release, we introduce new setup UI for the Kubernetes integration. See the [Integration Release Notes](integrations_new_changed.html#december-2022) for details.
