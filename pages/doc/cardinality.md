@@ -69,7 +69,7 @@ A second tag value index allows for queries filtered by tag values to retain hig
 
 **Keeps the most recent indexes**
 
-The Wavefront service keeps indexes that deal with current data are kept in fast memory. Only indexes that have not received new data for 4 weeks are moved to older storage. Containerized environments benefit especially from this because of the ephemeral nature of the generated indexes.
+The Wavefront service keeps indexes that deal with current data are kept in fast memory. Only indexes that have not received new data and have become [obsolete](metrics_managing.html#obsolete-metrics) are moved to older storage. Containerized environments benefit especially from this because of the ephemeral nature of the generated indexes.
 
 
 **Uses correlated tagging**

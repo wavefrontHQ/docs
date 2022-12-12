@@ -22,7 +22,7 @@ Specify `timeWindow` to fill in data for a limited period of time before each ex
 </thead>
 <tr>
 <td markdown="span">[timeWindow](query_language_reference.html#common-parameters)</td>
-<td>Maximum amount of time to fill with inserted data points. If you omit this parameter, gaps of up to 4 weeks are completely filled.
+<td>Maximum amount of time to fill with inserted data points. If you omit this parameter, gaps with duration of up to the <a href="metrics_managing.html#obsolete-metrics">metrics obsolescence period</a> are completely filled.
 <br>You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified. </td></tr>
 <tr>
 <td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
@@ -35,7 +35,7 @@ Specify `timeWindow` to fill in data for a limited period of time before each ex
 
 The `next()` function allows you to assign the next known reported data point value to a gap of missing data. If there's a gap, nothing happens until the first new value becomes available. Then the data is backfilled with that, the next, value.  No line (dotted or solid) is drawn until the next data point is reported.
 
-By default, `next()` applies the next reported data value to gaps of missing data for up to 4 weeks. If you’d like this window to be smaller, you can use the `timeWindow` parameter.
+By default, `next()` applies the next reported data value to gaps of missing data with duration of up to the [metrics obsolescence period](metrics_managing.html#obsolete-metrics) (by default, 4 weeks). If you’d like this window to be smaller, you can use the `timeWindow` parameter.
 
 ## Examples
 

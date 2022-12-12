@@ -8,6 +8,56 @@ summary: New and changed integrations.
 ---
 Tanzu Observability by Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
+## December 2022
+
+We made improvements to the following integrations in December 2022:
+
+* Kubernetes -- New setup experience.
+  
+  - The new Kubernetes UI setup experience helps you streamline the deployment and initial configuration of the Kubernetes Observability Operator. You can enable key features, such as Logs (Beta), validate the integration, and get directed to key platform areas to start observing your Kubernetes environment. See [Add a Kubernetes Integration](kubernetes.html#add-a-kubernetes-integration) for details.
+  
+    ![Screenshot of the new Kubernetes setup UI experience.](images/k8s-setup-UI.png)
+  
+  - We will deprecate the Helm or manually-installed Wavefront Collector for Kubernetes and Wavefront proxy next year. Our new Kubernetes Operator replaces the Helm or manually installed Wavefront Collector for Kubernetes and Wavefront proxy for all Kubernetes Distributions except for OpenShift Container Platform. 
+    
+    If you currently use the Helm or manually-installed Wavefront Collector for Kubernetes and Wavefront proxy, the deprecation will NOT affect you and you won’t experience any disruptions. However, support (including bug fixes, security vulnerabilities, new functionality, etc.) will be discontinued on **Feb 28, 2023**, for the legacy collector and proxy installation methods. See more [here](wavefront_obsolescence_policy.html#kubernetes-integration).
+    
+    {% include important.html content="This change does not affect other integrations running on Kubernetes clusters."%}
+    
+  - We have added a new [troubleshooting page](kubernetes_troubleshooting.html) for Kubernetes.
+  
+  - Added a new **Kubernetes Status** dashboard. It allows you to monitor the Kubernetes integration health.
+  
+* Tanzu Application Service:
+
+  - We updated the **Overview** and **Setup** tabs to simplify the user experience.
+  
+  - Added `tas.capi` metrics to the metrics documentation.
+
+  
+* Snowflake: 
+
+  - Updated the setup steps and the UI of the Snowflake integration with more details on the Snowflake account identifier that you have to enter. See [Add a Snowflake Integration](snowflake.html#add-a-snowflake-integration) for details.
+  - Added support for ingesting Warehouse load history metrics real-time. These metrics earlier had a 3-hour delay.
+
+* NVIDIA: 
+
+  - We added a new dashboard for GPU monitoring on the Kubernetes environments.
+  - We also updated the setup instructions on how to set up the integration and monitor NVIDIA on Kubernetes
+
+* SNMP: 
+  - Updated the queries in the **Transmitted BPS** and **Received BPS** charts.
+
+* Apache Impala:
+  -  Updated the setup instructions with Telegraf HTTP input plugin and starlark processor configuration to replace the Telegraf Exec input plugin.
+
+* Delta Counters - Related Changes:
+
+  - With the 2022-48.x release we stopped ingesting delta counter metrics. Therefore, we have removed the delta counters charts from the Amazon Web Services, Google Cloud Platform, and Azure integrations **Metrics** tab.
+  - Updated the **Rate Limits Exceeded** system integration alert queries to use the counter series `cs()` function.
+
+
+
 ## November 2022
 
 We added the following integration in November 2022:
@@ -15,7 +65,7 @@ We added the following integration in November 2022:
 * Tanzu Service Mesh:
 
   Tanzu Service Mesh provides advanced, end-to-end connectivity, security, and insights for modern applications across application end-users, microservices, APIs, and data. It enables compliance with Service Level Objectives (SLOs) and data protection and privacy regulations.
-    
+  
 We made improvements to the following integrations in November 2022:
 
 * Terraform Provider:

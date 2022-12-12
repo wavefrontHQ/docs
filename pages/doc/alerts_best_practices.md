@@ -59,9 +59,9 @@ If you know your data, you can pick a suitable metric to get the best results fo
 
 ### Danger of Becoming Obsolete? 
 
-**Question:** Might this metric become obsolete because it doesn't report values (e.g., no failures) for more than 4 weeks?
+**Question:** Might this metric become [obsolete](metrics_managing.html#obsolete-metrics) because it doesn't report values (e.g., no failures)?
 
-We consider a metric obsolete after it hasn't reported any values for 4 weeks. For example, if you monitor `http.failures`, the metric becomes obsolete if no failures occurred for 4 weeks. In contrast, if you monitor `http.failures.count`, or if you wrap `count` around the `http.failures` metric, the metric is cumulative and does not become obsolete.
+We consider a metric obsolete after it hasn't reported any values for a certain period. By default, the obsolescence period is 4 weeks, but it's configurable. For example, if you monitor `http.failures`, the metric becomes obsolete if no failures occurred for 4 weeks. To avoid this, you can monitor `http.failures.count` or wrap `count` around the `http.failures` metric, so that the metric is cumulative and does not become obsolete.
 
 The UI allows you to include or exclude obsolete metrics in several places. For alerts, you can select the **Advanced** check box **Include Obsolete Metrics**. 
 
