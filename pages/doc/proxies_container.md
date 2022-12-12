@@ -143,7 +143,7 @@ The following example passes the `telegraf.conf` file and any files (such as `10
 	[[outputs.wavefront]]
 	  url = "http://<WAVEFRONT_PROXY_SERVER>:2878"
 	  metric_separator = "."
-	  source_override = ["hostname", "agent_host", "node_host"]
+	  source_override = ["proxyname", "agent_host", "node_host"]
 	  convert_paths = true
 	```
 3. Run the Telegraf agent with the specified configuration settings:
