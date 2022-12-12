@@ -313,17 +313,6 @@ You can add search filters from the predefined filters in the left panel and fro
   </tr>
   </table>
 
-## Enable or Disable Auto-Load During Scroll
-
-When you search and filter logs, you can decide how you want to load the results in the logs table.
-
-By default, scroll auto-load is enabled and logs load as you scroll through the logs table. If scroll auto-load is disabled, to load the next set of results, you must click **Load More Results**.
-
-To disable scroll auto-load:
-  1. Click **Options** above the log results table (top right).
-  1. Turn off **Scroll Auto-Load**.
-  ![a screenshot showing the load more results text](images/logging_load_more_results.png)
-
 ## Drill Down from the Logs Chart
 
 The chart at the top of the Logs Browser shows the number of logs distributed over the selected time window. The chart consists of 60 buckets. With a 15-minute time window, each bar on the chart shows the number of logs for each 15-second time interval.
@@ -345,9 +334,11 @@ Let's look at an example:
     
     {% include note.html content="The logs that don't have the grouping tag are excluded from the logs chart. The logs table doesn't update by the selected grouping tag key."%}  
 
-## Customize the Log Details Table
+## Customize the Logs Details Table
 
-The log details table has the **Timestamp**, **Source**, and **Message** columns by default. Follow these steps to add columns.
+### Add or Remove Columns
+
+The logs details table has the **Timestamp**, **Source**, and **Message** columns by default. Follow these steps to add columns.
 
 1. Click the add columns icon in the top left of the table.
     ![a screenshot of the table with the add column button highlighted](images/logging_log_table_add_column.png)
@@ -356,6 +347,26 @@ The log details table has the **Timestamp**, **Source**, and **Message** columns
 Here's an example that shows how to add the **tag** column to the table.
 
 ![a screenshot of the add column options.](images/logging_log_table_select_columns.png)
+
+### Change the Number of Lines per Row
+
+By default, the logs details table shows one line per row, that is, per log. If you want to see bigger previews of the log messages, to increase the number of lines per row:
+  1. Click **Options** above the logs table (top right).
+  1. From the **Results line display** options, select the maximum number of lines that you want to show for each log.
+  
+     The options are **1**, **3**, **10**, and **All** lines per log.
+     ![a screenshot showing the load more results text](images/logging_lines_per_row.png)
+  
+### Enable or Disable Auto-Load During Scroll
+
+When you search and filter logs, you can decide how you want to load the results in the logs table.
+
+By default, scroll auto-load is enabled and logs load as you scroll through the logs table. If scroll auto-load is disabled, to load the next set of results, you must click **Load More Results**.
+
+To disable scroll auto-load:
+  1. Click **Options** above the logs table (top right).
+  1. Turn off **Scroll Auto-Load**.
+  ![a screenshot showing the load more results text](images/logging_load_more_results.png)
 
 
 ## Learn More!

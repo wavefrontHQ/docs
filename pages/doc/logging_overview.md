@@ -279,8 +279,8 @@ To see the logs for a trace:
 1. Click the trace that you want to examine.
 1. In the Trace Details section, click the service on which you want to focus.
 1. Expand the **IDs** section.
-1. Click **Search Logs (Beta) with traceId**.
-![screenshot of the traces browser with the search logs with traceId highlighted](images/logging_traces_browser.png)
+1. Click **Search Logs (Beta)**.
+![screenshot of the traces browser with the search logs highlighted](images/logging_traces_browser.png)
 
 The Logs Browser opens in a new tab with the following configurations:
   
