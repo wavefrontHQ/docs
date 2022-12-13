@@ -16,6 +16,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 ## 2022-49.x Release Notes
 
 * **Charts Improvement**: You can now create an event from within a new chart and save the chart to a dashboard.
+* **Logs (Beta) Improvements**: You can now customize the logs details table to [change the number of lines per row](logging_log_browser.html#change-the-number-of-lines-per-row).
 
 ## 2022-48.x Release Notes
 
