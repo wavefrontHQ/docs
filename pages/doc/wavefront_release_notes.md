@@ -13,6 +13,13 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## 2022-49.x Release Notes
+
+* **Charts Improvement**: You can now [create an event from within a new chart](events.html#creating-a-user-event) and then save the chart to a dashboard.
+* **Logs (Beta) Improvements**:
+  - We've just released [Wavefront proxy 12.1](https://github.com/wavefrontHQ/wavefront-proxy/releases), which supports ingesting logs as line-delimited JSON objects (JSON lines), and you can now [configure](logging_send_logs.html#configure-the-log-shipper) Fluent Bit as a log shipper.
+  - You can now customize the logs details table to [change the number of lines per row](logging_log_browser.html#change-the-number-of-lines-per-row).
+
 ## 2022-48.x Release Notes
 
 * **New Kubernetes Integration Setup UI Experience**: With this release, we introduce new setup UI for the Kubernetes integration. See the [Integration Release Notes](integrations_new_changed.html#december-2022) for details.
@@ -88,6 +95,8 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
         </tr>
         </tbody>
     </table>
+    
+    {% include important.html content="Ingestion policies **do not** support metrics from external services. You **CANNOT** use ingestion policies to monitor PPS usage for services such as the Amazon Web Services, Google Cloud Platform, Microsoft Azure, Snowflake, VMware vRealize Operations Cloud, New Relic, Datadog, and AppDynamics integrations."%}
 
 * **Logs (Beta)**:
 
