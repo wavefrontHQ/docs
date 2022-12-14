@@ -15,7 +15,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 ## 2022-49.x Release Notes
 
-* **Charts Improvement**: You can now create an event from within a new chart and save the chart to a dashboard.
+* **Charts Improvement**: You can now [create an event from within a new chart](events.html#creating-a-user-event) and then save the chart to a dashboard.
 * **Logs (Beta) Improvements**:
   - We've just released [Wavefront proxy 12.1](https://github.com/wavefrontHQ/wavefront-proxy/releases), which supports ingesting logs as line-delimited JSON objects (JSON lines), and you can now [configure](logging_send_logs.html#configure-the-log-shipper) Fluent Bit as a log shipper.
   - You can now customize the logs details table to [change the number of lines per row](logging_log_browser.html#change-the-number-of-lines-per-row).
