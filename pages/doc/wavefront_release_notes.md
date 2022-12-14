@@ -95,6 +95,8 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
         </tr>
         </tbody>
     </table>
+    
+    {% include important.html content="Ingestion policies **do not** support metrics from external services. You **CANNOT** use ingestion policies to monitor PPS usage for services such as the Amazon Web Services, Google Cloud Platform, Microsoft Azure, Snowflake, VMware vRealize Operations Cloud, New Relic, Datadog, and AppDynamics integrations."%}
 
 * **Logs (Beta)**:
 
