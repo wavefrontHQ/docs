@@ -119,9 +119,8 @@ The chart includes information about the alert associated with the event, and ab
 Tanzu Observability creates many events for you, but you can also create an event explicitly:
 
 1. Do one of the following:
-   - Select **Browse > Events** and click the <strong>Create Event</strong> button at the top of the filter bar.
-   - In a chart, click the flag icon in the top right corner of the time
-   bar. Hover over the chart and set your cursor at a point in time. To make the event instantaneous, click that point.
+   - Select **Browse > Events** and click the <strong>Create Event</strong> button on top.
+   - From within a new chart, click the flag icon in the top right corner. Hover over the chart and set your cursor at a point in time. To make the event instantaneous, click that point.
    If the start and end time for the desired event are included in the current time window, click, hold, and drag across the window.
 
 1. Fill in the event properties:
