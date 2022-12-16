@@ -44,7 +44,7 @@ Spans are the fundamental units of trace data. This page provides details about 
 
 ### Wavefront Span Format
 
-A well-formed Wavefront span consists of fields and span tags that capture span attributes. We use these to identify and describe a span, organize it into a trace, and display the trace according to the service and application that emitted it. Some attributes are required by the OpenTracing specification and others are required by the Wavefront service.
+A well-formed Wavefront span consists of fields and span tags that capture span attributes. We use these to identify and describe a span, organize it into a trace, and display the trace according to the service and application that emitted it. Some attributes are required by the OpenTelemetry specification and others are required by the Wavefront service.
 
 Most use cases do not require you to know exactly how the Wavefront service expects a span to be formatted:
 * When you instrument your application with a [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data), your application emits spans that are automatically constructed by the Wavefront Tracer. (You supply some of the attributes when you instantiate the [ApplicationTags](#application-tags) object required by the SDK.)
