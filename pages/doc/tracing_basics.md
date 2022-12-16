@@ -7,7 +7,7 @@ permalink: tracing_basics.html
 summary: Collect and visualize trace data from your applications.
 ---
 
-Distributed tracing enables you to track the flow of work that is performed by an application as it processes a request. This visibility can help you find errors and performance problems in your code. Tanzu Observability by Wavefront supports OpenTracing and OpenTelemetry for tracing.
+Distributed tracing enables you to track the flow of work that is performed by an application as it processes a request. This visibility can help you find errors and performance problems in your code
 
 In an application that consists of multiple services, an incoming request typically starts a chain of requests that are propagated from one service to the next.  Distributed tracing gives you end-to-end visibility into that chain across services, even when those services are running in different environments.
 
@@ -33,10 +33,6 @@ Watch these videos to listen to our Co-founder Clement Pang introduce distribute
 
 ## Instrument Your Application
 
-[OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/) and OpenTracing will be deprecated soon.
-
-### OpenTelemetry
-
 If your application uses an OpenTelemetry SDK, you can configure the application to send trace data to Tanzu Observability using any of the following options:
 
 * [**Directly send OpenTelemetry data to the Wavefront proxy**](opentelemetry_tracing.html#directly-send-data-using-the-wavefront-proxy---recommended) - [Recommended]
@@ -44,21 +40,7 @@ If your application uses an OpenTelemetry SDK, you can configure the application
 * Or [**use the OpenTelemetry Collector and the Wavefront proxy**](opentelemetry_tracing.html#send-data-using-the-opentelemetry-collector-and-the-wavefront-proxy)
   ![A data flow diagram that shows how the data flows from your application to the collector, to the proxy, and then to Tanzu Observability](images/opentelemetry_collector_tracing.png)
 
-### OpenTracing
-
-An application must be instrumented for tracing before it can send trace data to Tanzu Observability. We support several options. Here's the big picture:
-
-![This diagram shows how to send data to Wavefront if your application has OpenTracing.](images/tracing_send_data_to_wavefront.png)
-
-* **Configure Your Already Instrumented Applications**
-
-  If you have already instrumented your code with Jaeger or Zipkin, you can forward the trace data to the Wavefront proxy using a [tracing integration](tracing_integrations.html). The proxy sends the data to the Wavefront service.
-
-* **Configure Applications That are Not Instrumented**
-
-  The Wavefront OpenTracing SDKs let you to [choose how to send trace data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data) -- through a Wavefront proxy or directly to the Wavefront service. Using a Wavefront proxy is generally recommended.
-
-  If you have not yet instrumented your code, you can add instrumentation by using [Wavefront OpenTracing SDKs or the Wavefront Java Tracing Agent](tracing_instrumenting_frameworks.html#step-2-get-data-flowing).
+{% include important.html content="OpenTracing is deprecated. [OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/). To send trace data to Tanzu observability, you need to use OpenTelemetry."%}
 
 ## Visualize Distributed Tracing Data
 

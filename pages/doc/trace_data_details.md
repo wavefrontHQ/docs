@@ -7,7 +7,7 @@ permalink: trace_data_details.html
 summary: Get to know the concepts around distributed tracing.
 ---
 
-Tanzu Observability by Wavefront follows the [OpenTracing](https://opentracing.io/) and [OpenTelemetry](https://opentelemetry.io/) standards for representing and manipulating trace data. This page gives an overview of key terms and concepts we use in this document.
+{% include important.html content="OpenTracing is deprecated. [OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/). To send trace data to Tanzu observability, you need to use OpenTelemetry."%}
 
 ## Traces
 

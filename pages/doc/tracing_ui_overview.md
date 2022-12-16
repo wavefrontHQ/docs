@@ -127,7 +127,7 @@ Let's walk through the following scenario to get a quick overview of the applica
             <li>If an alert you created is firing, you see a red dot with a number on the service. The number indicates how many alerts are firing for a specific service. To see the alerts, click <b>view alerts</b>.</li>
             <li>Click <b>Configure</b> to <a href="tracing_apdex.html">configure the apdex settings</a>. You see this setting only if you are a Super Admin user or a user with the <strong>Applications</strong> permission.</li>
           </ul>
-          <li> See the components used by the service. The styling service uses the OpenTracing, Java, Dropwizard, and Jersey components.</li>
+          <li> See the components used by the service. The styling service uses the Java, Dropwizard, and Jersey components.</li>
         </ul>
       </td>
     <td><img src="/images/tracing_application_map_service.png" alt="Popup when you click on a service"/></td>
@@ -278,7 +278,7 @@ Using the table view, you can:
         Component
       </td>
       <td>
-        See the components used by the service. For example, the beachshirts application's styling service uses the OpenTracing, Java, Dropwizard, and Jersey components.
+        See the components used by the service. For example, the beachshirts application's styling service uses the Java, Dropwizard, and Jersey components.
       </td>
     </tr>
   </table>

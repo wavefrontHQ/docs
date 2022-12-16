@@ -52,10 +52,6 @@ entries:
           url: /wavefront_springboot_tutorial.html
           output: web
 
-        - title: "Distributed Tracing Tutorial"
-          url: /tracing_java_tutorial.html
-          output: web
-
       - title: Reference
         output: web
         subfolderitems:
@@ -684,10 +680,6 @@ entries:
       - title: OpenTracing
         output: web
         subfolderitems:
-
-          - title: OpenTracing Tutorial
-            url: /tracing_java_tutorial.html
-            output: web
 
           - title: Instrument Your App
             url: /tracing_instrumenting_frameworks.html
