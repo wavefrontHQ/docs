@@ -156,11 +156,10 @@ Subscribe to the Lambda function that you've just created from the existing AWS 
 
 1. In your AWS Management Console, search for the **Lambda** service and click it.
 1. Navigate to your Lambda function and click it.
-1. Click **Monitor** and click **Logs**.
+1. Click **Monitor**.
    ![A screenshot of the AWS Lambda function screen with the Monitor and Logs tabs selected.](images/aws-lambda-1.png)
 1. Click **View logs in CloudWatch**.
 1. On the **Subscription filters** tab, click **Create** and select **Create Lambda subscription filter**.
-1. In the **Filter pattern** text box, enter the following snippet.
 1. From the **Lambda function** drop-down menu, select the Lambda function you want to subscribe to the filter. 
     In our example, this is `aws-cold-start-lambda-function`.
 1. From the **Log format** drop-down menu, select **JSON**.
