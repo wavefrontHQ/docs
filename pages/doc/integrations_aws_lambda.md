@@ -174,7 +174,9 @@ Subscribe to the Lambda function that you've just created from the existing AWS 
 
     ```
 1. In the **Subscription filter name** text box, provide a name and click **Start streaming**.
-1. Navigate to your Wavefront cluster and in the Metrics Browser search for the `aws.lambda.custom.init.duration` metric.
+1. Navigate to your Wavefront cluster and in the Metrics Browser search for the `aws.lambda.custom.initduration` metric.
+
+   {% include important.html content="The `aws.lambda.custom.initduration` metric starts flowing only when cold start happens." %}
 
 <!--
 ### Sending Business Metrics to the AWS Lambda Integration
