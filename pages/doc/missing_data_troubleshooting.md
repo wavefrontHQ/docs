@@ -4,13 +4,12 @@ keywords: query language
 tags: [query language]
 sidebar: doc_sidebar
 permalink: missing_data_troubleshooting.html
-summary: Learn how to troubleshoot when you expect to see data but they don't appear in charts
+summary: Learn how to troubleshoot when you expect to see data but it doesn't appear in charts.
 ---
 
-Sometimes users expect to see certain data in Tanzu Observability by Wavefront but, for some reason, it doesn't show up!  This can be a frustrating and confusing experience, especially when you urgently need the data. Wavefront does not delete data, and retains [metric data for 18 months](terms_of_service.html#data-retention). What could be the problem?
+Sometimes you expect to see certain data in Tanzu Observability but, for some reason, it doesn't show up!  This can be a frustrating and confusing experience, especially when you urgently need the data. Tanzu Observability does not delete data, and retains [metric data for 18 months](terms_of_service.html#data-retention). What could be the problem?
 
-This doc page, based on the extensive experience of our customer success team, helps you
-investigate, understand, and remedy possible causes.
+This doc page, based on the extensive experience of our customer success team, helps you investigate, understand, and remedy possible causes. In addition to manually investigating and troubleshooting your issues, you can use the [Query Analyzer](query_language_performance.html#use-the-query-analyzer-when-you-see-no-data-message-on-a-chart) which helps you identify where exactly the problem is.
 
 <!---
 Should probably be some mention of examining sub-queries.  Performing some operations (eg. and or or) on empty subqueries results in No Data propagation (similar to how NaN works in IEEE math), and also suppresses warning messages
@@ -31,7 +30,7 @@ Because of character limitations imposed by the Wavefront Data Format, it's poss
 
 ### Step 3: Untangle
 
-A query can return NO DATA if one of its elements returns NO DATA. An easy way to check which element of your query returns NO DATA is to create a set of separate queries and use variables to refer to the result of the query. You can use the Show/Hide botton in the query line to look at individual results.
+A query can return NO DATA if one of its elements returns NO DATA. An easy way to check which element of your query returns NO DATA is to create a set of separate queries and use variables to refer to the result of the query. You can use the Show/Hide button in the query line to look at individual results.
 
 Here's a simple example:
 
@@ -62,7 +61,7 @@ In the example screenshot, we've hidden the two component queries so they don't 
 
 ## Problem: You Expect to See Data But They Aren't There
 
-It's not uncommon that users expect to see data in a chart or an alert but the data aren't there.
+It's not uncommon that users expect to see data in a chart or an alert but the data isn't there.
 
 **Symptoms**
 
@@ -77,13 +76,13 @@ In this section, you learn how to investigate. Here's an overview of the steps:
 
 ![investigate missing data flowchart, content matches steps](images/missing_data_1.png)
 
-{% include tip.html content="This section investigest only missing data. If your query returns a syntax error, look carefully at the [query language reference](query_language_reference.html), examine individual reference pages, and learn from other pages in that section such as [Fine Tune Queries with Point Tags](query_language_point_tags.html)." %}
+{% include tip.html content="This section investigates only missing data. If your query returns a syntax error, look carefully at the [query language reference](query_language_reference.html), examine individual reference pages, and learn from other pages in that section such as [Fine Tune Queries with Point Tags](query_language_point_tags.html)." %}
 
 
 
 ### Step 1: Check the Time Window
 
-At times, you're looking at a chart and the chart's time window is not set to the time during which data were flowing. For example, suppose you discovered a week ago that there were problems with networking data for a certain host. You replaced the host, and want to show last week's problem to a co-worker. You have to make sure that you look at a time window before the host was replaced.
+At times, you're looking at a chart and the chart's time window is not set to the time during which data was flowing. For example, suppose you discovered a week ago that there were problems with networking data for a certain host. You replaced the host, and want to show last week's problem to a co-worker. You have to make sure that you look at a time window before the host was replaced.
 
 As a first step, [expand the chart's time window](ui_examine_data.html#set-the-time-window) and see if the data of interest shows up. You try looking back up 28 days. If you still don't see your data, go to the next step and consider including obsolete metric.
 
@@ -91,7 +90,7 @@ As a first step, [expand the chart's time window](ui_examine_data.html#set-the-t
 
 ### Step 2: Consider Include Obsolete Metrics
 
-If a time series hasn't ingested any data points in the last 28 days (or longer), Wavefront considers the time series obsolete. By default, obsolete data are not included in charts to improve chart loading. If you want to see the data:
+If a time series hasn't ingested any data points in the last 28 days (or longer), Wavefront considers the time series obsolete. By default, obsolete data is not included in charts to improve chart loading. If you want to see the data:
 
 * In the chart, click **Advanced** and select **Obsolete Metrics**.
 * In the dashboard, you can [turn on obsolete metrics for each chart](ui_examine_data.html#include-or-exclude-obsolete-metrics), but performance can suffer.
@@ -179,7 +178,7 @@ Several Wavefront Query Language (WQL) functions can be used to filter the data 
 
 ## Problem: Ingestion Delays
 
-One of the most common reasons data that you don't see data that you expect to see is ingestion delays. If ingestion delays are the problem, the data eventually show up in Tanzu Observability. However, you'll see a discrepancy between the timestamp of the data point and when the data point is actually visible on a chart.
+One of the most common reasons data that you don't see data that you expect to see is ingestion delays. If ingestion delays are the problem, the data eventually shows up in Tanzu Observability. However, you'll see a discrepancy between the timestamp of the data point and when the data point is actually visible on a chart.
 
 For example:
 * A data point is timestamped for 12:00:01 UTC
@@ -187,18 +186,18 @@ For example:
 
 Ingestion delays often happen at the data source or in the data pipeline, for example, certain cloud platforms only send data with a delay. [Limiting the Impact of Data Delays](alerts_delayed_data.html) explores how delayed data can affect alerting behavior.
 
-{% include tip.html content="This section does not discuss delays for data that come from AWS Cloudwatch. For those data, wait the amount of time that is usually expected, check if data is blocked or a high data rate could cause the problem, and contact support if that doesn't resolve the issue. " %}
+{% include tip.html content="This section does not discuss delays for data that come from AWS CloudWatch. For this data, wait the amount of time that is usually expected, check if data is blocked or a high data rate could cause the problem, and contact support if that doesn't resolve the issue. " %}
 
 
 ### Step 1: Find Data Delays at the Proxy
 
 
 
-Cloud integrations do not use a Wavefront proxy, but for many integrations, data are sent from a source to the [Wavefront proxy](proxies.html). The proxy sends the data to the Wavefront service.
+Cloud integrations do not use a Wavefront proxy, but for many integrations, data is sent from a source to the [Wavefront proxy](proxies.html). The proxy sends the data to the Wavefront service.
 
 <img src="images/delayed_data_proxy.png" style="width: 600px;" alt="Data delay at proxy flowchart, mirrors text"/>
 
-One of the benefits of the Wavefront proxy is queue management. The Wavefront proxy queues data as needed,  and those data are ingested by the Wavefront service at a later time resulting in a delay. The proxy prioritizes live incoming data and processes data in the queues (backlog) only when possible.
+One of the benefits of the Wavefront proxy is queue management. The Wavefront proxy queues data as needed, and this data is ingested by the Wavefront service at a later time resulting in a delay. The proxy prioritizes live incoming data and processes data in the queues (backlog) only when possible.
 
 There are several possible reasons for queues at the proxy. The [Monitoring Wavefront Proxies](monitoring_proxies.html) and the **Queuing Reasons** chart in the **Wavefront Service and Proxy Data** dashboard are especially helpful for identifying the cause for queuing, discussed next:
 
@@ -211,7 +210,7 @@ There are several possible reasons for queues at the proxy. The [Monitoring Wave
 
 #### Proxy Queue Reasons: Pushback from Backend
 
-If the rate of data ingestion is higher than backend limit, the proxy queues data.  The backend limit typically depends on the commit rate specified in your company's contract with VMware. When you attempt to ingest data at a higher rate than the backend limit, data is queued up at the proxy.
+If the rate of data ingestion is higher than backend limit, the proxy queues data. The backend limit typically depends on the commit rate specified in your company's contract with VMware. When you attempt to ingest data at a higher rate than the backend limit, data is queued up at the proxy.
 
 **Troubleshooting & Further Investigation**
 
@@ -221,15 +220,15 @@ If the rate of data ingestion is higher than backend limit, the proxy queues dat
 
 #### Proxy Queue Reasons: Proxy Rate Limit
 
-If the prox is configured with a rate limit, and the rate of data sent to the proxy is above the limit, the proxy starts queuing data. The **Proxy Rate Limiter Active** chart in the **Wavefront Service and Proxy Data** dashboard provides insight into whether data are coming in faster than the proxy rate limit supports.
+If the proxy is configured with a rate limit, and the rate of data sent to the proxy is above the limit, the proxy starts queuing data. The **Proxy Rate Limiter Active** chart in the **Wavefront Service and Proxy Data** dashboard provides insight into whether data is coming in faster than the proxy rate limit supports.
 
 <!---So, is the solution more proxies, limit the data, or both?? How can I direct my data to a proxy that can handle it?? HA solution??--->
 
 **Troubleshooting & Further Investigation**
 
-1. Confirm whether data are coming in faster than the proxy's rate limit configuration (`pushRateLimit`). If so, look into ways to reduce your data rate.
+1. Confirm whether data is coming in faster than the proxy's rate limit configuration (`pushRateLimit`). If so, look into ways to reduce your data rate.
   1. On the **Wavefront Service and Proxy Data dashboard** find the **Proxy Troubleshooting** section and  examine the **Proxy  Rate Limiter Active** chart to see whether the rate limiter is active on the different proxies in your environment.
-  2. Confirm the `pushRateLimit`of each proxy by looking at the proxy configuration file or by querying `--proxyconfig.pushRateLimit`.
+  2. Confirm the `pushRateLimit` of each proxy by looking at the proxy configuration file or by querying `--proxyconfig.pushRateLimit`.
 2. Go to the **Received Points/Distributions/Spans Per Second** charts in the **Wavefront Service and Proxy Data** dashboard
   1. Examine the ingest rate for the proxy that seems to have rate limit problems.
   2. Use the Filter feature at the top of each dashboard or chart or specifying a specific source name in the underlying queries to filter for the proxy you are interested in.
@@ -297,7 +296,7 @@ Examine the **Data Received Lag** charts in the **Proxy Troubleshooting** sectio
 
 These charts can help if the data points are timestamped at or near the source of the data. The underlying metric used in these charts tracks the difference between the system time of the proxy host and the timestamp of data points. This difference can provide insight into how long it takes for a data point to traverse the data pipeline and reach the proxy.
 
-Every pipeline inherently has its own latencies. Understanding the latencies helps you understand when data are expected to show up in charts. It can also help with crafting queries that this latency into account.
+Every pipeline inherently has its own latencies. Understanding the latencies helps you understand when data is expected to show up in charts. It can also help with crafting queries that this latency into account.
 
 
 

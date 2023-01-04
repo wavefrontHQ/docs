@@ -108,17 +108,28 @@ To see and, optionally, apply the performance improvement suggestions for a quer
 
 ## Use the Query Analyzer When You See No Data Message on a Chart
 
-Sometimes when you expect to see certain data in Tanzu Observability, it doesn’t show up for some reason. In addition to [troubleshooting your queries manually](missing_data_troubleshooting.html), you can also use the Query Analyzer to troubleshoot your issues and see whether your queries and subqueries are correct. 
+Sometimes, when you expect to see certain data in Tanzu Observability, it doesn’t show up for some reason. By default, in such cases, charts display a [**No Data** message](ui_charts.html#override-the-no-data-message-on-a-chart). When you see **No Data** on your charts, you can  use the Query Analyzer. The Query Analyzer allows you to easily see whether your queries, especially the long queries which contain subqueries, are correct. It also helps you identify the problematic subquery, so that you can easily [troubleshoot your issues](missing_data_troubleshooting.html).
 
 To analyze a query:
 
 1. Click the name of the chart to open it in Edit mode.
 1. If you have more queries, locate the query that you suspect to be problematic.
 1. Click the ellipsis icon next to the query and select Query Analyzer.
-    A new browser tab with the Query Analyzer opens. 
-1. 
+   A new browser tab with the Query Analyzer opens. 
+1. Click **Analyze**.
 
+The problematic subquery is highlighted as shown in the screenshot below.
 
+![A screenshot of the query analyzer, where the second subquery is highlighted, because it contains a typo](images/query-analyzer-tab.png)
+
+In addition to investigating and fixing the issues by yourself, you can also share a link to the Query Analyzer with the same problematic query with others from your team. 
+
+1. On the Query Analyzer browser tab, click the share icon in the top right.
+1. In the **Share Query Analyzer** window, click **Copy link**.
+
+   ![A screenshot of the Share Query Analyzer window with the Copy link button selected.](images/share-query-analyzer.png)
+
+1. Send the link to your colleagues who might be interested in examining the results.
 
 ## Use Filters to Look at the Right Data
 
