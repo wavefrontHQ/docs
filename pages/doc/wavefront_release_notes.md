@@ -13,6 +13,11 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## 2023-xx.x Release Notes
+
+**Visibility on the Users with the Accounts Permission**: If you don't have the **Accounts** permission, for updates to your groups, roles, or permissions, you can now see a contact list of the users with the **Accounts** permission at the bottom of the [**Groups, Roles & Permissions**](users_account_managing.html#examine-groups-roles-and-permissions) page.
+  ![a screenshot with the link at the bottom of the Groups, Roles & Permissions page](images/Accounts_users.png)
+
 ## 2022-49.x Release Notes
 
 * **Charts Improvement**: You can now [create an event from within a new chart](events.html#creating-a-user-event) and then save the chart to a dashboard.

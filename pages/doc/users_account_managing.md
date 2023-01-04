@@ -75,6 +75,8 @@ You can check the permissions you have and see which groups you belong to.
 
 {% include note.html content="Even if you have **Dashboards** or **Alerts** permission, it's possible that you can't modify a dashboard or an alert. This happens if **access** is restricted explicitly for that dashboard or alert. Ask the dashboard or alert creator to share the object with you." %}
 
+If you don't have the **Accounts** permission, for updates to your groups, roles, or permissions, you must contact a user with the **Accounts** permission. To see the list of these users, click the **contact** link at the bottom of the **Groups, Roles & Permissions** page.
+
 ## Generate an API Token
 
 Tanzu Observability allows [user accounts](user-accounts.html) and [service accounts](service-accounts.html) to interact with a Wavefront instance using the [Wavefront REST API](wavefront_api.html).
