@@ -106,6 +106,20 @@ To see and, optionally, apply the performance improvement suggestions for a quer
 </tbody>
 </table>
 
+## Use the Query Analyzer When You See No Data Message on a Chart
+
+Sometimes when you expect to see certain data in Tanzu Observability, it doesn’t show up for some reason. In addition to [troubleshooting your queries manually](missing_data_troubleshooting.html), you can also use the Query Analyzer to troubleshoot your issues and see whether your queries and subqueries are correct. 
+
+To analyze a query:
+
+1. Click the name of the chart to open it in Edit mode.
+1. If you have more queries, locate the query that you suspect to be problematic.
+1. Click the ellipsis icon next to the query and select Query Analyzer.
+    A new browser tab with the Query Analyzer opens. 
+1. 
+
+
+
 ## Use Filters to Look at the Right Data
 
 For best query language performance, it's important to look at just the right amount of data.
