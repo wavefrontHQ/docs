@@ -39,7 +39,7 @@ The AWS data centers incorporate physical protection against environmental risks
 access the AWS ISO27001 report, see [https://aws.amazon.com/compliance](https://aws.amazon.com/compliance/).
 
 For more information on AWS controls, visit:
-[https://cloudsecurityalliance.org/star-registrant/amazon-aws/](https://cloudsecurityalliance.org/star-registrant/amazon-aws/)
+[https://cloudsecurityalliance.org/star/registry/amazon/services/amazon-web-services/](https://cloudsecurityalliance.org/star-registrant/amazon-aws/).
 
 Our development, QA, and production use separate equipment and environments, and are managed by separate teams.
 Customers retain control and ownership of their content. We do not replicate customer content unless the customer asks for it explicitly.
