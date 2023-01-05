@@ -59,7 +59,7 @@ In the example screenshot, we've hidden the two component queries so they don't 
 
 
 
-## Problem: You Expect to See Data But They Aren't There
+## Problem: You Expect to See Data But It Isn't There
 
 It's not uncommon that users expect to see data in a chart or an alert but the data isn't there.
 

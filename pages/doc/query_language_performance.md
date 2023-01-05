@@ -186,9 +186,9 @@ In certain cases, the query engine [performs prealignment](query_language_align_
 
 ### Use Raw Aggregation Functions
 
-Instead of using align(), you can avoid the overhead of interpolation with a raw aggregation function. [Aggregating Time Series](query_language_aggregate_functions.html) has details and a video.
-* Standard aggregation functions (e.g. sum(), avg(), or max()) first interpolate the points of the underlying set of series, and then apply the aggregation function to the interpolated series. These functions aggregate multiple series down, usually to a single series.
-* Raw aggregation functions (e.g. rawsum(), rawavg()) do not interpolate the underlying series before aggregation.
+Instead of using `align()`, you can avoid the overhead of interpolation with a raw aggregation function. [Aggregating Time Series](query_language_aggregate_functions.html) has details and a video.
+* Standard aggregation functions (e.g. `sum()`, `avg()`, or `max()`) first interpolate the points of the underlying set of series, and then apply the aggregation function to the interpolated series. These functions aggregate multiple series down, usually to a single series.
+* Raw aggregation functions (e.g. `rawsum()`, `rawavg()`) do not interpolate the underlying series before aggregation.
 
 Example:
 
