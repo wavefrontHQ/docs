@@ -1,6 +1,7 @@
 <div class="index-header">
     <div>
-        <h1>Tanzu Observability by Wavefront</h1>
+        <h1>Aria Operations for Applications</h1>
+        <p><i>(Formerly known as Tanzu Observability by Wavefront.)</i></p>
         <p>Welcome to our Documentation!</p>
         <ul>
             <li>Explore using the hierarchy on the left.</li>

@@ -6,8 +6,8 @@
    fill="none"
    version="1.1"
    id="svg20006"
-   sodipodi:docname="tanzu_observability_doc-test.svg.2021_09_30_15_55_15.0.svg"
-   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="tanzu_observability_doc.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -22,16 +22,18 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      showgrid="false"
-     inkscape:zoom="1.1834452"
-     inkscape:cx="275.88941"
-     inkscape:cy="24.927221"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
-     inkscape:window-x="1912"
-     inkscape:window-y="-8"
+     inkscape:zoom="2.3668904"
+     inkscape:cx="392.49811"
+     inkscape:cy="52.178166"
+     inkscape:window-width="2400"
+     inkscape:window-height="1261"
+     inkscape:window-x="2391"
+     inkscape:window-y="-9"
      inkscape:window-maximized="1"
      inkscape:current-layer="g19995"
-     inkscape:snap-text-baseline="false" />
+     inkscape:snap-text-baseline="false"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <g
      clip-path="url(#clip0)"
      id="g19995">
@@ -40,49 +42,33 @@
        height="87.534966"
        fill="#000000"
        id="rect19987"
-       x="-0.84499037"
-       y="-1.1550095"
+       x="-0.4224951"
+       y="-0.31001896"
        style="stroke-width:0.999999" />
-    <path
-       d="M 51.889856,67.61146 H 30.884894 C 30.47911,67.61506 30.077572,67.52957 29.71039,67.360789 29.343422,67.192017 29.020362,66.944433 28.765394,66.636675 L 15.583604,50.526973 c -0.264254,-0.32162 -0.446316,-0.699702 -0.531214,-1.103432 -0.08478,-0.403523 -0.07026,-0.820905 0.04308,-1.218017 l 5.096458,-19.73086 c 0.238163,-0.704046 0.722942,-1.303933 1.369365,-1.694551 l 18.647212,-9.099441 c 0.369292,-0.181596 0.777198,-0.276199 1.190841,-0.276199 0.41363,0 0.821537,0.0946 1.190841,0.276199 l 18.89734,9.087839 c 0.367816,0.181656 0.691078,0.438456 0.947966,0.752919 0.256876,0.314442 0.4412,0.679165 0.540476,1.069285 l 4.846304,19.730841 c 0.108405,0.397525 0.120668,0.813872 0.03601,1.216774 -0.08478,0.402697 -0.264091,0.78078 -0.524151,1.104675 L 54.009409,66.636675 C 53.460657,67.21869 52.699985,67.568647 51.88991,67.61146 Z M 31.003894,64.942132 H 51.770857 L 65.071633,48.832424 60.225115,29.101418 41.446988,19.990352 22.799614,29.07819 17.82223,48.809052 Z"
-       fill="#0091da"
-       id="path263"
-       style="stroke-width:1.10395" />
-    <path
-       d="M 65.440724,23.019632 67.798437,21.081354 42.816216,9.0803085 v 3.0292805 z"
-       fill="#1bc1d5"
-       id="path265"
-       style="stroke-width:1.10395" />
-    <path
-       d="m 10.61834,51.374145 -2.98881,0.603527 17.408924,21.332546 1.369378,-2.66933 z"
-       fill="#78be20"
-       id="path267"
-       style="stroke-width:1.10395" />
-    <path
-       d="M 40.077534,12.109589 V 9.0803085 l -24.731966,12.0010455 2.357688,1.938278 z"
-       fill="#1bc1d5"
-       id="path269"
-       style="stroke-width:1.10395" />
-    <path
-       d="M 16.083762,25.317709 13.59507,23.251777 7.010158,49.30813 10.118044,48.704603 Z"
-       fill="#1d428a"
-       id="path271"
-       style="stroke-width:1.10395" />
-    <path
-       d="m 72.775833,48.704603 3.107974,0.603527 -6.33496,-26.056353 -2.369591,1.949879 z"
-       fill="#1d428a"
-       id="path273"
-       style="stroke-width:1.10395" />
-    <path
-       d="m 72.156651,51.374145 -15.920445,19.266743 1.369442,2.66933 17.65899,-21.332546 z"
-       fill="#78be20"
-       id="path275"
-       style="stroke-width:1.10395" />
-    <path
-       d="m 28.89627,71.731703 -1.369352,2.787229 H 55.12872 l -1.369442,-2.787229 z"
-       fill="#1bc1d5"
-       id="path277"
-       style="stroke-width:1.10395" />
+    <g
+       id="outlined"
+       transform="matrix(0.73514332,0.01941244,-0.01955326,0.72984862,-18.944454,-25.631254)">
+      <path
+         class="cls-1"
+         d="M 83.2,126.063 C 65.747,123.139 52.404,107.928 52.404,89.657 c 0,-20.356 16.56,-36.916 36.916,-36.916 18.18,0 33.333,13.21 36.363,30.537 h 4.404 C 127.01,63.544 109.901,48.398 89.32,48.398 c -22.75,0 -41.259,18.509 -41.259,41.259 0,20.671 15.282,37.839 35.139,40.804 v -4.399 z"
+         id="path463"
+         style="fill:#00c1d5" />
+      <path
+         class="cls-5"
+         d="M 92.682,139.602 89.153,139.6 C 61.57,139.496 39.294,117.052 39.398,89.469 39.443,77.46 43.814,65.87 51.709,56.822 L 48.633,53.746 C 30.076,74.778 30.6,106.484 49.84,126.892 l -0.032,0.033 1.551,1.52 1.551,1.52 0.032,-0.033 c 9.961,9.047 22.944,14.045 36.4,14.013 1.119,0 2.232,-0.035 3.339,-0.104 v -4.239 z"
+         id="path465"
+         style="fill:#78be20" />
+      <path
+         class="cls-2"
+         d="m 139.288,93.042 h 4.237 c 0.069,-1.122 0.105,-2.25 0.106,-3.385 0.031,-13.457 -4.968,-26.439 -14.015,-36.4 l 0.033,-0.033 -1.52,-1.551 -1.52,-1.551 -0.033,0.032 C 106.168,30.915 74.464,30.391 53.432,48.946 l 3.076,3.077 c 20.782,-18.135 52.33,-15.989 70.465,4.793 7.837,8.981 12.204,20.47 12.31,32.389 0.042,0.06 -0.035,3.776 0.005,3.837 z"
+         id="path467"
+         style="fill:#0091da" />
+      <path
+         class="cls-3"
+         d="m 127.703,143.945 h -20.669 c -3.32,-0.004 -6.011,-2.694 -6.015,-6.015 v -3.905 l -3.892,0.007 c -3.322,-0.002 -6.016,-2.693 -6.021,-6.015 v -20.669 c 0.004,-3.32 2.694,-6.011 6.015,-6.015 h 3.898 v -3.899 c 0.004,-3.32 2.694,-6.01 6.014,-6.014 h 20.669 c 3.32,0.004 6.011,2.694 6.015,6.015 v 3.899 h 3.899 c 3.32,0.004 6.01,2.694 6.015,6.014 v 20.669 c -0.004,3.32 -2.694,6.011 -6.015,6.015 h -3.899 v 3.899 c -0.004,3.32 -2.694,6.011 -6.015,6.015 z m -22.339,-14.27 v 8.255 c 10e-4,0.922 0.748,1.67 1.671,1.672 h 20.669 c 0.923,-0.001 1.67,-0.749 1.672,-1.672 v -8.242 h 8.242 c 0.923,0 1.671,-0.749 1.672,-1.672 v -20.669 c 0,-0.923 -0.749,-1.671 -1.672,-1.672 h -8.242 v -8.242 c -0.001,-0.923 -0.749,-1.67 -1.672,-1.672 h -20.669 c -0.923,0.001 -1.67,0.749 -1.672,1.672 v 8.242 h -8.241 c -0.923,0 -1.671,0.749 -1.672,1.672 v 20.669 c 0.002,0.924 0.751,1.671 1.675,1.672 l 8.239,-0.014 z m 24.332,-14.164 h -10.155 v -10.154 c 0,-1.199 -0.972,-2.172 -2.172,-2.172 -1.2,0 -2.172,0.972 -2.172,2.172 v 10.154 h -10.154 c -1.199,0 -2.172,0.972 -2.172,2.172 0,1.2 0.972,2.172 2.172,2.172 h 10.154 v 10.154 c 0,1.199 0.972,2.172 2.172,2.172 1.2,0 2.172,-0.972 2.172,-2.172 v -10.154 h 10.154 c 1.199,0 2.172,-0.972 2.172,-2.172 0,-1.2 -0.972,-2.172 -2.172,-2.172 v 0 z"
+         id="path469"
+         style="fill:#1d428a" />
+    </g>
     <line
        x1="569.5"
        y1="12"
@@ -98,17 +84,27 @@
     <text
        xml:space="preserve"
        style="font-size:24px;line-height:1.25;font-family:Metropolis;-inkscape-font-specification:'Metropolis, Normal';font-variant-ligatures:none;text-decoration-color:#000000;fill:#ffffff;fill-opacity:1;-inkscape-stroke:none;stop-color:#000000"
-       x="81.595238"
-       y="37.925076"
+       x="104.2701"
+       y="32.855133"
        id="text53732"><tspan
          sodipodi:role="line"
-         x="81.595238"
-         y="37.925076"
+         x="104.2701"
+         y="32.855133"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:32px;font-family:Metropolis;-inkscape-font-specification:'Metropolis, Normal';font-variant-ligatures:none;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1"
-         id="tspan6750">VMware Tanzu Observability</tspan><tspan
+         id="tspan6750">VMware Aria Operations</tspan><tspan
          sodipodi:role="line"
-         x="81.595238"
-         y="70.565079"
+         x="104.2701"
+         y="72.855133"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:32px;font-family:Metropolis;-inkscape-font-specification:'Metropolis, Normal';font-variant-ligatures:none;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1"
+         id="tspan949">for Applications  </tspan><tspan
+         sodipodi:role="line"
+         x="104.2701"
+         y="112.85513"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:32px;font-family:Metropolis;-inkscape-font-specification:'Metropolis, Normal';font-variant-ligatures:none;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1"
+         id="tspan947" /><tspan
+         sodipodi:role="line"
+         x="104.2701"
+         y="145.49513"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:32px;font-family:Metropolis;-inkscape-font-specification:'Metropolis, Normal';font-variant-ligatures:none;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1"
          id="tspan5560" /></text>
     <rect
@@ -120,18 +116,23 @@
        y="65.724838" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;shape-margin:0;opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
-       x="85.344048"
-       y="70.979202"
-       id="text20206"><tspan
-         sodipodi:role="line"
-         id="tspan20204"
-         x="85.344048"
-         y="70.979202"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">by Wavefront</tspan></text>
+       id="text1005"
+       style="font-size:8px;white-space:pre;shape-inside:url(#rect1007);fill:#000000"
+       transform="translate(0.705104,-0.8449905)"><tspan
+         x="489.25"
+         y="20.035781"
+         id="tspan1183"><tspan
+           style="font-weight:bold;font-family:Metropolis;-inkscape-font-specification:'Metropolis Bold';fill:#ffffff"
+           id="tspan1181">TM</tspan></tspan></text>
   </g>
   <defs
      id="defs20004">
+    <rect
+       x="489.24952"
+       y="12.674858"
+       width="29.574669"
+       height="16.477316"
+       id="rect1007" />
     <pattern
        id="pattern0"
        patternContentUnits="objectBoundingBox"

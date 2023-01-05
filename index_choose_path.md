@@ -1,4 +1,7 @@
 <div class="choose-path-container">
+    <div class="row">
+    <p><i><b>Note</b>: The documentation on this site is about Aria Operations for Applications, formerly known as Tanzu Observability by Wavefront. We're in the process of updating the product name, but in many places we still refer to it as Tanzu Observability.</i></p>
+    </div>
     <div class="row section-header">
         <h2>Choose Your Path</h2>
         <div class="aa-input-container desktop" id="aa-input-container-choose-path"></div>
