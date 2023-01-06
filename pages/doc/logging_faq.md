@@ -91,7 +91,7 @@ The Wavefront proxy drops the logs that exceed the [maximum character limit](log
     - In the **Blocked Logs per Second** chart, you can see how many logs were blocked.
     - In the **Proxy Backlog Size (Bytes)** chart, non-zero values indicate that the proxy is having issues delivering data.
 
-### Search for Metrics on the Metrics Browser:
+### Search for Metrics on the Metrics Browser
 
 1. Log in to your Wavefront instance and select **Browse** > **Metrics**.
 1. In the [Metrics Browser](metrics_managing.html), search for metrics with the `~proxy.log.` namespace. The results you see can be `logSourceMissing`, `logSourceTooLong`, `logMessageTooLong`, `tooManyLogTags`, `logAnnotationKeyTooLong`, `logAnnotationKeyBadChars`, `logAnnotationValueEmpty`, and `logAnnotationValueTooLong`
