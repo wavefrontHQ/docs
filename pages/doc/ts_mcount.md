@@ -12,7 +12,9 @@ summary: Reference to the mcount() function
 ```
 mcount(<timeWindow>, <tsExpression>)
 ```
-Returns the number of data points reported over the specified time window. If a time series stops reporting data, `mcount()` continues for 2x the specified time window, and then stops.
+Returns the number of data points reported over the specified time window. If a time series stops reporting data, `mcount()` continues for 2x the specified time window, and then stops. 
+
+Use the [`count ()` function](ts_count.html), if you want to add together the number of reporting time series represented by the expression, at each moment in time. 
 
 ## Parameters
 
@@ -47,6 +49,7 @@ Here's how to select your counting/summing function:
 * `mseriescount()` - returns the number of time series reporting during a shifting time window
 
 Common use cases include finding missing data points. Because of that, `mcount()` is often used with alerts. 
+
 
 ## Examples
 

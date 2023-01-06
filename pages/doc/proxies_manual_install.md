@@ -55,8 +55,8 @@ Before you can customize the proxy configuration, you have to find the values fo
 <td>xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx </td>
 </tr>
 <tr>
-<td markdown="span">**hostname**</td>
-<td markdown="span">Name of the host the proxy will run on. The hostname is not used to tag your data; rather, it's used to tag data internal to the proxy, such as JVM statistics, per-proxy point rates, and so on. Alphanumeric and periods are allowed. </td>
+<td markdown="span">**proxyname**</td>
+<td markdown="span">Name of the proxy running. The proxyname is not used to tag your data; rather, it's used to tag data internal to the proxy, such as JVM statistics, per-proxy point rates, and so on. Alphanumeric and periods are allowed. </td>
 <td>cust42ProxyHost</td>
 </tr>
 <tr>
@@ -97,7 +97,7 @@ If you want to edit the configuration file manually:
    <td markdown="span">Change target. </td>
    <td>
    <code>server=
-   hostname=
+   proxyname=
    token=
    </code>
    </td></tr>
@@ -240,7 +240,7 @@ After you have started the proxy you just configured, you can verify its status 
 To check your proxy from the UI:
 1. Log in to your Wavefront instance from a browser.
 2. From the toolbar, select **Browse > Proxies** to view a list of all proxies.
-   If the list is long, type the proxy name as defined in `hostname=` in  `wavefront.conf` to located the proxy by name.
+   If the list is long, type the proxy name as defined in `proxyname=` in  `wavefront.conf` to located the proxy by name.
 
 ### Testing Using curl
 
@@ -278,7 +278,7 @@ Sample output for single proxy:
         "status": "ACTIVE",
         "customerId": "mike",
         "inTrash": false,
-        "hostname": "mikeKubeH",
+        "proxyname": "mikeKubeH",
         "id": "443e5771-67c8-40fc-a0e2-674675d1e0a6",
         "lastCheckInTime": 1547069052859,
         "timeDrift": -728,
@@ -372,7 +372,7 @@ If you're in an environment with restricted network access:
   host = "WAVEFRONT_PROXY_ADDRESS"
   port = 2878
   metric_separator = "."
-  source_override = ["hostname", "agent_host", "node_host"]
+  source_override = ["proxyname", "agent_host", "node_host"]
   convert_paths = true
 ```
 3. Start the Telegraf agent:

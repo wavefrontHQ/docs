@@ -119,7 +119,7 @@ You can start with Wavefront either as part of a free trial or as a new customer
 <tr>
 <td>Span annotations count limit</td>
 <td>Maximum number of point tags associated with a span. </td>
-<td>20</td>
+<td>50</td>
 </tr>
 <tr>
 <td>Span annotations key length limit</td>
@@ -145,6 +145,41 @@ You can start with Wavefront either as part of a free trial or as a new customer
 <td>Span logs size limit</td>
 <td>Maximum size of a span log.</td>
 <td>32768</td>
+</tr>
+<tr>
+<td>Log annotations count limit</td>
+<td>Maximum number of tags associated with a log. </td>
+<td>100</td>
+</tr>
+<tr>
+<td>Log annotations key length limit</td>
+<td>Maximum number of characters associated with a log tag key. </td>
+<td>128</td>
+</tr>
+<tr>
+<td>Log annotations value length limit</td>
+<td>Maximum number of characters associated with a log tag value. </td>
+<td>128</td>
+</tr>
+<tr>
+<td>Log length limit</td>
+<td>Maximum number of character on a log message.</td>
+<td>20000</td>
+</tr>
+<tr>
+<td>Search time window for logs</td>
+<td>The default search time window for the Log Browser</td>
+<td>15 minutes</td>
+</tr>
+<tr>
+<td>Metrics to logs tag mapping</td>
+<td>Maps the tags of the metrics to the the tags of logs.</td>
+<td>source tag</td>
+</tr>
+<tr>
+<td>Traces to logs tag mapping</td>
+<td>Maps the tags of the traces to the the tags of logs.</td>
+<td>traceId, source, application, and service tags</td>
 </tr>
 </tbody>
 </table>

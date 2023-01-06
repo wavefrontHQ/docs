@@ -231,8 +231,7 @@ INFO [AbstractReportableEntityHandler:reject] [<port>] blocked input: [WF-300 Ca
   1. Log in to your Wavefront instance and navigate to the **Wavefront Usage** integration.
   2. In the **Wavefront Service and Proxy Data** dashboard check if the proxy's queue and backlog are staying the same size or growing.
     * If they're growing, then the attempted rate of ingest is higher than allowed by the backend limit. Either lower the rate of data that at the proxies, or contact VMware Tanzu Observability Support to request a higher backend limit. If your overall rate of data ingestion is higher than your contract rate, you may incur overage charges.
-
-   * If the proxy's queue size is spiky (going up and coming down, close to 0), then the proxy is effectively smoothing out bursts in your rate of data ingestion. This is normal behavior and is not a cause for concern.
+    * If the proxy's queue size is spiky (going up and coming down, close to 0), then the proxy is effectively smoothing out bursts in your rate of data ingestion. This is normal behavior and is not a cause for concern.
 
 
 **Global Rate Limit Exceeded WARN Message**
@@ -398,6 +397,7 @@ An alternative to deleting data is to [export queued data](#export-data-queued-a
 * Set the `exportQueueRetainData` flag to false to clear the queued data.
 * Set `exportQueueOutputFile` to `/dev/null` or a similar temporary location.
 
+<!--- Currently an issue with this, reported by SVE team. Added single quotes around {"truncate":true}, requested by SVE team.
 
 #### Option 3: Truncate Proxy Queue with the API
 
@@ -406,13 +406,13 @@ If you can't connect to the proxy machine or don't have permissions for the prox
 Run the following command:
 
 ```curl
-$curl -X PUT -H 'Authorization: Bearer <TOKEN>' -H 'Content-Type: application/json' "https://MY_INSTANCE.wavefront.com/api/v2/proxy/PROXY_ID" -d {"truncate":true}
+$curl -X PUT -H 'Authorization: Bearer <TOKEN>' -H 'Content-Type: application/json' "https://MY_INSTANCE.wavefront.com/api/v2/proxy/PROXY_ID" -d '{"truncate":true}'
 ```
 
 In the URL:
 * `MY_INSTANCE` is your Wavefront instance, for example, the URL could start with `https://example.wavefront.com`
 * `PROXY_ID` is the ID, which you can find in the Proxies browser in the Hostname column.
-
+--->
 
 ## How to Find the Account Used to Set Up a Specific Proxy
 <!--Link to this from usage monitoring page!--->
@@ -433,11 +433,10 @@ The proxy name refers to the source name that the proxy uses to report its own m
 <td width="60%"><img src="/images/proxy_id.png" alt="screenshot showing proxy ID for a single proxy"></td>
 </tr>
 <tr>
-<td width="40%"><strong>Step 2</strong>:Use the <code>GET /api/v2/proxy/{id}</code> API endpoint to find the user ID.
+<td width="40%"><strong>Step 2</strong>: Use the <code>GET /api/v2/proxy/{id}</code> API endpoint to find the user ID.
 <ol>
 <li>Click the gear icon and select <strong>API Documentation</strong>. </li>
 <li>Expand the <strong>Proxy</strong> category and click <code>GET /api/v2/proxy/{id}</code>. </li>
-<li>Click <strong>Try it out</strong>.  </li>
 <li>In the <strong>id</strong> text box, enter the proxy ID that you copied in the previous step and click <strong>Execute</strong>.</li>
 <li>In the response body, find the userid. This is the account that created the proxy. </li>
 </ol>
@@ -512,7 +511,7 @@ You're monitoring your Kubernetes cluster with Tanzu Observability. You installe
 
 If you installed Tanzu Observability from Tanzu Mission Control, you cannot make changes to the Wavefront proxy.
 
-**Remediation**
+**Resolution**
 
 If your environment has a standalone Tanzu Observability instance, use that instance. We are working on resolving the issue.
 

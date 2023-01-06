@@ -104,6 +104,7 @@ Istio config:{% raw %}
           - 'sidecar.*'
    ```
 {% endraw %}
+**Note**: When the Istio is configured as a multi-cluster service, you must deploy Prometheus and Wavefront Collector on each cluster. Follow the steps above.
 
 ### Reporting Istio Traces to Wavefront
 The following instructions are for reporting traces. To report metrics, use the Istio metrics setup instructions above.

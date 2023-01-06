@@ -58,12 +58,12 @@ The Wavefront Usage integration includes the following dashboards:
 
 The **Wavefront Service and Proxy Data** dashboard helps you find reasons for system slowdown.
 
-The charts show internal metrics information and allow you to examine many aspects of your Wavefront instance. See [Monitoring Wavefront Proxies](monitoring_proxies.html) for details on the **Proxy Health** and **Proxy Troubleshooting** sections.
+The charts show internal metrics information and allow you to examine many aspects of your Wavefront instance. See [Monitoring Wavefront Proxies](monitoring_proxies.html) for details on the **Proxy Overview** and **Proxy Troubleshooting** sections.
 
 
 #### Overall Data Rate
 
-The Overall Data Rate section shows the overall point rate being processed by the Wavefront servers.
+The **Overall Data Rate** section shows the overall point rate being processed by the Wavefront servers.
 
 ![Overall data rate section. Contains charts for data ingestion rate per points, spans and distributions, as well as data scan rate charts.](images/overall_section.png)
 
@@ -82,6 +82,26 @@ These charts use the following metrics:
   - `~query.metrics_scanned` -- The per-second rate at which metrics are being queried through dashboards, custom charts, derived metrics, or API calls.
   - `~query.spans_scanned` -- The per-second rate at which spans are being queried through dashboards, custom charts, or API calls.
   - `~query.histograms_scanned` -- The per-second rate at which histograms are being queried through dashboards, custom charts, derived metrics, or API calls.
+
+#### Logs Stats
+
+The **Logs Stats** section contains charts that track the amount of logs that are successfully delivered and successfully queried by the Wavefront service. Also, the section shows charts that track the amount of logs that are received, queued, and blocked by the Wavefront proxy.
+
+{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative."%}
+
+These charts use the following metrics:
+
+- `~agent.logs.*.delivered` -- Number of log bytes successfully delivered.
+- `~wavefront.logservice.api.bytesQueried.total.bytes` -- Number of log bytes successfully queried.
+- `~proxy.logs.*.received.bytes` -- Number of log bytes received by the proxy.
+- `~agent.logs.*.received.max-burst-rate` -- Maximum burst rate of incoming logs.
+- `~proxy.buffer.logs-count` -- Number of delayed log bytes stored on disk. Logs can be queued for the following reasons:
+    - Intermittent failures in communication with the backend.
+    - A surge of incoming data in excess of thread buffer size.
+    - Memory pressure in the proxy.
+    - Rate limiting.
+- `~proxy.logs.*.blocked` -- Number of log objects blocked by the preprocessor.
+- `~proxy.logs.*.queued` -- Number of queued log bytes.
 
 #### Wavefront Stats and Alert Stats
 
@@ -115,7 +135,7 @@ The available metrics for the AWS integration are:
 
 #### Ingest Rate by Source
 
-This section gives insight into the shape of your data. It shows the total number of sources reporting. It also monitors the rate of metrics creation and breaks it down by source.
+The **Ingest Rate by Source** section gives insight into the shape of your data. It shows the total number of sources reporting. It also monitors the rate of metrics creation and breaks it down by source.
 
 ![Ingestion rate by source showing a chart with the number of reporting sources and the top 20 sources.](images/point_rate_breakdown.png)
 
@@ -129,12 +149,12 @@ The metrics used in this section are:
 
 #### Rate of New Data Creations
 
-Gives insight into the newly created data, such as metrics, sources, point tags, delta counters, histograms and spans.
+The **Rate of New Data Creations** section gives an insight into the newly created data, such as metrics, sources, point tags, delta counters, histograms and spans.
 
 ![Rate of new data creations section of the dashboard.](images/new_data_creations.png)
 
 
-### Wavefront Metric Namespace Usage Explorer Dashboard
+### Wavefront Namespace Usage Explorer Dashboard
 
 This dashboard helps you drill down into the metrics namespace and explore the **trend** of your metrics ingestion rate.
 
@@ -157,8 +177,8 @@ The dashboard includes a link to the **Ingestion Policies** page so if you are a
 ### PPS P95 Dashboards for Billable and Burndown
 
 {% include important.html content="Use only the dashboard for your contract type:<br/>
-    - If you have a billable commit contract with Tanzu Observability, use the **Committed Rate vs Monthly Usage (PPS P95) for Billable** dashboard.<br/>
-    - If you have a burndown commit contract with Tanzu Observability, use the **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboard.<br/>
+    - If you have a billable commit contract, use the **Committed Rate vs Monthly Usage (PPS P95) for Billable** dashboard.<br/>
+    - If you have a burndown commit contract, use the **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboard.<br/>
 "%}
 
 The dashboard for your contract type helps you monitor your usage and ensure that you're not ingesting more PPS than your contracted rate allows.

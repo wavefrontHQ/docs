@@ -323,16 +323,22 @@ For each dashboard, you can customize display preferences and settings.
 <li>Deselect the <strong>Show Variable Bar by Default</strong> check box to hide the variables for the dashboard. Users can still show the variables bar using the <img src="/images/show_hide_variable_icon.png"
 style="vertical-align:text-bottom;width:25px" alt="show or hide variable icon" /> icon.  </li>
 <li>Select whether you want to turn off live refresh for dynamic variables.</li>
-<li>Click <strong>Advanced</strong></li>
-<li>Select to display the <a href="events.html">Events</a> on charts by entering an event query.<br>
-For more information, see <a href="charts_events_displaying.html#specify-an-events-query-for-a-dashboard">Specify an Events() Query for a Dashboard</a>.
+</ol>
 </li>
-<li>Select to include obsolete metrics and allow queries to return metrics that stopped reporting 4 weeks ago.<br> This setting applies to all charts in the dashboard and dashboard performance might suffer.</li>
+<li>Optionally, change the advanced settings.
+<ol>
+<li>Click <strong>Advanced</strong>.<br/>
+</li>
+<li>Enter an event query to display the <a href="events.html">Events</a> on charts.<br>
+See <a href="charts_events_displaying.html#specify-an-events-query-for-a-dashboard">Specify an Events() Query for a Dashboard</a>.
+</li>
+<li>Select <strong>Include Obsolete Metrics</strong> to allow queries to return <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>.<p><strong>Tip</strong>: To see the obsolescence period for your metrics and sources, hover over the <strong>Include Obsolete Metrics</strong> information icon.</p><p> <strong>Warning</strong>: Including obsolete metrics might negatively affect performance. It applies to all charts in the dashboard and dashboard performance might suffer.</p></li>
+<li>Select <strong>Hide Warning Icons on Charts</strong> to stop showing warning icons on any chart in the dashboard. <p><strong>Warning</strong>: The result is a cleaner-looking chart, but you might miss important information.</p></li>
 </ol>
 </li>
 <li>Click <strong>Accept</strong>, and click <strong>Save</strong>. </li>
 </ol></td>
-<td width="50%"><img src="/images/v2_dashboard_prefs.png" alt="set dashboard prefs"></td>
+<td width="50%"><img src="/images/v2_dashboard_prefs.png" alt="Set the dashboard preferences"></td>
 </tr>
 </tbody>
 </table>
@@ -509,16 +515,16 @@ Dashboards are either set to a specified time window or to Live mode. In Live mo
 * Charts with a time window of 5-10 minutes reload every second.
 * Charts with a larger time window (e.g. 4 hours or 1 day) reload every 30 second.
 
-Do not run charts with a 5-10 minute time window for a long time in Live mode. 
+Do not run charts with a 5-10 minute time window for a long time in Live mode.
 
 
-### Display Only Events You Need
+### Display the Events You Need
 
-Querying metrics and querying events are different tasks. However, by default each chart displays all source events and system events as black points or stars at the bottom of each chart. Those events queries affect dashboard performance.
+Querying metrics and querying events are different tasks. By default, each chart displays all source events and system events as black points or stars at the bottom of each chart. Those queries affect chart and dashboard performance. With the 2022-40.x release, the default option for newly created dashboards is set to **None**, i.e. all events from every chart in the dashboard are hidden by default.
 
-Here's what you can do:
+You can:
 * Select an individual chart, click the **Format** tab, and deselect **Display Source Events**.
-* Adjust events for the whole dashboard by using the **Show Events** dropdown in the top right.
+* Adjust events for the whole dashboard by using the **Show Events** drop-down menu in the top right.
 
 See [Control Event Overlays](charts_events_displaying.html#control-event-overlays) for details and screenshots.
 
@@ -556,7 +562,7 @@ Over time, as more and more dashboards are created, there will be dashboards tha
 * Use the Wavefront API and UI to check for dashboards that have not been viewed over a time window of your choice, including more than 4 weeks (a month).
     1. Get the IDs of all dashboards.
         1. From the gear icon on the toolbar, select **API Documentation**.
-        2. Expand the **Dashboard** category, click the `GET api/v2/dashboard` request, and click **Try it out** in the top right of the request.
+        2. Expand the **Dashboard** category and click the `GET api/v2/dashboard` request.
 
             {% include note.html content="You may need to iterate through all the available dashboards by using the `offset` parameter in the API request."%}
         3. Click **Execute**.

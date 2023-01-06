@@ -38,6 +38,14 @@ Wavefront ingests Microsoft Azure metrics using the Azure Monitor APIs. For deta
 
 Metrics originating from Microsoft Azure are prefixed with `azure.` within Wavefront. After you set up the integration, you can browse the available metrics in the Metrics browser. Simply click **Browse > Metrics** from the taskbar and search for `azure.`.
 
+The metric names consist of the actual metric name and a suffix for the aggregation type. The **default metric name** without a suffix corresponds to the **total aggregation** type.  
+For example, the metric names for metric azure.compute.vm.percentage.cpu are:
+
+azure.compute.vm.percentage.cpu.average  
+azure.compute.vm.percentage.cpu.maximum  
+azure.compute.vm.percentage.cpu.minimum  
+azure.compute.vm.percentage.cpu.count  
+azure.compute.vm.percentage.cpu (corresponds to azure.compute.vm.percentage.cpu.total)
 
 ### Metrics Information
 

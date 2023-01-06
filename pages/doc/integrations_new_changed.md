@@ -8,6 +8,110 @@ summary: New and changed integrations.
 ---
 Tanzu Observability by Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
+## December 2022
+
+We made improvements to the following integrations in December 2022:
+
+* Kubernetes -- New setup experience.
+  
+  - The new Kubernetes UI setup experience helps you streamline the deployment and initial configuration of the Kubernetes Observability Operator. You can enable key features, such as Logs (Beta), validate the integration, and get directed to key platform areas to start observing your Kubernetes environment. See [Add a Kubernetes Integration](kubernetes.html#add-a-kubernetes-integration) for details.
+  
+    ![Screenshot of the new Kubernetes setup UI experience.](images/k8s-setup-UI.png)
+  
+  - We will deprecate the Helm or manually-installed Wavefront Collector for Kubernetes and Wavefront proxy next year. Our new Kubernetes Operator replaces the Helm or manually installed Wavefront Collector for Kubernetes and Wavefront proxy for all Kubernetes Distributions except for OpenShift Container Platform. 
+    
+    If you currently use the Helm or manually-installed Wavefront Collector for Kubernetes and Wavefront proxy, the deprecation will NOT affect you and you won’t experience any disruptions. However, support (including bug fixes, security vulnerabilities, new functionality, etc.) will be discontinued on **Feb 28, 2023**, for the legacy collector and proxy installation methods. See more [here](wavefront_obsolescence_policy.html#kubernetes-integration).
+    
+    {% include important.html content="This change does not affect other integrations running on Kubernetes clusters."%}
+    
+  - We have added a new [troubleshooting page](kubernetes_troubleshooting.html) for Kubernetes.
+  
+  - Added a new **Kubernetes Status** dashboard. It allows you to monitor the Kubernetes integration health.
+  
+* Tanzu Application Service:
+
+  - We updated the **Overview** and **Setup** tabs to simplify the user experience.
+  
+  - Added `tas.capi` metrics to the metrics documentation.
+
+  
+* Snowflake: 
+
+  - Updated the setup steps and the UI of the Snowflake integration with more details on the Snowflake account identifier that you have to enter. See [Add a Snowflake Integration](snowflake.html#add-a-snowflake-integration) for details.
+  - Added support for ingesting Warehouse load history metrics real-time. These metrics earlier had a 3-hour delay.
+
+* NVIDIA: 
+
+  - We added a new dashboard for GPU monitoring on the Kubernetes environments.
+  - We also updated the setup instructions on how to set up the integration and monitor NVIDIA on Kubernetes
+
+* SNMP: 
+  - Updated the queries in the **Transmitted BPS** and **Received BPS** charts.
+
+* Apache Impala:
+  -  Updated the setup instructions with Telegraf HTTP input plugin and starlark processor configuration to replace the Telegraf Exec input plugin.
+
+* Delta Counters - Related Changes:
+
+  - With the 2022-48.x release we stopped ingesting delta counter metrics. Therefore, we have removed the delta counters charts from the Amazon Web Services, Google Cloud Platform, and Azure integrations **Metrics** tab.
+  - Updated the **Rate Limits Exceeded** system integration alert queries to use the counter series `cs()` function.
+
+
+
+## November 2022
+
+We added the following integration in November 2022:
+
+* Tanzu Service Mesh:
+
+  Tanzu Service Mesh provides advanced, end-to-end connectivity, security, and insights for modern applications across application end-users, microservices, APIs, and data. It enables compliance with Service Level Objectives (SLOs) and data protection and privacy regulations.
+  
+We made improvements to the following integrations in November 2022:
+
+* Terraform Provider:
+  - Improved the dashboard resource to set the default summarization to <code>MEAN</code>.
+  - Added examples on how to include dashboard sections from external files.
+  - Removed the Tesla Cloud integration resource.
+
+* Microsoft Azure:
+  - Updated the **Top 10 CPU Utilization** chart in the **Azure: Virtual Machine** dashboard to use the average value instead of the total value.
+  - Updated the **Overview** tab to show information about the metric names. The default value for all azure metrics is the total value.
+  
+* Tanzu Application Service -- Made significant updates and improvements to the TAS integration system alerts. In addition, to improve customer experience, we have added new alerts and deleted the alerts that are no longer needed. For more information and troubleshooting steps, see [Tanzu Application Service Alerts](integrations_tas_alerts.html).
+
+* VMware GemFire (previously, VMware Tanzu GemFire) -- Replaced the dashboard for the GemFire for Kubernetes v1.0 operator with the dashboard for Gemfire for Kubernetes v2.0/v2.1 operator.
+
+## October 2022
+
+Logs (Beta) Related Changes:
+
+{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative or [technical support](wavefront_support_feedback.html#support)." %}
+
+
+With the Initial Availability of our Logs (Beta) feature, we have made improvements to the following integrations:
+  
+* Linux Host -- Now contains Linux Logs Setup (Beta) instructions. If Logs (Beta) is enabled for you, you can set up your Linux integration to [send logs](logging_send_logs.html) to Tanzu Observability. For details on Tanzu Observability Logs (Beta), see [Get Started with Logs (Beta)](logging_overview.html). For detailed steps on setting up the Linux Host integration, see [Linux Logs Setup (Beta)](linux.html).
+* Wavefront Usage -- We added a Logs Stats section. It contains charts that track the amount of logs that are successfully delivered and successfully queried by the Wavefront service. Also, the section shows charts that track the amount of logs that are received, queued, and blocked by the Wavefront proxy. [Read more](wavefront_monitoring.html#logs-stats).
+
+We made improvements and bug fixes to the following integrations in October 2022:
+
+* Wavefront Usage:
+  - Made significant improvements to the **Committed Rate vs Monthly Usage (PPS P95) for Billable** and **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboards. You can use the data displayed on the dashboard that suits your commit contract. For example, if you have a billable commit contract, only the **Committed Rate vs Monthly Usage (PPS P95) for Billable** dashboard will contain charts populated with data. The **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboard will be empty.
+  - Made a minor fix to the **Wavefront Service and Proxy Data** dashboard.
+* Terraform Provider:
+  - We added data source support for alerts, dashboards, events, derived metrics, maintenance windows, and external links.
+  - Added support for checking frequency of Terraform Wavefront Alert.
+  - User groups and roles can be now fetched by ID.
+  - We added a data source example to the sample Terraform Provider script.
+* Tanzu Application Service:
+  - Made minor updates and fixes to the Tanzu Application Service dashboards and charts.
+  - Updated the **Application CPU %** chart in the **Workload Monitoring** dashboard.
+  - Made a fix to [Step 2: Ops Manager: Install, Configure, and Deploy the Nozzle](integrations_tas_howto.html#step-2-ops-manager-install-configure-and-deploy-the-nozzle) in the Tanzu Application Service documentation.
+* Java -- Fixed the links to the Jolokia 2 Agent documentation.
+* Kubernetes -- Added a new system alert to the integration. You can now get notified when the Kubernetes observability status becomes unhealthy.
+* Google Cloud Platform -- The **Google Dataproc** dashboard is now improved with information that you must create a derived metric if you see a delay in the loading of variables.
+* Wavefront Tutorial  -- Made some minor fixes to the **Introduction** dashboard.
+
 ## September 2022
 
 We made improvements to the following integrations in September 2022:

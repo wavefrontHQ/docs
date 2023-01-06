@@ -12,7 +12,7 @@ Tanzu Observability by Wavefront product features and APIs move to end-of-life a
 
 To help you plan for end-of-life dates, this page uses the following terms:
 
-* **Deprecated**. Feature, component, platform, or functionality that may no longer be efficient or safe.  Deprecated features are supported but no longer recommended. We eventually removes deprecated features. We usually do not fix a bug in a deprecated feature and request that you start using the replacement feature. Deprecated features are identified in the release notes for the release in which the feature is deprecated. For Wavefront proxy, the table below lists deprecated versions.
+* **Deprecated**. Feature, component, platform, or functionality that may no longer be efficient or safe.  Deprecated features are supported but no longer recommended. We eventually remove deprecated features. We usually do not fix a bug in a deprecated feature and request that you start using the replacement feature. Deprecated features are identified in the release notes for the release in which the feature is deprecated. For Wavefront proxy, the table below lists deprecated versions.
 *  **End-of-life**. No longer supported. Feature, component, platform, or functionality is no longer supported and may be removed from the product at any time.
 
 
@@ -20,7 +20,7 @@ To help you plan for end-of-life dates, this page uses the following terms:
 
 Upgrade to the **latest GA release** of the [Wavefront proxy](https://github.com/wavefrontHQ/wavefront-proxy) to get the latest bug fixes and performance enhancements.
 
-The following proxy versions are scheduled to be deprecated or moved to end-of-life.
+The following proxy versions are deprecated or moved to end-of-life.
 
 <table class="width: 100%;">
 <thead>
@@ -28,19 +28,24 @@ The following proxy versions are scheduled to be deprecated or moved to end-of-l
 </thead>
 <tbody>
 <tr>
-<td>10.12 and earlier</td>
-<td>Deprecated. Wavefront proxy version 10.12 and earlier is impacted by a Log4j vulnerability. Upgrade to at least version 10.14, or to the latest GA release. </td>
-<td>Feb 28, 2022</td>
+<td>11.x</td>
+<td>Deprecated since Oct 19, 2022</td>
+<td>TBD</td>
+</tr>
+<tr>
+<td>10.x</td>
+<td>End-of-life</td>
+<td>Oct 19, 2022</td>
 </tr>
 <tr>
 <td>9.x</td>
-<td>Deprecated</td>
-<td>Jan 31, 2022</td>
+<td>End-of-life</td>
+<td>Mar 18, 2022</td>
 </tr>
 <tr>
-<td>4.x and lower</td>
+<td>8.x and earlier</td>
 <td>End-of-Life</td>
-<td>Jun 30, 2017</td>
+<td>Jul 1, 2021 and earlier</td>
 </tr>
 </tbody>
 </table>
@@ -155,3 +160,13 @@ For the above example if the data measured across 3 minutes had been a total of:
 #### New Implementation
 
 Starting with release 2020.26, a new data type for storing delta counters is part of the product. Data ingestion of delta counters remains unchanged, and a delta (∆) is still required to indicate a delta counter, but the data is now queried via `cs()` instead of `ts()`. The original delta counters still report minutely, but instead of maintaining a monotonically increasing count they report the total number of increments that occurred within each minute. In our example, `cs(errors.count)` displays values of 10, 15, and 5. See [Counters and Delta Counters](delta_counters.html#counters-and-delta-counters-basics) for details and examples.
+
+## Kubernetes Integration
+
+Starting with the 2022-48.x release, we introduce a new Kubernetes Operator, which helps simplifying the management and configuration of the Kubernetes integration and the deployed components (such as Wavefront Collector for Kubernetes, Wavefront proxy, Logs (Beta), and so on). The Kubernetes Operator replaces the deprecated Helm or manual installation of the Wavefront Collector for Kubernetes and Wavefront proxy for all Kubernetes distributions, except for OpenShift Container Platform. 
+
+{% include important.html content="This change does not affect other integrations running on Kubernetes clusters."%}
+
+If you are currently leveraging the Helm or manually-installed Wavefront Collector for Kubernetes and Wavefront proxy, the deprecation will NOT affect you and you won't experience any disruptions. However, support (including bug fixes, security vulnerabilities, new functionality, etc.) will be discontinued on **Feb 28, 2023**, for the legacy collector and proxy installation methods.
+
+{% include note.html content="You should begin [migrating to the Kubernetes Observability Operator](https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes/blob/main/docs/migration.md) as soon as possible to ensure that you have the most secure and up-to-date Kubernetes Observability experience."%}

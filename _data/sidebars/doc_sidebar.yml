@@ -185,6 +185,10 @@ entries:
           url: /proxies_installing.html
           output: web
 
+        - title: Proxy Troubleshooting
+          url: /proxies_troubleshooting.html
+          output: web
+
         - title: Install a Proxy Manually
           url: /proxies_manual_install.html
           output: web
@@ -571,7 +575,7 @@ entries:
             output: web
 
           - title: Kubernetes Troubleshooting
-            url: /wf_kubernetes_troubleshooting.html
+            url: /kubernetes_troubleshooting.html
             output: web
 
 
@@ -768,6 +772,30 @@ entries:
       url: /tracing_faq.html
       output: web
 
+  - title: Logs (Beta)
+    output: web
+    folderitems:
+
+      - title: Get Started
+        url: /logging_overview.html
+        output: web
+
+      - title: Send Logs
+        url: /logging_send_logs.html
+        output: web
+        
+      - title: Proxy Configurations for Logs
+        url: /logging_proxy_configurations.html
+        output: web
+
+      - title: Examine Logs
+        url: /logging_log_browser.html
+        output: web
+        
+      - title: Logs Troubleshooting
+        url: /logging_faq.html
+        output: web
+
   - title: API, SDKs, and CLI
     output: web
     folderitems:
@@ -791,19 +819,19 @@ entries:
   - title: Administration
     output: web
     folderitems:
-            
+
       - title: Administer Tanzu Observability
         url: /wavefront_administer.html
         output: web
-      
+
       - title: Upgrade from Trial Version
         url: /upgrade_and_purchase.html
         output: web
-        
+
       - title: Purchase Additional Capacity
         url: /purchase_additional_capacity.html
         output: web
-    
+
       - title: Security
         url: /wavefront_security.html
         output: web

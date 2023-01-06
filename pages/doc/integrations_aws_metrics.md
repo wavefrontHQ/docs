@@ -55,7 +55,8 @@ To configure CloudWatch ingestion:
        Here, the actual metric name is `aws.dynamodb.successfulrequestlatency`, while `average`, `maximum`, `minimum`, `samplecount`, and `sum` are the aggregation types. When you create the regular expression, you must use only `aws.dynamodb.successfulrequestlatency`. For example, `^aws.dynamodb.successfulrequestlatency$`.
       
       If you do not specify a regular expression, _all_ CloudWatch metrics are retrieved.
-      
+    
+    - **Bucket Allow List** -- Enter a regular expression with the names of the buckets that contain the objects you want to request metrics for. This way, you add the bucket names to an allow list and only the S3 metrics that are in the matching buckets will be sent to Tanzu Observability.
     - **Point Tag Allow List** -- Add custom AWS point tags to an allow list by specifying a regular expression. If you do not specify a regular expression, no point tags are added to metrics.
     
       Currently, custom point tags only for AWS EC2 instances and volumes are supported. To ingest the custom tags, you must first add the custom tags to the supported resources, and then add the tag keys in the **Point Tag Allow List** as a regular expression.

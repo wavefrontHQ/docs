@@ -3,32 +3,22 @@ title: Logs Proxy Configurations and Preprocessor Rules (Beta)
 tags: [getting started, logs]
 sidebar: doc_sidebar
 permalink: logging_proxy_configurations.html
-summary: Learn about the Tanzu Observability proxy configurations and preprocessor rules.
+summary: Proxy configuration properties and preprocessor rules for logging.
 ---
 
-{% include important.html content="Tanzu Observability Logs (Beta) is only enabled for selected customers. If you'd like to participate, contact your [Tanzu Observability account representative](wavefront_support_feedback.html#support)."%}
+{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
-Configure the Wavefront proxy to receive your log data and customize the data you send using preprocessor rules.
+Proxy configuration properties let you customize proxy behavior. Proxy preprocessor rules let you block, allow, or replace parts of the incoming traffic. This doc page is a reference to properties specific to this logging Beta. See [Advanced Proxy Configuration](proxies_configuring.html) and [Proxy Preprocessor Rules](proxies_preprocessor_rules.html) for the properties and rule options for other kind of data.
 
-## Configure the Proxy
+## Proxy Configuration Properties for Logs
 
-This section gives details on proxy configuration properties used for Tanzu Observability logs.
+If your logs don't use the attributes that our logging solution expects, or if you want to customize proxy behavior otherwise, you can use proxy configuration properties to do that.
 
-### Configure the properties
+We've added the following configuration properties for logs to the already existing [proxy configuration properties](proxies_configuring.html).
 
-Follow these steps:
+### Properties for Changing Log Tags
 
-1. [Install the Wavefront Proxy](proxies_installing.html).
-    If you have already installed the Wavefront proxy, make sure it is version 11.3 or later. 
-1. Open the [`wavefront.conf` file](proxies_configuring.html#proxy-file-paths):
-    1. Uncomment the `pushListenerPorts` and set it to a preferred port. It is set to 2878 by default to receive both HTTP and TCP data. For details on the proxy configurations, see [Advanced Proxy Configuration](proxies_configuring.html).
-    1. Optionally, uncomment or add the other configurations listed below.
-    1. Save the file.
-1. [Start the proxy](proxies_installing.html#start-and-stop-a-proxy).
-
-### Proxy Configurations for Logs
-
-See the Wavefront proxy configuration used for logs:
+{% include tip.html content="See [My Logging Solution Doesn't Use the Default Attributes](logging_faq.html#my-logging-solution-doesnt-use-the-default-attributes)."%}
 
 <table style="width: 100%;">
 <thead>
@@ -42,7 +32,7 @@ See the Wavefront proxy configuration used for logs:
 <tr>
 <a name="customTimestampTags"></a>
 <td>customTimestampTags</td>
-<td markdown="log tag"> A comma-separated list of log tag keys that needs to be treated as the timestamp if the `timestamp` or `log_timestamp` tag is missing.
+<td markdown="log tag"> Comma-separated list of log tag keys that are treated as the timestamp if your logging solution doesn't send a <code>timestamp</code> or <code>log_timestamp</code> tag.
 <br/> Default: None.
 <br/> Version: Since 11.3</td>
 <td> Comma-separated list of tags. Can be a single tag.
@@ -51,12 +41,45 @@ See the Wavefront proxy configuration used for logs:
 <tr>
 <a name="customMessageTags"></a>
 <td>customMessageTags</td>
-<td markdown="span">A comma-separated list of log tag keys that needs to be treated as the message if the `message` or `text` tag is missing.
+<td markdown="span">Comma-separated list of log tag keys that are treated as the log message if your logging solution doesn't send a `message` or `text` tag.
 <br/> Default: None.
 <br/> Version: Since 11.3</td>
 <td> Comma-separated list of tags. Can be a single tag.
 <br/> Example: debug_log</td>
 </tr>
+<tr>
+<a name="customApplicationTags"></a>
+<td>customApplicationTags</td>
+<td markdown="span">Comma-separated list of log tag keys that are treated as the application name if your logging solution doesn't send an `application` tag.
+<br/> Default: none
+<br/> Version: Since 11.3</td>
+<td> Comma separated list of log tags. Can be a single tag.
+<br/>Example: supermarket</td>
+</tr>
+<tr>
+<a name="customServiceTags"></a>
+<td>customServiceTags</td>
+<td markdown="span">Comma-separated list of log tag keys that are treated as the service name if your logging solution doesn't send a `service` tag.
+<br/> Default: none
+<br/> Version: Since 11.3</td>
+<td> Comma separated list of tags. Can be a single tag.
+<br/>Example: groceries, payment</td>
+</tr>
+</tbody>
+</table>
+
+
+### Properties for Modifying Proxy Behavior
+
+<table style="width: 100%;">
+<thead>
+<tr>
+<th width="27%">Property</th>
+<th width="43%">Purpose</th>
+<th width="30%">Format /Example </th>
+</tr>
+</thead>
+<!---not clear this needs to be doc'ed
 <tr>
 <a name="pushFlushMaxLogs"></a>
 <td>pushFlushMaxLogs</td>
@@ -65,10 +88,12 @@ See the Wavefront proxy configuration used for logs:
 <br/> Version: Since 11.3</td>
 <td> A number from 1-5.</td>
 </tr>
+--->
+<tbody>
 <tr>
 <a name="pushRateLimitLogs"></a>
 <td>pushRateLimitLogs</td>
-<td markdown="span">Limit the outgoing logs rate at the proxy in MB.
+<td markdown="span">Limit the outgoing logs rate at the proxy, in MB/s.
 <br/> Default: NO_RATE_LIMIT.
 <br/> Version: Since 11.3</td>
 <td> Positive integer.
@@ -87,7 +112,7 @@ See the Wavefront proxy configuration used for logs:
 <a name="flushThreadsLogs"></a>
 <td>flushThreadsLogs</td>
 <td markdown="span"> Number of threads that flush data to the server. This setting is per push listener port.
-<br/>If you set a large value, the number of logs that are included in a batch will be small, and it will be expensive because you need to connect to the server several times.
+<br/>If you set a large value, for example 10, then the number of logs that are included in a batch will be small and sending logs will be expensive (e.g. CPU-intensive) because you need to connect to the server several times.
 <br/> Default: 4
 <br/> Version: Since 11.3</td>
 <td> Positive integer.
@@ -96,7 +121,13 @@ See the Wavefront proxy configuration used for logs:
 <tr>
 <a name="pushMemoryBufferLimitLogs"></a>
 <td>pushMemoryBufferLimitLogs</td>
-<td markdown="span"> Maximum number of logs that can stay in the proxy memory buffers before spooling to disk. If the value is lower than the default value, it reduces memory usage but will force the proxy to spool to disk more frequently when the logs data points arrive at the proxy in short bursts. If the limit is the same as the memory heap limit, the proxy ignores the limit you have set here.
+<td> Maximum number of logs that can stay in the proxy memory buffer before spooling to disk. Change this property based on how much memory capacity for the proxy your system has.
+<ul>
+<li>
+ If the value is higher, the proxy is better able to handle surges. </li>
+<li>If the value is lower, it reduces memory usage but will force the proxy to spool to disk more frequently when the logs data points arrive at the proxy in short bursts. </li>
+<li>If the limit is the same as the memory heap limit, the proxy ignores the limit you have set here.</li>
+ </ul>
 <br/> Default: 64
 <br/> Version: Since 11.3</td>
 <td> Positive integer.
@@ -105,10 +136,10 @@ See the Wavefront proxy configuration used for logs:
 <tr>
 <a name="blockedLogsLoggerName"></a>
 <td>blockedLogsLoggerName</td>
-<td markdown="span"> Logger name for blocked logs.
+<td markdown="span"> Logger name for blocked logs in the proxy log.
 <br/> Default: RawBlockedLogs
 <br/> Version: Since 11.3</td>
-<td> A string.
+<td>A string.
 <br/>Example: blockedLogs</td>
 </tr>
 </tbody>
@@ -607,10 +638,13 @@ Points must match the `allow` list to be accepted. Multiple `allow` rules are al
      - tagToAllowList
 ```
 
-## Next Steps
+## Learn More!
 
-* Get an overview of [Tanzu Observability logs](logging_overview.html).
-* See how to [send logs to Tanzu Observability](logging_send_logs.html).
-* Learn how to [view and browse logs](logging_log_browser.html).
-* [Try out the tutorial](logging_kubernetes_tutorial.html) to send logs to Tanzu Observability.
-* Have questions? See [Logs FAQs](logging_faq.html).
+* [Get started with logs](logging_overview.html).
+* [Send logs to Tanzu Observability](logging_send_logs.html).
+* [View and browse logs](logging_log_browser.html).
+* See [Logs troubleshooting](logging_faq.html).
+
+<!---RK>>Only added this link to Send Logs. 
+[Try out the demo app tutorial on GitHub](https://github.com/wavefrontHQ/demo-app) to send logs to Tanzu Observability.
+--->
