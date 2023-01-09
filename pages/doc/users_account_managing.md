@@ -75,6 +75,29 @@ You can check the permissions you have and see which groups you belong to.
 
 {% include note.html content="Even if you have **Dashboards** or **Alerts** permission, it's possible that you can't modify a dashboard or an alert. This happens if **access** is restricted explicitly for that dashboard or alert. Ask the dashboard or alert creator to share the object with you." %}
 
+{% include note.html content="If you have Super Admin access to the Wavefront instance, the **Groups, Roles & Permissions** page shows your permissions when the Super Admin mode is disabled." %}
+
+## Enable or Disable Super Admin Mode
+
+If you have Super Admin access to the Wavefront instance, you can temporary enable Super Admin mode and perform Super Admin tasks.
+
+{% include note.html content="To avoid accidents, after performing your current Super Admin tasks, it's a best practice to disable the Super Admin mode." %}
+
+<table>
+    <tbody>
+        <tr>
+            <td width="70%">To enable or disable the Super Admin mode, from the gear icon on the toolbar, turn on or off the <strong>Super Admin Mode</strong> toggle.
+            <ul>
+            <li>When the Super Admin mode is enbled, you have full administrative privileges as a <a href="authorization-faq.html#who-is-the-super-admin-user">Super Admin user</a>.</li>
+            <li>When the Super Admin mode is disabled, you have only the permissions listed on the <a href="users_account_managing.html#examine-groups-roles-and-permissions">Groups, Roles & Permissions page</a>.</li>
+            </ul></td>
+            <td width="30%"><img src="/images/super_admin_mode.png" alt="A screenshot of the drop-down menu with the Super Admin Mode toggle.">
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
 ## Generate an API Token
 
 Tanzu Observability allows [user accounts](user-accounts.html) and [service accounts](service-accounts.html) to interact with a Wavefront instance using the [Wavefront REST API](wavefront_api.html).
