@@ -108,19 +108,54 @@ To see and, optionally, apply the performance improvement suggestions for a quer
 
 ## Use the Query Analyzer When You See No Data Message on a Chart
 
-Sometimes, when you expect to see certain data in Tanzu Observability, it doesn’t show up for some reason. By default, in such cases, charts display a [**No Data** message](ui_charts.html#override-the-no-data-message-on-a-chart). When you see **No Data** on your charts, you can  use the Query Analyzer. The Query Analyzer allows you to easily see whether your queries, especially the long queries which contain subqueries, are correct. It also helps you identify the problematic subquery, so that you can easily [troubleshoot your issues](missing_data_troubleshooting.html).
+Sometimes, when you expect to see certain data in Tanzu Observability, it doesn’t show up for some reason. By default, in such cases, charts display a [**No Data** message](ui_charts.html#override-the-no-data-message-on-a-chart). When you see **No Data** on your charts, you can use the Query Analyzer. The Query Analyzer allows you to easily analyze your queries and subqueries. It helps you identify potential issues with a particular subquery, so that you can easily [troubleshoot your issues](missing_data_troubleshooting.html), and also shows performance statistics for the queries that cause missing data.
 
-**To analyze a query:**
+### Analyze a Query
+
+To use the Query Analyzer and analyze a query and its subqueries:
 
 1. Click the name of the chart to open it in Edit mode.
-1. If you have more queries, locate the query that you suspect to be problematic.
-1. Click the ellipsis icon next to the query and select Query Analyzer.
+1. If you have more queries, locate the query that you want to analyze.
+1. Click the ellipsis icon next to the query and select **Query Analyzer**.
    A new browser tab with the Query Analyzer opens. 
 1. Click **Analyze**.
 
-The problematic subquery is highlighted as shown in the screenshot below.
+The subquery that causes the **No Data** issue is highlighted. 
 
-![A screenshot of the query analyzer, where the second subquery is highlighted, because it contains a typo](images/query-analyzer-tab.png)
+- **Example 1**: The subquery contains a typo.
+
+  ![A screenshot of the query analyzer, where the second subquery is highlighted, because it contains a typo](images/query-analyzer-tab.png)
+
+- **Example 2**: No such data is present into Tanzu Observability.
+
+  ![A screenshot of the query analyzer, where the query is highlighted, because no such data is present in the system](images/query-analyzer-tab-1.png)
+
+  As you can see from the screenshot above, the Query Analyzer also shows performance statistics at a subquery level: 
+
+  - **Cardinality**: Number of unique time series. 
+  - **Points Scanned**: Number of data points that were queried to show the chart on the screen. 
+  - **Duration**: Time between query start and return of result.
+
+### Change the Time Window
+
+By default, the time window used in the Query Analyzer is the time window that you have set for chart. If you change the time window, the performance statistics also change.
+
+For example, if by default, the time window for the chart is set to one week, the results from the analysis might look like this:  
+
+![A screenshot of the query analyzer, where the query is highlighted, because no such data is present in the system and the default time window is 1 week.](images/query-analyzer-tab-1.png)
+
+**To change the time window**:
+
+1. In the Query Analyzer, click the time picker.
+2. Select the new time settings, for example, last 2 hours.
+3. Click **Analyze**.
+
+The performance statistics change as shown in the screenshot below.
+
+![A screenshot of the query analyzer, where the query is highlighted, because no such data is present in the system and the default time window is 2 hours.](images/query-analyzer-tab-2.png)
+
+
+### Share a Link
 
 In addition to investigating and fixing the issues by yourself, you can also share a link to the Query Analyzer with the same problematic query with others from your team. 
 
