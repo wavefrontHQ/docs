@@ -126,7 +126,7 @@ The subquery that causes the **No Data** issue is highlighted.
 
   ![A screenshot of the query analyzer, where the second subquery is highlighted, because it contains a typo](images/query-analyzer-tab.png)
 
-- **Example 2**: No such data is present into Tanzu Observability.
+- **Example 2**: No data is present into Tanzu Observability.
 
   ![A screenshot of the query analyzer, where the query is highlighted, because no such data is present in the system](images/query-analyzer-tab-1.png)
 
@@ -135,6 +135,12 @@ The subquery that causes the **No Data** issue is highlighted.
   - **Cardinality**: Number of unique time series. 
   - **Points Scanned**: Number of data points that were queried to show the chart on the screen. 
   - **Duration**: Time between query start and return of result.
+
+- **Example 3**: The query contains more subqueries that result in **No Data**.
+
+  ![A screenshot of the query analyzer, where two subqueries are highlighted, because they contain typos](images/query-analyzer-incorrect-subqueries.png)
+  
+  If a query contains more than one subquery that results in **No Data**, when you analyze the query, the first subquery causing the issue is highlighted and the result for it is displayed under **Detected Issues**. The other subqueries resulting in **No Data** are marked with a dotted underline. To expand the result for another subquery, simply click a result under **Detected Issues** and the subquery will be highlighted.
 
 ### Change the Time Window
 
