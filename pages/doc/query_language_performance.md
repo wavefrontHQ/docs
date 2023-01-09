@@ -108,7 +108,7 @@ To see and, optionally, apply the performance improvement suggestions for a quer
 
 ## Use the Query Analyzer When You See No Data Message on a Chart
 
-Sometimes, when you expect to see certain data in Tanzu Observability, it doesn’t show up for some reason. By default, in such cases, charts display a [**No Data** message](ui_charts.html#override-the-no-data-message-on-a-chart). When you see **No Data** on your charts, you can use the Query Analyzer. The Query Analyzer allows you to easily analyze your queries and subqueries. It helps you identify potential issues with a particular subquery, so that you can easily [troubleshoot your issues](missing_data_troubleshooting.html), and also shows performance statistics for the queries that cause missing data.
+Sometimes, when you expect to see certain data in Tanzu Observability, it doesn’t show up for some reason. By default, in such cases, charts display a **No Data** message (unless you have [overridden this setting and have set up charts to show another message](ui_charts.html#override-the-no-data-message-on-a-chart)). When you see **No Data** on a chart, you can use the Query Analyzer to analyze your queries and subqueries. The Query Analyzer helps you identify potential issues, so that you can easily [troubleshoot missing data](missing_data_troubleshooting.html), and also shows performance statistics for the queries and subqueries that result in **No Data**.
 
 ### Analyze a Query
 
@@ -130,7 +130,7 @@ The subquery that causes the **No Data** issue is highlighted.
 
   ![A screenshot of the query analyzer, where the query is highlighted, because no such data is present in the system](images/query-analyzer-tab-1.png)
 
-  As you can see from the screenshot above, the Query Analyzer also shows performance statistics at a subquery level: 
+  As you can see from the screenshot above, the Query Analyzer also shows performance statistics at a subquery level for the specific time window: 
 
   - **Cardinality**: Number of unique time series. 
   - **Points Scanned**: Number of data points that were queried to show the chart on the screen. 
@@ -138,7 +138,7 @@ The subquery that causes the **No Data** issue is highlighted.
 
 ### Change the Time Window
 
-By default, the time window used in the Query Analyzer is the time window that you have set for chart. If you change the time window, the performance statistics also change.
+By default, the time window used in the Query Analyzer is the time window that you have set for the chart. If you change the time window, the performance statistics update accordingly.
 
 For example, if by default, the time window for the chart is set to one week, the results from the analysis might look like this:  
 
