@@ -79,7 +79,7 @@ You can check the permissions you have and see which groups you belong to.
 
 ## Enable or Disable Super Admin Mode
 
-If you have Super Admin access to the Wavefront instance, you can temporary enable Super Admin mode and perform Super Admin tasks.
+If you have Super Admin access to the Wavefront instance, you can temporarily enable Super Admin mode and perform Super Admin tasks.
 
 {% include note.html content="To avoid accidents, after performing your current Super Admin tasks, it's a best practice to disable the Super Admin mode." %}
 
