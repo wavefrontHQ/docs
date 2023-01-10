@@ -18,11 +18,11 @@ Should probably be some mention of examining sub-queries.  Performing some opera
 
 ## Techniques: Check, Quote, and Untangle
 
-Before you look at possible reasons for your NO DATA result, follow these steps that our customer success team recommends.
+Before you look at possible reasons for your **No Data** result, follow these steps that our customer success team recommends.
 
 ### Step 1: Check for Typos
 
-It might sound surprising, but many NO DATA problems are the result of a typo in the metric name, source name, tag name, etc. Mistakes like that can be difficult to find, but it's well worth the trouble to double-check for typos.
+It might sound surprising, but many **No Data** problems are the result of a typo in the metric name, source name, tag name, etc. Mistakes like that can be difficult to find, but it's well worth the trouble to double-check for typos.
 
 ### Step 2: Quote
 
@@ -30,7 +30,7 @@ Because of character limitations imposed by the Wavefront Data Format, it's poss
 
 ### Step 3: Untangle
 
-A query can return NO DATA if one of its elements returns NO DATA. An easy way to check which element of your query returns NO DATA is to create a set of separate queries and use variables to refer to the result of the query. You can use the Show/Hide button in the query line to look at individual results.
+A query can return **No Data** if one of its elements returns **No Data**. An easy way to check which element of your query returns **No Data** is to create a set of separate queries and use variables to refer to the result of the query. You can use the Show/Hide button in the query line to look at individual results.
 
 Here's a simple example:
 
@@ -38,9 +38,9 @@ You run the following query:
 ```
 sum(ts(~sample.requests.latency AND source="app-13")/ ts(~sample.requests.latency AND source="ap-12"))
 ```
-The result is NO DATA (because there's a typo).
+The result is **No Data**, because there's a typo.
 
-![query shows NO DATA](/images/query_no_data.png)
+![Query shows NO DATA because of a typo in the query](/images/query_no_data.png)
 
 The message below the query line already indicates where the problem is, but you decide to be systematic and split up the query. You can use the name of each query as a variable in the query that performs the aggregation.
 
@@ -97,7 +97,7 @@ If a time series hasn't ingested any data points in the last 28 days (or longer)
 
 <!---rk: Might have to change the link above--->
 
-![Advanced tab is selected, include obsolete metrics is checked](images/include_obsolete.png)
+![In the Advanced tab, the Include Obsolete metrics check box is selected](images/include_obsolete.png)
 
 
 <!---
@@ -154,7 +154,7 @@ A second set of functions, listed under [Query-Level Filtering Hides Your Data](
 
 Users can [apply global variables or filters](dashboards_variables.html) to a dashboard to explicitly filter out data. If you don't see the data you expect to see in a dashboard, check if a filter is set for the dashboard. For example, if the filter is set to `env = production`, as in the following screenshot, then you won't see data for `env = dev` or `env = qa`.
 
-![screenhot with env=production set](images/global_filter.png)
+![Screenshot with the filter env=production set](images/global_filter.png)
 
 
 

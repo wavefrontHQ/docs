@@ -106,7 +106,7 @@ To see and, optionally, apply the performance improvement suggestions for a quer
 </tbody>
 </table>
 
-## Use the Query Analyzer When You See No Data Message on a Chart
+## Use the Query Analyzer
 
 Sometimes, when you expect to see certain data in Tanzu Observability, it doesn’t show up for some reason. By default, in such cases, charts display a **No Data** message (unless you have [overridden this setting and have set up charts to show another message](ui_charts.html#override-the-no-data-message-on-a-chart)). When you see **No Data** on a chart, you can use the Query Analyzer to analyze your queries and subqueries. The Query Analyzer helps you identify potential issues, so that you can easily [troubleshoot missing data](missing_data_troubleshooting.html), and also shows performance statistics for the queries and subqueries that result in **No Data**.
 
