@@ -79,17 +79,19 @@ You can check the permissions you have and see which groups you belong to.
 
 ## Enable or Disable Super Admin Mode
 
-If you have Super Admin access to the Wavefront instance, you can temporarily enable Super Admin mode and perform Super Admin tasks.
+If you have Super Admin access to the Wavefront service, you can temporarily enable Super Admin mode and perform Super Admin tasks.
 
-{% include note.html content="To avoid accidents, after performing your current Super Admin tasks, it's a best practice to disable the Super Admin mode." %}
+{% include note.html content="To avoid accidents, after performing your current Super Admin tasks, disable the Super Admin mode." %}
+
+* To enable or disable the Super Admin mode, from the gear icon <i class="fa fa-cog"/> on the toolbar, turn on or off the **Super Admin Mode** toggle.
 
 <table>
     <tbody>
         <tr>
-            <td width="70%">To enable or disable the Super Admin mode, from the gear icon on the toolbar, turn on or off the <strong>Super Admin Mode</strong> toggle.
+            <td width="70%">As a result:
             <ul>
-            <li>When the Super Admin mode is enbled, you have full administrative privileges as a <a href="authorization-faq.html#who-is-the-super-admin-user">Super Admin user</a>.</li>
-            <li>When the Super Admin mode is disabled, you have only the permissions listed on the <a href="users_account_managing.html#examine-groups-roles-and-permissions">Groups, Roles & Permissions page</a>.</li>
+            <li>When the Super Admin mode is <strong>enabled</strong>, you have full administrative privileges as a <a href="authorization-faq.html#who-is-the-super-admin-user">Super Admin user</a>.</li>
+            <li>When the Super Admin mode is <strong>disabled</strong>, you have only the permissions listed on the <a href="users_account_managing.html#examine-groups-roles-and-permissions">Groups, Roles & Permissions page</a>.</li>
             </ul></td>
             <td width="30%"><img src="/images/super_admin_mode.png" alt="A screenshot of the drop-down menu with the Super Admin Mode toggle.">
             </td>
