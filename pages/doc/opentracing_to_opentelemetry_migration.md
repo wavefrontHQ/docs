@@ -11,11 +11,11 @@ OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCens
 
 {% include note.html content="Read the [OpenTelemetry documentation](https://opentelemetry.io/docs/migration/opentracing/) for migration options and strategies." %}
 
-This guide show you how to migrate a Java application that uses OpenTracing to use OpenTelemetry.
+This guide shows you how to migrate a Java application that uses OpenTracing to use OpenTelemetry.
 
 ## Update the pom.xml File
 
-Follow these steps to add the OpenTelemetry dependnecies to your Java project's pom.xml file.
+Follow these steps to add the OpenTelemetry dependencies to your Java project's pom.xml file.
 
 1. Add the OpenTelemetry  Bill of Materials (BOM).
     ```xml
@@ -149,7 +149,6 @@ public class OTelConfig {
         .build();
   }
 }
-
 ```
 
 ## Create Your Tracer
