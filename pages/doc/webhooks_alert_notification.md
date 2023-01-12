@@ -231,7 +231,7 @@ Test your alert target to make sure that it works properly.
 <tr>
 <td width="60%">
 <strong>To test an alert target</strong>:
-<ol><li>Select <strong>Alerting > Alert Targets</strong> and find the target on the <strong>Alert Targets</strong> page. </li>
+<ol><li>Select <strong>Alerting > Alert Targets</strong> from the toolbar, and find the target on the <strong>Alert Targets</strong> page. </li>
 <li>Click the ellipsis icon to the left of the alert target and select <strong>Test</strong>.</li></ol></td>
 <td width="40%"><img src="images/alert_target_test.png" alt="ellipsis menu, test selected"></td>
 </tr>
