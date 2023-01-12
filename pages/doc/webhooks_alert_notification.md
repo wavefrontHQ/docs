@@ -60,13 +60,14 @@ For example, you could use a custom alert target to:
 On the **Alert Targets** browser page, you can:
 
 * Search for and apply filters to the alert targets so that you can narrow down the results.
-* Browse through a list of saved searches.
 * Share, save, and clear search results.
+* Browse through a list of saved searches.
+* Hide or show the filters and the saved searches list displayed on the left by clicking the **Filters** button.
 * Sort the alert targets by last updated date or by target name in descending or ascending order.
 * Show the details for all alert targets by turning on the **Expand All** toggle. By default, this setting is turned off.
 * Show the details for a specific alert target by clicking the arrow next to the check box of the target.
-* Edit, test, or delete an alert target by clicking the ellipsis icon and selecting the respective option from the menu.
-* Select the check boxes of multiple alert targets and deleting them by clicking the **Delete** button.
+* Edit, test, or delete a single alert target by clicking the ellipsis icon and selecting the respective option from the menu.
+* Select the check boxes of multiple alert targets and delete them by clicking the **Delete** button.
 
 <a id="creating-an-alert-target"></a>
 <a id="creating-a-webhook"></a>
