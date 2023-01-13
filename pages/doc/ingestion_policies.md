@@ -33,22 +33,15 @@ The policy scope can be accounts, groups, sources, namespaces, or point tags.
 * You can change only the accounts or objects assigned to the policy in accordance with the scope.
 * Each account or object can belong to more than one policy.
 
-{% include note.html content="All users can view the ingestion policies. Only Super Admin users can create, edit, and delete ingestion policies."%}
-
-## Permissions
-
-* Only Super Admin users can create and edit ingestion policies.
-* Only Super Admin users can edit or delete alerts associated with ingestions policies. Even if you have the **Alerts** permission, you cannot edit or delete ingestion policy alerts unless you are a Super Admin user.
-* Only Super Admin users can view ingestion policy versions.
-* All users can view the ingestion policies, the ingestion policy dashboards, and the ingestion policy alerts.
+{% include note.html content="All users can view the ingestion policies and the ingestion policy dashboards. Only users with the [**Ingestion Policies** permission](permissions_overview.html) can create, edit, revert, and delete ingestion policies."%}
 
 ## Create an Ingestion Policy
 
 ### Step 0: Start the Ingestion Policy Creation
 
-1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
-3. Click the **Ingestion Policies** tab and click **New Ingestion Policy**.
+1. Log in to your Wavefront instance as a user with the **Ingestion Policies** permission.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Ingestion Policies**.
+3. Click **New Ingestion Policy**.
 
 ### Step 1: Specify the Scope and PPS Limit
 
@@ -104,47 +97,58 @@ If you set a PPS limit for the ingestion policy, Tanzu Observability creates an 
 2. Optionally, in the **Recipients** panel, specify [who will receive the alert notifications](alerts_manage.html#step-3-specify-recipients) and click **Next**.
 3. In the **Alert Name and Tags** panel, enter a name for the alert and, optionally, [tags](tags_overview.html#object-tags-tags-on-alerts-dashboards-events-and-sources) and click **Next**.
 
-After you create the ingestion policy, the associated alert will be available on the ingestion policy dashboard and on the Alerts Browser page.
-     
+After you create the ingestion policy, you can view the associated alert on the corresponding ingestion policy dashboard and on the Alerts Browser page.
+
+{% include note.html content="You can edit or delete an ingestion policy alert only by editing or deleting the corresponding ingesting policy."%}
+    
 ### Step 3: Name and Activate the Ingestion Policy
 In the **Create** panel, enter a name for the policy and, optionally, a description and click **Create**.
 
 ## Edit an Ingestion Policy
 
-After you create an ingestion policy, if you need, for example, to increase the PPS limit, or add more accounts or point tags, you can edit the policy. 
+After you create an ingestion policy, if you need, for example, to increase the PPS limit, or assign more accounts or point tags, you can edit the policy. 
 
 {% include note.html content="You cannot change the policy scope. You can change only the assigned objects from that scope."%}
 
-1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
-3. On the **Ingestion Policies** tab, click the ellipsis icon next to the policy that you want to edit and select **Edit**.
-4. In each panel, apply the necessary changes and click **Next**.
-5. In the **Policy Name and Description** panel, click **Save**.
+1. Log in to your Wavefront instance as a user with the **Ingestion Policies** permission.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Ingestion Policies**.
+3. Click the ellipsis icon next to the policy that you want to edit and select **Edit**.
+4. Enter the necessary changes and click **Save**.
 
-{% include note.html content="Removing the PPS limit dissociates the alert from the ingestion policy and deletes the alert."%}
+{% include note.html content="Removing the PPS limit dissociates the corresponding alert from the ingestion policy and deletes the alert."%}
 
-When you edit an ingestion policy, you create a new version of that policy.
+## View Ingestion Policy History and Revert to a Previous Version
 
-## View Ingestion Policy History
-
-To access the version history of an ingestion policy, on the **Ingestion Policies** page, click the ellipsis icon next to the policy and select **Versions**.
+Every time you edit an ingestion policy, you create a new version of that policy. You can see the details of each version since the creation of the policy. You can also revert the policy to an earlier version, directly or after editing the version of interest.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="60%">
-<br/>
-Ingestion policy version history shows:
-<ul>
-<li>The changes that have been made to an ingestion policy over time.</li>
-<li>The user who made the changes.</li>
-<li>The date and time the changes were made.</li>
-<li>A description of the changes.</li></ul>
+<td width="70%">
+To access the version history of an ingestion policy:
+<ol>
+<li>Log in to your Wavefront instance as a user with the <strong>Ingestion Policies</strong> permission.</li>
+<li>From the gear icon on the toolbar, select <strong>Ingestion Policies</strong>.</li>
+<li>Click the ellipsis icon next to the target policy and select <strong>Versions</strong>.</li>
+</ol>
 </td>
-<td width="40%"><img src="images/ip_new_hires.png" alt="alert history selected in menu"></td>
+<td width="30%"><img src="images/ip_new_hires.png" alt="alert history selected in menu"></td>
 </tr>
 </tbody>
 </table>
+
+The **Earlier Versions** page shows the details of each version of the policy.
+
+![An annotated screenshot of the history page with the list of versions](images/IP_history.png)
+
+* You can click the current version number and open the policy dashboard.
+
+For each earlier version of the policy, you can:
+
+* See the user who updated the policy and created the version, when was the policy updated, and what was updated in the policy.
+* Revert the policy to that version, which creates a new version that is an exact copy of that version.
+* Edit that version and revert the policy to it, which creates a new version that is an edited copy of that version.
+
 
 ## Delete an Ingestion Policy
 
@@ -152,9 +156,9 @@ If you no longer need an ingestion policy, for example, after a reorganization i
 
 {% include note.html content="Deleting an ingestion policy cannot be undone. Deleting an ingestion policy with a PPS limit, also deletes its associated alert."%}
 
-1. Log in to your Wavefront instance as a Super Admin user.
-2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
-3. On the **Ingestion Policies** tab, click the ellipsis icon next to the policy that you want to delete, select **Delete** and confirm.
+1. Log in to your Wavefront instance as a user with the **Ingestion Policies** permission.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Ingestion Policies**.
+3. Click the ellipsis icon next to the policy that you want to delete, select **Delete**, and confirm.
 
 ## Examine Ingestion Policy Usage
 
