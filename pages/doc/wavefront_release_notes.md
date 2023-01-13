@@ -15,7 +15,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 ## 2023-02.x Release Notes
 
-* **Stacked Area and Stacked Column Charts**: Stacked Area and Stacked Column charts are now supported with the latest Mozilla Firefox versions.
+* **Charts Improvements**: **Stacked Area** and **Stacked Column** charts are now supported with the latest Mozilla Firefox versions.
 
 <!--## 2023-04.x Release Notes
 
