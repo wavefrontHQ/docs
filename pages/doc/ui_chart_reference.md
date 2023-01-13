@@ -196,14 +196,15 @@ Chart description which shows up as hover text when users move the mouse over th
 <td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
+<td>Override No Data Message</td>
+<td>You can customize the <strong>No Data</strong> message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
+</td>
+</tr>
+<tr>
 <td>Chart Time Window</td>
 <td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
 </tr>
-<tr>
-<td>Override NO Data Message</td>
-<td>You can customize the NO Data message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
-</td>
-</tr>
+
 </tbody>
 </table>
 
@@ -397,13 +398,13 @@ Chart description which shows up as hover text when users move the mouse over th
 <td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
-<td>Chart Time Window</td>
-<td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart and you edit the dashboard time window, the time settings of the chart will not be affected.</td>
+<td>Override No Data Message</td>
+<td>You can customize the <strong>No Data</strong> message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
+</td>
 </tr>
 <tr>
-<td>Override NO Data Message</td>
-<td>You can customize the NO Data message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
-</td>
+<td>Chart Time Window</td>
+<td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart and you edit the dashboard time window, the time settings of the chart will not be affected.</td>
 </tr>
 </tbody>
 </table>
@@ -589,14 +590,15 @@ Chart description which shows up as hover text when users move the mouse over th
 <td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
+<td>Override No Data Message</td>
+<td>You can customize the <strong>No Data</strong> message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
+</td>
+</tr>
+<tr>
 <td>Chart Time Window</td>
 <td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
 </tr>
-<tr>
-<td>Override NO Data Message</td>
-<td>You can customize the NO Data message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
-</td>
-</tr>
+
 </tbody>
 </table>
 
@@ -762,14 +764,15 @@ Chart description which shows up as hover text when users move the mouse over th
 <td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
+<td>Override No Data Message</td>
+<td>You can customize the <strong>No Data</strong> message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
+</td>
+</tr>
+<tr>
 <td>Chart Time Window</td>
 <td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
 </tr>
-<tr>
-<td>Override NO Data Message</td>
-<td>You can customize the NO Data message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
-</td>
-</tr>
+
 </tbody>
 </table>
 
@@ -921,14 +924,15 @@ Chart description which shows up as hover text when users move the mouse over th
 <td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
+<td>Override No Data Message</td>
+<td>You can customize the <strong>No Data</strong> message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
+</td>
+</tr>
+<tr>
 <td>Chart Time Window</td>
 <td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
 </tr>
-<tr>
-<td>Override NO Data Message</td>
-<td>You can customize the NO Data message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
-</td>
-</tr>
+
 </tbody>
 </table>
 
@@ -1117,14 +1121,15 @@ Chart description which shows up as hover text when users move the mouse over th
 <td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
+<td>Override No Data Message</td>
+<td>You can customize the <strong>No Data</strong> message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
+</td>
+</tr>
+<tr>
 <td>Chart Time Window</td>
 <td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
 </tr>
-<tr>
-<td>Override NO Data Message</td>
-<td>You can customize the NO Data message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
-</td>
-</tr>
+
 </tbody>
 </table>
 
@@ -1228,14 +1233,15 @@ Chart description which shows up as hover text when users move the mouse over th
 <td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
+<td>Override No Data Message</td>
+<td>You can customize the <strong>No Data</strong> message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
+</td>
+</tr>
+<tr>
 <td>Chart Time Window</td>
 <td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
 </tr>
-<tr>
-<td>Override NO Data Message</td>
-<td>You can customize the NO Data message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
-</td>
-</tr>
+
 </tbody>
 </table>
 
@@ -1325,13 +1331,13 @@ Chart description which shows up as hover text when users move the mouse over th
 <td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
-<td>Chart Time Window</td>
-<td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
-<tr>
-<td>Override NO Data Message</td>
-<td>You can customize the NO Data message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
+<td>Override No Data Message</td>
+<td>You can customize the <strong>No Data</strong> message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
 </td>
 </tr>
+<tr>
+<td>Chart Time Window</td>
+<td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
 </tr>
 </tbody>
 </table>
@@ -1438,14 +1444,15 @@ The Axis tab lets you change the Y axis, and both the X axis dimensions and unit
 <td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
+<td>Override No Data Message</td>
+<td>You can customize the <strong>No Data</strong> message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
+</td>
+</tr>
+<tr>
 <td>Chart Time Window</td>
 <td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
 </tr>
-<tr>
-<td>Override NO Data Message</td>
-<td>You can customize the NO Data message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
-</td>
-</tr>
+
 </tbody>
 </table>
 
@@ -1540,15 +1547,17 @@ The Axis tab lets you change the Y axis, and both the X axis and Y axis dimensio
 <td>Include Obsolete Metrics</td>
 <td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
+
+<tr>
+<td>Override No Data Message</td>
+<td>You can customize the <strong>No Data</strong> message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
+</td>
+</tr>
 <tr>
 <td>Chart Time Window</td>
 <td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
 </tr>
-<tr>
-<td>Override NO Data Message</td>
-<td>You can customize the NO Data message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
-</td>
-</tr>
+
 </tbody>
 </table>
 
@@ -1642,14 +1651,15 @@ Chart description which shows up as hover text when users move the mouse over th
 <td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
+<td>Override No Data Message</td>
+<td>You can customize the <strong>No Data</strong> message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
+</td>
+</tr>
+<tr>
 <td>Chart Time Window</td>
 <td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
 </tr>
-<tr>
-<td>Override NO Data Message</td>
-<td>You can customize the NO Data message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
-</td>
-</tr>
+
 </tbody>
 </table>
 
@@ -1795,13 +1805,13 @@ Chart description which shows up as hover text when users move the mouse over th
 <td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
-<td>Chart Time Window</td>
-<td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
+<td>Override No Data Message</td>
+<td>You can customize the <strong>No Data</strong> message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
+</td>
 </tr>
 <tr>
-<td>Override NO Data Message</td>
-<td>You can customize the NO Data message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
-</td>
+<td>Chart Time Window</td>
+<td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
 </tr>
 </tbody>
 </table>
@@ -1809,6 +1819,109 @@ Chart description which shows up as hover text when users move the mouse over th
 
 
 
+
+<table style="width: 100%;">
+  <tbody>
+  <tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+  </tbody>
+</table>
+
+## Geo Map Chart
+
+![A screenshot of the Geo Map chart](images/geo-map-chart.png)
+
+You can use the Geo Map chart to visualize your app data by location.
+
+<a id="geo_map_format_tab">
+<p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>Summarization</td>
+<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the query engine to aggregate raw data points into displayable values.</td>
+</tr>
+
+<tr><td>Gap Threshold</td>
+<td>Controls when data is considered missing when there are gaps in the reporting of the data. The gap threshold is expressed in seconds and defaults to 60 seconds. </td>
+</tr>
+
+<tr>
+<td>Color to Value Mapping</td>
+<td>Allows you to specify a set of values and map them to colors. For example, this mapping shows yellow for values under 10, green for values between 10 and 20, etc. Click any color to customize it.
+<br/>
+<img src="images/color_to_value_v2.png" alt="color_to_value">
+</td>
+</tr>
+
+<tr>
+<td>Tag Keys</td>
+<td>
+Allows you to select and add tag keys to the map chart.
+</td>
+</tr>
+</tbody>
+</table>
+
+<a id="geo_map_map_view_tab">
+<p><span style="font-size: large; font-weight: 600">Map View Tab</span></p>
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td></td>
+<td></td>
+</tr>
+
+</tbody>
+</table>
+
+<a id="geo_map_drilldown_link_tab">
+<p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
+
+Allows you to specify a target dashboard that displays when a user clicks on the chart. You can optionally pass in a dashboard variable or a constant. For example, you can specify a constant us-west-2 to be used as a variable in the target dashboard. See [How Do Drilldown Links Work](ui_charts_faq.html#how-do-drilldown-links-work) for details.
+
+<a id="geo_map_description_tab">
+<p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+Chart description which shows up as hover text when users move the mouse over the chart name.</td>
+<td width="40%"><img src="/images/description_hover_text.png" alt="description of chart"/></td>
+</tr>
+</tbody>
+</table>
+
+<a id="geo_map_advanced_tab">
+<p><span style="font-size: large; font-weight: 600">Advanced Tab</span></p>
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>Include Obsolete Metrics</td>
+<td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
+</tr>
+<tr>
+<td>Override No Data Message</td>
+<td>You can customize the <strong>No Data</strong> message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
+</td>
+</tr>
+<tr>
+<td>Chart Time Window</td>
+<td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
+</tr>
+
+</tbody>
+</table>
 
 <table style="width: 100%;">
   <tbody>
