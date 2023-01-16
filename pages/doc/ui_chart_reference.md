@@ -1844,10 +1844,6 @@ You can use the Geo Map chart to visualize your app data by location.
 <td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the query engine to aggregate raw data points into displayable values.</td>
 </tr>
 
-<tr><td>Gap Threshold</td>
-<td>Controls when data is considered missing when there are gaps in the reporting of the data. The gap threshold is expressed in seconds and defaults to 60 seconds. </td>
-</tr>
-
 <tr>
 <td>Color to Value Mapping</td>
 <td>Allows you to specify a set of values and map them to colors. For example, this mapping shows yellow for values under 10, green for values between 10 and 20, etc. Click any color to customize it.
@@ -1869,16 +1865,16 @@ You can use the Geo Map chart to visualize your app data by location.
 </thead>
 <tr>
 <td>Default Metric</td>
-<td></td>
+<td>Allows you to switch between the queries in your chart. <p>You can also use the <strong>Metric</strong> drop-down menu displayed in the top right corner of the chart.</p></td>
 </tr>
 <tr>
 <td>View set box</td>
-<td>Allows you to select a region from the list of options.
-<ul><li>APAC = Asia and Pacific</li>
-<li>EMEA = Europe, the Middle East, and Africa</li>
-<li>NA= North America</li>
-<li>SA = South America</li>
-<li>All Continents = All Continents</li>
+<td>Allows you to select a region and zoom into it.
+<ul><li><strong>APAC</strong> - zooms into the Asia and Pacific region.</li>
+<li><strong>EMEA</strong> - zooms into the Europe, Middle East, and Africa region.</li>
+<li><strong>NA</strong> - zooms into the North America region.</li>
+<li><strong>SA</strong> - zooms into the South America region.</li>
+<li><strong>All Continents</strong> - shows all continents.</li>
 </ul>
 </td>
 </tr>
