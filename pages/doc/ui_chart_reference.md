@@ -1856,12 +1856,7 @@ You can use the Geo Map chart to visualize your app data by location.
 </td>
 </tr>
 
-<tr>
-<td>Tag Keys</td>
-<td>
-Allows you to select and add tag keys to the map chart.
-</td>
-</tr>
+
 </tbody>
 </table>
 
@@ -1873,10 +1868,26 @@ Allows you to select and add tag keys to the map chart.
 <tr><th width="20%">Option</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td></td>
+<td>Default Metric</td>
 <td></td>
 </tr>
-
+<tr>
+<td>View set box</td>
+<td>Allows you to select a region from the list of options.
+<ul><li>APAC = Asia and Pacific</li>
+<li>EMEA = Europe, the Middle East, and Africa</li>
+<li>NA= North America</li>
+<li>SA = South America</li>
+<li>All Continents = All Continents</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Tag Keys</td>
+<td>
+Allows you to select and add tag keys to the map chart.
+</td>
+</tr>
 </tbody>
 </table>
 
