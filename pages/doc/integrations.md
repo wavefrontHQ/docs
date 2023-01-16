@@ -98,7 +98,7 @@ Before setting up an integration, you can look into our demo dashboards. These d
 
 You can install and uninstall the system integration dashboards.
 
-<div markdown="span" class="alert alert-info" role="alert">While every user can view integrations, you must have [**Integration Management** permission](permissions_overview.html) to install and uninstall integration dashboards. If you do not have this permission, buttons to perform these tasks are not visible.</div>
+<div markdown="span" class="alert alert-info" role="alert">While every user can view integrations, you must have the [**Integrations** permission](permissions_overview.html) to install and uninstall integration dashboards. If you do not have this permission, buttons to perform these tasks are not visible.</div>
 
 1. Click **Integrations** on the toolbar.
 1. Click an integration tile.
@@ -117,7 +117,7 @@ You cannot modify the system dashboards. Instead, you must clone the dashboards.
 
 Some integrations contain system alerts. You can preview the system alerts even before setting up an integration by clicking **Preview**. In Preview mode, you cannot do any customizations to these alerts. You can also install and uninstall the predefined integration alerts to explore them further. After you install the system alerts, you edit some of their settings.
 
-{% include note.html content="All users can view alerts. You must have the **Alerts** permission to install and uninstall or modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
+{% include note.html content="All users can view alerts. You must have the **Integrations** permission to install and uninstall the system alerts." %}
 
 **To install the system alerts**:
 

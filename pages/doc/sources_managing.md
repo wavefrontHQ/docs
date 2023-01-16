@@ -17,7 +17,7 @@ In Tanzu Observability by Wavefront, a **source** is a unique application, host,
 
 If you don't see metrics in charts that filter by source, you can examine sources in the Source browser.
 
-{% include note.html content="The Sources browser doesn't filter out sources that are older than 4 weeks." %}
+{% include note.html content="The Sources browser doesn't filter out the obsolete sources." %}
 
 ### Step 1: Find a Source
 
@@ -27,9 +27,10 @@ When you select **Browse > Sources** the Sources browser offers many options to 
 <tbody>
 <tr>
 <td width="50%">
-Filter sources by status. In contrast to metrics, sources are not excluded after 4 weeks of not reporting metrics, but you can filter sources by status.
+Filter sources by status.
 <ul>
-<li><strong>Obsolete</strong>&mdash;Sources that didn't emit metrics for more than 4 weeks. (Maps to <code>~status.error</code>.)</li>
+<li><strong>Obsolete</strong>&mdash;Sources that didn't emit metrics for a certain period (obsolescence period). (Maps to <code>~status.error</code>.)
+{% include note.html content="By default, the obsolescence period for metrics and sources is 4 weeks. You can see your current configuration by looking into the Advanced settings of any [chart](ui_charts.html#include-metrics-that-stopped-reporting) or [dashboard](ui_dashboards.html#set-dashboard-display-preferences-and-settings). To change this configuration, contact [Technical Support](wavefront_support_feedback.html)." %}</li>
 <li><strong>Recent Metrics</strong>&mdash;Sources with metrics received in the last 2 days. (Maps to <code>~status.new</code> and <code>~status.ok</code>.)</li>
 <li><strong>Metrics Stopped</strong>&mdash;Sources with no metrics received in the last 2 days. (Maps to <code>~status.stopped</code>.)</li>
 </ul> </td>
@@ -55,9 +56,9 @@ When you select a source in the Sources browser, you can examinine it in more de
 
 With more and more companies using dynamic services such as AWS, it's typical to have sources constantly being spun up and shut down.
 * In the Sources browser, all sources are included unless you explicitly exclude Obsolete sources.
-* In the Metrics browser or Query Editor, sources that haven't sent points for 4 weeks are no longer shown in the autocomplete dropdown. You can also manually hide sources by using the UI or API.
+* In the Metrics browser and Query Editor, obsolete sources are no longer shown in the autocomplete dropdown. You can also manually hide sources by using the UI or API.
 
-{% include note.html content="While hidden sources are removed from the autocomplete dropdown, those sources can still be used in a ts() query when data values are present." %}
+{% include note.html content="While hidden sources are removed from the autocomplete dropdown, you can still use these sources in `ts()` queries when data values are present." %}
 
 <table style="width: 100%;">
 <tbody>

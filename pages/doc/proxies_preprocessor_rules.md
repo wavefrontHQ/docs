@@ -301,7 +301,7 @@ Enables you to pass only metrics that are provided in a `preprocessor_rules.yaml
 </tr>
 <tr>
 <td>names</td>
-<td>List of metric names or regular expressions. The list specifies which metrics are sent to the Wavefront service or which are dropped.
+<td>List of exact metric names or regular expressions. The list specifies which metrics are sent to the Wavefront service or which are dropped. Regular expressions must start and end with `/`.
 </td>
 </tr>
 <tr>
@@ -324,14 +324,13 @@ Enables you to pass only metrics that are provided in a `preprocessor_rules.yaml
       cacheSize: 10000
     names:
       - "metrics.1"
-      - "/metrics.2.*/"
+      - "/metrics\.2.*/"
       - "/.*.ok$/"
-      - "metrics.ok.*"
 ```
 The example:
 * allows a metric called `metrics.1` but drops `metrics.1.test`
+* allows any metric that starts with  `metrics.2`
 * allows any metric that ends with  `.ok`
-* allows any metric that ends with `metrics.ok.`
 
 ## Point Altering Rules
 
@@ -643,7 +642,6 @@ Renames a point tag, preserving its value.
 ### forceLowercase
 
 Converts metric name, source name, or point tag value to lowercase.
-
 <font size="3"><strong>Parameters</strong></font>
 
 <table>

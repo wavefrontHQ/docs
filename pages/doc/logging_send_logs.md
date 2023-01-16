@@ -14,11 +14,11 @@ summary: Learn about sending logs to Tanzu Observability.
 
 You can send logs to the Wavefront proxy from your log shipper or directly from your application. The Wavefront proxy sends the log data to the Wavefront instance.
 
-![shows how data goes from the log shipper to the wavefront proxy and then to the Wavefront instance](images/logging_send_logs_rev.png)
+![shows how data goes from the log shipper to the wavefront proxy and then to the Wavefront instance](images/logging_send_logs2.png)
 
 ## Install a Wavefront Proxy
 
-Our logging solution currently requires a Wavefront proxy and does not support direct ingestion. The Wavefront proxy accepts a JSON array payload over HTTP or HTTPS and forwards it to the Wavefront service.
+Our logging solution currently requires a Wavefront proxy and does not support direct ingestion. The Wavefront proxy accepts logs as JSON array and JSON lines payload over HTTP or HTTPS and forwards it to the Wavefront service.
 
 {% include note.html content="For optimal performance, install a standalone proxy cluster that receives only logs payload. Typically two proxy instances behind a load balancer are sufficient." %}
 
@@ -46,10 +46,12 @@ value: "false"</code>
   </tr>
 </table>
 
-To install and configure a new proxy version 11.3 or later:
+{% include important.html content="Starting with proxy version 11.3, you can send logs in the JSON **array** format. Starting with proxy version 12.1, you can send logs also in the JSON **lines** format." %}
+
+To install and configure a new proxy:
 
 1. Log in to your Wavefront instance and select **Browse** > **Proxies**.
-1. Click **Add Proxy** and follow the instructions on screen.
+1. Click **Add new proxy** and follow the instructions on the screen.
 1. Edit the `wavefront.conf` file to open the `pushListenerPorts` to receive logs from the log shipper.
     <br/>For example:
     * If you installed the proxy on Linux, Mac, or Windows, open the [`wavefront.conf`](proxies_configuring.html#proxy-file-paths) file, uncomment the `pushListenerPorts` configuration property, and save the file. The port is set to 2878 by default.
@@ -62,7 +64,7 @@ To install and configure a new proxy version 11.3 or later:
 
 ## Configure the Log Shipper
 
-The log shipper sends your data to the Wavefront proxy. During Beta, we support the [Fluentd](https://docs.fluentd.org/) log shipper, which scrapes and buffers your logs before sending them to the Wavefront proxy specified in the `fluent.conf` file.
+The log shipper sends your data to the Wavefront proxy. During Beta, we support the [Fluentd](https://docs.fluentd.org/) and [Fluent Bit](https://docs.fluentbit.io/) log shippers, which scrape and buffer your logs before sending them to the Wavefront proxy.
 
 If you want to use a different log shipper, contact [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support).
 
@@ -71,28 +73,40 @@ If you want to use a different log shipper, contact [technical support](https://
 Add the VMware domain (`*.vmware.com`) to the allowlist in your environment. Because Tanzu Observability uses a VMware log cluster, you need to add the VMware domain to your allowlist to send log data successfully. If you want to narrow down the domain, contact your Tanzu Observability account representative.
 
 Configure your log shipper:
-  1. Install the log shipper. For example, [install Fluentd](https://docs.fluentd.org/installation).
+  1. Install the log shipper. For example, [install Fluentd](https://docs.fluentd.org/installation) or [install Fluent Bit](https://docs.fluentbit.io/manual/installation/getting-started-with-fluent-bit).
 
   1. Configure the log shipper to send data to the Wavefront proxy.
 
-     a. Add the hostname of the host where the proxy runs.
-
-     b. Add the `pushListenerPorts` that you configured in the proxy.
-     <br/>For example, edit the `fluent.conf` file to send data to a proxy as follows:
-      ```
-      <match wf.**>
-        @type copy
-        <store>
-          @type http
-          endpoint http://<proxy url>:<proxy port (example:2878)>/logs/json_array?f=logs_json_arr
-          open_timeout 2
-          json_array true
-          <buffer>
-            flush_interval 10s
-          </buffer>
-        </store>
-      </match>
-      ```
+     1. Add the hostname of the host where the proxy runs.
+     1. Add the `pushListenerPorts` that you configured in the proxy.
+         
+     For example:
+     - Edit the  Fluentd configuration file (`fluent.conf`) to send data to a proxy as follows:
+    
+       ```
+       <match wf.**>
+         @type copy
+         <store>
+           @type http
+           endpoint http://<proxy url>:<proxy port (example:2878)>/logs?f=logs_json_arr
+           open_timeout 2
+           json_array true
+           <buffer>
+             flush_interval 10s
+           </buffer>
+         </store>
+       </match>
+     ```
+     - Edit the  Fluent Bit configuration file  (`fluent-bit-<os>.conf`) to send data to a proxy as follows:
+    
+       ```
+       [OUTPUT]
+           Name http
+           Host <proxy url>
+           Port <proxy port>(example: 2878)
+           URI /logs?f=logs_json_lines
+           Format json_lines
+       ```
   1. As part of preprocessing, tag the logs with the application and service name to ensure you can drill down from traces to logs.
   2. (Optional) If you're already using a logging solution, specify alternate strings for required and optional log attributes in the [proxy configuration file](logging_proxy_configurations.html). See also [My Logging Solution Doesn't Use the Default Attributes](logging_faq.html#my-logging-solution-doesnt-use-the-default-attributes).
 

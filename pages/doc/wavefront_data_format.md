@@ -211,4 +211,4 @@ We do not retain the history of alert tags, event tags, and source tags. For exa
 * [High Cardinality Data](cardinality.html) is an introduction with a video.
 * [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html) has in-depth examples.
 * [Common Time Limits and Best Practices](wavefront_limits.html) shows limits, for example, when a query times out.
-* [Troubleshooting Missing Data](missing_data_troubleshooting.html) explains, for example, how you can toggle the Obsolete Metrics flag to see data that are older than 4 weeks.
+* [Troubleshooting Missing Data](missing_data_troubleshooting.html) explains, for example, how you can toggle the Obsolete Metrics flag to see old data.
