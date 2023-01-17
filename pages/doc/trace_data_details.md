@@ -207,12 +207,6 @@ The following table lists span tags that contain information about the span's id
 <td markdown="span">Identifier of the span's dependent parent, if it has one.</td>
 <td markdown="span">UUID</td>
 </tr>
-<tr>
-<td markdown="span">`followsFrom`</td>
-<td markdown="span">No</td>
-<td markdown="span">Identifier of the span's non-dependent parent, if it has one. This tag is populated as the result of an OpenTracing `FollowsFrom` relationship. We ignore spans with this tag when calculating the critical path through a trace. A span without the `parent` or `followsFrom` tag is the root (first) span of a trace. </td>
-<td markdown="span">UUID</td>
-</tr>
 </tbody>
 </table>
 
