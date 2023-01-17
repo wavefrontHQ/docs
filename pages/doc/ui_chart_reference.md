@@ -1830,7 +1830,7 @@ Chart description which shows up as hover text when users move the mouse over th
 
 ![A screenshot of the Geo Map chart](images/geo-map-chart.png)
 
-You can use the Geo Map chart to visualize your app data by location.
+You can use the Geo Map chart to visualize your ingested data by location.
 
 <a id="geo_map_format_tab">
 <p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
