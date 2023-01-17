@@ -16,7 +16,7 @@ For performance monitoring of your Wavefront instance, you can use [wftop, Wavef
 
 ## How to Go to the Usage Summary Dashboard?
 
-You can navigate to the Usage Summary dashboard to get an overview of the ingested and scanned rates over a certain [billing period](glossary.html#b). You can go up to 2 years back in time.
+You can navigate to the Usage Summary dashboard and get an overview of your ingested and scanned rates per [billing period](glossary.html#b). You can go up to 2 years back in time.
 
 1. Log in to the **Usage Summary** dashboard.
 
@@ -26,16 +26,15 @@ You can navigate to the Usage Summary dashboard to get an overview of the ingest
     - If you are not a Super Admin user, from the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
 
    The **Usage Summary** tab opens. This tab contains the dashboard with an overview of the ingested and scanned rates.
-3. From the **Billing Month** drop-down menu, select the billing period you are interested in.
-   
+3. From the **Billing Period** drop-down menu, select the period you are interested in.
    
 ## Understand the Data
 
-Here's an example of how the dashboard may look like.
+The **Usage Summary** dashboard consists of charts for the selected [billing period](glossary.html#b). The charts slightly differ for the type of your contract - billable commitment or burndown commitment. Here's an example of how the dashboard may look like.
 
 ![Example of the Usage Summary dashboard](images/usage_overview.png)
 
-If you exceed your committed rate for more than 5% of the hours of a given month, you will be billed your overage rate for the number of PPS above your committed rate.
+The charts are organized in the following sections.
 
 ### Overview Charts
 
@@ -47,46 +46,57 @@ The **Overview** section of the dashboard contains the following charts:
 <tr><th width="30%">Chart</th><th width="70%">Description</th></tr>
 </thead>
 <tr>
-<td><strong>Projected Usage for Selected Month</strong></td>
-<td>Shows the projected usage for the selected month.</td></tr>
+<td><strong>P95 Usage for Selected Period</strong></td>
+<td>Shows your 95th percentile PPS usage for the selected billing period, including overages if any.</td></tr>
 <tr>
-<td><strong>Projected Overages for Selected Month</strong></td>
-<td>Shows the projected overage in PPS for the selected month.</td>
+<td><strong>Current Overage for Selected Period</strong>
+<p>(Only for billable customers)</p></td>
+<td>Shows the number of PPS above your committed rate. If the overage reaches 1k PPS, the chart color changes from green to orange.
+<p><strong>Important</strong>: If you exceed your committed rate for more than 5% of the hours of a given billing period, you will be billed for the number of PPS above your committed rate.</p></td>
 </tr>
 <tr>
-<td><strong>Previous Month to Selected Month</strong></td>
-<td>Compares the PPS ingestion usage of the selected month with the previous month.</td>
+<td><strong>Remaining Balance vs Burndown Commitment</strong>
+<p>(Only for burndown customers)</p></td>
+<td>Shows your remaining number of PPS out of your burndown commitment. </td>
+</tr>
+<tr>
+<td><strong>Current Period vs Previous Period</strong></td>
+<td>Shows the percentage change in the usage for the selected billing period compared to the billing period before that. A positive value indicates a usage increase whereas a negative value indicates a usage decrease.</td>
 </tr>
 <tr>
 <td><strong>Hourly Usage</strong></td>
-<td>Shows the hourly PPS. The red line represents the commit level. If the hourly usage exceeds the committed rate with more than 5% for a given month, you will incur overage charges.</td>
+<td>Shows the hourly PPS usage over the selected billing period. The dashed line represents the PPS usage over the previous billing period.
+<p>If you have a billable commit contract, the red line represents your committed rate.</p></td>
 </tr>
 <tr>
-<td><strong>Time Above Contract Rate</strong></td>
-<td>Shows the percentage of time in which you have exceeded your committed rate. If you exceed your committed rate for more than 5% of the hours of a given month, you will be billed your overage rate.</td>
+<td><strong>Time Above Committed Rate</strong>
+<p>(Only for billable customers)</p></td>
+<td>Shows the percentage of time in which you have exceeded your committed rate. If you exceed your committed rate for more than 5% of the hours of a given billing period, you will be billed your overage rate.</td>
 </tr>
 <tr>
 <td><strong>Average Usage for the Last Quarter</strong></td>
-<td>Shows the average usage for the previous three months out of your total commit level.</td>
+<td>Shows the average usage for the previous three billing periods.
+<p>If you have a billable commit contract, the usage is presented out of your total commitment level.</p></td>
 </tr>
 <tr>
-<td><strong>Historical Usage (24 Months)</strong></td>
-<td>Shows your billed usage over the last 2 years.</td>
+<td><strong>Last 12 Months Usage</strong></td>
+<td>Shows your billed usage over time.
+<p>If you have a billable commit contract, the red line represents your committed rate.</p></td>
 </tr>
 <tr>
 <td><strong>Top Metrics by Namespace</strong></td>
-<td>Shows the number of data PPS for all first-level metric names in the system. For example, if you have metrics named <code>cpu.usage</code>, <code>cpu.cores.number</code>, <code>memory.total</code>, and <code>memory.free</code>, this chart shows the total PPS under the first level metric names, such as <code>cpu</code> and <code>memory</code>.</td>
+<td>Shows the first-level metric namespaces in the tenant, sorted in descending order by the number of ingested points per second (PPS).  For example, consider that the tenant ingests metrics <code>cpu.usage</code>, <code>cpu.cores.number</code>, <code>memory.total</code>, and <code>memory.free</code>. The <code>cpu.usage</code> and <code>cpu.cores.number</code> metrics ingest totally 7k PPS, and <code>memory.total</code> and <code>memory.free</code> ingest totally 4k PPS. The chart shows the namespaces <code>cpu</code> and <code>memory</code> sorted by the total number of the PPS ingested by the metrics in each namespace, i.e. you'll see <code>cpu</code> on top (with value of 7k PPS) and then <code>memory</code> (with value of 4k PPS).</td>
 </tr>
 <tr>
 <td><strong>Top Increasing Metrics</strong></td>
-<td>Shows the top increasing metrics within a 30-days period of time.</td>
+<td>Shows the first-level metric namespaces in the tenant, sorted in descending order by the increase in the ingested points per second (PPS) during the last 30 days.</td>
 </tr>
 </tbody>
 </table>
 
 ### Scan Rate Charts
 
-Typically, you are billed based on your ingestion rate. If your scan rate becomes 20 times the ingestion rate or more, you will be billed based on the scan rate.
+Typically, you are billed based on the ingestion rate (the rate at which you send your data to Tanzu Observability). However, if the scan rate (the rate at which you query your data) exceeds the ingestion rate more than 20 times, you will be billed based on the scan rate.
 
 The **Scan Rate** section of the dashboard contains helps you explore scan rates:
 

@@ -158,29 +158,31 @@ If you no longer need an ingestion policy, for example, after a reorganization i
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Ingestion Policies**.
 3. Click the ellipsis icon next to the policy that you want to delete, select **Delete**, and confirm.
 
-## Examine Ingestion Policy Usage
+## Examine Usage by an Ingestion Policy
 
 All users can examine the ingestion policy dashboards to understand their usage over time.
 
 1. Log in to your Wavefront instance.
-2. Navigate to the list of ingestion policies.
+2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Ingestion Policies**.
 
-    - If you are a Super Admin user, from the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
-    - If you are not a Super Admin user, from the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
-3. Click the **Ingestion Policies** tab and view all existing policies.
-![Ingestion policies page](images/ingestion_policies.png)
-On the **Ingestion Policies** tab, for each policy you can see:
+    The **Ingestion Policies** page shows all existing ingesting policies.
+
+    ![Ingestion policies page](images/ingestion_policies.png)
+
+    For each policy you can see:
 
     - The state of the policy, i.e. whether the limit is exceeded, or the limit is not reached or not set.
     - The name of the policy. If you click the name, you can examine the respective ingestion policy dashboard.
     - The current usage vs limit for the current billing period.
     - The usage trend for the current billing period.
-    - The PPS limit, if any.
+    - The PPS limit, if set.
     - Whether the ingestion policy has an alert associated with it.
-    - Last updated information.
-4. Click the name of the policy in which you are interested and examine the policy dashboard.
+    - Date, time, and account of the last update.
+3. Click the name of the policy in which you are interested and examine the policy dashboard.
 
-    The ingestion policy dashboard consists of two main and one optional section.
+    The ingestion policy dashboard contains the **Ingestion Summary** and **Optimize Usage** sections. If the ingestion policy has a PPS limit, the dashboard also includes the **Alert** section.
+
+    ![Usage summary per ingestion policy](images/IP_dashboard.png)
 
     - In the **Ingestion Summary** section of the dashboard, you can see the following list of charts:
 
@@ -190,15 +192,19 @@ On the **Ingestion Policies** tab, for each policy you can see:
       <tr><th width="30%">Chart</th><th width="70%">Description</th></tr>
       </thead>
       <tr>
-      <td><strong>Usage Limit</strong></td>
+      <td><strong>P95 Usage vs Limit</strong></td>
       <td>Shows the 95th percentile PPS usage by the policy out of the PPS limit for the selected billing period.</td></tr>
       <tr>
-      <td><strong>Previous Month to Selected Month</strong></td>
-      <td>Shows a comparison of the selected month's usage with the previous month's usage.</td>
+      <td><strong>Current Period vs Previous Period</strong></td>
+      <td>Shows the percentage change in the usage for the selected billing period compared to the billing period before that. A positive value indicates a usage increase whereas a negative value indicates a usage decrease.</td>
       </tr>
       <tr>
       <td><strong>Hourly Usage</strong></td>
-      <td>Shows the hourly PPS. The red line represents the PPS limit for the policy.</td>
+      <td>Shows the hourly PPS usage over the selected billing period. The red line represents the PPS limit for the policy.</td>
+      </tr>
+      <tr>
+      <td><strong>Last 12 Months Usage</strong></td>
+      <td>Shows the hourly PPS usage over the last 12 months. The red line represents the PPS limit for the policy.</td>
       </tr>
       </tbody>
       </table>
@@ -224,9 +230,9 @@ On the **Ingestion Policies** tab, for each policy you can see:
       </tbody>
       </table>
 
-    - If the ingestion policy has a PPS limit with an alert, the dashboard also includes the **Alert** section that provides details about the associated alert.
+    - If the ingestion policy has a PPS limit, the dashboard also includes the **Alert** section that provides details about the associated alert.
  
-    ![Usage summary per ingestion policy](images/IP_dashboard.png)
+
 
 ## Example: Monitor Which Teams Are Responsible for How Much Ingested Data
 
