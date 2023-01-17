@@ -1,6 +1,6 @@
 ---
 title: Send OpenTelemetry Data
-keywords: opentelemetry, tracing. metrics
+keywords: opentelemetry, tracing, metrics
 layout: readme
 source: opentelemetry-examples
 tags: [tracing]
