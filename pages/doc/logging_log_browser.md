@@ -328,7 +328,7 @@ Let's look at an example:
 1. Hover over the area above the right side of the logs chart, click the plus (+) icon to zoom in further as needed and, if auto-search is off, click **Search**.
     ![a screenshot with the zoom in options highlighted with a red box](images/logging_histogram_zoom_in_in.png)
     
-1. To group the logs in the logs chart by the values of a particular tag key, from the **Groups** drop-down menu, select the grouping tag key.
+1. To group the logs in the logs chart by the values of a particular tag key, from the **Charts** drop-down menu, select the grouping tag key.
     The legend explains which color maps to which value of the grouping tag key.
     ![a screenshot with the zoom in options highlighted with a red box](images/logging_histogram_grouped.png)
     
