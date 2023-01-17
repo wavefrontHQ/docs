@@ -1,14 +1,14 @@
 ---
-title: Hello Wavefront!
+title: Integrations Tutorial
 keywords:
 tags: [tutorials]
 sidebar: doc_sidebar
 permalink: hello_wavefront_aws_tutorial.html
-summary: Get data from a Windows host or Amazon Web Services.
+summary: Get data from Amazon Web Services or a Windows host.
 ---
 
 In this tutorial, you'll learn how to:
-1. Log in to Tanzu Observability by Wavefront.
+1. Log in to the product.
 2. Send data from applications and services that run on your AWS account.
 3. Visualize data with preconfigured dashboards and charts.
 
@@ -26,11 +26,11 @@ It's an easy setup. You don't have to install anything or make changes to your a
 </table>
 
 
-## Task 1: Log In to Your Wavefront Instance
+## Task 1: Log In to Your Product Instance
 
-If you've never logged in to your company's Wavefront instance, follow these steps. Go to Task 2 otherwise.
+If you've never logged in to your company's product instance, follow these steps. Go to Task 2 otherwise.
 
-1. Check your email! When your administrator adds you to the Wavefront instance, you receive an email with the subject that includes `You have been invited by <email> to Wavefront!`.
+1. Check your email! When your administrator adds you to the product instance, you receive a welcome email.
 2. Click the link in the email.
   * In some environments, you set up your password and you're done.
   * If your administrator has configured Single Sign-On (SSO), you're redirected to your company's SSO environment. When you complete the authentication steps, you're redirected to the Wavefront instance.
@@ -65,7 +65,7 @@ You'll see **Account ID** and **External ID** under **How to get Role ARN**. You
 
 Follow these steps:
 
-1. On a web browser tab, log in to your AWS account.
+1. Open a web browser tab and log in to your AWS account.
 1. Search for the **IAM** (AWS Identity and Access Management) service and click it to open the service.
 1. In the left panel, click **Roles**, and click **Create role**.
 1. Create a trusted entity:
@@ -176,12 +176,13 @@ Many integrations have preconfigured alerts for common use cases. All you have t
 <br/>
 <br/>
 2. Click the integration that you want to use.
-   A configured integration has a green tick in the top right.
+<br/>
+<br/>A configured integration has a green tick in the top right.
 </td>
 <td width="50%" markdown="span">![Screenshot of several integrations, icon with green tick in top right](images/featured_integrations.png) </td></tr>
 <tr>
 <td width="50%">
-3. On the <strong>Alerts</strong> tab, click <strong>Install All</strong>. Here's an example screenshot from the AWS integration. Not all integrations have preconfigured alerts.
+3. On the <strong>Alerts</strong> tab, click <strong>Install All</strong>. <p>Here's an example screenshot from the AWS integration. Not all integrations have preconfigured alerts.</p>
 <br/><br/>
 You can now edit the alert directly, but we recommend that you clone the alert so you don't lose your changes in case you reinstall the alerts.
 </td>
@@ -194,7 +195,7 @@ You can now edit the alert directly, but we recommend that you clone the alert s
 <td width="50%" markdown="span">![Screenshot of the Alerts Browser, where we've searched for the ECS instance CPU usage too high alert](images/clone_aws_alert.png) </td></tr>
 <tr>
 <td width="50%" >
-5. Customize the thresholds. For example, you can set up the alert to be SEVERE when 97% of CPU utilization is reached.
+5. Customize the thresholds. <p>For example, you can set up the alert to be SEVERE when 97% of CPU utilization is reached.</p>
 6. Scroll down to the <strong>Recipients</strong> section. For the lowest severity level that you want notification for:<br/>
 &nbsp;&nbsp; a. Click the plus (+) icon.<br/>
 &nbsp;&nbsp; b. Enter your email address.<br/>
