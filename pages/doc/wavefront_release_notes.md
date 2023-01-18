@@ -27,8 +27,6 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
   
 * **Usage Portal Improvements**: We made the following improvements to the [ingestion policies](ingestion_policies.html) and [overall usage](examine_usage.html) monitoring:
 
-    {% include important.html content="Currently, the Usage Portal improvements are not available for all customers." %}
-
     <table>
       <tbody>
         <tr>
