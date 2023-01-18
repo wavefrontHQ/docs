@@ -173,4 +173,3 @@ Save the changes and run the application to send the trace data to Wavefront.
 ## Next Steps
 
 For more details on configuring your application to send traces or metrics to Tanzu Observability using the Wavefront Proxy or the OpenTelemetry Collector, see [Send OpenTelemetry Data](opentelemetry_tracing.html).
-
