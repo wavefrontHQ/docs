@@ -224,7 +224,7 @@ Use the following operators to get details or find the relationship between serv
         **childOf**
       </td>
       <td>
-        Returns spans that are a child of a given span. This concept is a result of the OpenTracing <code>ChildOf</code> relationship.
+        **Deprecated OpenTracing operator**. Returns spans that are a child of a given span. This concept is a result of the OpenTracing <code>ChildOf</code> relationship.
         <div style="background-color: #ECF0F5; padding: 15px">
         <code>&lt;child_spansExpression&gt;.childOf(&lt;parent_spansExpression&gt;)</code>
         </div>
