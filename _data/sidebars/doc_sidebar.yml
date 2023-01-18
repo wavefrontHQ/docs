@@ -674,24 +674,12 @@ entries:
     - title: OpenTelemetry
       url: /opentelemetry_tracing.html
       output: web
+    
+    - title: OpenTtracing
+      url: /opentracing_to_opentelemetry_migration.html
+      output: web
 
       subfolders:
-
-      - title: OpenTracing
-        output: web
-        subfolderitems:
-
-          - title: Instrument Your App
-            url: /tracing_instrumenting_frameworks.html
-            output: web
-
-          - title: Jaeger or Zipkin
-            url: /tracing_integrations.html
-            output: web
-
-          - title: Configure External Services
-            url: /tracing_external_services.html
-            output: web
 
       - title: Visualize Trace Data
         output: web

@@ -1,11 +1,13 @@
 ---
-title: Instrumenting Your App for Tracing
+title: (Archived) Instrumenting Your App for Tracing 
 keywords: data, distributed tracing, OpenTelemetry
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: tracing_instrumenting_frameworks.html
 summary: Set up your application to send metrics, histograms, and trace data.
 ---
+
+{% include important.html content="OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/).) To send trace data to Tanzu observability, use OpenTelemetry."%}
 
 You instrument your application so that trace data from different parts of the stack are sent to Tanzu Observability by Wavefront. Instrumentation enables you to trace a request from end to end across multiple distributed services, guided by key metrics from your application. After instrumentation, you can use our [tracing UI](tracing_basics.html#visualize-distributed-tracing-data) to visualize a request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time and discover problems.
 
