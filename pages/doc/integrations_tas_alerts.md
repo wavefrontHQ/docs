@@ -12,30 +12,6 @@ The Tanzu Application Service (TAS) integration includes a number of out-of-the-
 {% include note.html content="If you already have installed the Pivotal Cloud Foundry (PCF) alerts, and want to migrate to the Tanzu Application Service integration, uninstall the PCF alerts, so that you don't have duplicate versions of the same alerts.
 See [installing and uninstalling integration alerts](integrations.html#installing-and-uninstalling-integration-alerts). Note that any changes to the PCF alerts that you have made will not be migrated and will be lost. You have to apply them manually after setting up the Tanzu Application Service integration." %}
 
-## TAS Active Locks Alerts
-
-Total count of how many locks the system components are holding.
-
-If the Active Locks count is not equal to the expected value, there must be a problem with Diego.
-
-**Troubleshooting**
-
-1. Run `monit` status to inspect for failing processes.
-2. If there are no failing processes, review the logs for the components using the Locket service: BBS, Auctioneer, TPS Watcher, Routing API, and Clock Global (Cloud Controller clock). 
-   
-   Look for indications that only one of each component is active at a time.
-   
-3. Focus triage on the BBS first:
-   - A healthy BBS shows obvious activity around starting or claiming LRPs.
-   - An unhealthy BBS leads to the Auctioneer showing minimal or no activity. The BBS sends work to the Auctioneer.
-   - Reference the BBS-level Locket metric `tas.bbs.LockHeld`. A value of 0 indicates Locket issues at the BBS level.
-     For more information, see [Locks Held by BBS](#tas-locks-held-by-bbs).
-4. If the BBS appears healthy, then check the Auctioneer to ensure that it is processing auction payloads.
-   - Recent logs for the Auctioneer should show all but one of its instances are currently waiting on locks, and the active Auctioneer should show a record of when it last attempted to execute work. This attempt should correspond to app development activity, such as `cf push`.
-   - Reference the Auctioneer-level Locket metric `tas.auctioneer.LockHeld`. A value of 0 indicates Locket issues at the Auctioneer level. For more information, see [Locks Held by Auctioneer](#tas-locks-held-by-auctioneer).
-5. The TPS Watcher is primarily active when app instances crash. Therefore, if the TPS Watcher is suspected, review the most recent logs.
-6. If you can't resolve ongoing excessive active locks, pull logs from the Diego BBS and Auctioneer VMs, which includes the Locket service component logs, and contact VMware Tanzu Support.
-
 ## TAS Apps Manager Availability
 
 A result code of a poll to the [Apps Manager](https://docs.pivotal.io/application-service/console/index.html) URL.
