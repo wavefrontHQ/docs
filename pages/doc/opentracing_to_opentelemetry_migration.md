@@ -154,7 +154,7 @@ public class OTelConfig {
 
 ## Create Your Tracer
 
-For OpenTracing you created the tracer using the Wavefront SDKs. To create the Tracer for OpenTelemetry use the OpenTracing Shim.
+For OpenTracing, you created the tracer using the Wavefront SDKs. To create the Tracer for OpenTelemetry, use the OpenTracing Shim.
 
 1. Create the tracer using the OpenTelemetry to OpenTracing Shim.
     <br/>Example: 
@@ -173,5 +173,5 @@ Save the changes and run the application to send the trace data to Wavefront.
 
 ## Next Steps
 
-For more details on how to configure your application to send traces or metrics to Tanzu Observability using the Wavefront Proxy or the OpenTelemetry Collector, see [Send OpenTelemetry Data](opentelemetry_tracing.html).
+For more details on configuring your application to send traces or metrics to Tanzu Observability using the Wavefront Proxy or the OpenTelemetry Collector, see [Send OpenTelemetry Data](opentelemetry_tracing.html).
 
