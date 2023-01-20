@@ -1,10 +1,6 @@
 ---
-title: Send OpenTelemetry Data
-keywords: opentelemetry, tracing. metrics
-layout: readme
-source: opentelemetry-examples
-tags: [tracing]
-sidebar: doc_sidebar
+layout: redirected
+sitemap: false
 permalink: opentelemetry_tracing.html
-summary: Send OpenTelemetry traces and metrics data to Tanzu Observability. 
+redirect_to:  opentelemetry_overview.html
 ---
