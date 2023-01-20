@@ -466,3 +466,5 @@ Create an alert from the application status page:
   ![Create an alert from the table view page.](images/tracing_creating_an_alert_app_map.png)--->
 
 Once the alert is created, click **Alerting > All Alerts** and search for the alert you created .
+
+{% include saved_searches.md %}
