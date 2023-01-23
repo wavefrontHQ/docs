@@ -254,7 +254,7 @@ By applying the above security policy:
 
 ### Example: Restrict Access to All Except Specific Metrics
 
-This example restricts access to all metrics except for a group of metrics. 
+This example restricts access to all metrics except for two specific groups of metrics. 
 
 ![Screenshot of a policy rule restricting access to all metrics except for a specific group of metrics](images/metrics-security-policy-block-all.png)
 
@@ -262,15 +262,18 @@ The image above shows how to restrict access for a specific user. The user canno
 
 * Rule 3 (**Block all**) restricts access to all existing metrics for the user. 
   
-  If only this rule is applied, when the user tries to create a query, autocomplete will not work. The user also will not be able to see any metrics in the Metrics Browser.
+  If only this rule is applied, when the user tries to create a query, autocomplete will not work. The user *CANNOT* see any metrics on the Metrics Browser page.
 
-* Rule 2 (**Allow by tag**) provides access to all metrics that start with the prefix `customer.`. 
+* Rule 2 (**Allow by tag**) provides access to all metrics that start with the prefix `customer.` and `customerStatus=ACTIVE` tag. 
 
-  When both rules are applied, the user is able to see all metrics starting with the `customer.` prefix and explore and create charts with the tag `customerStatus=ACTIVE`.
+  When both rules are applied, the user *CAN* see only the metrics starting with the `customer.` prefix and explore and create charts with the tag `customerStatus=ACTIVE`.
 
 * Rule 1 (**Allow by tag for K8s integration**) provides access to all metrics with the `kubernetes.` prefix that are for the source `cluster=xxxxxxxx-prod-2`.
 
- When all rules are applied, the user can see all metrics starting with the `customer.` and `kubernetes.` prefixes in the Metrics Browser. Also, the user can explore and create charts with these metrics (autocomplete in the Chart Editor will work for these metrics) and with the tags `customerStatus=ACTIVE` and `cluster=xxxxxxxx-prod-2`.
+ When all rules are applied, the user *CAN* see all metrics starting with the `customer.` and `kubernetes.` prefixes in the Metrics Browser. Also, the user *CAN* explore and create charts with the `customer.*` metrics having the `customerStatus=ACTIVE` tag and the `kubernetes.` metrics with source `cluster=xxxxxxxx-prod-2`. 
+
+If you do not include an existing point tag or a source as a key-value pair, the **Block all** rule overrides the other rules. That means that you will see the metrics (in our case these are the metrics starting with `customer.` and `kubernetes.` prefixes) listed on the Metrics Browser page but you *CANNOT* see the charts related to them or create your own charts with these metrics. The metrics returned by the queries will be simply excluded by the **Block all** rule.
+
 
 ### Example: Strictly Limit Access on a Need-to-Know Basis
 
