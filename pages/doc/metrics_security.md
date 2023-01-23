@@ -7,7 +7,7 @@ permalink: metrics_security.html
 summary: Use metrics security to control access to time series, histograms, and delta counters.
 ---
 
-In a large enterprise, certain data are confidential. Tanzu Observability by Wavefront allows you to limit who can see or modify data in several ways.
+In a large enterprise, certain data is confidential. Tanzu Observability by Wavefront allows you to limit who can see or modify data in several ways.
 * **Permissions** are **global** settings.
   - Some permissions limit who can modify objects (e.g. proxies or events). For example, users with **Dashboards** permission can modify all dashboards.
   -  Other permissions make certain information completely invisible. For example, only users with **SAML IdP Admin** permission can see the **Self Service SAML** menu or access that page.
@@ -60,7 +60,7 @@ For example, assume you have two rules:
 </tbody>
 </table>
 
-After the rules are in force, only users in the Finance group can access data that start with `revenue*`.
+After the rules are in force, only users in the Finance group can access data that starts with `revenue*`.
 
 
 ### Sensitive Data Become Invisible
@@ -68,7 +68,7 @@ After the rules are in force, only users in the Finance group can access data th
 Data protected by a metrics security policy rule can become invisible to users.
 
 * **Not visible in charts**. The chart either includes a warning that some metrics are protected, or, if all metrics are protected, the chart shows only the message.
-* **Not visible in alerts** (if **Secure Metrics Details** is checked for the alert). The alert fires based on the complete set of metrics, and the complete set is shown in notification images by default. A check box allows administrators to [hide alert details](alerts_notifications.html#alert-notification-with-secured-metrics-details) so that confidential metrics are not shown.
+* **Not visible in alerts** (if **Secure Metrics Details** is selected for the alert). The alert fires based on the complete set of metrics, and the complete set is shown in notification images by default. A check box allows administrators to [hide alert details](alerts_notifications.html#alert-notification-with-secured-metrics-details) so that confidential metrics are not shown.
 * **Not visible in auto-complete** in Chart Builder, Query Editor, Metrics browser, etc.
 
 ### Rule Priority and Rule Pairs
@@ -169,8 +169,10 @@ You create a metrics security policy rule following these steps. See the annotat
 
 1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Metrics Security Policy** and click **Create Rule**
 2. In the **Create Rule** dialog, specify the rule parameters.
-  1. Specify a descriptive name. Users might later modify the rule, so a clear name is essential.
-  2. Add a description. The description is visible only when you edit the rule. The name is visible on the Metrics Security Policy page.
+  1. Specify a meaningful name and, optionally, a description. 
+      
+      Users might later modify the rule, so a clear name is essential. The description is visible only when you edit the rule. The name is visible on the Metrics Security Policy page.
+
   4. Specify and describe the metrics:
      * You can specify the full metric name or use a wildcard character in metric names, sources, or point tags. The wildcard character alone (`*`) means all metrics.
      * Specify key=value pairs, for example, `source="app-24"` or `env=dev`.
@@ -249,6 +251,26 @@ By applying the above security policy:
 
 * When a user who is in the `retail` group runs a query for metrics tagged with the `env=retail` point tag, access is granted.
 * A user who is assigned with the `Operator` role (either directly or indirectly, coming from other user groups) cannot access any metrics at all, because Rule 2 (**Block all data**) is applied.
+
+### Example: Restrict Access to All Except Specific Metrics
+
+This example restricts access to all metrics except for a group of metrics. 
+
+![Screenshot of a policy rule restricting access to all metrics except for a specific group of metrics](images/metrics-security-policy-block-all.png)
+
+The image above shows how to restrict access for a specific user. The user cannot access any metrics except the ones specified in the first two rules. This Metrics Security Policy can also be applied to a user group.
+
+* Rule 3 (**Block all**) restricts access to all existing metrics for the user. 
+  
+  If only this rule is applied, when the user tries to create a query, autocomplete will not work. The user also will not be able to see any metrics in the Metrics Browser.
+
+* Rule 2 (**Allow by tag**) provides access to all metrics that start with the prefix `customer.`. 
+
+  When both rules are applied, the user is able to see all metrics starting with the `customer.` prefix and explore and create charts with the tag `customerStatus=ACTIVE`.
+
+* Rule 1 (**Allow by tag for K8s integration**) provides access to all metrics with the `kubernetes.` prefix that are for the source `cluster=xxxxxxxx-prod-2`.
+
+ When all rules are applied, the user can see all metrics starting with the `customer.` and `kubernetes.` prefixes in the Metrics Browser. Also, the user can explore and create charts with these metrics (autocomplete in the Chart Editor will work for these metrics) and with the tags `customerStatus=ACTIVE` and `cluster=xxxxxxxx-prod-2`.
 
 ### Example: Strictly Limit Access on a Need-to-Know Basis
 
