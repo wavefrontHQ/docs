@@ -75,10 +75,12 @@ Data protected by a metrics security policy rule can become invisible to users.
 
 Rules are evaluated in priority order. In many cases, it's useful to think of pairs of rules, for example:
 
-* First block access to all metrics for a group (Priority 2)
-* Allow access to a small set of metrics (e.g. `*dev*`) for that group (Priority 1)
+* First block access to all metrics for a group (Priority 2).
+* Allow access to a small set of metrics (e.g. `*dev*`) for that group (Priority 1).
 
-Because Priority 1 overrides Priority 2, the group has access to a small set of metrics.
+Because Priority 1 overrides Priority 2, the group has access to a small set of metrics. 
+
+{% include important.html content="Priority 1 overrides Priority 2 only if in the Priority 1 rule you include a point tag or a source, i.e. only when you narrow down the set of metrics. If you don't narrow down the set of metrics to allow access to, the rule to block all metrics will override all other rules your Metrics Security Policy." %}
 
 See the Examples below for some scenarios.
 
@@ -272,7 +274,7 @@ The image above shows how to restrict access for a specific user. The user canno
 
  When all rules are applied, the user *CAN* see all metrics starting with the `customer.` and `kubernetes.` prefixes in the Metrics Browser. Also, the user *CAN* explore and create charts with the `customer.*` metrics having the `customerStatus=ACTIVE` tag and the `kubernetes.` metrics with source `cluster=xxxxxxxx-prod-2`. 
 
-If you do not include an existing point tag or a source as a key-value pair, the **Block all** rule overrides the other rules. That means that you will see the metrics (in our case these are the metrics starting with `customer.` and `kubernetes.` prefixes) listed on the Metrics Browser page but you *CANNOT* see the charts related to them or create your own charts with these metrics. The metrics returned by the queries will be simply excluded by the **Block all** rule.
+Including an existing point tag or a source as a key-value pair in Rule 1 and Rule 2 is mandatory. Otherwise, the **Block all** rule overrides the other rules and all metrics are restricted. That means that you *CAN* see the metrics (in our case these are the metrics starting with `customer.` and `kubernetes.` prefixes) listed on the Metrics Browser page but you *CANNOT* see the charts related to them and *CANNOT* create your own charts with these metrics. The metrics returned by the queries will be excluded by the **Block all** rule.
 
 
 ### Example: Strictly Limit Access on a Need-to-Know Basis
