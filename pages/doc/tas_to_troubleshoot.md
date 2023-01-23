@@ -189,3 +189,19 @@ Here are some things you can do.
 In the Ops Manager tile:
 * Increase the size of the Telegraf Agent Virtual Machine
 * Increase the Telegraf scrape interval
+
+
+## Symptom: Unexpected `tas2to-sli-test-app` in `system` org and `healthwatch` space
+
+When upgrading from an older 4.x release to 4.2.0, a cleanup job can sometimes fail, leaving behind an unused app and route.
+To check for this situation, log into your cf env, and try these commands:
+
+```bash
+cf target -o system -s healthwatch2
+cf apps
+cf routes
+```
+
+If you see an app called tas2to-sli-test-app in the results of cf apps or a route matching that name in the cf routes results, you will want to clean them up.
+- To delete the app, run `cf delete tas2to-sli-test-app`.
+- To delete the route, run `cf delete-route example.com --hostname tas2to-sli-test-app`
