@@ -76,7 +76,7 @@ Data protected by a metrics security policy rule can become invisible to users.
 Rules are evaluated in priority order. In many cases, it's useful to think of pairs of rules, for example:
 
 * First block access to all metrics for a group (Priority 2).
-* Allow access to a small set of metrics (e.g. `*dev*`) for that group (Priority 1).
+* Allow access to a small group of metrics (e.g. `cpu.*` and `env=dev` or `source="app-1*`) for that group (Priority 1).
 
 Because Priority 1 overrides Priority 2, the group has access to a small set of metrics. 
 
