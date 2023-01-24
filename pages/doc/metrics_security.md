@@ -76,7 +76,7 @@ Data protected by a metrics security policy rule can become invisible to users.
 Rules are evaluated in priority order. In many cases, it's useful to think of pairs of rules, for example:
 
 * Create a rule that blocks access to all metrics for a user group. For example, **Block all**. This rule is with lower priority.
-* Create another rule to allow access to a small set of metrics for that user group. E.g. metrics starting with the `cpu.*` prefix and that are tagged with `env=dev`. For example **Allow CPU metrics**. This rule is with higher priority.
+* Create another rule to allow access to a small set of metrics for that user group. E.g. metrics starting with the `cpu.*` prefix and that are tagged with `env=dev`, i.e. developers environment. For example **Allow CPU metrics**. This rule is with higher priority.
 
 <table style="width: 100%;">
 <tbody>
@@ -84,9 +84,9 @@ Rules are evaluated in priority order. In many cases, it's useful to think of pa
 <tr><th width="35%">Name</th><th width="20%">Priority</th><th width="45%">Metrics</th></tr>
 </thead>
 <tr>
-<td markdown="span">Allow CPU metrics</td>
+<td markdown="span">Allow metrics</td>
 <td>1</td>
-<td>Allow access to metrics starting with the <code>cpu.</code> prefix and with point tag <code>env=dev</code>.</td>
+<td>Allow access to metrics starting with the <code>cpu.*</code> prefix and with point tag <code>env=dev</code>.</td>
 </tr>
 <tr>
 <td markdown="span">Block all</td>
@@ -96,9 +96,9 @@ Rules are evaluated in priority order. In many cases, it's useful to think of pa
 </tbody>
 </table>
 
-When you apply these rules, the user group has access to the metrics starting with the `cpu.` prefix and point tag `env=dev`. 
+When you apply these rules, the users included in the user group will have access to the metrics starting with the `cpu.` prefix and point tag `env=dev`. 
 
-{% include important.html content=" **Allow CPU metrics** overrides **Block all** only if in the  **Allow CPU metrics** rule you include an existing point tag or a source, i.e. only when you narrow down the set of metrics. Otherwise, the **Block all** rule will override all other rules in your Metrics Security Policy." %}
+{% include important.html content="If, in the above combination, the rule that allows access (**Allow CPU metrics**) uses only point tags or sources as metrics dimensions, the users in the group will not see metrics in the Metrics Browser and autocomplete will not work for them."%}
 
 See the Examples below for some scenarios.
 
@@ -274,25 +274,17 @@ By applying the above security policy:
 
 ### Example: Restrict Access to All Except Specific Metrics
 
-This example restricts access to all metrics except for two specific groups of metrics. 
+This example restricts access to all metrics except for two specific groups of metrics that are additionally narrowed down by specifying tags. 
 
 ![Screenshot of a policy rule restricting access to all metrics except for a specific group of metrics](images/metrics-security-policy-block-all.png)
 
 The image above shows how to restrict access for a specific user. The user cannot access any metrics except the ones specified in the first two rules. This Metrics Security Policy can also be applied to a user group.
 
 * Rule 3 (**Block all**) restricts access to all existing metrics for the user. 
-  
-  If only this rule is applied, when the user tries to create a query, autocomplete will not work. The user *CANNOT* see any metrics on the Metrics Browser page.
-
 * Rule 2 (**Allow by tag**) provides access to all metrics that start with the prefix `customer.` and `customerStatus=ACTIVE` tag. 
+* Rule 1 (**Allow by tag for K8s integration**) provides access to all metrics with the `kubernetes.` prefix for a specific cluster.
 
-  When both rules are applied, the user *CAN* see only the metrics starting with the `customer.` prefix and explore and create charts with the tag `customerStatus=ACTIVE`.
-
-* Rule 1 (**Allow by tag for K8s integration**) provides access to all metrics with the `kubernetes.` prefix that are for the source `cluster=xxxxxxxx-prod-2`.
-
- When all rules are applied, the user *CAN* see all metrics starting with the `customer.` and `kubernetes.` prefixes in the Metrics Browser. Also, the user *CAN* explore and create charts with the `customer.*` metrics having the `customerStatus=ACTIVE` tag and the `kubernetes.` metrics with source `cluster=xxxxxxxx-prod-2`. 
-
-Including an existing point tag or a source as a key-value pair in Rule 1 and Rule 2 is mandatory. Otherwise, the **Block all** rule overrides the other rules and all metrics are restricted. That means that you *CAN* see the metrics (in our case these are the metrics starting with `customer.` and `kubernetes.` prefixes) listed on the Metrics Browser page but you *CANNOT* see the charts related to them and *CANNOT* create your own charts with these metrics. The metrics returned by the queries will be excluded by the **Block all** rule.
+ When you apply the above security policy, the user *CAN* see all metrics starting with the `customer.` and `kubernetes.` prefixes in the Metrics Browser. Also, the user *CAN* explore and create charts with the `customer.*` metrics having the `customerStatus=ACTIVE` tag and the `kubernetes.` metrics for the specific cluster. Autocomplete will work of these metrics.
 
 
 ### Example: Strictly Limit Access on a Need-to-Know Basis
