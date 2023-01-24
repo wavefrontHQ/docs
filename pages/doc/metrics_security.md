@@ -75,12 +75,30 @@ Data protected by a metrics security policy rule can become invisible to users.
 
 Rules are evaluated in priority order. In many cases, it's useful to think of pairs of rules, for example:
 
-* First block access to all metrics for a group (Priority 2).
-* Allow access to a small group of metrics (e.g. `cpu.*` and `env=dev` or `source="app-1*`) for that group (Priority 1).
+* Create a rule that blocks access to all metrics for a user group. For example, **Block all**. This rule is with lower priority.
+* Create another rule to allow access to a small set of metrics for that user group. E.g. metrics starting with the `cpu.*` prefix and that are tagged with `env=dev`. For example **Allow CPU metrics**. This rule is with higher priority.
 
-Because Priority 1 overrides Priority 2, the group has access to a small set of metrics. 
+<table style="width: 100%;">
+<tbody>
+<thead>
+<tr><th width="35%">Name</th><th width="20%">Priority</th><th width="45%">Metrics</th></tr>
+</thead>
+<tr>
+<td markdown="span">Allow CPU metrics</td>
+<td>1</td>
+<td>Allow access to metrics starting with the <code>cpu.</code> prefix and with point tag <code>env=dev</code>.</td>
+</tr>
+<tr>
+<td markdown="span">Block all</td>
+<td>2</td>
+<td>Block all metrics</td>
+</tr>
+</tbody>
+</table>
 
-{% include important.html content="Priority 1 overrides Priority 2 only if in the Priority 1 rule you include a point tag or a source, i.e. only when you narrow down the set of metrics. If you don't narrow down the set of metrics to allow access to, the rule to block all metrics will override all other rules your Metrics Security Policy." %}
+When you apply these rules, the user group has access to the metrics starting with the `cpu.` prefix and point tag `env=dev`. 
+
+{% include important.html content=" **Allow CPU metrics** overrides **Block all** only if in the  **Allow CPU metrics** rule you include an existing point tag or a source, i.e. only when you narrow down the set of metrics. Otherwise, the **Block all** rule will override all other rules in your Metrics Security Policy." %}
 
 See the Examples below for some scenarios.
 
