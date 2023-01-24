@@ -96,9 +96,9 @@ Rules are evaluated in priority order. In many cases, it's useful to think of pa
 </tbody>
 </table>
 
-When you apply these rules, the users included in the user group will have access to the metrics starting with the `cpu.` prefix and point tag `env=dev`. 
+When you apply this policy, the users included in the user group will have access to the metrics starting with the `cpu.` prefix and point tag `env=dev`, because the **Allow metrics** rule overrides the **Block all** rule. 
 
-{% include important.html content="If, in the above combination, the rule that allows access (**Allow CPU metrics**) uses only point tags or sources as metrics dimensions, the users in the group will not see metrics in the Metrics Browser and autocomplete will not work for them."%}
+
 
 See the Examples below for some scenarios.
 
@@ -177,7 +177,7 @@ Privileged users can create rules, change rule priority, and change the scope of
 Before you create rules, plan your strategy.
 
 * **Metrics Dimensions** allow you to determine what to block or allow.
-  - Specify one or more metric prefixes. You can specify an exact match (e.g. `requests` or `request.`) or a wildcard match (e.g. `*.cpu.loadavg*`, `cpu.*`).
+  - Specify one or more metric prefixes. You can specify an exact match (e.g. `requests` or `request.`) or a wildcard match (e.g. `*.cpu.loadavg.*`, `cpu.*`).
   - Specify a combination of metric sources or point tags to narrow down the metrics. For example, you can block visibility into production environments for some developers, or you can block some development environments metrics for contractors.
 * **Access** allows you to allow or block access for a combination of accounts, groups, or roles.
 
@@ -258,6 +258,9 @@ The image above shows how to restricts access for users in the group `Contractor
 
 * When a user belonging to group `Contractors` runs a query for `cpu.usage` tagged with `env=dev`, this access matches Rule 1 (**Contractors can access dev environment metrics**) and access is granted.
 * But when the user issues a query for `cpu.usage` tagged with `env=prod`, this access does not match Rule 1. Rule 2 (**Contractors cannot access any other metrics**) acts as a catch-all for users of group `Contractors` and denies them access to this metric.
+
+
+{% include note.html content="Because the first rule (**Contractors can access dev environment metrics**) uses only point tags/sources as metrics dimensions, the users in the Contractors group will not see metrics in the Metrics Browser and when they create queries, autocomplete will not work for them."%}
 
 ### Example: Restrict Access for a User Role
 
