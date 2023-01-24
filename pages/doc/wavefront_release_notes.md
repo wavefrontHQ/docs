@@ -15,7 +15,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 ## 2023-03.x Release Notes
 
-* **Alert Notifications Update**: If your **PagerDuty** [alert target](webhooks_alert_notification.html) is integrated with Slack, the alert notifications in Slack are now more extensive. They now show the complete alert notification summary, which can be up to 1,000 characters.
+* **Alert Notifications Update**: If your **PagerDuty** [alert target](webhooks_alert_notification.html) is integrated with Slack, the alert notifications in Slack are now more extensive. They show the complete alert notification summary, which can be up to 1,000 characters.
 
 ## 2023-02.x Release Notes
 
