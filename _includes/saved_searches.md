@@ -55,7 +55,7 @@ Users with the **Applications** permission can select a saved search as an Organ
     ![List button](/images/saved_searches_list_button.png)
 1. Click **Manage**.
 1. Set the default search:
-    * If you are a user with **Applications** permission, you can set a default search for all users. Click the drop-down under the **Set Default** column, and select **Organization Default**.
+    * If you are a user with **Applications** permission, you can set a default search for all users. Click the drop-down menu under the **Set Default** column, and select **Organization Default**.
     * If you want to update the default saved search or set a new default saved search, select the saved search, click the drop-down menu under the **Set Default** column, and select **My Default**.
     {% include note.html content="Your default saved search overrides the organizational level default saved search." %}
     ![A screenshot that shows the default search set.](/images/saved_searches_set_defaults.png)
