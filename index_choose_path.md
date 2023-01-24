@@ -1,6 +1,6 @@
 <div class="choose-path-container">
     <div class="row">
-    <p><i><b>Note</b>: The documentation on this site is about Aria Operations for Applications, formerly known as Tanzu Observability by Wavefront. We're in the process of updating the product name, but in many places we still refer to it as Tanzu Observability.</i></p>
+    <p><i><b>Note</b>: The documentation on this site is about VMware Aria Operations for Applications, formerly known as Tanzu Observability by Wavefront. We're in the process of updating the product name, but in many places we still refer to it as Tanzu Observability or Wavefront.</i></p>
     </div>
     <div class="row section-header">
         <h2>Choose Your Path</h2>
@@ -14,7 +14,7 @@
         <img src="/images/tutorial.png" alt="icon"/>
         <div class="choose-path-card-title">Tutorials</div>
         <div class="choose-path-card-links">
-            <a href="/hello_wavefront_aws_tutorial.html">Hello Wavefront!</a>
+            <a href="/hello_wavefront_aws_tutorial.html">Integrations Tutorial</a>
             <a href="tutorial_dashboards.html">Explore Data</a>
             <a href="query_language_getting_started.html">Query Language</a>
         </div>
