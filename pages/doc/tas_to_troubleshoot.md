@@ -194,6 +194,7 @@ In the Ops Manager tile:
 ## Symptom: Unexpected App in the HealthWatch Space
 
 When you upgrade from version 4.x to 4.2.0, a cleanup job can sometimes fail and leave an unused app and route.
+
 To check for this situation, log in to your `cf` environment, and try these commands:
 
 ```shell
