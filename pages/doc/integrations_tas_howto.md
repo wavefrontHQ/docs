@@ -346,6 +346,20 @@ Log in to your Wavefront instance (for example, `https://example.wavefront.com`)
 3. Explore one or two dashboards. [Examine Data with Dashboards and Charts](ui_examine_data.html) has an overview and includes a video.
 4. As appropriate, clone any of the existing dashboards to add charts, modify queries, and more. See [Create, Customize, and Optimize Dashboards](ui_dashboards.html) and [Create and Customize Charts](ui_charts.html).
 
+### Optional 1: Use the service broker to send custom application metrics to the wavefront proxy
+
+1. In Ops Manager, in the "Wavefront Proxy Config" panel,
+   check the "Enable service broker bindings" checkbox.
+2. To provision a wavefront-proxy service instance:
+   `cf create-service wavefront-proxy standard SERVICE_INSTANCE_NAME`.
+3. To bind apps to the service instance: `cf bind-service APP_NAME SERVICE_INSTANCE_NAME`.
+   If you already have an existing app and want to update its service instance reference from the v3 broker, first unbind it with this command:
+   `cf unbind-service APP_NAME SERVICE_INSTANCE_NAME`.
+
+
+Notes:
+1. For information about how apps can send metrics to the Wavefront proxy, see the [cloud-foundry-sampleapp](https://github.com/wavefrontHQ/cloud-foundry-sampleapp).
+
 ## Learn More!
 
 * All users can learn about [examining your data](ui_examine_data.html).
