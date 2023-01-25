@@ -356,7 +356,6 @@ Log in to your Wavefront instance (for example, `https://example.wavefront.com`)
    If you already have an existing app and want to update its service instance reference from the v3 broker, first unbind it with this command:
    `cf unbind-service APP_NAME SERVICE_INSTANCE_NAME`.
 
-
 Notes:
 1. For information about how apps can send metrics to the Wavefront proxy, see the [cloud-foundry-sampleapp](https://github.com/wavefrontHQ/cloud-foundry-sampleapp).
 
