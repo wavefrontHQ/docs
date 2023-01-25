@@ -15,7 +15,7 @@ You can install the Wavefront proxy and Telegraf agent manually from our package
 1. Run the interactive configuration script: `bin/autoconf-wavefront-proxy.sh`. The script prompts you for the following properties:
    - **server** - https://YOUR_CLUSTER.wavefront.com/api/
    - **token** - YOUR_API_TOKEN
-   - **hostname** - A name (alphanumeric plus periods) unique across your entire account representing the machine that the proxy is running on. The hostname is not used to tag your data; rather, it's used to tag data internal to the proxy, such as JVM statistics, per-proxy point rates, and so on.
+   - **proxyname** - A name (alphanumeric plus periods) unique across your entire account representing the machine that the proxy is running on. The proxyname is not used to tag your data; rather, it's used to tag data internal to the proxy, such as JVM statistics, per-proxy point rates, and so on.
    - **enable graphite** - Indicate whether to enable the Graphite format. See the Graphite integration for details on Graphite configuration.
   When the interactive configuration is complete, the Wavefront proxy configuration at `/etc/wavefront/wavefront-proxy/wavefront.conf` is updated with the input that you provided and the `wavefront-proxy` service is started.
 1. Restart the proxy: `sudo service wavefront-proxy restart` (Optional).
@@ -27,7 +27,7 @@ You can install the Wavefront proxy and Telegraf agent manually from our package
      host = "WAVEFRONT_PROXY_ADDRESS"
      port = 2878
      metric_separator = "."
-     source_override = ["hostname", "agent_host", "node_host"]
+     source_override = ["proxyname", "agent_host", "node_host"]
      convert_paths = true
    ```
 1. Restart the Telegraf agent: `sudo service telegraf restart`

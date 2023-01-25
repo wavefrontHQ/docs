@@ -14,8 +14,6 @@ For usage monitoring by accounts, sources, metric namespaces, and point tags, yo
 
 For performance monitoring of your Wavefront instance, you can use [wftop, Wavefront spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Wavefront Usage integration](wavefront_monitoring.html).
 
-{% include important.html content="The Usage Portal improvements introduced with the [2022-48.x release](wavefront_release_notes.html#2022-48x-release-notes) are not available for all customers."%}
-
 ## How to Go to the Usage Summary Dashboard?
 
 You can navigate to the Usage Summary dashboard to get an overview of the ingested and scanned rates over a certain [billing period](glossary.html#b). You can go up to 2 years back in time.

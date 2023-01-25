@@ -40,7 +40,7 @@ summary: Learn about Tanzu Observability metrics, logs, and traces.
 
 ## What's a Tanzu Observability Log?
 
-Logs are structured or unstructured text records of events that took place at a given time. Tanzu Observability ingests logs in JSON format.
+Logs are structured or unstructured text records of events that took place at a given time. Tanzu Observability ingests logs in JSON or JSON Lines format.
 
 ### Log Attributes
 
@@ -119,9 +119,9 @@ Each log has required attributes, standard attributes, and custom tags. We token
 
 ## Send Logs to Tanzu Observability
 
-You can send your logs using a log shipper, such as Fluentd, that sends logs as a JSON array over HTTP. See [Send logs to Tanzu Observability](logging_send_logs.html).
+You can send your logs using a log shipper, such as Fluentd that sends logs as JSON arrays over HTTP, or Fluent Bit that sends logs as JSON lines over HTTP. See [Send logs to Tanzu Observability](logging_send_logs.html).
 
-![A diagram shows how logs are sent from a log shipper to the Tanzu Observability components](images/logging_send_logs_rev.png)
+![A diagram shows how logs are sent from a log shipper to the Tanzu Observability components](images/logging_send_logs2.png)
 
 <table style="width: 100%;">
 <tbody>
@@ -279,8 +279,8 @@ To see the logs for a trace:
 1. Click the trace that you want to examine.
 1. In the Trace Details section, click the service on which you want to focus.
 1. Expand the **IDs** section.
-1. Click **Search Logs (Beta) with traceId**.
-![screenshot of the traces browser with the search logs with traceId highlighted](images/logging_traces_browser.png)
+1. Click **Search Logs (Beta)**.
+![screenshot of the traces browser with the search logs highlighted](images/logging_traces_browser.png)
 
 The Logs Browser opens in a new tab with the following configurations:
   

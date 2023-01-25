@@ -16,11 +16,9 @@ By creating an ingestion policy, you group a set of accounts, groups, sources, m
 - The usage by ingestion mechanism (proxy and direct ingestions)
 - The usage by ingestion type (time series, histograms, and delta counters)
 
-{% include note.html content="All users can view the ingestion policies. Only Super Admin users can create, edit, and delete ingestion policies."%}
+{% include important.html content="Ingestion policies **do not** support metrics from external services. You **CANNOT** use ingestion policies to monitor PPS usage for services such as the Amazon Web Services, Google Cloud Platform, Microsoft Azure, Snowflake, VMware vRealize Operations Cloud, New Relic, Datadog, and AppDynamics integrations."%}
 
 For performance monitoring of your Wavefront instance, you can use [wftop, Wavefront spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Wavefront Usage integration](wavefront_monitoring.html).
-
-{% include important.html content="The Usage Portal improvements introduced with the [2022-48.x release](wavefront_release_notes.html#2022-48x-release-notes) are not available for all customers."%}
 
 ## Ingestion Policy Basics
 
@@ -32,6 +30,8 @@ The policy scope can be accounts, groups, sources, namespaces, or point tags.
 * Once you set the scope, you cannot change it.
 * You can change only the accounts or objects assigned to the policy in accordance with the scope.
 * Each account or object can belong to more than one policy.
+
+{% include note.html content="All users can view the ingestion policies. Only Super Admin users can create, edit, and delete ingestion policies."%}
 
 ## Permissions
 
