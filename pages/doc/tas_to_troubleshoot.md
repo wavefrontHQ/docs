@@ -189,3 +189,23 @@ Here are some things you can do.
 In the Ops Manager tile:
 * Increase the size of the Telegraf Agent Virtual Machine
 * Increase the Telegraf scrape interval
+
+
+## Symptom: Unexpected App in the HealthWatch space
+
+When you upgrade from version 4.x to 4.2.0, a cleanup job can sometimes fail and leave an unused app and route.
+To check for this situation, log in to your `cf env`, and try these commands:
+
+```shell
+cf target -o system -s healthwatch2
+cf apps
+cf routes
+```
+
+If you see an app called `tas2to-sli-test-app` in the results of `cf apps` or a route matching that name in the `cf routes` results, you should clean them up.
+* To delete the app, run `cf delete tas2to-sli-test-app`.
+* To delete the route, run `cf delete-route example.com --hostname tas2to-sli-test-app`
+
+If you see an app called tas2to-sli-test-app in the results of cf apps or a route matching that name in the cf routes results, you will want to clean them up.
+- To delete the app, run `cf delete tas2to-sli-test-app`.
+- To delete the route, run `cf delete-route example.com --hostname tas2to-sli-test-app`
