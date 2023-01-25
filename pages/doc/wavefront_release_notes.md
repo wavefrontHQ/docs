@@ -13,17 +13,23 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## 2023-04.x Release Notes
+
+## 2023-03.x Release Notes
+
+* **Alert Notifications Update**: If your **PagerDuty** [alert target](webhooks_alert_notification.html) is integrated with Slack, the alert notifications in Slack are now more extensive. They show the complete alert notification summary, which can be up to 1,000 characters.
+
 ## 2023-02.x Release Notes
 
 * **Charts Improvements**: **Stacked Area** and **Stacked Column** charts are now supported with the latest Mozilla Firefox versions.
 
-## 2023-04.x Release Notes
 
-* **Alert Targets Browser Page Improvements**: The **Alert Targets** browser page is now improved and allows you to:
+
+<!--* **Alert Targets Browser Page Improvements**: The **Alert Targets** browser page is now improved and allows you to:
 
   * Hide and show details for all alert targets or for a specific alert target.
   * Sort alert targets either by the last updated date or by target name.
-  * Hide and show the filters listed on the left.
+  * Hide and show the filters listed on the left.-->
 
   For more details, see [View Alert Targets](webhooks_alert_notification.html#view-custom-alert-targets).
 

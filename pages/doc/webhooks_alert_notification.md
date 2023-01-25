@@ -55,7 +55,7 @@ For example, you could use a custom alert target to:
 
 * Select **Alerting > Alert Targets** from the toolbar.
 
-![An annotated screenshot of the Alert Targets browser page with what an you do on this page. The information is in a bullet list below.](images/alert-targets-annotated.png)
+<!--![An annotated screenshot of the Alert Targets browser page with what an you do on this page. The information is in a bullet list below.](images/alert-targets-annotated.png)
 
 On the **Alert Targets** browser page, you can:
 
@@ -69,6 +69,7 @@ On the **Alert Targets** browser page, you can:
 * Edit, test, or delete a single alert target by clicking the ellipsis icon and selecting the respective option from the menu.
 * Select the check boxes of multiple alert targets and delete them by clicking the **Delete** button.
 
+-->
 <a id="creating-an-alert-target"></a>
 <a id="creating-a-webhook"></a>
 
@@ -278,7 +279,6 @@ You can delete one or more custom alert targets.
 
 * Click the ellipsis icon to the left of the alert target and select **Delete**.
 
-<!-- MUST check what has happened with the Target IDs!!!
 
 ## Find an Alert Target ID
 
@@ -295,7 +295,7 @@ Each custom alert target has a unique ID that the system generates when you firs
 </tr>
 </tbody>
 </table>
--->
+
 ## Add Custom Alert Routes
 
 By default, an alert notification is sent to all recipients that are specified in the alert target. It's possible to customize an alert target, for example:
