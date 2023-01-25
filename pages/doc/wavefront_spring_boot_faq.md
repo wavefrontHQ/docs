@@ -9,12 +9,16 @@ summary: Get answers to your questions about Wavefront for Spring Boot
 
 ### What is the difference between the Wavefront for Spring Boot freemium cluster and a Wavefront trial?
 
-* **Wavefront for Spring Boot Freemium cluster** <br/>The freemium cluster supports limited data ingestion throughput with 5-day retention and no SLA guarantees. It allows developers to try out Wavefront without having to sign up or provide an email address.
+* **Wavefront for Spring Boot Freemium cluster** <br/>The freemium cluster supports limited data ingestion throughput with 5-day retention and no SLA guarantees. It allows developers to try out Wavefront without having to sign up or provide an email address. Freemium accounts with no activity for 3 days will be automatically deleted.
 
 * **Wavefront trial** <br/>The Wavefront trial allows you to experience the full power of the Wavefront platform by bringing in data from your cloud environments (AWS/GCP/Azure/vSphere), Kubernetes, over 200 integrations, and large-scale service fleets into a single observability platform. You can also create smart alerts that dynamically filter noise and capture true anomalies. When you sign up for a trial, we'll ask for some (minimal) information.
 
   Once you've signed up, you can retrieve an API token and configure it in your `application.properties` file:
   ```
+  # Spring Boot 3:
+  management.wavefront.api-token=44444-34this-45is-123a-sampletoken
+  
+  # Spring Boot 2:
   management.metrics.export.wavefront.api-token=44444-34this-45is-123a-sampletoken
   ```
 
@@ -31,7 +35,7 @@ While this is subject to changes at any time, we currently retain 5 days of data
 
 ### How do I ensure I send data to the same account all the time (across multiple machines and deployments)?
 * If you are just trying out Wavefront, see [Manage Service Accounts](service-accounts.html) to create a service account that has a static token for reporting. Once you have the token, add it to the `application.properties` file.
-* If you want to use Wavefront in a larger deployment, sign up for [a Wavefront trial] (https://tanzu.vmware.com/observability) and see [Manage Service Accounts](service-accounts.html) to learn how to create a service account. Next, add the token and URL to the `application.properties` file. We can help you with sizing and designing large-scale collection architectures for metrics, histograms, and traces. Reach out to us on [Slack](https://www.wavefront.com/join-public-slack) and join the #springboot public channel for more information.
+* If you want to use Wavefront in a larger deployment, sign up for [a Wavefront trial] (https://tanzu.vmware.com/observability) and see [Manage Service Accounts](service-accounts.html) to learn how to create a service account. Next, add the token and URL to the `application.properties` file. We can help you with sizing and designing large-scale collection architectures for metrics, histograms, and traces. Reach out to us support@wavefront.com.
 
 ### How do I set up an email/password login to the account?
 
