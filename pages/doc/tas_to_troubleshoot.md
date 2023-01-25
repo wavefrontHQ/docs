@@ -191,7 +191,7 @@ In the Ops Manager tile:
 * Increase the Telegraf scrape interval
 
 
-## Symptom: Unexpected App in the HealthWatch space
+## Symptom: Unexpected App in the Healthwatch Space
 
 When you upgrade from version 4.x to 4.2.0, a cleanup job can sometimes fail and leave an unused app and route.
 
