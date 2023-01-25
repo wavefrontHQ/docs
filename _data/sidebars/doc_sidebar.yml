@@ -633,7 +633,7 @@ entries:
     folderitems:
 
       - title: Send Data
-        url: /opentelemetry_tracing.html
+        url: /opentelemetry_overview.html
         output: web
 
         subfolders:
@@ -676,7 +676,7 @@ entries:
       output: web
 
     - title: OpenTelemetry
-      url: /opentelemetry_tracing.html
+      url: /opentelemetry_overview.html
       output: web
 
       subfolders:
