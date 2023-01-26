@@ -30,32 +30,15 @@ Watch [this video](https://vmwaretv.vmware.com/media/t/1_5wfjti3m) for some back
 ### To Prepare for Using a Wavefront Proxy
 
 1. On the host that will run the proxy, [install the proxy](proxies_installing.html#install-a-proxy).
-    {{site.data.alerts.note}}
-      <ul>
-      <li>If you want to use span logs, you need proxy version 5.0 or later.</li>
-      <li>If you are using a Sender SDK to send data, you need proxy version 9.0 or later.</li>
-      </ul>
-    {{site.data.alerts.end}}
 2. On the proxy host, open the proxy configuration file `wavefront.conf` for editing. The [path to the file](proxies_configuring.html#paths) depends on the host OS.
 3. In the `wavefront.conf` file, uncomment or define an HTTP listener port to send your metrics, histograms, and tracing spans.
-    {{site.data.alerts.note}}
-      <ul>
-        <li>
-          For proxy version before proxy 9.0, in the <code>wavefront.conf</code> file, find and uncomment each listener port you want to enable. The following example enables the default/recommended listener ports for metrics, histogram distributions, and trace data:
-        </li>
-        <li>
-          From proxy version 9.0 onwards, you can send metrics and spans using the <code>pushListenerPorts=2878</code>.
-        </li>
-      </ul>
-      <pre>
-pushListenerPorts=2878
-...
-histogramDistListenerPorts=2878
-...
-traceListenerPorts=2878
-      </pre>
-    {{site.data.alerts.end}}
-
+    ```
+    pushListenerPorts=2878
+    ...
+    histogramDistListenerPorts=2878
+    ...
+    traceListenerPorts=2878
+    ```
 
 4. Consider setting up [trace sampling](trace_data_sampling.html) by [configuring the proxy with a sampling strategy](trace_data_sampling.html#setting-up-explicit-sampling-through-the-proxy).
 5. Save the `wavefront.conf` file.
@@ -232,7 +215,6 @@ For maximum flexibility, you can use the Wavefront Sender SDKs. See [Wavefront S
 When you use a Sender SDK, you won’t see span-level RED metrics by default. This section explains how to send span-level RED metrics using a custom tracing port.
 
 1. [Prepare to send data via the Wavefront proxy](#to-prepare-for-using-a-wavefront-proxy).
-    {% include note.html content="You need proxy version 9.0 or later."%}
 1. Configure your application to send data via the Wavefront proxy. See the SDK’s README file for details.
 1. Specify the port or a comma-separated list of ports that you want to send the trace data using the `customTracingListenerPorts` configuration in your [`<wavefront_config_path>`](proxies_configuring.html#paths)`/wavefront.conf` file.
   ```xml
