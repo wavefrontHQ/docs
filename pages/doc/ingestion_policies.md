@@ -1,20 +1,21 @@
 ---
-title: Examine Usage with Ingestion Policies
+title: Monitor Usage with Ingestion Policies
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: ingestion_policies.html
-summary: Monitor usage with ingestion policies, usage dashboards, and alerts.
+summary: Monitor ingestion rates by policies and configure ingestion limits with alerts.
 ---
 
-In addition to the dashboard for monitoring your [overall usage](examine_usage.html), Tanzu Observability by Wavefront supports ingestion policies for monitoring usage by particular accounts, groups, sources, metric namespaces, or point tags. For example, it might be valuable to understand the ingestion rates of the different teams in your organization or by the different sources and manage their consumption, cost, overage, etc.
+In addition to the dashboard for monitoring your [overall usage](examine_usage.html), Tanzu Observability by Wavefront supports ingestion policies for monitoring usage by specific accounts, groups, sources, metric namespaces, or point tags. For example, it might be valuable to monitor the ingestion rates of the different teams in your organization or by the different sources and manage their consumption, cost, overage, etc.
 
-By creating an ingestion policy, you group a set of accounts, groups, sources, metric namespaces, or point tags. Optionally, you can set a PPS limit associated with an alert. After you create an ingestion policy, you can start monitoring the policy PPS usage per [billing period](glossary.html#b) from the ingestion policy dashboard, which shows:
-- The P95 PPS usage out of the limit, if configured
-- The month-over-month percentage change in the PPS usage
-- The hourly PPS usage
-- The accounts that ingest most data
-- The usage by ingestion mechanism (proxy and direct ingestions)
-- The usage by ingestion type (time series, histograms, and delta counters)
+By creating an ingestion policy, you combine a set of accounts, groups, sources, metric namespaces, or point tags. Optionally, you can set a Points per Second (PPS) limit for the ingestion policy and associate it with an alert. After you create an ingestion policy, you can start monitoring the ingestion policy dashboard, which shows:
+- The P95 PPS usage per [billing period](glossary.html#b) since the creation of the policy.
+- The PPS limit with the associated alert, if configured.
+- The percentage change in the PPS usage per billing period.
+- The hourly PPS usage.
+- The accounts that ingest most data.
+- The ingestion by ingestion type (proxy and direct ingestions).
+- The ingestion by data type (time series, histograms, and delta counters).
 
 {% include important.html content="Ingestion policies **do not** support metrics from external services. You **CANNOT** use ingestion policies to monitor PPS usage for services such as the Amazon Web Services, Google Cloud Platform, Microsoft Azure, Snowflake, VMware vRealize Operations Cloud, New Relic, Datadog, and AppDynamics integrations."%}
 
@@ -22,14 +23,14 @@ For performance monitoring of your Wavefront instance, you can use [wftop, Wavef
 
 ## Ingestion Policy Basics
 
-Ingestion policies allow you to combine user and service accounts, groups, sources, metric namespaces, or point tags, so that you can monitor their usage of the Wavefront service. For example, you can create a policy for a group of new hires. You can also create a policy for one or more source virtual machines. Also, you can set a Points per Second (PPS) limit for the policy and create an alert, so that you can receive notifications if the PPS usage exceeds certain thresholds of the limit.
+Ingestion policies allow you to combine user and service accounts, groups, sources, metric namespaces, or point tags, so that you can monitor their usage of the Wavefront service. For example, you can create a policy for a group of new hires. You can also create a policy for one or more source virtual machines. Also, you can set a PPS limit for the policy and create an alert, so that you can receive notifications when the ingested number of PPS exceeds certain thresholds of the limit.
 
 Tracking the PPS usage by ingestion policy can help you understand how the overall usage is distributed and whether a particular team will need more PPS in the future or will need to reduce their overhead ingestions.
 
 The policy scope can be accounts, groups, sources, namespaces, or point tags.
 * Once you set the scope, you cannot change it.
-* You can change only the accounts or objects assigned to the policy in accordance with the scope.
-* Each account or object can belong to more than one policy.
+* You can change the accounts or objects assigned to the policy only from the selected scope.
+* A given account or object can belong to more than one policy.
 
 {% include note.html content="All users can view the ingestion policies and the ingestion policy dashboards. Only users with the [**Ingestion Policies** permission](permissions_overview.html) can create, edit, revert, and delete ingestion policies."%}
 
@@ -117,7 +118,7 @@ After you create an ingestion policy, if you need, for example, to increase the 
 
 ## View Ingestion Policy History and Revert to a Previous Version
 
-Every time you edit an ingestion policy, you create a new version of that policy. You can see the details of each version since the creation of the policy. You can also revert the policy to an earlier version, directly or after editing the version of interest.
+Every time you edit an ingestion policy, you create a new version of that policy. You can see the details of each version of the policy. You can also revert the policy to an exact copy or to an edited copy of an earlier version. When you revert a policy to an earlier version, you create a new version of that policy.
 
 <table style="width: 100%;">
 <tbody>
@@ -139,13 +140,13 @@ The **Earlier Versions** page shows the details of each version of the policy.
 
 ![An annotated screenshot of the history page with the list of versions](images/IP_history.png)
 
-* You can click the current version number and open the policy dashboard.
+* You can click the current version number and open the current policy dashboard.
 
 For each earlier version of the policy, you can:
 
 * See the user who updated the policy and created the version, when was the policy updated, and what was updated in the policy.
-* Revert the policy to that version, which creates a new version that is an exact copy of that version.
-* Edit that version and revert the policy to it, which creates a new version that is an edited copy of that version.
+* Revert the policy to an exact copy of a version, that is, create a new version that is an exact copy of that version.
+* Edit a copy of a version and and revert the policy to it, that is, create a new version that is an edited copy of that version.
 
 
 ## Delete an Ingestion Policy

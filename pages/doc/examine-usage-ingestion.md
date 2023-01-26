@@ -10,7 +10,7 @@ It's important to understand how you use your Tanzu Observability by Wavefront s
 
 You can examine the overall usage of your Wavefront service by using the **Usage Summary** dashboard, discussed here.
 
-For usage monitoring by accounts, sources, metric namespaces, and point tags, you can use [ingestion policies](ingestion_policies.html).
+For monitoring the ingestion rates by accounts, sources, metric namespaces, and point tags, you can use [ingestion policies](ingestion_policies.html).
 
 For performance monitoring of your Wavefront instance, you can use [wftop, Wavefront spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Wavefront Usage integration](wavefront_monitoring.html).
 
@@ -30,7 +30,7 @@ You can navigate to the Usage Summary dashboard and get an overview of your inge
    
 ## Understand the Data
 
-The **Usage Summary** dashboard consists of charts for the selected [billing period](glossary.html#b). The charts slightly differ for the type of your contract - billable commitment or burndown commitment. Here's an example of how the dashboard may look like.
+The **Usage Summary** dashboard shows charts for the selected [billing period](glossary.html#b). The charts slightly differ for the type of your contract commitment - **billable** or **burndown**. Here's an example of how the dashboard may look like for a customer with a billable commit contract.
 
 ![Example of the Usage Summary dashboard](images/usage_overview.png)
 
