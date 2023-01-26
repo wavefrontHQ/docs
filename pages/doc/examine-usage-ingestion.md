@@ -30,7 +30,11 @@ You can navigate to the Usage Summary dashboard and get an overview of your inge
    
 ## Understand the Data
 
-The **Usage Summary** dashboard shows charts for the selected [billing period](glossary.html#b). The charts slightly differ for the type of your contract commitment - **billable** or **burndown**. Here's an example of how the dashboard may look like for a customer with a billable commit contract.
+The **Usage Summary** dashboard shows charts for the selected [billing period](glossary.html#b).
+
+{% include note.html content="The charts slightly differ for the two types of contract commitments - **billable** and **burndown**. "%}
+
+Here's an example of how the dashboard may look like if you have a billable commit contract.
 
 ![Example of the Usage Summary dashboard](images/usage_overview.png)
 
