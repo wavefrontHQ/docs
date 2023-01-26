@@ -213,7 +213,6 @@ Use this type for indexed tags that your application uses, typically `cluster`, 
 <tr>
 <td markdown="span">**SpanLog**</td>
 <td>Traces that have span logs.
-{% include note.html content="Span logs are disabled by default and require Wavefront proxy version 5.0 or later. Contact [support@wavefront.com](mailto:support@wavefront.com) to enable the feature."%}
 </td>
 </tr>
 <tr>
