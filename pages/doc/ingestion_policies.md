@@ -118,7 +118,7 @@ After you create an ingestion policy, if you need, for example, to increase the 
 
 ## View Ingestion Policy History and Revert to a Previous Version
 
-Every time you edit an ingestion policy, you create a new version of that policy. You can see the details of each version of the policy. You can also revert the policy to an exact copy or to an edited copy of an earlier version. When you revert a policy to an earlier version, you create a new version of that policy.
+Every time someone edits an ingestion policy, they create a new version of that policy. You can see the details of each version of the policy. You can also revert the policy to an exact copy or to an edited copy of an earlier version. When you revert a policy to an earlier version, you create a new version of that policy.
 
 <table style="width: 100%;">
 <tbody>
