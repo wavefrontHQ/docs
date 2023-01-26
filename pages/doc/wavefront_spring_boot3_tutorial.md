@@ -16,7 +16,7 @@ In this tutorial, you use Wavefront for Spring Boot that uses Spring Boot 3 with
 * Java 17 or above.
 * Maven 3.5+ or Gradle 7.5+ or later.
   <br/>See [System Requirements](https://docs.spring.io/spring-boot/docs/3.0.x/reference/html/getting-started.html#getting-started.system-requirements) in the Spring Boot documentation.
-* Clone the sample pet clinic application.
+* Clone the sample petclinic application.
   ```
   git clone https://github.com/spring-projects/spring-petclinic.git
   ```
@@ -51,7 +51,7 @@ In this tutorial, you use Wavefront for Spring Boot that uses Spring Boot 3 with
     </dependencyManagement>
     ```
 
-1. Open the sample pet clinic application using an IDE and add the following code to the `pom.xml` file:
+1. Open the sample petclinic application using an IDE and add the `wavefront-spring-boot-starter` and `micrometer-registry-wavefront` to the `pom.xml` file:
     ```xml
     <dependency>
       <groupId>com.wavefront</groupId>
@@ -77,7 +77,7 @@ In this tutorial, you use Wavefront for Spring Boot that uses Spring Boot 3 with
     </dependency>
     ```
 
-1. Add the `Datasource Micrometer` dependency to intercept and log JDBC SQL queries. You can intercept most Connection, Statement and ResultSet methods invocations using the Datasource Micrometer dependency.
+1. Add the `Datasource Micrometer` dependency to intercept and log JDBC SQL queries. You can intercept most Connection, Statement, and ResultSet methods invocations using the Datasource Micrometer dependency.
    {{site.data.alerts.tip}}
       <p>Check the <a href="https://github.com/jdbc-observations/datasource-micrometer/releases">Datasource Micrometer releases</a> and enter the latest version in place of <code>{ADD_VERSION}</code>.</p>
     {{site.data.alerts.end}}
@@ -90,7 +90,10 @@ In this tutorial, you use Wavefront for Spring Boot that uses Spring Boot 3 with
     </dependency>
     ```
 
-1. Add the following configurations to the `application.properties` file so that your application is named `spring-demo`, and the service is named `spring-petclinic`. Also set the probability of traces being sampled to 100% for demo purposes.
+1. Add the following configurations to the `application.properties` file so that your:
+    * Application is named `spring-demo`
+    * Service is named `spring-petclinic`
+    * The probability of traces being sampled is set to 100% for demo purposes. To learn more on trace data sampling, see [Trace Sampling](trace_data_sampling.html).
     ```
     management.wavefront.application.name=spring-demo
     management.wavefront.application.service-name=spring-petclinic

@@ -1,5 +1,5 @@
 ---
-title: Wavefront for Spring Boot
+title: Wavefront for Spring Boot 2
 keywords:
 tags:
 sidebar: doc_sidebar
@@ -7,7 +7,7 @@ permalink: wavefront_springboot.html
 summary: Examine Spring Boot data in Wavefront dashboards and charts
 ---
 
-Wavefront for Spring Boot allows you to quickly configure your environment, so Spring Boot components send metrics, histograms, and traces/spans to the Wavefront service.
+Wavefront for Spring Boot 2 allows you to quickly configure your environment, so Spring Boot components send metrics, histograms, and traces/spans to the Wavefront service.
 
 ## Features
 
