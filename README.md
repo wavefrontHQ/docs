@@ -20,6 +20,6 @@ Wavefront public repositories into the official documentation)
 
 1. Run Jekyll with the following command:
    ```shell
-   $ bundle exec jekyll server
+   $ bundle exec jekyll server --incremental
    ```
 1. Go to url [http://localhost:4000/](http://localhost:4000/). The host and port are set in [_config.yml](_config.yml).
