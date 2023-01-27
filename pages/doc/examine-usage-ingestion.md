@@ -54,13 +54,13 @@ The **Overview** section of the dashboard contains the following charts:
 <td>Shows your 95th percentile PPS usage for the selected billing period, including overages if any.</td></tr>
 <tr>
 <td><strong>Current Overage for Selected Period</strong>
-<p>(Only for billable customers)</p></td>
+<p><strong><i>(Only for billable customers)</i></strong></p></td>
 <td>Shows the number of PPS above your committed rate. If the overage reaches 1k PPS, the chart color changes from green to orange.
 <p><strong>Important</strong>: If you exceed your committed rate for more than 5% of the hours of a given billing period, you will be billed for the number of PPS above your committed rate.</p></td>
 </tr>
 <tr>
 <td><strong>Remaining Balance vs Burndown Commitment</strong>
-<p>(Only for burndown customers)</p></td>
+<p><strong><i>(Only for burndown customers)</i></strong></p></td>
 <td>Shows your remaining number of PPS out of your burndown commitment. </td>
 </tr>
 <tr>
@@ -70,22 +70,22 @@ The **Overview** section of the dashboard contains the following charts:
 <tr>
 <td><strong>Hourly Usage</strong></td>
 <td>Shows the hourly PPS usage over the selected billing period. The dashed line represents the PPS usage over the previous billing period.
-<p>If you have a billable commit contract, the red line represents your committed rate.</p></td>
+<p>If you have a <strong><i>billable</i></strong> commit contract, the red line represents your committed rate.</p></td>
 </tr>
 <tr>
-<td><strong>Time Above Committed Rate</strong>
-<p>(Only for billable customers)</p></td>
+<td><strong>Time Above Contract Rate</strong>
+<p><strong><i>(Only for billable customers)</i></strong></p></td>
 <td>Shows the percentage of time in which you have exceeded your committed rate. If you exceed your committed rate for more than 5% of the hours of a given billing period, you will be billed your overage rate.</td>
 </tr>
 <tr>
 <td><strong>Average Usage for the Last Quarter</strong></td>
 <td>Shows the average usage for the previous three billing periods.
-<p>If you have a billable commit contract, the usage is presented out of your total commitment level.</p></td>
+<p>If you have a <strong><i>billable</i></strong> commit contract, the usage is presented out of your total commitment level.</p></td>
 </tr>
 <tr>
 <td><strong>Last 12 Months Usage</strong></td>
 <td>Shows your billed usage over time.
-<p>If you have a billable commit contract, the red line represents your committed rate.</p></td>
+<p>If you have a <strong><i>billable</i></strong> commit contract, the red line represents your committed rate.</p></td>
 </tr>
 <tr>
 <td><strong>Top Metrics by Namespace</strong></td>
