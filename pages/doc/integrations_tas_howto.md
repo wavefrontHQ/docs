@@ -359,6 +359,34 @@ Log in to your Wavefront instance (for example, `https://example.wavefront.com`)
 Notes:
 1. For information about how apps can send metrics to the Wavefront proxy, see the [cloud-foundry-sampleapp](https://github.com/wavefrontHQ/cloud-foundry-sampleapp).
 
+### Optional 2: Connect multiple proxy instances to an IAAS load balancer
+
+#### Set up the load balancer in your IAAS
+An in depth guide on configuring load balancers in different IAASes is beyond the scope of this document.
+You can see a detailed example across two sections of the TAS for VMs documentation:
+1. Initial setup of load balancers is required in
+   [AWS](https://docs.pivotal.io/ops-manager/3-0/aws/prepare-env-manual.html) and
+   [GCP](https://docs.pivotal.io/ops-manager/3-0/gcp/prepare-env-manual.html#loadbalancer),
+   but not for Azure.
+2. After initial setup,
+   [this](https://docs.pivotal.io/application-service/3-0/operating/configure-lb.html)
+   document can be referenced for finalizing the load balancers in all IAAS.
+
+You will want to adjust the naming in these docs to suit a wavefront proxy.
+The portions of these docs that detail interactions with Ops Manager can be ignored,
+since we will talk about that in the next section.
+For GCP, record the backend service name of your load balancer,
+for AWS, you will want the actual Elastic Load Balancer name,
+and for Azure, you will want the Azure Load Balancer name.
+
+#### Configure the tile to use the load balancer
+Enter the `Resource Configuration` tab for that tas2to tile in your Opsman config.
+Click on `Wavefront Proxy Configuration` in the left column.
+Enter `http:${load_balancer_name}`,
+using the load balancer or backend service name from the initial setup.
+Finally, run an `Apply Changes` on the tile.
+
+
 ## Learn More!
 
 * All users can learn about [examining your data](ui_examine_data.html).
