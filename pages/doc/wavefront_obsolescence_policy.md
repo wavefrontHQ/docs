@@ -12,7 +12,7 @@ Tanzu Observability by Wavefront product features and APIs move to end-of-life a
 
 To help you plan for end-of-life dates, this page uses the following terms:
 
-* **Deprecated**. Feature, component, platform, or functionality that may no longer be efficient or safe.  Deprecated features are supported but no longer recommended. We eventually removes deprecated features. We usually do not fix a bug in a deprecated feature and request that you start using the replacement feature. Deprecated features are identified in the release notes for the release in which the feature is deprecated. For Wavefront proxy, the table below lists deprecated versions.
+* **Deprecated**. Feature, component, platform, or functionality that may no longer be efficient or safe.  Deprecated features are supported but no longer recommended. We eventually remove deprecated features. We usually do not fix a bug in a deprecated feature and request that you start using the replacement feature. Deprecated features are identified in the release notes for the release in which the feature is deprecated. For Wavefront proxy, the table below lists deprecated versions.
 *  **End-of-life**. No longer supported. Feature, component, platform, or functionality is no longer supported and may be removed from the product at any time.
 
 
@@ -20,7 +20,7 @@ To help you plan for end-of-life dates, this page uses the following terms:
 
 Upgrade to the **latest GA release** of the [Wavefront proxy](https://github.com/wavefrontHQ/wavefront-proxy) to get the latest bug fixes and performance enhancements.
 
-The following proxy versions are scheduled to be deprecated or moved to end-of-life.
+The following proxy versions are deprecated or moved to end-of-life.
 
 <table class="width: 100%;">
 <thead>
@@ -28,19 +28,24 @@ The following proxy versions are scheduled to be deprecated or moved to end-of-l
 </thead>
 <tbody>
 <tr>
-<td>10.12 and earlier</td>
-<td>Deprecated. Wavefront proxy version 10.12 and earlier is impacted by a Log4j vulnerability. Upgrade to at least version 10.14, or to the latest GA release. </td>
-<td>Feb 28, 2022</td>
+<td>11.x</td>
+<td>Deprecated since Oct 19, 2022</td>
+<td>TBD</td>
+</tr>
+<tr>
+<td>10.x</td>
+<td>End-of-life</td>
+<td>Oct 19, 2022</td>
 </tr>
 <tr>
 <td>9.x</td>
-<td>Deprecated</td>
-<td>Jan 31, 2022</td>
+<td>End-of-life</td>
+<td>Mar 18, 2022</td>
 </tr>
 <tr>
-<td>4.x and lower</td>
+<td>8.x and earlier</td>
 <td>End-of-Life</td>
-<td>Jun 30, 2017</td>
+<td>Jul 1, 2021 and earlier</td>
 </tr>
 </tbody>
 </table>

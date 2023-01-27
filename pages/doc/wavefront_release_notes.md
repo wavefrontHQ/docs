@@ -13,6 +13,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## 2023-03.x Release Notes
 ## 2023-xx.x Release Notes
 
 **Visibility on the Users with the Accounts Permission**: If you don't have the **Accounts** permission, for updates to your groups, roles, or permissions, you can now see a contact list of the users with the **Accounts** permission at the bottom of the [**Groups, Roles & Permissions**](users_account_managing.html#examine-groups-roles-and-permissions) page.
@@ -20,145 +21,25 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 ## 2022-49.x Release Notes
 
-* **Charts Improvement**: You can now [create an event from within a new chart](events.html#creating-a-user-event) and then save the chart to a dashboard.
-* **Logs (Beta) Improvements**:
-  - We've just released [Wavefront proxy 12.1](https://github.com/wavefrontHQ/wavefront-proxy/releases), which supports ingesting logs as line-delimited JSON objects (JSON lines), and you can now [configure](logging_send_logs.html#configure-the-log-shipper) Fluent Bit as a log shipper.
-  - You can now customize the logs details table to [change the number of lines per row](logging_log_browser.html#change-the-number-of-lines-per-row).
+* **Alert Notifications Update**: If your **PagerDuty** [alert target](webhooks_alert_notification.html) is integrated with Slack, the alert notifications in Slack are now more extensive. They show the complete alert notification summary, which can be up to 1,000 characters.
 
-## 2022-48.x Release Notes
+## 2023-02.x Release Notes
 
-* **New Kubernetes Integration Setup UI Experience**: With this release, we introduce new setup UI for the Kubernetes integration. See the [Integration Release Notes](integrations_new_changed.html#december-2022) for details.
+* **Charts Improvements**: **Stacked Area** and **Stacked Column** charts are now supported with the latest Mozilla Firefox versions.
 
-  
-* **Usage Portal Improvements**: We made the following improvements to the [ingestion policies](ingestion_policies.html) and [overall usage](examine_usage.html) monitoring:
+<!--## 2023-04.x Release Notes
 
-    {% include important.html content="Currently, the Usage Portal improvements are not available for all customers." %}
+* **Alert Targets Browser Page Improvements**: The **Alert Targets** browser page is now improved and allows you to:
 
-    <table>
-      <tbody>
-        <tr>
-          <td width="40%">
-            <strong>New Ingestion Policy Scopes</strong>:<p>
-            We added sources, namespaces, and point tags as scope options for ingestion policies. As a Super Admin user, when you create an ingestion policy, you can now select the scope from one of these options:
-            <ul>
-            <li>Accounts</li>
-            <li>Groups</li>
-            <li>Sources</li>
-            <li>Namespaces</li>
-            <li>Point tags</li>
-            </ul></p>
-          </td>
-          <td width="60%">
-            <img src="/images/IP_sources_namespaces_tags.png" alt="In addition to Accounts and Groups, the Scope options include Sources, Namespace, and Point tags.">
-          </td>
-        </tr>
-        <tr>
-          <td width="40%">
-            <strong>New Ingestion Policy Version History</strong>:<p>
-            As a Super Admin user, when you edit an ingestion policy, you now create a version of that policy. As a Super Admin user, to see the changes that have been made to an ingestion policy over time:
-            <ol>
-            <li>From the gear icon on the toolbar, select <strong>Usage and Subscriptions</strong> and click the <strong>Ingestion Policies</strong> tab.</li>
-            <li>Click the ellipsis icon next to the policy and select <strong>Versions</strong>.</li>
-            </ol></p>
-          </td>
-          <td width="60%">
-            <img src="/images/IP_versions.png" alt="The ingestion policy versions. ">
-          </td>
-        </tr>
-        <tr>
-          <td width="40%">
-            <strong>New View Permissions Model</strong>:<p>
-            All users now have read-only access to the <strong>Usage Summary</strong> dashboard and the ingestion policies. If you are not a Super Admin user:
-            <ol>
-            <li>From the gear icon on the toolbar, select <strong>Usage Portal</strong>.</li>
-            <li>On the <strong>Usage Summary</strong> tab, you can examine the dashboard for the overall PPS usage over time.</li>
-            <li>On the <strong>Ingestion Policies</strong> tab, click the name of a policy and examine the policy PPS usage since the policy was created.</li>
-            </ol>
-            Only Super Admin users can create, edit, and delete ingestion policies and the associated alerts.</p>
-          </td>
-          <td width="60%">
-            <img src="/images/IP_view_permission.png" alt="The ingestion policy versions. ">
-          </td>
-        </tr>
-        <tr>
-          <td width="40%">
-            <strong>Sorting Ingestion Policies by Current Usage</strong>:<p>
-            You can now sort the ingestion policies by PPS usage within the last 1 hour.</p>
-          </td>
-          <td width="60%">
-            <img src="/images/IP_usage_sort.png" alt="The ingestion policy versions. ">
-          </td>
-        </tr>
-        <tr>
-          <td width="40%">
-            <strong>Downloading Usage Portal Dashboards</strong>:<p>
-            All users can now export the <strong>Usage Summary</strong> dashboard and the ingestion policy dashboards in PDF format.</p>
-          </td>
-          <td width="60%">
-            <img src="/images/IP_dashboard_export.png" alt="The ingestion policy versions. ">
-          </td>
-        </tr>
-        </tbody>
-    </table>
-    
-    {% include important.html content="Ingestion policies **do not** support metrics from external services. You **CANNOT** use ingestion policies to monitor PPS usage for services such as the Amazon Web Services, Google Cloud Platform, Microsoft Azure, Snowflake, VMware vRealize Operations Cloud, New Relic, Datadog, and AppDynamics integrations."%}
+  * Hide and show details for all alert targets or for a specific alert target.
+  * Sort alert targets either by the last updated date or by target name.
+  * Hide and show the filters listed on the left.
 
-* **Logs (Beta)**:
-
-  {% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. If you'd like to participate, contact your Tanzu Observability account representative or [technical support](wavefront_support_feedback.html#support)."%}
-
-  - Improved the search time window when you [drill down](logging_overview.html#traces-browser) from the Traces browser into the related logs. By default, the search time window now starts 5 seconds before the trace and ends 5 seconds after the trace, but it's customizable.
-  - Added an autocomplete functionality to the search bar, so that you can quickly enter log filters by using the keyboard.
-        
-* **Obsolescence Period for Metrics and Sources**: The period of inactivity, after which metrics and sources become *obsolete*, is now customizable. By default, the obsolescence period for metrics and sources is 4 weeks. See [Obsolete Metrics](metrics_managing.html#obsolete-metrics) and [Obsolete Sources](sources_managing.html#step-1-find-a-source) for details.
-
-* **Delta Counters**: We no longer ingest the legacy delta counters as cumulative counter metrics. The original delta counters implementation has reached End of Life on March 31, 2021. See [here](wavefront_obsolescence_policy.html#delta-counters) for details.
-
-* **Integrations**: We had an integrations release in November! We added the Tanzu Service Mesh integration and made a lot of improvements to a number of integrations. 
-
-## 2022-44.x Release Notes
-
-* The **Query Suggestions** for charts and alerts are now actionable. To apply a suggestion and improve the query performance, click a suggestion and your query updates accordingly. See [Use Performance Improvement Suggestions](query_language_performance.html#use-performance-improvement-suggestions) for details.
-
-    ![screenshot of a query and the Suggestions panel with clickable values](images/Query_suggestions_RNs.png)
-* We made major improvements to our help docs to fix some issues and include more help pages.
-
-## 2022-42.x Release Notes
-
-With this release, we launch the Initial Availability of our **Logs (Beta)** feature.
-
-{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. If you'd like to participate, contact your Tanzu Observability account representative or [technical support](wavefront_support_feedback.html#support)."%}
-
-![The UI of the Logs Browser](images/logs_RNs.png)
-
-If the logs feature is enabled on your account:
-* You can start [sending logs](logging_send_logs.html) and correlate them with traces and metrics for unified observability and root cause analysis.
-* If you have the [**Logs** permission](permissions_overview.html), you can start using the [Logs Browser](logging_log_browser.html) to examine the ingested logs and find the root cause of critical issues. Click **Logs (Beta)** on the toolbar or drill into logs from charts, alerts, and traces. See [Get Started with Logs (Beta)](logging_overview.html) for details.
-* You can use the **Linux Host** and **Wavefront Usage** integrations that we improved for logs. See the [Integrations Release Notes](integrations_new_changed.html#october-2022) for details.
-
-## 2022-41.x Release Notes
-
-* **Accessibility Improvements**: With this release we have made a lot of accessibility-related fixes. For example:
-  
-	* Added meaningful texts for screen readers to all of our pages and UI elements, such as buttons, form fields, data tables and their structure elements, and so on.
-	* Fixed color coding and contrast.
-	* Forms and form fields now contain instructions and all required fields are marked as such. In addition, we’ve made fixes to the error messages and their color coding and associated them with the appropriate form fields.
-	* We’ve added alternative texts for all images used in the UI.
-	* When you navigate to a page in the UI, we’ve added the appropriate name on the browser page as well. For example, when you create a new chart, on the browser you’ll see New Chart &#124; Tanzu Observability.
-
-* **Dashboard Performance Improvements**: Previously, by default, the **Show Events** option was enabled to show the events from charts. This could increase the total query time of a dashboard. With this release, when you create a dashboard, by default the **Show Events** option is set to **None**. You can change this setting based on your needs. See [Control Event Overlays](charts_events_displaying.html#control-event-overlays) for details and screenshots.
-
-* **Wavefront Top**: We have released the 1.2 version of the [wftop utility](https://github.com/wavefrontHQ/wftop) that has fixes for multiple CVE issues.
-
-* **Wavefront Proxy**: We’ve just released Wavefront Proxy 12. For details on the changes, see the [Wavefront proxy GitHub page](https://github.com/wavefrontHQ/wavefront-proxy/releases).
-
-* **Integrations**: We had an integrations release in October! We made a lot of bug fixes and improvements to a number of integrations, including the Wavefront Usage integration. See the [Integration Release Notes](integrations_new_changed.html#october-2022) for details.
-
-
-
+  For more details, see [View Alert Targets](webhooks_alert_notification.html#view-custom-alert-targets).-->
 
 ## Past Release Notes
 
+- [2022-49.x Release Notes](2022-49.x_release_notes.html)
 - [2022-39.x Release Notes](2022-39.x_release_notes.html)
 - [2022-29.x Release Notes](2022-29.x_release_notes.html)
 - [2022-20.x Release Notes](2022-20.x_release_notes.html)

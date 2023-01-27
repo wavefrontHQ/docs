@@ -75,33 +75,38 @@ If you are using Fluentd, you can specify the `application` and `service` in the
 
 ## How Do I Track Data Blocked by the Wavefront Proxy?
 
-The Wavefront proxy drops the logs that exceed the [maximum character limit](logging_send_logs.html#limits-for-logs) for a message, tag, and value. To track the incoming log data and the number of logs that are blocked by the proxy:
-1. Find the integration-systems-with-logs.json file that was shared with you when signing up as a logs Beta customer.
-1. Log in to your Wavefront instance and select **Dashboards** > **Create Dashboards**.
-1. Click **JSON** in the top-left corner.
-    ![a screenshot of the UI with the JSON link highlighted.](images/logging_dashboard_json.png)
-1. Select **Code** from the drop-down menu and open the editor.
-    <br/>![Screenshot of the drop down menu mentioned in the step.](images/dashboard_code_view.png)
-1. Copy the content in the JSON file, paste it into the editor, and click **Accept**.
-1. In the top right of the dashboard that appears, click **Save**.
-    ![a screenshot of the UI with Save highlighted.](images/logging_dashboard_save.png)
+The Wavefront proxy drops the logs that exceed the [maximum character limit](logging_send_logs.html#limits-for-logs) for a message, tag, and value. Use the methods listed below to track the incoming log data and the number of logs blocked by the proxy:
+
+### See the Data on the Predefined Logs Stats Charts
+
+1. Log in to your Wavefront instance and select **Dashboards** > **All Dashboards**.
+1. Search for **Wavefront Service and Proxy Data** in the search bar, and click on the dashboard.
+    ![A screenshot of the results you get when you search for  the Wavefront Service and Proxy Data dashboard. ](images/logs_wavefront_service_and_proxy_data.png)
 1. Examine the charts in the **Logs Stats** section of the [Wavefront Service and Proxy Data dashboard](wavefront_monitoring.html#wavefront-service-and-proxy-data-dashboard) to get details about the logs you are sending.
 
     ![A screenshot of the proxy dashboard with the preconfigured charts.](images/logging_proxy_logs_dashboard.png)
 
-    {% include note.html content="[Examine Data with Dashboards and charts](ui_examine_data.html) explains how explore dashboards and includes videos and links." %}
+    {% include note.html content="To learn more, see [Examine Data with Dashboards and charts](ui_examine_data.html)." %}
 
     - In the **Blocked Logs per Second** chart, you can see how many logs were blocked.
     - In the **Proxy Backlog Size (Bytes)** chart, non-zero values indicate that the proxy is having issues delivering data.
-1. In the [Metrics Browser](metrics_managing.html), search for metrics in the `~proxy.log.*` namespace. Can be `logSourceMissing`, `logSourceTooLong`, `logMessageTooLong`, `tooManyLogTags`, `logAnnotationKeyTooLong`, `logAnnotationKeyBadChars`, `logAnnotationValueEmpty`, and `logAnnotationValueTooLong`
-  
-    {% include note.html content="If you see `~proxy.log.*TooLong` or `~proxy.log.tooManyLogTags` metrics, check the [limits for logs](logging_send_logs.html#limits-for-logs). If you want to increase the logs limits for your Wavefront instance, contact [technical support](wavefront_support_feedback.html#support)." %}
-1. In the [Logs Browser](logging_log_browser.html), search for logs containing the following message:
 
-    ```
-    INFO  [AbstractReportableEntityHandler:reject] [2878] blocked input:
-    ```
-    You can see why the log was rejected and the actual log message.
+### Search for Metrics on the Metrics Browser
+
+1. Log in to your Wavefront instance and select **Browse** > **Metrics**.
+1. In the [Metrics Browser](metrics_managing.html), search for metrics with the `~proxy.log.` namespace. The results you see can be `logSourceMissing`, `logSourceTooLong`, `logMessageTooLong`, `tooManyLogTags`, `logAnnotationKeyTooLong`, `logAnnotationKeyBadChars`, `logAnnotationValueEmpty`, and `logAnnotationValueTooLong`
+  
+    {% include note.html content="If you see `~proxy.log.*TooLong` or `~proxy.log.tooManyLogTags` metrics, check the [limits for logs](logging_send_logs.html#limits-for-logs). If you want to increase the logs limit for your Wavefront instance, contact [technical support](wavefront_support_feedback.html#support)." %}
+
+### Search for Logs on the Log Browser
+
+In the [Logs Browser](logging_log_browser.html), search for logs containing the following message:
+
+```
+INFO  [AbstractReportableEntityHandler:reject] [2878] blocked input:
+```
+
+You can see why the log was rejected and the log message.
 
 ## Why Do I See a `pattern not match` Error in the Fluentd Logs?
 
