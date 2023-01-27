@@ -138,15 +138,14 @@ To access the version history of an ingestion policy:
 
 The **Earlier Versions** page shows the details of each version of the policy.
 
-![An annotated screenshot of the history page with the list of versions](images/IP_history.png)
+![An annotated screenshot of the history page with the list of versions. the annotations are explained below.](images/IP_history.png)
 
-* You can click the current version number and open the current policy dashboard.
+On this page, you can:
 
-For each earlier version of the policy, you can:
-
-* See the user who updated the policy and created the version, when was the policy updated, and what was updated in the policy.
-* Revert the policy to an exact copy of a version, that is, create a new version that is an exact copy of that version.
-* Edit a copy of a version and and revert the policy to it, that is, create a new version that is an edited copy of that version.
+* Open the current policy dashboard by clicking the current version number.
+* See the user who updated the policy and created a specific version, when was the policy updated, and what was updated in the policy.
+* Revert the policy to an exact copy of an earlier version, that is, create a new version that is an exact copy of the selected version.
+* Edit a copy of an earlier version and revert the policy to it, that is, create a new version that is an edited copy of the selected version.
 
 
 ## Delete an Ingestion Policy
