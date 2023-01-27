@@ -13,13 +13,25 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## 2023-05.x Release Notes
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+<strong>Visibility on the Users with the Accounts Permission:</strong><p>
+If you don't have the <strong>Accounts</strong> permission, for updates to your groups, roles, or permissions, you can now see a contact list of the users with the <strong>Accounts</strong> permission at the bottom of the <a href="users_account_managing.html#examine-groups-roles-and-permissions"><strong>Groups, Roles & Permissions</strong></a> page.</p>
+</td>
+<td width="50%"><img src="images/Accounts_users.png" alt="a screenshot with the link at the bottom of the Groups, Roles & Permissions page"></td>
+</tr>
+</tbody>
+</table>
+
+## 2023-04.x Release Notes
+
+TBD
+
 ## 2023-03.x Release Notes
-## 2023-xx.x Release Notes
-
-**Visibility on the Users with the Accounts Permission**: If you don't have the **Accounts** permission, for updates to your groups, roles, or permissions, you can now see a contact list of the users with the **Accounts** permission at the bottom of the [**Groups, Roles & Permissions**](users_account_managing.html#examine-groups-roles-and-permissions) page.
-  ![a screenshot with the link at the bottom of the Groups, Roles & Permissions page](images/Accounts_users.png)
-
-## 2022-49.x Release Notes
 
 * **Alert Notifications Update**: If your **PagerDuty** [alert target](webhooks_alert_notification.html) is integrated with Slack, the alert notifications in Slack are now more extensive. They show the complete alert notification summary, which can be up to 1,000 characters.
 

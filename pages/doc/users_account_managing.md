@@ -73,9 +73,18 @@ You can check the permissions you have and see which groups you belong to.
 
 3. Hover over any group to see the permissions you have from this group. The permissions come from roles assigned to the group.
 
-{% include note.html content="Even if you have **Dashboards** or **Alerts** permission, it's possible that you can't modify a dashboard or an alert. This happens if **access** is restricted explicitly for that dashboard or alert. Ask the dashboard or alert creator to share the object with you." %}
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+If you don't have the <strong>Accounts</strong> permission, for updates to your groups, roles, or permissions, you can contact a user with the <strong>Accounts</strong> permission. To see the list of these users, click the link at the bottom of the page.
+</td>
+<td width="50%"><img src="images/Accounts_users.png" alt="a screenshot with the link at the bottom of the Groups, Roles & Permissions page"></td>
+</tr>
+</tbody>
+</table>
 
-If you don't have the **Accounts** permission, for updates to your groups, roles, or permissions, you must contact a user with the **Accounts** permission. To see the list of these users, click the **contact** link at the bottom of the **Groups, Roles & Permissions** page.
+{% include note.html content="Even if you have **Dashboards** or **Alerts** permission, it's possible that you can't modify a dashboard or an alert. This happens if **access** is restricted explicitly for that dashboard or alert. Ask the dashboard or alert creator to share the object with you." %}
 
 ## Generate an API Token
 
