@@ -51,7 +51,7 @@ In this tutorial, you use Wavefront for Spring Boot that uses Spring Boot 3 with
     </dependencyManagement>
     ```
 
-1. Open the sample petclinic application using an IDE and add the `wavefront-spring-boot-starter` and `micrometer-registry-wavefront` to the `pom.xml` file:
+1. Open the sample petclinic application using an IDE and add the `wavefront-spring-boot-starter` and `micrometer-registry-wavefront` to the `pom.xml` file's `<depdendecnies>`:
     ```xml
     <dependency>
       <groupId>com.wavefront</groupId>
