@@ -15,7 +15,7 @@ Follow these steps:
 
 1. Upgrade your application to use Spring Boot 3. For details, see the [Spring Boot 3.0 Migration Guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide).
 1. If the application uses Spring Cloud Sleuth, see the [Spring Cloud Sleuth 3.1 Migration Guide](https://github.com/micrometer-metrics/tracing/wiki/Spring-Cloud-Sleuth-3.1-Migration-Guide) to migrate from Spring Boot 2 to Spring Boot 3.
-1. Update the Wavefront for Spring Boot dependencies for your existing project. For more details, see [how to configure an existing Spring Boot application](wavefront_springboot.html#step-1-initialize-and-configure-your-project) and select the **Initialize an Existing Project** tab.
+1. Update the Wavefront for Spring Boot dependencies for your existing project. For more details, see [how to configure an existing Spring Boot application](wavefront_springboot3.html#step-1-initialize-and-configure-your-project) and select the **Initialize an Existing Project** tab.
 
 ## What Is The Difference Between The Wavefront for Spring Boot Freemium Cluster and a Wavefront Trial?
 

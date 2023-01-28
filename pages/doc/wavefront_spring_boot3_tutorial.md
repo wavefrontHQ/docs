@@ -121,6 +121,42 @@ In this tutorial, you use Wavefront for Spring Boot that uses Spring Boot 3 with
 
     Connect to your Wavefront dashboard using this one-time use link:
     https://wavefront.surf/us/ExaMPLe
-    ```
+   ```
 
 {% include note.html content="See [custom configurations](wavefront_springboot3.html#custom-configurations) to send data using the Wavefront proxy, invite users and let them add data to your cluster, and much more."%}
+
+## Examine Data on the Spring Boot Inventory Dashboard
+
+When you click the link in the Wavefront Spring Boot starter, you are taken to the Spring Boot Inventory dashboard. This dashboard provides real-time visibility into your Spring Boot application landscape. The dashboard has several sections that include the following charts:
+
+* Status of hosts, applications, and services.
+* Request rate
+* Inventory details
+* Hosts. Use the drop-down menus to group the hosts.
+
+If one or more applications are enabled for tracing, click the link in the Tracing section to be directed to the Tracing dashboard.
+
+![Spring Boot inventory screenshot](images/springboot3_metrics_callout.png)
+
+## Examine RED Metrics and Traces
+
+When you click the link in the Spring Boot Inventory dashboard, you are taken to the Spring Boot Traces Browser where you can:
+
+* View the trace data of the `spring-petclinic` service.
+  * Once in the Traces Browser, you see the traces from the application and the trace related to the error you created.
+  * If you configured your application to send trace data using OpenTracing, you can see span logs for the errors you triggered.
+  ![Span logs for the petclinic application](/images/springboot3_span_logs_pet_clinic.png)
+
+* View details specific to an application service, such as the Request, Error, and Duration (RED) metrics by clicking <img src="images/spring_boot_service_dashboard_from_tracing_browser.png" style="vertical-align:text-bottom;width:250px" alt="service dashboard"/> on the Traces Browser. See [Explore the Default Service Dashboard](tracing_service_dashboard.html) for details.
+  {% include note.html content="<br/>When your application sends data for the first time, they appear after about 1 minute. If you see data from the **beachshirts** sample application, refresh the page or go to **Application** > **Application status** to view the status of your application."%}
+  ![Wavefront Service dashboard](/images/springboot3_service_dashboard.png)
+
+{% include tip.html content="To go back to the default Spring Boot Dashboard, see [Wavefront Spring Boot Integration](wavefront_springboot.html#wavefront-spring-boot-integration)." %}
+
+## Next Steps
+
+* See the [Wavefront for Spring Boot FAQs](wavefront_spring_boot_faq.html).
+* You cannot save changes that you make to the preconfigured Spring Boot Inventory and Wavefront Service Dashboards. If you want custom dashboards, clone and edit it the Wavefront dashboard. For details, see [Create and Customize Dashboards](ui_dashboards.html).
+* Wavefront customers or trial users can create smart alerts that dynamically filter noise and find true anomalies. For details, see [Alerts](alerts.html).
+    {% include note.html content="Alerts are not supported on this freemium cluster."%}
+* Try out the petclinic application with the Micrometer. See [Wavefront for Spring Boot: Getting Started](https://tanzu.vmware.com/developer/guides/spring/spring-wavefront-gs/) for details.
