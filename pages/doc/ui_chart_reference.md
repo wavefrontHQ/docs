@@ -1689,6 +1689,36 @@ The collage above shows both a pie chart and a donut chart for the same data.
 Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the query engine aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
+<td>Display Value</td>
+  <td>
+    Select the value you want to display on the chart:
+    <ul>
+      <li markdown="span">
+        **Current**: Display the current value for the **Summarization** option you selected. 
+      </li>
+      <li markdown="span">
+        **Mean**: Display the mean of the raw data values.
+      </li>
+      <li markdown="span">
+        **Median**: Displays the median of the raw data values in each bucket.
+      </li>
+      <li markdown="span">
+        **Sum**: Displays the sum of the raw data values in each bucket.
+      </li>
+      <li markdown="span">
+        **Min**: Displays the minimum raw data value in each bucket.
+      </li>
+      <li markdown="span">
+        **Max**: Displays the maximum raw data value in each bucket.
+      </li>
+      <li markdown="span">
+        **Count**: Displays the number of raw data values in each bucket.
+      </li>
+    </ul>
+  
+  </td>
+</tr>
+<tr>
 <td>Show Percentage</td>
 <td>Let's you show percentage labels for your chart.</td>
 </tr>
@@ -1717,24 +1747,6 @@ Controls the legend displayed for the chart.
 When you look at the chart, you can also control the legend with these keyboard shortcuts:
 * **Shift+P** -- Pin the legend.
 * **Shift** -- Show detailed units in the legend.
-
-
-<a id="pie_drilldown_link_tab">
-<p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
-
-The **[Drilldown Link](ui_charts_faq.html#how-do-drilldown-links-work)** tab allows you to specify a target dashboard that displays when a user clicks on the chart. You can optionally customize the target dashboard. For example, you can specify a constant `us-west-2` to be used as a variable.
-
-<p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="60%">
-Chart description which shows up as hover text when users move the mouse over the chart name.</td>
-<td width="40%"><img src="/images/description_hover_text.png" alt="description of chart"/></td>
-</tr>
-</tbody>
-</table>
 
 <table>
 <tbody>
@@ -1771,6 +1783,22 @@ Chart description which shows up as hover text when users move the mouse over th
 </td>
 </tr>
 <tr>
+  <td>
+    Show Source Name
+  </td>
+  <td>
+    Add or remove the source name data from the fixed legend.
+  </td>
+</tr>
+<tr>
+  <td>
+    Show Metric Name
+  </td>
+  <td>
+    Add or remove the metrics name data from the fixed legend.
+  </td>
+</tr>
+<tr>
 <td>Point Tag Display Options </td>
 <td>Offers these options:
 <ul><li>
@@ -1783,6 +1811,25 @@ Chart description which shows up as hover text when users move the mouse over th
 </tr>
 </tbody>
 </table>
+
+
+<a id="pie_drilldown_link_tab">
+<p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
+
+The **[Drilldown Link](ui_charts_faq.html#how-do-drilldown-links-work)** tab allows you to specify a target dashboard that displays when a user clicks on the chart. You can optionally customize the target dashboard. For example, you can specify a constant `us-west-2` to be used as a variable.
+
+<p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+Chart description which shows up as hover text when users move the mouse over the chart name.</td>
+<td width="40%"><img src="/images/description_hover_text.png" alt="description of chart"/></td>
+</tr>
+</tbody>
+</table>
+
 
 <p><span style="font-size: large; font-weight: 600">Advanced Tab</span></p>
 <table>
