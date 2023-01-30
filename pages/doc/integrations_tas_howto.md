@@ -362,6 +362,11 @@ Notes:
 ### Optional 2: Connect multiple proxy instances to an IAAS load balancer
 
 #### Set up the load balancer in your IAAS
+If using multiple Wavefront VMs,
+you will want to use your IAAS of choice to set up a load balancer.
+BOSH DNS does not provide load balancing,
+so just increasing the VM count by itself will result in one VM taking all the requests.
+
 An in depth guide on configuring load balancers in different IAASes is beyond the scope of this document.
 You can see a detailed example across two sections of the TAS for VMs documentation:
 1. Initial setup of load balancers is required in
@@ -379,12 +384,23 @@ For GCP, record the backend service name of your load balancer,
 for AWS, you will want the actual Elastic Load Balancer name,
 and for Azure, you will want the Azure Load Balancer name.
 
-#### Configure the tile to use the load balancer
-Enter the `Resource Configuration` tab for that tas2to tile in your Opsman config.
-Click on `Wavefront Proxy Configuration` in the left column.
-Enter `http:${load_balancer_name}`,
+#### Configure the tile to use the load balancer for the Wavefront Proxy
+1. Enter the `Resource Configuration` tab for that tas2to tile in your Opsman config.
+2. Click on `Wavefront Proxy Configuration` in the left column.
+3. Enter `http:${load_balancer_name}`,
 using the load balancer or backend service name from the initial setup.
-Finally, run an `Apply Changes` on the tile.
+4. Run `Apply Changes` on the tile.
+   You may want to hold off until after the next steps.
+
+#### Configure the tile's telegraf instance to send traffic to the load balancer
+By default,
+the Telegraf instance inside the tile will still use BOSH dns.
+If you want Telegraf's requests to the Proxy to go through the load balancer,
+you will also need to configure this.
+1. Go to the `Telegraf Agent Config` tab for the tile.
+2. Click on `Yes` under `Advanced Options`.
+3. Enter the URL and Port for your load balancer in the `Custom Proxy URL` and `Custom Proxy Port` fields.
+4. Run `Apply Changes` on the tile.
 
 
 ## Learn More!
