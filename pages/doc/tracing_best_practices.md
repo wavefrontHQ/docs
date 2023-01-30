@@ -254,12 +254,10 @@ A large-scale web application can produce a high volume of traces. Consider limi
 
 ## Using Tracing with Spring Boot
 
-Assume that you want to write Spring Boot code and instrument for OpenTracing. You want to ensure OpenTracing creates spans that work across multiple microservices.  Here's what you need to know:
-* If you're using Spring Cloud Sleuth, **everything has to be a bean**. For example, if you're using RestTemplates, those have to be beans.
-* You can create a `RestTemplate` bean yourself, or you can inject via `RestTemplateBuilder`.
-
-If you use a messaging or HTTP client (not a bean), Sleuth won't get you the spans across services.
-
+Assume that you are using Spring Boot 2 with Sleuth or Spring Boot 3 with Micrometer Tracing, and you are using a `RestTemplate` to send and receive messages between microservices:
+* Everything has to be a bean. All `RestTemplate` usage must come from a bean for distributed tracing to work.
+* You can create a `RestTemplate` bean yourself or inject it via the `RestTemplateBuilder`.
+* If you invoke Remote Procedure Call (RPC) or messaging service without using a bean, Sleuth, and Micrometer Tracing won't work. 
 
 ### Example: Works for Spans Across Services
 
