@@ -29,8 +29,7 @@ We made improvements to the following integrations in January 2023:
 
 General improvements:
 
-* Security issues -- Addressed multiple CVE issues related to Microsoft Azure and other external services integrations.
-* Integrations Dashboards -- All integration dashboards and charts are now improved in terms of performance and are up-to-date with the latest UI changes.
+* **Metrics Charts** -- All charts that you see when you select a metric on the **Metrics** tab are now improved in terms of performance and are up-to-date with the latest UI.
 
 
 
