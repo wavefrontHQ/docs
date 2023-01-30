@@ -38,7 +38,7 @@ While this is subject to changes at any time, we currently retain 5 days of data
 
 Production Wavefront clusters currently offer 18 months of full-resolution (no downsampling) data retention for metrics, 6 months for histograms, and 7 days for spans. We also have a 99.95% uptime guarantee, as well as High Availability (HA) and Disaster Recovery (DR) options.
 
-## Why Do I Not See a Link to Access the Wavefront Service on Start-up?
+## Why Do I Not See a Link to Access the Wavefront Service on Start-Up?
 
 * Currently, only our freemium cluster supports automatic account provisioning with Spring Boot. If you are using a different cluster, you won’t see a link.
 * You have configured an API token in your application's `application.properties` file. If you want to see the link printed on the console, add `wavefront.freemium-account=true` to the `application.properties` file.
@@ -71,7 +71,7 @@ If you added `wavefront.freemium-account=true` to your `application.properties` 
 
 The Spring Boot Starter directs you to the Spring Boot Inventory dashboard that allows you to examine the metrics collected by default by the  Micrometer.
 
-If applications are enabled for tracing, you can click the link in the **Tracing** section to be directed to the Tracing dashboard.
+If applications are enabled for tracing, you can click the link in the **Tracing** section to see trace data on the Traces Browser.
 
 ![Spring Boot inventory screenshot](images/springboot_metrics_callout.png)
 
