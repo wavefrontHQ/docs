@@ -73,9 +73,9 @@ You can check the permissions you have and see which groups you belong to.
 
 3. Hover over any group to see the permissions you have from this group. The permissions come from roles assigned to the group.
 
-{% include note.html content="Even if you have **Dashboards** or **Alerts** permission, it's possible that you can't modify a dashboard or an alert. This happens if **access** is restricted explicitly for that dashboard or alert. Ask the dashboard or alert creator to share the object with you." %}
-
 {% include note.html content="If you are a Super Admin user, the **Groups, Roles & Permissions** page shows your permissions when the Super Admin mode is disabled." %}
+
+{% include note.html content="Even if you have **Dashboards** or **Alerts** permission, it's possible that you can't modify a dashboard or an alert. This happens if **access** is restricted explicitly for that dashboard or alert. Ask the dashboard or alert creator to share the object with you." %}
 
 ## Enable or Disable Super Admin Mode
 
