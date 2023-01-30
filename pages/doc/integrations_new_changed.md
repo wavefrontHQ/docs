@@ -35,7 +35,7 @@ General improvements:
 
 
 
-## All 2019 - 2021 Integrations Release Notes
+## All 2019 - 2022 Integrations Release Notes
 
 We have separate pages for:
 
