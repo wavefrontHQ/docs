@@ -29,8 +29,8 @@ We made improvements to the following integrations in January 2023:
 
 General improvements:
 
-* Security issues -- Addressed multiple CVE issues related to Microsoft Azure and other external services integrations.
-* Integrations Dashboards -- All integration dashboards and charts are now improved in terms of performance and are up-to-date with the latest UI changes.
+* **Metrics Charts** -- All integration charts that you see on the **Metrics** tab are now improved in terms of performance and are up-to-date with the latest UI.
+* **UI changes** -- When you [clone a system integration dashboard](integrations.html#cloning-and-customizing-dashboards), you can now add a custom metric prefix. The prefix will be applied to all the charts in the cloned dashboard.
 
 
 

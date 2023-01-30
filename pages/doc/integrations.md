@@ -111,7 +111,15 @@ You cannot modify the system dashboards. Instead, you must clone the dashboards.
 1. Click the ellipsis icon in the top right corner of the dashboard.
 2. Select **Clone**.
 3. Provide a URL string that's just the name (e.g., `mydashboard` or `dashboard-name-clone`) and not the URL (e.g., `http://mydashboard`).
-4. Customize the clone to suit your needs.
+4. (Optional) Provide a custom metric prefix.
+   The metric prefix will be applied to all the charts in the cloned dashboard. It can contain:
+   * Uppercase and lowercase letters
+   * Numbers
+   * Full stop (.)
+   * Hyphen (-)
+   * Underscore (_)
+   Note that the custom metric prefix cannot end with a hyphen or underscore.
+5. Customize the clone to suit your needs.
 
 ## Installing and Uninstalling Integration Alerts
 
