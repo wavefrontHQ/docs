@@ -67,8 +67,8 @@ Permissions are additive:
 * If permissions or roles were assigned to you explicitly, you get those as well.
 
 You can check the permissions you have and see which groups you belong to.
-1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select your username.
-2. Click the **Groups, Roles & Permissions** tab to display the permissions you have and why you have them.
+1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select your user name.
+2. Click the **Groups, Roles & Permissions** tab to display the permissions you have and see why you have them.
 ![groups and permissions](images/groups_and_permissions.png)
 
 3. Hover over any group to see the permissions you have from this group. The permissions come from roles assigned to the group.
@@ -77,7 +77,7 @@ You can check the permissions you have and see which groups you belong to.
 <tbody>
 <tr>
 <td width="50%">
-If you don't have the <strong>Accounts</strong> permission, for updates to your groups, roles, or permissions, you can contact a user with the <strong>Accounts</strong> permission. To see the list of these users, click the link at the bottom of the page.
+If you don't have the <strong>Accounts</strong> permission, for updates to your groups, roles, or permissions, contact a user with the <strong>Accounts</strong> permission or your Super Admin. To see the list of the users with the <strong>Accounts</strong> permission, click the link at the bottom of the page.
 </td>
 <td width="50%"><img src="images/Accounts_users.png" alt="a screenshot with the link at the bottom of the Groups, Roles & Permissions page"></td>
 </tr>
