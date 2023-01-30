@@ -162,7 +162,6 @@ As a result, the ingested sample will contain somewhat more than 20% of the gene
 ## Setting Up Explicit Sampling Through the Proxy
 
 You can set up explicit sampling strategies through a [Wavefront proxy](proxies.html) by adding the sampling properties to the proxy's configuration file.
-{% include note.html content="Explicit sampling through a proxy is supported in Wavefront proxy version 4.34 and later. If you have an older version, make sure to [upgrade your proxy to the latest version](proxies_installing.html#upgrade-a-proxy)."  %}
 
 1. On the proxy host, open the proxy configuration file `wavefront.conf` for editing. The [path to the file](proxies_configuring.html#paths) depends on the host.
 2. Add the `traceSamplingRate` property, the `traceSamplingDuration` property, or both to the `wavefront.conf` file. See [Tracing Proxy Properties](proxies_configuring.html#tracing-proxy-properties).
