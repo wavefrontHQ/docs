@@ -19,7 +19,7 @@ Follow these steps:
 
 ## What Is The Difference Between The Wavefront for Spring Boot Freemium Cluster and a Wavefront Trial?
 
-* **Wavefront for Spring Boot Freemium cluster** <br/>The freemium cluster supports limited data ingestion throughput with 5-day retention and no SLA guarantees. It allows developers to try out Wavefront without having to sign up or provide an email address. Freemium accounts with no activity for 3 days will be automatically deleted.
+* **Wavefront for Spring Boot Freemium cluster** <br/>The freemium cluster supports limited data ingestion throughput with 5-day retention and no SLA guarantees. It allows developers to try out Wavefront without having to sign up or provide an email address. Freemium accounts that are inactive for 3 days are automatically deleted.
 
 * **Wavefront trial** <br/>The Wavefront trial allows you to experience the full power of the Wavefront platform by bringing in data from your cloud environments (AWS/GCP/Azure/vSphere), Kubernetes, over 200 integrations, and large-scale service fleets into a single observability platform. You can also create smart alerts that dynamically filter noise and capture true anomalies. When you sign up for a trial, we'll ask for some (minimal) information.
 
@@ -34,7 +34,7 @@ Follow these steps:
 
 ## What is the Retention and Service Level Agreement (SLA) on the Wavefront for Spring Boot Freemium Cluster?
 
-While this is subject to changes at any time, we currently retain 5 days of data and offer no SLA on the free Wavefront cluster. Freemium accounts with no activity for 3 days will be automatically deleted.
+While this is subject to changes at any time, we currently retain 5 days of data and offer no SLA on the free Wavefront cluster. Freemium accounts that are are inactive for 3 days are automatically deleted.
 
 Production Wavefront clusters currently offer 18 months of full-resolution (no downsampling) data retention for metrics, 6 months for histograms, and 7 days for spans. We also have a 99.95% uptime guarantee, as well as High Availability (HA) and Disaster Recovery (DR) options.
 
