@@ -29,7 +29,7 @@ We made improvements to the following integrations in January 2023:
 
 General improvements:
 
-* **Metrics Charts** -- All integration charts that you see on the **Metrics** tab are now improved in terms of performance and are up-to-date with the latest UI.
+* **Metrics Charts** -- All charts that you see when you select a metric on the **Metrics** tab are now improved in terms of performance and are up-to-date with the latest UI.
 * **UI changes** -- When you [clone a system integration dashboard](integrations.html#cloning-and-customizing-dashboards), you can now add a custom metric prefix. The prefix will be applied to all the charts in the cloned dashboard.
 
 
