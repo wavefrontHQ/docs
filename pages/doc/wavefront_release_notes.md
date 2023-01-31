@@ -19,6 +19,11 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
   * See the [OpenTracing to OpenTelemetry Migration Guide](opentracing_to_opentelemetry_migration.html) to migrate a Java application that uses OpenTracing to use OpenTelemetry.
   * The Wavefront OpenTracing SDKs are now deprecated, and are no longer supported.
 
+* **Spring Boot 3**: The Wavefront for Spring Boot version 3.0.1 or later now uses Spring Boot 3.
+  * To learn more, see [Wavefront for Spring Boot 3](wavefront_springboot3.html).
+  * Try out the [Wavefront for Spring Boot 3 Tutorial](wavefront_springboot3_tutorial.html) and see how you can send your data in a few simple steps!
+  * See the [Wavefront for Spring Boot FAQs](wavefront_spring_boot_faq.html#how-do-i-upgrade-from-spring-boot-2-to-spring-boot-3) to upgrade from Spring Boot 2 to Spring Boot 3.
+
 * **Charts Improvements**: The pie chart displays the value for current, mean, median, sum, min, max, and count on the chart. For more details, see [Chart References](ui_chart_reference.html#pie-and-donut-chart).
   
   For example, if the query you use gets the CPU usage of all the applications, and you select Sum, you can see how the CPU usage of an application compares to all the other applications for a given time window.
