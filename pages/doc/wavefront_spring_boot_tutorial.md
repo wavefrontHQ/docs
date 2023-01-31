@@ -113,7 +113,7 @@ Let's take a look at how you can configure your Spring Boot application with Wav
     spring.sleuth.jdbc.p6spy.enable-logging=true
     ```
 1. Restart the application and navigate to [http://localhost:8080](http://localhost:8080/).
-1. Add data by clicking on the petclinic user interface.
+1. Add data from the petclinic user interface.
     For example:
     1. Add an Owner and a Pet via the User Interface.
     2. Click **ERROR** to trigger errors.

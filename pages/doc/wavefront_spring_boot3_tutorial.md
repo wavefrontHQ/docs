@@ -12,8 +12,8 @@ In this tutorial, you use Wavefront for Spring Boot that uses Spring Boot 3 with
 
 ## Prerequisites
 
-* Spring Boot 3.0.0 or above.
-* Java 17 or above.
+* Spring Boot 3.0.0 or later.
+* Java 17 or later.
 * Maven 3.5+ or Gradle 7.5+ or later.
   <br/>See [System Requirements](https://docs.spring.io/spring-boot/docs/3.0.x/reference/html/getting-started.html#getting-started.system-requirements) in the Spring Boot documentation.
 * Clone the sample petclinic application.
@@ -32,9 +32,9 @@ In this tutorial, you use Wavefront for Spring Boot that uses Spring Boot 3 with
 
 1. Import the Wavefront for Spring Boot Bill of Materials (BOM) to your project. Add the following code to the `pom.xml` file (replace VERSION with the current version):
    {{site.data.alerts.tip}}
-      <p> Make sure the Wavefront for Spring Boot dependency is compatible with the Spring Boot release version. See <a href="wavefront_springboot3.html#versionCompatibility">System Requirements</a> to get the correct dependency version.
+      <p> Make sure that the Wavefront for Spring Boot dependency is compatible with the Spring Boot release version. See <a href="wavefront_springboot3.html#versionCompatibility">System Requirements</a> to get the correct dependency version.
       <br/>
-      For example, if you are using Spring Boot release version 3.0.1, the <code>VERSION</code> needs to be 3.0.1.
+      For example, if you are using Spring Boot release version 3.0.1, the <code>VERSION</code> must be 3.0.1.
       </p>
     {{site.data.alerts.end}}
     ```xml
@@ -51,7 +51,7 @@ In this tutorial, you use Wavefront for Spring Boot that uses Spring Boot 3 with
     </dependencyManagement>
     ```
 
-1. Open the sample petclinic application using an IDE and add the `wavefront-spring-boot-starter` and `micrometer-registry-wavefront` to the `pom.xml` file's `<depdendecnies>`:
+1. Open the sample petclinic application using an IDE and add the `wavefront-spring-boot-starter` and `micrometer-registry-wavefront` to the `pom.xml` file's `<dependencies>`:
     ```xml
     <dependency>
       <groupId>com.wavefront</groupId>
@@ -104,7 +104,7 @@ In this tutorial, you use Wavefront for Spring Boot that uses Spring Boot 3 with
 
 1. Restart the application and navigate to [http://localhost:8080](http://localhost:8080/).
 
-1. Generate telemetry data by clicking on the petclinic user interface.
+1. Generate telemetry data from the petclinic user interface.
    For example:
    1. Add an Owner and a Pet via the User Interface.
    1. Click **VETERINARIANS** to list vets in the database.
@@ -130,8 +130,8 @@ In this tutorial, you use Wavefront for Spring Boot that uses Spring Boot 3 with
 When you click the link in the Wavefront Spring Boot starter, you are taken to the Spring Boot Inventory dashboard. This dashboard provides real-time visibility into your Spring Boot application landscape. The dashboard has several sections that include the following charts:
 
 * Status of hosts, applications, and services.
-* Request rate
-* Inventory details
+* Request rate.
+* Inventory details.
 * Hosts. Use the drop-down menus to group the hosts.
 
 If one or more applications are enabled for tracing, click the link in the Tracing section to be directed to the Tracing dashboard.
@@ -156,7 +156,7 @@ When you click the link in the Spring Boot Inventory dashboard, you are taken to
 ## Next Steps
 
 * See the [Wavefront for Spring Boot FAQs](wavefront_spring_boot_faq.html).
-* You cannot save changes that you make to the preconfigured Spring Boot Inventory and Wavefront Service Dashboards. If you want custom dashboards, clone and edit it the Wavefront dashboard. For details, see [Create and Customize Dashboards](ui_dashboards.html).
+* You cannot save changes that you make to the preconfigured Spring Boot Inventory and Wavefront Service Dashboards. If you want to modify a preconfigured dashboard, you need to clone and edit the preconfigured dashboard. For details, see [Create and Customize Dashboards](ui_dashboards.html).
 * Wavefront customers or trial users can create smart alerts that dynamically filter noise and find true anomalies. For details, see [Alerts](alerts.html).
     {% include note.html content="Alerts are not supported on this freemium cluster."%}
 * Try out the petclinic application with the Micrometer. See [Wavefront for Spring Boot: Getting Started](https://tanzu.vmware.com/developer/guides/spring/spring-wavefront-gs/) for details.

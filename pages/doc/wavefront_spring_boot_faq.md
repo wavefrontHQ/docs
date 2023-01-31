@@ -15,9 +15,9 @@ Follow these steps:
 
 1. Upgrade your application to use Spring Boot 3. For details, see the [Spring Boot 3.0 Migration Guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide).
 1. If the application uses Spring Cloud Sleuth, see the [Spring Cloud Sleuth 3.1 Migration Guide](https://github.com/micrometer-metrics/tracing/wiki/Spring-Cloud-Sleuth-3.1-Migration-Guide) to migrate from Spring Boot 2 to Spring Boot 3.
-1. Update the Wavefront for Spring Boot dependencies for your existing project. For more details, see [how to configure an existing Spring Boot application](wavefront_springboot3.html#step-1-initialize-and-configure-your-project) and select the **Initialize an Existing Project** tab.
+1. Update the Wavefront for Spring Boot dependencies for your existing project. For more details, see [how to configure an existing Spring Boot application](wavefront_springboot3.html#step-1-initialize-and-configure-your-project) and click the **Initialize an Existing Project** tab.
 
-## What Is The Difference Between The Wavefront for Spring Boot Freemium Cluster and a Wavefront Trial?
+## What Is the Difference Between The Wavefront for Spring Boot Freemium Cluster and a Wavefront Trial?
 
 * **Wavefront for Spring Boot Freemium cluster** <br/>The freemium cluster supports limited data ingestion throughput with 5-day retention and no SLA guarantees. It allows developers to try out Wavefront without having to sign up or provide an email address. Freemium accounts that are inactive for 3 days are automatically deleted.
 
@@ -32,7 +32,7 @@ Follow these steps:
   management.metrics.export.wavefront.api-token=44444-34this-45is-123a-sampletoken
   ```
 
-## What is the Retention and Service Level Agreement (SLA) on the Wavefront for Spring Boot Freemium Cluster?
+## What Is the Retention and Service Level Agreement (SLA) on the Wavefront for Spring Boot Freemium Cluster?
 
 While this is subject to changes at any time, we currently retain 5 days of data and offer no SLA on the free Wavefront cluster. Freemium accounts that are are inactive for 3 days are automatically deleted.
 
@@ -75,7 +75,7 @@ If applications are enabled for tracing, you can click the link in the **Tracing
 
 ![Spring Boot inventory screenshot](images/springboot_metrics_callout.png)
 
-## Why Don't I See the Default Dashboard When I Click on The Link?
+## Why Don't I See the Default Dashboard When I Click the Link?
 If you create a new project using [https://start.spring.io](https://start.spring.io/), add the Wavefront dependency, download the project, run it, and click the link on the terminal, you are not taken to the default dashboard.
 That is because the default project stops soon as it starts without a web service. As a result, data is not sent to Wavefront. To avoid this, add a dependency under the Web category, such as the Spring Web dependency, along with the wavefront dependency, and generate a new project.
 
