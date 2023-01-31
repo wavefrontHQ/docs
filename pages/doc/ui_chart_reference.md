@@ -1691,28 +1691,30 @@ Consider the following example. The horizontal scale for your chart is "240 poin
 <tr>
 <td>Display Value</td>
   <td>
-    Select the value you want to display on the chart:
+    Select a value you want to display on the chart. You see the values as a percentage. 
+    <p markdown="span">For example, if the query you use gets the CPU usage of all the applications, and you select **Sum**, you can see how the CPU usage of an application compares to all the other applications for a given time window.
+    </p>
     <ul>
       <li markdown="span">
-        **Current**: Display the current value for the **Summarization** option you selected. 
+        **Current**: Display the current value for the **Summarization** option you selected as a percentage. 
       </li>
       <li markdown="span">
-        **Mean**: Display the mean of the raw data values.
+        **Mean**: Display the mean of the raw data values as a percentage.
       </li>
       <li markdown="span">
-        **Median**: Displays the median of the raw data values in each bucket.
+        **Median**: Displays the median of the raw data values in each bucket as a percentage.
       </li>
       <li markdown="span">
-        **Sum**: Displays the sum of the raw data values in each bucket.
+        **Sum**: Displays the sum of the raw data values in each bucket as a percentage.
       </li>
       <li markdown="span">
-        **Min**: Displays the minimum raw data value in each bucket.
+        **Min**: Displays the minimum raw data value in each bucket as a percentage.
       </li>
       <li markdown="span">
-        **Max**: Displays the maximum raw data value in each bucket.
+        **Max**: Displays the maximum raw data value in each bucket as a percentage.
       </li>
       <li markdown="span">
-        **Count**: Displays the number of raw data values in each bucket.
+        **Count**: Displays the number of raw data values in each bucket as a percentage.
       </li>
     </ul>
   

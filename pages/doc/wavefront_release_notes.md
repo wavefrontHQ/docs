@@ -15,6 +15,16 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 ## 2023-04.x Release Notes
 
+* **OpenTelemetry**: OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/).) To send trace data to Tanzu Observability, use OpenTelemetry.
+  * See the [OpenTracing to OpenTelemetry Migration Guide](opentracing_to_opentelemetry_migration.html) to migrate a Java application that uses OpenTracing to use OpenTelemetry.
+  * The Wavefront OpenTracing SDKs are now deprecated, and are no longer supported.
+
+* **Charts Improvements**: The pie chart displays the value for current, mean, median, sum, min, max, and count on the chart. For more details, see [Chart References](ui_chart_reference.html#pie-and-donut-chart).
+  
+  For example, if the query you use gets the CPU usage of all the applications, and you select Sum, you can see how the CPU usage of an application compares to all the other applications for a given time window.
+  ![shows a screenshot of the pice chart, with the display value set to sum.](images/pie_chart_display_value.png)
+
+
 ## 2023-03.x Release Notes
 
 * **Alert Notifications Update**: If your **PagerDuty** [alert target](webhooks_alert_notification.html) is integrated with Slack, the alert notifications in Slack are now more extensive. They show the complete alert notification summary, which can be up to 1,000 characters.
