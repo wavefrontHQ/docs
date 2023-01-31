@@ -204,7 +204,5 @@ cf routes
 ```
 
 If you see an app called `tas2to-sli-test-app` in the results of `cf apps` or a route matching that name in the `cf routes` results, you should clean them up.
-
 * To delete the app, run `cf delete tas2to-sli-test-app`
 * To delete the route, run `cf delete-route example.com --hostname tas2to-sli-test-app`
-
