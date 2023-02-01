@@ -10,7 +10,7 @@ entries:
     output: web
     folderitems:
 
-    - title: "What is Tanzu Observability?"
+    - title: "Introduction"
       url: /wavefront_introduction.html
       output: web
 
@@ -26,7 +26,7 @@ entries:
       output: web
       url: /videos.html
 
-    - title: Tanzu Observability FAQs
+    - title: FAQs
       output: web
       url: /tobs_faq.html
 
@@ -36,7 +36,7 @@ entries:
         output: web
         subfolderitems:
 
-        - title: "Hello Wavefront Tutorial"
+        - title: "Integrations Tutorial"
           url: /hello_wavefront_aws_tutorial.html
           output: web
 
@@ -112,7 +112,7 @@ entries:
     output: web
     folderitems:
 
-    - title: Wavefront Service Release Notes
+    - title: Service Release Notes
       url: /wavefront_release_notes.html
       output: web
 
@@ -371,7 +371,7 @@ entries:
         output: web
         subfolderitems:
 
-        - title: "Chart Builder"
+        - title: Chart Builder
           url: /chart_builder.html
           output: web
 
@@ -435,7 +435,7 @@ entries:
           url: /query_language_statistical_functions_anomalies.html
           output: web
 
-    - title: Using PromQL with Tanzu Observability
+    - title: Using PromQL
       url: /wavefront_prometheus.html
       output: web
 
@@ -583,7 +583,7 @@ entries:
           output: web
           subfolderitems:
 
-          - title: Tanzu Misson Control Integration
+          - title: Tanzu Mission Control Integration
             url: /tmc.html
             output: web
 
@@ -820,7 +820,7 @@ entries:
     output: web
     folderitems:
 
-      - title: Administer Tanzu Observability
+      - title: Administering Overview
         url: /wavefront_administer.html
         output: web
 
@@ -907,7 +907,7 @@ entries:
             url: /ingestion_policies.html
             output: web
 
-          - title: Monitor with the Wavefront Usage Integration
+          - title: Monitor with the Usage Integration
             url: /wavefront_monitoring.html
             output: web
 
