@@ -6,11 +6,35 @@ permalink: monitoring_proxies.html
 summary: Learn how to monitor Wavefront proxies.
 ---
 
-Tanzu Observability by Wavefront supports monitoring of your Wavefront proxies. The Wavefront Usage integration includes a **Wavefront Service and Proxy Data** dashboard that includes several sections with dashboards for examining proxy health.
+Tanzu Observability by Wavefront supports monitoring of your Wavefront proxies. 
+
+## Examine Your Wavefront Proxies
+
+Select **Browser > Proxies** to display the Proxies Browser. Use the Proxies Browser to examine the details and status of the current proxies in your Tanzu Observability service.
+
+![An annotated screenshot of the Proxies Browser. The annotations are listed below.](images/proxies_browser.png)
+
+On the Proxies Browser, you can:
+
+* See the details of each proxy - name, hostname, ID, last check-in date and time, status, ingestion rate by data type, version, and the user who created it.
+* Sort the proxies table by name, last check-in time, status, version, or the user who created the proxy.
+* Search and, optionally, save and share your search. 
+* Filter the proxies by status:
+  * **Active**: The proxy is running and sending data.
+  * **Orphaned**: The proxy stopped sending data. Either the sources stopped sending data to the proxy or the token has been revoked. 
+  * **Stopped by Server**: The Tanzu Observability subscription has ended for the customer.
+  * **Token Expired**: The token has expired. Depending on the proxy configuration, the proxy might still be running and sending data.
+* Hide or show the filters.
+* Show all or deleted proxies.
+* Configure the proxies table columns.
+* Open the proxy dashboard by clicking the proxy name.
+* Open the Wavefront Usage dashboard by clicking **Usage and proxies data dashboard** on the top right.
+
+## Monitoring Proxies Health with the Usage Dashboard
+
+The Wavefront Usage integration includes a **Wavefront Service and Proxy Data** dashboard that includes several sections with dashboards for examining proxy health.
 
 ![proxy health](images/proxy_health_example.png)
-
-## Monitoring Proxy Health with the Usage Dashboard
 
 [Wavefront proxies](proxies.html) emit metrics that you can use to check if your Wavefront proxy is behaving as expected.
 
