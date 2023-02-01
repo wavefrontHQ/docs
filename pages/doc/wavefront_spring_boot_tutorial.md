@@ -1,14 +1,12 @@
 ---
-title: Wavefront for Spring Boot Tutorial
+title: Wavefront for Spring Boot 2 Tutorial
 keywords:
 tags: [tutorials]
 sidebar: doc_sidebar
 permalink: wavefront_springboot_tutorial.html
 summary: Configure Wavefront for Spring Boot with a sample application.
 ---
-In this tutorial, you use Wavefront for Spring Boot with the Spring pet clinic sample application. This tutorial sets dependencies explicitly. In most cases, it makes sense to use the [Spring Initializr](https://start.spring.io/) instead to explore supported combinations.
-
-{% include tip.html content="Want to start your project from scratch using [https://start.spring.io/](https://start.spring.io/)? Follow the [Observability with Spring](https://spring.io/guides/gs/tanzu-observability/) tutorial." %}
+In this tutorial, you use Wavefront for Spring Boot that uses Spring Boot 2 with the Spring petclinic sample application. This tutorial sets dependencies explicitly. In most cases, it makes sense to use the [Spring Initializr](https://start.spring.io/) instead to explore supported combinations.
 
 <!---
 ## Video
@@ -23,7 +21,7 @@ Let's take a look at how you can configure your Spring Boot application with Wav
 * Java 8 or above.
 * Maven 3.3+ or Gradle 6.3 or later.
   <br/>See [System Requirements](https://docs.spring.io/spring-boot/docs/2.3.x/reference/html/getting-started.html#getting-started-system-requirements) in the Spring Boot documentation.
-* Clone the sample pet clinic application.
+* Clone the sample petclinic application.
   ```
   git clone https://github.com/spring-projects/spring-petclinic.git
   ```
@@ -35,7 +33,7 @@ Let's take a look at how you can configure your Spring Boot application with Wav
 
 ## Send Data to Wavefront
 
-1. Open the sample pet clinic application using an IDE and add the following code to the `pom.xml` file:
+1. Open the sample petclinic application using an IDE and add the following code to the `pom.xml` file:
     ```
     <dependency>
       <groupId>com.wavefront</groupId>
@@ -115,7 +113,7 @@ Let's take a look at how you can configure your Spring Boot application with Wav
     spring.sleuth.jdbc.p6spy.enable-logging=true
     ```
 1. Restart the application and navigate to [http://localhost:8080](http://localhost:8080/).
-1. Add data by clicking on the pet clinic user interface.
+1. Add data from the petclinic user interface.
     For example:
     1. Add an Owner and a Pet via the User Interface.
     2. Click **ERROR** to trigger errors.
@@ -154,7 +152,7 @@ When you click the link in the Spring Boot Inventory dashboard, you are taken to
 * View the trace data of the `spring-petclinic` service.
   * Once in the Traces Browser, you see the traces from the application and the trace related to the error you created.
   * If you configured your application to send trace data using OpenTracing, you can see span logs for the errors you triggered.
-  ![Span logs for the pet clinic application](/images/springboot_span_logs_pet_clinic.png)
+  ![Span logs for the petclinic application](/images/springboot_span_logs_pet_clinic.png)
 
 * View details specific to an application service, such as the Request, Error, and Duration (RED) metrics by clicking <img src="images/spring_boot_service_dashboard_from_tracing_browser.png" style="vertical-align:text-bottom;width:250px" alt="service dashboard"/> on the Traces Browser. See [Explore the Default Service Dashboard](tracing_service_dashboard.html) for details.
   {% include note.html content="<br/>When your application sends data for the first time, they appear after about 1 minute. If you see data from the **beachshirts** sample application, refresh the page or go to **Application** > **Application status** to view the status of your application."%}
@@ -168,4 +166,4 @@ When you click the link in the Spring Boot Inventory dashboard, you are taken to
 * You cannot save changes that you make to the preconfigured Spring Boot Inventory and Wavefront Service Dashboards. If you want custom dashboards, clone and edit it the Wavefront dashboard. For details, see [Create and Customize Dashboards](ui_dashboards.html).
 * Wavefront customers or trial users can create smart alerts that dynamically filter noise and find true anomalies. For details, see [Alerts](alerts.html).
     {% include note.html content="Alerts are not supported on this freemium cluster."%}
-* Try out the pet clinic application with the Micrometer. See [Wavefront for Spring Boot: Getting Started](https://tanzu.vmware.com/developer/guides/spring/spring-wavefront-gs/) for details.
+* Try out the petclinic application with the Micrometer. See [Wavefront for Spring Boot: Getting Started](https://tanzu.vmware.com/developer/guides/spring/spring-wavefront-gs/) for details.
