@@ -19,7 +19,9 @@ Tanzu Observability by Wavefront supports two account types:
 
 ### Who Is the Super Admin User?
 
-When your company signs up with Tanzu Observability, we ask you which users you want as Super Admin users for your Wavefront service. When a Super Admin user [enables Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode), that user:
+When your company signs up with Tanzu Observability, we ask you which users you want as Super Admin users for your Wavefront service.
+
+When a Super Admin user [enables Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode), that user:
 
 * Has all permissions.
 * Has access to all dashboards and alerts.

@@ -24,6 +24,13 @@ If you don't have the <strong>Accounts</strong> permission, for updates to your 
 </td>
 <td width="50%"><img src="images/Accounts_users.png" alt="a screenshot with the link at the bottom of the Groups, Roles & Permissions page"></td>
 </tr>
+<tr>
+<td width="50%">
+<strong>New Super Admin Mode:</strong><p>
+As a Super Admin user, you can now <a href="users_account_managing.html#enable-or-disable-super-admin-mode">enable Super Admin mode</a> temporarily until you complete your current Super Admin tasks. After that, to avoid making unintentional changes in the system, disable Super Admin mode.</p>
+</td>
+<td width="50%"><img src="/images/super_admin_mode.png" alt="A screenshot of the drop-down menu with the Super Admin Mode toggle."></td>
+</tr>
 </tbody>
 </table>
 
