@@ -32,7 +32,7 @@ When a Super Admin user [enables Super Admin mode](users_account_managing.html#e
 * Can purchase more PPS.
 * Can create [ingestion policies](ingestion_policies.html) and [examine the overall Wavefront usage](examine_usage.html).
 
-To add other Super Admin users:
+To invite other Super Admin users:
 
 1. Click the gear icon <i class="fa fa-cog"/> on the toolbar, and select **Super Admin**.
 2. Enter the user name of a user you want to add as a Super Admin.

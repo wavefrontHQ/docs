@@ -12,30 +12,6 @@ The Tanzu Application Service (TAS) integration includes a number of out-of-the-
 {% include note.html content="If you already have installed the Pivotal Cloud Foundry (PCF) alerts, and want to migrate to the Tanzu Application Service integration, uninstall the PCF alerts, so that you don't have duplicate versions of the same alerts.
 See [installing and uninstalling integration alerts](integrations.html#installing-and-uninstalling-integration-alerts). Note that any changes to the PCF alerts that you have made will not be migrated and will be lost. You have to apply them manually after setting up the Tanzu Application Service integration." %}
 
-## TAS Active Locks Alerts
-
-Total count of how many locks the system components are holding.
-
-If the Active Locks count is not equal to the expected value, there must be a problem with Diego.
-
-**Troubleshooting**
-
-1. Run `monit` status to inspect for failing processes.
-2. If there are no failing processes, review the logs for the components using the Locket service: BBS, Auctioneer, TPS Watcher, Routing API, and Clock Global (Cloud Controller clock). 
-   
-   Look for indications that only one of each component is active at a time.
-   
-3. Focus triage on the BBS first:
-   - A healthy BBS shows obvious activity around starting or claiming LRPs.
-   - An unhealthy BBS leads to the Auctioneer showing minimal or no activity. The BBS sends work to the Auctioneer.
-   - Reference the BBS-level Locket metric `tas.bbs.LockHeld`. A value of 0 indicates Locket issues at the BBS level.
-     For more information, see [Locks Held by BBS](#tas-locks-held-by-bbs).
-4. If the BBS appears healthy, then check the Auctioneer to ensure that it is processing auction payloads.
-   - Recent logs for the Auctioneer should show all but one of its instances are currently waiting on locks, and the active Auctioneer should show a record of when it last attempted to execute work. This attempt should correspond to app development activity, such as `cf push`.
-   - Reference the Auctioneer-level Locket metric `tas.auctioneer.LockHeld`. A value of 0 indicates Locket issues at the Auctioneer level. For more information, see [Locks Held by Auctioneer](#tas-locks-held-by-auctioneer).
-5. The TPS Watcher is primarily active when app instances crash. Therefore, if the TPS Watcher is suspected, review the most recent logs.
-6. If you can't resolve ongoing excessive active locks, pull logs from the Diego BBS and Auctioneer VMs, which includes the Locket service component logs, and contact VMware Tanzu Support.
-
 ## TAS Apps Manager Availability
 
 A result code of a poll to the [Apps Manager](https://docs.pivotal.io/application-service/console/index.html) URL.
@@ -165,13 +141,6 @@ Losing the BOSH Director does not significantly impact the experience of Tanzu A
 
 * SSH into the `bosh-health-exporter` VM in the "Healthwatch Exporter" deployment, and view logs to find out why the BOSH Director is failing.
 
-## TAS BOSH VM CPU Used
-
-Percentage of CPU spent in user processes. 
-
-**Troubleshooting**
-1. Investigate the cause of the spike.
-2. If the cause is a normal workload increase, scale up the affected jobs.
 
 ## TAS BOSH VM Disk Used
 
@@ -192,14 +161,6 @@ Investigate if the ephemeral disk usage is too high for a job over an extended p
 **Troubleshooting**
 
 * Determine the cause of the data consumption, and, if appropriate, increase disk space or scale the affected jobs.
-
-## TAS BOSH VM Memory Used
-
-Percentage of memory used on the VM.
-
-**Troubleshooting**
-
-*  The response depends on the job the metric is associated with. If appropriate, scale affected jobs and monitor for improvement.
 
 ## TAS BOSH VM Persistent Disk Used
 
@@ -261,21 +222,6 @@ Percentage of remaining container capacity for a given Diego Cell. Monitor this 
 * The metric `tas.rep.CapacityTotalContainer` indicates the total number of containers this Diego Cell can host.
 
 The default threshold of 35% assumes Diego Cells are spread across three AZs.
-
-## TAS Percentage of Diego Cells with Enough Disk to Stage Apps
-
-Percentage of Diego Cells with at least one chunk of Disk space available to stage an application.
-
-Insufficient free disk on Diego Cells prevents the staging or starting of apps or tasks, resulting in error messages such as
- 
-`ERR Failed to stage app: insufficient resources`
-
-A Diego Cell will not stage an application if the Cell has less than 6 GB remaining.
-
-**Troubleshooting**
-
-1. Assign more resources to the Diego Cells or assign more Diego Cells.
-2. Scale additional Diego Cells using Ops Manager.
 
 ## TAS Diego Cell Memory Chunks Available
 
@@ -472,6 +418,21 @@ A result code of zero indicates a successful poll. For a description of the erro
 1. Check whether the affected Ops Manager is running.
 2. Check your foundation networking, capacity, and VM health.
 
+## TAS Percentage of Diego Cells with Enough Disk to Stage Apps
+
+Percentage of Diego Cells with at least one chunk of Disk space available to stage an application.
+
+Insufficient free disk on Diego Cells prevents the staging or starting of apps or tasks, resulting in error messages such as
+ 
+`ERR Failed to stage app: insufficient resources`
+
+A Diego Cell will not stage an application if the Cell has less than 6 GB remaining.
+
+**Troubleshooting**
+
+1. Assign more resources to the Diego Cells or assign more Diego Cells.
+2. Scale additional Diego Cells using Ops Manager.
+
 ## TAS Telegraf Gatherer and Exporter Scrape Errors
 
 The TAS integration uses Telegraf and the Prometheus and HTTP input plugins to gather metrics. If any of these fail, the counter `tas.observability.telegraf.internal_agent.gather_errors` increases. By default, an alert fires if the metric has been increasing for 10 minutes.
@@ -479,24 +440,8 @@ The TAS integration uses Telegraf and the Prometheus and HTTP input plugins to g
 **Troubleshooting**
 * Inspect the Telegraf logs from the `telegraf_agent` job on the `wavefront-nozzle` deployment.
 
-## TAS UAA VM Health
-
-Measures the state of the processes running on the UAA VM. 
-
-* 1 means the system is healthy
-* 0 means the system is unhealthy
-
-If UAA is down, developers and operators cannot authenticate to access the platform.
-
-**Troubleshooting**
-
-1. Check the UAA logs.
-2. View UAA on the TAS Job Details page.
-3. Scale the UAA VMs in BOSH.
-
-See the [UAA Documentation](https://docs.pivotal.io/application-service/uaa-overview.html) for details.
-
 ## TAS UAA Latency is Elevated
+
 Time in milliseconds that UAA took to process a request that the Gorouter sent to UAA endpoints.
 
 Indicates how responsive UAA has been to requests sent from the Gorouter. Some operations may take longer to process, such as creating bulk users and groups. It is important to correlate latency observed with the endpoint and evaluate this data in the context of overall historical latency from that endpoint. Unusual spikes in latency could indicate the need to scale UAA VMs.
@@ -518,3 +463,20 @@ This metric is emitted only for the routers serving the UAA system component and
     
    UAA suggested maximum CPU utilization is 80-90%.
 5. Resolve high utilization by scaling UAA VMs horizontally. To scale UAA, navigate to the **Resource Config** pane of the TAS for VMs tile and edit the number of your UAA VM instances.
+
+## TAS UAA VM Health
+
+Measures the state of the processes running on the UAA VM. 
+
+* 1 means the system is healthy
+* 0 means the system is unhealthy
+
+If UAA is down, developers and operators cannot authenticate to access the platform.
+
+**Troubleshooting**
+
+1. Check the UAA logs.
+2. View UAA on the TAS Job Details page.
+3. Scale the UAA VMs in BOSH.
+
+See the [UAA Documentation](https://docs.pivotal.io/application-service/uaa-overview.html) for details.
