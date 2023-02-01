@@ -616,17 +616,35 @@ entries:
     output: web
     folderitems:
 
-      - title: Wavefront for Spring Boot
-        url: /wavefront_springboot.html
-        output: web
-
-      - title: Tutorial
-        url: /wavefront_springboot_tutorial.html
-        output: web
-
       - title: FAQs
         url: /wavefront_spring_boot_faq.html
         output: web
+
+        subfolders:
+
+        - title: Spring Boot 3
+          output: web
+          subfolderitems:
+
+          - title: Overview
+            url: /wavefront_springboot3.html
+            output: web
+
+          - title: Tutorial
+            url: /wavefront_springboot3_tutorial.html
+            output: web
+
+        - title: Spring Boot 2
+          output: web
+          subfolderitems:
+
+          - title: Overview
+            url: /wavefront_springboot.html
+            output: web
+
+          - title: Tutorial
+            url: /wavefront_springboot_tutorial.html
+            output: web
 
   - title: "OpenTelemetry"
     output: web
