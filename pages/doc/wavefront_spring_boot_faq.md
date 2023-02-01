@@ -48,7 +48,7 @@ Production Wavefront clusters currently offer 18 months of full-resolution (no d
 * If you are just trying out Wavefront, see [Manage Service Accounts](service-accounts.html) to create a service account that has a static token for reporting. Once you have the token, add it to the `application.properties` file.
 * If you want to use Wavefront in a larger deployment, sign up for [a Wavefront trial] (https://tanzu.vmware.com/observability) and see [Manage Service Accounts](service-accounts.html) to learn how to create a service account. Next, add the token and URL to the `application.properties` file. We can help you with sizing and designing large-scale collection architectures for metrics, histograms, and traces. Reach out to us at support@wavefront.com.
 
-## How Do I Login to the Account Using an Email and Password?
+## How Do I Log In to the Account Using an Email and Password?
 
 You can [invite users and let them send data to the same cluster](wavefront_springboot.html#custom-configurations). To invite yourself, just enter your email address.
 
