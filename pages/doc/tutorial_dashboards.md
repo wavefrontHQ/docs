@@ -3,12 +3,12 @@ title: Explore Data Tutorial
 tags: [getting started, dashboards, charts, alerts, tutorials]
 sidebar: doc_sidebar
 permalink: tutorial_dashboards.html
-summary: Learn using dashboards and charts with sample data.
+summary: Learn how to use dashboards and charts with sample data.
 ---
 
 Want to learn some tips and tricks for exploring your data in dashboards?
 
-This tutorial uses Wavefront **sample data** to get you started. To complete the tasks, you need <strong>Access to a Wavefront instance</strong>. If your company doesn't have one, sign up for a <a href="https://tanzu.vmware.com/observability">free trial</a>
+This tutorial uses our **sample data** to get you started. To complete the tasks, you need <strong>Access to a product instance</strong>. If your company doesn't have one, sign up for a <a href="https://tanzu.vmware.com/observability-trial">free trial</a>.
 
 The focus in tutorial is on exploration, so you don't need any permissions to go through these tasks.
 
@@ -17,16 +17,16 @@ The focus in tutorial is on exploration, so you don't need any permissions to go
 
 ## Task 1: Find a Sample Dashboard in the Dashboards Browser
 
-Your Wavefront instance includes pre-built tutorial and tour integrations with dashboards that show off Wavefront using sample metrics. Let's explore a tour dashboard, which contains sample data on any Wavefront instance.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) includes pre-built tutorial and tour integrations with dashboards that show how to use the product with sample metrics. Let's explore a tour dashboard, which contains sample data.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="50%">
 <ol>
-<li>Log in to Wavefront. The URL is something like <code>https://example.wavefront.com</code></li>
+<li>Log in to the product. The URL is something like <code>https://example.wavefront.com</code></li>
 <li>Select <strong>Dashboards > All Dashboards</strong>.</li>
-<li>In the search bar, type <strong>Tour</strong> and select <strong>Name Contains: Tour</strong></li>
+<li>In the search bar, enter <strong>Tour</strong> and select <strong>Name Contains: Tour</strong></li>
 <li>Scroll through the list of dashboards and select <strong>Tour: Cluster Metrics Exploration. </strong></li></ol></td>
 <td width="50%"><img src="/images/find_tour_pro.png" alt="type tour and select Tour Pro"/></td>
 </tr>
@@ -37,7 +37,7 @@ The result looks similar to the following screenshot:
 
 ![click chart title to select a chart](/images/select_chart_v2.png)
 
-{% include tip.html content="The Dashboards browser offers many search and filter options and makes it possible to mark favorite dashboards and create saved searches. To become a power user, see [Searching in Wavefront](wavefront_searching.html) for details." %}
+{% include tip.html content="The Dashboards browser offers many search and filter options and makes it possible to mark favorite dashboards and create saved searches. To become a power user, see [Performing Searches](wavefront_searching.html) for details." %}
 
 
 ## Task 2: Explore the Dashboard

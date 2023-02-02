@@ -26,7 +26,7 @@ entries:
       output: web
       url: /videos.html
 
-    - title: FAQs
+    - title: Product FAQ
       output: web
       url: /tobs_faq.html
 
@@ -493,7 +493,7 @@ entries:
             url: /integrations_log_data.html
             output: web
 
-          - title: vRealize Operations Cloud Integration
+          - title: VMware Aria Operations (SaaS) Integration
             url: /integrations_vrops.html
             output: web
 
@@ -587,11 +587,11 @@ entries:
             url: /tmc.html
             output: web
 
-          - title: Generate a Token for TMC
+          - title: Generate a Token
             url: /integrations_tmc.html
             output: web
 
-          - title: How to Monitor TMC with Tanzu Observability
+          - title: How to Monitor Tanzu Mission Control
             url: /integrations_tmc_howto.html
             output: web
 
@@ -600,15 +600,15 @@ entries:
           output: web
           subfolderitems:
 
-          - title: TAS Integration
+          - title: Tanzu Application Service Integration
             url: /tas_v4.html
             output: web
 
-          - title: How to Monitor TAS with Tanzu Observability
+          - title: How to Monitor Tanzu Application Service
             url: /integrations_tas_howto.html
             output: web
 
-          - title: Troubleshooting for TAS to Tanzu Observability
+          - title: Troubleshooting for Tanzu Application Service
             url: /tas_to_troubleshooting.html
             output: web
 

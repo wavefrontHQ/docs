@@ -1,10 +1,10 @@
 ---
-title: FAQ
+title: Product FAQ
 keywords: alerts
 tags: [getting started]
 sidebar: doc_sidebar
 permalink: tobs_faq.html
-summary: Get answers to the top FAQs for VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
+summary: Get answers to the top frequently asked questions for VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
 ---
 
 ## Why Can't I Edit This Dashboard? This Alert?
@@ -19,9 +19,9 @@ By default, all users can view dashboards and alerts. They can also edit dashboa
 
 ## Why Is Our PPS So High? Why Do We Have Overage?
 
-PPS and Overage determine what a Tanzu Observability customer is billed:
-* **PPS**, or Points per Second means data points ingested per second to the service. All customers are billed based on their PPS.
-* **Overage** Many of our customers have a contract that specifies a certain PPS for a certain amount of time. If the customer exceeds that PPS, the customer is billed for overage.
+PPS and Overage determine what a customer is billed:
+* **PPS** -- Or Points per Second, means data points ingested per second to the service. All customers are billed based on their PPS.
+* **Overage** -- Many of our customers have a contract that specifies a certain PPS for a certain amount of time. If the customer exceeds that PPS, the customer is billed for overage.
 
 Because the service runs on AWS, we have to bill based on how much data is ingested. However, we're interested in helping you lower your bill and get more out of VMware Aria Operations for Applications. We encourage you to find out:
 * Are there dashboards or alerts that ingest data but that are never used?

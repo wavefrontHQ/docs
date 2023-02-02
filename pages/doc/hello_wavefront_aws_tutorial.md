@@ -8,7 +8,7 @@ summary: Get data from Amazon Web Services or a Windows host.
 ---
 
 In this tutorial, you'll learn how to:
-1. Log in to the VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
+1. Log in to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
 2. Send data from applications and services that run on your AWS account.
 3. Visualize data with preconfigured dashboards and charts.
 

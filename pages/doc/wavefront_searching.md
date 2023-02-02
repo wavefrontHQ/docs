@@ -1,5 +1,5 @@
 ---
-title: Searching Tanzu Observability by Wavefront
+title: Performing Searches
 keywords: getting started
 tags: [getting started, video]
 sidebar: doc_sidebar
