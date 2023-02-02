@@ -113,6 +113,21 @@ You cannot modify the system dashboards. Instead, you must clone the dashboards.
 3. Provide a URL string that's just the name (e.g., `mydashboard` or `dashboard-name-clone`) and not the URL (e.g., `http://mydashboard`).
 4. Customize the clone to suit your needs.
 
+<!--Add this as step 4 when we have the custom prefix feature is rolled out to more customers
+
+(Optional) Provide a custom metric prefix.
+  
+   The metric prefix will be applied to all the charts in the cloned dashboard. It can contain:
+   
+   * Uppercase and lowercase letters
+   * Numbers
+   * Full stop (.)
+   * Hyphen (-)
+   * Underscore (_)
+   
+   Note that the custom metric prefix cannot end with a hyphen or underscore.
+-->
+
 ## Installing and Uninstalling Integration Alerts
 
 Some integrations contain system alerts. You can preview the system alerts even before setting up an integration by clicking **Preview**. In Preview mode, you cannot do any customizations to these alerts. You can also install and uninstall the predefined integration alerts to explore them further. After you install the system alerts, you edit some of their settings.

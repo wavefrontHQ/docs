@@ -92,4 +92,7 @@ View queries used in the charts of the default Service Dashboard and save these 
     </td>
   </tr>
 </table>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3b66e251321179d409141de333a5609683c395f2

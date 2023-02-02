@@ -159,7 +159,7 @@ When you use a 3rd party distributed tracing system, you normally configure it t
 
 For more accurate RED metrics, you can disable the 3rd party sampling, and choose one of the following options instead:
 
-* Set up [sampling through the Wavefront proxy](trace_data_sampling.html#setting-up-explicit-sampling-through-the-proxy). You need proxy version 4.36 or later.
+* Set up [sampling through the Wavefront proxy](trace_data_sampling.html#setting-up-explicit-sampling-through-the-proxy).
 * [Swap in a Wavefront Tracer](#swap-in-a-wavefront-tracer) and configure it to perform sampling.
 
 The Wavefront proxy or Wavefront Tracer will auto-derive the RED metrics first, and then perform the sampling.
