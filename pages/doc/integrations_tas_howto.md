@@ -391,14 +391,14 @@ and for Azure, you will want the Azure Load Balancer name.
 1. Enter the `Resource Configuration` tab for that tas2to tile in your Opsman config.
 2. In the left column, click **Wavefront Proxy Configuration**.
 3. Enter `http:${load_balancer_name}`,
-   where load_balancer_name is the load balancer or backend service name from the initial setup.
+   where `load_balancer_name` is the load balancer or backend service name from the initial setup.
 4. Apply the changes to the tile and wait until the process completes.
 
 #### Configure the tile's telegraf instance to send traffic to the load balancer
 By default,
 the Telegraf instance inside the tile will still use BOSH dns.
-If you want Telegraf's requests to the Proxy to go through the load balancer,
-you will also need to configure this.
+If you want the Telegraf requests to the Wavefront proxy to go through the load balancer,
+you must configure this.
 1. Click the **Telegraf Agent Config** tab for the tile.
 2. Under **Advanced Options**, click **Yes**.
 3. In the **Custom Proxy URL** and **Custom Proxy Port** fields, enter the URL and port number for your load balancer.
