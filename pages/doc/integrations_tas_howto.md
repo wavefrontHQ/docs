@@ -380,12 +380,11 @@ You can see a detailed example across two sections of the TAS for VMs documentat
    [this](https://docs.pivotal.io/application-service/3-0/operating/configure-lb.html)
    document for finalizing the configuration of the load balancers in all IAAS.
 
-You will want to adjust the naming in these docs to suit a wavefront proxy.
-The portions of these docs that detail interactions with Ops Manager can be ignored,
-since we will talk about that in the next section.
-For GCP, record the backend service name of your load balancer,
-for AWS, you will want the actual Elastic Load Balancer name,
-and for Azure, you will want the Azure Load Balancer name.
+You should adjust the naming in these docs to suit a Wavefront proxy.
+You can ignore the portions of these docs that contain information about interactions with Ops Manager, because since we will talk about that in the next section.
+- For GCP, record the backend service name of your load balancer.
+- For AWS, record the actual Elastic Load Balancer name.
+- For Azure, record the Azure Load Balancer name.
 
 ### Configure the tile to use the load balancer for the Wavefront Proxy
 1. Click the **Resource Configuration** tab for the tas2to tile in your Ops Manager configuration.
