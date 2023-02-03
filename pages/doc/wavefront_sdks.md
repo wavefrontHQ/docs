@@ -33,27 +33,6 @@ Tanzu Observability SDKs let you instrument your application to collect and send
 <tbody>
 
 <tr>
-<td markdown="span">[OpenTracing SDK](#sdks-for-collecting-trace-data)</td>
-<td align="justify">Implements the OpenTracing specification. Lets you define, collect, and report custom trace data from any part of your application code. <br>Automatically derives RED metrics from the reported spans. </td>
-<td>
-  <ul>
-    <li>
-      <b>Java</b>: <a href ="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java">OpenTracing SDK</a> <b>|</b> <a href ="https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java">Tracing Agent</a>
-    </li>
-    <li>
-      <b>Python</b>: <a href ="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-python">OpenTracing SDK</a>
-    </li>
-    <li>
-      <b>Go</b>: <a href ="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-go">OpenTracing SDK</a>
-    </li>
-    <li>
-      <b>.Net/C#</b>: <a href ="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp">OpenTracing SDK</a>
-    </li>
-  </ul>
-</td>
-</tr>
-
-<tr>
 <td markdown="span">[Metrics SDK](#sdks-for-collecting-metrics-and-histograms)</td>
 <td align="justify">Implements a standard metrics library. Lets you define, collect, and report custom business metrics, delta counters, and histograms from any part of your application code.   </td>
 <td>
@@ -101,71 +80,6 @@ Tanzu Observability SDKs let you instrument your application to collect and send
 
 </tbody>
 </table>
-
-## SDKs For Collecting Trace Data
-
-We provide SDKs that implement the [OpenTracing](https://www.opentracing.io) specification for creating, sampling, and reporting spans and traces. You use these SDKs to instrument critical areas in your code to send custom trace data:
-* You can use a Wavefront OpenTracing SDK alone, to instrument an entire application.
-* You can use a Wavefront OpenTracing SDK along with a framework SDK, to instrument any functions that are not handled by the instrumented framework.
-
-
-We provide OpenTracing SDKs for:
-<div class="row">
- <div class="col-md-2 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-body">
-            <a href="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java">
-            <img src="/images/icons_svg_java.png" alt="Java logo">
-            </a>
-         </div>
-     </div>
- </div>
- <div class="col-md-2 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-body">
-            <a href="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-python">
-            <img src="/images/icons_svg_phython.png" alt="Python">
-            </a>
-         </div>
-     </div>
- </div>
- <div class="col-md-2 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-body">
-            <a href="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-go">
-            <img src="/images/icons_svg_go.png" alt="Go">
-            </a>
-         </div>
-     </div>
- </div>
- <div class="col-md-2 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-body">
-            <a href="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp">
-            <img src="/images/icons_svg_.net.png" alt="Net">
-            </a>
-         </div>
-     </div>
- </div>
- <div class="col-md-2 col-sm-6">
-        <div class="panel panel-default text-center">
-            <div class="panel-body">
-               <a href="https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java">
-               <img src="/images/icons_svg_java_tracing_agent.png" alt="Java tracing agent">
-               </a>
-            </div>
-        </div>
-    </div>
-  </div>
-
-  {% include tip.html content="If you need application observability, but don't want to instrument code for your Java microservices, use the [Wavefront Java Tracing Agent](https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java). For more information, see [this blog post on the Wavefront Java Tracing Agent](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/wavefront-introduces-java-tracing-agent-delivering-out-of-the-box-application-observability)." %}
-
-A Wavefront OpenTracing SDK derives [RED metrics](trace_data_details.html#red-metrics) from the spans that are sent from the instrumented application. These RED metrics show the request Rate, Errors, and Duration that are obtained from the reported spans. These out-of-the-box metrics are derived from your spans automatically, with no additional configuration or instrumentation on your part. You can view the RED metrics for each service's operations in [predefined charts](tracing_basics.html#visualize-distributed-tracing-data).
-
-Sample use cases:
-* Suppose your application is already instrumented with a 3rd party distributed tracing system. If that 3rd party system is OpenTracing-compliant, you can replace it with the Wavefront OpenTracing SDK in the same language.
-
-* Suppose you have a microservice with a critical backend operation that writes to a proprietary database. Even though you've used a framework-specific SDK to instrument the RESTful APIs of the microservice, you'd like to see if anything is holding up the database write operation. You can use an OpenTracing SDK to instrument the operation so that it adds spans to the microservice's traces.
 
 ## SDKs For Collecting Metrics and Histograms
 
