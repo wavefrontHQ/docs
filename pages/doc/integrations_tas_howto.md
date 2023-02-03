@@ -376,7 +376,7 @@ You can see a detailed example across two sections of the TAS for VMs documentat
    [AWS](https://docs.pivotal.io/ops-manager/3-0/aws/prepare-env-manual.html) and
    [GCP](https://docs.pivotal.io/ops-manager/3-0/gcp/prepare-env-manual.html#loadbalancer),
    but not for Azure.
-2. After initial setup, you can use
+2. After the initial setup, you can use
    [this](https://docs.pivotal.io/application-service/3-0/operating/configure-lb.html)
    document for finalizing the configuration of the load balancers in all IAAS.
 
