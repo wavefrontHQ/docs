@@ -388,7 +388,7 @@ for AWS, you will want the actual Elastic Load Balancer name,
 and for Azure, you will want the Azure Load Balancer name.
 
 ### Configure the tile to use the load balancer for the Wavefront Proxy
-1. Enter the `Resource Configuration` tab for that tas2to tile in your Opsman config.
+1. Click the **Resource Configuration** tab for the tas2to tile in your Ops Manager configuration.
 2. In the left column, click **Wavefront Proxy Configuration**.
 3. Enter `http:${load_balancer_name}`,
    where `load_balancer_name` is the load balancer or backend service name from the initial setup.
