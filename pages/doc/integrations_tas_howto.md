@@ -401,7 +401,8 @@ If you want the Telegraf requests to the Wavefront proxy to go through the load 
 you must configure this.
 1. Click the **Telegraf Agent Config** tab for the tile.
 2. Under **Advanced Options**, click **Yes**.
-3. In the **Custom Proxy URL** and **Custom Proxy Port** fields, enter the URL and port number for your load balancer.
+3. In the **Custom Proxy URL** and **Custom Proxy Port** fields,
+   enter the URL and port number for your load balancer.
 4. Apply the changes to the tile.
 
 
