@@ -346,36 +346,39 @@ Log in to your Wavefront instance (for example, `https://example.wavefront.com`)
 3. Explore one or two dashboards. [Examine Data with Dashboards and Charts](ui_examine_data.html) has an overview and includes a video.
 4. As appropriate, clone any of the existing dashboards to add charts, modify queries, and more. See [Create, Customize, and Optimize Dashboards](ui_dashboards.html) and [Create and Customize Charts](ui_charts.html).
 
-### Optional 1: Use the service broker to send custom application metrics to the wavefront proxy
+### Step 5 (Optional): Use the Service Broker to Send Custom Application Metrics to the Wavefront Proxy
 
-1. In Ops Manager, in the "Wavefront Proxy Config" panel,
-   check the "Enable service broker bindings" checkbox.
-2. To provision a wavefront-proxy service instance:
-   `cf create-service wavefront-proxy standard SERVICE_INSTANCE_NAME`.
-3. To bind apps to the service instance: `cf bind-service APP_NAME SERVICE_INSTANCE_NAME`.
-   If you already have an existing app and want to update its service instance reference from the v3 broker, first unbind it with this command:
-   `cf unbind-service APP_NAME SERVICE_INSTANCE_NAME`.
+1. In Ops Manager, in the **Wavefront Proxy Config** panel,
+   select the **Enable Service Broker Bindings** check box.
+2. To provision a Wavefront proxy service instance,
+   run the command:
+   `cf create-service wavefront-proxy standard SERVICE_INSTANCE_NAME`
+3. To bind apps to the service instance, run the command:
+   `cf bind-service APP_NAME SERVICE_INSTANCE_NAME`
+4. If you already have an existing app and want to update its service instance reference from the v3 broker,
+   first unbind it with this command:
+   `cf unbind-service APP_NAME SERVICE_INSTANCE_NAME`
 
-Notes:
-1. For information about how apps can send metrics to the Wavefront proxy, see the [cloud-foundry-sampleapp](https://github.com/wavefrontHQ/cloud-foundry-sampleapp).
+Note: For information about how apps can send metrics to the Wavefront proxy, see the [cloud-foundry-sampleapp](https://github.com/wavefrontHQ/cloud-foundry-sampleapp).
 
-### Optional 2: Connect multiple proxy instances to an IAAS load balancer
+### Step 5 (Optional): Connect Multiple Proxy Instances to an IAAS Load Balancer
 
 #### Set up the load balancer in your IAAS
-If using multiple Wavefront VMs,
+
+If you use multiple Wavefront VMs,
 you will want to use your IAAS of choice to set up a load balancer.
 BOSH DNS does not provide load balancing,
-so just increasing the VM count by itself will result in one VM taking all the requests.
+so increasing the VM count will result in one VM taking all the requests.
 
-An in depth guide on configuring load balancers in different IAASes is beyond the scope of this document.
+In-depth instructions on configuring load balancers in different IAASes is beyond the scope of this documentation.
 You can see a detailed example across two sections of the TAS for VMs documentation:
-1. Initial setup of load balancers is required in
+1. Initial setup of load balancers is required for
    [AWS](https://docs.pivotal.io/ops-manager/3-0/aws/prepare-env-manual.html) and
    [GCP](https://docs.pivotal.io/ops-manager/3-0/gcp/prepare-env-manual.html#loadbalancer),
    but not for Azure.
-2. After initial setup,
+2. After initial setup, you can use
    [this](https://docs.pivotal.io/application-service/3-0/operating/configure-lb.html)
-   document can be referenced for finalizing the load balancers in all IAAS.
+   document for finalizing the configuration of the load balancers in all IAAS.
 
 You will want to adjust the naming in these docs to suit a wavefront proxy.
 The portions of these docs that detail interactions with Ops Manager can be ignored,
@@ -386,21 +389,20 @@ and for Azure, you will want the Azure Load Balancer name.
 
 #### Configure the tile to use the load balancer for the Wavefront Proxy
 1. Enter the `Resource Configuration` tab for that tas2to tile in your Opsman config.
-2. Click on `Wavefront Proxy Configuration` in the left column.
+2. In the left column, click **Wavefront Proxy Configuration**.
 3. Enter `http:${load_balancer_name}`,
-using the load balancer or backend service name from the initial setup.
-4. Run `Apply Changes` on the tile.
-   You may want to hold off until after the next steps.
+   where load_balancer_name is the load balancer or backend service name from the initial setup.
+4. Apply the changes to the tile and wait until the process completes.
 
 #### Configure the tile's telegraf instance to send traffic to the load balancer
 By default,
 the Telegraf instance inside the tile will still use BOSH dns.
 If you want Telegraf's requests to the Proxy to go through the load balancer,
 you will also need to configure this.
-1. Go to the `Telegraf Agent Config` tab for the tile.
-2. Click on `Yes` under `Advanced Options`.
-3. Enter the URL and Port for your load balancer in the `Custom Proxy URL` and `Custom Proxy Port` fields.
-4. Run `Apply Changes` on the tile.
+1. Click the **Telegraf Agent Config** tab for the tile.
+2. Under **Advanced Options**, click **Yes**.
+3. In the **Custom Proxy URL** and **Custom Proxy Port** fields, enter the URL and port number for your load balancer.
+4. Apply the changes to the tile.
 
 
 ## Learn More!
