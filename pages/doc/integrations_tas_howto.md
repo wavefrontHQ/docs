@@ -363,7 +363,7 @@ Note: For information about how apps can send metrics to the Wavefront proxy, se
 
 ### Step 5 (Optional): Connect Multiple Proxy Instances to an IAAS Load Balancer
 
-#### Set up the load balancer in your IAAS
+### Set up the load balancer in your IAAS
 
 If you use multiple Wavefront VMs,
 you will want to use your IAAS of choice to set up a load balancer.
@@ -387,14 +387,14 @@ For GCP, record the backend service name of your load balancer,
 for AWS, you will want the actual Elastic Load Balancer name,
 and for Azure, you will want the Azure Load Balancer name.
 
-#### Configure the tile to use the load balancer for the Wavefront Proxy
+### Configure the tile to use the load balancer for the Wavefront Proxy
 1. Enter the `Resource Configuration` tab for that tas2to tile in your Opsman config.
 2. In the left column, click **Wavefront Proxy Configuration**.
 3. Enter `http:${load_balancer_name}`,
    where `load_balancer_name` is the load balancer or backend service name from the initial setup.
 4. Apply the changes to the tile and wait until the process completes.
 
-#### Configure the tile's telegraf instance to send traffic to the load balancer
+### Configure the tile's telegraf instance to send traffic to the load balancer
 By default,
 the Telegraf instance inside the tile will still use BOSH dns.
 If you want the Telegraf requests to the Wavefront proxy to go through the load balancer,
