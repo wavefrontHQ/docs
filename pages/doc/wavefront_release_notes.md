@@ -32,6 +32,13 @@ As a Super Admin user, you can now <a href="users_account_managing.html#enable-o
 </td>
 <td width="50%"><img src="/images/super_admin_mode.png" alt="A screenshot of the drop-down menu with the Super Admin Mode toggle."></td>
 </tr>
+<tr>
+<td width="50%">
+<strong>Performance Statistics Improvements:</strong><p>
+The median and maximum thresholds in the <a href="query_language_performance.html#use-performance-statistics">chart and query statistics</a> are now dynamic. We calculate the median and maximum thresholds based on the overall statistics for all queries in your instance for the selected time window.</p>
+</td>
+<td width="50%"><img src="/images/performance_statistics.png" alt="A screenshot of a chart statistics window."></td>
+</tr>
 </tbody>
 </table>
 
