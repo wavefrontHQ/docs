@@ -16,31 +16,34 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 ## 2023-05.x Release Notes
 
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="50%">
-<strong>Visibility on the Users with the Accounts Permission:</strong><p>
-If you don't have the <strong>Accounts</strong> permission, for updates to your groups, roles, or permissions, you can now see a contact list of the users with the <strong>Accounts</strong> permission at the bottom of the <a href="users_account_managing.html#examine-groups-roles-and-permissions"><strong>Groups, Roles & Permissions</strong></a> page.</p>
-</td>
-<td width="50%"><img src="images/Accounts_users.png" alt="a screenshot with the link at the bottom of the Groups, Roles & Permissions page"></td>
-</tr>
-<tr>
-<td width="50%">
-<strong>New Super Admin Mode:</strong><p>
-As a Super Admin user, you can now <a href="users_account_managing.html#enable-or-disable-super-admin-mode">enable Super Admin mode</a> temporarily until you complete your current Super Admin tasks. After that, to avoid making unintentional changes in the system, disable Super Admin mode.</p>
-</td>
-<td width="50%"><img src="/images/super_admin_mode.png" alt="A screenshot of the drop-down menu with the Super Admin Mode toggle."></td>
-</tr>
-<tr>
-<td width="50%">
-<strong>Performance Statistics Improvements:</strong><p>
-The median and maximum thresholds in the <a href="query_language_performance.html#use-performance-statistics">chart and query statistics</a> are now dynamic. We calculate the median and maximum thresholds based on the overall statistics for all queries in your instance for the selected time window.</p>
-</td>
-<td width="50%"><img src="/images/performance_statistics.png" alt="A screenshot of a chart statistics window."></td>
-</tr>
-</tbody>
-</table>
+* **Visibility on the Users with the Accounts Permission:**
+  <table style="width: 100%;">
+  <tbody>
+  <tr>
+  <td width="50%">
+  If you don't have the <strong>Accounts</strong> permission, for updates to your groups, roles, or permissions, you can now see a contact list of the users with the <strong>Accounts</strong> permission at the bottom of the <a href="users_account_managing.html#examine-groups-roles-and-permissions"><strong>Groups, Roles & Permissions</strong></a> page.
+  </td>
+  <td width="50%"><img src="images/Accounts_users.png" alt="a screenshot with the link at the bottom of the Groups, Roles & Permissions page"></td>
+  </tr>
+  </tbody>
+  </table>
+
+* **New Super Admin Mode:**
+  <table style="width: 100%;">
+  <tbody>
+  <tr>
+  <td width="50%">
+  As a Super Admin user, you can now <a href="users_account_managing.html#enable-or-disable-super-admin-mode">enable Super Admin mode</a> temporarily until you complete your current Super Admin tasks. After that, to avoid making unintentional changes in the system, disable Super Admin mode.
+  </td>
+  <td width="50%"><img src="/images/super_admin_mode.png" alt="A screenshot of the drop-down menu with the Super Admin Mode toggle."></td>
+  </tr>
+  </tbody>
+  </table>
+* **Performance Statistics Improvements:** The median and maximum thresholds in the [chart and query statistics](query_language_performance.html#use-performance-statistics) are now dynamic. We calculate the median and maximum thresholds based on the overall statistics for all queries in your instance for the selected time window.
+* **Integrations:** We had an integrations release in January! We made a lot of bug fixes and significant improvements to a number of integrations. See the [Integrations Release Notes](integrations_new_changed.html#january-2023) for details.
+
+
+
 
 ## 2023-04.x Release Notes
 
