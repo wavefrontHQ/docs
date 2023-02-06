@@ -72,7 +72,7 @@
             <div class="choose-path-card-title">Code</div>
             <div class="choose-path-card-links">
                 <a href="wavefront_springboot.html">Spring Boot</a>
-                <a href="opentelemetry_tracing.html">OpenTelemetry</a>
+                <a href="opentelemetry_overview.html">OpenTelemetry</a>
                 <a href="wavefront_api.html">REST API Doc</a>
             </div>
         </div>

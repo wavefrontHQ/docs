@@ -7,7 +7,7 @@ permalink: tracing_basics.html
 summary: Collect and visualize trace data from your applications.
 ---
 
-Distributed tracing enables you to track the flow of work that is performed by an application as it processes a request. This visibility can help you find errors and performance problems in your code
+Distributed tracing enables you to track the flow of work that is performed by an application as it processes a request. This can help you find errors and performance problems in your code.
 
 In an application that consists of multiple services, an incoming request typically starts a chain of requests that are propagated from one service to the next.  Distributed tracing gives you end-to-end visibility into that chain across services, even when those services are running in different environments.
 
@@ -83,7 +83,7 @@ You can export traces you view in the Traces Browser, save them locally as JSON 
 
 ![Shows how the offline traces look once you upload the JSOn file that has the imported trace details.](images/tracing_offline_tracing_view.png)
 
-### Create a Sampling policy
+### Create a Sampling Policy
 
 Our intelligent sampling algorithm reduces the volume of ingested traces. The goals of intelligent sampling are to retain traces that are likely to be informative. But sometimes intelligent sampling discards traces that you want to keep. You can [create a sampling policy](trace_sampling_policies.html) to fine-tune intelligent sampling and let the Wavefront service know that you want to keep certain spans.
 

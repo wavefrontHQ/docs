@@ -106,7 +106,7 @@ The Wavefront service uses these names as span tag values, as filters for traces
 
 ### Best Practices for Wavefront Observability SDKs
 
-* Set up an [Application tags object](trace_data_details.html#application-tags) in each service to define logical names for the application constructs. Specify the logical application and service names that apply to the service. Optionally include logical cluster and shard names, if you want to use the physical topology to filter your data.
+* Set up an [Application tags object](trace_data_details.html#application-tags) in each service to define logical names for the application constructs. Specify the logical application and service names that apply to the service. Optionally, if you want to use the physical topology to filter your data, include logical cluster and shard names.
 
    **Java example:** Instantiate `ApplicationTags` for the `delivery` service
 
