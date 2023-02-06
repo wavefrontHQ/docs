@@ -24,7 +24,7 @@
      showgrid="false"
      inkscape:zoom="1.1834452"
      inkscape:cx="457.13988"
-     inkscape:cy="29.997164"
+     inkscape:cy="30.842155"
      inkscape:window-width="2400"
      inkscape:window-height="1261"
      inkscape:window-x="2391"
@@ -47,24 +47,21 @@
        style="stroke-width:0.999999" />
     <g
        id="template"
-       transform="translate(83.398865,95.228733)">
-</g>
+       transform="translate(83.398865,95.228733)" />
     <g
        id="Layer_3"
-       transform="matrix(2.3379017,0,0,2.2440139,2.5841204,2.7240072)">
-	<path
-   class="st2"
-   d="m 22.1,21.1 c 0,0.7 -0.4,1.3 -1.2,1.3 -0.8,0 -1.1,-0.6 -1.1,-1.3 v -3.7 c 0,-0.7 -0.5,-1.2 -1.2,-1.2 -0.7,0 -1.2,0.5 -1.2,1.2 v 3.7 c 0,0.7 -0.4,1.3 -1.2,1.3 -0.8,0 -1.1,-0.6 -1.1,-1.3 v -3.7 c 0,-0.7 -0.5,-1.2 -1.2,-1.2 -0.7,0 -1.2,0.5 -1.2,1.2 v 3.7 c 0,0.7 -0.4,1.3 -1.2,1.3 -0.8,0 -1.1,-0.6 -1.1,-1.3 v -4.6 c 0,-0.2 -0.2,-0.3 -0.3,-0.3 -0.2,0 -0.3,0.1 -0.3,0.2 0,0 -2.2,4.7 -2.2,4.7 C 7.2,21.9 6.9,22.4 6,22.4 5.2,22.4 4.8,22 4.4,21.1 L 2,15.8 C 1.7,15.2 2,14.6 2.5,14.3 3.1,14 3.7,14.3 4,14.8 l 2,4.8 1.6,-3.7 c 0.5,-1.2 1.4,-1.7 2.5,-1.7 0.7,0 1.6,0.4 2.1,1 0,0 1.1,-1 2.3,-1 1.2,0 1.9,0.4 2.4,1 0,0 0.9,-1 2.5,-1 1.5,0 2.8,1.1 2.8,2.7 v 4.2 z M 34,16 32,21.6 c -0.2,0.7 -0.7,1 -1.2,1 h -0.1 c -0.5,0 -1,-0.3 -1.2,-0.9 L 28.3,17.8 27,21.6 c -0.2,0.6 -0.7,0.9 -1.2,0.9 h -0.1 c -0.5,0 -1,-0.3 -1.2,-1 L 22.6,16 c 0,-0.1 -0.1,-0.4 -0.1,-0.5 0,-0.5 0.4,-1 1.1,-1 0.6,0 0.9,0.4 1.1,0.9 l 1.2,4 1.2,-4 c 0.2,-0.5 0.6,-0.9 1.1,-0.9 h 0.1 c 0.6,0 1,0.4 1.1,0.9 l 1.2,4 1.2,-4 c 0.1,-0.5 0.5,-0.8 1.1,-0.8 0.6,0 1,0.5 1,1 0.1,0.1 0.1,0.3 0.1,0.4 z"
-   id="path899"
-   style="fill:#ffffff" />
-
-	<path
-   class="st3"
-   d="M 33,0 H 3 C 1.3,0 0,1.3 0,3 v 30 c 0,1.7 1.3,3 3,3 h 30 c 1.7,0 3,-1.3 3,-3 V 3 C 36,1.3 34.7,0 33,0 Z M 22.1,21.1 c 0,0.7 -0.4,1.3 -1.2,1.3 -0.8,0 -1.1,-0.6 -1.1,-1.3 v -3.7 c 0,-0.7 -0.5,-1.2 -1.2,-1.2 -0.7,0 -1.2,0.5 -1.2,1.2 v 3.7 c 0,0.7 -0.4,1.3 -1.2,1.3 -0.8,0 -1.1,-0.6 -1.1,-1.3 v -3.7 c 0,-0.7 -0.5,-1.2 -1.2,-1.2 -0.7,0 -1.2,0.5 -1.2,1.2 v 3.7 c 0,0.7 -0.4,1.3 -1.2,1.3 -0.8,0 -1.1,-0.6 -1.1,-1.3 v -4.6 c 0,-0.2 -0.2,-0.3 -0.3,-0.3 -0.2,0 -0.3,0.1 -0.3,0.2 0,0 -2.2,4.7 -2.2,4.7 C 7.2,21.9 6.9,22.4 6,22.4 5.2,22.4 4.8,22 4.4,21.1 L 2,15.8 C 1.7,15.2 2,14.6 2.5,14.3 3.1,14 3.7,14.3 4,14.8 l 2,4.8 1.6,-3.7 c 0.5,-1.2 1.4,-1.7 2.5,-1.7 0.7,0 1.6,0.4 2.1,1 0,0 1.1,-1 2.3,-1 1.2,0 1.9,0.4 2.4,1 0,0 0.9,-1 2.5,-1 1.5,0 2.8,1.1 2.8,2.7 v 4.2 z M 34,16 32,21.6 c -0.2,0.7 -0.7,1 -1.2,1 h -0.1 c -0.5,0 -1,-0.3 -1.2,-0.9 L 28.3,17.8 27,21.6 c -0.2,0.6 -0.7,0.9 -1.2,0.9 h -0.1 c -0.5,0 -1,-0.3 -1.2,-1 L 22.6,16 c 0,-0.1 -0.1,-0.4 -0.1,-0.5 0,-0.5 0.4,-1 1.1,-1 0.6,0 0.9,0.4 1.1,0.9 l 1.2,4 1.2,-4 c 0.2,-0.5 0.6,-0.9 1.1,-0.9 h 0.1 c 0.6,0 1,0.4 1.1,0.9 l 1.2,4 1.2,-4 c 0.1,-0.5 0.5,-0.8 1.1,-0.8 0.6,0 1,0.5 1,1 0.1,0.1 0.1,0.3 0.1,0.4 z"
-   id="path901"
-   style="opacity:0.15;fill:#ffffff" />
-
-</g>
+       transform="matrix(2.2222222,0,0,2.2222222,2.5841204,2.7240072)">
+      <path
+         class="st2"
+         d="m 22.1,21.1 c 0,0.7 -0.4,1.3 -1.2,1.3 -0.8,0 -1.1,-0.6 -1.1,-1.3 v -3.7 c 0,-0.7 -0.5,-1.2 -1.2,-1.2 -0.7,0 -1.2,0.5 -1.2,1.2 v 3.7 c 0,0.7 -0.4,1.3 -1.2,1.3 -0.8,0 -1.1,-0.6 -1.1,-1.3 v -3.7 c 0,-0.7 -0.5,-1.2 -1.2,-1.2 -0.7,0 -1.2,0.5 -1.2,1.2 v 3.7 c 0,0.7 -0.4,1.3 -1.2,1.3 -0.8,0 -1.1,-0.6 -1.1,-1.3 v -4.6 c 0,-0.2 -0.2,-0.3 -0.3,-0.3 -0.2,0 -0.3,0.1 -0.3,0.2 0,0 -2.2,4.7 -2.2,4.7 C 7.2,21.9 6.9,22.4 6,22.4 5.2,22.4 4.8,22 4.4,21.1 L 2,15.8 C 1.7,15.2 2,14.6 2.5,14.3 3.1,14 3.7,14.3 4,14.8 l 2,4.8 1.6,-3.7 c 0.5,-1.2 1.4,-1.7 2.5,-1.7 0.7,0 1.6,0.4 2.1,1 0,0 1.1,-1 2.3,-1 1.2,0 1.9,0.4 2.4,1 0,0 0.9,-1 2.5,-1 1.5,0 2.8,1.1 2.8,2.7 v 4.2 z M 34,16 32,21.6 c -0.2,0.7 -0.7,1 -1.2,1 h -0.1 c -0.5,0 -1,-0.3 -1.2,-0.9 L 28.3,17.8 27,21.6 c -0.2,0.6 -0.7,0.9 -1.2,0.9 h -0.1 c -0.5,0 -1,-0.3 -1.2,-1 L 22.6,16 c 0,-0.1 -0.1,-0.4 -0.1,-0.5 0,-0.5 0.4,-1 1.1,-1 0.6,0 0.9,0.4 1.1,0.9 l 1.2,4 1.2,-4 c 0.2,-0.5 0.6,-0.9 1.1,-0.9 h 0.1 c 0.6,0 1,0.4 1.1,0.9 l 1.2,4 1.2,-4 c 0.1,-0.5 0.5,-0.8 1.1,-0.8 0.6,0 1,0.5 1,1 0.1,0.1 0.1,0.3 0.1,0.4 z"
+         id="path899"
+         style="fill:#ffffff" />
+      <path
+         class="st3"
+         d="M 33,0 H 3 C 1.3,0 0,1.3 0,3 v 30 c 0,1.7 1.3,3 3,3 h 30 c 1.7,0 3,-1.3 3,-3 V 3 C 36,1.3 34.7,0 33,0 Z M 22.1,21.1 c 0,0.7 -0.4,1.3 -1.2,1.3 -0.8,0 -1.1,-0.6 -1.1,-1.3 v -3.7 c 0,-0.7 -0.5,-1.2 -1.2,-1.2 -0.7,0 -1.2,0.5 -1.2,1.2 v 3.7 c 0,0.7 -0.4,1.3 -1.2,1.3 -0.8,0 -1.1,-0.6 -1.1,-1.3 v -3.7 c 0,-0.7 -0.5,-1.2 -1.2,-1.2 -0.7,0 -1.2,0.5 -1.2,1.2 v 3.7 c 0,0.7 -0.4,1.3 -1.2,1.3 -0.8,0 -1.1,-0.6 -1.1,-1.3 v -4.6 c 0,-0.2 -0.2,-0.3 -0.3,-0.3 -0.2,0 -0.3,0.1 -0.3,0.2 0,0 -2.2,4.7 -2.2,4.7 C 7.2,21.9 6.9,22.4 6,22.4 5.2,22.4 4.8,22 4.4,21.1 L 2,15.8 C 1.7,15.2 2,14.6 2.5,14.3 3.1,14 3.7,14.3 4,14.8 l 2,4.8 1.6,-3.7 c 0.5,-1.2 1.4,-1.7 2.5,-1.7 0.7,0 1.6,0.4 2.1,1 0,0 1.1,-1 2.3,-1 1.2,0 1.9,0.4 2.4,1 0,0 0.9,-1 2.5,-1 1.5,0 2.8,1.1 2.8,2.7 v 4.2 z M 34,16 32,21.6 c -0.2,0.7 -0.7,1 -1.2,1 h -0.1 c -0.5,0 -1,-0.3 -1.2,-0.9 L 28.3,17.8 27,21.6 c -0.2,0.6 -0.7,0.9 -1.2,0.9 h -0.1 c -0.5,0 -1,-0.3 -1.2,-1 L 22.6,16 c 0,-0.1 -0.1,-0.4 -0.1,-0.5 0,-0.5 0.4,-1 1.1,-1 0.6,0 0.9,0.4 1.1,0.9 l 1.2,4 1.2,-4 c 0.2,-0.5 0.6,-0.9 1.1,-0.9 h 0.1 c 0.6,0 1,0.4 1.1,0.9 l 1.2,4 1.2,-4 c 0.1,-0.5 0.5,-0.8 1.1,-0.8 0.6,0 1,0.5 1,1 0.1,0.1 0.1,0.3 0.1,0.4 z"
+         id="path901"
+         style="opacity:0.15;fill:#ffffff" />
+    </g>
     <text
        xml:space="preserve"
        style="font-size:24px;line-height:1.25;font-family:Metropolis;-inkscape-font-specification:'Metropolis, Normal';font-variant-ligatures:none;text-decoration-color:#000000;fill:#ffffff;fill-opacity:1;-inkscape-stroke:none;stop-color:#000000"
@@ -87,28 +84,28 @@
     <text
        xml:space="preserve"
        style="font-size:24px;line-height:1.25;font-family:Metropolis;-inkscape-font-specification:'Metropolis, Normal';font-variant-ligatures:none;text-decoration-color:#000000;fill:#ffffff;fill-opacity:1;-inkscape-stroke:none;stop-color:#000000"
-       x="104.2701"
+       x="110.2701"
        y="30.320162"
        id="text53732"><tspan
          sodipodi:role="line"
-         x="104.2701"
+         x="110.2701"
          y="30.320162"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;font-family:Metropolis;-inkscape-font-specification:'Metropolis, Normal';font-variant-ligatures:none;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1"
          id="tspan6750">VMware Aria </tspan><tspan
          sodipodi:role="line"
-         x="104.2701"
+         x="110.2701"
          y="70.32016"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:32px;font-family:Metropolis;-inkscape-font-specification:'Metropolis, Normal';font-variant-ligatures:none;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1"
          id="tspan949"><tspan
    style="font-weight:normal"
    id="tspan285">Operations for Applications</tspan>  </tspan><tspan
          sodipodi:role="line"
-         x="104.2701"
+         x="110.2701"
          y="110.32016"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:32px;font-family:Metropolis;-inkscape-font-specification:'Metropolis, Normal';font-variant-ligatures:none;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1"
          id="tspan947" /><tspan
          sodipodi:role="line"
-         x="104.2701"
+         x="110.2701"
          y="142.96016"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:32px;font-family:Metropolis;-inkscape-font-specification:'Metropolis, Normal';font-variant-ligatures:none;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1"
          id="tspan5560" /></text>
@@ -122,15 +119,15 @@
     <text
        xml:space="preserve"
        id="text287"
-       style="fill:#ffffff;-inkscape-font-specification:'Metropolis Bold';font-family:Metropolis;font-weight:bold;font-size:8px;white-space:pre;shape-inside:url(#rect289)" />
+       style="font-weight:bold;font-size:8px;font-family:Metropolis;-inkscape-font-specification:'Metropolis Bold';white-space:pre;shape-inside:url(#rect289);display:inline;fill:#ffffff" />
     <text
        xml:space="preserve"
        id="text293"
-       style="fill:#ffffff;-inkscape-font-specification:'Metropolis Bold';font-family:Metropolis;font-weight:bold;font-size:8px;white-space:pre;shape-inside:url(#rect295)" />
+       style="font-weight:bold;font-size:8px;font-family:Metropolis;-inkscape-font-specification:'Metropolis Bold';white-space:pre;shape-inside:url(#rect295);display:inline;fill:#ffffff" />
     <text
        xml:space="preserve"
        id="text299"
-       style="fill:#ffffff;-inkscape-font-specification:'Metropolis Bold';font-family:Metropolis;font-weight:bold;font-size:8px;white-space:pre;shape-inside:url(#rect301)" />
+       style="font-weight:bold;font-size:8px;font-family:Metropolis;-inkscape-font-specification:'Metropolis Bold';white-space:pre;shape-inside:url(#rect301);display:inline;fill:#ffffff" />
   </g>
   <defs
      id="defs20004">
