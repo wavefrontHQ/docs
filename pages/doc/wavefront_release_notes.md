@@ -13,6 +13,34 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+
+## 2023-05.x Release Notes
+
+* **See Who Has the Accounts Permission:**
+  <table style="width: 100%;">
+  <tbody>
+  <tr>
+  <td width="50%">
+  If you need changes in your groups, roles, or permissions, but you don't have the <strong>Accounts</strong> permission, you must contact a user with this permission or your Super Admin. You can now see the contact list of the users with the <strong>Accounts</strong> permission at the bottom of the <a href="users_account_managing.html#examine-groups-roles-and-permissions"><strong>Groups, Roles & Permissions</strong></a> page.
+  </td>
+  <td width="50%"><img src="images/Accounts_users.png" alt="a screenshot with the link at the bottom of the Groups, Roles & Permissions page"></td>
+  </tr>
+  </tbody>
+  </table>
+
+* **New Super Admin Mode:**
+  <table style="width: 100%;">
+  <tbody>
+  <tr>
+  <td width="50%">
+  If you are a Super Admin, the Super Admin mode lets you turn on and off your own Super Admin role. <a href="users_account_managing.html#enable-or-disable-super-admin-mode">Enable Super Admin mode</a> temporarily until you complete your Super Admin tasks. After that, to avoid making unintentional changes in the system, disable Super Admin mode.
+  </td>
+  <td width="50%"><img src="/images/super_admin_mode.png" alt="A screenshot of the drop-down menu with the Super Admin Mode toggle."></td>
+  </tr>
+  </tbody>
+  </table>
+* **Integrations:** We had an integrations release in January! We made a lot of bug fixes and significant improvements to a number of integrations. See the [Integrations Release Notes](integrations_new_changed.html#january-2023) for details.
+
 ## 2023-04.x Release Notes
 
 * **OpenTelemetry**: OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/).) To send trace data to Tanzu Observability, use OpenTelemetry.
