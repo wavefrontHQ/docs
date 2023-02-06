@@ -28,7 +28,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
   </tbody>
   </table>
 
-* **New Super Admin Mode:**
+* **Super Admin Mode:**
   <table style="width: 100%;">
   <tbody>
   <tr>
