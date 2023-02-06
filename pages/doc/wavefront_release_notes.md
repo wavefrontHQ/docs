@@ -16,12 +16,12 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 ## 2023-05.x Release Notes
 
-* **Visibility on the Users with the Accounts Permission:**
+* **See Who Has the Accounts Permission:**
   <table style="width: 100%;">
   <tbody>
   <tr>
   <td width="50%">
-  If you don't have the <strong>Accounts</strong> permission, for updates to your groups, roles, or permissions, you can now see a contact list of the users with the <strong>Accounts</strong> permission at the bottom of the <a href="users_account_managing.html#examine-groups-roles-and-permissions"><strong>Groups, Roles & Permissions</strong></a> page.
+  If you need changes in your groups, roles, or permissions, but you don't have the <strong>Accounts</strong> permission, you must contact a user with this permission or your Super Admin. You can now see the contact list of the users with the <strong>Accounts</strong> permission at the bottom of the <a href="users_account_managing.html#examine-groups-roles-and-permissions"><strong>Groups, Roles & Permissions</strong></a> page.
   </td>
   <td width="50%"><img src="images/Accounts_users.png" alt="a screenshot with the link at the bottom of the Groups, Roles & Permissions page"></td>
   </tr>
@@ -33,7 +33,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
   <tbody>
   <tr>
   <td width="50%">
-  As a Super Admin user, you can now <a href="users_account_managing.html#enable-or-disable-super-admin-mode">enable Super Admin mode</a> temporarily until you complete your current Super Admin tasks. After that, to avoid making unintentional changes in the system, disable Super Admin mode.
+  If you are a Super Admin, the Super Admin mode lets you turn on and off your own Super Admin role. <a href="users_account_managing.html#enable-or-disable-super-admin-mode">Enable Super Admin mode</a> temporarily until you complete your Super Admin tasks. After that, to avoid making unintentional changes in the system, disable Super Admin mode.
   </td>
   <td width="50%"><img src="/images/super_admin_mode.png" alt="A screenshot of the drop-down menu with the Super Admin Mode toggle."></td>
   </tr>
