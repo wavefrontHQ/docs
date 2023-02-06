@@ -39,11 +39,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
   </tr>
   </tbody>
   </table>
-* **Performance Statistics Improvements:** The median and maximum thresholds in the [chart and query statistics](query_language_performance.html#use-performance-statistics) are now dynamic. We calculate the median and maximum thresholds based on the overall statistics for all queries in your instance for the selected time window.
 * **Integrations:** We had an integrations release in January! We made a lot of bug fixes and significant improvements to a number of integrations. See the [Integrations Release Notes](integrations_new_changed.html#january-2023) for details.
-
-
-
 
 ## 2023-04.x Release Notes
 
