@@ -361,7 +361,7 @@ Log in to your Wavefront instance (for example, `https://example.wavefront.com`)
 
 Note: For information about how apps can send metrics to the Wavefront proxy, see the [cloud-foundry-sampleapp](https://github.com/wavefrontHQ/cloud-foundry-sampleapp).
 
-### Step 5 (Optional): Connect Multiple Proxy Instances to an IAAS Load Balancer
+### Step 6 (Optional): Connect Multiple Proxy Instances to an IAAS Load Balancer
 
 ### Set up the load balancer in your IAAS
 
@@ -380,8 +380,8 @@ You can see a detailed example across two sections of the TAS for VMs documentat
    [this](https://docs.pivotal.io/application-service/3-0/operating/configure-lb.html)
    document for finalizing the configuration of the load balancers in all IAAS.
 
-You should adjust the naming in these docs to suit a Wavefront proxy.
-You can ignore the portions of these docs that contain information about interactions with Ops Manager, because since we will talk about that in the next section.
+Replace the example names for the load balancers from the documentation with names that suit a Wavefront proxy.
+You can ignore the portions of these docs that contain information about interactions with Ops Manager, because we will talk about that in the next section.
 - For GCP, record the backend service name of your load balancer.
 - For AWS, record the actual Elastic Load Balancer name.
 - For Azure, record the Azure Load Balancer name.
@@ -395,7 +395,7 @@ You can ignore the portions of these docs that contain information about interac
 
 ### Configure the tile's telegraf instance to send traffic to the load balancer
 By default,
-the Telegraf instance inside the tile will still use BOSH dns.
+the Telegraf instance inside the tile will still use BOSH DNS.
 If you want the Telegraf requests to the Wavefront proxy to go through the load balancer,
 you must configure this.
 1. Click the **Telegraf Agent Config** tab for the tile.
