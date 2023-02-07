@@ -21,7 +21,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
   <tbody>
   <tr>
   <td width="50%">
-  If you need changes in your groups, roles, or permissions, but you don't have the <strong>Accounts</strong> permission, you must contact a user with this permission or your Super Admin. You can now see the contact list of the users with the <strong>Accounts</strong> permission at the bottom of the <a href="users_account_managing.html#examine-groups-roles-and-permissions"><strong>Groups, Roles & Permissions</strong></a> page.
+  Users with the <strong>Accounts</strong> permission can manage users, roles, and permissions. If you need changes in your groups, roles, or permissions, but you don't have the <strong>Accounts</strong> permission, you can now see the contact details of the users with this permission at the bottom of the <a href="users_account_managing.html#examine-groups-roles-and-permissions"><strong>Groups, Roles & Permissions</strong></a> page.
   </td>
   <td width="50%"><img src="images/Accounts_users.png" alt="a screenshot with the link at the bottom of the Groups, Roles & Permissions page"></td>
   </tr>
@@ -33,13 +33,13 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
   <tbody>
   <tr>
   <td width="50%">
-  If you are a Super Admin, the Super Admin mode lets you turn on and off your own Super Admin role. <a href="users_account_managing.html#enable-or-disable-super-admin-mode">Enable Super Admin mode</a> temporarily until you complete your Super Admin tasks. After that, to avoid making unintentional changes in the system, disable Super Admin mode.
+  If you are a Super Admin, the Super Admin mode lets you turn on and off your own Super Admin privileges. You can <a href="users_account_managing.html#enable-or-disable-super-admin-mode">enable Super Admin mode</a> until you complete your Super Admin tasks. After that, to avoid making unintentional changes in the system, disable Super Admin mode.
   </td>
   <td width="50%"><img src="/images/super_admin_mode.png" alt="A screenshot of the drop-down menu with the Super Admin Mode toggle."></td>
   </tr>
   </tbody>
   </table>
-* **Integrations:** We had an integrations release in January! We made a lot of bug fixes and significant improvements to a number of integrations. See the [Integrations Release Notes](integrations_new_changed.html#january-2023) for details.
+* **Integrations:** We had an integrations release in January! We made a lot of bug fixes and significant improvements to several integrations. See the [Integrations Release Notes](integrations_new_changed.html#january-2023) for details.
 
 ## 2023-04.x Release Notes
 
