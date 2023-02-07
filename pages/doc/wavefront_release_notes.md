@@ -72,9 +72,9 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
   * Hide and show details for all alert targets or for a specific alert target.
   * Sort alert targets either by the last updated date or by target name.
-  * Hide and show the filters listed on the left.-->
+  * Hide and show the filters listed on the left.
 
-  For more details, see [View Alert Targets](webhooks_alert_notification.html#view-custom-alert-targets).
+  For more details, see [View Alert Targets](webhooks_alert_notification.html#view-custom-alert-targets).-->
 
 ## Past Release Notes
 
