@@ -14,7 +14,6 @@ Here's a <a href="https://vmwaretv.vmware.com/media/t/1_0rwkfemd" target="_blank
 <iframe id="kmsembed-1_0rwkfemd" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_0rwkfemd/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Task-based video shows many different search options"></iframe>
 </p>
 
-
 ## Using Tags to Facilitate Searches
 
 Tags allow you to flexibly manage and organize what you see in dashboards, charts, browsers, and other UI elements.
