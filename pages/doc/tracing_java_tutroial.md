@@ -1,5 +1,5 @@
 ---
-title: Tutorial For Instrumenting an OpenTracing Java Application
+title: (Archived) Tutorial For Instrumenting an OpenTracing Java Application
 keywords: tracing tutorial
 tags: [tracing, tutorials]
 sidebar: doc_sidebar

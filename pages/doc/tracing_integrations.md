@@ -1,11 +1,13 @@
 ---
-title: Using Jaeger or Zipkin with Tanzu Observability
+title: (Archived) Using Jaeger or Zipkin with Tanzu Observability
 keywords: data, distributed tracing, OpenTelemetry
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: tracing_integrations.html
 summary: Learn how to send trace data from Jaeger or Zipkin to Tanzu Observability by Wavefront.
 ---
+
+{% include important.html content="OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/).) To send trace data to Tanzu observability, use OpenTelemetry."%}
 
 You can collect traces  with Jaeger or Zipkin and send the trace data to Tanzu Observability by Wavefront, which:
 * Provides managed, highly scalable storage for your trace data.

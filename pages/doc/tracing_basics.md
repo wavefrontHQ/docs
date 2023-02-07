@@ -7,7 +7,7 @@ permalink: tracing_basics.html
 summary: Collect and visualize trace data from your applications.
 ---
 
-Distributed tracing enables you to track the flow of work that is performed by an application as it processes a request. This visibility can help you find errors and performance problems in your code. Tanzu Observability by Wavefront supports OpenTracing and OpenTelemetry for tracing.
+Distributed tracing enables you to track the flow of work that is performed by an application as it processes a request. This can help you find errors and performance problems in your code.
 
 In an application that consists of multiple services, an incoming request typically starts a chain of requests that are propagated from one service to the next.  Distributed tracing gives you end-to-end visibility into that chain across services, even when those services are running in different environments.
 
@@ -33,9 +33,7 @@ Watch these videos to listen to our Co-founder Clement Pang introduce distribute
 
 ## Instrument Your Application
 
-[OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/) and OpenTracing will be deprecated soon.
-
-### OpenTelemetry
+OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/).) To send trace data to Tanzu Observability, use OpenTelemetry.
 
 If your application uses an OpenTelemetry SDK, you can configure the application to send trace data to Tanzu Observability using any of the following options:
 
@@ -43,22 +41,6 @@ If your application uses an OpenTelemetry SDK, you can configure the application
   <img src="images/opentelemetry_proxy_tracing.png" alt="A data flow diagram that shows how the data flows from your application to the proxy, and then to Tanzu Observability" style="width:680px;"/>
 * Or [**use the OpenTelemetry Collector and the Wavefront proxy**](opentelemetry_tracing.html#send-data-using-the-opentelemetry-collector-and-the-wavefront-proxy)
   ![A data flow diagram that shows how the data flows from your application to the collector, to the proxy, and then to Tanzu Observability](images/opentelemetry_collector_tracing.png)
-
-### OpenTracing
-
-An application must be instrumented for tracing before it can send trace data to Tanzu Observability. We support several options. Here's the big picture:
-
-![This diagram shows how to send data to Wavefront if your application has OpenTracing.](images/tracing_send_data_to_wavefront.png)
-
-* **Configure Your Already Instrumented Applications**
-
-  If you have already instrumented your code with Jaeger or Zipkin, you can forward the trace data to the Wavefront proxy using a [tracing integration](tracing_integrations.html). The proxy sends the data to the Wavefront service.
-
-* **Configure Applications That are Not Instrumented**
-
-  The Wavefront OpenTracing SDKs let you to [choose how to send trace data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data) -- through a Wavefront proxy or directly to the Wavefront service. Using a Wavefront proxy is generally recommended.
-
-  If you have not yet instrumented your code, you can add instrumentation by using [Wavefront OpenTracing SDKs or the Wavefront Java Tracing Agent](tracing_instrumenting_frameworks.html#step-2-get-data-flowing).
 
 ## Visualize Distributed Tracing Data
 
@@ -101,7 +83,7 @@ You can export traces you view in the Traces Browser, save them locally as JSON 
 
 ![Shows how the offline traces look once you upload the JSOn file that has the imported trace details.](images/tracing_offline_tracing_view.png)
 
-### Create a Sampling policy
+### Create a Sampling Policy
 
 Our intelligent sampling algorithm reduces the volume of ingested traces. The goals of intelligent sampling are to retain traces that are likely to be informative. But sometimes intelligent sampling discards traces that you want to keep. You can [create a sampling policy](trace_sampling_policies.html) to fine-tune intelligent sampling and let the Wavefront service know that you want to keep certain spans.
 
