@@ -82,47 +82,6 @@ You can select a larger or smaller time window or view past data instead of real
 
 {% include note.html content="When you change the time window, the [chart resolution](ui_charts.html#chart-resolution) and the refresh rate change as well. For example, if you select a 10-minute time window, the charts in the dashboard refresh every second. Time window settings on a dashboard level apply to all charts for which you have selected the **Default to dashboard time window** option. If you have set a fixed time window on a chart, the time window on that specific chart won't be affected." %}
 
-**To change the dashboard time window:**
-
-- Click the **Live** button to turn on (green) live data and see up-to-date data on the charts.
-- Click the **Live** button again to turn off live data and to look at past data.
-
-Regardless of selection, you can click the time window selector for a fine-grained time selection window. 
-
-You can select from a set of **preset times** or set a **custom time**. 
-
-**To set a custom time:**
-
-1. Click the **Time window picker**.
-2. In the **Time window settings** window, click the **Custom Times** tab.
-3. Select the start date and time and the end date and time.
-4. Click **Apply**.
-
-You can see the changes applied to the dashboard. 
-
-**To see the dashboard time window settings**:
-
-1. Click the **Time window picker**.
-2. In the **Time window settings** window you can see the time window settings:
-
-    <table style="width: 100%;">
-    <tbody>
-    <tr>
-    <td width="40%">If the settings are set from the list of preset times, you'll see the time window highlighted on the <strong>Preset Times</strong> tab.
-    </td>
-    <td width="60%"><img src="/images/preset_time_window.png" alt="Preset time window settings.">
-    </td>
-    </tr>
-    <tr>
-    <td width="40%">If the settings are custom time window settings, you'll see them on the <strong>Custom Times</strong> tab.
-    </td>
-    <td width="60%"><img src="/images/custom_time_window.png" alt="Custom time window settings.">
-    </td>
-    </tr>
-    </tbody>
-    </table>
-
-
 
 The time window determines how often the charts in a dashboard refresh.
 * Charts with a time window of 5-10 minutes reload every second.
@@ -131,8 +90,62 @@ The time window determines how often the charts in a dashboard refresh.
 {% include note.html content="Do not run charts with a 5-10 minute time window for a long time to avoid performance problems." %}
 
 
-
 {% include tip.html content="Live dashboards and charts display data on days in the future as black points. This might happen, for example, if you select **1 week** under **Live**.  " %}
+
+### Temporarily Change the Dashboard Time Window 
+
+To change the dashboard time window while you're investigating the data on the charts and without saving your changes, you can turn on or off live data:
+
+- Click the **Live** button to turn on (green) live data and see up-to-date data on the charts.
+- Click the **Live** button again to turn off live data and to look at past data.
+
+Regardless of selection, you can also click the **Time window picker** for a fine-grained time selection window. You can select from a list of **preset times** or you can set a **custom time window**. 
+
+**To set the time window settings temporarily:**
+
+1. Click the **Time window picker**.
+2. In the **Time window settings** window specify the settings that you want.
+    * Select an option from the preset times.
+    * Click **Custom Time Window**, select the start date and time and the end date and time.
+4. Click **Apply**.
+
+You can see the changes applied to the charts in the dashboard. 
+
+### Permanently Change the Dashboard Time Window 
+
+To set the time window settings and save them, you can either open the dashboard in edit mode, or:
+
+1. Click the **Time window picker**.
+2. Click the **Change dashboard's default time window** link.
+3. In the **Dashboard General Settings** window, click the time window picker and select the time window to apply.
+
+    You can also click **Set current time window as the default**. This will automatically apply the time window changes that you have previously made to the dashboard.
+
+4. Click **Save**.
+
+### See the Dashboard Time Window Settings
+
+1. Click the **Time window picker**.
+2. In the **Time window settings** window you can see the time window settings:
+
+    <table style="width: 100%;">
+    <tbody>
+    <tr>
+    <td width="40%">If the settings are selected from the list of preset times, you'll see the time window highlighted.
+    </td>
+    <td width="60%"><img src="/images/preset_time_window.png" alt="Preset time window settings.">
+    </td>
+    </tr>
+    <tr>
+    <td width="40%">If the settings are custom time window settings, you'll see them when you click <strong>Custom Time Window</strong>.
+    </td>
+    <td width="60%"><img src="/images/custom_time_window.png" alt="Custom time window settings.">
+    </td>
+    </tr>
+    </tbody>
+    </table>
+
+
 
 ## Use the Jump To Menu to Find a Section
 Most dashboards have several sections. They're easy to access from the **Jump To** menu.

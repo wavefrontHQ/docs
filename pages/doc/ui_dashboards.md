@@ -338,7 +338,10 @@ See <a href="charts_events_displaying.html#specify-an-events-query-for-a-dashboa
 </li>
 <li>Click <strong>Accept</strong>, and click <strong>Save</strong>. </li>
 </ol></td>
-<td width="50%"><img src="/images/v2_dashboard_prefs.png" alt="Set the dashboard preferences"></td>
+<td width="50%"><img src="/images/v2_dashboard_prefs.png" alt="Set the dashboard preferences">
+<p></p>
+<img src="/images/v2_dashboard_prefs-2.png" alt="A screenshot of the dashboard general settings window.">
+</td>
 </tr>
 </tbody>
 </table>
