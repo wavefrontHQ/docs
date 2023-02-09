@@ -319,7 +319,8 @@ For each dashboard, you can customize display preferences and settings.
 <li>Select <strong>Edit</strong>. </li>
 <li>Click <strong>Settings</strong>.</li>
 <li>Make selections in the dialog:
-<ol><li>Set the default time window. You can later override the time window. <br />Time window settings on a dashboard level apply to all charts for which you have selected to use the <strong>Default to dashboard time window</strong> option. If you have set a fixed time window on a chart, the time window on that specific chart won’t be affected. </li>
+<ol><li>Set the default time window. You can later override the time window. 
+    <br />If you click <strong>Set current time window as the default</strong> you automatically apply the time window changes that you have currently made to the dashboard.<br /><strong>Note</strong>: Time window settings on a dashboard level apply to all charts for which you have selected to use the <strong>Default to dashboard time window</strong> option. If you have set a fixed time window on a chart, the time window on that specific chart won’t be affected. </li>
 <li>Deselect the <strong>Show Variable Bar by Default</strong> check box to hide the variables for the dashboard. Users can still show the variables bar using the <img src="/images/show_hide_variable_icon.png"
 style="vertical-align:text-bottom;width:25px" alt="show or hide variable icon" /> icon.  </li>
 <li>Select whether you want to turn off live refresh for dynamic variables.</li>

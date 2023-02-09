@@ -80,7 +80,7 @@ By default, dashboards:
 
 You can select a larger or smaller time window or view past data instead of real-time data with the time bar controls.
 
-{% include note.html content="When you change the time window, the [chart resolution](ui_charts.html#chart-resolution) and the refresh rate change as well. For example, if you select a 10-minute time window, the charts in the dashboard refresh every second. Time window settings on a dashboard level apply to all charts for which you have selected the **Default to dashboard time window** option. If you have set a fixed time window on a chart, the time window on that specific chart won't be affected." %}
+{% include note.html content="Time window settings on a dashboard level apply to all charts for which you have selected the **Default to dashboard time window** option. If you have set a fixed time window on a chart, the time window on that specific chart won't be affected." %}
 
 
 The time window determines how often the charts in a dashboard refresh.
@@ -96,37 +96,33 @@ The time window determines how often the charts in a dashboard refresh.
 
 To change the dashboard time window while you're investigating the data on the charts and without saving your changes, you can turn on or off live data:
 
-- Click the **Live** button to turn on (green) live data and see up-to-date data on the charts.
+- Click the **Live** button to turn on (green) live data and see the most recent data on the charts.
 - Click the **Live** button again to turn off live data and to look at past data.
 
-Regardless of selection, you can also click the **Time window picker** for a fine-grained time selection window. You can select from a list of **preset times** or you can set a **custom time window**. 
+Regardless of the selection, you can also click the **Time window picker** for a fine-grained time selection window. You can select from a list of **preset times** or you can set a **custom time window**. 
 
-**To set the time window settings temporarily:**
 
 1. Click the **Time window picker**.
 2. In the **Time window settings** window specify the settings that you want.
     * Select an option from the preset times.
-    * Click **Custom Time Window**, select the start date and time and the end date and time.
-4. Click **Apply**.
+    * Click **Custom Time Window**, select the start and the end dates and times, and click **Apply**.
 
-You can see the changes applied to the charts in the dashboard. 
+The changes apply to the charts in the dashboard until you close the dashboard. 
 
 ### Permanently Change the Dashboard Time Window 
 
-To set the time window settings and save them, you can either open the dashboard in edit mode, or:
+To set the time window settings of a chart and save them, you can:
+
+1. Open the dashboard in edit mode.
+2. From the **Time window picker** select the new time window. 
+3. To apply your changes, click **Save**.
+
+You can also set the time window from the **Dashboard General Settings** window. See [change the dashboard display preferences and settings](ui_dashboards.html#set-dashboard-display-preferences-and-settings).
+
+### See the Current Dashboard Time Window
 
 1. Click the **Time window picker**.
-2. Click the **Change dashboard's default time window** link.
-3. In the **Dashboard General Settings** window, click the time window picker and select the time window to apply.
-
-    You can also click **Set current time window as the default**. This will automatically apply the time window changes that you have previously made to the dashboard.
-
-4. Click **Save**.
-
-### See the Dashboard Time Window Settings
-
-1. Click the **Time window picker**.
-2. In the **Time window settings** window you can see the time window settings:
+2. In the **Time window settings** window, you can see the time window settings:
 
     <table style="width: 100%;">
     <tbody>
@@ -147,7 +143,7 @@ To set the time window settings and save them, you can either open the dashboard
 
 
 
-## Use the Jump To Menu to Find a Section
+## Navigate to a Section in the Dashboard
 Most dashboards have several sections. They're easy to access from the **Jump To** menu.
 
 <table style="width: 100%;">
