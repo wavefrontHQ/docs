@@ -38,7 +38,7 @@ To install and run a proxy:
 <tr>
 <td width="60%">
 <ol><li>Log in to your Wavefront instance and select <strong>Browse &gt; Proxies</strong>. </li>
-<li>Select <strong>Add &gt; New Proxy</strong>.</li>
+<li>Click <strong>Add New Proxy</strong>.</li>
 <li>On the right, click the tab for your operating system and follow the steps on screen.  </li>
 </ol>
 The screenshot on the right shows the steps for installing a Windows proxy. </td>
@@ -53,8 +53,8 @@ The proxy starts listening on port 2878. You can customize listener ports with t
 
 You can use steps in an integration or perform a package install.
 
-* **Integration**. Select **Browse > Integrations** and find the host integration (Mac, Windows, or Linux). The **Setup** tab give the installation script. For Mac and Linux, you can install the proxy with or without the Telegraf agent.
-* **Package Install** To perform a **package install**, see [Installing a Proxy manually](proxies_manual_install.html).
+* **Integration**: Click **Integrations** on the toolbar and find the host integration (Mac, Windows, or Linux). The **Setup** tab gives the installation script. For Mac and Linux, you can install the proxy with or without the Telegraf agent.
+* **Package Install**: See [Installing a Proxy Manually](proxies_manual_install.html).
 
 <a id="restart"></a>
 
@@ -71,8 +71,6 @@ From the Proxies Browser, you can:
 * Go the proxies sections in the Wavefront Service and Proxies Data dashboard in the Wavefront Usage integration.
 
 Select **Browse > Proxies** to display the Proxies Browser.
-<screenshot>
-
 
 ## Manage Proxy Services
 
