@@ -52,7 +52,7 @@ Users with **Accounts** permissions can manage accounts.
 
 ## Sign Out a User
 
-As a [super admin user](authorization-faq.html#who-is-the-super-admin-user), you can sign out other users by using the Wavefront REST API. To sign out a user while you are logged in as a Super Admin user, simply run a POST request with the `logout` API call. For example:
+As a [Super Admin user](authorization-faq.html#who-is-the-super-admin-user), you can sign out other users by using the Wavefront REST API. To sign out a user while you [enabled Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode), simply run a POST request with the `logout` API call. For example:
 
 ```
 POST https://<your_instance>.wavefront.com/api/logout/{identifier}

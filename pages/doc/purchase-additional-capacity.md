@@ -11,7 +11,7 @@ As a Super Admin, you can request more PPS capacity to be added to the active Ta
 
 {% include note.html content="Currently, you can buy additional capacity only if you have a monthly billable commit contract and your Wavefront instance is connected to a VMware Cloud Services organization. If your Wavefront instance is not connected to a VMware Cloud Services organization, or if you have a burndown commit contract, contact the Tanzu Observability sales team to add more capacity to your subscription." %}
 
-1. Log in to your Wavefront instance as a Super Admin user.
+1. Log in to your Wavefront instance as a Super Admin user and [enable Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode).
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
 3. Click the **Subscriptions** tab.
 
