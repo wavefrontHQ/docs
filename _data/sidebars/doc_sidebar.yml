@@ -693,7 +693,7 @@ entries:
       url: /opentelemetry_overview.html
       output: web
     
-    - title: OpenTtracing
+    - title: OpenTracing
       url: /opentracing_to_opentelemetry_migration.html
       output: web
 
