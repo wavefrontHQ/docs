@@ -22,10 +22,19 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
   <tbody>
   <tr>
   <td width="50%">
-  We have updated the time window picker for dashboards and charts to simplify the user experience.
+  We have updated the time window picker for dashboards and charts to simplify the user experience. 
   <ul><li>To see how you can update the time window on a dashboard level, see <a href="ui_examine_data.html#set-the-time-window">Set the Time Window</a>.</li>
   <li>To see how you can define the time window on a chart level, see  <a href="ui_charts.html#set-the-time-window-on-a-chart">Set the Time Window on a Chart</a>.</li>
   </ul>
+  You can also change the start and times directly from the line showing the time window. 
+  <ol>
+  <li>Click the <strong>Time window picker</strong>.</li>
+  <li>Click the start/end month, date, or time and enter the new values.
+  <p>You can also navigate within the line by pressing the Tab key.</p>
+  </li>
+  <li>Press Enter to apply the changes.</li>
+  </ol>
+  
   </td>
   <td width="50%"><img src="images/preset_time_window.png" alt="A screenshot of the time window settings window."></td>
   </tr>
