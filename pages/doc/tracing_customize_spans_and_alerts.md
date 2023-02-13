@@ -51,8 +51,7 @@ Follow the steps given below to propagate custom span tags when sending data fro
     {{site.data.alerts.end}}
 
     <ul id="profileTabs" class="nav nav-tabs">
-        <li class="active"><a href="#tracingApplication" data-toggle="tab">OpenTracing</a></li>
-        <li><a href="#openTelemetry" data-toggle="tab">OpenTelemetry</a></li>
+        <li class="active"><a href="#tracingApplication" data-toggle="tab">OpenTelemetry</a></li>
         <li><a href="#jaeger" data-toggle="tab">Jaeger</a></li>
         <li><a href="#zipkin" data-toggle="tab">Zipkin</a></li>
         <li><a href="#springboot" data-toggle="tab">Spring Boot</a></li>
@@ -60,19 +59,14 @@ Follow the steps given below to propagate custom span tags when sending data fro
     </ul>
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="tracingApplication">
-            <p>The <a href="tracing_instrumenting_frameworks.html#step-2-get-data-flowing">Tracing SDK</a> provides a <code>WavefrontTracer</code> to create spans and send them to Wavefront. It also automatically generates and reports RED metrics from your spans. Add the following configuration when building the <code>WavefrontTracer</code>.</p>
-            <p>Example:</p>
+            <p>If you are using OpenTelemetry, you send data to Wavefront using <a href="proxies.html">Wavefront proxy</a>. Add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
             <pre>
-wfTracerBuilder.redMetricsCustomTagKeys(new HashSet&lt;String&gt;(Arrays.asList("env")));</pre>
-            <p>See the specific GitHub repository for language-specific examples on how to configure your application with the Wavefront OpenTracing SDK.</p>
-        </div>
-
-        <div role="tabpanel" class="tab-pane" id="openTelemetry">
-            <p>OpenTelemetry is still at its early stage. Contact <a href="wavefront_support_feedback.html#support">Wavefront Technical Support</a> for help.</p>
+traceDerivedCustomTagKeys=env
+            </pre>
         </div>
 
         <div role="tabpanel" class="tab-pane" id="jaeger">
-        <p>If you are using Jaeger, you send data to a <a href="proxies.html">Wavefront proxy</a>. Add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
+            <p>If you are using Jaeger, you send data to Wavefront using <a href="proxies.html">Wavefront proxy</a>. Add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
             <pre>
 traceDerivedCustomTagKeys=env
             </pre>
