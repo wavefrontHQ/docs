@@ -93,7 +93,7 @@ If you want to monitor only some of the metrics for specific services, select th
 
 #### How to Monitor Only the Metrics for a Service Which Is Not in the Products Lists
 
-If you are ingesting metrics for a service, which is not part of the products list, to monitor the metrics for this service, leave the he **Products** option set to **All** and use a regular expression. 
+If you are ingesting metrics for a service, which is not part of the products list, to monitor the metrics for this service, leave the **Products** option set to **All** and use a regular expression. 
 
 
 <a name="aws_sources"></a>
