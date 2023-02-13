@@ -1,16 +1,16 @@
 ---
-title: "Wavefront Privacy Policy"
+title: "Privacy Policy"
 tags: []
 sidebar: doc_sidebar
 toc: false
 permalink: privacy.html
-summary: Wavefront privacy policy for pre-aquisition customers.
+summary: Privacy policy for pre-acquisition customers.
 ---
 
 <p>Last modified: March 2, 2017</p>
-This privacy policy applies to you ONLY if you became a Wavefront customer before August 17, 2017. See the <a href="/terms_of_service.html">Terms of Service</a> for details.
+This privacy policy applies to you ONLY if you became a VMware Aria Operations for Applications (formerly known as Tanzu Observability or Wavefront)  customer before August 17, 2017. See the <a href="/terms_of_service.html">Terms of Service</a> for details. In this documentation page we refer to the product as Wavefront.
 <h2><strong>Privacy Statement</strong></h2>
-<p style="font-weight: 400; text-align: justify;">Wavefront is committed to protecting your privacy on its website and in using our services. This policy gives details of what information we may collect from you and how we may store and use your information. By voluntarily using our website and services, you are indicating your consent to this Privacy Policy and you hereby consent that we will collect, use and share your information as set forth in this Policy. We periodically update our Privacy Policy and it is your responsibility to review and remain informed about any changes we make to this Policy. Your continued use of our website after any changes, or revisions to this Privacy Policy have been published shall indicate your agreement with the terms of such revised Privacy Policy.</p>
+<p style="font-weight: 400; text-align: justify;">Operations for Applications is committed to protecting your privacy on its website and in using our services. This policy gives details of what information we may collect from you and how we may store and use your information. By voluntarily using our website and services, you are indicating your consent to this Privacy Policy and you hereby consent that we will collect, use and share your information as set forth in this Policy. We periodically update our Privacy Policy and it is your responsibility to review and remain informed about any changes we make to this Policy. Your continued use of our website after any changes, or revisions to this Privacy Policy have been published shall indicate your agreement with the terms of such revised Privacy Policy.</p>
 <h2><strong>Collection of Information</strong></h2>
 <p style="font-weight: 400; text-align: justify;">We may collect data and any Personal Information you provide us. “Personal Information” is any information that can be used to identify an individual including, but not limited to, your name, email address, company information, login information, billing information such as credit card number and billing address, user and account passwords, marketing preferences or location information. We shall retain and use your Personal Information as necessary to comply with our business requirements, legal obligations and enforce our agreements. We may also collect Personal Information for the following purpose:</p>
 <ul>
@@ -24,7 +24,7 @@ This privacy policy applies to you ONLY if you became a Wavefront customer befor
 <li style="font-weight: 400;"><span style="font-weight: 400;">In connection with the ordinary course of business</span></li>
 </ul>
 <h2><strong>Sharing Personal Information</strong></h2>
-<p style="font-weight: 400; text-align: justify;">Protecting your Personal Information is important to us and we do not sell your information to third parties. Wavefront may share your Information with third parties as follows:</p>
+<p style="font-weight: 400; text-align: justify;">Protecting your Personal Information is important to us and we do not sell your information to third parties. Operations for Applications may share your Information with third parties as follows:</p>
 <ul>
 <li style="font-weight: 400;"><span style="font-weight: 400;">To our subsidiaries, affiliates, vendors, consultants, service providers and other third parties who need access to your Information in order to carry out work on our behalf.</span></li>
 <li style="font-weight: 400;"><span style="font-weight: 400;">In connection with, or during negotiations of, any merger, sale of company assets or acquisition of all or portion of Wavefront to another company.</span></li>
@@ -33,7 +33,7 @@ This privacy policy applies to you ONLY if you became a Wavefront customer befor
 <li style="font-weight: 400;"><span style="font-weight: 400;">To protect the rights, property or security of Wavefront, our employees or users. </span></li>
 </ul>
 <h2><strong>Use of Cookies or Other Technology</strong></h2>
-<p style="font-weight: 400; text-align: justify;">Cookies are small text files stored by your browser in your computer when you visit our web site. As you interact with our website, Wavefront uses automatic data collection tools such as cookies and web beacons to collection information about your equipment, browser action and patterns. To improve our services and to provide you with the best possible product we may also collect information relating to your connectivity, browser type, Internet Protocol (IP) address and other communication data. Wavefront is optimized for time-series metrics data, helping you use metrics and analytics to better manage cloud applications. We also use log monitors to optimize storing, indexing, and analyzing log data.</p>
+<p style="font-weight: 400; text-align: justify;">Cookies are small text files stored by your browser in your computer when you visit our web site. As you interact with our website, we use automatic data collection tools such as cookies and web beacons to collection information about your equipment, browser action and patterns. To improve our services and to provide you with the best possible product we may also collect information relating to your connectivity, browser type, Internet Protocol (IP) address and other communication data. Wavefront is optimized for time-series metrics data, helping you use metrics and analytics to better manage cloud applications. We also use log monitors to optimize storing, indexing, and analyzing log data.</p>
 <h2><strong>Security</strong></h2>
 <p style="font-weight: 400; text-align: justify;">Wavefront takes your security seriously and we are committed to protecting your Personal Information from unauthorized access, use and disclosure.  We follow generally accepted standards to protect your Personal Information, however the transmission of information via the Internet or email is not completely secure, and although we do our best to protect your Personal Information we cannot ensure or warrant the security of any information you provide us during transmission and once it is received. If you have any questions about the security of your Personal Information, you can contact us at <a class="email" href="#" onclick="javascript:window.location='mailto:info@wavefront.com'">info@wavefront.com</a></p>
 <h2><strong>Linked Website</strong></h2>

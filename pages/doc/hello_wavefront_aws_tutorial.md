@@ -14,7 +14,7 @@ In this tutorial, you'll learn how to:
 
 It's an easy setup. You don't have to install anything or make changes to your application code.
 
-{% include tip.html content="Don't have an AWS account? You can [send data from a Windows host](#video-set-up-data-ingestion-from-a-windows-host). Or you can explore dashboards with sample data. [Log in](#task-1-log-in-to-your-wavefront-instance), click **Integrations** and search for **Tutorial** or **Tour Pro**." %}
+{% include tip.html content="Don't have an AWS account? You can [send data from a Windows host](#video-set-up-data-ingestion-from-a-windows-host). Or you can explore dashboards with sample data. [Log in](#task-1-log-in-to-your-product-instance), click **Integrations** and search for **Tutorial** or **Tour Pro**." %}
 
 <table style="width: 100%;">
 <tbody>
@@ -71,11 +71,11 @@ Follow these steps:
 1. Create a trusted entity:
     1. Click the **AWS Account** tile and select the **Another AWS account** radio button.
     1. Enter the **Account ID**: Copy the **Account ID** value shown in the AWS integration setup instructions and paste it here.
-        ![A diagram that shows where the account ID is on the Wavefront integration and an arrow pointing how to copy and paste on the AWS account.](images/hello_tutorial_aws_account_ID.png)
+        ![A diagram that shows where the account ID is on the Operations for Applications integration and an arrow pointing how to copy and paste on the AWS account.](images/hello_tutorial_aws_account_ID.png)
     1. Select the **Require external ID** check box.
         ![A screenshot of the external ID option selected.](images/hello_tutorial_aws_external_ID_selected.png)
     1. Enter the **External ID**. Copy the **External ID** value shown in the AWS integration setup instructions and paste it here.
-        ![A diagram that shows where the external ID is on the Wavefront integration and an arrow pointing how to copy and paste on the AWS account.](images/hello_tutorial_aws_external_ID.png)
+        ![A diagram that shows where the external ID is on the Operations for Applications integration and an arrow pointing how to copy and paste on the AWS account.](images/hello_tutorial_aws_external_ID.png)
     1. Click **Next**.
 1. Set Permissions:
     1. Search for the **ReadOnlyAccess** permission and select it.
@@ -144,14 +144,14 @@ With data flowing, you can start exploring dashboards and charts:
 You see charts with the metrics collected from your AWS account.
 
 Example:
-![Screenshot of the AWS metrics once the data starts to flow to Wavefront.](images/hello_tutorial_aws_metrics.png)
-{% include note.html content="You see **No Data** if Tanzu Observability can't find any metrics to match the queries in the chart." %}
+![Screenshot of the AWS metrics once the data starts to flow.](images/hello_tutorial_aws_metrics.png)
+{% include note.html content="You see **No Data** if Operations for Applications can't find any metrics to match the queries in the chart." %}
 
 <br/>
 <p><span style="font-size: large; font-weight: 500">View Data on Dashboards</span></p>
-Tanzu Observability includes system dashboards for the AWS integration that help you analyze and gather data.
+VMware Aria Operations for Applications includes system dashboards for the AWS integration that help you analyze and gather data.
 1. To see the list of the system dashboards, click the **Dashboards** tab.
-    ![Screenshot of all the predefined dashboards available for Wavefront.](images/hello_tutorial_aws_dahsboards.png)
+    ![Screenshot of all the predefined dashboards available.](images/hello_tutorial_aws_dahsboards.png)
 1. Click **AWS: Summary**. From the Summary dashboard, you can easily navigate to all other AWS dashboards.
     {% include note.html content="You need to configure your AWS account preferences to send billing metrics. See [Configuring CloudWatch Billing Metrics](integrations_aws_metrics.html#configuring-cloudwatch-billing-metrics)." %}
     ![Screenshot of the predefined AWS summary dashboard](images/hello_tutorial_aws_summary_dashboard.png)
@@ -236,4 +236,4 @@ Our Success Value Engineering team shared some frequently asked questions -- and
 * How do I track usage? See [Monitor Your Service with the Operations for Applications Usage Integration](wavefront_monitoring.html).
 * Why did my alert (not) fire? See [Why Did My Alert Not Fire?](alerts_faq.html#why-did-my-alert-not-fire) and [Why Did My Alert Misfire](alerts_faq.html#why-did-my-alert-misfire).
 * How do I contact support? Start with [the gear icon menu](wavefront_support_feedback.html#support). See [How Do I Engage with Technical Support](https://help.wavefront.com/hc/en-us/articles/360057219171-How-to-Engage-Technical-Support) for details on severity levels, SLAs, and so on.
-* Do you have videos? Yes! We have a [Tanzu Observability channel on VMware TV](https://vmwaretv.vmware.com/channel/Tanzu%2BObservability/252649793)!
+* Do you have videos? Yes! We have a [video channel on VMware TV](https://vmwaretv.vmware.com/channel/Tanzu%2BObservability/252649793)!

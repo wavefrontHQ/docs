@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: wavefront_searching.html
 summary: Learn how to search for objects using tags and other search features.
 ---
-To help you find exactly what you need, Tanzu Observability by Wavefront supports tags and other search features.
+To help you find exactly what you need, VMware Aria Operations for Applications (formerly known s Tanzu Observability by Wavefront) supports tags and other search features.
 
 Here's a <a href="https://vmwaretv.vmware.com/media/t/1_0rwkfemd" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a>  to get you started:
 
