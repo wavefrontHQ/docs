@@ -96,7 +96,7 @@ You see the number of spans stored per second.
 
 ## Explicit Sampling Strategies
 
-An explicit sampling strategy is a mechanism for selecting which traces to forward to the Wavefront service. We support the following explicit sampling strategies:
+An explicit sampling strategy is a mechanism for selecting which traces to forward to the Wavefront service. You can set up an explicit sampling strategy by [configuring the Wavefront proxy](#setting-up-explicit-sampling-through-the-proxy). We support the following explicit sampling strategies:
 
 ### Explicit Sampling Strategy Overview
 
@@ -122,22 +122,6 @@ An explicit sampling strategy is a mechanism for selecting which traces to forwa
 
 {% include note.html content="You can query and visualize only the traces and spans that the Wavefront service has ingested. If you set up an explicit sampling strategy that severely reduces the volume of ingested trace data, you might end up with queries that produce no results." %}
 
-### Ways to Set Up Explicit Sampling Strategies
-
-You can set up an explicit sampling strategy using either of the following methods:
-
-* [Configure sampling on a Wavefront proxy](#setting-up-explicit-sampling-through-the-proxy).
-* [Configure sampling in your instrumented application code](#setting-up-explicit-sampling-in-your-code).
-
-Choose the [Wavefront proxy](proxies_installing.html) for sampling when you want to:
-* Use a single sampling strategy to coordinate the sampling for all applications that use the same proxy.
-* Configure sampling with minimal effort.
-* Improve the likelihood of ingesting complete traces.
-
-Choose sampling in your instrumented code when you want to:
-* Reduce the performance impact of span reporting on your application.
-* Use [direct ingestion](direct_ingestion.html) (no proxy).
-* Configure sampling on a per-process basis, for example, when you expect spans from the services in different processes to have different characteristics.
 
 ### Complete vs. Partial Traces
 
@@ -176,36 +160,3 @@ You can set up explicit sampling strategies through a [Wavefront proxy](proxies.
 3. Save the `wavefront.conf` file.
 4. [Start the proxy](proxies_installing.html#start-and-stop-a-proxy).
 
-## Setting Up Explicit Sampling in Your Code
-
-{% include warning.html content="OpenTracing and OpenCensus have merged to form OpenTelemetry. Therefore, this option will be deprecated in the future." %}
-
-You can set up explicit sampling strategies in application code that is built with one of the following [Wavefront observability SDKs](wavefront_sdks.html):
-
-* The Wavefront OpenTracing SDK
-* Any Wavefront observability SDK that depends on the Wavefront OpenTracing SDK
-
-You set up a sampling strategy by configuring a Wavefront Tracer with a Sampler object. You create one Sampler for each sampling strategy. See the README file for the Wavefront observability SDK you are using.
-
-
-<!---
-<table>
-<colgroup>
-<col width="18%"/>
-<col width="50%"/>
-<col width="32%"/>
-</colgroup>
-<thead>
-<tr><th>Menu</th><th>Description</th><th>Example</th></tr>
-</thead>
-<tbody>
-<tr>
-<td markdown="span"> </td>
-<td markdown="span"> </td>
-<td markdown="span"> </td>
-</tr>
-</tbody>
-</table>
-
-
---->

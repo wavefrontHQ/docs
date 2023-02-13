@@ -116,7 +116,7 @@ In this tutorial, you use Wavefront for Spring Boot that uses Spring Boot 3 with
     ```
     To share this account, make sure the following is added to your configuration:
 
-       management.wavefront.api-token=ee1f454b-abcd-efgh-1234-bb449f6a25ed
+       management.wavefront.api-token=1111-your-token-aaaa1111
        management.wavefront.uri=https://wavefront.surf
 
     Connect to your Wavefront dashboard using this one-time use link:

@@ -52,10 +52,6 @@ entries:
           url: /wavefront_springboot_tutorial.html
           output: web
 
-        - title: "Distributed Tracing Tutorial"
-          url: /tracing_java_tutorial.html
-          output: web
-
       - title: Reference
         output: web
         subfolderitems:
@@ -696,28 +692,12 @@ entries:
     - title: OpenTelemetry
       url: /opentelemetry_overview.html
       output: web
+    
+    - title: OpenTtracing
+      url: /opentracing_to_opentelemetry_migration.html
+      output: web
 
       subfolders:
-
-      - title: OpenTracing
-        output: web
-        subfolderitems:
-
-          - title: OpenTracing Tutorial
-            url: /tracing_java_tutorial.html
-            output: web
-
-          - title: Instrument Your App
-            url: /tracing_instrumenting_frameworks.html
-            output: web
-
-          - title: Jaeger or Zipkin
-            url: /tracing_integrations.html
-            output: web
-
-          - title: Configure External Services
-            url: /tracing_external_services.html
-            output: web
 
       - title: Visualize Trace Data
         output: web

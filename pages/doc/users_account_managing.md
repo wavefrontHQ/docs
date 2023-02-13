@@ -73,7 +73,43 @@ You can check the permissions you have and see which groups you belong to.
 
 3. Hover over any group to see the permissions you have from this group. The permissions come from roles assigned to the group.
 
-{% include note.html content="Even if you have **Dashboards** or **Alerts** permission, it's possible that you can't modify a dashboard or an alert. This happens if **access** is restricted explicitly for that dashboard or alert. Ask the dashboard or alert creator to share the object with you." %}
+{% include note.html content="If you are a Super Admin user, the **Groups, Roles & Permissions** page shows your permissions when [Super Admin mode is disabled](#enable-or-disable-super-admin-mode)." %}
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+If you don't have the <strong>Accounts</strong> permission, for updates to your groups, roles, or permissions, contact a user with the <strong>Accounts</strong> permission or your Super Admin. To see the list of the users with the <strong>Accounts</strong> permission, click the link at the bottom of the page.
+</td>
+<td width="50%"><img src="images/Accounts_users.png" alt="a screenshot with the link at the bottom of the Groups, Roles & Permissions page"></td>
+</tr>
+</tbody>
+</table>
+
+{% include note.html content="Even if you have the **Dashboards** or **Alerts** permission, it's possible that you can't modify a dashboard or an alert. This happens if **access** is restricted explicitly for that dashboard or alert. Ask the dashboard or alert creator to share the object with you." %}
+
+## Enable or Disable Super Admin Mode
+
+If you are a Super Admin user for the Wavefront service, you can temporarily enable Super Admin mode and perform your Super Admin tasks.
+
+{% include note.html content="To avoid making unintentional changes in the system, after performing your current Super Admin tasks, disable the Super Admin mode." %}
+
+* As a Super Admin user, to enable or disable the Super Admin mode, from the gear icon <i class="fa fa-cog"/> on the toolbar, turn on or off the **Super Admin Mode** toggle.
+
+<table>
+    <tbody>
+        <tr>
+            <td width="70%">As a result:
+            <ul>
+            <li>When the Super Admin mode is <strong>enabled</strong>, you have full administrative privileges for the Wavefront service. See <a href="authorization-faq.html#who-is-the-super-admin-user">Who Is the Super Admin User?</a> for details.</li>
+            <li>When the Super Admin mode is <strong>disabled</strong>, you have only the permissions listed on the <a href="users_account_managing.html#examine-groups-roles-and-permissions">Groups, Roles & Permissions page</a>.</li>
+            </ul></td>
+            <td width="30%"><img src="/images/super_admin_mode.png" alt="A screenshot of the drop-down menu with the Super Admin Mode toggle.">
+            </td>
+        </tr>
+    </tbody>
+</table>
+
 
 ## Generate an API Token
 

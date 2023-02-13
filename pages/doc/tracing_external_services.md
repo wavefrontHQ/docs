@@ -1,5 +1,5 @@
 ---
-title: Configure External Services
+title: (Archived) Configure External Services
 keywords: data, distributed tracing, OpenTelemetry, opentracing, aws, java
 tags: [tracing]
 sidebar: doc_sidebar
@@ -7,9 +7,12 @@ permalink: tracing_external_services.html
 summary: Configure your application to show external services or applications
 ---
 
+
+{% include important.html content="OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/).) To send trace data to Tanzu observability, use OpenTelemetry."%}
+
 Tanzu Observability by Wavefront can identify Java AWS services and Java databases in the [application map view](tracing_ui_overview.html#application-map-features). You can configure your OpenTracing, OpenTelemetry, or Spring Cloud Sleuth application to identify out-of-the-box external services or applications that your service communicates.
 
-{% include important.html content="This document shows you how to configure external services for your application instrumented with OpenTracing. If you have instrumented your application with OpenTelemetry and want to configure external services, [contact Support](wavefront_support_feedback.html#support) for help." %}
+This document shows you how to configure external services for your application instrumented with OpenTracing.
 
 
 ## Configure Out-of-the-Box AWS and Database Services

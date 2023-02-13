@@ -15,7 +15,7 @@ The best practices on this page help you get optimal results from instrumenting 
    -**Traces** represent end-to-end requests across services and consist of spans.
    -**Spans** represent calls to individual operations.
 
-   See [Tracing Basics](tracing_basics.html) for basic tracing concepts, and see [https://opentracing.io](https://opentracing.io/) for details.
+   See [Tracing Basics](tracing_basics.html) for basic tracing concepts, and see [https://opentelemetry.io/docs/](https://opentelemetry.io/docs/) for details.
 
 2. Examine your application to answer these questions:
 * Which services belong to your application? Which ones participate in the most critical requests?
@@ -25,8 +25,6 @@ The best practices on this page help you get optimal results from instrumenting 
 3. Choose your instrumentation support.
 
    * If you have already instrumented your application with a 3rd party distributed tracing system such as Jaeger or Zipkin, set up an [**integration**](tracing_integrations.html).
-
-   * **Instrument** each service with the [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data) in the service's language.
 
    * Use **consistent instrumentation**, either Wavefront SDKs or a 3rd party tracing system for all services that participate in the same trace. Otherwise, spans cannot link to each other across service boundaries. You can intermix different Wavefront SDKs in different programming languages.
 
@@ -108,11 +106,7 @@ The Wavefront service uses these names as span tag values, as filters for traces
 
 ### Best Practices for Wavefront Observability SDKs
 
-* Set up an [Application tags object](trace_data_details.html#application-tags) in each service to define logical names for the application constructs.
-  - Specify the logical application and service names that apply to the service. Optionally include logical cluster and shard names, if you want to use the physical topology to filter your data.
-  - Define a custom tag called `component` if you are using the Wavefront OpenTracing SDK. <br>
-
-    {% include tip.html content="Other Wavefront tracing SDKs automatically define `component` for you. " %}
+* Set up an [Application tags object](trace_data_details.html#application-tags) in each service to define logical names for the application constructs. Specify the logical application and service names that apply to the service. Optionally, if you want to use the physical topology to filter your data, include logical cluster and shard names.
 
    **Java example:** Instantiate `ApplicationTags` for the `delivery` service
 
@@ -217,8 +211,6 @@ You can define custom span tags to let you query and filter for particular subse
 * Do not have more than 100 values assigned to a span tag. Keep the cardinality of custom span tags low.
 
 * [Contact technical support](wavefront_support_feedback.html) to request indexing for those span tags. Indexing is available only for low-cardinality custom span tags.
-
-* If you are using a Wavefront OpenTracing SDK, define a span tag called `component`. The Wavefront service uses the `component`, `application`, and `service` tags to populate the Application Services page and each service-specific page.
 
 ## Instrumentation Best Practices
 
