@@ -21,7 +21,7 @@ This playlist includes videos about data ingestion, tagging data, Wavefront prox
 <br>
 <iframe src="https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_va4bdzpt/uiConfId/47611883" width="840" height="375" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" frameborder="0" title="Understand and Ingest Data"></iframe>
 
-## Examine Data with Dashboards and Charts
+## Examine Data in Dashboards and Charts
 
 This playlist includes videos about examining data and fine-tuning your display. You can also watch the playlist videos in your browser <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_kt6ngrmf/" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
 <br>
@@ -51,7 +51,7 @@ This playlist includes videos on how Distributed Tracing works and on how to exp
 <br>
 <iframe src="https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_kkeyoqx4/uiConfId/47611883" width="840" height="375" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" frameborder="0" title="Distributed Tracing with Tanzu Observability"></iframe>
 
-## Integrations for VMware Aria Operations for Applications
+## Get Data In by Setting Up an Integration
 
 This playlist includes videos on:
 * Sending metrics data from a Windows host.
