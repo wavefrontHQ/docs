@@ -1,16 +1,16 @@
 ---
-title: Monitor Tanzu Mission Control with Tanzu Observability
+title: Monitor Tanzu Mission Control
 keywords:
 tags: [integrations, kubernetes]
 sidebar: doc_sidebar
 permalink: integrations_tmc_howto.html
-summary: Monitor clusters in Tanzu Mission Control using Tanzu Observability by Wavefront.
+summary: Monitor clusters in Tanzu Mission Control.
 ---
 
 [VMware Tanzu Mission Control](https://docs.vmware.com/en/VMware-Tanzu-Mission-Control/services/tanzumc-concepts/GUID-E2B5BE05-596E-4999-9B21-1CDB875A1BBF.html) provides a centralized management platform for consistently operating and securing your Kubernetes infrastructure and modern applications across multiple teams and clouds.
 
-This document explains
-* How to set up and enable the integration from Tanzu Mission Control to Tanzu Observability by Wavefront.
+This document explains:
+* How to set up and enable the integration from Tanzu Mission Control to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
 * How to monitor your Kubernetes environment with our pre-defined dashboards, and how to clone and customize those dashboards.
 * How to troubleshoot common problems.
 
@@ -21,14 +21,14 @@ If you want to monitor Tanzu Mission Control with Wavefront, you have two option
 
 ## Create the Credential
 
-To get started, you set up the integration from Tanzu Mission Control to Tanzu Observability by Wavefront:
+To get started, you set up the integration from Tanzu Mission Control to VMware Aria Operations for Applications:
 
-### Step 1: In Your Wavefront Cluster, Generate an API Token
+### Step 1: In Your VMware Aria Operations for Applications Cluster, Generate an API Token
 
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="50%">In your Wavefront cluster, <a href="integrations_tmc.html#generate-a-service-account-api-token-for-tanzu-mission-control">Generate a Service Account API Token for Tanzu Mission Control</a>.
+<td width="50%">In your cluster, <a href="integrations_tmc.html#generate-a-service-account-api-token-for-tanzu-mission-control">Generate a Service Account API Token for Tanzu Mission Control</a>.
 </td>
 <td width="50%"><img src="/images/tmc_service_account_create.png" alt="Create service account dialog with name and description filled in."></td>
 </tr>
@@ -50,9 +50,9 @@ To get started, you set up the integration from Tanzu Mission Control to Tanzu O
 <tr>
 <td width="50%">On the <strong>Create Tanzu Observability credential</strong> page, specify credential attributes:
 <ul>
-<li><strong>Credential Name</strong>. Name that starts and ends with a letter and contains only lowercase letters, numbers, and hyphens. Best practice is to include the name of the Wavefront instance in the credential name. Do NOT use the name of the service account. </li>
-<li><strong>Tanzu Observability URL</strong>. The URL of the Wavefront cluster, for example, <code>https://demo.wavefront.com</code></li>
-<li><strong>Tanzu Observability API Token</strong>. The API token that you generated inside the Wavefront instance. </li>
+<li><strong>Credential Name</strong>. Name that starts and ends with a letter and contains only lowercase letters, numbers, and hyphens. Best practice is to include the name of the product instance in the credential name. Do NOT use the name of the service account. </li>
+<li><strong>Tanzu Observability URL</strong>. The URL of your product cluster, for example, <code>https://demo.wavefront.com</code></li>
+<li><strong>Tanzu Observability API Token</strong>. The API token that you generated inside your product instance. </li>
 </ul> </td>
 <td width="50%"><img src="/images/tmc_create_credential_page.png" alt="Create Tanzu Observability page with 3 fields filled in"></td>
 </tr>
