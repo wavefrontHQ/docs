@@ -108,7 +108,7 @@ An orphan dashboard results if:
 * Only one user had access to a dashboard or an alert, and that user was deleted.
 
 To restore an orphan dashboard or alert:
-1. Log in as a Super Admin user.
+1. Log in as a Super Admin user and [enable Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode).
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Super Admin**.
 2. Select the orphaned dashboard or alert and share it with other users or groups.
 
@@ -118,7 +118,7 @@ To restore an orphan dashboard or alert:
 
 A permanently deleted dashboard does not show in the trash and becomes inaccessible to all users, including the Super Admin. As a Super Admin, you can try to restore the dashboard by using the Wavefront API.
 
-1. Log in as a Super Admin user.
+1. Log in as a Super Admin user and [enable Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode).
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **API Documentation**.
 3. Expand the **Dashboard** category and click the `GET api/v2/dashboard/{id}/history/{version}` request.
 4. Enter the dashboard name as the `"id"` parameter.

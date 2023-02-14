@@ -32,7 +32,7 @@ You can select your preferred authentication method for your environment by sett
 
 ## Monitor and Troubleshoot
 
-As a Super Admin user, you can use the Wavefront Usage integration dashboards to monitor and troubleshoot your Wavefront environment. By using the dashboards in this integration, you can:
+You can use the Wavefront Usage integration dashboards to monitor and troubleshoot your Wavefront environment. By using the dashboards in this integration, you can:
 
 * Get usage information for your Wavefront instance and Wavefront proxy.
 * Drill down into the metrics namespaces to discover trends.
@@ -40,7 +40,7 @@ As a Super Admin user, you can use the Wavefront Usage integration dashboards to
 * See whether the ingested metrics are at 95% of the committed rate and optionally get alerts if that happens.
 * In addition, you can create your own dashboards, charts, and alerts by using the internal metrics to investigate the problem.
 
-As a Super Admin user, you can also [monitor the overall Wavefront usage](examine_usage.html) and see how data is used by specific accounts or groups, based on the [ingestion policies](ingestion_policies.html) that you create.
+You can also [examine the overall Wavefront usage](examine_usage.html) and monitor how data is used by specific accounts, groups, sources, metric namespaces, or point tags, based on [ingestion policies](ingestion_policies.html).
 
 ## Purchase Tanzu Observability Capacity
 
