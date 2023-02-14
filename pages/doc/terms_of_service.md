@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: terms_of_service.html
 summary: Data Retention and Terms of Service
 ---
-The terms of service and data retention for VMware Aria Operations for Applications (formerly known s Tanzu Observability by Wavefront) differ depending on the contract your company has with VMware. This page gives a summary and links to some relevant information.
+The terms of service and data retention for VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) differ depending on the contract your company has with VMware. This page gives a summary and links to some relevant information.
 
 {% include tip.html content="Details vary depending on when you became a customer and on your Service Agreement with VMware." %}
 
@@ -30,7 +30,7 @@ A production instance retains different types data for different amounts of time
 
 ## Terms of Service
 
-Your Terms of Service are different depending on when you became our customer.
+Your Terms of Service are different depending on when you became a customer.
 
 Production clusters currently offer 18 months of full-resolution (no downsampling) data retention for metrics, 6 months for histograms, and 7 days for spans. We also have an uptime guarantee, as well as High Availability (HA) and Disaster Recovery (DR) options.
 
