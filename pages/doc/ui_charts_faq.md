@@ -5,7 +5,7 @@ sidebar: doc_sidebar
 permalink: ui_charts_faq.html
 summary: Learn chart customization from the experts.
 ---
-Tanzu Observability by Wavefront includes a variety of charts, with many customization options. [Create and Customize Charts](ui_charts.html) describes most of the things you need to know to get started. This page has some special tips and tricks to help you create the user experience you're after.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) includes a variety of charts, with many customization options. [Create and Customize Charts](ui_charts.html) describes most of the things you need to know to get started. This page has some special tips and tricks to help you create the user experience you're after.
 
 {% include note.html content="You must have [Dashboard permission](permissions_overview.html) to save a chart to a dashboard. If you do not have permission, the UI menu selections and buttons required to perform the task are not visible." %}
 
@@ -39,7 +39,7 @@ The following example shows how to use color mapping with a single stat chart.
 
 ## How Do I Set Up Thresholds for Histograms and Heat Map Charts?
 
-[Wavefront histograms](ui_chart_reference.html#histogram-chart) let you compute, store, and use distributions of metrics rather than single metrics. [Heat map charts](ui_chart_reference.html#heat-map-chart) add another dimension to the information about histograms that you see in a histogram chart.
+[Histograms](ui_chart_reference.html#histogram-chart) let you compute, store, and use distributions of metrics rather than single metrics. [Heat map charts](ui_chart_reference.html#heat-map-chart) add another dimension to the information about histograms that you see in a histogram chart.
 
 You can apply threshold markers for the data represented by histogram and heat map charts. The markers that you provide can be either a constant value or a variable that is defined by a query expression. The following examples show how to set up thresholds for a histogram chart.
 
