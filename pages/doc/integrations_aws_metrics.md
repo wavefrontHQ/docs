@@ -91,10 +91,25 @@ If you want to monitor only some of the metrics for specific services, select th
 4. Select the **Amazon DynamoDB** and **Amazon Relational Database Service** options.
 
 
-#### How to Monitor Only the Metrics for a Service Which Is Not in the Products Lists
+#### How to Monitor Only the Metrics for a Service Which Is Not in the Products List
 
-If you are ingesting metrics for a service, which is not part of the products list, to monitor the metrics for this service, leave the **Products** option set to **All** and use a regular expression. 
+If you are ingesting metrics for a service, which is not part of the products list, to monitor the metrics only for this service, leave the **Products** option set to **All** and use a regular expression.
 
+
+#### How to Monitor Metrics for Services in the Products List and for a Service Which Is Not in the List
+
+If you are ingesting metrics for a service, which is not part of the products list, and want to monitor the metrics for this service and for a list of other specific services that are in the products list, you can:
+
+1. Expand the list of **Products**.
+2. Select **Custom**.
+3. Select the AWS product services that you want to monitor. 
+    
+    For example, if you want to monitor Amazon DynamoDB and Amazon Relational Database Service, select the **Amazon DynamoDB** and **Amazon Relational Database Service** options.
+4. In the **Custom Namespace(s)** text box, enter the namespace of the service that you want to monitor. 
+    
+    For example, if you want to monitor Amazon Chime SDK, enter `AWS/ChimeSDK`.
+
+For a list of the AWS services that publish metrics to CloudWatch and their namespaces, see [AWS services that publish CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html).
 
 <a name="aws_sources"></a>
 
