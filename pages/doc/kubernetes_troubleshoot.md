@@ -10,7 +10,7 @@ summary: This page contains information about troubleshooting the Helm-managed a
 For troubleshooting the latest version of the Kubernetes integration, see [Troubleshooting Kubernetes](kubernetes_troubleshooting.html).
 
 Depending on your setup, you typically deploy the following components into your Kubernetes cluster:
-* **[Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes)** -- runs as a DaemonSet
+* **[Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/observability-for-kubernetes)** -- runs as a DaemonSet
 * **[Wavefront Proxy](proxies.html)** -- runs as a deployment fronted by a Kubernetes Service
 
 Once deployed, the collector instances gather data at regular intervals from various sources and send the data to Tanzu Observability by Wavefront via the Wavefront proxy.
@@ -460,6 +460,6 @@ Check the source of these metrics to identify the specific Kubernetes node on wh
 
 The most common cause for the Kubernetes integration dashboards to not show any data is a problem with sending data to Tanzu Observability. See [Symptom: No Data Flowing into Tanzu Observability](#symptom-no-data-flowing-into-tanzu-observability).
 
-Another reason for missing data can be a change in the prefix of the Kubernetes sources in the Wavefront Collector for Kubernetes. By default, the dashboards rely on a prefix, such as `kubernetes.`, in the configured collector sources. For more information, see the [sources section of the collector configuration file](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/395df1b533b01b43961641b1a03134481cf89609/deploy/kubernetes/4-collector-config.yaml#L52).
+Another reason for missing data can be a change in the prefix of the Kubernetes sources in the Wavefront Collector for Kubernetes. By default, the dashboards rely on a prefix, such as `kubernetes.`, in the configured collector sources. For more information, see the sources section of the [collector configuration file](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/collector/deploy/kubernetes/4-collector-config.yaml).
 
 If you want to use the Kubernetes dashboards with a custom prefix, [clone the dashboards](ui_dashboards.html#edit-or-clone-a-dashboard) and update the prefix in all of the charts.
