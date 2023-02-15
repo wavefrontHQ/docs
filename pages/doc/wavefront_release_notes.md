@@ -13,6 +13,34 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## 2023-06.x Release Notes
+
+**Time Window Picker Changes**
+
+
+  <table style="width: 100%;">
+  <tbody>
+  <tr>
+  <td width="50%">
+  We have updated the time window picker for dashboards and charts to simplify the user experience. 
+  <ul><li>To see how you can update the time window on a dashboard level, see <a href="ui_examine_data.html#set-the-time-window">Set the Time Window</a>.</li>
+  <li>To see how you can define the time window on a chart level, see  <a href="ui_charts.html#set-the-time-window-on-a-chart">Set the Time Window on a Chart</a>.</li>
+  </ul>
+  You can also change the start and end times by directly editing the values in the <strong>Time window picker</strong> on the toolbar. 
+  <ol>
+  <li>Click the <strong>Time window picker</strong>.</li>
+  <li>Click the start/end month, date, or time and enter the new values.
+  <p>Once you are on the month, day, year, or time you can enter new values by typing them, or change the values using the up and down arrow keys. 
+  </p><p>You can also navigate within the <strong>Time window picker</strong> line by pressing the Tab key or the left and right arrow keys.</p>
+  </li>
+  <li>Press Enter to apply the changes.</li>
+  </ol>
+  
+  </td>
+  <td width="50%"><img src="images/preset_time_window.png" alt="A screenshot of the time window settings window."></td>
+  </tr>
+  </tbody>
+  </table>
 
 ## 2023-05.x Release Notes
 
@@ -29,6 +57,9 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
   </table>
 
 * **Super Admin Mode:**
+
+  {% include note.html content="Currently, the Super Admin mode is not available for all customers." %}
+
   <table style="width: 100%;">
   <tbody>
   <tr>
