@@ -86,9 +86,9 @@ If you are using Spring Boot 2 with Sleuth or Spring Boot 3 with Micrometer Trac
 * You can create a `RestTemplate` bean yourself, or inject it via the `RestTemplateBuilder`.
 * If you invoke a Remote Procedure Call (RPC) or messaging service without using a bean, Sleuth and Micrometer Tracing won't work. See [Use Tracing with Spring Boot](tracing_best_practices.html#using-tracing-with-spring-boot) for an example.
 
-### Why Do I Get an `Failed to Retrieve Existing Account Information` Error?
+## Why Do I Get a Failed to Retrieve Existing Account Information Error?
 
-If you have not used your freemium account for more than 3 days, Tanzu Observability by Wavefront deletes the account. Therefore, when you try to run the application and send data to the freemium account that was deleted, your see the following error:
+If you have not used your freemium account for more than three days, Tanzu Observability by Wavefront deletes the account. Therefore, when you try to run the application and send data to the freemium account that was deleted, you see the following error:
 
 ```
 Failed to retrieve existing account information from https://wavefront.surf. The error was:
@@ -96,4 +96,6 @@ Failed to retrieve existing account information from https://wavefront.surf. The
 You are not authorized to perform this operation
 ```
 
-To send data to Tanzu Observability, delete the ~/.wavefront_freemium file, and run the application again to create a new account.
+To send data again, you need to create a new freemium account. Follow these steps:
+1. Delete the `~/.wavefront_freemium` file.
+1. Run the application to create a new freemium account.
