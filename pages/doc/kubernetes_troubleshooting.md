@@ -165,7 +165,7 @@ kubectl logs daemonset/wavefront-logging -n observability-system
 
 If you experience gaps in data, where you can't see expected metrics or expected metric tags, follow the instructions below. 
 
-**Note**: For the out-of-the box **Kubernetes Control Plane** dashboard, certain managed Kubernetes distributions do not support scraping of all control plane elements. For a detailed look at distribution support, see our [supported metrics page](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/metrics.md#control-plane-metrics).
+**Note**: For the out-of-the box **Kubernetes Control Plane** dashboard, certain managed Kubernetes distributions do not support scraping of all control plane elements. For a detailed look at distribution support, see our [supported metrics page](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/metrics.md#control-plane-metrics).
 
 ### Check the Status of All System Components
 
