@@ -41,7 +41,7 @@ Here's a preview of the Kubernetes Pods dashboard:
 
 ## Kubernetes Clusters Integrations
 
-Integrations use [Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes "Wavefront Collector for Kubernetes GitHub repository") to monitor your Kubernetes clusters.  
+Integrations use [Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/observability-for-kubernetes "Wavefront Collector for Kubernetes GitHub repository") to monitor your Kubernetes clusters.  
 **Note**: Tanzu Mission Control users follow the steps given in the [Tanzu Mission Control](https://docs.vmware.com/en/VMware-Tanzu-Mission-Control/services/tanzumc-using/GUID-E448F0BD-1DAB-4AAE-851D-0501CB3AA7AE.html) documentation.
 
 
@@ -237,7 +237,7 @@ The Wavefront proxy and a `wavefront-proxy` service should now be running in Kub
   * [5-collector-daemonset.yaml](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/collector/deploy/kubernetes/5-collector-daemonset.yaml)
 
   **Note**: Download the following file only for vSphere Tanzu environment.
-  * [0-vsphere-tanzu-rolebinding.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/main/deploy/vsphere-tanzu/0-vsphere-tanzu-rolebinding.yaml)
+  * [0-vsphere-tanzu-rolebinding.yaml](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/blob/main/collector/deploy/vsphere-tanzu/0-vsphere-tanzu-rolebinding.yaml)
 
 2. Edit `4-collector-config.yaml` and replace `clusterName: k8s-cluster` with the name of your Kubernetes cluster.
 

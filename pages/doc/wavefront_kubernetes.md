@@ -40,7 +40,7 @@ The following videos get you started.
 <iframe id="kmsembed-1_rpculupf" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_rpculupf/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability and Kubernetes"></iframe>
 </td>
 <td><br><br>
-<p>This video includes some details on the  one-click install of the <a href="https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes">Wavefront Collector for Kubernetes</a>.</p>
+<p>This video includes some details on the  one-click install of the <a href="https://github.com/wavefrontHQ/observability-for-kubernetes">Wavefront Collector for Kubernetes</a>.</p>
 <p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_rpculupf" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> </td>
 </tr>
 <tr>
@@ -82,7 +82,7 @@ To use the Wavefront Collector for Kubernetes, you must set up our Kubernetes in
   
 * Follow the guidelines given in the [Bitnami guide](https://bitnami.com/stack/wavefront/helm).
 
-{% include tip.html content="After installing the Wavefront Collector for Kubernetes by using the Kubernetes integration, you can customize it to fit the needs of your environment and use case. See the [docs on GitHub](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes#configuration) and examples for different use cases. " %}
+{% include tip.html content="After installing the Wavefront Collector for Kubernetes by using the Kubernetes integration, you can customize it to fit the needs of your environment and use case. See the [docs on GitHub](https://github.com/wavefrontHQ/observability-for-kubernetes/docs/collector/collector.md#configuration) and examples for different use cases. " %}
 
 
 
