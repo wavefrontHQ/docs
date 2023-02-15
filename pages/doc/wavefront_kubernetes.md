@@ -28,7 +28,7 @@ The following videos get you started.
 <p>This video is about recent changes to the install process and shows a demo. You can then get started by going to the following GitHub pages:
 <ul>
 <li><a href="https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes">Wavefront Operator for Kubernetes README</a></li>
-<li><a href="https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes/blob/main/docs/migration.md">Wavefront Operator for Kubernetes Migration</a></li>
+<li><a href="https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/operator/migration.md">Wavefront Operator for Kubernetes Migration</a></li>
 </ul>
 </p>
 <p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_chq9tgn6" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
@@ -113,10 +113,10 @@ You can [filter the metrics](https://github.com/wavefrontHQ/wavefront-kubernetes
 ### Application Monitoring
 
 The Wavefront Collector for Kubernetes automatically starts collecting metrics from many commonly used applications:
-* The collector auto discovers endpoints using labels. See [Auto Discovery](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/discovery.md#auto-discovery).
+* The collector auto discovers endpoints using labels. See [Auto Discovery](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/discovery.md#auto-discovery).
 * The collector also scrapes Prometheus metric endpoints such as API server, `etcd`, and NGINX.
 
-You can also configure the Collector to collect data from Telegraf application sources, such as Redis, RabbitMQ. etc., using the [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md#telegraf_source) file.
+You can also configure the Collector to collect data from Telegraf application sources, such as Redis, RabbitMQ. etc., using the [configuration.md](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/configuration.md#telegraf_source) file.
 
 The following diagram illustrates this:
 
