@@ -64,9 +64,8 @@ To configure CloudWatch ingestion:
     - **Products** -- Allows you to filter the list of AWS products for which you want to collect metrics by using the CloudWatch integration. The default is **All**. Click **Custom** to see the list of AWS products and to filter them according to your needs.
     - If you select a custom list of AWS products, you can also specify custom namespaces.
 
-       Custom namespaces that you add must start with the correct prefix. For example, if you want to monitor Amazon Chime SDK, enter `AWS/ChimeSDK`.
-
        A namespace is a container for CloudWatch metrics. Metrics in different namespaces are isolated from each other, so that metrics from different applications are not mistakenly aggregated into the same statistics. See [Amazon CloudWatch concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html) for details. 
+
     
 1. Click **Update**.
 
@@ -74,7 +73,7 @@ To configure CloudWatch ingestion:
 
 By using the **Metric Allow List** and the **Products** option you can select which services and metrics to monitor. If you want to monitor all metrics for all services, you don't have to do anything, just leave the **Metric Allow List** empty and the **Products** option set to **All**. 
 
-In addition, if you ingest custom metrics to CloudWatch, you can add the list of custom namespaces (namespaces that are not in the default provided product list). You can also use  the  **Custom Namespace(s)** text box and add the default namespaces of services that are not a part of the **Products** list. For a list of the AWS services that publish metrics to CloudWatch and their namespaces, see [AWS services that publish CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html).
+In addition, if you ingest metrics to CloudWatch from services that are not in our product list, you can add the list of namespaces of these services to the  **Custom Namespace(s)** text box. For a list of the AWS services that publish metrics to CloudWatch and their default namespaces, see [AWS services that publish CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html). 
 
 
 #### How to Monitor All Metrics for Specific Services
@@ -99,11 +98,14 @@ If you want to monitor only some of the metrics for specific services, select th
 
 If you are ingesting metrics for a service, which is not part of the products list, to monitor the metrics for this service, you can do one of the following:
 
-* Leave the **Products** option set to **All** and use a regular expression.
-* Select **Custom** and in the  **Custom Namespace(s)** text box, enter the namespace of the service you want to monitor.
+* The preferred and most reliable way is to select **Custom**, and to enter the namespace of the service you want to monitor in the **Custom Namespace(s)** text box. 
 
-  For example, if you want to monitor Amazon Chime SDK, enter `AWS/ChimeSDK`.
+  If you want to monitor services which are not listed in our list of products and you have *NOT* defined your own custom namespaces in AWS, the custom namespace that you add in the **Custom Namespace(s)** text box, must start with the correct prefix. 
 
+  For example, if you want to monitor Amazon Chime SDK, **Custom Namespace(s)** text box, enter `AWS/ChimeSDK`. If you have defined your own custom namespace for the same service in AWS, for example `ABC`, provide the custom namespace the way you have defined it in AWS. In this case, in the **Custom Namespace(s)** text box, enter `ABC` without a prefix.
+
+
+* Leave the **Products** option set to **All** and use a regular expression. 
 
 #### How to Monitor Metrics for Services in the Products List and for a Service Which Is Not in the List
 
