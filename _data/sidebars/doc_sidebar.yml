@@ -929,7 +929,7 @@ entries:
             url: /wavefront_monitoring_spy.html
             output: web
           
-          - title: View and Subscribe to the Service Status Page
+          - title: Monitor the Status of Your Service
             url: /service_status_page.html
             output: web
 
