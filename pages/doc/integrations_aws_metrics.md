@@ -102,7 +102,7 @@ If you are ingesting metrics for a service, which is not part of the products li
 
   If you want to monitor services which are not listed in our list of products and you have *NOT* defined your own custom namespaces in AWS, the custom namespace that you add in the **Custom Namespace(s)** text box, must start with the correct prefix. 
 
-  For example, if you want to monitor Amazon Chime SDK, **Custom Namespace(s)** text box, enter `AWS/ChimeSDK`. If you have defined your own custom namespace for the same service in AWS, for example `ABC`, provide the custom namespace the way you have defined it in AWS. In this case, in the **Custom Namespace(s)** text box, enter `ABC` without a prefix.
+  For example, if you want to monitor Amazon Chime SDK, in the **Custom Namespace(s)** text box, enter `AWS/ChimeSDK`. If you have defined your own custom namespace for the same service in AWS, for example `ABC`, provide the custom namespace the way you have defined it in AWS. In this case, in the **Custom Namespace(s)** text box, enter `ABC` without a prefix.
 
 
 * Leave the **Products** option set to **All** and use a regular expression. 
@@ -118,7 +118,7 @@ If you are ingesting metrics for a service, which is not part of the products li
     For example, if you want to monitor Amazon DynamoDB and Amazon Relational Database Service, select the **Amazon DynamoDB** and **Amazon Relational Database Service** options.
 4. In the **Custom Namespace(s)** text box, enter the namespace of the service that you want to monitor. 
     
-   For example, if you want to monitor Amazon Chime SDK, **Custom Namespace(s)** text box, enter `AWS/ChimeSDK`. If you have defined your own custom namespace for the same service in AWS, for example `ABC`, provide the custom namespace the way you have defined it in AWS. In this case, in the **Custom Namespace(s)** text box, enter `ABC` without a prefix.
+   For example, if you want to monitor Amazon Chime SDK, in the **Custom Namespace(s)** text box, enter `AWS/ChimeSDK`. If you have defined your own custom namespace for the same service in AWS, for example `ABC`, provide the custom namespace the way you have defined it in AWS. In this case, in the **Custom Namespace(s)** text box, enter `ABC` without a prefix.
 
 
 <a name="aws_sources"></a>
