@@ -50,7 +50,7 @@
         
 </div>
     
-    <div class="row choose-path-card-wrapper">
+   <div class="row choose-path-card-wrapper">
         <div class="choose-path-card col-md-3 col-sm-6">
             <img src="/images/query_language.png" alt="icon"/>
             <div class="choose-path-card-title">Query Language</div>
@@ -61,9 +61,9 @@
             </div>
         </div>
       
-        <div class="choose-path-card col-md-3 col-sm-6">
+   <div class="choose-path-card col-md-3 col-sm-6">
             <img src="/images/administration_fill.png" alt="icon"/>
-            <div class="choose-path-card-title">Manage Wavefront</div>
+            <div class="choose-path-card-title">Manage Your Service</div>
             <div class="choose-path-card-links">
                 <a href="wavefront_usage_info.html">Improve PPS Usage</a>
                 <a href="authentication.html">Authentication</a>
@@ -80,8 +80,8 @@
             </div>
         </div>
 
-        <div class="choose-path-card col-md-3 col-sm-6">
-                <img src="/images/tanzu_k8s.png" alt="icon"/>
+<div class="choose-path-card col-md-3 col-sm-6">
+               <img src="/images/tanzu_k8s.png" alt="icon"/>
                 <div class="choose-path-card-title">Tanzu & Kubernetes</div>
                 <div class="choose-path-card-links">
                     <a href="integrations_tmc_howto.html">Tanzu Mission Control</a>
@@ -90,5 +90,5 @@
                 </div>
         </div>
   
-    </div>
+   </div>
 </div>
