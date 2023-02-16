@@ -6,7 +6,7 @@ permalink: service_status_page.html
 summary: Monitor for incidents and maintenance on your service.
 ---
 
-VMware publishes service operational status and maintenance schedules at [VMware Cloud Services Status Page](https://status.vmware-services.io/). For confidentiality reasons, the individual customer clusters are listed with alias names.
+VMware publishes service operational status and maintenance schedules at [VMware Cloud Services Status Page](https://status.vmware-services.io/). For confidentiality reasons, we list the individual customer clusters by using alias names.
 
 ## See Your Cluster Alias Name
 
@@ -37,7 +37,7 @@ To check whether your service is fully operational or it's undergoing maintenanc
 <li>Expand <strong>VMware Aria Operations for Applications</strong>.
 <ul>
 <li>The status icon next to <strong>VMware Aria Operations for Applications</strong> shows the status of the central service.</li>
-<li>The status icon next to your cluster alias name shows the status of your service instance.</li>
+<li>The status icon next to your <a href="#see-your-cluster-alias-name">cluster alias name</a> shows the status of your service instance.</li>
 </ul></li>
 If both status icons are green check marks, your service is fully operational.</ol>
 </td>
