@@ -19,7 +19,7 @@ The following videos get you started.
 <td><br><br>
 <p>This video is about recent changes to the install process and shows a demo. You can then get started by going to the following Github pages:
 <ul>
-<li><a href="https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes">Wavefront Operator for Kubernetes README</a></li>
+<li><a href="https://github.com/wavefrontHQ/observability-for-kubernetes">Observability for Kubernetes README</a></li>
 <li><a href="https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/operator/migration.md">Wavefront Operator for Kubernetes Migration</a></li>
 </ul>
 </p>
