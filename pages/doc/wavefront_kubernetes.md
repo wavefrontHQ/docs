@@ -27,7 +27,7 @@ The following videos get you started.
 <td><br><br>
 <p>This video is about recent changes to the install process and shows a demo. You can then get started by going to the following GitHub pages:
 <ul>
-<li><a href="https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes">Wavefront Operator for Kubernetes README</a></li>
+<li><a href="https://github.com/wavefrontHQ/observability-for-kubernetes">Observability for Kubernetes README</a></li>
 <li><a href="https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/operator/migration.md">Wavefront Operator for Kubernetes Migration</a></li>
 </ul>
 </p>
@@ -71,7 +71,7 @@ You can send data to Tanzu Observability in several ways:
 To use the Wavefront Collector for Kubernetes, you must set up our Kubernetes integration. Use one of the following options:
 * [**Recommended**] Directly by using the Tanzu Observability user interface. 
 
-  The new [Wavefront Operator for Kubernetes](https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes#configuration) supports deploying the Wavefront Collector and the Wavefront Proxy in Kubernetes.
+  The new [Wavefront Operator for Kubernetes](https://github.com/wavefrontHQ/observability-for-kubernetes#configuration) supports deploying the Wavefront Collector and the Wavefront Proxy in Kubernetes.
   
   1. Log in to your Wavefront instance and click **Integrations** on the toolbar.
   1. In the **Featured** section, click the **Kubernetes** integration tile.
