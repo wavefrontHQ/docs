@@ -4,10 +4,10 @@ tags: []
 sidebar: doc_sidebar
 toc: false
 permalink: privacy.html
-summary: Privacy policy for pre-acquisition customers.
+summary: Privacy policy for pre-acquisition customers. Note that in 2023, the product name for Tanzu Observability by Wavefront has been changed to VMware Aria Operations for Applications.
 ---
 
-<p>Last modified: March 2, 2017</p>
+<p>Last modified: March 7, 2023</p>
 This privacy policy applies to you **ONLY** if you became a customer before August 17, 2017. See the <a href="/terms_of_service.html">Terms of Service</a> for details.
 <h2><strong>Privacy Statement</strong></h2>
 <p style="font-weight: 400; text-align: justify;">We are committed to protecting your privacy on its website and in using our services. This policy gives details of what information we may collect from you and how we may store and use your information. By voluntarily using our website and services, you are indicating your consent to this Privacy Policy and you hereby consent that we will collect, use and share your information as set forth in this Policy. We periodically update our Privacy Policy and it is your responsibility to review and remain informed about any changes we make to this Policy. Your continued use of our website after any changes, or revisions to this Privacy Policy have been published shall indicate your agreement with the terms of such revised Privacy Policy.</p>

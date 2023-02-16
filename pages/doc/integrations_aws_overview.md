@@ -43,7 +43,7 @@ If you set up an [Amazon Web Services integration](integrations.html), Tanzu Obs
 {% include shared/system_dashboard.html %}
 
 
-## Giving Tanzu Observability Access to Your AWS Account
+## Giving Access to Your AWS Account
 
 Data flows from AWS only if the account has the required access. You have several options:
 
@@ -82,7 +82,7 @@ For information about external IDs and how they are used in AWS, see [How to Use
 1. Under **Access management** on the left, click **Roles**.
 1. Click **Create role**.
 1. Click the **AWS account** tile, and select the **Another AWS account** radio button.
-1. Enter the Wavefront account information:
+1. Enter the account information:
    - **Account ID** - The identifier of the Wavefront account to which you want to grant access. 
      To get the Wavefront account ID:
       1. Navigate to your Wavefront cluster.
