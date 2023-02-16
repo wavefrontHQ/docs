@@ -928,6 +928,10 @@ entries:
           - title: Use Wavefront Top or Spy to Investigate Traffic
             url: /wavefront_monitoring_spy.html
             output: web
+          
+          - title: View and Subscribe to the Service Status Page
+            url: /service_status_page.html
+            output: web
 
         - title: Best Practices
           output: web
