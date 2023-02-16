@@ -118,7 +118,7 @@ If you are ingesting metrics for a service, which is not part of the products li
     For example, if you want to monitor Amazon DynamoDB and Amazon Relational Database Service, select the **Amazon DynamoDB** and **Amazon Relational Database Service** options.
 4. In the **Custom Namespace(s)** text box, enter the namespace of the service that you want to monitor. 
     
-    For example, if you want to monitor Amazon Chime SDK, enter `AWS/ChimeSDK`.
+   For example, if you want to monitor Amazon Chime SDK, **Custom Namespace(s)** text box, enter `AWS/ChimeSDK`. If you have defined your own custom namespace for the same service in AWS, for example `ABC`, provide the custom namespace the way you have defined it in AWS. In this case, in the **Custom Namespace(s)** text box, enter `ABC` without a prefix.
 
 
 <a name="aws_sources"></a>
