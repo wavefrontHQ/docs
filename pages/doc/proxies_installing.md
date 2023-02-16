@@ -20,13 +20,13 @@ In most cases, a Wavefront proxy must be running in your installation before met
 - Operating system and JRE - Wavefront proxy is a Java application and can run on operating systems supported by Java. Java 8, 9, 10 or 11 is required. See the requirements in the [Wavefront Proxy README file](https://github.com/wavefrontHQ/wavefront-proxy#requirements).
 - Other - Maven
 
-{% include note.html content="The proxy uses disk space only for queue and buffering of metrics. The size of the buffer depends on the metrics size and the number of data points received and sent by the proxy. The **Wavefront Service and Proxy Data** dashboard in the **Wavefront Usage** integration has several charts that allow you to examine proxy backlog size and related metrics. See [Monitoring Proxies](monitoring_proxies.html)." %}
+{% include note.html content="The proxy uses disk space only for queue and buffering of metrics. The size of the buffer depends on the metrics size and the number of data points received and sent by the proxy. The proxy dashboards and the **Wavefront Service and Proxy Data** dashboard have several charts that allow you to examine proxy backlog size and related metrics. See [Monitoring Proxies](monitoring_proxies.html)." %}
 
 <a name="single"></a>
 
 ## Install a Proxy
 
-Many users install a proxy when they set up an integration. You can also install a proxy from the UI or perform a scripted installation.
+Many users install a proxy when they set up an integration. You can also install a proxy from the UI or perform a scripted installation manually.
 
 {% include note.html content="In development, many customers use only one proxy that receives data from many applications and sends those data to the Wavefront service. In production, consider using two proxies behind a load balancer. See [Proxy Deployment Options](proxies.html#proxy-deployment-options)." %}
 
@@ -229,13 +229,16 @@ sudo yum remove telegraf</code></td></tr>
 </tbody>
 </table>
 
-### Delete an Orphaned Proxy
+### Delete a Proxy
 
-When a proxy stops sending data, it goes into orphaned status. On the [Proxies Browser](monitoring_proxies.html#explore-your-proxies-with-the-proxies-browser), you can see the status and the details of each proxy in your environment. If you don't need an orphaned proxy, you can delete it.
+On the [Proxies Browser](monitoring_proxies.html#explore-your-proxies-with-the-proxies-browser), you can see the status and the details of each proxy in your environment. If you don't need an inactive proxy, you can delete it.
+
+{% include note.html content="You cannot delete a proxy in **Active** status." %}
 
 1. Log in to your Wavefront instance and select **Browse > Proxies**.
-1. From the **Status** filter on the left, select **Orphaned**.
-1. Select the check boxes for one or more proxies and click **Delete**.
+1. Select the check boxes for one or more proxies that you want to delete.
+
+1. Click **Delete**.
 
 ## See Also
 
