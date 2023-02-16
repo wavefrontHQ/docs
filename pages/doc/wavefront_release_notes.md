@@ -15,7 +15,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 ## 2023-07.x Release Notes
 
-**View Your Service Status**
+**Monitor the Status of Your Service**
 
   <table style="width: 100%;">
     <tbody>
