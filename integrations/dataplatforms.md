@@ -38,7 +38,7 @@ Use the Blueprint-specific links below to enable metrics ingestion to Tanzu Obse
 
 [Data Platform Blueprint2 - Kafka-Spark-Elasticsearch](https://github.com/bitnami/charts/tree/master/bitnami/dataplatform-bp2#tanzu-observability-wavefront-parameters)
 
-See [Observability for Kubernetes](https://github.com/wavefrontHQ/observability-for-kubernetes) for more details about Observability for Kubernetes.
+See [Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes) for more details about the Wavefront Collector.
 
 ### For using an existing Tanzu observibility deployment
 

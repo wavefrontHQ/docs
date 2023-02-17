@@ -32,7 +32,7 @@ This integration also installs the dashboards. Here's a preview of the Istio Dat
 This integration uses
 * [Prometheus](https://istio.io/latest/docs/ops/integrations/prometheus/) server to scrape metrics from Istio and federate them.
 
-* [Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/observability-for-kubernetes) to collect the federated metrics from Prometheus server and to send metrics to Wavefront. The collector can send data to Wavefront using the [proxy](https://docs.wavefront.com/proxies.html) or [direct ingestion](https://docs.wavefront.com/direct_ingestion.html). The instructions below assume Istio is deployed in a Kubernetes environment.
+* [Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes) to collect the federated metrics from Prometheus server and to send metrics to Wavefront. The collector can send data to Wavefront using the [proxy](https://docs.wavefront.com/proxies.html) or [direct ingestion](https://docs.wavefront.com/direct_ingestion.html). The instructions below assume Istio is deployed in a Kubernetes environment.
 
 ### Reporting Istio Metrics to Wavefront
 

@@ -34,7 +34,7 @@ This integration also installs dashboards. Here's a preview of the Tanzu Service
 This integration uses two main components:
 * [Prometheus](https://istio.io/latest/docs/ops/integrations/prometheus/) server to scrape metrics from Istio and federate them.
 
-* [Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/observability-for-kubernetes) to collect the federated metrics from Prometheus server and send these metrics to Wavefront. The Collector can send data to Wavefront using a [Wavefront Proxy](https://docs.wavefront.com/proxies.html) or through [direct ingestion](https://docs.wavefront.com/direct_ingestion.html).
+* [Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes) to collect the federated metrics from Prometheus server and send these metrics to Wavefront. The Collector can send data to Wavefront using a [Wavefront Proxy](https://docs.wavefront.com/proxies.html) or through [direct ingestion](https://docs.wavefront.com/direct_ingestion.html).
 
 Use the following instructions to start reporting metrics.
 

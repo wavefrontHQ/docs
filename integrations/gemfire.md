@@ -35,7 +35,7 @@ In addition to setting up the metrics flow, this integration also installs dashb
 ### VMware GemFire for Kubernetes Setup
 
 If you do not already have the Wavefront Collector for Kubernetes installed on your Kubernetes cluster, please follow these [instructions](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) to add it to your cluster.
-For more details about the Wavefront Collector, see [Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/observability-for-kubernetes).
+For more details about the Wavefront Collector, see [Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes).
 
 If you do not have the Wavefront Collector for Kubernetes installed on your Kubernetes cluster, follow these instructions to add it to your cluster by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install).
 
