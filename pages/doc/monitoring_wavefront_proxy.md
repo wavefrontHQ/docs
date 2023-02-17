@@ -9,6 +9,8 @@ Tanzu Observability by Wavefront supports monitoring of your [Wavefront proxies]
 * With the Proxies Browser, you can explore a detailed list of all your proxies.
 * With the out-of-the-box dashboards that are based on [proxy internal metrics](#proxy-internal-metrics), you can examine the health and the usage of your proxies.
 
+{% include note.html content="To access the Proxies Browser and the individual proxy dashboards, you must have the [**Proxies** permission](permissions_overview.html). If you don't have the **Proxies** permission, you can access only the [**Wavefront Service and Proxy Data** dashboard](#examine-the-proxies-health-and-usage-with-the-wavefront-usage-integration) of the Wavefront Usage integration." %}
+
 ## Explore Your Proxies with the Proxies Browser
 
 With the Proxies Browser, you can examine the status and the details of each proxy.
@@ -24,7 +26,17 @@ A proxy status can be:
 <td>The proxy is running and sending data.</td></tr>
 <tr>
 <td><strong>Orphaned</strong></td>
-<td>The proxy stopped sending data. Either the sources stopped sending data to the proxy or the token has been revoked.</td>
+<td>The proxy stopped sending data. The reason can be:
+<ul>
+<li>The sources stopped sending data to the proxy.</li>
+<li>The token has been revoked.</li>
+<li>The proxy service has been <a href="proxies_installing.html#start-and-stop-a-proxy">stopped or restarted</a>.
+<ul>
+<li>If the proxy is non-ephemeral, you can start the stopped proxy service again.</li>
+<li>If the proxy is ephemeral, you cannot start the stopped proxy service again. You can install a new proxy.</li>
+<li>If the proxy is ephemeral, restarting the proxy service installs a new proxy with a new ID. The old proxy becomes orphaned. </li>
+</ul></li>
+</ul></td>
 </tr>
 <tr>
 <td><strong>Stopped by Server</strong></td>
@@ -32,7 +44,7 @@ A proxy status can be:
 </tr>
 <tr>
 <td><strong>Token Expired</strong></td>
-<td>The token has expired. Depending on the proxy configuration, the proxy might still be running and sending data.</td>
+<td>The token has expired. You must install a new proxy.</td>
 </tr>
 </tbody>
 </table>
@@ -48,14 +60,14 @@ In addition, you can:
 * Search and, optionally, save and share your search. 
 * Filter the proxies by status.
 * Hide or show the filters.
-* Show all or deleted proxies.
+* Show **All** or [**Deleted**](proxies_installing.html#delete-a-proxy) proxies list. The **Deleted** proxies list shows the ephemeral proxies that were deleted during the last 24 hours and the non-ephemeral proxies that were deleted during the last 1month.
 * Configure the proxies table columns.
 * Open the dashboard of a proxy by clicking the proxy name.
 * Go to the **Wavefront Service and Proxy Data** dashboard of the Wavefront Usage integration by clicking **Usage and Proxies Data Dashboard**.
 
 ## Examine the Health and Usage of a Proxy with the Proxy Dashboard
 
-On the Proxies Browser, click the name of a proxy to open its dashboard. The proxy dashboard contains charts based on [proxy internal metrics](#proxy-internal-metrics), organized in the following sections:
+On the Proxies Browser, click the name of a proxy to open its individual dashboard. The proxy dashboard contains charts based on [proxy internal metrics](#proxy-internal-metrics), organized in the following sections:
 
 <table style="width: 100%;">
 <tbody>

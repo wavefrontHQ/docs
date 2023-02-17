@@ -223,6 +223,13 @@ Ex: <code>45</code></td>
 <td>6.0</td>
 </tr>
 <tr>
+<td>ephemeral</td>
+<td>If set to<code>false</code>, you must also set the <code>idFile</code> parameter.<br/>Default: <code>true</code> </td>
+<td>Boolean.<br/>
+Ex: <code>false</code></td>
+<td></td>
+</tr>
+<tr>
 <td>fileBeatPort</td>
 <td>TCP port to listen on for Filebeat data. <br/>Default: none</td>
 <td>A port number.<br/>

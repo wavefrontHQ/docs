@@ -7,7 +7,9 @@ permalink: proxies_troubleshooting.html
 summary: Troubleshoot proxy problems.
 ---
 
-Wavefront proxies give you a lot of flexibility and control over proxies. But with flexibility comes the potential for problems, so it's a best practice to [monitor you proxies](monitoring_proxies.html). In addition, our SaaS Value Engineering team has put together the following troubleshooting advice.
+Wavefront proxies give you a lot of flexibility and control over proxies. But with flexibility comes the potential for problems, so it's a best practice to [monitor you proxies](monitoring_proxies.html). For example, on the Proxies Browser page, you can see the account used to set up a specific proxy.
+
+In addition, our SaaS Value Engineering team has put together the following troubleshooting advice.
 
 ## Validate Metrics Received at the Proxy
 
@@ -413,42 +415,6 @@ In the URL:
 * `MY_INSTANCE` is your Wavefront instance, for example, the URL could start with `https://example.wavefront.com`
 * `PROXY_ID` is the ID, which you can find in the Proxies browser in the Hostname column.
 --->
-
-## How to Find the Account Used to Set Up a Specific Proxy
-<!--Link to this from usage monitoring page!--->
-
-You can find out the account--user or service account--that was used to set up a proxy. You must have **Proxies** permission to perform this task.
-
-The proxy name refers to the source name that the proxy uses to report its own metrics.
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="40%">
-<strong>Step 1</strong>: In the GUI, find and copy the proxy ID.
-<ol>
-<li>From the toolbar, select <strong>Browse > Proxies</strong> and search for the proxy by name.  </li>
-<li>Copy the proxy ID, shown under the name. The screenshot to the right shows the ID for the proxy named zabbix-proxy-container.</li>
-</ol></td>
-<td width="60%"><img src="/images/proxy_id.png" alt="screenshot showing proxy ID for a single proxy"></td>
-</tr>
-<tr>
-<td width="40%"><strong>Step 2</strong>: Use the <code>GET /api/v2/proxy/{id}</code> API endpoint to find the user ID.
-<ol>
-<li>Click the gear icon and select <strong>API Documentation</strong>. </li>
-<li>Expand the <strong>Proxy</strong> category and click <code>GET /api/v2/proxy/{id}</code>. </li>
-<li>In the <strong>id</strong> text box, enter the proxy ID that you copied in the previous step and click <strong>Execute</strong>.</li>
-<li>In the response body, find the userid. This is the account that created the proxy. </li>
-</ol>
-</td>
-<td width="60%"><img src="/images/proxy_api_1.png" alt="screenshot showing proxy ID for a single proxy"><br/>
-<img src="/images/proxy_api_2.png" alt="screenshot showing proxy ID for a single proxy"><br/>
-<img src="/images/proxy_api_3.png" alt="screenshot showing proxy ID for a single proxy">
-</td>
-</tr>
-</tbody>
-</table>
-
 
 
 ## Enable Proxy Health Checks
