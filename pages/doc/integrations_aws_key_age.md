@@ -28,7 +28,7 @@ To perform the AWS IAM Access Key Age service integration setup, your environmen
 
 ## Sending IAM Access Key Age Data
 
-After you've set up your environment to meet the prerequisites, follow these steps to send the access key age data to Tanzu Observability by Wavefront:
+After you've set up your environment to meet the prerequisites, follow these steps to send the access key age data to VMware Aria Operations for Applications:
 1. Connect to the EC2 instance through SSH.
 2. Update the `~/.aws/credentials` file with an `access_key_id` and `secret_key` for each profile. The following example illustrates this:
   
@@ -52,8 +52,8 @@ After you've set up your environment to meet the prerequisites, follow these ste
    ```
    # The AWS_PROFILES must be same as in your '~/.aws/credentials' file
    AWS_PROFILES = [] # List of AWS profiles. Fetch users' IAM access key age for each profile.
-   WAVEFRONT_API_TOKEN = '<wavefront api token>'
-   WAVEFRONT_URL = 'https://<cluster>.wavefront.com/' # push access key metrics to this cluster
+   WAVEFRONT_API_TOKEN = '<your API token>'
+   WAVEFRONT_URL = 'https://<example>.wavefront.com/' # push access key metrics to this cluster
    WRITE_INFO_LOG = 'true'
    ```
 5. Run the script:

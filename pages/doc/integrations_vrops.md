@@ -33,17 +33,17 @@ The API token will give read-only access to VMware Aria Operations (SaaS) and en
 1. Define the role of the token. 
    
    1. Under **Organization Roles**, select **Organization Member**.
-   1. Under **Service Roles**, scroll down, expand **VMware vRealize Operations Cloud**, and select the **vROps ReadOnly** role.
+   1. Under **Service Roles**, scroll down, expand **VMware Aria Operations (SaaS)**, and select the **VMware Aria Operations ReadOnly** role.
    
-      **Note**: The same **vROps ReadOnly** role must be also assigned to your user account.
+      **Note**: The same **VMware Aria Operations ReadOnly** role must be also assigned to your user account.
 1. Click the **Generate** button.
 1. Click the **Copy** button and copy the generated token.
 
 ### Set Up the VMware Aria Operations (SaaS) Integration
 
-1. Log in to your Operations for Applications cluster: https://*your-wavefront-cluster*.wavefront.com.
+1. Log in to your Operations for Applications cluster: `https://<example>.wavefront.com`.
 1. Click **Integrations** on the toolbar. 
-1. In the VMware section, click the **VMware Aria Operations** tile.
+1. In the VMware section, click the **VMware Aria Operations (SaaS)** tile.
 1. Click **Add Integration**.
 1. Provide a meaningful name of the integration.
 1. Paste the API token that you generated in the **API Token** text box.
@@ -85,7 +85,7 @@ With this initial, v1 release of the VMware Aria Operations (SaaS) integration, 
 
 You can see the full list of the collected metrics on the **Metrics Browser** page.
 
-1. In your Operations for Applications cluster, click **Browse > Metrics**.
+1. In your VMware Aria Operations for Applications cluster, click **Browse > Metrics**.
 2. On the **Metrics Browser** page, in the **Metrics** text box, enter `vrops.vmware.`.
 3. Click the folder icons to drill down to the individual metrics. 
 
@@ -97,7 +97,7 @@ This initial release of the VMware Aria Operations (SaaS) integration has the fo
 * The VMware Aria Operations (SaaS) metrics have a point tag, which represents the organization ID. This is the UUIF of the organization. Currently, we collect the Organization ID as a point tag, instead of the Organization name.
 * Along with the summary for a resource, in VMware Aria Operations (SaaS) there might be other properties. In Operations for Applications, currently we do not collect such properties. The VMware VMware Aria Operations (SaaS) integration only collects properties under the summary section as point tags.
 * In this release, you will see all the vCenter Server instances that you have configured in VMware Aria Operations (SaaS). To shortlist the vCenter Server instances you want to monitor, apply a filter by using the REST API. 
-  1. In your cluster, click the gear icon on top right, and select **API Documentation**.
+  1. In your cluster, click the gear icon in the top right corner, and select **API Documentation**.
   2. Expand **Cloud Integration** and click the `GET /api/v2/cloudintegration` request.
      
      You will see the list of the cloud integrations in the **Response Body** in JSON format. 

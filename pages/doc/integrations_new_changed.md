@@ -12,13 +12,13 @@ VMware Aria Operations for Applications (formerly known as Tanzu Observability b
 
 We made improvements to the following integrations in January 2023:
 
-* Amazon Web Services -- You can now ingest and monitor AWS Lambda cold start metrics. For information about how to do this, see [Ingesting AWS Lambda Cold Start Metrics into Tanzu Observability](integrations_aws_lambda.html#ingesting-aws-lambda-cold-start-metrics-into-tanzu-observability).
+* Amazon Web Services -- You can now ingest and monitor AWS Lambda cold start metrics. For information about how to do this, see [Ingesting AWS Lambda Cold Start Metrics into VMware Aria Operations for Applications](integrations_aws_lambda.html#ingesting-aws-lambda-cold-start-metrics-into-tanzu-observability).
 
 * ServiceNow -- We updated the instructions on how to set up the integration to reflect the latest UI changes. See more in the [ServiceNow Setup](servicenow.html#servicenow-setup) instructions.
 
 * Microsoft SQL Server -- Updated the charts in the **SQL Server Metrics** dashboard to use the instance variables.
 
-* Wavefront Usage -- Made fixes to the integration and now dashboards are populated with data depending on your type of contract (Billable vs. Burndown).
+* Operations for Applications Usage -- Made fixes to the integration and now dashboards are populated with data depending on your type of contract (Billable vs. Burndown).
 
 * Tanzu Application Service -- Made updates to the TAS system alerts and removed some of the alerts that are no longer needed, such as:
   - TAS Active Locks Alerts

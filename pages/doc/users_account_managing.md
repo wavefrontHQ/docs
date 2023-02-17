@@ -90,6 +90,8 @@ If you don't have the <strong>Accounts</strong> permission, for updates to your 
 
 ## Enable or Disable Super Admin Mode
 
+{% include note.html content="Currently, the Super Admin mode is not available for all customers." %}
+
 If you are a Super Admin user for the Wavefront service, you can temporarily enable Super Admin mode and perform your Super Admin tasks.
 
 {% include note.html content="To avoid making unintentional changes in the system, after performing your current Super Admin tasks, disable the Super Admin mode." %}

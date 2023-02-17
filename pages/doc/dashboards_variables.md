@@ -103,14 +103,14 @@ You reference a variable in a ts() expression using the syntax `${variableName}`
 
 Here's an example that uses a simple variable:
 
-1. Define a variable `az` and give it the value `tag=az-3 or source=app-3`.
+1. Define a variable `az` and give it the value `tag="az-3" or source="app-3"`.
 2. Using Query Editor, use the variable in a query like this:
 
    `ts(cpu.loadavg.1m, ${az})`.
 
 3. When the query engine executes this query, it replaces `${az}` with the current variable value and executes this query:
 
-   `ts(cpu.loadavg.1m, tag=az-3 or source=app-3)`.
+   `ts(cpu.loadavg.1m, tag="az-3" or source="app-3")`.
 
 <span id="simple"></span>
 
@@ -133,7 +133,7 @@ A simple dashboard variable maps a single variable to a single value. Simple var
 1. Give the variable a value from the Variables section of the dashboard in one of these ways:
   * To make a permanent change, edit the dashboard.
   * To make a temporary change, specify the value in the dashboard's Variables section.
-2. In your query or queries, use the variable as {$myvar} where you'd like to use the string of text.
+2. In your query or queries, use the variable as ${myvar} where you'd like to use the string of text.
 
 
 <span id="list"></span>
@@ -192,7 +192,7 @@ The values of a dynamic dashboard variable are dynamically determined by a query
 Dynamic dashboard variables allow you to select one of the following options.
 
 -   **Source** - Populates the dynamic variable list with sources associated with the query in the Query field.
--   **Source Tag** - Populates the dynamic variable list with source tags that match `"tag="` part of your ts() expression. For example `ts(cpu.load, tag=app*)` populates the dynamic variable list with `"app-tag1"`, `"app-tag2"` and so on.
+-   **Source Tag** - Populates the dynamic variable list with source tags that match `tag=` part of your ts() expression. For example `ts(cpu.load, tag="app*")` populates the dynamic variable list with `"app-tag1"`, `"app-tag2"` and so on.
 -   **Matching Source Tag** - This will get all of the sources from your ts() expression, then, find all the source tags associated with those sources and populate the dynamic variable list with those source tags. If the query returns at least 1 source associated with a source tag, **Matching Source Tag** will display source tags.
 -   **Metric** - Populates the  dynamic variable list with metrics associated with the query in the Query field.
 -   **Point Tag** - Populates the  dynamic variable list with point tag values (of the point tag key in Point Tag Key field) associated with the query in the Query field.
@@ -201,9 +201,9 @@ The example below uses the **Metric** field to populate a dynamic variable list.
 
 If you define a dynamic dashboard variable named **var2** that refers to a source, source tag, or point tag, you use `${var2}` in a query like this:
 
--   **Source** - `ts(<metricName>, source=${var2})`
--   **Source Tag** - `ts(<metricName>, tag=${var2})`
--   **Point Tag** - `ts(<metricName>, \<pointTagKey\>=${var2})`. Here, `pointTagKey` must match the key you set up when you created the dynamic dashboard variable.
+-   **Source** - `ts(<metricName>, source="${var2}")`
+-   **Source Tag** - `ts(<metricName>, tag="${var2}")`
+-   **Point Tag** - `ts(<metricName>, \<pointTagKey\>="${var2}")`. Here, `pointTagKey` must match the key you set up when you created the dynamic dashboard variable.
 
 ### Create a Dynamic Dashboard Variable
 
@@ -249,7 +249,7 @@ First, we create the dynamic variable:
 
 After we've saved the dynamic dashboard variable, we can use the variable in queries. :
 1. Create a chart with the following query:
-   `ts(~sample.cpu.loadav.1m, source={$source})`
+   `ts(~sample.cpu.loadavg.1m, source="${source}")`
 2. When users change the value of the **Source** variable in the dashboard, the query uses the selected value.
 
 Users can select the variable value from the menu - here, users can select one of many sources. As additional sources become available or are removed, the menu items change.
