@@ -274,7 +274,7 @@ The `kube-state-metrics` service starts running on your cluster. The Wavefront C
 * [Telegraf Source](#telegraf-source)
 * [Collector Health](#collector-health-metrics)
 
-This information comes directly from the [Wavefront Collector for Kubernetes github page](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/metrics.md)
+This information comes directly from the [Wavefront Collector for Kubernetes github page](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/metrics.md)
 
 ### Kubernetes Source
 
