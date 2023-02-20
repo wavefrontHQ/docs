@@ -15,8 +15,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 ## 2023-07.x Release Notes
 
-**Monitor the Status of Your Service**
-
+* **Monitor the Status of Your Service:**
   <table style="width: 100%;">
     <tbody>
     <tr>
@@ -32,6 +31,10 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
     </tr>
     </tbody>
     </table>
+
+* **Ingestion Policies Improvement:**
+
+  When you assign point tag key-value pairs to the scope of an [ingestion policy](ingestion_policies.html), wildcards are now supported as tag values, for example, `env="*"`.
 
 
 ## 2023-06.x Release Notes
