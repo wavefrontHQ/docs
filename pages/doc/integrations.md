@@ -38,7 +38,7 @@ Here's a screenshot that shows the different tabs of the Apache Solr integration
 
 ## Built-In and Custom Integrations
 
-Tanzu Observability lets you set up many integrations directly from the product. For other integrations, we give step-by-step instructions -- or you can send your data in other ways, for example, using the Telegraf output plug-in.
+VMware Aria Operations for Applications lets you set up many integrations directly from the product. For other integrations, we give step-by-step instructions -- or you can send your data in other ways, for example, using the Telegraf output plug-in.
 
 - **Built-in integrations** provide assisted installation and configuration. Many integrations also install a dashboard for you. Access the integration by clicking **Integrations** on the toolbar and clicking the **Setup** tab.
 
@@ -74,7 +74,7 @@ This table provides links to the documentation pages for many of the custom and 
 
 Our customers have started to make open-source integrations available on GitHub.
 
-Our first external integration sends AlertSite monitoring results to Tanzu Observability and is available at [https://github.com/secureworks/AlertSite2Wavefront](https://github.com/secureworks/AlertSite2Wavefront).
+Our first external integration sends AlertSite monitoring results to VMware Aria Operations for Applications and is available at [https://github.com/secureworks/AlertSite2Wavefront](https://github.com/secureworks/AlertSite2Wavefront).
 
 We're excited about this contribution and hope to see more soon!
 
