@@ -15,9 +15,13 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 ## 2023-07.x Release Notes
 
-**Amazon Web Services Integration Improvements:**
+* **Amazon Web Services Integration Improvements:**
 
-With this release, we've improved the AWS CloudWatch integration. When you configure the AWS CloudWatch integration, you can now also add custom namespaces so that you can monitor more services, no matter whether they are in the default **Products** list of AWS services in our GUI. For more information, see the [integrations release notes](integrations_new_changed.html#february-2023) for details. 
+  With this release, we've improved the AWS CloudWatch integration. When you configure the AWS CloudWatch integration, you can now also add custom namespaces so that you can monitor more services, no matter whether they are in the default **Products** list of AWS services in our GUI. For more information, see the [integrations release notes](integrations_new_changed.html#february-2023) for details. 
+
+* **Ingestion Policies Improvement:**
+
+  When you assign a key-value pair to an [ingestion policy](ingestion_policies.html) with the point tags scope, you can now select a wildcard for the tag value, for example, you can assign `env="*"`. Exact tag values are also supported, for example, you can assign `env="dev"`.
 
 ## 2023-06.x Release Notes
 
