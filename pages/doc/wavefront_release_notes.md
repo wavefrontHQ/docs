@@ -13,6 +13,12 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
 
+## 2023-07.x Release Notes
+
+**Amazon Web Services Integration Improvements**
+
+With this release, when you register an AWS CloudWatch integration, you can add custom namespaces so that you can monitor more services no matter whether they are in the default **Products** list of AWS services in our GUI. For more information, see [Configuring CloudWatch Data Ingestion](integrations_aws_metrics.html#configuring-cloudwatch-data-ingestion) and [How to Use the Metric Allow List and the Products List](integrations_aws_metrics.html#how-to-use-the-metric-allow-list-and-the-products-list). 
+
 ## 2023-06.x Release Notes
 
 **Time Window Picker Changes**
