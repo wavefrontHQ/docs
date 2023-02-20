@@ -215,7 +215,7 @@ Refer to the Wavefront [helm chart](https://github.com/wavefrontHQ/helm/tree/mas
 
 **Note**: We will deprecate the Helm or manually-installed Wavefront Collector for Kubernetes and Wavefront proxy next year. Our new Kubernetes Operator replaces the Helm or manually installed Wavefront Collector for Kubernetes and Wavefront proxy for all Kubernetes Distributions except for OpenShift Container Platform. For more information, see [Obsolescence and Remediation](https://docs.wavefront.com/wavefront_obsolescence_policy.html#kubernetes-integration).
 
-Follow the instructions below to manually set up Kubernetes monitoring. For more details about the available options, see the [Wavefront Collector for Kubernetes Configuration](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md).
+Follow the instructions below to manually set up Kubernetes monitoring. For more details about the available options, see the [Wavefront Collector for Kubernetes Configuration](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/configuration.md).
 
 
 #### Step 1. Deploy a Wavefront Proxy in Kubernetes
@@ -229,15 +229,15 @@ The Wavefront proxy and a `wavefront-proxy` service should now be running in Kub
 #### Step 2. Deploy Wavefront Collector for Kubernetes
 
 1. Create a directory named `wavefront-collector-dir` and download the following files to that directory:
-  * [0-collector-namespace.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/main/deploy/kubernetes/0-collector-namespace.yaml)
-  * [1-collector-cluster-role.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/main/deploy/kubernetes/1-collector-cluster-role.yaml)
-  * [2-collector-rbac.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/main/deploy/kubernetes/2-collector-rbac.yaml)
-  * [3-collector-service-account.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/main/deploy/kubernetes/3-collector-service-account.yaml)
-  * [4-collector-config.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/main/deploy/kubernetes/4-collector-config.yaml)
-  * [5-collector-daemonset.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/main/deploy/kubernetes/5-collector-daemonset.yaml)
+  * [0-collector-namespace.yaml](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/collector/deploy/kubernetes/0-collector-namespace.yaml)
+  * [1-collector-cluster-role.yaml](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/collector/deploy/kubernetes/1-collector-cluster-role.yaml)
+  * [2-collector-rbac.yaml](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/collector/deploy/kubernetes/2-collector-rbac.yaml)
+  * [3-collector-service-account.yaml](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/collector/deploy/kubernetes/3-collector-service-account.yaml)
+  * [4-collector-config.yaml](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/collector/deploy/kubernetes/4-collector-config.yaml)
+  * [5-collector-daemonset.yaml](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/collector/deploy/kubernetes/5-collector-daemonset.yaml)
 
   **Note**: Download the following file only for vSphere Tanzu environment.
-  * [0-vsphere-tanzu-rolebinding.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/main/deploy/vsphere-tanzu/0-vsphere-tanzu-rolebinding.yaml)
+  * [0-vsphere-tanzu-rolebinding.yaml](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/collector/deploy/vsphere-tanzu/0-vsphere-tanzu-rolebinding.yaml)
 
 2. Edit `4-collector-config.yaml` and replace `clusterName: k8s-cluster` with the name of your Kubernetes cluster.
 
@@ -249,7 +249,7 @@ To verify the collector is deployed, run `kubectl get pods -n wavefront-collecto
 
 #### Step 3. (Optional) Deploy the kube-state-metrics Service
 
-The Wavefront Collector natively collects various [metrics](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/metrics.md#kubernetes-state-source) about the state of Kubernetes resources. You can optionally deploy the third party [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) service to collect additional metrics.
+The Wavefront Collector natively collects various [metrics](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/metrics.md#kubernetes-state-source) about the state of Kubernetes resources. You can optionally deploy the third party [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) service to collect additional metrics.
 
 To deploy kube-state-metrics:
 
@@ -274,7 +274,7 @@ The `kube-state-metrics` service starts running on your cluster. The Wavefront C
 * [Telegraf Source](#telegraf-source)
 * [Collector Health](#collector-health-metrics)
 
-This information comes directly from the [Wavefront Collector for Kubernetes github page](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/metrics.md)
+This information comes directly from the [Wavefront Collector for Kubernetes github page](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/metrics.md)
 
 ### Kubernetes Source
 
