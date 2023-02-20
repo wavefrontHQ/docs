@@ -75,7 +75,7 @@ In the **Data** panel, specify the scope and, optionally, a PPS limit and click 
     </tr>
     <tr>
     <td><strong>Point Tags</strong></td>
-    <td><a href="metrics_managing.html#time-series-with-tags">Point tags</a> that are optional key-value pairs associated with a metric, for example, <code>env="dev"</code>.
+    <td><a href="metrics_managing.html#time-series-with-tags">Point tags</a> that are optional key-value pairs associated with a metric. You must assign exact tag keys with exact tag values or wildcards, for example, <code>env="dev"</code> or <code>env="*"</code>.
     <p>If you assign more than one point tag, you must select the match criterion - can be either <b>Has tags</b> (individual point tags) or <b>Has all these tags</b> (a combination of point tags).</p></td>
     </tr>
     </tbody>
