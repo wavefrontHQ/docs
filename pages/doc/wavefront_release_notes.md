@@ -23,7 +23,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
   When you assign a key-value pair to an [ingestion policy](ingestion_policies.html) with the point tags scope, you can now select a wildcard for the tag value, for example, you can assign `env="*"`. Exact tag values are also supported, for example, you can assign `env="dev"`.
 
-* **Monitor the Status of Your Service**
+* **Monitor the Status of Your Service:**
 
   <table style="width: 100%;">
     <tbody>
