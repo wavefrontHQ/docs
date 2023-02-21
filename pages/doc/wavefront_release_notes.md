@@ -58,8 +58,6 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 * **Super Admin Mode:**
 
-  {% include note.html content="Currently, the Super Admin mode is not available for all customers." %}
-
   <table style="width: 100%;">
   <tbody>
   <tr>
