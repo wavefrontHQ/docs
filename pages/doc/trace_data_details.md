@@ -810,7 +810,7 @@ The Wavefront service uses application tags to aggregate and filter data at diff
 
 OpenTelemetry span events capture span-specific logging messages and other debugging or informational output from the application itself. These span events are converted to span logs by the Wavefront service.
 
-span logs are especially useful for recording additional information about errors within the span.
+Span logs are especially useful for recording additional information about errors within the span.
 
 You can instrument your application to emit one or more logs with a span, and examine the logs from the Tracing UI.
 
