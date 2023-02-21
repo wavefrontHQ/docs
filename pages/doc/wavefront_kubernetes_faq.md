@@ -13,7 +13,7 @@ The [Wavefront Collector for Kubernetes on GitHub](https://github.com/wavefrontH
 
 ## What Is the Wavefront Collector for Kubernetes?
 
-The [Wavefront Collector](https://github.com/wavefrontHQ/observability-for-kubernetes) is an agent that you deploy within a Kubernetes cluster as a [DaemonSet](https://kubernetes.io/docs/collector/concepts/workloads/controllers/daemonset/). This agent collects metrics about a Kubernetes cluster and sends them to the Wavefront service. You can visualize these metrics using pre-built dashboards that help you monitor your Kubernetes clusters.
+The [Wavefront Collector](https://github.com/wavefrontHQ/observability-for-kubernetes) is an agent that you deploy within a Kubernetes cluster as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/). This agent collects metrics about a Kubernetes cluster and sends them to the Wavefront service. You can visualize these metrics using pre-built dashboards that help you monitor your Kubernetes clusters.
 
 ## Do I Have to Deploy the Wavefront Collector on Every Kubernetes Cluster?
 
