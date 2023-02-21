@@ -60,7 +60,7 @@ In addition, you can:
 * Search and, optionally, save and share your search. 
 * Filter the proxies by status.
 * Hide or show the filters.
-* Show **All** or [**Deleted**](proxies_installing.html#delete-a-proxy) proxies list. The **Deleted** proxies list shows the ephemeral proxies that were deleted during the last 24 hours and the non-ephemeral proxies that were deleted during the last 1month.
+* Show **All** or [**Deleted**](proxies_installing.html#delete-a-proxy) proxies list. The **Deleted** proxies list shows the ephemeral proxies that were deleted during the last 24 hours and the non-ephemeral proxies that were deleted during the last 1 month.
 * Configure the proxies table columns.
 * Open the dashboard of a proxy by clicking the proxy name.
 * Go to the **Wavefront Service and Proxy Data** dashboard of the Wavefront Usage integration by clicking **Usage and Proxies Data Dashboard**.
