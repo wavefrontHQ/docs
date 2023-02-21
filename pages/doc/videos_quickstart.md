@@ -5,7 +5,7 @@ tags: [getting started, videos]
 sidebar: doc_sidebar
 permalink: videos_quickstart.html
 published: false
-summary: Learn the concepts behind Wavefront technology.
+summary: Learn the concepts behind the VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) technology.
 ---
 
 <iframe src="https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_zcafsh0j/uiConfId/47611883" width="840" height="330" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" frameborder="0" title="Getting Started with Tanzu Observability by Wavefront"></iframe>
