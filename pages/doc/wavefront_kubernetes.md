@@ -71,7 +71,7 @@ You can send data to Tanzu Observability in several ways:
 To use the Wavefront Collector for Kubernetes, you must set up our Kubernetes integration. Use one of the following options:
 * [**Recommended**] Directly by using the Tanzu Observability user interface. 
 
-  The new [Wavefront Operator for Kubernetes](https://github.com/wavefrontHQ/observability-for-kubernetes#configuration) supports deploying the Wavefront Collector and the Wavefront Proxy in Kubernetes.
+  The new [Wavefront Operator for Kubernetes](https://github.com/wavefrontHQ/observability-for-kubernetes) supports deploying the Wavefront Collector and the Wavefront Proxy in Kubernetes.
   
   1. Log in to your Wavefront instance and click **Integrations** on the toolbar.
   1. In the **Featured** section, click the **Kubernetes** integration tile.
@@ -82,7 +82,7 @@ To use the Wavefront Collector for Kubernetes, you must set up our Kubernetes in
   
 * Follow the guidelines given in the [Bitnami guide](https://bitnami.com/stack/wavefront/helm).
 
-{% include tip.html content="After installing the Wavefront Collector for Kubernetes by using the Kubernetes integration, you can customize it to fit the needs of your environment and use case. See the [docs on GitHub](https://github.com/wavefrontHQ/observability-for-kubernetes/docs/collector/collector.md#configuration) and examples for different use cases. " %}
+{% include tip.html content="After installing the Wavefront Collector for Kubernetes by using the Kubernetes integration, you can customize it to fit the needs of your environment and use case. See the [docs on GitHub](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/collector.md#configuration) and examples for different use cases. " %}
 
 
 
