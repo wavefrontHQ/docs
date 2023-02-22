@@ -13,9 +13,45 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/observability-for-kubernetes/releases).
 
+## 2023-07.x Release Notes
+
+<!-- * **Proxies Browser Revamp**:
+
+  Streamlined experience that improves monitoring and managing your proxies.
+  - Configurable proxies list in table format lets you [explore your proxies](monitoring_proxies.html#explore-your-proxies-with-the-proxies-browser) in detail.
+  - Individual proxy dashboards to [examine the health and usage of each proxy](monitoring_proxies.html#examine-the-health-and-usage-of-a-proxy-with-the-proxy-dashboard).
+  -->
+
+* **Amazon Web Services Integration Improvements:** 
+
+  With this release, we have improved the AWS CloudWatch integration. When you configure the AWS CloudWatch integration, you can add custom namespaces to monitor more services, even those that are not in the default **Products** list of the AWS services in our GUI. For more information, see the [integrations release notes](integrations_new_changed.html#february-2023).
+
+* **Ingestion Policies Improvement:**
+
+  When you assign a key-value pair to an [ingestion policy](ingestion_policies.html) with the point tags scope, you can now set a wildcard for the tag value. For example, you can assign `env="*"`. 
+
+* **Monitor the Status of Your Service:**
+
+  <table style="width: 100%;">
+    <tbody>
+    <tr>
+    <td width="50%">
+    You can use the public <a href="https://status.vmware-services.io/">VMware Cloud Services Status Page</a> to monitor your service for incidents and maintenance.
+    <ol>
+    <li>For confidentiality reasons, we show the service status of each customer cluster by using a cluster alias name. <a href="service_status_page.html#find-your-cluster-alias-name">Find Your Cluster Alias Name</a>. </li>
+    <li>Outages and other service-wide events are reported on the VMware Cloud Services status page. <a href="service_status_page.html#view-the-status-of-your-service">View the Status of Your Service</a>.</li>
+    <li>You can subscribe to notifications for incidents and scheduled maintenance of your service. <a href="service_status_page.html#subscribe-for-status-updates">Subscribe for Status Updates</a>.</li>
+    </ol>
+    </td>
+    <td width="50%"><img src="images/service_status.png" alt="The VMware Cloud Services Status Page with expanded VMware Aria Operations for Applications."></td>
+    </tr>
+    </tbody>
+    </table>
+
+
 ## 2023-06.x Release Notes
 
-**Time Window Picker Changes**
+**Time Window Picker Changes:**
 
 
   <table style="width: 100%;">

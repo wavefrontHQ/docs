@@ -196,7 +196,7 @@ If you have the **Logs** permission, to investigate a firing alert, you can dril
 <table style="width: 100%;">
 <tr>
   <td width="40%">
-  <p>When you <a href="alerts_manage.html">create or edit</a> an alert, in the <strong>Related Logs</strong> panel, you can add multiple tag filters. This way, you can prepare the <a href="logging_log_browser.html#build-your-search-query">logs search query</a> that you can run when the alert fires.</p>
+  <p>When you <a href="alerts_manage.html">create or edit</a> an alert, in the <strong>Related Logs</strong> panel, you can add multiple tag filters. This way, you can prepare the <a href="logging_log_browser.html#build-your-search-query">logs search query</a>, which runs when the alert fires.</p>
   </td>
   <td width="60%">
     <img src="images/logs_alert_create.png" alt="The Related Logs panel with a drop-down menu for selecting include and exclude tag filters."/>
@@ -211,21 +211,26 @@ To drill into the related logs of a firing alert:
     * Click the link in the alert notification.
     * In the [Alerts Browser](alerts.html#alerts-browser-tutorial), locate the firing alert and click **View firing details**.
   
-    In the **Related Logs** panel, the `time range` filter is populated with the trigger window during which the alert condition was met and the alert transitioned to firing state.
-1. Optionally, in the **Related Logs** panel, adjust the filters for the logs search query.
+1. Click **Show Logs Summary**.
+    * In the **Alert Log Summary** panel, the `time range` filter is populated with the trigger window during which the alert condition was met and the alert transitioned to a firing state.
+    * The histogram chart shows you the logs for the specific time grouped by the log level, such as, debug, trace, error, server, info, and warn.
+    * You also get to see the list of exceptions that were fired when the alert was fired. Click an exception to go to the log Browser and examine the logs that have the exception you selected.
 
-    1. Click **Edit related Logs**, add and remove filters, and save the alert.
-    1. Click the eye icons of the related logs filters that you want to hide from the logs search query. To unhide a filter, you must click the eye-hide icon.
+    ![A screenshot of the alert log summary panel of a firing alert.](images/logs_view_log_summary_from_alert.png)
+
+1. Optionally, in the **Alert Log Summary** panel, adjust the filters for the logs search query.
+
+    1. Click **Configure log search**.
+    1. Add and remove filters from the **Related Logs** section, and save the alert.
     
-    You cannot remove or hide the `time range` filter.
-1. In the **Related Logs** panel, click **Go to Logs (Beta)**.
-  ![The related Logs panel populated with time range filter and other custom filters with eye and eye-hide icons.](images/logs_drill_alert.png)
+   Click the eye icons of the related logs filters that you want to hide from the logs search query. To unhide a filter, you must click the eye-hide icon. You cannot remove or hide the `time range` filter.
   
-  The Logs Browser opens in a new tab with the configurations from the **Related Logs** panel:
-  
-  * The search time window corresponds to `time range` value.
-  * The search query contains the unhidden filters (with the eye icons).
-    ![The search query and the selected time window in the Logs Browser.](images/logs_drill_alert_search.png)
+1. In the **Alert Log Summary** panel, click **Go to Logs (Beta)**.
+    The Logs Browser opens in a new tab with the configurations from the **Related Logs** panel:
+    
+    * The search time window corresponds to the `time range` value.
+    * The search query contains the unhidden filters (with the eye icons).
+      ![The search query and the selected time window in the Logs Browser.](images/logs_drill_alert_search.png)
 
 <table style="width: 100%;">
 <tbody>
