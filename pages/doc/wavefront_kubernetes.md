@@ -27,8 +27,8 @@ The following videos get you started.
 <td><br><br>
 <p>This video is about recent changes to the install process and shows a demo. You can then get started by going to the following GitHub pages:
 <ul>
-<li><a href="https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes">Wavefront Operator for Kubernetes README</a></li>
-<li><a href="https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes/blob/main/docs/migration.md">Wavefront Operator for Kubernetes Migration</a></li>
+<li><a href="https://github.com/wavefrontHQ/observability-for-kubernetes">Observability for Kubernetes README</a></li>
+<li><a href="https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/operator/migration.md">Wavefront Operator for Kubernetes Migration</a></li>
 </ul>
 </p>
 <p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_chq9tgn6" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
@@ -40,7 +40,7 @@ The following videos get you started.
 <iframe id="kmsembed-1_rpculupf" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_rpculupf/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability and Kubernetes"></iframe>
 </td>
 <td><br><br>
-<p>This video includes some details on the  one-click install of the <a href="https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes">Wavefront Collector for Kubernetes</a>.</p>
+<p>This video includes some details on the  one-click install of the <a href="https://github.com/wavefrontHQ/observability-for-kubernetes">Wavefront Collector for Kubernetes</a>.</p>
 <p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_rpculupf" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> </td>
 </tr>
 <tr>
@@ -71,7 +71,7 @@ You can send data to Tanzu Observability in several ways:
 To use the Wavefront Collector for Kubernetes, you must set up our Kubernetes integration. Use one of the following options:
 * [**Recommended**] Directly by using the Tanzu Observability user interface. 
 
-  The new [Wavefront Operator for Kubernetes](https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes#configuration) supports deploying the Wavefront Collector and the Wavefront Proxy in Kubernetes.
+  The new [Wavefront Operator for Kubernetes](https://github.com/wavefrontHQ/observability-for-kubernetes) supports deploying the Wavefront Collector and the Wavefront Proxy in Kubernetes.
   
   1. Log in to your Wavefront instance and click **Integrations** on the toolbar.
   1. In the **Featured** section, click the **Kubernetes** integration tile.
@@ -82,7 +82,7 @@ To use the Wavefront Collector for Kubernetes, you must set up our Kubernetes in
   
 * Follow the guidelines given in the [Bitnami guide](https://bitnami.com/stack/wavefront/helm).
 
-{% include tip.html content="After installing the Wavefront Collector for Kubernetes by using the Kubernetes integration, you can customize it to fit the needs of your environment and use case. See the [docs on GitHub](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes#configuration) and examples for different use cases. " %}
+{% include tip.html content="After installing the Wavefront Collector for Kubernetes by using the Kubernetes integration, you can customize it to fit the needs of your environment and use case. See the [docs on GitHub](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/collector.md#configuration) and examples for different use cases. " %}
 
 
 
@@ -113,10 +113,10 @@ You can [filter the metrics](https://github.com/wavefrontHQ/wavefront-kubernetes
 ### Application Monitoring
 
 The Wavefront Collector for Kubernetes automatically starts collecting metrics from many commonly used applications:
-* The collector auto discovers endpoints using labels. See [Auto Discovery](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/discovery.md#auto-discovery).
+* The collector auto discovers endpoints using labels. See [Auto Discovery](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/discovery.md#auto-discovery).
 * The collector also scrapes Prometheus metric endpoints such as API server, `etcd`, and NGINX.
 
-You can also configure the Collector to collect data from Telegraf application sources, such as Redis, RabbitMQ. etc., using the [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md#telegraf_source) file.
+You can also configure the Collector to collect data from Telegraf application sources, such as Redis, RabbitMQ. etc., using the [configuration.md](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/configuration.md#telegraf_source) file.
 
 The following diagram illustrates this:
 
