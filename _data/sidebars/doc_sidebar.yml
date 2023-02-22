@@ -925,7 +925,7 @@ entries:
             url: /wavefront_usage_info.html
             output: web
 
-          - title: Use Wavefront Top or Spy to Investigate Traffic
+          - title: Use Top or Spy to Investigate Traffic
             url: /wavefront_monitoring_spy.html
             output: web
 
