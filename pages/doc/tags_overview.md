@@ -231,7 +231,7 @@ sum(ts(dataingester.report-points, source="dev-2b-*" and tag=mySourceTag), sourc
 
 ### Manage SourceTag and SourceDescription Properties at the Proxy
 
-You can send metrics directly to the Wavefront proxy, and you can add source tags and source descriptions using the `SourceTag` and `SourceDescription` properties. Proxy 4.24 and later supports these properties. Starting with proxy 5.0, each property works with `add`, `save`, and `delete`.
+You can send metrics directly to the Wavefront proxy, and you can add source tags and source descriptions using the `SourceTag` and `SourceDescription` properties. Each property works with `add`, `save`, and `delete`.
 
 You send these properties to the same listening port as regular metrics. The port defaults to 2878, and you can change it with the `pushListenerPorts` setting in the [proxy configuration file](proxies_configuring.html#configuration-properties).
 
