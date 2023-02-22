@@ -34,7 +34,7 @@ A proxy status can be:
 <ul>
 <li>If the proxy is non-ephemeral, you can start the stopped proxy service again.</li>
 <li>If the proxy is ephemeral, you cannot start the stopped proxy service again. You can install a new proxy.</li>
-<li>If the proxy is ephemeral, restarting the proxy service installs a new proxy with a new ID. The old proxy becomes orphaned. </li>
+<li>If the proxy is ephemeral, restarting the proxy service installs a new proxy with a new ID. The old proxy transitions into irreversible orphaned status. </li>
 </ul></li>
 </ul></td>
 </tr>
