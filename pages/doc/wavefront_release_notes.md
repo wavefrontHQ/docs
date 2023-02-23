@@ -15,12 +15,11 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 ## 2023-07.x Release Notes
 
-<!-- * **Proxies Browser Revamp**:
+* **Proxies Browser Revamp**:
 
   Streamlined experience that improves monitoring and managing your proxies.
   - Configurable proxies list in table format lets you [explore your proxies](monitoring_proxies.html#explore-your-proxies-with-the-proxies-browser) in detail.
   - Individual proxy dashboards to [examine the health and usage of each proxy](monitoring_proxies.html#examine-the-health-and-usage-of-a-proxy-with-the-proxy-dashboard).
-  -->
 
 * **Amazon Web Services Integration Improvements:** 
 
