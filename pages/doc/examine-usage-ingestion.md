@@ -116,8 +116,8 @@ For more in-depth exploration on the usage of your Wavefront service, see the [W
 * [Monitor Your Wavefront Service](wavefront_monitoring.html).
 * [Find Actionable Usage Information](wavefront_usage_info.html).
 * [Monitor Wavefront Proxies](monitoring_proxies.html).
+* [Purchase Additional Capacity](purchase_additional_capacity.html)
 
-Our Customer Success Team has put together KB articles that drill down into adoption info.
+Our Customer Success Team has put together a KB article that drills down into adoption info.
 
-* [How to Track Adoption in Your Company with Usage Metadata](https://help.wavefront.com/hc/en-us/articles/360058526192-How-to-Track-Tanzu-Observability-Adoption-with-Usage-Metadata).
-* [How to Request a PPS Add-On to Current Committed Rate](https://help.wavefront.com/hc/en-us/articles/4402939921044-How-to-request-a-PPS-add-on-to-current-committed-rate).
+* [How to Track Adoption with Usage Metadata](https://tanzu.vmware.com/content/blog/how-to-track-wavefront-adoption-with-usage-metadata).
