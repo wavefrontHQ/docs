@@ -161,7 +161,7 @@ All users can examine the ingestion policy dashboards to understand their usage 
 1. Log in to your Wavefront instance.
 2. Navigate to the list of ingestion policies.
 
-    - If you are a Super Admin user, from the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
+    - If you are a Super Admin user and enabled Super Admin mode, from the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
     - If you are not a Super Admin user, from the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
 3. Click the **Ingestion Policies** tab and view all existing policies.
 ![Ingestion policies page](images/ingestion_policies.png)
