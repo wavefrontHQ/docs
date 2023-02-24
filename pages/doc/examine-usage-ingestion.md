@@ -18,15 +18,13 @@ For performance monitoring of your Wavefront instance, you can use [wftop, Wavef
 
 You can navigate to the Usage Summary dashboard to get an overview of the ingested and scanned rates over a certain [billing period](glossary.html#b). You can go up to 2 years back in time.
 
-1. Log in to the **Usage Summary** dashboard.
+1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
+1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
 
-2. Navigate to the list of ingestion policies.
-
-    - If you are a Super Admin user, from the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
-    - If you are not a Super Admin user, from the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
-
-   The **Usage Summary** tab opens. This tab contains the dashboard with an overview of the ingested and scanned rates.
-3. From the **Billing Month** drop-down menu, select the billing period you are interested in.
+    {% include tip.html content="If you are a Super Admin user and enabled Super Admin mode, the menu item is **Usage and Subscriptions**." %}
+    
+    The **Usage Summary** tab opens. This tab contains the dashboard with an overview of the ingested and scanned rates.
+1. From the **Billing Month** drop-down menu, select the billing period you are interested in.
    
    
 ## Understand the Data
