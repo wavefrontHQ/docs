@@ -5,7 +5,7 @@ sidebar: doc_sidebar
 permalink: monitoring_proxies.html
 summary: Learn how to monitor Wavefront proxies.
 ---
-Tanzu Observability by Wavefront supports monitoring of your [Wavefront proxies](proxies.html).
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports monitoring of your [Wavefront proxies](proxies.html).
 * With the Proxies Browser, you can explore a detailed list of all your proxies.
 * With the out-of-the-box dashboards that are based on [proxy internal metrics](#proxy-internal-metrics), you can examine the health and the usage of your proxies.
 
@@ -40,7 +40,7 @@ A proxy status can be:
 </tr>
 <tr>
 <td><strong>Stopped by Server</strong></td>
-<td>The Tanzu Observability subscription has ended for the customer.</td>
+<td>The Operations for Applications subscription has ended for the customer.</td>
 </tr>
 <tr>
 <td><strong>Token Expired</strong></td>
@@ -63,7 +63,7 @@ In addition, you can:
 * Show **All** or [**Deleted**](proxies_installing.html#delete-a-proxy) proxies list. The **Deleted** proxies list shows the ephemeral proxies that were deleted during the last 24 hours and the non-ephemeral proxies that were deleted during the last 1 month.
 * Configure the proxies table columns.
 * Open the dashboard of a proxy by clicking the proxy name.
-* Go to the **Wavefront Service and Proxy Data** dashboard of the Wavefront Usage integration by clicking **Usage and Proxies Data Dashboard**.
+* Go to the **Wavefront Service and Proxy Data** dashboard of the Operations for Applications Usage integration by clicking **Usage and Proxies Data Dashboard**.
 
 ## Examine the Health and Usage of a Proxy with the Proxy Dashboard
 
@@ -106,9 +106,9 @@ On the Proxies Browser, click the name of a proxy to open its individual dashboa
 </tbody>
 </table>
 
-## Examine the Proxies Health and Usage with the Wavefront Usage Integration
+## Examine the Proxies Health and Usage with the Operations for Applications Usage Integration
 
-The Wavefront Usage integration includes the predefined **Wavefront Service and Proxy Data** dashboard, which contains the **Proxies: Overview** and the **Proxy Troubleshooting** sections. These two sections comprise of charts based on the [proxy internal metrics](#proxy-internal-metrics) for examining the health of the proxies in your environment.
+The Operations for Applications Usage integration includes the predefined **Wavefront Service and Proxy Data** dashboard, which contains the **Proxies: Overview** and the **Proxy Troubleshooting** sections. These two sections comprise of charts based on the [proxy internal metrics](#proxy-internal-metrics) for examining the health of the proxies in your environment.
 
 You can navigate to this dashboard in two ways:
 - Select **Dashboards > All Dashboards** and search for the **Wavefront Service and Proxy Data** dashboard.
@@ -116,7 +116,7 @@ You can navigate to this dashboard in two ways:
 
 ### Proxies Overview
 
-This section of the **Wavefront Service and Proxy Data** dashboard includes a number of charts that show general information about the proxies in your environment, such as the rate at which each proxy receives points, the rate at which each proxy sends points to Tanzu Observability, any queued or blocked points, and more.
+This section of the **Wavefront Service and Proxy Data** dashboard includes a number of charts that show general information about the proxies in your environment, such as the rate at which each proxy receives points, the rate at which each proxy sends points to Operations for Applications, any queued or blocked points, and more.
 
 ![proxy health](images/proxy_health_example.png)
 
@@ -129,13 +129,13 @@ The proxy statistics are shown in a tabular chart at the end of the section:
 In this section of the **Wavefront Service and Proxy Data** dashboard, you can investigate second-level metrics that give you insight into questions, suchh as:
 * Why are some points blocked?
 * What's the file descriptor usage on the proxy JVM?
-* How long does it take for points to be pushed from the proxy to Tanzu Observability?
+* How long does it take for points to be pushed from the proxy to Operations for Applications?
 
 For example, this row from that section shows latency metrics using `~proxy.push.*.duration.duration.median`:
 
 ![A screenshot of the P95 Network Latency, P75 Network Latency and Median Network Latency charts.](images/proxy_troubleshooting.png)
 
-In this section of the dashboard, you can also monitor the time a proxy is spending with [preprocessing rules](proxies_preprocessor_rules.html). The charts show the time the JVM spends on the rules and determine the overall effectiveness of the rules. Rules that are not optimized can contribute to data lag. As a result, Tanzu Observability will not receive the data in a timely manner. 
+In this section of the dashboard, you can also monitor the time a proxy is spending with [preprocessing rules](proxies_preprocessor_rules.html). The charts show the time the JVM spends on the rules and determine the overall effectiveness of the rules. Rules that are not optimized can contribute to data lag. As a result, Operations for Applications will not receive the data in a timely manner. 
 
 For best performance, make sure that the expression leverages the [regex best practices for the proxy rules](proxies_preprocessor_rules.html#regex-notes) and that your proxy runs the latest version. 
 
@@ -171,14 +171,14 @@ The Wavefront proxies emit the `~proxy.` set of internal metrics, which you can 
 </tr>
 <tr>
 <td><code>~proxy.points.*.delivered</code></td>
-<td>Counter showing the number of points successfully delivered to Tanzu Observability, broken down by listening port.</td>
+<td>Counter showing the number of points successfully delivered to Operations for Applications, broken down by listening port.</td>
 </tr>
 <tr>
 <td><code>~proxy.points.*.queued</code></td>
-<td>Counter showing the number of points being queued to be sent to Tanzu Observability from the proxy, as a per-second rate. Queueing usually happens for one of the following reasons:
+<td>Counter showing the number of points being queued to be sent to Operations for Applications from the proxy, as a per-second rate. Queueing usually happens for one of the following reasons:
 <ul>
-<li>The total point rate being collected has reached the maximum capacity. The Wavefront service is pushing back, causing data to buffer at the proxy and causing the proxy to queue points.</li>
-<li>The proxy has reached the threshold of number of points it can process in each batch. The maximum number of points that a proxy can process and push to Tanzu Observability is <code>&lt;number_of_cores&gt; * pushFlushMaxPoints</code>, where:
+<li>The total point rate being collected has reached the maximum capacity. The Operations for Applications service is pushing back, causing data to buffer at the proxy and causing the proxy to queue points.</li>
+<li>The proxy has reached the threshold of number of points it can process in each batch. The maximum number of points that a proxy can process and push to Operations for Applications is <code>&lt;number_of_cores&gt; * pushFlushMaxPoints</code>, where:
 <ul>
 <li><code>&lt;number_of_cores&gt;</code> is the number of cores on the machine on which the proxy is running</li>
 <li><code>pushFlushMaxPoints</code> is the batch size that the proxy sends every second. This value is configurable. The default setting is 40,000.</li>
@@ -216,7 +216,7 @@ For example, if you are running the proxy on a 4-core machine, by default, the m
 </tr>
 <tr>
 <td><code>~proxy.limiter.permits-denied</code></td>
-<td>Counter that shows how many points have been queued due to local proxy settings in wavefront.conf, i.e. the proxy rate limiting itself, not the Wavefront service pushing back.</td>
+<td>Counter that shows how many points have been queued due to local proxy settings in wavefront.conf, i.e. the proxy rate limiting itself, not the Operations for Applications service pushing back.</td>
 </tr>
 <tr>
 <td><code>~proxy.point.badchars</code></td>
@@ -244,7 +244,7 @@ For example, if you are running the proxy on a 4-core machine, by default, the m
 </tr>
 <tr>
 <td><code>~proxy.push.*.duration.duration.median</code></td>
-<td>Duration taken by points pushed from the proxy to reach Tanzu Observability. Can help identify network latency issues. You can graph other percentiles.</td>
+<td>Duration taken by points pushed from the proxy to reach Operations for Applications. Can help identify network latency issues. You can graph other percentiles.</td>
 </tr>
 <tr>
 <td><code>~proxy.points.*.received.lag.p95</code></td>

@@ -1,5 +1,5 @@
 ---
-title: Examine the Overall Usage of Your Service Instance
+title: Examine the Overall Usage of Your Operations for Applications Service
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: examine_usage.html
