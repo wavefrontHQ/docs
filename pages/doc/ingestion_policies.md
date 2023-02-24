@@ -18,7 +18,7 @@ By creating an ingestion policy, you group a set of accounts, groups, sources, m
 
 {% include important.html content="Ingestion policies **do not** support metrics from external services. You **CANNOT** use ingestion policies to monitor PPS usage for services such as the Amazon Web Services, Google Cloud Platform, Microsoft Azure, Snowflake, VMware vRealize Operations Cloud, New Relic, Datadog, and AppDynamics integrations."%}
 
-For performance monitoring of your Wavefront instance, you can use [wftop, Wavefront spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Usage integration](wavefront_monitoring.html).
+For performance monitoring of your Operations for Applications instance, you can use [wftop and spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Usage integration](wavefront_monitoring.html).
 
 ## Ingestion Policy Basics
 
@@ -113,7 +113,7 @@ After you create an ingestion policy, if you need, for example, to increase the 
 
 {% include note.html content="You cannot change the policy scope. You can change only the assigned objects from that scope."%}
 
-1. Log in to your Wavefront instance as a Super Admin user and [enable Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode).
+1. Log in to your service instance (`https://<your_instance>.wavefront.com`) as a Super Admin user and [enable Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode).
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
 3. On the **Ingestion Policies** tab, click the ellipsis icon next to the policy that you want to edit and select **Edit**.
 4. In each panel, apply the necessary changes and click **Next**.
@@ -150,7 +150,7 @@ If you no longer need an ingestion policy, for example, after a reorganization i
 
 {% include note.html content="Deleting an ingestion policy cannot be undone. Deleting an ingestion policy with a PPS limit, also deletes its associated alert."%}
 
-1. Log in to your Wavefront instance as a Super Admin user and [enable Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode).
+1. Log in to your service instance (`https://<your_instance>.wavefront.com`) as a Super Admin user and [enable Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode).
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
 3. On the **Ingestion Policies** tab, click the ellipsis icon next to the policy that you want to delete, select **Delete** and confirm.
 
@@ -158,7 +158,7 @@ If you no longer need an ingestion policy, for example, after a reorganization i
 
 All users can examine the ingestion policy dashboards to understand their usage over time.
 
-1. Log in to your Wavefront instance.
+1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
 2. Navigate to the list of ingestion policies.
 
     - If you are a Super Admin user, from the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
@@ -226,7 +226,7 @@ On the **Ingestion Policies** tab, for each policy you can see:
 
 ## Example: Monitor Which Teams Are Responsible for How Much Ingested Data
 
-Consider the following example. You are administering a Wavefront instance for two big teams, `IT Team1` and `IT Team2`, and you want to monitor how much data each of the team uses. `IT Team1` usually needs more PPS data, and you have only 10,000 of committed PPS on a monthly basis.
+Consider the following example. You are administering service instance for two big teams, `IT Team1` and `IT Team2`, and you want to monitor how much data each of the team uses. `IT Team1` usually needs more PPS data, and you have only 10,000 of committed PPS on a monthly basis.
 
 You can create an ingestion policy for each team to monitor how much data each team uses per month. You can also set a PPS limit for each ingestion policy and if a team consumes more than expected, you will receive an alert notification, so that you can provide additional training on how to use ingested data wisely. 
 

@@ -111,7 +111,7 @@ The **Scan Rate** section of the dashboard contains helps you explore scan rates
     
 ## Learn More!
 
-For more in-depth exploration on the usage of your Wavefront service, see the [Usage integration](system.html)-related documentation: 
+For more in-depth exploration on the usage of your Operations for Applications service, see the [Usage integration](system.html)-related documentation: 
 
 * [Monitor Your Service](wavefront_monitoring.html).
 * [Find Actionable Usage Information](wavefront_usage_info.html).
