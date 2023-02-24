@@ -1,18 +1,18 @@
 ---
-title: Examine the Overall Usage of Your Wavefront Service
+title: Examine the Overall Usage of Your Service Instance
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: examine_usage.html
 summary: Monitor your overall usage per billing period.
 ---
 
-It's important to understand how you use your Tanzu Observability by Wavefront service, whether you will be billed for more data, and whether you will need to request more data. Typically, billing is based on the amount of data that you send to Tanzu Observability, measured in Points per Second (PPS). If your scan rate exceeds more than 20x the ingestion rate, you will be billed based on the scan rate. If you exceed your committed rate, you will be charged more.
+It's important to understand how you use your VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) service, whether you will be billed for more data, and whether you will need to request more data. Typically, billing is based on the amount of data that you send to Operations for Applications, measured in Points per Second (PPS). If your scan rate exceeds more than 20x the ingestion rate, you will be billed based on the scan rate. If you exceed your committed rate, you will be charged more.
 
-You can examine the overall usage of your Wavefront service by using the **Usage Summary** dashboard, discussed here.
+You can examine the overall usage of your Operations for Applications service by using the **Usage Summary** dashboard, discussed here.
 
 For usage monitoring by accounts, sources, metric namespaces, and point tags, you can use [ingestion policies](ingestion_policies.html).
 
-For performance monitoring of your Wavefront instance, you can use [wftop, Wavefront spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Wavefront Usage integration](wavefront_monitoring.html).
+For performance monitoring of your Operations for Applications service, you can use [wftop, Wavefront spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Usage integration](wavefront_monitoring.html).
 
 ## How to Go to the Usage Summary Dashboard?
 
@@ -111,11 +111,11 @@ The **Scan Rate** section of the dashboard contains helps you explore scan rates
     
 ## Learn More!
 
-For more in-depth exploration on the usage of your Wavefront service, see the [Wavefront Usage integration](system.html)-related documentation: 
+For more in-depth exploration on the usage of your Wavefront service, see the [Usage integration](system.html)-related documentation: 
 
-* [Monitor Your Wavefront Service](wavefront_monitoring.html).
+* [Monitor Your Service](wavefront_monitoring.html).
 * [Find Actionable Usage Information](wavefront_usage_info.html).
-* [Monitor Wavefront Proxies](monitoring_proxies.html).
+* [Monitor Your Proxies](monitoring_proxies.html).
 
 Our Customer Success Team has put together KB articles that drill down into adoption info.
 
