@@ -118,36 +118,36 @@ Include the root CA by clicking the check box. The following screenshot shows a 
 
 ![Screenshot of Security tab shows Include Tanzu Ops Manager Root CA in Trusted Certs ](images/tas_include_root_ca.png)
 
-## Symptom: No Data Flowing or Dashboards Show Now Data
+## Symptom: No Data Flowing or Dashboards Show No Data
 
 You have successfully set up the nozzle and the integration. However, you don't see any data for the out-of-the-box dashboards. The most common cause is a problem with sending data to Tanzu Observability.
 
 **Potential Solutions**:
 
 
-* Ensure that the installation of the Wavefront Nozzle in has completed.
+* Ensure that the installation of the Wavefront Nozzle has completed.
 * Verify that the proxy uses the correct API token and Wavefront instance URL. You specify that information in Ops Manager in the **Proxy Config** page.
 * In your Tanzu Application Service environment, verify that the Bosh jobs for Wavefront proxy and for the Telegraf agent are running.
   * Using the BOSH cli, use the `bosh deps` command to identify your wavefront-nozzle deployment, then tail the logs using `bosh ssh`.
 
-```bash
-% bosh deps
+    ```bash
+    % bosh deps
 
-% bosh ssh -d wavefront-nozzle-d62c653f58184da09b1d telegraf_agent
-% sudo -i
-% bpm logs -fa telegraf_agent
-```
-If you see errors in the output here, this may help pinpoint a specific issue in the environment. Otherwise, contact support.
+    % bosh ssh -d wavefront-nozzle-d62c653f58184da09b1d telegraf_agent
+    % sudo -i
+    % bpm logs -fa telegraf_agent
+    ```
+  * If you see errors in the output here, this may help pinpoint a specific issue in the environment. Otherwise, contact support.
 
-If there are no errors in Telegraf, the next step is to check the logs for the wavefront_proxy
+  * If there are no errors in Telegraf, the next step is to check the logs for the wavefront_proxy
 
-```bash
-% bosh ssh -d wavefront-nozzle-d62c653f58184da09b1d wavefront_proxy
-% sudo -i
-% bpm logs -fa wavefront_proxy
-```
+    ```bash
+    % bosh ssh -d wavefront-nozzle-d62c653f58184da09b1d wavefront_proxy
+    % sudo -i
+    % bpm logs -fa wavefront_proxy
+    ```
 
-* Verify that data are flowing from the Wavefront proxy to your Wavefront instance. See [Proxy Troubleshooting](proxies_troubleshooting.html)
+* Verify that data are flowing from the Wavefront proxy to your Wavefront instance. See [Proxy Troubleshooting](proxies_troubleshooting.html).
 
 
 ## Symptom: Higher than Expected PPS Rate
@@ -157,15 +157,15 @@ The PPS (points-per-second) rate can affect performance and potentially the cost
 * **3.x**: Version 3.x of the Nozzle follows a push-based model. PPS varies based on factors such as HTTP requests being served by the Gorouter, so PPS is less predictable.
 
 However, it can be difficult to predict the average PPS of a TAS foundation ahead of time because several factors affect the total number of metrics that are generated:
-* The TAS version
-* The size of the foundation
-* Other TAS components running on the foundation
+* The TAS version.
+* The size of the foundation.
+* Other TAS components running on the foundation.
 
 PPS might increase or decrease when individual TAS components are installed, upgraded or removed. Each individual component contributes its own metrics.
 
 **Solution**:
 
-* Increase the Telegraf agent’s scrape interval. Metrics will be collected less frequently, and average PPS decreases.
+Increase the Telegraf agent’s scrape interval. Metrics will be collected less frequently, and average PPS decreases.
 
 Future releases will allow more targeted approaches to reducing PPS, for example, by filtering out unwanted metrics.
 
@@ -204,5 +204,5 @@ cf routes
 ```
 
 If you see an app called `tas2to-sli-test-app` in the results of `cf apps` or a route matching that name in the `cf routes` results, you should clean them up.
-* To delete the app, run `cf delete tas2to-sli-test-app`
-* To delete the route, run `cf delete-route example.com --hostname tas2to-sli-test-app`
+* To delete the app, run `cf delete tas2to-sli-test-app`.
+* To delete the route, run `cf delete-route example.com --hostname tas2to-sli-test-app`.
