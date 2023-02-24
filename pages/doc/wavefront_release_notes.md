@@ -11,149 +11,138 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 * For **Wavefront Proxy**, your go-to place is the [Wavefront proxy GitHub page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
-* For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
+* For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/observability-for-kubernetes/releases).
 
-## 2022-49.x Release Notes
+## 2023-07.x Release Notes
 
-* **Charts Improvement**: You can now [create an event from within a new chart](events.html#creating-a-user-event) and then save the chart to a dashboard.
-* **Logs (Beta) Improvements**:
-  - We've just released [Wavefront proxy 12.1](https://github.com/wavefrontHQ/wavefront-proxy/releases), which supports ingesting logs as line-delimited JSON objects (JSON lines), and you can now [configure](logging_send_logs.html#configure-the-log-shipper) Fluent Bit as a log shipper.
-  - You can now customize the logs details table to [change the number of lines per row](logging_log_browser.html#change-the-number-of-lines-per-row).
+* **Proxies Browser Revamp**:
 
-## 2022-48.x Release Notes
+  Streamlined experience that improves monitoring and managing your proxies.
+  - Configurable proxies list in table format lets you [explore your proxies](monitoring_proxies.html#explore-your-proxies-with-the-proxies-browser) in detail.
+  - Individual proxy dashboards to [examine the health and usage of each proxy](monitoring_proxies.html#examine-the-health-and-usage-of-a-proxy-with-the-proxy-dashboard).
 
-* **New Kubernetes Integration Setup UI Experience**: With this release, we introduce new setup UI for the Kubernetes integration. See the [Integration Release Notes](integrations_new_changed.html#december-2022) for details.
+* **Amazon Web Services Integration Improvements:** 
 
-  
-* **Usage Portal Improvements**: We made the following improvements to the [ingestion policies](ingestion_policies.html) and [overall usage](examine_usage.html) monitoring:
+  With this release, we have improved the AWS CloudWatch integration. When you configure the AWS CloudWatch integration, you can add custom namespaces to monitor more services, even those that are not in the default **Products** list of the AWS services in our GUI. For more information, see the [integrations release notes](integrations_new_changed.html#february-2023).
 
-    {% include important.html content="Currently, the Usage Portal improvements are not available for all customers." %}
+* **Ingestion Policies Improvement:**
 
-    <table>
-      <tbody>
-        <tr>
-          <td width="40%">
-            <strong>New Ingestion Policy Scopes</strong>:<p>
-            We added sources, namespaces, and point tags as scope options for ingestion policies. As a Super Admin user, when you create an ingestion policy, you can now select the scope from one of these options:
-            <ul>
-            <li>Accounts</li>
-            <li>Groups</li>
-            <li>Sources</li>
-            <li>Namespaces</li>
-            <li>Point tags</li>
-            </ul></p>
-          </td>
-          <td width="60%">
-            <img src="/images/IP_sources_namespaces_tags.png" alt="In addition to Accounts and Groups, the Scope options include Sources, Namespace, and Point tags.">
-          </td>
-        </tr>
-        <tr>
-          <td width="40%">
-            <strong>New Ingestion Policy Version History</strong>:<p>
-            As a Super Admin user, when you edit an ingestion policy, you now create a version of that policy. As a Super Admin user, to see the changes that have been made to an ingestion policy over time:
-            <ol>
-            <li>From the gear icon on the toolbar, select <strong>Usage and Subscriptions</strong> and click the <strong>Ingestion Policies</strong> tab.</li>
-            <li>Click the ellipsis icon next to the policy and select <strong>Versions</strong>.</li>
-            </ol></p>
-          </td>
-          <td width="60%">
-            <img src="/images/IP_versions.png" alt="The ingestion policy versions. ">
-          </td>
-        </tr>
-        <tr>
-          <td width="40%">
-            <strong>New View Permissions Model</strong>:<p>
-            All users now have read-only access to the <strong>Usage Summary</strong> dashboard and the ingestion policies. If you are not a Super Admin user:
-            <ol>
-            <li>From the gear icon on the toolbar, select <strong>Usage Portal</strong>.</li>
-            <li>On the <strong>Usage Summary</strong> tab, you can examine the dashboard for the overall PPS usage over time.</li>
-            <li>On the <strong>Ingestion Policies</strong> tab, click the name of a policy and examine the policy PPS usage since the policy was created.</li>
-            </ol>
-            Only Super Admin users can create, edit, and delete ingestion policies and the associated alerts.</p>
-          </td>
-          <td width="60%">
-            <img src="/images/IP_view_permission.png" alt="The ingestion policy versions. ">
-          </td>
-        </tr>
-        <tr>
-          <td width="40%">
-            <strong>Sorting Ingestion Policies by Current Usage</strong>:<p>
-            You can now sort the ingestion policies by PPS usage within the last 1 hour.</p>
-          </td>
-          <td width="60%">
-            <img src="/images/IP_usage_sort.png" alt="The ingestion policy versions. ">
-          </td>
-        </tr>
-        <tr>
-          <td width="40%">
-            <strong>Downloading Usage Portal Dashboards</strong>:<p>
-            All users can now export the <strong>Usage Summary</strong> dashboard and the ingestion policy dashboards in PDF format.</p>
-          </td>
-          <td width="60%">
-            <img src="/images/IP_dashboard_export.png" alt="The ingestion policy versions. ">
-          </td>
-        </tr>
-        </tbody>
+  When you assign a key-value pair to an [ingestion policy](ingestion_policies.html) with the point tags scope, you can now set a wildcard for the tag value. For example, you can assign `env="*"`. 
+
+* **Monitor the Status of Your Service:**
+
+  <table style="width: 100%;">
+    <tbody>
+    <tr>
+    <td width="50%">
+    You can use the public <a href="https://status.vmware-services.io/">VMware Cloud Services Status Page</a> to monitor your service for incidents and maintenance.
+    <ol>
+    <li>For confidentiality reasons, we show the service status of each customer cluster by using a cluster alias name. <a href="service_status_page.html#find-your-cluster-alias-name">Find Your Cluster Alias Name</a>. </li>
+    <li>Outages and other service-wide events are reported on the VMware Cloud Services status page. <a href="service_status_page.html#view-the-status-of-your-service">View the Status of Your Service</a>.</li>
+    <li>You can subscribe to notifications for incidents and scheduled maintenance of your service. <a href="service_status_page.html#subscribe-for-status-updates">Subscribe for Status Updates</a>.</li>
+    </ol>
+    </td>
+    <td width="50%"><img src="images/service_status.png" alt="The VMware Cloud Services Status Page with expanded VMware Aria Operations for Applications."></td>
+    </tr>
+    </tbody>
     </table>
-    
-    {% include important.html content="Ingestion policies **do not** support metrics from external services. You **CANNOT** use ingestion policies to monitor PPS usage for services such as the Amazon Web Services, Google Cloud Platform, Microsoft Azure, Snowflake, VMware vRealize Operations Cloud, New Relic, Datadog, and AppDynamics integrations."%}
 
-* **Logs (Beta)**:
 
-  {% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. If you'd like to participate, contact your Tanzu Observability account representative or [technical support](wavefront_support_feedback.html#support)."%}
+## 2023-06.x Release Notes
 
-  - Improved the search time window when you [drill down](logging_overview.html#traces-browser) from the Traces browser into the related logs. By default, the search time window now starts 5 seconds before the trace and ends 5 seconds after the trace, but it's customizable.
-  - Added an autocomplete functionality to the search bar, so that you can quickly enter log filters by using the keyboard.
-        
-* **Obsolescence Period for Metrics and Sources**: The period of inactivity, after which metrics and sources become *obsolete*, is now customizable. By default, the obsolescence period for metrics and sources is 4 weeks. See [Obsolete Metrics](metrics_managing.html#obsolete-metrics) and [Obsolete Sources](sources_managing.html#step-1-find-a-source) for details.
+**Time Window Picker Changes:**
 
-* **Delta Counters**: We no longer ingest the legacy delta counters as cumulative counter metrics. The original delta counters implementation has reached End of Life on March 31, 2021. See [here](wavefront_obsolescence_policy.html#delta-counters) for details.
 
-* **Integrations**: We had an integrations release in November! We added the Tanzu Service Mesh integration and made a lot of improvements to a number of integrations. 
-
-## 2022-44.x Release Notes
-
-* The **Query Suggestions** for charts and alerts are now actionable. To apply a suggestion and improve the query performance, click a suggestion and your query updates accordingly. See [Use Performance Improvement Suggestions](query_language_performance.html#use-performance-improvement-suggestions) for details.
-
-    ![screenshot of a query and the Suggestions panel with clickable values](images/Query_suggestions_RNs.png)
-* We made major improvements to our help docs to fix some issues and include more help pages.
-
-## 2022-42.x Release Notes
-
-With this release, we launch the Initial Availability of our **Logs (Beta)** feature.
-
-{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. If you'd like to participate, contact your Tanzu Observability account representative or [technical support](wavefront_support_feedback.html#support)."%}
-
-![The UI of the Logs Browser](images/logs_RNs.png)
-
-If the logs feature is enabled on your account:
-* You can start [sending logs](logging_send_logs.html) and correlate them with traces and metrics for unified observability and root cause analysis.
-* If you have the [**Logs** permission](permissions_overview.html), you can start using the [Logs Browser](logging_log_browser.html) to examine the ingested logs and find the root cause of critical issues. Click **Logs (Beta)** on the toolbar or drill into logs from charts, alerts, and traces. See [Get Started with Logs (Beta)](logging_overview.html) for details.
-* You can use the **Linux Host** and **Wavefront Usage** integrations that we improved for logs. See the [Integrations Release Notes](integrations_new_changed.html#october-2022) for details.
-
-## 2022-41.x Release Notes
-
-* **Accessibility Improvements**: With this release we have made a lot of accessibility-related fixes. For example:
+  <table style="width: 100%;">
+  <tbody>
+  <tr>
+  <td width="50%">
+  We have updated the time window picker for dashboards and charts to simplify the user experience. 
+  <ul><li>To see how you can update the time window on a dashboard level, see <a href="ui_examine_data.html#set-the-time-window">Set the Time Window</a>.</li>
+  <li>To see how you can define the time window on a chart level, see  <a href="ui_charts.html#set-the-time-window-on-a-chart">Set the Time Window on a Chart</a>.</li>
+  </ul>
+  You can also change the start and end times by directly editing the values in the <strong>Time window picker</strong> on the toolbar. 
+  <ol>
+  <li>Click the <strong>Time window picker</strong>.</li>
+  <li>Click the start/end month, date, or time and enter the new values.
+  <p>Once you are on the month, day, year, or time you can enter new values by typing them, or change the values using the up and down arrow keys. 
+  </p><p>You can also navigate within the <strong>Time window picker</strong> line by pressing the Tab key or the left and right arrow keys.</p>
+  </li>
+  <li>Press Enter to apply the changes.</li>
+  </ol>
   
-	* Added meaningful texts for screen readers to all of our pages and UI elements, such as buttons, form fields, data tables and their structure elements, and so on.
-	* Fixed color coding and contrast.
-	* Forms and form fields now contain instructions and all required fields are marked as such. In addition, we’ve made fixes to the error messages and their color coding and associated them with the appropriate form fields.
-	* We’ve added alternative texts for all images used in the UI.
-	* When you navigate to a page in the UI, we’ve added the appropriate name on the browser page as well. For example, when you create a new chart, on the browser you’ll see New Chart &#124; Tanzu Observability.
+  </td>
+  <td width="50%"><img src="images/preset_time_window.png" alt="A screenshot of the time window settings window."></td>
+  </tr>
+  </tbody>
+  </table>
 
-* **Dashboard Performance Improvements**: Previously, by default, the **Show Events** option was enabled to show the events from charts. This could increase the total query time of a dashboard. With this release, when you create a dashboard, by default the **Show Events** option is set to **None**. You can change this setting based on your needs. See [Control Event Overlays](charts_events_displaying.html#control-event-overlays) for details and screenshots.
+## 2023-05.x Release Notes
 
-* **Wavefront Top**: We have released the 1.2 version of the [wftop utility](https://github.com/wavefrontHQ/wftop) that has fixes for multiple CVE issues.
+* **See Who Has the Accounts Permission:**
+  <table style="width: 100%;">
+  <tbody>
+  <tr>
+  <td width="50%">
+  Users with the <strong>Accounts</strong> permission can manage users, roles, and permissions. If you need changes in your groups, roles, or permissions, but you don't have the <strong>Accounts</strong> permission, you can now see the contact details of the users with this permission at the bottom of the <a href="users_account_managing.html#examine-groups-roles-and-permissions"><strong>Groups, Roles & Permissions</strong></a> page.
+  </td>
+  <td width="50%"><img src="images/Accounts_users.png" alt="a screenshot with the link at the bottom of the Groups, Roles & Permissions page"></td>
+  </tr>
+  </tbody>
+  </table>
 
-* **Wavefront Proxy**: We’ve just released Wavefront Proxy 12. For details on the changes, see the [Wavefront proxy GitHub page](https://github.com/wavefrontHQ/wavefront-proxy/releases).
+* **Super Admin Mode:**
 
-* **Integrations**: We had an integrations release in October! We made a lot of bug fixes and improvements to a number of integrations, including the Wavefront Usage integration. See the [Integration Release Notes](integrations_new_changed.html#october-2022) for details.
+  <table style="width: 100%;">
+  <tbody>
+  <tr>
+  <td width="50%">
+  If you are a Super Admin, the Super Admin mode lets you turn on and off your own Super Admin privileges. You can <a href="users_account_managing.html#enable-or-disable-super-admin-mode">enable Super Admin mode</a> until you complete your Super Admin tasks. After that, to avoid making unintentional changes in the system, disable Super Admin mode.
+  </td>
+  <td width="50%"><img src="/images/super_admin_mode.png" alt="A screenshot of the drop-down menu with the Super Admin Mode toggle."></td>
+  </tr>
+  </tbody>
+  </table>
+* **Integrations:** We had an integrations release in January! We made a lot of bug fixes and significant improvements to several integrations. See the [Integrations Release Notes](integrations_new_changed.html#january-2023) for details.
+
+## 2023-04.x Release Notes
+
+* **OpenTelemetry**: OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/).) To send trace data to Tanzu Observability, use OpenTelemetry.
+  * See the [OpenTracing to OpenTelemetry Migration Guide](opentracing_to_opentelemetry_migration.html) to migrate a Java application that uses OpenTracing to use OpenTelemetry.
+  * The Wavefront OpenTracing SDKs are now deprecated, and are no longer supported.
+
+* **Spring Boot 3**: The Wavefront for Spring Boot version 3.0.1 or later now uses Spring Boot 3.
+  * To learn more, see [Wavefront for Spring Boot 3](wavefront_springboot3.html).
+  * Try out the [Wavefront for Spring Boot 3 Tutorial](wavefront_springboot3_tutorial.html) and see how you can send your data in a few simple steps!
+  * See the [Wavefront for Spring Boot FAQs](wavefront_spring_boot_faq.html#how-do-i-upgrade-from-spring-boot-2-to-spring-boot-3) to upgrade from Spring Boot 2 to Spring Boot 3.
+
+* **Charts Improvements**: The pie chart displays the value for current, mean, median, sum, min, max, and count on the chart. For more details, see [Chart References](ui_chart_reference.html#pie-and-donut-chart).
+  
+  For example, if the query you use gets the CPU usage of all the applications, and you select Sum, you can see how the CPU usage of an application compares to all the other applications for a given time window.
+  ![shows a screenshot of the pice chart, with the display value set to sum.](images/pie_chart_display_value.png)
+
+
+## 2023-03.x Release Notes
+
+* **Alert Notifications Update**: If your **PagerDuty** [alert target](webhooks_alert_notification.html) is integrated with Slack, the alert notifications in Slack are now more extensive. They show the complete alert notification summary, which can be up to 1,000 characters.
+
+## 2023-02.x Release Notes
+
+* **Charts Improvements**: **Stacked Area** and **Stacked Column** charts are now supported with the latest Mozilla Firefox versions.
 
 
 
+<!--* **Alert Targets Browser Page Improvements**: The **Alert Targets** browser page is now improved and allows you to:
+
+  * Hide and show details for all alert targets or for a specific alert target.
+  * Sort alert targets either by the last updated date or by target name.
+  * Hide and show the filters listed on the left.
+
+  For more details, see [View Alert Targets](webhooks_alert_notification.html#view-custom-alert-targets).-->
 
 ## Past Release Notes
 
+- [2022-49.x Release Notes](2022-49.x_release_notes.html)
 - [2022-39.x Release Notes](2022-39.x_release_notes.html)
 - [2022-29.x Release Notes](2022-29.x_release_notes.html)
 - [2022-20.x Release Notes](2022-20.x_release_notes.html)

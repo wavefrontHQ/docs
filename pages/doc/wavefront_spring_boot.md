@@ -1,19 +1,19 @@
 ---
-title: Wavefront for Spring Boot
+title: Wavefront for Spring Boot 2
 keywords:
 tags:
 sidebar: doc_sidebar
 permalink: wavefront_springboot.html
-summary: Examine Spring Boot data in Wavefront dashboards and charts
+summary: Examine Spring Boot 2 data in Wavefront dashboards and charts
 ---
 
-Wavefront for Spring Boot allows you to quickly configure your environment, so Spring Boot components send metrics, histograms, and traces/spans to the Wavefront service.
+Wavefront for Spring Boot allows you to quickly configure your environment, so Spring Boot 2 components send metrics, histograms, and traces/spans to the Wavefront service.
 
 ## Features
 
 If you use Wavefront for Spring Boot:
 
-* A large number of metrics are exposed by default. See the [Spring Boot documentation on Supported Metrics](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-metrics-meter) for details.
+* A large number of metrics are exposed by default. See the [Spring Boot documentation on Supported Metrics](https://docs.spring.io/spring-boot/docs/2.7.x/reference/html/actuator.html#actuator.metrics.supported) for details.
 * You have tracing support for all the common Spring Boot components, such as Spring MVC, Spring Web, Spring Async, Feign, Hysterix, JMS, JDBC, Mongo, Zuul, Reactor, RxJava, Redis, Logging, Spring Messaging, and RabbitMQ.
 * The spans in your applications are automatically converted to the Wavefront span format.
 * You can use **either** Spring Cloud Sleuth **or** OpenTracing to send trace data. Pick one and use it across all your microservices.
@@ -24,9 +24,9 @@ If you use Wavefront for Spring Boot:
 You can send data from your Spring Boot applications into Wavefront using the Wavefront for Spring Boot Starter (all users) or the Wavefront Spring Boot integration (Wavefront customers and trial users).
 
 * **Wavefront for Spring Boot Starter**<br/> If you configure your application with the Wavefront for Spring Boot starter, you can send metrics, histograms, and traces/spans to the Wavefront service. Once the data is in Wavefront, you can view your data, find hotspots, and gather more data.
-  - **Freemium** All users can run the Spring Boot Starter with the default settings to view their data in the Wavefront Freemium instance. Certain limitations apply, for example, alerts are not available, but you don't have to sign up.
-  - **Wavefront Customer or Trial User** Wavefront customers or trial users can modify the default Wavefront Spring Boot Starter to send data to their cluster. You can sign up for a [free 30-day trial here](https://tanzu.vmware.com/observability).
-* **Wavefront Spring Boot Integration** Wavefront customers and trial users can access the Wavefront Spring Boot integration directly from their clusters.
+  - **Freemium**: All users can run the Spring Boot Starter with the default settings to view their data in the Wavefront Freemium instance. Certain limitations apply, for example, alerts are not available, but you don't have to sign up.
+  - **Wavefront Customer or Trial User**: Wavefront customers or trial users can modify the default Wavefront Spring Boot Starter to send data to their cluster. You can sign up for a [free 30-day trial here](https://tanzu.vmware.com/observability).
+* **Wavefront Spring Boot Integration**: Wavefront customers and trial users can access the Wavefront Spring Boot integration directly from their clusters.
 
 ## Dashboards
 

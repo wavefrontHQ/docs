@@ -7,7 +7,7 @@ permalink: trace_data_details.html
 summary: Get to know the concepts around distributed tracing.
 ---
 
-Tanzu Observability by Wavefront follows the [OpenTracing](https://opentracing.io/) and [OpenTelemetry](https://opentelemetry.io/) standards for representing and manipulating trace data. This page gives an overview of key terms and concepts we use in this document.
+{% include important.html content="OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/).) To send trace data to Tanzu observability, use OpenTelemetry."%}
 
 ## Traces
 
@@ -44,10 +44,10 @@ Spans are the fundamental units of trace data. This page provides details about 
 
 ### Wavefront Span Format
 
-A well-formed Wavefront span consists of fields and span tags that capture span attributes. We use these to identify and describe a span, organize it into a trace, and display the trace according to the service and application that emitted it. Some attributes are required by the OpenTracing specification and others are required by the Wavefront service.
+A well-formed Wavefront span consists of fields and span tags that capture span attributes. We use these to identify and describe a span, organize it into a trace, and display the trace according to the service and application that emitted it. Some attributes are required by the OpenTelemetry specification and others are required by the Wavefront service.
 
 Most use cases do not require you to know exactly how the Wavefront service expects a span to be formatted:
-* When you instrument your application with a [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data), your application emits spans that are automatically constructed by the Wavefront Tracer. (You supply some of the attributes when you instantiate the [ApplicationTags](#application-tags) object required by the SDK.)
+* When you instrument your application with OpenTelemetry your application emits spans with the required tags.
 * When you instrument your application with a [Wavefront sender SDK](wavefront_sdks.html#sdks-for-sending-raw-data), your application emits spans that are automatically constructed from raw data you pass as parameters.
 * When you instrument your application with a 3rd party distributed tracing system (Jaeger or Zipkin), your application emits spans that are automatically transformed by the [integration](tracing_integrations.html#tracing-system-integrations-and-exporters) you set up.
 
@@ -204,14 +204,7 @@ The following table lists span tags that contain information about the span's id
 <tr>
 <td markdown="span">`parent`</td>
 <td markdown="span">No</td>
-<td markdown="span">Identifier of the span's dependent parent, if it has one. This tag is populated as the result of an OpenTracing `ChildOf` relationship.
-A span without the `parent` or `followsFrom` tag is the root (first) span of a trace. </td>
-<td markdown="span">UUID</td>
-</tr>
-<tr>
-<td markdown="span">`followsFrom`</td>
-<td markdown="span">No</td>
-<td markdown="span">Identifier of the span's non-dependent parent, if it has one. This tag is populated as the result of an OpenTracing `FollowsFrom` relationship. We ignore spans with this tag when calculating the critical path through a trace. A span without the `parent` or `followsFrom` tag is the root (first) span of a trace. </td>
+<td markdown="span">Identifier of the span's dependent parent, if it has one.</td>
 <td markdown="span">UUID</td>
 </tr>
 </tbody>
@@ -344,7 +337,7 @@ For example, suppose you know a span started at `1533529977627` epoch millisecon
 
 ### Indexed and Unindexed Span Tags
 
-The Wavefront service uses indexes to optimize the performance of queries that filter on certain span tags. For example, we index the application tags (`application`, `service`, `cluster`, `shard`) so you can quickly query for spans that represent operations from a particular application, service, cluster, or shard. We also index certain built-in span tags that conform to the OpenTracing standard, such as `span.kind`, `component`, `http.method`, and `error`.
+The Wavefront service uses indexes to optimize the performance of queries that filter on certain span tags. For example, we index the application tags (`application`, `service`, `cluster`, `shard`) so you can quickly query for spans that represent operations from a particular application, service, cluster, or shard. We also index certain built-in span tags, such as `span.kind`, `component`, `http.method`, and `error`.
 
 For performance reasons, we automatically index built-in span tags with low cardinality. (A tag with low cardinality has comparatively few unique values that can be assigned to it.) So, for example, a tag like `spanId` is not indexed.
 
@@ -375,7 +368,7 @@ To understand how to query for tracing traffic in the tracing browser, see [Use 
 
 ## RED Metrics
 
-If you instrument your application with a [tracing-system integration](tracing_integrations.html#tracing-system-integrations-and-exporters) or with a [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data), the Wavefront service derives RED metrics from the spans that are sent from the instrumented application. We automatically aggregate and display RED metrics for different levels of detail with no additional configuration or instrumentation on your part.
+The Wavefront service derives RED metrics from the spans that are sent from the instrumented application. We automatically aggregate and display RED metrics for different levels of detail with no additional configuration or instrumentation on your part.
 
 RED metrics are key indicators of the health of your services, and you can use them to help you discover problem traces. RED metrics are measures of:
 
@@ -815,15 +808,11 @@ The Wavefront service uses application tags to aggregate and filter data at diff
 
 ## Span Logs
 
-The OpenTracing standard supports [span logs](https://opentracing.io/docs/overview/spans/#logs), which are key:value pairs, useful for capturing span-specific logging messages and other debugging or informational output from the application itself. You can use a Wavefront SDK to instrument your application to include span log information.
+OpenTelemetry span events capture span-specific logging messages and other debugging or informational output from the application itself. These span events are converted to span logs by the Wavefront service.
 
 Span logs are especially useful for recording additional information about errors within the span.
 
-You can instrument your application to emit one or more logs with a span, and examine the logs from the Tracing UI. For details on how to add a `log()` method for a specific SDK, see the OpenTracing SDK.
-
-Here's an example that adds span logs to [the Best Practices Example](tracing_best_practices.html#best-practices-for-wavefront-observability-sdks-3) to emit a span log in case of an exception:
-
-![span log example](images/span_log_example.png)
+You can instrument your application to emit one or more logs with a span, and examine the logs from the Tracing UI.
 
 <table style="width: 100%;">
 <tbody>
@@ -846,7 +835,7 @@ When you instrument an application, you set up a mechanism for sending metrics a
 * Sending data to a [Wavefront proxy](proxies.html), which then forwards the data to the Wavefront service.
 
 Your choice is represented in your code as Wavefront Sender object.
-(Most Wavefront SDKs define objects of type `WavefrontSender` or simply `Sender`. A few SDKs define a pair of separate `Client` objects.) A Wavefront sender encapsulates the settings you supply when you instrument your microservice. The settings in your code must match the information you provided in [Step 1. Prepare to Send Data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data).
+(Most Wavefront SDKs define objects of type `WavefrontSender` or simply `Sender`. A few SDKs define a pair of separate `Client` objects.) A Wavefront sender encapsulates the settings you supply when you instrument your microservice. The settings in your code must match the Wavefront proxy ports and configurations you define when sending data.
 
 {% include note.html content="You can use a Wavefront sender to tune performance by setting the frequency for flushing data to the Wavefront proxy or the Wavefront service. If you are using direct ingestion, you can also change the defaults for batching up the data to be sent." %}
 

@@ -1,11 +1,13 @@
 ---
-title: Using Jaeger or Zipkin with Tanzu Observability
+title: (Archived) Using Jaeger or Zipkin with Tanzu Observability
 keywords: data, distributed tracing, OpenTelemetry
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: tracing_integrations.html
 summary: Learn how to send trace data from Jaeger or Zipkin to Tanzu Observability by Wavefront.
 ---
+
+{% include important.html content="OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/).) To send trace data to Tanzu observability, use OpenTelemetry."%}
 
 You can collect traces  with Jaeger or Zipkin and send the trace data to Tanzu Observability by Wavefront, which:
 * Provides managed, highly scalable storage for your trace data.
@@ -157,7 +159,7 @@ When you use a 3rd party distributed tracing system, you normally configure it t
 
 For more accurate RED metrics, you can disable the 3rd party sampling, and choose one of the following options instead:
 
-* Set up [sampling through the Wavefront proxy](trace_data_sampling.html#setting-up-explicit-sampling-through-the-proxy). You need proxy version 4.36 or later.
+* Set up [sampling through the Wavefront proxy](trace_data_sampling.html#setting-up-explicit-sampling-through-the-proxy).
 * [Swap in a Wavefront Tracer](#swap-in-a-wavefront-tracer) and configure it to perform sampling.
 
 The Wavefront proxy or Wavefront Tracer will auto-derive the RED metrics first, and then perform the sampling.

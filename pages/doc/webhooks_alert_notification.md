@@ -51,13 +51,34 @@ For example, you could use a custom alert target to:
 
 ## View Custom Alert Targets
 ​
-To view alert targets, select **Alerting > Alert Targets**.
+**To view alert targets**: 
 
+* Select **Alerting > Alert Targets** from the toolbar.
+
+<!--![An annotated screenshot of the Alert Targets browser page with what an you do on this page. The information is in a bullet list below.](images/alert-targets-annotated.png)
+
+On the **Alert Targets** browser page, you can:
+
+* Search for and apply filters to the alert targets so that you can narrow down the results.
+* Share, save, and clear search results.
+* Browse through a list of saved searches.
+* Hide or show the filters and the saved searches list displayed on the left by clicking the **Filters** button.
+* Sort the alert targets by last updated date or by target name in descending or ascending order.
+* Show the details for all alert targets by turning on the **Expand All** toggle. By default, this setting is turned off.
+* Show the details for a specific alert target by clicking the arrow next to the check box of the target.
+* Edit, test, or delete a single alert target by clicking the ellipsis icon and selecting the respective option from the menu.
+* Select the check boxes of multiple alert targets and delete them by clicking the **Delete** button.
+
+-->
 <a id="creating-an-alert-target"></a>
 <a id="creating-a-webhook"></a>
+
+
 ## Create a Custom Alert Target
 
 The process for creating an alert target is similar for the different types of targets. Setting the **Type** changes which fields are displayed.
+
+**To create an alert target**:
 
 1.  Select **Alerting > Alert Targets** from the toolbar.
 1.  Click the **Create Alert Target** button.
@@ -207,14 +228,14 @@ The process for creating an alert target is similar for the different types of t
 
 ## Test a Custom Alert Target
 
-Test your alert target to ensure that it works properly.
+Test your alert target to make sure that it works properly.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="60%">
-<strong>To create a dashboard</strong>:
-<ol><li>Select <strong>Alerting > Alert Targets</strong> and find the target on the Alert Targets page. </li>
+<strong>To test an alert target</strong>:
+<ol><li>Select <strong>Alerting > Alert Targets</strong> from the toolbar, and find the target on the <strong>Alert Targets</strong> page. </li>
 <li>Click the ellipsis icon to the left of the alert target and select <strong>Test</strong>.</li></ol></td>
 <td width="40%"><img src="images/alert_target_test.png" alt="ellipsis menu, test selected"></td>
 </tr>
@@ -224,25 +245,40 @@ Test your alert target to ensure that it works properly.
 
 ## Add a Custom Alert Target to an Alert
 
-To add a custom alert target to a new or existing alert:
+**To add a custom alert target to a new or existing alert**:
 
 1. Go to the [**Create Alert** or **Edit Alert** page](alerts_manage.html) page.
 1. Scroll down to the **Target List** section.
-1. Start typing in the **Alert Target** field. A drop-down list appears. This list contains all available alert targets that can be integrated to your alert.
+1. Start typing in the **Alert Target** field. A drop-down list appears. 
+   
+   This list contains all available alert targets that can be integrated to your alert.
+
 1. Select the alert target that you want to add, and click **Save**.
 
 
 ## Edit a Custom Alert Target
 
-You can change a custom alert target at any time.
+You can edit a custom alert target at any time.
 
-To edit an alert, click the alert target name in the Alert Targets browser or click the ellipsis icon on the left of the alert target and select **Edit**.
+**To edit an alert target**:
+
+* Click the alert target name in the **Alert Targets** browser. 
+  
+  You can also click the ellipsis icon on the left of the alert target and select **Edit**.
 
 ## Delete Custom Alert Targets
 
-You can delete one or more custom alert targets by selecting the check boxes next to the alert targets and clicking the Trash icon <i class="fa fa-trash"/> at the top of the Alert Targets page. The trash icon is grayed out if you don't have permission to delete any of the selected alert targets.
+You can delete one or more custom alert targets.
 
-To delete a single alert target, use the trash icon or click the ellipsis icon to the left of the alert target and select **Delete**.
+**To delete many alert targets**:
+* Select the check boxes next to the alert targets that you want to delete and click the **Delete** button on the top of the **Alert Targets** page. 
+
+  The button is grayed out if you don't have permission to delete any of the selected alert targets.
+
+**To delete a single alert target**:
+
+* Click the ellipsis icon to the left of the alert target and select **Delete**.
+
 
 ## Find an Alert Target ID
 

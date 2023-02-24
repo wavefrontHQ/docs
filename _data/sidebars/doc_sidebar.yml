@@ -18,7 +18,7 @@ entries:
       url: /users_account_managing.html
       output: web
 
-    - title: "Learning Resources"
+    - title: Learning Resources
       url: /tutorial_overview.html
       output: web
 
@@ -36,24 +36,20 @@ entries:
         output: web
         subfolderitems:
 
-        - title: "Hello Wavefront Tutorial"
+        - title: Hello Wavefront Tutorial
           url: /hello_wavefront_aws_tutorial.html
           output: web
 
-        - title: "Dashboards & Charts Tutorial"
+        - title: Dashboards & Charts Tutorial
           url: /tutorial_dashboards.html
           output: web
 
-        - title: "Query Language Tutorial"
+        - title: Query Language Tutorial
           url: /query_language_getting_started.html
           output: web
 
-        - title: "Spring Boot Tutorial"
-          url: /wavefront_springboot_tutorial.html
-          output: web
-
-        - title: "Distributed Tracing Tutorial"
-          url: /tracing_java_tutorial.html
+        - title: Spring Boot Tutorial
+          url: /wavefront_springboot3_tutorial.html
           output: web
 
       - title: Reference
@@ -124,7 +120,7 @@ entries:
       url: /proxies_versions.html
       output: web
 
-  - title: "Data & Proxy"
+  - title: Data & Proxy
     output: web
     folderitems:
 
@@ -229,11 +225,11 @@ entries:
           url: /visualize_histograms.html
           output: web
 
-  - title: "Charts & Dashboards"
+  - title: Charts & Dashboards
     output: web
     folderitems:
 
-    - title: "Explore Your Data"
+    - title: Explore Your Data
       url: /ui_examine_data.html
       output: web
 
@@ -253,7 +249,7 @@ entries:
       url: /ui_chart_reference.html
       output: web
 
-    - title: "Charts FAQs"
+    - title: Charts FAQs
       url: /ui_charts_faq.html
       output: web
 
@@ -269,7 +265,7 @@ entries:
       url: /log_integration.html
       output: web
 
-  - title: "Alerts & Events"
+  - title: Alerts & Events
     output: web
     folderitems:
 
@@ -277,7 +273,7 @@ entries:
       url: /alerts.html
       output: web
 
-    - title: "Create & Manage Alerts"
+    - title: Create & Manage Alerts
       url: /alerts_manage.html
       output: web
 
@@ -371,7 +367,7 @@ entries:
         output: web
         subfolderitems:
 
-        - title: "Chart Builder"
+        - title: Chart Builder
           url: /chart_builder.html
           output: web
 
@@ -583,7 +579,7 @@ entries:
           output: web
           subfolderitems:
 
-          - title: Tanzu Misson Control Integration
+          - title: Tanzu Mission Control Integration
             url: /tmc.html
             output: web
 
@@ -616,24 +612,42 @@ entries:
     output: web
     folderitems:
 
-      - title: Wavefront for Spring Boot
-        url: /wavefront_springboot.html
-        output: web
-
-      - title: Tutorial
-        url: /wavefront_springboot_tutorial.html
-        output: web
-
       - title: FAQs
         url: /wavefront_spring_boot_faq.html
         output: web
+
+        subfolders:
+
+        - title: Spring Boot 3
+          output: web
+          subfolderitems:
+
+          - title: Overview
+            url: /wavefront_springboot3.html
+            output: web
+
+          - title: Tutorial
+            url: /wavefront_springboot3_tutorial.html
+            output: web
+
+        - title: Spring Boot 2
+          output: web
+          subfolderitems:
+
+          - title: Overview
+            url: /wavefront_springboot.html
+            output: web
+
+          - title: Tutorial
+            url: /wavefront_springboot_tutorial.html
+            output: web
 
   - title: "OpenTelemetry"
     output: web
     folderitems:
 
       - title: Send Data
-        url: /opentelemetry_tracing.html
+        url: /opentelemetry_overview.html
         output: web
 
         subfolders:
@@ -663,7 +677,7 @@ entries:
         output: web
 
 
-  - title: "Distributed Tracing"
+  - title: Distributed Tracing
     output: web
     folderitems:
 
@@ -676,30 +690,14 @@ entries:
       output: web
 
     - title: OpenTelemetry
-      url: /opentelemetry_tracing.html
+      url: /opentelemetry_overview.html
+      output: web
+    
+    - title: OpenTracing
+      url: /opentracing_to_opentelemetry_migration.html
       output: web
 
       subfolders:
-
-      - title: OpenTracing
-        output: web
-        subfolderitems:
-
-          - title: OpenTracing Tutorial
-            url: /tracing_java_tutorial.html
-            output: web
-
-          - title: Instrument Your App
-            url: /tracing_instrumenting_frameworks.html
-            output: web
-
-          - title: Jaeger or Zipkin
-            url: /tracing_integrations.html
-            output: web
-
-          - title: Configure External Services
-            url: /tracing_external_services.html
-            output: web
 
       - title: Visualize Trace Data
         output: web
@@ -929,6 +927,10 @@ entries:
 
           - title: Use Wavefront Top or Spy to Investigate Traffic
             url: /wavefront_monitoring_spy.html
+            output: web
+          
+          - title: Monitor the Status of Your Service
+            url: /service_status_page.html
             output: web
 
         - title: Best Practices

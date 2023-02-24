@@ -20,8 +20,6 @@ By creating an ingestion policy, you group a set of accounts, groups, sources, m
 
 For performance monitoring of your Wavefront instance, you can use [wftop, Wavefront spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Wavefront Usage integration](wavefront_monitoring.html).
 
-{% include important.html content="The Usage Portal improvements introduced with the [2022-48.x release](wavefront_release_notes.html#2022-48x-release-notes) are not available for all customers."%}
-
 ## Ingestion Policy Basics
 
 Ingestion policies allow you to combine user and service accounts, groups, sources, metric namespaces, or point tags, so that you can monitor their usage of the Wavefront service. For example, you can create a policy for a group of new hires. You can also create a policy for one or more source virtual machines. Also, you can set a Points per Second (PPS) limit for the policy and create an alert, so that you can receive notifications if the PPS usage exceeds certain thresholds of the limit.
@@ -46,7 +44,7 @@ The policy scope can be accounts, groups, sources, namespaces, or point tags.
 
 ### Step 0: Start the Ingestion Policy Creation
 
-1. Log in to your Wavefront instance as a Super Admin user.
+1. Log in to your Wavefront instance as a Super Admin user and [enable Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode).
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
 3. Click the **Ingestion Policies** tab and click **New Ingestion Policy**.
 
@@ -77,7 +75,7 @@ In the **Data** panel, specify the scope and, optionally, a PPS limit and click 
     </tr>
     <tr>
     <td><strong>Point Tags</strong></td>
-    <td><a href="metrics_managing.html#time-series-with-tags">Point tags</a> that are optional key-value pairs associated with a metric, for example, <code>env="dev"</code>.
+    <td><a href="metrics_managing.html#time-series-with-tags">Point tags</a> that are optional key-value pairs associated with a metric. You must assign exact tag keys with exact tag values or wildcards, for example, <code>env="dev"</code> or <code>env="*"</code>.
     <p>If you assign more than one point tag, you must select the match criterion - can be either <b>Has tags</b> (individual point tags) or <b>Has all these tags</b> (a combination of point tags).</p></td>
     </tr>
     </tbody>
@@ -115,7 +113,7 @@ After you create an ingestion policy, if you need, for example, to increase the 
 
 {% include note.html content="You cannot change the policy scope. You can change only the assigned objects from that scope."%}
 
-1. Log in to your Wavefront instance as a Super Admin user.
+1. Log in to your Wavefront instance as a Super Admin user and [enable Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode).
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
 3. On the **Ingestion Policies** tab, click the ellipsis icon next to the policy that you want to edit and select **Edit**.
 4. In each panel, apply the necessary changes and click **Next**.
@@ -152,7 +150,7 @@ If you no longer need an ingestion policy, for example, after a reorganization i
 
 {% include note.html content="Deleting an ingestion policy cannot be undone. Deleting an ingestion policy with a PPS limit, also deletes its associated alert."%}
 
-1. Log in to your Wavefront instance as a Super Admin user.
+1. Log in to your Wavefront instance as a Super Admin user and [enable Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode).
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
 3. On the **Ingestion Policies** tab, click the ellipsis icon next to the policy that you want to delete, select **Delete** and confirm.
 
