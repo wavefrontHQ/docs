@@ -15,7 +15,7 @@ VMware Aria Operations for Applications (formerly known as Tanzu Observability b
 
 Use spy to extract information programmatically. This page gives details on the available endpoints and associated parameters.
 
-Use top if you want a keyboard-driven UI that's similar to the Linux top UI. The tool is open source and on [GitHub](https://github.com/wavefrontHQ/wftop). You can also read [the blog that Joanna prepared](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitor-and-optimize-data-ingestion-by-wavefront-across-your-organization-introducing-wavefront-top), or watch a short video.
+Use wftop if you want a keyboard-driven UI that's similar to the Linux top UI. The tool is open source and on [GitHub](https://github.com/wavefrontHQ/wftop). You can also read [the blog that Joanna prepared](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitor-and-optimize-data-ingestion-by-wavefront-across-your-organization-introducing-wavefront-top), or watch a short video.
 
 <iframe id="kmsembed-1_yif61rd5" width="708" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_yif61rd5/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Using wftop"></iframe>
 
@@ -389,7 +389,7 @@ Suppose you have a service instance named `ex1`.
 
 ## Get Ingested Span Logs with Spy
 
-Span logs capture span-specific logging information and are supported by the OpenTracing standard. Some Wavefront SDKs include span logs for errors by default. To get access to other span log information, you can customize a Wavefront SDK to include [span log information](trace_data_details.html#span-logs) or [instrument your application](tracing_instrumenting_frameworks.html).
+Span logs capture span-specific logging information and are supported by the OpenTracing standard. Some of our SDKs include span logs for errors by default. To get access to other span log information, you can customize an SDK to include [span log information](trace_data_details.html#span-logs) or [instrument your application](tracing_instrumenting_frameworks.html).
 
 {% include note.html content="Span logs are disabled by default. If you want to enable span logs on your cluster, contact our Customer Success team at [support@wavefront.com](mailto:support@wavefront.com)."%}
 

@@ -37,7 +37,7 @@ Your Operations for Applications instance includes out-of-the-box dashboards and
 <li><strong>Billable</strong>: Most users need the information on the <strong>Committed Rate vs Monthly Usage (PPS P95) for Billable</strong> dashboard.</li>
 <li><strong>Burndown</strong>: A few customers have a burndown billing contract. For those customers, the <strong>Usage (PPS) vs Remaining Balance (PPS P95) for Burndown</strong> has the information they need.</li>
 </ul></td>
-<td width="50%"><img src="/images/wavefront_usage_all_dashboards.png" alt="screenshot of the 5 Wavefront usage dashboards"></td>
+<td width="50%"><img src="/images/wavefront_usage_all_dashboards.png" alt="screenshot of the 5 Operations for Applications Usage dashboards"></td>
 </tr>
 </tbody>
 </table>
@@ -95,10 +95,10 @@ Billing for Operations for Applications is based primarily on the ingestion rate
 
 ### Examine Ingestion with the Namespace Usage Explorer Dashboard
 
-The **Wavefront Namespace Usage Explorer** dashboard can help you pinpoint where data are coming from.
-1. Log in to your Wavefront instance.
+The **Operations for Applications Namespace Usage Explorer** dashboard can help you pinpoint where data are coming from.
+1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
 2. Click **Integrations** from the toolbar, and click the **Operations for Applications Usage** integration.
-3. On the **Dashboards** tab, click the **Wavefront Namespace Usage Explorer** dashboard.
+3. On the **Dashboards** tab, click the **Operations for Applications Namespace Usage Explorer** dashboard.
 
 This dashboard provides not only a current view but also a historical view. Start at the level 1 namespace to identify the top level. Then dive into levels 2 and 3 for finer-grained information to answer these questions:
 * How many different namespaces do I have at each level?
@@ -156,7 +156,7 @@ Even though Operations for Applications supports per second granularity for metr
 
 * Values that do not change often (constants) are great candidates for increasing reporting intervals.
 
-    You can use [wftop](wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy) to uncover constant values. The *Range* column shows the range of the reported values (the maximum value minus the minimum value) for each namespace.
+    You can use [wftop](wavefront_monitoring_spy.html#get-started-with-top-and-spy) to uncover constant values. The *Range* column shows the range of the reported values (the maximum value minus the minimum value) for each namespace.
 
     - If the range is *0*, then this data set is most likely reporting constant values.
 
@@ -180,7 +180,7 @@ Data points are usually scanned because an alert is checked or a dashboard is di
 <tr>
 <td width="60%"><ol><li>Log in to your service instance and click <strong>Integrations</strong> on the toolbar. </li>
 <li>Click the <strong>Operations for Applications Usage</strong> integration.</li>
-<li>On the <strong>Dashboards</strong> tab, click the <strong>Wavefront Service and Proxy</strong> dashboard. </li>
+<li>On the <strong>Dashboards</strong> tab, click the <strong>Operations for Applications Service and Proxy Data</strong> dashboard. </li>
 <li>Examine the <strong>Data Scan Rate</strong> and <strong>Data Scan Rate by User</strong> charts. </li>
 <li>Click a chart to temporarily change the chart type (for example to topK) or the query. To permanently modify the chart, clone the dashboard.  </li>
 </ol></td>
@@ -276,14 +276,14 @@ You can find out which teams are using the most data with ingestion policies or 
 </thead>
 <tr>
 <td>What are the usage trends for my instance? </td>
-<td>Use the charts on the <strong>Wavefront Ingestion Policy Explorer</strong> dashboard or the dashboards in the <strong>Operations for Applications Usage</strong> integration.
+<td>Use the charts on the <strong>Operations for Applications Ingestion Policy Explorer</strong> dashboard or the dashboards in the <strong>Operations for Applications Usage</strong> integration.
 </td>
 <td markdown="span">![data ingestion points](images/data_ingestion_usage.png)</td>
 </tr>
 <tr>
 <td>Who is responsible for high usage? </td>
-<td>Use the <strong>Wavefront Ingestion Policy Explorer</strong> dashboard in the <strong>Operations for Applications Usage</strong> integration to drill down into accounts and find the accounts responsible for the high ingestion.
-<br><br>Use the <strong>Wavefront Namespace Usage Explorer</strong> dashboard in the <strong>Operations for Applications Usage</strong> integration to drill down into namespaces and find where the ingested data is coming from.
+<td>Use the <strong>Operations for Applications Ingestion Policy Explorer</strong> dashboard in the <strong>Operations for Applications Usage</strong> integration to drill down into accounts and find the accounts responsible for the high ingestion.
+<br><br>Use the <strong>Operations for Applications Namespace Usage Explorer</strong> dashboard in the <strong>Operations for Applications Usage</strong> integration to drill down into namespaces and find where the ingested data is coming from.
 </td>
 <td markdown="span">![usage by account](images/usage_by_account.png)<br>
 ![Top 10 Level 1 Metric Namspaces](images/namespace_explorer.png)</td>
@@ -298,7 +298,7 @@ Use the <a href="examine_usage.html"><strong>Usage Summary</strong></a> dashboar
 --->
 <tr>
 <td>What are current usage details?</td>
-<td>Start with the dashboards in the <strong>Operations for Applications Usage</strong> integration. The dashboards allow you to look at both current usage and usage over time. If you need to drill down more, use the <a href="wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy">wftop GUI</a> for a detailed view of <strong>current</strong> spikes. </td>
+<td>Start with the dashboards in the <strong>Operations for Applications Usage</strong> integration. The dashboards allow you to look at both current usage and usage over time. If you need to drill down more, use the <a href="wavefront_monitoring_spy.html#get-started-with-top-and-spy">wftop GUI</a> for a detailed view of <strong>current</strong> spikes. </td>
 <td markdown="span">![Data Scan by User, with hover showing users](images/data_scan_by_user.png)</td>
 </tr>
 <tr>
@@ -309,8 +309,8 @@ Use the <a href="examine_usage.html"><strong>Usage Summary</strong></a> dashboar
 <tr>
 <td>How much data is coming from my source?</td>
 <td>You have several options:<ol><li>Use the <a href="sources_managing.html#examine-sources-in-the-source-browser">Source Browser</a> for a first look.</li>
-<li>Look at the last section in the <strong>Wavefront Service and Proxy Data</strong> dashboard to see the top sources listed by PPS. </li>
-<li>Use the <a href="wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy">wftop GUI</a> to filter by source and examine what's coming from the selected source.</li></ol> </td>
+<li>Look at the last section in the <strong>Operations for Applications Service and Proxy Data</strong> dashboard to see the top sources listed by PPS. </li>
+<li>Use the <a href="wavefront_monitoring_spy.html#get-started-with-top-and-spy">wftop GUI</a> to filter by source and examine what's coming from the selected source.</li></ol> </td>
 <td markdown="span">![Sources rate screenshot](images/top_sources.png) </td>
 </tr>
 </tbody>
