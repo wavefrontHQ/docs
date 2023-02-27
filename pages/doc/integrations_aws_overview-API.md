@@ -48,10 +48,10 @@ For more information, see [Giving Access to Your AWS Account](integrations_aws_o
 1. Under **Access management** on the left, click **Roles**.
 1. Click **Create role**.
 1. Click the **AWS account** tile, and select the **Another AWS account** radio button.
-1. Enter the Wavefront account information:
-   - **Account ID** - The identifier of the Wavefront account to which you want to grant access.
-     To get the Wavefront account ID:
-     1. Navigate to your cluster.
+1. Enter the account information:
+   - **Account ID** - The identifier of the account to which you want to grant access.
+     To get the account ID:
+     1. Navigate to your product cluster (`https://<example>.wavefront.com`).
      2. Click **Integrations** on the toolbar and click the **Amazon Web Services** integration tile.
      3. Click the **Setup** tab and click the **How to get Role ARN** link.
      4. Copy the **Account ID** displayed in the instructions.

@@ -17,7 +17,7 @@ The following videos get you started. Note that in most of the videos we still r
 <br>
 <iframe id="kmsembed-1_chq9tgn6" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_chq9tgn6/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="Wavefront Operator for Kubernetes"></iframe></td>
 <td><br><br>
-<p>This video is about recent changes to the install process and shows a demo. You can then get started by going to the following Github pages:
+<p>This video is about recent changes to the install process and shows a demo. You can then get started by going to the following GitHub pages:
 <ul>
 <li><a href="https://github.com/wavefrontHQ/observability-for-kubernetes">Observability for Kubernetes README</a></li>
 <li><a href="https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/operator/migration.md">Wavefront Operator for Kubernetes Migration</a></li>

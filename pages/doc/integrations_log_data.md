@@ -143,7 +143,7 @@ The Wavefront proxy automatically assigns metrics a **source** according to the 
 
 ### Instructions
 
-1.  Install [Filebeat](http://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) on any production node that has log data to send to Tanzu Observability by Wavefront:
+1.  Install [Filebeat](http://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) on any production node that has log data to send to Operations for Applications:
     -   **Ubuntu**:
 
             $ curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.0.1-amd64.deb
