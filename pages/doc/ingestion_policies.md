@@ -156,14 +156,13 @@ If you no longer need an ingestion policy, for example, after a reorganization i
 
 ## Examine Ingestion Policy Usage
 
-All users can examine the ingestion policy dashboards to understand their usage over time.
+All users can examine the individual ingestion policy dashboards to understand their usage over time.
 
 1. Log in to your Wavefront instance.
-2. Navigate to the list of ingestion policies.
+1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
 
-    - If you are a Super Admin user and enabled Super Admin mode, from the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
-    - If you are not a Super Admin user, from the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
-3. Click the **Ingestion Policies** tab and view all existing policies.
+    {% include tip.html content="If you are a Super Admin user and enabled Super Admin mode, the menu item is **Usage and Subscriptions**." %}
+1. Click the **Ingestion Policies** tab and view all existing policies.
 ![Ingestion policies page](images/ingestion_policies.png)
 On the **Ingestion Policies** tab, for each policy you can see:
 
@@ -174,7 +173,7 @@ On the **Ingestion Policies** tab, for each policy you can see:
     - The PPS limit, if any.
     - Whether the ingestion policy has an alert associated with it.
     - Last updated information.
-4. Click the name of the policy in which you are interested and examine the policy dashboard.
+1. Click the name of the policy in which you are interested and examine the policy dashboard.
 
     The ingestion policy dashboard consists of two main and one optional section.
 
@@ -223,6 +222,8 @@ On the **Ingestion Policies** tab, for each policy you can see:
     - If the ingestion policy has a PPS limit with an alert, the dashboard also includes the **Alert** section that provides details about the associated alert.
  
     ![Usage summary per ingestion policy](images/IP_dashboard.png)
+
+In addition, the Wavefront Usage integration includes the [Wavefront Ingestion Policy Explorer Dashboard](wavefront_monitoring.html#wavefront-ingestion-policy-explorer-dashboard) provides a granular breakdown of the ingestion across your organization by ingestion policies, accounts, sources, and types.
 
 ## Example: Monitor Which Teams Are Responsible for How Much Ingested Data
 
