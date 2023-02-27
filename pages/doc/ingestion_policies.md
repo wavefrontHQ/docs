@@ -90,7 +90,7 @@ In the **Data** panel, specify the scope and, optionally, a PPS limit and click 
 
 {% include note.html content="If you didn't choose to set a PPS limit, this step is skipped."%}
 
-If you set a PPS limit for the ingestion policy, Tanzu Observability creates an ingestion policy alert that queries the PPS usage by the policy as a percentage of the PPS limit.
+If you set a PPS limit for the ingestion policy, Operations for Applications creates an ingestion policy alert that queries the PPS usage by the policy as a percentage of the PPS limit.
 
 1. In the **Conditions** panel, configure the [thresholds and severities](alerts_manage.html#step-2-specify-thresholds-and-severities).
    1. Select the comparison operator for the alert condition. In most cases, you alert when the usage is **greater than** a specified threshold percentage of the PPS limit.

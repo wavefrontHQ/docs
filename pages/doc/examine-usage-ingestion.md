@@ -6,13 +6,13 @@ permalink: examine_usage.html
 summary: Monitor your overall usage per billing period.
 ---
 
-It's important to understand how you use your VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) service, whether you will be billed for more data, and whether you will need to request more data. Typically, billing is based on the amount of data that you send to Operations for Applications, measured in Points per Second (PPS). If your scan rate exceeds more than 20x the ingestion rate, you will be billed based on the scan rate. If you exceed your committed rate, you will be charged more.
+It's important to understand how you use your VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) service, whether you will be billed for more data, and whether you will need to request more data. Typically, billing is based on the amount of data that you send to Operations for Applications, measured in Points per Second (PPS). If your scan rate exceeds more than 20x the ingestion rate, you will be billed based on the scan rate. If you exceed your committed rate, you will be charged for overage usage.
 
 You can examine the overall usage of your Operations for Applications service by using the **Usage Summary** dashboard, discussed here.
 
-For usage monitoring by accounts, sources, metric namespaces, and point tags, you can use [ingestion policies](ingestion_policies.html).
+For usage monitoring by specific accounts, sources, metric namespaces, and point tags, you can use [ingestion policies](ingestion_policies.html).
 
-For performance monitoring of your Operations for Applications service, you can use [wftop and spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Usage integration](wavefront_monitoring.html).
+For performance monitoring of your Operations for Applications service, you can use [top and spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Usage integration](wavefront_monitoring.html).
 
 ## How to Go to the Usage Summary Dashboard?
 
