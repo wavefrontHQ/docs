@@ -54,7 +54,7 @@ Follow the steps given below to propagate custom span tags when sending data fro
         <li class="active"><a href="#tracingApplication" data-toggle="tab">OpenTelemetry</a></li>
         <li><a href="#jaeger" data-toggle="tab">Jaeger</a></li>
         <li><a href="#zipkin" data-toggle="tab">Zipkin</a></li>
-        <li><a href="#springboot" data-toggle="tab">Spring Boot</a></li>
+        <li><a href="#springboot" data-toggle="tab">Spring Boot 2</a></li>
         <li><a href="#customProxy" data-toggle="tab">Custom Proxy Port</a></li>
     </ul>
       <div class="tab-content">
