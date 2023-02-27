@@ -166,9 +166,9 @@ Tanzu Observability automatically tracks the number of metrics received for the 
 
 This dashboard helps you investigate the usage of the Wavefront service for each user and ingestion policy.
 
-Tanzu Observability supports creation of ingestion policies. You create policies and assign accounts (user or service accounts) or groups to each policy and examine which teams use which part of total ingestion in this Wavefront Ingestion Policy Explorer dashboard. You can even drill down and examine usage of individual users.
+Tanzu Observability supports creation of ingestion policies. You create policies and assign accounts (user or service accounts), groups, sources, namespaces, or point tags to each policy. On the Wavefront Ingestion Policy Explorer dashboard, you can examine which policies use which part of the total ingestion. You can even drill down and examine usage of individual users.
 
-The dashboard includes a link to the **Ingestion Policies** page so if you are a Super Admin, you can create, examine, or modify [ingestion policies](ingestion_policies.html).
+The dashboard includes a link to the **Ingestion Policies** page, so you can examine the [ingestion policies](ingestion_policies.html) in your environment. If you are a Super Admin user, you can also create and modify ingestion policies.
 
 ![Screenshot of part of the Ingestion Policy Explorer dashboard](/images/ingestion_pps_usage_breakdown.png)
 
