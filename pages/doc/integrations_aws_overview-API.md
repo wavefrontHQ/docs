@@ -14,7 +14,7 @@ In these examples, you access the REST API through the interface, so that you do
 
 ## Before You Start
 
-To set up the Amazon Web Services integration, you must provide VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) with read-only access to your Amazon account. To do that, you need to provide an account ID and external ID. While the account ID is a constant value - the VMware Aria Operations for Applications (Wavefront) ID to which you want to grant access to your resources, the external ID is not a constant value. The external ID is a secret identifier that is known by you and VMware Aria Operations for Applications (the third-party). The external ID is time-sensitive and regenerated each time you reopen the AWS Integration setup page, and you cannot reuse it.
+To set up the Amazon Web Services integration, you must provide VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) with read-only access to your Amazon account. To do that, you need to provide an account ID and external ID. While the account ID is a constant value - the ID to which you want to grant access to your resources, the external ID is not a constant value. The external ID is a secret identifier that is known by you and VMware Aria Operations for Applications (the third-party). The external ID is time-sensitive and regenerated each time you reopen the AWS Integration setup page, and you cannot reuse it.
 
 For information about external IDs and how they are used in AWS, see [How to Use External ID When Granting Access to Your AWS Resources](https://aws.amazon.com/blogs/security/how-to-use-external-id-when-granting-access-to-your-aws-resources/).
 
