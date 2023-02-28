@@ -50,7 +50,7 @@ Groups allow you to combine a set of users. You can then:
 * Assign a role to the group.
 * Give [view or modify access](access.html) for individual dashboards and alerts to the group.
 
-The groups in your environment do *not* currently synchronize with the groups in your identity provider (IdP) such as Active Directory or LDAP.
+The groups in your Operations for Applications environment do *not* currently synchronize with the groups in your identity provider (IdP) such as Active Directory or LDAP.
 
 
 ### What's the Everyone Group?
