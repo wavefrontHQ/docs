@@ -4,10 +4,10 @@ keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: permissions_overview.html
-summary: Learn about the permissions in Tanzu Observability by Wavefront.
+summary: Learn about the permissions in your service.
 ---
 
-Permissions allow administrators to control access to the feature sets in Tanzu Observability by Wavefront. Users with the **Accounts** permission can manage permissions for groups and users.
+Permissions allow access control for the feature sets in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront). Users with the **Accounts** permission can manage permissions for groups and accounts.
 
 {% include note.html content="Every user can [perform certain tasks](user-accounts.html#what-can-a-new-user-do). However, you must have the appropriate permission to manage objects. If you do not have permission, UI menu selections and buttons required to perform management tasks are not visible." %}
 
@@ -34,11 +34,11 @@ The following list gives an overview of permissions. To learn more, click the li
     
 - **Batch Query Priority** 
 
-    When an account with the **Batch Query Priority** permission runs queries, Tanzu Observability treats every query executed by that account as if it was wrapped in the [`bestEffort()` function](ts_bestEffort.html).
+    When an account with the **Batch Query Priority** permission runs queries, Operations for Applications treats every query executed by that account as if it was wrapped in the [`bestEffort()` function](ts_bestEffort.html).
     
 - **[Chart Embedding](ui_sharing.html#embed-a-chart-in-other-uis)**  
     
-    Users with the **Chart Embedding** permission can generate HTML snippets of charts in Tanzu Observability and embed a corresponding interactive chart outside of Tanzu Observability. Embedded chart URLs are associated with a specific user account. If a user embeds a chart and later that user's account is removed, the embedded chart no longer works.
+    Users with the **Chart Embedding** permission can generate HTML snippets of charts in Operations for Applications and embed a corresponding interactive chart outside of Operations for Applications. Embedded chart URLs are associated with a specific user account. If a user embeds a chart and later that user's account is removed, the embedded chart no longer works.
     
 - **[Dashboards](ui_dashboards.html)** 
 
@@ -52,7 +52,7 @@ The following list gives an overview of permissions. To learn more, click the li
      
 - **[Direct Data Ingestion](direct_ingestion.html)**
     
-    An account with the **Direct Data Ingestion** permission can directly ingest metrics using the Wavefront API or one of the Wavefront SDKs, bypassing the proxy. Grant this permission only to users who have a deep understanding of APIs and the Tanzu Observability ingestion path.
+    An account with the **Direct Data Ingestion** permission can directly ingest metrics using the REST API or one of the SDKs, bypassing the proxy. Grant this permission only to users who have a deep understanding of APIs and the Operations for Applications ingestion path.
     
 - **[Events](events.html)** 
 
@@ -68,7 +68,7 @@ The following list gives an overview of permissions. To learn more, click the li
     
 - **[Logs](logging_overview.html)** (Beta)
     
-    {% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative."%}
+    {% include important.html content="Logs (Beta) is enabled only for selected customers. To participate, contact your Operations for Applications account representative."%}
 
     Users with the **Logs** permission can view the Logs Browser and drill into logs from charts, alerts, and traces.
         

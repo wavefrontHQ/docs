@@ -7,7 +7,7 @@ permalink: authorization.html
 summary: Learn about authorization of groups and users.
 ---
 
-Tanzu Observability by Wavefront supports both role-based control that use global permissions and object-based access control for individual dashboards and alerts.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports both role-based control that use global permissions and object-based access control for individual dashboards and alerts.
 
 Users with the **Accounts** permission can:
 
