@@ -9,13 +9,13 @@ summary: Learn about sending logs to Tanzu Observability.
 
 {% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
-You can send logs to the Wavefront proxy from your log shipper or directly from your application. The Wavefront proxy sends the log data to the Wavefront instance.
+You can send logs to the Wavefront proxy from your log shipper or directly from your application. The Wavefront proxy sends the log data to our service.
 
 ![shows how data goes from the log shipper to the wavefront proxy and then to the Wavefront instance](images/logging_send_logs2.png)
 
-## Install a Wavefront Proxy
+## Install the Wavefront Proxy
 
-Our logging solution currently requires a Wavefront proxy and does not support direct ingestion. The Wavefront proxy accepts logs as JSON array and JSON lines payload over HTTP or HTTPS and forwards it to the Wavefront service.
+Our logging solution currently requires a Wavefront proxy and does not support direct ingestion. The Wavefront proxy accepts logs as JSON array and JSON lines payload over HTTP or HTTPS and forwards it to the service.
 
 {% include note.html content="For optimal performance, install a standalone proxy cluster that receives only logs payload. Typically two proxy instances behind a load balancer are sufficient." %}
 
@@ -47,7 +47,7 @@ value: "false"</code>
 
 To install and configure a new proxy:
 
-1. Log in to your Wavefront instance and select **Browse** > **Proxies**.
+1. Log in to your Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) and select **Browse** > **Proxies**.
 1. Click **Add new proxy** and follow the instructions on the screen.
 1. Edit the `wavefront.conf` file to open the `pushListenerPorts` to receive logs from the log shipper.
     <br/>For example:
