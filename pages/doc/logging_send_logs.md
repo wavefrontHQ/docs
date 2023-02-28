@@ -61,7 +61,7 @@ To install and configure a new proxy:
 
 ## Option 1: Use Our Integrations
 
-You can monitor your Kubernetes clusters, or Linux hosts using our built-in integrations and sends logs to our system too.
+You can monitor your Kubernetes clusters or Linux hosts using our built-in integrations and send logs to our system.
 
 * [Linux host integration](linux.html): Install the Wavefront proxy and configure the log shipper.
 * [Kubernetes integration](kubernetes.html#kubernetes-quick-install-using-the-kubernetes-operator): Enable logs in the integration, generate the script, and run it on your Kubernetes cluster. 
