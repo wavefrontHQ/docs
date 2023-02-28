@@ -381,13 +381,13 @@ Use these metrics to help troubleshoot issues with data collection:
 </thead>
 <tbody>
 <tr><td markdown="span">kubernetes.collector.target.collect.errors</td>
-<td>Counter showing the number of errors collecting data from a target pod or service etc. <br/>You can see this data on the **Collection Errors per Endpoint** chart under the **Metric Health Indicators** section of the **Wavefront Collector for Kubernetes Metrics** dashboard.</td></tr>
+<td>Counter showing the number of errors collecting data from a target pod or service etc. <br/>You can see this data on the <strong>Collection Errors per Endpoint</strong> chart under the <strong>Metric Health Indicators</strong> section of the <strong>Wavefront Collector for Kubernetes Metrics</strong> dashboard.</td></tr>
 <tr>
 <td markdown="span">kubernetes.collector.source.collect.errors</td>
-<td>Counter showing the number of errors per plugin type (Prometheus, Telegraf etc.) <br/>You can see this data on the **Collection Errors per Type** chart under the **Metric Health Indicators** section of the **Wavefront Collector for Kubernetes Metrics** dashboard.</td></tr>
+<td>Counter showing the number of errors per plugin type (Prometheus, Telegraf etc.) <br/>You can see this data on the <strong>Collection Errors per Type</strong> chart under the <strong>Metric Health Indicators</strong> section of the <strong>Wavefront Collector for Kubernetes Metrics</strong> dashboard.</td></tr>
 <tr>
 <td markdown="span">kubernetes.collector.target.points.collected</td>
-<td>Counter showing the number of points collected from a single target (pod, service etc.) as a per-second rate. <br/>You can see this data on the **Points Collected per Target (Top 20)** chart under the **Data Collection** section of the**Wavefront Collector for Kubernetes Metrics** dashboard.</td></tr>
+<td>Counter showing the number of points collected from a single target (pod, service etc.) as a per-second rate. <br/>You can see this data on the <strong>Points Collected per Target (Top 20)</strong> chart under the <strong>Data Collection</strong> section of the <strong>Wavefront Collector for Kubernetes Metrics</strong> dashboard.</td></tr>
 </tbody>
 </table>
 
