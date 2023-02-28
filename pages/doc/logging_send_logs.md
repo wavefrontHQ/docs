@@ -9,9 +9,6 @@ summary: Learn about sending logs to Tanzu Observability.
 
 {% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
-
-{% include tip.html content="This doc page gets you started. [Try out the demo app tutorial on GitHub](https://github.com/wavefrontHQ/demo-app) to experiment with sending logs to Tanzu Observability."%}
-
 You can send logs to the Wavefront proxy from your log shipper or directly from your application. The Wavefront proxy sends the log data to the Wavefront instance.
 
 ![shows how data goes from the log shipper to the wavefront proxy and then to the Wavefront instance](images/logging_send_logs2.png)
@@ -62,7 +59,15 @@ To install and configure a new proxy:
 
 {% include note.html content="To learn more about the proxy configuration properties and preprocessor rules for logs, see [Logs Proxy Configurations and Preprocessor Rules](logging_proxy_configurations.html)." %}
 
-## Configure the Log Shipper
+## Option 1: Use Our Integrations
+
+You can monitor your Kubernetes clusters, or Linux hosts using our built-in integrations and sends logs to our system too.
+
+* [Linux host integration](linux.html): Install the Wavefront proxy and configure the log shipper.
+* [Kubernetes integration](kubernetes.html#kubernetes-quick-install-using-the-kubernetes-operator): Enable logs in the integration, generate the script, and run it on your Kubernetes cluster. 
+  {% include note.html content="Logs (Beta) is not supported when you use OpenShift." %}
+
+## Option 2: Configure A Log Shipper
 
 The log shipper sends your data to the Wavefront proxy. During Beta, we support the [Fluentd](https://docs.fluentd.org/) and [Fluent Bit](https://docs.fluentbit.io/) log shippers, which scrape and buffer your logs before sending them to the Wavefront proxy.
 
