@@ -13,7 +13,7 @@ Depending on your setup, you typically deploy the following components into your
 * **[Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/observability-for-kubernetes)** -- runs as a DaemonSet
 * **[Wavefront Proxy](proxies.html)** -- runs as a deployment fronted by a Kubernetes Service
 
-Once deployed, the collector instances gather data at regular intervals from various sources and send the data to Tanzu Observability by Wavefront via the Wavefront proxy.
+Once deployed, the collector instances gather data at regular intervals from various sources and send the data to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) via the Wavefront proxy.
 
 ## Known Issues
 
@@ -42,20 +42,20 @@ In Kubernetes, a Node can be considered a virtual machine, and can have several 
 
 All the Pods the Wavefront Collector collects metrics from are considered a Source.
 
-Next, the Source sends metrics to the Wavefront Sink and then to the Wavefront Service through the Wavefront proxy.
+Next, the Source sends metrics to the Wavefront Sink and then to the VMware Aria Operations for Applications Service through the Wavefront proxy.
 
 Since the Wavefront Collector runs on each Node, metrics common to the Kubernetes environment or cluster can be repeated, such as the cluster metrics, which are reported multiple times. To avoid the same metric being reported several times, one Wavefront Collector is elected as the leader to perform tasks that only need to be done once.
 
-The following diagram shows how the data flows from your Kubernetes environment to Tanzu Observability.
+The following diagram shows how the data flows from your Kubernetes environment to VMware Aria Operations for Applications.
 
 ![Kubernetes Collector Data Flow Diagram](images/kubernetes_collector_troubleshooting_flow_diagram.png)
 
 
 You run into issues when data doesn't flow from one component to another or when there are configuration issues.
 
-For example, identifying the metrics that come into Tanzu Observability and the metrics that don't go into Tanzu Observability help you know where to look.
+For example, identifying the metrics that come into VMware Aria Operations for Applications and the metrics that don't go into VMware Aria Operations for Applications help you know where to look.
 
-To troubleshoot data collection, follow the data flow from the source to Tanzu Observability to find where the flow is broken.
+To troubleshoot data collection, follow the data flow from the source to VMware Aria Operations for Applications to find where the flow is broken.
 * Individual processes in the flow can cause problems.
 * Connections between processes can cause problems.
 
@@ -75,7 +75,7 @@ You can address this problem in several ways, and might find that combining solu
 
 ### Manage Cardinality and the Data Shape
 
-All Tanzu Observability users can benefit greatly from managing the shape of the data that's coming in. See the following doc pages for detail:
+All users can benefit greatly from managing the shape of the data that's coming in. See the following doc pages for detail:
 * [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html)
 * [Improve PPS Usage and Prevent Overage](wavefront_usage_info.html)
 
@@ -104,12 +104,12 @@ Filtering out metrics at the collector is much more efficient than filtering out
 
 ### Use Proxy Preprocessor Rules
 
-You can use [proxy preprocessor rules](proxies_preprocessor_rules.html) to block data that you don't want to send to the Wavefront service. There are block rules for each type of metric, for example `block` for points and `spanBlock` for spans.
+You can use [proxy preprocessor rules](proxies_preprocessor_rules.html) to block data that you don't want to send to the VMware Aria Operations for Applications service. There are block rules for each type of metric, for example `block` for points and `spanBlock` for spans.
 
 {% include tip.html content="Filter metrics at the Collector instead of the proxy where possibly to avoid creating a bottleneck at the proxy." %}
 
 
-## Symptom: No Data Flowing into Tanzu Observability
+## Symptom: No Data Flowing
 
 ### Step 1: Verify That the Collector Is Running.
 
@@ -132,7 +132,7 @@ You can use [proxy preprocessor rules](proxies_preprocessor_rules.html) to block
 
 * Run `kubectl get deployment wavefront-proxy -n NAMESPACE` to verify the proxy instances are ready and available.
 * Run `kubectl get pods -l app=wavefront-proxy -n <NAMESPACE>` to verify there are no pod restarts.
-* Run `kubectl logs pod_name` to check the proxy logs for errors connecting to the Wavefront service.
+* Run `kubectl logs pod_name` to check the proxy logs for errors connecting to the VMware Aria Operations for Applications service.
 
 <table style="width: 100%;">
 <tbody>
@@ -156,9 +156,9 @@ You can use [proxy preprocessor rules](proxies_preprocessor_rules.html) to block
   </tbody>
   </table>
 
-### Step 4: Verify That the Proxy Can Connect to the Wavefront Service
+### Step 4: Verify That the Proxy Can Connect to the Service
 
-![Highlights arrow from the Wavefront proxy to the Wavefront service on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_step_4.png)
+![Highlights arrow from the Wavefront proxy to the VMware Aria Operations for Applications service on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_step_4.png)
 
 See [Monitor Wavefront Proxies](monitoring_proxies.html) for monitoring and troubleshooting the proxy.
 
@@ -168,7 +168,7 @@ See [Monitor Wavefront Proxies](monitoring_proxies.html) for monitoring and trou
 </tbody>
 </table>
 
-## Symptom: Incomplete Data in Tanzu Observability
+## Symptom: Incomplete Data
 
 ### Step 1: Verify the Collection Source Configurations
 
@@ -184,14 +184,14 @@ See the [Wavefront Collector Configurations](https://github.com/wavefrontHQ/obse
 
 ### Step 2: Verify the Filter Configuration
 
-You can filter out data flowing into Tanzu Observability at multiple points:
+You can filter out data flowing into VMware Aria Operations for Applications at multiple points:
 * In some cases, the application (App Pod) can filter metrics and decide on the metrics are available to collect.
   A common example of this is kube-state-metrics. See [kube-state-metrics documentation](https://github.com/kubernetes/kube-state-metrics/blob/master/docs/cli-arguments.md) for configuration options.
   ![Highlights the app pod on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom-Incomplete_step_2.1.png)
 
 * The Wavefront Collector for Kubernetes allows two levels of filtering internally, shown in the picture below.
   1. Filter metrics at the source level.
-  2. Filter all metrics sent from the collector to Tanzu Observability.
+  2. Filter all metrics sent from the collector to VMware Aria Operations for Applications.
 
   Run ```kubectl get configmap collector-config -n <YOUR_NAMESPACE> -o yaml``` and check both your source configuration and sink configuration for filters. See [Prefix, tags, and filter configurations for the Wavefront Collector](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/configuration.md#prefix-tags-and-filters).
 
@@ -401,7 +401,7 @@ Check the source of these metrics to identify the specific Kubernetes node on wh
 
 ## Symptom: Missing Metrics from a Single Source
 
-### Step 1: Verify That Metric Data Is Sent to Tanzu Observability
+### Step 1: Verify That Metric Data Is Sent to Operations for Applications
 
 1. Click **Browse > Metrics** to navigate to the metrics screen.
 2. Look for your metric data.
@@ -458,7 +458,7 @@ Check the source of these metrics to identify the specific Kubernetes node on wh
 
 ## Symptom: Kubernetes Dashboards Do Not Show Any Data
 
-The most common cause for the Kubernetes integration dashboards to not show any data is a problem with sending data to Tanzu Observability. See [Symptom: No Data Flowing into Tanzu Observability](#symptom-no-data-flowing-into-tanzu-observability).
+The most common cause for the Kubernetes integration dashboards to not show any data is a problem with sending data to VMware Aria Operations for Applications. See [Symptom: No Data Flowing](#symptom-no-data-flowing).
 
 Another reason for missing data can be a change in the prefix of the Kubernetes sources in the Wavefront Collector for Kubernetes. By default, the dashboards rely on a prefix, such as `kubernetes.`, in the configured collector sources. For more information, see the sources section of the [collector configuration file](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/collector/deploy/kubernetes/4-collector-config.yaml).
 

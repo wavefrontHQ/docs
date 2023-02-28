@@ -8,7 +8,7 @@ summary: Main improvements in the v2 UI and some FAQs.
 If you're migrating from v1 dashboards and charts to v2, you'll find most of the changes intuitive. This page highlights new features and has some FAQs.
 
 
-{% include note.html content="Every Wavefront user can view dashboards and make temporary changes. You must have the Dashboard permission to save dashboards and charts." %}
+{% include note.html content="Every user can view dashboards and make temporary changes. You must have the Dashboard permission to save dashboards and charts." %}
 
 ## Main Improvements
 
@@ -147,7 +147,7 @@ A: We've moved the warning icon from the bottom right of a chart to the top left
 
 ![v2 warnings](images/v2_warning.png)
 
-Wavefront currently doesn't distinguish between warnings and info messages. For example, if a query specifies a time window but doesn't specify d, m, s, etc., we default to m (minutes) and show a warning. Expect an update in an upcoming release.
+We currently don't distinguish between warnings and info messages. For example, if a query specifies a time window but doesn't specify d, m, s, etc., we default to m (minutes) and show a warning. Expect an update in an upcoming release.
 
 ### Q: Dashboard variables have changed. Where do I find out more?
 

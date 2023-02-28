@@ -4,9 +4,9 @@ keywords: integrations
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_new_changed_2021.html
-summary: New and changed Wavefront integrations released in 2021
+summary: New and changed integrations released in 2021
 ---
-Wavefront continuously adds new integrations to the existing set, and improves available integrations.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) continuously adds new integrations to the existing set, and improves available integrations.
 
 This document lists new and changed integrations for 2021. For earlier releases, see [New and Changed Integrations in 2019-2020](integrations_new_changed_2020.html).
 * We have a separate document for [Integrations Release Notes](integrations_new_changed.html).
@@ -38,7 +38,7 @@ We added the following integration in November 2021:
 
 * AVI Networks
 
-  Now, NSX Advance Load Balancer (AVI Networks) can be monitored by using out-of-the-box dashboards provided in the AVI Networks (NSX ALB) integration tile. This integration is developed and created by the community and falls into to the new **Community Integrations** section of the Wavefront **Integrations** page. This is the first integration in this category. We do not validate the community integrations and they are not fully supported by the Tanzu Observability by Wavefront team.
+  Now, NSX Advance Load Balancer (AVI Networks) can be monitored by using out-of-the-box dashboards provided in the AVI Networks (NSX ALB) integration tile. This integration is developed and created by the community and falls into to the new **Community Integrations** section of the Wavefront **Integrations** page. This is the first integration in this category. We do not validate the community integrations and they are not fully supported by the VMware Aria Operations for Applications team.
 
 Made improvements to the following integrations and dashboards in November 2021:
 
@@ -77,7 +77,7 @@ Made improvements to the following integrations and dashboards in September 2021
   - Updated the query in the top 10 CPU charts of the **AWS: ECS (Fargate)** dashboard to show the correct values.
   - Fixed bucket and region count mismatch issue in the **AWS: S3** dashboard.
 
-* Wavefront Tutorial -- Added the following list of new chart types and examples to the **Chart Types** dashboard:
+* Operations for Applications Tutorial -- Added the following list of new chart types and examples to the **Chart Types** dashboard:
   - Gauge
   - Pie
   - Node map
@@ -112,8 +112,8 @@ Made improvements to the following integrations and dashboards in July 2021:
 
 * Project Pacific -- Renamed the integration from Project Pacific Integration to vSphere with Tanzu Integration.
 * VMware Cloud PKS -- Removed the VMware Cloud PKS integration.
-* OpenTelemetry --  Updated the steps for configuring the application to send trace data to Wavefront using the Tanzu Observability by Wavefront trace exporter.
-* Wavefront Usage -- Added new charts to **Proxies Overview** section in the **Wavefront Service and Proxy Data** dashboard to show **Spans Sampled By Policies**.
+* OpenTelemetry --  Updated the steps for configuring the application to send trace data to VMware Aria Operations for Applications using the trace exporter.
+* Operations for Applications Usage -- Added new charts to **Proxies Overview** section in the **Operations for Applications Service and Proxy Data** dashboard to show **Spans Sampled By Policies**.
 * Azure AD -- Added steps to configure Azure AD using Self-Service SAML.
 * Data Platforms -- Added a new dashboard  **Data Platform Blueprint2 - Kafka-Spark-Elasticsearch**.
 * Kubernetes:
@@ -162,7 +162,7 @@ Made improvements to the following integrations and dashboards in June 2021:
 Made improvements to the following integrations and dashboards in May 2021:
 * AWS -- Updated the **AWS Summary** dashboard to use Delta Counters.
 * Linux -- Updated the Linux integration to list all collected metrics.
-* Wavefront Usage:
+* Operations for Applications Usage:
   * The out of the box dashboards are updated to use new delta counters.
   * The integration out of the box alerts are updated to use delta counters.
 * Kubernetes:
@@ -187,7 +187,7 @@ Made improvements to the following integrations and dashboards in April 2021:
 * Pivotal Cloud Foundry:
   * Fixed charts in the **PCF: MySQL** dashboard.
   * Added the **VMware Tanzu Application Services** tile to the Pivotal Cloud Foundry integration.
-* Istio -- Deprecated the Wavefront Istio adapter and added support to monitor Istio 1.8.
+* Istio -- Deprecated the VMware Operations for Applications Istio adapter and added support to monitor Istio 1.8.
 * Jaeger -- Updates to the integration setup instructions to send data to the Wavefront proxy through gRPC.
 * HipChat -- Removed the HipChat integration.
 * OpenTelemetry -- Updates to the integration setup instructions.
@@ -198,8 +198,8 @@ Made improvements to the following integrations and dashboards in April 2021:
 Made improvements to the following integrations in March 2021:
 
 * Catchpoint:
-  * Labels in Catchpoint are available as point tags in Wavefront.
-  * Insight Settings in Catchpoint, such as tracepoints and indicators, are available as metrics in Wavefront.
+  * Labels in Catchpoint are available as point tags in VMware Aria Operations for Applications.
+  * Insight Settings in Catchpoint, such as tracepoints and indicators, are available as metrics in Operations for Applications.
 * OpenTelemetry -- Fixed broken links in the setup instructions
 * Istio -- Fixed broken links in the setup instructions
 * Kubernetes:
@@ -210,7 +210,7 @@ Made improvements to the following integrations in March 2021:
 * OneLogin -- Updates to the integration setup instructions
 * vSphere -- Fixes to the out of the box dashboards
 * RabbitMQ -- Fixes to the out of the box dashboards
-* Wavefront Usage -- Added new alerts to the Wavefront usage integration
+* Operations for Applications Usage -- Added new alerts to the Operations for Applications usage integration
 
 ## December 2020 - February 2021
 
@@ -224,7 +224,7 @@ Made improvements to the following integrations and dashboards in December 2020 
 * Amazon Web Services Gateway -- New API gateway types
 * Spring Cloud Data Flow -- Spring Cloud Data Flow and Spring Cloud Skipper version upgrade
 * Microsoft Azure Storage -- New chart showing used capacity
-* Wavefront Usage:
+* Operations for Applications Usage:
   * Name changes to the dashboards
   * Now includes an **Alerts** tab with predefined alerts
 * Java
@@ -232,7 +232,7 @@ Made improvements to the following integrations and dashboards in December 2020 
 * AppDynamics -- Updates to the setup UI
 * Kubernetes -- New out of the box dashboards
 * OKTA -- Updates to the setup UI
-* Wavefront Tutorial
+* Operations for Applications Tutorial
 * Slack
 * Amazon Web Services: Fargate dashboard
 * Tanzu Kubernetes Grid Integrated Edition -- Updated to support Tanzu Kubernetes Grid Integrated Edition 1.10

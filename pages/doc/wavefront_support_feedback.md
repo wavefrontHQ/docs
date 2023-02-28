@@ -9,11 +9,11 @@ summary: Get help with and give feedback.
 
 ## Support
 
-Tanzu Observability by Wavefront support is available as follows:
+VMware Operations for Applications (formerly known as Tanzu Observability by Wavefront) support is available as follows:
 
 * Get in touch with Technical Support and create a support ticket. See the [How to Engage Technical Support](https://help.wavefront.com/hc/en-us/articles/360057219171-How-to-Engage-Technical-Support) KB.
 * Get support from within the product:
-  1. Log in to your Wavefront instance.
+  1. Log in to your product instance.
   1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select <strong>Support</strong>.
     <br/>![support menu item](images/get_support.png)
 

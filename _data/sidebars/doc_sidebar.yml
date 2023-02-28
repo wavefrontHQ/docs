@@ -10,7 +10,7 @@ entries:
     output: web
     folderitems:
 
-    - title: "What is Tanzu Observability?"
+    - title: "Introduction"
       url: /wavefront_introduction.html
       output: web
 
@@ -26,7 +26,7 @@ entries:
       output: web
       url: /videos.html
 
-    - title: Tanzu Observability FAQs
+    - title: Product FAQ
       output: web
       url: /tobs_faq.html
 
@@ -36,7 +36,7 @@ entries:
         output: web
         subfolderitems:
 
-        - title: Hello Wavefront Tutorial
+        - title: "Integrations Tutorial"
           url: /hello_wavefront_aws_tutorial.html
           output: web
 
@@ -108,7 +108,7 @@ entries:
     output: web
     folderitems:
 
-    - title: Wavefront Service Release Notes
+    - title: Service Release Notes
       url: /wavefront_release_notes.html
       output: web
 
@@ -431,7 +431,7 @@ entries:
           url: /query_language_statistical_functions_anomalies.html
           output: web
 
-    - title: Using PromQL with Tanzu Observability
+    - title: Using PromQL
       url: /wavefront_prometheus.html
       output: web
 
@@ -489,7 +489,7 @@ entries:
             url: /integrations_log_data.html
             output: web
 
-          - title: vRealize Operations Cloud Integration
+          - title: VMware Aria Operations (SaaS) Integration
             url: /integrations_vrops.html
             output: web
 
@@ -497,7 +497,7 @@ entries:
             url: /integrations_vsphere.html
             output: web
 
-          - title: Set Up Wavefront as PromQL Data Source in Grafana
+          - title: Set Up a PromQL Data Source in Grafana
             url: /integrations_grafana.html
             output: web
 
@@ -583,11 +583,11 @@ entries:
             url: /tmc.html
             output: web
 
-          - title: Generate a Token for TMC
+          - title: Generate a Token
             url: /integrations_tmc.html
             output: web
 
-          - title: How to Monitor TMC with Tanzu Observability
+          - title: How to Monitor Tanzu Mission Control
             url: /integrations_tmc_howto.html
             output: web
 
@@ -596,15 +596,15 @@ entries:
           output: web
           subfolderitems:
 
-          - title: TAS Integration
+          - title: Tanzu Application Service Integration
             url: /tas_v4.html
             output: web
 
-          - title: How to Monitor TAS with Tanzu Observability
+          - title: How to Monitor Tanzu Application Service
             url: /integrations_tas_howto.html
             output: web
 
-          - title: Troubleshooting for TAS to Tanzu Observability
+          - title: Troubleshooting for Tanzu Application Service
             url: /tas_to_troubleshooting.html
             output: web
 
@@ -802,7 +802,7 @@ entries:
         url: /wavefront_interfaces.html
         output: web
 
-      - title: Wavefront REST API
+      - title: REST API
         url: /wavefront_api.html
         output: web
 
@@ -818,7 +818,7 @@ entries:
     output: web
     folderitems:
 
-      - title: Administer Tanzu Observability
+      - title: Administering Overview
         url: /wavefront_administer.html
         output: web
 
@@ -905,7 +905,7 @@ entries:
             url: /ingestion_policies.html
             output: web
 
-          - title: Monitor with the Wavefront Usage Integration
+          - title: Monitor with the Usage Integration
             url: /wavefront_monitoring.html
             output: web
 
@@ -925,7 +925,7 @@ entries:
             url: /wavefront_usage_info.html
             output: web
 
-          - title: Use Wavefront Top or Spy to Investigate Traffic
+          - title: Use Top or Spy to Investigate Traffic
             url: /wavefront_monitoring_spy.html
             output: web
           

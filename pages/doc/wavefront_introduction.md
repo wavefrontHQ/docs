@@ -1,11 +1,11 @@
 ---
-title: What is Tanzu Observability by Wavefront?
+title: Product Intro
 tags: [getting started]
 sidebar: doc_sidebar
 permalink: wavefront_introduction.html
 summary: Learn about the architecture, interfaces, and how to get started.
 ---
-Tanzu Observability by Wavefront is a high-performance streaming analytics platform that supports observability for metrics, counters, histograms, and traces/spans. The product is unique because it scales to very high data ingestion rates and query loads. You can collect data from many services and sources across your entire application stack, and can look at details for earlier data that were ingested earlier.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) is a high-performance streaming analytics platform that supports observability for metrics, counters, histograms, and traces/spans. The product is unique because it scales to very high data ingestion rates and query loads. You can collect data from many services and sources across your entire application stack, and can look at details for earlier data that were ingested earlier.
 
 ## Intro Videos
 
@@ -13,7 +13,7 @@ The first <a href="https://vmwaretv.vmware.com/media/t/1_1rfs66nv" target="_blan
 
 <iframe id="kmsembed-1_1rfs66nv" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_1rfs66nv/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Wavefront intro how-to video"></iframe>
 
-In the second **conceptual** video, Wavefront co-founder Clement Pang explains:
+In the second **conceptual** video, the product co-founder Clement Pang explains:
 * How to set up the data ingestion pipeline
 * How dashboards, charts, and alerts allow you to monitor your environment
 * How our histogram and tracing features can give you the full picture of what's going on.
@@ -23,7 +23,7 @@ In the second **conceptual** video, Wavefront co-founder Clement Pang explains:
 
 ## What Can I Do?
 
-After you've sent your data to your Wavefront instance, you can view them in custom dashboards, alert on problem values, and perform anomaly detection and forecasting.
+After you send your data in, you can view it in custom dashboards, alert on problem values, and perform anomaly detection and forecasting.
 
 ### Charts and Dashboards
 
@@ -32,7 +32,7 @@ After you've sent your data to your Wavefront instance, you can view them in cus
 <tr>
 <td width="50%">Visualize the information in <a href="ui_examine_data.html"> <strong>dashboards and charts</strong></a>.
 <ul>
-<li>Use filters and functions to see exactly what you’re interested in. For example, combine multiple time series using aggregation functions such as sum() or avg().</li>
+<li>Use filters and functions to see exactly what you’re interested in. For example, combine multiple time series using aggregation functions such as <code>sum()</code> or <code>avg()</code>.</li>
 <li>Combine functions, and show or hide some of the information - or use dashboard variables to change the focus of a dashboard. For example, a variable might allow you to show the production or development environment.</li>
 <li>Select one of several <strong>chart types</strong> (line plot, point plot, table, etc.)</li></ul></td>
 <td width="50%"><img src="images/intro_query_v2new.png" alt="simple v2 chart"/></td>
@@ -84,7 +84,7 @@ After you've set up an alert with that information, we'll send alert notificatio
 
 We support [over 200 integrations](label_integrations%20list.html) including cloud providers, DevOps tools, big data, and more.
 
-To interact with the Wavefront service, you can use our rich Graphical User Interface, which includes many pre-built dashboards, charts, and alerts. You can also use SDKs available on our [Github page](https://github.com/wavefrontHQ), the Wavefront REST API, and CLIs.
+To interact with our service, you can use our rich Graphical User Interface, which includes many pre-built dashboards, charts, and alerts. You can also use SDKs available on our [Github page](https://github.com/wavefrontHQ), the Operations for Applications REST API, and CLIs.
 
 In addition, tight integrations with Spring Boot, Kubernetes, and Tanzu Mission Control are available.
 
@@ -92,7 +92,7 @@ In addition, tight integrations with Spring Boot, Kubernetes, and Tanzu Mission 
 
 <table style="width: 100%;">
 <tbody>
-<tr><td width="50%"><strong><a href="wavefront_springboot.html">Wavefront for Spring Boot</a></strong> allows you to quickly configure your environment, so Spring Boot components send metrics, histograms, and traces/spans to the Wavefront service. After you’ve completed setup, you can examine the data in preconfigured or custom-built dashboards and charts.  </td>
+<tr><td width="50%"><strong><a href="wavefront_springboot.html">Wavefront for Spring Boot</a></strong> allows you to quickly configure your environment, so Spring Boot components send metrics, histograms, and traces/spans to the service. After you’ve completed setup, you can examine the data in preconfigured or custom-built dashboards and charts.  </td>
 <td width="50%"><img src="/images/spring_boot_getting_started.png" alt="spring boot getting started"/>  </td>
 </tr>
 
@@ -103,7 +103,7 @@ In addition, tight integrations with Spring Boot, Kubernetes, and Tanzu Mission 
 
 <table style="width: 100%;">
 <tbody>
-<tr><td width="50%">Use our one-click install of the <strong><a href="kubernetes.html"> Wavefront Collector for Kubernetes</a></strong> to collect real-time metrics from all layers of a Kubernetes environment (clusters, nodes, pods, containers and the Kubernetes control plane). You can visualize the metrics in a rich set of predefined dashboards. </td>
+<tr><td width="50%">Use our easy to set up integration to collect real-time metrics from all layers of a Kubernetes environment (clusters, nodes, pods, containers and the Kubernetes control plane). You can visualize the metrics in a rich set of predefined dashboards. </td>
 <td width="50%">
 <iframe id="kmsembed-1_rpculupf" width="400" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_rpculupf/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability and Kubernetes"></iframe>
  </td>
@@ -130,40 +130,40 @@ It's easy to monitor any of the clusters:
 
 ## How Do I Set Up a Data Ingestion Pipeline?
 
-You can use Tanzu Observability by Wavefront with time-series (metric) data, and also with traces and spans, and with histograms from diverse sources.
-* **Cloud:** Perform minimal setup to let the Wavefront service access the data in your cloud environment. The result is direct ingestion of cloud services data such as Amazon Web Services or Google Cloud Platform.
+You can use VMware Aria Operations for Applications with time-series (metric) data, and also with traces and spans, and with histograms from diverse sources.
+* **Cloud:** Perform minimal setup to let the service access the data in your cloud environment. The result is direct ingestion of cloud services data such as Amazon Web Services or Google Cloud Platform.
 * **Integrations:** For other data sources, we support [over 200 integrations](label_integrations%20list.html). You modify a simple configuration file and you’re good to go.
-* **Start Where You Are:** If your environment already has a metrics infrastructure, you can do some pre-processing on the data so they correspond to the Wavefront Data Format, and send them directly to the Wavefront proxy.
+* **Start Where You Are:** If your environment already has a metrics infrastructure, you can do some pre-processing on the data so that it corresponds to our data format, and send them directly to the Wavefront proxy.
 * **Direct Ingestion:** For some use cases, [direct ingestion](direct_ingestion.html) is the best approach. Consider the [proxy benefits](proxies.html#proxy-benefits) before you select direct ingestion.
 * **Histograms:** For high-velocity metrics, [Wavefront histograms](proxies_histograms.html) might be the best solution.
 * **App Monitoring with Distributed Tracing:** For traces, we support Jaeger and Zipkin or any applications that are instrumented with the OpenTracing library. You can also send custom traces using one of our SDKs. Our [Application Map](tracing_ui_overview.html) GUI supports easy exploration of trace data, RED metrics, etc.
 
-### Video: Getting Data Into Wavefront
+### Video: Getting Data In
 
 <p>
-<iframe id="kmsembed-1_nc4kmszz" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_nc4kmszz/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="Getting Data Into Wavefront"></iframe>
+<iframe id="kmsembed-1_nc4kmszz" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_nc4kmszz/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="Getting Data Into the Service"></iframe>
 </p>
 
 ## What Are Supported Interfaces?
 
 Different users interact with the product in different ways:
 
-* Most users access the **graphical user interface** (GUI) from a browser. You log in to your Wavefront instance from a standard web browser, in many cases using an SSO solution.  The UI supports different time windows -- even an entire year.
+* Most users access the **graphical user interface** (GUI) from a browser. You log in to your instance from a standard web browser, in many cases using an SSO solution.  The UI supports different time windows -- even an entire year.
 * The Chart Builder and the Query Editor allow you to fine-tune your charts and alerts. Access function documentation from the UI or start with the [Query Language Reference](query_language_reference.html) and click any function on that page for details and examples.
-* The [Wavefront REST API](wavefront_api.html) allows you to perform UI actions programmatically. The API is based on Swagger, so you can generate the client of your choice.
-* For **Distributed Tracing**, we make a large sets of SDKs available in Github.
+* The [REST API](wavefront_api.html) allows you to perform UI actions programmatically. The API is based on Swagger, so you can generate the client of your choice.
+* For **Distributed Tracing**, we make a large sets of SDKs available in GitHub.
 
 ## What's the Architecture?
 
-The Wavefront service runs the metrics collection engine. The service runs in the cloud and accepts data from the Wavefront proxy or through direct ingestion.
+Our service runs the metrics collection engine. The service runs in the cloud and accepts data from the Wavefront proxy or through direct ingestion.
 
-* With cloud services, the Wavefront service pulls the data from your cloud provider (after minimal setup). We support all major cloud providers.
+* With cloud services, our service pulls the data from your cloud provider (after minimal setup). We support all major cloud providers.
 * For on-prem telemetry you have several options:
-  - Set up a **collector** agent such as Telegraf, collects data from you host or infrastructure and sends those data to the proxy.
-  - Send data from your application code to the proxy using a **metrics library**. This works well both for metrics and for traces and spans.
-* If you have a custom application, you can send your metrics to the proxy or directly to the service  -- as long as the data is in one of the supported data formats.
+  - Set up a **collector** agent such as Telegraf, which collects data from you host or infrastructure and sends this data to the proxy.
+  - Send data from your application code to the proxy by using a **metrics library**. This works well both for metrics and for traces and spans.
+* If you have a custom application, you can send your metrics to the proxy or directly to the service, as long as the data is in one of the supported data formats.
   For example, if your environment already includes a metrics collection infrastructure, you can do some pre-processing on the data and send them to the proxy.
 * The proxy can also ingest metrics from your log files. See [Log Data Metrics Integration](integrations_log_data.html)
 
 
-![Wavefront architecture](images/wavefront_architecture_new.png)
+![VMware Aria Operations for Applications architecture](images/wavefront_architecture_new.png)

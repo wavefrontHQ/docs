@@ -5,20 +5,20 @@ tags: [getting started, videos]
 sidebar: doc_sidebar
 permalink: videos_howto_start.html
 published: false
-summary: Learn how to perform basic tasks in the Wavefront UI.
+summary: Learn how to perform basic tasks in the VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) GUI.
 ---
 
-This page collects some videos that show basic tasks.
+This page collects some videos that show basic tasks. Note that in most of the videos we still refer to VMware Aria Operations for Applications as Tanzu Observability or Wavefront.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td><strong><font color="#0091DA" size="3">Wavefront Introduction</font></strong><br>
+<td><strong><font color="#0091DA" size="3">Introduction</font></strong><br>
 <br>
 
 
 <iframe id="kmsembed-1_1rfs66nv" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_1rfs66nv/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0"></iframe></td>
-<td><br><p>This 90-second introduction shows how Wavefront users create dashboards and charts, add alerts, and include histograms and spans in observability results. </p> <p>You can also watch the video <a href="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_1rfs66nv/uiConfId/49694343/pbc/252649793/st/0" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>  </td>
+<td><br><p>This 90-second introduction shows how you can create dashboards and charts, add alerts, and include histograms and spans in observability results. </p> <p>You can also watch the video <a href="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_1rfs66nv/uiConfId/49694343/pbc/252649793/st/0" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>  </td>
 </tr>
 <tr>
 <td><strong><font color="#0091DA" size="3">Browsing Your Data</font></strong><br>
@@ -40,14 +40,14 @@ This page collects some videos that show basic tasks.
 <br>
 <iframe id="kmsembed-1_gqelhfur" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gqelhfur/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0" referrerPolicy="no-referrer-when-downgrade"></iframe>
 </td>
-<td><br><p>Users with Dashboards permissions can create a new dashboard with one or multiple charts from metrics, a chart type, or an integration.  </p> <p>You can also watch the video <a href="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gqelhfur/uiConfId/49694343/pbc/252649793/st/0" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p></td>
+<td><br><p>Users with the Dashboards permission can create a new dashboard with one or multiple charts from metrics, a chart type, or an integration.  </p> <p>You can also watch the video <a href="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gqelhfur/uiConfId/49694343/pbc/252649793/st/0" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p></td>
 </tr>
 <tr>
 <td><strong><font color="#0091DA" size="3">Create and Modify Charts with Chart Builder</font></strong><br>
 <br>
 <iframe id="kmsembed-1_46pqfyms" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_46pqfyms/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0"></iframe>
 </td>
-<td><br><p>Users with Dashboards permissions can use Chart Builder to select metrics or histograms, apply filters and functions, select a chart type, and customize the chart.  </p><p>You can also watch the video <a href="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_46pqfyms/uiConfId/49694343/pbc/252649793/st/0" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> </td>
+<td><br><p>Users with the Dashboards permission can use the Chart Builder to select metrics or histograms, apply filters and functions, select a chart type, and customize the chart.  </p><p>You can also watch the video <a href="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_46pqfyms/uiConfId/49694343/pbc/252649793/st/0" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> </td>
 </tr>
 <tr>
 <td><strong><font color="#0091DA" size="3">Create an Alert in 90 Seconds</font></strong><br>

@@ -5,7 +5,7 @@ sidebar: doc_sidebar
 permalink: users_account_managing.html
 summary: Learn how to manage your passwords and preferences.
 ---
-Tanzu Observability by Wavefront supports administrator-level customization for all users of a Wavefront instance, and user-level customization, discussed on this page. 
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports administrator-level customization for all users of an instance, and user-level customization, discussed on this page. 
 
 You manage your account from the gear icon in the top right corner. From there, all users can manage passwords and configure preferences. Users in a [multi-tenant environment](authentication.html#multi-tenant-authentication) who have been invited to more than one tenant can also switch tenants from the gear icon.
 
@@ -19,7 +19,7 @@ You can change your password. You can reset a forgotten password if your account
 
 To change your password:
 
-1. Log in to your Wavefront instance.
+1. Log in to your instance.
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select your username.
 3. On the **User Information** tab, click the **Change Password** link, and enter the current and new passwords as prompted.
 4. Click **Save**.
@@ -28,13 +28,13 @@ To change your password:
 
 To reset a forgotten password:
 
-1. Browse to your Wavefront instance URL (`https://<example>.wavefront.com`) and click the **Forgot Password** link.
+1. Browse to your instance URL (`https://<example>.wavefront.com`) and click the **Forgot Password** link.
 2. Follow the prompts to reset your password.
 
 
 ## Configure User Preferences
 
-In your user profile, you can configure several preferences, for example, select our dark theme or chart title size.
+In your user profile, you can configure several preferences, for example, select our light or dark theme or chart title size.
 
 1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select your username.
 1. On the **User Information** tab, make the necessary changes.
@@ -67,7 +67,7 @@ Permissions are additive:
 * If permissions or roles were assigned to you explicitly, you get those as well.
 
 You can check the permissions you have and see which groups you belong to.
-1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select your user name.
+1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select your username.
 2. Click the **Groups, Roles & Permissions** tab to display the permissions you have and see why you have them.
 ![groups and permissions](images/groups_and_permissions.png)
 
@@ -113,9 +113,9 @@ If you are a Super Admin user for the Wavefront service, you can temporarily ena
 
 ## Generate an API Token
 
-Tanzu Observability allows [user accounts](user-accounts.html) and [service accounts](service-accounts.html) to interact with a Wavefront instance using the [Wavefront REST API](wavefront_api.html).
+VMware Aria Operations for Applications allows [user accounts](user-accounts.html) and [service accounts](service-accounts.html) to interact with the product instance using the [REST API](wavefront_api.html).
 
-{% include tip.html content="You generate API tokens for your user account explicitly. For service accounts, a user with the **Accounts** permission can generate tokens from the Service Accounts page." %}
+{% include tip.html content="You generate API tokens for your user account explicitly. For service accounts, a user with the **Accounts** permission can generate tokens from the **Service Accounts** page." %}
 
 {% include note.html content="All users can use and manage their existing API tokens. You must have the [API Tokens permission](permissions_overview.html) to generate **new** API tokens for your user account." %}
 

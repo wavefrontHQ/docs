@@ -1,5 +1,5 @@
 ---
-title: Monitor Tanzu Application Service with Tanzu Observability by Wavefront
+title: Monitor Tanzu Application Service
 keywords:
 tags: [integrations]
 sidebar: doc_sidebar
@@ -9,7 +9,7 @@ summary: Set up the Tanzu Observability tile and monitor your environment.
 
 [VMware Tanzu Application Service](https://docs.pivotal.io/application-service/2-12/concepts/overview.html), previously known as Pivotal Cloud Foundry, is a popular platform for building cloud-native applications.
 
-Tanzu Observability by Wavefront (Wavefront) is a cloud-hosted service for full-featured observability. When you Tanzu Application Service to send data to the Wavefront proxy, you can take advantage of preconfigured dashboards, clone and customize dashboards, and more.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) is a cloud-hosted service for full-featured observability. When you Tanzu Application Service to send data to the Wavefront proxy, you can take advantage of preconfigured dashboards, clone and customize dashboards, and more.
 
 {% include important.html content="This document is for the Tanzu Application Service nozzle version 4.0 and later. Earlier versions are [documented here](https://docs.pivotal.io/wavefront-nozzle/3-x/). " %}
 
@@ -43,17 +43,17 @@ Watch these videos to get started:
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td><strong><font color="#0091DA" size="3">TAS Monitoring and Alerting with Tanzu Observability</font></strong><br>
+<td><strong><font color="#0091DA" size="3">TAS Monitoring and Alerting</font></strong><br>
 <br>
 <iframe id="kmsembed-1_cjv5gbqy" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_cjv5gbqy/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="TAS Monitoring and Alerting with Tanzu Observability"></iframe>
 </td>
 <td><br><br>
-<p>This 60-second video gives an overview of the architecture, installation process, and benefits of the Tanzu Observability integration for Tanzu Application Service. </p>
-<p>You can also watch the video in the Tanzu Observability Integrations playlist <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_jycyrkuw/" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
+<p>This 60-second video gives an overview of the architecture, installation process, and benefits of the integration for Tanzu Application Service. </p>
+<p>You can also watch the video in this playlist <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_jycyrkuw/" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
-<td><strong><font color="#0091DA" size="3">Integrating TAS with Tanzu Observability: How to Get Started</font></strong><br>
+<td><strong><font color="#0091DA" size="3">Integrating TAS: How to Get Started</font></strong><br>
 <br>
 <iframe id="kmsembed-1_sl2d1g42" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_sl2d1g42/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Integrating TAS with Tanzu Observability: How to Get Started"></iframe>
 </td>

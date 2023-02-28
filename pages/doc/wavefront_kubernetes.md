@@ -1,17 +1,17 @@
 ---
-title: Monitor and Scale Kubernetes with Wavefront
+title: Monitor and Scale Kubernetes
 keywords: containers, kubernetes
 tags: [containers, kubernetes]
 sidebar: doc_sidebar
 permalink: wavefront_kubernetes.html
-summary: Monitor Kubernetes infrastructure and applications. Scale Kubernetes workloads based on metrics in Tanzu Observability by Wavefront.
+summary: Monitor Kubernetes infrastructure and applications. Scale Kubernetes workloads based on metrics in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
 ---
 **Monitor your Kubernetes environment** at the infrastructure level and at the applications level with the Wavefront Collector for Kubernetes.
 
 * Monitor Kubernetes infrastructure metrics (containers, pods, etc.) from our dashboards -- and create alerts from those dashboards.
 * Automatically collect metrics from applications and workloads using built-in plug-ins such as Prometheus, Telegraf, etc.
 
-**Scale your Kubernetes environment** based on the metrics sent to Tanzu Observability with the Wavefront Horizontal Pod Autoscaler Adapter.
+**Scale your Kubernetes environment** based on the metrics sent to VMware Aria Operations for Applications with the Wavefront Horizontal Pod Autoscaler Adapter.
 
 
 ## Videos
@@ -61,19 +61,19 @@ This video gives you the big picture. It explains the different ways of monitori
 
 ## Send Data from Your Kubernetes Environment
 
-You can send data to Tanzu Observability in several ways:
+You can send data to VMware Aria Operations for Applications in several ways:
 *	**Direct**: Use the Wavefront Collector for Kubernetes to send data directly from your Kubernetes cluster to the Wavefront proxy. The Collector can collect metrics from Prometheus compatible applications and support a number of Telegraf plugins.
 
-*	**Prometheus**: If you are already using Prometheus to view your data and want to monitor your Kubernetes data with Tanzu Observability, send data to the Wavefront Collector for Kubernetes.
+*	**Prometheus**: If you are already using Prometheus to view your data and want to monitor your Kubernetes data with VMware Aria Operations for Applications, send data to the Wavefront Collector for Kubernetes.
 
 ![The diagram shows the different components and ways you can send data from your Kubernetes environment. The details are explained above.](images/kubernetes_overview_diagram.png)
 
 To use the Wavefront Collector for Kubernetes, you must set up our Kubernetes integration. Use one of the following options:
-* [**Recommended**] Directly by using the Tanzu Observability user interface. 
+* [**Recommended**] Directly by using the VMware Aria Operations for Applications user interface. 
 
-  The new [Wavefront Operator for Kubernetes](https://github.com/wavefrontHQ/observability-for-kubernetes) supports deploying the Wavefront Collector and the Wavefront Proxy in Kubernetes.
+  The new [Wavefront Operator for Kubernetes](https://github.com/wavefrontHQ/observability-for-kubernetes) supports deploying the Wavefront Collector and the Wavefront proxy in Kubernetes with a few clicks.
   
-  1. Log in to your Wavefront instance and click **Integrations** on the toolbar.
+  1. Log in to your product instance and click **Integrations** on the toolbar.
   1. In the **Featured** section, click the **Kubernetes** integration tile.
   1. On the **Setup** tab, click **Add Integration**.
   1. Set up the integration in a Kubernetes cluster or OpenShift. You can [preview the setup steps here](kubernetes.html).
@@ -86,7 +86,7 @@ To use the Wavefront Collector for Kubernetes, you must set up our Kubernetes in
 
 
 
-## Monitor Kubernetes with Tanzu Observability
+## Monitor Kubernetes
 
 The Wavefront Collector for Kubernetes supports monitoring for your Kubernetes infrastructure at all levels of the stack.
 * Set up the Wavefront Collector to have much of the monitoring happen automatically.
@@ -98,7 +98,7 @@ The Wavefront Collector for Kubernetes supports monitoring for your Kubernetes i
 
 Our Collector for Kubernetes collects metrics to give comprehensive insight into all layers of your Kubernetes environment, such as nodes, pods, services, and config maps.
 
-Depending on the selected setup, metrics are sent to the Wavefront proxy and from there to the Tanzu Observability service. It's possible to send metrics using direct ingestion, but the Wavefront proxy is preferred for most cases.
+Depending on the selected setup, metrics are sent to the Wavefront proxy and from there to the VMware Aria Operations for Applications service. It's possible to send metrics using direct ingestion, but the Wavefront proxy is preferred for most cases.
 
 ![kubernetes core monitoring](/images/kubernetes_core.png)
 
@@ -108,7 +108,7 @@ The collector runs as a DaemonSet for high scalability and supports leader elect
 
 The Wavefront Collector for Kubernetes supports automatic monitoring of host-level metrics and host-level `systemd` metrics. When you set up the collector, it auto-discovers pods and services in your environment and starts collecting host-level metrics.
 
-You can [filter the metrics](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/blob/main/docs/filtering.md) before they are reported to the Wavefront service.
+You can [filter the metrics](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/blob/main/docs/filtering.md) before they are reported to the VMware Aria Operations for Applications service.
 
 ### Application Monitoring
 
@@ -125,7 +125,7 @@ The following diagram illustrates this:
 ## Visualize Kubernetes Data
 
 One you set up the Kubernetes integration, you can use the out-of-the-box dashboards. To access these dashboards, you need to:
-1. Log in to your Wavefront instance and click **Integrations** on the toolbar.
+1. Log in to your product instance and click **Integrations** on the toolbar.
 1. Search for Kubernetes and click the **Kubernetes** integration tile.
 1. Click the **Dashboards** tab.
 
@@ -245,16 +245,16 @@ The out-of-the-box dashboards:
 </table>
 
 
-## Scale Kubernetes with Tanzu Observability
+## Scale Kubernetes
 
 The default Kubernetes infrastructure can include a [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/), which can automatically scale the number of pods. The Horizontal Pod Autoscaler gets CPU and memory information from the Kubernetes Metrics Server by default, and the Horizontal Pod Autoscaler uses that information.
 
 The [Wavefront Horizontal Pod Autoscaler Adapter](https://www.github.com/wavefrontHQ/wavefront-kubernetes-adapter) allows you to scale based on *any* metric that it knows about.
 
-For example, you can scale based on networking or disk metrics, or any application metrics that are available to Tanzu Observability. The Autoscaler Adapter sends the recommendation to the Horizontal Pod Autoscaler, and the Kubernetes environment is kept healthy as a result.
+For example, you can scale based on networking or disk metrics, or any application metrics that are available to VMware Aria Operations for Applications. The Autoscaler Adapter sends the recommendation to the Horizontal Pod Autoscaler, and the Kubernetes environment is kept healthy as a result.
 
 ![Kubernetes scaling diagram](/images/kubernetes_scaling.png)
 
 ## Next Steps
 
-* To monitor your Kubernetes clusters, set up the [Wavefront Kubernetes integration](kubernetes.html).
+* To monitor your Kubernetes clusters, set up the [Kubernetes integration](kubernetes.html).
