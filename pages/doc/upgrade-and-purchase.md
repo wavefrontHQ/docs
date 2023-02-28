@@ -4,7 +4,7 @@ keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: upgrade_and_purchase.html
-summary: Learn how to upgrade from a trial version and purchase VMware Aria Operations for Applications.
+summary: Learn how to upgrade from a trial version and purchase the service.
 ---
 
 When you create an account and register for the trial version of VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront), your trial expires after a month. One of the options that we offer to the Super Admin users in Operations for Applications is to purchase the service by themselves. Another option is to contact the Operations for Applications sales team, so that they guide you through the purchase process. For large commitments and more PPS, we strongly recommend the latter option. 

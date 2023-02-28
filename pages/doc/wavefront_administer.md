@@ -4,13 +4,13 @@ keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: wavefront_administer.html
-summary: Understand what you can do if you have administrative permissions.
+summary: Understand what you can do if you have administrative privileges.
 ---
 
 In VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront), Super Admin users and users with the **Accounts** permission can perform a variety of tasks, such as:
 
 * Manage the authorization and access to the Operations for Applications environment.
-* Select the authentication model in the Operations for Applications environment. For example by setting up SSO using an identity provider (IdP).
+* Select the authentication model in the Operations for Applications environment, for example, by setting up SSO using an identity provider (IdP).
 * Monitor and troubleshoot the Operations for Applications environment and usage.
 * Purchase initial and additional Operations for Applications capacity by using the self-service workflows in the UI.
 
