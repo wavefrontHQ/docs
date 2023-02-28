@@ -1,5 +1,5 @@
 ---
-title: Examine the Overall Usage of Your Operations for Applications Service
+title: Examine the Overall Usage of Your Service Instance
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: examine_usage.html
@@ -12,7 +12,7 @@ You can examine the overall usage of your Operations for Applications service by
 
 For usage monitoring by specific accounts, sources, metric namespaces, and point tags, you can use [ingestion policies](ingestion_policies.html).
 
-For performance monitoring of your Operations for Applications service, you can use [top and spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Usage integration](wavefront_monitoring.html).
+For performance monitoring of your Operations for Applications service, you can use [wftop and spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Usage integration](wavefront_monitoring.html).
 
 ## How to Go to the Usage Summary Dashboard?
 
@@ -113,7 +113,7 @@ For more in-depth exploration on the usage of your Operations for Applications s
 
 * [Monitor Your Service](wavefront_monitoring.html).
 * [Find Actionable Usage Information](wavefront_usage_info.html).
-* [Monitor Your Proxies](monitoring_proxies.html).
+* [Monitor Wavefront Proxies](monitoring_proxies.html).
 * [Purchase Additional Capacity](purchase_additional_capacity.html)
 
 Our Customer Success Team has put together a KB article that drills down into adoption info.

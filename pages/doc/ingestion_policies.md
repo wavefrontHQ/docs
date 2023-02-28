@@ -6,7 +6,7 @@ permalink: ingestion_policies.html
 summary: Monitor usage with ingestion policies, usage dashboards, and alerts.
 ---
 
-In addition to the dashboard for monitoring your [overall usage](examine_usage.html) of VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront), you can use ingestion policies for monitoring usage by particular accounts, groups, sources, metric namespaces, or point tags. For example, it might be valuable to understand the ingestion rates of the different teams in your organization or by the different sources and manage their consumption, cost, overage, etc.
+In addition to the dashboard for monitoring your [overall usage](examine_usage.html) of VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront), you can use ingestion policies for monitoring usage by specific accounts, groups, sources, metric namespaces, or point tags. For example, it might be valuable to understand the ingestion rates of the different teams in your organization or by the different sources and manage their consumption, cost, overage, etc.
 
 By creating an ingestion policy, you group a set of accounts, groups, sources, metric namespaces, or point tags. Optionally, you can set a PPS limit associated with an alert. After you create an ingestion policy, you can start monitoring the policy PPS usage per [billing period](glossary.html#b) from the ingestion policy dashboard, which shows:
 - The P95 PPS usage out of the limit, if configured
