@@ -1,18 +1,18 @@
 ---
-title: Administer Tanzu Observability by Wavefront
+title: Administer Your Service Instance
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: wavefront_administer.html
-summary: Understand what you can do as an administrator in Tanzu Observability by Wavefront.
+summary: Understand what you can do if you have administrative permissions.
 ---
 
-Super Admin users and users with the **Accounts** permission can perform a variety of tasks, such as:
+In VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront), Super Admin users and users with the **Accounts** permission can perform a variety of tasks, such as:
 
-* Manage the authorization and access to the Wavefront environment.
-* Select the authentication model in the Wavefront environment. For example by setting up SSO using an identity provider (IdP).
-* Monitor and troubleshoot the Wavefront environment and usage.
-* Purchase initial and additional Tanzu Observability capacity by using the self-service workflows in the UI.
+* Manage the authorization and access to the Operations for Applications environment.
+* Select the authentication model in the Operations for Applications environment. For example by setting up SSO using an identity provider (IdP).
+* Monitor and troubleshoot the Operations for Applications environment and usage.
+* Purchase initial and additional Operations for Applications capacity by using the self-service workflows in the UI.
 
 ## Authorization
 
@@ -28,20 +28,20 @@ As a user with the **Accounts** permission, you can:
 
 ## Authentication
 
-You can select your preferred authentication method for your environment by setting up single sign-on using an identity provider (IdP), so that users can log in by using SSO instead of a user name and password. Our authentication integrations use SAML and fully support two-factor authentication (managed by individual identity providers).  In single-tenant authentication environment, you can set up or update self-service SAML SSO. You can also set up multi-tenancy, which is configured jointly by you -- at the customer site, and the Tanzu Observability Technical Support team. 
+You can select your preferred authentication method for your environment by setting up single sign-on using an identity provider (IdP), so that users can log in by using SSO instead of a user name and password. Our authentication integrations use SAML and fully support two-factor authentication (managed by individual identity providers).  In single-tenant authentication environment, you can set up or update self-service SAML SSO. You can also set up multi-tenancy, which is configured jointly by you -- at the customer site, and our Technical Support team. 
 
 ## Monitor and Troubleshoot
 
-You can use the Wavefront Usage integration dashboards to monitor and troubleshoot your Wavefront environment. By using the dashboards in this integration, you can:
+You can use the Operations for Applications Usage integration dashboards to monitor and troubleshoot your environment. By using the dashboards in this integration, you can:
 
-* Get usage information for your Wavefront instance and Wavefront proxy.
+* Get usage information for your service instance and Wavefront proxy.
 * Drill down into the metrics namespaces to discover trends.
 * Examine the points per second (PPS) usage based on predefined ingestion policies.
 * See whether the ingested metrics are at 95% of the committed rate and optionally get alerts if that happens.
 * In addition, you can create your own dashboards, charts, and alerts by using the internal metrics to investigate the problem.
 
-You can also [examine the overall Wavefront usage](examine_usage.html) and monitor how data is used by specific accounts, groups, sources, metric namespaces, or point tags, based on [ingestion policies](ingestion_policies.html).
+You can also [examine the overall usage](examine_usage.html) and monitor how data is used by specific accounts, groups, sources, metric namespaces, or point tags, based on [ingestion policies](ingestion_policies.html).
 
-## Purchase Tanzu Observability Capacity
+## Purchase Operations for Applications Capacity
 
-As a Super Admin user, you can [upgrade](upgrade_and_purchase.html) your Wavefront instance from a trial version to a billable subscription. You can also [add more PPS](purchase_additional_capacity.html) to your active subscription.
+As a Super Admin user, you can [upgrade](upgrade_and_purchase.html) your Operations for Applications instance from a trial version to a billable subscription. You can also [add more PPS](purchase_additional_capacity.html) to your active subscription.
