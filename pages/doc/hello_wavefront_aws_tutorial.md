@@ -70,7 +70,8 @@ Follow these steps:
 1. In the left panel, click **Roles**, and click **Create role**.
 1. Create a trusted entity:
     1. Click the **AWS Account** tile and select the **Another AWS account** radio button.
-    1. Enter the **Account ID**: Copy the **Account ID** value shown in the AWS integration setup instructions and paste it here.
+    1. Copy the **Account ID** value shown in the AWS integration setup instructions.
+    1. Paste it in the **Account ID** text box in the AWS UI.
         ![A diagram that shows where the account ID is on the Operations for Applications integration and an arrow pointing how to copy and paste on the AWS account.](images/hello_tutorial_aws_account_ID.png)
     1. Select the **Require external ID** check box.
         ![A screenshot of the external ID option selected.](images/hello_tutorial_aws_external_ID_selected.png)
