@@ -223,7 +223,7 @@ On the **Ingestion Policies** tab, for each policy you can see:
  
     ![Usage summary per ingestion policy](images/IP_dashboard.png)
 
-In addition, the Wavefront Usage integration includes the [Wavefront Ingestion Policy Explorer Dashboard](wavefront_monitoring.html#wavefront-ingestion-policy-explorer-dashboard), which provides a granular breakdown of the ingestion across your organization by ingestion policies, accounts, sources, and types.
+In addition, the Wavefront Usage integration includes the [Operations for Applications Ingestion Policy Explorer Dashboard](wavefront_monitoring.html#operations-for-applications-ingestion-policy-explorer-dashboard), which provides a granular breakdown of the ingestion across your organization by ingestion policies, accounts, sources, and types.
 
 ## Example: Monitor Which Teams Are Responsible for How Much Ingested Data
 

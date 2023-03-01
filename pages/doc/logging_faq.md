@@ -82,7 +82,7 @@ The Wavefront proxy drops the logs that exceed the [maximum character limit](log
 1. Log in to your Wavefront instance and select **Dashboards** > **All Dashboards**.
 1. Search for **Wavefront Service and Proxy Data** in the search bar, and click on the dashboard.
     ![A screenshot of the results you get when you search for  the Wavefront Service and Proxy Data dashboard. ](images/logs_wavefront_service_and_proxy_data.png)
-1. Examine the charts in the **Logs Stats** section of the [Wavefront Service and Proxy Data dashboard](wavefront_monitoring.html#wavefront-service-and-proxy-data-dashboard) to get details about the logs you are sending.
+1. Examine the charts in the **Logs Stats** section of the [Operations for Applications Service and Proxy Data dashboard](wavefront_monitoring.html#operations-for-applications-service-and-proxy-data-dashboard) to get details about the logs you are sending.
 
     ![A screenshot of the proxy dashboard with the preconfigured charts.](images/logging_proxy_logs_dashboard.png)
 
