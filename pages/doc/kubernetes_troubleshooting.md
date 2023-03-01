@@ -9,7 +9,7 @@ summary: Get help and troubleshooting instructions when you have problems with y
 
 {% include note.html content="This page is intended to help you troubleshoot issues with your Kubernetes integration only when set up by using the Wavefront Operator for Kubernetes." %}
 
-For an in depth overview of the Kubernetes integration and how it is deployed, navigate to our [GitHub readme page](https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes#readme). 
+For an in depth overview of the Kubernetes integration and how it is deployed, navigate to our [GitHub readme page](https://github.com/wavefrontHQ/observability-for-kubernetes#readme). 
 
 {% include note.html content="If you currently use the Helm-managed and installed version of the Wavefront proxy and Wavefront Collector for Kubernetes, see our [legacy troubleshooting page](wf_kubernetes_troubleshooting.html) for instructions on how to troubleshoot your integration." %}
 
@@ -165,7 +165,7 @@ kubectl logs daemonset/wavefront-logging -n observability-system
 
 If you experience gaps in data, where you can't see expected metrics or expected metric tags, follow the instructions below. 
 
-**Note**: For the out-of-the box **Kubernetes Control Plane** dashboard, certain managed Kubernetes distributions do not support scraping of all control plane elements. For a detailed look at distribution support, see our [supported metrics page](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/metrics.md#control-plane-metrics).
+**Note**: For the out-of-the box **Kubernetes Control Plane** dashboard, certain managed Kubernetes distributions do not support scraping of all control plane elements. For a detailed look at distribution support, see our [supported metrics page](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/metrics.md#control-plane-metrics).
 
 ### Check the Status of All System Components
 
@@ -206,7 +206,7 @@ If the STATUS is Healthy, then all the components are healthy. If the STATUS is 
 
 Check whether the Wavefront proxy has backlog issues by following the instructions in our [Proxy Troubleshooting](proxies_troubleshooting.html#proxy-warn-messages) page. If your proxy is having some backlog issues, try to:
 
-* Filter more metrics -- See the [example scenario](https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes/blob/main/deploy/kubernetes/scenarios/wavefront-collector-filtering.yaml) for filtering metrics.
+* Filter more metrics -- See the [example scenario](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/deploy/scenarios/wavefront-collector-filtering.yaml) for filtering metrics.
 * Increase limits -- Follow the resolution in our [Proxy Troubleshooting](proxies_troubleshooting.html#proxy-warn-messages) page.
 
 ### Check Whether Metrics Are Being Dropped
@@ -219,7 +219,7 @@ kubectl logs deployment/wavefront-proxy -n observability-system
 
 If, in the proxy logs, you see the error `Too many point tags`, try to:
 
-* Drop tags -- Use `tagExclude` to drop tags. See our [example scenario](https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes/blob/main/deploy/kubernetes/scenarios/wavefront-full-config.yaml) for details.
+* Drop tags -- Use `tagExclude` to drop tags. See our [example scenario](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/deploy/scenarios/wavefront-full-config.yaml) for details.
 
 
 ### Check Whether Metrics Are Being Filtered
@@ -228,7 +228,7 @@ Check the custom resource configuration to see the metrics that are being filter
 ```
 kubectl describe wavefront -n observability-system
 ```
-If you want to change the metrics being filtered, follow the steps in our [example scenario](https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes/blob/main/deploy/kubernetes/scenarios/wavefront-collector-filtering.yaml).
+If you want to change the metrics being filtered, follow the steps in our [example scenario](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/deploy/scenarios/wavefront-collector-filtering.yaml).
 
 
 ### Check Whether the Custom Resource Config File Is Configured Correctly
@@ -245,7 +245,7 @@ If there are any configuration or validation errors, the MESSAGE column in the r
 ## Running Workloads Are Not Discovered or Monitored
 
 * Check the **Wavefront Collector Troubleshooting** dashboard in the Kubernetes integration for collection errors. You can use the **Collection Errors per Type** and **Collection Errors per Endpoint** charts to find the sources with metrics that are not being collected.
-* See the [example scenario](https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes/blob/main/deploy/kubernetes/scenarios/wavefront-full-config.yaml) for configuring sources for metric collection.
+* See the [example scenario](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/deploy/scenarios/wavefront-full-config.yaml) for configuring sources for metric collection.
 * Check the cluster collector logs to verify that the source was configured so that the metrics can be collected.
   ```
   kubectl logs deployment/wavefront-cluster-collector -n observability-system

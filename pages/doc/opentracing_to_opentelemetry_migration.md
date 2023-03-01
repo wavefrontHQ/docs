@@ -4,18 +4,26 @@ keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: opentracing_to_opentelemetry_migration.html
-summary: Migrate your java application from OpenTracing to use OpenTelemetry.
+summary: Migrate your Java application from OpenTracing to use OpenTelemetry.
 ---
 
-OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/).) To send trace data to Tanzu observability, you need to use OpenTelemetry.
+OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/).) To send trace data to Tanzu Observability, use OpenTelemetry.
 
 {% include note.html content="Read the [OpenTelemetry documentation](https://opentelemetry.io/docs/migration/opentracing/) for migration options and strategies." %}
 
+<<<<<<< HEAD
 This guide shows you how to migrate a Java application that uses OpenTracing to use OpenTelemetry.
 
 ## Update the pom.xml File
 
 Follow these steps to add the OpenTelemetry dependencies to your Java project's pom.xml file.
+=======
+This page shows you how to migrate a Java application that uses OpenTracing to use OpenTelemetry.
+
+## Update the pom.xml File
+
+To add the OpenTelemetry dependencies to your Java project's `pom.xml` file, follow these steps.
+>>>>>>> 88987d5ec9e60b478defbafad12f925bf675848a
 
 1. Add the OpenTelemetry  Bill of Materials (BOM).
     ```xml
@@ -68,7 +76,7 @@ Add the `OTelConfig.java` file to your Java project.
 
 Example:
 
-```Java
+```java
 package com.your.package;
 
 import java.util.Map;
@@ -157,14 +165,14 @@ For OpenTracing, you created the tracer using the Wavefront SDKs. To create the 
 
 1. Create the tracer using the OpenTelemetry to OpenTracing Shim.
     <br/>Example: 
-    ```Java
+    ```java
     public static Tracer generateOTelTracer(Resource res) {
     return OpenTracingShim.createTracerShim(OTelConfig.newOpenTelemetry(res));
     }
     ```
 1. Create a Resource to invoke the function you created:
     <br/>Example:
-    ```Java
+    ```java
     Resource resource = OTelConfig.resource(appName, serviceName);
     ```
 
@@ -172,4 +180,8 @@ Save the changes and run the application to send the trace data to Wavefront.
 
 ## Next Steps
 
+<<<<<<< HEAD
 For more details on configuring your application to send traces or metrics to Tanzu Observability using the Wavefront Proxy or the OpenTelemetry Collector, see [Send OpenTelemetry Data](opentelemetry_tracing.html).
+=======
+For details on configuring your application to send traces or metrics to Tanzu Observability using the Wavefront Proxy or the OpenTelemetry Collector, see [Send OpenTelemetry Data](opentelemetry_tracing.html).
+>>>>>>> 88987d5ec9e60b478defbafad12f925bf675848a

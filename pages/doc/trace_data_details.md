@@ -7,7 +7,7 @@ permalink: trace_data_details.html
 summary: Get to know the concepts around distributed tracing.
 ---
 
-{% include important.html content="OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/).) To send trace data to Tanzu observability, you need to use OpenTelemetry."%}
+{% include important.html content="OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/).) To send trace data to Tanzu observability, use OpenTelemetry."%}
 
 ## Traces
 
@@ -810,7 +810,7 @@ The Wavefront service uses application tags to aggregate and filter data at diff
 
 OpenTelemetry span events capture span-specific logging messages and other debugging or informational output from the application itself. These span events are converted to span logs by the Wavefront service.
 
-span logs are especially useful for recording additional information about errors within the span.
+Span logs are especially useful for recording additional information about errors within the span.
 
 You can instrument your application to emit one or more logs with a span, and examine the logs from the Tracing UI.
 
@@ -835,7 +835,7 @@ When you instrument an application, you set up a mechanism for sending metrics a
 * Sending data to a [Wavefront proxy](proxies.html), which then forwards the data to the Wavefront service.
 
 Your choice is represented in your code as Wavefront Sender object.
-(Most Wavefront SDKs define objects of type `WavefrontSender` or simply `Sender`. A few SDKs define a pair of separate `Client` objects.) A Wavefront sender encapsulates the settings you supply when you instrument your microservice. The settings in your code must match the information you provided in [Step 1. Prepare to Send Data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data).
+(Most Wavefront SDKs define objects of type `WavefrontSender` or simply `Sender`. A few SDKs define a pair of separate `Client` objects.) A Wavefront sender encapsulates the settings you supply when you instrument your microservice. The settings in your code must match the Wavefront proxy ports and configurations you define when sending data.
 
 {% include note.html content="You can use a Wavefront sender to tune performance by setting the frequency for flushing data to the Wavefront proxy or the Wavefront service. If you are using direct ingestion, you can also change the defaults for batching up the data to be sent." %}
 

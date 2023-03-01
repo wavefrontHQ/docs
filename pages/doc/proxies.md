@@ -95,6 +95,6 @@ Each type of data uses a different data format. See [Wavefront Data Format](wave
 
 ## Learn More!
 
-* [Monitor Wavefront Proxies](monitoring_proxies.html) discusses proxy information in the Wavefront Usage dashboard and lists `~proxy` internal metrics.
+* [Monitor Wavefront Proxies](monitoring_proxies.html) discusses how to use the Proxies Browser and the out-of-the-box proxy dashboards, and lists the `~proxy` internal metrics.
 * [Proxies Troubleshooting](proxies_troubleshooting.html) helps with proxy queue management, proxy messages, and more.
 * [Telegraf Troubleshooting](telegraf_details.html) has details on troubleshooting and fine-tuning the Telegraf agent.
