@@ -68,7 +68,7 @@ The setup process varies based on the distribution type that you choose to monit
 1. Choose whether you want to enable or disable **Metrics**. By default, the **Metrics** option is enabled.
 1. Choose whether you want to use an **HTTP Proxy**. 
    If you enable HTTP proxy, to allow outbound traffic, you must add these URLs to your proxy rules:
-    * **Logs (Beta)**: https://data.mngmt.cloud.vmware.com
+    * **Logs (Beta)**: https://data.mgmt.cloud.vmware.com
     * **Metrics**: https://<your_cluster>.wavefront.com/
       
    In addition, you must also configure the HTTP proxy settings, such as: 
@@ -88,8 +88,7 @@ The setup process varies based on the distribution type that you choose to monit
 
 ### Kubernetes Install in an OpenShift Cluster
 
-
-* Complete the steps below and click **Finish**.
+Complete the steps below and click **Finish**.
 
 **Note**: Logs (Beta) is not supported when you use OpenShift.
 
