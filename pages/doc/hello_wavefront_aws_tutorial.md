@@ -14,7 +14,7 @@ In this tutorial, you'll learn how to:
 
 It's an easy setup. You don't have to install anything or make changes to your application code.
 
-{% include tip.html content="Don't have an AWS account? You can [send data from a Windows host](#video-set-up-data-ingestion-from-a-windows-host). Or you can explore dashboards with sample data. [Log in](#task-1-log-in-to-your-product-instance), click **Integrations** and search for **Tutorial** or **Tour Pro**." %}
+{% include tip.html content="Don't have an AWS account? You can [send data from a Windows host](#video-set-up-data-ingestion-from-a-windows-host). Or you can explore dashboards with sample data. [Log in](#task-1-log-in-to-your-product-instance), click **Integrations** and search for **Tutorial** or **Tour**." %}
 
 <table style="width: 100%;">
 <tbody>
@@ -30,7 +30,7 @@ It's an easy setup. You don't have to install anything or make changes to your a
 
 If you've never logged in to your company's product instance, follow these steps. Go to Task 2 otherwise.
 
-1. Check your email! When your administrator adds you to the product instance, you receive a welcome email.
+1. Check your email! When your administrator grants you with access to the product, you receive a welcome email.
 2. Click the link in the email.
   * In some environments, you set up your password and you're done.
   * If your administrator has configured Single Sign-On (SSO), you're redirected to your company's SSO environment. When you complete the authentication steps, you're redirected to your instance.
@@ -51,7 +51,7 @@ In this task, we'll set up a data ingestion pipeline with AWS.
    Popular integrations also have an **Alerts** tab with preconfigured alerts.
 2. Click the **Amazon Web Services (AWS)** tile.
     <!--![Highlight the AWS integration on the Wavefront Integrations page.](images/hello_tutorial_aws_integration_tile.png)-->
-3. Click the **Setup** tab and click **Add Integration**.
+3. On the **Setup** tab, click **Add Integration**.
     ![Highlights the Add Integration button on the AWS integration's Setup tab.](images/hello_tutorial_aws_add_integration.png)
 4. Click the **How to get Role ARN** link.
 
@@ -70,7 +70,8 @@ Follow these steps:
 1. In the left panel, click **Roles**, and click **Create role**.
 1. Create a trusted entity:
     1. Click the **AWS Account** tile and select the **Another AWS account** radio button.
-    1. Enter the **Account ID**: Copy the **Account ID** value shown in the AWS integration setup instructions and paste it here.
+    1. Copy the **Account ID** value shown in the AWS integration setup instructions.
+    1. Paste it in the **Account ID** text box in the AWS UI.
         ![A diagram that shows where the account ID is on the Operations for Applications integration and an arrow pointing how to copy and paste on the AWS account.](images/hello_tutorial_aws_account_ID.png)
     1. Select the **Require external ID** check box.
         ![A screenshot of the external ID option selected.](images/hello_tutorial_aws_external_ID_selected.png)
@@ -83,9 +84,9 @@ Follow these steps:
         ![A screenshot that shows the ReadOnlyAccess permission selected.](images/hello_tutorial_readonly_permission.png)
     1. Click **Next**.
 
-1. Set the **Role name** as `wavefront`.
+1. Set the **Role name** as `example-role`.
 1. Click **Create role**.
-1. Once the list of roles appears, click `wavefront` (the role you just created), and copy the **ARN** value.
+1. Once the list of roles appears, click `example-role` (the role you just created), and copy the **ARN** value.
 
 {% include note.html content="See [Giving Limited Access](integrations_aws_overview.html#giving-limited-access) if you want to specify a more restrictive IAM policy for VMware Aria Operations for Applications." %}
 
@@ -105,7 +106,7 @@ Go back to the product instance where you opened the AWS integration tile, and f
 </tbody>
 </table>
 
-VMware Aria Operations for Applications can now connect to your AWS account and get data. Once the data starts flowing, you can visualize them. It will take a few minutes for the data to show.
+VMware Aria Operations for Applications can now connect to your AWS account and get data. Once the data starts flowing, you can visualize it. It will take a few minutes for the data to show.
 
 ### Step 4: (Optional) Launch an EC2 Instance
 
@@ -138,21 +139,23 @@ Once the instance is launched, you'll see the data after a few minutes.
 With data flowing, you can start exploring dashboards and charts:
 
 <p><span style="font-size: large; font-weight: 500">View Metrics</span></p>
-1. In your product instance, go to the AWS integration.
+
+1. In your product instance, navigate to the AWS integration.
 1. Click the **Metrics** tab.
 
 You see charts with the metrics collected from your AWS account.
 
 Example:
 ![Screenshot of the AWS metrics once the data starts to flow.](images/hello_tutorial_aws_metrics.png)
-{% include note.html content="You see **No Data** if Operations for Applications can't find any metrics to match the queries in the chart." %}
+{% include note.html content="You see **No Data** if we can't find any metrics to match the queries in the chart." %}
 
 <br/>
 <p><span style="font-size: large; font-weight: 500">View Data on Dashboards</span></p>
-VMware Aria Operations for Applications includes system dashboards for the AWS integration that help you analyze and gather data.
+
+Our service includes system dashboards for the AWS integration that help you analyze and gather data.
 1. To see the list of the system dashboards, click the **Dashboards** tab.
     ![Screenshot of all the predefined dashboards available.](images/hello_tutorial_aws_dahsboards.png)
-1. Click **AWS: Summary**. From the Summary dashboard, you can easily navigate to all other AWS dashboards.
+1. Click **AWS: Summary**. From the **Summary** dashboard, you can easily navigate to all other AWS dashboards.
     {% include note.html content="You need to configure your AWS account preferences to send billing metrics. See [Configuring CloudWatch Billing Metrics](integrations_aws_metrics.html#configuring-cloudwatch-billing-metrics)." %}
     ![Screenshot of the predefined AWS summary dashboard](images/hello_tutorial_aws_summary_dashboard.png)
 
@@ -172,7 +175,7 @@ Many integrations have preconfigured alerts for common use cases. All you have t
 <tbody>
 <tr>
 <td width="50%" markdown="span">
-1. Navigate to the **Integrations** page.
+1. Navigate to the <strong>Integrations</strong> page.
 <br/>
 <br/>
 2. Click the integration that you want to use.

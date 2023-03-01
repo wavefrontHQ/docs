@@ -19,7 +19,7 @@ To register a new VMware Aria Operations (SaaS) instance, you need a Cloud Servi
 
 ### Obtain an API Token
 
-The API token will give read-only access to VMware Aria Operations (SaaS) and enable VMware Aria Operations for Applications (formerly Tanzu Observability by Wavefront) to continually load metrics from various resource categories. The minimum role required for the integration is the **vROps ReadOnly** role. Make sure that the role assigned to the API token is also assigned to the user generating the API token.
+The API token will give read-only access to VMware Aria Operations (SaaS) and enable VMware Aria Operations for Applications (formerly Tanzu Observability by Wavefront) to continually load metrics from various resource categories. The minimum role required for the integration is the **Operations ReadOnly** role. Make sure that the role assigned to the API token is also assigned to the user generating the API token.
 
 1. Navigate to the [VMware Cloud Services Console](https://console.cloud.vmware.com/csp/gateway/discovery) page.
 1. Click your user name on the right of the toolbar, and select **My Account**.
@@ -33,9 +33,9 @@ The API token will give read-only access to VMware Aria Operations (SaaS) and en
 1. Define the role of the token. 
    
    1. Under **Organization Roles**, select **Organization Member**.
-   1. Under **Service Roles**, scroll down, expand **VMware Aria Operations (SaaS)**, and select the **VMware Aria Operations ReadOnly** role.
+   1. Under **Service Roles**, scroll down, expand **VMware Aria Operations (SaaS)**, and select the **Operations ReadOnly** role.
    
-      **Note**: The same **VMware Aria Operations ReadOnly** role must be also assigned to your user account.
+      **Note**: The same **Operations ReadOnly** role must be also assigned to your user account.
 1. Click the **Generate** button.
 1. Click the **Copy** button and copy the generated token.
 
@@ -56,7 +56,7 @@ The API token will give read-only access to VMware Aria Operations (SaaS) and en
    For example, to fetch only cost metrics, enter `^vrops.vmware.(datastore|clustercomputeresource).cost.*$`.
    
 1. In the **Service Refresh Rate** text box, enter the number of minutes between requesting metrics. Default is `5` minutes.
-1. In the **vROps URL** text box, enter the VMware Aria Operations (SaaS) Endpoint URL.
+1. In the **VMware Aria Operations URL** text box, enter the VMware Aria Operations (SaaS) Endpoint URL.
 1. Click **Register**.
 
 
