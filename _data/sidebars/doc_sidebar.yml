@@ -249,7 +249,7 @@ entries:
       url: /ui_chart_reference.html
       output: web
 
-    - title: Charts FAQs
+    - title: Charts FAQ
       url: /ui_charts_faq.html
       output: web
 
@@ -281,7 +281,7 @@ entries:
       url: /alerts_states_lifecycle.html
       output: web
 
-    - title: Alerts FAQs
+    - title: Alerts FAQ
       url: /alerts_faq.html
       output: web
 
@@ -566,7 +566,7 @@ entries:
             url: /kubernetes.html
             output: web
 
-          - title: Kubernetes FAQs
+          - title: Kubernetes FAQ
             url: /wavefront_kubernetes_faq.html
             output: web
 
@@ -616,7 +616,7 @@ entries:
     output: web
     folderitems:
 
-      - title: FAQs
+      - title: FAQ
         url: /wavefront_spring_boot_faq.html
         output: web
 
