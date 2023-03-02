@@ -1860,8 +1860,7 @@ Chart description which shows up as hover text when users move the mouse over th
 
 ![logs table chart](images/logs_table_chart.png)
 
-The logs chart lists the logs sent to the service. Use one or more filters to filter the logs, and save the chart to see the data you want. If you want to customize the query data and drill into logs, use the [Logs Browser](logging_log_browser.html).
-
+The logs chart lists the logs sent to the service. Use one or more filters to filter the logs, and save the chart to see the data you want. If you want to customize the query data once the chart is saved and drill into logs, use the [Logs Browser](logging_log_browser.html).
 
 
 <a id="logs_table_format_tab">
@@ -1876,9 +1875,8 @@ The logs chart lists the logs sent to the service. Use one or more filters to fi
   <td>
     Sort by Timestamp
   </td>
-  <td>
-    Sort the log data by ascending or descending time.
-  </td>
+  <td markdown="span">
+    By default, you see the latest logs at the top of the table (**Descending**). If you want to see the oldest logs, select **Ascending**.
 </tr>
 <tr>
   <td>
@@ -1893,7 +1891,7 @@ The logs chart lists the logs sent to the service. Use one or more filters to fi
     Columns to Show in Table
   </td>
   <td markdown="span">
-    Each log has required attributes, standard attributes, and custom tags. We tokenize the values of these attributes and tags so that you can filter and search logs. For more details, see [Log Attributes](logging_overview.html#log-attributes). Select the tags you want, and the tag values are shown in a new column. 
+    Each log has required attributes, standard attributes, and custom tags. We tokenize the values of these attributes and tags so that you can filter and search logs. For more details, see [Log Attributes](logging_overview.html#log-attributes). Select the tags you want to see the values in a new column.
   </td>
 </tr>
 </tbody>
