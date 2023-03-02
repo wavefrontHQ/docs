@@ -4,10 +4,10 @@ keywords: query language
 tags: [query language, performance]
 sidebar: doc_sidebar
 permalink: query_language_performance.html
-summary: Tricks for improving Wavefront Query Language performance.
+summary: Tricks for improving the query language performance.
 ---
 
-The Wavefront Query Language lets you retrieve and display the data that has been ingested into Tanzu Observability by Wavefront and create alerts that use this data.
+The Wavefront Query Language (WQL) lets you retrieve and display the data that has been ingested into VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) and create alerts that use this data.
 
 <table style="width: 100%;">
 <tbody>
@@ -82,13 +82,13 @@ To see the performance statistics for a particular query of a chart or alert:
 
 ## Use Performance Improvement Suggestions
 
-If the query uses certain functions in ways that often cause performance degradation, Tanzu Observability shows actionable suggestions for improving the query performance. The suggestions also include links to documentation and videos for details.
+If the query uses certain functions in ways that often cause performance degradation, Operations for Applications shows actionable suggestions for improving the query performance. The suggestions also include links to documentation and videos for details.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="40%">
-A dot symbol on the lightbulb icon for a query indicates that Tanzu Observability has suggestions for improving the query performance.</td>
+A dot symbol on the lightbulb icon for a query indicates that there are suggestions for improving the query performance.</td>
 <td width="60%"><img src="/images/lightbulb_w_dot.png" alt="screenshot highlighting the lightbulb icon with the dot"></td>
 </tr>
 <tr>

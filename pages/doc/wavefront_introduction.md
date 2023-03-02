@@ -84,7 +84,7 @@ After you've set up an alert with that information, we'll send alert notificatio
 
 We support [over 200 integrations](label_integrations%20list.html) including cloud providers, DevOps tools, big data, and more.
 
-To interact with our service, you can use our rich Graphical User Interface, which includes many pre-built dashboards, charts, and alerts. You can also use SDKs available on our [Github page](https://github.com/wavefrontHQ), the Operations for Applications REST API, and CLIs.
+To interact with our service, you can use our rich Graphical User Interface, which includes many pre-built system dashboards, charts, and alerts. You can also use SDKs available on our [GitHub page](https://github.com/wavefrontHQ), the Operations for Applications REST API, and CLIs.
 
 In addition, tight integrations with Spring Boot, Kubernetes, and Tanzu Mission Control are available.
 
@@ -92,7 +92,7 @@ In addition, tight integrations with Spring Boot, Kubernetes, and Tanzu Mission 
 
 <table style="width: 100%;">
 <tbody>
-<tr><td width="50%"><strong><a href="wavefront_springboot.html">Wavefront for Spring Boot</a></strong> allows you to quickly configure your environment, so Spring Boot components send metrics, histograms, and traces/spans to the service. After you’ve completed setup, you can examine the data in preconfigured or custom-built dashboards and charts.  </td>
+<tr><td width="50%"><strong><a href="wavefront_springboot3.html">Wavefront for Spring Boot</a></strong> allows you to quickly configure your environment, so Spring Boot components send metrics, histograms, and traces/spans to the service. After you’ve completed setup, you can examine the data in preconfigured or custom-built dashboards and charts.  </td>
 <td width="50%"><img src="/images/spring_boot_getting_started.png" alt="spring boot getting started"/>  </td>
 </tr>
 
@@ -117,16 +117,9 @@ In addition, tight integrations with Spring Boot, Kubernetes, and Tanzu Mission 
 
 It's easy to monitor any of the clusters:
 
-<table style="width: 100%;">
-<tbody>
-<tr><td markdown="span" width="50%">**Step 1**: A user with Administrator privileges enables the integration from Tanzu Mission Control. </td>
-<td width="50%"><img src="/images/tmc_integration_enabled.png" alt="Click to enable the Wavefront integration"/> </td>
-</tr>
-<tr><td markdown="span" width="50%">**Step 2**: Administrators for individual kubernetes clusters add the integration and start exploring the [metrics](tmc.html#kubernetes-source) in [predefined dashboards](tmc.html#dashboards). </td>
-<td width="50%"><img src="/images/tmc_add_integration.png" alt="Select add Tanzu Observability by Wavefront. "/> </td>
-</tr>
-</tbody>
-</table>
+**Step 1**: A user with Administrator privileges enables the integration from Tanzu Mission Control. 
+**Step 2**: Administrators for individual kubernetes clusters add the integration and start exploring the [metrics](tmc.html#kubernetes-source) in [predefined dashboards](tmc.html#dashboards).
+
 
 ## How Do I Set Up a Data Ingestion Pipeline?
 
