@@ -604,6 +604,10 @@ entries:
             url: /integrations_tas_howto.html
             output: web
 
+          - title: How to Monitor Custom App Metrics
+            url: /integrations_custom_app_metrics_howto.html
+            output: web
+
           - title: Troubleshooting for TAS to Tanzu Observability
             url: /tas_to_troubleshooting.html
             output: web
