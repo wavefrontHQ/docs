@@ -11,9 +11,9 @@ By default, the Tanzu Observability by Wavefront Nozzle provides metrics for mon
   * **Metric Registrar** -- A **pull-based** model based on the **Prometheus metrics format.**
   * **Wavefront Service Broker** -- A **push-based** model where applications send metrics directly to a Wavefront proxy.
 
-**We recommend the Metric Registrar approach** as a simpler and more predictable pattern, but teams may choose either option. Both have drawbacks, and for some workloads only the push method can be used in practice.
+The **Metric Registrar** model is recommended, because it is a simpler and more predictable pattern, but you can choose either option.  Both models have drawbacks, and for some workloads only the push-based model can be used in practice.
 
-## Push vs Pull Models Generally
+## Push vs Pull Models Overview
 
 The “pull” or “scrape” model has gained popularity in recent years. The typical pull-based design involves hosting an HTTP route on your server, typically at `/metrics`, which exposes custom metrics. Another process periodically fetches the response from that route and transforms it into metrics within a metric store.
 
@@ -25,23 +25,23 @@ In the scraping model, the rate of metrics collection can be centrally controlle
 
 The output of a `/metrics` endpoint in a scraping model is normally human readable, which can help with debugging the metrics coming from a running application.
 
-Pushing metrics can produce more detail; in the push model, a metric can be submitted as often as practically limits allow - possibly multiple times per second. In a scrape model, only changes since the last scrape are seen. Typically metrics data does not need to be extremely high-fidelity in order to be useful, and this periodic sampling is acceptable to most users.
+Pushing metrics can produce more details. In the push-based model, a metric can be submitted as often as practically limits allow - possibly multiple times per second. In a scrape model, only changes since the last scrape are seen. Typically metrics data does not need to be extremely high-fidelity in order to be useful, and this periodic sampling is acceptable to most users.
 
 Very short-lived processes **must** use a push model, because they do not run long enough to be discovered and scraped by a metrics collector.
 
 ## Metric Registrar
 
-TAS supports a pull model for custom app metrics using the “Metric Registrar” component.
+Tanzu Application Service supports a pull-based model for custom app metrics using the Metric Registrar component.
 
-The Metric Registrar is a TAS component that periodically scrapes registered endpoints and forwards scraped metrics to the Loggregator Firehose. In the Wavefront Nozzle, these metrics are then ingested in the same way as platform or service tile metrics, and become visible in Wavefront automatically.
+The Metric Registrar is a TAS component that periodically scrapes registered endpoints and forwards scraped metrics to the Loggregator Firehose. In the Tanzu Observability by Wavefront Nozzle, these metrics are then ingested in the same way as platform or service tile metrics, and become available automatically in Tanzu Observability.
 
-To instrument an application for Metric Registrar scraping, you will typically use either a prometheus SDK or an metrics framework built into your application stack, such as Spring Boot Actuator.
+To instrument an application for Metric Registrar scraping, you will typically use either a Prometheus SDK or a metrics framework built into your application stack, such as Spring Boot Actuator.
 
-After deploying your application, you register it using the `cf` CLI, as described in the documentation: [https://docs.pivotal.io/application-service/metric-registrar/using.html](https://docs.pivotal.io/application-service/metric-registrar/using.html).
+After deploying your application, you register it by using the `cf` CLI, as described in the [Using Metrics Registrar](https://docs.pivotal.io/application-service/metric-registrar/using.html) documentation. 
 
 ## Wavefront Service Broker
 
-To implement a push-based metrics pattern using Wavefront, you can use the Wavefront SDK for your language stack, or you can use a pluggable abstraction like Spring Boot Actuator.
+To implement a push-based metrics model using Tanzu Observability, you can use the Wavefront SDK for your language stack, or you can use a pluggable abstraction such as Spring Boot Actuator.
 
 In either case, you must provide your application with a URL for a Wavefront proxy instance.
 
