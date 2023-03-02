@@ -18,6 +18,8 @@ Wavefront public repositories into the official documentation)
 
 ## Run and View Site Locally
 
+**Note**: If you are on an Apple M1 silicon laptop, run the `bundle config build.nokogiri --use-system-libraries` command before following the below steps.
+
 1. Run Jekyll with the following command:
    ```shell
    $ bundle exec jekyll server
