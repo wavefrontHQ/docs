@@ -604,7 +604,11 @@ entries:
             url: /integrations_tas_howto.html
             output: web
 
-          - title: Troubleshooting for Tanzu Application Service
+          - title: How to Monitor Custom App Metrics
+            url: /integrations_custom_app_metrics_howto.html
+            output: web
+
+          - title: Troubleshooting Tanzu Application Service
             url: /tas_to_troubleshooting.html
             output: web
 
