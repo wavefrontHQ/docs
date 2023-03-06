@@ -13,6 +13,12 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/observability-for-kubernetes/releases).
 
+## 2023-09.x Release Notes
+
+**Analyze Your Queries**
+
+With this release you can use the Query Analyzer and [analyze your queries and their subqueries](query_language_performance.html#use-the-query-analyzer). When you expect to see certain data in Tanzu Observability, but it doesn’t show up for some reason, charts display a **No Data** message. When you this message on a chart, use the Query Analyzer and analyze your queries and subqueries. 
+
 ## 2023-08.x Release Notes
 
 **Alert Targets Browser Page Improvements**: The **Alert Targets** browser page is now improved and allows you to:
