@@ -26,7 +26,7 @@ While it's convenient to stop worrying about function execution, you might want 
 
 ## How to Use Operations for Applications to Monitor AWS Lambda
 
-To support monitoring serverless environments, we include a metric type called [delta counter](delta_counters.html). With delta counters, VMware Operations for Applications points are aggregated to the minute bucket. That avoids point collisions.
+To support monitoring serverless environments, we include a metric type called [delta counter](delta_counters.html). With delta counters, VMware Aria Operations for Applications points are aggregated to the minute bucket. That avoids point collisions.
 
 The AWS Lambda Function integration and the SDKs listed above make it easy to collect standard metrics and custom metrics.
 
