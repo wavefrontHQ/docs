@@ -78,7 +78,7 @@ You can use the trace list to:
 * Click a trace to view its context in the [service map panel](#investigate-the-service-map-for-a-trace) and its details in the [trace details panel](#examine-trace-details).
 * View a trace's percentile indicator to see how the trace's duration compares to the durations of the other listed traces -- and potentially find outliers.
 
-{% include saved_searches.md %}
+<!--{% include saved_searches.md %}-->
 
 ## Investigate the Service Map for a Trace
 

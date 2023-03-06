@@ -467,4 +467,4 @@ Create an alert from the application status page:
 
 Once the alert is created, click **Alerting > All Alerts** and search for the alert you created .
 
-{% include saved_searches.md %}
+<!-- {% include saved_searches.md %} -->
