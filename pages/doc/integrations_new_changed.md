@@ -20,8 +20,7 @@ We added the following integration in March 2023:
 
 We made improvements to the following integrations in March 2023:
 
-* Log Data -- Made updates to the integration overview and the setup steps.
-
+* Log Data -- Log Data – Updated the integration overview and setup steps to include information about the Logs (Beta) solution.
 * Filebeat -- Made updates to the integration overview and the setup steps.
 
 * Tanzu Application Service: 
