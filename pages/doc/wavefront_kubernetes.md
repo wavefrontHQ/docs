@@ -35,22 +35,22 @@ The following videos get you started.
 </td>
 </tr>
 <tr>
-<td><strong><font color="#0091DA" size="3">Kubernetes and Wavefront (January 2020)</font></strong><br>
+<td><strong><font color="#0091DA" size="3">Observability and Kubernetes (January 2020)</font></strong><br>
 <br>
-<iframe id="kmsembed-1_rpculupf" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_rpculupf/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability and Kubernetes"></iframe>
+<iframe id="kmsembed-1_rpculupf" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_rpculupf/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Observability and Kubernetes"></iframe>
 </td>
 <td><br><br>
 <p>This video includes some details on the  one-click install of the <a href="https://github.com/wavefrontHQ/observability-for-kubernetes">Wavefront Collector for Kubernetes</a>.</p>
 <p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_rpculupf" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> </td>
 </tr>
 <tr>
-<td><strong><font color="#0091DA" size="3">Monitor and Scale Kubernetes with Wavefront (August 2019)</font></strong><br>
+<td><strong><font color="#0091DA" size="3">Monitor and Scale Kubernetes (August 2019)</font></strong><br>
 <br>
-<iframe id="kmsembed-1_w7w6o0b4" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_w7w6o0b4/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Monitor and Scale Kubernetes with Tanzu Observability "></iframe>
+<iframe id="kmsembed-1_w7w6o0b4" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_w7w6o0b4/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Monitor and Scale Kubernetes"></iframe>
 </td>
 <td><br><br>
 <p>
-This video gives you the big picture. It explains the different ways of monitoring Kubernetes with Tanzu Observability.</p>
+This video gives you the big picture. It explains the different ways of monitoring Kubernetes with Operations for Applications.</p>
 <p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_w7w6o0b4" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
@@ -62,6 +62,7 @@ This video gives you the big picture. It explains the different ways of monitori
 ## Send Data from Your Kubernetes Environment
 
 You can send data to VMware Aria Operations for Applications in several ways:
+
 *	**Direct**: Use the Wavefront Collector for Kubernetes to send data directly from your Kubernetes cluster to the Wavefront proxy. The Collector can collect metrics from Prometheus compatible applications and support a number of Telegraf plugins.
 
 *	**Prometheus**: If you are already using Prometheus to view your data and want to monitor your Kubernetes data with VMware Aria Operations for Applications, send data to the Wavefront Collector for Kubernetes.
@@ -249,7 +250,7 @@ The out-of-the-box dashboards:
 
 The default Kubernetes infrastructure can include a [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/), which can automatically scale the number of pods. The Horizontal Pod Autoscaler gets CPU and memory information from the Kubernetes Metrics Server by default, and the Horizontal Pod Autoscaler uses that information.
 
-The [Wavefront Horizontal Pod Autoscaler Adapter](https://www.github.com/wavefrontHQ/wavefront-kubernetes-adapter) allows you to scale based on *any* metric that it knows about.
+Our [Horizontal Pod Autoscaler Adapter](https://www.github.com/wavefrontHQ/wavefront-kubernetes-adapter) allows you to scale based on *any* metric that it knows about.
 
 For example, you can scale based on networking or disk metrics, or any application metrics that are available to VMware Aria Operations for Applications. The Autoscaler Adapter sends the recommendation to the Horizontal Pod Autoscaler, and the Kubernetes environment is kept healthy as a result.
 
