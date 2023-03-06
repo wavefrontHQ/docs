@@ -14,8 +14,8 @@ We added the following integration in March 2023:
 
 * .NET Core
 
-The .NET Core is a general-purpose, most versatile framework that may be used to build software applications for Windows, Linux, and MacOS.
-This integration installs and configures the Wavefront Collector for Kubernetes to collect the .NET Core performance metrics and uses the [Wavefront proxy](https://docs.wavefront.com/proxies.html) for sending those metrics to the service.
+    The .NET Core is a general-purpose, most versatile framework that may be used to build software applications for Windows, Linux, and MacOS.
+    This integration installs and configures the Wavefront Collector for Kubernetes to collect the .NET Core performance metrics and uses the [Wavefront proxy](https://docs.wavefront.com/proxies.html) for sending those metrics to the service.
 
 
 We made improvements to the following integrations in March 2023:
