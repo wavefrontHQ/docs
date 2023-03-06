@@ -1876,7 +1876,7 @@ The logs chart lists the logs sent to the service. Use one or more filters to fi
     Sort by Timestamp
   </td>
   <td markdown="span">
-    By default, you see the latest logs at the top of the table (**Descending**). If you want to see the oldest logs, select **Ascending**.
+    By default, you see the latest logs on the top of the table (**Descending**). If you want to see the oldest logs, select **Ascending**.
 </tr>
 <tr>
   <td>

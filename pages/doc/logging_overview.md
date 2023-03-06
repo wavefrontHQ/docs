@@ -378,7 +378,7 @@ Follow these steps:
         Sort by Timestamp
       </td>
       <td markdown="span">
-        By default, you see the latest logs at the top of the table (**Descending**). If you want to see the oldest logs, select **Ascending**.
+        By default, you see the latest logs on the top of the table (**Descending**). If you want to see the oldest logs, select **Ascending**.
       </td>
     </tr>
     <tr>
@@ -399,7 +399,7 @@ Follow these steps:
     </tr>
     </tbody>
     </table>
-1. In the top right, click Save.
+1. on the top right, click **Save**.
 1. Specify the dashboard in which you want to insert the chart or create a new dashboard.
 
 <a id="view_logs_on_the_logs_table_chart">
