@@ -21,14 +21,14 @@ The following videos get you started.
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td><strong><font color="#0091DA" size="3">Wavefront Operator for Kubernetes (August 2022)</font></strong><br>
+<td><strong><font color="#0091DA" size="3">Kubernetes Observability Operator (August 2022)</font></strong><br>
 <br>
-<iframe id="kmsembed-1_chq9tgn6" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_chq9tgn6/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="Wavefront Operator for Kubernetes"></iframe></td>
+<iframe id="kmsembed-1_chq9tgn6" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_chq9tgn6/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="Kubernetes Observability Operator"></iframe></td>
 <td><br><br>
 <p>This video is about recent changes to the install process and shows a demo. You can then get started by going to the following GitHub pages:
 <ul>
 <li><a href="https://github.com/wavefrontHQ/observability-for-kubernetes">Observability for Kubernetes README</a></li>
-<li><a href="https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/operator/migration.md">Wavefront Operator for Kubernetes Migration</a></li>
+<li><a href="https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/operator/migration.md">Kubernetes Observability Operator Migration</a></li>
 </ul>
 </p>
 <p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_chq9tgn6" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
@@ -72,7 +72,7 @@ You can send data to VMware Aria Operations for Applications in several ways:
 To use the Wavefront Collector for Kubernetes, you must set up our Kubernetes integration. Use one of the following options:
 * [**Recommended**] Directly by using the VMware Aria Operations for Applications user interface. 
 
-  The new [Wavefront Operator for Kubernetes](https://github.com/wavefrontHQ/observability-for-kubernetes) supports deploying the Wavefront Collector and the Wavefront proxy in Kubernetes with a few clicks.
+  The new [Kubernetes Observability Operator](https://github.com/wavefrontHQ/observability-for-kubernetes) supports deploying the Wavefront Collector and the Wavefront proxy in Kubernetes with a few clicks.
   
   1. Log in to your product instance and click **Integrations** on the toolbar.
   1. In the **Featured** section, click the **Kubernetes** integration tile.
