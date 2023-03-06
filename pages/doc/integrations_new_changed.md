@@ -20,9 +20,9 @@ We added the following integration in March 2023:
 
 We made improvements to the following integrations in March 2023:
 
-* Log Data -- Made updates to the integration overview and setup steps.
+* Log Data -- Made updates to the integration overview and the setup steps.
 
-* Filebeat -- Made updates to the integration overview and setup steps.
+* Filebeat -- Made updates to the integration overview and the setup steps.
 
 * Tanzu Application Service: 
 
@@ -35,7 +35,7 @@ We made improvements to the following integrations in March 2023:
 * Catchpoint -- Improved the Catchpoint service to validate the credentials before caching them.
 * Amazon Web Services -- Made improvements to provide the dedicated thread pool to complete the AWS related tasks.
 * Microsoft Azure -- Made improvements to cache the metric name properly and handle a missing data issue.
-* Spring Boot -- Updated the Spring Boot integration with the steps for Spring Boot 3, and update the doc links.
+* Spring Boot -- Updated the Spring Boot integration with the steps for Spring Boot 3, and updated the doc links.
  
 
 ## February 2023
