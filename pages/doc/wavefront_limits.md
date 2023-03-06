@@ -198,7 +198,7 @@ Follow best practices to avoid hitting query limits and for improved query execu
   - Organize metric names in a meaningful hierarchy from most general to most specific (i.e. `system.cpu0.loadavg.1m` instead of `1m.loadavg.cpu0.system`)
 * For best performance, keep the number of distinct time series per metric and host to under 1000.
 
-See [Wavefront Data Naming](wavefront_data_format.html#wavefront-data-format-best-practices) for more best practices.
+See [Operations for Applications Data Naming](wavefront_data_format.html#operations-for-applications-data-format-best-practices) for more best practices.
 
 
 

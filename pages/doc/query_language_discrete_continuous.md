@@ -58,7 +58,7 @@ Some functions produce a continuous time series by calculating a value from the 
 
 ## Functions and Operators that Use Interpolation to Create Continuous Data
 
-Certain functions (and operators such as `\`) produce a continuous time series by starting with data points from a discrete time series and inserting additional points (1 per second) to fill in the intervals and gaps. You see data every second regardless of the reporting interval of the underlying input data. The process is called _interpolation_. In the following video, Wavefrount co-founder Clement Pang explains how it works:
+Certain functions (and operators such as `\`) produce a continuous time series by starting with data points from a discrete time series and inserting additional points (1 per second) to fill in the intervals and gaps. You see data every second regardless of the reporting interval of the underlying input data. The process is called _interpolation_. In the following video, Wavefront co-founder Clement Pang explains how it works:
 
 <p>
 <iframe id="kmsembed-1_afml14zm" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_afml14zm/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability: Time Series and Interpolation"></iframe>

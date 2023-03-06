@@ -1,5 +1,5 @@
 ---
-title: Use Top or Spy to Investigate Traffic
+title: Use Wavefront Top or Spy to Investigate Traffic
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: wavefront_monitoring_spy.html
@@ -11,13 +11,13 @@ VMware Aria Operations for Applications (formerly known as Tanzu Observability b
 {% include note.html content="You need [Direct Data Ingestion permission](permissions_overview.html) to use these HTTP endpoints." %}
 
 
-## Get Started with Top and Spy
+## Get Started with Wavefront Top and Spy
 
 Use spy to extract information programmatically. This page gives details on the available endpoints and associated parameters.
 
-Use wftop if you want a keyboard-driven UI that's similar to the Linux top UI. The tool is open source and on [GitHub](https://github.com/wavefrontHQ/wftop). You can also read [the blog that Joanna prepared](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitor-and-optimize-data-ingestion-by-wavefront-across-your-organization-introducing-wavefront-top), or watch a short video.
+Use Wavefront top if you want a keyboard-driven UI that's similar to the Linux top UI. The tool is open source and on [GitHub](https://github.com/wavefrontHQ/wftop). You can also read [the blog that Joanna prepared](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitor-and-optimize-data-ingestion-by-wavefront-across-your-organization-introducing-wavefront-top), or watch a short video.
 
-<iframe id="kmsembed-1_yif61rd5" width="708" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_yif61rd5/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Using wftop"></iframe>
+<iframe id="kmsembed-1_yif61rd5" width="708" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_yif61rd5/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Using Wavefront Top"></iframe>
 
 
 You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_yif61rd5" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
@@ -149,7 +149,7 @@ You can use the returned list to help you answer questions like:
 * Show me some ingested delta counters with source names that start with the prefix `web`.
 *	What are some delta counters that are tagged with `env`?
 
-{% include note.html content="Delta counters are not yet available from wftop."%}
+{% include note.html content="Delta counters are not yet available from Wavefront Top."%}
 
 ### Endpoint and Parameters for Delta Counters
 
