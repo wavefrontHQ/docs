@@ -1,20 +1,20 @@
 ---
-title: Using PromQL with Tanzu Observability
+title: Using PromQL
 keywords: query language
 sidebar: doc_sidebar
 permalink: wavefront_prometheus.html
 summary: Run PromQL queries in the Query Editor
 ---
 
-Tanzu Observability by Wavefront supports both PromQL and WQL (Wavefront Query Language) queries. The Query Editor includes admin-level organization settings for enabling PromQL and a query line GUI that includes a translation option.
+VMware Aria Operations for Applications (previously known as Tanzu Observability by Wavefront) supports both PromQL and Wavefront Query Language (WQL) queries. The Query Editor includes admin-level organization settings for enabling PromQL and a query line GUI that includes a translation option.
 
-* Users with the **Accounts** permission and Super Admins (Administrators) have control over user defaults:
-  - On the Organization Settings page (New User Defaults) they can enable users to write queries in PromQL.
+* Users with the **Accounts** permission and Super Admin users have control over user defaults:
+  - On the **Organization Settings** page (New User Defaults) they can enable users to write queries in PromQL.
   - If queries in PromQL are enabled, they can also set other options.
 * Users can then type PromQL or WQL queries into the Query Editor.
   - If users enter a PromQL query when **PromQL** is selected, or a WQL query, when **WQL** is selected, the Query Editor parses the query. The corresponding chart shows the information you'd expect.
   - If users enter a PromQL query when **WQL** is selected, or the reverse, the Query Editor doesn't parse the query and displays a syntax error.
-  - In PromQL mode, users can see the translation to Wavefront query language and translate the query if that is set in their preferences.
+  - In PromQL mode, users can see the translation to WQL and translate the query if that is set in their preferences.
   - Users can add charts that use PromQL to dashboards, create alerts from charts that use PromQL, and use PromQL queries in the query line of a Create Alert page.
 
 {% include note.html content="Your site administrator controls PromQL behavior. If you don't have some of the features, get in touch with your site administrator." %}
@@ -22,7 +22,7 @@ Tanzu Observability by Wavefront supports both PromQL and WQL (Wavefront Query L
 
 ## Set PromQL Organization Settings (Administrator Only)
 
-Users with **Accounts**  permissions can navigate to the **Organization Settings** and enable the PromQL support.
+Users with **Accounts**  permission can navigate to the **Organization Settings** and enable the PromQL support.
 * If **PromQL Support** is *not enabled*, other users cannot use PromQL or change PromQL user preferences.
 * If **PromQL Support** is *enabled*, administrators can set additional New User Default query settings, and other users can override those settings.
 
@@ -37,7 +37,7 @@ To set PromQL settings for your organization:
 
 5. Enable **Show WQL translation** to show the translation for all PromQL queries.
 
-   Select this check box if you expect that users want to learn Wavefront query language. The translation appears only if the query is with a valid PromQL syntax. Otherwise, you see an error.
+   Select this check box if you expect that users want to learn WQL. The translation appears only if the query is with a valid PromQL syntax. Otherwise, you see an error.
 
 ## Set PromQL User Preferences (All Users)
 
@@ -51,7 +51,7 @@ If an administrator has enabled PromQL support (discussed above), each user can 
     * The default way of building queries.
 
       If your default language is set to **PromQL**, you can build your queries only in the Query Editor. Chart Builder was designed for Wavefront query language and doesn't support PromQL.
-    * Whether to show the translation to Wavefront query language when you click inside the Query Editor.
+    * Whether to show the translation to WQL when you click inside the Query Editor.
 
 
 
@@ -60,7 +60,7 @@ If an administrator has enabled PromQL support (discussed above), each user can 
 This short <a href="https://vmwaretv.vmware.com/media/t/1_x5xqthax" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> shows how you can create a PromQL chart and an alert:
 
 <p>
-<iframe id="kmsembed-1_x5xqthax" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_x5xqthax/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Wavefront and PromQL"></iframe>
+<iframe id="kmsembed-1_x5xqthax" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_x5xqthax/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="WQL and PromQL"></iframe>
 </p>
 
 ## Use PromQL in Charts and Alerts
@@ -68,12 +68,12 @@ This short <a href="https://vmwaretv.vmware.com/media/t/1_x5xqthax" target="_bla
 This example shows how to use PromQL, when:
 
 * An administrator has enabled PromQL support.
-* The default query language is set to be Wavefront query language.
-* The translation to Wavefront query language is enabled.
+* The default query language is set to be WQL.
+* The translation to WQL is enabled.
 
 ![Query settings when PromQL is enabled, WQL is the default language and translation to WQL is also available.](images/promql_query_settings.png)
 
-If your preferred default language is PromQL, and you have selected to not see the translation to Wavefront query language, the button for converting to Wavefront query language is not available.
+If your preferred default language is PromQL, and you have selected to not see the translation to WQL, the button for converting to WQL is not available.
 
 <table style="width: 100%;">
 <tbody>
@@ -81,8 +81,8 @@ If your preferred default language is PromQL, and you have selected to not see t
 <td width="40%">
 <ol><li>Create or edit a chart or alert.</li>
 <li>Enter a PromQL query in the Query Editor.</li>
-<li>Click inside the Query Editor to see the translation to Wavefront query language.</li>
-<li>Finally, click the <strong>Convert to WQL</strong> button to convert to Wavefront query language if that's your primary mode. The query is translated to Wavefront query language. A small number of PromQL constructs are not supported, as discussed below. </li></ol></td>
+<li>Click inside the Query Editor to see the translation to WQL.</li>
+<li>Finally, click the <strong>Convert to WQL</strong> button to convert to WQL if that's your primary mode. The query is translated to WQL. A small number of PromQL constructs are not supported, as discussed below. </li></ol></td>
 <td width="60%"><img src="/images/promql_hover1.png" alt="query line in PromQL, with hover text that tells you can't switch the language without clearing the query"><p></p>
 <img src="/images/promql_convert_button.png" alt="Button to convert to WQL.">
 </td>
@@ -98,7 +98,7 @@ Next, you can make changes to the visualization.
 
 ## Frequently Asked Questions
 
-Tanzu Observability by Wavefront supports most PromQL functions and operators out of the box. There are a small number of differences and best practices.
+Operations for Applications supports most PromQL functions and operators out of the box. There are a small number of differences.
 
 
 ### FAQ: Do You Have Best Practices?
@@ -118,12 +118,12 @@ If you include the time resolution, the query engine will automatically call ali
 <tr>
 <td width="25%"><strong>count_values()</strong>
 </td>
-<td width="75%">The PromQL count_values aggregation function is not supported. <a href="proxies_histograms.html">Wavefront histograms</a> and <a href="query_language_reference.html#histogram-functions">histogram functions</a> allow you to perform the corresponding tasks -- and more!
+<td width="75%">The PromQL count_values aggregation function is not supported. <a href="proxies_histograms.html">Histograms</a> and <a href="query_language_reference.html#histogram-functions">histogram functions</a> allow you to perform the corresponding tasks - and more!
 </td></tr>
 <tr>
 <td width="25%"><strong>topk(), bottomk()</strong>
 </td>
-<td width="75%">The topk() and bottomk() functions work slightly differently in PromQL and Wavefront query language.
+<td width="75%">The topk() and bottomk() functions work slightly differently in PromQL and WQL.
 <ul>
 <li>PromQL computes topk() and bottomk() at the point level. It picks the top points at each <strong>timestamp</strong>.</li>
 <li>The query engine computes topk() and bottomk() at <strong>time series level</strong>. It returns the top or bottom series (based on the avg/min/max... value). </li>
@@ -282,13 +282,13 @@ The bottom row shows the PromQL query execution:
 
 ## More Info
 
-New to Tanzu Observability by Wavefront? Here are some links to get you started:
+New to our product? Here are some links to get you started:
 * Videos
-  - Watch videos in the [Get Started with Tanzu Observability](https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_zcafsh0j/uiConfId/47611883) playlist on VMware TV
+  - Watch videos in the [Getting Started](https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_zcafsh0j/uiConfId/47611883) playlist on VMware TV
   - Watch videos in the [How to Query with WQL and PromQL](https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_brmdewqc/uiConfId/47611883) playlist on VMware TV
 
 * Tutorials & Other Info
   - [Dashboards Tutorials](tutorial_dashboards.html)
   - [Alerts](alerts.html)
   - [Query Language Quickstart](query_language_getting_started.html)
-  - [Set Up Wavefront as a PromQL Data Source in Grafana](integrations_grafana.html)
+  - [Set Up a PromQL Data Source in Grafana](integrations_grafana.html)
