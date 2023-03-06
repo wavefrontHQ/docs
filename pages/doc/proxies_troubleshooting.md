@@ -13,7 +13,7 @@ In addition, our SaaS Value Engineering team has put together the following trou
 
 ## Validate Metrics Received at the Proxy
 
-As part of troubleshooting, it's often useful to check if metrics are received at the proxy in the intended format. See [Wavefront data format best practices](wavefront_data_format.html#wavefront-data-format-best-practices) for background.
+As part of troubleshooting, it's often useful to check if metrics are received at the proxy in the intended format. See [Operations for Applications data format best practices](wavefront_data_format.html#operations-for-applications-data-format-best-practices) for background.
 
 ### Step 1: Enable Valid Point Logging and Examine Valid Points
 

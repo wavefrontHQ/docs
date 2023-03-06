@@ -399,7 +399,7 @@ The Wavefront service uses ingested spans to derive RED metrics for two kinds of
 
 In the predefined charts, such as the Service Dashboard, are rates and 95th percentile distributions. These metrics are themselves based on underlying delta counters and histograms that the Wavefront service automatically derives from spans. You can use these underlying delta counters and histograms in [RED metrics queries](#red-metrics-queries), for example, to create alerts on trace data.
 
-The Wavefront service constructs the names of the underlying delta counters and histograms as shown in the table below. The name components `<application>`, `<service>`, and `<operationName>` are string values that are obtained from the spans on which the metrics are derived. If necessary, the Wavefront service modifies these strings to comply with the Wavefront [data format](wavefront_data_format.html#wavefront-data-format-fields) for metrics. Each metric is associated with point tags `application`, `service`, and `operationName`, and the corresponding span tag values are assigned to these point tags. The span tag values are used without modification.
+The Wavefront service constructs the names of the underlying delta counters and histograms as shown in the table below. The name components `<application>`, `<service>`, and `<operationName>` are string values that are obtained from the spans on which the metrics are derived. If necessary, the Wavefront service modifies these strings to comply with the [Operations for Applications data format](wavefront_data_format.html#operations-for-applications-data-format-fields) for metrics. Each metric is associated with point tags `application`, `service`, and `operationName`, and the corresponding span tag values are assigned to these point tags. The span tag values are used without modification.
 
 {% include warning.html content="Do not configure the Wavefront proxy to add prefixes to metric names. Doing so will change the names of the RED metric counters and histograms, and prevent these metrics from appearing in the Wavefront UI, e.g., in the Service Dashboard." %}
 
@@ -503,7 +503,7 @@ You can specify the RED metric counters and histograms in a query with the metri
   cs(tracing.derived.*.invocation.count, application="beachshirts" and service="delivery" and operationName="dispatch")
   ```
 
-The point tag technique is useful when the metric name contains string values for `<application>`, `<service>`, and `<operationName>` that have been modified to comply with the Wavefront [data format](wavefront_data_format.html#wavefront-data-format-fields). The point tag value always corresponds exactly to the span tag values.
+The point tag technique is useful when the metric name contains string values for `<application>`, `<service>`, and `<operationName>` that have been modified to comply with the [Operations for Applications data format](wavefront_data_format.html#operations-for-applications-data-format-fields). The point tag value always corresponds exactly to the span tag values.
 
 <table style="width: 100%;">
 <tbody>

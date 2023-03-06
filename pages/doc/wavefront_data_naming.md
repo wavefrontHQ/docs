@@ -8,7 +8,7 @@ summary: Best practices for naming data sent to Wavefront.
 ---
 You can organize your data schema into metric names, source names, and point, alert, event, and source tags.
 
-Wavefront doesn't place any restrictions on naming. However, you benefit from following best practices when you name Wavefront objects. See [Wavefront Data Format](wavefront_data_format.html#wavefront-data-format-fields) for details on valid characters for metric names and other names.
+Wavefront doesn't place any restrictions on naming. However, you benefit from following best practices when you name Wavefront objects. See [Wavefront Data Format](wavefront_data_format.html#operations-for-applications-data-format-fields) for details on valid characters for metric names and other names.
 
 ## Metric Names Best Practices
 
