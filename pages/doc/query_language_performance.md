@@ -110,9 +110,9 @@ To see and, optionally, apply the performance improvement suggestions for a quer
 
 Sometimes, when you expect to see certain data in Tanzu Observability, it doesn’t show up for some reason. By default, in such cases, charts display a **No Data** message (unless you have [overridden this setting and have set up charts to show another message](ui_charts.html#override-the-no-data-message-on-a-chart)). When you see **No Data** on a chart, you can use the Query Analyzer to analyze your queries and subqueries. The Query Analyzer helps you identify potential issues, so that you can easily [troubleshoot missing data](missing_data_troubleshooting.html), and also shows performance statistics for the queries and subqueries that result in **No Data**.
 
-{% include tip.html content="If you use variables in your queries, in the Query Analyzer the variables are replaced by their actual (static) values."%}
+{% include tip.html content="If you use variables in your queries, in the Query Analyzer the variables are replaced by their actual (static) values. See the example below."%}
 
-For example, if the query that you want to analyze is <code>max(${latency})</code>, where `latency` is <code>ts(requests.latency, source="app-1*" or source="app2*", env="dev")</code>, in the Query Analyzer, the query that you'll see will be: <code>max(ts(requests.latency, source="app-1*" or source="app2*", env="dev"))</code>.
+For example, if the query that you want to analyze is <code>max(${latency})</code>, where the `latency` variable is <code>ts(requests.latency, source="app-1*" or source="app2*", env="dev")</code>, in the Query Analyzer, the query that you'll see will be: <code>max(ts(requests.latency, source="app-1*" or source="app2*", env="dev"))</code>.
 
 ### Analyze a Query
 
