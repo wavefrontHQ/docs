@@ -790,10 +790,28 @@ entries:
         url: /logging_proxy_configurations.html
         output: web
 
-      - title: Examine Logs
-        url: /logging_log_browser.html
+        subfolders:
+
+        - title: View Logs
+          output: web
+          subfolderitems:
+
+            - title: Logs Browser
+              url: /logging_log_browser.html
+              output: web
+            
+            - title: Create a Logs Chart
+              url: /logging_logs_chart.html
+              output: web
+
+            - title: Drill Into Logs
+              url: /logging_drill_into_logs.html
+              output: web
+
+      - title: Custmize Logs Settings
+        url: /logging_logs_settings.html
         output: web
-        
+
       - title: Logs Troubleshooting
         url: /logging_faq.html
         output: web
