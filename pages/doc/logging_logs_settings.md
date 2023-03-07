@@ -6,11 +6,11 @@ permalink: logging_logs_settings.html
 summary: Learn how you can customize log settings from the organization settings page. 
 ---
 
-Users with **Accounts** permissions can map metrics tags to logs tags, traces tags to logs tags, and customize the time window you see on a chart or Traces Browser when drill into logs from an chart and trace.
+Users with **Accounts** permissions can map metrics tags to logs tags, traces tags to logs tags, and customize the time window you see on a chart or Traces Browser when drill into logs from a chart and trace.
 
 ## Map Tags
 
-When you are on a chart, application map, or Traces Browser, and drill into the Log Browser, the tags associated with the metrics or trace are added as search filters on the Log Browser. If the logs tags are different from the metrics or traces tags, you don't see logs on the Log Browser. Therefore, it is important that you use the same tags for metrics, traces, and logs.
+When you are on a chart, application map, or Traces Browser, and drill into the Logs Browser, the tags associated with the metrics or trace are added as search filters on the Logs Browser. If the logs tags are different from the metrics or traces tags, you don't see logs on the Logs Browser. Therefore, it is important that you use the same tags for metrics, traces, and logs.
 
 ### Map the Traces Tags to Logs Tags
 
@@ -40,11 +40,19 @@ Example:
 
 ## Customize the Time Window when Drilling Into Logs
 
-When you drill into logs from a chart or trace, the Logs Browser sets the same time window on the chart, Traces Browser, or application map. Follow these steps to increase this time window. Choose between 0 and 3600 seconds.
+When you drill into logs from a chart or trace, we get the timestamp of the data from the chart or trace and add a default buffer time before and after the timestamp to create a time window on the Logs Browser.
+* For charts, our service adds a 5-minute buffer time before and after the timestamp of the data you want to see. 
+    <br/>For example, if you right-click on a chart at 5.00 PM and click **Go To Logs**, the time window on the Logs Browser is set from 4.45 PM to 5.05 PM.
+    ![a screenshot that shows how the timestamp on a chart creates the time window on the logs browser.](images/logging_default_time_charts-settings.png)
+* For traces, your administrator can configure a default buffer time. If there is no default buffer time, our service adds a 5-second buffer time before and after the timestamp of a trace.
+    <br/>For example, if the trace is created at 5.41.56 PM and you click **Search Logs** on the Traces Browser, the time window on the Logs Browser is set from 5.41.51 PM to 5.42.01 PM.
+    ![](images/logging_default_time_traces-settings.png)
+
+Follow these steps to change the default buffer times:
 
 1. From the gear icon, select **Organization Settings**.
 1. Set the before and after buffer times under **Customize leading and trailing times for "Go to Logs"**. The values need to be between 0 and 3600 seconds.
 
-For example, when you drill into logs from a chart, add a 30 second buffer time before and after the time window on a chart:
+For example, create a 1 minute time window on the Logs Browser by adding a 30-second buffer time before and after the timestamp of the data on the chart:
 ![A screenshot on how to customize the search time window](images/logging_customize_time_window_organization_settings.png)
  
