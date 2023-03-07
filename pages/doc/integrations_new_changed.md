@@ -8,7 +8,38 @@ summary: New and changed integrations.
 ---
 Tanzu Observability by Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
+## March 2023
+
+We added the following integration in March 2023:
+
+* .NET Core
+
+    The .NET Core is a general-purpose, most versatile framework that may be used to build software applications for Windows, Linux, and MacOS.
+    This integration installs and configures the Wavefront Collector for Kubernetes to collect the .NET Core performance metrics and uses the [Wavefront proxy](https://docs.wavefront.com/proxies.html) for sending those metrics to the service.
+
+
+We made improvements to the following integrations in March 2023:
+
+* Log Data -- Log Data – Updated the integration overview and setup steps to include information about the Logs (Beta) solution.
+* Filebeat -- Made updates to the integration overview and the setup steps.
+
+* Tanzu Application Service: 
+
+  - Improved descriptions of dashboards and charts.
+  - Added new charts.
+  - Made improvements to CPU queries in dashboards for additional accuracy and consistency.
+  - Excluded Platform MySQL from charts on the MySQL Service dashboard, because this dashboard is only for MySQL broker and service instances.
+
+* Kubernetes -- Fixed validation errors in several Kubernetes system dashboards.
+* Catchpoint -- Improved the Catchpoint service to validate the credentials before caching them.
+* Amazon Web Services -- Made improvements to provide the dedicated thread pool to complete the AWS related tasks.
+* Microsoft Azure -- Made improvements to cache the metric name properly and handle a missing data issue.
+* Spring Boot -- Updated the Spring Boot integration with the steps for Spring Boot 3, and updated the doc links.
+ 
+
 ## February 2023
+
+We made improvements to the following integration in February 2023:
 
 * Amazon Web Services -- With the 2023-07.x release, you can use the **Custom Namespace(s)** text box to additionally filter the list of AWS products for which you want to monitor metrics by using the CloudWatch integration. For more information about how to use this text box and monitor metrics from services that are not part of the **Products** list in the GUI, see [Configuring CloudWatch Data Ingestion](integrations_aws_metrics.html#configuring-cloudwatch-data-ingestion) and [How to Use the Metric Allow List and the Products List](integrations_aws_metrics.html#how-to-use-the-metric-allow-list-and-the-products-list).
 

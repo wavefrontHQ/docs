@@ -18,13 +18,15 @@ Here's a preview of the dashboard:
 
 Use the Snowflake integration to monitor a Snowflake database and the ACCOUNT_USAGE schema. 
 
-To register a new Snowflake instance and start monitoring the Snowflake usage, you must give Tanzu Observability by Wavefront access to your Snowflake account. The overall process involves steps which you can perform by following the instructions in your Wavefront cluster UI:
+To register a new Snowflake instance and start monitoring the Snowflake usage, you must give Tanzu Observability by Wavefront access to your Snowflake account. The overall process involves:
 
-* Generate a private and a public key. 
+* Generating a private and a public key. 
   Snowflake supports key-pair authentication for enhanced authentication security. 
-* Create a custom role that will monitor the Snowflake usage, for example `WAVEFRONT`.
-* Grant the role with the `usage` and `monitor` privileges on the warehouse.
-* Assign the role to a new or an already existing user who has the public key assigned.
+* Creating a custom role that will monitor the Snowflake usage, for example `NEWROLE`.
+* Granting the role with the `usage` and `monitor` privileges on the warehouse.
+* Assigning the role to a new or an already existing user who has the public key assigned.
+
+You can follow the steps provided in our GUI.
 
 After you generate the private and the public keys and create a user with the correct permissions, to register your Snowflake integration, follow these steps:
 

@@ -77,7 +77,7 @@ You can see the information about the metrics on the [Azure metrics](https://doc
 Adding a Microsoft Azure cloud integration requires establishing a trust relationship between Azure and Tanzu Observability by Wavefront. The overall process involves the following:
 
 * Getting a Directory ID
-* Creating an Azure Active Directory application that represents Tanzu Observability inside Azure and getting the Application ID.
+* Creating an Azure Active Directory application that represents Wavefront inside Azure and getting the Application ID.
 * Creating a secret key and getting the Application secret.
 
 To register a Microsoft Azure Cloud Integration:
