@@ -15,9 +15,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 ## 2023-09.x Release Notes
 
-**Analyze Your Queries**
-
-With this release you can use the Query Analyzer and [analyze your queries and their subqueries](query_language_performance.html#use-the-query-analyzer). When you expect to see certain data in Tanzu Observability, but it doesn’t show up for some reason, charts display a **No Data** message. When you this message on a chart, use the Query Analyzer and analyze your queries and subqueries. 
+**Analyze Your Queries**: With this release you can use the Query Analyzer and [analyze your queries and their subqueries](query_language_performance.html#use-the-query-analyzer). When you expect to see certain data in Tanzu Observability, but it doesn’t show up for some reason, charts display a **No Data** message. When you this message on a chart, use the Query Analyzer to analyze and troubleshoot your queries and subqueries. 
 
 ## 2023-08.x Release Notes
 
