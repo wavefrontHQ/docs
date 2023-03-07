@@ -27,7 +27,7 @@ Adding a New Relic integration requires establishing a trust relationship betwee
 3. Copy the key and paste in into the API Key field in the integration setup.
 4. (Optional) Add source filters and metric filters.
 
-You can then configure Tanzu Observability by Wavefront to continually load application data.
+You can then configure Tanzu Observability to continually load application data.
 
 
 
