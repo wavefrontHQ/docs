@@ -38,7 +38,7 @@ If your metrics and logs use different tags, follow these steps to create a map 
 Example:
 ![Create a map between the metrics tags and logs tags](images/logging_metrics_to_logs_map.png)
 
-## Customize the Time Window when Drilling into Logs
+## Customize the Time Window when Drilling Into Logs
 
 When you drill into logs from a chart or trace, the Logs Browser sets the same time window on the chart, Traces Browser, or application map. Follow these steps to increase this time window. Choose between 0 and 3600 seconds.
 
