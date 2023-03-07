@@ -47,7 +47,7 @@ value: "false"</code>
 
 To install and configure a new proxy:
 
-1. Log in to your Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) and select **Browse** > **Proxies**.
+1. Log in to Tanzu Observability by Wavefront and select **Browse** > **Proxies**.
 1. Click **Add new proxy** and follow the instructions on the screen.
 1. Edit the `wavefront.conf` file to open the `pushListenerPorts` to receive logs from the log shipper.
     <br/>For example:
