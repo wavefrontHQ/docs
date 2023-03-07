@@ -57,7 +57,7 @@ If you have the **Logs** and **Dashboards** permissions, in the [Chart Builder](
 </tr>
 </table>
 
-I you select the histogram chart, the resulting chart shows the number of logs matching the selected filters distributed over the [selected time window](ui_charts.html#set-the-time-window-on-a-chart). The logs are grouped by the values of the selected grouping tags. You can zoom in on smaller time windows. You can also use the logs table chart to see the logs on your chart.
+I you select the stacked-column chart, the resulting chart shows the number of logs matching the selected filters distributed over the [selected time window](ui_charts.html#set-the-time-window-on-a-chart). The logs are grouped by the values of the selected grouping tags. You can zoom in on smaller time windows. You can also use the logs table chart to see the logs on your chart.
   ![Logs histogram chart](images/logs_histogram_chart.png)
 
 ## Logs Table Chart

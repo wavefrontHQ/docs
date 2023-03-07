@@ -17,8 +17,8 @@ If you have the **Logs** permission, you can drill into logs from charts, for ex
     <li markdown="span">
         Even if logging is enabled for your environment, this feature might have to be enabled separately. Contact [technical support](wavefront_support_feedback.html#support).
     </li>
-    <li>
-        You must have tagged the metrics and the logs from the same source with equivalent source tag values.
+    <li markdown="span">
+        You must have tagged the metrics and the logs from the same source with equivalent source tag values. If your metrics and logs tags don't match, users with **Accounts** permissions can map the metrics tags to logs tags. For details, see [Customize Logs Settings](logging_logs_settings.html).
     </li>
 </ul>
 {{site.data.alerts.end}}
@@ -107,7 +107,7 @@ If you have the **Logs** permission, you can drill into logs from the applicatio
 
 If you notice that a service on the application map, table view, or grid view of the [Application Status page](tracing_ui_overview.html) has a high error percentage, you can drill down into the related logs.
 
-{% include note.html content="You must have tagged the traces and the logs from the same applications and services with equivalent application and service tag values."%}
+{% include note.html content="You must have tagged the traces and the logs from the same applications and services with equivalent application and service tag values. If your traces and logs tags don't match, users with **Accounts** permissions can map the traces tags to logs tags. For details, see [Customize Logs Settings](logging_logs_settings.html)."%}
 
 * **From the Map View**
   1. Select the time window of interest.
@@ -135,7 +135,7 @@ The Logs Browser opens in a new tab with the following configurations:
 
 If you notice a critical path through a trace in the [Traces Browser](tracing_traces_browser.html), you can drill down into the related logs.
 
-{% include note.html content="You must have tagged the traces and the logs from the same sources, applications, and services with equivalent source, application, and service tag values." %}
+{% include note.html content="You must have tagged the traces and the logs from the same sources, applications, and services with equivalent source, application, and service tag values. If your traces and logs tags don't match, users with **Accounts** permissions can map the traces tags to logs tags. For details, see [Customize Logs Settings](logging_logs_settings.html)." %}
 
 To see the logs for a trace:
 1. Click the trace that you want to examine.
