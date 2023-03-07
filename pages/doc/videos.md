@@ -56,7 +56,7 @@ This playlist includes videos on how Distributed Tracing works and on how to exp
 This playlist includes videos on:
 * Sending metrics data from a Windows host.
 * Using the Tanzu Application Service integration.
-* Setting up the Wavefront Operator for Kubernetes.
+* Setting up the Kubernetes Observability Operator.
 
 You can also watch the playlist videos in your browser <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_jycyrkuw/" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
 <br>
