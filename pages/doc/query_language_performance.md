@@ -130,7 +130,7 @@ The subquery that causes the **No Data** issue is highlighted.
 
   ![A screenshot of the query analyzer, where the second subquery is highlighted, because it contains a typo](images/query-analyzer-tab.png)
 
-- **Example 2**: No data is present into Tanzu Observability.
+- **Example 2**: No data is present in Tanzu Observability.
 
   ![A screenshot of the query analyzer, where the query is highlighted, because no such data is present in the system](images/query-analyzer-tab-1.png)
 
