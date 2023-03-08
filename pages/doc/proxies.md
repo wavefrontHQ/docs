@@ -8,7 +8,7 @@ summary: Learn about Wavefront proxies.
 ---
 VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) enables you to:
 * Send data through Wavefront proxies. Most customers and our DevOps team use proxies.
-* Send data to the Operations for Applications service directly using [direct ingestions](direct_ingestion.html)
+* Send data directly using [direct ingestions](direct_ingestion.html).
 
 
 A Wavefront proxy ingests metrics and forwards them to Operations for Applications in a secure, fast, and reliable manner. After you install a proxy in your environment, it can handle thousands of simultaneous clients. Your data collection agents or custom code send data to the proxy, which consolidates points into configurable batches and sends the data to your Operations for Applications service.

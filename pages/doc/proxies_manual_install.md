@@ -1,4 +1,4 @@
----tanzu
+---
 title: Manual Proxy Install on Linux
 keywords: Ansible
 tags: [proxies, best practice]
@@ -57,12 +57,12 @@ Before you can customize the proxy configuration, you have to find the values fo
 <tr>
 <td markdown="span">**proxyname**</td>
 <td markdown="span">Name of the proxy running. The proxyname is not used to tag your data; rather, it's used to tag data internal to the proxy, such as JVM statistics, per-proxy point rates, and so on. Alphanumeric and periods are allowed. </td>
-<td>cust42ProxyHost</td>
+<td>cust42Proxy</td>
 </tr>
 <tr>
 <td markdown="span">**enable graphite**</td>
 <td markdown="span">Whether to enable the Graphite format. See the [Graphite integration](graphite.html) for details on Graphite configuration.  </td>
-<td>cust42ProxyHost</td>
+<td>cust42Proxy</td>
 </tr>
 <tr>
 <td markdown="span">**tlsPorts**</td>
@@ -248,7 +248,7 @@ You can test your proxy using `curl`. Documentation for the following `curl` com
 
 You can run the commands [directly from the API documentation](https://tanzu.vmware.com/content/vmware-aria-operations-for-applications-blog/did-you-know-that-our-api-docs-are-alive). This is less error prone than copy/paste of the token.
 
-For this task, you first you get the list of proxies for your Wavefront service, then you display information for just the proxy you installed.
+For this task, you first get the list of proxies for your Operations for Applications service, then you display information for just the proxy you installed.
 
 Step 1: Get the list of proxies for your service instance:
 ```
@@ -256,6 +256,7 @@ curl -X GET --header "Accept: application/json" --header "Authorization: Bearer 
 ```
 
 This command returns a JSON formated list of all proxies.
+
 Step 2: Get the proxy ID. You can search the output using the proxy name configured in `wavefront.conf`, or find the proxy ID in the UI.
 
 Step 3: Return information for only this proxy:
