@@ -106,6 +106,78 @@ To see and, optionally, apply the performance improvement suggestions for a quer
 </tbody>
 </table>
 
+## Use the Query Analyzer
+
+Sometimes, when you expect to see certain data in Tanzu Observability, it doesn’t show up for some reason. By default, in such cases, charts display a **No Data** message (unless you have [overridden this setting and have set up charts to show another message](ui_charts.html#override-the-no-data-message-on-a-chart)). When you see **No Data** on a chart, you can use the Query Analyzer to analyze your queries and subqueries. The Query Analyzer helps you identify potential issues, so that you can easily [troubleshoot missing data](missing_data_troubleshooting.html), and also shows performance statistics for the queries and subqueries that result in **No Data**.
+
+{% include tip.html content="If you use variables in your queries, in the Query Analyzer the variables are replaced by their actual (static) values. See the example below."%}
+
+For example, if the query that you want to analyze is <code>max(${latency})</code>, where the `latency` variable is <code>ts(requests.latency, source="app-1*" or source="app2*", env="dev")</code>, in the Query Analyzer, the query that you'll see will be: <code>max(ts(requests.latency, source="app-1*" or source="app2*", env="dev"))</code>.
+
+### Analyze a Query
+
+To use the Query Analyzer and analyze a query and its subqueries:
+
+1. Click the name of the chart to open it in Edit mode.
+1. If you have more queries, locate the query that you want to analyze.
+1. Click the ellipsis icon next to the query and select **Query Analyzer**.
+   A new browser tab with the Query Analyzer opens. 
+1. Click **Analyze**.
+
+The subquery that causes the **No Data** issue is highlighted. 
+
+- **Example 1**: The subquery contains a typo.
+
+  ![A screenshot of the query analyzer, where the second subquery is highlighted, because it contains a typo](images/query-analyzer-tab.png)
+
+- **Example 2**: No data is present into Tanzu Observability.
+
+  ![A screenshot of the query analyzer, where the query is highlighted, because no such data is present in the system](images/query-analyzer-tab-1.png)
+
+  As you can see from the screenshot above, the Query Analyzer also shows performance statistics at a subquery level for the specific time window: 
+
+  - **Cardinality**: Number of unique time series. 
+  - **Points Scanned**: Number of data points that were queried to show the chart on the screen. 
+  - **Duration**: Time between query start and return of result.
+
+- **Example 3**: The query contains more subqueries that result in **No Data**.
+
+  ![A screenshot of the query analyzer, where two subqueries are highlighted, because they contain typos](images/query-analyzer-incorrect-subqueries.png)
+  
+  If a query contains more than one subquery that results in **No Data**, when you analyze the query, the first subquery causing the issue is highlighted and the result for it is displayed under **Detected Issues**. The other subqueries resulting in **No Data** are marked with a dotted underline. To expand the result for another subquery, simply click a result under **Detected Issues** and the subquery will be highlighted.
+
+### Change the Time Window
+
+By default, the time window used in the Query Analyzer is the time window that you have set for the chart. If you change the time window, the performance statistics update accordingly.
+
+For example, if by default, the time window for the chart is set to one week, the results from the analysis might look like this:  
+
+![A screenshot of the query analyzer, where the query is highlighted, because no such data is present in the system and the default time window is 1 week.](images/query-analyzer-tab-1.png)
+
+**To change the time window**:
+
+1. In the Query Analyzer, click the time picker.
+2. Select the new time settings, for example, last 2 hours.
+3. Click **Analyze**.
+
+The performance statistics change as shown in the screenshot below.
+
+![A screenshot of the query analyzer, where the query is highlighted, because no such data is present in the system and the default time window is 2 hours.](images/query-analyzer-tab-2.png)
+
+
+### Share a Link
+
+In addition to investigating and fixing the issues by yourself, you can also share a link to the Query Analyzer with the same problematic query with others from your team. 
+
+**To share a link to the Query Analyzer:**
+
+1. On the Query Analyzer browser tab, click the share icon in the top right.
+1. In the **Share Query Analyzer** window, click **Copy link**.
+
+   ![A screenshot of the Share Query Analyzer window with the Copy link button selected.](images/share-query-analyzer.png)
+
+1. Send the link to your colleagues who might be interested in examining the results.
+
 ## Use Filters to Look at the Right Data
 
 For best query language performance, it's important to look at just the right amount of data.
@@ -159,9 +231,9 @@ In certain cases, the query engine [performs prealignment](query_language_align_
 
 ### Use Raw Aggregation Functions
 
-Instead of using align(), you can avoid the overhead of interpolation with a raw aggregation function. [Aggregating Time Series](query_language_aggregate_functions.html) has details and a video.
-* Standard aggregation functions (e.g. sum(), avg(), or max()) first interpolate the points of the underlying set of series, and then apply the aggregation function to the interpolated series. These functions aggregate multiple series down, usually to a single series.
-* Raw aggregation functions (e.g. rawsum(), rawavg()) do not interpolate the underlying series before aggregation.
+Instead of using `align()`, you can avoid the overhead of interpolation with a raw aggregation function. [Aggregating Time Series](query_language_aggregate_functions.html) has details and a video.
+* Standard aggregation functions (e.g. `sum()`, `avg()`, or `max()`) first interpolate the points of the underlying set of series, and then apply the aggregation function to the interpolated series. These functions aggregate multiple series down, usually to a single series.
+* Raw aggregation functions (e.g. `rawsum()`, `rawavg()`) do not interpolate the underlying series before aggregation.
 
 Example:
 
