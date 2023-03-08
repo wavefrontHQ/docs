@@ -19,7 +19,7 @@ In addition to setting up the metrics flow, this integration also installs a das
 
 The VMware vRealize Operations Cloud integration is a full-featured native integration, that offers agentless data ingestion of vRealize Operations Cloud metric data, as well as a predefined dashboard.
 
-To register a new vRealize Operations Cloud instance, you must get a VMware Cloud Services Console API token. 
+To register a new vRealize Operations Cloud instance, you must get a VMware Cloud Services Console API token.
 
 1. In the **Name** text box, enter a meaningful name.
 2. In the **API Token** text box, provide the VMware Cloud Services Console API token.
