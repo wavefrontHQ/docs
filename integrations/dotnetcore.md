@@ -2,7 +2,7 @@
 title: .NET Core Integration
 tags: [integrations list]
 permalink: dotnetcore.html
-summary: Learn about the Wavefront .NET Core Integration.
+summary: Learn about the .NET Core Integration.
 ---
 ## .NET Core Integration
 

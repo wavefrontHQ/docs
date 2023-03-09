@@ -2,7 +2,7 @@
 title: Google Firebase Integration
 tags: [integrations list]
 permalink: gcp_cloud_firebase.html
-summary: Learn about the Wavefront Google Firebase Integration.
+summary: Learn about the Google Firebase Integration.
 ---
 ## Google Cloud Platform Integration
 
@@ -11,15 +11,15 @@ data, as well as pre-defined dashboards and alert conditions for certain GCP ser
 
 ### Metrics Configuration
 
-[[applicationName]] ingests Google Cloud Platform metrics using the v3 Stackdriver Monitoring APIs. For details on the metrics, see the
+Operations for Applications ingests Google Cloud Platform metrics using the v3 Stackdriver Monitoring APIs. For details on the metrics, see the
 [metrics documentation](https://cloud.google.com/monitoring/api/metrics).
 
-Metrics originating from Google Cloud Platform are prefixed with `gcp.` within [[applicationName]]. Once the integration has
+Metrics originating from Google Cloud Platform are prefixed with `gcp.` within Operations for Applications. Once the integration has
 been set up, you can browse the available GCP metrics in the metrics browser.
 
 ### Dashboards
 
-<p>[[applicationName]] provides Google Cloud Platform dashboards for the following services:</p>
+<p>Operations for Applications provides Google Cloud Platform dashboards for the following services:</p>
 
 - Google App Engine
 - Google BigQuery

@@ -2,7 +2,7 @@
 title: Azure Deployment Manager Integration
 tags: [integrations list]
 permalink: adm.html
-summary: Learn about the Wavefront Azure Deployment Manager Integration.
+summary: Learn about the Azure Deployment Manager Integration.
 ---
 ## Azure Deployment Manager Integration
 

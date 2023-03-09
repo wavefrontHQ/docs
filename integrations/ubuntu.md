@@ -2,7 +2,7 @@
 title: Ubuntu Host Integration
 tags: [integrations list]
 permalink: ubuntu.html
-summary: Learn about the Wavefront Ubuntu Host Integration.
+summary: Learn about the Ubuntu Host Integration.
 ---
 ## Linux Host Integration
 

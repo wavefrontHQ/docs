@@ -2,29 +2,29 @@
 title: Slack Integration
 tags: [integrations list]
 permalink: slack.html
-summary: Learn about the Wavefront Slack Integration.
+summary: Learn about the Slack Integration.
 ---
 ## Slack Integration
 
-Slack is a popular communication platform. [[applicationName]] integrates with Slack in two different ways: 
-* [[applicationName]]/Slack webhooks let you send **alert notifications** to Slack. 
-* The [[applicationName]] URL unfurler for Slack is for users who paste **[[applicationName]] links into Slack messages**.
+Slack is a popular communication platform. Operations for Applications integrates with Slack in two different ways: 
+* Operations for Applications/Slack webhooks let you send **alert notifications** to Slack. 
+* The Operations for Applications URL unfurler for Slack is for users who paste **Operations for Applications links into Slack messages**.
 
 ### Slack Webhook Integration for Alert Notifications
 
-[[applicationName]] and Slack both support webhooks so you can easily configure an incoming webhook in Slack and an outgoing webhook in [[applicationName]] to pass the notifications from [[applicationName]] alerts into your Slack channels. An alert notification sent to a Slack channel looks like:
+Operations for Applications and Slack both support webhooks so you can easily configure an incoming webhook in Slack and an outgoing webhook in Operations for Applications to pass the notifications from Operations for Applications alerts into your Slack channels. An alert notification sent to a Slack channel looks like:
 
 {% include image.md width="50" src="images/slack_alert.png" %}
 
 ### Slack URL Unfurler
 
-After a privileged user has added the [[applicationName]] application to Slack, all Slack users will be prompted the next time they post an [[applicationName]] URL. They can decide to unfurl the URL to show an image, unfurl all [[applicationName]] URLs, or not unfurl [[applicationName]] URLs. Here's a Slack message with an unfurled chart image:
+After a privileged user has added the Operations for Applications application to Slack, all Slack users will be prompted the next time they post an Operations for Applications URL. They can decide to unfurl the URL to show an image, unfurl all Operations for Applications URLs, or not unfurl Operations for Applications URLs. Here's a Slack message with an unfurled chart image:
 
 {% include image.md width="50" src="images/unfurled_chart.png" %}
 
 ## Slack Webhook Integration Setup
 
-[[applicationName]] and Slack both support webhooks so you can easily configure an incoming webhook in Slack and an outgoing webhook in [[applicationName]] to pass the notifications from [[applicationName]] alerts into your Slack channels.
+Operations for Applications and Slack both support webhooks so you can easily configure an incoming webhook in Slack and an outgoing webhook in Operations for Applications to pass the notifications from Operations for Applications alerts into your Slack channels.
 
 **Note:** To perform the steps as described below, you must have administrator permissions on the workspace that you want to configure.
 
@@ -66,14 +66,14 @@ The setup of your Slack Webhook is now complete. Going forward, specified users 
 
 ## Slack URL Unfurler Setup (Chart Images in Slack)
 
-The Slack URL Unfurler has completely different functionality from the Webhook setup. It supports including chart images in Slack. When a user copies a link to an [[applicationName]] chart into Slack, other users can see the chart image in Slack without having to click a link. Currently only `*.wavefront.com` domain can be unfurled.  
+The Slack URL Unfurler has completely different functionality from the Webhook setup. It supports including chart images in Slack. When a user copies a link to an Operations for Applications chart into Slack, other users can see the chart image in Slack without having to click a link. Currently only `*.wavefront.com` domain can be unfurled.  
 
-To implement URL Unfurl functionality for links to [[applicationName]] pages, follow these steps:
+To implement URL Unfurl functionality for links to Operations for Applications pages, follow these steps:
 
-1. A Slack admin user with the right privileges <a href="https://slack.com/oauth/v2/authorize?client_id=2279130001.809926228192&scope=commands,links:write,users:read&user_scope=links:read"> installs the [[applicationName]] application into Slack</a>. This user must have the permission to add apps to the Slack workspace. Who that person is depends on the Slack setup at your site. 
-2. After that, any user who pastes a link to an [[applicationName]] instance - usually a link to a chart - into Slack is prompted as follows:
-  * Unfurl links to [[applicationName]] instances
-  * Don't unfurl links to this [[applicationName]] instance
+1. A Slack admin user with the right privileges <a href="https://slack.com/oauth/v2/authorize?client_id=2279130001.809926228192&scope=commands,links:write,users:read&user_scope=links:read"> installs the Operations for Applications application into Slack</a>. This user must have the permission to add apps to the Slack workspace. Who that person is depends on the Slack setup at your site. 
+2. After that, any user who pastes a link to an Operations for Applications instance - usually a link to a chart - into Slack is prompted as follows:
+  * Unfurl links to Operations for Applications instances
+  * Don't unfurl links to this Operations for Applications instance
   * Don't unfurl links.
 
     The following image illustrates this:
@@ -86,14 +86,14 @@ Now, you will be able to observe dashboards and charts directly within Slack.
 
 ### Troubleshooting
 
-If you are unable to unfurl a link, before opening a support request with the [[applicationName]] Support, do the following:
+If you are unable to unfurl a link, before opening a support request with the Operations for Applications Support, do the following:
 
-1. In the Slack interface, run the `/unignore <domain>` command and make sure that the [[applicationName]] domain has not been ignored.
-2. Check whether the [[applicationName]] Slack Unfurl app is muted.
+1. In the Slack interface, run the `/unignore <domain>` command and make sure that the Operations for Applications domain has not been ignored.
+2. Check whether the Operations for Applications Slack Unfurl app is muted.
 
    1. In the Slack interface, navigate to **Administration** > **Manage Apps**.
    2. Click **Muted Apps**.
 
-   If the [[applicationName]] Slack Unfurl app is muted, try to unmute it. See the [Muted Apps](https://my.slack.com/apps/manage/mutes) Slack documentation.
+   If the Operations for Applications Slack Unfurl app is muted, try to unmute it. See the [Muted Apps](https://my.slack.com/apps/manage/mutes) Slack documentation.
 
 

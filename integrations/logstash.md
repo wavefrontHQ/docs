@@ -2,7 +2,7 @@
 title: Logstash Integration
 tags: [integrations list]
 permalink: logstash.html
-summary: Learn about the Wavefront Logstash Integration.
+summary: Learn about the Logstash Integration.
 ---
 # Logstash Integration
 

@@ -2,7 +2,7 @@
 title: VMware Tanzu Application Service Integration
 tags: [integrations list]
 permalink: tas_v4.html
-summary: Learn about the Wavefront VMware Tanzu Application Service Integration.
+summary: Learn about the VMware Tanzu Application Service Integration.
 ---
 ## Tanzu Application Service Integration
 

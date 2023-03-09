@@ -2,11 +2,11 @@
 title: Jira Integration
 tags: [integrations list]
 permalink: jira.html
-summary: Learn about the Wavefront Jira Integration.
+summary: Learn about the Jira Integration.
 ---
 ## Jira Integration
 
-Jira is an issue and project tracking system for software teams. This integration allows to create tickets from triggered alerts in [[applicationName]]. [[applicationName]] and Jira both support webhooks so you can easily configure an incoming webhook in Jira and an outgoing webhook in [[applicationName]] to pass the notifications from [[applicationName]] alerts into Jira. A Jira ticket created based on alert in [[applicationName]] looks like this:
+Jira is an issue and project tracking system for software teams. This integration allows to create tickets from triggered alerts in Operations for Applications. Operations for Applications and Jira both support webhooks so you can easily configure an incoming webhook in Jira and an outgoing webhook in Operations for Applications to pass the notifications from Operations for Applications alerts into Jira. A Jira ticket created based on alert in Operations for Applications looks like this:
 
 {% include image.md width="80" src="images/jira_ticket.png" %}
 ## Jira Setup
@@ -64,10 +64,10 @@ Accept - application/json
 Follow this [link](https://developer.atlassian.com/cloud/jira/platform/rest/?_ga=2.32496189.285108841.1525870487-134772442.1525608908#api-api-2-issue-post)
 to choose more Jira fields which can be added to the template.
 
-1. Click **Save** to add the alert target in [[applicationName]].
+1. Click **Save** to add the alert target in Operations for Applications.
 1. Browse to **Alert Target** page. In the Name column, note the ID of the alert target you just created.
 
-### Step 4. Add the Jira Alert Target to [[applicationName]] Alert
+### Step 4. Add the Jira Alert Target to Operations for Applications Alert
 
 {% include alerts.md %}
 {% include webhooks_select.md %}

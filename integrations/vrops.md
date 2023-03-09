@@ -2,7 +2,7 @@
 title: VMware Aria Operations (SaaS) Integration
 tags: [integrations list]
 permalink: vrops.html
-summary: Learn about the Wavefront VMware Aria Operations (SaaS) Integration.
+summary: Learn about the VMware Aria Operations (SaaS) Integration.
 ---
 # VMware Aria Operations (SaaS) Integration
 

@@ -2,7 +2,7 @@
 title: Chef Server Integration
 tags: [integrations list]
 permalink: wavefront-chef.html
-summary: Learn about the Wavefront Chef Server Integration.
+summary: Learn about the Chef Server Integration.
 ---
 ## Chef Server Integration
 
@@ -29,7 +29,7 @@ sed -i 's/<YOUR_API_KEY>/YOUR_API_TOKEN/g' wavefront/attributes/default.rb
 ```
 {% endraw %}
 
-### Step 3. Upload the [[applicationName]] cookbook
+### Step 3. Upload the Operations for Applications cookbook
 {% raw %}
 ```
 knife cookbook upload wavefront

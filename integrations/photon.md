@@ -2,7 +2,7 @@
 title: Photon OS Host Integration
 tags: [integrations list]
 permalink: photon.html
-summary: Learn about the Wavefront Photon OS Host Integration.
+summary: Learn about the Photon OS Host Integration.
 ---
 ## Photon OS Host Integration
 

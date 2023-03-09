@@ -2,7 +2,7 @@
 title: VMware GemFire® Integration
 tags: [integrations list]
 permalink: gemfire.html
-summary: Learn about the Wavefront VMware GemFire® Integration.
+summary: Learn about the VMware GemFire® Integration.
 ---
 
 ## VMware GemFire Integration

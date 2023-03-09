@@ -2,7 +2,7 @@
 title: Red Hat Enterprise Linux Host Integration
 tags: [integrations list]
 permalink: redhat.html
-summary: Learn about the Wavefront Red Hat Enterprise Linux Host Integration.
+summary: Learn about the Red Hat Enterprise Linux Host Integration.
 ---
 ## Linux Host Integration
 

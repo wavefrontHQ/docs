@@ -2,7 +2,7 @@
 title: Metricproxy Integration
 tags: [integrations list]
 permalink: metricproxy.html
-summary: Learn about the Wavefront Metricproxy Integration.
+summary: Learn about the Metricproxy Integration.
 ---
 ## Metricproxy Integration
 

@@ -2,24 +2,24 @@
 title: Operations for Applications Usage Integration
 tags: [integrations list]
 permalink: system.html
-summary: Learn about the Wavefront Operations for Applications Usage Integration.
+summary: Learn about the Operations for Applications Usage Integration.
 ---
-## [[applicationName]] Usage Integration
+## Operations for Applications Usage Integration
 
-The **[[applicationName]] Service and Proxy Data** dashboard allows you to examine internal metrics and check whether your [[applicationName]] instance is behaving as expected.
+The **Operations for Applications Service and Proxy Data** dashboard allows you to examine internal metrics and check whether your Operations for Applications instance is behaving as expected.
 
-The **[[applicationName]] Ingestion Policy Explorer** dashboard provides a granular breakdown of [[applicationName]] ingestion across your organization by ingestion policies, accounts, sources, and types.
-Use this dashboard to identify who is contributing the most to your [[applicationName]] usage and manage your overall usage.
+The **Operations for Applications Ingestion Policy Explorer** dashboard provides a granular breakdown of Operations for Applications ingestion across your organization by ingestion policies, accounts, sources, and types.
+Use this dashboard to identify who is contributing the most to your Operations for Applications usage and manage your overall usage.
 
-The **[[applicationName]] Namespace Usage Explorer** dashboard breaks down metrics usage based on integrations with the ability to drill-down further into the metric namespaces.
+The **Operations for Applications Namespace Usage Explorer** dashboard breaks down metrics usage based on integrations with the ability to drill-down further into the metric namespaces.
 
-The **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboard shows your monthly PPS usage against your remaining burndown balance. Applies only to customers who have burndown commit contracts with [[applicationName]].
+The **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboard shows your monthly PPS usage against your remaining burndown balance. Applies only to customers who have burndown commit contracts with Operations for Applications.
 
-The **Committed Rate vs Monthly Usage (PPS P95) for Billable** dashboard shows your monthly PPS usage against your monthly billable commitment. Applies only to customers who have billable commit contracts with [[applicationName]].
+The **Committed Rate vs Monthly Usage (PPS P95) for Billable** dashboard shows your monthly PPS usage against your monthly billable commitment. Applies only to customers who have billable commit contracts with Operations for Applications.
 
-[[applicationName]] internal metrics have the following [prefixes](https://docs.wavefront.com/wavefront-internal-metrics.html#internal-metrics-overview).
+Operations for Applications internal metrics have the following [prefixes](https://docs.wavefront.com/wavefront-internal-metrics.html#internal-metrics-overview).
 
-To modify the **[[applicationName]] Usage alerts**, install them and clone them. You must update the required fields in cloned alerts.
+To modify the **Operations for Applications Usage alerts**, install them and clone them. You must update the required fields in cloned alerts.
 
 
 

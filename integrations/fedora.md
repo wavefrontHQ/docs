@@ -2,7 +2,7 @@
 title: Fedora Linux Host Integration
 tags: [integrations list]
 permalink: fedora.html
-summary: Learn about the Wavefront Fedora Linux Host Integration.
+summary: Learn about the Fedora Linux Host Integration.
 ---
 ## Linux Host Integration
 

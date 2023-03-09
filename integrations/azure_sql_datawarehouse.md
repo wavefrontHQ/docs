@@ -2,7 +2,7 @@
 title: Microsoft Azure SQL Datawarehouse Integration
 tags: [integrations list]
 permalink: azure_sql_datawarehouse.html
-summary: Learn about the Wavefront Microsoft Azure SQL Datawarehouse Integration.
+summary: Learn about the Microsoft Azure SQL Datawarehouse Integration.
 ---
 ## Microsoft Azure Integration
 

@@ -2,20 +2,20 @@
 title: ServiceNow Integration
 tags: [integrations list]
 permalink: servicenow.html
-summary: Learn about the Wavefront ServiceNow Integration.
+summary: Learn about the ServiceNow Integration.
 ---
 ## ServiceNow Incident Integration
 
-ServiceNow is a popular IT services management platform. You can create [[applicationName]] alert targets that surface alerts as ServiceNow incidents of different priorities (High, Moderate, Low, Planning).
+ServiceNow is a popular IT services management platform. You can create Operations for Applications alert targets that surface alerts as ServiceNow incidents of different priorities (High, Moderate, Low, Planning).
 Incidents can also optionally be assigned to groups or categorized.
 ## ServiceNow Setup
 
 
 
-### Step 1. Create an [[applicationName]] alert user in ServiceNow
+### Step 1. Create an Operations for Applications alert user in ServiceNow
 
-[[applicationName]] will use the ServiceNow user to create incidents. The user will be identified as the caller for each incident.
-This user will be used by [[applicationName]] to create incidents in ServiceNow and will also be identified as the Caller for each incident. 
+Operations for Applications will use the ServiceNow user to create incidents. The user will be identified as the caller for each incident.
+This user will be used by Operations for Applications to create incidents in ServiceNow and will also be identified as the Caller for each incident. 
 1. In ServiceNow, navigate to **System Security** > **Users & Groups** > **Users** and click **New**.
 1. Specify a User ID (for example `appMonitor`) and a First Name (for example `Operations for Applications Alerts`).
 1. Make sure that you leave the **Password needs reset** check box deselected.
@@ -23,7 +23,7 @@ This user will be used by [[applicationName]] to create incidents in ServiceNow 
 1. Click **Submit**. The new user is created.
 
 
-### Step 2. Generate password for the [[applicationName]] alert user
+### Step 2. Generate password for the Operations for Applications alert user
 
 1. In ServiceNow, navigate to **System Security** > **Users & Groups** > **Users**.
 1. Search for the user created in Step 1 and click the user.
@@ -56,7 +56,7 @@ The ServiceNow API uses Basic Authorization, a Base64 encoded string, for the us
 
 ### Step 5. Create a ServiceNow Alert Target
 
-1. In [[applicationName]], create an Alert Target.
+1. In Operations for Applications, create an Alert Target.
 1. Give the Alert Target a meaningful name and description.
 1. As **Triggers**, select the **Alert Firing**, **Alert Status Updated**, and **Alert Has No Data** options.
 1. Set Type to **Webhook**.
@@ -92,7 +92,7 @@ The ServiceNow API uses Basic Authorization, a Base64 encoded string, for the us
 1. Click **Save**
 
 
-### Step 6. Add the ServiceNow alert target to an [[applicationName]] alert
+### Step 6. Add the ServiceNow alert target to an Operations for Applications alert
 
 {% include alerts.md %}
 {% include webhooks_select.md %}

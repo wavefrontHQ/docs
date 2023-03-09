@@ -2,7 +2,7 @@
 title: VMware Aria Operations for Logs Integration
 tags: [integrations list]
 permalink: log-insight-cloud.html
-summary: Learn about the Wavefront VMware Aria Operations for Logs Integration.
+summary: Learn about the VMware Aria Operations for Logs Integration.
 ---
 ## VMware Aria Operations for Logs
 

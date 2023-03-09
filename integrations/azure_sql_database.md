@@ -2,7 +2,7 @@
 title: Microsoft Azure SQL Database Integration
 tags: [integrations list]
 permalink: azure_sql_database.html
-summary: Learn about the Wavefront Microsoft Azure SQL Database Integration.
+summary: Learn about the Microsoft Azure SQL Database Integration.
 ---
 ## Microsoft Azure Integration
 

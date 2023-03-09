@@ -2,7 +2,7 @@
 title: vSphere with Tanzu Integration
 tags: [integrations list]
 permalink: vsphere_tanzu.html
-summary: Learn about the Wavefront vSphere with Tanzu Integration.
+summary: Learn about the vSphere with Tanzu Integration.
 ---
 ## Kubernetes Integration
 

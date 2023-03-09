@@ -2,7 +2,7 @@
 title: Rancher Integration
 tags: [integrations list]
 permalink: rancher.html
-summary: Learn about the Wavefront Rancher Integration.
+summary: Learn about the Rancher Integration.
 ---
 ## Kubernetes Integration
 

@@ -2,7 +2,7 @@
 title: Apache Spark Integration
 tags: [integrations list]
 permalink: spark.html
-summary: Learn about the Wavefront Apache Spark Integration.
+summary: Learn about the Apache Spark Integration.
 ---
 ## Apache Spark Integration
 

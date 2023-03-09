@@ -2,7 +2,7 @@
 title: VMware Spring Cloud Data Flow for Kubernetes Integration
 tags: [integrations list]
 permalink: scdf.html
-summary: Learn about the Wavefront VMware Spring Cloud Data Flow for Kubernetes Integration.
+summary: Learn about the VMware Spring Cloud Data Flow for Kubernetes Integration.
 ---
 ## Spring Cloud Data Flow Integration
 

@@ -2,22 +2,22 @@
 title: Splunk On-Call Integration
 tags: [integrations list]
 permalink: victorops.html
-summary: Learn about the Wavefront Splunk On-Call Integration.
+summary: Learn about the Splunk On-Call Integration.
 ---
 ## Splunk On-Call Integration
 
 Splunk On-Call is a popular incident lifecycle management platform.
-You can use [[applicationName]] alerts to trigger a Splunk On-Call incident of varying types (information, warning, critical) and also to let Splunk On-Call know when an alert has stopped firing to mark the incident as recovered within the Splunk On-Call timeline. With the help of webhooks you can integrate [[applicationName]] alerts with Splunk On-Call.
+You can use Operations for Applications alerts to trigger a Splunk On-Call incident of varying types (information, warning, critical) and also to let Splunk On-Call know when an alert has stopped firing to mark the incident as recovered within the Splunk On-Call timeline. With the help of webhooks you can integrate Operations for Applications alerts with Splunk On-Call.
 ## Splunk On-Call Setup
 
 
 
-### Step 1. Enable the [[applicationName]] Integration in Splunk On-Call
+### Step 1. Enable the Operations for Applications Integration in Splunk On-Call
 
 1. In Splunk On-Call, go to account Settings at the top of the page.
 1. Select **Alert Behavior > Integrations**.
 {% include image.md width="30" src="images/victorops_alert_behavior.png" %}
-1. On the Integrations page, scroll down until you see the [[applicationName]] integration option and select it.
+1. On the Integrations page, scroll down until you see the Operations for Applications integration option and select it.
 {% include image.md width="40" src="images/victorops_wavefront.png" %}
 1. If not already enabled, click the **Enable Integration** button which generates a unique URL to use for notifications.
 {% include image.md width="50" src="images/victorops_enable_integration.png" %}
@@ -34,7 +34,7 @@ You can use [[applicationName]] alerts to trigger a Splunk On-Call incident of v
 {% include image.md width="90" src="images/victorops_alert_target.png" %}
 1. Click **Save**. 
 
-### Step 3. Add the Splunk On-Call Alert Target to a [[applicationName]] Alert
+### Step 3. Add the Splunk On-Call Alert Target to a Operations for Applications Alert
 
 {% include alerts.md %}
 {% include webhooks_select.md %}

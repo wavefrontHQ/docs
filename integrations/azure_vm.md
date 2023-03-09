@@ -2,7 +2,7 @@
 title: Microsoft Azure Virtual Machine Integration
 tags: [integrations list]
 permalink: azure_vm.html
-summary: Learn about the Wavefront Microsoft Azure Virtual Machine Integration.
+summary: Learn about the Microsoft Azure Virtual Machine Integration.
 ---
 ## Microsoft Azure Integration
 

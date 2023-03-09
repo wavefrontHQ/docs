@@ -2,7 +2,7 @@
 title: collectd Integration
 tags: [integrations list]
 permalink: collectd.html
-summary: Learn about the Wavefront collectd Integration.
+summary: Learn about the collectd Integration.
 ---
 ## collectd Integration
 
