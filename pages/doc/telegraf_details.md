@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: telegraf_details.html
 summary: Troubleshoot your Telegraf installation
 ---
-A common way to collect and send metric data to Tanzu Observability by Wavefront is through a Telegraf agent that is configured to relay the metrics to a Wavefront proxy. This doc page has some Telegraf troubleshooting and tuning information. See [Proxy Troubleshooting](proxies_troubleshooting.html) for details on resolving proxy problems.
+A common way to collect and send metric data to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) is through a Telegraf agent that is configured to relay the metrics to a Wavefront proxy. This doc page has some Telegraf troubleshooting and tuning information. See [Proxy Troubleshooting](proxies_troubleshooting.html) for details on resolving proxy problems.
 
 ## Connection Troubleshooting
 
@@ -217,7 +217,7 @@ After you've enabled agent metrics collection, you can examine Telegraf statisti
 <td width="40%">
 In the GUI, find the integration.
 <ol>
-<li>Log in to your Wavefront instance. </li>
+<li>Log in to your service instance (<code>https://&lt;your_instance&gt;.wavefront.com</code>). </li>
 <li>Select <strong>Integrations</strong>.</li>
 <li>Search for Telegraf and select that integration.</li>
 </ol></td>
