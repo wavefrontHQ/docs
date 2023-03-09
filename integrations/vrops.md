@@ -1,17 +1,13 @@
 ---
-title: VMware vRealize Operations Cloud Integration
+title: VMware Aria Operations (SaaS) Integration
 tags: [integrations list]
 permalink: vrops.html
-summary: Learn about the Wavefront VMware vRealize Operations Cloud Integration.
+summary: Learn about the Wavefront VMware Aria Operations (SaaS) Integration.
 ---
-# VMware vRealize Operations Cloud Integration
+# VMware Aria Operations (SaaS) Integration
 
-The vRealize Operations Cloud integration is a full-featured native integration, that offers agentless data ingestion of vRealize Operations Cloud metric data, as well as predefined dashboards.
-
-In addition to setting up the metrics flow, this integration also installs a dashboard.
-
-{% include image.md src="images/vrops-dashboard.png" width="80" %}
-## VMware vRealize Operations Cloud Integration
+The VMware Aria Operations (SaaS) integration is a full-featured native integration, that offers agentless data ingestion of VMware Aria Operations (SaaS) metric data, as well as predefined dashboards.
+## VMware Aria Operations (SaaS) Integration
 
 
 

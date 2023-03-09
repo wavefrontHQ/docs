@@ -25,7 +25,7 @@ To emit GemFire metrics to Wavefront, you must make sure that the Tanzu Observab
 
 In addition to setting up the metrics flow, this integration also installs dashboards. Here's the screenshot of our GemFire Developer dashboard.
 
-{% include image.md src="images/dashboard.png" width="80" %}
+{% include image.md src="images/gemfire-dashboard.png" width="80" %}
 
 ## Use the instructions on this page for monitoring:
 

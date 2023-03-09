@@ -6,7 +6,7 @@ summary: Learn about the Wavefront Webhooks Integration.
 ---
 ## Webhooks
 
-Webhooks allow your application to send out information using HTTP callbacks. Wavefront supports webhooks through the Webhook alert target. You can use an alert target to send notifications that are based on alert trigger conditions.
+Webhooks allow your application to send out information using HTTP callbacks. [[applicationName]] supports webhooks through the Webhook alert target. You can use an alert target to send notifications that are based on alert trigger conditions.
 
 
 ## Webhooks Setup

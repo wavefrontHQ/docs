@@ -1,14 +1,14 @@
 ---
-title: Wavefront Chef Server Integration
+title: Chef Server Integration
 tags: [integrations list]
 permalink: wavefront-chef.html
-summary: Learn about the Wavefront Wavefront Chef Server Integration.
+summary: Learn about the Wavefront Chef Server Integration.
 ---
-## Wavefront Chef Server Integration
+## Chef Server Integration
 
 This integration is a cookbook for installing and configuring Python, pip, Telegraf, and the Wavefront proxy on a Chef client. The instructions include all commands you run, in sequence.
 
-## Wavefront Chef Server Setup
+## Chef Server Setup
 
 ### Step 1. Download and extract the Chef cookbook
 
@@ -29,7 +29,7 @@ sed -i 's/<YOUR_API_KEY>/YOUR_API_TOKEN/g' wavefront/attributes/default.rb
 ```
 {% endraw %}
 
-### Step 3. Upload the Wavefront cookbook
+### Step 3. Upload the [[applicationName]] cookbook
 {% raw %}
 ```
 knife cookbook upload wavefront

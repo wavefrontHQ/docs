@@ -11,7 +11,7 @@ The New Relic integration is a native integration offering agent less data inges
 ### Metrics Configuration
 This integration can be configured to pull all application metrics from New Relic. If you want to pull only certain application metrics, configure filters while setting up the integration.
 
-Metrics that originate from New Relic are prefixed with `newrelic.apps.` in Wavefront. After you set up the integration, you can browse the available metrics in the metrics browser.
+Metrics that originate from New Relic are prefixed with `newrelic.apps.` in [[applicationName]]. After you set up the integration, you can browse the available metrics in the metrics browser.
 
 ## New Relic Integration
 

@@ -1,14 +1,14 @@
 ---
-title: Tour Pro Integration
+title: Operations for Applications Tour Integration
 tags: [integrations list]
 permalink: tour.html
-summary: Learn about the Wavefront Tour Pro Integration.
+summary: Learn about the Wavefront Operations for Applications Tour Integration.
 ---
-## Tour Pro Integration
+## [[applicationName]] Tour Integration
 
-The Tour Pro integration is a set of dashboards that show some typical customer use cases and let you explore Wavefront capabilities.
+The [[applicationName]] Tour integration is a set of dashboards that show some typical customer use cases and let you explore [[applicationName]] capabilities.
 
- - Welcome - Learn about Wavefront capabilities and benefits.
+ - Welcome - Learn about [[applicationName]] capabilities and benefits.
  - The Needle in a Haystack - See a correlation function in action. 
  - Anomaly Detection - Use historical data to establish a pattern and capture when a problem occurred. 
  - The Perfect Alert - Prevent false alarms with intelligent alerting. 
