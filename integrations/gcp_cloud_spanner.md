@@ -2,7 +2,7 @@
 title: Google Cloud Spanner Integration
 tags: [integrations list]
 permalink: gcp_cloud_spanner.html
-summary: Learn about the Wavefront Google Cloud Spanner Integration.
+summary: Learn about the Google Cloud Spanner Integration.
 ---
 ## Google Cloud Platform Integration
 
@@ -11,15 +11,15 @@ data, as well as pre-defined dashboards and alert conditions for certain GCP ser
 
 ### Metrics Configuration
 
-Wavefront ingests Google Cloud Platform metrics using the v3 Stackdriver Monitoring APIs. For details on the metrics, see the
+Operations for Applications ingests Google Cloud Platform metrics using the v3 Stackdriver Monitoring APIs. For details on the metrics, see the
 [metrics documentation](https://cloud.google.com/monitoring/api/metrics).
 
-Metrics originating from Google Cloud Platform are prefixed with `gcp.` within Wavefront. Once the integration has
+Metrics originating from Google Cloud Platform are prefixed with `gcp.` within Operations for Applications. Once the integration has
 been set up, you can browse the available GCP metrics in the metrics browser.
 
 ### Dashboards
 
-<p>Wavefront provides Google Cloud Platform dashboards for the following services:</p>
+<p>Operations for Applications provides Google Cloud Platform dashboards for the following services:</p>
 
 - Google App Engine
 - Google BigQuery

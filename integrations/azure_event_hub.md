@@ -2,7 +2,7 @@
 title: Microsoft Azure Event Hub Integration
 tags: [integrations list]
 permalink: azure_event_hub.html
-summary: Learn about the Wavefront Microsoft Azure Event Hub Integration.
+summary: Learn about the Microsoft Azure Event Hub Integration.
 ---
 ## Microsoft Azure Integration
 

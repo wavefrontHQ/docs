@@ -2,7 +2,7 @@
 title: Graphite Integration
 tags: [integrations list]
 permalink: graphite.html
-summary: Learn about the Wavefront Graphite Integration.
+summary: Learn about the Graphite Integration.
 ---
 ## Graphite Data Integration
 

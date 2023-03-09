@@ -2,7 +2,7 @@
 title: Google Integration
 tags: [integrations list]
 permalink: google.html
-summary: Learn about the Wavefront Google Integration.
+summary: Learn about the Google Integration.
 ---
 ## Google SSO Integration
 

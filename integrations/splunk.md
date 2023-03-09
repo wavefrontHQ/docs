@@ -2,7 +2,7 @@
 title: Splunk Integration
 tags: [integrations list]
 permalink: splunk.html
-summary: Learn about the Wavefront Splunk Integration.
+summary: Learn about the Splunk Integration.
 ---
 # Splunk Logs Integration
 

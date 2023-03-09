@@ -2,7 +2,7 @@
 title: Micrometer Integration
 tags: [integrations list]
 permalink: micrometer.html
-summary: Learn about the Wavefront Micrometer Integration.
+summary: Learn about the Micrometer Integration.
 ---
 # Micrometer Integration
 

@@ -2,7 +2,7 @@
 title: PingOne Integration
 tags: [integrations list]
 permalink: pingone.html
-summary: Learn about the Wavefront PingOne Integration.
+summary: Learn about the PingOne Integration.
 ---
 ## PingOne
 

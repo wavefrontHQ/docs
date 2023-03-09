@@ -2,7 +2,7 @@
 title: VMware tc Server Integration
 tags: [integrations list]
 permalink: vmware-tcserver.html
-summary: Learn about the Wavefront VMware tc Server Integration.
+summary: Learn about the VMware tc Server Integration.
 ---
 ## VMware tc Server
 

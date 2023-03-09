@@ -2,7 +2,7 @@
 title: Microsoft Azure Integration
 tags: [integrations list]
 permalink: azure.html
-summary: Learn about the Wavefront Microsoft Azure Integration.
+summary: Learn about the Microsoft Azure Integration.
 ---
 ## Microsoft Azure Integration
 

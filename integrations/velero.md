@@ -2,7 +2,7 @@
 title: Velero Integration
 tags: [integrations list]
 permalink: velero.html
-summary: Learn about the Wavefront Velero Integration.
+summary: Learn about the Velero Integration.
 ---
 ## Velero Integration
 

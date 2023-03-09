@@ -2,7 +2,7 @@
 title: Active Directory Integration
 tags: [integrations list]
 permalink: activedirectory.html
-summary: Learn about the Wavefront Active Directory Integration.
+summary: Learn about the Active Directory Integration.
 ---
 ## Active Directory Integration
 

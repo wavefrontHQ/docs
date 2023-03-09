@@ -2,7 +2,7 @@
 title: Linux Host Integration
 tags: [integrations list]
 permalink: linux.html
-summary: Learn about the Wavefront Linux Host Integration.
+summary: Learn about the Linux Host Integration.
 ---
 ## Linux Host Integration
 

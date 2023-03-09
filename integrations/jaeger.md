@@ -2,7 +2,7 @@
 title: Jaeger Integration
 tags: [integrations list]
 permalink: jaeger.html
-summary: Learn about the Wavefront Jaeger Integration.
+summary: Learn about the Jaeger Integration.
 ---
 ## Jaeger Integration
 

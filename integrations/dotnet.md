@@ -2,7 +2,7 @@
 title: .NET Integration
 tags: [integrations list]
 permalink: dotnet.html
-summary: Learn about the Wavefront .NET Integration.
+summary: Learn about the .NET Integration.
 ---
 ## .NET Integration
 

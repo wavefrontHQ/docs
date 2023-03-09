@@ -2,7 +2,7 @@
 title: VMware Blockchain Integration
 tags: [integrations list]
 permalink: vmware_blockchain.html
-summary: Learn about the Wavefront VMware Blockchain Integration.
+summary: Learn about the VMware Blockchain Integration.
 ---
 ## VMware Blockchain Integration
 

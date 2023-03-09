@@ -2,7 +2,7 @@
 title: Data Platforms Integration
 tags: [integrations list]
 permalink: dataplatforms.html
-summary: Learn about the Wavefront Data Platforms Integration.
+summary: Learn about the Data Platforms Integration.
 ---
 ## Data Platforms Blueprints Integration
 

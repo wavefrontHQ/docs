@@ -2,7 +2,7 @@
 title: Microsoft Azure Application Gateways Integration
 tags: [integrations list]
 permalink: azure_ag.html
-summary: Learn about the Wavefront Microsoft Azure Application Gateways Integration.
+summary: Learn about the Microsoft Azure Application Gateways Integration.
 ---
 ## Microsoft Azure Integration
 

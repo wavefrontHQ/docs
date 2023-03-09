@@ -2,7 +2,7 @@
 title: Microsoft Azure Virtual Machine Scale Sets Integration
 tags: [integrations list]
 permalink: azure_vm_scalesets.html
-summary: Learn about the Wavefront Microsoft Azure Virtual Machine Scale Sets Integration.
+summary: Learn about the Microsoft Azure Virtual Machine Scale Sets Integration.
 ---
 ## Microsoft Azure Integration
 
