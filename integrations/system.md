@@ -8,7 +8,7 @@ summary: Learn about the Wavefront Operations for Applications Usage Integration
 
 The **[[applicationName]] Service and Proxy Data** dashboard allows you to examine internal metrics and check whether your [[applicationName]] instance is behaving as expected.
 
-The **[[applicationName]] Ingestion Policy Explorer** dashboard provides a granular breakdown of Operations for Applications ingestion across your organization by ingestion policies, accounts, sources, and types.
+The **[[applicationName]] Ingestion Policy Explorer** dashboard provides a granular breakdown of [[applicationName]] ingestion across your organization by ingestion policies, accounts, sources, and types.
 Use this dashboard to identify who is contributing the most to your [[applicationName]] usage and manage your overall usage.
 
 The **[[applicationName]] Namespace Usage Explorer** dashboard breaks down metrics usage based on integrations with the ability to drill-down further into the metric namespaces.

@@ -6,7 +6,7 @@ summary: Learn about the Wavefront Jira Integration.
 ---
 ## Jira Integration
 
-Jira is an issue and project tracking system for software teams. This integration allows to create tickets from triggered alerts in [[applicationName]]. Operations for Applications and Jira both support webhooks so you can easily configure an incoming webhook in Jira and an outgoing webhook in Operations for Applications to pass the notifications from Operations for Applications alerts into Jira. A Jira ticket created based on alert in Operations for Applications looks like this:
+Jira is an issue and project tracking system for software teams. This integration allows to create tickets from triggered alerts in [[applicationName]]. [[applicationName]] and Jira both support webhooks so you can easily configure an incoming webhook in Jira and an outgoing webhook in [[applicationName]] to pass the notifications from [[applicationName]] alerts into Jira. A Jira ticket created based on alert in [[applicationName]] looks like this:
 
 {% include image.md width="80" src="images/jira_ticket.png" %}
 ## Jira Setup

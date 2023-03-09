@@ -8,7 +8,7 @@ summary: Learn about the Wavefront PagerDuty Integration.
 
 PagerDuty is a popular incident management platform. This integration configures PageDuty API keys or email addresses as targets of [[applicationName]] alert notifications.
 
-Operations for Applications recommends using the PagerDuty API integration key instead of the PagerDuty email integration, but the choice between the two targets should be dependent upon how you want incidents to be created in PagerDuty based on your Operations for Applications alerts. When a PagerDuty API integration key is used in an Operations for Applications alert, all alert changes (firing, updated, resolved) are tied to a single incident in PagerDuty. When a PagerDuty email address is used in an Operations for Applications alert, the number of incidents created in PagerDuty can change significantly based on the email management configurations.
+[[applicationName]] recommends using the PagerDuty API integration key instead of the PagerDuty email integration, but the choice between the two targets should be dependent upon how you want incidents to be created in PagerDuty based on your [[applicationName]] alerts. When a PagerDuty API integration key is used in an [[applicationName]] alert, all alert changes (firing, updated, resolved) are tied to a single incident in PagerDuty. When a PagerDuty email address is used in an [[applicationName]] alert, the number of incidents created in PagerDuty can change significantly based on the email management configurations.
 
 Consider the following scenario:
 {% raw %}
@@ -20,9 +20,9 @@ Consider the following scenario:
 ```
 {% endraw %}
 
-In this scenario, choosing a PagerDuty API integration key target means that a single incident would track all of those changes and would also resolve the incident automatically in PagerDuty if the alert resolves in Operations for Applications. Choosing a PagerDuty email target requires you to customize the email management configuration to determine whether the scenario above would create 1 to 4 separate incidents in PagerDuty.
+In this scenario, choosing a PagerDuty API integration key target means that a single incident would track all of those changes and would also resolve the incident automatically in PagerDuty if the alert resolves in [[applicationName]]. Choosing a PagerDuty email target requires you to customize the email management configuration to determine whether the scenario above would create 1 to 4 separate incidents in PagerDuty.
 
-If want to use a PagerDuty email target, consider the **Open a new incident only if an open incident does not already exist** option carefully. If you select this option and the PagerDuty email target is used in multiple Operations for Applications alerts, you run the risk of having multiple Operations for Applications alerts tied to a single incident in PagerDuty.
+If want to use a PagerDuty email target, consider the **Open a new incident only if an open incident does not already exist** option carefully. If you select this option and the PagerDuty email target is used in multiple [[applicationName]] alerts, you run the risk of having multiple [[applicationName]] alerts tied to a single incident in PagerDuty.
 
 ## PagerDuty Setup
 

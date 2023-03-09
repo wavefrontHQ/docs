@@ -6,7 +6,7 @@ summary: Learn about the Wavefront OpsGenie Integration.
 ---
 ## OpsGenie Integration
 
-OpsGenie is a popular incident management platform. You can use [[applicationName]] alerts to trigger OpsGenie incidents of different severities (info, smoke, warn, severe). Operations for Applications can also let OpsGenie know when an alert has stopped firing to mark the incident as resolved within the OpsGenie timeline.
+OpsGenie is a popular incident management platform. You can use [[applicationName]] alerts to trigger OpsGenie incidents of different severities (info, smoke, warn, severe). [[applicationName]] can also let OpsGenie know when an alert has stopped firing to mark the incident as resolved within the OpsGenie timeline.
 
 You can use Webhooks to integrate [[applicationName]] alerts with OpsGenie. Here's an example of an alert notifications sent to OpsGenie:
 

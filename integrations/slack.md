@@ -12,19 +12,19 @@ Slack is a popular communication platform. [[applicationName]] integrates with S
 
 ### Slack Webhook Integration for Alert Notifications
 
-[[applicationName]] and Slack both support webhooks so you can easily configure an incoming webhook in Slack and an outgoing webhook in Operations for Applications to pass the notifications from Operations for Applications alerts into your Slack channels. An alert notification sent to a Slack channel looks like:
+[[applicationName]] and Slack both support webhooks so you can easily configure an incoming webhook in Slack and an outgoing webhook in [[applicationName]] to pass the notifications from [[applicationName]] alerts into your Slack channels. An alert notification sent to a Slack channel looks like:
 
 {% include image.md width="50" src="images/slack_alert.png" %}
 
 ### Slack URL Unfurler
 
-After a privileged user has added the [[applicationName]] application to Slack, all Slack users will be prompted the next time they post an Operations for Applications URL. They can decide to unfurl the URL to show an image, unfurl all Operations for Applications URLs, or not unfurl Operations for Applications URLs. Here's a Slack message with an unfurled chart image:
+After a privileged user has added the [[applicationName]] application to Slack, all Slack users will be prompted the next time they post an [[applicationName]] URL. They can decide to unfurl the URL to show an image, unfurl all [[applicationName]] URLs, or not unfurl [[applicationName]] URLs. Here's a Slack message with an unfurled chart image:
 
 {% include image.md width="50" src="images/unfurled_chart.png" %}
 
 ## Slack Webhook Integration Setup
 
-[[applicationName]] and Slack both support webhooks so you can easily configure an incoming webhook in Slack and an outgoing webhook in Operations for Applications to pass the notifications from Operations for Applications alerts into your Slack channels.
+[[applicationName]] and Slack both support webhooks so you can easily configure an incoming webhook in Slack and an outgoing webhook in [[applicationName]] to pass the notifications from [[applicationName]] alerts into your Slack channels.
 
 **Note:** To perform the steps as described below, you must have administrator permissions on the workspace that you want to configure.
 

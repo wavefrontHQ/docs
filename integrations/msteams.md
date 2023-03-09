@@ -7,7 +7,7 @@ summary: Learn about the Wavefront Microsoft Teams Integration.
 ## Microsoft Teams Integration
 
 Microsoft Teams is a popular team collaboration tool. 
-You can use [[applicationName]] alerts to send a message to a Microsoft Teams chat channel. With the help of webhooks you can integrate Operations for Applications alerts into Microsoft Teams as a Connector.
+You can use [[applicationName]] alerts to send a message to a Microsoft Teams chat channel. With the help of webhooks you can integrate [[applicationName]] alerts into Microsoft Teams as a Connector.
 
 ## Microsoft Teams Setup
 

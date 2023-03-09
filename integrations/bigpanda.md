@@ -6,7 +6,7 @@ summary: Learn about the Wavefront BigPanda Integration.
 ---
 ## BigPanda Integration
 
-BigPanda is an algorithmic event and alert management platform. This integration allows to create BigPanda tickets from triggered alerts in [[applicationName]]. Operations for Applications and BigPanda both support webhooks, so you can configure an incoming webhook in BigPanda and an outgoing webhook in Operations for Applications to pass notifications from Operations for Applications alerts into BigPanda. A BigPanda ticket created based on alert in Operations for Applications looks like this:
+BigPanda is an algorithmic event and alert management platform. This integration allows to create BigPanda tickets from triggered alerts in [[applicationName]]. [[applicationName]] and BigPanda both support webhooks, so you can configure an incoming webhook in BigPanda and an outgoing webhook in [[applicationName]] to pass notifications from [[applicationName]] alerts into BigPanda. A BigPanda ticket created based on alert in [[applicationName]] looks like this:
 
 {% include image.md width="80" src="images/bigpanda_ticket.png" %}
 ## BigPanda Setup
