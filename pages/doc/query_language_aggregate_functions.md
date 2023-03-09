@@ -104,8 +104,6 @@ sum(ts(~sample.cpu.loadavg.1m), az)
 The call groups the result of the call to `sum()` into two time series, one for each availability zone.
 
 
-{% include tip.html content="" %}
-
 <table>
 <tbody>
 <thead>
