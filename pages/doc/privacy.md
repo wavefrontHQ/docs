@@ -25,20 +25,20 @@ This privacy policy applies to you **ONLY** if you became a customer before Augu
 <li style="font-weight: 400;"><span style="font-weight: 400;">In connection with the ordinary course of business</span></li>
 </ul>
 <h2><strong>Sharing Personal Information</strong></h2>
-<p style="font-weight: 400; text-align: justify;">Protecting your Personal Information is important to us and we do not sell your information to third parties. Wavefront may share your Information with third parties as follows:</p>
+<p style="font-weight: 400; text-align: justify;">Protecting your Personal Information is important to us and we do not sell your information to third parties. We may share your Information with third parties as follows:</p>
 <ul>
 <li style="font-weight: 400;"><span style="font-weight: 400;">To our subsidiaries, affiliates, vendors, consultants, service providers and other third parties who need access to your Information in order to carry out work on our behalf.</span></li>
-<li style="font-weight: 400;"><span style="font-weight: 400;">In connection with, or during negotiations of, any merger, sale of company assets or acquisition of all or portion of Wavefront to another company.</span></li>
-<li style="font-weight: 400;"><span style="font-weight: 400;">If Wavefront is under the duty to disclose to comply with any applicable law, regulation, legal process or court order.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">In connection with, or during negotiations of, any merger, sale of company assets or acquisition of all or portion of the company to another company.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">If we're under the duty to disclose to comply with any applicable law, regulation, legal process or court order.</span></li>
 <li style="font-weight: 400;"><span style="font-weight: 400;">To enforce our agreements that governs the sale or use of our products and services.</span></li>
-<li style="font-weight: 400;"><span style="font-weight: 400;">To protect the rights, property or security of Wavefront, our employees or users. </span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">To protect the rights, property or security of our product, our employees or users. </span></li>
 </ul>
 <h2><strong>Use of Cookies or Other Technology</strong></h2>
 <p style="font-weight: 400; text-align: justify;">Cookies are small text files stored by your browser in your computer when you visit our web site. As you interact with our website, we use automatic data collection tools such as cookies and web beacons to collection information about your equipment, browser action and patterns. To improve our services and to provide you with the best possible product we may also collect information relating to your connectivity, browser type, Internet Protocol (IP) address and other communication data. The product is optimized for time-series metrics data, helping you use metrics and analytics to better manage cloud applications. We also use log monitors to optimize storing, indexing, and analyzing log data.</p>
 <h2><strong>Security</strong></h2>
 <p style="font-weight: 400; text-align: justify;">We take your security seriously and we are committed to protecting your Personal Information from unauthorized access, use and disclosure.  We follow generally accepted standards to protect your Personal Information, however the transmission of information via the Internet or email is not completely secure, and although we do our best to protect your Personal Information we cannot ensure or warrant the security of any information you provide us during transmission and once it is received. If you have any questions about the security of your Personal Information, you can contact us at <a class="email" href="#" onclick="javascript:window.location='mailto:support@wavefront.com'">support@wavefront.com</a></p>
 <h2><strong>Linked Website</strong></h2>
-<p style="font-weight: 400; text-align: justify;">Our website may contain links to other websites, our partner networks or advertisers. Wavefront is not responsible for the privacy practices or the content of third party websites whose privacy practices and content may differ from us. We encourage you to review the Privacy Policy of any website you visit.</p>
+<p style="font-weight: 400; text-align: justify;">Our website may contain links to other websites, our partner networks or advertisers. We are not responsible for the privacy practices or the content of third party websites whose privacy practices and content may differ from us. We encourage you to review the Privacy Policy of any website you visit.</p>
 <h2><strong>Transfer of your Information</strong></h2>
 <p style="font-weight: 400; text-align: justify;">In accordance with applicable law, we may transfer your Personal Information to any subsidiary or affiliates in any country we operate. You consent to the transfer, processing and storage of such information outside of your country of residence where you may not have the same rights and protections outside of your country of residence.</p>
 <h2><strong>Marketing</strong></h2>

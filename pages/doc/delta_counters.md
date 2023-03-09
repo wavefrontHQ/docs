@@ -54,7 +54,7 @@ The following illustration contrasts cumulative counters and delta counters with
   - The `cs()` query shows a chart with the delta values.
   - To get the rate (errors per second) we divide the query by 60. The result is the same as using `rate()` with the `ts()` query.
 
-![counter ingestion, query with ts and cs, and getting the rate for each. Detals in explanation](images/counters_and_delta_counters.png)
+![counter ingestion, query with ts and cs, and getting the rate for each. Details in explanation](images/counters_and_delta_counters.png)
 
 ### Where Are Cumulative Counters Useful?
 

@@ -91,12 +91,12 @@ We made improvements to the following integrations in November 2022:
 
 Logs (Beta) Related Changes:
 
-{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative or [technical support](wavefront_support_feedback.html#support)." %}
+{% include important.html content="Logs (Beta) is enabled only for selected customers. To participate, contact your VMware Aria Operations for Applications account representative or [technical support](wavefront_support_feedback.html#support)." %}
 
 
 With the Initial Availability of our Logs (Beta) feature, we have made improvements to the following integrations:
   
-* Linux Host -- Now contains Linux Logs Setup (Beta) instructions. If Logs (Beta) is enabled for you, you can set up your Linux integration to [send logs](logging_send_logs.html) to Tanzu Observability. For details on Tanzu Observability Logs (Beta), see [Get Started with Logs (Beta)](logging_overview.html). For detailed steps on setting up the Linux Host integration, see [Linux Logs Setup (Beta)](linux.html).
+* Linux Host -- Now contains Linux Logs Setup (Beta) instructions. If Logs (Beta) is enabled for you, you can set up your Linux integration to [send logs](logging_send_logs.html) to our service. For details on the Logs (Beta) feature, see [Get Started with Logs (Beta)](logging_overview.html). For detailed steps on setting up the Linux Host integration, see [Linux Logs Setup (Beta)](linux.html).
 * Operations for Applications Usage -- We added a Logs Stats section. It contains charts that track the amount of logs that are successfully delivered and successfully queried by our service. Also, the section shows charts that track the amount of logs that are received, queued, and blocked by the Wavefront proxy. [Read more](wavefront_monitoring.html#logs-stats).
 
 We made improvements and bug fixes to the following integrations in October 2022:
@@ -201,7 +201,7 @@ We made improvements to the following integrations in June 2022:
 
 * Snowflake:
   * To enhance authentication security, we updated the setup steps of the integration. Now, to register Snowflake, you have to provide a private key.
-  * We improved the setup instructions with information on how to generate the public and private keys and give Tanzu Observability access to your Snowflake account.
+  * We improved the setup instructions with information on how to generate the public and private keys and give Operations for Applications access to your Snowflake account.
   * Improved the **Snowflake Summary** dashboard and included charts for warehouse load monitoring.
 
 * Jenkins:
