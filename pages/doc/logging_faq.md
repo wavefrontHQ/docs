@@ -98,7 +98,7 @@ The Wavefront proxy drops the logs that exceed the [maximum character limit](log
   
     {% include note.html content="If you see `~proxy.log.*TooLong` or `~proxy.log.tooManyLogTags` metrics, check the [limits for logs](logging_send_logs.html#limits-for-logs). If you want to increase the logs limit for your Wavefront instance, contact [technical support](wavefront_support_feedback.html#support)." %}
 
-### Search for Logs on the Log Browser
+### Search for Logs on the Logs Browser
 
 In the [Logs Browser](logging_log_browser.html), search for logs containing the following message:
 
