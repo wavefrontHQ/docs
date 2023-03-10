@@ -2,7 +2,7 @@
 title: Microsoft Azure HDInsight Integration
 tags: [integrations list]
 permalink: azure_hd_insight.html
-summary: Learn about the Wavefront Microsoft Azure HDInsight Integration.
+summary: Learn about the Microsoft Azure HDInsight Integration.
 ---
 ## Microsoft Azure Integration
 

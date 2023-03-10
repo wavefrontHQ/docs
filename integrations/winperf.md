@@ -2,7 +2,7 @@
 title: Windows Performance Counters Integration
 tags: [integrations list]
 permalink: winperf.html
-summary: Learn about the Wavefront Windows Performance Counters Integration.
+summary: Learn about the Windows Performance Counters Integration.
 ---
 ## Windows performance counters
 

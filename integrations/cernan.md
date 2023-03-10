@@ -2,7 +2,7 @@
 title: Cernan Integration
 tags: [integrations list]
 permalink: cernan.html
-summary: Learn about the Wavefront Cernan Integration.
+summary: Learn about the Cernan Integration.
 ---
 ## Cernan Integration
 

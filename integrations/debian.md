@@ -2,7 +2,7 @@
 title: Debian Host Integration
 tags: [integrations list]
 permalink: debian.html
-summary: Learn about the Wavefront Debian Host Integration.
+summary: Learn about the Debian Host Integration.
 ---
 ## Linux Host Integration
 

@@ -2,7 +2,7 @@
 title: Amazon ElasticCache Integration
 tags: [integrations list]
 permalink: amazon_elastic_cache.html
-summary: Learn about the Wavefront Amazon ElasticCache Integration.
+summary: Learn about the Amazon ElasticCache Integration.
 ---
 ## Amazon Web Services Integration
 
@@ -10,7 +10,7 @@ The Amazon Web Services integration is full-featured implementation offering pre
 
 ### Dashboards
 
-Wavefront provides Amazon Web Services overview dashboards **Summary**, **Pricing**, and **Billing** and the service-specific dashboards for the following products:
+Operations for Applications provides Amazon Web Services overview dashboards **Summary**, **Pricing**, and **Billing** and the service-specific dashboards for the following products:
 
 - AWS: ALB
 - AWS: API Gateway
@@ -64,7 +64,7 @@ To create the alert, click the **Create Alert** link under the query and configu
 
 ### Metrics Configuration
 
-Wavefront ingests Amazon Web Services metrics using the CloudWatch, CloudTrail, and AWS service APIs. For details on the metrics and how to configure ingestion, see [AWS Metrics Integration](https://docs.wavefront.com/integrations_aws_metrics.html).
+Operations for Applications ingests Amazon Web Services metrics using the CloudWatch, CloudTrail, and AWS service APIs. For details on the metrics and how to configure ingestion, see [AWS Metrics Integration](https://docs.wavefront.com/integrations_aws_metrics.html).
 
 ### Metrics Information
 

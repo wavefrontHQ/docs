@@ -2,7 +2,7 @@
 title: CentOS Host Integration
 tags: [integrations list]
 permalink: centos.html
-summary: Learn about the Wavefront CentOS Host Integration.
+summary: Learn about the CentOS Host Integration.
 ---
 ## Linux Host Integration
 

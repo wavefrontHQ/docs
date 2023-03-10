@@ -2,7 +2,7 @@
 title: Amazon EKS Integration
 tags: [integrations list]
 permalink: amazon_eks.html
-summary: Learn about the Wavefront Amazon EKS Integration.
+summary: Learn about the Amazon EKS Integration.
 ---
 ## Kubernetes Integration
 

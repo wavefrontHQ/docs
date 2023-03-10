@@ -2,7 +2,7 @@
 title: Microsoft Azure Load Balancers Integration
 tags: [integrations list]
 permalink: azure_lb.html
-summary: Learn about the Wavefront Microsoft Azure Load Balancers Integration.
+summary: Learn about the Microsoft Azure Load Balancers Integration.
 ---
 ## Microsoft Azure Integration
 

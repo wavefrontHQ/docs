@@ -2,7 +2,7 @@
 title: Microsoft Azure Functions Integration
 tags: [integrations list]
 permalink: azure_functions.html
-summary: Learn about the Wavefront Microsoft Azure Functions Integration.
+summary: Learn about the Microsoft Azure Functions Integration.
 ---
 ## Microsoft Azure Integration
 

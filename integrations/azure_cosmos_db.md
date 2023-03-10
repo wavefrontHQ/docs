@@ -2,7 +2,7 @@
 title: Microsoft Azure Cosmos DB Integration
 tags: [integrations list]
 permalink: azure_cosmos_db.html
-summary: Learn about the Wavefront Microsoft Azure Cosmos DB Integration.
+summary: Learn about the Microsoft Azure Cosmos DB Integration.
 ---
 ## Microsoft Azure Integration
 

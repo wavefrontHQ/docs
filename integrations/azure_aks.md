@@ -2,7 +2,7 @@
 title: Microsoft Azure Kubernetes Services Integration
 tags: [integrations list]
 permalink: azure_aks.html
-summary: Learn about the Wavefront Microsoft Azure Kubernetes Services Integration.
+summary: Learn about the Microsoft Azure Kubernetes Services Integration.
 ---
 ## Microsoft Azure Integration
 

@@ -2,12 +2,12 @@
 title: Microsoft Teams Integration
 tags: [integrations list]
 permalink: msteams.html
-summary: Learn about the Wavefront Microsoft Teams Integration.
+summary: Learn about the Microsoft Teams Integration.
 ---
 ## Microsoft Teams Integration
 
 Microsoft Teams is a popular team collaboration tool. 
-You can use Wavefront alerts to send a message to a Microsoft Teams chat channel. With the help of webhooks you can integrate Wavefront alerts into Microsoft Teams as a Connector.
+You can use Operations for Applications alerts to send a message to a Microsoft Teams chat channel. With the help of webhooks you can integrate Operations for Applications alerts into Microsoft Teams as a Connector.
 
 ## Microsoft Teams Setup
 
@@ -23,7 +23,7 @@ In the dialog:
 {% include image.md width="30" src="images/msteams_connectors.png" %}
   1. Choose a name for this incoming webhook, optionally upload an image that will be displayed by alert messages, and click **Create**.
 
-After a few seconds, a new window prompts you to copy the webhook URL. Wavefront will use this URL to send alerts to Microsoft Teams.
+After a few seconds, a new window prompts you to copy the webhook URL. Operations for Applications will use this URL to send alerts to Microsoft Teams.
 
   1. Copy the URL and click **Done**.
 
@@ -133,11 +133,11 @@ Customize other aspects of the [template](https://docs.wavefront.com/alert_targe
 1. Click **Save**.
 
 ### Step 3. Test the Saved Alert Target (Optional)
-1. In Wavefront, select the ellipsis (3 dots) to the left of your saved alert target.
+1. In Operations for Applications, click the ellipsis icon on the left of your saved alert target.
 1. Click **Test** to send a test notification message to your Team.
 1. Go to Teams and verify that the sample notification has been received.
 
-### Step 4. Add the Microsoft Teams Alert Target to a Wavefront Alert
+### Step 4. Add the Microsoft Teams Alert Target to an Operations for Applications Alert
 
 {% include alerts.md %}
 {% include webhooks_select.md %}

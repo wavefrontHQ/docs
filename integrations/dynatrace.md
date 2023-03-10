@@ -2,7 +2,7 @@
 title: Dynatrace Integration
 tags: [integrations list]
 permalink: dynatrace.html
-summary: Learn about the Wavefront Dynatrace Integration.
+summary: Learn about the Dynatrace Integration.
 ---
 ## Dynatrace Integration
 

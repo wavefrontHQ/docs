@@ -2,7 +2,7 @@
 title: NetBSD Host Integration
 tags: [integrations list]
 permalink: netbsd.html
-summary: Learn about the Wavefront NetBSD Host Integration.
+summary: Learn about the NetBSD Host Integration.
 ---
 ## NetBSD Host Integration
 

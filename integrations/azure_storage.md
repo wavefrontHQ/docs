@@ -2,7 +2,7 @@
 title: Microsoft Azure Storage Integration
 tags: [integrations list]
 permalink: azure_storage.html
-summary: Learn about the Wavefront Microsoft Azure Storage Integration.
+summary: Learn about the Microsoft Azure Storage Integration.
 ---
 ## Microsoft Azure Integration
 

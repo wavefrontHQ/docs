@@ -2,7 +2,7 @@
 title: VMware Workspace ONE Access Integration
 tags: [integrations list]
 permalink: workspace-one.html
-summary: Learn about the Wavefront VMware Workspace ONE Access Integration.
+summary: Learn about the VMware Workspace ONE Access Integration.
 ---
 ## VMware Workspace ONE Access
 

@@ -2,7 +2,7 @@
 title: Catchpoint Integration
 tags: [integrations list]
 permalink: catchpoint.html
-summary: Learn about the Wavefront Catchpoint Integration.
+summary: Learn about the Catchpoint Integration.
 ---
 ## Catchpoint Integration
 

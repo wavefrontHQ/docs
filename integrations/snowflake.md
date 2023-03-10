@@ -2,7 +2,7 @@
 title: Snowflake Integration
 tags: [integrations list]
 permalink: snowflake.html
-summary: Learn about the Wavefront Snowflake Integration.
+summary: Learn about the Snowflake Integration.
 ---
 ## Snowflake
 

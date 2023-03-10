@@ -2,7 +2,7 @@
 title: Microsoft Azure Container Instances Integration
 tags: [integrations list]
 permalink: azure_ci.html
-summary: Learn about the Wavefront Microsoft Azure Container Instances Integration.
+summary: Learn about the Microsoft Azure Container Instances Integration.
 ---
 ## Microsoft Azure Integration
 

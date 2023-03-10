@@ -2,7 +2,7 @@
 title: Microsoft Azure Files Integration
 tags: [integrations list]
 permalink: azure_files.html
-summary: Learn about the Wavefront Microsoft Azure Files Integration.
+summary: Learn about the Microsoft Azure Files Integration.
 ---
 ## Microsoft Azure Integration
 

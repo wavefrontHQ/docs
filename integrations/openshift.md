@@ -2,7 +2,7 @@
 title: OpenShift Integration
 tags: [integrations list]
 permalink: openshift.html
-summary: Learn about the Wavefront OpenShift Integration.
+summary: Learn about the OpenShift Integration.
 ---
 ## Kubernetes Integration
 

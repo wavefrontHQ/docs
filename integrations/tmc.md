@@ -1,8 +1,8 @@
 ---
-title: Tanzu Mission Control Integration
+title: VMware Tanzu Mission Control Advanced Integration
 tags: [integrations list]
 permalink: tmc.html
-summary: Learn about the Wavefront Tanzu Mission Control Integration.
+summary: Learn about the VMware Tanzu Mission Control Advanced Integration.
 ---
 ## Kubernetes Integration
 

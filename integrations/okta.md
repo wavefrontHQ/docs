@@ -2,7 +2,7 @@
 title: Okta Integration
 tags: [integrations list]
 permalink: okta.html
-summary: Learn about the Wavefront Okta Integration.
+summary: Learn about the Okta Integration.
 ---
 ## Okta Integration
 

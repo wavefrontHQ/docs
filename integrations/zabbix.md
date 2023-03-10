@@ -2,7 +2,7 @@
 title: Zabbix Integration
 tags: [integrations list]
 permalink: zabbix.html
-summary: Learn about the Wavefront Zabbix Integration.
+summary: Learn about the Zabbix Integration.
 ---
 ## Zabbix Integration
 

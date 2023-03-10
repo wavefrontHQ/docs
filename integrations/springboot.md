@@ -2,7 +2,7 @@
 title: Spring Boot Integration
 tags: [integrations list]
 permalink: springboot.html
-summary: Learn about the Wavefront Spring Boot Integration.
+summary: Learn about the Spring Boot Integration.
 ---
 ## Spring Boot Integration
 

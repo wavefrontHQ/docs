@@ -2,7 +2,7 @@
 title: NGINX Plus Integration
 tags: [integrations list]
 permalink: nginxplus.html
-summary: Learn about the Wavefront NGINX Plus Integration.
+summary: Learn about the NGINX Plus Integration.
 ---
 ## NGINX Plus Integration
 
@@ -47,7 +47,7 @@ For details, see [Module ngx_http_api_module docs](http://nginx.org/en/docs/http
 
 This integration uses the NGINX Plus input plugin for Telegraf to extract metrics from NGINX Plus.
 
-Log in to your Wavefront instance and follow the instructions in the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
+Log in to your product instance and follow the instructions on the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
 
 ### Step 3. Enable the NGINX Plus input plugin
 
