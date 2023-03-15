@@ -25,7 +25,7 @@ As a user with the **Accounts** permission, you [generate (and revoke, if needed
 
 ## How Service Accounts Work
 
-If you build a service or tool that manages proxies or ingests data, then that tool must authenticate to the REST API of Operations for Applications.
+If you build a service or tool that manages proxies or ingests data, then that tool must authenticate to the Operations for Applications REST API.
 
 1. Create a service account from the UI. The service account name must be unique.
 2. Assign a role to the account to give the account the permissions it needs. Service accounts can perform get, modify, and delete tasks **only if** they have the necessary permissions.

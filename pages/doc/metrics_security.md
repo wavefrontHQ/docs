@@ -7,7 +7,7 @@ permalink: metrics_security.html
 summary: Use metrics security to control access to time series, histograms, and delta counters.
 ---
 
-In a large enterprise, certain data is confidential. TVMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) allows you to limit who can see or modify data in several ways.
+In a large enterprise, certain data is confidential. VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) allows you to limit who can see or modify data in several ways.
 * **Permissions** are **global** settings.
   - Some permissions limit who can modify objects (e.g. proxies or events). For example, users with **Dashboards** permission can modify all dashboards.
   -  Other permissions make certain information completely invisible. For example, only users with **SAML IdP Admin** permission can see the **Self Service SAML** menu or access that page.

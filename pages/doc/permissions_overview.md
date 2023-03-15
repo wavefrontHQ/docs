@@ -4,7 +4,7 @@ keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: permissions_overview.html
-summary: Learn about the permissions in your service.
+summary: Learn about the permissions in the service.
 ---
 
 Permissions allow access control for the feature sets in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront). Users with the **Accounts** permission can manage permissions for groups and accounts.

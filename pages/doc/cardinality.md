@@ -56,7 +56,7 @@ Almost all timeseries databases are key-value systems and each unique combinatio
 When you deploy a large system, there’s a rapid burst of new index entries, which can lead to high cardinality issues, such as slowdown or unresponsiveness of the monitoring system.
 
 
-## High Cardinality and the Operations for Applications Service
+## High Cardinality and Operations for Applications
 
 
 Operations for Applications usually deals gracefully with high cardinality because it has the following features:
