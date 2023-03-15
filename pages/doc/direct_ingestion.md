@@ -4,7 +4,7 @@ keywords: data
 tags: [data]
 sidebar: doc_sidebar
 permalink: direct_ingestion.html
-summary: Learn how to send your data directly.
+summary: Learn how to send data directly to your service instance.
 ---
 
 You can send data to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) directly (direct ingestion) or by using the Wavefront proxy.
