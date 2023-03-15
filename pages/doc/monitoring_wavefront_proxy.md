@@ -108,7 +108,7 @@ On the Proxies Browser, click the name of a proxy to open its individual dashboa
 
 ## Examine the Proxies Health and Usage with the Operations for Applications Usage Integration
 
-The Operations for Applications Usage integration includes the predefined **Wavefront Service and Proxy Data** dashboard, which contains the **Proxies: Overview** and the **Proxy Troubleshooting** sections. These two sections comprise of charts based on the [proxy internal metrics](#proxy-internal-metrics) for examining the health of the proxies in your environment.
+The Operations for Applications Usage integration includes the predefined **Operations for Applications Service and Proxy Data** dashboard, which contains the **Proxies: Overview** and the **Proxy Troubleshooting** sections. These two sections comprise of charts based on the [proxy internal metrics](#proxy-internal-metrics) for examining the health of the proxies in your environment.
 
 You can navigate to this dashboard in two ways:
 - Select **Dashboards > All Dashboards** and search for the **Operations for Applications Service and Proxy Data** dashboard.

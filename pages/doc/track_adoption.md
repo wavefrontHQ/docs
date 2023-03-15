@@ -7,9 +7,9 @@ permalink: track_adoption.html
 summary: Learn how you can track the alerts, users, and dashboards in your service instance.
 ---
 
-VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) comes with a number of internal metrics that track the usage of your Operations for Applications instance and provides you with ways to interpret these metrics by using the Wavefront Query Language. The broad categories of these internal metrics (or Operations for Applications Stats) are alerts, users, and dashboards. Our SaaS Value Engineering team has put together some best practices to monitor the Operations for Applications adoption.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) comes with a number of internal metrics that track the usage of your Operations for Applications instance and provides you with ways to interpret these metrics by using the Wavefront Query Language (WQL). The broad categories of these internal metrics (or Operations for Applications Stats) are alerts, users, and dashboards. Our SaaS Value Engineering team has put together some best practices to monitor the Operations for Applications adoption.
 
-You can use the Wavefront Query Language (WQL) to access Operations for Applications Stats at `~wavefront.` namespace. To see the full list of metrics, in the GUI, click **Browse > Metrics** and search for `~wavefront`. 
+You can use WQL to access Operations for Applications Stats at `~wavefront.` namespace. To see the full list of metrics, in the GUI, click **Browse > Metrics** and search for `~wavefront`. 
 
 Let’s take a detailed look at what is available and how you can interpret this data.
 
@@ -91,4 +91,4 @@ The process is the same for alerts.
 ## Learn More!
 
 * [Find Actionable Usage Information](wavefront_usage_info.html) explains how to use tools and dashboards to learn how much data is coming in, who is sending the data, how to get alerted if ingested data get close to monthly contracted usage, and how to optimize your ingestion rate.
-* [Operations for Applications Stats and Alert Stats](wavefront_monitoring.html#operations-for-applications-stats-and-alert-stats) explains the charts included in the Wavefront Stats and Alert Stats sections of the **Operations for Applications Service and Proxy Data** dashboard.
+* [Operations for Applications Stats and Alert Stats](wavefront_monitoring.html#operations-for-applications-stats-and-alert-stats) explains the charts included in the Operations for Applications Stats and Alert Stats sections of the **Operations for Applications Service and Proxy Data** dashboard.

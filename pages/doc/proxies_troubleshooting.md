@@ -487,4 +487,4 @@ This section gives answers to some frequently asked questions. We expect to add 
 
 ### Can You Explain wavefront-proxy timestamps and Operations for Applications timestamps?
 
-The wavefront proxy sends metric timestamps as milliseconds, but the ingestion layer of the Operations for Applications service converts and stores the information as seconds.
+The Wavefront proxy sends metric timestamps as milliseconds, but the ingestion layer of the Operations for Applications service converts and stores the information as seconds.
