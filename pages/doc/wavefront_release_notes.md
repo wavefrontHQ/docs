@@ -15,7 +15,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 ## 2023-10.x Release Notes
 
-**Proxy Setup Instructions for Kubernetes in the UI**: When you [install a proxy from the UI](proxies_installing.html#install-a-proxy-from-the-ui), you can now click the **Kubernetes** tab to copy the proxy configuration file and deployment command.
+**Proxy Setup Instructions for Kubernetes in the UI**: When you [install a proxy from the UI](proxies_installing.html#install-a-proxy-from-the-ui), you can now click the **Kubernetes** tab to copy the proxy configurations and the deployment command.
 
 ![A screenshot of the Kubernetes tab on the Add a Proxy page](/images/add_K8_proxy.png)
 
