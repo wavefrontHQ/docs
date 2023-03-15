@@ -158,7 +158,7 @@ If you no longer need an ingestion policy, for example, after a reorganization i
 
 All users can examine the individual ingestion policy dashboards to understand their usage over time.
 
-1. Log in to your Wavefront instance (`https://<your_instance>.wavefront.com`).
+1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
 1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
 
     {% include tip.html content="If you are a Super Admin user and enabled Super Admin mode, the menu item is **Usage and Subscriptions**." %}
@@ -223,7 +223,7 @@ On the **Ingestion Policies** tab, for each policy you can see:
  
     ![Usage summary per ingestion policy](images/IP_dashboard.png)
 
-In addition, the Wavefront Usage integration includes the [Operations for Applications Ingestion Policy Explorer Dashboard](wavefront_monitoring.html#operations-for-applications-ingestion-policy-explorer-dashboard), which provides a granular breakdown of the ingestion across your organization by ingestion policies, accounts, sources, and types.
+In addition, the Operations for Applications Usage integration includes the [Operations for Applications Ingestion Policy Explorer Dashboard](wavefront_monitoring.html#operations-for-applications-ingestion-policy-explorer-dashboard), which provides a granular breakdown of the ingestion across your organization by ingestion policies, accounts, sources, and types.
 
 ## Example: Monitor Which Teams Are Responsible for How Much Ingested Data
 
