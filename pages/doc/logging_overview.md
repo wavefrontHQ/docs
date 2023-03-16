@@ -3,16 +3,16 @@ title: Get Started with Logs (Beta)
 tags: [getting started, logs]
 sidebar: doc_sidebar
 permalink: logging_overview.html
-summary: Learn about Tanzu Observability metrics, logs, and traces.
+summary: Learn about Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) metrics, logs, and traces.
 ---
 
-{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative or [technical support](wavefront_support_feedback.html#support)."%}
+{% include important.html content="Logs (Beta) is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
  <table style="width: 100%;">
 <tbody>
 <tr>
   <td width="60%" >
-    Tanzu Observability helps you monitor your application using metrics, traces, and logs.
+    Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) helps you monitor your application using metrics, traces, and logs.
     For example, you can:
     <ul>
       <li>
@@ -27,7 +27,7 @@ summary: Learn about Tanzu Observability metrics, logs, and traces.
     </ul>
   </td>
   <td width="40%" markdown="span">
-    ![shows that Tanzu Observability supports all three pillars : metrics, traces, and logs.](images/logging_ufo.png)
+    ![shows that Aria Operations for Applications supports all three pillars : metrics, traces, and logs.](images/logging_ufo.png)
   </td>
 </tr>
 </tbody>
@@ -36,7 +36,7 @@ summary: Learn about Tanzu Observability metrics, logs, and traces.
 {{site.data.alerts.note}}
 <ul>
   <li>
-    Tanzu Observability retains logs for 7, 15, or 30 days, based on your settings.
+    Our service retains logs for 7, 15, or 30 days, based on your settings.
   </li>
   <li markdown="span">
     Only users with the [**Logs** permission](permissions_overview.html) can view the Logs Browser and drill down into logs from charts, alerts, and traces.
@@ -44,9 +44,9 @@ summary: Learn about Tanzu Observability metrics, logs, and traces.
 </ul>
 {{site.data.alerts.end}}
 
-## What's a Tanzu Observability Log?
+## What's a Log?
 
-Logs are structured or unstructured text records of events that took place at a given time. Tanzu Observability ingests logs in JSON or JSON Lines format.
+Logs are structured or unstructured text records of events that took place at a given time. Our service ingests logs in JSON or JSON Lines format.
 
 ### Log Attributes
 
@@ -123,11 +123,11 @@ Each log has required attributes, standard attributes, and custom tags. We token
 </table>
 
 
-## Send Logs to Tanzu Observability
+## Send Logs
 
-You can send your logs using a log shipper, such as Fluentd that sends logs as JSON arrays over HTTP, or Fluent Bit that sends logs as JSON lines over HTTP. See [Send logs to Tanzu Observability](logging_send_logs.html).
+You can send your logs using a log shipper, such as Fluentd that sends logs as JSON arrays over HTTP, or Fluent Bit that sends logs as JSON lines over HTTP. See [Send logs to our service](logging_send_logs.html).
 
-![A diagram shows how logs are sent from a log shipper to the Tanzu Observability components](images/logging_send_logs2.png)
+![A diagram shows how logs are sent from a log shipper to our service components](images/logging_send_logs2.png)
 
 <table style="width: 100%;">
 <tbody>
@@ -137,7 +137,7 @@ You can send your logs using a log shipper, such as Fluentd that sends logs as J
 
 ## View Logs and Troubleshoot
 
-When logs have started flowing into your Wavefront instance, as a user with the **Logs** permission, you can:
+When logs start flowing into our service, as a user with the **Logs** permission, you can:
 * Go to the [Logs Browser](logging_log_browser.html) directly to view and explore logs.
 * You can [create a logs chart](logging_logs_chart.html) on a dashboard so you can troubleshoot faster.
 * [Drill into the Logs Browser](logging_drill_into_logs.html) from charts, alerts, application map, and the Traces Browser.
@@ -156,7 +156,7 @@ When logs have started flowing into your Wavefront instance, as a user with the 
 
 ## Learn More!
 
-* [Send logs to Tanzu Observability](logging_send_logs.html).
+* [Send logs](logging_send_logs.html).
 * [View and browse logs](logging_log_browser.html).
 * Learn about the [proxy configurations and proxy preprocessor rules for logs](logging_proxy_configurations.html).
 * See [Logs troubleshooting](logging_faq.html).
