@@ -193,7 +193,7 @@ The Wavefront proxy is required to send logs from your systems to Operations for
     * In the **APIToken** text box, enter a valid Operations for Applications API token.
     * In the **APIUrl** text box, enter the Wavefront proxy URL.
     * In the **NameOfFunction** text box, enter a meaningful name for the Lambda function.
-5. Click Deploy.
+5. Click **Deploy**.
 6. Add a trigger from the CloudWatch log stream.
     * Navigate to your Lambda function and click it.
     * Click the **Add trigger** button and from the drop-down menu select **CloudWatch Logs**.
