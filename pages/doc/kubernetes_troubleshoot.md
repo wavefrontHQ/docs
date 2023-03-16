@@ -4,13 +4,13 @@ keywords: containers, kubernetes
 tags: [containers, kubernetes]
 sidebar: doc_sidebar
 permalink: wf_kubernetes_troubleshooting.html
-summary: This page contains information about troubleshooting the Helm-managed and installed version of the Wavefront proxy and Wavefront Collector for Kubernetes.
+summary: This page contains information about troubleshooting the Helm-managed and installed version of the Wavefront proxy and Operations for Applications Collector for Kubernetes.
 ---
 
 For troubleshooting the latest version of the Kubernetes integration, see [Troubleshooting Kubernetes](kubernetes_troubleshooting.html).
 
 Depending on your setup, you typically deploy the following components into your Kubernetes cluster:
-* **[Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/observability-for-kubernetes)** -- runs as a DaemonSet
+* **[Operations for Applications Collector for Kubernetes](https://github.com/wavefrontHQ/observability-for-kubernetes)** -- runs as a DaemonSet
 * **[Wavefront Proxy](proxies.html)** -- runs as a deployment fronted by a Kubernetes Service
 
 Once deployed, the collector instances gather data at regular intervals from various sources and send the data to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) via the Wavefront proxy.
@@ -32,7 +32,7 @@ This section focuses on known issues that cannot be fixed, for example, because 
 
 The Wavefront Collector emits [internal metrics](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/metrics.md#collector-health-metrics) that you can use to troubleshoot issues.
 
-The **Wavefront Collector for Kubernetes Metrics** dashboard in the Kubernetes integration shows these metrics.
+The **Kubernetes Collector Troubleshooting** dashboard in the Kubernetes integration shows these metrics.
 
 ![screenshot of Kubernetes metrics](images/kubernetes_monitoring.png)
 
@@ -189,7 +189,7 @@ You can filter out data flowing into VMware Aria Operations for Applications at 
   A common example of this is kube-state-metrics. See [kube-state-metrics documentation](https://github.com/kubernetes/kube-state-metrics/blob/master/docs/cli-arguments.md) for configuration options.
   ![Highlights the app pod on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom-Incomplete_step_2.1.png)
 
-* The Wavefront Collector for Kubernetes allows two levels of filtering internally, shown in the picture below.
+* The Operations for Applications Collector for Kubernetes allows two levels of filtering internally, shown in the picture below.
   1. Filter metrics at the source level.
   2. Filter all metrics sent from the collector to VMware Aria Operations for Applications.
 
@@ -228,14 +228,14 @@ You can filter out data flowing into VMware Aria Operations for Applications at 
 
 #### Check for Leader Health Problems
 
-The **leader Wavefront Collector pod** collects the metrics from its node and the metrics that are not specific to the local node. Example: cluster metrics, service monitoring metrics, and metrics from applications that use explicit rule definitions.
+The **leader pod** collects the metrics from its node and the metrics that are not specific to the local node. Example: cluster metrics, service monitoring metrics, and metrics from applications that use explicit rule definitions.
 
 If a leader pod crashes due to insufficient resources, another pod picks up the leader role automatically. If the new leader pod also faces the same problem and crashes as well, just like the previous leader pod, the cycle continues. This problem leads to inconsistencies in data collection.
 
 To check for leader health problems:
 
 1. Navigate to your Kubernetes integration.
-2. Open the **Wavefront Collector for Kubernetes Metrics** dashboard.
+2. Open the **Kubernetes Collector Troubleshooting** dashboard.
 3. In the **Metric Health Indicators** section, check if the **Leader Changes** chart is red or if the chart has spikes with the number of times the leadership changed.
 
 If you see these symptoms, then there are leader health problems.
@@ -269,7 +269,7 @@ The following screenshot shows that there are no leader health problems.
 To check for Insufficient CPU, follow these steps:
 
 1. Navigate to your Kubernetes integration.
-2. Open the **Wavefront Collector for Kubernetes Metrics** dashboard.
+2. Open the **Kubernetes Collector Troubleshooting** dashboard.
 
 3. In the **Metric Health Indicators** section, check the **Collector Restarts** chart.
     If the chart is in red, or if there are spikes on the chart, there are memory or CPU issues.
@@ -326,14 +326,14 @@ To solve this, See the remedies section.
   The process of increasing CPU is trial and error. Adjust the limit and monitor the **Collector Latency** chart after the update. If the latencies level out, you have found the correct CPU limit.
 
 * **Determine memory limit by following these steps**:
-  1. Open the **Wavefront Collector for Kubernetes Metrics** dashboard and locate the **Collector Memory Usage (Top 20)** chart. This chart gives you an idea of the limits you need.
+  1. Open the **Kubernetes Collector Troubleshooting** dashboard and locate the **Collector Memory Usage (Top 20)** chart. This chart gives you an idea of the limits you need.
       {% include note.html content="The limit values on the chart are sampled and do not show the peak memory usage." %}
   2. Customize the time frame on the chart to 2-4 days using the (-) icon on the chart and look for spikes. The spikes are most likely created by the elected leader.
   3. Start to set the limit 10% over the max value you find and monitor the changes. For example, based on the screenshot below, the max value is 43.5 Mi. Therefore, you can start to set your limit at 47.85 Mi (43.5 x 1.10) and monitor the progress.
 
     ![Screenshot of the Collector Memory Usage Chart](images/kubernetes_collector_memory.png)
 
-* **Change the CPU or memory limit based on how the Wavefront Collector is installed**:
+* **Change the CPU or memory limit based on how the Collector is installed**:
   * Helm Deployments
     * Option 1: For details on updating the CPU and memory limit on helm charts, see [Parameters](https://github.com/wavefrontHQ/helm/tree/master/wavefront#parameters).
     * Option 2: Update the `cpu` and `memory` limits in the [values.yaml](https://github.com/wavefrontHQ/helm/blob/master/wavefront/values.yaml#L184) file.
@@ -352,7 +352,7 @@ To solve this, See the remedies section.
 
 * **Filter metrics**:
 
-    * **Configure the Wavefront Collector to remove sources**:
+    * **Configure the Collector to remove sources**:
       If you have statically defined sources, comment out or remove sources that emit a large number of metrics from the `sources` list in the collector [configuration.md](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/configuration.md#configuration-file) file. This method removes metrics that are minimally processed, reducing the CPU and memory load on the collector.
       {% include important.html content="Do not remove `kubernetes_source` from the `sources` list." %}
 
@@ -381,13 +381,13 @@ Use these metrics to help troubleshoot issues with data collection:
 </thead>
 <tbody>
 <tr><td markdown="span">kubernetes.collector.target.collect.errors</td>
-<td>Counter showing the number of errors collecting data from a target pod or service etc. <br/>You can see this data on the <strong>Collection Errors per Endpoint</strong> chart under the <strong>Metric Health Indicators</strong> section of the <strong>Wavefront Collector for Kubernetes Metrics</strong> dashboard.</td></tr>
+<td>Counter showing the number of errors collecting data from a target pod or service etc. <br/>You can see this data on the <strong>Collection Errors per Endpoint</strong> chart under the <strong>Metric Health Indicators</strong> section of the <strong>Kubernetes Collector Troubleshooting</strong> dashboard.</td></tr>
 <tr>
 <td markdown="span">kubernetes.collector.source.collect.errors</td>
-<td>Counter showing the number of errors per plugin type (Prometheus, Telegraf etc.) <br/>You can see this data on the <strong>Collection Errors per Type</strong> chart under the <strong>Metric Health Indicators</strong> section of the <strong>Wavefront Collector for Kubernetes Metrics</strong> dashboard.</td></tr>
+<td>Counter showing the number of errors per plugin type (Prometheus, Telegraf etc.) <br/>You can see this data on the <strong>Collection Errors per Type</strong> chart under the <strong>Metric Health Indicators</strong> section of the <strong>Kubernetes Collector Troubleshooting</strong> dashboard.</td></tr>
 <tr>
 <td markdown="span">kubernetes.collector.target.points.collected</td>
-<td>Counter showing the number of points collected from a single target (pod, service etc.) as a per-second rate. <br/>You can see this data on the <strong>Points Collected per Target (Top 20)</strong> chart under the <strong>Data Collection</strong> section of the <strong>Wavefront Collector for Kubernetes Metrics</strong> dashboard.</td></tr>
+<td>Counter showing the number of points collected from a single target (pod, service etc.) as a per-second rate. <br/>You can see this data on the <strong>Points Collected per Target (Top 20)</strong> chart under the <strong>Data Collection</strong> section of the <strong>Kubernetes Collector Troubleshooting</strong> dashboard.</td></tr>
 </tbody>
 </table>
 
@@ -410,7 +410,7 @@ Check the source of these metrics to identify the specific Kubernetes node on wh
 
 ### Step 2: Check for a Missing Metric Collection Target
 
-1. Open the **Wavefront Collector for Kubernetes Metrics** dashboard in the Kubernetes integration.
+1. Open the **Kubernetes Collector Troubleshooting** dashboard in the Kubernetes integration.
 2. Find the **Data Collection** section, go to the **Points Collected per Type** chart and check whether your source is sending metrics.
 
    * If your source is not in the top 20, modify the query to remove the top 20 limit or limit your particular missing pod.
@@ -434,7 +434,7 @@ Check the source of these metrics to identify the specific Kubernetes node on wh
 
 ### Step 3: Check for Metric Filtering
 
-1. Open the **Wavefront Collector for Kubernetes Metrics** dashboard.
+1. Open the **Kubernetes Collector Troubleshooting** dashboard.
 2. Locate the **Points Filtered per Type** chart and see whether your source is sending metrics.
    Look for filtering of the source that you’re missing. If your source is sending metrics, your metric can be filtered out. For example, if the source you're missing is a Prometheus endpoint, look whether any points of type `prometheus` are listed:
 
@@ -460,6 +460,6 @@ Check the source of these metrics to identify the specific Kubernetes node on wh
 
 The most common cause for the Kubernetes integration dashboards to not show any data is a problem with sending data to VMware Aria Operations for Applications. See [Symptom: No Data Flowing](#symptom-no-data-flowing).
 
-Another reason for missing data can be a change in the prefix of the Kubernetes sources in the Wavefront Collector for Kubernetes. By default, the dashboards rely on a prefix, such as `kubernetes.`, in the configured collector sources. For more information, see the sources section of the [collector configuration file](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/collector/deploy/kubernetes/4-collector-config.yaml).
+Another reason for missing data can be a change in the prefix of the Kubernetes sources in the Operations for Applications Collector for Kubernetes. By default, the dashboards rely on a prefix, such as `kubernetes.`, in the configured collector sources. For more information, see the sources section of the [collector configuration file](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/collector/deploy/kubernetes/4-collector-config.yaml).
 
 If you want to use the Kubernetes dashboards with a custom prefix, [clone the dashboards](ui_dashboards.html#edit-or-clone-a-dashboard) and update the prefix in all of the charts.
