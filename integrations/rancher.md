@@ -48,7 +48,7 @@ Integrations use [Wavefront Collector for Kubernetes](https://github.com/wavefro
 
 ## Add a Kubernetes Integration
 
-Tanzu Observability by Wavefront provides a comprehensive solution for monitoring Kubernetes. To set up the Kubernetes integration, you must install and configure the Wavefront Collector for Kubernetes and a Wavefront proxy. With the 2022-48.x we introduce a new  Kubernetes Observability Operator which simplifies the deployment. 
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) provides a comprehensive solution for monitoring Kubernetes. To set up the Kubernetes integration, you must install and configure the Wavefront Collector for Kubernetes and a Wavefront proxy. With the 2022-48.x we introduce a new Kubernetes Observability Operator which simplifies the deployment. 
 
 The setup process varies based on the distribution type that you choose to monitor. 
 
@@ -79,12 +79,12 @@ The setup process varies based on the distribution type that you choose to monit
 
 1. Enter the authentication options and click **Next**.
    
-   You can authenticate to the Wavefront REST API by using either a user account, or a service account. In both cases the account must have an API token.
+   You can authenticate to the Operations for Applications REST API by using either a user account, or a service account. In both cases the account must have an API token.
    
 1. From the **Script** section, get the deployment script. 
     1. Review the script and click the **Copy to clipboard** button.
     1. Run the script in your Kubernetes cluster.
-1. After successful installation, return back to the Tanzu Observability GUI, and click **Finish**.
+1. After successful installation, return back to the Operations for Applications GUI, and click **Finish**.
 
 ### Kubernetes Install in an OpenShift Cluster
 
@@ -117,7 +117,7 @@ This section contains the installation and configuration steps for full-stack mo
     
    Because default parameters are used, the Collector runs as a Daemonset and uses <code>wavefront-proxy</code> as a sink. The Collector auto discovers the pods and services that expose metrics and dynamically starts collecting metrics for the targets. It collects metrics from the Kubernetes API server, if configured.
     
-   Now, go back to your Wavefront cluster and search for the <code>OPENSHIFT_CLUSTER_NAME</code> in the Kubernetes integration dashboards.
+   Now, go back to your Operations for Applications cluster and search for the <code>OPENSHIFT_CLUSTER_NAME</code> in the Kubernetes integration dashboards.
     
 **Configure the Collector to Use an Existing Proxy**    
 
@@ -182,11 +182,11 @@ The Wavefront Collector supports monitoring of OpenShift clusters:
     
 * To monitor OpenShift Origin 3.9, follow the steps in [Installation and Configuration on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/main/docs/openshift.md).
     
-* To monitor OpenShift Enterprise 3.11, follow the steps in [Installation and Configuration of Wavefront Collector Operator on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/main/docs/openshift-operator.md).
+* To monitor OpenShift Enterprise 3.11, follow the steps in [Installation and Configuration of the Collector Operator on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/main/docs/openshift-operator.md).
 
 ### Kubernetes Quick Install Using Helm
 
-**Note**: We will deprecate the Helm or manually-installed Wavefront Collector for Kubernetes and Wavefront proxy next year. Our new Kubernetes Operator replaces the Helm or manually installed Wavefront Collector for Kubernetes and Wavefront proxy for all Kubernetes Distributions except for OpenShift Container Platform. For more information, see [Obsolescence and Remediation](https://docs.wavefront.com/wavefront_obsolescence_policy.html#kubernetes-integration).
+**Note**: We will deprecate the Helm or manually-installed Wavefront Collector for Kubernetes and Wavefront proxy in 2023. Our new Kubernetes Operator replaces the Helm or manually installed Wavefront Collector for Kubernetes and Wavefront proxy for all Kubernetes Distributions except for OpenShift Container Platform. For more information, see [Obsolescence and Remediation](https://docs.wavefront.com/wavefront_obsolescence_policy.html#kubernetes-integration).
 
 1. Ensure that you have installed [helm](https://helm.sh/docs/intro/).
 2. Add the Wavefront helm repo:
