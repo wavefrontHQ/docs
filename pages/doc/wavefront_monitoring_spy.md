@@ -6,7 +6,7 @@ permalink: wavefront_monitoring_spy.html
 summary: Use HTTP endpoints to get samples data or IDs, or use wftop to examine them with a keyboard-driven UI.
 ---
 
-Tanzu Observability by Wavefront includes HTTP `spy` endpoints for sampling the data that your Wavefront instance is currently ingesting. Examining these endpoints helps you understand the data shape and avoid slowdown or other problems.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) includes HTTP `spy` endpoints for sampling the data that your service instance is currently ingesting. Examining these endpoints helps you understand the data shape and avoid slowdown or other problems.
 
 {% include note.html content="You need [Direct Data Ingestion permission](permissions_overview.html) to use these HTTP endpoints." %}
 
@@ -26,11 +26,11 @@ You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_yif6
 
 ## Why Spy?
 
-The Wavefront `spy` endpoints can provide insight into new data that is being ingested by your Wavefront instance. For example, you might analyze `spy` results to:
-* Verify that your Wavefront instance is ingesting the data points that you expect.
+The `spy` endpoints can provide insight into new data that is being ingested by your service instance. For example, you might analyze `spy` results to:
+* Verify that your service instance is ingesting the data points that you expect.
 * Troubleshoot a sudden change in the rate at which new data is ingested.
 
-Tanzu Observability supports the `spy` endpoints shown in the following table:
+Operations for Applications supports the `spy` endpoints shown in the following table:
 
 <table width="100%">
 <tbody>
@@ -55,11 +55,11 @@ Tanzu Observability supports the `spy` endpoints shown in the following table:
 
 Each endpoint displays a header that describes your request, and then lists the results, if any, in close to real time (as soon as they are available). Each returned point, span, or ID is listed on a separate line.
 
-A `spy` endpoint always returns a *sample* of the requested data. Tanzu Observability always uses multiple data ingesters, but the endpoint connects to a single data ingester. The sample is taken from data that is ingested by that one data ingester. As a result, you always get a sample even if you specify a 100% sample size as an endpoint parameter.
+A `spy` endpoint always returns a *sample* of the requested data. Operations for Applications always uses multiple data ingesters, but the endpoint connects to a single data ingester. The sample is taken from data that is ingested by that one data ingester. As a result, you always get a sample even if you specify a 100% sample size as an endpoint parameter.
 
 ## Get Ingested Metric Points with Spy
 
-Your Wavefront instance includes an HTTP endpoint that returns a sampling of the ingested metric points that have specified characteristics. You can use the returned list of points to help you answer questions like:
+Your service instance includes an HTTP endpoint that returns a sampling of the ingested metric points that have specified characteristics. You can use the returned list of points to help you answer questions like:
 
 * Show me some ingested points with metric names that start with the prefix `Cust`.
 * How many PPS come from hosts with names that start with the prefix `web`?
@@ -67,7 +67,7 @@ Your Wavefront instance includes an HTTP endpoint that returns a sampling of the
 
 ### Endpoint and Parameters for Metric Points
 
-To get a sampling of ingested data points, use the following endpoint. Replace `<your_instance>` with the name of your Wavefront instance:
+To get a sampling of ingested data points, use the following endpoint. Replace `<your_instance>` with the name of your service instance:
 
 ```
   https://<your_instance>.wavefront.com/api/spy/points
@@ -110,7 +110,7 @@ To get a sampling of points with specific characteristics, add one or more of th
 
 ### Example Requests for Metric Points
 
-Suppose you have a Wavefront instance named `ex1`.
+Suppose you have a service instance named `ex1`.
 
 <table width="100%">
 <tbody>
@@ -142,7 +142,7 @@ Suppose you have a Wavefront instance named `ex1`.
 
 ## Get Ingested Delta Counters with Spy
 
-Your Wavefront instance includes an HTTP endpoint that returns a sample of ingested [delta counters](delta_counters.html). The data you see are the aggregated points in each minute bucket that Tanzu Observability stores **post aggregation**, not the individual points that were sent to Tanzu Observability.
+Your service instance includes an HTTP endpoint that returns a sample of ingested [delta counters](delta_counters.html). The data you see are the aggregated points in each minute bucket that Operations for Applications stores **post aggregation**, not the individual points that were sent to Operations for Applications.
 
 You can use the returned list to help you answer questions like:
 * Show me some ingested delta counters with names that start with the prefix `Cust`.
@@ -153,7 +153,7 @@ You can use the returned list to help you answer questions like:
 
 ### Endpoint and Parameters for Delta Counters
 
-To get a sample of ingested delta counters (post aggregation), use the following endpoint. Replace `<your_instance>` with the name of your Wavefront instance:
+To get a sample of ingested delta counters (post aggregation), use the following endpoint. Replace `<your_instance>` with the name of your service instance:
 
 ```
 https://<your_instance>.wavefront.com/api/spy/deltas
@@ -196,7 +196,7 @@ To get a sample of delta counters with specific characteristics, add one or more
 
 ### Example Requests for Delta Counters
 
-Suppose you have a Wavefront instance named `ex1`.
+Suppose you have a service instance named `ex1`.
 
 <table width="100%">
 <tbody>
@@ -228,7 +228,7 @@ Suppose you have a Wavefront instance named `ex1`.
 
 ## Get Ingested Histograms with Spy
 
-Your Wavefront instance includes an HTTP endpoint that returns a sampling of ingested histograms with specified characteristics.
+Your service instance includes an HTTP endpoint that returns a sampling of ingested histograms with specified characteristics.
 
 You can use the returned list of histograms to help you answer questions like this:
 
@@ -239,7 +239,7 @@ You can use the returned list of histograms to help you answer questions like th
 
 ### Endpoint and Parameters for Histograms
 
-To get a sampling of ingested histograms, use the following endpoint. Replace `<your_instance>` with the name of your Wavefront instance:
+To get a sampling of ingested histograms, use the following endpoint. Replace `<your_instance>` with the name of your service instance:
 
   ```
   https://<your_instance>.wavefront.com/api/spy/histograms
@@ -282,7 +282,7 @@ To get a sampling of spans with specific characteristics, add one or more of the
 
 ### Example Requests for Histograms
 
-Suppose you have a Wavefront instance named `ex1`.
+Suppose you have a service instance named `ex1`.
 
 <table width="100%">
 <tbody>
@@ -315,7 +315,7 @@ Suppose you have a Wavefront instance named `ex1`.
 
 ## Get Ingested Spans with Spy
 
-Your Wavefront instance includes an HTTP endpoint that returns a sampling of ingested spans with specified characteristics. You can use the returned list of spans to help you answer questions like:
+Your service instance includes an HTTP endpoint that returns a sampling of ingested spans with specified characteristics. You can use the returned list of spans to help you answer questions like:
 
 * Show me some ingested spans with names that start with the prefix `order`.
 * How many spans-per-second come from hosts with names that start with the prefix `web`?
@@ -324,7 +324,7 @@ Your Wavefront instance includes an HTTP endpoint that returns a sampling of ing
 
 ### Endpoint and Parameters for Spans
 
-To get a sampling of ingested spans, use the following endpoint. Replace `<your_instance>` with the name of your Wavefront instance:
+To get a sampling of ingested spans, use the following endpoint. Replace `<your_instance>` with the name of your service instance:
 
   ```
   https://<your_instance>.wavefront.com/api/spy/spans
@@ -357,7 +357,7 @@ To get a sampling of spans with specific characteristics, add one or more of the
 
 ### Example Requests for Spans
 
-Suppose you have a Wavefront instance named `ex1`.
+Suppose you have a service instance named `ex1`.
 
 <table width="100%">
 <tbody>
@@ -389,7 +389,7 @@ Suppose you have a Wavefront instance named `ex1`.
 
 ## Get Ingested Span Logs with Spy
 
-Span logs capture span-specific logging information and are supported by the OpenTracing standard. Some Wavefront SDKs include span logs for errors by default. To get access to other span log information, you can customize a Wavefront SDK to include [span log information](trace_data_details.html#span-logs) or [instrument your application](tracing_instrumenting_frameworks.html).
+Span logs capture span-specific logging information and are supported by the OpenTracing standard. Some of our SDKs include span logs for errors by default. To get access to other span log information, you can customize an SDK to include [span log information](trace_data_details.html#span-logs) or [instrument your application](tracing_instrumenting_frameworks.html).
 
 {% include note.html content="Span logs are disabled by default. If you want to enable span logs on your cluster, contact our Customer Success team at [support@wavefront.com](mailto:support@wavefront.com)."%}
 
@@ -402,13 +402,13 @@ Example:
 
 ### Endpoint and Parameters for Span Logs
 
-To get a sample of the ingested span logs, use the following endpoint. Replace `<your_instance>` with the name of your Wavefront instance:
+To get a sample of the ingested span logs, use the following endpoint. Replace `<your_instance>` with the name of your service instance:
 
 ```
 https://<your_instance>.wavefront.com/api/gateway/spy/spanlogs
 ```
 
-By default, the sampling rate is 1%, which means that Tanzu Observability returns 1% of the data. To sample the span logs at a different sampling rate, add the `sampling` parameter to the URL.
+By default, the sampling rate is 1%, which means that Operations for Applications returns 1% of the data. To sample the span logs at a different sampling rate, add the `sampling` parameter to the URL.
 
 <table width="100%">
 <tbody>
@@ -424,20 +424,20 @@ By default, the sampling rate is 1%, which means that Tanzu Observability return
 
 ### Example Requests for Span Logs
 
-Suppose you have a Wavefront instance named `ex1` and want to spy on the ingested span logs at a sampling rate of 5%:
+Suppose you have a service instance named `ex1` and want to spy on the ingested span logs at a sampling rate of 5%:
 ```
 http://ex1.wavefront.com/api/gateway/spy/spanlogs?sampling=0.05
 ```
 
 ## Get New ID Assignments with Spy
 
-During ingestion, Tanzu Observability assigns an ID to each newly added metric name, span name, source name, and <code>key=value</code> string of a point tag or span tag. A new ID generally indicates that a new time series has been introduced.
+During ingestion, Operations for Applications assigns an ID to each newly added metric name, span name, source name, and <code>key=value</code> string of a point tag or span tag. A new ID generally indicates that a new time series has been introduced.
 
-Your Wavefront instance includes an HTTP endpoint that provides a window into the current stream of new ID assignments. You can use the returned list of ID assignments to see if the data that is currently being ingested has introduced any metrics, sources, spans, or tags that your Wavefront instance hasn't seen yet.
+Your service instance includes an HTTP endpoint that provides a window into the current stream of new ID assignments. You can use the returned list of ID assignments to see if the data that is currently being ingested has introduced any metrics, sources, spans, or tags that your service instance hasn't seen yet.
 
 ### Endpoint and Parameters for New ID Assignments
 
-To get a list of new ID assignments, use the following endpoint. Replace `<your_instance>` with the name of your Wavefront instance:
+To get a list of new ID assignments, use the following endpoint. Replace `<your_instance>` with the name of your service instance:
 
   ```
   https://<your_instance>.wavefront.com/api/spy/ids
@@ -483,7 +483,7 @@ STRING - Point tags or span tags, represented as a single string containing a un
 
 ### Example Requests for New IDs
 
-Suppose you have a Wavefront instance named `ex1`.
+Suppose you have a service instance named `ex1`.
 
 <table width="100%">
 <tbody>

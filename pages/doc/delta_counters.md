@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: delta_counters.html
 summary: Learn when and how to use cumulative counters and delta counters.
 ---
-Tanzu Observability by Wavefront supports [several types of metrics](metric_types.html), including 2 kinds of counters.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports [several types of metrics](metric_types.html), including 2 kinds of counters.
 
 * **Cumulative counters** (usually called **counters** in this doc set) monotonically increasing counters. They're useful for aggregating metric information such as the number of hits on a web page, how many users log into a portal, etc. They're usually used with `rate()` or a similar function.
 * **Delta counters** (sometimes called periodic counters) measure the **change** since a metric was last recorded. For example, metrics for request count could be delta counters. Each value records how many requests were received since the last data point was recorded.
@@ -44,7 +44,7 @@ It often makes sense to collect both counter metrics and delta counter metrics -
 
 The following illustration contrasts cumulative counters and delta counters with a simple example:
 
-* Error data are being sent to the Wavefront service. 5 errors in the first minute, 17 in the second, and 8 in the third.
+* Error data are being sent to Operations for Applications. 5 errors in the first minute, 17 in the second, and 8 in the third.
 * The top row shows cumulative counter behavior. In many cases, the data actually come in as cumulative counters:
   - The running total of the errors (5, 22, 30) is ingested and stored.
   - The `ts()` query shows a chart with values increasing over time.
@@ -54,7 +54,7 @@ The following illustration contrasts cumulative counters and delta counters with
   - The `cs()` query shows a chart with the delta values.
   - To get the rate (errors per second) we divide the query by 60. The result is the same as using `rate()` with the `ts()` query.
 
-![counter ingestion, query with ts and cs, and getting the rate for each. Detals in explanation](images/counters_and_delta_counters.png)
+![counter ingestion, query with ts and cs, and getting the rate for each. Details in explanation](images/counters_and_delta_counters.png)
 
 ### Where Are Cumulative Counters Useful?
 
@@ -78,7 +78,7 @@ For more on delta counter use cases, see the blog [Monitoring Apps in the Server
 
 AWS Lambda allows you to specify functions that you want to run -- and then you can stop worrying about the function execution. For example, assume that you want to generate a thumbnail each time any of your users uploads images to a folder. You can write a Lambda function that monitors the folders and takes care of thumbnail generation for you. AWS runs as many of the functions as necessary to handle the current workload, and you don't have to worry about scaling up or down.
 
-Delta counters make monitoring easy for this use case. The Wavefront service aggregates the metrics that come from different invocations of the same function. The Wavefront AWS Lambda Functions integration comes preconfigured with several delta counters and a gauge for standard metrics. In addition, you can monitor custom business metrics by using our SDK to define a wrapper for your AWS Lambda function. See the [AWS Lambda Functions Integration](aws-lambda-functions.html) for setup instructions.
+Delta counters make monitoring easy for this use case. Operations for Applications aggregates the metrics that come from different invocations of the same function. The AWS Lambda Functions integration comes preconfigured with several delta counters and a gauge for standard metrics. In addition, you can monitor custom business metrics by using our SDK to define a wrapper for your AWS Lambda function. See the [AWS Lambda Functions Integration](aws-lambda-functions.html) for setup instructions.
 
 
 ## Using Delta Counters
@@ -122,20 +122,20 @@ You can use our SDKs to make your metric a delta counter.
 
 <strong>SDKs</strong>
 
-* Java - [Wavefront Dropwizard Metrics SDK](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java)
+* Java - [Dropwizard Metrics SDK](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java)
 * Java - [Spring Micrometer](https://micrometer.io/)
-* C# - [Wavefront App Metrics Reporter](https://github.com/wavefrontHQ/wavefront-appmetrics-sdk-csharp)
+* C# - [App Metrics Reporter](https://github.com/wavefrontHQ/wavefront-appmetrics-sdk-csharp)
 * Python - [wavefront-pyformance](https://github.com/wavefrontHQ/wavefront-pyformance)
 * Go - [go-metrics-wavefront](https://github.com/wavefrontHQ/go-metrics-wavefront)
 
 <strong>Examples</strong>
 
 * **AWS Lambda SDKs** - These AWS Lambda wrappers illustrate how to use delta counters:
-  - [Wavefront Go Wrapper for AWS Lamda](https://github.com/wavefrontHQ/wavefront-lambda-go)
-  - [Wavefront Node.js Wrapper for AWS Lambda](https://github.com/wavefrontHQ/wavefront-lambda-nodejs)
-  - [Wavefront Python Wrapper for AWS Lambda](https://github.com/wavefrontHQ/wavefront-lambda-python)
+  - [Go Wrapper for AWS Lamda](https://github.com/wavefrontHQ/wavefront-lambda-go)
+  - [Node.js Wrapper for AWS Lambda](https://github.com/wavefrontHQ/wavefront-lambda-nodejs)
+  - [Python Wrapper for AWS Lambda](https://github.com/wavefrontHQ/wavefront-lambda-python)
 
-* **Python Client** - For an example of using delta counters without an integration, see the [delta.py file](https://github.com/wavefrontHQ/wavefront-pyformance/blob/master/wavefront_pyformance/delta.py), which is part of the [wavefront_pyformance module](https://github.com/wavefrontHQ/wavefront-pyformance).
+* **Python Client** - For an example of using delta counters without an integration, see the [delta.py file](https://github.com/wavefrontHQ/wavefront-pyformance/blob/master/wavefront_pyformance/delta.py), which is part of the [wavefront-pyformance module](https://github.com/wavefrontHQ/wavefront-pyformance).
 
 
 ### Delta Counter Proxy Configuration Properties
@@ -143,11 +143,11 @@ You can use our SDKs to make your metric a delta counter.
 We support the following [proxy configuration properties](proxies_configuring.html#configuration-properties) with delta counters.
 
 - **deltaCounterPorts**: Comma-separated list of ports that accept only delta counter data.
-- **deltaCounterAggregationInterval**: Time that the proxy spends aggregating data before sending them to the Wavefront service. Default is 30 seconds.
+- **deltaCounterAggregationInterval**: Time that the proxy spends aggregating data before sending them to Operations for Applications. Default is 30 seconds.
 
 ### Delta Prefix
 
-If you want to send metrics as delta counters to the Wavefront proxy or directly to the Wavefront service, prefix each metric with a delta (∆) character, as shown in the following [sample code snippet](https://github.com/wavefrontHQ/wavefront-pyformance/blob/master/wavefront_pyformance/delta.py).
+If you want to send metrics as delta counters to the Wavefront proxy or directly to Operations for Applications, prefix each metric with a delta (∆) character, as shown in the following [sample code snippet](https://github.com/wavefrontHQ/wavefront-pyformance/blob/master/wavefront_pyformance/delta.py).
 
 ```
 DELTA_PREFIX = u"\u2206"

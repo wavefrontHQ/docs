@@ -4,9 +4,9 @@ keywords: query language, queries, functions, expressions, operators, variables,
 tags: [query language]
 sidebar: doc_sidebar
 permalink: query_language_reference.html
-summary: Learn about the query syntax, operators, and functions supported by Wavefront Query Language.
+summary: Learn about the query syntax, operators, and functions supported by Wavefront Query Language (WQL).
 ---
-Tanzu Observability by Wavefront includes the Wavefront Query Language (WQL), which allows you to extract the information you need from your data. You use the query language for queries that display in charts and for alerts. This page is a complete reference to all query language elements and functions. You can click most functions for a page with details and examples.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) includes the Wavefront Query Language, which allows you to extract the information you need from your data. You use the query language for queries that display in charts and for alerts. This page is a complete reference to all query language elements and functions. You can click most functions for a page with details and examples.
 
 
 ## Query Expressions
@@ -70,7 +70,7 @@ avg(hs(users.settings.numberOfApiTokens.m))
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;hsExpression&gt;</span></td>
 <td>
-Describes one or more histogram series. A histogram series is a sequence of histogram distributions that the Wavefront service has computed from the data points of a time series. Each distribution summarizes the points in a time interval (minute, hour, day).  An <strong>hsExpression</strong> may be one of the following:
+Describes one or more histogram series. A histogram series is a sequence of histogram distributions that the service has computed from the data points of a time series. Each distribution summarizes the points in a time interval (minute, hour, day).  An <strong>hsExpression</strong> may be one of the following:
 <ul>
 <li>An <a href="hs_function.html"><strong>hs() function</strong></a>, which returns all distributions that match a histogram metric name, filtered by source names, source tags, and point tags.
 <pre>hs(&lt;hsMetricName&gt; [and|or [not] &lt;hsMetricName2&gt;] ...
@@ -191,7 +191,7 @@ lowpass(12ms, spans("beachshirts.styling.makeShirts"))
 
 Query expressions use a number of common parameters to specify names and values that describe the data of interest. You can use [wildcards or partial regex](#partial-regex-wildcards-aliases-and-variables) to match multiple names or values.
 
-* Rules for valid names are here: [Wavefront Data Format](wavefront_data_format.html#wavefront-data-format-fields).
+* Rules for valid names are here: [Data Format](wavefront_data_format.html#data-format-fields).
 * Enclose a metric, source, or tag name, or a tag value, in double quotes if it is also a reserved word in the product, such as a function name or keyword. For example, if you're using a point tag named `default`, use `"default"`.
 
 <table style="width: 100%;">
@@ -468,7 +468,7 @@ join(ts(cpu.load) AS ts1 JOIN ts(request.rate) AS ts2 ON ts1.env = ts2.env, ... 
 <li>Best practice: Use alias names that are three characters or longer.</li>
 <li>Don't use a reserved word as an alias name. For example, don't use:
   <ul>
-  <li>The name of any Wavefront Query Language function. For example, <strong>sum</strong> is not valid.</li>
+  <li>The name of any WQL function. For example, <strong>sum</strong> is not valid.</li>
   <li>An <a href="https://en.wikipedia.org/wiki/Metric_prefix">SI prefix</a>. For example: p, h, k, M, G, T, P, E, Z, Y are not valid.</li>
   <li>An <a href="https://en.wikipedia.org/wiki/Allen%27s_interval_algebra">Allen's interval algebra operator</a>. For example: m, mi, o, s, d, f are not valid.</li>
   </ul>
@@ -1520,7 +1520,7 @@ A time series exists if it has recently reported a data value, so that it hasn't
 
 ## Histogram Functions
 
-You use histogram query functions to access the histogram distributions that were computed from a metric. See [Wavefront Histograms](proxies_histograms.html) for background.
+You use histogram query functions to access the histogram distributions that were computed from a metric. See [Histograms](proxies_histograms.html) for background.
 
 ### Histogram to Histogram Functions
 
@@ -1634,7 +1634,7 @@ Aligns a series of histogram distributions into a single time bucket for the cur
 
 ### Histogram Output Conversion Functions
 
-Each histogram output conversion function in the following table takes a time series as input and returns the results as Wavefront histogram. You can therefore use the result as input to any of the histogram functions listed in this section.
+Each histogram output conversion function in the following table takes a time series as input and returns the results as a histogram. You can therefore use the result as input to any of the histogram functions listed in this section.
 
 <table style="width: 100%;">
 <colgroup>
@@ -1664,7 +1664,7 @@ Each histogram output conversion function in the following table takes a time se
 </tr>
 <tr>
 <td><a href="ts_frequencyHisto.html">frequencyHisto(&lbrack;<strong>timeWindow</strong>&rbrack;, &lbrack;<strong>&lt;bucketName&gt;, </strong> &rbrack; <strong>&lt;tsExpression&gt;</strong> &lbrack;<strong>,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong> &rbrack;)</a></td>
-<td>Converts a histogram coming from Google Cloud Platform(GCP) to Wavefront histogram format. When GCP Detailed Histogram Metrics is enabled, we additionally ingest bucket counts for GCP distributions, with metric namegcp.&lt;metric&gt;.bucket. Enabling this increases ingestion rate and cost.
+<td>Converts a histogram coming from Google Cloud Platform(GCP) to our histogram format. When GCP Detailed Histogram Metrics is enabled, we additionally ingest bucket counts for GCP distributions, with metric namegcp.&lt;metric&gt;.bucket. Enabling this increases ingestion rate and cost.
 </td>
 </tr>
 </tbody>

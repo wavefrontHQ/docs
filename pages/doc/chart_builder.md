@@ -7,7 +7,7 @@ permalink: chart_builder.html
 summary: Use Chart Builder to display the data you're interested in.
 ---
 
-When you get started with Tanzu Observability by Wavefront, Chart Builder is the fasted way to customize which metrics you see and to display them in charts.
+When you get started with VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront), Chart Builder is the fasted way to customize which metrics you see and to display them in charts.
 
 Chart Builder has the tools for creating charts and customizing which metrics you see.
 * Construct queries from building blocks
@@ -21,11 +21,11 @@ Chart Builder has the tools for creating charts and customizing which metrics yo
 
 Here's a 90 second overview of some of the main features.
 
-<iframe id="kmsembed-1_46pqfyms" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_46pqfyms/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Wavefront intro how-to"></iframe>
+<iframe id="kmsembed-1_46pqfyms" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_46pqfyms/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Product intro how-to"></iframe>
 
 ## Get Started
 
-When you create a new chart or edit an existing chart, we open Chart Builder:
+When you create a new chart or edit an existing chart, we open the Chart Builder:
 
 * Select **Dashboards > Create Chart** to create a new chart.
 * Click the chart name of a chart you want to edit.

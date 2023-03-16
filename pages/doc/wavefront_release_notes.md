@@ -4,10 +4,10 @@ keywords:
 tags:
 sidebar: doc_sidebar
 permalink: wavefront_release_notes.html
-summary: Announcements and new and updated features in Tanzu Observability by Wavefront.
+summary: Announcements and new and updated features in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
 ---
 
-This page lists new and updated features for the Tanzu Observability by Wavefront service.
+This page lists new and updated features for the VMware Aria Operations for Applications service.
 
 * For **Wavefront Proxy**, your go-to place is the [Wavefront proxy GitHub page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
@@ -15,7 +15,7 @@ This page lists new and updated features for the Tanzu Observability by Wavefron
 
 ## 2023-09.x Release Notes
 
-**Analyze Your Queries**: With this release you can use the Query Analyzer and [analyze your queries and their subqueries](query_language_performance.html#use-the-query-analyzer). When you expect to see certain data in Tanzu Observability, but it doesn’t show up for some reason, charts display a **No Data** message. When you see this message on a chart, use the Query Analyzer to analyze and troubleshoot your queries and subqueries. 
+**Analyze Your Queries**: With this release you can use the Query Analyzer and [analyze your queries and their subqueries](query_language_performance.html#use-the-query-analyzer). When you expect to see certain data in Operations for Applications, but it doesn’t show up for some reason, charts display a **No Data** message. When you see this message on a chart, use the Query Analyzer to analyze and troubleshoot your queries and subqueries. 
 
 ## 2023-08.x Release Notes
 
