@@ -4,13 +4,13 @@ keywords:
 tags: [integrations, dashboards]
 sidebar: doc_sidebar
 permalink: integrations_aws_metrics.html
-summary: Monitor CloudWatch, CloudTrail, and Metrics+ with Tanzu Observability by Wavefront.
+summary: Monitor CloudWatch, CloudTrail, and Metrics+ with VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
 ---
 Amazon Web Services (AWS) is a collection of cloud-computing services that provide an on-demand computing platform. The Amazon Web Services integration allows you to ingest metrics directly from AWS. The Amazon Web Services built-in integration is part of the setup, but the additional steps in this document are needed to complete and customize integration setup.
 
 {% include note.html content="You must have the [**Proxy Management** permission](permissions_overview.html) to set up an AWS integration. If you do not have permission, the UI menu selections, buttons, and links you use to perform the tasks are not visible." %}
 
-You have to set up your Tanzu Observability by Wavefront account with the correct permissions.
+You have to set up your VMware Aria Operations for Applications account with the correct permissions.
 * From within the integration or explicitly, you can [Give Global Read-Only Access](integrations_aws_overview.html#give-read-only-access-to-your-amazon-account-and-get-the-role-arn).
 * As an alternative, you can [Create an IAM Policy to Specify Limited Access](integrations_aws_overview.html#create-iam-policy-to-specify-limited-access).
 
@@ -21,29 +21,29 @@ The AWS integration ingests data from many products and provides dashboards for 
 
 - **[CloudWatch](http://aws.amazon.com/cloudwatch)** -- retrieves AWS [metric and
 dimension](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html) data. Includes some metrics for Amazon Relational Database (RDS).
-- **[CloudTrail](http://aws.amazon.com/cloudtrail)** -- retrieves EC2 event information and creates Tanzu Observability System events that represent the AWS events.
-- **[AWS Metrics+](integrations_aws_metrics.html#aws-metrics-data)** -- retrieves additional metrics using AWS APIs other than CloudWatch. Data include EBS volume data and  EC2 instance metadata like tags. You can investigate billing data  and the number of reserved instances. Be sure to enable AWS+ metrics because it allows Tanzu Observability to optimize its use of CloudWatch, and saves money on CloudWatch calls as a result.
+- **[CloudTrail](http://aws.amazon.com/cloudtrail)** -- retrieves EC2 event information and creates System events that represent the AWS events.
+- **[AWS Metrics+](integrations_aws_metrics.html#aws-metrics-data)** -- retrieves additional metrics using AWS APIs other than CloudWatch. Data include EBS volume data and  EC2 instance metadata like tags. You can investigate billing data  and the number of reserved instances. Be sure to enable AWS+ metrics because it allows VMware Aria Operations for Applications to optimize its use of CloudWatch, and saves money on CloudWatch calls as a result.
 
 
 ## CloudWatch Integration Details
 
-Tanzu Observability retrieves AWS metric and dimension data from AWS services using the AWS CloudWatch API. The complete list of metrics and dimensions that can be retrieved from AWS CloudWatch is available at [Amazon CloudWatch Metrics and Dimensions Reference](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html). In addition, you can publish [custom AWS metrics](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html) that can also be ingested by the CloudWatch integration.
+VMware Aria Operations for Applications retrieves AWS metric and dimension data from AWS services using the AWS CloudWatch API. The complete list of metrics and dimensions that can be retrieved from AWS CloudWatch is available at [Amazon CloudWatch Metrics and Dimensions Reference](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html). In addition, you can publish [custom AWS metrics](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html) that can also be ingested by the CloudWatch integration.
 
 <a name="configure"></a>
 
 ### Configuring CloudWatch Data Ingestion
 
-You can configure which instances and volumes to ingest metrics from, which metrics to ingest, and the rate at which Tanzu Observability fetches metrics.
+You can configure which instances and volumes to ingest metrics from, which metrics to ingest, and the rate at which VMware Aria Operations for Applications fetches metrics.
 {% include tip.html content="The following examples are supported only for EC2 and EBS metrics." %}
 
 To configure CloudWatch ingestion:
 
-1. Log in to your Wavefront cluster and click **Integrations** on the toolbar.
+1. Log in to your product cluster and click **Integrations** on the toolbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
 1. Click the **Setup** tab.
 1. In the Types column, click the **CloudWatch** link in the row of the integration you want to configure.
 1. Configure ingestion properties:
-    - **Instance and Volume Allow List** fields -- Add instances and volumes to an allow list by specifying [EC2 tags](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html), defined on the instances and volumes. The allow lists should be in JSON format, for example, `{"organization":"yourcompany"}`. The tags specified in the allow lists are OR'd. To use instance and volume allow lists, you must also add an [AWS Metrics+](#aws-metrics-data) integration because the AWS tags are imported from the EC2 service. If you don't specify any tags, Tanzu Observability imports metrics from *all* instances and volumes.
+    - **Instance and Volume Allow List** fields -- Add instances and volumes to an allow list by specifying [EC2 tags](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html), defined on the instances and volumes. The allow lists should be in JSON format, for example, `{"organization":"yourcompany"}`. The tags specified in the allow lists are OR'd. To use instance and volume allow lists, you must also add an [AWS Metrics+](#aws-metrics-data) integration because the AWS tags are imported from the EC2 service. If you don't specify any tags, we import metrics from *all* instances and volumes.
     - **Metric Allow List** field -- Add metrics to an allow list by specifying a regular expression. Metric names consist of the actual metric name and an aggregation type. In the regular expression, you must use the actual metric names without the aggregation types. For example, in the following list of metric names:
     
       - `aws.dynamodb.successfulrequestlatency.average`
@@ -56,7 +56,7 @@ To configure CloudWatch ingestion:
       
       If you do not specify a regular expression, _all_ CloudWatch metrics are retrieved.
     
-    - **Bucket Allow List** -- Enter a regular expression with the names of the buckets that contain the objects you want to request metrics for. This way, you add the bucket names to an allow list and only the S3 metrics that are in the matching buckets will be sent to Tanzu Observability.
+    - **Bucket Allow List** -- Enter a regular expression with the names of the buckets that contain the objects you want to request metrics for. This way, you add the bucket names to an allow list and only the S3 metrics that are in the matching buckets will be sent to VMware Aria Operations for Applications.
     - **Point Tag Allow List** -- Add custom AWS point tags to an allow list by specifying a regular expression. If you do not specify a regular expression, no point tags are added to metrics.
     
       Currently, custom point tags only for AWS EC2 instances and volumes are supported. To ingest the custom tags, you must first add the custom tags to the supported resources, and then add the tag keys in the **Point Tag Allow List** as a regular expression.
@@ -125,11 +125,11 @@ If you are ingesting metrics for a service, which is not part of the products li
 
 ### CloudWatch Sources and Source Tags
 
-Tanzu Observability automatically sets each metric's source field and adds source tags to each AWS source, as follows:
+VMware Aria Operations for Applications automatically sets each metric's source field and adds source tags to each AWS source, as follows:
 
 **Metric Source Field**
 
-Tanzu Observability sets the value of the AWS metric [`source`](wavefront_data_format.html) field by service:
+VMware Aria Operations for Applications sets the value of the AWS metric [`source`](wavefront_data_format.html) field by service:
 
 - **EC2** - the value of the **hostname**, **host**, or **name** [EC2 tags](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html), if the tags exist and you have an EC2 integration. Otherwise, the source is set to the Amazon instance ID.
 - **EBS** - the Amazon instance ID of the EC2 instance the volume is attached to.
@@ -141,7 +141,7 @@ AWS sources are assigned source tags that identify their originating service fol
 
 ### CloudWatch Point Tags
 
-Tanzu Observability adds the following point tags to CloudWatch metrics:
+VMware Aria Operations for Applications adds the following point tags to CloudWatch metrics:
 
 - `accountId` - the Amazon account that reported the metric.
 - `Region` - The region in which the service is running. Added to EC2 and EBS metrics only.
@@ -149,7 +149,7 @@ Tanzu Observability adds the following point tags to CloudWatch metrics:
 
 ### CloudWatch Pricing
 
-Standard AWS CloudWatch pricing applies each time Tanzu Observability requests metrics using the CloudWatch API. For pricing information, see [AWS \| Amazon CloudWatch \| Pricing](http://aws.amazon.com/cloudwatch/pricing). After selecting a region, you can find the current expected price under **Amazon CloudWatch API Requests**. In addition, custom metrics have a premium price; see the **Amazon CloudWatch Custom Metrics** section of the pricing page. To limit cost, by default Tanzu Observability queries the API every 5 minutes. However, you can [change the refresh rate](#configuring-cloudwatch-data-ingestion), which will change the cost.
+Standard AWS CloudWatch pricing applies each time VMware Aria Operations for Applications requests metrics using the CloudWatch API. For pricing information, see [AWS \| Amazon CloudWatch \| Pricing](http://aws.amazon.com/cloudwatch/pricing). After selecting a region, you can find the current expected price under **Amazon CloudWatch API Requests**. In addition, custom metrics have a premium price; see the **Amazon CloudWatch Custom Metrics** section of the pricing page. To limit cost, by default VMware Aria Operations for Applications queries the API every 5 minutes. However, you can [change the refresh rate](#configuring-cloudwatch-data-ingestion), which will change the cost.
 
 As an alternative to using the CloudWatch API for EC2 metrics, you can collect these metrics using [a Telegraf collector](telegraf.html) on each AWS instance. In this case, to prevent CloudWatch from requesting those metrics, you should set the **Metric Allow List** property to allow all metrics except EC2. For example:
 
@@ -165,7 +165,7 @@ The AWS Billing and Cost Management service sends [billing metrics](http://docs.
 
 ![aws billing](images/aws_billing.png)
 
-Tanzu Observability reports the single metric `aws.billing.estimatedcharges`. The `source` field and `ServiceName` point tag identify the AWS services. For the total estimated charge metric, `source` is set to `usd` and `ServiceName` is empty. Tanzu Observability also provides the point tags `accountId`, `Currency`, `LinkedAccount`, and `Region`. Billing metrics are typically reported every 4 hours.
+VMware Aria Operations for Applications reports the single metric `aws.billing.estimatedcharges`. The `source` field and `ServiceName` point tag identify the AWS services. For the total estimated charge metric, `source` is set to `usd` and `ServiceName` is empty. VMware Aria Operations for Applications also provides the point tags `accountId`, `Currency`, `LinkedAccount`, and `Region`. Billing metrics are typically reported every 4 hours.
 
 ### AWS Usage Metrics
 
@@ -176,7 +176,7 @@ As part of CloudWatch we collect metrics that let you check if throttling is hap
   
 ## CloudTrail Events, Metrics, and Point Tags
 
-We retrieve CloudTrail event information stored in JSON-formatted log files in an S3 bucket. The CloudTrail integration parses the files for all events that result from an operation that is not a describe, get, or list, and creates a Tanzu Observability [System event](events.html).
+We retrieve CloudTrail event information stored in JSON-formatted log files in an S3 bucket. The CloudTrail integration parses the files for all events that result from an operation that is not a describe, get, or list, and creates a [System event](events.html).
 
 In the [Events browser](events.html) the events are named **AWS Action: \<Operation\>** and have the event tag `aws.cloudtrail.ec2`. For example:
 
@@ -244,7 +244,7 @@ You can use the following point tags to filter the metrics.
 ## AWS Metrics+ Data
 
 AWS Metrics+ are metrics retrieved using AWS metrics API calls other than CloudWatch.
-Unless otherwise indicated, Tanzu Observability sets the value of the AWS Metrics+ `source` field to the AWS instance ID. If an EBS volume is detached, its source field is set to the volume ID. The metrics include:
+Unless otherwise indicated, VMware Aria Operations for Applications sets the value of the AWS Metrics+ `source` field to the AWS instance ID. If an EBS volume is detached, its source field is set to the volume ID. The metrics include:
 
 - `aws.instance.price` - EC2 instances and how much they cost per hour. This metric includes the point tags `availabilityZone`, `instanceID`, `instanceLifecycle`, `instanceType`, and `operatingSystem`.
 - `aws.reservedinstance.count` - Number of reserved instances in each availability zone by each instance type. This metric includes the point tags `availabilityZone`, `instanceID`, `instanceType`, and `operatingSystem`. This metric appears only if your account has reserved instances.
@@ -268,7 +268,7 @@ Unless otherwise indicated, Tanzu Observability sets the value of the AWS Metric
   - `aws.limits.<resource>.limit` - The current limit for an AWS resource in a particular region.
   - `aws.limits.<resource>.usage` - The current usage of an AWS resource in a particular region.
 
-    {% include note.html content="To examine these metrics, your account needs at least the Business-level AWS Support plan because the integration uses the Support API to pull service limits. You also need both ReadOnlyAccess and AWSSupportAccess. See [Giving Tanzu Observability Read-Only Access](integrations_aws_overview.html#giving-tanzu-observability-access-to-your-aws-account) for details." %}
+    {% include note.html content="To examine these metrics, your account needs at least the Business-level AWS Support plan because the integration uses the Support API to pull service limits. You also need both ReadOnlyAccess and AWSSupportAccess. See [Giving VMware Aria Operations for Applications Read-Only Access](integrations_aws_overview.html#giving-access-to-your-aws-account) for details." %}
     
 
 

@@ -1,60 +1,60 @@
 ---
-title: Wavefront REST API
+title: REST API
 keywords: getting started
 tags: [getting started]
 sidebar: doc_sidebar
 permalink: wavefront_api.html
-summary: Learn about the REST API for managing Tanzu Observability by Wavefront.
+summary: Learn about the REST API for managing VMware Aria Operations for Applications (previously known as Tanzu Observability by Wavefront).
 ---
 
-The Wavefront REST API enables you to write scripts to perform management tasks, such as defining alerts and creating events. You can use the REST API to perform any task that is supported by the Tanzu Observability GUI. The REST API is based on Swagger, so you can generate the API client of your choice (including a CLI client).
+The REST API enables you to write scripts to perform management tasks, such as defining alerts and creating events. You can use the REST API to perform any task that is supported by the Operations for Applications  GUI. The REST API is based on Swagger, so you can generate the API client of your choice (including a CLI client).
 
 
 
 ## REST API Overview
 
-All interactions between the UI and your Wavefront instance occur through the Wavefront API. You can perform those actions using REST - or you can create an API client using Swagger, discussed below.
+All interactions between the UI and your product instance occur through the API. You can perform those actions using REST - or you can create an API client using Swagger, discussed below.
 
 The current version of the REST API is v2. You can access the API at `<your_instance>/api/v2`. The v1 API (`<your_instance>/api/`) was deprecated in 2017 and is no longer supported.
 
-{% include note.html content="The Wavefront REST API is not the same as the `/api` endpoint that you specify for the Wavefront proxy."%}
+{% include note.html content="Our REST API is not the same as the `/api` endpoint that you specify for the Wavefront proxy."%}
 
 
-## API Documentation (Wavefront Instance)
+## API Documentation (Product Instance)
 
-Each Wavefront instance includes Swagger-generated documentation for the REST API. In our blog post [Did You Know that Our API Docs Are Alive](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/did-you-know-that-our-api-docs-are-alive) we explain how you can experiment with our API directly from this in-product documentation.
+Each product instance includes Swagger-generated documentation for the REST API. In our blog post [Did You Know that Our API Docs Are Alive](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/did-you-know-that-our-api-docs-are-alive) we explain how you can experiment with our API directly from this in-product documentation.
 
 To access the REST API documentation :
 
-1. Log in to your Wavefront instance.
+1. Log in to your product instance.
 2. Display the doc from the UI or using a URL:
   * In the UI, click the gear icon <i class="fa fa-cog"/> at the top right of the toolbar and select **API Documentation**.
   * Type `https://<your_instance>.com/api-docs/ui/`
 
 
-![REST API in a Wavefront instance](/images/rest_api.png)
+![REST API in a product instance](/images/rest_api.png)
 
 ## API Documentation (VMware code)
 
-If you don't have access to a Wavefront instance, you can have a look at our API doc [on the VMware code site](https://code.vmware.com/apis/714/wavefront-rest).
+If you don't have access to a product instance, you can have a look at our API doc [on the VMware code site](https://code.vmware.com/apis/714/wavefront-rest).
 
 We include an overview and a Swagger-generated API Reference. We update the reference with each release.
 
 ![REST API in VMware code](/images/vmware_code_api.png)
 
-The [VMware code website](https://code.vmware.com/samples?categories=Sample&tags=wavefront) also includes some samples, for example, for getting data into Tanzu Observability. We're providing these samples as is - some are from our team, others will come from the community.
+The [VMware code website](https://code.vmware.com/samples?categories=Sample&tags=wavefront) also includes some samples, for example, for getting data into Operations for Applications. We're providing these samples as is - some are from our team, others will come from the community.
 
 <a id="generating-an-api-token"></a>
 ## Managing API Tokens
 
-Before you can invoke the Wavefront API using `curl` or from an API client, you must have an API token.
+Before you can invoke the API using `curl` or from an API client, you must have an API token.
 
 An API token is a string of hexadecimal characters and dashes. For example:
 
 ```
 a411c16b-3cf7-4f03-bf11-8ca05aab898d
 ```
-Tanzu Observability by Wavefront allows [user accounts](user-accounts.html) and [service accounts](service-accounts.html) to use the [Wavefront REST API](wavefront_api.html).
+VMware Aria Operations for Applications allows [user accounts](user-accounts.html) and [service accounts](service-accounts.html) to use the [REST API](wavefront_api.html).
 
 {% include tip.html content="You generate API tokens for your user account explicitly. For service accounts, a user with the **Accounts** permission can generate tokens from the **Service Accounts** page." %}
 
@@ -63,7 +63,7 @@ Tanzu Observability by Wavefront allows [user accounts](user-accounts.html) and 
 {% include note.html content="All users can use and manage their existing API tokens. You must have the [API Tokens permission](permissions_overview.html) to generate new API tokens for your user account." %}
 
 
-1. Log in to your Wavefront instance.
+1. Log in to your product instance.
 2. Click the gear icon <i class="fa fa-cog"/>  at the top right of the toolbar and select your user name.
 2. On the **API Access** tab, click **Generate**.
 
@@ -82,7 +82,7 @@ Tanzu Observability by Wavefront allows [user accounts](user-accounts.html) and 
 
 As a user with the **Accounts** permission, you can generate API tokens for [service accounts](service-accounts.html) upon creation or at a later stage. To generate an API token for an existing **service account**:
 
-1. Log in to your Wavefront instance as a user with the **Accounts** permission.
+1. Log in to your product instance as a user with the **Accounts** permission.
 2. Click the gear icon <i class="fa fa-cog"/> at the top right of the toolbar and select **Accounts**.
 3. On the **Service Accounts** tab, click the ellipsis icon next to the service account for which you want to generate an API token, and select **Edit**.
 4. To generate a new token, in the Tokens section, click **Generate**.
@@ -98,7 +98,7 @@ As a user with the **Accounts** permission, you can generate API tokens for [ser
 
 As a user with the **Accounts** permission, you can view and revoke the API token of any user or service account in your organization.
 
-1. Log in to your Wavefront instance as a user with the **Accounts** permission.
+1. Log in to your product instance as a user with the **Accounts** permission.
 2. Click the gear icon <i class="fa fa-cog"/>  at the top right of the toolbar and select **Accounts**.
 3. Click the **API Tokens** tab.
 
@@ -117,11 +117,11 @@ On the API Tokens page, you can:
 
 ## Invoking the API
 
-You can invoke the Wavefront API using `curl` or from an API client. In either case, you must use an API token. See [Use the Wavefront REST API](using_wavefront_api.html) for details and examples.
+You can invoke the API using `curl` or from an API client. In either case, you must use an API token. See [Use the REST API](using_wavefront_api.html) for details and examples.
 
 ## Generate an API Client Using Swagger
 
-Because we expose the Wavefront REST API via Swagger, you can generate a working implementation of the API for the programming language or CLI you want to use.
+Because we expose the REST API via Swagger, you can generate a working implementation of the API for the programming language or CLI you want to use.
 
 {% include note.html content="Using the default Swagger configuration settings might result in errors. Create your own configuration file instead."%}
 
@@ -144,7 +144,7 @@ Here's an example for generating a Java client:
 
 `swagger-codegen generate -i https://mydomain.wavefront.com/api/v2/swagger.json -c swagger-config.json -l java`
 
-## Wavefront REST API Categories
+## REST API Categories
 
 The REST API supports the following objects corresponding to different categories of management tasks:
 
@@ -182,7 +182,7 @@ The `/api/access/{entity}` endpoint provides information on how often an entity 
 
 {% include important.html content="In order to use this API, users must have both the Direct Data Ingestion and Metrics [permissions](permissions_overview.html)."%}
 
-{% include note.html content="Tanzu Observability by Wavefront uses a bloom filter to determine the access pattern. As a result, even if data access returns true, there’s a very low probability that data actually hasn't been accessed. If data access returns false, it is guaranteed that the data has not been accessed.
+{% include note.html content="VMware Aria Operations for Applications uses a bloom filter to determine the access pattern. As a result, even if data access returns true, there’s a very low probability that data actually hasn't been accessed. If data access returns false, it is guaranteed that the data has not been accessed.
 "%}
 
 This GET endpoint has the following parameters:
@@ -198,7 +198,7 @@ This GET endpoint has the following parameters:
 <tr>
 <td>hostPrefix</td>
 <td>Prefix of the host name, e.g. you can use test-2a-app67 if the whole host name is test-2a-app67-id-12345 <br>
-<strong>Warning:</strong>hostPrefix must be somewhat specific. There's a limit on how many hosts Tanzu Observability scans.</td></tr>
+<strong>Warning:</strong>hostPrefix must be somewhat specific. There's a limit on how many hosts VMware Aria Operations for Applications scans.</td></tr>
 <tr>
 <td>usageThresholdDays</td>
 <td>How many days to look back. 7 days by default.</td></tr>

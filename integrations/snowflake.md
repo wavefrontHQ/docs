@@ -18,11 +18,11 @@ Here's a preview of the dashboard:
 
 Use the Snowflake integration to monitor a Snowflake database and the ACCOUNT_USAGE schema. 
 
-To register a new Snowflake instance and start monitoring the Snowflake usage, you must give Tanzu Observability by Wavefront access to your Snowflake account. The overall process involves:
+To register a new Snowflake instance and start monitoring the Snowflake usage, you must give VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) access to your Snowflake account. The overall process involves:
 
 * Generating a private and a public key. 
   Snowflake supports key-pair authentication for enhanced authentication security. 
-* Creating a custom role that will monitor the Snowflake usage, for example `NEWROLE`.
+* Creating a custom role that will monitor the Snowflake usage, for example `MYROLE`.
 * Granting the role with the `usage` and `monitor` privileges on the warehouse.
 * Assigning the role to a new or an already existing user who has the public key assigned.
 

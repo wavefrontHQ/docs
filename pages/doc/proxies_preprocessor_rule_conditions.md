@@ -6,20 +6,29 @@ sidebar: doc_sidebar
 permalink: proxies_preprocessor_rule_conditions.html
 summary: Learn how to write proxy preprocessor rules that include conditions.
 ---
-You can configure Tanzu Observability by Wavefront with [proxy preprocessor rules](proxies_preprocessor_rules.html) that apply only when multiple conditions are met or when certain conditions are met and other conditions are not met.
+You can configure Wavefront proxies with [preprocessor rules](proxies_preprocessor_rules.html) that apply only when multiple conditions are met or when certain conditions are met and other conditions are not met.
 
-{% include tip.html content="Starting with Proxy 9.x, `*blacklist` has been replaced with `*block` and `*whitelist` has been replaced with `*allow`. This documentation page uses the new configuration parameter names. " %}
+{% include tip.html content="Starting with Proxy 9.x, `blacklist` has been replaced with `block` and `whitelist` has been replaced with `allow`. This documentation page uses the new configuration parameter names. " %}
 
 ## Conditional Preprocessor Rule Example
 
-For example, you might want to block list spans only if it
-* has span tags that match both `"span.kind"="server"` and (`"http.status_code"="302"` or `"http.status_code"="404"`)
-* and has no span tags that match `debug=true`
+For example, you might want to block spans only if the following conditions are met:
+* Has span tags that match both `"span.kind"="server"` and (`"http.status_code"="302"` or `"http.status_code"="404"`).
+* Has no span tags that match `debug=true`.
 
 You can use the `if` parameter to fine-tune when a rule applies. Here are the rules for the example above.
 
-{% include important.html content="Upgrade to proxy 10.14 or later to take advantage of the latest security updates. Earlier versions of the proxy are deprecated and will soon be obsolete. " %}
-
+```
+## drop spans that match the following:
+## "span.kind"="server" and ("http.status_code"="302" or "http.status_code"="404") and "debug"!="true"
+'2878':
+    - rule: test-block-list
+    action: spanBlock
+    if: >
+      {% raw %}{{http.status_code}} in ("302", "404") and {{span.kind}} = "server"
+      and not {{debug}} = "true"{% endraw %}
+```
+<!---
 <ul id="profileTabs" class="nav nav-tabs">
     <li class="active"><a href="#9plus" data-toggle="tab">Proxy 9 and Later</a></li>
     <li><a href="#9minus" data-toggle="tab">Earlier Proxy Versions</a></li>
@@ -62,7 +71,7 @@ You can use the `if` parameter to fine-tune when a rule applies. Here are the ru
 
           </pre>
       </div>
-  </div>
+  </div>  --->
 
 <!---
 Here's the original

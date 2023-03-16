@@ -4,13 +4,13 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_log_data.html
-summary: Learn how to send log data to Tanzu Observability by Wavefront by setting up a proxy and configuring Filebeat or TCP.
+summary: Learn how to send log data to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) by setting up a proxy and configuring Filebeat or TCP.
 ---
 
-Tanzu Observability supports two methods for sending log data metrics to a Wavefront proxy: Filebeat and TCP. Wavefront proxy 4.4 and later supports these methods.
+VMware Aria Operations for Applications supports two methods for sending log data metrics to a Wavefront proxy: Filebeat and TCP. Wavefront proxy 4.4 and later supports these methods.
 
 **Warning** Log ingestion functionality does not work well if you use a load balancer in your environment.
-* When traffic is split between nodes, each node tracks its own counter. The counters collide when they are sent to Tanzu Observability by Wavefront.
+* When traffic is split between nodes, each node tracks its own counter. The counters collide when they are sent to VMware Aria Operations for Applications.
 * Information about the actual source (host) is lost.
 
 The [Create Metrics from Logs for Real-Time Cloud Application Monitoring](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/engineering-tips-series-create-metrics-from-logs-for-real-time-cloud-application-monitoring-without-breaking-your-bank) blog post discusses a real example and complements this page.
@@ -19,13 +19,13 @@ The [Create Metrics from Logs for Real-Time Cloud Application Monitoring](https:
 
 The built-in Log Data integration guides you through installing a Wavefront proxy. To access this integration:
 
-1. Log in to your Wavefront cluster.
+1. Log in to your product cluster (`https://<example>.wavefront.com`).
 1. Click **Integrations** and click the **Log Data** tile.
 1. Click the **Setup** tab and follow the instructions.
 
 ## Configuring the Wavefront Proxy to Ingest Log Data
 
-In this example, we configure Tanzu Observability to parse [Combined Apache Logs](http://httpd.apache.org/docs/2.4/logs.html#combined), which is a common logging format for many web services (for example, NGiNX). The example is merely a starting point&mdash; so you understand how to ingest metrics from any log format.
+In this example, we configure VMware Aria Operations for Applications to parse [Combined Apache Logs](http://httpd.apache.org/docs/2.4/logs.html#combined), which is a common logging format for many web services (for example, NGiNX). The example is merely a starting point&mdash; so you understand how to ingest metrics from any log format.
 
 ### Configuring the Wavefront Proxy to Listen for Log Data
 
@@ -143,7 +143,7 @@ The Wavefront proxy automatically assigns metrics a **source** according to the 
 
 ### Instructions
 
-1.  Install [Filebeat](http://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) on any production node that has log data to send to Tanzu Observability by Wavefront:
+1.  Install [Filebeat](http://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) on any production node that has log data to send to Operations for Applications:
     -   **Ubuntu**:
 
             $ curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.0.1-amd64.deb

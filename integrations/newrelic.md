@@ -19,7 +19,7 @@ Metrics that originate from New Relic are prefixed with `newrelic.apps.` in Oper
 
 ### Adding New Relic Integration
 
-Adding a New Relic integration requires establishing a trust relationship between New Relic and Tanzu Observability by Wavefront.
+Adding a New Relic integration requires establishing a trust relationship between New Relic and VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
 
 
 1. Navigate to the New Relic API Key generator in your New Relic instance.
@@ -27,7 +27,7 @@ Adding a New Relic integration requires establishing a trust relationship betwee
 3. Copy the key and paste in into the API Key field in the integration setup.
 4. (Optional) Add source filters and metric filters.
 
-You can then configure Tanzu Observability to continually load application data.
+You can then configure Operations for Applications to continually load application data.
 
 
 

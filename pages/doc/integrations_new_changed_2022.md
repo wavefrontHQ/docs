@@ -4,9 +4,9 @@ keywords: integrations
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_new_changed_2022.html
-summary: New and changed Wavefront integrations released in 2022.
+summary: New and changed integrations released in 2022.
 ---
-Wavefront continuously adds new integrations to the existing set, and improves available integrations.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) continuously adds new integrations to the existing set, and improves available integrations.
 
 This document lists new and changed integrations for 2022. For earlier releases, see [New and Changed Integrations in 2021](integrations_new_changed_2021.html)[New and Changed Integrations in 2019-2020](integrations_new_changed_2020.html).
 * We have a separate document for [Integrations Release Notes](integrations_new_changed.html).
@@ -91,22 +91,22 @@ We made improvements to the following integrations in November 2022:
 
 Logs (Beta) Related Changes:
 
-{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative or [technical support](wavefront_support_feedback.html#support)." %}
+{% include important.html content="Logs (Beta) is enabled only for selected customers. To participate, contact your VMware Aria Operations for Applications account representative or [technical support](wavefront_support_feedback.html#support)." %}
 
 
 With the Initial Availability of our Logs (Beta) feature, we have made improvements to the following integrations:
   
-* Linux Host -- Now contains Linux Logs Setup (Beta) instructions. If Logs (Beta) is enabled for you, you can set up your Linux integration to [send logs](logging_send_logs.html) to Tanzu Observability. For details on Tanzu Observability Logs (Beta), see [Get Started with Logs (Beta)](logging_overview.html). For detailed steps on setting up the Linux Host integration, see [Linux Logs Setup (Beta)](linux.html).
-* Wavefront Usage -- We added a Logs Stats section. It contains charts that track the amount of logs that are successfully delivered and successfully queried by the Wavefront service. Also, the section shows charts that track the amount of logs that are received, queued, and blocked by the Wavefront proxy. [Read more](wavefront_monitoring.html#logs-stats).
+* Linux Host -- Now contains Linux Logs Setup (Beta) instructions. If Logs (Beta) is enabled for you, you can set up your Linux integration to [send logs](logging_send_logs.html) to our service. For details on the Logs (Beta) feature, see [Get Started with Logs (Beta)](logging_overview.html). For detailed steps on setting up the Linux Host integration, see [Linux Logs Setup (Beta)](linux.html).
+* Operations for Applications Usage -- We added a Logs Stats section. It contains charts that track the amount of logs that are successfully delivered and successfully queried by our service. Also, the section shows charts that track the amount of logs that are received, queued, and blocked by the Wavefront proxy. [Read more](wavefront_monitoring.html#logs-stats).
 
 We made improvements and bug fixes to the following integrations in October 2022:
 
-* Wavefront Usage:
+* Operations for Applications Usage:
   - Made significant improvements to the **Committed Rate vs Monthly Usage (PPS P95) for Billable** and **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboards. You can use the data displayed on the dashboard that suits your commit contract. For example, if you have a billable commit contract, only the **Committed Rate vs Monthly Usage (PPS P95) for Billable** dashboard will contain charts populated with data. The **Usage (PPS) vs Remaining Balance (PPS P95) for Burndown** dashboard will be empty.
-  - Made a minor fix to the **Wavefront Service and Proxy Data** dashboard.
+  - Made a minor fix to the **Operations for Applications Service and Proxy Data** dashboard.
 * Terraform Provider:
   - We added data source support for alerts, dashboards, events, derived metrics, maintenance windows, and external links.
-  - Added support for checking frequency of Terraform Wavefront Alert.
+  - Added support for checking frequency of Terraform Operations for Applications Alert.
   - User groups and roles can be now fetched by ID.
   - We added a data source example to the sample Terraform Provider script.
 * Tanzu Application Service:
@@ -116,7 +116,7 @@ We made improvements and bug fixes to the following integrations in October 2022
 * Java -- Fixed the links to the Jolokia 2 Agent documentation.
 * Kubernetes -- Added a new system alert to the integration. You can now get notified when the Kubernetes observability status becomes unhealthy.
 * Google Cloud Platform -- The **Google Dataproc** dashboard is now improved with information that you must create a derived metric if you see a delay in the loading of variables.
-* Wavefront Tutorial  -- Made some minor fixes to the **Introduction** dashboard.
+* Operations for Applications Tutorial  -- Made some minor fixes to the **Introduction** dashboard.
 
 ## September 2022
 
@@ -125,7 +125,7 @@ We made improvements to the following integrations in September 2022:
 * vSphere -- Made fixes to the **Cluster** dashboard. Updated the cluster variable to all charts in the **Virtual Machine Operations for a Data Center - 1 Hour** section.
 * Elasticsearch -- Made a fix to the query of the chart that displays the number of nodes, and updated the descriptions of charts.
 * Microsoft SQL Server -- Added proxy preprocessor rules in the Microsoft SQL Server setup instructions to avoid database read/write metrics getting dropped because of an extra quote (“) in a few point-tag keys.
-* Wavefront Usage -- Made minor updates to the Overview tab of the integration. The link to the Wavefront service internal metrics is corrected.
+* Operations for Applications Usage -- Made minor updates to the Overview tab of the integration. The link to the service internal metrics is corrected.
 * Slack -- Updated the setup instructions and added information on how to troubleshoot the Slack URL Unfurler.
 * Cassandra -- We updated the integration and now you can monitor Cassandra on Kubernetes.
 * Tanzu Application Service -- We added three new dashboards for monitoring TAS services: 
@@ -145,7 +145,7 @@ We added the following integration in August 2022:
 
 * VMware Tanzu Greenplum: 
   
-  VMware Tanzu Greenplum is a massively parallel processing (MPP) database server that supports next generation data warehousing and large-scale analytics processing. This integration installs and configures Telegraf to send system and query metrics into Tanzu Observability by Wavefront.
+  VMware Tanzu Greenplum is a massively parallel processing (MPP) database server that supports next generation data warehousing and large-scale analytics processing. This integration installs and configures Telegraf to send system and query metrics into VMware Aria Operations for Applications.
 
 We made improvements to the following integrations in August 2022:
 
@@ -171,7 +171,7 @@ We made improvements to the following integrations in July 2022:
 * Google Cloud Platform -- Added a **Google Cloud Bigtable** out-of-the-box dashboard which allows you to monitor the Google Cloud Bigtable service.
 * Microsoft Azure -- Made fixes to the **Azure Cosmos DB** dashboard to avoid showing the NO DATA message on single-stat charts.
 * Fluentd -- Improved the **Fluentd** dashboard and added two new sections to the dashboard: **Buffer** and **Fluentd Statistics**.
-* Wavefront Usage -- Made some fixes and standardized the **Wavefront Service and Proxy Data** dashboard.
+* Operations for Applications Usage -- Made some fixes and standardized the **Operations for Applications Service and Proxy Data** dashboard.
 * Kubernetes -- Improved the Wavefront Collector for Kubernetes Metrics dashboard to show correctly whether the desired number of Collector instances are ready.
 
 ## June 2022
@@ -201,7 +201,7 @@ We made improvements to the following integrations in June 2022:
 
 * Snowflake:
   * To enhance authentication security, we updated the setup steps of the integration. Now, to register Snowflake, you have to provide a private key.
-  * We improved the setup instructions with information on how to generate the public and private keys and give Tanzu Observability access to your Snowflake account.
+  * We improved the setup instructions with information on how to generate the public and private keys and give Operations for Applications access to your Snowflake account.
   * Improved the **Snowflake Summary** dashboard and included charts for warehouse load monitoring.
 
 * Jenkins:
@@ -209,7 +209,7 @@ We made improvements to the following integrations in June 2022:
   * We improved the setup instructions with information on how to enable a Prometheus endpoint.
 
 
-* Wavefront Usage -- Updated the dashboard descriptions and made fixes to alerts.
+* Operations for Applications Usage -- Updated the dashboard descriptions and made fixes to alerts.
 
 
 ## May 2022
@@ -260,7 +260,7 @@ We added the following integration in March 2022:
 
 * VMware Blockchain
 
-  VMware Blockchain is an enterprise-grade blockchain platform that enables multi-party workflows. This integration is developed and created by the community and falls into to the **Community Integrations** section of the Tanzu Observability by Wavefront **Integrations** page. We do not validate the community integrations and they are not fully supported by the Tanzu Observability by Wavefront team.
+  VMware Blockchain is an enterprise-grade blockchain platform that enables multi-party workflows. This integration is developed and created by the community and falls into to the **Community Integrations** section of the VMware Aria Operations for Applications **Integrations** page. We do not validate the community integrations and they are not fully supported by the VMware Aria Operations for Applications team.
 
 
 We made improvements to the following integrations in March 2022:
@@ -270,7 +270,7 @@ We made improvements to the following integrations in March 2022:
   * You can enable the control plane metrics with helm, or using manual configuration. To see a full list of supported control plane metrics, visit our [github repo](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/metrics.md#control-plane-metrics).
 
 
-*  Wavefront Usage
+*  Operations for Applications Usage
    * Added two new system dashboards to the integration: **Committed rate vs Monthly Usage (PPS P95) Billable** and **Usage vs Remaining Balance (PPS P95) Burndown**.
    * Added three new system alerts: **Percentage of Usage Scanned**, **Percentage of Usage Ingested**, and **Remaining Balance**.
 
@@ -297,7 +297,7 @@ We added the following integrations in February 2022:
 
 * Dynatrace SaaS
 
-  This integration collects the metrics from a Dynatrace SaaS environment and sends them to Tanzu Observability by Wavefront. The on-premises Dynatrace integration is moved to the **Archived** section.
+  This integration collects the metrics from a Dynatrace SaaS environment and sends them to VMware Aria Operations for Applications. The on-premises Dynatrace integration is moved to the **Archived** section.
 
 Made improvements to the following integrations and dashboards in February 2022:
 
@@ -322,7 +322,7 @@ We added the following integrations in January 2022:
 
 * Velero
 
-  You can monitor the Velero backup and restore solution. This integration is developed and created by the community and falls into to the **Community Integrations** section of the Tanzu Observability by Wavefront **Integrations** page. We do not validate the community integrations and they are not fully supported by the Tanzu Observability by Wavefront team.
+  You can monitor the Velero backup and restore solution. This integration is developed and created by the community and falls into to the **Community Integrations** section of the VMware Aria Operations for Applications **Integrations** page. We do not validate the community integrations and they are not fully supported by the VMware Aria Operations for Applications team.
 
 Made improvements to the following integrations and dashboards in January 2022:
 

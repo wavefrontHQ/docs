@@ -7,7 +7,7 @@ permalink: query_language_series_joining.html
 summary: Use relationships among your time series to build full stack correlations.
 ---
 
-Tanzu Observability by Wavefront supports a `join()` function that lets you:
+VMware Aria Operations for Applications (previously known as Tanzu Observability by Wavefront) supports a `join()` function that lets you:
 * Compare two or more time series and find matches, or, conversely, find the time series that do not match.
 * Combine the data points from any matching time series to form a new synthetic time series with point tags from one or both of the input series.
 
@@ -22,7 +22,7 @@ The WQL `join()` function is modeled after the SQL JOIN operation, which correla
 Watch Pierre talk about WQL joins and how they're used.
 
 <p>
-<iframe id="kmsembed-1_82m4iwhv" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_82m4iwhv/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability: The join() Function"></iframe>
+<iframe id="kmsembed-1_82m4iwhv" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_82m4iwhv/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="The join() Function"></iframe>
 </p>
 
 ## Time Series as Tables

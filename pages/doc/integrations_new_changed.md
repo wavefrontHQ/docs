@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: integrations_new_changed.html
 summary: New and changed integrations.
 ---
-Tanzu Observability by Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
 ## March 2023
 
@@ -47,13 +47,13 @@ We made improvements to the following integration in February 2023:
 
 We made improvements to the following integrations in January 2023:
 
-* Amazon Web Services -- You can now ingest and monitor AWS Lambda cold start metrics. For information about how to do this, see [Ingesting AWS Lambda Cold Start Metrics into Tanzu Observability](integrations_aws_lambda.html#ingesting-aws-lambda-cold-start-metrics-into-tanzu-observability).
+* Amazon Web Services -- You can now ingest and monitor AWS Lambda cold start metrics. For information about how to do this, see [Ingesting AWS Lambda Cold Start Metrics into VMware Aria Operations for Applications](integrations_aws_lambda.html#ingesting-aws-lambda-cold-start-metrics-into-vmware-aria-operations-for-applications).
 
 * ServiceNow -- We updated the instructions on how to set up the integration to reflect the latest UI changes. See more in the [ServiceNow Setup](servicenow.html#servicenow-setup) instructions.
 
 * Microsoft SQL Server -- Updated the charts in the **SQL Server Metrics** dashboard to use the instance variables.
 
-* Wavefront Usage -- Made fixes to the integration and now dashboards are populated with data depending on your type of contract (Billable vs. Burndown).
+* Operations for Applications Usage -- Made fixes to the integration and now dashboards are populated with data depending on your type of contract (Billable vs. Burndown).
 
 * Tanzu Application Service -- Made updates to the TAS system alerts and removed some of the alerts that are no longer needed, such as:
   - TAS Active Locks Alerts
