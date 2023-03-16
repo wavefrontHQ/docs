@@ -13,6 +13,13 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/observability-for-kubernetes/releases).
 
+## 2023-10.x Release Notes
+
+**Proxy Setup Instructions for Kubernetes in the UI**: When you [install a proxy from the UI](proxies_installing.html#install-a-proxy-from-the-ui), you can now click the **Kubernetes** tab to copy the proxy configurations and the deployment command.
+
+![A screenshot of the Kubernetes tab on the Add a Proxy page](/images/add_K8_proxy.png)
+
+
 ## 2023-09.x Release Notes
 
 **Analyze Your Queries**: With this release you can use the Query Analyzer and [analyze your queries and their subqueries](query_language_performance.html#use-the-query-analyzer). When you expect to see certain data in Operations for Applications, but it doesn’t show up for some reason, charts display a **No Data** message. When you see this message on a chart, use the Query Analyzer to analyze and troubleshoot your queries and subqueries. 
