@@ -10,6 +10,16 @@ VMware Aria Operations for Applications (formerly known as Tanzu Observability b
 
 ## March 2023
 
+
+Logs (Beta) Related Changes:
+
+ {% include important.html content="Logs (Beta) is enabled only for selected customers. To participate, contact your VMware Aria Operations for Applications account representative or [technical support](wavefront_support_feedback.html#support)." %}
+
+We have made improvement to the AWS integration:
+
+Amazon Web Services – Now contains AWS CloudWatch Logs Setup (Beta) instructions. If Logs (Beta) is enabled for you, you can set up your AWS integration to send logs to Operations for Applications. For details on our Logs (Beta) feature, see [Get Started with Logs (Beta)](logging_overview.html). For details on how to set up the integration, see [Setup for Ingesting AWS CloudWatch Logs (Beta)](integrations_aws_metrics.html#setup-for-ingesting-aws-cloudwatch-logs-beta).
+
+
 We added the following integration in March 2023:
 
 * .NET Core
