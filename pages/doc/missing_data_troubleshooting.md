@@ -26,7 +26,7 @@ It might sound surprising, but many **No Data** problems are the result of a typ
 
 ### Step 2: Quote
 
-Because of character limitations imposed by the Operations for Applications Data Format, it's possible that your queries cannot recognize source names or tag names unless they are surrounded by double quotes. See [Data Format Best Practices](wavefront_data_format.html#data-format-best-practices).
+Because of character limitations imposed by the Operations for Applications Data Format, it's possible that your queries cannot recognize source names or tag names unless they are surrounded by double quotes. See [Data Format Best Practices](wavefront_data_format.html#operations-for-applications-data-format-best-practices).
 
 ### Step 3: Untangle
 

@@ -156,7 +156,7 @@ Even though Operations for Applications supports per second granularity for metr
 
 * Values that do not change often (constants) are great candidates for increasing reporting intervals.
 
-    You can use [wftop](wavefront_monitoring_spy.html#get-started-with-top-and-spy) to uncover constant values. The *Range* column shows the range of the reported values (the maximum value minus the minimum value) for each namespace.
+    You can use [wftop](wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy) to uncover constant values. The *Range* column shows the range of the reported values (the maximum value minus the minimum value) for each namespace.
 
     - If the range is *0*, then this data set is most likely reporting constant values.
 
@@ -298,7 +298,7 @@ Use the <a href="examine_usage.html"><strong>Usage Summary</strong></a> dashboar
 --->
 <tr>
 <td>What are current usage details?</td>
-<td>Start with the dashboards in the <strong>Operations for Applications Usage</strong> integration. The dashboards allow you to look at both current usage and usage over time. If you need to drill down more, use the <a href="wavefront_monitoring_spy.html#get-started-with-top-and-spy">wftop GUI</a> for a detailed view of <strong>current</strong> spikes. </td>
+<td>Start with the dashboards in the <strong>Operations for Applications Usage</strong> integration. The dashboards allow you to look at both current usage and usage over time. If you need to drill down more, use the <a href="wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy">wftop GUI</a> for a detailed view of <strong>current</strong> spikes. </td>
 <td markdown="span">![Data Scan by User, with hover showing users](images/data_scan_by_user.png)</td>
 </tr>
 <tr>
@@ -310,7 +310,7 @@ Use the <a href="examine_usage.html"><strong>Usage Summary</strong></a> dashboar
 <td>How much data is coming from my source?</td>
 <td>You have several options:<ol><li>Use the <a href="sources_managing.html#examine-sources-in-the-source-browser">Source Browser</a> for a first look.</li>
 <li>Look at the last section in the <strong>Operations for Applications Service and Proxy Data</strong> dashboard to see the top sources listed by PPS. </li>
-<li>Use the <a href="wavefront_monitoring_spy.html#get-started-with-top-and-spy">wftop GUI</a> to filter by source and examine what's coming from the selected source.</li></ol> </td>
+<li>Use the <a href="wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy">wftop GUI</a> to filter by source and examine what's coming from the selected source.</li></ol> </td>
 <td markdown="span">![Sources rate screenshot](images/top_sources.png) </td>
 </tr>
 </tbody>
