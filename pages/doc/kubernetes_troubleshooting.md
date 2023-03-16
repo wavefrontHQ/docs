@@ -7,11 +7,11 @@ permalink: kubernetes_troubleshooting.html
 summary: Get help and troubleshooting instructions when you have problems with your Kubernetes integration setup.  
 ---
 
-{% include note.html content="This page is intended to help you troubleshoot issues with your Kubernetes integration only when set up by using the Wavefront Operator for Kubernetes." %}
+{% include note.html content="This page is intended to help you troubleshoot issues with your Kubernetes integration only when set up by using the  Observability for Kubernetes." %}
 
 For an in depth overview of the Kubernetes integration and how it is deployed, navigate to our [GitHub readme page](https://github.com/wavefrontHQ/observability-for-kubernetes#readme). 
 
-{% include note.html content="If you currently use the Helm-managed and installed version of the Wavefront proxy and Wavefront Collector for Kubernetes, see our [legacy troubleshooting page](wf_kubernetes_troubleshooting.html) for instructions on how to troubleshoot your integration." %}
+{% include note.html content="If you currently use the Helm-managed and installed version of the Wavefront proxy and Collector for Kubernetes, see our [legacy troubleshooting page](wf_kubernetes_troubleshooting.html) for instructions on how to troubleshoot your integration." %}
 
 
 ## Not Enough Instances of VMware Aria Operations for Applications Components
