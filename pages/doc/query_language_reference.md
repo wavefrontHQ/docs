@@ -191,7 +191,7 @@ lowpass(12ms, spans("beachshirts.styling.makeShirts"))
 
 Query expressions use a number of common parameters to specify names and values that describe the data of interest. You can use [wildcards or partial regex](#partial-regex-wildcards-aliases-and-variables) to match multiple names or values.
 
-* Rules for valid names are here: [Data Format](wavefront_data_format.html#data-format-fields).
+* Rules for valid names are here: [Data Format](wavefront_data_format.html#operations-for-applications-data-format-fields).
 * Enclose a metric, source, or tag name, or a tag value, in double quotes if it is also a reserved word in the product, such as a function name or keyword. For example, if you're using a point tag named `default`, use `"default"`.
 
 <table style="width: 100%;">
