@@ -1,9 +1,9 @@
 ---
-title: Drill Into Logs (Beta)
+title: Drill into Logs (Beta)
 tags: [logs]
 sidebar: doc_sidebar
 permalink: logging_drill_into_logs.html
-summary: Navigate to the Log Browser from charts, alerts, application map, and the Traces Browser.
+summary: Navigate to the Logs Browser from charts, alerts, application map, and the Traces Browser.
 ---
 
 You can troubleshoot faster by drilling into the Logs Browser from charts, alerts, application map, and the Traces Browser.
@@ -33,7 +33,7 @@ In this example, you right-click the metric chart for source `db-5` at `01:25 PM
 
 The Logs Browser opens in a new tab with the following configuration:
 - The search time window is a 10-minute period, starting 5 minutes before and ending 5 minutes after the time of the point that you right-clicked on the chart.
-- The search query contains the include `source` tag filter for the source that you right-clicked.
+- The search query includes the `source` tag as a filter for the source that you right-clicked.
 
 ![A screenshot of a search query and selected time window in the Logs Browser.](images/logging_from_chart.png)
 In this example, the Logs Browser opens with the filter `source = db-5` and the time window `01:20 PM to 01:30 PM` (starting 5 minutes before and ending 5 minutes after `01:25 PM`).
@@ -163,7 +163,7 @@ To learn more about exploring traces and about finding hot spots at a glance, se
 
 ## Learn More!
 
-* [Send logs to Tanzu Observability](logging_send_logs.html).
+* [Send logs](logging_send_logs.html).
 * [View and browse logs](logging_log_browser.html).
 * Learn how to [create a logs chart](logging_logs_chart.html) and add it to a dashboard.
 * See [Logs troubleshooting](logging_faq.html).

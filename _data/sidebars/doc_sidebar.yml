@@ -804,11 +804,11 @@ entries:
               url: /logging_logs_chart.html
               output: web
 
-            - title: Drill Into Logs
+            - title: Drill into Logs
               url: /logging_drill_into_logs.html
               output: web
 
-      - title: Custmize Logs Settings
+      - title: Customize Logs Settings
         url: /logging_logs_settings.html
         output: web
 

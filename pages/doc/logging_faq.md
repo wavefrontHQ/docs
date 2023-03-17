@@ -93,10 +93,10 @@ The Wavefront proxy drops the logs that exceed the [maximum character limit](log
 
 ### Search for Metrics on the Metrics Browser
 
-1. On the toolbar, select **Browse** > **Metrics**.
+1. Select **Browse** > **Metrics**.
 1. In the [Metrics Browser](metrics_managing.html), search for metrics with the `~proxy.log.` namespace. The results you see can be `logSourceMissing`, `logSourceTooLong`, `logMessageTooLong`, `tooManyLogTags`, `logAnnotationKeyTooLong`, `logAnnotationKeyBadChars`, `logAnnotationValueEmpty`, and `logAnnotationValueTooLong`
   
-    {% include note.html content="If you see `~proxy.log.*TooLong` or `~proxy.log.tooManyLogTags` metrics, check the [limits for logs](logging_send_logs.html#limits-for-logs). If you want to increase the logs limit for your Wavefront instance, contact [technical support](wavefront_support_feedback.html#support)." %}
+    {% include note.html content="If you see `~proxy.log.*TooLong` or `~proxy.log.tooManyLogTags` metrics, check the [limits for logs](logging_send_logs.html#limits-for-logs). If you want to increase the logs limit, contact [technical support](wavefront_support_feedback.html#support)." %}
 
 ### Search for Logs on the Logs Browser
 

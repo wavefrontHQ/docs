@@ -1,10 +1,10 @@
 ---
-title: Send Logs to Our Service (Beta)
+title: Send Logs (Beta)
 keywords: data, logs
 tags: [getting started, logs]
 sidebar: doc_sidebar
 permalink: logging_send_logs.html
-summary: Learn about sending logs to our service.
+summary: Learn about sending logs to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
 ---
 
 {% include important.html content="Logs (Beta) is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
@@ -47,7 +47,7 @@ value: "false"</code>
 
 To install and configure a new proxy:
 
-1. On the toolbar, select **Browse** > **Proxies**.
+1. Select **Browse** > **Proxies**.
 1. Click **Add new proxy** and follow the instructions on the screen.
 1. Edit the `wavefront.conf` file to open the `pushListenerPorts` to receive logs from the log shipper.
     <br/>For example:
@@ -75,7 +75,7 @@ If you want to use a different log shipper, contact [technical support](https://
 
 **Prerequisite**:
 
-Add the VMware domain (`*.vmware.com`) to the allowlist in your environment. Because our service uses a VMware log cluster, you need to add the VMware domain to your allowlist to send log data successfully. If you want to narrow down the domain, contact your account representative.
+Add the VMware domain (`*.vmware.com`) to the allowlist in your environment. Because our service uses a VMware log cluster, you need to add the VMware domain to your allow list to send log data successfully. If you want to narrow down the domain, contact your account representative.
 
 Configure your log shipper:
   1. Install the log shipper. For example, [install Fluentd](https://docs.fluentd.org/installation) or [install Fluent Bit](https://docs.fluentbit.io/manual/installation/getting-started-with-fluent-bit).
