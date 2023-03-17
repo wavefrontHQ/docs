@@ -4,12 +4,12 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_collectd_nginx.html
-summary: Learn how to send NGiNX data collected by collectd to Tanzu Observability by Wavefront.
+summary: Learn how to send NGiNX data collected by collectd to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
 ---
 
 [NGiNX](https://www.nginx.com/) is a popular web and proxy server. To collect NGiNX data with collectd, use the collectd NGiNX plugin documentation found at [Plugin:NGiNX - collectd Wiki](https://collectd.org/wiki/index.php/Plugin:nginx).
 
-Tanzu Observability supports a built-in integration that gets data from NGiNX using Telegraf. If you want to use collectd instead, follow the instructions on this page. 
+VMware Aria Operations for Applications supports a built-in integration that gets data from NGiNX using Telegraf. If you want to use collectd instead, follow the instructions on this page. 
 
 ## NGiNX Setup
 

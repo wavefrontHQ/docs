@@ -2,7 +2,7 @@
 title: Grafana Integration
 tags: [integrations list]
 permalink: grafana.html
-summary: Learn about the Wavefront Grafana Integration.
+summary: Learn about the Grafana Integration.
 ---
 ## Grafana Data Source Plugin Integration
 

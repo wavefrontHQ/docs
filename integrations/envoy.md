@@ -2,7 +2,7 @@
 title: Envoy Proxy Integration
 tags: [integrations list]
 permalink: envoy.html
-summary: Learn about the Wavefront Envoy Proxy Integration.
+summary: Learn about the Envoy Proxy Integration.
 ---
 ## Envoy Proxy Integration
 
@@ -29,7 +29,7 @@ This integration uses Telegraf's Prometheus input plugin to fetch the metrics fr
 
 ### Step 1: Install the Telegraf Agent
 
-Log in to your Wavefront instance and follow the instructions in the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
+Log in to your product instance and follow the instructions on the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
 
 ### Step 2: Enable the Prometheus Input Plugin
 
@@ -48,7 +48,7 @@ Run `sudo service telegraf restart` to restart your Telegraf agent.
   
 ## Envoy Proxy on Kubernetes
 
-This integration uses the [annotation based discovery](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/discovery.md#annotation-based-discovery) feature in Wavefront Collector to monitor Envoy proxy on Kubernetes. If you do not have the Wavefront Collector for Kubernetes installed, follow these instructions to add it to your cluster by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install). You can check the status of the Wavefront Collector and Proxy if you are already monitoring the Kubernetes cluster on the `Setup` tab of the Kubernetes integration.
+This integration uses the [annotation based discovery](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/discovery.md#annotation-based-discovery) feature in Wavefront Collector to monitor Envoy proxy on Kubernetes. If you do not have the Wavefront Collector for Kubernetes installed, follow these instructions to add it to your cluster by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install). You can check the status of the Wavefront Collector and Proxy if you are already monitoring the Kubernetes cluster on the `Setup` tab of the Kubernetes integration.
 
 ### Steps to Annotate Envoy Proxy Deployment
 

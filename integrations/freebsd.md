@@ -2,7 +2,7 @@
 title: FreeBSD Host Integration
 tags: [integrations list]
 permalink: freebsd.html
-summary: Learn about the Wavefront FreeBSD Host Integration.
+summary: Learn about the FreeBSD Host Integration.
 ---
 ## FreeBSD Host Integration
 

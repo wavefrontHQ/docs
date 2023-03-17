@@ -2,7 +2,7 @@
 title: C Sharp Integration
 tags: [integrations list]
 permalink: csharp.html
-summary: Learn about the Wavefront C Sharp Integration.
+summary: Learn about the C Sharp Integration.
 ---
 # C Sharp Integration
 

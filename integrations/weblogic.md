@@ -2,7 +2,7 @@
 title: Oracle WebLogic Server Integration
 tags: [integrations list]
 permalink: weblogic.html
-summary: Learn about the Wavefront Oracle WebLogic Server Integration.
+summary: Learn about the Oracle WebLogic Server Integration.
 ---
 ## Oracle WebLogic Server
 
@@ -21,7 +21,7 @@ To see a list of the metrics for this integration, select the integration from <
 
 If you don't have the Telegraf agent installed, follow the steps below. Otherwise, continue to step 2
 
-Log in to your Wavefront instance and follow the instructions in the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
+Log in to your product instance and follow the instructions on the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
 
 ### Step 2. Install the Jolokia Agent on Your WebLogic Server
 

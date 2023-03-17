@@ -2,7 +2,7 @@
 title: Datadog Integration
 tags: [integrations list]
 permalink: datadog.html
-summary: Learn about the Wavefront Datadog Integration.
+summary: Learn about the Datadog Integration.
 ---
 ## Datadog Integration
 

@@ -3,10 +3,10 @@ repository: WavefrontHQ/docs
 output: web
 # this property is useful for conditional filtering of content that is separate from the PDF.
 
-topnav_title: Tanzu Observability Documentation
+topnav_title: VMware Aria Operations for Applications
 # this appears on the top navigation bar next to the home button
 
-site_title: Tanzu Observability Documentation
+site_title: VMware Aria Operations for Applications Documentation
 # this appears in the html browser tab for the site title (seen mostly by search engines, not users)
 
 github_editme_path:
@@ -29,7 +29,7 @@ exclude:
   - .gitignore
 # these are the files and directories that jekyll will exclude from the build
 
-feedback_subject_line: Tanzu Observability Documentation
+feedback_subject_line: VMware Aria Operations for Applications Documentation
 
 plugins_dir:
   - jekyll-sitemap
@@ -110,7 +110,7 @@ defaults:
 sidebars:
 - doc_sidebar
 
-description: "Tanzu Observability documentation."
+description: "VMware Aria Operations for Applications documentation."
 # the description is used in the feed.xml file
 
 # needed for sitemap.xml file only

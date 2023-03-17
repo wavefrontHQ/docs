@@ -7,78 +7,88 @@ permalink: wavefront_spring_boot_faq.html
 summary: Get answers to your questions about Wavefront for Spring Boot
 ---
 
-### What is the difference between the Wavefront for Spring Boot freemium cluster and a Wavefront trial?
+On this page, you can find answers to some commonly asked questions when using Wavefront for Spring Boot.
 
-* **Wavefront for Spring Boot Freemium cluster** <br/>The freemium cluster supports limited data ingestion throughput with 5-day retention and no SLA guarantees. It allows developers to try out Wavefront without having to sign up or provide an email address.
+## How Do I Upgrade From Spring Boot 2 to Spring Boot 3?
+
+Follow these steps:
+
+1. Upgrade your application to use Spring Boot 3. For details, see the [Spring Boot 3.0 Migration Guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide).
+1. If the application uses Spring Cloud Sleuth, see the [Spring Cloud Sleuth 3.1 Migration Guide](https://github.com/micrometer-metrics/tracing/wiki/Spring-Cloud-Sleuth-3.1-Migration-Guide) to migrate from Spring Boot 2 to Spring Boot 3.
+1. Update the Wavefront for Spring Boot dependencies for your existing project. For more details, see [how to configure an existing Spring Boot application](wavefront_springboot3.html#step-1-initialize-and-configure-your-project) and click the **Initialize an Existing Project** tab.
+
+## What Is the Difference Between The Wavefront for Spring Boot Freemium Cluster and a Wavefront Trial?
+
+* **Wavefront for Spring Boot Freemium cluster** <br/>The freemium cluster supports limited data ingestion throughput with 5-day retention and no SLA guarantees. It allows developers to try out Wavefront without having to sign up or provide an email address. Freemium accounts that are inactive for 3 days are automatically deleted.
 
 * **Wavefront trial** <br/>The Wavefront trial allows you to experience the full power of the Wavefront platform by bringing in data from your cloud environments (AWS/GCP/Azure/vSphere), Kubernetes, over 200 integrations, and large-scale service fleets into a single observability platform. You can also create smart alerts that dynamically filter noise and capture true anomalies. When you sign up for a trial, we'll ask for some (minimal) information.
 
   Once you've signed up, you can retrieve an API token and configure it in your `application.properties` file:
   ```
+  # Spring Boot 3:
+  management.wavefront.api-token=44444-34this-45is-123a-sampletoken
+  
+  # Spring Boot 2:
   management.metrics.export.wavefront.api-token=44444-34this-45is-123a-sampletoken
   ```
 
-### What is the retention and Service Level Agreement (SLA) on the Wavefront for Spring Boot freemium cluster?
+## What Is the Retention and Service Level Agreement (SLA) on the Wavefront for Spring Boot Freemium Cluster?
 
-While this is subject to changes at any time, we currently retain 5 days of data and offer no SLA on the free Wavefront cluster. Production Wavefront clusters currently offer 18 months of full-resolution (no downsampling) data retention for metrics, 6 months for histograms, and 7 days for spans. We also have a 99.95% uptime guarantee, as well as High Availability (HA) and Disaster Recovery (DR) options.
+While this is subject to changes at any time, we currently retain 5 days of data and offer no SLA on the free Wavefront cluster. Freemium accounts that are are inactive for 3 days are automatically deleted.
 
+Production Wavefront clusters currently offer 18 months of full-resolution (no downsampling) data retention for metrics, 6 months for histograms, and 7 days for spans. We also have a 99.95% uptime guarantee, as well as High Availability (HA) and Disaster Recovery (DR) options.
 
-### Why do I not see a link to access the Wavefront service on start-up?
+## Why Do I Not See a Link to Access the Wavefront Service on Start-Up?
 
 * Currently, only our freemium cluster supports automatic account provisioning with Spring Boot. If you are using a different cluster, you won’t see a link.
 * You have configured an API token in your application's `application.properties` file. If you want to see the link printed on the console, add `wavefront.freemium-account=true` to the `application.properties` file.
 * If you have a web application, expose the Wavefront actuator endpoint to easily access your dashboard.
 
-### How do I ensure I send data to the same account all the time (across multiple machines and deployments)?
+## How Do I Ensure I Send Data to the Same Account All the Time (Across Multiple Machines and Deployments)?
 * If you are just trying out Wavefront, see [Manage Service Accounts](service-accounts.html) to create a service account that has a static token for reporting. Once you have the token, add it to the `application.properties` file.
-* If you want to use Wavefront in a larger deployment, sign up for [a Wavefront trial] (https://tanzu.vmware.com/observability) and see [Manage Service Accounts](service-accounts.html) to learn how to create a service account. Next, add the token and URL to the `application.properties` file. We can help you with sizing and designing large-scale collection architectures for metrics, histograms, and traces. Reach out to us on [Slack](https://www.wavefront.com/join-public-slack) and join the #springboot public channel for more information.
+* If you want to use Wavefront in a larger deployment, sign up for [a Wavefront trial] (https://tanzu.vmware.com/observability) and see [Manage Service Accounts](service-accounts.html) to learn how to create a service account. Next, add the token and URL to the `application.properties` file. We can help you with sizing and designing large-scale collection architectures for metrics, histograms, and traces. Reach out to us at support@wavefront.com.
 
-### How do I set up an email/password login to the account?
+## How Do I Log In to the Account Using an Email and Password?
 
 You can [invite users and let them send data to the same cluster](wavefront_springboot.html#custom-configurations). To invite yourself, just enter your email address.
 
 If you added `wavefront.freemium-account=true` to your `application.properties` file, make sure to remove it so that a single-use login URL is no longer requested on startup.
 
-### What do I do if I sign out of the freemium cluster?
+## What Do I Do if I Sign Out of the Freemium Cluster?
 
 * If you have invited yourself and created an account, log in using your username and password.
 * Save the link that you used to access the Wavefront Service dashboard and restart your Spring Boot application. Next, paste the link you saved into a browser to access the dashboard.
 * If you deleted the `~/.wavefront_freemium` file that was saved in the home directory, a new account is created and you will not be able to access the old link you saved to view your existing data.
 
-### What's the Spring Boot integration?
-
-Starting in September 2020, we support the [Wavefront Spring Boot starter](https://github.com/wavefrontHQ/wavefront-spring-boot) or with the Spring Boot integration.
+## What's the Spring Boot Integration?
 
 * **Wavefront Spring Boot Integration** Wavefront customers and trial users can access the Wavefront Spring Boot integration directly from their clusters.
 * **Wavefront for Spring Boot Starter**<br/> If you configure your application with the Wavefront for Spring Boot starter, you can send metrics, histograms, and traces/spans to the Wavefront service. Once the data is in Wavefront, you can view your data, find hotspots, and gather more data.
   - **Freemium** All users can run the Spring Boot Starter with the default settings to view their data in the Wavefront Freemium instance. Certain limitations apply, for example, alerts are not available, but you don't have to sign up.
   - **Wavefront Customer or Trial User** Wavefront customers or trial users can modify the default Wavefront Spring Boot Starter to send data to their cluster. You can sign up for a [free 30-day trial](https://tanzu.vmware.com/observability).
 
-### How can I see my metrics? How can I see my traces?
+## How Can I See My Metrics and Traces?
 
-Starting in September 2020, the Spring Boot Starter directs you to the Spring Boot Inventory dashboard that allows you to examine certain metrics that Micrometer collects by default.
+The Spring Boot Starter directs you to the Spring Boot Inventory dashboard that allows you to examine the metrics collected by default by the  Micrometer.
 
-If applications are enabled for tracing, you can click the link in the Tracing section to be directed to the Tracing dashboard.
+If applications are enabled for tracing, you can click the link in the **Tracing** section to see trace data on the Traces Browser.
 
 ![Spring Boot inventory screenshot](images/springboot_metrics_callout.png)
 
-### Why don't I see the default dashboard when I click on the link?
+## Why Don't I See the Default Dashboard When I Click the Link?
 If you create a new project using [https://start.spring.io](https://start.spring.io/), add the Wavefront dependency, download the project, run it, and click the link on the terminal, you are not taken to the default dashboard.
 That is because the default project stops soon as it starts without a web service. As a result, data is not sent to Wavefront. To avoid this, add a dependency under the Web category, such as the Spring Web dependency, along with the wavefront dependency, and generate a new project.
 
-### How can I instrumented with distributed tracing across multiple microservices?
+## Why Are the Traces Between Microservices Not Working When I Use RestTemplates?
 
-Assume that you want to write Spring Boot code and instrument for OpenTracing. You want to ensure OpenTracing creates spans that work across multiple microservices.  Here's what you need to know:
-* If you're using Spring Cloud Sleuth, **everything has to be a bean**. For example, if you're using RestTemplates, those have to be beans.
-* You can create a RestTemplate bean yourself, or you can inject via RestTemplateBuilder.
+If you are using Spring Boot 2 with Sleuth or Spring Boot 3 with Micrometer Tracing, and you are using a `RestTemplate` to send and receive messages between microservices:
+* Everything has to be a bean. All `RestTemplate` must come from a bean for distributed tracing to work.
+* You can create a `RestTemplate` bean yourself, or inject it via the `RestTemplateBuilder`.
+* If you invoke a Remote Procedure Call (RPC) or messaging service without using a bean, Sleuth and Micrometer Tracing won't work. See [Use Tracing with Spring Boot](tracing_best_practices.html#using-tracing-with-spring-boot) for an example.
 
-If you use a messaging or HTTP client (not a bean), Sleuth won't work. See [Use Tracing with Spring Boot](tracing_best_practices.html#using-tracing-with-spring-boot) for an example.
+## Why Do I Get a Failed to Retrieve Existing Account Information Error?
 
-<!--
-
-### Why do I get an `Failed to retrieve existing account information` error?
-
-If you have not used your freemium account for sometime, Tanzu Observability by Wavefront deletes the account. Therefore, when you try to run the application and send data to the freemium account that was deleted, your see the following error:
+If you have not used your freemium account for more than three days, Tanzu Observability by Wavefront deletes the account. Therefore, when you try to run the application and send data to the freemium account that was deleted, you see the following error:
 
 ```
 Failed to retrieve existing account information from https://wavefront.surf. The error was:
@@ -86,6 +96,6 @@ Failed to retrieve existing account information from https://wavefront.surf. The
 You are not authorized to perform this operation
 ```
 
-To send data to Tanzu Observability, delete the ~/.wavefront_freemium file, and run the application again to create a new account.
-
--->
+To send data again, you need to create a new freemium account. Follow these steps:
+1. Delete the `~/.wavefront_freemium` file.
+1. Run the application to create a new freemium account.

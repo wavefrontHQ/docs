@@ -7,9 +7,9 @@ permalink: metric_types.html
 summary: Learn about gauges, counters, delta counters, histograms, and spans.
 ---
 
-Tanzu Observability by Wavefront supports monitoring time series, histograms, and traces.
+ VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports monitoring time series, histograms, and traces.
 * Each **time series** consists of numeric data points for a metric, for example, CPU load or failed network connections. Time series can use one of the [supported data formats](wavefront_data_format.html#supported-data-formats-for-metrics).
-   The type of data that you’re collecting determines the type of metric. The Wavefront service supports gauges, counters, delta counters, and more.
+   The type of data that you’re collecting determines the type of metric. Operations for Applications supports gauges, counters, delta counters, and more.
 
 * **[Histograms](proxies_histograms.html)** let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure–-particularly metrics that are gathered across many distributed sources.
 * **[Distributed tracing](tracing_basics.html)** enables you to track the flow of work that is performed by an application as it processes a user request. We support the OpenTracing standard. You can either visualize and examine traces coming from a 3rd-party system such as Jaeger or Zipkin, or instrument your application for tracing using one of our SDKs.
@@ -77,9 +77,9 @@ For example, `~metric.new_host_ids` and `~query.requests` are internal metrics t
 
 [Delta counters](delta_counters.html)  bin to a minute timestamp and treat write operations to the same bin as deltas. They are well suited for the kind of bursty traffic you typically get in a Function-as-a-Service environment. Many functions execute simultaneously and it's not possible to monitor bursty traffic like that without losing metric points to collision.
 
-For example, instead of one person with a counter standing at a single concert entrance, several people count, each at one entrance gate. Eventually the results from the counters can be added for total attendance. In the same way, the Wavefront service can aggregate delta counter information.
+For example, instead of one person with a counter standing at a single concert entrance, several people count, each at one entrance gate. Eventually the results from the counters can be added for total attendance. In the same way, Operations for Applications can aggregate delta counter information.
 
-To have the Wavefront service treat a metric as a delta counter, you have several choices:
+To have the Operations for Applications service treat a metric as a delta counter, you have several choices:
 * Use the `cs()` instead of the `ts()` function.
 * Add a delta character prefix to the metric.
 
@@ -89,9 +89,9 @@ To have the Wavefront service treat a metric as a delta counter, you have severa
 
 ## Histograms
 
-The Wavefront service can receive and store metrics at 1 point per second per unique source. However, some scenarios generate metrics even more frequently. Suppose you are measuring the latency of web requests. If you have a lot of traffic at multiple servers, you may have multiple distinct measurements for a given metric, timestamp, and source. Using "normal” metrics, we can’t measure this.
+Operations for Applications can receive and store metrics at 1 point per second per unique source. However, some scenarios generate metrics even more frequently. Suppose you are measuring the latency of web requests. If you have a lot of traffic at multiple servers, you may have multiple distinct measurements for a given metric, timestamp, and source. Using "normal” metrics, we can’t measure this.
 
-To address high frequency data, we supports histograms – a mechanism to compute, store, and use distributions of metrics. A histogram is a distribution of metrics collected and computed by the Wavefront proxy. [Wavefront Histograms](proxies_histograms.html) describes the histogram format, histogram ports, and some examples.
+To address high frequency data, we supports histograms – a mechanism to compute, store, and use distributions of metrics. A histogram is a distribution of metrics collected and computed by the Wavefront proxy. [Sending Histogram Distributions](proxies_histograms.html) describes the histogram format, histogram ports, and some examples.
 
 ![histogram](images/histogram.png)
 

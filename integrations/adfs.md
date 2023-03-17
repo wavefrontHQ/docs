@@ -2,7 +2,7 @@
 title: ADFS Integration
 tags: [integrations list]
 permalink: adfs.html
-summary: Learn about the Wavefront ADFS Integration.
+summary: Learn about the ADFS Integration.
 ---
 ## ADFS Integration
 

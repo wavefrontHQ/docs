@@ -2,7 +2,7 @@
 title: OpenTelemetry Integration
 tags: [integrations list]
 permalink: opentelemetry.html
-summary: Learn about the Wavefront OpenTelemetry Integration.
+summary: Learn about the OpenTelemetry Integration.
 ---
 ## OpenTelemetry Integration
 

@@ -2,7 +2,7 @@
 title: AVI Networks (NSX ALB) Integration
 tags: [integrations list]
 permalink: avi_nsx_alb.html
-summary: Learn about the Wavefront AVI Networks (NSX ALB) Integration.
+summary: Learn about the AVI Networks (NSX ALB) Integration.
 ---
 ## AVI Networks (NSX ALB) Integration
 

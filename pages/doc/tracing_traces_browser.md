@@ -78,78 +78,7 @@ You can use the trace list to:
 * Click a trace to view its context in the [service map panel](#investigate-the-service-map-for-a-trace) and its details in the [trace details panel](#examine-trace-details).
 * View a trace's percentile indicator to see how the trace's duration compares to the durations of the other listed traces -- and potentially find outliers.
 
-
-## Save and Manage Searches
-
-Because narrowing down a search in the Traces Browser can be time consuming, you can
-* Save a search. Saved searches are available to all members of your organization.
-* Access and delete your saved searches
-* Access saved searches from everyone in your organization.
-
-### Save a Search
-
-After you've performed a search on the Application Status page, you can save your search.
-
-<table style="width: 100%;">
-  <tr>
-    <td width="50%">
-      <ol>
-        <li>
-          Put in the search parameters, such as applications or services, add filters, and click <strong>Search</strong>.
-        </li>
-        <li>
-          Click the bookmark icon, specify a name for your search, and click <strong>Save</strong>.
-        </li>
-      </ol>
-    </td>
-    <td markdown="span" width="50%">
-      ![Bookmark icon brings up save search dialog](/images/save_a_search_button.png)
-    </td>
-  </tr>
-</table>
-
-### Access or Delete Saved Searches
-
-The Lists button gives you access to your own saved searches and to saved searches from others in your organization.
-
-<table style="width: 100%;">
-  <tr>
-    <td width="50%">
-    1. Click the <strong>Lists</strong> button to the left of the query.
-    </td>
-    <td markdown="span" width="50%">
-      ![List button](/images/saved_searches_list_button.png)
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-    2. In the dialog that appears:
-    <ul><li>Click <strong>My Recent Searches</strong> for a list of your recent searches. </li>
-    <li>Click <strong>My Saved Searches</strong> for a complete list of your searches. </li>
-    <li>Click <strong>All Saved Searches</strong> for a list of searches in your organization.  </li>
-    </ul>
-    <p>3. Click a saved search to select it.</p>
-    </td>
-    <td markdown="span" width="50%">
-      ![List button](/images/saved_searches_list.png)
-    </td>
-  </tr>
-
-  <tr>
-    <td width="50%">
-    4. To delete a saved search from your list:
-    <ol><li>Select the list.</li>
-    <li>Click <strong>Manage</strong></li>
-    <li>Select <strong>Delete</strong> from the ellipsis icon to the left of that saved search.</li>
-    <li>Click <strong>Delete</strong> and confirm.</li>
-    </ol>
-    </td>
-    <td markdown="span" width="50%">
-      ![Elipsis icon and delete option](/images/delete_saved_search.png)
-    </td>
-  </tr>
-</table>
-
+<!--{% include saved_searches.md %}-->
 
 ## Investigate the Service Map for a Trace
 

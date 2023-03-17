@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: ui_chart_reference.html
 summary: Chart types and configuration options for each chart type.
 ---
-Tanzu Observability by Wavefront provides charts viewing and examining your data. You can <a href="ui_examine_data.html">interact directly with charts in real time</a> -- zoom in, zoom out, change the time window, and so on.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) provides charts viewing and examining your data. You can <a href="ui_examine_data.html">interact directly with charts in real time</a> -- zoom in, zoom out, change the time window, and so on.
 
 Users with dashboard permission can customize many aspects of the chart and save their changes. This page is a detailed reference to the tabs in the different chart types. We repeat tab reference for each chart type.
 
@@ -1348,7 +1348,7 @@ Chart description which shows up as hover text when users move the mouse over th
 ![A screenshot of the histogram chart](images/histogram_chart_v2.png)
 
 Histogram charts have two main uses:
-* Visualize actual [histograms](proxies_histograms.html). Wavefront histograms let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure – particularly those gathered across many distributed sources.
+* Visualize actual [histograms](proxies_histograms.html). Our histograms let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure – particularly those gathered across many distributed sources.
 * Display a histogram visualization of a time series. That makes it possible, for example, to easily see query results above a certain percentile.
 
 You can zoom in to the histogram as needed by selecting a region.
@@ -1699,6 +1699,38 @@ The collage above shows both a pie chart and a donut chart for the same data.
 Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the query engine aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
 </tr>
 <tr>
+<td>Display Value</td>
+  <td>
+    Select a value you want to display on the chart. You see the values as a percentage. 
+    <p markdown="span">For example, if the query you use gets the CPU usage of all the applications, and you select **Sum**, you can see how the CPU usage of an application compares to all the other applications for a given time window.
+    </p>
+    <ul>
+      <li markdown="span">
+        **Current**: Display the current value for the **Summarization** option you selected as a percentage. 
+      </li>
+      <li markdown="span">
+        **Mean**: Display the mean of the raw data values as a percentage.
+      </li>
+      <li markdown="span">
+        **Median**: Displays the median of the raw data values in each bucket as a percentage.
+      </li>
+      <li markdown="span">
+        **Sum**: Displays the sum of the raw data values in each bucket as a percentage.
+      </li>
+      <li markdown="span">
+        **Min**: Displays the minimum raw data value in each bucket as a percentage.
+      </li>
+      <li markdown="span">
+        **Max**: Displays the maximum raw data value in each bucket as a percentage.
+      </li>
+      <li markdown="span">
+        **Count**: Displays the number of raw data values in each bucket as a percentage.
+      </li>
+    </ul>
+  
+  </td>
+</tr>
+<tr>
 <td>Show Percentage</td>
 <td>Let's you show percentage labels for your chart.</td>
 </tr>
@@ -1727,24 +1759,6 @@ Controls the legend displayed for the chart.
 When you look at the chart, you can also control the legend with these keyboard shortcuts:
 * **Shift+P** -- Pin the legend.
 * **Shift** -- Show detailed units in the legend.
-
-
-<a id="pie_drilldown_link_tab">
-<p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
-
-The **[Drilldown Link](ui_charts_faq.html#how-do-drilldown-links-work)** tab allows you to specify a target dashboard that displays when a user clicks on the chart. You can optionally customize the target dashboard. For example, you can specify a constant `us-west-2` to be used as a variable.
-
-<p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="60%">
-Chart description which shows up as hover text when users move the mouse over the chart name.</td>
-<td width="40%"><img src="/images/description_hover_text.png" alt="description of chart"/></td>
-</tr>
-</tbody>
-</table>
 
 <table>
 <tbody>
@@ -1781,6 +1795,22 @@ Chart description which shows up as hover text when users move the mouse over th
 </td>
 </tr>
 <tr>
+  <td>
+    Show Source Name
+  </td>
+  <td>
+    Add or remove the source name data from the fixed legend.
+  </td>
+</tr>
+<tr>
+  <td>
+    Show Metric Name
+  </td>
+  <td>
+    Add or remove the metrics name data from the fixed legend.
+  </td>
+</tr>
+<tr>
 <td>Point Tag Display Options </td>
 <td>Offers these options:
 <ul><li>
@@ -1793,6 +1823,25 @@ Chart description which shows up as hover text when users move the mouse over th
 </tr>
 </tbody>
 </table>
+
+
+<a id="pie_drilldown_link_tab">
+<p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
+
+The **[Drilldown Link](ui_charts_faq.html#how-do-drilldown-links-work)** tab allows you to specify a target dashboard that displays when a user clicks on the chart. You can optionally customize the target dashboard. For example, you can specify a constant `us-west-2` to be used as a variable.
+
+<p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+Chart description which shows up as hover text when users move the mouse over the chart name.</td>
+<td width="40%"><img src="/images/description_hover_text.png" alt="description of chart"/></td>
+</tr>
+</tbody>
+</table>
+
 
 <p><span style="font-size: large; font-weight: 600">Advanced Tab</span></p>
 <table>

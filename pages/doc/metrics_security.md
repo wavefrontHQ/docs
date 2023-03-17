@@ -7,14 +7,14 @@ permalink: metrics_security.html
 summary: Use metrics security to control access to time series, histograms, and delta counters.
 ---
 
-In a large enterprise, certain data are confidential. Tanzu Observability by Wavefront allows you to limit who can see or modify data in several ways.
+In a large enterprise, certain data is confidential. VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) allows you to limit who can see or modify data in several ways.
 * **Permissions** are **global** settings.
   - Some permissions limit who can modify objects (e.g. proxies or events). For example, users with **Dashboards** permission can modify all dashboards.
   -  Other permissions make certain information completely invisible. For example, only users with **SAML IdP Admin** permission can see the **Self Service SAML** menu or access that page.
 * **Access Control** allows administrators with the right permissions fine-grained control over individual dashboards or alerts. For example, it's possible to limit view and modify access to a Finance_2020 dashboard to just the Finance department.
 * **Metrics Security** supports even finer-grained control. In the example above, access to the Finance_2020 dashboard is limited to the Finance department. With metrics security, you can limit access to confidential time series, histogram, and delta counter metrics to the leadership team.
 
-{% include important.html content="This feature is not available on all Wavefront instances." %}
+{% include important.html content="This feature is not available on all service instances." %}
 
 {% include note.html content="Only a Super Admin user or users with **Metrics** permission can view, create, and manage metrics security policy. " %}
 
@@ -60,7 +60,7 @@ For example, assume you have two rules:
 </tbody>
 </table>
 
-After the rules are in force, only users in the Finance group can access data that start with `revenue*`.
+After the rules are in force, only users in the Finance group can access data that starts with `revenue*`.
 
 
 ### Sensitive Data Become Invisible
@@ -68,23 +68,43 @@ After the rules are in force, only users in the Finance group can access data th
 Data protected by a metrics security policy rule can become invisible to users.
 
 * **Not visible in charts**. The chart either includes a warning that some metrics are protected, or, if all metrics are protected, the chart shows only the message.
-* **Not visible in alerts** (if **Secure Metrics Details** is checked for the alert). The alert fires based on the complete set of metrics, and the complete set is shown in notification images by default. A check box allows administrators to [hide alert details](alerts_notifications.html#alert-notification-with-secured-metrics-details) so that confidential metrics are not shown.
+* **Not visible in alerts** (if **Secure Metrics Details** is selected for the alert). The alert fires based on the complete set of metrics, and the complete set is shown in notification images by default. A check box allows administrators to [hide alert details](alerts_notifications.html#alert-notification-with-secured-metrics-details) so that confidential metrics are not shown.
 * **Not visible in auto-complete** in Chart Builder, Query Editor, Metrics browser, etc.
 
 ### Rule Priority and Rule Pairs
 
 Rules are evaluated in priority order. In many cases, it's useful to think of pairs of rules, for example:
 
-* First block access to all metrics for a group (Priority 2)
-* Allow access to a small set of metrics (e.g. `*dev*`) for that group (Priority 1)
+* Create a rule that blocks access to all metrics for a user group. For example, **Block all**. This rule is with lower priority.
+* Create another rule to allow access to a small set of metrics for that user group. E.g. metrics starting with the `cpu.*` prefix and that are tagged with `env=dev`, i.e. developers environment. For example **Allow CPU metrics**. This rule is with higher priority.
 
-Because Priority 1 overrides Priority 2, the group has access to a small set of metrics.
+<table style="width: 100%;">
+<tbody>
+<thead>
+<tr><th width="35%">Name</th><th width="20%">Priority</th><th width="45%">Metrics</th></tr>
+</thead>
+<tr>
+<td markdown="span">Allow metrics</td>
+<td>1</td>
+<td>Allow access to metrics starting with the <code>cpu.*</code> prefix and with point tag <code>env=dev</code>.</td>
+</tr>
+<tr>
+<td markdown="span">Block all</td>
+<td>2</td>
+<td>Block all metrics</td>
+</tr>
+</tbody>
+</table>
+
+When you apply this policy, the users included in the user group will have access to the metrics starting with the `cpu.` prefix and point tag `env=dev`, because the **Allow metrics** rule overrides the **Block all** rule. 
+
+
 
 See the Examples below for some scenarios.
 
 ### Alert Notifications
 
-To protect metrics from inclusion in alert notifications, use the **Secure Metrics Details** check box. Tanzu Observability looks at all metrics when determining when an alert status should change and shows them in alert notifications. When the check box is selected, [details are not shown](alerts_notifications.html#alert-notification-with-secured-metrics-details) in the notification.
+To protect metrics from inclusion in alert notifications, use the **Secure Metrics Details** check box. Operations for Applications looks at all metrics when determining when an alert status should change and shows them in alert notifications. When the check box is selected, [details are not shown](alerts_notifications.html#alert-notification-with-secured-metrics-details) in the notification.
 
 ### Derived Metrics and Events
 
@@ -157,7 +177,7 @@ Privileged users can create rules, change rule priority, and change the scope of
 Before you create rules, plan your strategy.
 
 * **Metrics Dimensions** allow you to determine what to block or allow.
-  - Specify one or more metric prefixes. You can specify an exact match (e.g. `requests` or `request.`) or a wildcard match (e.g. `*.cpu.loadavg*`, `cpu.*`).
+  - Specify one or more metric prefixes. You can specify an exact match (e.g. `requests` or `request.`) or a wildcard match (e.g. `*.cpu.loadavg.*`, `cpu.*`).
   - Specify a combination of metric sources or point tags to narrow down the metrics. For example, you can block visibility into production environments for some developers, or you can block some development environments metrics for contractors.
 * **Access** allows you to allow or block access for a combination of accounts, groups, or roles.
 
@@ -169,8 +189,10 @@ You create a metrics security policy rule following these steps. See the annotat
 
 1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Metrics Security Policy** and click **Create Rule**
 2. In the **Create Rule** dialog, specify the rule parameters.
-  1. Specify a descriptive name. Users might later modify the rule, so a clear name is essential.
-  2. Add a description. The description is visible only when you edit the rule. The name is visible on the Metrics Security Policy page.
+  1. Specify a meaningful name and, optionally, a description. 
+      
+      Users might later modify the rule, so a clear name is essential. The description is visible only when you edit the rule. The name is visible on the Metrics Security Policy page.
+
   4. Specify and describe the metrics:
      * You can specify the full metric name or use a wildcard character in metric names, sources, or point tags. The wildcard character alone (`*`) means all metrics.
      * Specify key=value pairs, for example, `source="app-24"` or `env=dev`.
@@ -237,6 +259,9 @@ The image above shows how to restricts access for users in the group `Contractor
 * When a user belonging to group `Contractors` runs a query for `cpu.usage` tagged with `env=dev`, this access matches Rule 1 (**Contractors can access dev environment metrics**) and access is granted.
 * But when the user issues a query for `cpu.usage` tagged with `env=prod`, this access does not match Rule 1. Rule 2 (**Contractors cannot access any other metrics**) acts as a catch-all for users of group `Contractors` and denies them access to this metric.
 
+
+{% include note.html content="Because the first rule (**Contractors can access dev environment metrics**) uses only point tags/sources as metrics dimensions, the users in the Contractors group will not see metrics in the Metrics Browser and when they create queries, autocomplete will not work for them."%}
+
 ### Example: Restrict Access for a User Role
 
 This example restricts access for a specific user when the restrict rule is applied to a user role. The metrics security rules take into account both direct and indirect roles.
@@ -249,6 +274,21 @@ By applying the above security policy:
 
 * When a user who is in the `retail` group runs a query for metrics tagged with the `env=retail` point tag, access is granted.
 * A user who is assigned with the `Operator` role (either directly or indirectly, coming from other user groups) cannot access any metrics at all, because Rule 2 (**Block all data**) is applied.
+
+### Example: Restrict Access to All Except Specific Metrics
+
+This example restricts access to all metrics except for two specific groups of metrics that are additionally narrowed down by specifying tags. 
+
+![Screenshot of a policy rule restricting access to all metrics except for a specific group of metrics](images/metrics-security-policy-block-all.png)
+
+The image above shows how to restrict access for a specific user. The user cannot access any metrics except the ones specified in the first two rules. This Metrics Security Policy can also be applied to a user group.
+
+* Rule 3 (**Block all**) restricts access to all existing metrics for the user. 
+* Rule 2 (**Allow by tag**) provides access to all metrics that start with the prefix `customer.` and `customerStatus=ACTIVE` tag. 
+* Rule 1 (**Allow by tag for K8s integration**) provides access to all metrics with the `kubernetes.` prefix for a specific cluster.
+
+ When you apply the above security policy, the user *CAN* see all metrics starting with the `customer.` and `kubernetes.` prefixes in the Metrics Browser. Also, the user *CAN* explore and create charts with the `customer.*` metrics having the `customerStatus=ACTIVE` tag and the `kubernetes.` metrics for the specific cluster. Autocomplete will work of these metrics.
+
 
 ### Example: Strictly Limit Access on a Need-to-Know Basis
 

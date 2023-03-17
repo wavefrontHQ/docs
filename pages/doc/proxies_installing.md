@@ -5,13 +5,15 @@ sidebar: doc_sidebar
 permalink: proxies_installing.html
 summary: Learn how to install and manage Wavefront proxies.
 ---
-Tanzu Observability by Wavefront offers several [deployment options](proxies.html#proxy-deployment-options). During development, a single proxy is often sufficient for all data sources. In production, place a team of proxies behind a load balancer.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) offers several [deployment options](proxies.html#proxy-deployment-options). During development, a single proxy is often sufficient for all data sources. In production, place a team of proxies behind a load balancer.
 
-In most cases, a Wavefront proxy must be running in your installation before metrics begin streaming to the Wavefront service from a host or application.
+In most cases, a Wavefront proxy must be running in your installation before metrics begin streaming to your Operations for Applications service from a host or application.
+
+{% include note.html content="You must have the [**Proxies** permission](permissions_overview.html) to install and manage Wavefront proxies." %}
 
 ## Proxy Host Requirements
 
-- Internet access - Run `timeout 3s curl -fIsS <wavefront_api_url>` from the host and make sure you get a response and not a timeout.
+- Internet access - Run `timeout 3s curl -fIsS <api_url>` from the host and make sure you get a response and not a timeout.
 - Networking:
   - By default, the proxy uses port 2878. Make sure this port is reachable from other machines on your network. You can change this default separately for different types of data (metrics, histograms, traces, etc.) in the [proxy configuration file](proxies_configuring.html). For example, use `traceListenerPorts` to specify where to listen to trace data.
   - For egress, ensure that port 443 is available.
@@ -20,15 +22,17 @@ In most cases, a Wavefront proxy must be running in your installation before met
 - Operating system and JRE - Wavefront proxy is a Java application and can run on operating systems supported by Java. Java 8, 9, 10 or 11 is required. See the requirements in the [Wavefront Proxy README file](https://github.com/wavefrontHQ/wavefront-proxy#requirements).
 - Other - Maven
 
-{% include note.html content="The proxy uses disk space only for queue and buffering of metrics. The size of the buffer depends on the metrics size and the number of data points received and sent by the proxy. The **Wavefront Service and Proxy Data** dashboard in the **Wavefront Usage** integration has several charts that allow you to examine proxy backlog size and related metrics. See [Monitoring Proxies](monitoring_proxies.html)." %}
+{% include note.html content="The proxy uses disk space only for queue and buffering of metrics. The size of the buffer depends on the metrics size and the number of data points received and sent by the proxy. The individual proxy dashboards and the **Operations for Applications Service and Proxy Data** dashboard have several charts that allow you to examine proxy backlog size and related metrics. See [Monitoring Proxies](monitoring_proxies.html)." %}
 
 <a name="single"></a>
 
 ## Install a Proxy
 
-Many users install a proxy when they set up an integration. You can also install a proxy from the UI or perform a scripted installation.
+Many users install a proxy when they set up an integration. You can also install a proxy from the UI or perform a scripted installation manually.
 
-{% include note.html content="In development, many customers use only one proxy that receives data from many applications and sends those data to the Wavefront service. In production, consider using two proxies behind a load balancer. See [Proxy Deployment Options](proxies.html#proxy-deployment-options)." %}
+{% include note.html content="In development, many customers use only one proxy that receives data from many applications and sends those data to Operations for Applications. In production, consider using two proxies behind a load balancer. See [Proxy Deployment Options](proxies.html#proxy-deployment-options)." %}
+
+To view the current proxies in your environment, you can use the [Proxes Browser](monitoring_proxies.html#explore-your-proxies-with-the-proxies-browser).
 
 ### Install a Proxy from the UI
 
@@ -37,8 +41,8 @@ To install and run a proxy:
 <tbody>
 <tr>
 <td width="60%">
-<ol><li>Log in to your Wavefront instance and select <strong>Browse &gt; Proxies</strong>. </li>
-<li>Select <strong>Add &gt; New Proxy</strong>.</li>
+<ol><li>Log in to your service instance (<code>https://&lt;your_instance&gt;.wavefront.com</code>) and select <strong>Browse &gt; Proxies</strong>. </li>
+<li>Click <strong>Add New Proxy</strong>.</li>
 <li>On the right, click the tab for your operating system and follow the steps on screen.  </li>
 </ol>
 The screenshot on the right shows the steps for installing a Windows proxy. </td>
@@ -53,16 +57,23 @@ The proxy starts listening on port 2878. You can customize listener ports with t
 
 You can use steps in an integration or perform a package install.
 
-* **Integration**. Select **Browse > Integrations** and find the host integration (Mac, Windows, or Linux). The **Setup** tab give the installation script. For Mac and Linux, you can install the proxy with or without the Telegraf agent.
-* **Package Install** To perform a **package install**, see [Installing a Proxy manually](proxies_manual_install.html).
+* **Integration**: Click **Integrations** on the toolbar and find the host integration (Mac, Windows, or Linux). The **Setup** tab gives the installation script. For Mac and Linux, you can install the proxy with or without the Telegraf agent.
+* **Package Install**: See [Installing a Proxy Manually](proxies_manual_install.html).
 
 <a id="restart"></a>
+
 ## Manage Proxy Services
 
 After installing a proxy, you can start and stop the proxy service, check service status, and view the logs that are generated by the service. See [Logging](proxies_configuring.html#logging) for customizing your proxy, including its log configuration options.
 
 <a id="starting-and-stopping-a-proxy"></a>
 ### Start and Stop a Proxy
+
+{% include note.html content="When you stop the proxy service, the proxy becomes [orphaned](monitoring_proxies.html#explore-your-proxies-with-the-proxies-browser). If the proxy is ephemeral, you cannot activate it again." %}
+
+* On a non-ephemeral proxy, you can start the stopped proxy service again.
+* On an ephemeral proxy, you cannot start the stopped proxy service again. The proxy is orphaned until you [delete](#delete-a-proxy) it. You can install a new proxy.
+* On an ephemeral proxy, restarting the proxy service installs a new proxy with a new ID. The old proxy becomes orphaned until you  [delete](#delete-a-proxy) it.
 
 Run the following commands on the proxy host:
 
@@ -152,7 +163,7 @@ You can test that a proxy is receiving and sending data as follows:
 echo -e "test.metric 1 source=test_host\n" | nc <wavefront_proxy_address> 2878
    ```
    where `<wavefront_proxy_address>` is the address of your Wavefront proxy.
-1. Log in to Wavefront instance and select **Browse > Metrics**.
+1. Log in to service instance (`https://<your_instance>.wavefront.com`) and select **Browse > Metrics**.
 1. In the Metrics field, type `test.metric`.
 1. Click `test.metric` to display a chart of the metric.
 
@@ -227,6 +238,17 @@ sudo yum remove telegraf</code></td></tr>
 <td markdown="span">`bash -c "$(curl -s https://raw.githubusercontent.com/wavefrontHQ/homebrew-wavefront/master/sh/uninstall.sh)" `</td></tr>
 </tbody>
 </table>
+
+### Delete a Proxy
+
+On the [Proxies Browser](monitoring_proxies.html#explore-your-proxies-with-the-proxies-browser) page, you can see the status and the details of each proxy in your environment. If you don't need an inactive proxy, you can delete it.
+
+{% include note.html content="You cannot delete a proxy in **Active** status." %}
+
+1. Log in to your service instance (`https://<your_instance>.wavefront.com`) and select **Browse > Proxies**.
+1. Select the check boxes for one or more proxies that you want to delete.
+1. Click **Delete** and confirm.
+1. In the top-right corner, from the drop-down menu, select **Deleted** and verify that the proxy was successfully deleted.
 
 ## See Also
 

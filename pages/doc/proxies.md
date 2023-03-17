@@ -6,20 +6,20 @@ sidebar: doc_sidebar
 permalink: proxies.html
 summary: Learn about Wavefront proxies.
 ---
-Tanzu Observability by Wavefront enables you to:
-* Send data through Wavefront proxies. Most customers and the Wavefront DevOps team use proxies.
-* Send data to the Wavefront service directly using [direct ingestions](direct_ingestion.html)
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) enables you to:
+* Send data through Wavefront proxies. Most customers and our DevOps team use proxies.
+* Send data directly using [direct ingestions](direct_ingestion.html).
 
 
-A Wavefront proxy ingests metrics and forwards them to the Wavefront service in a secure, fast, and reliable manner. After you install a proxy in your environment, it can handle thousands of simultaneous clients. Your data collection agents or custom code send data to the proxy, which consolidates points into configurable batches and sends the data to the Wavefront service.
+A Wavefront proxy ingests metrics and forwards them to Operations for Applications in a secure, fast, and reliable manner. After you install a proxy in your environment, it can handle thousands of simultaneous clients. Your data collection agents or custom code send data to the proxy, which consolidates points into configurable batches and sends the data to your Operations for Applications service.
 
 ## Proxy Benefits
 
 Having a proxy be part of the architecture has benefits:
 - **Prevent data loss, optimize network bandwidth** -- The proxy buffers and manages data traffic. Even if there's a connectivity problem, you don't lose data points.
-- **Simple firewall configuration** -- The proxy receives metrics from many agents on different hosts and forwards those metrics to the Wavefront service. You don't need to open internet access for each of the agents.
-- **Enrich or filter data** -- You can set up the preprocessor to filter data before it's sent to the Wavefront service
--  **Examine bottlenecks** -- Each proxy generates its own metrics, so you can check whether data comes in and whether data is sent to the Wavefront service.
+- **Simple firewall configuration** -- The proxy receives metrics from many agents on different hosts and forwards those metrics to Operations for Applications. You don't need to open internet access for each of the agents.
+- **Enrich or filter data** -- You can set up the preprocessor to filter data before it's sent to your Operations for Applications service.
+-  **Examine bottlenecks** -- Each proxy generates its own metrics, so you can check whether data comes in and whether data is sent to your Operations for Applications service.
 
 In this video, Clement contrasts using a Wavefront proxy with using direct ingestion, discusses proxy benefits, and goes over the architecture of most production systems, which includes a fleet of proxies behind a load balancer. The result is more resilience and a better user experience.
 
@@ -32,8 +32,8 @@ In this video, Clement contrasts using a Wavefront proxy with using direct inges
 ## Proxy Deployment Options
 
 You have a choice of proxy deployment option:
-* Initially, as part of the in-product Getting Started workflow, trial users install their first integration - often an integration with the local host. In that case, the data source, the agent, and the proxy all run on the same host and the proxy forwards metrics to the Wavefront service.
-* As your environment grows, you place the proxy on a dedicated host. Different agents and other data sources can send metrics to the proxy, and the proxy forwards the metrics to the Wavefront service. Agents can run either on the same host as the data source or on a different host.
+* Initially, as part of the in-product Getting Started workflow, trial users install their first integration - often an integration with the local host. In that case, the data source, the agent, and the proxy all run on the same host and the proxy forwards metrics to the Operations for Applications service.
+* As your environment grows, you place the proxy on a dedicated host. Different agents and other data sources can send metrics to the proxy, and the proxy forwards the metrics to your Operations for Applications service. Agents can run either on the same host as the data source or on a different host.
 *  In production environments, you can place two proxies or a fleet of proxies behind a load balancer for optimal performance and high availability. In that case, each proxy must have a unique name. Your fleet of proxies does not run on the same host as your data sources.
 
 {% include note.html content="It's not a good idea to install a proxy on each host you're monitoring. First, you lose the benefit of protection against data loss -- the proxy can buffer your metrics. Second, you only need a small number of proxies even in production environments." %}
@@ -52,7 +52,7 @@ When you set up an integration, the Setup page lets you pick a proxy –- or off
 
 ### Development Environment: Shared Proxy Deployment
 
-A proxy can accept metrics from multiple collector agents and forward those metrics to the Wavefront service. Having just one proxy means that you don't need to open multiple firewall ports: The proxy is the only component that needs a firewall port opened, simplifying configuration.
+A proxy can accept metrics from multiple collector agents and forward those metrics to Operations for Applications. Having just one proxy means that you don't need to open multiple firewall ports: The proxy is the only component that needs a firewall port opened, simplifying configuration.
 
 ![Multiple agents one proxy](/images/proxy_deployment_multiple_inputs.png)
 
@@ -90,11 +90,11 @@ Wavefront proxies support:
 * Histograms
 * Traces/spans
 
-Each type of data uses a different data format. See [Wavefront Data Format](wavefront_data_format.html) for details and links.
+Each type of data uses a different data format. See [Data Format](wavefront_data_format.html) for details and links.
 
 
 ## Learn More!
 
-* [Monitor Wavefront Proxies](monitoring_proxies.html) discusses proxy information in the Wavefront Usage dashboard and lists `~proxy` internal metrics.
+* [Monitor Wavefront Proxies](monitoring_proxies.html) discusses how to use the Proxies Browser and the out-of-the-box proxy dashboards, and lists the `~proxy` internal metrics.
 * [Proxies Troubleshooting](proxies_troubleshooting.html) helps with proxy queue management, proxy messages, and more.
 * [Telegraf Troubleshooting](telegraf_details.html) has details on troubleshooting and fine-tuning the Telegraf agent.

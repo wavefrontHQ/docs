@@ -2,7 +2,7 @@
 title: SharePoint Integration
 tags: [integrations list]
 permalink: sharepoint.html
-summary: Learn about the Wavefront SharePoint Integration.
+summary: Learn about the SharePoint Integration.
 ---
 ## SharePoint Integration
 

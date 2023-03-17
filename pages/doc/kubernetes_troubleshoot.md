@@ -4,16 +4,16 @@ keywords: containers, kubernetes
 tags: [containers, kubernetes]
 sidebar: doc_sidebar
 permalink: wf_kubernetes_troubleshooting.html
-summary: This page contains information about troubleshooting the Helm-managed and installed version of the Wavefront proxy and Wavefront Collector for Kubernetes.
+summary: This page contains information about troubleshooting the Helm-managed and installed version of the Wavefront proxy and Kubernetes Metrics Collector.
 ---
 
 For troubleshooting the latest version of the Kubernetes integration, see [Troubleshooting Kubernetes](kubernetes_troubleshooting.html).
 
 Depending on your setup, you typically deploy the following components into your Kubernetes cluster:
-* **[Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes)** -- runs as a DaemonSet
+* **[Kubernetes Metrics Collector](https://github.com/wavefrontHQ/observability-for-kubernetes)** -- runs as a DaemonSet
 * **[Wavefront Proxy](proxies.html)** -- runs as a deployment fronted by a Kubernetes Service
 
-Once deployed, the collector instances gather data at regular intervals from various sources and send the data to Tanzu Observability by Wavefront via the Wavefront proxy.
+Once deployed, the collector instances gather data at regular intervals from various sources and send the data to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) via the Wavefront proxy.
 
 ## Known Issues
 
@@ -30,9 +30,9 @@ This section focuses on known issues that cannot be fixed, for example, because 
 
 ## Troubleshoot by Using the Wavefront Collector Dashboard
 
-The Wavefront Collector emits [internal metrics](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/metrics.md#collector-health-metrics) that you can use to troubleshoot issues.
+The Wavefront Collector emits [internal metrics](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/metrics.md#collector-health-metrics) that you can use to troubleshoot issues.
 
-The **Wavefront Collector for Kubernetes Metrics** dashboard in the Kubernetes integration shows these metrics.
+The **Kubernetes Metrics Collector Troubleshooting** dashboard in the Kubernetes integration shows these metrics.
 
 ![screenshot of Kubernetes metrics](images/kubernetes_monitoring.png)
 
@@ -42,20 +42,20 @@ In Kubernetes, a Node can be considered a virtual machine, and can have several 
 
 All the Pods the Wavefront Collector collects metrics from are considered a Source.
 
-Next, the Source sends metrics to the Wavefront Sink and then to the Wavefront Service through the Wavefront proxy.
+Next, the Source sends metrics to the Wavefront Sink and then to the VMware Aria Operations for Applications Service through the Wavefront proxy.
 
 Since the Wavefront Collector runs on each Node, metrics common to the Kubernetes environment or cluster can be repeated, such as the cluster metrics, which are reported multiple times. To avoid the same metric being reported several times, one Wavefront Collector is elected as the leader to perform tasks that only need to be done once.
 
-The following diagram shows how the data flows from your Kubernetes environment to Tanzu Observability.
+The following diagram shows how the data flows from your Kubernetes environment to VMware Aria Operations for Applications.
 
 ![Kubernetes Collector Data Flow Diagram](images/kubernetes_collector_troubleshooting_flow_diagram.png)
 
 
 You run into issues when data doesn't flow from one component to another or when there are configuration issues.
 
-For example, identifying the metrics that come into Tanzu Observability and the metrics that don't go into Tanzu Observability help you know where to look.
+For example, identifying the metrics that come into VMware Aria Operations for Applications and the metrics that don't go into VMware Aria Operations for Applications help you know where to look.
 
-To troubleshoot data collection, follow the data flow from the source to Tanzu Observability to find where the flow is broken.
+To troubleshoot data collection, follow the data flow from the source to VMware Aria Operations for Applications to find where the flow is broken.
 * Individual processes in the flow can cause problems.
 * Connections between processes can cause problems.
 
@@ -75,7 +75,7 @@ You can address this problem in several ways, and might find that combining solu
 
 ### Manage Cardinality and the Data Shape
 
-All Tanzu Observability users can benefit greatly from managing the shape of the data that's coming in. See the following doc pages for detail:
+All users can benefit greatly from managing the shape of the data that's coming in. See the following doc pages for detail:
 * [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html)
 * [Improve PPS Usage and Prevent Overage](wavefront_usage_info.html)
 
@@ -87,29 +87,29 @@ Filtering out metrics at the collector is much more efficient than filtering out
 <table style="width: 100%;">
 <tbody>
 <tr><td width="50%">Exclude pods from auto-discovery.</td>
-<td width="50%"><a href="https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/discovery.md#excluding-annotation-discovered-resources">Excluding annotation discovered resources.</a></td></tr>
+<td width="50%"><a href="https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/discovery.md#excluding-annotation-discovered-resources">Excluding annotation discovered resources.</a></td></tr>
 <tr>
 <td width="50%">Refine discovery rules to limit which pods the Collector is collecting from.</td>
-<td width="50%"><a href="https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/discovery.md#rule-based-discovery">Rule-based discovery.</a></td></tr>
+<td width="50%"><a href="https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/discovery.md#rule-based-discovery">Rule-based discovery.</a></td></tr>
 <tr>
 <td width="50%">Filter metrics at the collector.</td>
-<td width="50%"><a href="https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/filtering.md">Excluding annotation discovered resources</a></td>
+<td width="50%"><a href="https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/filtering.md">Excluding annotation discovered resources</a></td>
 </tr>
 <tr>
 <td width="50%">Disable auto-discovery.</td>
-<td width="50%"><a href="https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/discovery.md#excluding-annotation-discovered-resources">Disabling Auto Discovery</a></td>
+<td width="50%"><a href="https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/discovery.md#excluding-annotation-discovered-resources">Disabling Auto Discovery</a></td>
 </tr>
 </tbody>
 </table>
 
 ### Use Proxy Preprocessor Rules
 
-You can use [proxy preprocessor rules](proxies_preprocessor_rules.html) to block data that you don't want to send to the Wavefront service. There are block rules for each type of metric, for example `block` for points and `spanBlock` for spans.
+You can use [proxy preprocessor rules](proxies_preprocessor_rules.html) to block data that you don't want to send to the VMware Aria Operations for Applications service. There are block rules for each type of metric, for example `block` for points and `spanBlock` for spans.
 
 {% include tip.html content="Filter metrics at the Collector instead of the proxy where possibly to avoid creating a bottleneck at the proxy." %}
 
 
-## Symptom: No Data Flowing into Tanzu Observability
+## Symptom: No Data Flowing
 
 ### Step 1: Verify That the Collector Is Running.
 
@@ -132,7 +132,7 @@ You can use [proxy preprocessor rules](proxies_preprocessor_rules.html) to block
 
 * Run `kubectl get deployment wavefront-proxy -n NAMESPACE` to verify the proxy instances are ready and available.
 * Run `kubectl get pods -l app=wavefront-proxy -n <NAMESPACE>` to verify there are no pod restarts.
-* Run `kubectl logs pod_name` to check the proxy logs for errors connecting to the Wavefront service.
+* Run `kubectl logs pod_name` to check the proxy logs for errors connecting to the VMware Aria Operations for Applications service.
 
 <table style="width: 100%;">
 <tbody>
@@ -147,7 +147,7 @@ You can use [proxy preprocessor rules](proxies_preprocessor_rules.html) to block
 * List collector pods with `kubectl get pods -l k8s-app=wavefront-collector -n <NAMESPACE>`.
 * Check the collector logs for errors sending points to the proxy with `kubectl logs pod_name`.
 * To make sure that the collector can communicate with the proxy:
-  * Verify that the `proxyAddress` on the [collector sink configuration on the configuration.md file](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md#wavefront-sink) is correct.
+  * Verify that the `proxyAddress` on the [collector sink configuration on the configuration.md file](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/configuration.md#wavefront-sink) is correct.
   * Verify that the proxy service exposes the correct port (typically 2878).
 
   <table style="width: 100%;">
@@ -156,9 +156,9 @@ You can use [proxy preprocessor rules](proxies_preprocessor_rules.html) to block
   </tbody>
   </table>
 
-### Step 4: Verify That the Proxy Can Connect to the Wavefront Service
+### Step 4: Verify That the Proxy Can Connect to the Service
 
-![Highlights arrow from the Wavefront proxy to the Wavefront service on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_step_4.png)
+![Highlights arrow from the Wavefront proxy to the VMware Aria Operations for Applications service on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_step_4.png)
 
 See [Monitor Wavefront Proxies](monitoring_proxies.html) for monitoring and troubleshooting the proxy.
 
@@ -168,13 +168,13 @@ See [Monitor Wavefront Proxies](monitoring_proxies.html) for monitoring and trou
 </tbody>
 </table>
 
-## Symptom: Incomplete Data in Tanzu Observability
+## Symptom: Incomplete Data
 
 ### Step 1: Verify the Collection Source Configurations
 
 ![Highlights the source box on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom-Incomplete_step_1.png)
 
-See the [Wavefront Collector Configurations](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md) to verify that the collector is configured correctly.
+See the [Wavefront Collector Configurations](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/configuration.md) to verify that the collector is configured correctly.
 
 <table style="width: 100%;">
 <tbody>
@@ -184,16 +184,16 @@ See the [Wavefront Collector Configurations](https://github.com/wavefrontHQ/wave
 
 ### Step 2: Verify the Filter Configuration
 
-You can filter out data flowing into Tanzu Observability at multiple points:
+You can filter out data flowing into VMware Aria Operations for Applications at multiple points:
 * In some cases, the application (App Pod) can filter metrics and decide on the metrics are available to collect.
   A common example of this is kube-state-metrics. See [kube-state-metrics documentation](https://github.com/kubernetes/kube-state-metrics/blob/master/docs/cli-arguments.md) for configuration options.
   ![Highlights the app pod on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom-Incomplete_step_2.1.png)
 
-* The Wavefront Collector for Kubernetes allows two levels of filtering internally, shown in the picture below.
+* The Kubernetes Metrics Collector allows two levels of filtering internally, shown in the picture below.
   1. Filter metrics at the source level.
-  2. Filter all metrics sent from the collector to Tanzu Observability.
+  2. Filter all metrics sent from the collector to VMware Aria Operations for Applications.
 
-  Run ```kubectl get configmap collector-config -n <YOUR_NAMESPACE> -o yaml``` and check both your source configuration and sink configuration for filters. See [Prefix, tags, and filter configurations for the Wavefront Collector](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md#prefix-tags-and-filters).
+  Run ```kubectl get configmap collector-config -n <YOUR_NAMESPACE> -o yaml``` and check both your source configuration and sink configuration for filters. See [Prefix, tags, and filter configurations for the Wavefront Collector](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/configuration.md#prefix-tags-and-filters).
 
   ![Highlights the source and sink the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom-Incomplete_step_2.2.png)
 
@@ -209,7 +209,7 @@ You can filter out data flowing into Tanzu Observability at multiple points:
 
 ### Step 3: Verify Metric Naming Configuration
 
-* Check the metric prefixes on the source and sink configurations. You can update the metric prefixes in the [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md#common-properties) file.
+* Check the metric prefixes on the source and sink configurations. You can update the metric prefixes in the [configuration.md](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/configuration.md#common-properties) file.
 
   ![Highlights arrow from the sinker to the wavefront proxy on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_metric_name_step_1.png)
 
@@ -228,14 +228,14 @@ You can filter out data flowing into Tanzu Observability at multiple points:
 
 #### Check for Leader Health Problems
 
-The **leader Wavefront Collector pod** collects the metrics from its node and the metrics that are not specific to the local node. Example: cluster metrics, service monitoring metrics, and metrics from applications that use explicit rule definitions.
+The **leader pod** collects the metrics from its node and the metrics that are not specific to the local node. Example: cluster metrics, service monitoring metrics, and metrics from applications that use explicit rule definitions.
 
 If a leader pod crashes due to insufficient resources, another pod picks up the leader role automatically. If the new leader pod also faces the same problem and crashes as well, just like the previous leader pod, the cycle continues. This problem leads to inconsistencies in data collection.
 
 To check for leader health problems:
 
 1. Navigate to your Kubernetes integration.
-2. Open the **Wavefront Collector for Kubernetes Metrics** dashboard.
+2. Open the **Kubernetes Metrics Collector Troubleshooting** dashboard.
 3. In the **Metric Health Indicators** section, check if the **Leader Changes** chart is red or if the chart has spikes with the number of times the leadership changed.
 
 If you see these symptoms, then there are leader health problems.
@@ -269,7 +269,7 @@ The following screenshot shows that there are no leader health problems.
 To check for Insufficient CPU, follow these steps:
 
 1. Navigate to your Kubernetes integration.
-2. Open the **Wavefront Collector for Kubernetes Metrics** dashboard.
+2. Open the **Kubernetes Metrics Collector Troubleshooting** dashboard.
 
 3. In the **Metric Health Indicators** section, check the **Collector Restarts** chart.
     If the chart is in red, or if there are spikes on the chart, there are memory or CPU issues.
@@ -284,7 +284,7 @@ To check for Insufficient CPU, follow these steps:
 
     {{site.data.alerts.tip}}
       <p>
-          Latency should be less than the collection intervals you configure. The <code>defaultCollectionInterval</code> is set to 60 seconds. You configure it on the <a href="https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md#configuration-file"><code>configration.md</code></a> file.
+          Latency should be less than the collection intervals you configure. The <code>defaultCollectionInterval</code> is set to 60 seconds. You configure it on the <a href="https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/configuration.md#configuration-file"><code>configration.md</code></a> file.
       </p>
       <p>
           If the latency is high, the collector might have insufficient CPU to process the metrics, and the collectors stack up in memory and cause an Out Of Memory (OOM) error.
@@ -326,14 +326,14 @@ To solve this, See the remedies section.
   The process of increasing CPU is trial and error. Adjust the limit and monitor the **Collector Latency** chart after the update. If the latencies level out, you have found the correct CPU limit.
 
 * **Determine memory limit by following these steps**:
-  1. Open the **Wavefront Collector for Kubernetes Metrics** dashboard and locate the **Collector Memory Usage (Top 20)** chart. This chart gives you an idea of the limits you need.
+  1. Open the **Kubernetes Metrics Collector Troubleshooting** dashboard and locate the **Collector Memory Usage (Top 20)** chart. This chart gives you an idea of the limits you need.
       {% include note.html content="The limit values on the chart are sampled and do not show the peak memory usage." %}
   2. Customize the time frame on the chart to 2-4 days using the (-) icon on the chart and look for spikes. The spikes are most likely created by the elected leader.
   3. Start to set the limit 10% over the max value you find and monitor the changes. For example, based on the screenshot below, the max value is 43.5 Mi. Therefore, you can start to set your limit at 47.85 Mi (43.5 x 1.10) and monitor the progress.
 
     ![Screenshot of the Collector Memory Usage Chart](images/kubernetes_collector_memory.png)
 
-* **Change the CPU or memory limit based on how the Wavefront Collector is installed**:
+* **Change the CPU or memory limit based on how the Collector is installed**:
   * Helm Deployments
     * Option 1: For details on updating the CPU and memory limit on helm charts, see [Parameters](https://github.com/wavefrontHQ/helm/tree/master/wavefront#parameters).
     * Option 2: Update the `cpu` and `memory` limits in the [values.yaml](https://github.com/wavefrontHQ/helm/blob/master/wavefront/values.yaml#L184) file.
@@ -352,14 +352,14 @@ To solve this, See the remedies section.
 
 * **Filter metrics**:
 
-    * **Configure the Wavefront Collector to remove sources**:
-      If you have statically defined sources, comment out or remove sources that emit a large number of metrics from the `sources` list in the collector [configuration.md](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md#configuration-file) file. This method removes metrics that are minimally processed, reducing the CPU and memory load on the collector.
+    * **Configure the Collector to remove sources**:
+      If you have statically defined sources, comment out or remove sources that emit a large number of metrics from the `sources` list in the collector [configuration.md](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/configuration.md#configuration-file) file. This method removes metrics that are minimally processed, reducing the CPU and memory load on the collector.
       {% include important.html content="Do not remove `kubernetes_source` from the `sources` list." %}
 
     * **Filter metrics at the source**: Sources scraped by the collector have a way of filtering out metrics. You can filter the metrics on the source or from the Wavefront Collector:
       * Some applications let you configure the metrics they produce. If your application can do that, you can reduce the metrics collected before the metrics are sent to the collector.
         {% include note.html content = "Only some sources let you filter metrics. Example: kube-state metrics" %}
-      * Change the [Wavefront Collector source configuration](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md#configuration) to filter out metrics you don’t need. Note:
+      * Change the [Wavefront Collector source configuration](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/configuration.md#configuration) to filter out metrics you don’t need. Note:
         {% include note.html content = "Filtering metrics in the source configuration, reduces the collector load. Filtering metrics in the sink configuration will not reduce the collector load." %}
 
 * **Disable Auto-Discovery**:
@@ -381,13 +381,13 @@ Use these metrics to help troubleshoot issues with data collection:
 </thead>
 <tbody>
 <tr><td markdown="span">kubernetes.collector.target.collect.errors</td>
-<td>Counter showing the number of errors collecting data from a target pod or service etc. <br/>You can see this data on the **Collection Errors per Endpoint** chart under the **Metric Health Indicators** section of the **Wavefront Collector for Kubernetes Metrics** dashboard.</td></tr>
+<td>Counter showing the number of errors collecting data from a target pod or service etc. <br/>You can see this data on the <strong>Collection Errors per Endpoint</strong> chart under the <strong>Metric Health Indicators</strong> section of the <strong>Kubernetes Metrics Collector Troubleshooting</strong> dashboard.</td></tr>
 <tr>
 <td markdown="span">kubernetes.collector.source.collect.errors</td>
-<td>Counter showing the number of errors per plugin type (Prometheus, Telegraf etc.) <br/>You can see this data on the **Collection Errors per Type** chart under the **Metric Health Indicators** section of the **Wavefront Collector for Kubernetes Metrics** dashboard.</td></tr>
+<td>Counter showing the number of errors per plugin type (Prometheus, Telegraf etc.) <br/>You can see this data on the <strong>Collection Errors per Type</strong> chart under the <strong>Metric Health Indicators</strong> section of the <strong>Kubernetes Metrics Collector Troubleshooting</strong> dashboard.</td></tr>
 <tr>
 <td markdown="span">kubernetes.collector.target.points.collected</td>
-<td>Counter showing the number of points collected from a single target (pod, service etc.) as a per-second rate. <br/>You can see this data on the **Points Collected per Target (Top 20)** chart under the **Data Collection** section of the**Wavefront Collector for Kubernetes Metrics** dashboard.</td></tr>
+<td>Counter showing the number of points collected from a single target (pod, service etc.) as a per-second rate. <br/>You can see this data on the <strong>Points Collected per Target (Top 20)</strong> chart under the <strong>Data Collection</strong> section of the <strong>Kubernetes Metrics Collector Troubleshooting</strong> dashboard.</td></tr>
 </tbody>
 </table>
 
@@ -401,7 +401,7 @@ Check the source of these metrics to identify the specific Kubernetes node on wh
 
 ## Symptom: Missing Metrics from a Single Source
 
-### Step 1: Verify That Metric Data Is Sent to Tanzu Observability
+### Step 1: Verify That Metric Data Is Sent to Operations for Applications
 
 1. Click **Browse > Metrics** to navigate to the metrics screen.
 2. Look for your metric data.
@@ -410,7 +410,7 @@ Check the source of these metrics to identify the specific Kubernetes node on wh
 
 ### Step 2: Check for a Missing Metric Collection Target
 
-1. Open the **Wavefront Collector for Kubernetes Metrics** dashboard in the Kubernetes integration.
+1. Open the **Kubernetes Metrics Collector Troubleshooting** dashboard in the Kubernetes integration.
 2. Find the **Data Collection** section, go to the **Points Collected per Type** chart and check whether your source is sending metrics.
 
    * If your source is not in the top 20, modify the query to remove the top 20 limit or limit your particular missing pod.
@@ -428,19 +428,19 @@ Check the source of these metrics to identify the specific Kubernetes node on wh
    time="2021-04-27T14:28:04Z" level=info msg="Finished querying source" latency=42.6569ms name="prometheus_source: http://10.244.0.5:8443/metrics" total_metrics=2938
    ```
 
-4. Look through the [configuration file](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md#configuration-file) and for each source verify that:
+4. Look through the [configuration file](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/configuration.md#configuration-file) and for each source verify that:
   * The formatting is correct.
   * There are no errors in the endpoints, ports, or other configuration information.
 
 ### Step 3: Check for Metric Filtering
 
-1. Open the **Wavefront Collector for Kubernetes Metrics** dashboard.
+1. Open the **Kubernetes Metrics Collector Troubleshooting** dashboard.
 2. Locate the **Points Filtered per Type** chart and see whether your source is sending metrics.
    Look for filtering of the source that you’re missing. If your source is sending metrics, your metric can be filtered out. For example, if the source you're missing is a Prometheus endpoint, look whether any points of type `prometheus` are listed:
 
    ![Example of the Points Filtered per Type chart](images/k8s_points_filter_per_type.png)
 
-3. Look at the filtering in your [configuration file](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md#configuration-file) and for each source verify that:
+3. Look at the filtering in your [configuration file](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/configuration.md#configuration-file) and for each source verify that:
   * The configuration for your metric source is correct.
   * The configuration for your Wavefront sink is correct.
 
@@ -458,8 +458,8 @@ Check the source of these metrics to identify the specific Kubernetes node on wh
 
 ## Symptom: Kubernetes Dashboards Do Not Show Any Data
 
-The most common cause for the Kubernetes integration dashboards to not show any data is a problem with sending data to Tanzu Observability. See [Symptom: No Data Flowing into Tanzu Observability](#symptom-no-data-flowing-into-tanzu-observability).
+The most common cause for the Kubernetes integration dashboards to not show any data is a problem with sending data to VMware Aria Operations for Applications. See [Symptom: No Data Flowing](#symptom-no-data-flowing).
 
-Another reason for missing data can be a change in the prefix of the Kubernetes sources in the Wavefront Collector for Kubernetes. By default, the dashboards rely on a prefix, such as `kubernetes.`, in the configured collector sources. For more information, see the [sources section of the collector configuration file](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/395df1b533b01b43961641b1a03134481cf89609/deploy/kubernetes/4-collector-config.yaml#L52).
+Another reason for missing data can be a change in the prefix of the Kubernetes sources in the Kubernetes Metrics Collector. By default, the dashboards rely on a prefix, such as `kubernetes.`, in the configured collector sources. For more information, see the sources section of the [collector configuration file](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/collector/deploy/kubernetes/4-collector-config.yaml).
 
 If you want to use the Kubernetes dashboards with a custom prefix, [clone the dashboards](ui_dashboards.html#edit-or-clone-a-dashboard) and update the prefix in all of the charts.

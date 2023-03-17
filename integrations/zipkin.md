@@ -2,7 +2,7 @@
 title: Zipkin Integration
 tags: [integrations list]
 permalink: zipkin.html
-summary: Learn about the Wavefront Zipkin Integration.
+summary: Learn about the Zipkin Integration.
 ---
 ## Zipkin Integration
 

@@ -2,34 +2,36 @@
 title: Amazon EKS Integration
 tags: [integrations list]
 permalink: amazon_eks.html
-summary: Learn about the Wavefront Amazon EKS Integration.
+summary: Learn about the Amazon EKS Integration.
 ---
 ## Kubernetes Integration
 
-Wavefront provides a comprehensive solution for monitoring Kubernetes. This integration uses the [Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/wavefront-kubernetes-collector) to collect detailed metrics from Kubernetes clusters.
+Operations for Applications provides a comprehensive solution for monitoring Kubernetes. This integration uses the [Observability for Kubernetes Operator](https://github.com/wavefrontHQ/observability-for-kubernetes) to collect detailed metrics from Kubernetes clusters.
 
 ### Collection
-The collector makes it easy for you to monitor and manage your Kubernetes environment:
+The Observability for Kubernetes Operator makes it easy for you to monitor and manage your Kubernetes environment:
 
 * Collects real-time metrics from all layers of a Kubernetes environment (clusters, nodes, pods, containers and the Kubernetes control plane).
 * Supports plugins such as Prometheus, Telegraf and Systemd enabling you to collect metrics from various workloads.
-* [Auto discovery](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/blob/main/docs/discovery.md) of pods and services based on annotation and configuration.
+* [Auto discovery](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/discovery.md) of pods and services based on annotation and configuration.
 * Daemonset mode for high scalability with leader election for monitoring cluster-level resources.
-* Rich [filtering](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/blob/main/docs/filtering.md) support.
+* Rich [filtering](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/filtering.md) support.
 * Auto reload of configuration changes.
-* [Internal metrics](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/blob/main/docs/metrics.md#collector-health-metrics) for tracking the collector health and source of your Kubernetes metrics.
+* [Internal metrics](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/metrics.md#collector-health-metrics) for tracking the collector health and source of your Kubernetes metrics.
 
 ### Dashboards
 
 In addition to setting up the metrics flow, this integration also installs dashboards:
 
+* Kubernetes Status: Detailed health of your Kubernetes integration.
 * Kubernetes Summary: Detailed health of your infrastructure and workloads.
 * Kubernetes Clusters: Detailed health of your clusters and its nodes, namespaces, pods and containers.
 * Kubernetes Nodes: Detailed health of your nodes.
 * Kubernetes Pods: Detailed health of your pods broken down by node and namespace.
-* Kubernetes Containers: Deatailed health of your containers broken down by namespace, node and pod.
+* Kubernetes Containers: Detailed health of your containers broken down by namespace, node and pod.
 * Kubernetes Namespaces: Details of your pods/containers broken down by namespace.
-* Wavefront Collector for Kubernetes Metrics: Internal stats of the Wavefront Collector for Kubernetes.
+* Kubernetes Metrics Collector Troubleshooting: Internal stats of the Kubernetes Metrics Collector.
+* Kubernetes Control Plane: Details of your Kubernetes control plane components.
 
 Here's a preview of the Kubernetes Summary dashboard:
 
@@ -41,19 +43,19 @@ Here's a preview of the Kubernetes Pods dashboard:
 
 ## Kubernetes Clusters Integrations
 
-Integrations use [Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes "Wavefront Collector for Kubernetes GitHub repository") to monitor your Kubernetes clusters.  
+Operations for Applications uses the [Observability for Kubernetes Operator](https://github.com/wavefrontHQ/observability-for-kubernetes "Observability for Kubernetes GitHub repository") to monitor your Kubernetes clusters.
 **Note**: Tanzu Mission Control users follow the steps given in the [Tanzu Mission Control](https://docs.vmware.com/en/VMware-Tanzu-Mission-Control/services/tanzumc-using/GUID-E448F0BD-1DAB-4AAE-851D-0501CB3AA7AE.html) documentation.
 
 
 
 ## Add a Kubernetes Integration
 
-Tanzu Observability provides a comprehensive solution for monitoring Kubernetes. To set up the Kubernetes integration, you must install and configure the Wavefront Collector and a Wavefront Proxy. With the 2022-48.x we introduce a new Kubernetes Operator which simplifies the deployment. 
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) provides a comprehensive solution for monitoring Kubernetes. To set up the Kubernetes integration, you must install and configure our Kubernetes Metrics Collector and a Wavefront proxy. With the 2022-48.x release we introduce a new Kubernetes Observability Operator which simplifies the deployment. 
 
 The setup process varies based on the distribution type that you choose to monitor. 
 
 
-1. Log in to your Wavefront cluster: https://your-wavefront-cluster.wavefront.com.
+1. Log in to your product cluster: https://<your_cluster>.wavefront.com.
 2. Click **Integrations** on the toolbar.
 3. In the **Featured** section, click the **Kubernetes** tile.
 4. Click **Add Integration**.
@@ -68,7 +70,7 @@ The setup process varies based on the distribution type that you choose to monit
 1. Choose whether you want to enable or disable **Metrics**. By default, the **Metrics** option is enabled.
 1. Choose whether you want to use an **HTTP Proxy**. 
    If you enable HTTP proxy, to allow outbound traffic, you must add these URLs to your proxy rules:
-    * **Logs (Beta)**: https://data.mngmt.cloud.vmware.com
+    * **Logs (Beta)**: https://data.mgmt.cloud.vmware.com
     * **Metrics**: https://<your_cluster>.wavefront.com/
       
    In addition, you must also configure the HTTP proxy settings, such as: 
@@ -79,34 +81,33 @@ The setup process varies based on the distribution type that you choose to monit
 
 1. Enter the authentication options and click **Next**.
    
-   You can authenticate to the Tanzu Observability REST API by using either a user account, or a service account. In both cases the account must have an API token.
+   You can authenticate to the Operations for Applications REST API by using either a user account, or a service account. In both cases, the account must have an API token associated with it.
    
 1. From the **Script** section, get the deployment script. 
     1. Review the script and click the **Copy to clipboard** button.
     1. Run the script in your Kubernetes cluster.
-1. After successful installation, return back to the Tanzu Observability GUI, and click **Finish**.
+1. After successful installation, return back to the Operations for Applications GUI, and click **Finish**.
 
 ### Kubernetes Install in an OpenShift Cluster
 
-
-* Complete the steps below and click **Finish**.
+Complete the steps below and click **Finish**.
 
 **Note**: Logs (Beta) is not supported when you use OpenShift.
 
 
-#### Install and Configure the Wavefront Helm Chart on OpenShift Enterprise 4.x
+#### Install and Configure the Operations for Applications Helm Chart on OpenShift Enterprise 4.x
     
-This section contains the installation and configuration steps for full-stack monitoring of OpenShift clusters using the Wavefront Helm Chart.
+This section contains the installation and configuration steps for full-stack monitoring of OpenShift clusters using the Operations for Applications Helm Chart.
     
-**Install the Wavefront Helm Chart**
+**Install the Operations for Applications Helm Chart**
     
 1. Log in to the OpenShift Container Platform web console as an administrator.
     
-2. Create a project named <code>wavefront</code>.
+2. Create a project named <code>MyProject</code>.
     
 3. In the left pane, navigate to **Helm** and select **Install a Helm Chart from the developer catalog**.
     
-4. Search for **Wavefront** and click **Install Helm Chart**.
+4. Search for **MyProject** and click **Install Helm Chart**.
     
 5. Install from the **form view** tab. Replace the following parameters with your values:
 
@@ -116,13 +117,13 @@ This section contains the installation and configuration steps for full-stack mo
     
 6. Click **Install**.
     
-   Because default parameters are used, the Collector runs as a Daemonset and uses <code>wavefront-proxy</code> as a sink. The Collector auto discovers the pods and services that expose metrics and dynamically starts collecting metrics for the targets. It collects metrics from the Kubernetes API server, if configured.
+   Because default parameters are used, the Kubernetes Metrics Collector runs as a DaemonSet and uses a Wavefront proxy as a sink. The Collector auto discovers the pods and services that expose metrics and dynamically starts collecting metrics for the targets. It collects metrics from the Kubernetes API server, if configured.
     
-   Now, go back to your Wavefront cluster and search for the <code>OPENSHIFT_CLUSTER_NAME</code> in the Kubernetes integration dashboards.
+   Now, go back to your Operations for Applications cluster and search for the <code>OPENSHIFT_CLUSTER_NAME</code> in the Kubernetes integration dashboards.
     
 **Configure the Collector to Use an Existing Proxy**    
 
-To configure Wavefront Collector to use a Wavefront proxy that's already running in your environment, follow these steps:
+To configure the Kubernetes Metrics Collector to use a Wavefront proxy that's already running in your environment, follow these steps:
     
 1. In the OpenShift Container Platform web console, on the **yaml view** tab, in the **proxy** section, set **enabled** to false:
 
@@ -151,7 +152,7 @@ To configure Wavefront Collector to use a Wavefront proxy that's already running
     
 [Preprocessor rules](https://docs.wavefront.com/proxies_preprocessor_rules.html) allow you to manipulate incoming metrics before they reach the proxy. For example, you can remove confidential text strings or replace unacceptable characters. Follow these steps to create a `ConfigMap` with custom preprocessor rules:
     
-1. In the left pane, navigate to **Helm**, and choose the Wavefront installation.
+1. In the left pane, navigate to **Helm**, and choose your installation.
     
 2. Under **Actions**, click **Upgrade**.
   
@@ -177,17 +178,17 @@ To configure Wavefront Collector to use a Wavefront proxy that's already running
 4. Click **Upgrade**.
     
     
-#### Install and Configure Wavefront Operator on OpenShift Enterprise 3.x
+#### Install and Configure the Collector on OpenShift Enterprise 3.x
 
-The Wavefront Collector supports monitoring of OpenShift clusters:
+Our Collector supports monitoring of OpenShift clusters:
     
 * To monitor OpenShift Origin 3.9, follow the steps in [Installation and Configuration on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/main/docs/openshift.md).
     
-* To monitor OpenShift Enterprise 3.11, follow the steps in [Installation and Configuration of Wavefront Collector Operator on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/main/docs/openshift-operator.md).
+* To monitor OpenShift Enterprise 3.11, follow the steps in [Installation and Configuration of the Collector Operator on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/main/docs/openshift-operator.md).
 
 ### Kubernetes Quick Install Using Helm
 
-**Note**: We will deprecate the Helm or manually-installed Wavefront Collector for Kubernetes and Wavefront proxy next year. Our new Kubernetes Operator replaces the Helm or manually installed Wavefront Collector for Kubernetes and Wavefront proxy for all Kubernetes Distributions except for OpenShift Container Platform. For more information, see [Obsolescence and Remediation](https://docs.wavefront.com/wavefront_obsolescence_policy.html#kubernetes-integration).
+**Note**: We will deprecate the Helm or manually-installed Kubernetes Metrics Collector and Wavefront proxy in 2023. Our new Kubernetes Operator replaces the Helm or manually installed Kubernetes Metrics Collector and Wavefront proxy for all Kubernetes Distributions except for OpenShift Container Platform. For more information, see [Obsolescence and Remediation](https://docs.wavefront.com/wavefront_obsolescence_policy.html#kubernetes-integration).
 
 1. Ensure that you have installed [helm](https://helm.sh/docs/intro/).
 2. Add the Wavefront helm repo:
@@ -195,7 +196,7 @@ The Wavefront Collector supports monitoring of OpenShift clusters:
 helm repo add wavefront https://wavefronthq.github.io/helm/
 helm repo update
 ```
-3. To deploy the Wavefront Collector and Wavefront Proxy:
+3. To deploy the Collector and Wavefront Proxy:
 
     Using helm 2:
     ```
@@ -209,13 +210,13 @@ helm repo update
 
 **Note:** The `clusterName` property refers to the Kubernetes cluster, for example, `dev-cluster`. You must set this property. For vSphere Tanzu, add `--set vspheretanzu.enabled=true` along with helm install command.
 
-Refer to the Wavefront [helm chart](https://github.com/wavefrontHQ/helm/tree/master/wavefront) for further options.
+Refer to our [helm chart](https://github.com/wavefrontHQ/helm/tree/master/wavefront) for further options.
 
 ### Kubernetes Manual Install
 
-**Note**: We will deprecate the Helm or manually-installed Wavefront Collector for Kubernetes and Wavefront proxy next year. Our new Kubernetes Operator replaces the Helm or manually installed Wavefront Collector for Kubernetes and Wavefront proxy for all Kubernetes Distributions except for OpenShift Container Platform. For more information, see [Obsolescence and Remediation](https://docs.wavefront.com/wavefront_obsolescence_policy.html#kubernetes-integration).
+**Note**: We will deprecate the Helm or manually-installed Kubernetes Metrics Collector and Wavefront proxy in 2023. Our new Kubernetes Operator replaces the Helm or manually installed Kubernetes Metrics Collector and Wavefront proxy for all Kubernetes Distributions except for OpenShift Container Platform. For more information, see [Obsolescence and Remediation](https://docs.wavefront.com/wavefront_obsolescence_policy.html#kubernetes-integration).
 
-Follow the instructions below to manually set up Kubernetes monitoring. For more details about the available options, see the [Wavefront Collector for Kubernetes Configuration](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/configuration.md).
+Follow the instructions below to manually set up Kubernetes monitoring. For more details about the available options, see the [Collector for Kubernetes Configuration](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/configuration.md).
 
 
 #### Step 1. Deploy a Wavefront Proxy in Kubernetes
@@ -226,18 +227,18 @@ Follow the instructions below to manually set up Kubernetes monitoring. For more
 
 The Wavefront proxy and a `wavefront-proxy` service should now be running in Kubernetes.
 
-#### Step 2. Deploy Wavefront Collector for Kubernetes
+#### Step 2. Deploy the Collector for Kubernetes
 
 1. Create a directory named `wavefront-collector-dir` and download the following files to that directory:
-  * [0-collector-namespace.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/main/deploy/kubernetes/0-collector-namespace.yaml)
-  * [1-collector-cluster-role.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/main/deploy/kubernetes/1-collector-cluster-role.yaml)
-  * [2-collector-rbac.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/main/deploy/kubernetes/2-collector-rbac.yaml)
-  * [3-collector-service-account.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/main/deploy/kubernetes/3-collector-service-account.yaml)
-  * [4-collector-config.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/main/deploy/kubernetes/4-collector-config.yaml)
-  * [5-collector-daemonset.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/main/deploy/kubernetes/5-collector-daemonset.yaml)
+  * [0-collector-namespace.yaml](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/collector/deploy/kubernetes/0-collector-namespace.yaml)
+  * [1-collector-cluster-role.yaml](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/collector/deploy/kubernetes/1-collector-cluster-role.yaml)
+  * [2-collector-rbac.yaml](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/collector/deploy/kubernetes/2-collector-rbac.yaml)
+  * [3-collector-service-account.yaml](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/collector/deploy/kubernetes/3-collector-service-account.yaml)
+  * [4-collector-config.yaml](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/collector/deploy/kubernetes/4-collector-config.yaml)
+  * [5-collector-daemonset.yaml](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/collector/deploy/kubernetes/5-collector-daemonset.yaml)
 
   **Note**: Download the following file only for vSphere Tanzu environment.
-  * [0-vsphere-tanzu-rolebinding.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/main/deploy/vsphere-tanzu/0-vsphere-tanzu-rolebinding.yaml)
+  * [0-vsphere-tanzu-rolebinding.yaml](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/collector/deploy/vsphere-tanzu/0-vsphere-tanzu-rolebinding.yaml)
 
 2. Edit `4-collector-config.yaml` and replace `clusterName: k8s-cluster` with the name of your Kubernetes cluster.
 
@@ -249,14 +250,14 @@ To verify the collector is deployed, run `kubectl get pods -n wavefront-collecto
 
 #### Step 3. (Optional) Deploy the kube-state-metrics Service
 
-The Wavefront Collector natively collects various [metrics](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/metrics.md#kubernetes-state-source) about the state of Kubernetes resources. You can optionally deploy the third party [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) service to collect additional metrics.
+The Kubernetes Metrics Collector natively collects various [metrics](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/metrics.md#kubernetes-state-source) about the state of Kubernetes resources. You can optionally deploy the third party [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) service to collect additional metrics.
 
 To deploy kube-state-metrics:
 
 1. Download [kube-state.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes/master/ksm-all-in-one/kube-state.yaml) to your system.
 2. Run `kubectl create -f </path/to>/kube-state.yaml`.
 
-The `kube-state-metrics` service starts running on your cluster. The Wavefront Collector automatically discovers the service and starts collecting metrics from the kube-state-metrics service.
+The `kube-state-metrics` service starts running on your cluster. Our Kubernetes Metrics Collector automatically discovers the service and starts collecting metrics from the kube-state-metrics service.
 
 ### Learn More
 
@@ -273,8 +274,10 @@ The `kube-state-metrics` service starts running on your cluster. The Wavefront C
 * [Systemd Source](#systemd-source)
 * [Telegraf Source](#telegraf-source)
 * [Collector Health](#collector-health-metrics)
+* [cAdvisor Metrics](#cadvisor-metrics)
+* [Control Plane Metrics](#control-plane-metrics)
 
-This information comes directly from the [Wavefront Collector for Kubernetes github page](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/metrics.md)
+This information comes directly from the [Observability for Kubernetes Operator GitHub page](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/metrics.md).
 
 ### Kubernetes Source
 
@@ -288,7 +291,7 @@ Metrics collected per resource:
 | Namespace | CPU, Memory, Pod/Container counts |
 | Nodes | CPU, Memory, Network, Filesystem, Storage, Uptime, Pod/Container counts |
 | Pods | CPU, Memory, Network, Filesystem, Storage, Uptime, Restarts, Phase |
-| Pod_Container | CPU, Memory, Filesystem, Storage, Accelerator, Uptime, Restarts, Status |
+| Pod_Containers | CPU, Memory, Filesystem, Storage, Accelerator, Uptime, Restarts, Status |
 | System_Containers | CPU, Memory, Uptime |
 
 Metrics collected per type:
@@ -303,6 +306,7 @@ Metrics collected per type:
 | cpu.request | CPU request (the guaranteed amount of resources) in millicores. |
 | cpu.usage | Cumulative amount of consumed CPU time on all cores in nanoseconds. |
 | cpu.usage_rate | CPU usage on all cores in millicores. |
+| cpu.usage_millicores | CPU usage (sum of all cores) averaged over the sample window in millicores. |
 | cpu.load | CPU load in milliloads, i.e., runnable threads * 1000. |
 | memory.limit | Memory hard limit in bytes. |
 | memory.major_page_faults | Number of major page faults. |
@@ -310,7 +314,7 @@ Metrics collected per type:
 | memory.node_capacity | Memory capacity of a node. |
 | memory.node_allocatable | Memory allocatable of a node. |
 | memory.node_reservation | Share of memory that is reserved on the node allocatable. |
-| memory.node_utilization | Memory utilization as a share of memory allocatable. |
+| memory.node_utilization | Memory utilization as a share of memory allocatable based on memory.working_set. |
 | memory.page_faults | Number of page faults. |
 | memory.page_faults_rate | Number of page faults per second. |
 | memory.request | Memory request (the guaranteed amount of resources) in bytes. |
@@ -341,12 +345,12 @@ Metrics collected per type:
 | accelerator.memory_total | Memory capacity of an accelerator. |
 | accelerator.memory_used | Memory used of an accelerator. |
 | accelerator.duty_cycle | Duty cycle of an accelerator. |
-| accelerator.request | Number of accelerator devices requested by container. |
+| accelerator.request | Number of accelerator devices requested by container. For example, nvidia.com.gpu.request. |
 | uptime  | Number of milliseconds since the container was started. |
 | <cluster, ns, node>.pod.count | Pod counts by cluster, namespaces and nodes. |
 | <cluster, ns, node>.pod_container.count | Container counts by cluster, namespaces and nodes. |
 
-### Kubernetes State Source
+## Kubernetes State Source
 
 These are cluster level metrics about the state of Kubernetes objects collected by the Collector leader instance.
 
@@ -358,6 +362,9 @@ These are cluster level metrics about the state of Kubernetes objects collected 
 | Replicaset | replicaset.desired_replicas | Number of desired replicas. |
 | Replicaset | replicaset.available_replicas | Number of available replicas (ready for at least minReadySeconds). |
 | Replicaset | replicaset.ready_replicas | Number of ready replicas. |
+| ReplicationController | replicationcontroller.desired_replicas | Number of desired replicas. |
+| ReplicationController | replicationcontroller.available_replicas | Number of available replicas (ready for at least minReadySeconds). |
+| ReplicationController | replicationcontroller.ready_replicas | Number of ready replicas. |
 | Daemonset | daemonset.desired_scheduled | Total number of nodes that should be running the daemon pod. |
 | Daemonset | daemonset.current_scheduled | Number of nodes that are running at least 1 daemon pod and are supposed to run the daemon pod. |
 | Daemonset | daemonset.misscheduled | Number of nodes that are running the daemon pod, but are not supposed to run the daemon pod. |
@@ -376,12 +383,15 @@ These are cluster level metrics about the state of Kubernetes objects collected 
 | HorizontalPodAutoscaler | hpa.min_replicas | Lower limit for the number of replicas to which the autoscaler can scale down. |
 | HorizontalPodAutoscaler | hpa.max_replicas | Upper limit for the number of replicas to which the autoscaler can scale up. |
 | HorizontalPodAutoscaler | hpa.current_replicas | Current number of replicas of pods managed by this autoscaler, as last seen by the autoscaler. |
+| Node | node.status.condition | Status of all running nodes. |
+| Node | node.spec.taint | Node taints (one metric per node taint). |
+| Node | node.info | Detailed node information (kernel version, kubelet version etc). |
 
-### Prometheus Source
+## Prometheus Source
 
 Varies by scrape target.
 
-### Systemd Source
+## Systemd Source
 
 These are Linux systemd metrics that can be collected by each Collector instance.
 
@@ -389,7 +399,7 @@ These are Linux systemd metrics that can be collected by each Collector instance
 |------------|-------------|
 | kubernetes.systemd.unit.state | Unit state (active, inactive etc). |
 | kubernetes.systemd.unit.start.time.seconds | Start time of the unit since epoch in seconds. |
-| kubernetes.systemd.system.running | Whether the system is operational (`systemctl is-system-running`). |
+| kubernetes.systemd.system.running | Whether the system is operational ( `systemctl is-system-running` ). |
 | kubernetes.systemd.units | Top level summary of systemd unit states (# of active, inactive units etc). |
 | kubernetes.systemd.service.restart.total | Service unit count of Restart triggers. |
 | kubernetes.systemd.timer.last.trigger.seconds | Seconds since epoch of last trigger. |
@@ -397,14 +407,14 @@ These are Linux systemd metrics that can be collected by each Collector instance
 | kubernetes.systemd.socket.current.connections | Current number of socket connections. |
 | kubernetes.systemd_socket_refused_connections_total | Total number of refused socket connections. |
 
-### Telegraf Source
+## Telegraf Source
 
 Host metrics:
 
 | Metric Prefix | Metrics Collected |
 |------------|-------------|
 | mem. | [metrics list](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/mem#metrics) |
-| net. | [metrics list](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/net/README.md#measurements–fields) |
+| net. | [metrics list](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/net/README.md#measurements--fields) |
 | netstat. | [metrics list](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/netstat/README.md#measurements) |
 | linux.sysctl.fs. | [metrics list](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/linux_sysctl_fs#linux-sysctl-fs-input) |
 | swap. | [metrics list](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/swap#metrics) |
@@ -437,247 +447,55 @@ Application metrics:
 | riak | [metrics list](https://github.com/influxdata/telegraf/tree/1.10.4/plugins/inputs/riak#measurements--fields) |
 | zookeeper | [metrics list](https://github.com/influxdata/telegraf/tree/1.10.4/plugins/inputs/zookeeper#metrics) |
 
-### Collector Health Metrics
+## Collector Health Metrics
 
-These are internal metrics about the health and configuration of the Wavefront Collector.
+These are internal metrics about the health and configuration of the Kubernetes Metrics Collector.
 
-| Metric Name | Description |
-|------------|-------------|
-| kubernetes.collector.discovery.enabled | Whether discovery is enabled. 0 (false) or 1 (true). |
-| kubernetes.collector.discovery.rules.count | # of discovery configuration rules. |
-| kubernetes.collector.discovery.targets.registered | # of auto discovered scrape targets currently being monitored. |
-| kubernetes.collector.events.* | Events received, sent and filtered. |
-| kubernetes.collector.leaderelection.error | leader election error counter. Only emitted in daemonset mode. |
-| kubernetes.collector.leaderelection.leading | 1 indicates a pod is the leader. 0 (no). Only emitted in daemonset mode. |
-| kubernetes.collector.runtime.* | Go runtime metrics (MemStats, NumGoroutine etc). |
-| kubernetes.collector.sink.manager.timeouts | Counter of timeouts in sending data to Wavefront. |
-| kubernetes.collector.source.manager.providers | # of configured source providers. Includes sources configured via auto-discovery. |
-| kubernetes.collector.source.manager.scrape.errors | Scrape error counter across all sources. |
-| kubernetes.collector.source.manager.scrape.latency.* | Scrape latencies across all sources. |
-| kubernetes.collector.source.manager.scrape.timeouts | Scrape timeout counter across all sources. |
-| kubernetes.collector.source.manager.sources | # of configured scrape targets. For example, a single Kubernetes source provider on a 10 node cluster will yield a count of 10. |
-| kubernetes.collector.source.points.collected | collected points counter per source type. |
-| kubernetes.collector.source.points.filtered | filtered points counter per source type. |
-| kubernetes.collector.version | The version of the collector. |
-| kubernetes.collector.wavefront.points.* | Wavefront sink points sent, filtered, errors etc. |
-| kubernetes.collector.wavefront.events.* | Wavefront sink events sent, filtered, errors etc. |
-| kubernetes.collector.wavefront.sender.type | 1 for proxy and 0 for direct ingestion. |
+| Metric Name                                          | Description                                                                                                                          |
+|------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| kubernetes.collector.discovery.enabled               | Whether discovery is enabled. 0 (false) or 1 (true).                                                                                 |
+| kubernetes.collector.discovery.rules.count           | Number of discovery configuration rules.                                                                                             |
+| kubernetes.collector.discovery.targets.registered    | Number of auto discovered scrape targets currently being monitored.                                                                  |
+| kubernetes.collector.events.*                        | Events received, sent, and filtered.                                                                                                 |
+| kubernetes.collector.leaderelection.error            | Leader election error counter. Only emitted in daemonset mode.                                                                       |
+| kubernetes.collector.leaderelection.leading          | 1 indicates a pod is the leader. 0 indicates a pod is not the leader. Only emitted in daemonset mode.                                |
+| kubernetes.collector.runtime.*                       | Go runtime metrics (MemStats, NumGoroutine, etc).                                                                                    |
+| kubernetes.collector.sink.manager.timeouts           | Counter of timeouts in sending data to Operations for Applications.                                                                          |
+| kubernetes.collector.source.manager.providers        | Number of configured source providers. Includes sources configured via auto-discovery.                                               |
+| kubernetes.collector.source.manager.scrape.errors    | Scrape error counter across all sources.                                                                                             |
+| kubernetes.collector.source.manager.scrape.latency.* | Scrape latencies across all sources.                                                                                                 |
+| kubernetes.collector.source.manager.scrape.timeouts  | Scrape timeout counter across all sources.                                                                                           |
+| kubernetes.collector.source.manager.sources          | Number of configured scrape targets. For example, a single Kubernetes source provider on a 10 node cluster will yield a count of 10. |
+| kubernetes.collector.source.points.collected         | Collected points counter per source type.                                                                                            |
+| kubernetes.collector.source.points.filtered          | Filtered points counter per source type.                                                                                             |
+| kubernetes.collector.version                         | The version of the Kubernetes Metrics Collector.                                                                                     |
+| kubernetes.collector.wavefront.points.*              | Operations for Applications sink points sent, filtered, errors etc.                                                                          |
+| kubernetes.collector.wavefront.events.*              | Operations for Applications sink events sent, filtered, errors etc.                                                                          |
+| kubernetes.collector.wavefront.sender.type           | 1 for proxy and 0 for direct ingestion.                                                                                              |
+| kubernetes.collector.histograms.duplicates           | Number of duplicate histogram series tagged by metric name (not emitted if no duplicates)                                            |
 
+## cAdvisor Metrics
 
+cAdvisor exposes a Prometheus endpoint which the collector can consume. See the [cAdvisor documentation](https://github.com/google/cadvisor/blob/master/docs/storage/prometheus.md) for details on what metrics are available.
 
+## Control Plane Metrics
 
-<!---
-## Metrics
+These are metrics for the health of the Kubernetes Control Plane.
 
+Metrics collected per type:
 
-|Metric Name|Description|
-| :--- | :--- |
-|kubernetes.cluster.cpu.limit| |
-|kubernetes.cluster.cpu.request| |
-|kubernetes.cluster.cpu.usage_rate| |
-|kubernetes.cluster.memory.limit| |
-|kubernetes.cluster.memory.request| |
-|kubernetes.cluster.memory.usage| |
-|kubernetes.cluster.pod.count| |
-|kubernetes.cluster.pod_container.count| |
-|kubernetes.collector.discovery.enabled| |
-|kubernetes.collector.discovery.rules.count| |
-|kubernetes.collector.discovery.targets.registered| |
-|kubernetes.collector.events.filtered| |
-|kubernetes.collector.events.received| |
-|kubernetes.collector.events.sent| |
-|kubernetes.collector.leaderelection.error| |
-|kubernetes.collector.leaderelection.leading| |
-|kubernetes.collector.runtime.MemStats.Alloc| |
-|kubernetes.collector.runtime.MemStats.BuckHashSys| |
-|kubernetes.collector.runtime.MemStats.DebugGC| |
-|kubernetes.collector.runtime.MemStats.EnableGC| |
-|kubernetes.collector.runtime.MemStats.Frees| |
-|kubernetes.collector.runtime.MemStats.GCCPUFraction| |
-|kubernetes.collector.runtime.MemStats.HeapAlloc| |
-|kubernetes.collector.runtime.MemStats.HeapIdle| |
-|kubernetes.collector.runtime.MemStats.HeapInuse| |
-|kubernetes.collector.runtime.MemStats.HeapObjects| |
-|kubernetes.collector.runtime.MemStats.HeapReleased| |
-|kubernetes.collector.runtime.MemStats.HeapSys| |
-|kubernetes.collector.runtime.MemStats.LastGC| |
-|kubernetes.collector.runtime.MemStats.Lookups| |
-|kubernetes.collector.runtime.MemStats.MCacheInuse| |
-|kubernetes.collector.runtime.MemStats.MCacheSys| |
-|kubernetes.collector.runtime.MemStats.MSpanInuse| |
-|kubernetes.collector.runtime.MemStats.MSpanSys| |
-|kubernetes.collector.runtime.MemStats.Mallocs| |
-|kubernetes.collector.runtime.MemStats.NextGC| |
-|kubernetes.collector.runtime.MemStats.NumGC| |
-|kubernetes.collector.runtime.MemStats.PauseNs.duration.p95| |
-|kubernetes.collector.runtime.MemStats.PauseTotalNs| |
-|kubernetes.collector.runtime.MemStats.StackInuse| |
-|kubernetes.collector.runtime.MemStats.StackSys| |
-|kubernetes.collector.runtime.MemStats.Sys| |
-|kubernetes.collector.runtime.MemStats.TotalAlloc| |
-|kubernetes.collector.runtime.NumCgoCall| |
-|kubernetes.collector.runtime.NumGoroutine| |
-|kubernetes.collector.runtime.NumThread| |
-|kubernetes.collector.runtime.ReadMemStats.duration.p95| |
-|kubernetes.collector.runtime.ReadMemStats.rate.count| |
-|kubernetes.collector.runtime.ReadMemStats.rate.m1| |
-|kubernetes.collector.sink.manager.timeouts| |
-|kubernetes.collector.source.collect.errors| |
-|kubernetes.collector.source.manager.providers| |
-|kubernetes.collector.source.manager.scrape.errors| |
-|kubernetes.collector.source.manager.scrape.latency.duration.p95| |
-|kubernetes.collector.source.manager.scrape.timeouts| |
-|kubernetes.collector.source.points.collected| |
-|kubernetes.collector.source.points.filtered| |
-|kubernetes.collector.target.collect.errors| |
-|kubernetes.collector.target.points.collected| |
-|kubernetes.collector.version| |
-|kubernetes.collector.wavefront.events.sent.count| |
-|kubernetes.collector.wavefront.points.errors.count| |
-|kubernetes.collector.wavefront.points.filtered.count| |
-|kubernetes.collector.wavefront.points.metric-sets.count| |
-|kubernetes.collector.wavefront.points.sent.count| |
-|kubernetes.collector.wavefront.sender.type| |
-|kubernetes.daemonset.current_scheduled| |
-|kubernetes.daemonset.desired_scheduled| |
-|kubernetes.daemonset.misscheduled| |
-|kubernetes.daemonset.ready| |
-|kubernetes.deployment.available_replicas| |
-|kubernetes.deployment.desired_replicas| |
-|kubernetes.deployment.ready_replicas| |
-|kubernetes.node.cpu.limit| |
-|kubernetes.node.cpu.node_allocatable| |
-|kubernetes.node.cpu.node_capacity| |
-|kubernetes.node.cpu.node_reservation| |
-|kubernetes.node.cpu.node_utilization| |
-|kubernetes.node.cpu.request| |
-|kubernetes.node.cpu.usage| |
-|kubernetes.node.cpu.usage_rate| |
-|kubernetes.node.ephemeral_storage.limit| |
-|kubernetes.node.ephemeral_storage.node_allocatable| |
-|kubernetes.node.ephemeral_storage.node_capacity| |
-|kubernetes.node.ephemeral_storage.node_reservation| |
-|kubernetes.node.ephemeral_storage.node_utilization| |
-|kubernetes.node.ephemeral_storage.request| |
-|kubernetes.node.ephemeral_storage.usage| |
-|kubernetes.node.filesystem.available| |
-|kubernetes.node.filesystem.inodes| |
-|kubernetes.node.filesystem.inodes_free| |
-|kubernetes.node.filesystem.limit| |
-|kubernetes.node.filesystem.usage| |
-|kubernetes.node.memory.limit| |
-|kubernetes.node.memory.major_page_faults| |
-|kubernetes.node.memory.major_page_faults_rate| |
-|kubernetes.node.memory.node_allocatable| |
-|kubernetes.node.memory.node_capacity| |
-|kubernetes.node.memory.node_reservation| |
-|kubernetes.node.memory.node_utilization| |
-|kubernetes.node.memory.page_faults| |
-|kubernetes.node.memory.page_faults_rate| |
-|kubernetes.node.memory.request| |
-|kubernetes.node.memory.rss| |
-|kubernetes.node.memory.usage| |
-|kubernetes.node.memory.working_set| |
-|kubernetes.node.network.rx| |
-|kubernetes.node.network.rx_errors| |
-|kubernetes.node.network.rx_errors_rate| |
-|kubernetes.node.network.rx_rate| |
-|kubernetes.node.network.tx| |
-|kubernetes.node.network.tx_errors| |
-|kubernetes.node.network.tx_errors_rate| |
-|kubernetes.node.network.tx_rate| |
-|kubernetes.node.pod.count| |
-|kubernetes.node.pod_container.count| |
-|kubernetes.node.status.condition| |
-|kubernetes.node.uptime| |
-|kubernetes.ns.cpu.limit| |
-|kubernetes.ns.cpu.request| |
-|kubernetes.ns.cpu.usage_rate| |
-|kubernetes.ns.memory.limit| |
-|kubernetes.ns.memory.request| |
-|kubernetes.ns.memory.usage| |
-|kubernetes.ns.pod.count| |
-|kubernetes.ns.pod_container.count| |
-|kubernetes.pod.cpu.limit| |
-|kubernetes.pod.cpu.request| |
-|kubernetes.pod.cpu.usage| |
-|kubernetes.pod.cpu.usage_rate| |
-|kubernetes.pod.ephemeral_storage.limit| |
-|kubernetes.pod.ephemeral_storage.request| |
-|kubernetes.pod.ephemeral_storage.usage| |
-|kubernetes.pod.filesystem.available| |
-|kubernetes.pod.filesystem.inodes| |
-|kubernetes.pod.filesystem.inodes_free| |
-|kubernetes.pod.filesystem.limit| |
-|kubernetes.pod.filesystem.usage| |
-|kubernetes.pod.memory.limit| |
-|kubernetes.pod.memory.major_page_faults| |
-|kubernetes.pod.memory.major_page_faults_rate| |
-|kubernetes.pod.memory.page_faults| |
-|kubernetes.pod.memory.page_faults_rate| |
-|kubernetes.pod.memory.request| |
-|kubernetes.pod.memory.rss| |
-|kubernetes.pod.memory.usage| |
-|kubernetes.pod.memory.working_set| |
-|kubernetes.pod.network.rx| |
-|kubernetes.pod.network.rx_errors| |
-|kubernetes.pod.network.rx_errors_rate| |
-|kubernetes.pod.network.rx_rate| |
-|kubernetes.pod.network.tx| |
-|kubernetes.pod.network.tx_errors| |
-|kubernetes.pod.network.tx_errors_rate| |
-|kubernetes.pod.network.tx_rate| |
-|kubernetes.pod.restart_count| |
-|kubernetes.pod.status.phase| |
-|kubernetes.pod.uptime| |
-|kubernetes.pod_container.cpu.limit| |
-|kubernetes.pod_container.cpu.request| |
-|kubernetes.pod_container.cpu.usage| |
-|kubernetes.pod_container.cpu.usage_rate| |
-|kubernetes.pod_container.ephemeral_storage.limit| |
-|kubernetes.pod_container.ephemeral_storage.request| |
-|kubernetes.pod_container.ephemeral_storage.usage| |
-|kubernetes.pod_container.filesystem.available| |
-|kubernetes.pod_container.filesystem.inodes| |
-|kubernetes.pod_container.filesystem.inodes_free| |
-|kubernetes.pod_container.filesystem.limit| |
-|kubernetes.pod_container.filesystem.usage| |
-|kubernetes.pod_container.memory.limit| |
-|kubernetes.pod_container.memory.major_page_faults| |
-|kubernetes.pod_container.memory.major_page_faults_rate| |
-|kubernetes.pod_container.memory.page_faults| |
-|kubernetes.pod_container.memory.page_faults_rate| |
-|kubernetes.pod_container.memory.request| |
-|kubernetes.pod_container.memory.rss| |
-|kubernetes.pod_container.memory.usage| |
-|kubernetes.pod_container.memory.working_set| |
-|kubernetes.pod_container.restart_count| |
-|kubernetes.pod_container.status| |
-|kubernetes.pod_container.uptime| |
-|kubernetes.replicaset.available_replicas| |
-|kubernetes.replicaset.desired_replicas| |
-|kubernetes.replicaset.ready_replicas| |
-|kubernetes.statefulset.current_replicas| |
-|kubernetes.statefulset.desired_replicas| |
-|kubernetes.statefulset.ready_replicas| |
-|kubernetes.statefulset.updated_replicas| |
-|kubernetes.sys_container.cpu.usage| |
-|kubernetes.sys_container.cpu.usage_rate| |
-|kubernetes.sys_container.memory.major_page_faults| |
-|kubernetes.sys_container.memory.major_page_faults_rate| |
-|kubernetes.sys_container.memory.page_faults| |
-|kubernetes.sys_container.memory.page_faults_rate| |
-|kubernetes.sys_container.memory.rss| |
-|kubernetes.sys_container.memory.usage| |
-|kubernetes.sys_container.memory.working_set| |
-|kubernetes.sys_container.uptime| |
-|kubernetes.systemd.socket.accepted.connections.total| |
-|kubernetes.systemd.socket.current.connections| |
-|kubernetes.systemd.system.running| |
-|kubernetes.systemd.timer.last.trigger.seconds| |
-|kubernetes.systemd.unit.state| |
-|kubernetes.systemd.units| |
-|   |   |
---->
+| Metric Name                                                         | Description                                                                                         | K8s environment exceptions      |
+|---------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|----------------------------------|
+| kubernetes.node.cpu.node_utilization (node_role="control-plane")    | CPU utilization as a share of the contol-plane node allocatable in millicores.                                               | Not available in AKS, EKS, GKE  |
+| kubernetes.node.memory.working_set (node_role="control-plane")      | Total working set usage of the control-plane node. Working set is the memory being used and not easily dropped by the kernel.| Not available in AKS, EKS, GKE  |
+| kubernetes.node.filesystem.usage (node_role="control-plane")        | Total number of bytes consumed on a filesystem of the control-plane node.                                                     | Not available in AKS, EKS, GKE  |
+| kubernetes.controlplane.apiserver.storage.objects.gauge             | etcd object counts.                                                                                                           | Not available from kubernetes release version 1.23 and later  |
+| kubernetes.controlplane.etcd.db.total.size.in.bytes.gauge           | etcd database size.                                                                                                           | -                               |
+| kubernetes.controlplane.apiserver.request.duration.seconds.bucket   | Histogram buckets for API server request latency.                                                                             | -                               |
+| kubernetes.controlplane.apiserver.request.total.counter             | API server total request count.                                                                                               | -                               |
+| kubernetes.controlplane.workqueue.adds.total.counter                | Current depth of API server work queue.                                                                                        | -                               |
+| kubernetes.controlplane.workqueue.queue.duration.seconds.bucket     | Histogram buckets for work queue latency.                                                                                      | -                               |
+| kubernetes.controlplane.coredns.dns.request.duration.seconds.bucket | Histogram buckets for CoreDNS request latency.                                                                                | Not available in GKE, OpenShift |
+| kubernetes.controlplane.coredns.dns.responses.total.counter         | CoreDNS total response count.                                                                                                 | Not available in GKE, OpenShift |
 
 <h2>Alerts</h2>  <ul><li markdown="span"><b>K8s pod CPU usage too high</b>:Alert reports when the CPU millicore utilization of a pod exceeds the CPU millicore limit defined constantly. Having the CPU going over the set limit will cause the pod to suffer from CPU throttling which is going to affect the pod's performance. When this happens, please make sure the CPU resource limitation set for the pod is correctly configured.</li><li markdown="span"><b>K8s pod memory usage too high</b>:Alert reports when the memory utilization of a pod is constantly at high percentage.</li><li markdown="span"><b>K8s too many pods crashing</b>:Alert reports when a pod's running and succeeded phase percentage is below the required level specified.</li><li markdown="span"><b>K8s node CPU usage too high</b>:Alert reports when a node's cpu utilization percentage is constantly high.</li><li markdown="span"><b>K8s node storage usage too high</b>:Alert reports when a node's storage is almost full.</li><li markdown="span"><b>K8s node memory usage too high</b>:Alert reports when the memory utilization of a node is constantly high.</li><li markdown="span"><b>K8s too many containers not running</b>:Alert reports when the percentage of containers not running is constantly high.</li><li markdown="span"><b>K8s node unhealthy</b>:Alert reports when a node's condition is not ready or status is not true.</li><li markdown="span"><b>K8s pod storage usage too high</b>:Alerts reports when the pod's storage is almost full.</li><li markdown="span"><b>K8s Observability status is unhealthy </b>:The K8s observability status is unhealthy.</li></ul>
