@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: wavefront_kubernetes.html
 summary: Monitor Kubernetes infrastructure and applications. Scale Kubernetes workloads based on metrics in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
 ---
-**Monitor your Kubernetes environment** at the infrastructure level and at the applications level with our Collector for Kubernetes.
+**Monitor your Kubernetes environment** at the infrastructure level and at the applications level with our Kubernetes Metrics Collector.
 
 * Monitor Kubernetes infrastructure metrics (containers, pods, etc.) from our dashboards -- and create alerts from those dashboards.
 * Automatically collect metrics from applications and workloads using built-in plug-ins such as Prometheus, Telegraf, etc.
@@ -40,7 +40,7 @@ The following videos get you started.
 <iframe id="kmsembed-1_rpculupf" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_rpculupf/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Observability and Kubernetes"></iframe>
 </td>
 <td><br><br>
-<p>This video includes some details on the  one-click install of the <a href="https://github.com/wavefrontHQ/observability-for-kubernetes">Operations for Applications Collector for Kubernetes</a>.</p>
+<p>This video includes some details on the  one-click install of the <a href="https://github.com/wavefrontHQ/observability-for-kubernetes">Kubernetes Metrics Collector</a>.</p>
 <p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_rpculupf" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> </td>
 </tr>
 <tr>
@@ -63,13 +63,13 @@ This video gives you the big picture. It explains the different ways of monitori
 
 You can send data to VMware Aria Operations for Applications in several ways:
 
-*	**Direct**: Use our Collector for Kubernetes to send data directly from your Kubernetes cluster to the Wavefront proxy. The Collector can collect metrics from Prometheus compatible applications and support a number of Telegraf plugins.
+*	**Direct**: Use our Kubernetes Metrics Collector to send data directly from your Kubernetes cluster to the Wavefront proxy. The Collector can collect metrics from Prometheus compatible applications and support a number of Telegraf plugins.
 
-*	**Prometheus**: If you are already using Prometheus to view your data and want to monitor your Kubernetes data with VMware Aria Operations for Applications, send data to the Operations for Applications Collector for Kubernetes.
+*	**Prometheus**: If you are already using Prometheus to view your data and want to monitor your Kubernetes data with VMware Aria Operations for Applications, send data to the Kubernetes Metrics Collector.
 
 ![The diagram shows the different components and ways you can send data from your Kubernetes environment. The details are explained above.](images/kubernetes_overview_diagram.png)
 
-To use our Collector for Kubernetes, you must set up our Kubernetes integration. Use one of the following options:
+To use our Kubernetes Metrics Collector, you must set up our Kubernetes integration. Use one of the following options:
 * [**Recommended**] Directly by using the VMware Aria Operations for Applications user interface. 
 
   The new [Kubernetes Observability Operator](https://github.com/wavefrontHQ/observability-for-kubernetes) supports deploying the Collector and the Wavefront proxy in Kubernetes with a few clicks.
@@ -83,21 +83,21 @@ To use our Collector for Kubernetes, you must set up our Kubernetes integration.
   
 * Follow the guidelines given in the [Bitnami guide](https://bitnami.com/stack/wavefront/helm).
 
-{% include tip.html content="After installing the Collector for Kubernetes by using the Kubernetes integration, you can customize it to fit the needs of your environment and use case. See the [docs on GitHub](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/collector.md#configuration) and examples for different use cases. " %}
+{% include tip.html content="After installing the Kubernetes Metrics Collector by using the Kubernetes integration, you can customize it to fit the needs of your environment and use case. See the [docs on GitHub](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/collector.md#configuration) and examples for different use cases. " %}
 
 
 
 ## Monitor Kubernetes
 
-Our Collector for Kubernetes supports monitoring for your Kubernetes infrastructure at all levels of the stack.
+Our Kubernetes Metrics Collector supports monitoring for your Kubernetes infrastructure at all levels of the stack.
 * Set up the Kubernetes Collector to have much of the monitoring happen automatically.
-* Fine-tune and customize the solution with configuration options available in the Operations for Applications Collector for Kubernetes.
+* Fine-tune and customize the solution with configuration options available in the Operations for Applications Kubernetes Metrics Collector.
 
-{% include note.html content="See the [list of metrics collected by the Collector for Kubernetes](kubernetes.html#metrics)." %}
+{% include note.html content="See the [list of metrics collected by the Kubernetes Metrics Collector](kubernetes.html#metrics)." %}
 
 ### Infrastructure Monitoring
 
-Our Collector for Kubernetes collects metrics to give comprehensive insight into all layers of your Kubernetes environment, such as nodes, pods, services, and config maps.
+Our Kubernetes Metrics Collector collects metrics to give comprehensive insight into all layers of your Kubernetes environment, such as nodes, pods, services, and config maps.
 
 Depending on the selected setup, metrics are sent to the Wavefront proxy and from there to the VMware Aria Operations for Applications service. It's possible to send metrics using direct ingestion, but the Wavefront proxy is preferred for most cases.
 
@@ -107,13 +107,13 @@ The collector runs as a DaemonSet for high scalability and supports leader elect
 
 ### Host-Level Monitoring
 
-The Collector for Kubernetes supports automatic monitoring of host-level metrics and host-level `systemd` metrics. When you set up the collector, it auto-discovers pods and services in your environment and starts collecting host-level metrics.
+The Kubernetes Metrics Collector supports automatic monitoring of host-level metrics and host-level `systemd` metrics. When you set up the collector, it auto-discovers pods and services in your environment and starts collecting host-level metrics.
 
 You can [filter the metrics](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/blob/main/docs/filtering.md) before they are reported to the VMware Aria Operations for Applications service.
 
 ### Application Monitoring
 
-Our Collector for Kubernetes automatically starts collecting metrics from many commonly used applications:
+Our Kubernetes Metrics Collector automatically starts collecting metrics from many commonly used applications:
 * The collector auto discovers endpoints using labels. See [Auto Discovery](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/discovery.md#auto-discovery).
 * The collector also scrapes Prometheus metric endpoints such as API server, `etcd`, and NGINX.
 
@@ -227,10 +227,10 @@ The out-of-the-box dashboards:
   </tr>
   <tr>
     <td width="20%" markdown="span">
-      **Kubernetes Collector Troubleshooting**
+      **Kubernetes Metrics Collector Troubleshooting**
     </td>
     <td width="80%">
-      Internal stats of the Collector for Kubernetes.
+      Internal stats of the Kubernetes Metrics Collector.
       <img src="images/kubernetes_collector_metrics_dahsboard.png" alt="a screenshot of the Kubernetes collector metrics dashboard with charts."/>
     </td>
   </tr>
