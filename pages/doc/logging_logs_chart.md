@@ -58,7 +58,7 @@ If you have the **Logs** and **Dashboards** permissions, in the [Chart Builder](
 </tr>
 </table>
 
-I you select the stacked-column chart, the resulting chart shows the number of logs matching the selected filters distributed over the [selected time window](ui_charts.html#set-the-time-window-on-a-chart). The logs are grouped by the values of the selected grouping tags. You can zoom in on smaller time windows. You can also use the logs table chart to see the logs on your chart.
+If you select the stacked-column chart, the resulting chart shows the number of logs matching the selected filters distributed over the [selected time window](ui_charts.html#set-the-time-window-on-a-chart). The logs are grouped by the values of the selected grouping tags. You can zoom in on smaller time windows. You can also use the logs table chart to see the logs on your chart.
   ![Logs histogram chart](images/logs_histogram_chart.png)
 
 ## Logs Table Chart
@@ -73,8 +73,8 @@ Follow these steps:
 1. Select **Dashboards** > **Create Chart** on the toolbar.
 1. Select the **Logs Table** chart type.
 1. From the **Data** drop-down menu, select **Logs (Beta)** and add the filters that you want.
-    {% include note.html content="The Count function is disabled when you select the logs table chart because you don’t need to group your logs in the table view." %}
-14. Click the **Format** tab to customize the data displayed on the chart.
+    {% include note.html content="The count function is disabled when you select the logs table chart because you don’t need to group your logs in the table view." %}
+1. Click the **Format** tab to customize the data displayed on the chart.
     <table>
     <tbody>
     <thead>
@@ -114,7 +114,7 @@ Follow these steps:
 
 Once the chart is in a dashboard, you can: 
 
-![An annotated screenshot of the logs table chart.](images/logging_logs_chart_features.png)
+![An annotated screenshot of the logs table chart. The annotations are listed as bullets below.](images/logging_logs_chart_features.png)
 * Search for keywords or phrases. You only get results for the data in the logs chart table.
 * You only see the first 50 logs. To see more logs, click the ellipsis icon in the top-right corner of the chart and select **Logs (Beta)**.
 * If you want to drill into a specific log, right-click the row on the table, and click **Logs (Beta)**. The tags on the log you selected carry over to the Logs Browser as filters, and you see all the logs with the same filters.
@@ -127,7 +127,7 @@ Once the chart is in a dashboard, you can:
 
 ## Learn More!
 
-* [Send logs to Tanzu Observability](logging_send_logs.html).
+* [Send logs](logging_send_logs.html).
 * [View and browse logs](logging_log_browser.html).
 * Learn how you can troubleshoot faster by [drilling into the Log Browser](logging_drill_into_logs.html) from charts, alerts, application map, and the Traces Browser.
 * See [Logs troubleshooting](logging_faq.html).

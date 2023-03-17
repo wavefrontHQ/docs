@@ -3,7 +3,7 @@ title: Get Started with Logs (Beta)
 tags: [getting started, logs]
 sidebar: doc_sidebar
 permalink: logging_overview.html
-summary: Learn about Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) metrics, logs, and traces.
+summary: Learn about VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) metrics, logs, and traces.
 ---
 
 {% include important.html content="Logs (Beta) is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}

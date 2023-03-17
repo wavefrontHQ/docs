@@ -73,7 +73,7 @@ To drill into the related logs of a firing alert:
 1. Click **Show Logs Summary**.
     * In the **Alert Log Summary** panel, the `time range` filter is populated with the trigger window during which the alert condition was met and the alert transitioned to a firing state.
     * The histogram chart shows you the logs for the specific time grouped by the log level, such as, debug, trace, error, server, info, and warn.
-    * You also get to see the list of exceptions that were fired when the alert was fired. Click an exception to go to the log Browser and examine the logs that have the exception you selected.
+    * You also get to see the list of exceptions that were fired when the alert was fired. Click an exception to go to the Logs Browser and examine the logs that have the exception you selected.
 
     ![A screenshot of the alert log summary panel of a firing alert.](images/logs_view_log_summary_from_alert.png)
 
@@ -107,7 +107,7 @@ If you have the **Logs** permission, you can drill into logs from the applicatio
 
 If you notice that a service on the application map, table view, or grid view of the [Application Status page](tracing_ui_overview.html) has a high error percentage, you can drill down into the related logs.
 
-{% include note.html content="You must have tagged the traces and the logs from the same applications and services with equivalent application and service tag values. If your traces and logs tags don't match, users with **Accounts** permissions can map the traces tags to logs tags. For details, see [Customize Logs Settings](logging_logs_settings.html)."%}
+{% include note.html content="You must have tagged the traces and the logs from the same applications and services with equivalent application and service tag values. If your traces and logs tags don't match, users with **Accounts** permission can map the traces tags to logs tags. For details, see [Customize Logs Settings](logging_logs_settings.html)."%}
 
 * **From the Map View**
   1. Select the time window of interest.
@@ -128,14 +128,14 @@ If you notice that a service on the application map, table view, or grid view of
 The Logs Browser opens in a new tab with the following configurations:
   
 * The search time window corresponds to the time window on the Application Status page.
-* The search query contains the corresponding include `service` and `application` tag filters.
+* The search query contains the corresponding `service` and `application` tag filters.
 ![The search query and the selected time window in the Logs Browser.](images/logging_app_serv_search.png)
 
 ### Traces Browser
 
 If you notice a critical path through a trace in the [Traces Browser](tracing_traces_browser.html), you can drill down into the related logs.
 
-{% include note.html content="You must have tagged the traces and the logs from the same sources, applications, and services with equivalent source, application, and service tag values. If your traces and logs tags don't match, users with **Accounts** permissions can map the traces tags to logs tags. For details, see [Customize Logs Settings](logging_logs_settings.html)." %}
+{% include note.html content="You must have tagged the traces and the logs from the same sources, applications, and services with equivalent source, application, and service tag values. If your traces and logs tags don't match, users with **Accounts** permission can map the traces tags to logs tags. For details, see [Customize Logs Settings](logging_logs_settings.html)." %}
 
 To see the logs for a trace:
 1. Click the trace that you want to examine.
@@ -148,7 +148,7 @@ The Logs Browser opens in a new tab with the following configurations:
   
 * By default, the search time window starts 5 seconds before the trace and ends 5 seconds after the trace.
   {% include note.html content="To change the default search time window for trace logs, contact [Technical Support](wavefront_support_feedback.html#support)."%}
-* The search query contains the corresponding include `traceId`, `source`, `application`, and `service` tag filters.
+* The search query contains the corresponding `traceId`, `source`, `application`, and `service` tag filters.
 ![screenshot of the traces browser with the search logs with traceId highlighted](images/logging_traces_search.png)
 
 <br/>

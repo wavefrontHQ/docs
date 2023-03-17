@@ -6,7 +6,7 @@ permalink: logging_logs_settings.html
 summary: Learn how you can customize logs settings from the Organization Settings page. 
 ---
 
-As a user with **Accounts** permission, you can map metrics tags to logs tags, traces tags to logs tags, and customize the time window you see on a chart or Traces Browser when you drill into logs from a chart and trace.
+As a user with the **Accounts** permission, you can map metrics tags to logs tags, traces tags to logs tags, and customize the time window you see on a chart or Traces Browser when you drill into logs from a chart and trace.
 
 ## Map Tags
 
@@ -17,8 +17,8 @@ When you are on a chart, application map, or in the Traces Browser, and drill in
 If your traces and logs use different tags, follow these steps to create a map between the tags:
 
 1. From the gear icon <i class="fa fa-cog"></i> on the toolbar, select **Organization Settings**.
-1. Click **+ Map Traces Tags to Log Tags**.
-1. Select the trace tags you want to map from the dropdown list.
+1. Click **Map Traces Tags to Log Tags**.
+1. Select the trace tags you want to map from the drop-down list.
 1. Click **Choose tags** and select the tag you want to map with the trace tag. 
 1. Click **Save**.
 
@@ -30,8 +30,8 @@ Example:
 If your metrics and logs use different tags, follow these steps to create a map between the tags:
 
 1. From the gear icon <i class="fa fa-cog"></i> on the toolbar, select **Organization Settings**.
-1. Click **+ Map Metrics Tags to Log Tags**.
-1. Select the metrics tags you want to map from the dropdown list.
+1. Click **Map Metrics Tags to Log Tags**.
+1. Select the metrics tags you want to map from the drop-down list.
 1. Click **Choose tags** and select the tag you want to map with the trace tag. 
 1. Click **Save**.
 
@@ -50,7 +50,7 @@ When you drill into logs from a chart or trace, we get the timestamp of the data
 
 Follow these steps to change the default buffer times:
 
-1. From the gear icon, select **Organization Settings**.
+1. From the gear icon <i class="fa fa-cog"></i> on the toolbar, select **Organization Settings**.
 1. Set the before and after buffer times under **Customize leading and trailing times for "Go to Logs"**. The values must be between 0 and 3600 seconds.
 
 For example, create a 1 minute time window on the Logs Browser by adding a 30-second buffer time before and after the timestamp of the data on the chart:
