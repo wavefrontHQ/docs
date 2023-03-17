@@ -2,7 +2,7 @@
 title: Ceph Integration
 tags: [integrations list]
 permalink: ceph.html
-summary: Learn about the Wavefront Ceph Integration.
+summary: Learn about the Ceph Integration.
 ---
 ## Ceph Integration
 
@@ -29,7 +29,7 @@ To see a list of the metrics for this integration, select the integration from <
 
 This integration uses the Ceph input plugin for Telegraf. If you've already installed Telegraf on your server(s), you can skip to Step 2.
 
-Log in to your Wavefront instance and follow the instructions in the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
+Log in to your product instance and follow the instructions on the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
 
 ### Step 2. Configure Ceph Input Plugin
 
@@ -88,7 +88,7 @@ Run `sudo service telegraf restart` to restart your agent.
 
 ## Ceph on Kubernetes
 
-This integration uses the [annotation based discovery](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/main/docs/discovery.md#annotation-based-discovery) feature in the Wavefront Collector to monitor Ceph on Kubernetes. If you do not have the Wavefront Collector for Kubernetes installed, follow these instructions to add it to your cluster by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install). You can check the status of Wavefront Collector and Proxy if you are already monitoring the Kubernetes cluster on the `Setup` tab of the Kubernetes integration.
+This integration uses the [annotation based discovery](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/discovery.md#annotation-based-discovery) feature in the Wavefront Collector to monitor Ceph on Kubernetes. If you do not have the Wavefront Collector for Kubernetes installed, follow these instructions to add it to your cluster by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install). You can check the status of Wavefront Collector and Proxy if you are already monitoring the Kubernetes cluster on the `Setup` tab of the Kubernetes integration.
 
 We support deployment of Ceph cluster using Rook only. If Ceph is deployed with Rook, then Prometheus is already enabled and the pod is annotated. Prometheus will gather the metrics automatically.
 

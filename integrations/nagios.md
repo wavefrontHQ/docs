@@ -2,7 +2,7 @@
 title: Nagios Integration
 tags: [integrations list]
 permalink: nagios.html
-summary: Learn about the Wavefront Nagios Integration.
+summary: Learn about the Nagios Integration.
 ---
 ## Nagios Integration
 

@@ -9,9 +9,9 @@ summary: Before you start managing users, groups, roles, and access, here are so
 
 ### What Are User & Service Accounts?
 
-Tanzu Observability by Wavefront supports two account types:
-* [**User accounts**](user-accounts.html) are for human users who work with Wavefront. A user account authenticates with a user name and password.
-* [**Service accounts**](service-accounts.html) are for services that interact with Wavefront through an API and use a **token** to authenticate. Service accounts are used to automate management tasks. As a user with the **Accounts** permission, you generate (and revoke, if needed) authentication tokens for the service account. It’s also possible to deactivate a service account completely. 
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports two account types:
+* [**User accounts**](user-accounts.html) are for human users who work with Operations for Applications. A user account authenticates with a user name and password.
+* [**Service accounts**](service-accounts.html) are for services that interact with Operations for Applications through an API and use a **token** to authenticate. Service accounts are used to automate management tasks. As a user with the **Accounts** permission, you generate (and revoke, if needed) authentication tokens for the service account. It’s also possible to deactivate a service account completely. 
  Service accounts:
   - Don't have **default permissions** (unless one or more roles with permissions are assigned to the **Service Accounts** group.).
   - Can't perform the **UI operations** that user accounts can perform by default.
@@ -19,16 +19,20 @@ Tanzu Observability by Wavefront supports two account types:
 
 ### Who Is the Super Admin User?
 
-When your company signs up with Tanzu Observability, we ask you which users you want to designate as Super Admin users for your Wavefront instance. A Super Admin user:
+When your company signs up with Operations for Applications, we ask you which users you want as Super Admin users for your service instance.
+
+When a Super Admin user [enables Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode), that user:
+
 * Has all permissions.
 * Has access to all dashboards and alerts.
 * Can [restore orphan dashboards and alerts](access.html#make-orphan-dashboards-or-alerts-visible).
 * Can invite other Super Admin users.
-* Can upgrade from trial version and purchase Wavefront.
+* Can [sign out a user](user-accounts.html#sign-out-a-user).
+* Can upgrade from trial version and purchase Operations for Applications.
 * Can purchase more PPS.
-* Can create [ingestion policies](ingestion_policies.html) and [examine the overall Wavefront usage](examine_usage.html).
+* Can create and manage [ingestion policies](ingestion_policies.html).
 
-As a Super Admin user, you can add other Super Admin users:
+To invite other Super Admin users:
 
 1. Click the gear icon <i class="fa fa-cog"/> on the toolbar, and select **Super Admin**.
 2. Enter the user name of a user you want to add as a Super Admin.
@@ -46,7 +50,7 @@ Groups allow you to combine a set of users. You can then:
 * Assign a role to the group.
 * Give [view or modify access](access.html) for individual dashboards and alerts to the group.
 
-The groups in your Wavefront environment do *not* currently synchronize with the groups in your identity provider (IdP) such as Active Directory or LDAP.
+The groups in your Operations for Applications environment do *not* currently synchronize with the groups in your identity provider (IdP) such as Active Directory or LDAP.
 
 
 ### What's the Everyone Group?

@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: wavefront_obsolescence_policy.html
 summary: Learn about deprecated and EOL features and how to prevent potential problems.
 ---
-Tanzu Observability by Wavefront product features and APIs move to end-of-life as part of the normal software development lifecycle, security improvements, and other factors. To support planning for upgrades, this document provides information on upcoming lifecycle changes. While every effort is made to provide sufficient notice of changes, security issues or other factors may occasionally lead to accelerated end-of-life dates.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) product features and APIs move to end-of-life as part of the normal software development lifecycle, security improvements, and other factors. To support planning for upgrades, this document provides information on upcoming lifecycle changes. While every effort is made to provide sufficient notice of changes, security issues or other factors may occasionally lead to accelerated end-of-life dates.
 
 ## Lifecycle Stages
 
@@ -50,7 +50,7 @@ The following proxy versions are deprecated or moved to end-of-life.
 </tbody>
 </table>
 <p></p>
-<h2>Wavefront API</h2>
+<h2>REST API</h2>
 <table class="width: 100%;">
 <thead>
 <tr><th width="33%">Version</th><th width="33%">Current Stage</th><th width="34%">End-of-Life Date</th></tr>
@@ -72,20 +72,20 @@ The following proxy versions are deprecated or moved to end-of-life.
 
 ## Delta Counters
 
-Delta counter behavior changed with [Release 2020.26](2020.26.x_release_notes.html). The original delta counter implementation was Deprecated with [Release 2020.26](2020.26.x_release_notes.html). We changed delta counter queries to use `cs()` in the Wavefront Usage integration and tracing RED metrics. The original delta counter implementation is End of Life March 31, 2021.
+Delta counter behavior changed with [Release 2020.26](2020.26.x_release_notes.html). The original delta counter implementation was Deprecated with [Release 2020.26](2020.26.x_release_notes.html). We changed delta counter queries to use `cs()` in the Operations for Applications Usage integration and tracing RED metrics. The original delta counter implementation is End of Life March 31, 2021.
 
 ### Automatic Updates and Required Changes
 
 We update system dashboard and integration content to use the new version of delta counters. However, you might have to update custom delta counters.
 
-* **Automatic Updates**. [Tracing RED metrics](trace_data_details.html#red-metrics) and in certain internal `~` metrics [collected by Tanzu Observability](wavefront-internal-metrics.html), such as `~collector.points.reported`, use delta counters. All out-of-the-box dashboards that use these data will be updated for you.
+* **Automatic Updates**. [Tracing RED metrics](trace_data_details.html#red-metrics) and in certain internal `~` metrics [collected by the service](wavefront-internal-metrics.html), such as `~collector.points.reported`, use delta counters. All out-of-the-box dashboards that use these data will be updated for you.
 * **User Updates**. If you have cloned any out-of-the-box dashboards that use delta counters or have created any custom dashboards, charts, or alerts, you are responsible for updating the queries in related charts and alerts yourself.
 
 
 ### How to Find Queries that Might Need Modification
 
 1. Find delta counters from the UI or using Spy.
-    * Log into your Wavefront instance, click **Browse > Delta Counters** and examine your data.
+    * Log in to your product instance, click **Browse > Delta Counters** and examine your data.
     * From your Web browser, use [Delta Counter Spy](wavefront_monitoring_spy.html#get-ingested-delta-counters-with-spy) to view live delta counter ingestion.
 2. [Search](wavefront_searching.html#search-field) for those named counters in alerts and dashboards.
    * Search on the **Alerts** page to find alerts that use the counter metric.
@@ -147,7 +147,7 @@ At ingestion time, a delta counter must have a ∆ character at the beginning. J
 
 #### Example Scenario
 
-For example, imagine we are trying to track the total number of errors that occur across lambda functions running in a given AWS region. Each invocation of the function would measure how many errors occurred during that run and would emit that to the Wavefront service.
+For example, imagine we are trying to track the total number of errors that occur across lambda functions running in a given AWS region. Each invocation of the function would measure how many errors occurred during that run and would emit that to the service.
 
 If 5 errors were encountered during a given run, a Lambda running in the `us-west-2` region would send: `∆errors.count 5 source=lambda region=us-west-2`. We automatically aggregate any increments received for that same counter, allowing you to know the total number of errors that occurred over time, across any number of lambda invocations without any function needing to keep track of that overall state!
 
@@ -163,10 +163,10 @@ Starting with release 2020.26, a new data type for storing delta counters is par
 
 ## Kubernetes Integration
 
-Starting with the 2022-48.x release, we introduce a new Kubernetes Operator, which helps simplifying the management and configuration of the Kubernetes integration and the deployed components (such as Wavefront Collector for Kubernetes, Wavefront proxy, Logs (Beta), and so on). The Kubernetes Operator replaces the deprecated Helm or manual installation of the Wavefront Collector for Kubernetes and Wavefront proxy for all Kubernetes distributions, except for OpenShift Container Platform. 
+Starting with the 2022-48.x release, we introduce a new Kubernetes Operator, which helps simplifying the management and configuration of the Kubernetes integration and the deployed components (such as our Kubernetes Metrics Collector, Wavefront proxy, Logs (Beta), and so on). The Kubernetes Operator replaces the deprecated Helm or manual installation of the Kubernetes Metrics Collector and Wavefront proxy for all Kubernetes distributions, except for OpenShift Container Platform. 
 
 {% include important.html content="This change does not affect other integrations running on Kubernetes clusters."%}
 
-If you are currently leveraging the Helm or manually-installed Wavefront Collector for Kubernetes and Wavefront proxy, the deprecation will NOT affect you and you won't experience any disruptions. However, support (including bug fixes, security vulnerabilities, new functionality, etc.) will be discontinued on **Feb 28, 2023**, for the legacy collector and proxy installation methods.
+If you are currently leveraging the Helm or manually-installed Kubernetes Metrics Collector and Wavefront proxy, the deprecation will NOT affect you and you won't experience any disruptions. However, support (including bug fixes, security vulnerabilities, new functionality, etc.) will be discontinued on **Feb 28, 2023**, for the legacy collector and proxy installation methods.
 
-{% include note.html content="You should begin [migrating to the Kubernetes Observability Operator](https://github.com/wavefrontHQ/wavefront-operator-for-kubernetes/blob/main/docs/migration.md) as soon as possible to ensure that you have the most secure and up-to-date Kubernetes Observability experience."%}
+{% include note.html content="You should begin [migrating to the Kubernetes Observability Operator](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/operator/migration.md) as soon as possible to ensure that you have the most secure and up-to-date Kubernetes Observability experience."%}

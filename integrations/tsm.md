@@ -1,8 +1,8 @@
 ---
-title: Tanzu Service Mesh Integration
+title: VMware Tanzu Service Mesh Integration
 tags: [integrations list]
 permalink: tsm.html
-summary: Learn about the Wavefront Tanzu Service Mesh Integration.
+summary: Learn about the VMware Tanzu Service Mesh Integration.
 ---
 ## Tanzu Service Mesh Integration
 

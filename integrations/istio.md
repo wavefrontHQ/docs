@@ -2,7 +2,7 @@
 title: Istio Integration
 tags: [integrations list]
 permalink: istio.html
-summary: Learn about the Wavefront Istio Integration.
+summary: Learn about the Istio Integration.
 ---
 ## Istio Integration
 

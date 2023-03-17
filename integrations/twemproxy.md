@@ -2,7 +2,7 @@
 title: Twemproxy Integration
 tags: [integrations list]
 permalink: twemproxy.html
-summary: Learn about the Wavefront Twemproxy Integration.
+summary: Learn about the Twemproxy Integration.
 ---
 ## Twemproxy Integration
 
@@ -24,7 +24,7 @@ This integration uses the Twemproxy input plugin for Telegraf to extract metrics
 
 **Note:** Install the Telegraf agent on the Twemproxy host. 
 
-Log in to your Wavefront instance and follow the instructions in the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
+Log in to your product instance and follow the instructions on the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
 
 ### Step 2. Enable the Twemproxy input plugin
 

@@ -2,7 +2,7 @@
 title: Concourse CI Integration
 tags: [integrations list]
 permalink: concourse.html
-summary: Learn about the Wavefront Concourse CI Integration.
+summary: Learn about the Concourse CI Integration.
 ---
 ## Concourse CI Integration
 
@@ -26,7 +26,7 @@ Configure Concourse CI to send metrics to Wavefront.
 
 This integration uses the Prometheus input plugin for Telegraf to extract metrics from Concourse CI.
 
-Log in to your Wavefront instance and follow the instructions in the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
+Log in to your product instance and follow the instructions on the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
 
 ### Step 2. Configure Concourse CI
 Concourse supports multiple ways to install Concourse CI. The following steps enable the Prometheus metrics emitter based on the type of installation:

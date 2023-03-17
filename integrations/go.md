@@ -2,7 +2,7 @@
 title: Go Integration
 tags: [integrations list]
 permalink: go.html
-summary: Learn about the Wavefront Go Integration.
+summary: Learn about the Go Integration.
 ---
 # Go Integration
 

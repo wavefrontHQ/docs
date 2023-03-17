@@ -7,13 +7,13 @@ permalink: integrations.html
 summary: Learn how to customize a built-in integration and how to set up a custom integration.
 ---
 
-Integrations are one easy way to get data from external systems into Tanzu Observability by Wavefront. Use one of the [built-in integrations](label_integrations%20list.html) and customize it as needed.
+Integrations are one easy way to get data from external systems into VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront). Use one of the [built-in integrations](label_integrations%20list.html) and customize it as needed.
 
-We update our [integrations release notes](integrations_new_changed.html) on a monthly basis.
+We update our [integrations release notes](integrations_new_changed.html) frequently.
 
 ## Watch a Video
 
-In this video, Jason talks about the different integrations we have, and how you can use them to get your data into Tanzu Observability. You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_j454pr6u" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+In this video, Jason talks about the different integrations we have, and how you can use them to get your data into the product. You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_j454pr6u" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
 
 <p>
 <iframe id="kmsembed-1_j454pr6u" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_j454pr6u/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="intro to integrations"></iframe>
@@ -38,7 +38,7 @@ Here's a screenshot that shows the different tabs of the Apache Solr integration
 
 ## Built-In and Custom Integrations
 
-Tanzu Observability lets you set up many integrations directly from the product. For other integrations, we give step-by-step instructions -- or you can send your data in other ways, for example, using the Telegraf output plug-in.
+VMware Aria Operations for Applications lets you set up many integrations directly from the product. For other integrations, we give step-by-step instructions -- or you can send your data in other ways, for example, using the Telegraf output plug-in.
 
 - **Built-in integrations** provide assisted installation and configuration. Many integrations also install a dashboard for you. Access the integration by clicking **Integrations** on the toolbar and clicking the **Setup** tab.
 
@@ -74,7 +74,7 @@ This table provides links to the documentation pages for many of the custom and 
 
 Our customers have started to make open-source integrations available on GitHub.
 
-Our first external integration sends AlertSite monitoring results to Tanzu Observability and is available at [https://github.com/secureworks/AlertSite2Wavefront](https://github.com/secureworks/AlertSite2Wavefront).
+Our first external integration sends AlertSite monitoring results to VMware Aria Operations for Applications and is available at [https://github.com/secureworks/AlertSite2Wavefront](https://github.com/secureworks/AlertSite2Wavefront).
 
 We're excited about this contribution and hope to see more soon!
 
@@ -112,6 +112,21 @@ You cannot modify the system dashboards. Instead, you must clone the dashboards.
 2. Select **Clone**.
 3. Provide a URL string that's just the name (e.g., `mydashboard` or `dashboard-name-clone`) and not the URL (e.g., `http://mydashboard`).
 4. Customize the clone to suit your needs.
+
+<!--Add this as step 4 when we have the custom prefix feature is rolled out to more customers
+
+(Optional) Provide a custom metric prefix.
+  
+   The metric prefix will be applied to all the charts in the cloned dashboard. It can contain:
+   
+   * Uppercase and lowercase letters
+   * Numbers
+   * Full stop (.)
+   * Hyphen (-)
+   * Underscore (_)
+   
+   Note that the custom metric prefix cannot end with a hyphen or underscore.
+-->
 
 ## Installing and Uninstalling Integration Alerts
 
@@ -190,7 +205,7 @@ When you hover over an integration, the integration border in the UI changes and
 ## More Info
 
 * Don't see the integration you are looking for? Have a look at [Set Up Data Ingestion](wavefront_data_ingestion.html) and at [Data Format](wavefront_data_format.html).
-* On our [Tanzu Observability](https://tanzu.vmware.com/observability) pages we have several blog posts with use cases and background info:
+* On our [VMware Aria Operations for Applications](https://tanzu.vmware.com/observability) pages we have several blog posts with use cases and background info:
   - [Google Cloud Monitoring Using Wavefront Metrics-Driven Analytics](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/google-cloud-monitoring-using-wavefront-metrics-driven-analytics)
   - [Monitor MongoDB Metrics for Better Scaling and Optimized Database Performance](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitor-mongodb-metrics-for-better-scaling-and-optimized-database-performance)
   - [Monitoring Apache HTTP Server with Wavefront Metrics-Driven Analytics](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitoring-apache-http-server-with-wavefront-metrics-driven-analytics)

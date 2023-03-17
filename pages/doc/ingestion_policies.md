@@ -6,7 +6,7 @@ permalink: ingestion_policies.html
 summary: Monitor ingestion rates by policies and configure ingestion limits with alerts.
 ---
 
-In addition to the dashboard for monitoring your [overall usage](examine_usage.html), Tanzu Observability by Wavefront supports ingestion policies for monitoring usage by specific accounts, groups, sources, metric namespaces, or point tags. For example, it might be valuable to monitor the ingestion rates of the different teams in your organization or by the different sources and manage their consumption, cost, overage, etc.
+In addition to the dashboard for monitoring your [overall usage](examine_usage.html) of VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront), you can use ingestion policies for monitoring usage by specific accounts, groups, sources, metric namespaces, or point tags. For example, it might be valuable to understand the ingestion rates of the different teams in your organization or by the different sources and manage their consumption, cost, overage, etc.
 
 By creating an ingestion policy, you combine a set of accounts, groups, sources, metric namespaces, or point tags. Optionally, you can set a Points per Second (PPS) limit for the ingestion policy and associate it with an alert. After you create an ingestion policy, you can start monitoring the ingestion policy dashboard, which shows:
 - The P95 PPS usage per [billing period](glossary.html#b) since the creation of the policy.
@@ -19,11 +19,11 @@ By creating an ingestion policy, you combine a set of accounts, groups, sources,
 
 {% include important.html content="Ingestion policies **do not** support metrics from external services. You **CANNOT** use ingestion policies to monitor PPS usage for services such as the Amazon Web Services, Google Cloud Platform, Microsoft Azure, Snowflake, VMware vRealize Operations Cloud, New Relic, Datadog, and AppDynamics integrations."%}
 
-For performance monitoring of your Wavefront instance, you can use [wftop, Wavefront spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Wavefront Usage integration](wavefront_monitoring.html).
+For performance monitoring of your Operations for Applications instance, you can use [wftop and spy](wavefront_monitoring_spy.html), the [Slow Query dashboard](monitoring_overview.html#find-slow-queries-and-improve-dashboard-response), and the [Usage integration](wavefront_monitoring.html).
 
 ## Ingestion Policy Basics
 
-Ingestion policies allow you to combine user and service accounts, groups, sources, metric namespaces, or point tags, so that you can monitor their usage of the Wavefront service. For example, you can create a policy for a group of new hires. You can also create a policy for one or more source virtual machines. Also, you can set a PPS limit for the policy and create an alert, so that you can receive notifications when the ingested number of PPS exceeds certain thresholds of the limit.
+Ingestion policies allow you to combine user and service accounts, groups, sources, metric namespaces, or point tags, so that you can monitor their usage of the Operations for Applications service. For example, you can create a policy for a group of new hires. You can also create a policy for one or more source virtual machines. Also, you can set a Points per Second (PPS) limit for the policy and create an alert, so that you can receive notifications if the PPS usage exceeds certain thresholds of the limit.
 
 Tracking the PPS usage by ingestion policy can help you understand how the overall usage is distributed and whether a particular team will need more PPS in the future or will need to reduce their overhead ingestions.
 
@@ -38,7 +38,7 @@ The policy scope can be accounts, groups, sources, namespaces, or point tags.
 
 ### Step 0: Start the Ingestion Policy Creation
 
-1. Log in to your Wavefront instance as a user with the **Ingestion Policies** permission.
+1. Log in to your service instance (`https://<your_instance>.wavefront.com`) as a user with the **Ingestion Policies** permission.
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Ingestion Policies**.
 3. Click **New Ingestion Policy**.
 
@@ -69,7 +69,7 @@ In the **Data** panel, specify the scope and, optionally, a PPS limit and click 
     </tr>
     <tr>
     <td><strong>Point Tags</strong></td>
-    <td><a href="metrics_managing.html#time-series-with-tags">Point tags</a> that are optional key-value pairs associated with a metric, for example, <code>env="dev"</code>.
+    <td><a href="metrics_managing.html#time-series-with-tags">Point tags</a> that are optional key-value pairs associated with a metric. You must assign exact tag keys with exact tag values or wildcards, for example, <code>env="dev"</code> or <code>env="*"</code>.
     <p>If you assign more than one point tag, you must select the match criterion - can be either <b>Has tags</b> (individual point tags) or <b>Has all these tags</b> (a combination of point tags).</p></td>
     </tr>
     </tbody>
@@ -84,7 +84,7 @@ In the **Data** panel, specify the scope and, optionally, a PPS limit and click 
 
 {% include note.html content="If you didn't choose to set a PPS limit, this step is skipped."%}
 
-If you set a PPS limit for the ingestion policy, Tanzu Observability creates an ingestion policy alert that queries the PPS usage by the policy as a percentage of the PPS limit.
+If you set a PPS limit for the ingestion policy, Operations for Applications creates an ingestion policy alert that queries the PPS usage by the policy as a percentage of the PPS limit.
 
 1. In the **Conditions** panel, configure the [thresholds and severities](alerts_manage.html#step-2-specify-thresholds-and-severities).
    1. Select the comparison operator for the alert condition. In most cases, you alert when the usage is **greater than** a specified threshold percentage of the PPS limit.
@@ -109,7 +109,7 @@ After you create an ingestion policy, if you need, for example, to increase the 
 
 {% include note.html content="You cannot change the policy scope. You can change only the assigned objects from that scope."%}
 
-1. Log in to your Wavefront instance as a user with the **Ingestion Policies** permission.
+1. Log in to your service instance (`https://<your_instance>.wavefront.com`) as a user with the **Ingestion Policies** permission.
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Ingestion Policies**.
 3. Click the ellipsis icon next to the policy that you want to edit and select **Edit**.
 4. Enter the necessary changes and click **Save**.
@@ -154,15 +154,15 @@ If you no longer need an ingestion policy, for example, after a reorganization i
 
 {% include note.html content="Deleting an ingestion policy cannot be undone. Deleting an ingestion policy with a PPS limit, also deletes its associated alert."%}
 
-1. Log in to your Wavefront instance as a user with the **Ingestion Policies** permission.
+1. Log in to your service instance (`https://<your_instance>.wavefront.com`) as a user with the **Ingestion Policies** permission.
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Ingestion Policies**.
 3. Click the ellipsis icon next to the policy that you want to delete, select **Delete**, and confirm.
 
 ## Examine Usage by an Ingestion Policy
 
-All users can examine the ingestion policy dashboards to understand their usage over time.
+All users can examine the individual ingestion policy dashboards to understand their usage over time.
 
-1. Log in to your Wavefront instance.
+1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Ingestion Policies**.
 
     The **Ingestion Policies** page shows all existing ingesting policies.
@@ -234,9 +234,11 @@ All users can examine the ingestion policy dashboards to understand their usage 
  
 
 
+In addition, the Operations for Applications Usage integration includes the [Operations for Applications Ingestion Policy Explorer Dashboard](wavefront_monitoring.html#operations-for-applications-ingestion-policy-explorer-dashboard), which provides a granular breakdown of the ingestion across your organization by ingestion policies, accounts, sources, and types.
+
 ## Example: Monitor Which Teams Are Responsible for How Much Ingested Data
 
-Consider the following example. You are administering a Wavefront instance for two big teams, `IT Team1` and `IT Team2`, and you want to monitor how much data each of the team uses. `IT Team1` usually needs more PPS data, and you have only 10,000 of committed PPS on a monthly basis.
+Consider the following example. You are administering an Operations for Applications service instance for two big teams, `IT Team1` and `IT Team2`, and you want to monitor how much data each of the team uses. `IT Team1` usually needs more PPS data, and you have only 10,000 of committed PPS on a monthly basis.
 
 You can create an ingestion policy for each team to monitor how much data each team uses per month. You can also set a PPS limit for each ingestion policy and if a team consumes more than expected, you will receive an alert notification, so that you can provide additional training on how to use ingested data wisely. 
 

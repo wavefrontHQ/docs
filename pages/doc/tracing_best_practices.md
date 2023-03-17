@@ -15,7 +15,7 @@ The best practices on this page help you get optimal results from instrumenting 
    -**Traces** represent end-to-end requests across services and consist of spans.
    -**Spans** represent calls to individual operations.
 
-   See [Tracing Basics](tracing_basics.html) for basic tracing concepts, and see [https://opentracing.io](https://opentracing.io/) for details.
+   See [Tracing Basics](tracing_basics.html) for basic tracing concepts, and see [https://opentelemetry.io/docs/](https://opentelemetry.io/docs/) for details.
 
 2. Examine your application to answer these questions:
 * Which services belong to your application? Which ones participate in the most critical requests?
@@ -25,8 +25,6 @@ The best practices on this page help you get optimal results from instrumenting 
 3. Choose your instrumentation support.
 
    * If you have already instrumented your application with a 3rd party distributed tracing system such as Jaeger or Zipkin, set up an [**integration**](tracing_integrations.html).
-
-   * **Instrument** each service with the [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data) in the service's language.
 
    * Use **consistent instrumentation**, either Wavefront SDKs or a 3rd party tracing system for all services that participate in the same trace. Otherwise, spans cannot link to each other across service boundaries. You can intermix different Wavefront SDKs in different programming languages.
 
@@ -108,11 +106,7 @@ The Wavefront service uses these names as span tag values, as filters for traces
 
 ### Best Practices for Wavefront Observability SDKs
 
-* Set up an [Application tags object](trace_data_details.html#application-tags) in each service to define logical names for the application constructs.
-  - Specify the logical application and service names that apply to the service. Optionally include logical cluster and shard names, if you want to use the physical topology to filter your data.
-  - Define a custom tag called `component` if you are using the Wavefront OpenTracing SDK. <br>
-
-    {% include tip.html content="Other Wavefront tracing SDKs automatically define `component` for you. " %}
+* Set up an [Application tags object](trace_data_details.html#application-tags) in each service to define logical names for the application constructs. Specify the logical application and service names that apply to the service. Optionally, if you want to use the physical topology to filter your data, include logical cluster and shard names.
 
    **Java example:** Instantiate `ApplicationTags` for the `delivery` service
 
@@ -218,8 +212,6 @@ You can define custom span tags to let you query and filter for particular subse
 
 * [Contact technical support](wavefront_support_feedback.html) to request indexing for those span tags. Indexing is available only for low-cardinality custom span tags.
 
-* If you are using a Wavefront OpenTracing SDK, define a span tag called `component`. The Wavefront service uses the `component`, `application`, and `service` tags to populate the Application Services page and each service-specific page.
-
 ## Instrumentation Best Practices
 
 The goal of instrumentation is to instrument enough methods to produce traces that can help you troubleshoot errors or pinpoint bottlenecks. You usually do this in successive passes.
@@ -254,12 +246,10 @@ A large-scale web application can produce a high volume of traces. Consider limi
 
 ## Using Tracing with Spring Boot
 
-Assume that you want to write Spring Boot code and instrument for OpenTracing. You want to ensure OpenTracing creates spans that work across multiple microservices.  Here's what you need to know:
-* If you're using Spring Cloud Sleuth, **everything has to be a bean**. For example, if you're using RestTemplates, those have to be beans.
-* You can create a `RestTemplate` bean yourself, or you can inject via `RestTemplateBuilder`.
-
-If you use a messaging or HTTP client (not a bean), Sleuth won't get you the spans across services.
-
+Assume that you are using Spring Boot 2 with Sleuth or Spring Boot 3 with Micrometer Tracing, and you are using a `RestTemplate` to send and receive messages between microservices:
+* Everything has to be a bean. All `RestTemplate` usage must come from a bean for distributed tracing to work.
+* You can create a `RestTemplate` bean yourself or inject it via the `RestTemplateBuilder`.
+* If you invoke a Remote Procedure Call (RPC) or messaging service without using a bean, Sleuth, and Micrometer Tracing won't work. 
 
 ### Example: Works for Spans Across Services
 

@@ -24,7 +24,7 @@ If your foundation is large, tune the following parameters, in this order:
 
 Support for service broker bindings differ for different versions of the Tanzu Observability by Wavefront Nozzle:
 * The Tanzu Observability by Wavefront <strong>Nozzle v4.1.1</strong> supports Service Broker Bindings.
-  When you configure Nozzle 4.1.1, select <strong>Enable legacy service broker bindings</strong> in the <strong>Wavefront Proxy Config</strong> tab. See [Install Nozzle 4.1.1 and Enable Service Broker Bindings](#install-nozzle-411-and-enable-service-broker-bindings).
+  When you configure Nozzle 4.1.1, select <strong>Enable legacy service broker bindings</strong> on the <strong>Wavefront Proxy Config</strong> tab. See [Install Nozzle 4.1.1 and Enable Service Broker Bindings](#install-nozzle-411-and-enable-service-broker-bindings).
 * The Tanzu Observability by Wavefront <strong>Nozzle v4.1.0</strong> DOES NOT support Service Broker Bindings. If you upgraded to nozzle 4.1.0, you have to:
   1. Downgrade from Tanzu Observability by Wavefront Nozzle v4.1.0 to Tanzu Observability by Wavefront Nozzle v3.
   1. Upgrade from Tanzu Observability by Wavefront Nozzle v3 to Tanzu Observability by Wavefront Nozzle v4.1.1. That version of the nozzle includes a checkbox that supports retaining Service Broker Bindings.
@@ -49,7 +49,7 @@ This section explains how to downgrade. For clarity, the section uses explicit v
 <tr>
 <td width="50%"><strong>Step 2.</strong> In the bottom left of the Ops Manager installation dashboard, click <strong>Delete all unused products</strong> and confirm. <br>
 <br><br>
-<strong>Note:</strong> If you don't delete all unused products, the import of the v3 nozzle might fail later with an error like the following:<code>"Metadata already exists for name: wavefront-nozzle and version: 3.0.5"</code>.
+<strong>Note:</strong> If you don't delete all unused products, the import of the v3 nozzle might fail later with an error like the following: <code>"Metadata already exists for name: wavefront-nozzle and version: 3.0.5"</code>.
 </td>
 <td width="50%"><img src="/images/tas_delete_unused_products.png" alt="Zoom in on Delete Unused Products, with arrow pointing to trash icon."></td>
 </tr>
@@ -92,7 +92,7 @@ You enable service broker bindings as part of the <strong>Wavefront Proxy Config
 <ol>
 <li>
 Follow the installation steps in <a href="integrations_tas_howto.html#step-2-ops-manager-install-configure-and-deploy-the-nozzle">Ops Manager: Install, Configure, and Deploy the Nozzle</a>.</li>
-<li>In the <strong>Wavefront Proxy Config</strong> tab, select the <strong>Enable legacy service broker bindings</strong> check box. </li>
+<li>On the <strong>Wavefront Proxy Config</strong> tab, select the <strong>Enable legacy service broker bindings</strong> check box. </li>
 </ol>
 </td>
 <td width="50%"><img src="/images/enable_legacy_bindings.png" alt="Proxy Config tab, with arrow pointing to Enable Service Broker Legacy Bindings check box"></td>
@@ -103,7 +103,8 @@ Follow the installation steps in <a href="integrations_tas_howto.html#step-2-ops
 
 ## Symptom: No Data Flowing In and Certificate Error
 
-No data are flowing in from one or more of your foundations. When you check the proxy log, you see an error like the following:
+No data is flowing in from one or more of your foundations. When you check the proxy log, you see an error similar to:
+
 ```
 2022-06-05T08:17:37Z E! [outputs.wavefront::wavefront-pipeline-2] wavefront flushing error: error reporting wavefront format data to Wavefront: "Post \https://wavefront-proxy.service.internal:4443/report?f=wavefront\: x509: certificate signed by unknown authority"
 ```
@@ -118,36 +119,36 @@ Include the root CA by clicking the check box. The following screenshot shows a 
 
 ![Screenshot of Security tab shows Include Tanzu Ops Manager Root CA in Trusted Certs ](images/tas_include_root_ca.png)
 
-## Symptom: No Data Flowing or Dashboards Show Now Data
+## Symptom: No Data Flowing or Dashboards Show No Data
 
-You have successfully set up the nozzle and the integration. However, you don't see any data for the out-of-the-box dashboards. The most common cause is a problem with sending data to Tanzu Observability.
+You have successfully set up the nozzle and the integration. However, you don't see any data on the out-of-the-box dashboards. The most common cause is a problem with sending data to Tanzu Observability.
 
 **Potential Solutions**:
 
 
 * Ensure that the installation of the Wavefront Nozzle in has completed.
 * Verify that the proxy uses the correct API token and Wavefront instance URL. You specify that information in Ops Manager in the **Proxy Config** page.
-* In your Tanzu Application Service environment, verify that the Bosh jobs for Wavefront proxy and for the Telegraf agent are running.
-  * Using the BOSH cli, use the `bosh deps` command to identify your wavefront-nozzle deployment, then tail the logs using `bosh ssh`.
+* In your Tanzu Application Service environment, verify that the BOSH jobs for Wavefront proxy and for the Telegraf agent are running.
+  * In the BOSH CLI, use the `bosh deps` command to identify your wavefront-nozzle deployment, then tail the logs using `bosh ssh`.
 
-```bash
-% bosh deps
+    ```bash
+    % bosh deps
 
-% bosh ssh -d wavefront-nozzle-d62c653f58184da09b1d telegraf_agent
-% sudo -i
-% bpm logs -fa telegraf_agent
-```
-If you see errors in the output here, this may help pinpoint a specific issue in the environment. Otherwise, contact support.
+    % bosh ssh -d wavefront-nozzle-d62c653f58184da09b1d telegraf_agent
+    % sudo -i
+    % bpm logs -fa telegraf_agent
+    ```
+  * If you see errors in the output here, this may help pinpoint a specific issue in the environment. Otherwise, contact support.
 
-If there are no errors in Telegraf, the next step is to check the logs for the wavefront_proxy
+  * If there are no errors in Telegraf, the next step is to check the logs for the wavefront_proxy:
 
-```bash
-% bosh ssh -d wavefront-nozzle-d62c653f58184da09b1d wavefront_proxy
-% sudo -i
-% bpm logs -fa wavefront_proxy
-```
+    ```bash
+    % bosh ssh -d wavefront-nozzle-d62c653f58184da09b1d wavefront_proxy
+    % sudo -i
+    % bpm logs -fa wavefront_proxy
+    ```
 
-* Verify that data are flowing from the Wavefront proxy to your Wavefront instance. See [Proxy Troubleshooting](proxies_troubleshooting.html)
+* Verify that data is flowing from the Wavefront proxy to your Wavefront instance. See [Proxy Troubleshooting](proxies_troubleshooting.html).
 
 
 ## Symptom: Higher than Expected PPS Rate
@@ -157,15 +158,16 @@ The PPS (points-per-second) rate can affect performance and potentially the cost
 * **3.x**: Version 3.x of the Nozzle follows a push-based model. PPS varies based on factors such as HTTP requests being served by the Gorouter, so PPS is less predictable.
 
 However, it can be difficult to predict the average PPS of a TAS foundation ahead of time because several factors affect the total number of metrics that are generated:
-* The TAS version
-* The size of the foundation
-* Other TAS components running on the foundation
+
+* The TAS version.
+* The size of the foundation.
+* Other TAS components running on the foundation.
 
 PPS might increase or decrease when individual TAS components are installed, upgraded or removed. Each individual component contributes its own metrics.
 
 **Solution**:
 
-* Increase the Telegraf agent’s scrape interval. Metrics will be collected less frequently, and average PPS decreases.
+* Increase the Telegraf agent scrape interval. Metrics will be collected less frequently, and average PPS decreases.
 
 Future releases will allow more targeted approaches to reducing PPS, for example, by filtering out unwanted metrics.
 
@@ -182,14 +184,15 @@ Incomplete data is most likely caused by one or more components failing to keep 
 
 Here are some things you can do.
 * Look for errors in bpm logs on the Telegraf agent or in the Wavefront proxy logs. See [Proxy Troubleshooting](proxies_troubleshooting.html) and [Telegraf Troubleshooting](telegraf_details.html) for details.
-* Look for collection errors from Telegraf (`tas.observability.telegraf.internal_gather.errors`)
-* Look for long collection times from Telegraf (`tas.observability.telegraf.internal_gather.gather_time_ns`)
+* Look for collection errors from Telegraf (`tas.observability.telegraf.internal_gather.errors`).
+* Look for long collection times from Telegraf (`tas.observability.telegraf.internal_gather.gather_time_ns`).
 
 **Potential Solutions**:
-In the Ops Manager tile:
-* Increase the size of the Telegraf Agent Virtual Machine
-* Increase the Telegraf scrape interval
 
+In the Ops Manager tile:
+
+* Increase the size of the Telegraf Agent Virtual Machine.
+* Increase the Telegraf scrape interval.
 
 ## Symptom: Unexpected App in the Healthwatch Space
 
@@ -205,6 +208,12 @@ cf routes
 
 If you see an app called `tas2to-sli-test-app` in the results of `cf apps` or a route matching that name in the `cf routes` results, you should clean them up.
 
-* To delete the app, run `cf delete tas2to-sli-test-app`
-* To delete the route, run `cf delete-route example.com --hostname tas2to-sli-test-app`
+* To delete the app, run the command:
+  ```
+  cf delete tas2to-sli-test-app
+  ```
+* To delete the route, run the command:
 
+  ```
+  cf delete-route example.com --hostname tas2to-sli-test-app
+  ```

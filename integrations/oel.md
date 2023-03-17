@@ -2,7 +2,7 @@
 title: Oracle Linux Host Integration
 tags: [integrations list]
 permalink: oel.html
-summary: Learn about the Wavefront Oracle Linux Host Integration.
+summary: Learn about the Oracle Linux Host Integration.
 ---
 ## Linux Host Integration
 

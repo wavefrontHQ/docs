@@ -2,7 +2,7 @@
 title: Suse Linux Host Integration
 tags: [integrations list]
 permalink: suse.html
-summary: Learn about the Wavefront Suse Linux Host Integration.
+summary: Learn about the Suse Linux Host Integration.
 ---
 ## Linux Host Integration
 

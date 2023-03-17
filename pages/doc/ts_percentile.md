@@ -96,7 +96,7 @@ If any time series has data gaps, `percentile()` fills them in by interpolation 
 Like all aggregation functions, `percentile()` returns a single series of percentiles by default.  You can include a 'group by' parameter to return percentiles for separate groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key.
 The function returns a separate series of results corresponding to each group.
 
-You can specify multiple 'group by' parameters to group the time series based on multiple characteristics. For example, `percentile(ts(50, "cpu.cpu*"), metrics, Customer)` first groups by metric names, and then groups by the values of the `Customer` point tag.
+You can specify multiple 'group by' parameters to group the time series based on multiple characteristics. For example, `percentile(50, ts("cpu.cpu*"), metrics, Customer)` first groups by metric names, and then groups by the values of the `Customer` point tag.
 
 #### Interpolation
 

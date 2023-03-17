@@ -2,7 +2,7 @@
 title: Microsoft Exchange Integration
 tags: [integrations list]
 permalink: msexchange.html
-summary: Learn about the Wavefront Microsoft Exchange Integration.
+summary: Learn about the Microsoft Exchange Integration.
 ---
 ## Microsoft Exchange Integration
 

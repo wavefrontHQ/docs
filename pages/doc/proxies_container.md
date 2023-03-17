@@ -4,9 +4,9 @@ keywords:
 tags: [proxies]
 sidebar: doc_sidebar
 permalink: proxies_container.html
-summary: Configure Wavefront proxy and Telegraf in a Kubernetes container
+summary: Configure Wavefront proxy and Telegraf in a Docker container
 ---
-Tanzu Observability by Wavefront supports container proxy setup. This page discusses running a proxy and Telegraf agent as Docker containers, but the guidance (though not some specifics) applies to other container solutions as well.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports container proxy setup. This page discusses running a proxy and Telegraf agent as Docker containers, but the guidance (though not some specifics) applies to other container solutions as well.
 
 ## Run a Proxy in a Docker Container
 
@@ -61,8 +61,8 @@ Options:
 <td width="80%" markdown="span">Use WAVEFRONT_PROXY_ARGS to point to set [configuration properties](proxies_configuring.html). You can specify more than one argument. <code>'&lt;--arg1&gt; &lt;value1&gt; --&lt;arg2&gt; &lt;value2&gt;'</code> </td>
 </tr>
 <tr>
-<td width="20%"><strong>Wavefront instance</strong></td>
-<td width="80%" markdown="span">&lt;myinstance&gt; is the URL of the Wavefront instance, for example, <code>https://example.wavefront.com</code></td>
+<td width="20%"><strong>Service instance</strong></td>
+<td width="80%" markdown="span">&lt;myinstance&gt; is the URL of your Operations for Applications service, for example, <code>https://example.wavefront.com</code></td>
 </tr>
 <tr>
 <td width="20%"><strong>Port</strong></td>
@@ -190,6 +190,6 @@ docker run -it -e WAVEFRONT_URL=xxxxxxx -e WAVEFRONT_TOKEN=xxxxxx -p 2878:2878 -
 
 
 You must specify:
-* WAVEFRONT_URL: The URL of your instance (e.g., https://example.wavefront.com)
-* WAVEFRONT_TOKEN: The [Wavefront Token](wavefront_api.html#managing-api-tokens). Creating a service account and using a service account token usually makes sense.
+* WAVEFRONT_URL: The URL of your Operations for Applications service (e.g., https://example.wavefront.com)
+* WAVEFRONT_TOKEN: The [Operations for Applications token](wavefront_api.html#managing-api-tokens). Creating a service account and using a service account token usually makes sense.
 * The port that the proxy is using; 2878 by default.

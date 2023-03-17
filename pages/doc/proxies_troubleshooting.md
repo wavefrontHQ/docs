@@ -4,14 +4,16 @@ keywords:
 tags: [proxies, data]
 sidebar: doc_sidebar
 permalink: proxies_troubleshooting.html
-summary: Troubleshoot proxy problems
+summary: Troubleshoot proxy problems.
 ---
 
-Wavefront proxies give you a lot of flexibility and control over proxies. But with flexibility comes the potential for problems, so our SaaS Value Engineering team has put together some troubleshooting advice.
+Wavefront proxies give you a lot of flexibility and control over proxies in your VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) environment. But with flexibility comes the potential for problems, so it's a best practice to [monitor you proxies](monitoring_proxies.html). For example, on the Proxies Browser page, you can see the account used to set up a specific proxy.
+
+In addition, our SaaS Value Engineering team has put together the following troubleshooting advice.
 
 ## Validate Metrics Received at the Proxy
 
-As part of troubleshooting, it's often useful to check if metrics are received at the proxy in the intended format. See [Wavefront data format best practices](wavefront_data_format.html#wavefront-data-format-best-practices) for background.
+As part of troubleshooting, it's often useful to check if metrics are received at the proxy in the intended format. See [Operations for Applications data format best practices](wavefront_data_format.html#operations-for-applications-data-format-best-practices) for background.
 
 ### Step 1: Enable Valid Point Logging and Examine Valid Points
 
@@ -138,7 +140,7 @@ This section describes commonly seen messages Wavefront proxy logs, organized by
    ```
 * Explanation:
 
-  The proxy has been configured to listen for metrics using the Wavefront Data Format on port 2878. If tracing or histograms are configured, you should see a corresponding message. For example:
+  The proxy has been configured to listen for metrics using the Operations for Applications Data Format on port 2878. If tracing or histograms are configured, you should see a corresponding message. For example:
 
   ```
   INFO [proxy:startTraceListener] listening on port: 30000 for trace data
@@ -173,7 +175,7 @@ This section describes commonly seen messages Wavefront proxy logs, organized by
    ```
 * Explanation:
 
-  The proxy successfully checked in with the Wavefront backend. A message like this should appear at 1 minute intervals (approximately).
+  The proxy successfully checked in with the Operations for Applications backend. A message like this should appear at 1 minute intervals (approximately).
 
 **Processed Since Start INFO Message**
 
@@ -211,7 +213,7 @@ INFO [AbstractReportableEntityHandler:reject] [<port>] blocked input: [WF-300 Ca
 
   Confirm that the data point conforms to the format configured for the specified port. The proxy can handle various different data formats. Ensure that the data format you've configured for the port matches the format of data arriving at that port.
 
-  If the port is configured for standard [Wavefront data format](wavefront_data_format.html), check the format of the data point mentioned in the log message.
+  If the port is configured for standard [Operations for Applications data format](wavefront_data_format.html), check the format of the data point mentioned in the log message.
 
 
 ### Proxy WARN Messages
@@ -228,9 +230,9 @@ INFO [AbstractReportableEntityHandler:reject] [<port>] blocked input: [WF-300 Ca
 
 * Potential Resolution:
 
-  1. Log in to your Wavefront instance and navigate to the **Wavefront Usage** integration.
-  2. In the **Wavefront Service and Proxy Data** dashboard check if the proxy's queue and backlog are staying the same size or growing.
-    * If they're growing, then the attempted rate of ingest is higher than allowed by the backend limit. Either lower the rate of data that at the proxies, or contact VMware Tanzu Observability Support to request a higher backend limit. If your overall rate of data ingestion is higher than your contract rate, you may incur overage charges.
+  1. Log in to your service instance (`https://<your_instance>.wavefront.com`) and navigate to the **Operations for Applications Usage** integration.
+  2. In the **Operations for Applications Service and Proxy Data** dashboard check if the proxy's queue and backlog are staying the same size or growing.
+    * If they're growing, then the attempted rate of ingest is higher than allowed by the backend limit. Either lower the rate of data that is at the proxies, or contact our Technical Support team to request a higher backend limit. If your overall rate of data ingestion is higher than your contract rate, you may incur overage charges.
     * If the proxy's queue size is spiky (going up and coming down, close to 0), then the proxy is effectively smoothing out bursts in your rate of data ingestion. This is normal behavior and is not a cause for concern.
 
 
@@ -414,42 +416,6 @@ In the URL:
 * `PROXY_ID` is the ID, which you can find in the Proxies browser in the Hostname column.
 --->
 
-## How to Find the Account Used to Set Up a Specific Proxy
-<!--Link to this from usage monitoring page!--->
-
-You can find out the account--user or service account--that was used to set up a proxy. You must have **Proxies** permission to perform this task.
-
-The proxy name refers to the source name that the proxy uses to report its own metrics.
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="40%">
-<strong>Step 1</strong>: In the GUI, find and copy the proxy ID.
-<ol>
-<li>From the toolbar, select <strong>Browse > Proxies</strong> and search for the proxy by name.  </li>
-<li>Copy the proxy ID, shown under the name. The screenshot to the right shows the ID for the proxy named zabbix-proxy-container.</li>
-</ol></td>
-<td width="60%"><img src="/images/proxy_id.png" alt="screenshot showing proxy ID for a single proxy"></td>
-</tr>
-<tr>
-<td width="40%"><strong>Step 2</strong>: Use the <code>GET /api/v2/proxy/{id}</code> API endpoint to find the user ID.
-<ol>
-<li>Click the gear icon and select <strong>API Documentation</strong>. </li>
-<li>Expand the <strong>Proxy</strong> category and click <code>GET /api/v2/proxy/{id}</code>. </li>
-<li>In the <strong>id</strong> text box, enter the proxy ID that you copied in the previous step and click <strong>Execute</strong>.</li>
-<li>In the response body, find the userid. This is the account that created the proxy. </li>
-</ol>
-</td>
-<td width="60%"><img src="/images/proxy_api_1.png" alt="screenshot showing proxy ID for a single proxy"><br/>
-<img src="/images/proxy_api_2.png" alt="screenshot showing proxy ID for a single proxy"><br/>
-<img src="/images/proxy_api_3.png" alt="screenshot showing proxy ID for a single proxy">
-</td>
-</tr>
-</tbody>
-</table>
-
-
 
 ## Enable Proxy Health Checks
 
@@ -499,26 +465,26 @@ The example test output might look like this.
 
 The `curl` command checks for status, and the status 200 is returned.
 
-## Cannot Modify the Proxy (Tanzu Observability Installed Through Tanzu Mission Control)
+## Cannot Modify the Proxy (Operations for Applications Installed Through Tanzu Mission Control)
 
 <!---This content also in integrations_tmc_howto.html--->
 
 **Symptom**
 
-You're monitoring your Kubernetes cluster with Tanzu Observability. You installed Tanzu Observability from Tanzu Mission Control. Now you're having problems making a change to the Wavefront proxy.
+You're monitoring your Kubernetes cluster with Operations for Applications. You installed Operations for Applications from Tanzu Mission Control. Now you're having problems making a change to the Wavefront proxy.
 
 **Cause**
 
-If you installed Tanzu Observability from Tanzu Mission Control, you cannot make changes to the Wavefront proxy.
+If you installed Operations for Applications from Tanzu Mission Control, you cannot make changes to the Wavefront proxy.
 
 **Resolution**
 
-If your environment has a standalone Tanzu Observability instance, use that instance. We are working on resolving the issue.
+If your environment has a standalone Operations for Applications instance, use that instance. We are working on resolving the issue.
 
 ## Proxies FAQ
 
 This section gives answers to some frequently asked questions. We expect to add more questions and answers as we hear from customers.
 
-### Can You Explain wavefront-proxy timestamps and Wavefront Service timestamps?
+### Can You Explain wavefront-proxy timestamps and Operations for Applications timestamps?
 
-The wavefront-proxy sends metric timestamps as milliseconds, but the ingestion layer of the Wavefront service converts and stores the information as seconds.
+The Wavefront proxy sends metric timestamps as milliseconds, but the ingestion layer of the Operations for Applications service converts and stores the information as seconds.
