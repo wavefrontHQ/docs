@@ -24,9 +24,9 @@ We made improvements to the following integrations in December 2022:
   
     ![Screenshot of the new Kubernetes setup UI experience.](images/k8s-setup-UI.png)
   
-  - We will deprecate the Helm or manually-installed Wavefront Collector for Kubernetes and Wavefront proxy next year. Our new Kubernetes Operator replaces the Helm or manually installed Wavefront Collector for Kubernetes and Wavefront proxy for all Kubernetes Distributions except for OpenShift Container Platform. 
+  - We will deprecate the Helm or manually-installed Kubernetes Metrics Collector and Wavefront proxy next year. Our new Kubernetes Operator replaces the Helm or manually installed Kubernetes Metrics Collector and Wavefront proxy for all Kubernetes Distributions except for OpenShift Container Platform. 
     
-    If you currently use the Helm or manually-installed Wavefront Collector for Kubernetes and Wavefront proxy, the deprecation will NOT affect you and you won’t experience any disruptions. However, support (including bug fixes, security vulnerabilities, new functionality, etc.) will be discontinued on **Feb 28, 2023**, for the legacy collector and proxy installation methods. See more [here](wavefront_obsolescence_policy.html#kubernetes-integration).
+    If you currently use the Helm or manually-installed Kubernetes Metrics Collector and Wavefront proxy, the deprecation will NOT affect you and you won’t experience any disruptions. However, support (including bug fixes, security vulnerabilities, new functionality, etc.) will be discontinued on **Feb 28, 2023**, for the legacy collector and proxy installation methods. See more [here](wavefront_obsolescence_policy.html#kubernetes-integration).
     
     {% include important.html content="This change does not affect other integrations running on Kubernetes clusters."%}
     
@@ -172,7 +172,7 @@ We made improvements to the following integrations in July 2022:
 * Microsoft Azure -- Made fixes to the **Azure Cosmos DB** dashboard to avoid showing the NO DATA message on single-stat charts.
 * Fluentd -- Improved the **Fluentd** dashboard and added two new sections to the dashboard: **Buffer** and **Fluentd Statistics**.
 * Operations for Applications Usage -- Made some fixes and standardized the **Operations for Applications Service and Proxy Data** dashboard.
-* Kubernetes -- Improved the Wavefront Collector for Kubernetes Metrics dashboard to show correctly whether the desired number of Collector instances are ready.
+* Kubernetes -- Improved the Kubernetes Metrics Collector Troubleshooting dashboard to show correctly whether the desired number of Collector instances are ready.
 
 ## June 2022
 

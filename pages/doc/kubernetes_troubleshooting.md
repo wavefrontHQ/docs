@@ -11,7 +11,7 @@ summary: Get help and troubleshooting instructions when you have problems with y
 
 For an in depth overview of the Kubernetes integration and how it is deployed, navigate to our [GitHub readme page](https://github.com/wavefrontHQ/observability-for-kubernetes#readme). 
 
-{% include note.html content="If you currently use the Helm-managed and installed version of the Wavefront proxy and Collector for Kubernetes, see our [legacy troubleshooting page](wf_kubernetes_troubleshooting.html) for instructions on how to troubleshoot your integration." %}
+{% include note.html content="If you currently use the Helm-managed and installed version of the Wavefront proxy and Kubernetes Metrics Collector, see our [legacy troubleshooting page](wf_kubernetes_troubleshooting.html) for instructions on how to troubleshoot your integration." %}
 
 
 ## Not Enough Instances of VMware Aria Operations for Applications Components

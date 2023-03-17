@@ -74,7 +74,7 @@ To see the full set of dashboards, sign in your product instance (`https://<exam
 ## Architecture
 
 The Wavefront proxy pod includes four containers.
-* The [Operations for Applications Collector for Kubernetes](https://github.com/wavefrontHQ/observability-for-kubernetes) monitors your worker kubelets and sends the result to the proxy.
+* The [Kubernetes Metrics Collector](https://github.com/wavefrontHQ/observability-for-kubernetes) monitors your worker kubelets and sends the result to the proxy.
 * Telegraf receives metrics about the node, pod, and container status from kube-state-metrics, and sends those metrics to the Wavefront proxy as well.
 
 ![pks-arch](images/pks-architecture-rev.png)
