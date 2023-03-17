@@ -255,14 +255,6 @@ Follow these steps:
 
 If using the Jaeger or Zipkin integration doesn't make sense in your environment, you can still use Tanzu Observability with those systems.
 
-### Swap In a Wavefront Tracer
-
-If you are using Jaeger (or some other tracing system that is compliant with the [OpenTracing](https://opentracing.io) specification), you can replace the Jaeger Tracer with a Wavefront Tracer.
-
-Swapping Tracers enables the Wavefront service to derive the RED metrics from the entire set of generated spans. In contrast, using the Jaeger integration causes the RED metrics to reflect just the subset of spans that are admitted by the Jaeger sampling.
-
-For setup details, see the [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data) for your programming language.
-
 ### Send Raw Trace Data
 
 We don't support an integration for your distributed tracing system, or if you are using your own proprietary tracing system, you can use a sender SDK to send raw trace data to Wavefront service. With a sender SDK, you can write code that obtains the component values from your spans, and assembles those values into the [Wavefront span format](trace_data_details.html#wavefront-span-format). The sender SDK also lets you configure your application to send the trace data to a Wavefront proxy or directly to the Wavefront service.
