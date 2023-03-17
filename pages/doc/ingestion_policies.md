@@ -70,7 +70,7 @@ In the **Data** panel, specify the scope and, optionally, a PPS limit and click 
     <tr>
     <td><strong>Point Tags</strong></td>
     <td><a href="metrics_managing.html#time-series-with-tags">Point tags</a> that are optional key-value pairs associated with a metric. You must assign exact tag keys with exact tag values or wildcards, for example, <code>env="dev"</code> or <code>env="*"</code>.
-    <p>If you assign more than one point tag, you must select the match criterion - can be either <b>Has tags</b> (individual point tags) or <b>Has all these tags</b> (a combination of point tags).</p></td>
+    <p>If you assign a combination of point tags, you must select the match criterion - can be either <b>Has tags</b> (logical OR) or <b>Has all these tags</b> (logical AND).</p></td>
     </tr>
     </tbody>
     </table>
@@ -158,9 +158,9 @@ If you no longer need an ingestion policy, for example, after a reorganization i
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Ingestion Policies**.
 3. Click the ellipsis icon next to the policy that you want to delete, select **Delete**, and confirm.
 
-## Examine Usage by an Ingestion Policy
+## Examine the Ingestion Policy Usage of Your Service Instance
 
-All users can examine the individual ingestion policy dashboards to understand their usage over time.
+All users can examine the individual ingestion policy dashboards to understand their PPS usage over time.
 
 1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Ingestion Policies**.

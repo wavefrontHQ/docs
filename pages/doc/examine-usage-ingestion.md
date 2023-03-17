@@ -16,22 +16,22 @@ For performance monitoring of your Operations for Applications service, you can 
 
 ## How to Go to the Usage Summary Dashboard?
 
-You can navigate to the Usage Summary dashboard and get an overview of your ingested and scanned rates per [billing period](glossary.html#b). You can go up to 2 years back in time.
+You can navigate to the Usage Summary dashboard and get an overview of your ingestion and scan rates per [billing period](glossary.html#b). You can go up to 2 years back in time.
 
 1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
 1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
 
     {% include tip.html content="If you are a Super Admin user and enabled Super Admin mode, the menu item is **Usage and Subscriptions**." %}
     
-    The **Usage Summary** tab opens. This tab contains the dashboard with an overview of the ingested and scanned rates.
+    The **Usage Summary** tab opens. This tab contains the dashboard with charts of your ingestion and scan rates.
 1. From the **Billing Month** drop-down menu, select the billing period you are interested in.
    
    
 ## Understand the Data
 
-The **Usage Summary** dashboard shows charts for the selected [billing period](glossary.html#b).
+The **Usage Summary** dashboard shows your PPS usage over the selected [billing period](glossary.html#b).
 
-{% include note.html content="The charts slightly differ for the two types of contract commitments - **billable** and **burndown**. "%}
+{% include note.html content="The charts on the dashboard slightly differ for the two types of contract commitments - **billable** vs. **burndown**. "%}
 
 Here's an example of how the dashboard may look like if you have a billable commit contract.
 
@@ -55,7 +55,7 @@ The **Overview** section of the dashboard contains the following charts:
 <td><strong>Current Overage for Selected Period</strong>
 <p><strong><i>(Only for billable customers)</i></strong></p></td>
 <td>Shows the number of PPS above your committed rate. If the overage reaches 1k PPS, the chart color changes from green to orange.
-<p><strong>Important</strong>: If you exceed your committed rate for more than 5% of the hours of a given billing period, you will be billed for the number of PPS above your committed rate.</p></td>
+<p><strong>Important</strong>: If you exceed your committed rate for more than 5% of the hours of a given billing period, you will be additionally billed for the number of PPS above your committed rate.</p></td>
 </tr>
 <tr>
 <td><strong>Remaining Balance vs Burndown Commitment</strong>
@@ -74,7 +74,7 @@ The **Overview** section of the dashboard contains the following charts:
 <tr>
 <td><strong>Time Above Contract Rate</strong>
 <p><strong><i>(Only for billable customers)</i></strong></p></td>
-<td>Shows the percentage of time in which you have exceeded your committed rate. If you exceed your committed rate for more than 5% of the hours of a given billing period, you will be billed your overage rate.</td>
+<td>Shows the percentage of time for which you have exceeded your committed rate. If you exceed your committed rate for more than 5% of the hours of a given billing period, you will be addtionally billed for your overage rate.</td>
 </tr>
 <tr>
 <td><strong>Average Usage for the Last Quarter</strong></td>
@@ -99,7 +99,7 @@ The **Overview** section of the dashboard contains the following charts:
 
 ### Scan Rate Charts
 
-Typically, you are billed based on the ingestion rate (the rate at which you send your data to Tanzu Observability). However, if the scan rate (the rate at which you query your data) exceeds the ingestion rate more than 20 times, you will be billed based on the scan rate.
+Typically, you are billed based on your ingestion rate (the rate at which you send your data to Operations for Applications). However, if your scan rate (the rate at which you query your data) exceeds 20 times your ingestion rate, you will be billed based on the scan rate.
 
 The **Scan Rate** section of the dashboard contains helps you explore scan rates:
 
@@ -113,11 +113,11 @@ The **Scan Rate** section of the dashboard contains helps you explore scan rates
 <td>Shows whether you are currently billed based on your scan rate.</td></tr>
 <tr>
 <td><strong>Scan Rate vs Ingest Rate</strong></td>
-<td>Shows how many times your scan rate exceeds your ingestion rate.</td>
+<td>Shows how many times the ingestion rate is the scan rate.</td>
 </tr>
 <tr>
 <td><strong>Ingest Rate vs Scan Rate</strong></td>
-<td>Compares your ingestion rate with your scan rate.</td>
+<td>Compares your ingestion rate with your scan rate over time.</td>
 </tr>
 </tbody>
 </table>
