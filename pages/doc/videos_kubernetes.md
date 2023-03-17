@@ -32,7 +32,7 @@ The following videos get you started. Note that in most of the videos we still r
 <iframe id="kmsembed-1_rpculupf" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_rpculupf/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability and Kubernetes"></iframe>
 </td>
 <td><br><br>
-<p>This video includes some details on the  one-click install of the <a href="https://github.com/wavefrontHQ/observability-for-kubernetes">Wavefront Collector for Kubernetes</a>.</p>
+<p>This video includes some details on the one-click install of the <a href="https://github.com/wavefrontHQ/observability-for-kubernetes">Kubernetes Metrics Collector</a>.</p>
 <p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_rpculupf" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> </td>
 </tr>
 <tr>

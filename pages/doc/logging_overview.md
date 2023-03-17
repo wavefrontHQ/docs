@@ -276,8 +276,6 @@ The Logs Browser opens in a new tab with the following configurations:
 
 If you notice a critical path through a trace in the [Traces Browser](tracing_traces_browser.html), you can drill down into the related logs.
 
-{% include note.html content="You must have tagged the traces and the logs from the same applications and services with equivalent application and service tag values."%}
-
 {% include note.html content="You must have tagged the traces and the logs from the same sources, applications, and services with equivalent source, application, and service tag values." %}
 
 To see the logs for a trace:
