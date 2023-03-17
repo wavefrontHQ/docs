@@ -27,7 +27,7 @@ summary: Learn about VMware Aria Operations for Applications (formerly known as 
     </ul>
   </td>
   <td width="40%" markdown="span">
-    ![shows that Aria Operations for Applications supports all three pillars : metrics, traces, and logs.](images/logging_ufo.png)
+    ![shows that Operations for Applications supports all three pillars : metrics, traces, and logs.](images/logging_ufo.png)
   </td>
 </tr>
 </tbody>
