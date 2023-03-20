@@ -28,7 +28,7 @@ summary: Learn the concepts behind the VMware Aria Operations for Applications (
 <td width="50%"><strong><font color="#0091DA" size="3">Kubernetes and Wavefront</font></strong><br><br>
 <iframe id="kmsembed-1_rpculupf" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_rpculupf/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability and Kubernetes"></iframe>
 </td>
-<td width="50%"><br><p>Containers have many benefits, but monitoring them can be challenging. In this video, Clement discusses several ways in which you can use Wavefront for monitoring Kubernetes. The video includes some discussion of our new Wavefront Collector for Kubernetes. </p> </td>
+<td width="50%"><br><p>Containers have many benefits, but monitoring them can be challenging. In this video, Clement discusses several ways in which you can use Wavefront for monitoring Kubernetes. The video includes some discussion of our new Kubernetes Metrics Collector. </p> </td>
 </tr>
 <tr>
 <td><strong><font color="#0091DA" size="3">About Cardinality</font></strong><br><br/>

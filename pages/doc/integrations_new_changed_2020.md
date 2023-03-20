@@ -61,7 +61,7 @@ Made improvements to the following integrations in October 2019 - October 2020:
 * Logstash integration
 * Tanzu Kubernetes Grid Integrated Edition (formerly PKS) -- Now includes an **Alerts** tab with predefined alerts
 * Kubernetes integration guided user experience:
-  - Provides streamlined instructions based on where you install the Wavefront Collector for Kubernetes
+  - Provides streamlined instructions based on where you install the Kubernetes Metrics Collector
   - Verifies you've configured the Kubernetes integration correctly during setup
   - Shows the list of your Kubernetes clusters and their statuses in the integrations setup page
 
@@ -116,7 +116,7 @@ We added the following integrations in January - March 2019:
 
 We made made improvements to the following integrations in January - March 2019
 
-* Kubernetes integration: Added dashboard for monitoring Wavefront Collector for Kubernetes
+* Kubernetes integration: Added dashboard for monitoring Kubernetes Metrics Collector
 * Amazon RDS integration: Dashboard filtering improvements
 * Azure SQL Database integration: Dashboard improvements
 * vSphere integration: Dashboard improvements

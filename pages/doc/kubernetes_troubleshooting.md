@@ -244,7 +244,7 @@ If there are any configuration or validation errors, the MESSAGE column in the r
 
 ## Running Workloads Are Not Discovered or Monitored
 
-* Check the **Wavefront Collector Troubleshooting** dashboard in the Kubernetes integration for collection errors. You can use the **Collection Errors per Type** and **Collection Errors per Endpoint** charts to find the sources with metrics that are not being collected.
+* Check the **Kubernetes Metrics Collector Troubleshooting** dashboard in the Kubernetes integration for collection errors. You can use the **Collection Errors per Type** and **Collection Errors per Endpoint** charts to find the sources with metrics that are not being collected.
 * See the [example scenario](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/deploy/scenarios/wavefront-full-config.yaml) for configuring sources for metric collection.
 * Check the cluster collector logs to verify that the source was configured so that the metrics can be collected.
   ```
