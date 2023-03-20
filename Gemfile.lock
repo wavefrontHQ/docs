@@ -101,7 +101,7 @@ PLATFORMS
 
 DEPENDENCIES
   algoliasearch-jekyll (~> 0.8.0)
-  jekyll (~> 4.3, >= 4.3.2)
+  jekyll (~> 4.2, >= 4.2.2)
   jekyll-sitemap
   jekyll-target-blank
   kramdown-parser-gfm
@@ -109,4 +109,4 @@ DEPENDENCIES
   webrick (~> 1.7)
 
 BUNDLED WITH
-   2.2.15
+   2.3.20
