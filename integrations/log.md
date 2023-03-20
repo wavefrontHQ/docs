@@ -2,7 +2,7 @@
 title: Log Data Integration
 tags: [integrations list]
 permalink: log.html
-summary: Learn about the Wavefront Log Data Integration.
+summary: Learn about the Log Data Integration.
 ---
 ## Log Data Integration
 

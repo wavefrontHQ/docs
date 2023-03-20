@@ -2,7 +2,7 @@
 title: NGINX Integration
 tags: [integrations list]
 permalink: nginx.html
-summary: Learn about the Wavefront NGINX Integration.
+summary: Learn about the NGINX Integration.
 ---
 ## NGINX Integration
 
@@ -43,7 +43,7 @@ For details, see [Module ngx_http_stub_status_module docs](https://nginx.org/en/
 
 This integration uses the NGINX and TAIL input plugins for Telegraf. If you've already installed Wavefront Telegraf packages on your server(s), you can skip to Step 3.
 
-Log in to your Wavefront instance and follow the instructions in the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
+Log in to your product instance and follow the instructions on the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
 
 ### Step 3. Configure NGINX Input Plugin
 

@@ -2,7 +2,7 @@
 title: Microsoft Hyper-V Integration
 tags: [integrations list]
 permalink: hyperv.html
-summary: Learn about the Wavefront Microsoft Hyper-V Integration.
+summary: Learn about the Microsoft Hyper-V Integration.
 ---
 ## Microsoft Hyper-V Integration
 

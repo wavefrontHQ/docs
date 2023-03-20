@@ -2,7 +2,7 @@
 title: CoreOS Integration
 tags: [integrations list]
 permalink: coreos.html
-summary: Learn about the Wavefront CoreOS Integration.
+summary: Learn about the CoreOS Integration.
 ---
 ## CoreOs Integration
 

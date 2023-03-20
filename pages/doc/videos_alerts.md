@@ -7,7 +7,7 @@ permalink: videos_alerts.html
 published: false
 summary: Learn how alerts work and how to use them.
 ---
-The following videos explain how alerts work and how to configure them.
+The following videos explain how alerts work and how to configure them. Note that in most of the videos we still refer to VMware Aria Operations for Applications as Tanzu Observability or Wavefront.
 
 <table style="width: 100%;">
 <tbody>
@@ -16,7 +16,7 @@ The following videos explain how alerts work and how to configure them.
 <iframe id="kmsembed-1_jdy1nak1" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_jdy1nak1/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Alerting with Tanzu Observability (Lightboard Video)"></iframe>
 </td>
 <td><br>
-<p>In this lightboard video, Clement explains how alerts work in the backend.   </p>
+<p>In this video, Clement explains how alerts work in the backend.   </p>
 </td>
 </tr>
 <tr>
@@ -44,7 +44,7 @@ Jason explains first why intelligent alerts are so useful. He then explores the 
 <iframe id="kmsembed-1_vi9pvcz4" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_vi9pvcz4/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="alert states and lifecycle video by Jason"></iframe>
 </td>
 <td><br>
-<p>Jason uses the Wavefront UI to illustrate the different states that an alert goes through: Checking, Firing, Resolved. He discusses that alerts resolve when the threshold value is not true - no data meets that condition. This video uses the v1 GUI, but the information is still correct! </p>
+<p>Jason uses the GUI to illustrate the different states that an alert goes through: Checking, Firing, Resolved. He discusses that alerts resolve when the threshold value is not true - no data meets that condition. This video uses the v1 GUI, but the information is still correct! </p>
 <p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_vi9pvcz4" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>

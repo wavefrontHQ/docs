@@ -35,7 +35,7 @@ You can find queries that are exceptionally slow by checking  the **Slow Query**
 
 And even if a query isn't listed there, there are some guidelines for queries:
 
-1. When sending data to Wavefront, consider [Wavefront data format best practices](wavefront_data_format.html#wavefront-data-format-best-practices), for example:
+1. When sending data to Wavefront, consider [Operations for Applications data format best practices](wavefront_data_format.html#operations-for-applications-data-format-best-practices), for example:
 * Make the metrics the most stable part of your data. For example, don't include a unique ID in each metric.
 * Keep the number of distinct combinations of metric, source, and tags under 1000. For example, avoid including a timestamp in your metric. Instead, look at the metric over time in chart.
 

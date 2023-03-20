@@ -2,7 +2,7 @@
 title: VMware Cloud on AWS Integration
 tags: [integrations list]
 permalink: vmc.html
-summary: Learn about the Wavefront VMware Cloud on AWS Integration.
+summary: Learn about the VMware Cloud on AWS Integration.
 ---
 ## vSphere Integration
 
@@ -54,7 +54,7 @@ See [vSphere Integration Details](https://docs.wavefront.com/integrations_vspher
 
 This integration uses the vSphere input plugin for Telegraf. If you've already installed Telegraf, you can skip to Step 2.
 
-Log in to your Wavefront instance and follow the instructions in the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
+Log in to your product instance and follow the instructions on the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
 
 ### Step 2. Configure vSphere Input Plugin
 

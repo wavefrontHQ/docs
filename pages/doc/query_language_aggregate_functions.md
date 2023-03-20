@@ -7,15 +7,15 @@ permalink: query_language_aggregate_functions.html
 summary: How to aggregate points from multiple time series with or without interpolation.
 ---
 
-You can combine points from multiple time series using an [**aggregation function**](query_language_reference.html#aggregation-functions) such as `sum()`, `avg()`, `min()`, `count()`, `percentile()` etc.  An aggregation function returns a series of points whose values are calculated from corresponding points in two or more input time series. Tanzu Observability by Wavefront supports aggregation with interpolation or without interpolation:
+You can combine points from multiple time series using an [**aggregation function**](query_language_reference.html#aggregation-functions) such as `sum()`, `avg()`, `min()`, `count()`, `percentile()` etc.  An aggregation function returns a series of points whose values are calculated from corresponding points in two or more input time series. VMware Aria Operations for Applications (previously known as Tanzu Observability by Wavefront) supports aggregation with interpolation or without interpolation:
 
 * Standard aggregation functions (e.g. `sum()`, `avg()`, or `max()`) first interpolate the points of the underlying set of series, and then apply the aggregation function to the interpolated series. These functions aggregate multiple series down, usually to a single series.
 * Raw aggregation functions (e.g. `rawsum()`, `rawavg()`) do **not** interpolate the underlying series before aggregation.
 * [Moving window functions](query_language_windows_trends.html) (e.g. `msum()`, `mavg()` and `mmax()` aggregate series horizontally across a chart by time. They take each individual series and aggregate its own prior behavior across the timeWindow. For example, you can get the maximum value for each series in the specified time window.
 
-In the following video, Wavefront co-founder Clement Pang explains how interpolation works:
+In the following video, Clement Pang explains how interpolation works:
 
-<p><iframe id="kmsembed-1_afml14zm" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_afml14zm/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability: Time Series and Interpolation"></iframe>
+<p><iframe id="kmsembed-1_afml14zm" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_afml14zm/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Time Series and Interpolation"></iframe>
 </p>
 
 ## Aggregating Data Points That Line Up
@@ -103,8 +103,6 @@ sum(ts(~sample.cpu.loadavg.1m), az)
 ```
 The call groups the result of the call to `sum()` into two time series, one for each availability zone.
 
-
-{% include tip.html content="" %}
 
 <table>
 <tbody>

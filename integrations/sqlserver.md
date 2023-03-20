@@ -2,7 +2,7 @@
 title: Microsoft SQL Server Integration
 tags: [integrations list]
 permalink: sqlserver.html
-summary: Learn about the Wavefront Microsoft SQL Server Integration.
+summary: Learn about the Microsoft SQL Server Integration.
 ---
 ## Microsoft SQL Server Integration
 

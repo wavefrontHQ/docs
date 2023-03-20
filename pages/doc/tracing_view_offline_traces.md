@@ -14,7 +14,7 @@ You can export traces from the Tanzu Observability by Wavefront GUI. You can sav
 Follow the steps to export traces via the traces browser or the Wavefront API:
 * Export the traces via the [Traces Browser](tracing_traces_browser.html) and save the JSON file.
 * Export traces via the API.
-  * Use the Wavefront Swagger UI. See [API Documentation (Wavefront Instance)](wavefront_api.html#api-documentation-wavefront-instance) for details on navigating to the Wavefront Swagger UI.
+  * Use the Wavefront Swagger UI. See [API Documentation (Product Instance)](wavefront_api.html#api-documentation-product-instance) for details on navigating to the Wavefront Swagger UI.
     <br/>Example:
     ![UI image showing where the API is on the Wavefront Swagger UI.](images/tracing_import_tracing_swagger_UI.png)
   * Use a `curl` command that has the `/api/v2/chart/api` URL.

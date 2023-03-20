@@ -2,7 +2,7 @@
 title: nodejs Integration
 tags: [integrations list]
 permalink: nodejs.html
-summary: Learn about the Wavefront nodejs Integration.
+summary: Learn about the nodejs Integration.
 ---
 ## Node.js Integration
 

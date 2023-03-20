@@ -2,7 +2,7 @@
 title: Uptime Integration
 tags: [integrations list]
 permalink: uptime.html
-summary: Learn about the Wavefront Uptime Integration.
+summary: Learn about the Uptime Integration.
 ---
 # Uptime.com Integration
 

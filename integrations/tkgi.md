@@ -2,7 +2,7 @@
 title: VMware Tanzu™ Kubernetes Grid™ Integrated Edition Integration
 tags: [integrations list]
 permalink: tkgi.html
-summary: Learn about the Wavefront VMware Tanzu™ Kubernetes Grid™ Integrated Edition Integration.
+summary: Learn about the VMware Tanzu™ Kubernetes Grid™ Integrated Edition Integration.
 ---
 ## VMware Tanzu™ Kubernetes Grid™ Integration
 
