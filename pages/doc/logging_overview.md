@@ -12,7 +12,7 @@ summary: Learn about VMware Aria Operations for Applications (formerly known as 
 <tbody>
 <tr>
   <td width="60%" >
-    VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) helps you monitor your application using metrics, traces, and logs.
+    VMware Aria Operations for Applications helps you monitor your application using metrics, traces, and logs.
     For example, you can:
     <ul>
       <li>

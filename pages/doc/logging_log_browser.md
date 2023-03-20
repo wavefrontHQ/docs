@@ -20,7 +20,7 @@ The Logs Browser supports in-depth exploration of your logs. As a user with the 
 To use the Logs Browser:
 
 1. Configure your application and the log shipper to [send logs](logging_send_logs.html).
-1. In a web browser, log in to your account as user with the **Logs** permission.
+1. In a web browser, log in to your product instance as user with the **Logs** permission.
 1. On the toolbar, click **Logs (Beta)**.
 
 On the Logs Browser, you can filter and examine logs for a selected period.

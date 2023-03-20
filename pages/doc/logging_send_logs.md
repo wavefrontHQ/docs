@@ -64,7 +64,7 @@ To install and configure a new proxy:
 You can monitor your Kubernetes clusters or Linux hosts using our built-in integrations and send logs to our system.
 
 * [Linux host integration](linux.html): Install the Wavefront proxy and configure the log shipper.
-* [Kubernetes integration](kubernetes.html#kubernetes-quick-install-using-the-kubernetes-operator): Enable logs in the integration, generate the script, and run it on your Kubernetes cluster. 
+* [Kubernetes integration](kubernetes.html#kubernetes-quick-install-using-the-kubernetes-operator): Enable logs while you set up the integration, generate the script, and run it on your Kubernetes cluster. 
   {% include note.html content="Logs (Beta) is not supported when you use OpenShift." %}
 
 ## Option 2: Configure A Log Shipper
