@@ -15,6 +15,57 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 
 ## 2023-11.x Release Notes
 
+* **Usage Summary Dashboard Improvements**:
+  - Refined charts and descriptions.
+  - Added support for customers with burndown commit contracts.
+
+    The charts for customers with burndown commitments slightly differ from the charts for customers with billable commitments.
+
+  For more details, see [Examine the Overall Usage of Your Service Instance](examine_usage.html).
+
+* **Ingestion Policies Improvements**:
+
+    <table style="width: 100%;">
+    <tbody>
+    <tr>
+    <td width="50%">
+    <ul>
+    <li>New <a href="permissions_overview.html"><strong>Ingestion Policies</strong> permission</a>.
+    <p>Users with that permission can create, edit, and delete ingestion policies.</p></li>
+    </ul>
+    </td>
+    <td width="50%"><img src="images/IP_permission.png" alt="A screenshot of all permissions with the Ingestion Policies permission is selected."></td>
+    </tr>
+    <tr>
+    <td width="50%">
+    <ul>
+    <li>Changed navigation to the <strong>Ingestion Policies</strong> page
+    <p><strong>Ingestion Policies</strong> is now a separate menu item under the gear icon on the toolbar.</p> </li>
+    </ul>
+    </td>
+    <td width="50%"><img src="images/IP_menu.png" alt="A screenshot of the gear icon menu with the Ingestion Policies item selected."></td>
+    </tr>
+    <tr>
+    <td width="50%">
+    <ul>
+    <li>New <a href="ingestion_policies.html#view-ingestion-policy-history-and-revert-to-a-previous-version"><strong>Revert</strong> functionality</a> on the <strong>Earlier Versions</strong> page.
+    <p>Users with the <strong>Ingestion Policies</strong> permission can create a new version of an ingestion policy that is an exact copy or an edited copy of an earlier version of the policy.</p> </li>
+    </ul>
+    </td>
+    <td width="50%"><img src="images/IP_revert.png" alt="A screenshot of the ellipsis icon menu with the Revert option selected."></td>
+    </tr>
+    <tr>
+    <td colspan="2">
+    <ul>
+    <li>Refined charts and descriptions on the ingestion policy dashboards.</li>
+    </ul>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+
+  For more details, see [Monitor Usage with Ingestion Policies](ingestion_policies.html).
+
 * **Node Map Chart Improvements**: You can specify the maximum number of node groups to display on a node map chart. When you open a node map chart in edit mode or create a new node map chart, on the **Node Map Details** tab, from the **Max Node Group Count** drop-down menu you can select the maximum number of groups to display on the chart. The default value is 10, the maximum value is 35. For details, see [Node Map Chart](ui_chart_reference.html#node-map-chart).
 
    ![A screenshot of the Node Map Defaults tab with the Max Node Group Count drop-down menu highlighted.](/images/node-map-chart.png)
