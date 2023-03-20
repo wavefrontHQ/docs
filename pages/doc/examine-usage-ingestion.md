@@ -1,9 +1,9 @@
 ---
-title: Examine the Overall Usage of Your Service Instance
+title: Examine Your Overall Usage
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: examine_usage.html
-summary: Monitor your overall usage per billing period.
+summary: Monitor the overall usage of your service instance.
 ---
 
 It's important to understand how you use your VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) service, whether you will be billed for more data, and whether you will need to request more data. Typically, billing is based on the amount of data that you send to Operations for Applications, measured in Points per Second (PPS). If your scan rate exceeds more than 20x the ingestion rate, you will be billed based on the scan rate. If you exceed your committed rate, you will be charged for overage usage.
