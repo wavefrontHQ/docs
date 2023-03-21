@@ -17,7 +17,7 @@ Users with dashboard permission can customize many aspects of the chart and save
 
 ## Data Tab (All Charts)
 
-For each chart (with the exception of a Markdown chart) you specify one or more queries.
+For each chart (with the exception of a Markdown and Logs Table chart) you specify one or more queries.
 
 When you click **Data**, you can:
 * View queries for the chart and add lines.
@@ -1875,6 +1875,68 @@ Chart description which shows up as hover text when users move the mouse over th
   </tbody>
 </table>
 
+## Logs Table
+
+![logs table chart](images/logs_table_chart.png)
+
+The logs chart lists the logs sent to the service. Use one or more filters to filter the logs, and save the chart to see the data you want. If you want to customize the query data once the chart is saved and drill into logs, use the [Logs Browser](logging_log_browser.html).
+
+
+<a id="logs_table_format_tab">
+<p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+  <td>
+    Sort by Timestamp
+  </td>
+  <td markdown="span">
+    By default, you see the latest logs on the top of the table (**Descending**). If you want to see the oldest logs, select **Ascending**.
+  </td>
+</tr>
+<tr>
+  <td>
+    Number of Message Lines
+  </td>
+  <td>
+    Select the number of log lines you want to see in the Message column to get a better preview of the log message.
+  </td>
+</tr>
+<tr>
+  <td>
+    Columns to Show in Table
+  </td>
+  <td markdown="span">
+    Each log has required attributes, standard attributes, and custom tags. We tokenize the values of these attributes and tags so that you can filter and search logs. For more details, see [Log Attributes](logging_overview.html#log-attributes). Select the tags you want to see the values in a new column.
+  </td>
+</tr>
+</tbody>
+</table>
+
+<a id="logs_table_description_tab">
+<p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+Chart description which shows up as hover text when users move the mouse over the chart name.</td>
+<td width="40%"><img src="/images/logging_logs_table_chart_description.png" alt="description of chart"/></td>
+</tr>
+</tbody>
+</table>
+
+
+<table style="width: 100%;">
+  <tbody>
+  <tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+  </tbody>
+</table>
+
 ## Geo Map Chart
 
 ![A screenshot of the Geo Map chart](images/geo-map-chart.png)
@@ -1938,7 +2000,6 @@ Allows you to select and add tag keys to the map chart.
 
 <a id="geo_map_drilldown_link_tab">
 <p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
-
 Allows you to specify a target dashboard that displays when a user clicks on the chart. You can optionally pass in a dashboard variable or a constant. For example, you can specify a constant us-west-2 to be used as a variable in the target dashboard. See [How Do Drilldown Links Work](ui_charts_faq.html#how-do-drilldown-links-work) for details.
 
 <a id="geo_map_description_tab">
@@ -1977,10 +2038,4 @@ Chart description which shows up as hover text when users move the mouse over th
 </tr>
 
 </tbody>
-</table>
-
-<table style="width: 100%;">
-  <tbody>
-  <tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
-  </tbody>
 </table>
