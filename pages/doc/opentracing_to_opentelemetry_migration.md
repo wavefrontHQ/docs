@@ -17,7 +17,7 @@ This page shows you how to migrate a Java application that uses OpenTracing to u
 
 To add the OpenTelemetry dependencies to your Java project's `pom.xml` file, follow these steps.
 
-1. Add the OpenTelemetry Bill of Materials (BOM).
+1. Add the OpenTelemetry  Bill of Materials (BOM).
     ```xml
     <properties>
         <otel.version><Add the OpenTelemetry version. For example, 1.20.1.></otel.version>
