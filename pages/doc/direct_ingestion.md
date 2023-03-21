@@ -15,7 +15,7 @@ You can send data to VMware Aria Operations for Applications (formerly known as 
 
 * In larger environments, send data to the Operations for Applications service by taking advantage of **proxy benefits**:
 
-  {% include note.html content="In production environments, you must send data to the Operations for Applications service by installing a Wavefront proxy. Direct data ingestion is suitable only for test, trial, and POC environments and is not fully supported." %}
+  {% include note.html content="In production environments, you must send data to the Operations for Applications service by installing a Wavefront proxy. Direct data ingestion is suitable only for test, trial, and POC environments and is not supported for production environments." %}
 
   * **Prevent data loss, optimize network bandwidth** – The proxy buffers and manages data traffic. Even if there’s a connectivity problem, you don’t lose data points.
   * **Simple firewall configuration** – The proxy receives metrics from many agents on different hosts and forwards those metrics to the Operations for Applications service. You don’t need to open internet access for each of the agents.
@@ -99,7 +99,7 @@ Direct ingestion has some benefits, but also some limitations:
 
 When you use direct ingestion, you might see 406 responses, which means that the Operations for Applications service pushed back the data. Direct ingestion drops this data -- and if you code your client to retry, you're actually starting to rebuild the proxy.
 
-{% include note.html content="If you're using Operations for Applications as part of a free trial or Freemium offering, there are limits on how much data you can send to the service using direct ingestion. Contact support@wavefront.com if you need a higher limit. For production environments, to get troubleshooting support from our team, you must install a Wavefront proxy and ingest the data through the proxy. Direct data ingestion is not fully supported. " %}
+{% include note.html content="If you're using Operations for Applications as part of a free trial or Freemium offering, there are limits on how much data you can send to the service using direct ingestion. Contact support@wavefront.com if you need a higher limit. For production environments, you must install a Wavefront proxy and ingest the data through the proxy. Direct data ingestion is suitable only for test, trial, and POC environments and is not supported for production environments." %}
 
 It's typical that the Operations for Applications service doesn't accept a small amount of data. This pushback doesn't cause any issues with proxies. Consider this example:
 
