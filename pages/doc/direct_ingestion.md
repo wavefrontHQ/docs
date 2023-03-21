@@ -9,13 +9,13 @@ summary: Learn how to send data directly to your service instance.
 
 You can send data to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) directly (by using direct ingestion) or by using the Wavefront proxy.
 
-* **Direct data ingestion** can be the best approach at the beginning for testing and during a POC. In production environments, the best way to send data is by using a Wavefront proxy.
+* **Direct data ingestion** can be the best approach at the beginning only for testing purposes and during a POC. In production environments, the best way to send data is by using a Wavefront proxy.
 
   {% include note.html content="You must have the [**Direct Data Ingestion** permission](permissions_overview.html) to perform direct data ingestion." %}
 
-  {% include note.html content="If you're using Operations for Applications as part of a free trial or Freemium offering, there are limits on how much data you can send to the service using direct ingestion. Contact support@wavefront.com if you need a higher limit. For production environments, to get troubleshooting support from our team, you must install a Wavefront proxy and ingest the data through the proxy. Direct data ingestion is not fully supported. " %}
-
 * In larger environments, send data to the Operations for Applications service by taking advantage of **proxy benefits**:
+
+  {% include note.html content="In production environments, you must send data to the Operations for Applications service by installing a Wavefront proxy. Direct data ingestion is suitable only for test, trial, and POC environments and is not fully supported." %}
 
   * **Prevent data loss, optimize network bandwidth** – The proxy buffers and manages data traffic. Even if there’s a connectivity problem, you don’t lose data points.
   * **Simple firewall configuration** – The proxy receives metrics from many agents on different hosts and forwards those metrics to the Operations for Applications service. You don’t need to open internet access for each of the agents.
@@ -99,9 +99,10 @@ Direct ingestion has some benefits, but also some limitations:
 
 When you use direct ingestion, you might see 406 responses, which means that the Operations for Applications service pushed back the data. Direct ingestion drops this data -- and if you code your client to retry, you're actually starting to rebuild the proxy.
 
-{% include note.html content="In production environments, you must send data to the Operations for Applications service by installing a Wavefront proxy. Direct data ingestion is suitable only for test, trial, and POC environments and is not fully supported." %}
+{% include note.html content="If you're using Operations for Applications as part of a free trial or Freemium offering, there are limits on how much data you can send to the service using direct ingestion. Contact support@wavefront.com if you need a higher limit. For production environments, to get troubleshooting support from our team, you must install a Wavefront proxy and ingest the data through the proxy. Direct data ingestion is not fully supported. " %}
 
 It's typical that the Operations for Applications service doesn't accept a small amount of data. This pushback doesn't cause any issues with proxies. Consider this example:
+
 * The data rate smoothed out over a minute is 100k PPS.
 * The Operations for Applications cluster is sized to 150k PPS (plenty of headroom).
 * However, the client (customer) sends all the data for each minute on the minute. The client might send 6M PPS in 1 second, then nothing for 59 seconds, then repeat.
