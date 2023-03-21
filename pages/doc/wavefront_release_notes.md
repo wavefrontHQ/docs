@@ -23,7 +23,7 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 
 * **Ingestion Policies Improvements**:
 
-  * New [Ingestion Policies](permissions_overview.html) permission.
+  * New [**Ingestion Policies** permission](permissions_overview.html).
 
     Users with that permission can create, edit, and delete ingestion policies.
 
