@@ -104,3 +104,6 @@ DEPENDENCIES
   kramdown-parser-gfm
   nokogiri (~> 1.13, >= 1.13.10)
   webrick (~> 1.7)
+
+BUNDLED WITH
+   2.3.20
