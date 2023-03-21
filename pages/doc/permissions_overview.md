@@ -61,6 +61,10 @@ The following list gives an overview of permissions. To learn more, click the li
 - **[External Links](external_links_managing.html)** 
 
     Users with the **External Links** permission can create, update, and delete external links.
+
+- **[Ingestion Policies](ingestion_policies.html)**
+    
+    Users with the Ingestion Policies permission can create, edit, and delete ingestion policies.
     
 - **[Integrations](integrations.html)**
 

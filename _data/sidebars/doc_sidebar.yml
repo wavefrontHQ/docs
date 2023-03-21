@@ -905,7 +905,7 @@ entries:
             url: /examine_usage.html
             output: web
 
-          - title: Examine Usage with Ingestion Policies
+          - title: Monitor Usage with Ingestion Policies
             url: /ingestion_policies.html
             output: web
 
