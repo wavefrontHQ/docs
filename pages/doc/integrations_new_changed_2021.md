@@ -56,7 +56,7 @@ Made improvements to the following integrations and dashboards in November 2021:
 Made improvements to the following integrations and dashboards in October 2021:
 
 * Tanzu GemFire -- Updated the Tanzu GemFire integration setup steps and added a new out-of-the-box dashboard to monitor Tanzu GemFire standalone deployment.
-* Kubernetes -- Made fixes to queries, so that they show correct values for the Wavefront Collector and Wavefront proxy restarts.
+* Kubernetes -- Made fixes to queries, so that they show correct values for the Kubernetes Metrics Collector and Wavefront proxy restarts.
 * Azure Kubernetes -- Made fixes to queries, so that they show correct values for running and pending pods.
 * Envoy Proxy -- Added an out-of-the-box dashboard and setup steps to monitor Envoy proxy on Kubernetes.
 
@@ -117,7 +117,7 @@ Made improvements to the following integrations and dashboards in July 2021:
 * Azure AD -- Added steps to configure Azure AD using Self-Service SAML.
 * Data Platforms -- Added a new dashboard  **Data Platform Blueprint2 - Kafka-Spark-Elasticsearch**.
 * Kubernetes:
-  - Added charts to **Kubernetes Collector Troubleshooting** (Wavefront Collector Metrics) dashboard to monitor collector performance.
+  - Added charts to **Kubernetes Metrics Collector Troubleshooting** (Kubernetes Metrics Collector) dashboard to monitor collector performance.
   - Changed the metrics in the alert condition of the following out-of-the-box alerts:
     - K8s node memory usage too high
     - K8s pod memory usage too high
