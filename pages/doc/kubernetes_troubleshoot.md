@@ -28,9 +28,9 @@ This section focuses on known issues that cannot be fixed, for example, because 
 **Solution:** Forcibly delete the pod that is stuck in the terminating state.
 
 
-## Troubleshoot by Using the Wavefront Collector Dashboard
+## Troubleshoot by Using the Kubernetes Metrics Collector Dashboard
 
-The Wavefront Collector emits [internal metrics](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/metrics.md#collector-health-metrics) that you can use to troubleshoot issues.
+The Kubernetes Metrics Collector emits [internal metrics](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/metrics.md#collector-health-metrics) that you can use to troubleshoot issues.
 
 The **Kubernetes Metrics Collector Troubleshooting** dashboard in the Kubernetes integration shows these metrics.
 
@@ -38,13 +38,13 @@ The **Kubernetes Metrics Collector Troubleshooting** dashboard in the Kubernetes
 
 ## Troubleshoot by Using the Data Collection Flow
 
-In Kubernetes, a Node can be considered a virtual machine, and can have several applications and services running on it. These applications and services are referred to as Pods. The Wavefront Collector deploys itself on each Node to collect metrics from the Pods.
+In Kubernetes, a Node can be considered a virtual machine, and can have several applications and services running on it. These applications and services are referred to as Pods. The Kubernetes Metrics Collector deploys itself on each Node to collect metrics from the Pods.
 
-All the Pods the Wavefront Collector collects metrics from are considered a Source.
+All the Pods the Kubernetes Metrics Collector collects metrics from are considered a Source.
 
 Next, the Source sends metrics to the Wavefront Sink and then to the VMware Aria Operations for Applications Service through the Wavefront proxy.
 
-Since the Wavefront Collector runs on each Node, metrics common to the Kubernetes environment or cluster can be repeated, such as the cluster metrics, which are reported multiple times. To avoid the same metric being reported several times, one Wavefront Collector is elected as the leader to perform tasks that only need to be done once.
+Since the Kubernetes Metrics Collector runs on each Node, metrics common to the Kubernetes environment or cluster can be repeated, such as the cluster metrics, which are reported multiple times. To avoid the same metric being reported several times, one Kubernetes Metrics Collector is elected as the leader to perform tasks that only need to be done once.
 
 The following diagram shows how the data flows from your Kubernetes environment to VMware Aria Operations for Applications.
 
@@ -113,7 +113,7 @@ You can use [proxy preprocessor rules](proxies_preprocessor_rules.html) to block
 
 ### Step 1: Verify That the Collector Is Running.
 
-![Highlights Wavefront Collector on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_step_1.png)
+![Highlights Kubernetes Metrics Collector on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom_step_1.png)
 
 * Run `kubectl get pods -l k8s-app=wavefront-collector -n <NAMESPACE>` to verify all collector instances are ready and available.
 * Pods are marked as not ready:
@@ -174,7 +174,7 @@ See [Monitor Wavefront Proxies](monitoring_proxies.html) for monitoring and trou
 
 ![Highlights the source box on the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom-Incomplete_step_1.png)
 
-See the [Wavefront Collector Configurations](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/configuration.md) to verify that the collector is configured correctly.
+See the [Kubernetes Metrics Collector Configurations](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/configuration.md) to verify that the collector is configured correctly.
 
 <table style="width: 100%;">
 <tbody>
@@ -193,7 +193,7 @@ You can filter out data flowing into VMware Aria Operations for Applications at 
   1. Filter metrics at the source level.
   2. Filter all metrics sent from the collector to VMware Aria Operations for Applications.
 
-  Run ```kubectl get configmap collector-config -n <YOUR_NAMESPACE> -o yaml``` and check both your source configuration and sink configuration for filters. See [Prefix, tags, and filter configurations for the Wavefront Collector](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/configuration.md#prefix-tags-and-filters).
+  Run ```kubectl get configmap collector-config -n <YOUR_NAMESPACE> -o yaml``` and check both your source configuration and sink configuration for filters. See [Prefix, tags, and filter configurations for the Kubernetes Metrics Collector](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/configuration.md#prefix-tags-and-filters).
 
   ![Highlights the source and sink the Kubernetes Collector data flow diagram](images/kubernetes_troubleshooting_symptom-Incomplete_step_2.2.png)
 
@@ -356,10 +356,10 @@ To solve this, See the remedies section.
       If you have statically defined sources, comment out or remove sources that emit a large number of metrics from the `sources` list in the collector [configuration.md](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/configuration.md#configuration-file) file. This method removes metrics that are minimally processed, reducing the CPU and memory load on the collector.
       {% include important.html content="Do not remove `kubernetes_source` from the `sources` list." %}
 
-    * **Filter metrics at the source**: Sources scraped by the collector have a way of filtering out metrics. You can filter the metrics on the source or from the Wavefront Collector:
+    * **Filter metrics at the source**: Sources scraped by the collector have a way of filtering out metrics. You can filter the metrics on the source or from the Kubernetes Metrics Collector:
       * Some applications let you configure the metrics they produce. If your application can do that, you can reduce the metrics collected before the metrics are sent to the collector.
         {% include note.html content = "Only some sources let you filter metrics. Example: kube-state metrics" %}
-      * Change the [Wavefront Collector source configuration](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/configuration.md#configuration) to filter out metrics you don’t need. Note:
+      * Change the [Kubernetes Metrics Collector source configuration](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/configuration.md#configuration) to filter out metrics you don’t need. Note:
         {% include note.html content = "Filtering metrics in the source configuration, reduces the collector load. Filtering metrics in the sink configuration will not reduce the collector load." %}
 
 * **Disable Auto-Discovery**:
@@ -414,11 +414,11 @@ Check the source of these metrics to identify the specific Kubernetes node on wh
 2. Find the **Data Collection** section, go to the **Points Collected per Type** chart and check whether your source is sending metrics.
 
    * If your source is not in the top 20, modify the query to remove the top 20 limit or limit your particular missing pod.
-   * If your source is missing, the Wavefront Collector cannot collect data from your application. The source might not be running, or your configuration might be incorrect. Check for configuration problems.
+   * If your source is missing, the Kubernetes Metrics Collector cannot collect data from your application. The source might not be running, or your configuration might be incorrect. Check for configuration problems.
 
    ![Example of the Points Collected per Type chart](images/k8s-top-twenty.png)
 
-3. Check the Wavefront Collector logs for indications of what can be wrong. For example, you may have a configuration problem.
+3. Check the Kubernetes Metrics Collector logs for indications of what can be wrong. For example, you may have a configuration problem.
 
    Run `kubectl logs daemonset/wavefront-collector -n wavefront` to check the collector logs for errors in parsing the configuration and to see whether the source got scraped.
 

@@ -872,7 +872,7 @@ Ex: <code>token1234abcd</code>
 <div>Ex: <code>1048576</code></div></td></tr>
 <tr>
 <td>traceListenerPorts</td>
-<td markdown="span">TCP ports that listen to incoming [spans](tracing_basics.html) from the Operations for Applications SDKs that [collect trace data](wavefront_sdks.html#sdks-for-collecting-trace-data), [collect metrics and histograms](wavefront_sdks.html#sdks-for-collecting-metrics-and-histograms), and [SDKs for sending raw data](wavefront_sdks.html#sdks-for-sending-raw-data). <br/> Default: none</td>
+<td markdown="span">TCP ports that listen to incoming [spans](tracing_basics.html) from the Operations for Applications SDKs that [collect metrics and histograms](wavefront_sdks.html#sdks-for-collecting-metrics-and-histograms), and [SDKs for sending raw data](wavefront_sdks.html#sdks-for-sending-raw-data). <br/> Default: none</td>
 <td>Comma-separated list of available port numbers. Can be a single port.
 <div>Ex: <code>2878</code></div>
 <div>Ex: <code>2878,2879</code></div></td>

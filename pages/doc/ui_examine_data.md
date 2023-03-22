@@ -84,11 +84,11 @@ You can select a larger or smaller time window or view past data instead of real
 
 
 The time window determines how often the charts in a dashboard refresh.
-* Charts with a time window of 5-10 minutes reload every second.
+* Charts with a time window of 5-10 minutes reload every second. 
+* A logs table chart with a 5-10 minute time window reloads every 30 seconds.
 * Charts with a larger time window (e.g. 4 hours or 1 day) reload every 30 second.
 
 {% include note.html content="Do not run charts with a 5-10 minute time window for a long time to avoid performance problems." %}
-
 
 {% include tip.html content="Live dashboards and charts display data on days in the future as black points. This might happen, for example, if you select **1 week** under **Live**.  " %}
 
