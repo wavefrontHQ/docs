@@ -6,7 +6,7 @@ permalink: ui_examine_data.html
 summary: Examine data with dashboards and charts
 ---
 
-With dashboards and charts, all Tanzu Observability by Wavefront users can examine data. By default, everyone can explore: set dashboard time window, zoom in and out, and perform other customizations.
+With dashboards and charts, all VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) users can examine data. By default, everyone can explore: set dashboard time window, zoom in and out, and perform other customizations.
 
 {% include note.html content="All users can view and explore charts. You must have the [**Dashboards** permission](permissions_overview.html) to make permanent changes, such as saving a chart to a dashboard." %}
 
@@ -25,7 +25,7 @@ You can also watch the video <a href="https://vmwaretv.vmware.com/embed/secure/i
 
 From the Dashboard Browser, you can find dashboards by using filters and tags. You can make a dashboard a favorite with the star icon. Users with **Dashboard** permissions can also look at versions, grand and remove access, clone dashboards, move a dashboard to the trash, or access a deleted dashboard for up to 30 days.
 
-1. Log in to your Wavefront instance.
+1. Log in to your product instance.
 2. Select **Dashboards > All Dashboards**
 3. In the Dashboard Browser:
     * Use the search bar at the top to find a dashboard.
@@ -299,7 +299,7 @@ Here's a <a href="https://vmwaretv.vmware.com/media/t/1_zew0muhn" target="_blank
 ## Display Events on Charts
 
 The charts in your dashboard can display [events](events.html).
-* The Wavefront service generates system events, for example, when an alert changes state.
+* The service generates system events, for example, when an alert changes state.
 * In addition, users with **Events** permission might have added user events.
 
 All users can select which events are displayed for all charts.

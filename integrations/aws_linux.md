@@ -2,7 +2,7 @@
 title: Amazon Linux AMI Host Integration
 tags: [integrations list]
 permalink: aws_linux.html
-summary: Learn about the Wavefront Amazon Linux AMI Host Integration.
+summary: Learn about the Amazon Linux AMI Host Integration.
 ---
 ## Linux Host Integration
 

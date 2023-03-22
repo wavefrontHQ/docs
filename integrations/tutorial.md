@@ -1,12 +1,12 @@
 ---
-title: Wavefront Tutorial Integration
+title: Operations for Applications Tutorial Integration
 tags: [integrations list]
 permalink: tutorial.html
-summary: Learn about the Wavefront Wavefront Tutorial Integration.
+summary: Learn about the Operations for Applications Tutorial Integration.
 ---
 ## Tutorial Integration
 
-The Tutorial integration is set of getting started dashboards to help new users learn how to use Wavefront. They include:
+The Tutorial integration is set of getting started dashboards to help new users learn how to use Operations for Applications. They include:
 
 - Tutorial: Home - contains links to getting started dashboards and documentation.
 - Tutorial: Getting Started with the Query Language - contains charts that illustrate different elements of the query language.

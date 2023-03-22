@@ -2,7 +2,7 @@
 title: OpenBSD Host Integration
 tags: [integrations list]
 permalink: openbsd.html
-summary: Learn about the Wavefront OpenBSD Host Integration.
+summary: Learn about the OpenBSD Host Integration.
 ---
 ## OpenBSD Host Integration
 

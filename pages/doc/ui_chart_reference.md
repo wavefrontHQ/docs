@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: ui_chart_reference.html
 summary: Chart types and configuration options for each chart type.
 ---
-Tanzu Observability by Wavefront provides charts viewing and examining your data. You can <a href="ui_examine_data.html">interact directly with charts in real time</a> -- zoom in, zoom out, change the time window, and so on.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) provides charts viewing and examining your data. You can <a href="ui_examine_data.html">interact directly with charts in real time</a> -- zoom in, zoom out, change the time window, and so on.
 
 Users with dashboard permission can customize many aspects of the chart and save their changes. This page is a detailed reference to the tabs in the different chart types. We repeat tab reference for each chart type.
 
@@ -1342,7 +1342,7 @@ Chart description which shows up as hover text when users move the mouse over th
 ![histogram](images/histogram_chart_v2.png)
 
 Histogram charts have two main uses:
-* Visualize actual [histograms](proxies_histograms.html). Wavefront histograms let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure – particularly those gathered across many distributed sources.
+* Visualize actual [histograms](proxies_histograms.html). Our histograms let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure – particularly those gathered across many distributed sources.
 * Display a histogram visualization of a time series. That makes it possible, for example, to easily see query results above a certain percentile.
 
 You can zoom in to the histogram as needed by selecting a region.
@@ -1876,7 +1876,8 @@ The logs chart lists the logs sent to the service. Use one or more filters to fi
     Sort by Timestamp
   </td>
   <td markdown="span">
-    By default, you see the latest logs at the top of the table (**Descending**). If you want to see the oldest logs, select **Ascending**.
+    By default, you see the latest logs on the top of the table (**Descending**). If you want to see the oldest logs, select **Ascending**.
+  </td>
 </tr>
 <tr>
   <td>

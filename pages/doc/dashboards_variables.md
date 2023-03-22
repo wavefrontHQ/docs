@@ -7,7 +7,7 @@ permalink: dashboards_variables.html
 summary: Use dashboard variables and global filters switch between different data sources.
 ---
 
-Tanzu Observability by Wavefront includes dashboard variables and global filters. Both are excellent ways of focusing the metrics that a dashboard displays.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) includes dashboard variables and global filters. Both are excellent ways of focusing the metrics that a dashboard displays.
 
 <ul>
 <li>All users can <strong>set predefined variables</strong> for a dashboard. The change applies to all charts in that dashboard.</li>
@@ -231,7 +231,7 @@ In this example, we can filter the dashboard to set the point tag `env` to `prod
 
 ### Dynamic Variable Example
 
-The following example uses the `~sample` data included in your Wavefront instance.
+The following example uses the `~sample` data included in your product instance.
 
 First, we create the dynamic variable:
 1. Specify a variable name and type Dynamic.

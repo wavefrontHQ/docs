@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: external_links_managing.html
 summary: Learn how to manage external links.
 ---
-External links provide integration between Tanzu Observability by Wavefront and external systems.
+External links provide integration between VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) and external systems.
 * **External links** are general purpose: you can link through to any type of system accessible from a URL.
 * The **Log integration** lets you drill down from a time series to a log entry in a logging system such as Scalyr, ELK, or Splunk. See [Access and Examine External Logs](log_integration.html) for details.
 
@@ -132,7 +132,7 @@ https://demo.wavefront.com/tracing/service/{{namespace_name}}/{{container_name}}
 
 The following external link URL template displays an event on the Events page when you click the event in a chart.
 
-Replace `<my_instance>` with the name of your Wavefront instance.
+Replace `<my_instance>` with the name of your product instance.
 
 {% raw %}
 ```handlebars

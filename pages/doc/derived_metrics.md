@@ -7,7 +7,7 @@ permalink: derived_metrics.html
 summary: Learn how to save a query so it runs once a minute, and how to use the derived metric elsewhere.
 ---
 
-Use Derived metrics to run a query and ingest it back into Tanzu Observability by Wavefront. All users can then use the result of the query, that is, the derived metric, in their queries.
+Use derived metrics to run a query and ingest it back into VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront). All users can then use the result of the query, that is, the derived metric, in their queries.
 
 You can create a derived metric from a time series metric or a histogram.
 
@@ -19,7 +19,7 @@ Derived metrics created and metrics points scanned apply to your data ingestion 
 {{site.data.alerts.note}}
   <ul>
     <li>
-      The minimum reporting interval for a derived metric is 1 minute. If the query that is used in the derived metric reports data points more than once within a minute, the Wavefront service summarizes it using the <code>mean()</code> aggregation and aligns it to 1 minute time buckets.
+      The minimum reporting interval for a derived metric is 1 minute. If the query that is used in the derived metric reports data points more than once within a minute, Operations for Applications summarizes it using the <code>mean()</code> aggregation and aligns it to 1 minute time buckets.
     </li>
     <li>
       <a href="metrics_managing.html#obsolete-metrics">Obsolete metrics</a> are removed from derived metrics.
@@ -69,10 +69,10 @@ You can reduce the data scan rate in a similar way using derived metrics.
 
 You can customize how often the derived metric executes, and how many minutes of results we include.
 
-* **Execute the query every N minutes**: By default, the Wavefront service executes the derived metric query every 1 minute. Use this setting to adjust the execution interval.
+* **Execute the query every N minutes**: By default, Operations for Applications executes the derived metric query every 1 minute. Use this setting to adjust the execution interval.
 
-* **Include results in the last N minutes**: By default, the Wavefront service uses the last 5 minutes as the time window for the derived metrics query to account for possible delays in the upstream metric pipeline. The results of the query:
-  - Are ingested back into the Wavefront service,
+* **Include results in the last N minutes**: By default, Operations for Applications uses the last 5 minutes as the time window for the derived metrics query to account for possible delays in the upstream metric pipeline. The results of the query:
+  - Are ingested back into Operations for Applications,
   - Overwrite existing data in the last N minutes for the derived metric. You can adjust the time window of the query with this setting.
 
 {% include note.html content="We recommend that the **Includes...** setting is always larger than the **Execute** setting." %}
@@ -92,4 +92,4 @@ To create a derived metric:
 
 ## Learn More
 
-See the KB article [Migrating Objects or Data Between Environments](https://help.wavefront.com/hc/en-us/articles/360053164791-Migrating-Objects-or-Data-Between-Tanzu-Observability-Environments) if your company has several Wavefront instances.
+See the KB article [Migrating Objects or Data Between Environments](https://help.wavefront.com/hc/en-us/articles/360053164791-Migrating-Objects-or-Data-Between-Tanzu-Observability-Environments) if your company has several Operations for Applications service instances.

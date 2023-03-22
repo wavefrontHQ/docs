@@ -2,7 +2,7 @@
 title: OpenTSDB Integration
 tags: [integrations list]
 permalink: opentsdb.html
-summary: Learn about the Wavefront OpenTSDB Integration.
+summary: Learn about the OpenTSDB Integration.
 ---
 ## OpenTSDB Integration
 

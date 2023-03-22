@@ -2,7 +2,7 @@
 title: Microsoft Azure Load Balancers Integration
 tags: [integrations list]
 permalink: azure_lb.html
-summary: Learn about the Wavefront Microsoft Azure Load Balancers Integration.
+summary: Learn about the Microsoft Azure Load Balancers Integration.
 ---
 ## Microsoft Azure Integration
 
@@ -74,10 +74,10 @@ You can see the information about the metrics on the [Azure metrics](https://doc
 
 ### Add a Microsoft Azure Cloud Integration
 
-Adding a Microsoft Azure cloud integration requires establishing a trust relationship between Azure and Tanzu Observability by Wavefront. The overall process involves the following:
+Adding a Microsoft Azure cloud integration requires establishing a trust relationship between Azure and VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront). The overall process involves the following:
 
 * Getting a Directory ID
-* Creating an Azure Active Directory application that represents Tanzu Observability inside Azure and getting the Application ID.
+* Creating an Azure Active Directory application that represents Operations for Applications inside Azure and getting the Application ID.
 * Creating a secret key and getting the Application secret.
 
 To register a Microsoft Azure Cloud Integration:

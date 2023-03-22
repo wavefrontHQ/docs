@@ -2,7 +2,7 @@
 title: Filebeat Log Data Integration
 tags: [integrations list]
 permalink: filebeat.html
-summary: Learn about the Wavefront Filebeat Log Data Integration.
+summary: Learn about the Filebeat Log Data Integration.
 ---
 ## Filebeat Integration
 

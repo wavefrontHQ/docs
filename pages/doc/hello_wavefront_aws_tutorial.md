@@ -1,20 +1,20 @@
 ---
-title: Hello Wavefront!
+title: Integrations Tutorial
 keywords:
 tags: [tutorials]
 sidebar: doc_sidebar
 permalink: hello_wavefront_aws_tutorial.html
-summary: Get data from a Windows host or Amazon Web Services.
+summary: Get data from Amazon Web Services or a Windows host.
 ---
 
 In this tutorial, you'll learn how to:
-1. Log in to Tanzu Observability by Wavefront.
+1. Log in to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
 2. Send data from applications and services that run on your AWS account.
 3. Visualize data with preconfigured dashboards and charts.
 
 It's an easy setup. You don't have to install anything or make changes to your application code.
 
-{% include tip.html content="Don't have an AWS account? You can [send data from a Windows host](#video-set-up-data-ingestion-from-a-windows-host). Or you can explore dashboards with sample data. [Log in](#task-1-log-in-to-your-wavefront-instance), click **Integrations** and search for **Tutorial** or **Tour Pro**." %}
+{% include tip.html content="Don't have an AWS account? You can [send data from a Windows host](#video-set-up-data-ingestion-from-a-windows-host). Or you can explore dashboards with sample data. [Log in](#task-1-log-in-to-your-product-instance), click **Integrations** and search for **Tutorial** or **Tour**." %}
 
 <table style="width: 100%;">
 <tbody>
@@ -26,17 +26,17 @@ It's an easy setup. You don't have to install anything or make changes to your a
 </table>
 
 
-## Task 1: Log In to Your Wavefront Instance
+## Task 1: Log In to Your Product Instance
 
-If you've never logged in to your company's Wavefront instance, follow these steps. Go to Task 2 otherwise.
+If you've never logged in to your company's product instance, follow these steps. Go to Task 2 otherwise.
 
-1. Check your email! When your administrator adds you to the Wavefront instance, you receive an email with the subject that includes `You have been invited by <email> to Wavefront!`.
+1. Check your email! When your administrator grants you with access to the product, you receive a welcome email.
 2. Click the link in the email.
   * In some environments, you set up your password and you're done.
-  * If your administrator has configured Single Sign-On (SSO), you're redirected to your company's SSO environment. When you complete the authentication steps, you're redirected to the Wavefront instance.
-3. Going forward, you can log in using the `https://<my_instance>.wavefront.com` URL. The Wavefront instance name is in the invitation email.
+  * If your administrator has configured Single Sign-On (SSO), you're redirected to your company's SSO environment. When you complete the authentication steps, you're redirected to your instance.
+3. Going forward, you can log in using the `https://<my_instance>.wavefront.com` URL. The instance name is in the invitation email.
 
-{% include tip.html content="If your company isn't currently a Tanzu Observability customer, [sign up for a free trial](https://tanzu.vmware.com/observability)." %}
+{% include tip.html content="If your company isn't currently a VMware Aria Operations for Applications customer, [sign up for a free trial](https://tanzu.vmware.com/observability)." %}
 
 ## Task 2: Set Up the Integration
 
@@ -51,13 +51,13 @@ In this task, we'll set up a data ingestion pipeline with AWS.
    Popular integrations also have an **Alerts** tab with preconfigured alerts.
 2. Click the **Amazon Web Services (AWS)** tile.
     <!--![Highlight the AWS integration on the Wavefront Integrations page.](images/hello_tutorial_aws_integration_tile.png)-->
-3. Click the **Setup** tab and click **Add Integration**.
+3. On the **Setup** tab, click **Add Integration**.
     ![Highlights the Add Integration button on the AWS integration's Setup tab.](images/hello_tutorial_aws_add_integration.png)
 4. Click the **How to get Role ARN** link.
 
 You'll see **Account ID** and **External ID** under **How to get Role ARN**. You'll need them to set up the integration.
 
-### Step 2: Create a Wavefront Read-Only Role in Your AWS Account
+### Step 2: Create a Read-Only Role in Your AWS Account
 
 {{site.data.alerts.note}}
 <p>For this step, you must log in to your AWS account. Create a new AWS account if you don’t have one.</p>
@@ -65,17 +65,18 @@ You'll see **Account ID** and **External ID** under **How to get Role ARN**. You
 
 Follow these steps:
 
-1. On a web browser tab, log in to your AWS account.
+1. Open a web browser tab and log in to your AWS account.
 1. Search for the **IAM** (AWS Identity and Access Management) service and click it to open the service.
 1. In the left panel, click **Roles**, and click **Create role**.
 1. Create a trusted entity:
     1. Click the **AWS Account** tile and select the **Another AWS account** radio button.
-    1. Enter the **Account ID**: Copy the **Account ID** value shown in the AWS integration setup instructions and paste it here.
-        ![A diagram that shows where the account ID is on the Wavefront integration and an arrow pointing how to copy and paste on the AWS account.](images/hello_tutorial_aws_account_ID.png)
+    1. Copy the **Account ID** value shown in the AWS integration setup instructions.
+    1. Paste it in the **Account ID** text box in the AWS UI.
+        ![A diagram that shows where the account ID is on the Operations for Applications integration and an arrow pointing how to copy and paste on the AWS account.](images/hello_tutorial_aws_account_ID.png)
     1. Select the **Require external ID** check box.
         ![A screenshot of the external ID option selected.](images/hello_tutorial_aws_external_ID_selected.png)
     1. Enter the **External ID**. Copy the **External ID** value shown in the AWS integration setup instructions and paste it here.
-        ![A diagram that shows where the external ID is on the Wavefront integration and an arrow pointing how to copy and paste on the AWS account.](images/hello_tutorial_aws_external_ID.png)
+        ![A diagram that shows where the external ID is on the Operations for Applications integration and an arrow pointing how to copy and paste on the AWS account.](images/hello_tutorial_aws_external_ID.png)
     1. Click **Next**.
 1. Set Permissions:
     1. Search for the **ReadOnlyAccess** permission and select it.
@@ -83,15 +84,15 @@ Follow these steps:
         ![A screenshot that shows the ReadOnlyAccess permission selected.](images/hello_tutorial_readonly_permission.png)
     1. Click **Next**.
 
-1. Set the **Role name** as `wavefront`.
+1. Set the **Role name** as `example-role`.
 1. Click **Create role**.
-1. Once the list of roles appears, click `wavefront` (the role you just created), and copy the **ARN** value.
+1. Once the list of roles appears, click `example-role` (the role you just created), and copy the **ARN** value.
 
-{% include note.html content="See [Giving Wavefront Limited Access](integrations_aws_overview.html#giving-limited-access) if you want to specify a more restrictive IAM policy for Wavefront." %}
+{% include note.html content="See [Giving Limited Access](integrations_aws_overview.html#giving-limited-access) if you want to specify a more restrictive IAM policy for VMware Aria Operations for Applications." %}
 
 ### Step 3: Configure the AWS Integration
 
-Go back to the Wavefront instance where you opened the AWS integration tile, and follow these steps:
+Go back to the product instance where you opened the AWS integration tile, and follow these steps:
 
 <table style="width: 100%;">
 <tbody>
@@ -105,7 +106,7 @@ Go back to the Wavefront instance where you opened the AWS integration tile, and
 </tbody>
 </table>
 
-Tanzu Observability by Wavefront can now connect to your AWS account and get data. Once the data starts flowing, you can visualize them. It will take a few minutes for the data to show.
+VMware Aria Operations for Applications can now connect to your AWS account and get data. Once the data starts flowing, you can visualize it. It will take a few minutes for the data to show.
 
 ### Step 4: (Optional) Launch an EC2 Instance
 
@@ -131,28 +132,30 @@ Once the instance is launched, you'll see the data after a few minutes.
 * [Set Up Data Ingestion](wavefront_data_ingestion.html) has information on data ingestion, including a video.
 * [Amazon Web Services Integration](integrations_aws_overview.html) has more information on the AWS integration.
 * [Set up and manage the AWS Integration by Using the API](integrations_aws_overview_API.html).
-* See the [List of Tanzu Observability by Wavefront Integrations](label_integrations%20list.html).
+* See the [List of our integrations](label_integrations%20list.html).
 
 ## Task 3: Explore Data with Out-of-the-Box Dashboards
 
 With data flowing, you can start exploring dashboards and charts:
 
 <p><span style="font-size: large; font-weight: 500">View Metrics</span></p>
-1. In your Wavefront instance, go to the AWS integration.
+
+1. In your product instance, navigate to the AWS integration.
 1. Click the **Metrics** tab.
 
 You see charts with the metrics collected from your AWS account.
 
 Example:
-![Screenshot of the AWS metrics once the data starts to flow to Wavefront.](images/hello_tutorial_aws_metrics.png)
-{% include note.html content="You see **No Data** if Tanzu Observability can't find any metrics to match the queries in the chart." %}
+![Screenshot of the AWS metrics once the data starts to flow.](images/hello_tutorial_aws_metrics.png)
+{% include note.html content="You see **No Data** if we can't find any metrics to match the queries in the chart." %}
 
 <br/>
 <p><span style="font-size: large; font-weight: 500">View Data on Dashboards</span></p>
-Tanzu Observability includes system dashboards for the AWS integration that help you analyze and gather data.
+
+Our service includes system dashboards for the AWS integration that help you analyze and gather data.
 1. To see the list of the system dashboards, click the **Dashboards** tab.
-    ![Screenshot of all the predefined dashboards available for Wavefront.](images/hello_tutorial_aws_dahsboards.png)
-1. Click **AWS: Summary**. From the Summary dashboard, you can easily navigate to all other AWS dashboards.
+    ![Screenshot of all the predefined dashboards available.](images/hello_tutorial_aws_dahsboards.png)
+1. Click **AWS: Summary**. From the **Summary** dashboard, you can easily navigate to all other AWS dashboards.
     {% include note.html content="You need to configure your AWS account preferences to send billing metrics. See [Configuring CloudWatch Billing Metrics](integrations_aws_metrics.html#configuring-cloudwatch-billing-metrics)." %}
     ![Screenshot of the predefined AWS summary dashboard](images/hello_tutorial_aws_summary_dashboard.png)
 
@@ -172,16 +175,17 @@ Many integrations have preconfigured alerts for common use cases. All you have t
 <tbody>
 <tr>
 <td width="50%" markdown="span">
-1. Navigate to the **Integrations** page.
+1. Navigate to the <strong>Integrations</strong> page.
 <br/>
 <br/>
 2. Click the integration that you want to use.
-   A configured integration has a green tick in the top right.
+<br/>
+<br/>A configured integration has a green tick in the top right.
 </td>
 <td width="50%" markdown="span">![Screenshot of several integrations, icon with green tick in top right](images/featured_integrations.png) </td></tr>
 <tr>
 <td width="50%">
-3. On the <strong>Alerts</strong> tab, click <strong>Install All</strong>. Here's an example screenshot from the AWS integration. Not all integrations have preconfigured alerts.
+3. On the <strong>Alerts</strong> tab, click <strong>Install All</strong>. <p>Here's an example screenshot from the AWS integration. Not all integrations have preconfigured alerts.</p>
 <br/><br/>
 You can now edit the alert directly, but we recommend that you clone the alert so you don't lose your changes in case you reinstall the alerts.
 </td>
@@ -194,7 +198,7 @@ You can now edit the alert directly, but we recommend that you clone the alert s
 <td width="50%" markdown="span">![Screenshot of the Alerts Browser, where we've searched for the ECS instance CPU usage too high alert](images/clone_aws_alert.png) </td></tr>
 <tr>
 <td width="50%" >
-5. Customize the thresholds. For example, you can set up the alert to be SEVERE when 97% of CPU utilization is reached.
+5. Customize the thresholds. <p>For example, you can set up the alert to be SEVERE when 97% of CPU utilization is reached.</p>
 6. Scroll down to the <strong>Recipients</strong> section. For the lowest severity level that you want notification for:<br/>
 &nbsp;&nbsp; a. Click the plus (+) icon.<br/>
 &nbsp;&nbsp; b. Enter your email address.<br/>
@@ -232,7 +236,7 @@ Our Success Value Engineering team shared some frequently asked questions -- and
 * How do I manage my account (permissions, preferences, etc.)? See [Customize Your Account](users_account_managing.html).
 * How can admins add other users? See [Manage User Accounts](user-accounts.html).
 * How do admins set up SSO? See [Single-Tenant Authentication and Self-Service SAML SSO](auth_self_service_sso.html)
-* How do I track usage? See [Monitor Your Wavefront Service with the Wavefront Usage Integration](wavefront_monitoring.html).
+* How do I track usage? See [Monitor Your Service with the Operations for Applications Usage Integration](wavefront_monitoring.html).
 * Why did my alert (not) fire? See [Why Did My Alert Not Fire?](alerts_faq.html#why-did-my-alert-not-fire) and [Why Did My Alert Misfire](alerts_faq.html#why-did-my-alert-misfire).
 * How do I contact support? Start with [the gear icon menu](wavefront_support_feedback.html#support). See [How Do I Engage with Technical Support](https://help.wavefront.com/hc/en-us/articles/360057219171-How-to-Engage-Technical-Support) for details on severity levels, SLAs, and so on.
-* Do you have videos? Yes! We have a [Tanzu Observability channel on VMware TV](https://vmwaretv.vmware.com/channel/Tanzu%2BObservability/252649793)!
+* Do you have videos? Yes! We have a [video channel on VMware TV](https://vmwaretv.vmware.com/channel/Tanzu%2BObservability/252649793)!

@@ -7,16 +7,16 @@ permalink: users_roles.html
 summary: Manage global permissions with roles.
 ---
 
-Tanzu Observability by Wavefront supports roles to fine-tune authorization in the Wavefront environment.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports roles to fine-tune authorization in the Wavefront environment.
 
 Users with the **Accounts** permission can:
 1. Create one or more **roles** and assign one or more [permissions](permissions_overview.html) to each role.
 2. Create one or more **groups** and add one or more accounts to each group. Accounts can be user accounts or service accounts.
 3. Assign one or more roles to each group. It's also possible to assign a role to individual users.
 
-In addition to the global roles and permissions model, Tanzu Observability also supports [access control for individual objects](access.html), for example, users with the **Accounts** permission can limit access to a sensitive dashboard.
+In addition to the global roles and permissions model, Operations for Applications also supports [access control for individual objects](access.html), for example, users with the **Accounts** permission can limit access to a sensitive dashboard.
 
-{% include note.html content="You must have the **Accounts** permission to view and manage authorization in your Wavefront environment. If you don't have the permission, the corresponding UI menu selections, buttons, and links are not visible." %}
+{% include note.html content="You must have the **Accounts** permission to view and manage authorization in your Operations for Applications environment. If you don't have the permission, the corresponding UI menu selections, buttons, and links are not visible." %}
 
 
 ## Manage Roles and Permissions
@@ -34,7 +34,7 @@ All users with **Accounts** permission can create roles.
 <tr>
 <td width="50%">
 To create a role:
-<ol><li>Log in to your Wavefront instance.</li>
+<ol><li>Log in to your service instance (<code>https://&lt;your_instance&gt;.wavefront.com</code>).</li>
 <li>Click the gear icon on the toolbar and select <strong>Accounts</strong>.</li>
 <li>On the <strong>Roles</strong> tab, click <strong>Create Role</strong>.</li>
 <li>Specify a name, an optional description, and one or more permissions for that role.</li>
@@ -56,7 +56,7 @@ All users with **Accounts** permission can create groups and add members and rol
 <tr>
 <td width="50%">
 To create a group:
-<ol><li>Log in to your Wavefront instance.</li>
+<ol><li>Log in to your service instance (<code>https://&lt;your_instance&gt;.wavefront.com</code>).</li>
 <li>Click the gear icon on the toolbar and select <strong>Accounts</strong>.</li>
 <li>On the <strong>Groups</strong> tab, click <strong>Create Group</strong>.</li>
 <li>Specify a name and, optionally, a description.</li>
@@ -78,7 +78,7 @@ Users with **Accounts** permission can assign roles to a group when they create 
 <tr>
 <td width="50%">
 To assign a role to a group:
-<ol><li>Log in to your Wavefront instance.</li>
+<ol><li>Log in to your service instance (<code>https://&lt;your_instance&gt;.wavefront.com</code>).</li>
 <li>Click the gear icon on the toolbar and select <strong>Accounts</strong>.</li>
 <li>On the <strong>Groups</strong> tab, change role assignment in one of these ways: </li>
 <ul><li>Select the group check box, click <strong>+Role</strong> or <strong>-Role</strong>, and select a role to change role assignment (not shown on  the right).</li>

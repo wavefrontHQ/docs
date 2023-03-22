@@ -2,7 +2,7 @@
 title: IIS Integration
 tags: [integrations list]
 permalink: iis.html
-summary: Learn about the Wavefront IIS Integration.
+summary: Learn about the IIS Integration.
 ---
 ## IIS Integration
 

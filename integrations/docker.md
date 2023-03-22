@@ -2,7 +2,7 @@
 title: Docker with cAdvisor Integration
 tags: [integrations list]
 permalink: docker.html
-summary: Learn about the Wavefront Docker with cAdvisor Integration.
+summary: Learn about the Docker with cAdvisor Integration.
 ---
 ## Docker Integration
 

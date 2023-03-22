@@ -2,7 +2,7 @@
 title: Python Integration
 tags: [integrations list]
 permalink: python.html
-summary: Learn about the Wavefront Python Integration.
+summary: Learn about the Python Integration.
 ---
 # Python Integration
 

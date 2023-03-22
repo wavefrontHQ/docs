@@ -1,22 +1,22 @@
 ---
-title: VMware vRealize Log Insight Cloud Integration
+title: VMware Aria Operations for Logs Integration
 tags: [integrations list]
 permalink: log-insight-cloud.html
-summary: Learn about the Wavefront VMware vRealize Log Insight Cloud Integration.
+summary: Learn about the VMware Aria Operations for Logs Integration.
 ---
-## VMware vRealize Log Insight Cloud
+## VMware Aria Operations for Logs
 
-VMware vRealize Log Insight Cloud (formerly known as VMware Log Intelligence) provides visibility across public and private cloud environments including AWS. vRealize Log Insight Cloud features robust log aggregation and sophisticated analytics that enable you to determine root causes for an issue quickly and thoroughly. 
+VMware Aria Operations for Logs (formerly known as VMware vRealize Log Insight Cloud) provides visibility across public and private cloud environments including AWS. VMware Aria Operations for Logs features robust log aggregation and sophisticated analytics that enable you to determine root causes for an issue quickly and thoroughly. 
 
-This integration provides steps to create a configuration to extract metrics from logs and post these metrics to Wavefront.
+This integration provides steps to create a configuration to extract metrics from logs and post these metrics to VMware Aria Operations for Applications.
 
 ## Setup
 
-Follow the Setup steps to configure metric extraction from logs in VMware vRealize Log Insight Cloud and push those metrics to Wavefront.
+Follow the Setup steps to configure metric extraction from logs in VMware Aria Operations for Logs and push those metrics to VMware Aria Operations for Applications.
 
 ### Configure Metric Extraction
 
-1. Log in to vRealize Log Insight Cloud as admin user.
+1. Log in to VMware Aria Operations for Logs as an admin user.
 2. Click the two arrows icon in the upper-left corner of the screen to expand the main menu.
 3. Click **Explore Logs**.
 4. Enter a query and click **Search**.

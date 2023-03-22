@@ -13,21 +13,21 @@ Point tags are key-value pairs (strings) that are associated with a point. Point
 
 ## Point Tag Basics
 
-Point tags offer a powerful way of labeling data so that you can slice and dice it in almost any way you can imagine. For example, you can use point tags to label a point's datacenter, version, etc., and can then group by datacenter or version.
+Point tags offer a powerful way of labeling data so that you can slice and dice it in almost any way you can imagine. For example, you can use point tags to label a point's data center, version, etc., and can then group by data center or version.
 
 Many of our cloud integrations generate point tags automatically to help you filter metrics. You add point tags explicitly using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html).
 
 
 ### Point Tag Maximum
 
-Tanzu Observability by Wavefront supports up 20 point tags per time series. A larger number of point tags does not improve the user experience and can lead to performance problems.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront)  supports up 20 point tags per time series. A larger number of point tags does not improve the user experience and can lead to performance problems.
 
 {% include note.html content="If the number of point tags exceeds 20, then we drop the metrics that have those point tags." %}
 
 
 ### Point Tag Example
 
-Our ~sample metrics, included in each Wavefront instance, have two point tags, `env` and `az`. Each point tag has two values, and you can filter to show one or the other set of time series. Below, the time series with `env=dev` are shown in shades of blue, and the time series with `env=production` are shown in shades of green.
+Our `~sample` metrics, included in each product instance, have two point tags, `env` and `az`. Each point tag has two values, and you can filter to show one or the other set of time series. Below, the time series with `env=dev` are shown in shades of blue, and the time series with `env=production` are shown in shades of green.
 
 ![time series organized by point tag](images/point_tags_simple.png)
 

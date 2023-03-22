@@ -4,7 +4,7 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_aws_ecs.html
-summary: Send AWS ECS data to Tanzu Observability by Wavefront using Telegraf agent or AWS Fargate.
+summary: Send AWS ECS data to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) using Telegraf agent or AWS Fargate.
 ---
 [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/) is Amazon's Docker container orchestration system. From the Amazon ECS website:
 
@@ -12,7 +12,7 @@ summary: Send AWS ECS data to Tanzu Observability by Wavefront using Telegraf ag
 Amazon Elastic Container Service (ECS) is a highly scalable, high-performance container orchestration service that supports Docker containers and allows you to easily run and scale containerized applications on AWS. Amazon ECS eliminates the need for you to install and operate your own container orchestration software, manage and scale a cluster of virtual machines, or schedule containers on those virtual machines.
 ```
 
-Tanzu Observability by Wavefront supports an Amazon Web Services [built-in integration](amazon_ecs.html) that allows us to collect useful high-level metrics about ECS using the AWS CloudWatch API, but that's only part of your setup.
+We support an Amazon Web Services [built-in integration](amazon_ecs.html) that allows us to collect useful high-level metrics about ECS using the AWS CloudWatch API, but that's only part of your setup.
 
 ## Overview
 
@@ -36,11 +36,11 @@ Set up the [AWS integration](integrations_aws_metrics.html). This allows us to c
 
 **Note:** To ensure that dashboards display correctly, use only the default EC2 instance name for the ECS cluster.
 
-## Create AWS ECS Fargate Task Definition for Tanzu Observability
+## Create AWS ECS Fargate Task Definition for VMware Aria Operations for Applications
 
-You can set up Tanzu Observability to collect the data from AWS Fargate containers. These steps create an ECS task definition that ensures the Wavefront Collector automatically runs on each Fargate instance in your ECS cluster.
+You can set up VMware Aria Operations for Applications to collect the data from AWS Fargate containers. These steps create an ECS task definition that ensures the VMware Aria Operations for Applications Collector automatically runs on each Fargate instance in your ECS cluster.
 
-After you've performed the setup, you can view and examine the data in our AWS Fargate dashboard in your Wavefront instance. See the screenshot at the bottom of this page.
+After you've performed the setup, you can view and examine the data in our AWS Fargate dashboard in your product instance. See the screenshot at the bottom of this page.
 
 1. Within AWS Services, navigate to **ECS**.
 1. Click **Task Definitions**, then **Create new Task Definition**.
@@ -95,7 +95,7 @@ After you've performed the setup, you can view and examine the data in our AWS F
   }
    
    ```
-1. In the JSON form, set the `storage_driver_wf_proxy_host` property to the proxy address. If you want to use a custom port, set the `storage_driver_wf_metric_port` to the port number of your Wavefront instance and click **Save**.
+1. In the JSON form, set the `storage_driver_wf_proxy_host` property to the proxy address. If you want to use a custom port, set the `storage_driver_wf_metric_port` to the port number of your product instance and click **Save**.
 1. Click **Create** at the bottom of the Task Definition form.
 2. After the task is created, click **View Task Definition**, select **Actions > Run Task** and specify the task information. Most fields are self-evident, here are a few.
   * **Cluster**--Select the cluster on which your task has to run.
@@ -107,11 +107,11 @@ After you've performed the setup, you can view and examine the data in our AWS F
 9. Click **Run Task**.
 
 
-## Create an AWS ECS EC2 Task Definition for Tanzu Observability
+## Create an AWS ECS EC2 Task Definition for VMware Aria Operations for Applications
 
-A Telegraf (telegraf-ecs) image enables Tanzu Observability to monitor Amazon ECS service. The Telegraf container must run in the same Task as the workload it is inspecting. Below are the steps to create an example ECS task definition and run the Telegraf container along with other containers in the task.  In the Telegraf container, the ECS input plugin is enabled to gather stats on running containers in a Task and the Wavefront output plugin is enabled to send ECS metrics to Tanzu Observability.
+A Telegraf (telegraf-ecs) image enables VMware Aria Operations for Applications to monitor Amazon ECS service. The Telegraf container must run in the same Task as the workload it is inspecting. Below are the steps to create an example ECS task definition and run the Telegraf container along with other containers in the task.  In the Telegraf container, the ECS input plugin is enabled to gather stats on running containers in a Task and the output plugin is enabled to send ECS metrics to VMware Aria Operations for Applications.
 
-After you perform the setup, you can view and examine the data in the AWS ECS dashboard of your Wavefront instance. The screenshots at the bottom of this page show the AWS ECS dashboard.
+After you perform the setup, you can view and examine the data in the AWS ECS dashboard of your product instance. The screenshots at the bottom of this page show the AWS ECS dashboard.
 
 1. Within AWS Services, navigate to **Elastic Container Service (ECS)**.
 1. Click **Task Definitions**, then click **Create new Task Definition**.

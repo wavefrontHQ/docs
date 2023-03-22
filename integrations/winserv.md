@@ -2,7 +2,7 @@
 title: Windows Service Integration
 tags: [integrations list]
 permalink: winserv.html
-summary: Learn about the Wavefront Windows Service Integration.
+summary: Learn about the Windows Service Integration.
 ---
 ## Windows Services
 

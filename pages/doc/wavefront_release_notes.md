@@ -4,14 +4,25 @@ keywords:
 tags:
 sidebar: doc_sidebar
 permalink: wavefront_release_notes.html
-summary: Announcements and new and updated features in Tanzu Observability by Wavefront.
+summary: Announcements and new and updated features in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
 ---
 
-This page lists new and updated features for the Tanzu Observability by Wavefront service.
+This page lists new and updated features for the VMware Aria Operations for Applications service.
 
 * For **Wavefront Proxy**, your go-to place is the [Wavefront proxy GitHub page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
-* For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/observability-for-kubernetes/releases).
+* For **Observability for Kubernetes**, go to the [release notes for Observability for Kubernetes GitHub repository](https://github.com/wavefrontHQ/observability-for-kubernetes/releases).
+
+## 2023-10.x Release Notes
+
+**Proxy Setup Instructions for Kubernetes in the UI**: When you [install a proxy from the UI](proxies_installing.html#install-a-proxy-from-the-ui), you can now click the **Kubernetes** tab to copy the proxy configurations and the deployment command.
+
+![A screenshot of the Kubernetes tab on the Add a Proxy page](/images/add_K8_proxy.png)
+
+
+## 2023-09.x Release Notes
+
+**Analyze Your Queries**: With this release you can use the Query Analyzer and [analyze your queries and their subqueries](query_language_performance.html#use-the-query-analyzer). When you expect to see certain data in Operations for Applications, but it doesn’t show up for some reason, charts display a **No Data** message. When you see this message on a chart, use the Query Analyzer to analyze and troubleshoot your queries and subqueries. 
 
 ## 2023-08.x Release Notes
 

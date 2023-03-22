@@ -1,5 +1,5 @@
 ---
-title: Wavefront and Data Videos
+title: Data Videos
 keywords: videos
 tags: [videos]
 sidebar: doc_sidebar
@@ -8,14 +8,16 @@ published: false
 summary: Watch videos related to data including integrations, tagging data, and histograms.
 ---
 
-Learn about getting data into Wavefront and get background info on time series and interpolation. You can also watch Clement talk about histograms and learn about tagging.
+Learn about getting data into VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) and get background info on time series and interpolation. You can also watch Clement talk about histograms and learn about tagging.
+
+Note that in most of the videos we still refer to VMware Aria Operations for Applications as Tanzu Observability or Wavefront.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="30%"><strong><font color="#0091DA" size="3">Getting Data Into Wavefront</font></strong><br><br/>
+<td width="30%"><strong><font color="#0091DA" size="3">Getting Data In</font></strong><br><br/>
 <iframe id="kmsembed-1_nc4kmszz" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_nc4kmszz/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="Getting Data Into Wavefront"></iframe></td>
-<td width="70%"><br><p>Wavefront gives observability into your cloud environment and packaged applications. To get data into Wavefront, use an integration with preconfigured dashboards or one of the Wavefront SDKs. Send data from several sources to a Wavefront proxy or use direct ingestion. Finally, add dashboards, charts, and alerts to monitor exactly what you need.</p> </td>
+<td width="70%"><br><p>VMware Aria Operations for Applications gives observability into your cloud environment and packaged applications. To get data in, use an integration with preconfigured dashboards or one of our SDKs. Send data from several sources to a Wavefront proxy or use direct ingestion. Finally, add dashboards, charts, and alerts to monitor exactly what you need.</p> </td>
 </tr>
 <tr>
 <td><strong><font color="#0091DA" size="3">Browsing Your Data</font></strong><br>
@@ -37,7 +39,7 @@ Learn about getting data into Wavefront and get background info on time series a
 <iframe id="kmsembed-1_afml14zm" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_afml14zm/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability: Time Series and Interpolation"></iframe>
 </td>
 <td><br>
-<p>Interpolation means that Wavefront creates pseudo data points if data are reported at different intervals. To support aggregation of multiple series--e.g. sum()--Wavefront . Wavefront performs automatic alignment data for very large intervals using mean(), but you can select the summarization function. The raw aggregation function includes only actual data points--no automatic interpolation is performed. </p>
+<p>Interpolation means that VMware Aria Operations for Applications creates pseudo data points if data are reported at different intervals. To support aggregation of multiple series - e.g. sum() - we perform automatic alignment data for very large intervals using mean(), but you can select the summarization function. The raw aggregation function includes only actual data points and no automatic interpolation is performed. </p>
 </td>
 </tr>
 <tr>
@@ -51,17 +53,17 @@ Learn about getting data into Wavefront and get background info on time series a
 </td>
 </tr>
 <tr>
-<td><strong><font color="#0091DA" size="3">Getting Windows Host Metrics Into Wavefront</font></strong><br>
+<td><strong><font color="#0091DA" size="3">Setting Up the Windows Host Integration</font></strong><br>
 <br>
 <iframe id="kmsembed-1_0bbze8os" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_0bbze8os/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Setting up a Windows integration"></iframe>
 </td>
 <td><br>
-<p>Watch this video to learn how to send metrics data from a Windows host machine to Wavefront by using the Wavefront proxy.</p>
+<p>Watch this video to learn how to send metrics data from a Windows host machine to VMware Aria Operations for Applications by using the Wavefront proxy.</p>
 <p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_0bbze8os" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
-<td><strong><font color="#0091DA" size="3">Tagging Your Data with Wavefront</font></strong><br><br/>
+<td><strong><font color="#0091DA" size="3">Tagging Your Data</font></strong><br><br/>
 <iframe id="kmsembed-1_3igakxnb" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_3igakxnb/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="Tanzu Observability: Tagging Data"></iframe>
 </td>
 <td><br>
@@ -69,10 +71,10 @@ Learn about getting data into Wavefront and get background info on time series a
 </td>
 </tr>
 <tr>
-<td><strong><font color="#0091DA" size="3">Wavefront Histograms</font></strong><br><br/>
+<td><strong><font color="#0091DA" size="3">Histograms</font></strong><br><br/>
 <iframe id="kmsembed-1_om7poavj" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_om7poavj/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability: Histograms"></iframe>
 </td>
-<td><br><p>Clement explains how Wavefront histograms can help you observe measurements that happen at a high frequency. You learn how Wavefront organizes these high frequency metrics into bins, and how you can use the query language to work with the resulting histograms.  </p> </td>
+<td><br><p>Clement explains how Wavefront histograms can help you observe measurements that happen at a high frequency. You learn how we organize these high frequency metrics into bins, and how you can use the query language to work with the resulting histograms.  </p> </td>
 </tr>
 <tr>
 <td><strong><font color="#0091DA" size="3">Cumulative Counters and Delta Counters</font></strong><br>
@@ -80,7 +82,7 @@ Learn about getting data into Wavefront and get background info on time series a
 <iframe id="kmsembed-1_khsugqea" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_khsugqea/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="delta counters video, part animation, part screen capture"></iframe>
 </td>
 <td><br>
-<p>Learn the difference between cumulative counters and delta counters and see how to manage delta counters from the UI.</p>
+<p>Learn the difference between cumulative counters and delta counters and see how to manage delta counters from the GUI.</p>
 <p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_khsugqea" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>

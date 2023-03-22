@@ -1,13 +1,13 @@
 ---
-title: Send Logs to Tanzu Observability (Beta)
+title: Send Logs (Beta)
 keywords: data, logs
 tags: [getting started, logs]
 sidebar: doc_sidebar
 permalink: logging_send_logs.html
-summary: Learn about sending logs to Tanzu Observability.
+summary: Learn about sending logs to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
 ---
 
-{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative or [technical support](wavefront_support_feedback.html#support)."%}
+{% include important.html content="Logs (Beta) is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
 You can send logs to the Wavefront proxy from your log shipper or directly from your application. The Wavefront proxy sends the log data to our service.
 
@@ -47,7 +47,7 @@ value: "false"</code>
 
 To install and configure a new proxy:
 
-1. Log in to your Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) and select **Browse** > **Proxies**.
+1. Select **Browse** > **Proxies**.
 1. Click **Add new proxy** and follow the instructions on the screen.
 1. Edit the `wavefront.conf` file to open the `pushListenerPorts` to receive logs from the log shipper.
     <br/>For example:
@@ -64,7 +64,7 @@ To install and configure a new proxy:
 You can monitor your Kubernetes clusters or Linux hosts using our built-in integrations and send logs to our system.
 
 * [Linux host integration](linux.html): Install the Wavefront proxy and configure the log shipper.
-* [Kubernetes integration](kubernetes.html#kubernetes-quick-install-using-the-kubernetes-operator): Enable logs in the integration, generate the script, and run it on your Kubernetes cluster. 
+* [Kubernetes integration](kubernetes.html#kubernetes-quick-install-using-the-kubernetes-operator): Enable logs while you set up the integration, generate the script, and run it on your Kubernetes cluster. 
   {% include note.html content="Logs (Beta) is not supported when you use OpenShift." %}
 
 ## Option 2: Configure A Log Shipper
@@ -75,7 +75,7 @@ If you want to use a different log shipper, contact [technical support](https://
 
 **Prerequisite**:
 
-Add the VMware domain (`*.vmware.com`) to the allowlist in your environment. Because Tanzu Observability uses a VMware log cluster, you need to add the VMware domain to your allowlist to send log data successfully. If you want to narrow down the domain, contact your Tanzu Observability account representative.
+Add the VMware domain (`*.vmware.com`) to the allowlist in your environment. Because our service uses a VMware log cluster, you need to add the VMware domain to your allow list to send log data successfully. If you want to narrow down the domain, contact your account representative.
 
 Configure your log shipper:
   1. Install the log shipper. For example, [install Fluentd](https://docs.fluentd.org/installation) or [install Fluent Bit](https://docs.fluentbit.io/manual/installation/getting-started-with-fluent-bit).
