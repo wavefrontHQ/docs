@@ -17,7 +17,7 @@ Users with dashboard permission can customize many aspects of the chart and save
 
 ## Data Tab (All Charts)
 
-For each chart (with the exception of a Markdown chart) you specify one or more queries.
+For each chart (with the exception of a Markdown and Logs Table chart) you specify one or more queries.
 
 When you click **Data**, you can:
 * View queries for the chart and add lines.
@@ -1862,6 +1862,60 @@ Chart description which shows up as hover text when users move the mouse over th
 </table>
 
 
+## Logs Table
+
+![logs table chart](images/logs_table_chart.png)
+
+The logs chart lists the logs sent to the service. Use one or more filters to filter the logs, and save the chart to see the data you want. If you want to customize the query data once the chart is saved and drill into logs, use the [Logs Browser](logging_log_browser.html).
+
+
+<a id="logs_table_format_tab">
+<p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+  <td>
+    Sort by Timestamp
+  </td>
+  <td markdown="span">
+    By default, you see the latest logs on the top of the table (**Descending**). If you want to see the oldest logs, select **Ascending**.
+  </td>
+</tr>
+<tr>
+  <td>
+    Number of Message Lines
+  </td>
+  <td>
+    Select the number of log lines you want to see in the Message column to get a better preview of the log message.
+  </td>
+</tr>
+<tr>
+  <td>
+    Columns to Show in Table
+  </td>
+  <td markdown="span">
+    Each log has required attributes, standard attributes, and custom tags. We tokenize the values of these attributes and tags so that you can filter and search logs. For more details, see [Log Attributes](logging_overview.html#log-attributes). Select the tags you want to see the values in a new column.
+  </td>
+</tr>
+</tbody>
+</table>
+
+<a id="logs_table_description_tab">
+<p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+Chart description which shows up as hover text when users move the mouse over the chart name.</td>
+<td width="40%"><img src="/images/logging_logs_table_chart_description.png" alt="description of chart"/></td>
+</tr>
+</tbody>
+</table>
 
 
 
