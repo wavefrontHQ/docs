@@ -55,7 +55,7 @@ VMware Aria Operations for Applications (formerly known as Tanzu Observability b
 The setup process varies based on the distribution type that you choose to monitor. 
 
 
-1. Log in to your product cluster: https://<your_cluster>.wavefront.com.
+1. Log in to your product cluster: https://<code>your_cluster.wavefront.com</code>.
 2. Click **Integrations** on the toolbar.
 3. In the **Featured** section, click the **Kubernetes** tile.
 4. Click **Add Integration**.
@@ -70,8 +70,8 @@ The setup process varies based on the distribution type that you choose to monit
 1. Choose whether you want to enable or disable **Metrics**. By default, the **Metrics** option is enabled.
 1. Choose whether you want to use an **HTTP Proxy**. 
    If you enable HTTP proxy, to allow outbound traffic, you must add these URLs to your proxy rules:
-    * **Logs (Beta)**: https://data.mgmt.cloud.vmware.com
-    * **Metrics**: https://<your_cluster>.wavefront.com/
+    * **Logs (Beta)**: <code>https://data.mgmt.cloud.vmware.com</code>
+    * **Metrics**: <code>https://your_cluster.wavefront.com/</code>
       
    In addition, you must also configure the HTTP proxy settings, such as: 
   
@@ -184,37 +184,37 @@ Our Collector supports monitoring of OpenShift clusters:
     
 * To monitor OpenShift Origin 3.9, follow the steps in [Installation and Configuration on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/main/docs/openshift.md).
     
-* To monitor OpenShift Enterprise 3.11, follow the steps in [Installation and Configuration of the Collector Operator on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/main/docs/openshift-operator.md).
+* To monitor OpenShift Enterprise 3.11, follow the steps in [Installation and Configuration of the Operator on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/main/docs/openshift-operator.md).
 
 ### Kubernetes Quick Install Using Helm
 
-**Note**: We will deprecate the Helm or manually-installed Kubernetes Metrics Collector and Wavefront proxy in 2023. Our new Kubernetes Operator replaces the Helm or manually installed Kubernetes Metrics Collector and Wavefront proxy for all Kubernetes Distributions except for OpenShift Container Platform. For more information, see [Obsolescence and Remediation](https://docs.wavefront.com/wavefront_obsolescence_policy.html#kubernetes-integration).
+**Note**: We will deprecate the Helm or manually-installed Kubernetes Metrics Collector and Wavefront proxy in 2023. Our new Observability for Kubernetes Operator replaces the Helm or manually installed Kubernetes Metrics Collector and Wavefront proxy for all Kubernetes Distributions except for OpenShift Container Platform. For more information, see [Obsolescence and Remediation](https://docs.wavefront.com/wavefront_obsolescence_policy.html#kubernetes-integration).
 
-1. Ensure that you have installed [helm](https://helm.sh/docs/intro/).
-2. Add the Wavefront helm repo:
+1. Ensure that you have installed [Helm](https://helm.sh/docs/intro/).
+2. Add the Wavefront Helm repo:
 ```
 helm repo add wavefront https://wavefronthq.github.io/helm/
 helm repo update
 ```
 3. To deploy the Collector and Wavefront Proxy:
 
-    Using helm 2:
+    Using Helm 2:
     ```
     helm install wavefront/wavefront --name wavefront --set wavefront.url=https://YOUR_CLUSTER.wavefront.com --set wavefront.token=YOUR_API_TOKEN --set clusterName=<YOUR_CLUSTER_NAME> --namespace wavefront
     ```
-    Using helm 3:
+    Using Helm 3:
     ```
     kubectl create namespace wavefront
     helm install wavefront wavefront/wavefront --set wavefront.url=https://YOUR_CLUSTER.wavefront.com --set wavefront.token=YOUR_API_TOKEN --set clusterName=<YOUR_CLUSTER_NAME> --namespace wavefront
     ```
 
-**Note:** The `clusterName` property refers to the Kubernetes cluster, for example, `dev-cluster`. You must set this property. For vSphere Tanzu, add `--set vspheretanzu.enabled=true` along with helm install command.
+**Note:** The `clusterName` property refers to the Kubernetes cluster, for example, `dev-cluster`. You must set this property. For vSphere Tanzu, add `--set vspheretanzu.enabled=true` along with Helm install command.
 
-Refer to our [helm chart](https://github.com/wavefrontHQ/helm/tree/master/wavefront) for further options.
+Refer to our [Helm chart](https://github.com/wavefrontHQ/helm/tree/master/wavefront) for further options.
 
 ### Kubernetes Manual Install
 
-**Note**: We will deprecate the Helm or manually-installed Kubernetes Metrics Collector and Wavefront proxy in 2023. Our new Kubernetes Operator replaces the Helm or manually installed Kubernetes Metrics Collector and Wavefront proxy for all Kubernetes Distributions except for OpenShift Container Platform. For more information, see [Obsolescence and Remediation](https://docs.wavefront.com/wavefront_obsolescence_policy.html#kubernetes-integration).
+**Note**: We will deprecate the Helm or manually-installed Kubernetes Metrics Collector and Wavefront proxy in 2023. Our new Observability for Kubernetes Operator replaces the Helm or manually installed Kubernetes Metrics Collector and Wavefront proxy for all Kubernetes Distributions except for OpenShift Container Platform. For more information, see [Obsolescence and Remediation](https://docs.wavefront.com/wavefront_obsolescence_policy.html#kubernetes-integration).
 
 Follow the instructions below to manually set up Kubernetes monitoring. For more details about the available options, see the [Collector for Kubernetes Configuration](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/configuration.md).
 
@@ -237,8 +237,7 @@ The Wavefront proxy and a `wavefront-proxy` service should now be running in Kub
   * [4-collector-config.yaml](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/collector/deploy/kubernetes/4-collector-config.yaml)
   * [5-collector-daemonset.yaml](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/collector/deploy/kubernetes/5-collector-daemonset.yaml)
 
-  **Note**: Download the following file only for vSphere Tanzu environment.
-  * [0-vsphere-tanzu-rolebinding.yaml](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/collector/deploy/vsphere-tanzu/0-vsphere-tanzu-rolebinding.yaml)
+     **Note**: Download the following file only for vSphere Tanzu environment: [0-vsphere-tanzu-rolebinding.yaml](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/collector/deploy/vsphere-tanzu/0-vsphere-tanzu-rolebinding.yaml)
 
 2. Edit `4-collector-config.yaml` and replace `clusterName: k8s-cluster` with the name of your Kubernetes cluster.
 
