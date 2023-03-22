@@ -123,4 +123,4 @@ There are requirements when using the `hw()` function:
 
 ## See Also
 
-See [Expanding Wavefront Predictive Analytics - See the Future with Holt-Winters Algorithm](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/expanding-wavefront-predictive-analytics-see-the-future-with-holt-winters-algorithm) for in-depth discussion of an example.
+See [this blog article](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/expanding-wavefront-predictive-analytics-see-the-future-with-holt-winters-algorithm) for in-depth discussion of an example.

@@ -64,7 +64,7 @@ The following list gives an overview of permissions. To learn more, click the li
 
 - **[Ingestion Policies](ingestion_policies.html)**
     
-    Users with the Ingestion Policies permission can create, edit, and delete ingestion policies.
+    Users with the **Ingestion Policies** permission can create, edit, and delete ingestion policies.
     
 - **[Integrations](integrations.html)**
 
