@@ -33,7 +33,7 @@ feedback_subject_line: VMware Aria Operations for Applications Documentation
 
 plugins_dir:
   - jekyll-sitemap
-  - jekyll-extlinks
+  - jekyll-target-blank
   - algoliasearch-jekyll
   
 extlinks:
