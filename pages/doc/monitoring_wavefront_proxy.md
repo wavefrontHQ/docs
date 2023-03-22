@@ -9,9 +9,9 @@ VMware Aria Operations for Applications (formerly known as Tanzu Observability b
 * With the Proxies Browser, you can explore a detailed list of all your proxies.
 * With the out-of-the-box dashboards that are based on [proxy internal metrics](#proxy-internal-metrics), you can examine the health and the usage of your proxies.
 
-{% include note.html content="To access the Proxies Browser and the individual proxy dashboards, you must have the [**Proxies** permission](permissions_overview.html). If you don't have the **Proxies** permission, you can access only the [**Operations for Applications Service and Proxy Data** dashboard](#examine-the-proxies-health-and-usage-with-the-operations-for-applications-usage-integration) of the Operations for Applications Usage integration." %}
-
 ## Explore Your Proxies with the Proxies Browser
+
+{% include note.html content="To access the Proxies Browser, you must have the [**Proxies** permission](permissions_overview.html)." %}
 
 With the Proxies Browser, you can examine the status and the details of each proxy.
 
@@ -60,51 +60,72 @@ In addition, you can:
 * Search and, optionally, save and share your search. 
 * Filter the proxies by status.
 * Hide or show the filters.
-* Show **All** or [**Deleted**](proxies_installing.html#delete-a-proxy) proxies list. The **Deleted** proxies list shows the ephemeral proxies that were deleted during the last 24 hours and the non-ephemeral proxies that were deleted during the last 1 month.
+* Show **All** existing or [**Deleted**](proxies_installing.html#delete-a-proxy) proxies list. The **Deleted** proxies list shows the ephemeral proxies that were deleted during the last 24 hours and the non-ephemeral proxies that were deleted during the last 1 month.
 * Configure the proxies table columns.
-* Open the dashboard of a proxy by clicking the proxy name.
+* Open the dashboard and see the current configuration properties of a proxy by clicking the proxy name.
 * Go to the **Operations for Applications Service and Proxy Data** dashboard of the Operations for Applications Usage integration by clicking **Usage and Proxies Data Dashboard**.
 
-## Examine the Health and Usage of a Proxy with the Proxy Dashboard
+### Examine the Health and Usage of a Proxy with the Proxy Dashboard
+1. On the Proxies Browser page, click the name of the proxy you are interested in.
+2. On the **Overview** tab, examine the proxy dashboard, which contains charts based on [proxy internal metrics](#proxy-internal-metrics), organized in the following sections:
 
-On the Proxies Browser, click the name of a proxy to open its individual dashboard. The proxy dashboard contains charts based on [proxy internal metrics](#proxy-internal-metrics), organized in the following sections:
+    <table style="width: 100%;">
+    <tbody>
+    <thead>
+    <tr><th width="25%">Section</th><th width="75%">Description</th></tr>
+    </thead>
+    <tr>
+    <td><strong>Overview</strong></td>
+    <td>Shows the details of the proxy and charts about:
+    <ul>
+    <li>Proxy queue size per data type</li>
+    <li>Available space</li>
+    <li>Network latency</li>
+    <li>Latency by queueing and reasons for queueing</li>
+    </ul> </td></tr>
+    <tr>
+    <td><strong>Metrics</strong></td>
+    <td>Shows charts about the metric data points that are received, queued, and blocked by the proxy. </td>
+    </tr>
+    <tr>
+    <td><strong>Distributions (Histograms)</strong></td>
+    <td>Shows charts about the metric distributions that are received, queued, and blocked by the proxy.</td>
+    </tr>
+    <tr>
+    <td><strong>Traces (Spans)</strong></td>
+    <td>Shows charts about the traces that are received, queued, and blocked by the proxy.</td>
+    </tr>
+    <tr>
+    <td><strong>Logs</strong></td>
+    <td>Shows charts about the logs received, queued, blocked, and dropped by the proxy.</td>
+    </tr>
+    <tr>
+    <td><strong>Advanced</strong></td>
+    <td>Shows charts for troubleshooting the proxy, such as, the proxy memory heap, file descriptor usage, GC events, incoming HTTP requests, data lag, connections, network latency, time spent for the preprocessing rules, queue time, and rate limiter.</td>
+    </tr>
+    </tbody>
+    </table>
 
-<table style="width: 100%;">
-<tbody>
-<thead>
-<tr><th width="30%">Section</th><th width="70%">Description</th></tr>
-</thead>
-<tr>
-<td><strong>Overview</strong></td>
-<td>Shows the details of the proxy and charts about:
-<ul>
-<li>Proxy queue size per data type</li>
-<li>Available space</li>
-<li>Network latency</li>
-<li>Latency by queueing and reasons for queueing</li>
-</ul> </td></tr>
-<tr>
-<td><strong>Metrics</strong></td>
-<td>Shows charts about the metric data points that are received, queued, and blocked by the proxy. </td>
-</tr>
-<tr>
-<td><strong>Distributions (Histograms)</strong></td>
-<td>Shows charts about the metric distributions that are received, queued, and blocked by the proxy.</td>
-</tr>
-<tr>
-<td><strong>Traces (Spans)</strong></td>
-<td>Shows charts about the traces that are received, queued, and blocked by the proxy.</td>
-</tr>
-<tr>
-<td><strong>Logs</strong></td>
-<td>Shows charts about the logs received, queued, blocked, and dropped by the proxy.</td>
-</tr>
-<tr>
-<td><strong>Advanced</strong></td>
-<td>Shows charts for troubleshooting the proxy, such as, the proxy memory heap, file descriptor usage, GC events, incoming HTTP requests, data lag, connections, network latency, time spent for the preprocessing rules, queue time, and rate limiter.</td>
-</tr>
-</tbody>
-</table>
+### Examine the Proxy Configuration Properties
+
+{% include note.html content="The proxy configuration properties in the UI are supported for proxy versions 12.2 and later." %}
+
+1. On the Proxies Browser page, click the name of the proxy you are interested in.
+2. Click the **Proxy Configuration** tab and examine the current configuration properties of the proxy.
+
+![An annotated screenshot of the Configuration tab. The annotations are listed below.](images/proxies_configuration.png)
+
+The **Proxies Configuration** page lists the [proxy configuration properties](proxies_configuring.html#configuration-properties) with their values in the current `wavefront.conf` file.
+* The configuration properties are organized in sections by type. Each section comprises cards with properties.
+* Cards with the user icon contain at least one configuration property with a modified value (different from the default value).
+
+On this page, you can:
+* Perform a free-text search of the cards that contain property names by keyword.
+* Filter the cards by containing or not containing a modified property value.
+* Filter the cards by type.
+* Expand a card and examine the containing configuration properties with their values. Modified property values are in blue.
+* See a list of the configuration properties with modified values by clicking the code icon in the top-right corner.
+
 
 ## Examine the Proxies Health and Usage with the Operations for Applications Usage Integration
 
