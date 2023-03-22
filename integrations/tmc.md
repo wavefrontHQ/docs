@@ -70,8 +70,8 @@ The setup process varies based on the distribution type that you choose to monit
 1. Choose whether you want to enable or disable **Metrics**. By default, the **Metrics** option is enabled.
 1. Choose whether you want to use an **HTTP Proxy**. 
    If you enable HTTP proxy, to allow outbound traffic, you must add these URLs to your proxy rules:
-    * **Logs (Beta)**: https://data.mgmt.cloud.vmware.com
-    * **Metrics**: <code>https://<your_cluster>.wavefront.com/</code>
+    * **Logs (Beta)**: <code>https://data.mgmt.cloud.vmware.com</code>
+    * **Metrics**: <code>https://your_cluster.wavefront.com/</code>
       
    In addition, you must also configure the HTTP proxy settings, such as: 
   
@@ -237,8 +237,7 @@ The Wavefront proxy and a `wavefront-proxy` service should now be running in Kub
   * [4-collector-config.yaml](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/collector/deploy/kubernetes/4-collector-config.yaml)
   * [5-collector-daemonset.yaml](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/collector/deploy/kubernetes/5-collector-daemonset.yaml)
 
-  **Note**: Download the following file only for vSphere Tanzu environment.
-  * [0-vsphere-tanzu-rolebinding.yaml](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/collector/deploy/vsphere-tanzu/0-vsphere-tanzu-rolebinding.yaml)
+     **Note**: Download the following file only for vSphere Tanzu environment: [0-vsphere-tanzu-rolebinding.yaml](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/collector/deploy/vsphere-tanzu/0-vsphere-tanzu-rolebinding.yaml)
 
 2. Edit `4-collector-config.yaml` and replace `clusterName: k8s-cluster` with the name of your Kubernetes cluster.
 
