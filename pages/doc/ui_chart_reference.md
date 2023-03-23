@@ -17,7 +17,7 @@ Users with dashboard permission can customize many aspects of the chart and save
 
 ## Data Tab (All Charts)
 
-For each chart (with the exception of a Markdown chart) you specify one or more queries.
+For each chart (with the exception of a Markdown and Logs Table chart) you specify one or more queries.
 
 When you click **Data**, you can:
 * View queries for the chart and add lines.
@@ -1247,8 +1247,9 @@ Chart description which shows up as hover text when users move the mouse over th
 A **node map** chart shows colored 3-D cubes ordered from highest to lowest. Node maps show data based on source values.
 * By default, the node map displays the highest value on the top left to catch the user's eye.
 * When a user clicks a node, a small popup of the corresponding metric for that source results. You might have to modify the query to ensure that the query returns a source. In some cases, it's necessary to use `aliasSource()` to get the desired results.
-* Use [color mapping](ui_charts_faq.html#how-do-i-set-up-color-mapping) to determine colors for higher values. The node map uses shading to show transitions. In the example above, values below 0.3 are shown as green, values lower than 0.8 are shown as a shade of yellow.
-* Set the group and the metric to display in the top right or in the **Node Map Defaults** tab in the chart editor. When a group is selected, only the top 12 results are displayed.
+* Use [color mapping](ui_charts_faq.html#how-do-i-set-up-color-mapping) to determine colors for higher values. The node map uses shading to show transitions. In the example above, values below 0.1 are shown in yellow, values below 0.2 are shown as green, values between 0.2 and 0.4 are shown as a shade of brown.
+* Set the group and the metric to display in the top right or on the **Node Map Defaults** tab in the chart editor. 
+* Set the maximum number of node groups to display on the **Node Map Defaults** tab. The highest number is 35.
 * Specify a drilldown link to direct users to a different dashboard if they click on the dashboard.
 
 When you refresh a node map page, a short animation folds out the chart content.
@@ -1266,6 +1267,11 @@ The color mapping tab lets you define which set of values maps to which colors. 
 <thead>
 <tr><th width="20%">Option</th><th width="80%">Description</th></tr>
 </thead>
+<tr>
+<td>Max Node Group Count</td>
+<td>Specifies the maximum number of node groups to display. You can select 10, 15, 20, 25, 30, or 35 node groups to display on the chart. The default is 10. In the example above, the maximum number of node groups is set to 15 and 11 groups are displayed.
+</td>
+</tr>
 <tr>
 <td>Default Group by</td>
 <td>Specifies grouping.
@@ -1856,6 +1862,60 @@ Chart description which shows up as hover text when users move the mouse over th
 </table>
 
 
+## Logs Table
+
+![logs table chart](images/logs_table_chart.png)
+
+The logs chart lists the logs sent to the service. Use one or more filters to filter the logs, and save the chart to see the data you want. If you want to customize the query data once the chart is saved and drill into logs, use the [Logs Browser](logging_log_browser.html).
+
+
+<a id="logs_table_format_tab">
+<p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+  <td>
+    Sort by Timestamp
+  </td>
+  <td markdown="span">
+    By default, you see the latest logs on the top of the table (**Descending**). If you want to see the oldest logs, select **Ascending**.
+  </td>
+</tr>
+<tr>
+  <td>
+    Number of Message Lines
+  </td>
+  <td>
+    Select the number of log lines you want to see in the Message column to get a better preview of the log message.
+  </td>
+</tr>
+<tr>
+  <td>
+    Columns to Show in Table
+  </td>
+  <td markdown="span">
+    Each log has required attributes, standard attributes, and custom tags. We tokenize the values of these attributes and tags so that you can filter and search logs. For more details, see [Log Attributes](logging_overview.html#log-attributes). Select the tags you want to see the values in a new column.
+  </td>
+</tr>
+</tbody>
+</table>
+
+<a id="logs_table_description_tab">
+<p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+Chart description which shows up as hover text when users move the mouse over the chart name.</td>
+<td width="40%"><img src="/images/logging_logs_table_chart_description.png" alt="description of chart"/></td>
+</tr>
+</tbody>
+</table>
 
 
 

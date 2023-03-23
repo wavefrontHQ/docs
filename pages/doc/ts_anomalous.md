@@ -98,7 +98,7 @@ The orange line in the following chart suggests that the spikes in data ingestio
 
 ## Using the `anomalous()` Function in Alerts
 
-{% include note.html content="Queries with the `anomalous()` function are resource intensive and need to be used carefully. Otherwise, they can cause high loading on the Wavefront service." %}
+{% include note.html content="Queries with the `anomalous()` function are resource intensive and need to be used carefully. Otherwise, they can cause high loading on the service." %}
 
 ### History Size and Test Window Size
 

@@ -79,7 +79,7 @@ For example, here's the query for an alert that fires if the number of sample pr
 
 ## Alert on Wavefront Proxy
 
-The data from agents such as collectd, Telegraf, etc., are sent to the Wavefront proxy and the proxy pushes the data to the Wavefront Collector service. Make sure that the proxy checks in with the Wavefront service and that data is being pushed to the collector. You can set up the following alert to monitor the proxy:
+The data from agents such as collectd, Telegraf, etc., are sent to the Wavefront proxy and the proxy pushes the data to the Kubernetes Metrics Collector service. Make sure that the proxy checks in with the Wavefront service and that data is being pushed to the collector. You can set up the following alert to monitor the proxy:
 
 ```
 mcount(5m,sum(rate(ts(~proxy.check-in)), sources))=0 and mcount(1h, sum(rate(ts(~proxy.check-in)), sources)) !=0
