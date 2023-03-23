@@ -116,7 +116,7 @@ In addition, you can:
 ![An annotated screenshot of the Configuration tab. The annotations are listed below.](images/proxies_configuration.png)
 
 The **Proxies Configuration** page lists the [proxy configuration properties](proxies_configuring.html#configuration-properties) with their values in the current `wavefront.conf` file.
-* The configuration properties are organized in categories by type. The properties in each category are organized in cards as subcategories.
+* The configuration properties are organized in categories by type. The properties in each category are grouped in cards by subcategory.
 * Cards with the user icon contain at least one configuration property with a modified value (different from the default value).
 
 On this page, you can:
