@@ -128,6 +128,8 @@ You can log all the raw blocked data separately or log different entities into t
 
 This section gives details on the proxy configuration properties. All properties are also listed, in the [wavefront.conf.default file](https://github.com/wavefrontHQ/wavefront-proxy/blob/master/pkg/etc/wavefront/wavefront-proxy/wavefront.conf.default) on GitHub.
 
+For Wavefront proxy 12.2 and later, on the Proxies Browser, you can see the current configuration properties with their values. See [Examine the Proxy Configuration Properties](monitoring_proxies.html#examine-the-proxy-configuration-properties) for details.
+
 
 ### General Configuration Properties
 

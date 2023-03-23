@@ -116,14 +116,14 @@ In addition, you can:
 ![An annotated screenshot of the Configuration tab. The annotations are listed below.](images/proxies_configuration.png)
 
 The **Proxies Configuration** page lists the [proxy configuration properties](proxies_configuring.html#configuration-properties) with their values in the current `wavefront.conf` file.
-* The configuration properties are organized in sections by type. Each section comprises cards with properties.
+* The configuration properties are organized in sections by type. Each section comprises groups of properties as cards.
 * Cards with the user icon contain at least one configuration property with a modified value (different from the default value).
 
 On this page, you can:
-* Perform a free-text search of the cards that contain property names by keyword.
+* Perform a free-text search of the cards that contain given property names.
 * Filter the cards by containing or not containing a modified property value.
 * Filter the cards by type.
-* Expand a card and examine the containing configuration properties with their values. Modified property values are in blue.
+* Expand a card and examine the containing configuration properties with their values. Modified property values are in blue color.
 * See a list of the configuration properties with modified values by clicking the code icon in the top-right corner.
 
 
