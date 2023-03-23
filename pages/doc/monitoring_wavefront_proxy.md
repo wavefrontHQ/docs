@@ -108,7 +108,7 @@ In addition, you can:
 
 ### Examine the Proxy Configuration Properties
 
-{% include note.html content="The proxy configuration properties in the UI are supported for proxy versions 12.2 and later." %}
+{% include note.html content="This feature is supported for Wavefront proxy versions 12.2 and later." %}
 
 1. On the Proxies Browser page, click the name of the proxy you are interested in.
 2. Click the **Proxy Configuration** tab and examine the current configuration properties of the proxy.
@@ -116,7 +116,7 @@ In addition, you can:
 ![An annotated screenshot of the Configuration tab. The annotations are listed below.](images/proxies_configuration.png)
 
 The **Proxies Configuration** page lists the [proxy configuration properties](proxies_configuring.html#configuration-properties) with their values in the current `wavefront.conf` file.
-* The configuration properties are organized in sections by type. Each section comprises groups of properties as cards.
+* The configuration properties are organized in categories by type. The properties in each category are organized in cards as subcategories.
 * Cards with the user icon contain at least one configuration property with a modified value (different from the default value).
 
 On this page, you can:
