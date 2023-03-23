@@ -10,7 +10,7 @@ summary: Reference to the bestEffort() function
 ```
 bestEffort(<tsExpression>)
 ```
-Allows you to tell the Wavefront service to use conservative targets for scheduling workloads for a query.
+Allows you to tell our service to use conservative targets for scheduling workloads for a query.
 
 ## Parameters
 <table style="width: 100%;">
