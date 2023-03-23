@@ -9,11 +9,13 @@ VMware Aria Operations for Applications (formerly known as Tanzu Observability b
 * With the Proxies Browser, you can explore a detailed list of all your proxies.
 * With the out-of-the-box dashboards that are based on [proxy internal metrics](#proxy-internal-metrics), you can examine the health and the usage of your proxies.
 
-## Explore Your Proxies with the Proxies Browser
+## Examine Your Proxies with the Proxies Browser
 
 {% include note.html content="To access the Proxies Browser, you must have the [**Proxies** permission](permissions_overview.html)." %}
 
-With the Proxies Browser, you can examine the status and the details of each proxy.
+### Get Started wih the Proxies Browser
+
+With the Proxies Browser you can examine the status and the details of each proxy.
 
 A proxy status can be:
 <table style="width: 100%;">
@@ -108,16 +110,16 @@ In addition, you can:
 
 ### Examine the Proxy Configuration Properties
 
-{% include note.html content="This feature is supported for Wavefront proxies 12.2 and later." %}
+For Wavefront proxies 12.2 and later, you can examine the [proxy configuration properties](proxies_configuring.html#configuration-properties) with their current values in the `wavefront.conf` file. To do that:
 
 1. On the Proxies Browser page, click the name of the proxy you are interested in.
 2. Click the **Proxy Configuration** tab and examine the current configuration properties of the proxy.
 
 ![An annotated screenshot of the Configuration tab. The annotations are listed below.](images/proxies_configuration.png)
 
-The **Proxies Configuration** page lists the [proxy configuration properties](proxies_configuring.html#configuration-properties) with their current values in the `wavefront.conf` file.
+On the **Proxies Configuration** page:
 * The configuration properties are organized in categories by type. The properties in each category are grouped in cards by subcategory.
-* Cards with the user icon contain at least one configuration property with a modified value (different from the default value).
+* The cards with the user icon contain at least one configuration property with a modified value (different from the default value).
 
 On this page, you can:
 * Search the cards by a keyword in their property names.
