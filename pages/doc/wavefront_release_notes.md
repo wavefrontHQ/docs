@@ -13,6 +13,34 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Observability for Kubernetes GitHub repository](https://github.com/wavefrontHQ/observability-for-kubernetes/releases).
 
+## 2023-11.x Release Notes
+
+* **Usage Summary Dashboard Improvements**: Added support for customers with burndown commit contracts.
+
+  The charts for customers with burndown commitments slightly differ from the charts for customers with billable commitments.
+
+  For more details, see [Examine Your Overall Usage](examine_usage.html).
+
+* **Ingestion Policies Improvements**:
+
+  * New [**Ingestion Policies** permission](permissions_overview.html).
+
+    Users with that permission can create, edit, and delete ingestion policies.
+
+  * Changed navigation to the **Ingestion Policies** page.
+
+    **Ingestion Policies** is now a separate menu item under the gear icon <i class="fa fa-cog"/> on the toolbar.
+
+  * New [**Revert** functionality](ingestion_policies.html#view-ingestion-policy-history-and-revert-to-a-previous-version) on the **Earlier Versions** page.
+
+    Users with the **Ingestion Policies** permission can revert an ingestion policy to an earlier version.
+
+  For more details, see [Monitor Usage with Ingestion Policies](ingestion_policies.html).
+
+* **Node Map Chart Improvements**: You can specify the maximum number of node groups to display on a node map chart. When you open a node map chart in edit mode or create a new node map chart, on the **Node Map Details** tab, from the **Max Node Group Count** drop-down menu you can select the maximum number of groups to display on the chart. The default value is 10, the maximum value is 35. For details, see [Node Map Chart](ui_chart_reference.html#node-map-chart).
+
+   ![A screenshot of the Node Map Defaults tab with the Max Node Group Count drop-down menu highlighted.](/images/node-map-chart.png)
+
 ## 2023-10.x Release Notes
 
 **Proxy Setup Instructions for Kubernetes in the UI**: When you [install a proxy from the UI](proxies_installing.html#install-a-proxy-from-the-ui), you can now click the **Kubernetes** tab to copy the proxy configurations and the deployment command.

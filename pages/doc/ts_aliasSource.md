@@ -117,11 +117,11 @@ aliasSource(ts(aws.instance.price), "Price/{{region}}/{{source}}")
 ```
 {% endraw %}
 
-The specified replacement string acts like a template, in which Wavefront replaces each variable with the requested string value. If a time series has a point tag `region=us-west-2`, that time series is displayed with a source name like `Price/us-west-2/mycluster-2c-ha2-i-00e421d1bef7fb88e`.
+The specified replacement string acts like a template, in which VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) replaces each variable with the requested string value. If a time series has a point tag `region=us-west-2`, that time series is displayed with a source name like `Price/us-west-2/mycluster-2c-ha2-i-00e421d1bef7fb88e`.
 
 ### Single Extracted Node
 
-A common practice is to use naming conventions that provide structure to metric names, source names, or point tag values. Naming conventions typically subdivide  metadata values into nodes, which are substrings that are delimited by certain characters. By default, Wavefront uses periods (".") as node delimiters, but your naming conventions might use other characters.
+A common practice is to use naming conventions that provide structure to metric names, source names, or point tag values. Naming conventions typically subdivide  metadata values into nodes, which are substrings that are delimited by certain characters. By default, Operations for Applications uses periods (".") as node delimiters, but your naming conventions might use other characters.
 
 You can use `aliasSource()` with a `zeroBasedNodeIndex` to extract a single node from an existing metadata value and use just the extracted node as the metric name for your time series. For example, you might want to simplify a source name like `dev.host1_appA.0fd795b1700` by displaying it as `host1_appA`.
 
@@ -188,7 +188,7 @@ aliasSource(ts("requests.failures.num"),1,"-")
 
 ### Extracted Node Example 2 - Renaming Source(s) with a Metric Name
 
-This example assumes 1 physical server running 8 virtual machines. Each virtual machine is sending stats into Wavefront.  The source name is the physical server. The unique virtual machine name is only in the metric name:
+This example assumes 1 physical server running 8 virtual machines. Each virtual machine is sending stats into Operations for Applications.  The source name is the physical server. The unique virtual machine name is only in the metric name:
 
 ```
 ts(disk.space.total.vm1)
