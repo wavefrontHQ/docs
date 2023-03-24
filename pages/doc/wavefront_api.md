@@ -34,15 +34,15 @@ To access the REST API documentation :
 
 ![REST API in a product instance](/images/rest_api.png)
 
-## API Documentation (VMware code)
+## API Documentation (VMware Developer)
 
-If you don't have access to a product instance, you can have a look at our API doc [on the VMware code site](https://code.vmware.com/apis/714/wavefront-rest).
+If you don't have access to a product instance, you can have a look at our API doc [on the VMware Developer website](https://developer.vmware.com/apis/714/).
 
 We include an overview and a Swagger-generated API Reference. We update the reference with each release.
 
-![REST API in VMware code](/images/vmware_code_api.png)
+![REST API in VMware Developer](/images/vmware_code_api.png)
 
-The [VMware code website](https://code.vmware.com/samples?categories=Sample&tags=wavefront) also includes some samples, for example, for getting data into Operations for Applications. We're providing these samples as is - some are from our team, others will come from the community.
+The [VMware Developer website](https://developer.vmware.com/samples?categories=Sample&tags=wavefront) also includes some samples, for example, for getting data into Operations for Applications. We're providing these samples as is - some are from our team, others will come from the community.
 
 <a id="generating-an-api-token"></a>
 ## Managing API Tokens
@@ -60,10 +60,10 @@ VMware Aria Operations for Applications allows [user accounts](user-accounts.htm
 
 ### Generate and Manage the API Tokens for Your User Account
 
-{% include note.html content="All users can use and manage their existing API tokens. You must have the [API Tokens permission](permissions_overview.html) to generate new API tokens for your user account." %}
+{% include note.html content="All users can use and manage their existing API tokens. You must have the [**API Tokens** permission](permissions_overview.html) to generate new API tokens for your user account." %}
 
 
-1. Log in to your product instance.
+1. Log in to your service instance (`https://<your_instance>.wavefront.com`) as user with the **API Tokens** permission.
 2. Click the gear icon <i class="fa fa-cog"/>  at the top right of the toolbar and select your user name.
 2. On the **API Access** tab, click **Generate**.
 
@@ -82,7 +82,7 @@ VMware Aria Operations for Applications allows [user accounts](user-accounts.htm
 
 As a user with the **Accounts** permission, you can generate API tokens for [service accounts](service-accounts.html) upon creation or at a later stage. To generate an API token for an existing **service account**:
 
-1. Log in to your product instance as a user with the **Accounts** permission.
+1. Log in to your service instance (`https://<your_instance>.wavefront.com`) as a user with the **Accounts** permission.
 2. Click the gear icon <i class="fa fa-cog"/> at the top right of the toolbar and select **Accounts**.
 3. On the **Service Accounts** tab, click the ellipsis icon next to the service account for which you want to generate an API token, and select **Edit**.
 4. To generate a new token, in the Tokens section, click **Generate**.
