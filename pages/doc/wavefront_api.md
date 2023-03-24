@@ -117,7 +117,7 @@ On the API Tokens page, you can:
 
 ## Invoking the API
 
-You can invoke the API using `curl` or from an API client. In either case, you must use an API token. See [Use the REST API](using_wavefront_api.html) for details and examples.
+You can invoke the API using `curl` or from an API client. In either case, you must use an API token. See [Use the Operations for Applications REST API](using_wavefront_api.html) for details and examples.
 
 ## Generate an API Client Using Swagger
 
