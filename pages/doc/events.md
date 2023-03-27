@@ -4,7 +4,7 @@ keywords: events
 tags: [events, alerts]
 sidebar: doc_sidebar
 permalink: events.html
-summary: Learn about events and how to view, create, and close events
+summary: Learn about events and how to view, create, and close events in You use alerts in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
 ---
 An event is a record that something of interest has happened. For example, the event might show that an alert has changed state, AWS instances have started or stopped, and so on. To view the list of all events, select **Browse > Events**.
 
@@ -30,11 +30,11 @@ Watch these videos to get you started!
 <tr>
 <td><strong><font color="#0091DA" size="3">Creating an Event</font></strong><br>
 <br>
-<iframe id="kmsembed-1_rrrhqlrk" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_rrrhqlrk/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Create Tanzu Observability Events"></iframe>
+<iframe id="kmsembed-1_rrrhqlrk" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_rrrhqlrk/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Create Events"></iframe>
 </td>
 <td><br><br>
 <p>
-Tanzu Observability by Wavefront creates System events and Alert events for you. You can create User events via the UI or API to signal that something of interest has happened. Jason demos how to create an event from a chart and shows how it immediately appears in the UI.</p>
+Operations for Applications creates System events and Alert events for you. You can create User events via the UI or API to signal that something of interest has happened. Jason demos how to create an event from a chart and shows how it immediately appears in the UI.</p>
 <p>You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_rrrhqlrk/252649793" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
@@ -61,7 +61,7 @@ An event can have one of the following sources.
 
     - The CloudTrail integration retrieves EC2 event information and creates System events that represent the EC2 events. See [CloudTrail Integration](integrations_aws_metrics.html#cloudtrail-events-metrics-and-point-tags).
     - For Microsoft Azure, some information from the Azure Activity Log integration is available as events.
-- **User** -- You can [manually create events](events.html#creating-a-user-event) with source **User** to identify user actions. For example, you can create an event for code pushes that affect Tanzu Observability metrics but that occur outside Tanzu Observability. The event is then available on charts that display the metrics.
+- **User** -- You can [manually create events](events.html#creating-a-user-event) with source **User** to identify user actions. For example, you can create an event for code pushes that affect Operations for Applications metrics but that occur outside Operations for Applications. The event is then available on charts that display the metrics.
 
 Events have types and subtypes, which are typically used in [events queries](events_queries.html). Types include **alert** or **alert-detail** You can see types in the Type column of the **Events** page.
 
@@ -89,7 +89,7 @@ The example does not include an event that's in the Pending state.
 
 ![event states](images/event_states.png)
 
-To improve event performance, Tanzu Observability ends events that have been ongoing for 60 days (based on start time). We also don't return events for certain ongoing `events()` queries. See [When Does an Event Query Return Events](events_queries.html#when-does-an-event-query-return-events).
+To improve event performance, Operations for Applications ends events that have been ongoing for 60 days (based on start time). We also don't return events for certain ongoing `events()` queries. See [When Does an Event Query Return Events](events_queries.html#when-does-an-event-query-return-events).
 
 
 {% include note.html content="You cannot have more than 1000 ongoing events on your cluster. Use the `~events.num-ongoing-events` internal metric to monitor the number of ongoing events." %}
@@ -116,7 +116,7 @@ The chart includes information about the alert associated with the event, and ab
 
 ## Creating a User Event
 
-Tanzu Observability creates many events for you, but you can also create an event explicitly:
+Operations for Applications creates many events for you, but you can also create an event explicitly:
 
 1. Do one of the following:
    - Select **Browse > Events** and click the <strong>Create Event</strong> button on top.
@@ -148,7 +148,7 @@ Tanzu Observability creates many events for you, but you can also create an even
     <td>The end time of the event:
     <ul>
     <li><strong>Instantaneous</strong> - End the event instantaneously with the start time. The exact interval is indeterminate. The Events page can report that the event starts and ends at exactly the same time or that it lasts a few seconds.</li>
-    <li><strong>Ongoing</strong> - The event does not have a specified end time. You can manually end (close) the event from the Events page. Tanzu Observability closes events that are older than 60 days.</li>
+    <li><strong>Ongoing</strong> - The event does not have a specified end time. You can manually end (close) the event from the Events page. Operations for Applications closes events that are older than 60 days.</li>
     <li><i class="fa fa-calendar"></i> - End the event at the specified day and time. Click the text field to select the end time.</li></ul>
     <strong>Note</strong>: If you can create an event with an end time, you cannot make changes to the event name or other event properties later.</td>
     </tr>
@@ -174,7 +174,7 @@ Tanzu Observability creates many events for you, but you can also create an even
 
 ## Event Closure and Deletion
 
-Tanzu Observability closes any event that is older than 60 days, based on start time. You can explicitly close events and delete user events if you have the right permissions.
+Operations for Applications closes any event that is older than 60 days, based on start time. You can explicitly close events and delete user events if you have the right permissions.
 
 ### Closing an Event
 

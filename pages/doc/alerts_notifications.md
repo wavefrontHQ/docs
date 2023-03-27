@@ -7,7 +7,7 @@ permalink: alerts_notifications.html
 summary: Learn about alert notifications and some special notification use cases.
 ---
 
-When an alert changes state, it sends notifications to one or more alert targets. Each notification contains information extracted from the alert about its state change. By default, the notification includes a static alert image and a link to the alert chart in Alert Viewer.
+When an alert in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) changes state, it sends notifications to one or more alert targets. Each notification contains information extracted from the alert about its state change. By default, the notification includes a static alert image and a link to the alert chart in Alert Viewer.
 
 
 ## Where and When Notifications Are Sent
@@ -103,14 +103,14 @@ If you want to exclude chart images:
 
 ## PagerDuty Notifications
 
-If you use the out-of-the-box PagerDuty alert target, and you resolve the incident in PagerDuty while the alert is still firing in Tanzu Observability by Wavefront, two scenarios are possible:
+If you use the out-of-the-box PagerDuty alert target, and you resolve the incident in PagerDuty while the alert is still firing in Operations for Applications, two scenarios are possible:
 
 - If there is a change to the set of sources being affected, that change triggers a new incident in PagerDuty. Changes to the set of sources being affected include:
 
   - Newly affected sources are added to the list of existing affected sources
   - A subset of the existing sources being affected is no longer affected
 
-- If all affected sources are no longer affected and the alert is resolved in Tanzu Observability, then no new incident is logged into PagerDuty.
+- If all affected sources are no longer affected and the alert is resolved in Operations for Applications, then no new incident is logged into PagerDuty.
 
 You can customize this behavior by creating a custom PagerDuty [alert target](webhooks_alert_notification.html) with different triggers.
 

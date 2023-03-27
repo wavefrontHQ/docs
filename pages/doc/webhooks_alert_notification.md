@@ -19,9 +19,9 @@ This page explains how to create and manage a custom alert target.
 ​
 * You can further [customize the contents](alert_target_customizing.html) of the alert notifications using Mustache syntax.
 ​
-* Our blog post [Engineering Tips Series: How Wavefront's DevOps Team Uses Alert Targets to Provide Exceptional Quality of Services to Customers](https://www.wavefront.com/engineering-tips-series-wavefronts-devops-team-uses-alert-targets-provide-exceptional-quality-services-customers/) explains how alert targets help us to keep things running smoothly.
+* Our blog post [Engineering Tips Series: How Wavefront's DevOps Team Uses Alert Targets to Provide Exceptional Quality of Services to Customers](https://tanzu.vmware.com/content/vmware-aria-operations-for-applications-blog/engineering-tips-series-how-wavefront-s-devops-team-uses-alert-targets-to-provide-exceptional-quality-of-services-to-customers) explains how alert targets help us to keep things running smoothly.
 ​
-* For the following integrations, you can follow the steps in the integration. Log in to your Wavefront instance or look at the following pages:
+* For the following integrations, you can follow the steps in the integration. Log in to your service instance or look at the following pages:
   - [PagerDuty Integration](pagerduty.html)
   - [VictorOps Integration](victorops.html)
   - [Slack Integration](slack.html)
@@ -31,7 +31,7 @@ This page explains how to create and manage a custom alert target.
 ​
 Alert targets specify when and how to send notifications.
 ​
-During alert creation, you can specify an email address or a PagerDuty key in the target list. You implicitly use  built-in Tanzu Observability by Wavefront alert targets. These simple alert targets:
+During alert creation, you can specify an email address or a PagerDuty key in the target list. You implicitly use built-in alert targets. These simple alert targets:
 ​
 * Cause notifications to be sent whenever the alert is firing, updated, resolved, snoozed, or in a maintenance window.
 * Provide internal templates for the notification contents. These internal templates are maintained by us, and may change from release to release.

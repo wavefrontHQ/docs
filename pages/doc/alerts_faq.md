@@ -4,11 +4,11 @@ keywords: alerts
 tags: [getting started, alerts]
 sidebar: doc_sidebar
 permalink: alerts_faq.html
-summary: Learn alert customization from Tanzu Observability by Wavefront experts.
+summary: Learn alert customization from our experts.
 ---
 ## Why Can't I View and Edit This Alert?
 
-By default, all users can view all alerts. But permissions and access control affect this default.
+By default, all users in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) can view all alerts. But permissions and access control affect this default.
 
   * You must have the **Alerts** permission to edit alerts. The [Alerts](permissions_overview.html) permission applies to all alerts **except** [ingestion policy](ingestion_policies.html) alerts.
     - Users with the **Alerts** permission can view, create, and modify alerts except ingestion policy alerts.
@@ -115,7 +115,7 @@ Imagine you are using sum() to aggregate 3 time series. Each time series reports
 * app-2 reports on the :01 and :06 minute boundaries.
 * app-3 reports on the :02 and :07 minute boundaries.
 
-If we were reviewing this data in real-time at 12:02p, then the aggregated value at 12:00p would represent the sum of 3 values. This occurs because Tanzu Observability could generate interpolated values at 12:00p for app-2 and app-3. However, the value displayed at 12:02p would only represent the sum of 1 value. This is because Tanzu Observability can't generate interpolated values for app-1 or app-2 at that boundary because the next reported values have not come in yet for either.
+If we were reviewing this data in real-time at 12:02p, then the aggregated value at 12:00p would represent the sum of 3 values. This occurs because Operations for Applications could generate interpolated values at 12:00p for app-2 and app-3. However, the value displayed at 12:02p would only represent the sum of 1 value. This is because Operations for Applications can't generate interpolated values for app-1 or app-2 at that boundary because the next reported values have not come in yet for either.
 
 In this scenario, your most recent aggregated values at the time of the alert evaluation are going to typically be less than the value you'd expect to see if all 3 time series were accounted for. These temporary lower values can often fall below a specified limit or condition and cause an alert not to fire, but reviewing the data after the fact may show them exceed that specified limit due to interpolation.
 
@@ -142,7 +142,7 @@ Let’s look at an example over a single minute in the checking interval. Suppos
 * If `my.metric` reported the data value of `15` during the minute, the query engine evaluates the alert condition for this minute as TRUE because the condition is *met*, i.e. the statement `15 > 8` is TRUE.
 * If `my.metric` reported the data values of `15`, `6`, and `2` during the minute, the query engine evaluates the alert condition for this minute as FALSE because the condition for the aggregated average value is *not met*, i.e. the statement `7.6 > 8` is FALSE.
 
-After the alert evaluation, Tanzu Observability has a list of `N` minutely values, one value for each minute in the checking interval. Each of the `N` values can be TRUE, FALSE, or NO DATA.
+After the alert evaluation, Operations for Applications has a list of `N` minutely values, one value for each minute in the checking interval. Each of the `N` values can be TRUE, FALSE, or NO DATA.
 
 ### Explore When Your Alert Will Fire
 
@@ -206,7 +206,7 @@ To run a search:
 This example retrieves the IDs of all the alerts that have a name containing `"prod"`. The query needs to page through the results to obtain the full set of results. The response has a set of IDs.
 
 ```
-Request URL: https://CLUSTER.wavefront.com/api/v2/search/alert/id
+Request URL: https://<your_instance>.wavefront.com/api/v2/search/alert/id
 
 Payload:
 
@@ -232,7 +232,7 @@ Step 2 uses the `GET /api/v2/alert/{id} API` endpoint to obtain the JSON for eac
 ```
 Example:
 
-Request URL: https://CLUSTER.wavefront.com/api/v2/alert/1000000012345
+Request URL: https://<your_instance>.wavefront.com/api/v2/alert/1000000012345
 
 Response:
 
@@ -257,7 +257,7 @@ This example updates the alert target. Notice in the response that the alert tar
 
 
 ```
-Request URL: https://CLUSTER.wavefront.com/api/v2/alert/1000000012345
+Request URL: https://<your_instance>.wavefront.com/api/v2/alert/1000000012345
 
 Payload: updated JSON from Step 3
 
@@ -268,9 +268,9 @@ Response:
 
 ## How Do I Bulk Update Alerts with the CLI?
 
-{% include warning.html content="The [Ruby CLI](https://github.com/snltd/wavefront-cli) we use in this section was created by a Wavefront customer. It is not supported by VMware. Direct any issues or concerns to the tool's GitHub page." %}
+{% include warning.html content="The [Ruby CLI](https://github.com/snltd/wavefront-cli) we use in this section was created by a customer. It is not supported by VMware. Direct any issues or concerns to the tool's GitHub page." %}
 
-The CLI makes the same underlying calls to the Tanzu Observability API as described above but simplifies the process for the end user.
+The CLI makes the same underlying calls to the REST API as described above but simplifies the process for the end user.
 
 ### Extract IDs and Find the JSON
 
@@ -294,9 +294,9 @@ There are times when you may want to update multiple alerts in the same way, for
 
 The best practice for handling alert notifications is to use Alert Targets rather than specify specific emails or PagerDuty keys while editing an alert. If an alert target specifies the notification target, then you can easily update the alert target. In contrast, you'd have to modify each alert that uses an email or a PagerDuty key -- bulk updates aren't possible with the GUI.
 
-You can bulk update alerts with the API, discussed in this section, or with [the `wf` CLI](https://github.com/snltd/wavefront-cli).
+You can bulk update alerts with the REST API, discussed in this section, or with [the `wf` CLI](https://github.com/snltd/wavefront-cli).
 
-{% include important.html content="This external CLI is not supported or maintained by the Tanzu Observability team." %}
+{% include important.html content="This external CLI is not supported or maintained by the Operations for Applications team." %}
 
 ### Prerequisites
 
@@ -320,7 +320,7 @@ To run a search:
 This example retrieves the IDs of all the alerts that have a name containing `"prod"`. The query needs to page through the results to obtain the full set of results. The response has a set of IDs.
 
 ```
-Request URL: https://CLUSTER.wavefront.com/api/v2/search/alert/id
+Request URL: https://<your_instance>.wavefront.com/api/v2/search/alert/id
 
 Payload:
 
@@ -346,7 +346,7 @@ Step 2 uses the `GET /api/v2/alert/{id} API` endpoint to obtain the JSON for eac
 ```
 Example:
 
-Request URL: https://CLUSTER.wavefront.com/api/v2/alert/1000000012345
+Request URL: https://<your_instance>.wavefront.com/api/v2/alert/1000000012345
 
 Response:
 
@@ -371,7 +371,7 @@ This example updates the alert target. Notice in the response that the alert tar
 
 
 ```
-Request URL: https://CLUSTER.wavefront.com/api/v2/alert/1000000012345
+Request URL: https://<your_instance>.wavefront.com/api/v2/alert/1000000012345
 
 Payload: updated JSON from Step 3
 
@@ -382,9 +382,9 @@ Response:
 
 ## How Do I Bulk Update Alerts with the CLI?
 
-{% include warning.html content="The [Ruby CLI](https://github.com/snltd/wavefront-cli) we use in this section was created by a Wavefront customer. It is not supported by VMware. Direct any issues or concerns to the tool's GitHub page." %}
+{% include warning.html content="The [Ruby CLI](https://github.com/snltd/wavefront-cli) we use in this section was created by a customer. It is not supported by VMware. Direct any issues or concerns to the tool's GitHub page." %}
 
-The CLI makes the same underlying calls to the Tanzu Observability API as described above but simplifies the process for the end user.
+The CLI makes the same underlying calls to the REST API as described above but simplifies the process for the end user.
 
 ### Extract IDs and Find the JSON
 
