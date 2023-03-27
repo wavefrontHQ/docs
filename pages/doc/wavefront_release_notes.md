@@ -15,7 +15,9 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 
 ## 2023-12.x Release Notes
 
-**Geo Map Chart**: With this release, we have included a new type of chart. With the Geo Map chart, you can visualize your ingested data by location. When you click a pin on the chart, you see the respective zone.
+**Geo Map Chart**: 
+
+With this release, we have included a new type of chart. With the Geo Map chart, you can visualize your ingested data by location. When you click a pin on the chart, you see the respective zone.
 
 ## 2023-11.x Release Notes
 
