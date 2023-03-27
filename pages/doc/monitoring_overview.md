@@ -58,7 +58,7 @@ Administrators (and often other team members) are interested in usage data at al
 
 ### More Info
 
-  * [Examine Your Overall Service Usage](examine_usage.html)
+  * [Examine Your Overall Usage](examine_usage.html)
   * [Monitor Usage with Ingestion Policies](ingestion_policies.html)
 
 

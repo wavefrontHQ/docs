@@ -1,5 +1,5 @@
 ---
-title: Examine Your Overall Service Usage
+title: Examine Your Overall Usage
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: examine_usage.html
