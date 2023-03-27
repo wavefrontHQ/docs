@@ -90,9 +90,9 @@ As a first step, [expand the chart's time window](ui_examine_data.html#set-the-t
 
 ### Step 2: Consider Include Obsolete Metrics
 
-If a time series hasn't ingested any data points in the last 28 days (or longer), we consider the time series obsolete. By default, obsolete data are not included in charts to improve chart loading. If you want to see the data:
+If a time series hasn't ingested any data points for a certain period of time, we consider the time series *obsolete*. You can see your current configuration by looking into the **Advanced** settings of any [chart](ui_charts.html#include-metrics-that-stopped-reporting) or [dashboard](ui_dashboards.html#set-dashboard-display-preferences-and-settings). By default, obsolete data is not included in charts to improve chart loading. If you want to see the data:
 
-* In the chart, click **Advanced** and select **Obsolete Metrics**.
+* In the chart, click **Advanced** and select **Include Obsolete Metrics**.
 * In the dashboard, you can [turn on obsolete metrics for each chart](ui_examine_data.html#include-or-exclude-obsolete-metrics), but performance can suffer.
 
 <!---rk: Might have to change the link above--->
