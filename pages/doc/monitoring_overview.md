@@ -43,31 +43,37 @@ And even if a query isn't listed there, there are some guidelines for queries:
 
 ### More Info
 
-  * [Optimize Query Performance](query_language_performance.html)
+[Optimize Query Performance](query_language_performance.html)
 
 ## Monitor System Usage and Proxy Status
 
 Administrators (and often other team members) are interested in usage data at all levels.
 
-1. Super Admins who install Wavefront proxies can examine the [proxy information](monitoring_proxies.html) on the system dashboard. Larger environments or production environments rely on a team of load-balanced proxies, as discussed by Clement Pang in [this video about proxies](https://vmwaretv.vmware.com/media/t/1_5wfjti3m).
+1. Users who install Wavefront proxies can examine the [proxy information](monitoring_proxies.html) on the out-of-the-box dashboards. Larger environments or production environments rely on a team of load-balanced proxies, as discussed by Clement Pang in [this video about proxies](https://vmwaretv.vmware.com/media/t/1_5wfjti3m).
     Having usage data for the proxy helps administrators during installation and also helps with proxy sizing later.
-2. View the points flowing into the system from the [Overall Data Rate section](wavefront_monitoring.html#overall-data-rate) of the Wavefront Service and Proxy Data dashboard.
+2. View the points flowing into the system from the [Overall Data Rate section](wavefront_monitoring.html#overall-data-rate) of the **Operations for Applications Service and Proxy Data** dashboard.
 3. Create custom charts with internal metrics. Our system dashboard information is a great start, but you might benefit from other [internal metrics](wavefront-internal-metrics.html) and it's easy to create a dashboard with custom charts.
 
    **Note**: We've include the internal metrics that are most useful in the documentation.
 
+### More Info
+
+  * [Examine Your Overall Service Usage](examine_usage.html)
+  * [Monitor Usage with Ingestion Policies](ingestion_policies.html)
+
+
 ## Monitor Data Ingestion and Data Shape
 
-Wavefront recently made some tools available that allow you to monitor ingestion and data shape. By data shape we mean that you can find out, for example, if you have very large numbers of metrics, or you suddenly started having an unusually large number of sources.
+Operation for Applications supports some tools that allow you to monitor ingestion and data shape. By data shape we mean that you can find out, for example, if you have very large numbers of metrics, or you suddenly started having an unusually large number of sources.
 
-You can start by examining the system dashboard and internal metrics, discussed above. In addition, Wavefront allows you to look closely at data that is being ingested:
-* Examine endpoints with [Wavefront Spy]()
-* Use the keyboard-driven [Wavefront Top]() tool to drill down interactively.
+You can start by examining the system dashboard and internal metrics, discussed above. In addition, Operation for Applications allows you to look closely at data that is being ingested:
+* Examine endpoints with [Wavefront Spy](wavefront_monitoring_spy.html#why-spy).
+* Use the keyboard-driven [Wavefront Top](wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy) tool to drill down interactively.
 
 Both tools are for situations when the dashboards don't give you enough information -- they're really for debugging rather day-by-day use.
 
-* **Wavefront `spy`** endpoints can provide insight into new data that your Wavefront instance ingests. For example, you might analyze spy results to:
-  * Verify that your Wavefront instance is ingesting the data points that you expect.
+* **Wavefront `spy`** endpoints can provide insight into new data that your Operation for Applications instance ingests. For example, you might analyze spy results to:
+  * Verify that your Operation for Applications instance is ingesting the data points that you expect.
   * Troubleshoot a sudden change in the rate at which new data is ingested.
 
 * [**Wavefront Top**](https://github.com/wavefrontHQ/wftop) is an interactive tool for exploring ingested points. For example, you can find out which metric namespaces were used in the last X days. Wavefront Top helps you look at the big picture of what's being ingested -- and the keyboard-driven UI makes it easy to drill down. Watch [this video](https://vmwaretv.vmware.com/media/t/1_yif61rd5) for an intro.
