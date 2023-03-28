@@ -66,9 +66,9 @@ You can monitor your Kubernetes clusters or Linux hosts using our built-in integ
 * [Linux host integration](linux.html): Install the Wavefront proxy and configure the log shipper.
 * [Kubernetes integration](kubernetes.html#kubernetes-quick-install-using-the-kubernetes-operator): Enable logs while you set up the integration, generate the script, and run it on your Kubernetes cluster. 
   {% include note.html content="Logs (Beta) is not supported when you use OpenShift." %}
-* [AWS CloudWatch integration](integrations_aws_metrics.html#setup-for-ingesting-aws-cloudwatch-logs-beta): If you have already configured the [AWS CloudWwatch integration](integrations_aws_metrics.html#cloudwatch-integration-details), you can create an AWS lambda function to send logs to our service.
+* [AWS CloudWatch integration](integrations_aws_metrics.html#setup-for-ingesting-aws-cloudwatch-logs-beta): If you have already configured the [AWS CloudWatch integration](integrations_aws_metrics.html#cloudwatch-integration-details), you can create an AWS lambda function to send logs to our service.
 
-## Option 2: Configure A Log Shipper
+## Option 2: Configure a Log Shipper
 
 The log shipper sends your data to the Wavefront proxy. During Beta, we support the [Fluentd](https://docs.fluentd.org/) and [Fluent Bit](https://docs.fluentbit.io/) log shippers, which scrape and buffer your logs before sending them to the Wavefront proxy.
 
