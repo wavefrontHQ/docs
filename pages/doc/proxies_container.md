@@ -135,7 +135,7 @@ It usually makes sense to run both the proxy and Telegraf in a Docker container.
 
 The following example passes the `telegraf.conf` file and any files (such as `10-wavefront.conf`) that belong in the `telegraf.d` directory.
 ​
-1. Create a `telegraf.conf` file under `<path/to/file>/telegraf.conf`. Use  [https://github.com/influxdata/telegraf/blob/master/etc/telegraf.conf](https://github.com/influxdata/telegraf/blob/master/etc/telegraf.conf) as an example
+1. Create a `telegraf.conf` file under `<path/to/file>/telegraf.conf`. Use [https://github.com/influxdata/telegraf/blob/master/docs/CONFIGURATION.md](https://github.com/influxdata/telegraf/blob/master/docs/CONFIGURATION.md) for guidance.
 2. Create the `10-wavefront.conf` file under `<path/to/dir>/telegraf.d/` via the example configuration below . Refer to the  [wavefront#configuration](https://github.com/influxdata/telegraf/tree/master/plugins/outputs/wavefront#configuration) information on Github as needed.
 ​<br/><br/>
   **Example file: 10-wavefront.conf**
