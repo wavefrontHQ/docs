@@ -35,7 +35,7 @@ Specify `timeWindow` to fill in data for a limited period of time before each ex
 
 The `next()` function allows you to assign the next known reported data point value to a gap of missing data. If there's a gap, nothing happens until the first new value becomes available. Then the data is backfilled with that, the next, value.  No line (dotted or solid) is drawn until the next data point is reported.
 
-By default, `next()` applies the next reported data value to gaps of missing data with duration of up to the [metrics obsolescence period](metrics_managing.html#obsolete-metrics) (by default, 4 weeks). If you’d like this window to be smaller, you can use the `timeWindow` parameter.
+By default, `next()` applies the next reported data value to gaps of missing data with duration of up to the [metrics obsolescence period](metrics_managing.html#obsolete-metrics). If you’d like this window to be smaller, you can use the `timeWindow` parameter.
 
 ## Examples
 

@@ -158,9 +158,9 @@ If you no longer need an ingestion policy, for example, after a reorganization i
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Ingestion Policies**.
 3. Click the ellipsis icon next to the policy that you want to delete, select **Delete**, and confirm.
 
-## Examine the Ingestion Policy Usage of Your Service Instance
+## Examine the Service Usage by Ingestion Policy
 
-All users can examine the individual ingestion policy dashboards to understand their PPS usage over time.
+All users can view the ingestion policies and examine the ingestion policy dashboards to understand their PPS usage over time.
 
 1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Ingestion Policies**.

@@ -25,9 +25,10 @@ Your Operations for Applications instance includes out-of-the-box dashboards and
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td>If you're a Super Admin user and you want to know how close you are to exceeding your committed rate and whether you will be billed for overages, you can use the <a href="examine_usage.html">Usage Summary dashboard</a>.
+<td>If you want to know how close you are to exceeding your committed rate and whether you will be billed for overage, you can use the <a href="examine_usage.html">Usage Summary dashboard</a>.
 <ol>
-<li>Click the gear icon in the top right corner and select <strong>Usage and Subscriptions</strong>.</li>
+<li>Click the gear icon in the top right corner and select <strong>Usage Portal</strong>.<br/>
+{% include tip.html content="If you are a Super Admin user and enabled Super Admin mode, the menu item is **Usage and Subscriptions**." %}</li>
 <li>Examine the charts on the dashboard. </li>
 </ol> </td>
 <td width="50%"><img src="/images/usage_overview.png" alt="screenshot of usage summary dashboard"></td></tr>
@@ -254,15 +255,17 @@ You can find out which teams are using the most data with ingestion policies or 
 </thead>
 <tr>
 <td><strong>Use Ingestion Policies</strong>. </td>
-<td markdown="span">Create an [ingestion policy](ingestion_policies.html) for each team and monitor the usage per team.
+<td markdown="span">Create an [ingestion policy](ingestion_policies.html#create-an-ingestion-policy) for the accounts in each team and monitor the usage per team.
 </td>
-<td><a href="monitoring_overview.html">Finding Ingestion and Query Problems</a></td>
+<td><a href="ingestion_policies.html#examine-the-service-usage-by-ingestion-policy">Examine the Service Usage by Ingestion Policy</a>
+<p><a href="wavefront_monitoring.html#operations-for-applications-ingestion-policy-explorer-dashboard">Operations for Applications Ingestion Policy Explorer Dashboard</a></p>
+</td>
 </tr>
 <tr>
-<td><strong>Examine Ingestion with the Namespace Usage Explorer dashboard</strong> </td>
+<td><strong>Examine Ingestion with the Namespace Usage Explorer dashboard</strong>. </td>
 <td markdown="span">If many teams in your company use Operations for Applications, it's good practice to have a policy that includes the team name in each ingested data point. You can then easily determine which teams ingest a lot of data.
 </td>
-<td><a href="ingestion_policies.html#examine-ingestion-policy-usage">Examine Usage with Ingestion Policies</a></td>
+<td><a href="wavefront_monitoring.html#operations-for-applications-namespace-usage-explorer-dashboard">Operations for Applications Namespace Usage Explorer Dashboard</a></td>
 </tr>
 </tbody>
 </table>
@@ -277,6 +280,7 @@ You can find out which teams are using the most data with ingestion policies or 
 <tr>
 <td>What are the usage trends for my instance? </td>
 <td>Use the charts on the <strong>Operations for Applications Ingestion Policy Explorer</strong> dashboard or the dashboards in the <strong>Operations for Applications Usage</strong> integration.
+<p>Examine your overall usage on the <strong>Usage Summary</strong> dashboard. </p>
 </td>
 <td markdown="span">![data ingestion points](images/data_ingestion_usage.png)</td>
 </tr>
@@ -298,7 +302,7 @@ Use the <a href="examine_usage.html"><strong>Usage Summary</strong></a> dashboar
 --->
 <tr>
 <td>What are current usage details?</td>
-<td>Start with the dashboards in the <strong>Operations for Applications Usage</strong> integration. The dashboards allow you to look at both current usage and usage over time. If you need to drill down more, use the <a href="wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy">wftop GUI</a> for a detailed view of <strong>current</strong> spikes. </td>
+<td>Start with the dashboards in the <strong>Operations for Applications Usage</strong> integration and the <strong>Usage Summary</strong> dashboard. The dashboards allow you to look at both current usage and usage over time. If you need to drill down more, use the <a href="wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy">wftop GUI</a> for a detailed view of <strong>current</strong> spikes. </td>
 <td markdown="span">![Data Scan by User, with hover showing users](images/data_scan_by_user.png)</td>
 </tr>
 <tr>
@@ -310,7 +314,8 @@ Use the <a href="examine_usage.html"><strong>Usage Summary</strong></a> dashboar
 <td>How much data is coming from my source?</td>
 <td>You have several options:<ol><li>Use the <a href="sources_managing.html#examine-sources-in-the-source-browser">Source Browser</a> for a first look.</li>
 <li>Look at the last section in the <strong>Operations for Applications Service and Proxy Data</strong> dashboard to see the top sources listed by PPS. </li>
-<li>Use the <a href="wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy">wftop GUI</a> to filter by source and examine what's coming from the selected source.</li></ol> </td>
+<li>Use the <a href="wavefront_monitoring_spy.html#get-started-with-wavefront-top-and-spy">wftop GUI</a> to filter by source and examine what's coming from the selected source.</li></ol>
+<p>Consider creating an <a href="ingestion_policies.html#create-an-ingestion-policy">ingestion policy</a> for your sources.</p> </td>
 <td markdown="span">![Sources rate screenshot](images/top_sources.png) </td>
 </tr>
 </tbody>
