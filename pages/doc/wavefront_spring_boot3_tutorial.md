@@ -100,7 +100,7 @@ In this tutorial, you use Wavefront for Spring Boot that uses Spring Boot 3 with
     management.tracing.sampling.probability=1.0
     ```
 
-## Send Data to Wavefront
+## Send Data to Our Service
 
 1. Restart the application and navigate to [http://localhost:8080](http://localhost:8080/).
 
@@ -110,7 +110,7 @@ In this tutorial, you use Wavefront for Spring Boot that uses Spring Boot 3 with
    1. Click **VETERINARIANS** to list vets in the database.
    1. Click **ERROR** to trigger errors.
 
-1. Click the one-time use link to access the Wavefront Service Dashboard and view data.
+1. Click the one-time use link to access the Wavefront for Spring Boot Service Dashboard and view data.
    {% include tip.html content = "Make sure to save the one-time use link so you can access the same dashboard each time you restart your application."%}
    Example:
     ```
@@ -157,6 +157,6 @@ When you click the link in the Spring Boot Inventory dashboard, you are taken to
 
 * See the [Wavefront for Spring Boot FAQs](wavefront_spring_boot_faq.html).
 * You cannot save changes that you make to the preconfigured Spring Boot Inventory and Wavefront Service Dashboards. If you want to modify a preconfigured dashboard, you need to clone and edit the preconfigured dashboard. For details, see [Create and Customize Dashboards](ui_dashboards.html).
-* Wavefront customers or trial users can create smart alerts that dynamically filter noise and find true anomalies. For details, see [Alerts](alerts.html).
+* Customers or free trial users can create smart alerts that dynamically filter noise and find true anomalies. For details, see [Alerts](alerts.html).
     {% include note.html content="Alerts are not supported on this freemium cluster."%}
 * Try out the petclinic application with the Micrometer. See [Wavefront for Spring Boot: Getting Started](https://tanzu.vmware.com/developer/guides/spring/spring-wavefront-gs/) for details.
