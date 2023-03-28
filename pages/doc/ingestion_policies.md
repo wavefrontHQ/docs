@@ -126,7 +126,7 @@ Every time a user with the **Ingestion Policies** permission edits an ingestion 
 <td width="70%">
 To access the version history of an ingestion policy:
 <ol>
-<li>Log in to your Wavefront instance as a user with the <strong>Ingestion Policies</strong> permission.</li>
+<li>Log in to your service instance (<code>https://<your_instance>.wavefront.com</code>) as a user with the <strong>Ingestion Policies</strong> permission.</li>
 <li>From the gear icon on the toolbar, select <strong>Ingestion Policies</strong>.</li>
 <li>Click the ellipsis icon next to the target policy and select <strong>Versions</strong>.</li>
 </ol>
