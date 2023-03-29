@@ -11,19 +11,11 @@ OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCens
 
 {% include note.html content="Read the [OpenTelemetry documentation](https://opentelemetry.io/docs/migration/opentracing/) for migration options and strategies." %}
 
-<<<<<<< HEAD
 This guide shows you how to migrate a Java application that uses OpenTracing to use OpenTelemetry.
 
 ## Update the pom.xml File
 
-Follow these steps to add the OpenTelemetry dependencies to your Java project's pom.xml file.
-=======
-This page shows you how to migrate a Java application that uses OpenTracing to use OpenTelemetry.
-
-## Update the pom.xml File
-
-To add the OpenTelemetry dependencies to your Java project's `pom.xml` file, follow these steps.
->>>>>>> 88987d5ec9e60b478defbafad12f925bf675848a
+Follow these steps to add the OpenTelemetry dependencies to your Java project's `pom.xml` file.
 
 1. Add the OpenTelemetry  Bill of Materials (BOM).
     ```xml
@@ -180,8 +172,4 @@ Save the changes and run the application to send the trace data to Wavefront.
 
 ## Next Steps
 
-<<<<<<< HEAD
-For more details on configuring your application to send traces or metrics to Tanzu Observability using the Wavefront Proxy or the OpenTelemetry Collector, see [Send OpenTelemetry Data](opentelemetry_tracing.html).
-=======
 For details on configuring your application to send traces or metrics to Tanzu Observability using the Wavefront Proxy or the OpenTelemetry Collector, see [Send OpenTelemetry Data](opentelemetry_tracing.html).
->>>>>>> 88987d5ec9e60b478defbafad12f925bf675848a

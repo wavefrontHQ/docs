@@ -42,7 +42,7 @@ This is the default dashboard you see when you run the Spring Boot initializer. 
 <td width="50%"><img src="/images/springboot_metrics.png" alt="screenshot of spring boot dashboard">
 </td></tr>
 <tr>
-<td width="50%">The <strong> Traces Browser</strong> allows you to examine traces for your application(s). You can access this browser if trace data are flowing:
+<td width="50%">The <strong> Traces Browser</strong> allows you to examine traces for your applications. You can access this browser if trace data are flowing:
 <ul><li>From the Spring Boot Inventory dashboard. </li>
 <li>From the Spring Boot integration's <strong>Dashboards</strong> tab.</li></ul>
 <img src="/images/springboot_trace_data.png" alt="Tracing section has link to Application Dashboard">
@@ -57,7 +57,7 @@ This is the default dashboard you see when you run the Spring Boot initializer. 
 Getting started is easy. Here are some things to know before you start:
 
 * **Ingestion Method**: Wavefront for Spring Boot sends data to our service via [direct ingestion](direct_ingestion.html) by default. You can [configure your application to send data via the Wavefront proxy](#proxy).
-* **Target**: Wavefront for Spring Boot sends data to the freemium instance by default. You can [[configure your application to send data to your Operations for Applications instance](#step-2-optional-specify-your-operations-for-applications-instance).
+* **Target**: Wavefront for Spring Boot sends data to the freemium instance by default. You can [configure your application to send data to your Operations for Applications instance](#step-2-optional-specify-your-operations-for-applications-instance).
 * **Account**: By default, the starter sends you to the Freemium instance, auto-negotiates an account, and saves the API token in the `~/.wavefront_freemium` file in your home directory. If you customize the starter to go to your Operations for Applications instance (see Step 2 below) you need to include an API token for that instance.
 
 ### Prerequisites for Wavefront Spring Boot Starter
@@ -309,7 +309,7 @@ dependencies {
 
 ### Step 2 (Optional): Specify Your Operations for Applications Instance
 
-By default, the Wavefront Spring Boot Starter creates an account for you and sends data to the Freemium instance. If you already have a Operations for Applications account, you can send data there instead by specifying the `uri` and `api-token` properties, as follows:
+By default, the Wavefront Spring Boot Starter creates an account for you and sends data to the Freemium instance. If you already have an Operations for Applications account, you can send data there instead by specifying the `uri` and `api-token` properties, as follows:
 
 ```
 management.metrics.export.wavefront.api-token=$API_Token
@@ -320,7 +320,7 @@ management.metrics.export.wavefront.uri=$wavefront_instance
 * `$wavefront_instance` is the name of your Operations for Applications instance, for example, `https://example.wavefront.com`.
 
 
-### Step 3:  View Your Data on Our Service
+### Step 3:  View Your Data in Our Service
 
 To view your data, you first run your project from the command line, and then click the link that directs you to our service. Follow these steps:
 
@@ -354,7 +354,7 @@ To view your data, you first run your project from the command line, and then cl
         Connect to your Wavefront dashboard using this one-time use link:
         https://wavefront.surf/us/example
       ```
-1. Add data to your application before you start to view the data on our service.
+1. Add data to your application before you start to view the data in our service.
     {% include tip.html content="Try out the [Wavefront for Spring Boot Tutorial](wavefront_springboot_tutorial.html)."%}
 1. Click the link (for example, `https://wavefront.surf/us/<name>`) and you are taken to the Wavefront Spring Boot Inventory dashboard where you can examine the data sent by your application.
     <br/>Example:
@@ -391,13 +391,13 @@ You can invite users and let them send data to the same cluster:
   ```
   wavefront.freemium-account=true
   ```
-    {% include tip.html content="If you don’t want Operations for Applications to auto-negotiation a freemium account for you, set the value to `false`."%}
+    {% include tip.html content="If you don’t want Operations for Applications to auto-negotiate a freemium account for you, set the value to `false`."%}
 1. Restart your application.
 
 <a name="proxy"></a>
 <p><span style="font-size: large; font-weight: 500">Use the Wavefront Proxy</span></p>
 
-The [Wavefront proxy](proxies.html) ingests data and forwards them to our service in a secure, fast, and reliable manner. It prevents data loss, simplifies firewall configuration, and allows you to filter or enrich data before it is sent to our service.
+The [Wavefront proxy](proxies.html) ingests data and forwards it to our service in a secure, fast, and reliable manner. It prevents data loss, simplifies firewall configuration, and allows you to filter or enrich data before it is sent to our service.
 {% include note.html content="Supported with Wavefront Proxy version 7.0 and later. Before sending data via the proxy, you need to [Install and Manage Wavefront Proxies](proxies_installing.html)."%}
 
 Copy and paste the following property.
@@ -447,10 +447,10 @@ You can configure the cluster and shard the same way. This information is used t
 
 ## Wavefront Spring Boot Integration
 
-If you already have a Operations for Applications account, you can start the setup and examine the dashboards from the Wavefront Spring Boot integration. This is supported for [free trial accounts](https://tanzu.vmware.com/observability).
+If you already have an Operations for Applications account, you can start the setup and examine the dashboards from the Wavefront Spring Boot integration. This is supported for [free trial accounts](https://tanzu.vmware.com/observability).
 
-1. Select **Integrations**, search for Spring Boot, and select the Spring Boot integration.
-1. Use the information in the **Setup** tab to set up the integration.
+1. Select **Integrations**, search for Spring Boot, and click the Spring Boot integration.
+1. Use the information displayed on the **Setup** tab to set up the integration.
 1. When setup is complete, click the **Dashboard** tab to examine your data.
 
 ## Next Steps

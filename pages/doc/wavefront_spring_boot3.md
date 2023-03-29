@@ -57,7 +57,7 @@ Getting started is easy. Here are some things to know before you start:
 
 * **Ingestion Method**: Wavefront for Spring Boot sends data to our service via [direct ingestion](direct_ingestion.html) by default. You can [configure your application to send data via the Wavefront proxy](#proxy).
 * **Target**: Wavefront for Spring Boot sends data to our freemium instance. You can change the default behavior and  [configure your application to send data to your Operations for Applications instance](#step-2-optional-specify-your-operations-for-applications-instance).
-* **Account**: By default, the starter sends you to the Freemium instance, auto-negotiates an account, and saves the API token in the `~/.wavefront_freemium` file in your home directory. If you customize the starter to go to your Operations for Applications instance (see Step 2 below), you need to include an API token for that instance.
+* **Account**: By default, the starter sends you to the Freemium instance, auto-negotiates an account, and saves the API token in the `~/.wavefront_freemium` file in your home directory. If you customize the starter to go to your Operations for Applications instance (see Step 2 below), you must include an API token for that instance.
 
 ### Prerequisites for Wavefront Spring Boot Starter
 
@@ -239,7 +239,7 @@ dependencies {
 
 ### Step 2 (Optional): Specify Your Operations for Applications Instance
 
-By default, the Wavefront Spring Boot Starter creates an account for you and sends data to the Freemium instance. If you already have a Operations for Applications account, you can send data there instead by specifying the `uri` and `api-token` properties as follows:
+By default, the Wavefront Spring Boot Starter creates an account for you and sends data to the Freemium instance. If you already have an Operations for Applications account, you can send data there instead by specifying the `uri` and `api-token` properties as follows:
 
 ```
 management.wavefront.api-token=$API_Token
@@ -321,7 +321,7 @@ You can invite users and let them send data to the same cluster:
   ```
   wavefront.freemium-account=true
   ```
-    {% include tip.html content="If you don’t want Operations for Applications to auto-negotiation a freemium account for you, set the value to `false`."%}
+    {% include tip.html content="If you don’t want Operations for Applications to auto-negotiate a freemium account for you, set the value to `false`."%}
 1. Restart your application.
 
 <a name="proxy"></a>
@@ -369,7 +369,7 @@ You can configure the cluster and shard names under the `management.wavefront.ap
 
 ## Wavefront Spring Boot Integration
 
-If you already have a Operations for Applications account, you can start the setup and examine the dashboards from the Wavefront Spring Boot integration. This is supported for [free trial accounts](https://tanzu.vmware.com/observability).
+If you already have an Operations for Applications account, you can start the setup and examine the dashboards from the Wavefront Spring Boot integration. This is supported for [free trial accounts](https://tanzu.vmware.com/observability).
 
 1. Click **Integrations** on the toolbar, search for Spring Boot, and click the Spring Boot integration.
 1. Use the information displayed on the **Setup** tab to set up the integration.
