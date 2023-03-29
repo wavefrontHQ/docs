@@ -37,9 +37,9 @@ OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCens
 
 If your application uses an OpenTelemetry SDK, you can configure the application to send trace data to Tanzu Observability using any of the following options:
 
-* [**Directly send OpenTelemetry data to the Wavefront proxy**](opentelemetry_tracing.html#directly-send-data-using-the-wavefront-proxy---recommended) - [Recommended]
+* [**Directly send OpenTelemetry data to the Wavefront proxy**](opentelemetry_overview.html#directly-send-data-using-the-wavefront-proxy---recommended) - [Recommended]
   <img src="images/opentelemetry_proxy_tracing.png" alt="A data flow diagram that shows how the data flows from your application to the proxy, and then to Tanzu Observability" style="width:680px;"/>
-* Or [**use the OpenTelemetry Collector and the Wavefront proxy**](opentelemetry_tracing.html#send-data-using-the-opentelemetry-collector-and-the-wavefront-proxy)
+* Or [**use the OpenTelemetry Collector and the Wavefront proxy**](opentelemetry_overview.html#send-data-using-the-opentelemetry-collector-and-the-wavefront-proxy)
   ![A data flow diagram that shows how the data flows from your application to the collector, to the proxy, and then to Tanzu Observability](images/opentelemetry_collector_tracing.png)
 
 ## Visualize Distributed Tracing Data

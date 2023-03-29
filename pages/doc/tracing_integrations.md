@@ -157,10 +157,7 @@ If you want to view trace data directly, you can start by submitting [a trace qu
 
 When you use a 3rd party distributed tracing system, you normally configure it to perform sampling. Doing so means that sampling occurs first, before the Wavefront proxy derives the [RED metrics](#derived-red-metrics). The Wavefront proxy receives only a subset of the generated spans, and the RED metrics will reflect just that subset.
 
-For more accurate RED metrics, you can disable the 3rd party sampling, and choose one of the following options instead:
-
-* Set up [sampling through the Wavefront proxy](trace_data_sampling.html#setting-up-explicit-sampling-through-the-proxy).
-* [Swap in a Wavefront Tracer](#swap-in-a-wavefront-tracer) and configure it to perform sampling.
+For more accurate RED metrics, you can disable the 3rd party sampling, and set up [sampling through the Wavefront proxy](trace_data_sampling.html#setting-up-explicit-sampling-through-the-proxy).
 
 The Wavefront proxy or Wavefront Tracer will auto-derive the RED metrics first, and then perform the sampling.
 
