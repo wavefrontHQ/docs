@@ -88,7 +88,7 @@ When you add filters for `env` and `az`, the information makes sense.
 
 ## Obsolete Metrics
 
-If a metric stops sending data points for a certain period of time (obsolescence period), it becomes *obsolete*. By default, the obsolescence period is 2 weeks.
+If a metric stops sending data points for a certain period of time (obsolescence period), it becomes *obsolete*. 
 
 {% include note.html content="The obsolescence period for metrics and sources might vary because it depends on the configuration of your cluster. You can see your current configuration by looking into the Advanced settings of any [chart](ui_charts.html#include-metrics-that-stopped-reporting) or [dashboard](ui_dashboards.html#set-dashboard-display-preferences-and-settings). To change this configuration, contact [Technical Support](wavefront_support_feedback.html)."%}
 
