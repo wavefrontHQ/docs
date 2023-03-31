@@ -19,7 +19,7 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 
   ![A screenshot of the Geo Map chart](images/geo-map-chart.png)
 
-* **Proxy Configurations in the UI**: From the Proxies Browser, you can now view the current configuration properties of proxies 12.2 and later. For more information, see [Examine the Proxy Configuration Properties](monitoring_proxies.html#examine-the-proxy-configuration-properties).
+* **Proxy Configurations in the UI**: From the Proxies Browser, you can now view the current configuration properties of Wavefront proxies 12.2 and later. For more information, see [Examine the Proxy Configuration Properties](monitoring_proxies.html#examine-the-proxy-configuration-properties).
 
 * **No Data Alerts and Maintenance Windows**: [Maintenance windows](maintenance_windows_managing.html#maintenance-windows) that are refined by point tags, sources, or source tags no longer apply to alerts in NO DATA state.
 

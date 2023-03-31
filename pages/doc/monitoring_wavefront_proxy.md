@@ -122,11 +122,11 @@ On the **Proxies Configuration** page:
 * The cards with the user icon contain at least one configuration property with a modified value (different from the default value).
 
 On this page, you can:
-* Search the cards by a keyword in their property names.
-* Filter the cards by containing or not containing a modified property value.
-* Filter the cards by type.
-* Expand a card and examine the containing configuration properties with their values. Modified property values are in blue color.
-* See a list of the configuration properties with modified values by clicking the code icon in the top-right corner.
+* Search for cards by a keyword in their property names.
+* Filter the cards by user modified values, i.e. display the cards that contain or don't contain a modified property value.
+* Filter the cards by type (General, Input, Buffering, Output, and Trace).
+* Expand a card and examine the configuration properties and their values. Modified property values are in blue color.
+* Show the list of the configuration properties with modified values by clicking the code icon in the top-right corner.
 
 
 ## Examine the Proxies Health and Usage with the Operations for Applications Usage Integration
