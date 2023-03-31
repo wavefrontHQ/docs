@@ -13,9 +13,9 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Observability for Kubernetes GitHub repository](https://github.com/wavefrontHQ/observability-for-kubernetes/releases).
 
-## 2023-12.x Release Notes
+## 2023-13.x Release Notes
 
-**Geo Map Chart**: With this release, we have included a new type of chart which allows you to visualize your ingested data by location. For more information, see [Geo Map Chart](ui_chart_reference.html#geo-map-chart).
+* **Geo Map Chart**: With this release, we have included a new type of chart which allows you to visualize your ingested data by location. For more information, see [Geo Map Chart](ui_chart_reference.html#geo-map-chart).
 
 ![A screenshot of the Geo Map chart](images/geo-map-chart.png)
 

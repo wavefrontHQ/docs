@@ -96,4 +96,4 @@ traceDerivedCustomTagKeys=env
 1. Save the changes, restart the application, and start sending data.
 1. Once the data is ingested, create a chart that compares the data sent by each environment. Here's an example:
     ![create a chart with custom span tags](/images/tracing_custom_span_tags.png)
-    {% include note.html content="You won't see this data on the default service dashboard. If you want to customize the queries on the default service dashboard to see data from the custom span tags, you need to [clone and edit the dashboard](ui_dashboards.html#edit-or-clone-a-dashboard)." %}
+    {% include note.html content="You won't see this data on the default service dashboard. If you want to customize the queries on the default service dashboard to see data from the custom span tags, you must [clone and edit the dashboard](integrations.html#cloning-and-customizing-dashboards)." %}
