@@ -1961,10 +1961,10 @@ To add primary and secondary texts:
 <li>Click a pin on the chart.</li>
 <li>Click the edit icon in the right corner of the pop-up. </li>
 <li>Enter the primary text and, optionally, the secondary text.</li>
-<li>Select the check boxes next to the text you want displayed in the popover and click <strong>Save</strong>.</li>
+<li>Select the check boxes next to the text you want displayed in the pop-up and click <strong>Save</strong>.</li>
 </ol>
 </td>
-<td width="60%"><img src="/images/geo-map-chart-popover.png" alt="A popover in the geo map chart."/></td>
+<td width="60%"><img src="/images/geo-map-chart-popover.png" alt="A pop-up in the geo map chart."/></td>
 </tr>
 </tbody>
 </table>
