@@ -1947,7 +1947,9 @@ Chart description which shows up as hover text when users move the mouse over th
 
 ![A screenshot of the Geo Map chart](images/geo-map-chart.png)
 
-You can use the Geo Map chart to visualize your ingested data by location. When you hover over a pin on the chart, you see a popover with the query value. You can add additional text with more information, which is important for you.
+You can use the Geo Map chart to visualize your ingested data by location. To view the information by location, on the **Map View** tab, from the **Tag Keys** drop-down menu, you must always select a tag key, for example **Region**.
+
+When you hover over a pin on the chart, you see a pop-up with the query value. You can add additional text with more information that is important to you.
 
 To add primary and secondary texts:
 
@@ -1957,7 +1959,7 @@ To add primary and secondary texts:
 <td width="40%">
 <ol>
 <li>Click a pin on the chart.</li>
-<li>Click the edit icon in the right corner of the popover. </li>
+<li>Click the edit icon in the right corner of the pop-up. </li>
 <li>Enter the primary text and, optionally, the secondary text.</li>
 <li>Select the check boxes next to the text you want displayed in the popover and click <strong>Save</strong>.</li>
 </ol>
