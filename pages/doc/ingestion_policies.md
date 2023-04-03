@@ -118,7 +118,7 @@ After you create an ingestion policy, if you need, for example, to increase the 
 
 ## View Ingestion Policy History and Revert to a Previous Version
 
-Every time a user with the **Ingestion Policies** permission edits an ingestion policy, they create a new version of that policy. As a user with the **Ingestion Policies** permission, you can see the details of each version of the policy. You can also revert the policy to an exact copy or to an edited copy of an earlier version. When you revert a policy to an earlier version, you create a new version of that policy.
+Every time a user with the **Ingestion Policies** permission edits an ingestion policy, they create a new version of that policy. All users can see the details of each version of the policy. Users with the **Ingestion Policies** permission can also revert the policy to an exact copy or to an edited copy of an earlier version. Reverting a policy to an earlier version creates a new version of that policy.
 
 <table style="width: 100%;">
 <tbody>
@@ -126,7 +126,7 @@ Every time a user with the **Ingestion Policies** permission edits an ingestion 
 <td width="70%">
 To access the version history of an ingestion policy:
 <ol>
-<li>Log in to your Wavefront instance as a user with the <strong>Ingestion Policies</strong> permission.</li>
+<li>Log in to your service instance (<code>https://&lt;your_instance&gt;.wavefront.com</code>).</li>
 <li>From the gear icon on the toolbar, select <strong>Ingestion Policies</strong>.</li>
 <li>Click the ellipsis icon next to the target policy and select <strong>Versions</strong>.</li>
 </ol>
@@ -144,6 +144,8 @@ On this page, you can:
 
 * Open the current policy dashboard by clicking the current version number.
 * See the user who updated the policy and created a specific version, when was the policy updated, and what was updated in the policy.
+
+If you have the **Ingestion Policies** permission, you can also:
 * Revert the policy to an exact copy of an earlier version, that is, create a new version that is an exact copy of the selected version.
 * Edit a copy of an earlier version and revert the policy to it, that is, create a new version that is an edited copy of the selected version.
 
