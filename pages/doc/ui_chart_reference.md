@@ -1947,7 +1947,27 @@ Chart description which shows up as hover text when users move the mouse over th
 
 ![A screenshot of the Geo Map chart](images/geo-map-chart.png)
 
-You can use the Geo Map chart to visualize your ingested data by location. When you click a pin on the chart, you see the respective zone. 
+You can use the Geo Map chart to visualize your ingested data by location. To view the information by location, on the **Map View** tab, from the **Tag Keys** drop-down menu, you must always select a tag key, for example **Region**.
+
+When you hover over a pin on the chart, you see a pop-up with the query value. You can add additional text with more information that is important to you.
+
+To add primary and secondary texts:
+
+<table>
+<tbody>
+<tr>
+<td width="40%">
+<ol>
+<li>Click a pin on the chart.</li>
+<li>Click the edit icon in the right corner of the pop-up. </li>
+<li>Enter the primary text and, optionally, the secondary text.</li>
+<li>Select the check boxes next to the text you want displayed in the pop-up and click <strong>Save</strong>.</li>
+</ol>
+</td>
+<td width="60%"><img src="/images/geo-map-chart-popover.png" alt="A pop-up in the geo map chart."/></td>
+</tr>
+</tbody>
+</table>
 
 <a id="geo_map_format_tab">
 <p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
@@ -1998,7 +2018,7 @@ You can use the Geo Map chart to visualize your ingested data by location. When 
 <tr>
 <td>Tag Keys</td>
 <td>
-Allows you to select and add tag keys to the map chart.
+Allows you to select and add tag keys to the map chart. You must always select a tag key, such as <strong>Region</strong>.
 </td>
 </tr>
 </tbody>
