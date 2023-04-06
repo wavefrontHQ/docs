@@ -18,11 +18,11 @@ In addition to setting up the metrics flow, this integration also installs a das
 
 ### Step 1. Set up Wavefront Proxy
 
-If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network and reachable from cAdvisor, install a proxy running on your network. Wavefront offers a containerized proxy to run on your Docker host.
+If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network and reachable from cAdvisor, install a proxy running on your network. Operations for Applications offers a containerized proxy to run on your Docker host.
 
 ### Step 2. Run the cAdvisor Container
 
-Run Wavefront's cAdvisor container on your Docker host:
+Run Operations for Applications's cAdvisor container on your Docker host:
 {% raw %}
 ```
 sudo docker run \
@@ -33,8 +33,8 @@ sudo docker run \
   --publish=8080:8080 \
   --detach=true \
   --name=cadvisor \
-  wavefronthq/cadvisor:latest \
-  -storage_driver=wavefront \
+  projects.registry.vmware.com/tanzu_observability/cadvisor:latest \
+  -storage_driver=operations-for-applications \
   -storage_driver_wf_source=$(hostname) \
   -storage_driver_wf_proxy_host=WAVEFRONT_PROXY_ADDRESS:2878
 
@@ -42,6 +42,5 @@ sudo docker run \
 ```
 {% endraw %}
 
-See the cAdvisor [README](https://github.com/wavefrontHQ/integrations/tree/master/cadvisor) for a description of the supported options and an example using the Docker compose command.
 
 

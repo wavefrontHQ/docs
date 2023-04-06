@@ -6,10 +6,10 @@ summary: Learn about the Envoy Proxy Integration.
 ---
 ## Envoy Proxy Integration
 
-Envoy Proxy is a modern, high performance service proxy. It adds resilience and observability to your services. By setting up this integration, you can send Envoy metrics into Wavefront.
+Envoy Proxy is a modern, high performance service proxy. It adds resilience and observability to your services. By setting up this integration, you can send Envoy metrics into Operations for Applications.
 
-1. **Envoy Proxy**: This integration installs and configures Telegraf to send Envoy Proxy metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
-2. **Envoy Proxy on Kubernetes**: This explains the configuration of Wavefront Collector for Kubernetes to scrape Envoy metrics using auto-discovery and annotation based discovery.
+1. **Envoy Proxy**: This integration installs and configures Telegraf to send Envoy Proxy metrics into Operations for Applications. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+2. **Envoy Proxy on Kubernetes**: This explains the configuration of Kubernetes Metrics Collector for Kubernetes to scrape Envoy metrics using auto-discovery and annotation based discovery.
 
 In addition to setting up the metrics flow, this integration also installs dashboards:
   * Envoy Proxy
@@ -23,7 +23,7 @@ Here's a screenshot of Envoy Proxy dashboard:
 To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
 ## Envoy Proxy Setup
 
-This integration uses Telegraf's Prometheus input plugin to fetch the metrics from Envoy Proxy and push them to Wavefront. If you've already installed Telegraf on your server, you can skip to Step 2.
+This integration uses Telegraf's Prometheus input plugin to fetch the metrics from Envoy Proxy and push them to Operations for Applications. If you've already installed Telegraf on your server, you can skip to Step 2.
 
 
 
@@ -48,13 +48,18 @@ Run `sudo service telegraf restart` to restart your Telegraf agent.
   
 ## Envoy Proxy on Kubernetes
 
-This integration uses the [annotation based discovery](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/discovery.md#annotation-based-discovery) feature in Wavefront Collector to monitor Envoy proxy on Kubernetes. If you do not have the Wavefront Collector for Kubernetes installed, follow these instructions to add it to your cluster by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install). You can check the status of the Wavefront Collector and Proxy if you are already monitoring the Kubernetes cluster on the `Setup` tab of the Kubernetes integration.
+This integration uses
+* [Annotation Based Discovery](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/discovery.md#annotation-based-discovery) feature in Kubernetes Metrics Collector to monitor Envoy proxy on Kubernetes.
+
+* [Observability for Kubernetes Operator](https://github.com/wavefrontHQ/observability-for-kubernetes) to deploy the necessary agents to monitor your clusters and workloads in Kubernetes. If you do not already have the Observability for Kubernetes Operator installed on your Kubernetes cluster, please follow the add Kubernetes instructions and add it to your cluster.
+
+* [Kubernetes Metrics Collector](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes) to collect the federated metrics from Prometheus server and to send metrics to Operations for Applications. The Kubernetes Metrics Collector can send data to Operations for Applications using the [Wavefront proxy](https://docs.wavefront.com/proxies.html) or [direct ingestion](https://docs.wavefront.com/direct_ingestion.html). If you do not already have the Observability for Kubernetes Operator installed on your Kubernetes cluster, please follow the add Kubernetes instructions and add it to your cluster.
 
 ### Steps to Annotate Envoy Proxy Deployment
 
-1. Make sure that auto discovery `enableDiscovery: true` and annotation based discovery `discovery.disable_annotation_discovery: false` are enabled in the Wavefront Collector ConfigMap. They should be enabled by default.
-**NOTE**: The Wavefront Collector scrapes all the pods that have Prometheus annotation enabled.
-2. Annotate the Envoy pods so that they can be discovered by Wavefront Collector. Assuming that the admin `port_value` in Envoy ConfigMap is `9901`, run:{% raw %}
+1. Make sure that auto discovery `enableDiscovery: true` and annotation based discovery `discovery.disable_annotation_discovery: false` are enabled in the Kubernetes Metrics Collector ConfigMap. They should be enabled by default.
+**NOTE**: The Kubernetes Metrics Collector scrapes all the pods that have Prometheus annotation enabled.
+2. Annotate the Envoy pods so that they can be discovered by Kubernetes Metrics Collector. Assuming that the admin `port_value` in Envoy ConfigMap is `9901`, run:{% raw %}
 ```
 kubectl annotate pods <pod-name> prometheus.io/scrape=true prometheus.io/port=9901 prometheus.io/path=/stats/prometheus
 ```
