@@ -162,7 +162,7 @@ If you have already instrumented your application with Jaeger or Zipkin follow t
 
 After your recompiled application starts running, start [exploring your custom trace data on the Traces Browser](tracing_traces_browser.html) and [exploring the RED metrics and histograms that are automatically derived on the Service Dashboard](tracing_service_dashboard.html) from your trace data.
 
-### Instrument Your Application with Operations for Applications Sender SDKs
+### Instrument Your Application with Sender SDKs
 
 For maximum flexibility, you can use the Operations for Applications Sender SDKs. See [Operations for Applications SDKs for Sending Raw Data](wavefront_sdks.html#sdks-for-sending-raw-data) for background.
 

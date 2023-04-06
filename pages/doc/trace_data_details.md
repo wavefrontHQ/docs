@@ -210,7 +210,7 @@ The following table lists span tags that contain information about the span's id
 </tbody>
 </table>
 
-The following table lists span tags that describe the architecture of the instrumented application that emitted the span. We use these tags to aggregate and filter trace data at different levels of granularity. These tags correspond to the [application tags](#how-the-wavefront-service-uses-application-tags) you set through an Operations for Applications SDK.
+The following table lists span tags that describe the architecture of the instrumented application that emitted the span. We use these tags to aggregate and filter trace data at different levels of granularity. These tags correspond to the [application tags](#how-the-operations-for-applications-uses-application-tags) you set through an Operations for Applications SDK.
 
 <table>
 <colgroup>

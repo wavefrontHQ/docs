@@ -10,7 +10,7 @@ This page has some special tips to help you instrument your applications and sen
 
 ## How do I send custom span level RED metrics?
 
-For details on how to send span-level RED metrics using a custom tracing port, see [Instrument Your Application with Wavefront Sender SDKs](tracing_instrumenting_frameworks.html#instrument-your-application-with-wavefront-sender-sdks).
+For details on how to send span-level RED metrics using a custom tracing port, see [Instrument Your Application with Sender SDKs](tracing_instrumenting_frameworks.html#instrument-your-application-with-sender-sdks).
 
 ## How do I filter RED metrics using custom span tags?
 
