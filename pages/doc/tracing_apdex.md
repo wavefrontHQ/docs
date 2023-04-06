@@ -13,7 +13,7 @@ The Application Performance Index ([Apdex](https://www.apdex.org)) is an industr
 
 You can measure the performance of a service using Request, Error, and Duration (RED) metrics for a given time frame. But it is hard to compare these values and understand how each service performs. Apdex helps you compare the response time of a service based on the response time threshold that you define.
 
-When you send your applications trace data to Tanzu Observability by Wavefront, the application data is detected as first-class citizens using the traces, and the Apdex score is calculated using the threshold value (T) you define. Use [`apdex()`](hs_apdex_function.html) to query the Apdex score of a service, view the results in charts, and create alerts.
+When you send your applications trace data to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront), the application data is detected as first-class citizens using the traces, and the Apdex score is calculated using the threshold value (T) you define. Use [`apdex()`](hs_apdex_function.html) to query the Apdex score of a service, view the results in charts, and create alerts.
 
 The default threshold value (T) is set to 100ms, and only a [Super Admin user](authorization-faq.html#who-is-the-super-admin-user) or users with the [**Applications** permission](permissions_overview.html) can configure the threshold (T).
 
@@ -183,7 +183,7 @@ A Super Admin user or users with the **Applications** permission can change the 
 
 From the Application Configuration page, you can update the threshold value of multiple services at once. Follow these steps:
 
-1. Click **Applications** > **Application Configuration**. You see a list of the applications that send trace data to the Wavefront service.
+1. Click **Applications** > **Application Configuration**. You see a list of the applications that send trace data to the Operations for Applications service.
 1. Click the application that has the services you want to configure. Now, you see a list of all the services in the application.
 1. Select the check boxes next to the services that you want to edit and click the **Edit Settings** button on the top of the list.
     {% include note.html content="Only a Super Admin user or users with the **Applications** permission can configure the Apdex threshold. If you are not a Super Admin user, you see the following message: **You don't have permission to update this page**."%}
@@ -200,7 +200,7 @@ You can update the response time threshold (T) using the Settings icon on the ap
 1. Click **Configure Apdex**. <br/>
     {% include note.html content="Only a Super Admin user or users with the **Applications** permission can configure the threshold (T). If you are not a Super Admin user, you don't see **Configure Apdex**."%}
     ![The image the setting and the legend setting with Apdex selected from the drop down. The configure apdex section is highlighted with a blue box. You need to click it to update the threshold value.](images/tracing_apdex_legeng_configure_apdex.png)
-    <br/>Now, you see a list of all the services that send trace data to the Wavefront service. You can sort the table by the service name, application name, service status (active or inactive), and the threshold (T) value.
+    <br/>Now, you see a list of all the services that send trace data to the Operations for Applications service. You can sort the table by the service name, application name, service status (active or inactive), and the threshold (T) value.
 1. Select the check boxes next to the services that you want to edit and click the **Edit Settings** button on the top of the list.
 1. Update the **Apdex Threshold** value and click **Save**.
     ![The image shows where to update the threshold value. It has a blue outline to highlight the threshold value.](images/tracing_configure_apdex_threshold.png)

@@ -4,10 +4,10 @@ keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: tracing_ui_overview.html
-summary: Overview of services and applications that send data to Tanzu Observability by Wavefront.
+summary: Overview of services and applications that send data to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
 ---
 
-As part of troubleshooting an application, you need an overview of the services and applications that send data to Tanzu Observability by Wavefront. Use our application map to understand the health of each service, and troubleshoot when your applications or services run into issues. You can see the overall health of each application using the application map, table view, and grid view.
+As part of troubleshooting an application, you need an overview of the services and applications that send data to Operations for Applications. Use our application map to understand the health of each service, and troubleshoot when your applications or services run into issues. You can see the overall health of each application using the application map, table view, and grid view.
 
 <a name="app_map"></a>
 
@@ -20,11 +20,11 @@ This <a href="https://vmwaretv.vmware.com/media/t/1_atlrv7sa" target="_blank">vi
 <iframe id="kmsembed-1_atlrv7sa" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_atlrv7sa/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="application map settings"></iframe>
 
 See the application map:
-1. In your web browser, go to your Wavefront instance and log in.
+1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
 1. From the toolbar, select **Applications** > **Application Status** and click the Application Map icon ( <img src="images/tracing_appmap_appmap_view_icon.png"
 style="vertical-align:text-bottom;width:28px" alt="icon to click to get the application map view"/> )
-1. Optionally, use <img src="images/tracing_link_icon.png"
-style="vertical-align:text-bottom;width:20px" alt="icon to click to get the link"/> to get a link and share what you’re seeing right now (NON-LIVE display) with other users.
+1. Optionally, click the link icon ( <img src="images/tracing_link_icon.png"
+style="vertical-align:text-bottom;width:20px" alt="icon to click to get the link"/> ) to copy the URL and share what you’re seeing right now (NON-LIVE display) with other users.
 
 Let's walk through the following scenario to get a quick overview of the application map.
 
@@ -171,11 +171,11 @@ Let's walk through the following scenario to get a quick overview of the applica
 View the list of applications and services. You can see the Request, Error, and Duration (RED) metrics at a glance and sort the data.
 
 See the table view:
-1. In your web browser, go to your Wavefront instance and log in.
+1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
 1. From the toolbar, select **Applications** > **Application Status** and click the Table View icon ( <img src="images/tracing_appmap_table_view_icon.png"
 style="vertical-align:text-bottom;width:28px" alt="icon to click to get the table view"/> )
 
-![the image shows the table view of all the applications that send data to Wavefront. It has helpers to show you what to do with each UI section. For example, how to filter applications or services, change the table settings or the legend settings, and how to change back to the application map view or the grid view](images/tracing_table_view.png)
+![the image shows the table view of all the applications that send data to Operations for Applications. It has helpers to show you what to do with each UI section. For example, how to filter applications or services, change the table settings or the legend settings, and how to change back to the application map view or the grid view](images/tracing_table_view.png)
 
 Using the table view, you can:
 * Examine the applications and services, or search for a particular application or service by applying filters.
@@ -350,7 +350,7 @@ Using the table view, you can:
 When you select an application, you get an overview of its services.
 
 See the grid view:
-1. In your web browser, go to your Wavefront instance and log in.
+1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
 1. From the toolbar, select **Applications** > **Application Status** and click the Grid View icon ( <img src="images/tracing_appmap_grid_view_icon.png"
 style="vertical-align:text-bottom;width:28px" alt="icon to click to get the table view"/> )
 

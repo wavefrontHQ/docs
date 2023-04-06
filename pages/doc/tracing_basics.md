@@ -11,7 +11,7 @@ Distributed tracing enables you to track the flow of work that is performed by a
 
 In an application that consists of multiple services, an incoming request typically starts a chain of requests that are propagated from one service to the next.  Distributed tracing gives you end-to-end visibility into that chain across services, even when those services are running in different environments.
 
-You can use our tracing dashboards and browsers to:
+In VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront), you can use the tracing dashboards and browsers to:
 
 * Monitor your application to make sure its response times are as expected.
 * Troubleshoot and analyze reported errors.
@@ -19,28 +19,28 @@ You can use our tracing dashboards and browsers to:
 
 ## Distributed Tracing Videos
 
-Watch these videos to listen to our Co-founder Clement Pang introduce distributed tracing, and give updates including improved ingestion options and intelligent sampling:
+Watch these videos to listen to our co-founder Clement Pang introduce distributed tracing, and give updates including improved ingestion options and intelligent sampling:
 
-{% include note.html content="You need either [Proxy Management permission](permissions_overview.html) or [Direct Data Ingestion permission](permissions_overview.html) to send trace data from your application to the Wavefront proxy or the Wavefront service." %}
+{% include note.html content="You need either the [**Proxies** permission](permissions_overview.html) or [**Direct Data Ingestion** permission](permissions_overview.html) to send trace data from your application to the Wavefront proxy or the Operations for Applications service." %}
 
 <table style="width: 100%;">
 <tbody>
-<tr><td width="50%"><iframe id="kmsembed-1_41gxt426" width="400" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_41gxt426/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability: Distributed Tracing 1"></iframe></td>
-<td width="50%"><iframe id="kmsembed-1_1g01mwj2" width="400" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_1g01mwj2/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="Distributed Tracing 2"></iframe></td>
+<tr><td width="50%"><iframe id="kmsembed-1_41gxt426" width="400" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_41gxt426/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Distributed Tracing Overview"></iframe></td>
+<td width="50%"><iframe id="kmsembed-1_1g01mwj2" width="400" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_1g01mwj2/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="Distributed Tracing Updates"></iframe></td>
 </tr>
 </tbody>
 </table>
 
 ## Instrument Your Application
 
-OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/).) To send trace data to Tanzu Observability, use OpenTelemetry.
+OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/).) To send trace data to Operations for Applications, use OpenTelemetry.
 
-If your application uses an OpenTelemetry SDK, you can configure the application to send trace data to Tanzu Observability using any of the following options:
+If your application uses an OpenTelemetry SDK, you can configure the application to send trace data to Operations for Applications using any of the following options:
 
 * [**Directly send OpenTelemetry data to the Wavefront proxy**](opentelemetry_overview.html#directly-send-data-using-the-wavefront-proxy---recommended) - [Recommended]
-  <img src="images/opentelemetry_proxy_tracing.png" alt="A data flow diagram that shows how the data flows from your application to the proxy, and then to Tanzu Observability" style="width:680px;"/>
+  ![A data flow diagram that shows how the data flows from your application to the proxy, and then to Operations for Applications](images/opentelemetry_proxy_tracing.png)
 * Or [**use the OpenTelemetry Collector and the Wavefront proxy**](opentelemetry_overview.html#send-data-using-the-opentelemetry-collector-and-the-wavefront-proxy)
-  ![A data flow diagram that shows how the data flows from your application to the collector, to the proxy, and then to Tanzu Observability](images/opentelemetry_collector_tracing.png)
+  ![A data flow diagram that shows how the data flows from your application to the collector, to the proxy, and then to Operations for Applications](images/opentelemetry_collector_tracing.png)
 
 ## Visualize Distributed Tracing Data
 
@@ -57,7 +57,7 @@ Get an overview of how the applications and services are linked, understand the 
   ![application map](/images/Application_map_intro.png)
 
 * [**Table view**](tracing_ui_overview.html#table-view-features) lists the applications and services in the form of a table. You can see the Request, Error, and Duration (RED) metrics at a glance and sort the data.
-  <img src="/images/tracing_table_view_intro.png" alt="the image shows the table view of all the applications that send data to Wavefront. It has helpers to show you what to do with each UI section. For example, how to filter applications or services, change the table settings or the legend settings, and how to change back to the application map view or the grid view"/>
+  <img src="/images/tracing_table_view_intro.png" alt="the image shows the table view of all the applications that send data to Operations for Applications. It has helpers to show you what to do with each UI section. For example, how to filter applications or services, change the table settings or the legend settings, and how to change back to the application map view or the grid view"/>
 
 * [**Grid view**](tracing_ui_overview.html#grid-view-features) lists the application and services in a grid. You can see the RED metrics for each of the application’s services.
   <img src="/images/tracing_grid_view_overview.png" alt="grid view of the services grouped by the application"/>
@@ -85,7 +85,7 @@ You can export traces you view in the Traces Browser, save them locally as JSON 
 
 ### Create a Sampling Policy
 
-Our intelligent sampling algorithm reduces the volume of ingested traces. The goals of intelligent sampling are to retain traces that are likely to be informative. But sometimes intelligent sampling discards traces that you want to keep. You can [create a sampling policy](trace_sampling_policies.html) to fine-tune intelligent sampling and let the Wavefront service know that you want to keep certain spans.
+Our intelligent sampling algorithm reduces the volume of ingested traces. The goals of intelligent sampling are to retain traces that are likely to be informative. But sometimes intelligent sampling discards traces that you want to keep. You can [create a sampling policy](trace_sampling_policies.html) to fine-tune intelligent sampling and let the Operations for Applications service know that you want to keep certain spans.
 
 ![Shows a screenshot of the sampling polices user interface](images/tracing_sampling_policies.png)
 
@@ -99,5 +99,5 @@ The Apdex score helps you compare the response time of a service based on the re
 
 ## Next Steps
 
-- Familiarize yourself with the tracing concepts. See [Tracing Concepts in Wavefront](trace_data_details.html) for details.
+- Familiarize yourself with the tracing concepts. See [Distributed Tracing Key Concepts](trace_data_details.html) for details.
 - A large-scale web application can produce a high volume of traces. Many traces might be reported every minute, and each trace might consist of many spans, each with many tags.  We limit the volume of trace data by performing [intelligent sampling](trace_data_sampling.html#intelligent-sampling).

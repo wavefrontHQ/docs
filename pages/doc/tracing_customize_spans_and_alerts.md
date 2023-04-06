@@ -7,7 +7,7 @@ permalink: tracing_customize_spans_and_alerts.html
 summary: Customize span level tags for RED metrics
 ---
 
-Tanzu Observablity by Wavefront derives RED metrics for spans that have the `application`, `service`, `cluster`, `shard`, `component`, or `operationName` span tags by default. See [Indexed and Unindexed Span Tags](trace_data_details.html#indexed-and-unindexed-span-tags) for details. If you want to filter RED metrics data using a span tag that is not a default span tag, you need to propagate it as a custom span tag to the RED metrics.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) derives RED metrics for spans that have the `application`, `service`, `cluster`, `shard`, `component`, or `operationName` span tags by default. See [Indexed and Unindexed Span Tags](trace_data_details.html#indexed-and-unindexed-span-tags) for details. If you want to filter RED metrics data using a span tag that is not a default span tag, you need to propagate it as a custom span tag to the RED metrics.
 
 The following custom span tags are supported by default.
 
@@ -59,21 +59,21 @@ Follow the steps given below to propagate custom span tags when sending data fro
     </ul>
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="tracingApplication">
-            <p>If you are using OpenTelemetry, you send data to Wavefront using <a href="proxies.html">Wavefront proxy</a>. Add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
+            <p>If you are using OpenTelemetry, you send data to Operations for Applications using <a href="proxies.html">Wavefront proxy</a>. Add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
             <pre>
 traceDerivedCustomTagKeys=env
             </pre>
         </div>
 
         <div role="tabpanel" class="tab-pane" id="jaeger">
-            <p>If you are using Jaeger, you send data to Wavefront using <a href="proxies.html">Wavefront proxy</a>. Add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
+            <p>If you are using Jaeger, you send data to Operations for Applications using <a href="proxies.html">Wavefront proxy</a>. Add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
             <pre>
 traceDerivedCustomTagKeys=env
             </pre>
         </div>
 
         <div role="tabpanel" class="tab-pane" id="zipkin">
-            <p>If you are using Zipkin, you send data to Wavefront using <a href="proxies.html">Wavefront proxy</a>. Add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
+            <p>If you are using Zipkin, you send data to Operations for Applications using <a href="proxies.html">Wavefront proxy</a>. Add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
             <pre>
 traceDerivedCustomTagKeys=env
             </pre>

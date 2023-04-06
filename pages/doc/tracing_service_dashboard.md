@@ -7,7 +7,7 @@ permalink: tracing_service_dashboard.html
 summary: Identify potential hot spots of a service.
 ---
 
-Use the Service Dashboard to identify potential hot spots, and then drill down to the Traces Browser.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) includes the Service Dashboard, which you can use to identify potential hot spots of a service, and then drill down to the Traces Browser.
 
 ## Explore the Default Service Dashboard
 
@@ -16,7 +16,7 @@ The default, read-only dashboard for a service lets you explore that service, ho
 See the Service Dashboard:
 
 * Option 1:
-  1. In your web browser, go to your Wavefront instance and log in.
+  1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
   1. From the toolbar, click **Applications** > **Service Dashboard**.
 
 * Option 2:
@@ -43,7 +43,7 @@ style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link
   * Select a region of the histogram chart and click **Search Traces** to view the traces for the selected duration.
   * Click a bar on a TopK chart.
   * Click the vertical ellipsis in the top right of any chart, click **Traces**, and click a service.
-    {% include note.html content="If you don’t see **Traces**, check whether your metrics include `application` and `service point` tags.<br/><br/> These tags are defined when you instrument your application for tracing via [Application tags](trace_data_details.html#application-tags). If your application is already sending this data to the Wavefront service via the Wavefront proxy, you can add point tags using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html#addtag-and-addtagifnotexists)." %}
+    {% include note.html content="If you don’t see **Traces**, check whether your metrics include `application` and `service point` tags.<br/><br/> These tags are defined when you instrument your application for tracing via [Application tags](trace_data_details.html#application-tags). If your application is already sending this data to the Operations for Applications service via the Wavefront proxy, you can add point tags using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html#addtag-and-addtagifnotexists)." %}
 
 ## Custom Service Dashboard
 
