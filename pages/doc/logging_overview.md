@@ -153,7 +153,6 @@ When logs start flowing into our service, as a user with the **Logs** permission
 </tbody>
 </table>
 
-
 ## Learn More!
 
 * [Send logs](logging_send_logs.html).
