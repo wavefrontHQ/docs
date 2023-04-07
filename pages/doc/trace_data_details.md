@@ -48,7 +48,7 @@ A well-formed Operations for Applications span consists of fields and span tags 
 
 Most use cases do not require you to know exactly how the Operations for Applications service expects a span to be formatted:
 * When you instrument your application with OpenTelemetry your application emits spans with the required tags.
-* When you instrument your application with an [Operations for Applications sender SDK](wavefront_sdks.html#sdks-for-sending-raw-data), your application emits spans that are automatically constructed from raw data you pass as parameters.
+* When you instrument your application with a [sender SDK](wavefront_sdks.html#sdks-for-sending-raw-data), your application emits spans that are automatically constructed from raw data you pass as parameters.
 * When you instrument your application with a 3rd party distributed tracing system (Jaeger or Zipkin), your application emits spans that are automatically transformed by the [integration](tracing_integrations.html#tracing-system-integrations-and-exporters) you set up.
 
 It is possible to manually construct a well-formed span and send it either [directly to the Operations for Applications service](direct_ingestion.html#trace-data-spans) or to a TCP port that the Wavefront proxy is listening on for trace data. You might want to do this if you instrumented your application with a proprietary distributed tracing system.
@@ -827,17 +827,17 @@ The SDK you’re using determines which helper objects are in a microservice.
 
 A typical set of helper objects includes some or all of the following:
 
-### Operations for Applications Sender Object
+### Wavefront Sender Object
 
 When you instrument an application, you set up a mechanism for sending metrics and trace data to the Operations for Applications service. Choose between:
 
 * Sending data directly to the Operations for Applications service, also called [direct ingestion](direct_ingestion.html).
 * Sending data to a [Wavefront proxy](proxies.html), which then forwards the data to the Operations for Applications service.
 
-Your choice is represented in your code as an Operations for Applications sender object.
-(Most Operations for Applications SDKs define objects of type `WavefrontSender` or simply `Sender`. A few SDKs define a pair of separate `Client` objects.) An Operations for Applications sender encapsulates the settings you supply when you instrument your microservice. The settings in your code must match the Wavefront proxy ports and configurations you define when sending data.
+Your choice is represented in your code as a Wavefront sender object.
+(Most Operations for Applications SDKs define objects of type `WavefrontSender` or simply `Sender`. A few SDKs define a pair of separate `Client` objects.) A Wavefront sender encapsulates the settings you supply when you instrument your microservice. The settings in your code must match the Wavefront proxy ports and configurations you define when sending data.
 
-{% include note.html content="You can use an Operations for Applications sender to tune performance by setting the frequency for flushing data to the Wavefront proxy or the Operations for Applications service. If you are using direct ingestion, you can also change the defaults for batching up the data to be sent." %}
+{% include note.html content="You can use a Wavefront sender to tune performance by setting the frequency for flushing data to the Wavefront proxy or the Operations for Applications service. If you are using direct ingestion, you can also change the defaults for batching up the data to be sent." %}
 
 <!--- change links when proxy/dir ing decision is in a single section --->
 
@@ -852,7 +852,7 @@ Your choice is represented in your code as an Operations for Applications sender
 The following objects create and report trace data:
 
 * `WavefrontTracer` creates spans and traces.
-* `WavefrontSpanReporter` forwards the trace data to the Operations for Applications sender.
+* `WavefrontSpanReporter` forwards the trace data to the Wavefront sender.
 
 A `WavefrontSpanReporter` specifies the source of the reported trace data -- by default, the host that the code is running on. You can optionally specify a more useful source name explicitly during setup, for example, an IP address, a container or instance name, or some other unique data source. All reporter objects for a particular microservice must specify the same source.
 
@@ -868,10 +868,10 @@ Trace data is reported automatically whenever spans are complete, so a `Wavefron
 
 ### Metrics Reporter Objects
 
-You can use one or more reporter objects to gather metrics and histograms and forward that data to the Operations for Applications sender. Different Operations for Applications reporter objects gather data from different components of your application. For example, a `WavefrontJvmReporter` reports runtime data from the JVM.
+You can use one or more reporter objects to gather metrics and histograms and forward that data to the Wavefront sender. Different Operations for Applications reporter objects gather data from different components of your application. For example, a `WavefrontJvmReporter` reports runtime data from the JVM.
 
 An Operations for Applications reporter object specifies:
-* The reporting interval for metrics and histograms. The reporting interval controls how often data is reported to the Operations for Applications sender and therefore determines the timestamps of data points sent to Operations for Applications. The default reporting interval is once a minute.
+* The reporting interval for metrics and histograms. The reporting interval controls how often data is reported to the Wavefront sender and therefore determines the timestamps of data points sent to Operations for Applications. The default reporting interval is once a minute.
 
 * The source of the reported metrics and histograms -- by default, the host that the code is running on. You can optionally specify a more useful source name explicitly during setup, for example, an IP address, a container or instance name, or some other unique data source. All reporter objects for a particular microservice must specify the same source.
 

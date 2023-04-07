@@ -39,9 +39,9 @@ For reliable performance, use a Wavefront proxy to send trace data to your Opera
     {% include note.html content="Configure the proxy with the `histogramDistListener=` property. You might overlook this property if you are already using a proxy that is configured for metrics." %}
 
 2. Configure your application code to send data via the Wavefront proxy:
-* Set up an [Operations for Applications sender](trace_data_details.html#operations-for-applications-sender-object) that can connect to the Wavefront proxy host.
-  - Configure the Operations for Applications sender with the same listener ports you set for the Wavefront proxy.
-  - Instantiate a single Operations for Applications sender per process and share it among SDKs.
+* Set up a [Wavefront sender](trace_data_details.html#wavefront-sender-object) that can connect to the Wavefront proxy host.
+  - Configure the Wavefront sender with the same listener ports you set for the Wavefront proxy.
+  - Instantiate a single Wavefront sender per process and share it among SDKs.
 
   **Java example:** Instantiate a singleton `WavefrontSender`
 
@@ -61,7 +61,7 @@ If you're using a [Jaeger](jaeger.html) or [Zipkin](zipkin.html) integration, fo
 
 {% include note.html content="Log in to your service instance to configure the integration to automate the setup. The steps in this doc set only give an overview. " %}
 
-The integration instantiates and configures an internal Operations for Applications sender for you.
+The integration instantiates and configures an internal Wavefront sender for you.
 
 ## Application Inventory Best Practices
 

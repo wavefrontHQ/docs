@@ -164,7 +164,7 @@ After your recompiled application starts running, start [exploring your custom t
 
 ### Instrument Your Application with Sender SDKs
 
-For maximum flexibility, you can use the Operations for Applications Sender SDKs. See [Operations for Applications SDKs for Sending Raw Data](wavefront_sdks.html#sdks-for-sending-raw-data) for background.
+For maximum flexibility, you can use the Sender SDKs. See [Operations for Applications SDKs for Sending Raw Data](wavefront_sdks.html#sdks-for-sending-raw-data) for background.
 
 <div class="row">
  <div class="col-md-2 col-sm-6">
