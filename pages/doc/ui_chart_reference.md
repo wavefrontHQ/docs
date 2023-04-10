@@ -1947,7 +1947,7 @@ Chart description which shows up as hover text when users move the mouse over th
 
 ![A screenshot of the Geo Map chart](images/geo-map-chart.png)
 
-You can use the Geo Map chart to visualize your ingested data by location. 
+You can use the Geo Map chart to visualize your ingested data by location. Currently, the Geo Map chart allows you to visualize data ingested by a cloud provider, such as Amazon Web Services, Microsoft Azure, Google Cloud Platform, and so on. The location information is based on the cloud provider regions that are sent as metric tags, such as **Region** or **Zone**.
 
 To view the information by location, on the **Map View** tab, from the **Tag Keys** drop-down menu, you must always select a tag key, for example **Region**.
 
