@@ -7,7 +7,7 @@ permalink: trace_data_query.html
 summary: Learn how to query for trace data.
 ---
 
-After your application sends trace data to Tanzu Observability by Wavefront, you can examine that data in the Traces Browser. By fine-tuning the trace query in the Traces Browser, you find the traces that you're interested in by describing the spans they must contain.
+After your application starts sending trace data to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront), you can examine that data in the Traces Browser. By fine-tuning the trace query in the Traces Browser, you find the traces that you're interested in by describing the spans they must contain.
 
 ## View Tracing Critical Path Data in Charts
 
@@ -135,7 +135,7 @@ To query traces, select **Applications > Traces** and navigate to the Traces Bro
   You might not see search results:
   <ul>
     <li markdown="span">
-      If you search for a trace after 7 days because the Wavefront service retains trace data only for 7 days.
+      If you search for a trace after 7 days because Operations for Applications retains trace data only for 7 days.
     </li>
     <li>
       If you search for a trace after 1 hour because you have enabled <a href="trace_data_sampling.html">intelligent sampling</a> for traces.

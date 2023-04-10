@@ -7,7 +7,7 @@ permalink: opentracing_to_opentelemetry_migration.html
 summary: Migrate your Java application from OpenTracing to use OpenTelemetry.
 ---
 
-OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/).) To send trace data to Tanzu Observability, use OpenTelemetry.
+OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/).) To send trace data to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront), use OpenTelemetry.
 
 {% include note.html content="Read the [OpenTelemetry documentation](https://opentelemetry.io/docs/migration/opentracing/) for migration options and strategies." %}
 
@@ -153,7 +153,7 @@ public class OTelConfig {
 
 ## Create Your Tracer
 
-For OpenTracing, you created the tracer using the Wavefront SDKs. To create the Tracer for OpenTelemetry, use the OpenTracing Shim.
+For OpenTracing, you created the tracer using the Operations for Applications SDKs. To create the Tracer for OpenTelemetry, use the OpenTracing Shim.
 
 1. Create the tracer using the OpenTelemetry to OpenTracing Shim.
     <br/>Example: 
@@ -168,8 +168,8 @@ For OpenTracing, you created the tracer using the Wavefront SDKs. To create the 
     Resource resource = OTelConfig.resource(appName, serviceName);
     ```
 
-Save the changes and run the application to send the trace data to Wavefront.
+Save the changes and run the application to send the trace data to Operations for Applications.
 
 ## Next Steps
 
-For details on configuring your application to send traces or metrics to Tanzu Observability using the Wavefront Proxy or the OpenTelemetry Collector, see [Send OpenTelemetry Data](opentelemetry_tracing.html).
+For details on configuring your application to send traces or metrics to Operations for Applications using the Wavefront proxy or the OpenTelemetry Collector, see [Send OpenTelemetry Data](opentelemetry_tracing.html).

@@ -198,7 +198,7 @@ We provide sender SDKs for:
  </div>
 </div>
 
-{% include note.html content="If you want to instrument your tracing application using a Sender SDK, you won’t see span-level RED metrics by default. See [Instrument Your Application with Sender SDKs](tracing_instrumenting_frameworks.html#instrument-your-application-with-wavefront-sender-sdks) to configure your application to send span-level RED metrics using a custom tracing port." %}
+{% include note.html content="If you want to instrument your tracing application using a Sender SDK, you won’t see span-level RED metrics by default. See [Instrument Your Application with Sender SDKs](tracing_instrumenting_frameworks.html#instrument-your-application-with-sender-sdks) to configure your application to send span-level RED metrics using a custom tracing port." %}
 
 A sender SDK is built into each of the other observability SDKs to enable applications to communicate with Operations for Applications in one of two ways:
 * Send data directly to Operations for Applications ([direct ingestion](direct_ingestion.html)). This technique gets you up and running with minimal preparation, but is best suited for small-scale uses.

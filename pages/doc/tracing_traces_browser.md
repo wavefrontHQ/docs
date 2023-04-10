@@ -7,14 +7,14 @@ permalink: tracing_traces_browser.html
 summary: Explore traces and spans from the Traces Browser
 ---
 
-The Traces Browser that is part of Tanzu Observability by Wavefront lets you explore the context and the details of your application's traces.
+The Traces Browser in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) lets you explore the context and the details of your application's traces.
 
 ## Video
 
 This <a href="https://vmwaretv.vmware.com/media/t/1_guro3vem" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights the Traces Browser features and settings:
 
 <p>
-<iframe id="kmsembed-1_guro3vem" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_guro3vem/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Highlights the Wavefront traces browser features."></iframe>
+<iframe id="kmsembed-1_guro3vem" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_guro3vem/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Highlights the Operations for Applications traces browser features."></iframe>
 </p>
 
 ## Explore the Traces Browser
@@ -22,11 +22,11 @@ This <a href="https://vmwaretv.vmware.com/media/t/1_guro3vem" target="_blank">vi
 See the Traces Browser:
 
 * Option 1:
-  1. In your web browser, go to your Wavefront instance and log in.
+  1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
   1. From the toolbar, select **Applications** > **Traces**.
 
 * Option 2:
-  1. In your web browser, go to your Wavefront instance and log in.
+  1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
   1. Drill down to the Traces Browser from the Service Dashboard, application map, table view, or grid view.
 
 ![explore trace browser](images/tracing_traces_browser.png)
@@ -113,7 +113,7 @@ In the trace details panel, you can:
 
 In the trace details panel, you can view details about a particular span in the trace. If that span came from another service, you can navigate to the dashboard for that service.
 
-{% include note.html content="The Wavefront service can only retrieve up to 1000 spans for a given trace, and you only see up to 1000 spans when you drill down into spans. Therefore, as a best practice and for optimal performance, configure your application to have less than 1000 spans in a trace."%}
+{% include note.html content="The Operations for Applications service can only retrieve up to 1000 spans for a given trace, and you only see up to 1000 spans when you drill down into spans. Therefore, as a best practice and for optimal performance, configure your application to have less than 1000 spans in a trace."%}
 
 ![trace span details](images/tracing_span_details_with_logs.png)
 

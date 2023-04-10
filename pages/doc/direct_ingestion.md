@@ -79,7 +79,7 @@ echo "getAllUsers source=localhost traceId=7b3bf470-9456-11e8-9eb6-529269fb1459 
 
 Notes:
 * In the example, you:
-  - Specify the span using [Operations for Applications span format](trace_data_details.html#wavefront-span-format).
+  - Specify the span using [Operations for Applications span format](trace_data_details.html#operations-for-applications-span-format).
   - Include `f=trace` at the end of the `--data` argument to ensure the input is treated as trace data.
   - Include `cluster=none` and `shard=none` for a span that does not have values for the `cluster` and `shard` span tags.
   - Replace `<start_milliseconds>` and `<duration_milliseconds>` with numbers indicating the span's start time and duration.

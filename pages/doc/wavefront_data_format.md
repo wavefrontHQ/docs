@@ -149,7 +149,7 @@ Most of our discussion of the histogram and span data formats is on the pages li
 
 ### Span Data Format Syntax
 
-[The span format](trace_data_details.html#wavefront-span-format) supports several predefined span tags.
+[The span format](trace_data_details.html#operations-for-applications-span-format) supports several predefined span tags.
 
 ```
 <operationName> source=<source> <spanTags> <start_milliseconds> <duration_milliseconds>

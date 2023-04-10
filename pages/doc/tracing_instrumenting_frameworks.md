@@ -7,25 +7,25 @@ permalink: tracing_instrumenting_frameworks.html
 summary: Set up your application to send metrics, histograms, and trace data.
 ---
 
-{% include important.html content="OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/).) To send trace data to Tanzu observability, use OpenTelemetry."%}
+{% include important.html content="OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/).) To send trace data to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront), use OpenTelemetry."%}
 
-You instrument your application so that trace data from different parts of the stack are sent to Tanzu Observability by Wavefront. Instrumentation enables you to trace a request from end to end across multiple distributed services, guided by key metrics from your application. After instrumentation, you can use our [tracing UI](tracing_basics.html#visualize-distributed-tracing-data) to visualize a request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time and discover problems.
+You instrument your application so that trace data from different parts of the stack are sent to Operations for Applications. Instrumentation enables you to trace a request from end to end across multiple distributed services, guided by key metrics from your application. After instrumentation, you can use our [tracing UI](tracing_basics.html#visualize-distributed-tracing-data) to visualize a request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time and discover problems.
 
-You instrument each microservice in your application with one or more [Wavefront observability SDKs](wavefront_sdks.html). This page:
+You instrument each microservice in your application with one or more [Operations for Applications SDKs](wavefront_sdks.html). This page:
 * Helps you choose the SDK(s) or corresponding integration
 * Directs you to the setup steps for each SDK or integration
 
 ## Step 1. Prepare to Send Data
 
-Choose one of the following ways to send metrics, histograms, and trace data from your application to the Wavefront service:
-* **Direct Ingestion**. To get up and running quickly, use direct ingestion to send data directly to the Wavefront service.
-* **Wavefront proxy**. For any production environment, we recommend a Wavefront proxy to forward data from your application to the Wavefront service. [Using a proxy](direct_ingestion.html#proxy-or-direct-ingestion) provides resilience to internet outages, control over data queuing and filtering, and more.
+Choose one of the following ways to send metrics, histograms, and trace data from your application to Operations for Applications:
+* **Direct Ingestion**. To get up and running quickly, use direct ingestion to send data directly to Operations for Applications.
+* **Wavefront proxy**. For any production environment, we recommend a Wavefront proxy to forward data from your application to your Operations for Applications service. [Using a proxy](direct_ingestion.html#proxy-or-direct-ingestion) provides resilience to internet outages, control over data queuing and filtering, and more.
 
 Watch [this video](https://vmwaretv.vmware.com/media/t/1_5wfjti3m) for some background on proxy vs. direct ingestion.
 
 ### To Prepare for Direct Ingestion
 
-1. Identify the URL of your Wavefront instance. This is the URL you use when you log in, typically something like `https://mywavefront.wavefront.com`.
+1. Identify the URL of your Operations for Applications service. This is the URL you use when you log in, typically something like `https://<your_instance>.wavefront.com`.
 2. [Obtain an API token](wavefront_api.html#managing-api-tokens).
 
 
@@ -49,32 +49,32 @@ Watch [this video](https://vmwaretv.vmware.com/media/t/1_5wfjti3m) for some back
 
 ## Step 2. Get Data Flowing
 
-We support SDKs that implement the [OpenTracing](https://opentracing.io) specification in many languages. You can use a Wavefront OpenTracing SDK to collect custom trace data that you define for your service, for example, to augment an auto-instrumented framework or to replace a 3rd party OpenTracing-compliant library.
+We support SDKs that implement the [OpenTracing](https://opentracing.io) specification in many languages. You can use a Operations for Applications OpenTracing SDK to collect custom trace data that you define for your service, for example, to augment an auto-instrumented framework or to replace a 3rd party OpenTracing-compliant library.
 
-{% include tip.html content="The Wavefront service can only retrieve up to 1000 spans for a given trace, and you only see up to 1000 spans when you [drill down into spans](tracing_traces_browser.html#drill-down-into-spans-and-view-metrics-and-span-logs) via the Traces Browser. Therefore, as a best practice and for optimal performance, configure your application to have less than 1000 spans in a trace." %}
+{% include tip.html content="Operations for Applications can only retrieve up to 1000 spans for a given trace, and you only see up to 1000 spans when you [drill down into spans](tracing_traces_browser.html#drill-down-into-spans-and-view-metrics-and-span-logs) via the Traces Browser. Therefore, as a best practice and for optimal performance, configure your application to have less than 1000 spans in a trace." %}
 
 {{site.data.alerts.note}}
-<p>You can use OpenTracing or OpenTelemetry (OpenTracing and OpenCensus have merged to form OpenTelemetry) to send traces to the Wavefront service. </p>
+<p>You can use OpenTracing or OpenTelemetry (OpenTracing and OpenCensus have merged to form OpenTelemetry) to send traces to Operations for Applications. </p>
   <ul>
     <li>
       To learn about the specification that works for you, see <a href="https://help.wavefront.com/hc/en-us/articles/360058140212-OpenTracing-or-OpenTelemetry-Which-specification-to-select-for-instrumenting-applications-for-tracing-">OpenTracing or OpenTelemetry</a>.
     </li>
     <li>
-      If your application uses OpenTelemetry, see <a href="opentelemetry_tracing.html">OpenTelemetry</a> to send trace data to the Wavefront service.
+      If your application uses OpenTelemetry, see <a href="opentelemetry_tracing.html">OpenTelemetry</a> to send trace data to Operations for Applications.
     </li>
   </ul>
 {{site.data.alerts.end}}
 
 {{site.data.alerts.important}}
 <p>The valid characters in an application and service name are: a-z, A-Z, 0-9, hyphen ("-"), underscore ("_"), dot ("."), forward slash ("/") and comma (","). </p>
-<p>If your application or service names have any other characters other than the valid characters, the Wavefront service replaces each of those characters with a hyphen ("-"). </p>
+<p>If your application or service names have any other characters other than the valid characters, Operations for Applications replaces each of those characters with a hyphen ("-"). </p>
 {{site.data.alerts.end}}
 
 ### Instrument Your Application with OpenTracing SDKs
 
-Choose the Wavefront OpenTracing SDK for your microservice's programming language, and click the link to go to its `README` file on GitHub:
+Choose the Operations for Applications OpenTracing SDK for your microservice's programming language, and click the link to go to its `README` file on GitHub:
 
-{% include note.html content="If you can not find the SDK you were looking for, see an overview of the [Wavefront SDKs](wavefront_sdks.html#what-do-you-want-to-collect)." %}
+{% include note.html content="If you can not find the SDK you were looking for, see an overview of the [Operations for Applications SDKs](wavefront_sdks.html#what-do-you-want-to-collect)." %}
 
 <div class="row">
  <div class="col-md-3 col-sm-6">
@@ -117,7 +117,7 @@ Choose the Wavefront OpenTracing SDK for your microservice's programming languag
 
 ### Instrument Your OpenTracing Java Application Without Writing Code
 
-If you need application observability, but don't want to instrument code for your Java microservices, use the [Wavefront Java Tracing Agent](https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java). For more information, see [this blog post on the Wavefront Java Tracing Agent](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/wavefront-introduces-java-tracing-agent-delivering-out-of-the-box-application-observability).
+If you need application observability, but don't want to instrument code for your Java microservices, use the [Wavefront Java Tracing Agent](https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java). For more information, see [this blog post on the Wavefront Java Tracing Agent](https://tanzu.vmware.com/content/vmware-aria-operations-for-applications-blog/wavefront-introduces-java-tracing-agent-delivering-out-of-the-box-application-observability).
 
 <div class="row">
    <div class="col-md-3 col-sm-6">
@@ -134,7 +134,7 @@ If you need application observability, but don't want to instrument code for you
 ### Send Trace Data from Applications Integrated with Jaeger or Zipkin
 
 If you have already instrumented your application with Jaeger or Zipkin follow these steps:
-  1. Collect traces and send them to the Wavefront service using the following integrations.
+  1. Collect traces and send them to Operations for Applications using the following integrations.
 
       <div class="row">
        <div class="col-md-3 col-sm-6">
@@ -162,9 +162,9 @@ If you have already instrumented your application with Jaeger or Zipkin follow t
 
 After your recompiled application starts running, start [exploring your custom trace data on the Traces Browser](tracing_traces_browser.html) and [exploring the RED metrics and histograms that are automatically derived on the Service Dashboard](tracing_service_dashboard.html) from your trace data.
 
-### Instrument Your Application with Wavefront Sender SDKs
+### Instrument Your Application with Sender SDKs
 
-For maximum flexibility, you can use the Wavefront Sender SDKs. See [Wavefront SDKs for Sending Raw Data](wavefront_sdks.html#sdks-for-sending-raw-data) for background.
+For maximum flexibility, you can use the Sender SDKs. See [Operations for Applications SDKs for Sending Raw Data](wavefront_sdks.html#sdks-for-sending-raw-data) for background.
 
 <div class="row">
  <div class="col-md-2 col-sm-6">
@@ -224,7 +224,7 @@ When you use a Sender SDK, you won’t see span-level RED metrics by default. Th
   ## you can use a port that you prefer. in this example port 30001 is used
   customTracingListenerPorts=30001
   ```
-1. When you configure the `wavefront sender` on your application as explained in the SDK’s README file, define the port so that span level RED metrics will be gathered from your application.
+1. When you configure the sender on your application as explained in the SDK’s README file, define the port so that span level RED metrics will be gathered from your application.
 
 ## Next Steps
 
