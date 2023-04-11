@@ -2,7 +2,7 @@
 title: Auto Instrument Java Application with OpenTelemetry
 keywords: integrations
 layout: readme
-source: opentelemetry-examples/java-example/auto-instrumentation
+
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: opentelemetry_java_app_tutorial.html
