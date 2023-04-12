@@ -317,11 +317,11 @@ The default unit is minutes if the unit is not specified.
 
 You can:
 * Use partial regex to specify patterns that need to be matched when building a query.
-* Use wildcards as shortcuts for specifying multiple names or values.
+* Use wildcards as shortcuts for specifying multiple names or values. 
 * Use query line variables, aliases, and dashboard variables as shortcuts for building queries out of other expressions or predefined strings.
 * Combine wildcards, aliases, query line variables, and dashboard variables in the same query line.
 
-{% include tip.html content="The use of wildcard characters can result in a very large search space and affect performance, for example, if you use a wildcard at the beginning of a metric name." %}
+{% include important.html content="The use of wildcard characters can result in a very large search space and affect performance. For example, if you use a wildcard at the beginning of a metric or source name." %}
 
 
 

@@ -192,14 +192,14 @@ Your use case determines how to use source tags:
   - Use a source tag hierarchy, that is, have source tags dot-delimited, for example `env.cluster.role.role1`.
   In that case, your query might include `... and tag=env.cluster.role.*`
   - Use source tags as intersection sets, that is, use multiple tags (e.g. `env`, `cluster`, `role`, etc).
-  In that case, your query might include`... and tag=env and tag=cluster`.
+  In that case, your query might include `... and tag=env and tag=cluster`.
 
 
 ### Add Source Tags from the UI
 
 To add a source tag from the UI:
-1. Click **Browse>Sources**.
-2. Select one or more sources and click **+Tag** or click the **+** icon below the source. You can add an existing source tag or create a new source tag.
+1. From the toolbar, click **Browse > Sources**.
+2. Select one or more sources and click **Tag** or click the **+** icon below the source. You can add an existing source tag or create a new source tag.
 
 ### Add Source Tags from the API
 
@@ -209,7 +209,7 @@ For details about the APIs, click the gear icon in your service instance UI and 
 
 ### Group by Source Tag in Queries
 
-Aggreggation functions include a group by parameter that allows you to group the results. The syntax is the following (here we use `sum` as an example):
+Aggregation functions include a group by parameter that allows you to group the results. The syntax is the following (here we use `sum` as an example):
 
 ```
 sum(<tsExpression>
