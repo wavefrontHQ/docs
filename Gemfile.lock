@@ -67,7 +67,7 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.10)
     mercenary (0.4.0)
     mini_portile2 (2.8.1)
-    nokogiri (1.13.10)
+    nokogiri (1.14.3)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     pathutil (0.16.2)
@@ -93,8 +93,10 @@ GEM
     webrick (1.7.0)
 
 PLATFORMS
+  x64-mingw-ucrt
   x64-mingw32
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   algoliasearch-jekyll (~> 0.8.0)
@@ -102,8 +104,8 @@ DEPENDENCIES
   jekyll-sitemap
   jekyll-target-blank
   kramdown-parser-gfm
-  nokogiri (~> 1.13.10)
+  nokogiri (~> 1.14.3)
   webrick (~> 1.7)
 
 BUNDLED WITH
-   2.3.20
+   2.4.12

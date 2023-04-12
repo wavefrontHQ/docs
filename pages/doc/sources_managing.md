@@ -56,9 +56,9 @@ When you select a source in the Sources browser, you can examinine it in more de
 
 With more and more companies using dynamic services such as AWS, it's typical to have sources constantly being spun up and shut down.
 * In the Sources browser, all sources are included unless you explicitly exclude Obsolete sources.
-* In the Metrics browser and Query Editor, obsolete sources are no longer shown in the autocomplete dropdown. You can also manually hide sources by using the UI or API.
+* In the Metrics browser and Query Editor, obsolete sources are no longer shown in the autocomplete drop-down menu. You can also manually hide sources by using the UI or API.
 
-{% include note.html content="While hidden sources are removed from the autocomplete dropdown, you can still use these sources in `ts()` queries when data values are present." %}
+{% include note.html content="While hidden sources are removed from the autocomplete drop-down menu, you can still use these sources in `ts()` queries when data values are present." %}
 
 <table style="width: 100%;">
 <tbody>

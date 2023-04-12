@@ -258,11 +258,12 @@ If you are looking at a 30-minute window, <strong>1vw</strong> is one view-windo
 
 ## Use Wildcard Characters with Care
 
-WQL supports the asterisk (*) as a wildcard character.  [Wildcards](query_language_reference.html#partial-regex-wildcards-aliases-and-variables) in queries can result in many time series on a chart, which can be confusing and affect performance. If using a wildcard character make sense for your use case, use delimiters, and don't use a wildcard at the beginning of a query.
+WQL supports the asterisk (*) as a wildcard character.  [Wildcards](query_language_reference.html#partial-regex-wildcards-aliases-and-variables) in queries can result in many time series on a chart, which can be confusing and affect performance. If using a wildcard character makes sense for your use case, use delimiters, and don't use a wildcard at the beginning of a query. Wildcards in source and metric names result in a very large search space and affect performance. For example, if you include a wildcard character in a source name, the system scans all of your sources first.
 
 - **Faster**: `ts(‘abc.*.xyz’)` -- Using delimiters around wildcards.
 - **Slower**: `ts(“abc*xyz”)` -- Not using a period as a delimiter.
 - **Slower**: `ts("*abc.xyz")` -- Wildcard character at the beginning of a query.
+
 
 ## Learn More!
 
