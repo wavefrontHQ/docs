@@ -72,7 +72,7 @@ Data flows from AWS only if the account has the required access. You have severa
 
 ### Give Read-Only Access to Your Amazon Account and Get the Role ARN
 
-To grant VMware Aria Operations for Applications with read-only access to your Amazon account, you need to provide an account ID and external ID. While the account ID is a constant value - the ID to which you want to grant access to your resources, the external ID is not a constant value. The external ID is a secret identifier that is known by you and VMware Aria Operations for Applications (the third-party). The external ID is time-sensitive and regenerated each time you reopen the AWS Integration setup page, and you cannot reuse it.
+To grant Operations for Applications with read-only access to your Amazon account, you need to provide an account ID and external ID. While the account ID is a constant value - the ID to which you want to grant access to your resources, the external ID is not a constant value. The external ID is a secret identifier that is known by you and VMware Aria Operations for Applications (the third-party). The external ID is time-sensitive and regenerated each time you reopen the AWS Integration setup page, and you cannot reuse it.
 
 For information about external IDs and how they are used in AWS, see [How to Use External ID When Granting Access to Your AWS Resources](https://aws.amazon.com/blogs/security/how-to-use-external-id-when-granting-access-to-your-aws-resources/).
 
@@ -85,7 +85,7 @@ For information about external IDs and how they are used in AWS, see [How to Use
 1. Enter the account information:
    - **Account ID** - The identifier of the account to which you want to grant access. 
      To get the account ID:
-      1. Navigate to your product cluster (`https://<example>.wavefront.com`).
+      1. Navigate to your service instance (`https://<your_instance>.wavefront.com`).
       2. Click **Integrations** on the toolbar and click the **Amazon Web Services** integration tile. 
       3. Click the **Setup** tab and click the **How to get Role ARN** link.
       4. Copy the **Account ID** displayed in the instructions.
@@ -206,8 +206,8 @@ You can set up an AWS integration, enable and disable it, and delete it. After y
 
 To set up an AWS integration, you must have a [Role ARN](#give-read-only-access-to-your-amazon-account-and-get-the-role-arn) handy. 
 
-1. Log in to your product cluster (`https://<example>.wavefront.com`) and click **Integrations** on the toolbar.
-1. In the Featured section, click the **Amazon Web Services** tile.
+1. Log in to your service instance (`https://<your_instance>.wavefront.com`) and click **Integrations** on the toolbar.
+1. In the **Featured** section, click the **Amazon Web Services** tile.
 1. Click the **Setup** tab, and click **Add Integration**.   
 1. Configure the integration properties:
      - **Name** - Name to identify the integration.
@@ -232,7 +232,7 @@ The integration is added to the Amazon Web Services Integrations list. If you wa
 
 After you set up the AWS integration with a [Role ARN](#give-read-only-access-to-your-amazon-account-and-get-the-role-arn), you can additionally register more Amazon Web services.
 
-1. In your product instance (`https://<example>.wavefront.com`), click **Integrations** on the toolbar.
+1. In your service instance (`https://<your_instance>.wavefront.com`), click **Integrations** on the toolbar.
 1. In the Featured section, click the **Amazon Web Services** tile.
 1. Click the **Setup** tab.
 1. Click the **Advanced** link.
@@ -268,8 +268,8 @@ After you set up the AWS integration with a [Role ARN](#give-read-only-access-to
 
 We automatically disable integrations that are experiencing errors due to invalid credentials. To enable an integration after the credential has been corrected or to manually disable an integration:
 
-1. In your product instance (`https://<example>.wavefront.com`), click **Integrations** on the toolbar.
-1. In the Featured section, click the **Amazon Web Services** tile.
+1. In your service instance (`https://<your_instance>.wavefront.com`), click **Integrations** on the toolbar.
+1. In the **Featured** section, click the **Amazon Web Services** tile.
 1. Click the **Setup** tab.
 1. Click the **Advanced** link.
 1. In the row that contains the integration that you want to enable or disable, click the ellipsis icon, and select **Enable** or **Disable**.
@@ -279,8 +279,8 @@ We automatically disable integrations that are experiencing errors due to invali
 
 You can delete an AWS integration if you no longer need it:
 
-1. In your product instance (`https://<example>.wavefront.com`), click **Integrations** on the toolbar.
-1. In the Featured section, click the **Amazon Web Services** tile.
+1. In your service instance (`https://<your_instance>.wavefront.com`), click **Integrations** on the toolbar.
+1. In the **Featured** section, click the **Amazon Web Services** tile.
 1. Click the **Setup** tab.
 1. Click the **Advanced** link.
 1. In the row that contains the integration that you want to delete, click the ellipsis icon, and select **Delete**.
