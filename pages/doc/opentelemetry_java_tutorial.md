@@ -1,6 +1,5 @@
 ---
 title: Auto Instrument Java Application with OpenTelemetry
-keywords: integrations
 layout: readme
 source: opentelemetry-examples/java-example
 tags: [tracing]
