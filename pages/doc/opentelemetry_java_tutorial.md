@@ -6,8 +6,6 @@ permalink: opentelemetry_java_app_tutorial.html
 summary: Auto instrument your Java application to send OpenTelemetry trace data to our service. 
 ---
 
-# Auto Instrumenting Java Apps with OpenTelemetry
-
 This guide shows you how to auto instrument your Java application using the OpenTelemetry Java agent. and send data to our service. 
 
 ## Prerequisites
