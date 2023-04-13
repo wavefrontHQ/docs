@@ -59,7 +59,7 @@ For instrumentation, you use the Java agent provided by OpenTelemetry, which can
     ```
 
 1. Run `./mvnw package` from the root directory of the project.
-1. Download the OpenTelemetry Java agent.
+1. Download the [OpenTelemetry Java agent](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar).
 1. Assign the file path to the `JAVA_AGENT` variable.
     ```
     JAVA_AGENT= <path to OpenTelemetry Java agent>
