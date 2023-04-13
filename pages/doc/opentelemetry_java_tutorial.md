@@ -59,17 +59,20 @@ For instrumentation, you use the Java agent provided by OpenTelemetry, which can
     ```
 
 1. Run `./mvnw package` from the root directory of the project.
-1. Download the [OpenTelemetry Java agent](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar).
+1. Download the OpenTelemetry Java agent.
+    ```
+    curl -L https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar --output otelagent.jar
+    ```
 1. Assign the file path to the `JAVA_AGENT` variable.
     ```
-    JAVA_AGENT= <path to OpenTelemetry Java agent>
+    JAVA_AGENT=./otelagent.jar
     ```
 1. Attach the Java agent and start the Spring Petclinic application.
     ```
     java -javaagent:$JAVA_AGENT -Dotel.service.name=petclinic -Dotel.resource.attributes=application=demo-petclinic -Dotel.exporter.otlp.metrics.temporality.preference=DELTA -Dotel.exporter.otlp.metrics.default.histogram.aggregation=EXPONENTIAL_BUCKET_HISTOGRAM -jar target/*.jar
     ```
 
-1. Navigate to http://localhost:8080 and interact with the Petclinic application to generate telemetry data.
+1. Navigate to [http://localhost:8080](http://localhost:8080) and interact with the Petclinic application to generate telemetry data.
 
 ## View the Metrics and Distributed Traces
 
@@ -93,8 +96,3 @@ Example:
 * The query `ts(jvm.threads.live)` shows the total number of live threads in the Petclinic application.
     Example:
     ![A screenshot showing the chart data when you query for ts(jvm.threads.live).](images/java_auto_instrumentation_metrics_chart.png)
-
-* This query `cumulativePercentile(85, mavg(15m, deriv(sum(ts(http.server.duration), le))))` shows the 85th percentile of HTTP response times over the last 15 minutes. In this case, 85 percent of the HTTP response times are 98.75ms or less.
-    **Note**: This query can take up to 15 minutes to complete.
-    Example:
-    ![A screenshot showing the chart data when you query for the cumulativePercentile.](images/java_auto_instrumentation_metrics_chart_cumulativePercentile.png)
