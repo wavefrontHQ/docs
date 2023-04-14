@@ -48,14 +48,14 @@ Run `sudo service telegraf restart` to restart your Telegraf agent.
   
 ## Envoy Proxy on Kubernetes
 
-This integration uses
-* [Annotation Based Discovery](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/discovery.md#annotation-based-discovery) feature in Kubernetes Metrics Collector to monitor Envoy proxy on Kubernetes.
+This integration uses:
+* The [Annotation Based Discovery](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/discovery.md#annotation-based-discovery) feature in Kubernetes Metrics Collector to monitor Envoy proxy on Kubernetes.
 
-* [Observability for Kubernetes Operator](https://github.com/wavefrontHQ/observability-for-kubernetes) to deploy the necessary agents to monitor your clusters and workloads in Kubernetes. If you do not already have the Observability for Kubernetes Operator installed on your Kubernetes cluster, please follow the add Kubernetes instructions and add it to your cluster.
+* The [Observability for Kubernetes Operator](https://github.com/wavefrontHQ/observability-for-kubernetes) to deploy the necessary agents to monitor your clusters and workloads in Kubernetes, such as the Kubernetes Metrics Collector. The [Kubernetes Metrics Collector](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes) collects the metrics from the annotated Envoy pods and sends the metrics to Operations for Applications. If you do not already have the Collector installed in your Kubernetes cluster, follow the Kubernetes Integration Setup instructions and add it to your cluster.
 
-* [Kubernetes Metrics Collector](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes) to collect the federated metrics from Prometheus server and to send metrics to Operations for Applications. The Kubernetes Metrics Collector can send data to Operations for Applications using the [Wavefront proxy](https://docs.wavefront.com/proxies.html) or [direct ingestion](https://docs.wavefront.com/direct_ingestion.html). If you do not already have the Observability for Kubernetes Operator installed on your Kubernetes cluster, please follow the add Kubernetes instructions and add it to your cluster.
+**Note**: The Kubernetes integration installed by using Helm or manual deployment is deprecated. If you already have the deprecated Kubernetes integration, uninstall it before you install the Observability for Kubernetes Operator.
 
-### Steps to Annotate Envoy Proxy Deployment
+### Reporting Envoy Proxy Metrics to Operations for Applications
 
 1. Make sure that auto discovery `enableDiscovery: true` and annotation based discovery `discovery.disable_annotation_discovery: false` are enabled in the Kubernetes Metrics Collector ConfigMap. They should be enabled by default.
 **NOTE**: The Kubernetes Metrics Collector scrapes all the pods that have Prometheus annotation enabled.

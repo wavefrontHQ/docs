@@ -29,12 +29,12 @@ This integration also installs the dashboards. Here's a preview of the Istio Dat
   * Kubernetes Metrics Collector: v1.13.0 or later.
   * Prometheus: v2.21.0 or later
 
-This integration uses
-* [Prometheus](https://istio.io/latest/docs/ops/integrations/prometheus/) server to scrape metrics from Istio and federate them.
+This integration uses:
+* The [Prometheus](https://istio.io/latest/docs/ops/integrations/prometheus/) server to scrape metrics from Istio and federate them.
 
-* [Observability for Kubernetes Operator](https://github.com/wavefrontHQ/observability-for-kubernetes) to deploy the necessary agents to monitor your clusters and workloads in Kubernetes.
+* The [Observability for Kubernetes Operator](https://github.com/wavefrontHQ/observability-for-kubernetes) to deploy the necessary agents to monitor your clusters and workloads in Kubernetes, such as the Kubernetes Metrics Collector. The [Kubernetes Metrics Collector](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes) collects the federated metrics from a Prometheus server and sends the metrics to Operations for Applications. If you do not already have the Collector installed in your Kubernetes cluster, follow the Kubernetes Integration Setup instructions and add it to your cluster.
 
-* [Kubernetes Metrics Collector](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes) to collect the federated metrics from Prometheus server and to send metrics to Operations for Applications. The Kubernetes Metrics Collector can send data to Operations for Applications using the [Wavefront proxy](https://docs.wavefront.com/proxies.html) or [direct ingestion](https://docs.wavefront.com/direct_ingestion.html).
+**Note**: The Kubernetes integration installed by using Helm or manual deployment is deprecated. If you already have the deprecated Kubernetes integration, uninstall it before you install the Observability for Kubernetes Operator.
 
 ### Reporting Istio Metrics to Operations for Applications
 
@@ -185,9 +185,11 @@ Istio config:{% raw %}
 **Note**: When Istio is configured as a multi-cluster service, you must deploy Prometheus and the Kubernetes Metrics Collector on each cluster. Follow the steps above for each cluster in your environment.
 
 ### Reporting Istio Traces to Operations for Applications
+
 The following instructions are for reporting traces. To report metrics, use the Istio metrics setup instructions above.
 
 #### Step 1. Set Up the Wavefront Proxy
+
 Follow these [steps](https://github.com/wavefrontHQ/wavefront-kubernetes#wavefront-proxy-required) to deploy a Wavefront proxy. As part of the process, uncomment the lines to enable Zipkin/Istio traces. Use a proxy version 4.35 or later.
 
 #### Step 2. Set Up Istio to Send Traces to Wavefront Proxy
