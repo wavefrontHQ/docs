@@ -54,7 +54,8 @@ Follow the steps given below to propagate custom span tags when sending data fro
         <li class="active"><a href="#tracingApplication" data-toggle="tab">OpenTelemetry</a></li>
         <li><a href="#jaeger" data-toggle="tab">Jaeger</a></li>
         <li><a href="#zipkin" data-toggle="tab">Zipkin</a></li>
-        <li><a href="#springboot" data-toggle="tab">Spring Boot 2</a></li>
+        <li><a href="#springboot2" data-toggle="tab">Spring Boot 2</a></li>
+        <li><a href="#springboot3" data-toggle="tab">Spring Boot 3</a></li>
         <li><a href="#customProxy" data-toggle="tab">Custom Proxy Port</a></li>
     </ul>
       <div class="tab-content">
@@ -64,27 +65,29 @@ Follow the steps given below to propagate custom span tags when sending data fro
 traceDerivedCustomTagKeys=env
             </pre>
         </div>
-
         <div role="tabpanel" class="tab-pane" id="jaeger">
             <p>If you are using Jaeger, you send data to Operations for Applications using <a href="proxies.html">Wavefront proxy</a>. Add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
             <pre>
 traceDerivedCustomTagKeys=env
             </pre>
         </div>
-
         <div role="tabpanel" class="tab-pane" id="zipkin">
             <p>If you are using Zipkin, you send data to Operations for Applications using <a href="proxies.html">Wavefront proxy</a>. Add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
             <pre>
 traceDerivedCustomTagKeys=env
             </pre>
         </div>
-
-        <div role="tabpanel" class="tab-pane" id="springboot">
-        <p> Add the configuration shown below to your application's <code>application.properties</code> file.</p>
+        <div role="tabpanel" class="tab-pane" id="springboot2">
+        <p> If your application uses Spring Boot 2, add the configuration shown below to your application's <code>application.properties</code> file.</p>
             <pre>
 wavefront.tracing.red-metrics-custom-tag-keys=env
             </pre>
-
+        </div>
+        <div role="tabpanel" class="tab-pane" id="springboot3">
+        <p> If your application uses Spring Boot 3, add the configuration shown below to your application's <code>application.properties</code> file.</p>
+            <pre>
+management.wavefront.trace-derived-custom-tag-keys=env
+            </pre>
         </div>
         <div role="tabpanel" class="tab-pane" id="customProxy">
         <p> Add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
