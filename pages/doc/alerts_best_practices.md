@@ -35,7 +35,7 @@ For metrics that do not report at a fixed interval, alerts are only useful if y
 
 * You can base the query condition on the last value reported, the sum of the values, or the average of the values depending on what nuance you want your query to capture.
 
-* Operations for Applications evaluates alerts once per minute by default. The **Checking Frequency** in the Alert page's **Advanced Settings** allows you to change the default (minimum is 1 minute).
+* Operations for Applications evaluates alerts once per minute by default. The **Checking Frequency** in the Alert page's **Advanced Settings** allows you to change the default.
 
 **Example 1**: Suppose you have a metric that reports the number of failures since server restart. If the metric reports 25 failures at 1:24, and 25 failures at 1:25, that could mean nothing has changed. However, it could also mean that within a minute, 10 failures resolved and 10 new failures appeared. It could even mean that within a minute, total failures dropped to 2, jumped up to 100, and came back down to 25. For this use case, your alert can't just check the number of failures once a minute. Instead, the alert has to look at a metric that captures the total number of failures that happened over time.
 
