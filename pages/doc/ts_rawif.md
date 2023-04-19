@@ -53,8 +53,8 @@ The following example set starts with a simple metric, which looks like this:
 
 Now we use an `rawif` condition that returns a value of 50 for any point that's greater than 100, and a value of 25 otherwise.
 
-![if then else](images/ts_if_then_else.png)
+![if then else](images/ts_rawif_then_else.png)
 
 Finally, we look at an example that does not use an `else-tsExpression`. For this case, we've limited the query to one time series.
 
-![if then](images/ts_if_then.png)
+![if then](images/ts_rawif_then.png)
