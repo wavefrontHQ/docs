@@ -5,18 +5,39 @@ entries:
   product:
   version:
   folders:
-
-  - title: Quickstart & Tutorials
+  
+  
+  - title: About 
     output: web
     folderitems:
 
     - title: "Introduction"
       url: /wavefront_introduction.html
       output: web
-
-    - title: Customize Your Account
-      url: /users_account_managing.html
+    
+    - title: Product FAQ
       output: web
+      url: /tobs_faq.html
+
+  - title: Subscription and Commitment 
+    output: web
+    folderitems:
+
+    - title: Start a Free Trial
+      url:  /upgrade_and_purchase.html
+      output: web
+
+    - title: Upgrade from Trial Version
+      url: /upgrade_and_purchase.html
+      output: web
+
+    - title: Purchase Additional Capacity
+      url: /purchase_additional_capacity.html
+      output: web
+  
+  - title: Quickstart & Tutorials
+    output: web
+    folderitems:
 
     - title: Learning Resources
       url: /tutorial_overview.html
@@ -25,10 +46,6 @@ entries:
     - title: Videos
       output: web
       url: /videos.html
-
-    - title: Product FAQ
-      output: web
-      url: /tobs_faq.html
 
       subfolders:
 
@@ -836,20 +853,21 @@ entries:
         url: /wavefront_clis.html
         output: web
 
-  - title: Administration
+
+  - title: Administering VMware Cloud Services Subscriptions
     output: web
     folderitems:
 
-      - title: Administering Overview
+  - title: Administering Original Subscriptions
+    output: web
+    folderitems:
+
+      - title: Access Management Overview
         url: /wavefront_administer.html
         output: web
 
-      - title: Upgrade from Trial Version
-        url: /upgrade_and_purchase.html
-        output: web
-
-      - title: Purchase Additional Capacity
-        url: /purchase_additional_capacity.html
+      - title: Customize Your Account
+        url: /users_account_managing.html
         output: web
 
       - title: Security
@@ -915,58 +933,58 @@ entries:
             url: /authentication.html
             output: web
 
-        - title: Monitoring & Troubleshooting
-          output: web
-          subfolderitems:
+  - title: Monitoring & Troubleshooting
+    output: web
+    folderitems:
 
-          - title: Examine Overall Usage
-            url: /examine_usage.html
-            output: web
+      - title: Examine Overall Usage
+        url: /examine_usage.html
+        output: web
 
-          - title: Monitor Usage with Ingestion Policies
-            url: /ingestion_policies.html
-            output: web
+      - title: Monitor Usage with Ingestion Policies
+        url: /ingestion_policies.html
+        output: web
 
-          - title: Monitor with the Usage Integration
-            url: /wavefront_monitoring.html
-            output: web
+      - title: Monitor with the Usage Integration
+        url: /wavefront_monitoring.html
+        output: web
 
-          - title: Internal Metrics
-            url: /wavefront-internal-metrics.html
-            output: web
+      - title: Internal Metrics
+        url: /wavefront-internal-metrics.html
+        output: web
 
-          - title: Track Alerts, Users, and Dashboards
-            url: /track_adoption.html
-            output: web
+      - title: Track Alerts, Users, and Dashboards
+        url: /track_adoption.html
+        output: web
 
-          - title: Monitor Wavefront Proxies
-            url: /monitoring_proxies.html
-            output: web
+      - title: Monitor Wavefront Proxies
+        url: /monitoring_proxies.html
+        output: web
 
-          - title: Improve PPS Usage and Prevent Overage
-            url: /wavefront_usage_info.html
-            output: web
+      - title: Improve PPS Usage and Prevent Overage
+        url: /wavefront_usage_info.html
+        output: web
 
-          - title: Use Top or Spy to Investigate Traffic
-            url: /wavefront_monitoring_spy.html
-            output: web
-          
-          - title: Monitor the Status of Your Service
-            url: /service_status_page.html
-            output: web
+      - title: Use Top or Spy to Investigate Traffic
+        url: /wavefront_monitoring_spy.html
+        output: web
+      
+      - title: Monitor the Status of Your Service
+        url: /service_status_page.html
+        output: web
 
-        - title: Best Practices
-          output: web
-          subfolderitems:
+  - title: Best Practices
+    output: web
+    folderitems:
 
-          - title: Understanding Cardinality
-            url: /cardinality.html
-            output: web
+      - title: Understanding Cardinality
+        url: /cardinality.html
+        output: web
 
-          - title: Optimizing Data Shape
-            url: /optimize_data_shape.html
-            output: web
+      - title: Optimizing Data Shape
+        url: /optimize_data_shape.html
+        output: web
 
-          - title: Obsolescence Policy
-            url: /wavefront_obsolescence_policy.html
-            output: web
+      - title: Obsolescence Policy
+        url: /wavefront_obsolescence_policy.html
+        output: web
