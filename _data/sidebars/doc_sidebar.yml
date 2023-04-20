@@ -24,7 +24,7 @@ entries:
     folderitems:
 
     - title: Start a Free Trial
-      url:  /upgrade_and_purchase.html
+      url:  /start_trial.html
       output: web
 
     - title: Upgrade from Trial to Paid
