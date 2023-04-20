@@ -912,6 +912,21 @@ entries:
             url: /metrics_security.html
             output: web
 
+        - title: Authentication
+          output: web
+          subfolderitems:
+
+          - title: Authentication Model
+            url: /wavefront-authentication.html
+            output: web
+
+          - title: Single-Tenant Authentication and SAML SSO
+            url: /auth_self_service_sso.html
+            output: web
+
+          - title: Multi-Tenant Authentication
+            url: /authentication.html
+            output: web
             
   - title: Administering Original Subscriptions
     output: web
