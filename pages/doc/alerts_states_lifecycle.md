@@ -108,6 +108,8 @@ If the expression returns a single data value per minute, the summarization valu
 
 {% include note.html content="To use a different summarization strategy, use the [`align()`](ts_align.html) function, with parameters specifying a 1-minute time window and your preferred summarization method, in your alert condition. See **Example 2** below." %}
 
+The examples given below assumes that the alert checking frequency is set to 1 minute.
+
 **Example 1**
 
 Suppose your alert condition is `ts(my.metric) > 4` and `my.metric` reports 5 data values (9,9,9,3,9) between 12:11:00pm and 12:11:59pm. The alert checking process:
@@ -202,7 +204,7 @@ By default, the **Resolve Window** is the same length as the **Trigger Window**.
 
 Suppose you define an alert with the following properties:
 * The alert condition is `ts(metric.name) > 0`, where `metric.name` reports once a minute. (The summarization values are therefore the same as the reported values.)
-* The **Checking Frequency** interval is 1 minute.
+* The **Checking Frequency** interval is 1 minute (the default value is 5 minutes).
 * **Trigger Window** = 5 minutes.
 * **Resolve Window** = 10 minutes.
 
