@@ -9,7 +9,7 @@ summary: VMware offers a free trial of the VMware Aria Operations for Applicatio
 
 ---
 
-From June 2023, VMware Aria Operations for Applications is a service in the VMware Cloud services catalog. VMware Cloud services provides single sign-on (SSO) and identity access management (IAM) to your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications.
+Starting June, 2023, VMware Aria Operations for Applications is a service in the VMware Cloud services catalog. VMware Cloud services provides single sign-on (SSO) and identity access management (IAM) to your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications.
 
 You can start a 30-day free trial of the Operations for Applications service from the VMware Cloud Services Console. 
 
@@ -28,16 +28,20 @@ You can start a 30-day free trial of the Operations for Applications service fro
     You are redirected back to the VMware Cloud Services Console.
 1. Select a VMware Cloud organization or create a new one.
 
-    {% include note.html content="If you want to register the service on an organization, you must have the **Organization Owner** role for that organization." %}
+    {% include note.html content="If you want to onboard the service in an existing organization, you must have the **Organization Owner** role for that organization." %}
 
    To create an organization:
    
    1. Click **Create New Organization**.
-   2. Enter an organization name.
-   3. Enter the address for your organization or choose and existing one if you have already added an address for your account.
-   4. Enter the payment details information.
-   5. Review the Cloud Services Terms of Service and select the check box to agree. 
+   1. Enter an organization name.
+   1. Enter the address for your organization or choose and existing one if you have already added an address for your account.
+   1. Enter the payment details information.
+   1. Review the Cloud Services Terms of Service and select the check box to agree.
+
+    Initially, you are the only user who belongs to the newly created organization. You have the **Organization Owner** role for that organization.
 
 6. Click **Continue**.
    
-   You are redirected to the Operations for Applications GUI.
+   You are redirected to the Operations for Applications GUI. You are logged with your VMware account.
+   
+   Your initial Operations for Applications service role is **User** but, as an **Organization Owner**, you can change it. 

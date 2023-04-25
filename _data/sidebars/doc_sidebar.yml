@@ -858,12 +858,12 @@ entries:
     output: web
     folderitems:
 
-      - title: Administering Overview
-        url: /wavefront_administer.html
+      - title: Get Started with VMware Cloud Services
+        url: /csp_getting_started.html
         output: web
 
-      - title: Customize Your Account
-        url: /users_account_managing.html
+      - title: Customize Your VMware Account
+        url: /csp_users_account_managing.html
         output: web
 
       - title: Security
