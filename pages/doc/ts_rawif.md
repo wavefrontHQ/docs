@@ -47,14 +47,14 @@ Each of the [tsExpressions](query_language_reference.html#query-expressions) can
 
 ## Examples
 
-The following example set starts with a simple metric, which looks like this:
+The following example set (`ts(~sample.requests.latency AND source="app-2*")`) starts with a simple metric, which looks like this:
 
-![if metric](images/ts_if_metric.png)
+![rawif metric](images/ts_if_metric.png)
 
-Now we use an `rawif` condition that returns a value of 50 for any point that's greater than 100, and a value of 25 otherwise.
+Now we use an `rawif` condition that returns a value of 50 for any point that's greater than 100, and a value of 25 otherwise: `rawif(ts(~sample.requests.latency AND source="app-2*")>100, 50, 25)`.
 
-![if then else](images/ts_rawif_then_else.png)
+![rawif then else](images/ts_rawif_then_else.png)
 
-Finally, we look at an example that does not use an `else-tsExpression`. For this case, we've limited the query to one time series.
+Finally, we look at an example that does not use an `else-tsExpression`. For this case, we've limited the query to one time series: `rawif(ts(~sample.requests.latency AND source="app-20")>200, 0)`.
 
-![if then](images/ts_rawif_then.png)
+![rawif then](images/ts_rawif_then.png)
