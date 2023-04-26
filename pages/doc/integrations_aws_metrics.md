@@ -46,7 +46,7 @@ To configure CloudWatch ingestion:
     - **Instance and Volume Allow List** fields -- Add instances and volumes to an allow list by specifying [EC2 tags](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html), defined on the instances and volumes. The allow lists should be in JSON format, for example, `{"organization":"yourcompany"}`. The tags specified in the allow lists are OR'd. To use instance and volume allow lists, you must also add an [AWS Metrics+](#aws-metrics-data) integration because the AWS tags are imported from the EC2 service. If you don't specify any tags, we import metrics from *all* instances and volumes.
     - **Metric Allow List** field -- Add metrics to an allow list by specifying a regular expression. 
         
-      {% include tip.html content="Metric names consist of the actual metric name and a suffix (starting with an underscore ("_") or a dot (".")). The suffix represents an aggregation type. In the regular expression, you must use the actual metric names *without* the aggregation types, such as: `count`, `rate`, `min`, `max`, `sumOfSquaredDeviation`, `mean`, and so on." %}
+      {% include tip.html content="Metric names consist of the actual metric name and a suffix, starting with an underscore (`_`) or a dot (`.`). The suffix represents an aggregation type. In the regular expression, you must use the actual metric names *without* the aggregation types, such as: `count`, `rate`, `min`, `max`, `sumOfSquaredDeviation`, `mean`, and so on." %}
       
       For example, in the following list of metric names:
     
