@@ -862,7 +862,11 @@ entries:
         url: /csp_getting_started.html
         output: web
 
-      - title: Customize Your VMware Account
+      - title: Sign Up or Log In to Your Service Instance
+        url: /log_in_to_tanzu_observability.html
+        output: web
+
+      - title: Customize Your Account
         url: /csp_users_account_managing.html
         output: web
 
@@ -910,22 +914,6 @@ entries:
 
           - title: Metrics Security Policy Rules
             url: /metrics_security.html
-            output: web
-
-        - title: Authentication
-          output: web
-          subfolderitems:
-
-          - title: Authentication Model
-            url: /wavefront-authentication.html
-            output: web
-
-          - title: Single-Tenant Authentication and SAML SSO
-            url: /auth_self_service_sso.html
-            output: web
-
-          - title: Multi-Tenant Authentication
-            url: /authentication.html
             output: web
             
   - title: Administering Original Subscriptions
