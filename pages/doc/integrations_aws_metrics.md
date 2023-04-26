@@ -44,7 +44,11 @@ To configure CloudWatch ingestion:
 1. In the Types column, click the **CloudWatch** link in the row of the integration you want to configure.
 1. Configure ingestion properties:
     - **Instance and Volume Allow List** fields -- Add instances and volumes to an allow list by specifying [EC2 tags](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html), defined on the instances and volumes. The allow lists should be in JSON format, for example, `{"organization":"yourcompany"}`. The tags specified in the allow lists are OR'd. To use instance and volume allow lists, you must also add an [AWS Metrics+](#aws-metrics-data) integration because the AWS tags are imported from the EC2 service. If you don't specify any tags, we import metrics from *all* instances and volumes.
-    - **Metric Allow List** field -- Add metrics to an allow list by specifying a regular expression. Metric names consist of the actual metric name and an aggregation type. In the regular expression, you must use the actual metric names without the aggregation types. For example, in the following list of metric names:
+    - **Metric Allow List** field -- Add metrics to an allow list by specifying a regular expression. 
+        
+      {% include tip.html content="Metric names consist of the actual metric name and a suffix (starting with an underscore ("_") or a dot (".")). The suffix represents an aggregation type. In the regular expression, you must use the actual metric names *without* the aggregation types, such as: `count`, `rate`, `min`, `max`, `sumOfSquaredDeviation`, `mean`, and so on." %}
+      
+      For example, in the following list of metric names:
     
       - `aws.dynamodb.successfulrequestlatency.average`
       - `aws.dynamodb.successfulrequestlatency.maximum`
@@ -53,18 +57,15 @@ To configure CloudWatch ingestion:
       - `aws.dynamodb.successfulrequestlatency.sum`
       
        Here, the actual metric name is `aws.dynamodb.successfulrequestlatency`, while `average`, `maximum`, `minimum`, `samplecount`, and `sum` are the aggregation types. When you create the regular expression, you must use only `aws.dynamodb.successfulrequestlatency`. For example, `^aws.dynamodb.successfulrequestlatency$`.
-      
-      If you do not specify a regular expression, _all_ CloudWatch metrics are retrieved.
-    
-    - **Bucket Allow List** -- Enter a regular expression with the names of the buckets that contain the objects you want to request metrics for. This way, you add the bucket names to an allow list and only the S3 metrics that are in the matching buckets will be sent to VMware Aria Operations for Applications.
-    - **Point Tag Allow List** -- Add custom AWS point tags to an allow list by specifying a regular expression. If you do not specify a regular expression, no point tags are added to metrics.
-    
+       
+     - **Bucket Allow List** – Enter a regular expression with the names of the buckets that contain the objects you want to request metrics for. This way, you add the bucket names to an allow list and only the S3 metrics that are in the matching buckets will be sent to VMware Aria Operations for Applications.
+     - **Point Tag Allow List** – Add custom AWS point tags to an allow list by specifying a regular expression. If you do not specify a regular expression, no point tags are added to metrics.
       Currently, custom point tags only for AWS EC2 instances and volumes are supported. To ingest the custom tags, you must first add the custom tags to the supported resources, and then add the tag keys in the **Point Tag Allow List** as a regular expression.
-    - **Service Refresh Rate** -- Number of minutes between requesting metrics. Default is `5`.
-    - **Products** -- Allows you to filter the list of AWS products for which you want to collect metrics by using the CloudWatch integration. The default is **All**. Click **Custom** to see the list of AWS products and to filter them according to your needs.
-    - If you select a custom list of AWS products, you can also specify custom namespaces.
+     - **Service Refresh Rate** -- Number of minutes between requesting metrics. Default is `5`.
+     - **Products** -- Allows you to filter the list of AWS products for which you want to collect metrics by using the CloudWatch integration. The default is **All**. Click **Custom** to see the list of AWS products and to filter them according to your needs.
+     - If you select a custom list of AWS products, you can also specify custom namespaces.
 
-       A namespace is a container for CloudWatch metrics. Metrics in different namespaces are isolated from each other, so that metrics from different applications are not mistakenly aggregated into the same statistics. See [Amazon CloudWatch concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html) for details. 
+        A namespace is a container for CloudWatch metrics. Metrics in different namespaces are isolated from each other, so that metrics from different applications are not mistakenly aggregated into the same statistics. See [Amazon CloudWatch concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html) for details. 
 
     
 1. Click **Update**.
