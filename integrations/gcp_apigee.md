@@ -74,7 +74,7 @@ To register a Google Cloud Platform integration:
     
    <strong>Note:</strong> Metric names consist of the actual metric name and a suffix (starting with an underscore ("_") or a dot (".")). The suffix represents an aggregation type. In the regular expression, you must use the actual metric names without the aggregation types, such as: <code>count</code>, <code>rate</code>, <code>min</code>, <code>max</code>, <code>sumOfSquaredDeviation</code>, <code>mean</code>, and so on.
 
-   For example, for the Google Cloud Pub/Sub Engine, we collect a number of metrics, and some of them, contain a suffix:
+   For example, for the Google Cloud Pub/Sub Engine, we collect a number of metrics, and some of them contain a suffix:
 
    Push request latencies metrics:
 
