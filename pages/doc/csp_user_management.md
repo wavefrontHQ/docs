@@ -2,7 +2,7 @@
 title: Manage Your VMware Cloud Services Account
 keywords: administration
 sidebar: doc_sidebar
-permalink: csp_users_account_managing.html
+permalink: csp_user_management.html
 summary: Learn how to manage your password and preferences.
 ---
 

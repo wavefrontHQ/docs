@@ -134,15 +134,16 @@ To grant a user access to an Operations for Applications service instance (tenan
   </tr>
   <tr>
     <th id="sa">Super Admin</th>
-    <td><ul>
-    <li>Has all permissions.</li>
-    <li>Has access to all dashboards and alerts.</li>
-    <li>Can set the default preferences for all users of the service instance.<li>
-    <li>Can restrict access for new dashboards and alerts.<li>
+    <td>When users with that service role <a href="csp_users_account_managing.html#enable-or-disable-super-admin-mode">enable Super Admin mode</a>, they:<ul>
+    <li>Have all permissions.</li>
+    <li>Have access to all dashboards and alerts.</li>
+    <li>Can set the default preferences for all users of the service instance.</li>
+    <li>Can restrict access for new dashboards and alerts.</li>
     <li>Can <a href="access.html#make-orphan-dashboards-or-alerts-visible">restore orphan dashboards and alerts</a>.</li>
     <li>Can upgrade from trial version and purchase Operations for Applications.</li>
     <li>Can purchase more PPS.</li>
-    </ul></td>
+    </ul>
+    <p><strong>Tip:</strong> Combine the <strong>Super Admin</strong> service role with the roles that you want the user to have when Super Admin mode is disabled. </p></td>
   </tr>
   <tr>
     <th>Viewer</th>

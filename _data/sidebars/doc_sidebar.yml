@@ -866,7 +866,7 @@ entries:
         url: /log_in_to_tanzu_observability.html
         output: web
 
-      - title: Customize Your VMware Cloud Services Account
+      - title: Manage Your VMware Cloud Services Account
         url: /csp_users_account_managing.html
         output: web
 
@@ -875,7 +875,7 @@ entries:
         output: web
       
       - title: Authorization and User Management
-        url: /authorization.html
+        url: /csp_user_management.html
         output: web
 
       - title: Server-to-Server Apps Management
