@@ -26,8 +26,8 @@ See [Using VMware Cloud Services Console](https://docs.vmware.com/en/VMware-Clou
 A VMware Cloud services account is a user (human) account in VMware Cloud services with which you can access all of your service instances, including Operations for Applications. A VMware Cloud services account logs in to VMware Cloud services with an email address and password. A VMware Cloud services account can be one of the following:
 - A VMware account (VMware ID) that you create in the VMware Cloud Services Console.
 
-    You can create a VMware account independently, while onboarding a service instance, or while signing up to a service instance with an invitation link.
-- Your corporate account if your enterprise domain is federated. You might still need to create a VMware account and link it to your corporate account if you need to access billing information in the organization.See [What is enterprise federation and how does it work](https://docs.vmware.com/en/VMware-Cloud-services/services/setting-up-enterprise-federation-cloud-services/GUID-76FAECB3-CFAA-461E-B9C9-2A49C39CD17F.html)
+    You can create a VMware account independently, while [onboarding](start_trial.html) a service, or while [signing up](log_in_to_tanzu_observability.html#sign-up-with-an-email-invitation) to a service with an invitation link.
+- Your corporate account if your enterprise domain is federated. You might still need to create a VMware account and link it to your corporate account if you need to access billing information in the organization. See [What is enterprise federation and how does it work](https://docs.vmware.com/en/VMware-Cloud-services/services/setting-up-enterprise-federation-cloud-services/GUID-76FAECB3-CFAA-461E-B9C9-2A49C39CD17F.html)
 
 ## What Is a VMware Cloud Organization?
 
@@ -133,10 +133,12 @@ To grant a user access to an Operations for Applications service instance (tenan
     <th width="70%">Description</th>
   </tr>
   <tr>
-    <th>Super Admin</th>
+    <th id="sa">Super Admin</th>
     <td><ul>
     <li>Has all permissions.</li>
     <li>Has access to all dashboards and alerts.</li>
+    <li>Can set the default preferences for all users of the service instance.<li>
+    <li>Can restrict access for new dashboards and alerts.<li>
     <li>Can <a href="access.html#make-orphan-dashboards-or-alerts-visible">restore orphan dashboards and alerts</a>.</li>
     <li>Can upgrade from trial version and purchase Operations for Applications.</li>
     <li>Can purchase more PPS.</li>

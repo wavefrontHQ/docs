@@ -866,55 +866,33 @@ entries:
         url: /log_in_to_tanzu_observability.html
         output: web
 
-      - title: Customize Your Account
+      - title: Customize Your VMware Cloud Services Account
         url: /csp_users_account_managing.html
         output: web
 
       - title: Security
         url: /wavefront_security.html
         output: web
+      
+      - title: Authorization and User Management
+        url: /authorization.html
+        output: web
 
-        subfolders:
-        - title: Authorization and User Management
+      - title: Server-to-Server Apps Management
+        url: /service-accounts.html
+        output: web
+        
+      - title: Manage Access to Objects
+        output: web
+        subfolderitems:
+
+        - title: Manage Access to Dashboards and Alerts
+          url: /access.html
           output: web
-          subfolderitems:
 
-          - title: Authorization Model
-            url: /authorization.html
-            output: web
-
-          - title: Authorization FAQ
-            url: /authorization-faq.html
-            output: web
-
-          - title: Manage Roles, Groups, and Permissions
-            url: /users_roles.html
-            output: web
-
-          - title: Permissions Reference
-            url: /permissions_overview.html
-            output: web
-
-          - title: Manage User Accounts
-            url: /user-accounts.html
-            output: web
-
-          - title: Manage Service Accounts
-            url: /service-accounts.html
-            output: web
-
-
-        - title: Manage Access to Objects
+        - title: Metrics Security Policy Rules
+          url: /metrics_security.html
           output: web
-          subfolderitems:
-
-          - title: Manage Access to Dashboards and Alerts
-            url: /access.html
-            output: web
-
-          - title: Metrics Security Policy Rules
-            url: /metrics_security.html
-            output: web
             
   - title: Administering Original Subscriptions
     output: web
