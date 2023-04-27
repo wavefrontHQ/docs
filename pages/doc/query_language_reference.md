@@ -1095,6 +1095,15 @@ The `if()` conditional function returns data values from time series based on a 
 <br><strong>condition-tsExpression</strong> must evaluate to a series of numeric values, and typically includes numeric comparisons or transformations of time series.
 </td>
 </tr>
+<tr>
+<td><a href="ts_rawif.html">rawif(<strong>&lt;condition-tsExpression&gt;</strong>,
+<br><strong>&lt;then-tsExpression&gt;</strong>
+<br>&lbrack;, <strong>&lt;else-tsExpression&gt;</strong>&rbrack;)</a></td>
+<td>Returns points from <strong>then-tsExpression</strong> only while <strong>condition-tsExpression</strong> &gt; 0. Otherwise, returns points from <strong>else-tsExpression</strong>, if it is specified.
+<br><strong>condition-tsExpression</strong> must evaluate to a series of numeric values, and typically includes numeric comparisons or transformations of time series. 
+<br>The results are computed from real reported data values only, with no interpolated values.
+</td>
+</tr>
 </tbody>
 </table>
 
