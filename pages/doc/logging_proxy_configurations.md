@@ -109,6 +109,15 @@ We've added the following configuration properties for logs to the already exist
 <br/>Example: 2000</td>
 </tr>
 <tr>
+<a name="pushFlushMaxLogs"></a>
+<td>pushFlushMaxLogs</td>
+<td markdown="span"> The maximum size of the log payload that is sent to the server in a single flush. The value needs to be in Bytes. If the log exceeds the value mentioned here, the log is not sent to the server.
+<br/> Default: 4194304 (4 MB)
+<br/> Version: Since 12.0</td>
+<td> A value between 1048576 and 5242880 (1 MB and 5 MB).
+<br/>Example: 3145728</td>
+</tr>
+<tr>
 <a name="flushThreadsLogs"></a>
 <td>flushThreadsLogs</td>
 <td markdown="span"> Number of threads that flush data to the server. This setting is per push listener port.
