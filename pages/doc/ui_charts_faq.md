@@ -41,7 +41,7 @@ The following example shows how to use color mapping with a single stat chart.
 
 In some cases, the color on a chart, for which you have set color mapping, can be different from what you expect to see. This can be caused by the decimal precision value that is set on the chart. When you use color mapping, Operations for Applications considers the real values in the system and changes the colors accordingly, while the values displayed on the chart can be rounded because of the decimal precision that is set on the chart.  
 
-For example: 
+Consider the following scenario: 
 
 <table style="width: 100%;">
 <tbody>
