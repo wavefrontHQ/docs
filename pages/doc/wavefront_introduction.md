@@ -48,7 +48,7 @@ After you send your data in, you can view it in custom dashboards, alert on prob
 <p>For example, assume in your environment you need to know:</p>
 <ul>
 <li>When the CPU reaches a certain threshold. </li>
-<li>Who should be notified and how (email, Pagerduty, etc). </li>
+<li>Who should be notified and how (email, PagerDuty, etc). </li>
 <li>What the alert severity is, and when the alert resolves.</li>
 </ul>
 After you've set up an alert with that information, we'll send alert notifications that include details and a chart image. See the example on the right. </td>
