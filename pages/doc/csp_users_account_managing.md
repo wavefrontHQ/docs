@@ -6,7 +6,7 @@ permalink: csp_users_account_managing.html
 summary: Learn how to manage your password and preferences.
 ---
 
-Starting June 1, 2023, VMware Aria Operations for Applications is a service in the VMware Cloud services catalog. If your Operations for Applications instance is onboarded to VMware Cloud services, you use a single [VMware Cloud services account]csp_getting_started.html#what-is-a-vmware-cloud-services-account) to access your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications.
+Starting June 1, 2023, VMware Aria Operations for Applications is a service in the VMware Cloud services catalog. If your Operations for Applications instance is onboarded to VMware Cloud services, you use a single [VMware Cloud services account](csp_getting_started.html#what-is-a-vmware-cloud-services-account) to access your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications.
 
 {% include note.html content="All new Operations for Applications service instances from June, 2023 onwards are onboarded to VMware Cloud services. We are in the process of incrementally onboarding the existing Operations for Applications instances to VMware Cloud services."%}
 
@@ -19,14 +19,16 @@ It's a best practice to change your password every few months. See [How do I res
 ## Configure Your Preferences
 
 In your user profile in Operations for Applications, you can configure several preferences, for example, select our dark theme or chart title size.
-
 1. Log in to your service instance.
-1. Click your user name in the top-right corner and select **My Account**.
-1. Click the **Preferences** tab and make the necessary changes.
 1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select your user name.
 1. On the **User Information** page, make the necessary changes.
 
-{% include note.html content="Some preferences, managed by **Super Admin** users, are preset for all users of the service instance." %}
+    {% include note.html content="Some preferences, managed by **Super Admin** users, are preset for all users of the service instance." %}
+
+In your user profile in the VMware Cloud Services Console, you can configure several preferences, such as language and regional format, dark or light theme, motion reduction, and What's New banner appearance.
+1. In the Operations for Applications UI or in the VMware Cloud Services Console, click your user name on the menu bar and select **My Account**.
+1. On the **Preferences** tab, click **Edit** in the corresponding panel.
+1. Make the necessary changes and click **Save**.
 
 ## Speed Up Chart Display with the Chart Sampling Preference
 

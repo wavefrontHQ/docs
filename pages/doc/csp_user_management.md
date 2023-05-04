@@ -1,83 +1,80 @@
 ---
-title: Manage Your VMware Cloud Services Account
+title: Manage User Accounts
 keywords: administration
 sidebar: doc_sidebar
 permalink: csp_user_management.html
 summary: Learn how to manage your password and preferences.
 ---
 
-Starting June 1, 2023, VMware Aria Operations for Applications is a service in the VMware Cloud services catalog. If your Operations for Applications instance is onboarded to VMware Cloud services, you use a single [VMware Cloud services account]csp_getting_started.html#what-is-a-vmware-cloud-services-account) to access your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications.
+Starting June 1, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. If your Operations for Applications instance is onboarded to VMware Cloud services, VMware Cloud services provides identity access management for the users in your Operations for Applications environment. 
 
-{% include note.html content="All new Operations for Applications service instances from June, 2023 onwards are onboarded to VMware Cloud services. We are in the process of incrementally onboarding the existing Operations for Applications instances to VMware Cloud services."%}
+{% include note.html content="All new Operations for Applications service instances from June 1, 2023 onwards are onboarded to VMware Cloud services. We are in the process of incrementally onboarding the existing Operations for Applications instances to VMware Cloud services."%}
 
-## Manage Your Password
+For efficient user management, you can create groups and assign roles to groups. You can assign service roles and custom roles to groups. You can also assign service roles and custom roles to individual users.
 
-It's a best practice to change your password every few months. See [How do I reset my password](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-8FD73719-36EE-4414-B3A2-AA1B9687BE4D.html) for more details.
+- The Operations for Applications service roles are built-in and not editable.
+- Custom roles can be assigned with different permissions for different services in the organization.
+- A given role can be assigned for a certain time period or without an expiration date.
+- In a multi-tenant environment, a given user can have different Operations for Applications service roles for the different Operations for Applications service instances (tenants).
 
-{% include note.html content="If you log in with a corporate account, you cannot update your password following these instructions. Your company prompts you to update your password at regular intervals. Contact your Enterprise Administrator to explicitly update your password." %}
+{% include note.html content="To manage user access to the services in your VMware Cloud organization, you must hold the **Organization Owner** or **Organization Administrator** role. See [What organization roles are available in VMware Cloud Services](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-C11D3AAC-267C-4F16-A0E3-3EDF286EBE53.html)."%}
 
-## Configure Your Preferences
+## Add a User to Your Service Instance
 
-In your user profile in Operations for Applications, you can configure several preferences, for example, select our dark theme or chart title size.
+- If you want to add a user who doesn't belong to your organization, you must first assign that user an [organization role](csp_getting_started.html#what-is-a-vmware-cloud-organization-role), and then you can assign that user an [Operations for Applications service role](csp_getting_started.html#what-is-an-operations-for-applications-service-role).
 
-1. Log in to your service instance.
-1. Click your user name in the top-right corner and select **My Account**.
-1. Click the **Preferences** tab and make the necessary changes.
-1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select your user name.
-1. On the **User Information** page, make the necessary changes.
+    See [How do I add users to my organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-47AA313E-9DAC-447C-B6C8-DF71ED45B0D5.html).
 
-{% include note.html content="Some preferences, managed by **Super Admin** users, are preset for all users of the service instance." %}
+- If you want to add a user who belongs to your organization, you must assign that user an Operations for Applications service role or a custom role with an Operations for Applications permission. You have these options:
 
-## Speed Up Chart Display with the Chart Sampling Preference
+    - Add the user to group with at least one [Operations for Applications service role](csp_getting_started.html#what-is-an-operations-for-applications-service-role) or [custom role](csp_getting_started.html#what-is-a-custom-role) with an Operations for Applications permission for your service instance.
 
-Our rendering engine is fast, but it still takes time to render thousands of series. You can limit the number of time series that charts display with the chart sampling preference.
+        See [How do I work with groups](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-0BD8A07B-C3C0-4220-8CD0-18FA070D3DAD.html) in the VMware Cloud services documentation.
 
-1. Log in to your service instance.
-1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select your user name.
-1. On the **User Information** tab, under **Display Settings** make the necessary changes.
+    - Edit the user's roles and add at least one [Operations for Applications service role](csp_getting_started.html#what-is-an-operations-for-applications-service-role) or [custom role](csp_getting_started.html#what-is-a-custom-role) with an Operations for Applications permission for your service instance.
 
-You can limit the number of time series to 100 for new charts by changing the **Sampling** default in your preferences.
+        See [How do I change user roles](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-A70DBFDC-86FD-4C84-8753-0E55C8C98F8E.html).
 
-![sampling preference](images/sampling_preference.png)
+{% include important.html content="Make sure that you assign the [**Super Admin** service role](csp_getting_started.html#sa) to at least one user for your Operations for Applications service instance. There are some Super Admin tasks that no one else can perform."%}
+
+An invited user receives an email with an account activation link to [sign up](log_in_to_tanzu_observability.html#sign-up-with-an-email-invitation) to the service instance.
+
+## Edit a User 
+
+To change the roles of a user, ...
+
+To change the group membership, you must edit the group
 
 
-## Examine Your Groups, Roles, and Permissions
+## Remove a User
 
-If you can't perform a certain task, it's possible that you don't have the necessary permissions.
+To remove a user from your service instance
 
-An **Organization Owner** or **Organization Administrator** usually assigns [service roles](csp_getting_started.html#what-is-an-operations-for-applications-service-role) to groups and individual users.
+To remove a user from your organization,...
 
-Permissions are additive:
-* If you belong to a group with two roles, you get the permissions from both roles.
-* If you belong to 2 groups, you get the permissions from the roles assigned to both groups.
-* If roles were assigned to you explicitly, you get the corresponding permissions as well.
+## Enable Request for additional roles
 
-To view your roles, see what access you have to services, and request additional roles, see [How do I manage my roles in an Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-528C2CE3-6335-43A2-99F1-B722464F0A1D.html).
+## Approve or Deny Request for additional roles
 
-## Enable or Disable Super Admin Mode
 
-If you hold the **Super Admin** service role, you can temporarily enable Super Admin mode and perform your Super Admin tasks.
+See [How do I manage self-service requests for additional roles](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-94C793E8-1D40-432A-A0E9-B8FBB1FE04E6.html)
 
-{% include note.html content="To avoid making unintentional changes in the system, after performing your current Super Admin tasks, disable the Super Admin mode." %}
+## Sign Out a User
 
-* To enable or disable the Super Admin mode, from the gear icon <i class="fa fa-cog"/> on the toolbar, turn on or off the **Super Admin Mode** toggle.
+As a [Super Admin](csp_getting_started.html#sa), you can sign out other users by using the REST API. To sign out a user while you [enabled Super Admin mode](csp_users_account_managing.html#enable-or-disable-super-admin-mode), simply run a POST request with the `logout` API call. For example:
 
-<table>
-    <tbody>
-        <tr>
-            <td width="70%">As a result:
-            <ul>
-            <li>When the Super Admin mode is <strong>enabled</strong>, you have full administrative privileges for the Operations for Applications service. See the <a href="csp_getting_started.html#sa">Super Admin service role</a> for details.</li>
-            <li>When the Super Admin mode is <strong>disabled</strong>, you have only the permissions from your other roles if any.</li>
-            </ul></td>
-            <td width="30%"><img src="/images/super_admin_mode.png" alt="A screenshot of the drop-down menu with the Super Admin Mode toggle.">
-            </td>
-        </tr>
-    </tbody>
-</table>
+```
+POST https://<your_instance>.wavefront.com/api/logout/{identifier}
+```
 
-## Generate an API Token
+You must specify the `{identifier}`, which is the email address of the user that you want to log out. If you are not logged in to your service instance, when you run the POST request, you must also provide a valid [API token](csp_users_account_managing.html#generate-an-api-token).
 
-VMware Aria Operations for Applications allows users to interact with the product instance using the [REST API](wavefront_api.html).
+## Manage API Tokens
 
-To generate an API token for your account, see [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html).
+You can activate and deactivate API tokens 
+
+See [How do I manage API tokens in my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html)
+
+
+
+

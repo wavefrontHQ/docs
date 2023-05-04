@@ -39,7 +39,7 @@ See [How do I manage my Cloud Services organizations](https://docs.vmware.com/en
 
 ## What Is a VMware Cloud Organization Role?
 
-Each VMware account can belong to one or more VMware Cloud organizations. A VMware account belongs to a given VMware Cloud organization if the account has an organization role for that organization. The organization roles are:
+A VMware account can belong to one or more VMware Cloud organizations. A VMware account belongs to a given VMware Cloud organization if the account has an organization role for that organization. The organization roles are:
 - The **Organization Owner** role has full administrative access to all resources in the organization. They can invite users to the organization and assign role-based access to all users, including themselves. Also, they can kick off an enterprise domain federation and invite an **Enterprise Administrator**. See [Setting Up Enterprise Federation with VMware Cloud Services Guide](https://docs.vmware.com/en/VMware-Cloud-services/services/setting-up-enterprise-federation-cloud-services/GUID-76FAECB3-CFAA-461E-B9C9-2A49C39CD17F.html).
 
     When you create an organization during a service onboarding process, you become its first **Organization Owner**.
@@ -48,18 +48,15 @@ Each VMware account can belong to one or more VMware Cloud organizations. A VMwa
 
 See [What organization roles are available in VMware Cloud Services](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-C11D3AAC-267C-4F16-A0E3-3EDF286EBE53.html) for details.
 
-## What Is an Operations for Applications Service Role?
+## What Operations for Applications Permissions Are Available?
+The Operations for Applications permissions in VMware Cloud services allow access control for the feature sets in Operations for Applications.
+- Permissions can be assigned to roles only.
+- Each each permission has a corresponding built-in [Operations for Applications service role](csp_getting_started.html#what-operations-for-applications-service-roles-are-available).
+- You can assign permissions to custom roles.
 
-To grant a user access to an Operations for Applications service instance (tenant), an **Organization Owner** or **Organization Administrator** must assign an Operations for Applications service role to that user.
-- The Operations for Applications service roles are built-in and not editable.
-- A service role can be assigned for a certain time period or without an expiration date.
-- Service roles are additive. A user can have a combination of service roles.
-- In a multi-tenant environment, a given user can have different Operations for Applications service roles for the different Operations for Applications service instances (tenants).
-- Each permission in Operations for Application is represented with a separate Operations for Applications service role:
-
-  <table>
+<table>
     <tr>
-      <th width="30%">Operations for Applications Service Role / Permission</th>
+      <th width="30%">Permission</th>
       <th width="70%">Description</th>
     </tr>
     <tr>
@@ -125,11 +122,15 @@ To grant a user access to an Operations for Applications service instance (tenan
       <td>Can manage <a href="sources_managing.html">sources</a> and source tags. If you don’t have this permission, source tags will be rejected with a 403 error.</td>
     </tr>
   </table>
-- The **Super Admin** service role grants full administrative access to the service, while the **Viewer** service role grants read-only access access to the service:
-  
+
+## What Operations for Applications Service Roles Are Available?
+VMware Cloud services includes:
+-  A built-in Operations for Applications service role for each [Operations for Applications permission](csp_getting_started.html#what-operations-for-applications-permissions-are-available).
+- Two special Operations for Applications service roles - one that grants full administrative access to the service, and one that grants read-only access to the service:
+
   <table>
   <tr>
-    <th width="30%">Operations for Applications Service Role</th>
+    <th width="30%">Special Service Role</th>
     <th width="70%">Description</th>
   </tr>
   <tr>
@@ -156,6 +157,39 @@ To grant a user access to an Operations for Applications service instance (tenan
 
 ## What Is a Custom Role?
 
-Custom roles lets you group permissions for one or multiple services in an conganization. For example, you can have a custom role that grants administrative permissions for one service instance and read-only permissions for another service instance.
+Custom roles lets you combine service permissions of your choice, for example, [Operations for Applications permissions](csp_getting_started.html#what-operations-for-applications-permissions-are-available). A custom role can hold permissions for one or multiple services in your organization. For example, you can have a custom role that grants administrative permissions for one service instance and read-only permissions for another service instance.
 
-## What Is a Server To Server App?
+To navigate to the **Roles** page:
+
+1. Log in to the Cloud Services Console as an **Organization Owner** or **Organization Administrator**.
+1. If necessary, switch to the target organization. See [How do I access another one of my Organizations](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-432417CF-CE0C-48EB-BEBB-8C27751577D1.html).
+1. In the left navigation pane, click **Identity & Access Management** > **Roles**.
+
+To create a custom role:
+
+1. On the **Roles** page, click **Add Role**.
+1. On the **Add permissions** step, expand services in the left panel and select permission IDs in the right panel, and click **Continue**.
+1. On the **Role information** step, enter a meaningful role name and description, and click **Continue**.
+1. On the **Review added permission** step, verify your selections and click **Save**.
+
+To edit a custom role:
+
+1. On the **Roles** page, click the name of the target custom role.
+1. Edit the role name, description, or permissions, and click **Save**.
+
+To delete a custom role:
+
+1. On the **Roles** page, select one or more custom roles and click **Remove Roles**.
+1. Click **Remove** to confirm.
+
+## What Is a Server to Server App?
+
+If you want to use an application for automating management tasks in your Operations for Applications service, your application requires direct access to your service, without user authorization. For that purpose, VMware Cloud services supports server-to-server apps, which are based on OAuth 2.0 *client credentials* grant type.
+
+Here's how it works:
+
+1. Create a server-to-server app in VMware Cloud organization for your application that requires direct access to your service.
+1. Save the OAuth 2.0 client credentials of the server-to-server app.
+1. Use the OAuth 2.0 client credentials with your application to retrieve an access token.
+
+See [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html)

@@ -874,11 +874,11 @@ entries:
         url: /wavefront_security.html
         output: web
       
-      - title: Authorization and User Management
+      - title: Manage User Accounts
         url: /csp_user_management.html
         output: web
 
-      - title: Server-to-Server Apps Management
+      - title: Manage Server-to-Server Apps
         url: /service-accounts.html
         output: web
         
