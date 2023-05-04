@@ -24,7 +24,7 @@ entries:
     folderitems:
 
     - title: Start a Free Trial
-      url:  /upgrade_and_purchase.html
+      url:  /start_trial.html
       output: web
 
     - title: Upgrade from Trial to Paid
@@ -115,6 +115,10 @@ entries:
 
         - title: Privacy Policy
           url: /privacy.html
+          output: web
+
+        - title: Security
+          url: /wavefront_security.html
           output: web
 
     - title: Glossary
@@ -858,75 +862,37 @@ entries:
     output: web
     folderitems:
 
-      - title: Administering Overview
-        url: /wavefront_administer.html
+      - title: Get Started with VMware Cloud Services
+        url: /csp_getting_started.html
         output: web
 
-      - title: Customize Your Account
-        url: /users_account_managing.html
+      - title: Sign Up or Log In to Your Service Instance
+        url: /sign_up_or_log_in.html
         output: web
 
-      - title: Security
-        url: /wavefront_security.html
+      - title: Manage Your VMware Cloud Services Account
+        url: /csp_users_account_managing.html
+        output: web
+     
+      - title: Manage User Accounts
+        url: /csp_user_management.html
         output: web
 
-        subfolders:
-        - title: Authorization and User Management
+      - title: Manage Server-to-Server Apps
+        url: /service-accounts.html
+        output: web
+        
+      - title: Manage Access to Objects
+        output: web
+        subfolderitems:
+
+        - title: Manage Access to Dashboards and Alerts
+          url: /access.html
           output: web
-          subfolderitems:
 
-          - title: Authorization Model
-            url: /authorization.html
-            output: web
-
-          - title: Authorization FAQ
-            url: /authorization-faq.html
-            output: web
-
-          - title: Manage Roles, Groups, and Permissions
-            url: /users_roles.html
-            output: web
-
-          - title: Permissions Reference
-            url: /permissions_overview.html
-            output: web
-
-          - title: Manage User Accounts
-            url: /user-accounts.html
-            output: web
-
-          - title: Manage Service Accounts
-            url: /service-accounts.html
-            output: web
-
-
-        - title: Manage Access to Objects
+        - title: Metrics Security Policy Rules
+          url: /metrics_security.html
           output: web
-          subfolderitems:
-
-          - title: Manage Access to Dashboards and Alerts
-            url: /access.html
-            output: web
-
-          - title: Metrics Security Policy Rules
-            url: /metrics_security.html
-            output: web
-
-        - title: Authentication
-          output: web
-          subfolderitems:
-
-          - title: Authentication Model
-            url: /wavefront-authentication.html
-            output: web
-
-          - title: Single-Tenant Authentication and SAML SSO
-            url: /auth_self_service_sso.html
-            output: web
-
-          - title: Multi-Tenant Authentication
-            url: /authentication.html
-            output: web
             
   - title: Administering Original Subscriptions
     output: web
@@ -939,11 +905,7 @@ entries:
       - title: Customize Your Account
         url: /users_account_managing.html
         output: web
-
-      - title: Security
-        url: /wavefront_security.html
-        output: web
-
+      
         subfolders:
         - title: Authorization and User Management
           output: web
