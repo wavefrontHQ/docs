@@ -37,6 +37,41 @@ The following example shows how to use color mapping with a single stat chart.
 </tbody>
 </table>
 
+## Why the Color Can Be Different from What I Expect?
+
+In some cases, the color on a chart, for which you have set color mapping, can be different from what you expect to see. This can be caused by the decimal precision value that is set on the chart. When you use color mapping, Operations for Applications considers the real values in the system and changes the colors accordingly, while the values displayed on the chart can be rounded because of the decimal precision that is set on the chart.  
+
+Consider the following scenario: 
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">You have a created a single stat chart to monitor the average request latency. The chart has been in yellow state for quite a long time, showing value of 16.77ms. 
+</td>
+<td width="50%"><img src="/images/single-stat-ex.png" alt="A screenshot of a the average request latency chart showing 16.77ms and is in yellow.">
+</td>
+</tr>
+<tr><td width="50%">At some point in time, the value on the chart still shows a value of 16.77ms but the color changes to red.
+</td>
+<td width="50%"><img src="/images/single-stat-ex1.png" alt="A screenshot of a the average request latency chart showing 16.77ms and is in red.">
+</td>
+</tr>
+<tr><td width="50%">When you check the <strong>Color to Value Mapping</strong> setting on the <strong>Sparkline</strong> tab, you see the following color mappings:
+<ul>
+<li>Green for values under 16.77ms</li>
+<li>Yellow for values under 16.771ms</li>
+<li>Red for values over 16.771ms</li>
+</ul>
+</td>
+<td width="50%"><img src="/images/single-stat-example.png" alt="A screenshot of a the Color to Value Mapping settings discussed above."></td>
+</tr>
+<tr><td width="50%">
+Then, you click the <strong>Format</strong> tab on the chart and check the value in the <strong>Decimal Precision</strong> field. <p>In our example, the value is set to <code>2</code>, that's why you see 2 digits after the decimal point. When you update the value to <code>3</code> as shown in the screenshot on the right, you can see that the average request latency value has become 16.772ms. </p></td>
+<td width="50%"><img src="images/single-stat-example11.png" alt="A screenshot of a single stat chart displaying the example where the value is still 16.77, but the color is red. The Format tab on the chart is selected and the value in the Decimal Precision field (highlighted) shows 2."></td>
+</tr>
+</tbody>
+</table>
+
 ## How Do I Set Up Thresholds for Histograms and Heat Map Charts?
 
 [Histograms](ui_chart_reference.html#histogram-chart) let you compute, store, and use distributions of metrics rather than single metrics. [Heat map charts](ui_chart_reference.html#heat-map-chart) add another dimension to the information about histograms that you see in a histogram chart.
