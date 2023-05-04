@@ -117,6 +117,10 @@ entries:
           url: /privacy.html
           output: web
 
+        - title: Security
+          url: /wavefront_security.html
+          output: web
+
     - title: Glossary
       url: /glossary.html
       output: web
@@ -863,17 +867,13 @@ entries:
         output: web
 
       - title: Sign Up or Log In to Your Service Instance
-        url: /log_in_to_tanzu_observability.html
+        url: /sign_up_or_log_in.html
         output: web
 
       - title: Manage Your VMware Cloud Services Account
         url: /csp_users_account_managing.html
         output: web
-
-      - title: Security
-        url: /wavefront_security.html
-        output: web
-      
+     
       - title: Manage User Accounts
         url: /csp_user_management.html
         output: web
@@ -905,11 +905,7 @@ entries:
       - title: Customize Your Account
         url: /users_account_managing.html
         output: web
-
-      - title: Security
-        url: /wavefront_security.html
-        output: web
-
+      
         subfolders:
         - title: Authorization and User Management
           output: web

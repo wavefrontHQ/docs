@@ -6,7 +6,7 @@ permalink: csp_users_account_managing.html
 summary: Learn how to manage your password and preferences.
 ---
 
-Starting June 1, 2023, VMware Aria Operations for Applications is a service in the VMware Cloud services catalog. If your Operations for Applications instance is onboarded to VMware Cloud services, you use a single [VMware Cloud services account](csp_getting_started.html#what-is-a-vmware-cloud-services-account) to access your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications.
+Starting June 1, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. If your Operations for Applications instance is onboarded to VMware Cloud services, you use a single [VMware Cloud services account](csp_getting_started.html#what-is-a-vmware-cloud-services-account) to access your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications.
 
 {% include note.html content="All new Operations for Applications service instances from June, 2023 onwards are onboarded to VMware Cloud services. We are in the process of incrementally onboarding the existing Operations for Applications instances to VMware Cloud services."%}
 
@@ -47,7 +47,7 @@ You can limit the number of time series to 100 for new charts by changing the **
 
 If you can't perform a certain task, it's possible that you don't have the necessary permissions.
 
-An **Organization Owner** or **Organization Administrator** usually assigns [service roles](csp_getting_started.html#what-is-an-operations-for-applications-service-role) to groups and individual users.
+An **Organization Owner** or **Organization Administrator** usually assigns [service roles](csp_getting_started.html#what-operations-for-applications-service-roles-are-available) and [custom roles](csp_getting_started.html#what-is-a-custom-role) to groups and individual users.
 
 Permissions are additive:
 * If you belong to a group with two roles, you get the permissions from both roles.
@@ -58,7 +58,7 @@ To view your roles, see what access you have to services, and request additional
 
 ## Enable or Disable Super Admin Mode
 
-If you hold the **Super Admin** service role, you can temporarily enable Super Admin mode and perform your Super Admin tasks.
+If you hold the [**Super Admin** service role](csp_getting_started.html#sa), you can temporarily enable Super Admin mode and perform your Super Admin tasks.
 
 {% include note.html content="To avoid making unintentional changes in the system, after performing your current Super Admin tasks, disable the Super Admin mode." %}
 

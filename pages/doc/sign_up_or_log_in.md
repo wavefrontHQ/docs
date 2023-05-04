@@ -2,8 +2,8 @@
 title: Sign Up or Log In to Your Service Instance on VMware Cloud Services
 tags: [getting started]
 sidebar: doc_sidebar
-permalink: log_in_to_tanzu_observability.html
-summary: Learn how you can sign up and log in to your service instance if it's onboarded to VMware Cloud services account.
+permalink: sign_up_or_log_in.html
+summary: Learn how you can sign up and log in to your service instance if it's onboarded to VMware Cloud services.
 ---
 Starting June 1, 2023, VMware Aria Operations for Applications is a service in the VMware Cloud services catalog. If your Operations for Applications instance is onboarded to VMware Cloud services, you use a single [VMware Cloud services account](csp_getting_started.html#what-is-a-vmware-cloud-services-account) to access your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications.
 
