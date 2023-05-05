@@ -873,26 +873,43 @@ entries:
       - title: Manage Your VMware Cloud Services Account
         url: /csp_users_account_managing.html
         output: web
-     
-      - title: Manage User Accounts
-        url: /csp_user_management.html
-        output: web
-
-      - title: Manage Server-to-Server Apps
-        url: /service-accounts.html
-        output: web
-        
-      - title: Manage Access to Objects
-        output: web
-        subfolderitems:
-
-        - title: Manage Access to Dashboards and Alerts
-          url: /access.html
+ 
+        subfolders:
+        - title: Authorization and User Management
           output: web
+          subfolderitems:
 
-        - title: Metrics Security Policy Rules
-          url: /metrics_security.html
+          - title: Authorization Model
+            url: /csp_authorization.html
+            output: web
+
+          - title: Permissions Reference
+            url: /csp_permissions_overview.html
+            output: web
+
+          - title: Manage Roles and Groups
+            url: /csp_users_roles.html
+            output: web
+          
+          - title: Manage User Accounts
+            url: /csp_user_management.html
+            output: web
+
+          - title: Manage Server-to-Server Apps
+            url: /csp_server_to_server_apps.html
+            output: web
+            
+        - title: Manage Access to Objects
           output: web
+          subfolderitems:
+
+          - title: Manage Access to Dashboards and Alerts
+            url: /csp_access.html
+            output: web
+
+          - title: Metrics Security Policy Rules
+            url: /csp_metrics_security.html
+            output: web
             
   - title: Administering Original Subscriptions
     output: web
