@@ -1,12 +1,12 @@
 ---
-title: Permissions Reference
+title: Operations for Applications Permissions in VMware Cloud Services
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: csp_permissions_overview.html
 summary: Learn about the permissions in VMware Aria Operations for Applications on VMware Cloud services.
 ---
-All users can perform certain *default* tasks. However, you must have the appropriate permissions to *manage* objects. If you do not have permission, UI menu selections and buttons required to perform management tasks are not visible.
+All users can perform certain default tasks. However, you must have the appropriate permissions to manage objects. If you do not have permission, UI menu selections and buttons required to perform management tasks are not visible.
 
 ## Default Tasks
 
