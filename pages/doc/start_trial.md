@@ -9,21 +9,26 @@ summary: VMware offers a free trial of the VMware Aria Operations for Applicatio
 
 ---
 
-Starting June, 2023, VMware Aria Operations for Applications is a service in the VMware Cloud services catalog. VMware Cloud services provides single sign-on (SSO) and identity access management (IAM) to your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications.
-
 You can start a 30-day free trial of the Operations for Applications service from the VMware Cloud Services Console. 
+
+## Operations for Applications and VMware Cloud Services
+
+Starting June, 1st 2023, VMware Aria Operations for Applications is a service in the VMware Cloud services platform. VMware Cloud services provides single sign-on (SSO) and identity access management (IAM) to your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications.
+
+## Start Your Free Trial
 
 1. Log in to the [VMware Cloud Services Console](https://console.cloud.vmware.com) with your VMware account.
 
     {% include tip.html content="If you don't have a VMware account, you must create one." %}
-1. On the left navigation bar, click **Services**.
+1. From navigation bar on the left, click **Services**.
 1. Click the **All** tab and search for VMware Aria Operations for Applications.
 1. In the **VMware Aria Operations for Applications** tile, click **Access**.
 
     You are redirected to the Operations for Applications marketing website.
-1. Click **Start Free Trial**, enter your contact information and company details, review the terms of Service, and click **Sign Up Now**.
 
-    {% include tip.html content="The company name that you provide will be used for the tenant name of your service insrance." %}
+1. Click **Start Free Trial**, enter your contact information and company details, review the Terms of Service, and click **Sign Up Now**.
+
+    {% include tip.html content="The company name that you provide will be used for the tenant name of your service instance." %}
 
     You are redirected back to the VMware Cloud Services Console.
 1. Select a VMware Cloud organization or create a new one.
