@@ -10,7 +10,7 @@ summary: Use metrics security to control access to time series, histograms, and 
 In a large enterprise, certain data is confidential. VMware Aria Operations for Applications allows you to limit who can see or modify data in several ways.
 * **Permissions** are **global** settings.
   - Some permissions limit who can modify objects (e.g. proxies or events). For example, users with the **Dashboards** permission can modify all dashboards.
-  - Other permissions make certain information completely invisible. For example, only users with **Ingestion Policies** permission can see the **Ingestion Policies** menu or access that page.
+  - Other permissions make certain information completely invisible. For example, only users with **Proxies** permission can see the **Proxies** menu or access that page.
 * **Access Control** allows users with the **Super Admin** service role to perform fine-grained control over individual dashboards or alerts. For example, it's possible to limit view and modify access to a Finance_2020 dashboard to just the Finance department.
 * **Metrics Security** supports even finer-grained control. In the example above, access to the Finance_2020 dashboard is limited to the Finance department. With metrics security, you can limit access to confidential time series, histogram, and delta counter metrics to the leadership team.
 
