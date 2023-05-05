@@ -9,9 +9,9 @@ VMware Aria Operations for Applications (formerly known as Tanzu Observability b
 
 ## Where Do I Start?
 
-You can [sign up for a free trial](start_trial.html) and try out our service. With the 2023-XX.Y release, Operations for Applications becomes a service on the VMware Cloud services catalog and all new subscriptions are done by using the VMware Cloud Services Console. After your free trial expires, you can [upgrade and purchase our service](upgrade_and_purchase.html). 
+You can [sign up for a free trial](start_trial.html) and try out our service. With the 2023-XX.Y release, Operations for Applications becomes a service on the VMware Cloud services platform and all new subscriptions are on the VMware Cloud services platform. After your free trial expires, you can [upgrade and purchase our service](upgrade_and_purchase.html). 
 
-Since our original subscriptions used to happen outside of the VMware Cloud services catalog, there are some differences in the experience for the [new subscribers and original subscribers](tobs_faq.html#what-are-the-differences-between-new-and-original-subscriptions).
+Since our original subscriptions are outside of the VMware Cloud services platform, there are some differences in the experience for the [new subscribers and original subscribers](tobs_faq.html#what-are-the-differences-between-new-and-original-subscriptions).
 
 ## Intro Videos
 

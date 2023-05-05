@@ -7,39 +7,6 @@ permalink: tobs_faq.html
 summary: Get answers to the top frequently asked questions for VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
 ---
 
-## Why Can't I Edit This Dashboard? This Alert?
-
-By default, all users can view dashboards and alerts. They can also edit dashboards and alerts but cannot save their changes. To do more, you need permissions.
-
-<p><span style="font-size: 1.1em; font-weight: 600">Action</span></p>
-
-1. Check your permissions. See [Examine Groups, Roles, and Permissions](users_account_managing.html#examine-groups-roles-and-permissions).
-2. If you don't have the permissions you need, ask a user with the **Accounts** permission to grant you the permissions.
-3. If that doesn't solve the problem, the individual dashboard or alert you're trying to edit might be protected by [access control](access.html). The creator of the alert or dashboard or a Super Admin user can grant access.
-
-## Why Is Our PPS So High? Why Do We Have Overage?
-
-PPS and Overage determine what a customer is billed:
-* **PPS** -- Or Points per Second, means data points ingested per second to the service. All customers are billed based on their PPS.
-* **Overage** -- Many of our customers have a contract that specifies a certain PPS for a certain amount of time. If the customer exceeds that PPS, the customer is billed for overage.
-
-Because the service runs on AWS, we have to bill based on how much data is ingested. However, we're interested in helping you lower your bill and get more out of VMware Aria Operations for Applications. We encourage you to find out:
-* Are there dashboards or alerts that ingest data but that are never used?
-* Are your queries looking at too much data, that is, could you filter as part of the query?
-
-Start with [Improve PPS Usage and Prevent Overage](wavefront_usage_info.html) and learn how to examine your data and how to improve PPS.
-
-
-## Why Is VMware Aria Operations for Applications So Slow?
-
-VMware Aria Operations for Applications can handle a lot of data, but sometimes you need it faster!
-
-<p><span style="font-size: 1.1em; font-weight: 600">Action</span></p>
-
-* **Improve Rendering Speed**: You can make some modifications to slow dashboards to improve rendering speed. See [Ensure Optimal Dashboard Performance](ui_dashboards.html#ensure-optimal-dashboard-performance). Changes include ensuring that sampling is turned on, controlling that only events you need to see are displayed, and more.
-
-* **Improve Data Shape and Cardinality**: At the heart of improving rendering speed and query execution speed is the shape of your data. If your dashboard or your query look at only the data you're actually interested in, performance improves drastically. See [Optimizing Data Shape to Improve Performance](optimize_data_shape.html) and [Find Ingestion and Query Problems](monitoring_overview.html).
-
 ## Do You Have Tutorials?
 
 Yes!
@@ -76,6 +43,192 @@ Most of the documentation of the integrations comes from the code and is generat
 <td width="30%"><img src="/images/integration_details.png" alt="screenshot of doc set table of contents, integration details opened"></td></tr>
 </tbody>
 </table>
+
+## What Are the Differences Between New and Original Subscriptions?
+
+Starting with the 2023-XX.Y release, all **new** Operations for Applications subscriptions are done from the [VMware Cloud Services Console](https://console.cloud.vmware.com/). VMware Cloud services provides single sign-on (SSO) and identity access management (IAM) to your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications. Therefore, there are differences in the experience for **new** and **original** subscribers. 
+
+For example:
+
+* Permissions such as **Accounts**, **SAML IdP Admin**, and **API token** don't exist for **new** Operations for Applications subscriptions that are onboarded to VMware Cloud services, because all of the administration tasks requiring these permissions are done by using the VMware Cloud Services Console. For information about the basics for administering your Operations for Applications service running on the VMware Cloud services platform, see [Getting Started with Operations for Applications on VMware Cloud Services](csp_getting_started.html).
+
+* When you customize your own account settings in the Operations for Applications UI, new subscribers do not see the **Groups, Roles & Permissions** and the **API Access** tabs (1) and can no longer change their password from the Operations for Applications UI (2), because this is done from the VMware Cloud Services Console.
+
+  ![An image showing that the tabs mentioned above and the change password link are removed from the UI for new subscribers.](images/new-vs-original.png)
+
+* The gear icon menu also differs, because many of the tasks for **new** subscribers are done by using the VMware Cloud Services Console. 
+
+  For example, for Super Admins with Super Admin mode enabled, the gear icon menu looks like this:
+ 
+  ![An image showing the differences in the gear icon menu, which are listed below.](images/new-vs-original-menu.png)
+
+   * The **Self Service SAML** option is missing, because the configuration happens in the VMware Cloud Services Console.
+   * The **Accounts** option is also no longer needed, because account management is done in the VMware Cloud Services Console.
+   * The **Usage and Subscriptions** and **Ingestion Policies** menu items are combined in the **Usage and Subscriptions** menu item. 
+   * The **Super Admin** menu item is missing, because Super Admins can invite new Super Admin users by using the VMware Cloud Services Console. 
+   * There is a new **Orphaned Objects** menu item that allows Super Admins to see and recover orphan dashboards or alerts.
+   * The **Sign Out** menu item is missing, because???
+
+
+<table style="width: 100%;">
+<tbody>
+<thead>
+<tr><th width="22%">Area</th><th width="39%">New Subscribers</th><th width="39%">Original Subscribers</th></tr>
+</thead>
+<tr>
+<td>Role Management
+</td>
+<td>
+<strong>Who</strong>: All VMware Cloud Services <strong>Organization Owners</strong> or <strong>Organization Administrators</strong>.
+<p><strong>Where</strong>: In the VMware Cloud Services Console.</p>
+<p>For details, see <a href="csp_users_roles.html#manage-roles">Manage Roles</a>.</p>
+</td>
+<td>
+<strong>Who</strong>: Operations for Applications users with the <strong>Accounts</strong> permission can create roles and assign roles to a group.
+<p><strong>Where</strong>: In the Operations for Applications user interface.</p>
+<p>For details, see <a href="users_roles.html#create-a-role">Create a Role</a>.</p>
+</td>
+</tr>
+<tr>
+<td>Group Management
+</td>
+<td>
+<strong>Who</strong>: VMware Cloud Services <strong>Organization Owners</strong> or <strong>Organization Administrators</strong>.
+<p><strong>Where</strong>: In the VMware Cloud Services Console.</p>
+<p>For details, see <a href="csp_users_roles.html#manage-user-groups">Manage Groups</a>.</p>
+</td>
+<td><strong>Who</strong>: Operations for Applications users with the <strong>Accounts</strong> permission can create and manage groups.
+<p><strong>Where</strong>: In the Operations for Applications user interface.</p>
+<p>For details, see <a href="users_roles.html#create-a-group">Create a Group</a>.</p>
+</td>
+</tr>
+<tr>
+<td>Permissions
+</td>
+<td>
+</td>
+<td><strong>Who</strong>: Operations for Applications users with the <strong>Accounts</strong> permission can grant or revoke permissions.
+<p><strong>Where</strong>: In the Operations for Applications user interface.</p>
+<p>For details, see <a href="users_roles.html#grant-or-revoke-account-permissions-explicitly">Grant or Revoke Account Permissions</a>. For information about the Operations for Applications permissions that are available for original subscribers only, see <a href="permissions_overview.html">Permissions Reference</a>.</p>
+</td>
+</tr>
+<tr>
+<td>API Token Management
+</td>
+<td>
+<strong>Who</strong>:  VMware Cloud Services <strong>Organization Owners</strong> or <strong>Organization Administrators</strong>.
+<p><strong>Where</strong>: All API tokens are generated and in Cloud Services Console user interface.</p>
+</td>
+<td>
+<strong>Who</strong>: Operations for Applications users with the <strong>Accounts</strong> permission can:
+<ul>
+<li>Generate and manage API tokens for service accounts.</li>
+<li>View and revoke the API tokens for the users and service accounts within their organization.</li>
+</ul>
+<p><strong>Where</strong>: In the Operations for Applications user interface.</p>
+<p>For details, see <a href="wavefront_api.html#generate-and-manage-the-api-tokens-for-a-service-account">Generate and Manage the API Tokens for a Service Account</a> and <a href="wavefront_api.html#view-and-manage-the-api-tokens-in-your-organization">View and Manage the API Tokens in Your Organization</a>.</p>
+<p><strong>Who</strong>: Operations for Applications users with the <strong>API Tokens</strong> permission can generate and manage the API Tokens for their own user account. All users who do not have this permission, can use and manage their <strong>existing</strong> API tokens. </p>
+<p><strong>Where</strong>: In the Operations for Applications user interface.</p>
+<p>For details, see <a href="wavefront_api.html#generate-and-manage-the-api-tokens-for-your-user-account">Generate and Manage the API Tokens for Your User Account</a>.</p>
+</td>
+</tr>
+<tr>
+<td>Organization Settings
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>User Accounts Management
+</td>
+<td>
+<strong>Who</strong>: VMware Cloud Services <strong>Organization Owners</strong> or <strong>Organization Administrators</strong>.
+<p><strong>Where</strong>: In the VMware Cloud Services Console.</p>
+<p>For details, see <a href="csp_user_management.html">Manage User Accounts</a>.</p>
+</td>
+<td>
+<strong>Who</strong>: Operations for Applications users with the <strong>Accounts</strong> permission.
+<p><strong>Where</strong>: In the Operations for Applications user interface.</p>
+<p>For details, see <a href="user-accounts.html">Manage User Accounts</a>.</p>
+</td>
+</tr>
+<tr>
+<td>Service Accounts Management
+</td>
+<td>
+<strong>Who</strong>: All VMware Cloud Services <strong>Organization Owners</strong> or <strong>Organization Administrators</strong>.
+<p><strong>Where</strong>: In the VMware Cloud Services Console.</p>
+<p>For details, see <a href="csp_server_to_server_apps.html">Manage Server-to-Server Apps</a>.</p>
+</td>
+<td>
+<strong>Who</strong>: All users with the <strong>Accounts</strong> permission can:
+<ul>
+<li>Create service accounts.</li>
+<li>Assign roles to the service accounts to give them the permissions they need. Service accounts can perform get, modify, and delete tasks only if they have the necessary permissions.
+</li>
+</ul>
+<strong>Where</strong>: In the Operations for Applications user interface.
+<p>For details, see <a href="service-accounts.html">Manage Service Accounts</a>.</p>
+</td>
+</tr>
+<tr>
+<td>Metrics Security Rules
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Self Service SAML SSO</td>
+<td>
+<strong>Who</strong>: VMware Cloud Services <strong>Organization Owners</strong> or <strong>Organization Administrators</strong>.
+<p><strong>Where</strong>: In the VMware Cloud Services Console.</p>
+<p>For details, see <a href="">Provide a link here</a>.</p>
+</td>
+<td>
+<strong>Who</strong>: Users with the <strong>SAML IdP Admin</strong> permission.
+<strong>Where</strong>: In the Operations for Applications user interface.
+<p>For details, see <a href="auth_self_service_sso.html">Single-Tenant Authentication and Self-Service SAML SSO</a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+## Why Can't I Edit This Dashboard? This Alert?
+
+By default, all users can view dashboards and alerts. They can also edit dashboards and alerts but cannot save their changes. To do more, you need permissions.
+
+<p><span style="font-size: 1.1em; font-weight: 600">Action</span></p>
+
+1. Check your permissions. See [Examine Groups, Roles, and Permissions](users_account_managing.html#examine-groups-roles-and-permissions).
+2. If you don't have the permissions you need, ask a user with the **Accounts** permission to grant you the permissions.
+3. If that doesn't solve the problem, the individual dashboard or alert you're trying to edit might be protected by [access control](access.html). The creator of the alert or dashboard or a Super Admin user can grant access.
+
+## Why Is Our PPS So High? Why Do We Have Overage?
+
+PPS and Overage determine what a customer is billed:
+* **PPS** -- Or Points per Second, means data points ingested per second to the service. All customers are billed based on their PPS.
+* **Overage** -- Many of our customers have a contract that specifies a certain PPS for a certain amount of time. If the customer exceeds that PPS, the customer is billed for overage.
+
+Because the service runs on AWS, we have to bill based on how much data is ingested. However, we're interested in helping you lower your bill and get more out of VMware Aria Operations for Applications. We encourage you to find out:
+* Are there dashboards or alerts that ingest data but that are never used?
+* Are your queries looking at too much data, that is, could you filter as part of the query?
+
+Start with [Improve PPS Usage and Prevent Overage](wavefront_usage_info.html) and learn how to examine your data and how to improve PPS.
+
+
+## Why Is VMware Aria Operations for Applications So Slow?
+
+VMware Aria Operations for Applications can handle a lot of data, but sometimes you need it faster!
+
+<p><span style="font-size: 1.1em; font-weight: 600">Action</span></p>
+
+* **Improve Rendering Speed**: You can make some modifications to slow dashboards to improve rendering speed. See [Ensure Optimal Dashboard Performance](ui_dashboards.html#ensure-optimal-dashboard-performance). Changes include ensuring that sampling is turned on, controlling that only events you need to see are displayed, and more.
+
+* **Improve Data Shape and Cardinality**: At the heart of improving rendering speed and query execution speed is the shape of your data. If your dashboard or your query look at only the data you're actually interested in, performance improves drastically. See [Optimizing Data Shape to Improve Performance](optimize_data_shape.html) and [Find Ingestion and Query Problems](monitoring_overview.html).
 
 ## Do You Have Other FAQs?
 
