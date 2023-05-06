@@ -911,6 +911,10 @@ entries:
             url: /csp_metrics_security.html
             output: web
             
+      - title: Authentication Model
+        url: /csp_authentication.html
+        output: web
+
   - title: Administering Original Subscriptions
     output: web
     folderitems:
