@@ -36,7 +36,7 @@ This multi-threshold alert notifies targets like this:
 1. Operations for Applications monitors the alert condition.
 2. If at least one of the threshold values is met for the specified amount of time, for example, if `cpu.loadavg.1m` is greater than 6000, the alert fires.
 3. Notifications are always sent to all alert targets that match the condition, for example, that are equal to or below the severity that triggers the alert. For example, if `cpu.loadavg.1m` is greater than 6000 for 5 minutes, alert targets for SEVERE, WARN, and SMOKE are notified because the condition is satisfied for all. If the value of `cpu.loadavg.1m` satisfies the WARN but not the SEVERE condition, then only alert targets in WARN and SMOKE will be notified.
-4. We continue checking the alert condition at the specified interval (1 minute by default). If the alert condition for a higher level is no longer met, but lower-level conditions are still met, then the higher-level alert target gets an Alert Resolved notification, and each lower-level alert target gets an Alert Updated notification.
+4. We continue checking the alert condition at the specified interval (5 minutes by default). If the alert condition for a higher level is no longer met, but lower-level conditions are still met, then the higher-level alert target gets an Alert Resolved notification, and each lower-level alert target gets an Alert Updated notification.
 
 ![alert multi concept](images/alert_multi_concept.png)
 
@@ -91,9 +91,9 @@ You can set up an alert that triggers if the alert is in a NO DATA state for a s
 
 ## When Are Alerts Checked?
 
-The data associated with an alert are checked to determine whether the alert should fire or not. The default checking frequency is 1 minute: the conditional expression associated with the alert is evaluated once a minute. You can change this interval by setting the **Checking Frequency** advanced property.
+The data associated with an alert are checked to determine whether the alert should fire or not. The default checking frequency is 5 minutes. You can change this interval by setting the **Checking Frequency** advanced property.
 
-The exact time of the check for a particular alert is not fixed and can vary slightly within the minute. For example, it’s possible that a check for a specific alert occurs at 1:01:17pm and the next check occurs at 1:02:13pm.
+The exact time of the check for a particular alert is not fixed and can vary slightly within the minute. For example, it’s possible that a check for a specific alert occurs at 1:01:17pm and the next check occurs at 1:06:13pm.
 
 ### Data Granularity for Alert Checking
 
@@ -107,6 +107,8 @@ The data granularity for alert checking is 1 minute. The alert checking process:
 If the expression returns a single data value per minute, the summarization values and the returned values are the same.
 
 {% include note.html content="To use a different summarization strategy, use the [`align()`](ts_align.html) function, with parameters specifying a 1-minute time window and your preferred summarization method, in your alert condition. See **Example 2** below." %}
+
+The examples given below assumes that the alert checking frequency is set to 1 minute.
 
 **Example 1**
 
@@ -202,7 +204,7 @@ By default, the **Resolve Window** is the same length as the **Trigger Window**.
 
 Suppose you define an alert with the following properties:
 * The alert condition is `ts(metric.name) > 0`, where `metric.name` reports once a minute. (The summarization values are therefore the same as the reported values.)
-* The **Checking Frequency** interval is 1 minute (the default).
+* The **Checking Frequency** interval is 1 minute (the default value is 5 minutes).
 * **Trigger Window** = 5 minutes.
 * **Resolve Window** = 10 minutes.
 
