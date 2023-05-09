@@ -316,9 +316,13 @@ When you have many and complex tag paths, you can search them by parent. For exa
 
 To make copies of an existing alert, then change the copy, you can clone an alert.
 
-1. To display the Alerts Browser, from the toolbar, select **Alerting > All Alerts**.
+1. From the toolbar, select **Alerting > All Alerts**.
 2. Click the ellipsis icon next to the alert.
-3. Select **Clone**, make changes when prompted, and click **Save**.
+3. Select **Clone**, provide a new name for the alert and click **Clone**.
+    
+    The new alert opens in edit mode.
+
+4. Customize the clone to suit your needs and click **Save**.
 
 ## Alert Events
 
