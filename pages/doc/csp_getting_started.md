@@ -11,7 +11,7 @@ If your Operations for Applications service is onboarded to VMware Cloud service
 - Single sign-on (SSO) with VMware Cloud services accounts.
 - SAML 2.0 SSO identity federation with your enterprise identity provider.
 - Identity access management (IAM) with built-in and custom service roles.
-- Seamless integration with other services from your VMware Cloud services portfolio, such as VMWare Aria Operations for Logs and VMware Arial Operations Buisiness Insights.
+- Seamless integration with other services from your VMware Cloud services portfolio, such as VMWare Aria Operations for Logs and VMware Arial Operations Business Insights.
 
 {% include note.html content="All new Operations for Applications service instances from June 1, 2023 onwards are onboarded to VMware Cloud services. We are in the process of incrementally onboarding the existing Operations for Applications instances to VMware Cloud services."%}
 
@@ -38,14 +38,14 @@ A VMware Cloud services account is a user (human) account in VMware Cloud servic
 
 VMware Cloud services uses organizations to provide controlled access to one or more services. The VMware Cloud organization is a top-level construct which owns users and cloud services (subscriptions). You can have multiple VMware Cloud organizations. Users can belong to multiple organizations. Multiple service instances can run in the same or in different organizations. For example, you can have a multi-tenant Operations for Applications environment with multiple service instances (tenants) in the same organization.
 
-{% include note.html content="You can create a VMware Cloud organization only when you are onboarding a new service instance, for example, when you are [starting an Operations for Applications Free Trial](start_trial.html)."%}
+{% include note.html content="You can create a VMware Cloud organization only when you are onboarding a new service instance, for example, when you are [starting an Operations for Applications free trial](start_trial.html)."%}
 
 See [How do I manage my Cloud Services organizations](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-CF9E9318-B811-48CF-8499-9419997DC1F8.html) in the VMware Cloud services documentation.
 
 ## What Is a VMware Cloud Organization Role?
 
 A VMware account can belong to one or more VMware Cloud organizations. A VMware account belongs to a given VMware Cloud organization if the account has an organization role for that organization. There are three organization roles:
-- The **Organization Owner** role has full administrative access to all resources in the organization. They can invite users to the organization and assign role-based access to all users, including themselves. Also, they can kick off an enterprise domain federation and invite an **Enterprise Administrator**. See [Setting Up Enterprise Federation with VMware Cloud Services Guide](https://docs.vmware.com/en/VMware-Cloud-services/services/setting-up-enterprise-federation-cloud-services/GUID-76FAECB3-CFAA-461E-B9C9-2A49C39CD17F.html).
+- The **Organization Owner** role has full administrative access to all resources in the organization. They can invite users to the organization and assign role-based access to all users, including themselves. Also, they can kick off an enterprise domain federation and invite an **Enterprise Administrator**. See [Setting Up Enterprise Federation with VMware Cloud Services Guide](https://docs.vmware.com/en/VMware-Cloud-services/services/setting-up-enterprise-federation-cloud-services/GUID-76FAECB3-CFAA-461E-B9C9-2A49C39CD17F.html)  in the VMware Cloud services documentation.
 
     When you create an organization during a service onboarding process, you become its first **Organization Owner**.
 - The **Organization Administrator** role has as limited administrative access. Users with that role can invite and manage only users with the **Organization Member** role. Can have additional access with additional roles.
@@ -57,11 +57,11 @@ See [What organization roles are available in VMware Cloud Services](https://doc
 
 VMware Cloud services includes service-specific built-in roles, including [Operations for Applications service roles](csp_users_roles.html#operations-for-applications-service-roles-built-in). Each service role grants certain access to the corresponding service instance in the organization.
 
-While the service roles are built-in and not editable, you can create [custom roles](csp_users_roles.html#create-edit-or-delete-a-custom-role) with different service permissions of your choice, including [Operations for Application permissions](csp_permissions_overview.html#operations-for-applications-permissions).
+While the service roles are built-in and not editable, you can create [custom roles](csp_users_roles.html#create-edit-or-delete-a-custom-role) with service permissions of your choice, including [Operations for Application permissions](csp_permissions_overview.html#operations-for-applications-permissions).
 
 ## What Is a Server to Server App?
 
-If you want to use an application for automating management tasks in your Operations for Applications service, your application requires direct access to your service, without user authorization.
+If you want to use an application for automating management tasks in your service, for example, in Operations for Applications, your application requires direct access to your service, without user authorization.
 
 For that purpose, VMware Cloud services supports server-to-server apps, which are based on OAuth 2.0 *client credentials* grant type. Configure your application to pass the OAuth 2.0 client credentials to the Operations for Applications REST API, and access tokens are issued directly to your application.
 

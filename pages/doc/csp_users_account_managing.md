@@ -12,7 +12,7 @@ Starting June 1, 2023, VMware Aria Operations for Applications is a service on t
 
 ## Manage Your Password
 
-It's a best practice to change your password every few months. See [How do I reset my password](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-8FD73719-36EE-4414-B3A2-AA1B9687BE4D.html) for more details.
+It's a best practice to change your password every few months. See [How do I reset my password](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-8FD73719-36EE-4414-B3A2-AA1B9687BE4D.html) in the VMware Cloud services documentation.
 
 {% include note.html content="If you log in with a corporate account, you cannot update your password following these instructions. Your company prompts you to update your password at regular intervals. Contact your Enterprise Administrator to explicitly update your password." %}
 
@@ -23,7 +23,7 @@ In your user profile in Operations for Applications, you can configure several p
 1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select your user name.
 1. On the **User Information** page, make the necessary changes.
 
-    {% include note.html content="Some preferences, managed by **Super Admin** users, are preset for all users of the service instance." %}
+    {% include note.html content="Some preferences, managed by the users with the **Super Admin** service role, are preset for all users of the service instance." %}
 
 In your user profile in the VMware Cloud Services Console, you can configure several preferences, such as language and regional format, dark or light theme, motion reduction, and What's New banner appearance.
 1. In the Operations for Applications UI or in the VMware Cloud Services Console, click your user name on the menu bar and select **My Account**.
@@ -47,18 +47,18 @@ You can limit the number of time series to 100 for new charts by changing the **
 
 If you can't perform a certain task, it's possible that you don't have the necessary permissions.
 
-An **Organization Owner** or **Organization Administrator** usually assigns [service roles](csp_getting_started.html#what-operations-for-applications-service-roles-are-available) and [custom roles](csp_getting_started.html#what-is-a-custom-role) to groups and individual users.
+A VMware Cloud **Organization Owner** or **Organization Administrator** usually assigns [service roles and custom roles](csp_users_roles.html) to groups and individual users.
 
 Permissions are additive:
 * If you belong to a group with two roles, you get the permissions from both roles.
-* If you belong to 2 groups, you get the permissions from the roles assigned to both groups.
+* If you belong to two groups, you get the permissions from the roles assigned to both groups.
 * If roles were assigned to you explicitly, you get the corresponding permissions as well.
 
-To view your roles, see what access you have to services, and request additional roles, see [How do I manage my roles in an Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-528C2CE3-6335-43A2-99F1-B722464F0A1D.html).
+To view your roles, see what access you have to services, and request additional roles, see [How do I manage my roles in an Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-528C2CE3-6335-43A2-99F1-B722464F0A1D.html) in the VMware Cloud services documentation.
 
 ## Enable or Disable Super Admin Mode
 
-If you hold the [**Super Admin** service role](csp_getting_started.html#super-admin), you can temporarily enable Super Admin mode and perform your Super Admin tasks.
+If you hold the [**Super Admin** service role](csp_users_roles.html#operations-for-applications-service-roles-built-in), you can temporarily enable Super Admin mode and perform your Super Admin tasks.
 
 {% include note.html content="To avoid making unintentional changes in the system, after performing your current Super Admin tasks, disable the Super Admin mode." %}
 
@@ -80,6 +80,10 @@ If you hold the [**Super Admin** service role](csp_getting_started.html#super-ad
 
 ## Generate an API Token
 
-VMware Aria Operations for Applications allows users to interact with the product instance using the [REST API](wavefront_api.html).
+Operations for Applications allows users to interact with the service instance using the [REST API](wavefront_api.html).
 
-To generate an API token for your account, see [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html).
+Before you can invoke the Operations for Applications API using `curl` or from an API client, you must have a VMware Cloud services API token with the relevant organization and service access. 
+
+{% include note.html content="You generate VMware Cloud services API tokens only for your user account. You can grant a token all or a portion of your organization, service role, and custom roles."%}
+
+To generate and manage API tokens for your account, see [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) in the VMware Cloud services documentation.

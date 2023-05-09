@@ -7,16 +7,16 @@ permalink: csp_authorization.html
 summary: Learn about authorization of groups, users, and sever-to-server apps to access VMware Aria Operations for Applications on VMware Cloud services.
 ---
 
-VMware Cloud services supports role-based access control for the feature sets in Operations for Applications. In addition, Operations for Applications supports object-based access control for individual dashboards and alerts as well as metrics security policy.
+VMware Cloud services supports role-based access control for the services on its platform, including Operations for Applications. In addition, Operations for Applications supports object-based access control for individual dashboards and alerts as well as metrics security policy.
 
 ## Role-Based Access Control with Global Permissions
 
-Permissions always apply to all objects of a certain type. For example, a user with **Dashboards** permission can view and modify all dashboards.
+[Operations for Applications permissions](csp_permissions_overview.html) always apply to all objects of a certain type. For example, a user with **Dashboards** permission can view and modify all dashboards.
 
-A user with **Organization Owner** or **Organization Administrator** role manages authorization by:
-* Creating one or more **custom roles** and assigning one or more [permissions](csp_permissions_overview.html#operations-for-applications-permissions) to each role.
-* Creating one or more **groups** and adding one or more users to each group.
-* Assigning one or more **service roles** and **custom roles** to groups, individual users, and server-to-server apps.
+Users with the VMware Cloud **Organization Owner** or **Organization Administrator** role manage authorization with [roles and groups](csp_users_roles.html). They can:
+* Create **groups** and add one or more users to each group.
+* Create **custom roles** and assign one or more permissions to each role.
+* Assign one or more **service roles** and **custom roles** to groups, individual users, and server-to-server apps.
 
 ### Example
 
@@ -64,7 +64,7 @@ Our fine-grained **[access control](csp_access.html)** allows users with the **S
 
 ## Metrics Security Policy Rules
 
-Users with the **Super Admin** service role or the **Metrics** permission can view, create, and manage  [metrics security policy rules](csp_metrics_security.html).
+Users with the **Super Admin** or **Metrics** service role can view, create, and manage  [metrics security policy rules](csp_metrics_security.html).
 
 Data protected by a metrics security policy rule can become completely invisible to users.
 * **Not visible in charts**. The chart either includes a warning that some metrics are protected, or, if all metrics are protected, the chart shows only the message.
