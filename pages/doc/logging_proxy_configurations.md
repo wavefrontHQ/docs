@@ -65,6 +65,24 @@ We've added the following configuration properties for logs to the already exist
 <td> Comma separated list of tags. Can be a single tag.
 <br/>Example: groceries, payment</td>
 </tr>
+<tr>
+<a name="customExceptionTags"></a>
+<td>customExceptionTags</td>
+<td markdown="span">Comma separated list of log tag keys that are treated as the exception if the logging solution doesn't send a tag named `exception`. 
+<br/> Default: exception, error_name
+<br/> Version: Since 11.3</td>
+<td> Comma separated list of tags. Can be a single tag.
+<br/>Example: warn, error</td>
+</tr>
+<tr>
+<a name="customLevelTags"></a>
+<td>customLevelTags</td>
+<td markdown="span">Comma separated list of log tag keys that are treated as the log level if the logging solution doesn't send a tag named `level`.
+<br/> Default: level, log_level
+<br/> Version: Since 11.3</td>
+<td> Comma separated list of tags. Can be a single tag.
+<br/>Example: log_level</td>
+</tr>
 </tbody>
 </table>
 
