@@ -46,13 +46,13 @@ Most of the documentation of the integrations comes from the code and is generat
 
 ## What Are the Differences Between New and Original Subscriptions?
 
-Starting with the 2023-XX.Y release, all **new** Operations for Applications subscriptions are done from the [VMware Cloud Services Console](https://console.cloud.vmware.com/). VMware Cloud services provides single sign-on (SSO) and identity access management (IAM) to your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications. Therefore, there are differences in the experience for **new** and **original** subscribers. 
+Starting June 1-st, 2023, all **new** Operations for Applications subscriptions are onboarded to the [VMware Cloud services platform](https://console.cloud.vmware.com/). VMware Cloud services provides single sign-on (SSO) and identity access management (IAM) to your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications. Therefore, there are differences in the experience for **new** and **original** subscribers. 
 
-For example:
+### General UI Differences
 
 * Permissions such as **Accounts**, **SAML IdP Admin**, and **API token** don't exist for **new** Operations for Applications subscriptions that are onboarded to VMware Cloud services, because all of the administration tasks requiring these permissions are done by using the VMware Cloud Services Console. For information about the basics for administering your Operations for Applications service running on the VMware Cloud services platform, see [Getting Started with Operations for Applications on VMware Cloud Services](csp_getting_started.html).
 
-* When you customize your own account settings in the Operations for Applications UI, new subscribers do not see the **Groups, Roles & Permissions** and the **API Access** tabs (1) and can no longer change their password from the Operations for Applications UI (2), because this is done from the VMware Cloud Services Console.
+* When you customize your own account settings in the Operations for Applications UI, new subscribers do not see the **Groups, Roles&Permissions** and the **API Access** tabs (1) and can no longer change their password from the Operations for Applications UI (2), because this is done from the VMware Cloud Services Console.
 
   ![An image showing that the tabs mentioned above and the change password link are removed from the UI for new subscribers.](images/new-vs-original.png)
 
@@ -67,8 +67,9 @@ For example:
    * The **Usage and Subscriptions** and **Ingestion Policies** menu items are combined in the **Usage and Subscriptions** menu item. 
    * The **Super Admin** menu item is missing, because Super Admins can invite new Super Admin users by using the VMware Cloud Services Console. 
    * There is a new **Orphaned Objects** menu item that allows Super Admins to see and recover orphan dashboards or alerts.
-   * The **Sign Out** menu item is missing, because???
+   * The **Sign Out** menu item is missing, because signing out of Operations for Applications is done from the VMware Cloud Services Console.
 
+### Differences by Area
 
 <table style="width: 100%;">
 <tbody>
@@ -86,7 +87,7 @@ For example:
 <td>
 <strong>Who</strong>: Operations for Applications users with the <strong>Accounts</strong> permission can create roles and assign roles to a group.
 <p><strong>Where</strong>: In the Operations for Applications user interface.</p>
-<p>For details, see <a href="users_roles.html#create-a-role">Create a Role</a>.</p>
+<p><strong>How</strong>: For details, see <a href="users_roles.html#create-a-role">Create a Role</a>.</p>
 </td>
 </tr>
 <tr>
@@ -99,25 +100,43 @@ For example:
 </td>
 <td><strong>Who</strong>: Operations for Applications users with the <strong>Accounts</strong> permission can create and manage groups.
 <p><strong>Where</strong>: In the Operations for Applications user interface.</p>
-<p>For details, see <a href="users_roles.html#create-a-group">Create a Group</a>.</p>
+<p><strong>How</strong>: For details, see <a href="users_roles.html#create-a-group">Create a Group</a>.</p>
 </td>
 </tr>
 <tr>
 <td>Permissions
 </td>
 <td>
+<strong>Who</strong>: VMware Cloud Services <strong>Organization Owners</strong> or <strong>Organization Administrators</strong>.
+<p><strong>Where</strong>: In the VMware Cloud Services Console.</p>
+<p><strong>How</strong>: For details, see <a href="">Grant or Revoke Permissions -- Need a link</a>.</p>
 </td>
 <td><strong>Who</strong>: Operations for Applications users with the <strong>Accounts</strong> permission can grant or revoke permissions.
 <p><strong>Where</strong>: In the Operations for Applications user interface.</p>
-<p>For details, see <a href="users_roles.html#grant-or-revoke-account-permissions-explicitly">Grant or Revoke Account Permissions</a>. For information about the Operations for Applications permissions that are available for original subscribers only, see <a href="permissions_overview.html">Permissions Reference</a>.</p>
+<p><strong>How</strong>: For details, see <a href="users_roles.html#grant-or-revoke-account-permissions-explicitly">Grant or Revoke Account Permissions</a>. For information about the Operations for Applications permissions that are available for original subscribers only, see <a href="permissions_overview.html">Permissions Reference</a>.</p>
 </td>
 </tr>
 <tr>
-<td>API Token Management
+<td>Generate and Manage API Tokens for Your User Account
 </td>
 <td>
-<strong>Who</strong>:  VMware Cloud Services <strong>Organization Owners</strong> or <strong>Organization Administrators</strong>.
+<strong>Who</strong>: VMware Cloud Services <strong>Organization Owners</strong> or <strong>Organization Administrators</strong>.
 <p><strong>Where</strong>: All API tokens are generated and in Cloud Services Console user interface.</p>
+<p><strong>How</strong>: </p>
+</td>
+<td>
+<p><strong>Who</strong>: Operations for Applications users with the <strong>API Tokens</strong> permission can generate and manage the API Tokens for their own user account. All users who do not have this permission, can use and manage their <strong>existing</strong> API tokens. </p>
+<p><strong>Where</strong>: In the Operations for Applications user interface.</p>
+<p><strong>How</strong>: For details, see <a href="wavefront_api.html#generate-and-manage-the-api-tokens-for-your-user-account">Generate and Manage the API Tokens for Your User Account</a>.</p>
+</td>
+</tr>
+<tr>
+<td>API Token Management in an Organization
+</td>
+<td>
+<strong>Who</strong>: VMware Cloud Services <strong>Organization Owners</strong> or <strong>Organization Administrators</strong>.
+<p><strong>Where</strong>: All API tokens are generated and in Cloud Services Console user interface.</p>
+<p><strong>How</strong>: </p>
 </td>
 <td>
 <strong>Who</strong>: Operations for Applications users with the <strong>Accounts</strong> permission can:
@@ -126,18 +145,55 @@ For example:
 <li>View and revoke the API tokens for the users and service accounts within their organization.</li>
 </ul>
 <p><strong>Where</strong>: In the Operations for Applications user interface.</p>
-<p>For details, see <a href="wavefront_api.html#generate-and-manage-the-api-tokens-for-a-service-account">Generate and Manage the API Tokens for a Service Account</a> and <a href="wavefront_api.html#view-and-manage-the-api-tokens-in-your-organization">View and Manage the API Tokens in Your Organization</a>.</p>
-<p><strong>Who</strong>: Operations for Applications users with the <strong>API Tokens</strong> permission can generate and manage the API Tokens for their own user account. All users who do not have this permission, can use and manage their <strong>existing</strong> API tokens. </p>
-<p><strong>Where</strong>: In the Operations for Applications user interface.</p>
-<p>For details, see <a href="wavefront_api.html#generate-and-manage-the-api-tokens-for-your-user-account">Generate and Manage the API Tokens for Your User Account</a>.</p>
+<p><strong>How</strong>: For details, see <a href="wavefront_api.html#generate-and-manage-the-api-tokens-for-a-service-account">Generate and Manage the API Tokens for a Service Account</a> and <a href="wavefront_api.html#view-and-manage-the-api-tokens-in-your-organization">View and Manage the API Tokens in Your Organization</a>.</p>
 </td>
 </tr>
 <tr>
 <td>Organization Settings
 </td>
 <td>
+<strong>Who</strong>: VMware Cloud Services <strong>Organization Owners</strong> or <strong>Organization Administrators</strong> can invite new user accounts, create new server-to-server apps accounts and assign roles and groups to these accounts.
+<p><strong>Where</strong>: In the Cloud Services Console user interface.</p>
+<p><strong>How</strong>: </p>
+<strong>Who</strong>: Operations for Applications users with the <strong>Accounts</strong> permission can:
+<li>Set up the default settings for new accounts. These settings include:</li>
+  <ul>
+  <li>Display settings, such as getting started progress and default dashboard display.</li>
+  <li>Default query language preferences and optionally, allow users to write queries in PromQL.</li>
+  <li>Set access to newly created dashboards and alerts.</li>
+  </ul>
+<p><strong>Where</strong>: In the Operations for Applications user interface.</p>
+<p><strong>How</strong>: For details, see:</p>
+<ul>
+ <li><a href="wavefront_prometheus.html#set-promql-organization-settings-administrator-only">Set PromQL Organization Settings (Administrator Only)</a></li>
+ <li><a href="logging_logs_settings.html">Customize Logs Settings</a>.</li>
+ <li><a href="csp_access.html">Managing Access to Dashboards and Alerts</a></li>
+ </ul>
 </td>
 <td>
+<strong>Who</strong>: Operations for Applications users with the <strong>Accounts</strong> permission can:
+<ul>
+<li>Set up the default settings for new accounts. These settings include:</li>
+  <ul>
+  <li>Display settings, such as getting started progress and default dashboard display.</li>
+  <li>Default query language preferences and optionally, allow users to write queries in PromQL.</li>
+  <li>Add default groups for new user accounts. New users are assigned to the Everyone system group and to all additional default groups that you specify.</li>
+  <li>Add default groups for new service accounts. New users are assigned to the Service Accounts system group and to all additional default groups that you specify.</li>
+  <li>Set the default permissions for new user accounts. These permissions don't apply to service accounts.</li>
+  <li>Customize logs settings, if Logs (Beta) is enabled for your cluster.</li>
+  </ul>
+<li>Set access to newly created dashboards and alerts.</li>
+</ul>
+<p><strong>Where</strong>: In the Operations for Applications user interface.</p>
+<p><strong>How</strong>: For details, see:</p>
+<ul>
+  <li><a href="wavefront_prometheus.html#set-promql-organization-settings-administrator-only">Set PromQL Organization Settings (Administrator Only)</a></li>
+  <li><a href="user-accounts.html#set-the-default-user-group-for-new-users">Set the Default User Group for New Users</a></li>
+  <li><a href="service-accounts.html#set-the-default-service-accounts-group-for-new-service-accounts">Set the Default Service Accounts Group for New Service Accounts</a></li>
+  <li><a href="user-accounts.html#set-default-permissions-for-new-users">Set Default Permissions for New Users</a></li>
+  <li><a href="logging_logs_settings.html">Customize Logs Settings</a>.</li>
+  <li><a href="access.html">Managing Access to Dashboards and Alerts</a></li>
+</ul>
 </td>
 </tr>
 <tr>
@@ -146,12 +202,12 @@ For example:
 <td>
 <strong>Who</strong>: VMware Cloud Services <strong>Organization Owners</strong> or <strong>Organization Administrators</strong>.
 <p><strong>Where</strong>: In the VMware Cloud Services Console.</p>
-<p>For details, see <a href="csp_user_management.html">Manage User Accounts</a>.</p>
+<p><strong>How</strong>: For details, see <a href="csp_user_management.html">Manage User Accounts</a>.</p>
 </td>
 <td>
 <strong>Who</strong>: Operations for Applications users with the <strong>Accounts</strong> permission.
 <p><strong>Where</strong>: In the Operations for Applications user interface.</p>
-<p>For details, see <a href="user-accounts.html">Manage User Accounts</a>.</p>
+<p><strong>How</strong>: For details, see <a href="user-accounts.html">Manage User Accounts</a>.</p>
 </td>
 </tr>
 <tr>
@@ -160,7 +216,7 @@ For example:
 <td>
 <strong>Who</strong>: All VMware Cloud Services <strong>Organization Owners</strong> or <strong>Organization Administrators</strong>.
 <p><strong>Where</strong>: In the VMware Cloud Services Console.</p>
-<p>For details, see <a href="csp_server_to_server_apps.html">Manage Server-to-Server Apps</a>.</p>
+<p><strong>How</strong>: For details, see <a href="csp_server_to_server_apps.html">Manage Server-to-Server Apps</a>.</p>
 </td>
 <td>
 <strong>Who</strong>: All users with the <strong>Accounts</strong> permission can:
@@ -170,7 +226,7 @@ For example:
 </li>
 </ul>
 <strong>Where</strong>: In the Operations for Applications user interface.
-<p>For details, see <a href="service-accounts.html">Manage Service Accounts</a>.</p>
+<p><strong>How</strong>: For details, see <a href="service-accounts.html">Manage Service Accounts</a>.</p>
 </td>
 </tr>
 <tr>
@@ -186,12 +242,12 @@ For example:
 <td>
 <strong>Who</strong>: VMware Cloud Services <strong>Organization Owners</strong> or <strong>Organization Administrators</strong>.
 <p><strong>Where</strong>: In the VMware Cloud Services Console.</p>
-<p>For details, see <a href="">Provide a link here</a>.</p>
+<p><strong>How</strong>: For details, see <a href="">Provide a link here</a>.</p>
 </td>
 <td>
 <strong>Who</strong>: Users with the <strong>SAML IdP Admin</strong> permission.
 <strong>Where</strong>: In the Operations for Applications user interface.
-<p>For details, see <a href="auth_self_service_sso.html">Single-Tenant Authentication and Self-Service SAML SSO</a>.</p>
+<p><strong>How</strong>: For details, see <a href="auth_self_service_sso.html">Single-Tenant Authentication and Self-Service SAML SSO</a>.</p>
 </td>
 </tr>
 </tbody>

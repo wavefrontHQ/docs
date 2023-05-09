@@ -4,7 +4,7 @@ keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: start_trial.html
-summary: VMware offers a free trial of the VMware Aria Operations for Applications service where you can explore all the service capabilities.
+summary: VMware offers a free trial of the VMware Aria Operations for Applications service where you can explore all of the service capabilities.
 
 
 ---
@@ -20,7 +20,8 @@ Starting June, 1st 2023, VMware Aria Operations for Applications is a service in
 1. Log in to the [VMware Cloud Services Console](https://console.cloud.vmware.com) with your VMware account.
 
     {% include tip.html content="If you don't have a VMware account, you must create one." %}
-1. From navigation bar on the left, click **Services**.
+
+1. From the navigation bar on the left, click **Services**.
 1. Click the **All** tab and search for VMware Aria Operations for Applications.
 1. In the **VMware Aria Operations for Applications** tile, click **Access**.
 
@@ -31,17 +32,18 @@ Starting June, 1st 2023, VMware Aria Operations for Applications is a service in
     {% include tip.html content="The company name that you provide will be used for the tenant name of your service instance." %}
 
     You are redirected back to the VMware Cloud Services Console.
+
 1. Select a VMware Cloud organization or create a new one.
 
-    {% include note.html content="If you want to onboard the service in an existing organization, you must have the **Organization Owner** role for that organization." %}
+    {% include note.html content="If you want to onboard the service to an existing organization, you must have the **Organization Owner** role for that organization." %}
 
-   To create an organization:
+    To create an organization:
    
-   1. Click **Create New Organization**.
-   1. Enter an organization name.
-   1. Enter the address for your organization or choose and existing one if you have already added an address for your account.
-   1. Enter the payment details information.
-   1. Review the Cloud Services Terms of Service and select the check box to agree.
+    1. Click **Create New Organization**.
+    1. Enter an organization name.
+    1. Enter the address for your organization or choose and existing one if you have already added an address for your account.
+    1. Enter the payment details information.
+    1. Review the Cloud Services Terms of Service and select the check box to agree.
 
     Initially, you are the only user who belongs to the newly created organization. You have the **Organization Owner** role for that organization.
 
@@ -49,4 +51,4 @@ Starting June, 1st 2023, VMware Aria Operations for Applications is a service in
    
    You are redirected to the Operations for Applications GUI. You are logged with your VMware account.
    
-   Your initial Operations for Applications service role is **User** but, as an **Organization Owner**, you can change it. 
+   Your initial default Operations for Applications service role is set to **User** but, as an **Organization Owner**, you can change it. 
