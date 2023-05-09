@@ -69,6 +69,20 @@ Starting June 1-st, 2023, all **new** Operations for Applications subscriptions 
    * There is a new **Orphaned Objects** menu item that allows Super Admins to see and recover orphan dashboards or alerts.
    * The **Sign Out** menu item is missing, because signing out of Operations for Applications is done from the VMware Cloud Services Console.
 
+* Users with the **Accounts** permission still can set the default settings for new users and modify access to new dashboards and alerts from the **Organization Settings** page, but some of the options are removed:
+
+   * The options for adding default groups for new user and service accounts, as well as for setting the default permissions for new user accounts are removed, because these operations are done through the VMware Cloud Services Console.
+
+     ![An image showing that the options mentioned above are removed from the UI for new subscribers.](images/new-vs-original-new-accounts-defaults.png)
+
+  * The option for granting access to new dashboards and alerts to service accounts is removed. You grant access to  objects when you create a `Server to server app` and define its scope in the VMware Cloud Services Console. Scopes provide a way to implement control over what areas in an Organization your client can access - specifically which role in an Organization, and what services and the level of permissions.
+
+     ![An image showing that the option to grant access to service accounts is removed from the UI for new subscribers.](images/new-vs-original-org-settings-security.png)
+
+* Metrics Security 
+
+    ![An image showing the differences for metrics security rules in the UI .](images/new-vs-original-metrics-security.png)
+
 ### Differences by Area
 
 <table style="width: 100%;">
