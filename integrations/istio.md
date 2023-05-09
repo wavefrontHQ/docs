@@ -24,41 +24,46 @@ This integration also installs the dashboards. Here's a preview of the Istio Dat
 
 
 
-  **Supported Versions:**
-  * Istio: 1.14.0 or later.
-  * Kubernetes Metrics Collector: v1.13.0 or later.
-  * Prometheus: v2.21.0 or later
+**Supported Versions:**
+* Istio: 1.14.0 or later.
+* Kubernetes Metrics Collector: v1.13.0 or later.
+* Prometheus: v2.21.0 or later
 
 This integration uses:
 * The [Prometheus](https://istio.io/latest/docs/ops/integrations/prometheus/) server to scrape metrics from Istio and federate them.
 
-* The [Observability for Kubernetes Operator](https://github.com/wavefrontHQ/observability-for-kubernetes) to deploy the necessary agents to monitor your clusters and workloads in Kubernetes, such as the Kubernetes Metrics Collector. The [Kubernetes Metrics Collector](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes) collects the federated metrics from a Prometheus server and sends the metrics to Operations for Applications. If you do not already have the Collector installed in your Kubernetes cluster, follow the Kubernetes Integration Setup instructions and add it to your cluster.
+* The **Kubernetes Metrics Collector** to collect the federated metrics from a Prometheus server and send the metrics to Operations for Applications, so that you can monitor your clusters and workloads in Kubernetes.
 
-**Note**: The Kubernetes integration installed by using Helm or manual deployment is deprecated. If you already have the deprecated Kubernetes integration, uninstall it before you install the Observability for Kubernetes Operator.
+You can deploy the Kubernetes Metrics Collector by using either the [Observability for Kubernetes Operator](https://github.com/wavefrontHQ/observability-for-kubernetes) (recommended deployment) or by using the [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or [manual installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install) (deprecated deployment).
+
+If you do not already have the Kubernetes Metrics Collector installed in your Kubernetes cluster, follow the add Kubernetes instructions and add it to your cluster. Then proceed with the steps below, except step `2.2`.
+
+If you already have the Kubernetes Metrics Collector installed by using the deprecated Helm or manual deployment, you can choose to proceed with one of the options below:
+  - Uninstall the deprecated Kubernetes Metrics Collector, then install the Observability for Kubernetes Operator and proceed with the steps below, except step `2.2`.
+  - Continue using the deprecated Helm or manual deployment. In such a case, proceed with the steps below, except step `2.1`.
 
 ### Reporting Istio Metrics to Operations for Applications
 
 #### 1. Deploy Prometheus with Federation Configuration
 
-Step 1. Download the [Prometheus yaml](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/istio/prometheus.yaml) with the federation.
-
-Step 2. Deploy the Prometheus server to the `istio-system` namespace.{% raw %}
+Step 1. Deploy the Prometheus server to the `istio-system` namespace.{% raw %}
 ```
-kubectl create -f prometheus.yaml
+kubectl create -f https://raw.githubusercontent.com/wavefrontHQ/integrations/master/istio/prometheus.yaml
 ```
 {% endraw %}
 
-**Note**:
-* To use the Observability for Kubernetes Operator, follow the steps under [Update the Observability for Kubernetes Operator ConfigMap](#kubernetes-operator).
-* To use the Metrics Collector for Kubernetes, follow the steps under [Update the Kubernetes Metrics Collector ConfigMap](#kubernetes-collector).
+#### 2. Update the Collector ConfigMap
 
-#### <a name="kubernetes-operator"></a> 2. Update the Observability for Kubernetes Operator ConfigMap
+* To update the Observability for Kubernetes Operator, follow the steps under [Update the Observability for Kubernetes Operator ConfigMap](#kubernetes-operator).
+* To update the Kubernetes Metrics Collector installed using Helm or manual installation, follow the steps under [Update the Kubernetes Metrics Collector ConfigMap](#kubernetes-collector).
 
-If you do not already have the Observability for Kubernetes Operator installed in your Kubernetes cluster, follow the add Kubernetes instructions and add it to your cluster.
+##### <a name="kubernetes-operator"></a><br> 2.1 Update the Observability for Kubernetes Operator ConfigMap
 
 Step 1. Download the [existing collector ConfigMap](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/deploy/scenarios/wavefront-collector-existing-configmap.yaml) `.yaml` file, and open in edit mode.
 
-Step 2. Add the following snippet under `sources`:{% raw %}
+Step 2. Update `YOUR_CLUSTER_NAME` with the name of your Kubernetes cluster and `YOUR_WAVEFRONT_URL` with the URL of your Operations for Applications instance.
+
+Step 3. Add the following snippet under `sources`:{% raw %}
 ```
       ##########################################################################
       # Static source to collect Istio metrics via federated Prometheus server
@@ -108,7 +113,7 @@ Step 2. Add the following snippet under `sources`:{% raw %}
 ```
 {% endraw %}
 
-Step 3. Add the following snippet under `discovery`, and save the `.yaml` file:{% raw %}
+Step 4. Add the following snippet under `discovery`, and save the `.yaml` file:{% raw %}
 ```
       annotation_excludes:
       - namespaces:
@@ -116,15 +121,13 @@ Step 3. Add the following snippet under `discovery`, and save the `.yaml` file:{
 ```
 {% endraw %}
 
-Step 4. Deploy the existing collector ConfigMap `.yaml` file.{% raw %}
+Step 5. Deploy the existing collector ConfigMap `.yaml` file.{% raw %}
 ```
 kubectl apply -f wavefront-collector-existing-configmap.yaml
 ```
 {% endraw %}
 
-#### <a name="kubernetes-collector"></a> 3. Update the Kubernetes Metrics Collector ConfigMap
-
-If you do not already have the Kubernetes Metrics Collector installed in your Kubernetes cluster, add it to your cluster by using either [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install).
+##### <a name="kubernetes-collector"></a><br> 2.2 Update the Kubernetes Metrics Collector ConfigMap
 
 Step 1. Edit the Kubernetes Metrics Collector ConfigMap at runtime and add the following snippet under `prometheus_sources`.{% raw %}
 ```
@@ -190,7 +193,7 @@ The following instructions are for reporting traces. To report metrics, use the 
 
 #### Step 1. Set Up the Wavefront Proxy
 
-Follow these [steps](https://github.com/wavefrontHQ/wavefront-kubernetes#wavefront-proxy-required) to deploy a Wavefront proxy. As part of the process, uncomment the lines to enable Zipkin/Istio traces. Use a proxy version 4.35 or later.
+Follow these [steps](https://github.com/wavefrontHQ/wavefront-kubernetes#wavefront-proxy-required) to deploy a Wavefront proxy. As part of the process, uncomment the lines to enable Zipkin/Istio traces. Use a proxy version 12.0 or later.
 
 #### Step 2. Set Up Istio to Send Traces to Wavefront Proxy
 
