@@ -1,18 +1,18 @@
 ---
-title: Manage Users in Operations for Applications on VMware Cloud Services
+title: Manage Users of Operations for Applications on VMware Cloud Services
 keywords: administration
 sidebar: doc_sidebar
 permalink: csp_user_management.html
-summary: Add and manage users in VMware Aria Operations for Applications on VMware Cloud services.
+summary: Add and manage users of VMware Aria Operations for Applications on VMware Cloud services.
 ---
 
-VMware Cloud services provides identity access management for the users in your services, including Operations for Applications. 
+VMware Cloud services provides identity access management for the users of your services, including Operations for Applications. 
 
-{% include note.html content="To manage user access to the services in your VMware Cloud organization, you must hold the **Organization Owner** or **Organization Administrator** role. See [What organization roles are available in VMware Cloud Services](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-C11D3AAC-267C-4F16-A0E3-3EDF286EBE53.html) in the VMware Cloud services documentation."%}
+{% include note.html content="To manage user access to the services in your VMware Cloud organization, you must hold the VMware Cloud **Organization Owner** or **Organization Administrator** role. See [What organization roles are available in VMware Cloud Services](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-C11D3AAC-267C-4F16-A0E3-3EDF286EBE53.html) in the VMware Cloud services documentation."%}
 
 ## Add a User to Your Service Instance
 
-- If you want to add a user who doesn't belong to your VMware Cloud organization, you must add that user to your organization and assign them an [organization role](csp_getting_started.html#what-is-a-vmware-cloud-organization-role).  
+- If you want to add a user who doesn't belong to your VMware Cloud organization, you must first add that user to your organization and assign them an [organization role](csp_getting_started.html#what-is-a-vmware-cloud-organization-role).  
 
     See [How do I add users to my organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-47AA313E-9DAC-447C-B6C8-DF71ED45B0D5.html) in the VMware Cloud services documentation.
 
@@ -22,7 +22,7 @@ VMware Cloud services provides identity access management for the users in your 
 
     - Edit the user's roles and add an Operations for Applications service role or a custom role with an Operations for Applications permission. See [How do I change user roles](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-A70DBFDC-86FD-4C84-8753-0E55C8C98F8E.html) in the VMware Cloud services documentation.
 
-{% include important.html content="Make sure that you assign the [**Super Admin** service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) to at least one user for your Operations for Applications service instance. There are some Super Admin tasks that no one else can perform."%}
+{% include important.html content="Make sure that you assign the [**Super Admin** service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) to at least one user of your Operations for Applications service instance. There are some Super Admin tasks that no one else can perform."%}
 
 The newly added user receives an invitation email with an account activation link to [sign up](sign_up_or_log_in.html#sign-up-with-an-email-invitation) to the service instance.
 

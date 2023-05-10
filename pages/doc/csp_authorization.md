@@ -11,56 +11,19 @@ VMware Cloud services supports role-based access control for the services on its
 
 ## Role-Based Access Control with Global Permissions
 
-[Operations for Applications permissions](csp_permissions_overview.html) always apply to all objects of a certain type. For example, a user with **Dashboards** permission can view and modify all dashboards.
+[Operations for Applications permissions](csp_permissions_overview.html) always apply to all objects of a certain type. For example, a user with the **Dashboards** permission can view and modify all dashboards.
 
 Users with the VMware Cloud **Organization Owner** or **Organization Administrator** role manage authorization with [roles and groups](csp_users_roles.html). They can:
-* Create **groups** and add one or more users to each group.
+* Create **groups** and add users to each group.
 * Create **custom roles** and assign one or more permissions to each role.
 * Assign one or more **service roles** and **custom roles** to groups, individual users, and server-to-server apps.
-
-### Example
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="50%">
-<strong>Users Get Permissions from Role</strong>
-<br>
-<p>In this picture, we have 3 roles and 3 groups of users. Each user gets the permissions from one role.</p></td>
-<td width="50%">
-<img src="/images/permissions_basics.png" alt="permissions basics"/></td>
-</tr>
-<tr>
-<td width="50%">
-<strong>One Group with Two Roles</strong>
-<br>
-<p>Management at the role and group level is less error prone, for example, it's easier to remove a role from a group than from 15 individual users.
-<br>
-<br>
-In this example, we can assign the Demo role to the Admin Group. Or we can create a separate group only for users that need the set of permissions. In production environments, that's the only way to follow the principle of least privilege.</p></td>
-<td width="50%">
-<img src="/images/two_roles_one_group.png" alt="one group gets two roles"/></td>
-</tr>
-<tr>
-<td width="50%">
-<strong>Individual User Permissions</strong>
-<br>
-<p>Assigning roles or permissions to individual users is also supported.
-<br>
-<br>
-For example, assume the marketing team asks Pat to give a demo, and Pat is assigned the Demo role and now has <strong>Dashboards</strong> permission.</p></td>
-<td width="50%">
-<img src="/images/permissions_user_level.png" alt="permissions user level"/></td>
-</tr>
-</tbody>
-</table>
 
 ## Access Control for Dashboards and Charts
 
 Our fine-grained **[access control](csp_access.html)** allows users with the **Super Admin** service role to protect sensitive information, for example, to restrict access to certain dashboards to the Finance team.
 
 * **Access control on individual objects** -- While permissions are global and apply, for example, to all dashboards, access control allows you to restrict who can view or view and modify individual objects (initially dashboards and alerts).
-* **Security setting for new objects** -- In high security environments, users with the **Super Admin** service role can set a security setting so that all new dashboards and new alerts are accessible only to the creator and to the Super Admin users.
+* **Security setting for new objects** -- In high security environments, users with the **Super Admin** service role can set a security setting so that all new dashboards and new alerts are accessible only to the creator and to the users with the Super Admin service role.
 
 ## Metrics Security Policy Rules
 
