@@ -15,7 +15,7 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 
 ## 2023-18.x Release Notes
 
-**Alert Checking Frequency**: When you create a new alert, the default alert checking frequency is set to 5 minutes starting with this release. If you want to change the default value, you need to define the **Checking Frequency** when you create or edit the alert. For more information on the checking frequency, see [How Are Alerts Evaluated](alerts.html#how-are-alerts-evaluated).
+**Alert Checking Frequency**: When you create an alert, the default alert checking frequency is now set to 5 minutes. If you want to change the default value, define the **Checking Frequency** when you create or edit the alert. For more information on the checking frequency, see [How Are Alerts Evaluated](alerts.html#how-are-alerts-evaluated).
 
 
 ## 2023-13.x Release Notes
