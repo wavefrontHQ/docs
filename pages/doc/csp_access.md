@@ -1,24 +1,24 @@
 ---
-title: Managing Access to Dashboards and Alerts
+title: Managing Access to Dashboards and Alerts in Operations for Applications on VMware Cloud Services
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: csp_access.html
 summary: Control access to individual dashboards and alerts.
 ---
-VMware Cloud services supports the roles and groups authorization paradigm for managing global permissions in VMware Aria Operations for Applications. For example, a user with the **Dashboards** permission can manage *all* dashboards in Operations for Applications. This paradigm is sufficient for many of our customers.
+VMware Cloud services supports the roles and groups authorization paradigm for managing global permissions in VMware Aria Operations for Applications. For example, a user with the **Dashboards** service role can manage *all* dashboards in Operations for Applications. This paradigm is sufficient for many of our customers.
 
 Users with the [**Super Admin** service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) who need finer-grained control can manage access on a per-object basis. We currently support access control for dashboards and alerts.
 
-{% include note.html content="Permission and access control are additive. To make changes to a dashboard, you must have the **Dashboards** permission and **View and Modify** access for that dashboard." %}
+{% include note.html content="Permission and access control are additive. To make changes to a dashboard, you must have a role with the **Dashboards** permission and **View and Modify** access for that dashboard." %}
 
 {% include tip.html content="In addition to access control, Operations for Applications also support [metrics security policy rules](csp_metrics_security.html) which allow fine-grained control over which users can see which metrics." %}
 
-This video shows how to limit access for a dashboard, how to give access (share) that dashboard, and how to set the Security organization setting. You can manage access for alerts the same way. The video uses the 2020 version of the UI.
+This video shows how to limit access for a dashboard, how to give access (share) that dashboard, and how to set the security setting. You can manage access for alerts the same way. The video uses the 2020 version of the UI.
 
 <p><iframe id="kmsembed-1_lckq6foe" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_lckq6foe/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Object-Based Access Control"></iframe></p>
 
-{% include note.html content="After the Access organization setting is set to Object Creator in an environment, only the creator of a new object and the Super Admin can view and modify new objects initially. Those users can give access to the object with other groups or users." %}
+{% include note.html content="After the access setting is set to **Object Creator** in an environment, only the creator of a new object and the users with **Super Admin** service role can view and modify new objects initially. Those users can give access to the object with other groups or users." %}
 
 
 ## How Access Control Works
@@ -32,10 +32,10 @@ Operations for Applications supports granting and revoking access to dashboards 
   - Restrict or grant access for individual alerts from the Alerts browser.
   - Click the **Share** icon on individual alerts to change who has access.
 
-In high-security environments, users with the **Super Admin** service role can change the security organization setting to **Object Creator**. After that change:
+In high-security environments, users with the **Super Admin** service role can change the security setting to **Object Creator**. After that change:
 * Each *new* object (dashboard or alert) is visible only to the creator of the object and to the users with the **Super Admin** service role with enabled Super Admin mode.
 * The object creator and the users with the **Super Admin** service role can then share new dashboards with groups or users.
-* If a user with the **Super Admin** service role changes the Security organization setting back to allow **Everyone** access, then the objects that were created while the strict security organization setting was set, continue to be governed by access control.
+* If a user with the **Super Admin** service role changes the security setting back to allow **Everyone** access, then the objects that were created while the strict security setting was set, continue to be governed by access control.
 
 ## Change Access for One or More Dashboards or Alerts
 
@@ -68,7 +68,7 @@ You can change access for an individual dashboard or alert from the Edit page of
 </table>
 
 
-## Change the Access Control Security Organization Setting
+## Change the Access Control Security Setting
 
 Initially, all users can *view* all dashboards and alerts. In addition, global permissions apply:
 * Users with **Dashboards** permission can modify all dashboards.
@@ -82,7 +82,7 @@ As a user with the **Super Admin** service role, you can restrict access for new
 
 After the change, access to new dashboards and new alerts is initially limited to the dashboard creator and the users with the **Super Admin** service role. Those users can share the objects with groups or individual users by giving **View** access or **View & Modify** access.
 
-{% include note.html content="A change to an Organization Setting applies only to dashboards and alerts created after the change. If you change the setting to **Object Creator**, only new dashboards and alerts have restricted access. If you later change the setting to **Everyone**, all dashboards and alerts that were created while the setting was **Object Creator** keep the restricted access." %}
+{% include note.html content="A change to the security setting applies only to dashboards and alerts created after the change. If you change the setting to **Object Creator**, only new dashboards and alerts have restricted access. If you later change the setting to **Everyone**, all dashboards and alerts that were created while the setting was **Object Creator** keep the restricted access." %}
 
 ## Recovering an Inaccessible Dashboard or Alert
 

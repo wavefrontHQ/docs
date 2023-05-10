@@ -69,12 +69,12 @@ The VMware Cloud Services Console **Roles** page includes:
 
 ### Create, Edit, or Delete a Custom Role
 
-Custom roles lets you combine service permissions of your choice, for example, [Operations for Applications permissions](csp_permissions_overview.html#operations-for-applications-permissions). A custom role can hold permissions for one or multiple services in your organization. For example, you can have a custom role that grants administrative permissions for one service and read-only permissions for another service.
+Custom roles lets you combine service permissions of your choice, for example, [Operations for Applications permissions](csp_permissions_overview.html#operations-for-applications-permissions). A custom role can have permissions for one or multiple services in your organization. For example, you can have a custom role that grants administrative permissions for one service and read-only permissions for another service.
 
 To create a custom role:
 
 1. On the VMware Cloud Services Console **Roles** page, click **Add Role**.
-1. On the **Add permissions** tab, expand services in the left panel and select permission IDs in the right panel, and click **Continue**.
+1. On the **Add permissions** tab, expand services in the left panel and select permissions in the right panel, and click **Continue**.
 1. On the **Role information** tab, enter a meaningful role name and description, and click **Continue**.
 1. On the **Review added permission** tab, verify your selections and click **Save**.
 
