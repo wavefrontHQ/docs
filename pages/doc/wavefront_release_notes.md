@@ -13,6 +13,11 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Observability for Kubernetes GitHub repository](https://github.com/wavefrontHQ/observability-for-kubernetes/releases).
 
+## 2023-18.x Release Notes
+
+**Alert Checking Frequency**: When you create an alert, the default alert checking frequency is now set to 5 minutes. If you want to change the default value, define the **Checking Frequency** when you create or edit the alert. For more information on the checking frequency, see [How Are Alerts Evaluated](alerts.html#how-are-alerts-evaluated).
+
+
 ## 2023-13.x Release Notes
 
 * **Geo Map Chart**: With this release, we have included a new type of chart which allows you to visualize your ingested data by location. For more information, see [Geo Map Chart](ui_chart_reference.html#geo-map-chart).
