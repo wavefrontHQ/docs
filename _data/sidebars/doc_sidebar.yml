@@ -871,7 +871,7 @@ entries:
         output: web
 
       - title: Sign Up or Log In
-        url: /sign_up_or_log_in.html
+        url: /csp_sign_up_or_log_in.html
         output: web
 
       - title: Manage Your VMware Cloud Services Account
