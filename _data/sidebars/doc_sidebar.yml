@@ -866,7 +866,7 @@ entries:
         url: /csp_getting_started.html
         output: web
 
-      - title: Sign Up or Log In to Your Service Instance
+      - title: Sign Up or Log In
         url: /sign_up_or_log_in.html
         output: web
 
