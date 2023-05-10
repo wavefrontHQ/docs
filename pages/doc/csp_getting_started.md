@@ -44,7 +44,7 @@ See [How do I manage my Cloud Services organizations](https://docs.vmware.com/en
 
 ## What's a VMware Cloud Organization Role?
 
-A VMware account can belong to one or more VMware Cloud organizations. A VMware account belongs to a given VMware Cloud organization if the account has an organization role for that organization. There are three organization roles:
+A VMware account can belong to one or more VMware Cloud organizations. A VMware account belongs to a given VMware Cloud organization if the account has an organization role for that organization. There are three VMware Cloud organization roles:
 - The **Organization Owner** role has full administrative access to all resources in the organization. They can invite users to the organization and assign role-based access to all users, including themselves. Also, they can kick off an enterprise domain federation and invite an **Enterprise Administrator**. See [Setting Up Enterprise Federation with VMware Cloud Services Guide](https://docs.vmware.com/en/VMware-Cloud-services/services/setting-up-enterprise-federation-cloud-services/GUID-76FAECB3-CFAA-461E-B9C9-2A49C39CD17F.html)  in the VMware Cloud services documentation.
 
     When you create an organization during a service onboarding process, you become its first **Organization Owner**.
