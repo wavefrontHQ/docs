@@ -108,10 +108,15 @@ You can install and uninstall the system integration dashboards.
 ## Cloning and Customizing Dashboards
 
 You cannot modify the system dashboards. Instead, you must clone the dashboards.
-1. Click the ellipsis icon in the top right corner of the dashboard.
-2. Select **Clone**.
-3. Provide a URL string that's just the name (e.g., `mydashboard` or `dashboard-name-clone`) and not the URL (e.g., `http://mydashboard`).
-4. Customize the clone to suit your needs.
+1. Open an integration dashboard:
+   1. Click **Integrations** on the toolbar.
+   1. Click an integration tile.
+   1. Click the **Dashboards** tab.
+   1. Click the dashboard that you want to clone and edit.
+2. Click the ellipsis icon in the top right corner of the dashboard.
+3. Select **Clone**.
+4. Provide a URL string that's just the name (e.g., `mydashboard` or `dashboard-name-clone`) and not the URL (e.g., `http://mydashboard`).
+5. Customize the clone to suit your needs.
 
 <!--Add this as step 4 when we have the custom prefix feature is rolled out to more customers
 
@@ -159,6 +164,8 @@ Clone the alert before making any customizations so that you don't lose your cha
 **To clone an integration alert:**
 
 1. Click **Integrations** on the toolbar.
+1. Click an integration tile.
+1. Click the **Alerts** tab.
 1. Click **Edit** next to the alert that you want to clone.
    The alert opens in Edit mode.
 1. Click the **Clone** button in the top right corner of the alert.
@@ -166,6 +173,9 @@ Clone the alert before making any customizations so that you don't lose your cha
    ![Example screenshot that shows the clone button](images/alerts-clone.png)
    
 1. Enter a name of the new alert and click **Clone**.
+
+   The new alert opens in edit mode.
+1. Customize the clone to suit your needs and click **Save**.
 
 After you clone an alert, snooze the original system integration alert to avoid running a duplicate version of the alert. For more information about editing alerts, see [Manage Alerts](alerts_manage.html).
 
