@@ -22,9 +22,11 @@ VMware Cloud services provides identity access management for the users of your 
 
     - Edit the user's roles and add an Operations for Applications service role or a custom role with an Operations for Applications permission. See [How do I change user roles](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-A70DBFDC-86FD-4C84-8753-0E55C8C98F8E.html) in the VMware Cloud services documentation.
 
-{% include important.html content="Make sure that you assign the [**Super Admin** service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) to at least one user of your Operations for Applications service instance. There are some Super Admin tasks that no one else can perform."%}
+{% include important.html content="In a multi-tenant Operations for Applications environment, service roles are assigned per service instance (tenant), while custom roles are assigned for *all* service instances (tenants)."%}
 
 The newly added user receives an invitation email with an account activation link to [sign up](sign_up_or_log_in.html#sign-up-with-an-email-invitation) to the service instance.
+
+{% include important.html content="Make sure that you assign the [**Super Admin** service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) to at least one user of your Operations for Applications service instance. There are some Super Admin tasks that no one else can perform."%}
 
 ## Remove a User
 
