@@ -7,11 +7,22 @@ permalink: upgrade_and_purchase.html
 summary: Learn how to upgrade from a trial version and purchase the service.
 ---
 
-When you create an account and register for the trial version of VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront), your trial expires after a month. One of the options that we offer to the Super Admin users in Operations for Applications is to purchase the service by themselves. Another option is to contact the Operations for Applications sales team, so that they guide you through the purchase process. For large commitments and more PPS, we strongly recommend the latter option. 
+When you create an account and register for the [trial version](start_trial.html) of VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront), your trial expires after a 30 days. One of the options that we offer to the Super Admin users in Operations for Applications is to purchase the service by themselves. Another option is to contact the Operations for Applications sales team, so that they guide you through the purchase process. For large commitments and more PPS, we strongly recommend the latter option. 
+
+## Commit Contracts
+
+Operations for Applications commit contracts are two types:
+
+* Billable -- You pay for certain amount of ingested points per second (PPS), but if there's an overage, you will be charged for the number of PPS above your committed rate.
+* Burndown -- You pay for certain amount of ingested PPS. We extract your P95 PPS usage for each billing period from your burndown commitment and calculate your remaining balance till the end of the contract period.
+
+## Supported Upgrades
 
 {% include important.html content="The self-service upgrade from a trial version currently provides offers only for billable commit contracts. If you're interested in burndown commit offers, contact the Operations for Applications sales team. " %}
 
 Billing depends on the amount of data, measured in points per second (PPS), that you send to Operations for Applications per [billing period](glossary.html#b). If you exceed the contracted rate for more than 5% of the hours of a given billing period, you will be charged for the usage above it (the overage). In any case, you do not lose any of your data.
+
+## Upgrade from Trial
 
 {% include note.html content="To upgrade from a trial version, you must be a Super Admin user who is allowed to make purchases on behalf of your company. Also, you must either have a VMware Cloud services account (VMware account) or create one during the purchase process." %}
 

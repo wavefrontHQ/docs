@@ -7,7 +7,7 @@ permalink: subscriptions-differences.html
 summary: Learn about the VMware Aria Operations for Applications subscription types and how they differ.
 ---
 
-Operations for Applications subscriptions are two types: trial and paid. After your 30-days free trial expires, you can [upgrade from trial to paid](upgrade_and_purchase.html).
+Operations for Applications subscriptions are two types: trial and paid. After your 30-day free trial expires, you can [upgrade from trial to paid](upgrade_and_purchase.html).
 
 ## Why New and Original Subscriptions Differ?
 
@@ -50,14 +50,6 @@ VMware Cloud services provides single sign-on (SSO) and identity access manageme
   
   * [Managing Access to Dashboards and Alerts](access.html)
   * [Managing Access to Dashboards and Alerts in Operations for Applications on VMware Cloud Services](csp_access.html)
-
-* As a **Super Admin** or a user with the **Metrics** permission, you can create and manage metrics security policies. When you create a metrics security policy rule, new subscribers do not see the **Role** option. You can choose to grant or deny access for accounts and groups only. For information, see:
-  * [Metrics Security Policy Rules](metrics_security.html)
-  * [Metrics Security Policy Rules in Operations for Applications on VMware Cloud Services](csp_metrics_security.html)
-
- *Note: Need to replace the image when we have the UI ready!!!*
-
-  ![An image showing the differences for metrics security rules in the UI.](images/new-vs-original-metrics-security.png)
 
 * Toolbar
 
@@ -253,6 +245,21 @@ Operations for Applications organization settings for new subscribers are done i
 <strong>Who</strong>: Users with the <strong>SAML IdP Admin</strong> permission.
 <p><strong>Where</strong>: In the Operations for Applications user interface.</p>
 <p><strong>How</strong>: For details, see <a href="auth_self_service_sso.html">Single-Tenant Authentication and Self-Service SAML SSO</a>.</p>
+</td>
+</tr>
+<tr>
+<td>Metrics Security Policies</td>
+<td>
+<td>
+<strong>Who</strong>: A <strong>Super Admin</strong> or a user with the <strong>Metrics</strong> permission can create and manage metrics security policies.
+<p><strong>Where</strong>: In the Operations for Applications UI. The roles that you can search for and enter are service-defined or custom roles.</p>
+<p><strong>How</strong>: For details, see <a href="csp_metrics_security.html">Metrics Security Policy Rules in Operations for Applications on VMware Cloud Services</a>.</p>
+</td>
+<td>
+<strong>Who</strong>: A <strong>Super Admin</strong> or a user with the <strong>Metrics</strong> permission can create and manage metrics security policies.
+<p><strong>Where</strong>: In the Operations for Applications user interface. The roles that you can search for and enter are roles defined within your Operations for Applications organization.</p>
+<p><strong>How</strong>: For details, see <a href="metrics_security.html">Metrics Security Policy Rules</a>.</p>
+</td>
 </td>
 </tr>
 </tbody>

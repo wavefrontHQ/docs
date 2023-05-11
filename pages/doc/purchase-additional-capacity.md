@@ -9,7 +9,11 @@ summary: Learn how to add capacity to your current VMware Aria Operations for Ap
 
 As a Super Admin user, you can request more PPS capacity to be added to your organization's active VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) subscription.
 
+## Supported Contracts
+
 {% include note.html content="Currently, you can buy additional capacity only if you have a billable commit contract and your Operations for Applications service is connected to a VMware Cloud Services organization. If your Operations for Applications service is not connected to a VMware Cloud Services organization, or if you have a burndown commit contract, contact the Operations for Applications sales team to add more capacity to your subscription." %}
+
+## How to Purchase Additional Capacity
 
 1. Log in to your service instance (`https://<your_instance>.wavefront.com`) as a Super Admin user and [enable Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode).
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
