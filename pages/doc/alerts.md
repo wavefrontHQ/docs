@@ -60,7 +60,7 @@ To understand the alert evaluation process, review [Alert States and Lifecycles]
 
 Some commonly misunderstood concepts include:
 
-* **Alert checking frequency**: Alerts are checked approximately once per minute
+* **Alert checking frequency**: Default is 5 minutes. You can adjust this property from the **Additional Settings** in the **Conditions** section of the alert.
 
 * **Alert time window being reviewed**: Default is 5 minutes. You can change the time window with the **Trigger Window** and **Resolve Window** properties.
 
@@ -75,9 +75,9 @@ Some commonly misunderstood concepts include:
 
 ### How Often Are Alerts Evaluated?
 
-The minimum and default **Checking Frequency** interval is 1 minute. You can adjust this property from the **Additional Settings** in the **Conditions** section of the alert.
+The default **Checking Frequency** interval is 5 minutes. You can adjust this property from the **Additional Settings** in the **Conditions** section of the alert.
 
-  * If your alert condition query runs for more than a minute, consider increasing the checking frequency interval. For example, if the query runs for 2-4 minutes, set the **Checking Frequency** interval to 5 minutes.
+  * If your alert condition query runs for more than a minute, consider increasing the checking frequency interval. For example, if the query runs for 4-6 minutes, set the **Checking Frequency** interval to 7 minutes.
   * If your data points are coming much less frequently than once a minute, consider increasing the checking frequency interval. For example, if the query metrics report every 10 minutes, set the **Checking Frequency** interval to 10 minutes.
   * If an alert condition uses larger moving time windows or aligns to a large interval, you can check less frequently. For example, an alert that compares a `mavg(6h, ...)` to `mavg(48h, ...)` can be safely checked once an hour or even less.
   * If an alert is non-critical, you can check only as often as needed.
@@ -316,9 +316,13 @@ When you have many and complex tag paths, you can search them by parent. For exa
 
 To make copies of an existing alert, then change the copy, you can clone an alert.
 
-1. To display the Alerts Browser, from the toolbar, select **Alerting > All Alerts**.
+1. From the toolbar, select **Alerting > All Alerts**.
 2. Click the ellipsis icon next to the alert.
-3. Select **Clone**, make changes when prompted, and click **Save**.
+3. Select **Clone**, provide a new name for the alert and click **Clone**.
+    
+    The new alert opens in edit mode.
+
+4. Customize the clone to suit your needs and click **Save**.
 
 ## Alert Events
 

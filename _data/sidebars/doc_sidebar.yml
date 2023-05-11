@@ -14,7 +14,11 @@ entries:
     - title: "Introduction"
       url: /wavefront_introduction.html
       output: web
-    
+
+    - title: "Subscription Types"
+      url: /subscriptions-differences.html
+      output: web
+       
     - title: Product FAQ
       output: web
       url: /tobs_faq.html
