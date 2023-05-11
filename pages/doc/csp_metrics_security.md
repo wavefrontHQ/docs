@@ -1,5 +1,5 @@
 ---
-title: Metrics Security Policy Rules
+title: Metrics Security Policy Rules in Operations for Applications on VMware Cloud Services
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
@@ -9,14 +9,14 @@ summary: Use metrics security to control access to time series, histograms, and 
 
 In a large enterprise, certain data is confidential. VMware Aria Operations for Applications allows you to limit who can see or modify data in several ways.
 * **Permissions** are **global** settings.
-  - Some permissions limit who can modify objects (e.g. proxies or events). For example, users with the **Dashboards** permission can modify all dashboards.
+  - Some permissions limit who can modify objects. For example, users with the **Dashboards** permission can modify all dashboards.
   - Other permissions make certain information completely invisible. For example, only users with **Proxies** permission can see the **Proxies** menu or access that page.
 * **Access Control** allows users with the **Super Admin** service role to perform fine-grained control over individual dashboards or alerts. For example, it's possible to limit view and modify access to a Finance_2020 dashboard to just the Finance department.
 * **Metrics Security** supports even finer-grained control. In the example above, access to the Finance_2020 dashboard is limited to the Finance department. With metrics security, you can limit access to confidential time series, histogram, and delta counter metrics to the leadership team.
 
 {% include important.html content="This feature is not available on all service instances." %}
 
-{% include note.html content="Only users with the **Super Admin** service role and users with the **Metrics** permission can view, create, and manage metrics security policy. " %}
+{% include note.html content="Only users with the **Super Admin** or **Metrics** service role or a custom role with the **Metrics** permission can view, create, and manage metrics security policy. " %}
 
 ## Video: Metrics Security Policy
 
@@ -34,7 +34,7 @@ Metrics security policy rules allows fine-grained support for limiting access to
 
 With a metrics security policy, you can block or allow access:
 * To metrics, optionally filtered by source or point tag
-* Based on groups or individual users.
+* Based on groups, roles, and individual users.
 
 When an account attempts to access metrics, the backend looks at the rules in priority order. Higher priority rules overwrite lower priority rules.
 
@@ -170,8 +170,6 @@ Consider this simple example:
 
 Privileged users can create rules, change rule priority, and change the scope of each rule.
 
-{% include note.html content="Only a Super Admin user or users with **Metrics** permission can view, create, and manage a metrics security policy. " %}
-
 ### Plan Your Strategy
 
 Before you create rules, plan your strategy.
@@ -179,7 +177,7 @@ Before you create rules, plan your strategy.
 * **Metrics Dimensions** allow you to determine what to block or allow.
   - Specify one or more metric prefixes. You can specify an exact match (e.g. `requests` or `request.`) or a wildcard match (e.g. `*.cpu.loadavg.*`, `cpu.*`).
   - Specify a combination of metric sources or point tags to narrow down the metrics. For example, you can block visibility into production environments for some developers, or you can block some development environments metrics for contractors.
-* **Access** allows you to allow or block access for a combination of user accounts or groups.
+* **Access** allows you to allow or block access for a combination of accounts, groups, or roles.
 
 See the Examples further below.
 
@@ -199,7 +197,7 @@ You create a metrics security policy rule following these steps. See the annotat
      * If you want to specify multiple key=value pairs, select whether you want to combine them with `and` or `or` using the dropdown menu on the right.
   5. Specify the Access definition for the rule.
      1. Select **Allow** or **Block** from the menu.
-     2. Specify user accounts or groups.
+     2. Specify accounts, groups, or roles (service roles and custom roles).
   3. Click **OK.**
 
 
@@ -261,6 +259,19 @@ The image above shows how to restricts access for users in the group `Contractor
 
 
 {% include note.html content="Because the first rule (**Contractors can access dev environment metrics**) uses only point tags/sources as metrics dimensions, the users in the Contractors group will not see metrics in the Metrics Browser and when they create queries, autocomplete will not work for them."%}
+
+### Example: Restrict Access for a Custom Role
+
+This example restricts access for a specific user when the restrict rule is applied to a custom role. The metrics security rules take into account both direct and indirect roles.
+
+![Screenshot of a policy rule restricting access for a single user](images/metrics-security-policy-retail.png)
+
+The image above shows how to restrict access for a user with the role `Operator`. The user cannot access any metrics.
+
+By applying the above security policy:
+
+* When a user who is in the `retail` group runs a query for metrics tagged with the `env=retail` point tag, access is granted.
+* A user who is assigned with the `Operator` role (either directly or indirectly, coming from a group) cannot access any metrics at all, because Rule 2 (**Block all data**) is applied.
 
 ### Example: Restrict Access to All Except Specific Metrics
 
