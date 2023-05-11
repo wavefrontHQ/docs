@@ -7,9 +7,9 @@ permalink: csp_users_roles.html
 summary: Manage Operations for Applications permissions with roles.
 ---
 
-VMware Cloud services supports roles to fine-tune authorization in your services, including VMware Aria Operations for Applications.
+VMware Cloud services supports roles to manage authorization in your services on the platform, including VMware Aria Operations for Applications.
 
-From the VMware Cloud Services Console, users with the **Organization Owner** or **Organization Administrator** role can:
+From the VMware Cloud Services Console, users with the VMware Cloud **Organization Owner** or **Organization Administrator** role can:
 1. Create one or more **groups** and add one or more users to each group.
 1. Create one or more **custom roles** and assign one or more permissions to each role.
 3. Assign one or more **service roles** and **custom roles** to each group. It's also possible to assign roles to individual users and server-to-server apps.
@@ -25,7 +25,7 @@ Assigning roles to groups of users is most efficient and least error prone. It's
 VMware Cloud services includes *built-in* service roles for each service on the platform, including Operations for Applications service roles. Additionally, VMware Cloud services supports *custom* roles.
 
 - A given role can be assigned for a certain time period or without an expiration date.
-- In a multi-tenant environment, a given user can have different service roles for the different Operations for Applications service instances (tenants). Service roles apply to all tenants.
+- In a multi-tenant environment, a given user can have different service roles for the different Operations for Applications service instances (tenants). Custom roles apply to all tenants.
 
 The VMware Cloud Services Console **Roles** page lists all service roles and custom roles in your VMware Cloud organization. To navigate to this page:
 
@@ -35,9 +35,9 @@ The VMware Cloud Services Console **Roles** page lists all service roles and cus
 
 ### Operations for Applications Service Roles (Built-in)
 
-The VMware Cloud Services Console **Roles** page includes:
-- A built-in Operations for Applications service role for each [permission](csp_permissions_overview.html#operations-for-applications-permissions).
-- Two special built-in Operations for Applications service roles - one that grants full administrative access to the service, and one that grants read-only access to the service:
+The VMware Cloud Services Console **Roles** page includes the following built-in Operations for Applications service roles:
+- A corresponding service role for each [permission](csp_permissions_overview.html#operations-for-applications-permissions).
+- Two special service roles - one that grants full administrative access to the service, and one that grants read-only access to the service:
 
   <table>
   <tr>
@@ -65,7 +65,6 @@ The VMware Cloud Services Console **Roles** page includes:
     </ul></td>
   </tr>
   </table>
-
 
 ### Create, Edit, or Delete a Custom Role
 
