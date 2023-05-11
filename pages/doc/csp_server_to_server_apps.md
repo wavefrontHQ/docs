@@ -1,5 +1,5 @@
 ---
-title: Manage Server-to-Server Apps
+title: Manage Server to Server Apps
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
@@ -7,11 +7,9 @@ permalink: csp_server_to_server_apps.html
 summary: Create server-to-server apps and grant them access to VMware Aria Operations for Applications on VMware Cloud services.
 ---
 
-VMware Cloud services supports server-to-server apps that you can use to automate management of Operations for Applications objects, such as dashboards, alerts, etc. A server-to-server app can't perform the **UI operations** that all user accounts can [perform by default](csp_permissions_overview.html#default-tasks).
+VMware Cloud services supports server to server apps that you can use to automate management of Operations for Applications objects, such as dashboards, alerts, etc. A server-to-server app can't perform the **UI operations** that all user accounts can [perform by default](csp_permissions_overview.html#default-tasks).
 
-{% include note.html content="A server-to-server app must hold roles with certain [permissions](csp_permissions_overview.html#operations-for-applications-permissions) to perform tasks. To run queries, a server-to-server app must hold the [**Metrics** service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) or a [custom role](csp_users_roles.html#create-edit-or-delete-a-custom-role) with the **Metrics** permission. To manage dashboards and alerts, the server-to-server app might need both roles with permissions and [access](csp_access.html)." %}
-
-{% include note.html content="To manage server-to-server apps, you must be hold either the VMware Cloud **Organization Owner** role or the VMware Cloud **Developer** additional role. See [What organization roles are available in VMware Cloud Services](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-C11D3AAC-267C-4F16-A0E3-3EDF286EBE53.html) in the VMware Cloud services documentation." %}
+{% include note.html content="A server to server app must hold roles with certain [permissions](csp_permissions_overview.html#operations-for-applications-permissions) to perform tasks. To run queries, a server-to-server app must hold the [**Metrics** service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) or a [custom role](csp_users_roles.html#create-edit-or-delete-a-custom-role) with the **Metrics** permission. To manage dashboards and alerts, the server-to-server app might need both roles with permissions and [access](csp_access.html)." %}
 
 ## What Are Server-to-Server Apps?
 
@@ -24,6 +22,8 @@ Server-to-server apps are used for automating management tasks.
 * A server-to-server app can be used in multiple organizations. The owner of a server-to-server app is the organization in which it was created.
 
 ## How Server-to-Server Apps Work
+
+{% include note.html content="To manage server to server apps, you must be hold either the VMware Cloud **Organization Owner** role or the VMware Cloud **Developer** additional role. See [What organization roles are available in VMware Cloud Services](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-C11D3AAC-267C-4F16-A0E3-3EDF286EBE53.html) in the VMware Cloud services documentation." %}
 
 If you build an application or tool that manages proxies or ingests data, then that tool must authenticate to the Operations for Applications REST API. Here's how it works:
 
