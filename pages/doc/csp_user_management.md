@@ -22,7 +22,7 @@ VMware Cloud services provides identity access management for the users of your 
 
     - Edit the user's roles and add an Operations for Applications service role or a custom role with an Operations for Applications permission. See [How do I change user roles](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-A70DBFDC-86FD-4C84-8753-0E55C8C98F8E.html) in the VMware Cloud services documentation.
 
-{% include important.html content="In a multi-tenant Operations for Applications environment, service roles are assigned per service instance (tenant), while custom roles are assigned for *all* service instances (tenants)."%}
+{% include important.html content="In a multi-tenant Operations for Applications environment, service roles are assigned per service instance (tenant), while custom roles are assigned for **all** service instances (tenants)."%}
 
 The newly added user receives an invitation email with an account activation link to [sign up](sign_up_or_log_in.html#sign-up-with-an-email-invitation) to the service instance.
 
@@ -31,8 +31,8 @@ The newly added user receives an invitation email with an account activation lin
 ## Remove a User
 
 - To remove a user from your service instance, you must remove their [Operations for Applications service roles](csp_users_roles.html#operations-for-applications-service-roles-built-in) and the [custom roles](csp_users_roles.html#create-edit-or-delete-a-custom-role) with Operations for Applications permissions.
-    - If the roles are individually assigned to the user, you must edit the user's roles. see [How do I change user roles](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-A70DBFDC-86FD-4C84-8753-0E55C8C98F8E.html) in the VMware Cloud services documentation.
-    - If the roles are inherited from a group, you must edit the group and remove that user from the list of members. See [How do I work with groups](hhttps://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-0BD8A07B-C3C0-4220-8CD0-18FA070D3DAD.html) in the VMware Cloud services documentation.
+    - If the roles are individually assigned to the user, edit the user's roles. See [How do I change user roles](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-A70DBFDC-86FD-4C84-8753-0E55C8C98F8E.html) in the VMware Cloud services documentation.
+    - If the roles are inherited from a group, edit the group and remove that user from the list of members. See [How do I work with groups](hhttps://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-0BD8A07B-C3C0-4220-8CD0-18FA070D3DAD.html) in the VMware Cloud services documentation.
 
 - To remove a user from your organization, therefore from all services in the organization, see [How do I remove users from my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-628143FC-7DB0-4399-8344-43F75F748ADF.html) in the VMware Cloud services documentation.
 
