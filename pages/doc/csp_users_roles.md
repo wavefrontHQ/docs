@@ -22,10 +22,10 @@ The roles model allows you to make sure nobody can perform tasks without the cor
 
 Assigning roles to groups of users is most efficient and least error prone. It's possible to assign a role to an individual account -- that might make sense during a POC.
 
-VMware Cloud services includes *built-in* service roles for each service on the platform, including Operations for Applications service roles. Additionally, VMware Cloud services supports *custom* roles.
+VMware Cloud services includes **built-in service roles** for each service on the platform, including Operations for Applications service roles. Additionally, VMware Cloud services supports **custom roles**.
 
-- A given role can be assigned for a certain time period or without an expiration date.
-- In a multi-tenant environment, a given user can have different service roles for the different Operations for Applications service instances (tenants). Custom roles apply to all tenants.
+- A role can be assigned for a certain time period or without an expiration date.
+- In a multi-tenant environment, a user can have different service roles for the different Operations for Applications service instances (tenants). Custom roles apply to **all** tenants.
 
 The VMware Cloud Services Console **Roles** page lists all service roles and custom roles in your VMware Cloud organization. To navigate to this page:
 
@@ -37,7 +37,7 @@ The VMware Cloud Services Console **Roles** page lists all service roles and cus
 
 The VMware Cloud Services Console **Roles** page includes the following built-in Operations for Applications service roles:
 - A corresponding service role for each [permission](csp_permissions_overview.html#operations-for-applications-permissions).
-- Two special service roles - one that grants full administrative access to the service, and one that grants read-only access to the service:
+- Two special service roles - one that grants full administrative access to the service, and another one that grants read-only access to the service:
 
   <table>
   <tr>
@@ -68,12 +68,13 @@ The VMware Cloud Services Console **Roles** page includes the following built-in
 
 ### Create, Edit, or Delete a Custom Role
 
-Custom roles lets you combine service permissions of your choice, for example, [Operations for Applications permissions](csp_permissions_overview.html#operations-for-applications-permissions). A custom role can have permissions for one or multiple services in your organization. For example, you can have a custom role that grants administrative permissions for one service and read-only permissions for another service.
+Custom roles let you combine service permissions of your choice, for example, [Operations for Applications permissions](csp_permissions_overview.html#operations-for-applications-permissions). A custom role can have permissions for one or multiple services in your organization. For example, you can have a custom role that grants administrative permissions for one service and read-only permissions for another service.
 
 To create a custom role:
 
 1. On the VMware Cloud Services Console **Roles** page, click **Add Role**.
-1. On the **Add permissions** tab, expand services in the left panel and select permissions in the right panel, and click **Continue**.
+1. On the **Add permissions** tab, in the left panel, expand the service.
+1. In the panel on the right, select the permissions that you want to assign to the role, and click **Continue**.
 1. On the **Role information** tab, enter a meaningful role name and description, and click **Continue**.
 1. On the **Review added permission** tab, verify your selections and click **Save**.
 
