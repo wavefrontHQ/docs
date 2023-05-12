@@ -97,7 +97,7 @@ VMware Cloud services provides single sign-on (SSO) and identity access manageme
 <p><strong>Where</strong>: In the VMware Cloud Services Console.</p>
 <p><strong>How</strong>: Permissions are assigned to roles in the VMware Cloud Services Console and the roles can be assigned to users, groups, or server to server apps. For details see:</p>
 <ul><li><a href="csp_users_roles.html">Manage Users of Operations for Applications on VMware Cloud Services</a></li>
-<li><a href="csp_server_to_server_apps.html#how-server-to-server-apps-work">How Server-to-Server Apps Work</a></li>
+<li><a href="csp_server_to_server_apps.html#how-server-to-server-apps-work">How Server to Server Apps Work</a></li>
 <li><a href="csp_users_roles.html">Operations for Applications Permissions in VMware Cloud Services</a></li>
 </ul>
 </td>
@@ -152,7 +152,7 @@ To access the Operations for Applications REST API, you must have a VMware Cloud
 <td>
 Operations for Applications organization settings for new subscribers are done in the VMware Cloud Services Console user interface and in the Operations for Applications user interface.
 <br/>
-<p><strong>Who</strong>: VMware Cloud <strong>Organization Owners</strong> or <strong>Organization Administrators</strong> can invite new user accounts, create new server-to-server apps accounts and assign roles and groups to these accounts.</p>
+<p><strong>Who</strong>: VMware Cloud <strong>Organization Owners</strong> or <strong>Organization Administrators</strong> can invite new user accounts, create new server to server apps accounts and assign roles and groups to these accounts.</p>
 <p><strong>Where</strong>: In the VMware Cloud Services Console user interface.</p>
 <p><strong>How</strong>: For details, see:</p>
 <ul><li><a href="csp_user_management.html">Manage Users of Operations for Applications on VMware Cloud Services</a></li>
@@ -221,7 +221,7 @@ Operations for Applications organization settings for new subscribers are done i
 <td>
 <strong>Who</strong>: All VMware Cloud <strong>Organization Owners</strong> or <strong>Organization Administrators</strong>.
 <p><strong>Where</strong>: In the VMware Cloud Services Console.</p>
-<p><strong>How</strong>: For details, see <a href="csp_server_to_server_apps.html">Manage Server-to-Server Apps</a>.</p>
+<p><strong>How</strong>: For details, see <a href="csp_server_to_server_apps.html">Manage Server to Server Apps</a>.</p>
 </td>
 <td>
 <strong>Who</strong>: All users with the <strong>Accounts</strong> permission can:

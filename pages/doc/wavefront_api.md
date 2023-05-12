@@ -52,7 +52,7 @@ Before you can invoke the API using `curl` or from an API client, you must have 
 
 The API token that you need depends on your [subscription type](subscriptions-differences.html). 
 
-* User accounts in **new** Operations for Applications subscriptions, which are onboarded to VMware Cloud services, use **VMware Cloud services API tokens**. See [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) in the VMware Cloud services documentation.
+* User accounts in **new** Operations for Applications subscriptions, which are onboarded to VMware Cloud services, use **VMware Cloud services API tokens**. See [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) and [How do I manage API tokens in my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html) in the VMware Cloud services documentation.
 
     [Server to server apps](csp_server_to_server_apps.html) authenticate with OAuth 2.0 client credentials and API tokens are directly issued to the corresponding applications. 
 * User accounts and service accounts in **original** Operations for Applications subscriptions use **Operations for Applications API tokens**. See [Manage API Tokens](api_tokens.html).
