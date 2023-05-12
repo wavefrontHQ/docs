@@ -12,7 +12,7 @@ VMware Cloud services supports roles to manage authorization in your services on
 From the VMware Cloud Services Console, users with the VMware Cloud **Organization Owner** or **Organization Administrator** role can:
 1. Create one or more **groups** and add one or more users to each group.
 1. Create one or more **custom roles** and assign one or more permissions to each role.
-3. Assign one or more **service roles** and **custom roles** to each group. It's also possible to assign roles to individual users and server-to-server apps.
+3. Assign one or more **service roles** and **custom roles** to each group. It's also possible to assign roles to individual users and server to server apps.
 
 In addition to the roles model, Operations for Applications also supports [access control for individual objects](csp_access.html), for example, users with the **Super Admin** service role can limit access to a sensitive dashboard.
 

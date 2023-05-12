@@ -24,7 +24,7 @@ The VMware Cloud Services Console lets you manage your entire VMware Cloud servi
 To open the VMware Cloud Services Console:
 
 - In a Web browser, go to `https://console.cloud.vmware.com`.
-- From the Operations for Applications UI, click the **VMware Cloud Services Applications Menu** icon on the toolbar and select **Cloud Services Console**.
+- From the Operations for Applications UI, click the **VMware Cloud Services Applications Menu** icon in the top-right corner and select **Cloud Services Console**.
 
 See [Using VMware Cloud Services Console](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-20D62AFF-024B-4901-976D-69BFD71BECC8.html) in the VMware Cloud services documentation.
 

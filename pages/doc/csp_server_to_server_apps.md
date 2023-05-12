@@ -23,7 +23,7 @@ Server to server apps are used for automating management tasks.
 
 ## How Server to Server Apps Work
 
-{% include note.html content="To manage server to server apps, you must be hold either the VMware Cloud **Organization Owner** role or the VMware Cloud **Developer** additional role. See [What organization roles are available in VMware Cloud Services](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-C11D3AAC-267C-4F16-A0E3-3EDF286EBE53.html) in the VMware Cloud services documentation." %}
+{% include note.html content="To manage server to server apps, you must hold either the VMware Cloud **Organization Owner** role or the VMware Cloud **Developer** additional role. See [What organization roles are available in VMware Cloud Services](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-C11D3AAC-267C-4F16-A0E3-3EDF286EBE53.html) in the VMware Cloud services documentation." %}
 
 If you build an application or tool that manages proxies or ingests data, then that tool must authenticate to the Operations for Applications REST API. Here's how it works:
 
