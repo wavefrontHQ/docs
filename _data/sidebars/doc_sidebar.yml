@@ -899,7 +899,7 @@ entries:
             url: /csp_user_management.html
             output: web
 
-          - title: Manage Server-to-Server Apps
+          - title: Manage Server to Server Apps
             url: /csp_server_to_server_apps.html
             output: web
             
@@ -958,6 +958,10 @@ entries:
 
           - title: Manage Service Accounts
             url: /service-accounts.html
+            output: web
+
+          - title: Manage API Tokens
+            url: /api_tokens.html
             output: web
 
 
