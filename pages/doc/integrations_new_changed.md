@@ -19,7 +19,6 @@ We made improvements to the following integrations in May 2023:
   * Updated the latency queries because now we emit latency as a histogram.
   * Updated the **TAS: Nozzle Troubleshooting** dashboard to show points used by histograms.
 
-* cAdvisor - Made improvements to the setup instructions. See [cAdvisor Setup](docker.html#cadvisor-setup) for more information.
 * Improved the documentation on how to use regular expressions for the following list of integrations:
   * [Microsoft Azure](azure.html#add-a-microsoft-azure-cloud-integration)
   * [Amazon Web Services](integrations_aws_metrics.html#configuring-cloudwatch-data-ingestion)
