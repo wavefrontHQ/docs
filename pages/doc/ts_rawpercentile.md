@@ -57,6 +57,8 @@ The function returns a separate series of results corresponding to each group.
 You can specify multiple 'group by' parameters to group the time series based on multiple characteristics.
 For example, `rawpercentile(50, ts("cpu.cpu*"), metrics, Customer)` first groups by metric names, and then groups by the values of the `Customer` point tag.
 
+{% include note.html content="Starting with the 2023-20.x release, grouping is case-sensitive. For example, if you ingest point tags such as `zone` and `ZONE`, when you use an aggregation function and apply grouping, we will consider `zone` and `ZONE` as separate tags. " %}
+
 ### Computing an Estimated Percentile
 
 A percentile is a value below which a particular percentage of data values fall. For example, in a given group of data values, the 75th percentile is a value that is greater than 75% of the data values in that group.

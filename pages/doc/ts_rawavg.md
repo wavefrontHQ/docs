@@ -48,6 +48,8 @@ The function returns a separate series of results corresponding to each group.
 
 You can specify multiple 'group by' parameters to group the time series based on multiple characteristics. For example, `rawavg(ts("cpu.cpu*"), metrics, Customer)` first groups by metric names, and then groups by the values of the `Customer` point tag.
 
+{% include note.html content="Starting with the 2023-20.x release, grouping is case-sensitive. For example, if you ingest point tags such as `zone` and `ZONE`, when you use an aggregation function and apply grouping, we will consider `zone` and `ZONE` as separate tags. " %}
+
 ## Example
 
 The following example shows the data for `sample.requests.loadavg`. To limit the number of lines, we're filtering to show only time series with `env=dev`.
