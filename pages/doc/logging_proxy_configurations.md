@@ -97,16 +97,6 @@ We've added the following configuration properties for logs to the already exist
 <th width="30%">Format /Example </th>
 </tr>
 </thead>
-<!---not clear this needs to be doc'ed
-<tr>
-<a name="pushFlushMaxLogs"></a>
-<td>pushFlushMaxLogs</td>
-<td markdown="span">Maximum number of logs in a single flush in MB.
-<br/> Default: 4.
-<br/> Version: Since 11.3</td>
-<td> A number from 1-5.</td>
-</tr>
---->
 <tbody>
 <tr>
 <a name="pushRateLimitLogs"></a>
@@ -170,6 +160,39 @@ We've added the following configuration properties for logs to the already exist
 <br/>Example: blockedLogs</td>
 </tr>
 </tbody>
+</table>
+
+### Properties for VMware Cloud Services Platform Users
+
+If you are using logs through the VMware Cloud Services Platform, you have access to both Aria Operations for Logs and Aria Operations for Applications. Therefore, you need to provide the Aria Operations for Logs URL and token to send logs data and to see the data on the Logs Browser.
+
+<table style="width: 100%;">
+  <thead>
+    <tr>
+      <th width="30%">Property</th>
+      <th width="70%">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <a name="logServerIngestionURL"></a>
+      <td>
+        logServerIngestionURL
+      </td>
+      <td markdown="span">
+        The URL you use to send data to Aria Operations for Logs.
+      </td>
+    </tr>
+    <tr>
+      <a name="logServerIngestionToke"></a>
+      <td>
+        logServerIngestionToke
+      </td>
+      <td markdown="span">
+        The authorization token that was given by Aria Operations for Logs.
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 ## Proxy Preprocessor Rules for Logs
