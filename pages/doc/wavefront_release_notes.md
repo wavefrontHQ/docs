@@ -15,7 +15,13 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 
 ## 2023-18.x Release Notes
 
-**Alert Checking Frequency**: When you create an alert, the default alert checking frequency is now set to 5 minutes. If you want to change the default value, define the **Checking Frequency** when you create or edit the alert. For more information on the checking frequency, see [How Are Alerts Evaluated](alerts.html#how-are-alerts-evaluated).
+* **Upcoming Metrics Obsolescence Period Changes**: Within the next releases we will change the [metrics obsolescence period](https://docs.wavefront.com/metrics_managing.html#obsolete-metrics) from **28 days** to **14 days**. This change will improve your query performance. Here's what you have to do: 
+  * If you are querying for a time series that has not reported points within the last **14 days**, you must select to [Include Obsolete Metrics](https://docs.wavefront.com/metrics_managing.html#obsolete-metrics) for your [charts](https://docs.wavefront.com/ui_charts.html#include-metrics-that-stopped-reporting) or [dashboards](https://docs.wavefront.com/ui_dashboards.html#set-dashboard-display-preferences-and-settings). 
+  * If the data you are querying for does have data points within the last **14 days**, you do not need to do anything.
+
+  If you have any questions or concerns, please do not hesitate to [contact us](mailto:support@wavefront.com).
+
+* **Alert Checking Frequency**: When you create an alert, the default alert checking frequency is now set to 5 minutes. If you want to change the default value, define the **Checking Frequency** when you create or edit the alert. For more information on the checking frequency, see [How Are Alerts Evaluated](alerts.html#how-are-alerts-evaluated).
 
 
 ## 2023-13.x Release Notes
