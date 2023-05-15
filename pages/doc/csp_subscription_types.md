@@ -250,7 +250,6 @@ Operations for Applications organization settings for new subscribers are done i
 <tr>
 <td>Metrics Security Policies</td>
 <td>
-<td>
 <strong>Who</strong>: A <strong>Super Admin</strong> or a user with the <strong>Metrics</strong> permission can create and manage metrics security policies.
 <p><strong>Where</strong>: In the Operations for Applications UI. The roles that you can search for and enter are service-defined or custom roles.</p>
 <p><strong>How</strong>: For details, see <a href="csp_metrics_security.html">Metrics Security Policy Rules in Operations for Applications on VMware Cloud Services</a>.</p>
@@ -259,7 +258,6 @@ Operations for Applications organization settings for new subscribers are done i
 <strong>Who</strong>: A <strong>Super Admin</strong> or a user with the <strong>Metrics</strong> permission can create and manage metrics security policies.
 <p><strong>Where</strong>: In the Operations for Applications user interface. The roles that you can search for and enter are roles defined within your Operations for Applications organization.</p>
 <p><strong>How</strong>: For details, see <a href="metrics_security.html">Metrics Security Policy Rules</a>.</p>
-</td>
 </td>
 </tr>
 </tbody>
