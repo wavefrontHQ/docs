@@ -13,6 +13,10 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Observability for Kubernetes GitHub repository](https://github.com/wavefrontHQ/observability-for-kubernetes/releases).
 
+## 2023-20.x Release Notes
+
+**The Group By Parameter Is Case-Sensitive**: with this release, when you apply the `group by` parameter to aggregation function queries, the grouping is case-sensitive. For details, see [Aggregation Functions](query_language_reference.html#aggregation-functions)
+
 ## 2023-18.x Release Notes
 
 **Alert Checking Frequency**: When you create an alert, the default alert checking frequency is now set to 5 minutes. If you want to change the default value, define the **Checking Frequency** when you create or edit the alert. For more information on the checking frequency, see [How Are Alerts Evaluated](alerts.html#how-are-alerts-evaluated).

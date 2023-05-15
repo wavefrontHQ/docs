@@ -141,6 +141,8 @@ You use point tags to add extra dimensions to your data, and can then focus your
 * [Fine Tune Queries with Point Tags](query_language_point_tags.html) explains how to use point tags.
 * [Pairing Up Matching Series](query_language_series_matching.html) discusses how implicit series matching lets you operate on pairs of time series that have corresponding sources and point tags.
 
+{% include note.html content="Starting with the 2023-20.x release, grouping is case-sensitive. For example, if you ingest point tags such as `zone` and `ZONE`, when you use an aggregation function and apply grouping, we will consider `zone` and `ZONE` as separate tags. " %}
+
 <a name="entity_tags"></a>
 
 ## Object Tags: Tags on Alerts, Dashboards, Events, and Sources
@@ -228,6 +230,7 @@ When you want to group by source tag, however, you have to include the source ta
 sum(ts(dataingester.report-points, source="dev-2b-*" and tag=mySourceTag), sourcetags)
 ```
 
+{% include note.html content="Starting with the 2023-20.x release, grouping is case sensitive. " %}
 
 ### Manage SourceTag and SourceDescription Properties at the Proxy
 
