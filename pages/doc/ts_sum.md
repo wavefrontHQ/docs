@@ -25,9 +25,9 @@ Use [`rawsum()`](ts_rawsum.html) if you don't need interpolation.
 <td>Expression describing the set of time series to be summed. </td></tr>
 <tr>
 <td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
-<td>Optional 'group by' parameter for organizing the time series into subgroups and then returning a sum for each subgroup.
+<td>Optional <code>group by</code> parameter for organizing the time series into subgroups and then returning a sum for each subgroup.
 <ul><li>
-You can group using the literals <strong>metrics</strong>, <strong>sources</strong>, <strong>sourceTag</strong>, and <strong>pointTags</strong> to group by metric names, source names, source tag names, or point tag names. </li>
+You can group using the literals <strong>metrics</strong>, <strong>sources</strong>, <strong>sourceTags</strong>, and <strong>pointTags</strong> to group by metric names, source names, source tag names, or point tag names. </li>
 <li>You can specify the name of a point tag key. For example, assume you have an <strong>env</strong> point tag with 2 possible values (<strong>prod</strong> and <strong>dev</strong>). If use an aggregation function and you group by <strong>env</strong> -- the point tag key -- we return one time series for <strong>env=prod</strong> and one for <strong>env=dev</strong>.</li>
 <li>You can combine multiple group by parameters.  </li></ul></td>
 </tr>
@@ -46,7 +46,7 @@ If any time series has data gaps, `sum()` fills them in by interpolation wheneve
 
 ### Grouping
 
-Like all aggregation functions, `sum()` returns a single series of results by default.  You can include a 'group by' parameter to obtain separate subtotals for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key.
+Like all aggregation functions, `sum()` returns a single series of results by default.  You can include a `group by` parameter to obtain separate subtotals for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key.
 The function returns a separate series of results corresponding to each group.
 
 You can specify multiple 'group by' parameters to group the time series based on multiple characteristics. For example, `sum(ts("cpu.cpu*"), metrics, Customer)` first groups by metric names, and then groups by the values of the `Customer` point tag.

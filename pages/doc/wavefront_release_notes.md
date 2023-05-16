@@ -15,7 +15,7 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 
 ## 2023-20.x Release Notes
 
-**The Group By Parameter Is Case-Sensitive**: with this release, when you apply the `group by` parameter to aggregation function queries, the grouping is case-sensitive. For details, see [Aggregation Functions](query_language_reference.html#aggregation-functions)
+**The Group By Parameter Is Case-Sensitive**: With this release, when you apply the `group by` parameter to aggregation function queries, the grouping is case-sensitive. For more information and details, see [Aggregation Functions](query_language_reference.html#aggregation-functions) and [Tags Overview](tags_overview.html#tags-basics).
 
 ## 2023-18.x Release Notes
 

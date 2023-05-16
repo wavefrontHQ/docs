@@ -25,7 +25,7 @@ Use [`sum()`](ts_sum.html) to include interpolated values.
 <td>Expression describing the set of time series to be summed. </td></tr>
 <tr>
 <td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
-<td>Optional 'group by' parameter for organizing the time series into subgroups and then returning a raw sum for each subgroup.
+<td>Optional <code>group by</code> parameter for organizing the time series into subgroups and then returning a raw sum for each subgroup.
 Use one or more parameters to group by metric names, source names, source tag names, point tag names, values for a particular point tag key, or any combination of these items. Specify point tag keys by name.</td>
 </tr>
 </tbody>
@@ -43,7 +43,7 @@ No interpolation is performed to fill in data gaps in any time series.
 Use [`sum()`](ts_sum.html) if you want the sums to include interpolated values wherever possible. Using `rawsum()` instead of `sum()` can significantly improve query performance. 
 
 ### Grouping
-Like all aggregation functions, `rawsum()` returns a single series of results by default.  You can include a 'group by' parameter to obtain separate raw sums for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key. 
+Like all aggregation functions, `rawsum()` returns a single series of results by default.  You can include a `group by` parameter to obtain separate raw sums for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key. 
 The function returns a separate series of results corresponding to each group.
 
 You can specify multiple 'group by' parameters to group the time series based on multiple characteristics. For example, `rawsum(ts("cpu.cpu*"), metrics, Customer)` first groups by metric names, and then groups by the values of the `Customer` point tag.
