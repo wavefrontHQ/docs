@@ -15,109 +15,23 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 
 ## 2023-20.x Release Notes
 
-**The Group By Parameter Is Case-Sensitive**: with this release, when you apply the `group by` parameter to aggregation function queries, the grouping is case-sensitive. For details, see [Aggregation Functions](query_language_reference.html#aggregation-functions)
+**The Group By Parameter Is Case-Sensitive**: With this release, when you apply the `group by` parameter to aggregation function queries, the grouping is case-sensitive. For more information and details, see [Aggregation Functions](query_language_reference.html#aggregation-functions) and [Tags Overview](tags_overview.html#tags-basics).
 
 ## 2023-18.x Release Notes
 
-**Alert Checking Frequency**: When you create an alert, the default alert checking frequency is now set to 5 minutes. If you want to change the default value, define the **Checking Frequency** when you create or edit the alert. For more information on the checking frequency, see [How Are Alerts Evaluated](alerts.html#how-are-alerts-evaluated).
+* **Upcoming Metrics Obsolescence Period Changes**: Within the next releases we will change the [metrics obsolescence period](https://docs.wavefront.com/metrics_managing.html#obsolete-metrics) from **28 days** to **14 days**. This change will further improve your query performance. Here's what you have to do: 
+  * If you are querying for a time series that has not reported points within the last **14 days**, you must select to [Include Obsolete Metrics](https://docs.wavefront.com/metrics_managing.html#obsolete-metrics) for your [charts](https://docs.wavefront.com/ui_charts.html#include-metrics-that-stopped-reporting) or [dashboards](https://docs.wavefront.com/ui_dashboards.html#set-dashboard-display-preferences-and-settings). 
+  * If the data you are querying for does have data points within the last **14 days**, you do not need to do anything.
+
+  If you have any questions or concerns, please do not hesitate to [contact us](mailto:support@wavefront.com).
+
+* **Alert Checking Frequency**: When you create an alert, the default alert checking frequency is now set to 5 minutes. If you want to change the default value, define the **Checking Frequency** when you create or edit the alert. For more information on the checking frequency, see [How Are Alerts Evaluated](alerts.html#how-are-alerts-evaluated).
 
 
-## 2023-13.x Release Notes
-
-* **Geo Map Chart**: With this release, we have included a new type of chart which allows you to visualize your ingested data by location. For more information, see [Geo Map Chart](ui_chart_reference.html#geo-map-chart).
-
-  ![A screenshot of the Geo Map chart](images/geo-map-chart.png)
-
-* **Proxy Configurations in the UI**: From the Proxies Browser, you can now view the current configuration properties of Wavefront proxies 12.2 and later. For more information, see [Examine the Proxy Configuration Properties](monitoring_proxies.html#examine-the-proxy-configuration-properties).
-
-* **No Data Alerts and Maintenance Windows**: [Maintenance windows](maintenance_windows_managing.html#maintenance-windows) that are refined by point tags, sources, or source tags no longer apply to alerts in NO DATA state.
-
-## 2023-11.x Release Notes
-
-* **Usage Summary Dashboard Improvements**: Added support for customers with burndown commit contracts.
-
-  The charts for customers with burndown commitments slightly differ from the charts for customers with billable commitments.
-
-  For more details, see [Examine Your Overall Usage](examine_usage.html).
-
-* **Ingestion Policies Improvements**:
-
-  * New [**Ingestion Policies** permission](permissions_overview.html).
-
-    Users with that permission can create, edit, and delete ingestion policies.
-
-  * Changed navigation to the **Ingestion Policies** page.
-
-    **Ingestion Policies** is now a separate menu item under the gear icon <i class="fa fa-cog"/> on the toolbar.
-
-  * New [**Revert** functionality](ingestion_policies.html#view-ingestion-policy-history-and-revert-to-a-previous-version) on the **Earlier Versions** page.
-
-    Users with the **Ingestion Policies** permission can revert an ingestion policy to an earlier version.
-
-  For more details, see [Monitor Usage with Ingestion Policies](ingestion_policies.html).
-
-* **Node Map Chart Improvements**: You can specify the maximum number of node groups to display on a node map chart. When you open a node map chart in edit mode or create a new node map chart, on the **Node Map Details** tab, from the **Max Node Group Count** drop-down menu you can select the maximum number of groups to display on the chart. The default value is 10, the maximum value is 35. For details, see [Node Map Chart](ui_chart_reference.html#node-map-chart).
-
-   ![A screenshot of the Node Map Defaults tab with the Max Node Group Count drop-down menu highlighted.](/images/node-map-chart.png)
-
-## 2023-10.x Release Notes
-
-**Proxy Setup Instructions for Kubernetes in the UI**: When you [install a proxy from the UI](proxies_installing.html#install-a-proxy-from-the-ui), you can now click the **Kubernetes** tab to copy the proxy configurations and the deployment command.
-
-![A screenshot of the Kubernetes tab on the Add a Proxy page](/images/add_K8_proxy.png)
-
-
-## 2023-09.x Release Notes
-
-**Analyze Your Queries**: With this release you can use the Query Analyzer and [analyze your queries and their subqueries](query_language_performance.html#use-the-query-analyzer). When you expect to see certain data in Operations for Applications, but it doesn’t show up for some reason, charts display a **No Data** message. When you see this message on a chart, use the Query Analyzer to analyze and troubleshoot your queries and subqueries. 
-
-## 2023-08.x Release Notes
-
-**Alert Targets Browser Page Improvements**: The **Alert Targets** browser page is now improved and allows you to:
-
-  * Hide and show details for all alert targets or for a specific alert target.
-  * Sort alert targets either by the last updated date or by target name.
-  * Hide and show the filters listed on the left.
-
-  For more details, see [View Alert Targets](webhooks_alert_notification.html#view-custom-alert-targets).
-
-## 2023-07.x Release Notes
-
-* **Proxies Browser Revamp**:
-
-  Streamlined experience that improves monitoring and managing your proxies.
-  - Configurable proxies list in table format lets you [explore your proxies](monitoring_proxies.html#get-started-wih-the-proxies-browser) in detail.
-  - Individual proxy dashboards to [examine the health and usage of each proxy](monitoring_proxies.html#examine-the-health-and-usage-of-a-proxy-with-the-proxy-dashboard).
-
-* **Amazon Web Services Integration Improvements:** 
-
-  With this release, we have improved the AWS CloudWatch integration. When you configure the AWS CloudWatch integration, you can add custom namespaces to monitor more services, even those that are not in the default **Products** list of the AWS services in our GUI. For more information, see the [integrations release notes](integrations_new_changed.html#february-2023).
-
-* **Ingestion Policies Improvement:**
-
-  When you assign a key-value pair to an [ingestion policy](ingestion_policies.html) with the point tags scope, you can now set a wildcard for the tag value. For example, you can assign `env="*"`. 
-
-* **Monitor the Status of Your Service:**
-
-  <table style="width: 100%;">
-    <tbody>
-    <tr>
-    <td width="50%">
-    You can use the public <a href="https://status.vmware-services.io/">VMware Cloud Services Status Page</a> to monitor your service for incidents and maintenance.
-    <ol>
-    <li>For confidentiality reasons, we show the service status of each customer cluster by using a cluster alias name. <a href="service_status_page.html#find-your-cluster-alias-name">Find Your Cluster Alias Name</a>. </li>
-    <li>Outages and other service-wide events are reported on the VMware Cloud Services status page. <a href="service_status_page.html#view-the-status-of-your-service">View the Status of Your Service</a>.</li>
-    <li>You can subscribe to notifications for incidents and scheduled maintenance of your service. <a href="service_status_page.html#subscribe-for-status-updates">Subscribe for Status Updates</a>.</li>
-    </ol>
-    </td>
-    <td width="50%"><img src="images/service_status.png" alt="The VMware Cloud Services Status Page with expanded VMware Aria Operations for Applications."></td>
-    </tr>
-    </tbody>
-    </table>
 
 
 ## Past Release Notes
-
+- [2023-13.x Release Notes](2023-13.x_release_notes.html)
 - [2023-06.x Release Notes](2023-06.x_release_notes.html)
 - [2022-49.x Release Notes](2022-49.x_release_notes.html)
 - [2022-39.x Release Notes](2022-39.x_release_notes.html)

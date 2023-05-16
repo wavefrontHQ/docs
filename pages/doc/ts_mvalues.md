@@ -30,7 +30,7 @@ Returns the number of unique values over the specified time window.
 <td>Expression that describes the time series for which you want to see the number of unique values. </td>
 </tr>
 <tr><td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
-<td>Optional 'group by' parameter for organizing the time series into subgroups and then returning a count for each subgroup.
+<td>Optional <code>group by</code> parameter for organizing the time series into subgroups and then returning a count for each subgroup.
 Use one or more parameters to group by metric names, source names, source tag names, point tag names, values for a particular point tag key, or any combination of these items. Specify point tag keys by name.</td>
 </tr>
 </tbody>
@@ -58,10 +58,10 @@ mvalues(5m, ts(build.version))
 
 You can see the result in the top right corner of the chart, under Value.
 
-You can also see the current number of product versions running across your environment for points that are tagged with `primary` and are grouped by `sourcetags`.
+You can also see the current number of product versions running across your environment for points that are tagged with `primary` and are grouped by `sourceTags`.
 
 ```
-mvalues(5m, ts(build.version, tag="*-primary"), sourcetags)
+mvalues(5m, ts(build.version, tag="*-primary"), sourceTags)
 
 ```
 

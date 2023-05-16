@@ -94,11 +94,15 @@ You can use tags to filter alerts, dashboards, events, and sources from the Oper
 </tbody>
 </table>
 
+
 ### Supported Characters
 
 Tag keys can contain alphanumeric (a-z, A-Z, 0-9), dash (-), underscore (_), dot (.), and forward slash (/) characters. The space character is not supported.
 
 When you construct a query, you can use a colon (:) in a tag key, only if the tag key is in quotes. For example: `ts(<metricName>,"t:m"=tag-with-colon)`.
+
+{% include tip.html content="With the 2023-20.x release, the `group by` parameter becomes case-sensitive. If you ingest point tags such as `zone` and `ZONE`, when you use an aggregation function and apply grouping, we will consider `zone` and `ZONE` as separate point tags. To support backward compatibility, in your queries you can use: `sourcetags` and `sourceTags`, `hosttags` and `hostTags`, `pointtags` and `pointTags`." %}
+
 
 ### Tags in the UI
 
@@ -227,7 +231,7 @@ sum(ts(dataingester.report-points AND source="dev-2b-*"), pointTags)
 When you want to group by source tag, however, you have to include the source tag name in the query, as shown in this example:
 
 ```
-sum(ts(dataingester.report-points, source="dev-2b-*" and tag=mySourceTag), sourcetags)
+sum(ts(dataingester.report-points, source="dev-2b-*" and tag=mySourceTag), sourceTags)
 ```
 
 {% include note.html content="Starting with the 2023-20.x release, grouping is case sensitive. " %}

@@ -90,14 +90,14 @@ You use an expression to describe the set of time series to be aggregated. When 
 
 ## Grouping the Aggregation Results
 
-Each aggregation function accepts a 'group by' parameter that allows you to subdivide the input time series into groups, and request separate aggregates for each group.
+Each aggregation function accepts a `group by` parameter that allows you to subdivide the input time series into groups, and request separate aggregates for each group.
 
 For grouping, we support:
-* The implicit 'group by' parameter after a comma, discussed here.
+* The implicit `group by` parameter after a comma, discussed here.
 * An explicit `by` parameter
 * An explicit `without` parameter.
 
-A chart displays a separate line for each group when you use a 'group by' parameter with an aggregation function. For example, assume your environment uses an `az` point tag to group by availability zone. You call:
+A chart displays a separate line for each group when you use a `group by` parameter with an aggregation function. For example, assume your environment uses an `az` point tag to group by availability zone. You call:
 ```
 sum(ts(~sample.cpu.loadavg.1m), az)
 ```
@@ -172,7 +172,7 @@ For example, suppose you added 3 source tags (`prod`, `db`, and `highPriority`) 
     ```
 
 
-In contrast, a 'group by' parameter like `pointTags` produces a separate aggregate corresponding to every point tag that is associated with the specified time series, even if the ts() expression does not explicitly specify any point tags as filters.
+In contrast, a `group by` parameter like `pointTags` produces a separate aggregate corresponding to every point tag that is associated with the specified time series, even if the ts() expression does not explicitly specify any point tags as filters.
 
 
 ## Aggregation Example
