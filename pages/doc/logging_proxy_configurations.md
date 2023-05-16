@@ -184,9 +184,9 @@ If you are using logs through the VMware Cloud Services Platform, you have acces
       </td>
     </tr>
     <tr>
-      <a name="logServerIngestionToke"></a>
+      <a name="logServerIngestionToken"></a>
       <td>
-        logServerIngestionToke
+        logServerIngestionToken
       </td>
       <td markdown="span">
         The authorization token that was given by Aria Operations for Logs.
