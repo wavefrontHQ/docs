@@ -32,9 +32,10 @@ VMware Cloud services provides single sign-on (SSO) and identity access manageme
    * The **Self Service SAML** option is missing, because the configuration happens in the VMware Cloud Services Console.
    * The **Accounts** option is also no longer needed, because account management is done in the VMware Cloud Services Console.
    * The **Usage and Subscriptions** and **Ingestion Policies** menu items are combined in the **Usage and Subscriptions** menu item. 
+      *Margarita -- will update this when we have a stable test env. Currently, I have listed all differences and documented what I see so that we don't forget to update anything.*
    * The **Super Admin** menu item is missing, because Super Admins can invite new Super Admin users by using the VMware Cloud Services Console. 
    * There is a new **Orphaned Objects** menu item that allows Super Admins to see and recover orphan dashboards or alerts.
-   * The **Sign Out** menu item is missing, because signing out of Operations for Applications is done from the VMware Cloud Services Console.
+   * The **Sign Out** menu item is missing, because signing out of Operations for Applications can be done from the VMware Cloud Services Console.
 
 * Users with the **Accounts** permission still can set the default settings for new users and modify access to new dashboards and alerts from the **Organization Settings** page, but some of the options are removed:
 
