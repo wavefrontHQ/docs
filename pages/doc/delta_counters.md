@@ -85,12 +85,10 @@ Delta counters make monitoring easy for this use case. Operations for Applicatio
 
 You have to send and query delta counters like this:
 
+To <strong>send</strong> metrics as delta counters explicitly specify a delta character as the first letter of the metric name. 
+{% include note.html content="If a delta counter is older than 15 minutes (when our service receives the data), the data is not ingested, and you won't see the data in our service. " %}
 <table style="width: 100%;">
 <tbody>
-<tr>
-<td>To <strong>send</strong> metrics as delta counters explicitly specify a delta character as the first letter of the metric name. </td>
-<td> </td>
-</tr>
 <tr>
 <td>To <strong>query</strong> delta counter metrics
 <ul>
