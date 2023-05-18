@@ -7,11 +7,12 @@ summary: Learn the basics for administering your service on the VMware Cloud ser
 ---
 Starting June 1, 2023, VMware Aria Operations for Applications becomes a service on the VMware Cloud services platform.
 
-When your Operations for Applications service is onboarded to VMware Cloud services, VMware Cloud services provides features to your Operations for Applications environment, such as:
+<!--When your Operations for Applications service is onboarded to VMware Cloud services,--> 
+VMware Cloud services provides features to your Operations for Applications environment, such as:
 - Single sign-on (SSO) with VMware Cloud services accounts.
 - SAML 2.0 SSO identity federation with your enterprise identity provider.
 - Identity access management (IAM) with built-in and custom service roles.
-- Seamless integration with other services from your VMware Cloud services portfolio, such as VMWare Aria Operations for Logs and VMware Arial Operations Business Insights.
+- Seamless integration with other services from your VMware Cloud services portfolio, such as VMWare Aria Operations for Logs and VMware Aria Operations Business Insights.
 
 {% include note.html content="All **new** Operations for Applications service subscriptions are onboarded to VMware Cloud services. For information about original and new subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html)."%}
 
@@ -38,7 +39,12 @@ A VMware Cloud services account is a user (human) account in VMware Cloud servic
 
 ## What's a VMware Cloud Organization?
 
-VMware Cloud services uses organizations to provide controlled access to one or more services. The VMware Cloud organization is a top-level construct which owns users and cloud services (subscriptions). You can have multiple VMware Cloud organizations. Users can belong to multiple organizations. Multiple service instances can run in the same or in different organizations. For example, you can have a multi-tenant Operations for Applications environment with multiple service instances (tenants) in the same organization.
+VMware Cloud services uses organizations to provide controlled access to one or more services. The VMware Cloud organization is a top-level construct which owns users and cloud services (subscriptions). 
+* You can have multiple VMware Cloud organizations. 
+* Users can belong to multiple organizations. 
+* Multiple service instances can run in the same or in different organizations. 
+
+For example, you can have a multi-tenant Operations for Applications environment with multiple service instances (tenants) in the same organization.
 
 {% include note.html content="You can create a VMware Cloud organization only when you are onboarding a new service instance, for example, when you are [starting an Operations for Applications free trial](start_trial.html)."%}
 
@@ -47,11 +53,27 @@ See [How do I manage my Cloud Services organizations](https://docs.vmware.com/en
 ## What's a VMware Cloud Organization Role?
 
 A VMware account can belong to one or more VMware Cloud organizations. A VMware account belongs to a given VMware Cloud organization if the account has an organization role for that organization. There are three VMware Cloud organization roles:
-- The VMware Cloud **Organization Owner** role has full administrative access to all resources in the organization. They can invite users to the organization and assign role-based access to all users, including themselves. They can also kick off an enterprise domain federation and invite an **Enterprise Administrator**. See [Setting Up Enterprise Federation with VMware Cloud Services Guide](https://docs.vmware.com/en/VMware-Cloud-services/services/setting-up-enterprise-federation-cloud-services/GUID-76FAECB3-CFAA-461E-B9C9-2A49C39CD17F.html)  in the VMware Cloud services documentation.
 
-    When you create an organization during a service onboarding process, you become its first **Organization Owner**.
-- The VMware Cloud **Organization Administrator** role has limited administrative access. Users with that role can invite and manage only users with the **Organization Member** role. Users with the **Organization Administrator** role can have additional access with additional roles.
-- The VMware Cloud **Organization Member** role has read-only access to the resources in the organization. Users with the **Organization Member** role can have additional access with additional roles.
+<table>
+<tbody>
+<thead>
+<tr><th width="30%">Role</th><th width="70%">Description</th></tr>
+</thead>
+<tr>
+<td><strong>Organization Owner</strong></td>
+<td>The VMware Cloud <strong>Organization Owner</strong> role has full administrative access to all resources in the organization. They can invite users to the organization and assign role-based access to all users, including themselves. They can also kick off an enterprise domain federation and invite an <strong>Enterprise Administrator</strong>. See <a href="https://docs.vmware.com/en/VMware-Cloud-services/services/setting-up-enterprise-federation-cloud-services/GUID-76FAECB3-CFAA-461E-B9C9-2A49C39CD17F.html">Setting Up Enterprise Federation with VMware Cloud Services Guide</a> in the VMware Cloud services documentation.
+<p>When you create an organization during a service onboarding process, you become its first <strong>Organization Owner</strong>.</p></td>
+</tr>
+<tr><td><strong>Organization Administrator</strong></td>
+<td>The VMware Cloud <strong>Organization Administrator</strong> role has limited administrative access. Users with that role can invite and manage only users hat have roles with lower administrative permissions. For example, they can grant or manage access for other users and groups who have the <strong>Organization Member</strong> role, but cannot manage users, groups, or resources who are assigned the <strong>Organization Owner</strong> or <strong>Organization Administrator</strong> role.
+</td>
+</tr>
+<tr>
+<td><strong>Organization Member</strong></td>
+<td>The VMware Cloud <strong>Organization Member</strong> role has read-only access to the resources in the organization. Users with this role can have additional access with additional permissions assigned.</td>
+</tr>
+</tbody>
+</table>
 
 See [What organization roles are available in VMware Cloud Services](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-C11D3AAC-267C-4F16-A0E3-3EDF286EBE53.html) in the VMware Cloud services documentation.
 
