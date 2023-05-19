@@ -65,12 +65,12 @@ A VMware account can belong to one or more VMware Cloud organizations. A VMware 
 <p>When you create an organization during a service onboarding process, you become its first <strong>Organization Owner</strong>.</p></td>
 </tr>
 <tr><td><strong>Organization Administrator</strong></td>
-<td>The VMware Cloud <strong>Organization Administrator</strong> role has limited administrative access. Users with that role can invite and manage only users hat have roles with lower administrative permissions. For example, they can grant or manage access for other users and groups who have the <strong>Organization Member</strong> role, but cannot manage users, groups, or resources who are assigned the <strong>Organization Owner</strong> or <strong>Organization Administrator</strong> role.
+<td>The VMware Cloud <strong>Organization Administrator</strong> role has limited administrative access. Users with that role can invite and manage only users hat have roles with lower administrative permissions. For example, they can grant or manage access for other users and groups who have the <strong>Organization Member</strong> role, but cannot manage users, groups, or resources who are assigned the <strong>Organization Owner</strong> or <strong>Organization Administrator</strong> role. <p>Users with the <strong>Organization Administrator</strong> role can have additional access if other permissions are explicitly assigned to them. For example, when the <strong>Billing Read-only</strong> check box is selected, users with the <strong>Organization Administrator</strong> role can have read-only access to billing-related information and the option to generate usage consumption reports.</p>
 </td>
 </tr>
 <tr>
 <td><strong>Organization Member</strong></td>
-<td>The VMware Cloud <strong>Organization Member</strong> role has read-only access to the resources in the organization. Users with this role can have additional access with additional permissions assigned.</td>
+<td>The VMware Cloud <strong>Organization Member</strong> role has read-only access to the resources in the organization. <p>Users with the <strong>Organization Member</strong> role can have additional access when additional permissions are explicitly assigned to them. For example, when the <strong>Access Log Auditor</strong> check box is selected, they can access all audit data for the organization in the associated vRealize Log Insight Cloud service instance for their organization.</p></td>
 </tr>
 </tbody>
 </table>
