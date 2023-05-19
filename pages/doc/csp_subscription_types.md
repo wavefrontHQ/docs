@@ -53,7 +53,8 @@ VMware Cloud services provides single sign-on (SSO) and identity access manageme
   * [Managing Access to Dashboards and Alerts in Operations for Applications on VMware Cloud Services](csp_access.html)
 
 * Toolbar
-
+  
+  *Margarita -- TBD*
 
 
 ## Differences by Area
