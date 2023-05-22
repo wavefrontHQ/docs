@@ -345,3 +345,5 @@ ts(~alert.webhooks.*.*, name=<webhook_name>)
 ```
 
 If the response code of the webhook is anything other than 2xx, we create an event with the name `<webhook_id>.<webhook_name>.<response_code>`.
+
+{% include note.html content=" Alerting on the `~alert.webhooks.*` set of metrics is not supported. All alerts which use the `~alert*` set of  metrics will show **No Data** even when data flows. You can use these metrics only in charts and dashboards." %}
