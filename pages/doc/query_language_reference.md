@@ -591,9 +591,9 @@ All aggregation functions provide:
 * **Filtering**: Parameters for filtering the set of input series, for example, to show only points from one source.
 * **Grouping**: Parameters for returning separate results for groups of input series that share common metric names, source names, source tags, point tags, and point-tag values. For example, if you have an `env` point tag with values `dev` and `prod`, you can return one series for all points that come from `dev` and another for all points that come from `prod`.
 
-{% include note.html content="Starting with the 2023-20.x release, grouping is case-sensitive. For example, if you ingest point tags such as `zone` and `ZONE`, when you use an aggregation function and apply grouping, we will consider `zone` and `ZONE` as separate tags. " %}
+{% include note.html content="Starting with the 2023-20.x release, grouping is case-sensitive. For example, if you ingest point tags such as `zone` and `ZONE`, when you use an aggregation function and apply grouping, we consider `zone` and `ZONE` as separate tags. " %}
 
-{% include tip.html content="If you want to group by source tags, you must include the source tag name (`tag=`) explicitly in the ts() expression.  See [A Closer Look at grouping with sourceTags](query_language_aggregate_functions.html#a-closer-look-at-grouping-with-sourcetags). " %}
+{% include tip.html content="If you want to group by source tags, you must include the source tag name (`tag=`) explicitly in the ts() expression.  See [A Closer Look at Grouping with sourceTags](query_language_aggregate_functions.html#a-closer-look-at-grouping-with-sourcetags). " %}
 
 <table style="width: 100%;">
 <colgroup>

@@ -77,11 +77,11 @@ Here, we are creating a T-digest and adding sampling points based on the range a
 
 ### Grouping
 
-Similar to aggregation functions for metrics, `cumulativeHisto()` returns a single distribution per specified time window.  To get separate distributions for groups that share common characteristics, you can include a `group by` parameter, as for many ts() queries. For example, use `cumulativeHisto(1m, <expression>, sources)` to group by sources.
+Similar to aggregation functions for metrics, `cumulativeHisto()` returns a single distribution per specified time window. To get separate distributions for groups that share common characteristics, you can include a `group by` parameter, as for many ts() queries. For example, use `cumulativeHisto(1m, <expression>, sources)` to group by sources.
 
 The function returns a separate series of results for each group.
 
-{% include note.html content="Starting with the 2023-20.x release, grouping is case-sensitive. For example, if you ingest point tags such as `zone` and `ZONE`, when you use an aggregation function and apply grouping, we will consider `zone` and `ZONE` as separate tags. " %}
+{% include note.html content="Starting with the 2023-20.x release, grouping is case-sensitive. For example, if you ingest point tags such as `zone` and `ZONE`, when you use an aggregation function and apply grouping, we consider `zone` and `ZONE` as separate tags. " %}
 
 
 ### Interpolation

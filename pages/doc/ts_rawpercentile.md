@@ -51,13 +51,13 @@ Use [`percentile()`](ts_percentile.html) if you want to include time series with
 
 ### Grouping
 
-Like all aggregation functions, `rawpercentile()` returns a single series of results by default.  You can include a `group by` parameter to obtain separate percentile results for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key. 
+Like all aggregation functions, `rawpercentile()` returns a single series of results by default. You can include a `group by` parameter to obtain separate percentile results for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key. 
 The function returns a separate series of results corresponding to each group.
 
 You can specify multiple 'group by' parameters to group the time series based on multiple characteristics.
 For example, `rawpercentile(50, ts("cpu.cpu*"), metrics, Customer)` first groups by metric names, and then groups by the values of the `Customer` point tag.
 
-{% include note.html content="Starting with the 2023-20.x release, grouping is case-sensitive. For example, if you ingest point tags such as `zone` and `ZONE`, when you use an aggregation function and apply grouping, we will consider `zone` and `ZONE` as separate tags. " %}
+{% include note.html content="Starting with the 2023-20.x release, grouping is case-sensitive. For example, if you ingest point tags such as `zone` and `ZONE`, when you use an aggregation function and apply grouping, we consider `zone` and `ZONE` as separate tags. " %}
 
 ### Computing an Estimated Percentile
 
