@@ -66,7 +66,7 @@ You can use `min()` with time series and with histograms.
 <td>Expression describing the set of time series to return minimums for. </td></tr>
 <tr>
 <td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
-<td>Optional 'group by' parameter for organizing the time series into subgroups and then returning the minimum for each subgroup.
+<td>Optional <code>group by</code> parameter for organizing the time series into subgroups and then returning the minimum for each subgroup.
 Use one or more parameters to group by metric names, source names, source tag names, point tag names, values for a particular point tag key, or any combination of these items. Specify point tag keys by name.</td>
 </tr>
 </tbody>
@@ -105,10 +105,12 @@ If any time series has data gaps, `min()` fills them in by interpolation wheneve
 
 #### Grouping
 
-The `min()` aggregation function returns a single series of results by default. You can include a 'group by' parameter to obtain separate minimums for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key.
+The `min()` aggregation function returns a single series of results by default. You can include a `group by` parameter to obtain separate minimums for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key.
 The function returns a separate series of results corresponding to each group.
 
 You can specify multiple 'group by' parameters to group the time series based on multiple characteristics. For example, `min(ts("cpu.cpu*"), metrics, Customer)` first groups by metric names, and then groups by the values of the `Customer` point tag.
+
+{% include note.html content="Starting with the 2023-20.x release, grouping is case-sensitive. For example, if you ingest point tags such as `zone` and `ZONE`, when you use an aggregation function and apply grouping, we will consider `zone` and `ZONE` as separate tags. " %}
 
 #### Interpolation
 
