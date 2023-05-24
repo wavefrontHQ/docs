@@ -4,6 +4,27 @@
     </div>
     <div class="row section-header">
         <h2>Choose Your Path</h2>
+    <div>
+    <script>
+function myFunction() {
+  var x = document.getElementById("version-select").value;
+  console.log("selected version")
+  console.log(x, window.location);
+  if(x="v2") {
+    window.open("http://localhost:4000/wavefront_release_notes.html", "_self")
+  } else {
+    window.open("http://localhost:4000", "_self")
+  }
+}
+</script>
+        <label for="version">Choose a version:</label>
+
+<select name="version" id="version-select" onChange="myFunction()">
+  <option value="v1">v1</option>
+  <option value="v2">v2</option>
+</select>
+</div>
+
         <div class="aa-input-container desktop" id="aa-input-container-choose-path"></div>
         <div class="container mobile-search">
             <div class="aa-input-container mobile" id="aa-input-container-mobile-choose-path"></div>

@@ -45,6 +45,40 @@
                 {% endfor %}
                 {% endfor %}
 
+                <div>
+                  <script>
+              function myFunction() {
+                var x = document.getElementById("version-select").value;
+                console.log("selected version")
+                console.log(x, window.location);
+                if(x="v2") {
+                  window.open("http://localhost:4000/wavefront_release_notes.html", "_self")
+                } else {
+                  window.open("http://localhost:4000", "_self")
+                }
+              }
+
+             
+              </script>
+              <script>
+                 function isDisabled() {
+                console.log(window.location.pathname)
+                if(window.location.pathname.includes("alerts")){
+                console.log("I am here true")
+                  return true
+                } else {
+                  console.log("I am here false")
+                  return false
+                }
+              }
+              </script>
+                      <label for="version">Choose a version:</label>
+              
+              <select name="version" id="version-select" onChange="myFunction()" disabled="isDisabled()">
+                <option value="v1">v1</option>
+                <option value="v2">v2</option>
+              </select>
+              </div>
                 
                 <li>
                    <div class="aa-input-container desktop" id="aa-input-container">
