@@ -1,18 +1,18 @@
 ---
-title: (Archived) Configure External Services for OpenTracing
-keywords: data, distributed tracing, OpenTelemetry, opentracing, aws, java
+title: Configure External Services for OpenTelemetry
+keywords: data, distributed tracing, OpenTelemetry, aws, java
 tags: [tracing]
 sidebar: doc_sidebar
-permalink: tracing_external_services.html
+permalink: opentelemetry_external_services.html
 summary: Configure your application to show external services or applications
 ---
 
 
 {% include important.html content="OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/).) To send trace data to Tanzu observability, use OpenTelemetry."%}
 
-Tanzu Observability by Wavefront can identify Java AWS services and Java databases in the [application map view](tracing_ui_overview.html#application-map-features). You can configure your OpenTracing, OpenTelemetry, or Spring Cloud Sleuth application to identify out-of-the-box external services or applications that your service communicates.
+Tanzu Observability by Wavefront can identify Java AWS services and Java databases in the [application map view](tracing_ui_overview.html#application-map-features). You can configure your OpenTelemetry, or Spring Cloud Sleuth application to identify out-of-the-box external services or applications that your service communicates.
 
-This document shows you how to configure external services for your application instrumented with OpenTracing.
+This document shows you how to configure external services for your application instrumented with OpenTelemetry.
 
 
 ## Configure Out-of-the-Box AWS and Database Services
@@ -23,10 +23,9 @@ Let's take a look at span tags, SDKs, and libraries that are required if you wan
 
 To make Tanzu Observability identify the AWS services:
 
-1. Configure your application to use the [OpenTracing Java AWS SDK](https://github.com/opentracing-contrib/java-aws-sdk), OpenTelemetry, or Spring Cloud Sleuth.
+1. Configure your application to use the [OpenTelemetry Java AWS SDK](https://github.com/open-telemetry/opentelemetry-java-instrumentation/tree/main/instrumentation/aws-sdk), or Spring Cloud Sleuth.
 1. Configure your application to use one or more AWS services.
-1. Instrument your Java application using the [Wavefront OpenTracing Java SDK](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java) or the [Wavefront Java Tracing Agent](https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java).
-1. [Prepare to send data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data) using the Wavefront proxy or direct ingestion.
+1. Instrument your Java application using the OpenTelemetry Java agent. For more information see [Auto Instrument Java Application with OpenTelemetry](opentelemetry_java_app_tutorial.html).
 
 Now, you see the AWS external services on the application map.
 
@@ -36,7 +35,7 @@ Example:
 
 #### Required Span Tags
 
-You will see AWS external services on the application map if the spans have the following tags. The values for the span tags are assigned using the Java AWS SDK.
+You see the AWS external services on the application map if the spans have the following tags. The values for the span tags are assigned using the Java AWS SDK.
 
 <table style="width; 100;">
   <tr>
