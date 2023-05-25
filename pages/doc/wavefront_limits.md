@@ -51,7 +51,7 @@ HTTP 429 TOO_MANY_REQUESTS
 <tr>
 <td><strong>Alert</strong></td>
 <td>60s (1min)</td>
-<td>When the alerting service runs a query, it must complete in 60s (1 minute). If a query does not complete within a minute, the alert is rendered as functioning.<br/><br/>
+<td>When the alerting service runs a query, it must complete in 60s (1 minute).<br/><br/>
 <strong>Best practice</strong>: Use specific sources, point tags, or both in the queries to drill down into specific data that you need.
 </td>
 </tr>
