@@ -5,19 +5,19 @@ sidebar: doc_sidebar
 permalink: wavefront_limits.html
 summary: Limits and recommendations to promote efficient resource use.
 ---
-For best performance and cost reduction, Wavefront supports limits. Some limits are recommendations--if your environment exceeds the limits, you'll see significant performance issues. Other limits result in an error if you exceed the limit.
+For best performance and cost reduction, VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports limits. Some limits are recommendations--if your environment exceeds the limits, you'll see significant performance issues. Other limits result in an error if you exceed the limit.
 
 <!--this page is public but we're not pointing to it from elsewhere in the documentation because some companies change their limits (and pay more, potentially) --->
 
 ## Concurrent Query Limits
 
-Wavefront enforces the following concurrent query limits. These limits are subject to change without notice.
+Our service enforces the following concurrent query limits. These limits are subject to change without notice.
 
 {% include important.html content="If your environment exceeds any of the query limits, an error results." %}
 
 ### Per Customer Concurrent Query Limit
 
-Wavefront enforces a limit on concurrent queries for each customer cluster. The default is 1000. If you are getting repeated errors that your cluster is exceeding this limit, contact us.
+Our service enforces a limit on concurrent queries for each customer cluster. The default is 1000. If you are getting repeated errors that your cluster is exceeding this limit, contact us.
 
 The following error results if your environment exceeds this limit:
 ```
@@ -27,7 +27,7 @@ Customer concurrent query limit exceeded. Please try again later. Contact suppor
 
 ### Per User Concurrent Query Limit
 
-Wavefront enforces a limit on per-user concurrent queries. The default limit is 100. Contact us if you believe that the setting doesn’t make sense for one of your users (for example, one of your service accounts) and we’ll discuss options with you.
+Our service enforces a limit on per-user concurrent queries. The default limit is 100. Contact us if you believe that the setting doesn’t make sense for one of your users (for example, one of your service accounts) and we’ll discuss options with you.
 
 The following error results if one of the users exceeds this limit:
 ```
@@ -72,7 +72,7 @@ HTTP 429 TOO_MANY_REQUESTS
 
 ## Default Customer-Specific Limits
 
-You can start with Wavefront either as part of a free trial or as a new customer. In both cases, a set of out-of-the-box limits applies to that customer account. You can contact our customer success team to request changes. In some cases, a change might involve additional costs.
+You can start either as part of a free trial or as a new customer. In both cases, a set of out-of-the-box limits applies to that customer account. You can contact our customer success team to request changes. In some cases, a change might involve additional costs.
 
 <table>
 <tbody>
@@ -186,12 +186,12 @@ You can start with Wavefront either as part of a free trial or as a new customer
 
 
 <!---From Data Format topic, remove there if we want to keep this here--->
-## Wavefront Data Format Best Practices
+## Data Format Best Practices
 
 Follow best practices to avoid hitting query limits and for improved query execution speed and meaningful results.
 
 * Make the metrics the most stable part of your data:
-  - Do not include source names in the metric name. Wavefront captures sources separately.
+  - Do not include source names in the metric name. Our service captures sources separately.
   - Do not include data or timestamps in the metric name. Each point has an associated timestamp.
 * Aim for a metric hierarchy:
   - Partition the top level of the metric hierarchy by including at least one dot.
@@ -206,6 +206,6 @@ See [Operations for Applications Data Naming](wavefront_data_format.html#operati
 
 You can examine what's going on with your cluster in several ways:
 
-* [Monitor and troubleshoot your Wavefront instance](wavefront_monitoring.html)
+* [Monitor and troubleshoot your VMware Aria Operations for Applications instance](wavefront_monitoring.html)
 * [Examine ingestion breakdown and export usage data](ingestion_policies.html)
 * [Use Wavefront Top or Spy to Investigate Traffic](wavefront_monitoring_spy.html)
