@@ -7,14 +7,14 @@ permalink: upgrade_and_purchase.html
 summary: Learn how to upgrade from a trial version and purchase the service.
 ---
 
-When you create an account and register for the [trial version](start_trial.html) of VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront), your trial expires after a 30 days. One of the options that we offer to the Super Admin users in Operations for Applications is to purchase the service by themselves. Another option is to contact the Operations for Applications sales team, so that they guide you through the purchase process. For large commitments and more PPS, we strongly recommend the latter option. 
+When you register for the [trial version](start_trial.html) of VMware Aria Operations for Applications, your trial expires after 30 days. One of the options that we offer to the Super Admin users in Operations for Applications is to purchase the service by themselves. Another option is to contact the Operations for Applications sales team, so that they guide you through the purchase process. For large commitments and more PPS, we strongly recommend the latter option.
 
 ## Commit Contracts
 
 Operations for Applications commit contracts are two types:
 
-* Billable -- You pay for certain amount of ingested points per second (PPS), but if there's an overage, you will be charged for the number of PPS above your committed rate.
-* Burndown -- You pay for certain amount of ingested PPS. We extract your P95 PPS usage for each billing period from your burndown commitment and calculate your remaining balance till the end of the contract period.
+* Billable -- You pay for certain amount of ingested points per second (PPS) per billing period. If there's an overage, you will be charged for the number of PPS above your committed rate.
+* Burndown -- You pay for certain amount of ingested PPS for the contract period. We extract your P95 PPS usage for each billing period from your burndown commitment and calculate your remaining balance till the end of the contract period.
 
 ## Supported Upgrades
 

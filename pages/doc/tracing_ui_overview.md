@@ -59,7 +59,7 @@ Let's walk through the following scenario to get a quick overview of the applica
           Duration: Update the legend to highlight the data based on the duration. Select <b>Duration</b> from the dropdown menu and customize the values. The values need to be in ascending order and in milliseconds.
         </li>
         <li>
-          Apdex: Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only <a href="authorization-faq.html#who-is-the-super-admin-user">Super Admin users</a> or users with the <a href="permissions_overview.html"><strong>Applications</strong> permission</a> can configure the threshold (T).
+          Apdex: Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only Super Admin users and users with the <a href="permissions_overview.html"><strong>Applications</strong> permission</a> can configure the threshold (T).
         </li>
       </ul>
     </td>
@@ -208,7 +208,7 @@ Using the table view, you can:
         Apdex Threshold
       </td>
       <td markdown="span">
-        The threshold Apdex threshold of the service. The default threshold value is set to 100ms, and only a [Super Admin user](authorization-faq.html#who-is-the-super-admin-user) or users with the [**Applications** permission](permissions_overview.html) can configure the threshold (T).
+        The threshold Apdex threshold of the service. The default threshold value is set to 100ms, and only Super Admin users and users with the [**Applications** permission](permissions_overview.html) can configure the threshold (T).
       </td>
     </tr>
     <tr>
@@ -309,7 +309,7 @@ Using the table view, you can:
     <tr>
       <td markdown="span">
         **Apdex** <br/>
-        Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only a [Super Admin user](authorization-faq.html#who-is-the-super-admin-user) or users with the [**Applications** permission](permissions_overview.html) can configure the threshold (T).
+        Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only Super Admin users and users with the [**Applications** permission](permissions_overview.html) can configure the threshold (T).
       </td>
       <td markdown ="span">
         ![The image shows the setting and the legend setting with apdex selected from the drop down.](images/apdex_score_legend_colors.png)
@@ -392,7 +392,7 @@ On the page for a particular application, you can:
       <tr>
         <td markdown="span">
           **Apdex** <br/>
-          Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only [Super Admin users](authorization-faq.html#who-is-the-super-admin-user) can configure the threshold (T).
+          Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only Super Admin users and users with the [**Applications** permission](permissions_overview.html) can configure the threshold (T).
         </td>
         <td markdown ="span">
           ![The image shows the setting and the legend setting with apdex selected from the drop down.](images/apdex_score_legend_colors.png)

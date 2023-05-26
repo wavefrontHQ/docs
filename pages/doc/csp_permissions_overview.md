@@ -21,6 +21,8 @@ All users can:
   * Share links to dashboards and charts with other users.
   * Access the user profile from the gear icon <i class="fa fa-cog"/> on the toolbar.
 
+Users with the [**Super Admin** service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) have full administrative access to the service.
+
 ## Operations for Applications Permissions
 
 VMware Cloud services allows users with the VMware Cloud **Organization Owner** and **Organization Administrator** roles to perform access control for object management based on Operations for Applications permissions. 
