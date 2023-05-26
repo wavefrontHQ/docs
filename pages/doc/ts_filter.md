@@ -11,7 +11,7 @@ summary: Reference to the filter() function
 filter(<tsExpression>, <filter1> [and|or [not] <filter2>] ... )
 
 where <filterN> is:
-    <metricName> | source="<sourceName>" | <pointTagKey>="<pointTagValue>" | sourcetags
+    <metricName> | source="<sourceName>" | <pointTagKey>="<pointTagValue>" | sourceTags
 ```
 Filters the expression to display only the time series that match one or more filters, which might be any combination of metric names, source names, or point tags.
 
@@ -26,7 +26,7 @@ Filters the expression to display only the time series that match one or more fi
 <td>Expression that describes the time series you want to filter.</td>
 </tr>
 <tr>
-<td>&lt;metricName&gt;&vert;source=&vert;tag=&vert;&lt;pointTagKey&gt;&vert;sourcetags</td>
+<td>&lt;metricName&gt;&vert;source=&vert;tag=&vert;&lt;pointTagKey&gt;&vert;sourceTags</td>
 <td markdown="span">A metric, source, source tag, or point tag to filter by. You must specify at least one filter, which can be of any type. Use Boolean operators to combine multiple filters. For example, <br>**(source=app-1 or source=app-2) and env=dev**.</td></tr>
 </tbody>
 </table>
@@ -51,18 +51,18 @@ ts(“cpu.loadavg.1m”, source=“app-1” and app=“blue”)
 
 ### Source Tag Filters
 
-Without using `filter()` you can focus your search using `sourcetags` like this:
+Without using `filter()` you can focus your search using `sourceTags` like this:
 
 ```
-sum(ts(collector.points.reported, tag=prod and (tag=sf or tag=ny)), sourcetags)
+sum(ts(collector.points.reported, tag=prod and (tag=sf or tag=ny)), sourceTags)
 ```
 
 This query returns the sum for all time series with points that are tagged with `prod` and also with either `sf` or `la`, and groups the result by source tag, so you see 3 lines, one for each tag.
 
-If you only want to see the `sf` and `la` lines (don't want to see the `prod` tag) you can fine-tune the query by using `filter()` and including `not` with the `sourcetags` filter:
+If you only want to see the `sf` and `la` lines (don't want to see the `prod` tag) you can fine-tune the query by using `filter()` and including `not` with the `sourceTags` filter:
 
 ```
-filter(sum(ts(collector.points.reported, tag=prod and (tag=sf or tag=ny)), sourcetags), not tag=prod)
+filter(sum(ts(collector.points.reported, tag=prod and (tag=sf or tag=ny)), sourceTags), not tag=prod)
 ```
 
 
