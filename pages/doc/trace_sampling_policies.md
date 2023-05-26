@@ -19,7 +19,7 @@ Let's look at how you can create a sampling policy and get familiar with the pol
 
 ## Create a Sampling Policy
 
-{% include note.html content="Only a [Super Admin user](authorization-faq.html#who-is-the-super-admin-user) or users with [Applications permissions](permissions_overview.html) can create sampling policies." %}
+{% include note.html content="Only Super Admin users and users with the [Applications permissions](permissions_overview.html) can create sampling policies." %}
 
 To create a sampling policy:
 
