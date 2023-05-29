@@ -35,7 +35,7 @@ Billing depends on the amount of data, measured in points per second (PPS), that
       You are redirected to the VMware Cloud Services Console to complete your organization profile. See [Getting started with VMware Cloud Services billing and subscriptions](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-F772AF05-AA85-40A0-B9B5-D98C7D83D713.html) in the VMware Cloud services documentation.
    
       After you complete your organization profile in the VMware Cloud Service Console, you are redirected back to the purchase wizard in Operations for Applications.
-   * If your VMware Cloud organization already has a billing account, optionally, you can review the billing details by clicking **View Organization Profile**, which opens the VMware Cloud Services Console in a new tab.
+   * If your VMware Cloud organization already has a billing account, optionally, review the billing details by clicking **View Organization Profile**, which opens the VMware Cloud Services Console in a new tab.
    
       To proceed with the purchase, in Operations for Applications, click **Next**. 
 
