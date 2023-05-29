@@ -6,10 +6,10 @@ summary: Learn about the Redis Integration.
 ---
 ## Redis Integration
 
-Redis is a popular open source, in-memory data store, used as a database, cache, and message broker. Redis provides data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes, and streams. By setting up this integration, you can send Redis metrics into Wavefront.
+Redis is a popular open source, in-memory data store, used as a database, cache, and message broker. Redis provides data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes, and streams. By setting up this integration, you can send Redis metrics into Operations for Applications.
 
-1. **Redis**: This integration installs and configures Telegraf to send Redis metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
-2. **Redis on Kubernetes**: This explains the configuration of Wavefront Collector for Kubernetes to scrape Redis metrics using auto-discovery with annotation based discovery.
+1. **Redis**: This integration installs and configures Telegraf to send Redis metrics into Operations for Applications. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+2. **Redis on Kubernetes**: This explains the configuration of Kubernetes Metrics Collector to scrape Redis metrics using auto-discovery with annotation based discovery.
 
 In addition to setting up the metrics flow, this integration also installs dashboards:
   * Redis
@@ -61,17 +61,29 @@ Run `sudo service telegraf restart` to restart your agent.
 
 ## Redis on Kubernetes
 
-Redis Exporter tested version: v1.29.0
+* Redis tested version: 7.0.11
+* Redis Exporter tested version: v1.50.0
 
-This integration uses the [annotation based discovery](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/discovery.md#annotation-based-discovery) feature in Wavefront Collector to monitor Redis on Kubernetes. If you do not have the Wavefront Collector for Kubernetes installed, follow these instructions to add it to your cluster by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install). You can check the status of the Wavefront Collector and Proxy if you are already monitoring the Kubernetes cluster on the `Setup` tab of the Kubernetes integration.
+This integration uses:
+* The [Annotation Based Discovery](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/discovery.md#annotation-based-discovery) feature in Kubernetes Metrics Collector to monitor Redis on Kubernetes.
 
-### Steps to Annotate Redis
-1. Annotate the Redis pods so that they can be discovered by the Wavefront Collector, if not annotated. Assuming that the `port` is `9121`, run:{% raw %}
+* The [Kubernetes Metrics Collector](https://github.com/wavefrontHQ/observability-for-kubernetes) to collect the metrics from the annotated Redis pods and send the metrics to Operations for Applications, so that you can monitor your clusters and workloads in Kubernetes.
+
+You can deploy the Kubernetes Metrics Collector by using either the [Observability for Kubernetes Operator](https://github.com/wavefrontHQ/observability-for-kubernetes) (recommended deployment) or by using the [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or [manual installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install) (deprecated deployment).
+
+If you do not already have the Kubernetes Metrics Collector installed in your Kubernetes cluster, follow the add Kubernetes instructions and add it to your cluster.
+
+### Reporting Redis Metrics to Operations for Applications
+
+1. Make sure that auto discovery `enableDiscovery: true` and annotation based discovery `discovery.disable_annotation_discovery: false` are enabled in the Kubernetes Metrics Collector ConfigMap. They should be enabled by default.
+
+    **Note**: The Kubernetes Metrics Collector scrapes all the pods that have Prometheus annotation enabled.
+
+2. Annotate the Redis pods so that they can be discovered by the Kubernetes Metrics Collector, if not annotated. Assuming that the `port` is `9121`, run:{% raw %}
 ```
 kubectl annotate pods <pod-name> prometheus.io/scrape=true prometheus.io/port=9121 prometheus.io/path=/metrics
 ```
 {% endraw %}
-**NOTE**: Make sure that auto discovery `enableDiscovery: true` and annotation based discovery `discovery.disable_annotation_discovery: false` are enabled in the Wavefront Collector. They should be enabled by default.
 
 
 
