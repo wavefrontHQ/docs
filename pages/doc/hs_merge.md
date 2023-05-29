@@ -27,7 +27,7 @@ Merges the series of histogram distributions described by the expression, and re
 <td markdown="span">Expression describing the histogram series to be merged.</td></tr>
 <tr> 
 <td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
-<td>Optional 'group by' parameter for organizing the input histogram series into subgroups and then merging the series within each subgroup.
+<td>Optional <code>group by</code> parameter for organizing the input histogram series into subgroups and then merging the series within each subgroup.
 Use one or more parameters to group by metric names, source names, source tag names, point tag names, values for a particular point tag key, or any combination of these items. Specify point tag keys by name.</td>
 </tr>
 </tbody>
@@ -45,11 +45,13 @@ You can visualize `merge()` by running it as a top-level query under a time-seri
 
 ### Grouping
 
-`merge()` is an aggregation function for histogram series, and returns a single series by default.  You can include a 'group by' parameter to subdivide the results by merging subgroups of series that share common metric names, source names, source tags, point tags, or values for a particular point tag key. 
+`merge()` is an aggregation function for histogram series, and returns a single series by default. You can include a `group by` parameter to subdivide the results by merging subgroups of series that share common metric names, source names, source tags, point tags, or values for a particular point tag key. 
 The function returns a separate histogram series of results corresponding to each subgroup.
 For example, `merge(hs(users.settings.numberOfApiTokens.m), sources)` returns a separate series of merged distributions for each source.
 
 You can specify multiple 'group by' parameters to group the histogram series based on multiple characteristics. For example, `merge(hs(users.settings.numberOfApiTokens.m), metrics, Customer)` first groups by metric names, and then groups by the values of the `Customer` point tag.
+
+{% include note.html content="Starting with the 2023-20.x release, grouping is case-sensitive. For example, if you ingest point tags such as `zone` and `ZONE`, when you use an aggregation function and apply grouping, we consider `zone` and `ZONE` as separate tags. " %}
 
 
 ## Examples
