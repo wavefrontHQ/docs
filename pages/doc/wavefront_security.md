@@ -24,11 +24,11 @@ Operations for Applications has successfully completed all requirements for the 
 
 Operations for Applications is used for monitoring applications. Operations for Applications securely stores user name and password information, but does not collect information about individual users. We do not install agents that collect user information.
 
-None of the built-in integrations collect user information. However, our customers can set up their Wavefront instances to collect any type of information they want.
+None of the built-in integrations collect user information. However, our customers can set up their service instances to collect any type of information they want.
 
 ## Data Protection
 
-Currently, Operations for Applications uses AWS to run the Wavefront service and to store customer application data.
+Currently, Operations for Applications uses AWS to run the service and to store customer application data.
 
 * The service is served from a single AWS region spread across multiple availability zones for failover.
 * All incoming and outgoing traffic is encrypted.
@@ -54,7 +54,7 @@ Operations for Applications supports the option of Disaster Recovery (DR) across
 
 ## Networking
 
-Applications send data to the Wavefront service using either the [Wavefront proxy](proxies.html) or [direct ingestion](direct_ingestion.html). We protect all data traffic with TLS (Transport Layer Security) and HTTPS. If you send data directly to the Wavefront service, we require TLS 1.2 connections.
+Applications send data to Operations for Applications using either the [Wavefront proxy](proxies.html) or [direct ingestion](direct_ingestion.html). We protect all data traffic with TLS (Transport Layer Security) and HTTPS. If you send data directly to Operations for Applications, we require TLS 1.2 connections.
 
 The Wavefront proxy uses HTTPS, and we offer options to secure it further:
 * Perform a manual install and place the Wavefront proxy [behind an HTTP proxy](proxies_manual_install.html#configure-wavefront-proxy-with-an-httphttps-proxy).
