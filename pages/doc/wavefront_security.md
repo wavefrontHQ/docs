@@ -54,7 +54,7 @@ Operations for Applications supports the option of Disaster Recovery (DR) across
 
 ## Networking
 
-Applications send data to the Operations for Applications service using either the [Wavefront proxy](proxies.html) or [direct ingestion](direct_ingestion.html). We protect all data traffic with TLS (Transport Layer Security) and HTTPS. If you send data directly to the Operations for Applications service, we require TLS 1.2 connections.
+Applications send data to Operations for Applications using either the [Wavefront proxy](proxies.html) or [direct ingestion](direct_ingestion.html). We protect all data traffic with TLS (Transport Layer Security) and HTTPS. If you send data directly to Operations for Applications, we require TLS 1.2 connections.
 
 The Wavefront proxy uses HTTPS, and we offer options to secure it further:
 * Perform a manual install and place the Wavefront proxy [behind an HTTP proxy](proxies_manual_install.html#configure-wavefront-proxy-with-an-httphttps-proxy).
