@@ -6,11 +6,11 @@ summary: Learn about the Kafka Integration.
 ---
 ## Kafka Integration
 
-Kafka is a distributed streaming platform. By setting up this integration, you can send Kafka metrics into Wavefront.
+Kafka is a distributed streaming platform. By setting up this integration, you can send Kafka metrics into Operations for Applications.
 
-1. **Apache Kafka**: This explains the installation and configuration of Telegraf to send Kafka metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+1. **Apache Kafka**: This explains the installation and configuration of Telegraf to send Kafka metrics into Operations for Applications. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
-2. **Kafka on Kubernetes**: This explains the configuration of Wavefront Collector for Kubernetes to scrape Kafka metrics using auto-discovery.
+2. **Kafka on Kubernetes**: This explains the configuration of Kubernetes Metrics Collector to scrape Kafka metrics using auto-discovery.
 
 In addition to setting up the metrics flow, this integration also installs dashboards:
   * Apache Kafka
@@ -223,26 +223,31 @@ You can use the following command to deploy Bitnami Kafka with kafka-exporter an
 ```
 helm repo add bitnami https://charts.bitnami.com/bitnami
 
-helm install <KAFKA_CLUSTER_NAME> --set metrics.kafka.enabled=true --set metrics.kafka.image.registry=docker.io --set metrics.kafka.image.repository=bitnami/kafka-exporter --set metrics.kafka.image.tag=1.3.1-debian-10-r64 --set metrics.kafka.image.pullPolicy=IfNotPresent bitnami/kafka --set metrics.jmx.enabled=true --set metrics.jmx.image.registry=docker.io --set metrics.jmx.image.repository=bitnami/jmx-exporter --set metrics.jmx.image.tag=0.16.1-debian-10-r17 --set metrics.jmx.image.pullPolicy=IfNotPresent
+helm install <KAFKA_CLUSTER_NAME> --set metrics.kafka.enabled=true --set metrics.kafka.image.registry=docker.io --set metrics.kafka.image.repository=bitnami/kafka-exporter --set metrics.kafka.image.tag=1.6.0-debian-11-r87 --set metrics.kafka.image.pullPolicy=IfNotPresent bitnami/kafka --set metrics.jmx.enabled=true --set metrics.jmx.image.registry=docker.io --set metrics.jmx.image.repository=bitnami/jmx-exporter --set metrics.jmx.image.tag=0.18.0-debian-11-r19 --set metrics.jmx.image.pullPolicy=IfNotPresent
 ```
 {% endraw %}
 
-### Configure the Wavefront Collector for Kubernetes
+This integration uses:
+* The [Annotation Based Discovery](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/discovery.md#annotation-based-discovery) feature in Kubernetes Metrics Collector to monitor Kafka on Kubernetes.
 
-You can configure the Wavefront Collector for Kubernetes to scrape Kafka metrics by using annotation based discovery.
+* The [Kubernetes Metrics Collector](https://github.com/wavefrontHQ/observability-for-kubernetes) to collect the metrics from the annotated Kafka JMX metrics service and send the metrics to Operations for Applications, so that you can monitor your clusters and workloads in Kubernetes.
 
-If you do not have the Wavefront Collector for Kubernetes installed on your Kubernetes cluster, follow these instructions to add it to your cluster by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install). You can check the status of Wavefront Collector and Proxy if you are already monitoring the Kubernetes cluster on the `Setup` tab of the Kubernetes integration.
+You can deploy the Kubernetes Metrics Collector by using either the [Observability for Kubernetes Operator](https://github.com/wavefrontHQ/observability-for-kubernetes) (recommended deployment) or by using the [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or [manual installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install) (deprecated deployment).
 
-**Annotation Based Discovery**:
+If you do not already have the Kubernetes Metrics Collector installed in your Kubernetes cluster, follow the add Kubernetes instructions and add it to your cluster.
+
+### Reporting Kafka Metrics to Operations for Applications
+
 By default, both the JMX exporter and Kafka exporter services are annotated with Prometheus `scrape` and `port`.
 
-* Annotate the jmx-metrics service to add the `path` and prefix `kafkajmx.`.{% raw %}
+* Annotate the jmx-metrics service to add the `path` and prefix `kafkajmx.`.
+{% raw %}
 ```
-kubectl annotate service <KAFKA_CLUSTER_NAME>-jmx-metrics prometheus.io/path=/metrics prometheus.io/prefix=kafkajmx.
+kubectl annotate service <KAFKA_CLUSTER_NAME>-jmx-metrics prometheus.io/path=/metrics prometheus.io/prefix=kafkajmx. --overwrite
 ```
 {% endraw %}
 
-**NOTE**: Make sure that auto discovery `enableDiscovery: true` and annotation based discovery `discovery.disable_annotation_discovery: false` are enabled in the Wavefront Collector. They should be enabled by default.
+**Note**: Make sure that auto discovery `enableDiscovery: true` and annotation based discovery `discovery.disable_annotation_discovery: false` are enabled in the Kubernetes Metrics Collector. They should be enabled by default.
 
 
 

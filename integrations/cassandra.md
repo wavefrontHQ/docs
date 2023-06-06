@@ -8,15 +8,16 @@ summary: Learn about the Cassandra Integration.
 
 Apache Cassandra is a free and open-source distributed NoSQL database management system designed to handle large amounts of data across many commodity servers, providing high availability with no single point of failure. Cassandra offers robust support for clusters spanning multiple datacenters, with asynchronous masterless replication allowing low latency operations for all clients.
 
-1. **Cassandra**: This integration installs and configures Telegraf Jolokia2 input plugin to send Cassandra metrics to Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html). Collecting Cassandra metric requires the installation of Jolokia java-jvm agent. [Jolokia](https://jolokia.org/index.html) is a JMX-HTTP bridge giving an alternative to JSR-160 connectors. It is an agent based approach with support for many platforms. The Cassandra integration collects Cassandra / JVM metrics exposed as MBean's attributes through jolokia REST endpoint.
+1. **Cassandra**: This integration installs and configures Telegraf Jolokia2 input plugin to send Cassandra metrics to Operations for Applications. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html). Collecting Cassandra metric requires the installation of Jolokia java-jvm agent. [Jolokia](https://jolokia.org/index.html) is a JMX-HTTP bridge giving an alternative to JSR-160 connectors. It is an agent based approach with support for many platforms. The Cassandra integration collects Cassandra / JVM metrics exposed as MBean's attributes through jolokia REST endpoint.
 
-2. **Cassandra on Kubernetes**: This integration uses K8ssandra which is a cloud native distribution of Apache Cassandra® that runs on Kubernetes. K8ssandra provides an ecosystem of tools to provide richer data APIs and automated operations alongside Cassandra. This explains the configuration of Wavefront Collector for Kubernetes to scrape Cassandra metrics using Prometheus.
+2. **Cassandra on Kubernetes**: This integration uses K8ssandra which is a cloud native distribution of Apache Cassandra® that runs on Kubernetes. K8ssandra provides an ecosystem of tools to provide richer data APIs and automated operations alongside Cassandra. This explains the configuration of Kubernetes Metrics Collector to scrape Cassandra metrics using Prometheus.
 
 In addition to setting up the metrics flow, this integration also installs dashboards:
 * Cassandra
 * Cassandra on Kubernetes
 
 Here's a dashboard displaying Cassandra metrics on Kubernetes:
+
 {% include image.md src="images/cassandra_dashboard.png" width="80" %}
 
 
@@ -183,33 +184,39 @@ Run `sudo service telegraf restart` to restart your agent.
 
 ## Cassandra on Kubernetes
 
-This integration supports Cassandra deployment using [K8ssandra](https://k8ssandra.io/about/) provided by the Apache Cassandra community.
+This integration uses:
+- The **Cassandra** deployment using [K8ssandra](https://k8ssandra.io/about/) provided by the Apache Cassandra community.
 
-* Make sure that K8ssandra is deployed on your Kubernetes cluster. If not deployed already, you can deploy it by using [K8ssandra-installation](https://start.k8ssandra.io/). Also, ensure to enable monitoring on your K8ssandra deployment `.yaml`.
-{% raw %}
-    ```
-    ### Sample command
-    helm install -f k8ssandra-file.yaml k8ssandra-release -n k8ssandra-namespace
-    ```
-{% endraw %}
+  - Make sure that K8ssandra is deployed on your Kubernetes cluster. If not already deployed, you can deploy it either by using [K8ssandra Operator](https://docs.k8ssandra.io/install/) (recommended deployment) or [K8ssandra Config Builder](https://start.k8ssandra.io/) (deprecated deployment).
 
-#### Configure the Wavefront Collector for Kubernetes
-You can configure the Wavefront Collector for Kubernetes to scrape Cassandra metrics from Prometheus using `prometheus_sources` configuration.
+  - For K8ssandra Config Builder deployment, ensure to enable monitoring on your Cassandra Helm chart.
 
-If you do not already have the Wavefront Collector for Kubernetes installed, follow these instructions to add it to your cluster either by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install).
+- The [kube-prometheus-stack](https://docs.k8ssandra.io/tasks/monitor/prometheus-grafana/#creating-a-k8ssandracluster-with-telemetry-enabled) to monitor the Prometheus ServiceMonitors for Stargate, Cassandra, and Reaper.
 
-Step 1. Edit the Wavefront Collector ConfigMap at runtime, and add the following snippet under `Prometheus Sources`.{% raw %}
-   ```
-   kubectl edit configmap wavefront-collector-config -n wavefront
-   ```
-{% endraw %}
+- The **Kubernetes Metrics Collector** to collect the metrics from Cassandra Deployment and forward them to Operations for Applications, so that you can monitor your clusters and workloads in Kubernetes.
 
-Cassandra Config:{% raw %}
-   ```
-      ##########################################################################
-      # Static source to collect Cassandra metrics via federated Prometheus server
-      ##########################################################################
-        
+  - You can deploy the Kubernetes Metrics Collector by using either the [Observability for Kubernetes Operator](https://github.com/wavefrontHQ/observability-for-kubernetes) (recommended deployment) or by using the [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or [manual installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install) (deprecated deployment).
+
+  - If you do not already have the Kubernetes Metrics Collector installed in your Kubernetes cluster, follow the add Kubernetes instructions and add it to your cluster. Then proceed with the steps below, except step `2.2`.
+
+If you already have the Kubernetes Metrics Collector installed by using the deprecated Helm or manual deployment, you can choose to proceed with one of the options below:
+  - Uninstall the deprecated Kubernetes Metrics Collector, then install the Observability for Kubernetes Operator and proceed with the steps below, except step `2.2`.
+  - Continue using the deprecated Helm or manual deployment. In such a case, proceed with the steps below, except step `2.1`.
+
+### Configure the Collector ConfigMap
+
+* To update the Observability for Kubernetes Operator, follow the steps under [Update the Observability for Kubernetes Operator ConfigMap](#kubernetes-operator).
+
+* To update the Kubernetes Metrics Collector installed using Helm or manual installation, follow the steps under [Update the Kubernetes Metrics Collector ConfigMap](#kubernetes-collector).
+
+#### <a name="kubernetes-operator"></a><br> 2.1 Update the Observability for Kubernetes Operator ConfigMap
+
+Step 1. Download the [existing collector ConfigMap](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/deploy/scenarios/wavefront-collector-existing-configmap.yaml) `.yaml` file, and open it in edit mode.
+
+Step 2. Update `YOUR_CLUSTER_NAME` with the name of your Kubernetes cluster and `YOUR_WAVEFRONT_URL` with the URL of your Operations for Applications instance.
+
+Step 3. Add the following snippet under `sources`, and save the `.yaml` file:{% raw %}
+```
       prometheus_sources:
       - url: 'http://<prometheus-service-name>.<namespace>.svc.cluster.local:9090/federate?match[]={__name__=~"(mcac|stargate|jvm).*"}'
         prefix: 'cassandra.'
@@ -218,7 +225,42 @@ Cassandra Config:{% raw %}
           tls_config:
             ca_file: '/var/run/secrets/kubernetes.io/serviceaccount/ca.crt'
             insecure_skip_verify: true
-  
+
+        filters:
+          metricAllowList:
+          - 'cassandra.mcac.*'
+          - 'cassandra.stargate.*'
+          - 'cassandra.jvm.*'
+```
+{% endraw %}
+
+**Note**: Update the `prometheus-service-name` and `namespace` params in the url as per your environment.
+
+Step 4. Deploy the existing collector ConfigMap `.yaml` file.{% raw %}
+```
+kubectl apply -f wavefront-collector-existing-configmap.yaml
+```
+{% endraw %}
+
+#### <a name="kubernetes-collector"></a><br> 2.2 Update the Kubernetes Metrics Collector ConfigMap
+
+Step 1. Edit the Kubernetes Metrics Collector ConfigMap at runtime, and add the following snippet under `sources`.{% raw %}
+   ```
+   kubectl edit configmap wavefront-collector-config -n wavefront
+   ```
+{% endraw %}
+
+Cassandra Config:{% raw %}
+   ```
+      prometheus_sources:
+      - url: 'http://<prometheus-service-name>.<namespace>.svc.cluster.local:9090/federate?match[]={__name__=~"(mcac|stargate|jvm).*"}'
+        prefix: 'cassandra.'
+        httpConfig:
+          bearer_token_file: '/var/run/secrets/kubernetes.io/serviceaccount/token'
+          tls_config:
+            ca_file: '/var/run/secrets/kubernetes.io/serviceaccount/ca.crt'
+            insecure_skip_verify: true
+
         filters:
           metricAllowList:
           - 'cassandra.mcac.*'
@@ -227,7 +269,8 @@ Cassandra Config:{% raw %}
    ```
 {% endraw %}
 
-**NOTE**: Update the `prometheus-service-name` and `namespace` params in the url as per your environment.
+**Note**: Update the `prometheus-service-name` and `namespace` params in the url as per your environment.
+
 
 
 

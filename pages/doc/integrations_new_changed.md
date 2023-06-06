@@ -8,6 +8,23 @@ summary: New and changed integrations.
 ---
 VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
+## May 2023
+
+We made improvements to the following integrations in May 2023:
+
+* Istio - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. See [Istio Setup](istio.html#istio-setup) for details.
+* Envoy Proxy - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. See [Envoy Proxy on Kubernetes](envoy.html#envoy-proxy-on-kubernetes) for details.
+* RabbitMQ - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. See [RabbitMQ on Kubernetes](rabbitmq.html#rabbitmq-on-kubernetes) for details.
+* Tanzu Application Service -- Made updates to the **TAS: Nozzle Troubleshooting** and the **TAS: Workload Monitoring** dashboards, as well as to the **TAS UAA Latency is Elevated** alert.
+  * Updated the latency queries because now we emit latency as a histogram.
+  * Updated the **TAS: Nozzle Troubleshooting** dashboard to show points used by histograms.
+
+* Improved the documentation on how to use regular expressions for the following list of integrations:
+  * [Microsoft Azure](azure.html#add-a-microsoft-azure-cloud-integration)
+  * [Amazon Web Services](integrations_aws_metrics.html#configuring-cloudwatch-data-ingestion)
+  * [Google Cloud Platform](gcp.html#add-a-gcp-integration)
+
+
 ## March 2023
 
 
