@@ -162,9 +162,12 @@ We've added the following configuration properties for logs to the already exist
 </tbody>
 </table>
 
-### Properties for VMware Cloud Services Platform Users
+### Properties for VMware Cloud Services Subscriptions
 
-If you are using logs through the VMware Cloud Services Platform, you have access to both Aria Operations for Logs and Aria Operations for Applications. Therefore, you need to provide the Aria Operations for Logs URL and token to send logs data and to see the data on the Logs Browser.
+{% include note.html content="All new Operations for Applications service subscriptions are onboarded to VMware Cloud services. The content in this section is valid for new subscribers. For information about original and new subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html)." %}
+
+VMware Cloud services provides access to both VMware Aria Operations for Logs and VMware Aria Operations for Applications. Therefore, to send logs data and see the data on the Operations for Applications Logs Browser, you must configure the proxy with the Operations for Logs URL and token. 
+
 
 <table style="width: 100%;">
   <thead>
@@ -180,7 +183,7 @@ If you are using logs through the VMware Cloud Services Platform, you have acces
         logServerIngestionURL
       </td>
       <td markdown="span">
-        The URL you use to send data to Aria Operations for Logs.
+        The URL you use to send data to Operations for Logs.
       </td>
     </tr>
     <tr>
@@ -189,7 +192,7 @@ If you are using logs through the VMware Cloud Services Platform, you have acces
         logServerIngestionToken
       </td>
       <td markdown="span">
-        The authorization token that was given by Aria Operations for Logs.
+        The authorization token that was given by Operations for Logs.
       </td>
     </tr>
   </tbody>
