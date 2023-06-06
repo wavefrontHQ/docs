@@ -8,7 +8,7 @@ summary: Learn about the NVIDIA Integration.
 
 1. **NVIDIA**: This integration allows you to monitor your NVDIA GPU cluster. It uses the Telegraf NVIDIA plugin to pull the **GPU name**, **fan speed**, **memory usage**, **temperature**, and **UUID**.
 
-2. **NVIDIA on Kubernetes**: This explains the configuration of the Wavefront Collector for Kubernetes to scrape NVIDIA metrics using NVIDIA Data Center GPU Manager (DCGM) tool.
+2. **NVIDIA on Kubernetes**: This explains the configuration of the Kubernetes Metrics Collector to scrape NVIDIA metrics using NVIDIA Data Center GPU Manager (DCGM) tool.
 
 In addition to setting up the metrics flow, this integration also installs dashboards:
 * NVIDIA
@@ -20,7 +20,7 @@ In addition to setting up the metrics flow, this integration also installs dashb
 To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
 ## NVIDIA Setup
 
-This integration uses Telegraf to fetch the metrics from the NVIDIA System Management Interface (nvidia-smi) and send them to the Wavefront service.
+This integration uses Telegraf to fetch the metrics from the NVIDIA System Management Interface (nvidia-smi) and send them to Operations for Applications.
 
 Use the instructions on this page for monitoring:
   * NVIDIA - Standalone
@@ -71,30 +71,31 @@ net start telegraf
 
 ## NVIDIA on Kubernetes
 
-This explains the configuration of Wavefront Collector for Kubernetes to scrape NVIDIA metrics using NVIDIA Data Center GPU Manager (DCGM) tool.
+This integration uses:
 
+* The [Data Center GPU Manager Exporter](https://docs.nvidia.com/datacenter/cloud-native/gpu-telemetry/dcgm-exporter.html) (DCGM) to get the NVIDIA metrics in Prometheus.
 
-* Use [DCGM exporter](https://docs.nvidia.com/datacenter/cloud-native/gpu-telemetry/dcgm-exporter.html) to get the NVDIA metrics in Prometheus.
-* Deploy a `dcgmproftester` pod to create [profiling metrics](https://developer.nvidia.com/blog/monitoring-gpus-in-kubernetes-with-dcgm). 
+* The CUDA load generator (dcgmproftester) to create [profiling metrics](https://developer.nvidia.com/blog/monitoring-gpus-in-kubernetes-with-dcgm).
 
+* The [Annotation Based Discovery](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/discovery.md#annotation-based-discovery) feature in Kubernetes Metrics Collector to monitor NVIDIA on Kubernetes.
 
-#### Configure the Wavefront Collector for Kubernetes
-You can configure the Wavefront Collector for Kubernetes to scrape NVIDIA metrics from Prometheus by using the below configuration.
+* The [Kubernetes Metrics Collector](https://github.com/wavefrontHQ/observability-for-kubernetes) to collect the NVIDIA metrics using NVIDIA DCGM tool and send the metrics to Operations for Applications, so that you can monitor your clusters and workloads in Kubernetes.
 
-If you do not already have the Wavefront Collector for Kubernetes installed, follow these instructions to add it to your cluster either by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install).
+You can deploy the Kubernetes Metrics Collector by using either the [Observability for Kubernetes Operator](https://github.com/wavefrontHQ/observability-for-kubernetes) (recommended deployment) or by using the [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or [manual installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install) (deprecated deployment).
+
+If you do not already have the Kubernetes Metrics Collector installed in your Kubernetes cluster, follow the add Kubernetes instructions and add it to your cluster.
+
+### Reporting NVIDIA Metrics to Operations for Applications
+
+* Annotate the dcgm-exporter service to add the metrics scrape path and port.
 {% raw %}
 ```
-      ## Add this configuration under discovery plugin section
-      - name: nvidia
-        type: prometheus
-        selectors:
-          images:
-            - '*dcgm-exporter*'
-        port: 9400
-        path: /metrics
-        scheme: http
+kubectl annotate service dcgm-exporter-XXXXX prometheus.io/scrape=true prometheus.io/port=9400 prometheus.io/path=/metrics
 ```
 {% endraw %}
+
+**Note**: Make sure that auto discovery `enableDiscovery: true` and annotation based discovery `discovery.disable_annotation_discovery: false` are enabled in the Kubernetes Metrics Collector. They should be enabled by default.
+
 
 
 
