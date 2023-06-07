@@ -18,9 +18,6 @@ You can:
 We collect the following sets of metrics.
 
 - `~alert*` -- a set of metrics that allows you to examine the effect of alerts on your service instance.
-
-   {% include note.html content=" Alerting on the `~alert*` set of metrics is not supported. Alerts in which you use the `~alert*` set of metrics will show **No Data** even when data flows. You can use these metrics only in charts and dashboards." %}
-
 - `~collector` -- metrics processed at the collector gateway to the service instance. Includes spans.
 - `~metric` -- total unique sources and metrics.  You can compute the rate of metric creation from each source.
 - `~proxy` -- metric rate received and sent from each Wavefront proxy, blocked and rejected metric rates, buffer metrics, and JVM stats of the proxy. Also includes counts of metrics affected by the proxy preprocessor. See [Monitor Wavefront Proxies](monitoring_proxies.html).
