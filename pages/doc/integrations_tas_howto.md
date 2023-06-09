@@ -73,7 +73,8 @@ We've streamlined the getting started process so it involves a few simple steps 
 
 1. Download the Tanzu Observability by Wavefront nozzle file from the [Tanzu Network](https://network.pivotal.io/)
 2. In Tanzu Ops Manager, install, configure, and deploy the nozzle. At a minimum:
-    1. In the **Wavefront Proxy Config** section, specify the Wavefront instance and API token (shown in the Wavefront instance in the integration's **Setup** tab) and a user-friendly host name.
+    1. In the **Wavefront Proxy Config** section, specify the Operations for Applications instance and an API token and a user-friendly host name. The API token that you provide and how it is generated depends on whether your Operations for Applications service is onboarded to VMware Cloud services. For details on API tokens, see [Managing API Tokens](wavefront_api.html#managing-api-tokens)
+
    ![OpsMan Proxy Config tab with the 3 required items highlighted](images/tas_to_proxy_config.png)
     2. In the **Telegraf Agent Config** section, specify the Foundation name.<br/><br/>
      See [Ops Manager: Install, Configure, and Deploy the Nozzle](#step-2-ops-manager-install-configure-and-deploy-the-nozzle) and [Tanzu Application Service to Tanzu Observability FAQs](#tanzu-application-service-to-tanzu-observability-faqs)
@@ -166,12 +167,14 @@ You can specify custom elements as follows:
 Ensure that your environment meet requirements on the Ops Manager side and on the Tanzu Observability side.
 * **Ops Manager Requirements**
   VMware Tanzu Observability by Wavefront nozzle has the following requirements:
-  *	Read-only access to the Doppler Firehose and Cloud Controller.
-  * Access to a Wavefront instance and an API token. [Service Account API token](wavefront_api.html#generating-an-api-token) is recommended.
+  * Read-only access to the Doppler Firehose and Cloud Controller.
+  * Access to an Operations for Applications instance and an API token. The API token that you provide and how it is generated depends on whether your Operations for Applications service is onboarded to VMware Cloud services. Service Account API token or server to server app API token is recommended. See [Managing API tokens](wavefront_api.html#managing-api-tokens) is recommended. 
+
+  <!-- Margarita - check whether the above is still true-->
 * **Tanzu Observability by Wavefront Requirements**
-  To set up the Tanzu Application Service integration on you Wavefront instance, you must have:
-  * Access to a Wavefront instance with a URL like `https://example.wavefront.com`.
-  * At a minimum, **Integrations** permission on that Wavefront instance.
+  To set up the Tanzu Application Service integration on your Operations for Applications instance, you must have:
+  * Access to a Operations for Applications instance with a URL like `https://example.wavefront.com`.
+  * At a minimum, **Integrations** permission on that Operations for Applications instance.
   * This version of the Tanzu Observability by Wavefront nozzle is compatible with Wavefront proxy version 10.14 and later.
 
 See [Tanzu Observability and TAS Troubleshooting](tas_to_troubleshooting.html) for more.
@@ -183,7 +186,7 @@ This section explains each step in the flow in detail.
 ### Prerequisites
 
 * You must have a Tanzu Network account to configure the Tanzu Observability Nozzle in Ops Manager.
-* You must have login credentials for a Wavefront instance to configure the integration.
+* You must have login credentials for an Operations for Applications instance to configure the integration.
 * Ensure that the root certificate for Ops Manager is included in data coming from Tanzu Application Service. See the [No Data Flowing and Certificate Error](tas_to_troubleshooting.html#symptom-no-data-flowing-in-and-certificate-error) troubleshooting section.
 
 
@@ -225,8 +228,10 @@ In Ops Manager, click the Tanzu Observability by Wavefront tile. With **Settings
    </tr>
    <tr>
    <td width="50%"><strong>Step 2.</strong> Click <strong>Wavefront Proxy Config</strong> and specify:
-   <ol><li>The URL of your Wavefront instance, for example, <code>https://example.wavefront.com</code>.</li>
-   <li>A Wavefront API token. See <a href="wavefront_api.html#generating-an-api-token">Generating an API Token</a>.</li>
+   <ol><li>The URL of your Operations for Applications instance, for example, <code>https://example.wavefront.com</code>.</li>
+   <li>A valid API token. 
+   The API token that you specify depends on whether your Operations for Applications service is onboarded to VMware Cloud services.
+   See <a href="wavefront_api.html#managing-api-tokens">Managing API Tokens</a>.</li>
    <li>User-friendly name for the proxy. </li>
    <li>Click <strong>Save</strong> or click <strong>Custom</strong> (see the next step).
    The nozzle ignores these configuration properties because they're already defined in the setup steps:

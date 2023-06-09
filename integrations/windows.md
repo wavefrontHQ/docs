@@ -6,8 +6,8 @@ summary: Learn about the Windows Host Integration.
 ---
 ## Windows Host Integration
 
-Monitoring Windows hosts is easy with Wavefront. This integration installs and configures Telegraf to send host metrics
-into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+Monitoring Windows hosts is easy with Operations for Applications. This integration installs and configures Telegraf to send host metrics
+into Operations for Applications. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here's the CPU section of a dashboard displaying Windows host metrics.
 

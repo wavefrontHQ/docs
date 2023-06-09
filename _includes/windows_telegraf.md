@@ -8,8 +8,7 @@
 4. Configure the outputs section to communicate with your Wavefront proxy:
    ```
    [[outputs.wavefront]]
-      host = "WAVEFRONT_PROXY_HOSTNAME"
-      port = 2878
+      url = "WAVEFRONT_PROXY_HOSTNAME:2878"
    ```
     **Note:**  In the default `telegraf.conf`, the `host` property is set to `localhost`.
 5. Restart the Telegraf service using the Windows Services Management Console or from the  command prompt:

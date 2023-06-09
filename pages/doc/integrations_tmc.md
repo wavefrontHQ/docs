@@ -16,9 +16,17 @@ You can set up seamless authentication from Tanzu Mission Control to VMware Aria
 {% include tip.html content="The account associated with the generated API token must have **Proxies** and **Integrations** permission. To avoid problems, for example when a (human) user leaves or is not available, use a service account." %}
 
 
-## Generate a Service Account API Token for Tanzu Mission Control
+## Generate an API Token for Tanzu Mission Control
 
-We support user accounts and service accounts. It is recommended that you create a service account API token to use with Tanzu Mission Control.
+Starting June 26th, Operations for Applications becomes a service on the VMware Cloud services platform. 
+
+If your Operations for Applications service **is** onboarded to VMware Cloud services, generate the API token in the VMware Cloud Services Console. It is recommended that you use a server to server app. For more information, see:
+
+* [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) 
+* [How do I manage API tokens in my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html)
+* [server to server app](csp_server_to_server_apps.html).
+
+If your Operations for Applications service is not onboarded to VMware Cloud services, use the procedure below to create a service account API token and use it with Tanzu Mission Control.
 
 1. Log in to your cluster (`https://<example>.wavefront.com`, for example, `https://company1.wavefront.com`), as a user with the **Accounts** permission.
 2. Click the gear icon <i class="fa fa-cog"/> in the top right of the toolbar, select **Accounts**, and provide your password again when prompted.
