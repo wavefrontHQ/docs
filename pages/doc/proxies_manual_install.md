@@ -37,7 +37,7 @@ If your system accepts incoming traffic, you can download the proxy file as foll
 
 Before you can customize the proxy configuration, you have to find the values for your environment. You need the following information to customize the settings.
 
-{% include note.html content="To find the values for server and token, you can click **Integrations** on the toolbar, click the **Linux Host** tile, and click the **Setup** Tab."%}
+{% include note.html content="To find the values for the **server** and **token** parameters, you can click **Integrations** on the toolbar, click the **Linux Host** tile, and click the **Setup** tab." %}
 
 <table style="width: 100%;">
 <tbody>
@@ -46,13 +46,27 @@ Before you can customize the proxy configuration, you have to find the values fo
 </thead>
 <tr>
 <td markdown="span">**server**</td>
-<td>URL of your Operations for Applications service.  </td>
+<td>URL of your Operations for Applications service instance.  </td>
 <td>https://try.wavefront.com/api/ </td>
 </tr>
 <tr>
-<td markdown="span">**token**</td>
-<td markdown="span">API token. See **Note** above.</td>
-<td>xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx </td>
+<td><strong>token</strong></td>
+<td>A valid Operations for Applications token associated with an active user or service account. The account must have the <strong>Proxies</strong> permission.<p><strong>Note:</strong> Applies only for original Operations for Applications subscriptions, not onboarded to VMware Cloud services, when <a href="proxies_installing.html#proxy-authentication-types">the proxy authenticates</a> to Operations for Applications with an Operations for Applications token.</p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><strong>cspAppId</strong></p><p><strong>cspAppSecret</strong></p><p><strong>cspOrgId </strong></p></td>
+<td>Server to server OAuth app credentials - ID and secret (<strong>cspAppId</strong> and <strong>cspAppSecret</strong>), and the VMware Cloud organization ID (<strong>cspOrgId</strong>) running the Operations for Applications service instance. The server to server app must have the <strong>Proxies</strong> service role and must belong to the VMware Cloud organization running the Operations for Applications service instance. 
+<p><strong>Note:</strong> Applies only for Operations for Applications subscriptions on VMware Cloud services if <a href="proxies_installing.html#proxy-authentication-types">the proxy authenticates</a> to Operations for Applications with a VMware Cloud services OAuth app.</p>
+<p>Use either <strong>cspAppId</strong>, <strong>cspAppSecret</strong>, and <strong>cspOrgId</strong> or <strong>cspAPIToken</strong>.</p> </td>
+<td></td>
+</tr>
+<tr>
+<td><strong>cspAPIToken</strong></td>
+<td>A valid VMware Cloud services token associated with an active user account. The user and the token must have the <strong>Proxies</strong> service role.
+<p><strong>Note:</strong> Applies only for Operations for Applications subscriptions on VMware Cloud services if <a href="proxies_installing.html#proxy-authentication-types">the proxy authenticates</a> to Operations for Applications with a VMware Cloud services token.</p>
+<p>Use either <strong>cspAPIToken</strong> or <strong>cspAppId</strong>, <strong>cspAppSecret</strong>, and <strong>cspOrgId</strong>.</p></td>
+<td></td>
 </tr>
 <tr>
 <td markdown="span">**proxyname**</td>
@@ -62,7 +76,7 @@ Before you can customize the proxy configuration, you have to find the values fo
 <tr>
 <td markdown="span">**enable graphite**</td>
 <td markdown="span">Whether to enable the Graphite format. See the [Graphite integration](graphite.html) for details on Graphite configuration.  </td>
-<td>cust42Proxy</td>
+<td></td>
 </tr>
 <tr>
 <td markdown="span">**tlsPorts**</td>
@@ -87,7 +101,7 @@ You can make configuration changes by editing the config file or by running a sc
 
 If you want to edit the configuration file manually:
 
-1. Find, uncomment and modify the configuration:
+1. Find, uncomment and modify the configuration, for example:
    <table>
    <tbody>
    <thead>
@@ -192,6 +206,7 @@ You can test connectivity from the proxy host to your service instance using cur
 
 Run this test before installing the proxy, and again after installing and configuring the proxy.
 
+For example:
 1. Find the values for server and token:
    1. Click **Integrations** on the toolbar.
    2. Select **Linux Host** and click the **Setup** tab.

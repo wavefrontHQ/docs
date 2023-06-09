@@ -26,30 +26,45 @@ In most cases, a Wavefront proxy must be running in your installation before met
 
 <a name="single"></a>
 
+## Proxy Authentication Types
+
+{% include note.html content="Starting June 1, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html).<br/>
+- For VMware Cloud services subscriptions, starting with version 13.0, the Wavefront proxy supports authentication to Operations for Applications with a VMware Cloud services token or OAuth app.<br/>
+- For original Operations for Applications subscriptions, the Wavefront proxy 13.0 still supports authentication with Operations for Applications tokens. "%}
+
+* If your Operations for Applications service instance is onboarded to VMware Cloud services, the proxy requires a VMware Cloud services API token with the **Proxies** [service role](csp_users_roles.html#operations-for-applications-service-roles-built-in). There are two supported authentication types. You can use:
+    *	A server to server **OAuth app**, so that the proxy retrieves the VMware Cloud services API token by using the OAuth credentials of the server to server app.
+
+        Before you add a proxy with an OAuth app, you must retrieve the credentials (ID and secret) of a server to server app that is assigned with the **Proxies** service role and added to the VMware Cloud organization running the service. See [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html?hWord=N4IgpgHiBcIMpgE4DckAIAuB7NBnJqiaAhgA6kgC+QA).
+
+        Also, you must retrieve the VMware Cloud organization ID. See [How do I manage my Cloud Services Organizations](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-CF9E9318-B811-48CF-8499-9419997DC1F8.html).
+
+    *	An **API token** that belongs to your user account.
+
+        Before you add a proxy with an API token, you must have a VMware Cloud services API token that belongs to the VMware Cloud organization running the service and that is assigned with the **Proxies** service role. See [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html).
+
+        {% include note.html content="You must regenerate the token periodically depending on the token TTL configuration."%}
+
+* If your Operations for Applications service instance isn't onboarded to VMware Cloud services, the proxy requires an Operations for Applications API token.
+
+    Before you add a proxy, you must have an API token associated with your user account or a service account with the **Proxies** permission. See [Manage API Tokens](api_tokens.html) for details.
+
 ## Install a Proxy
 
 Many users install a proxy when they set up an integration. You can also install a proxy from the UI or perform a scripted installation manually.
 
 {% include note.html content="In development, many customers use only one proxy that receives data from many applications and sends those data to Operations for Applications. In production, consider using two proxies behind a load balancer. See [Proxy Deployment Options](proxies.html#proxy-deployment-options)." %}
 
-To view the current proxies in your environment, you can use the [Proxes Browser](monitoring_proxies.html#examine-your-proxies-with-the-proxies-browser).
-
 ### Install a Proxy from the UI
 
 To install and run a proxy:
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="60%">
-<ol><li>Log in to your service instance (<code>https://&lt;your_instance&gt;.wavefront.com</code>) and select <strong>Browse &gt; Proxies</strong>. </li>
-<li>Click <strong>Add New Proxy</strong>.</li>
-<li>On the right, click the tab for your operating system and follow the steps on screen.  </li>
-</ol>
-The screenshot on the right shows the steps for installing a Windows proxy. </td>
-<td width="40%"><img src="/images/add_proxy.png" alt="screenshot of add proxy flow in GUI"></td>
-</tr>
-</tbody>
-</table>
+
+1. Log in to your service instance and select **Browse** > **Proxies**.
+1. Click **Add New Proxy**.
+1. If your service instance is onboarded to VMware CLoud services, click the tab for the [proxy authentication type](#proxy-authentication-types) of your choice - **OAuth app** or **API token**.
+1. Click the tab for your operating system and follow the steps on screen.
+
+    {% include tip.html content="If your service instance isn't onboarded to VMware CLoud services, the latest API token of your user account is prepopulated in the proxy installation command but you can change it."%}
 
 The proxy starts listening on port 2878. You can customize listener ports with the [proxy configuration file](proxies_configuring.html).
 
@@ -66,7 +81,10 @@ You can use steps in an integration or perform a package install.
 
 After installing a proxy, you can start and stop the proxy service, check service status, and view the logs that are generated by the service. See [Logging](proxies_configuring.html#logging) for customizing your proxy, including its log configuration options.
 
+To view the current proxies in your environment, you can use the [Proxes Browser](monitoring_proxies.html#examine-your-proxies-with-the-proxies-browser).
+
 <a id="starting-and-stopping-a-proxy"></a>
+
 ### Start and Stop a Proxy
 
 {% include note.html content="When you stop the proxy service, the proxy becomes [orphaned](monitoring_proxies.html#get-started-wih-the-proxies-browser). If the proxy is ephemeral, you cannot activate it again." %}
