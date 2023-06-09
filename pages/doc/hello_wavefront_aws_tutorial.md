@@ -211,7 +211,9 @@ When the threshold is exceeded, you'll receive an email that includes a link to 
 
 ## Video: Set Up Data Ingestion from a Windows Host
 
-Watch the following video to learn how to ingest Windows host metrics.
+Watch the following video to learn how to ingest Windows host metrics. 
+
+The instructions in this video work if your Operations for Applications instance is **not** onboarded to VMware Cloud services.
 <p>
 <iframe id="kmsembed-1_0bbze8os" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_0bbze8os/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Setting up a Windows integration"></iframe>
 </p>

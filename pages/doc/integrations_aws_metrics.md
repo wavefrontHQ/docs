@@ -181,7 +181,7 @@ You can ingest CloudWatch logs to Operations for Applications. You can use Cloud
 
 #### Install the Wavefront Proxy
 
-The Wavefront proxy is required to send logs from your systems to Operations for Applications. If you have not already done so, install a [Wavefront proxy (version 12.2 or later)](proxies_installing.html) in your AWS environment.
+The Wavefront proxy is required to send logs from your systems to Operations for Applications. If you have not already done so, install a [Wavefront proxy (version 13.0 or later)](proxies_installing.html) in your AWS environment.
 
 {% include note.html content="For optimal performance, install a standalone proxy cluster that receives only logs payload. Typically two proxy instances behind a load balancer are sufficient." %}
 
@@ -191,7 +191,7 @@ The Wavefront proxy is required to send logs from your systems to Operations for
 2. Click **Applications** on the left and click the **Create Application** button.
 3. Click the **Serverless application** tab, search for **VMware-Log-Insight-Cloud**, and select it.
 4. Scroll down and in the **Application settings** section in the bottom right, provide the Wavefront proxy details.
-    * In the **APIToken** text box, enter a valid Operations for Applications API token.
+    * In the **APIToken** text box, enter `log-integration-token`.
     * In the **APIUrl** text box, enter the Wavefront proxy URL.
     * In the **NameOfFunction** text box, enter a meaningful name for the Lambda function.
 5. Click **Deploy**.
