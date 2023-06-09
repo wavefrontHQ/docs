@@ -400,7 +400,7 @@ Removes a log tag that matches a regex string.
 <font size="3"><strong>Examples</strong></font>
 
 ```yaml
-# drops the datecenter tag if the value matches az4, az5, az6.
+# drops the datacenter tag if the value matches az4, az5, az6.
  - rule          : test-logDropTag
    action        : logDropTag
    key           : datacenter
