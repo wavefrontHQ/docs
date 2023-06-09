@@ -51,26 +51,25 @@ Before you can customize the proxy configuration, you have to find the values fo
 </tr>
 <tr>
 <td><strong>token</strong></td>
-<td>A valid Operations for Applications token associated with an active user or service account. The account must have the <strong>Proxies</strong> permission.<p><strong>Note:</strong> Applies only for original Operations for Applications subscriptions, not onboarded to VMware Cloud services, when <a href="proxies_installing.html#proxy-authentication-types">the proxy authenticates</a> to Operations for Applications with an Operations for Applications token.</p></td>
+<td>A valid Operations for Applications token associated with an active user or service account. The account must have the <strong>Proxies</strong> permission.<p><strong>Note:</strong> Applies only to original Operations for Applications subscriptions that are not onboarded to VMware Cloud services, i.e. when <a href="proxies_installing.html#proxy-authentication-types">the proxy authenticates</a> to Operations for Applications with an Operations for Applications API token.</p></td>
 <td></td>
 </tr>
 <tr>
 <td><p><strong>cspAppId</strong></p><p><strong>cspAppSecret</strong></p><p><strong>cspOrgId </strong></p></td>
 <td>Server to server OAuth app credentials - ID and secret (<strong>cspAppId</strong> and <strong>cspAppSecret</strong>), and the VMware Cloud organization ID (<strong>cspOrgId</strong>) running the Operations for Applications service instance. The server to server app must have the <strong>Proxies</strong> service role and must belong to the VMware Cloud organization running the Operations for Applications service instance. 
-<p><strong>Note:</strong> Applies only for Operations for Applications subscriptions on VMware Cloud services if <a href="proxies_installing.html#proxy-authentication-types">the proxy authenticates</a> to Operations for Applications with a VMware Cloud services OAuth app.</p>
-<p>Use either <strong>cspAppId</strong>, <strong>cspAppSecret</strong>, and <strong>cspOrgId</strong> or <strong>cspAPIToken</strong>.</p> </td>
+<p><strong>Note:</strong> Applies only to Operations for Applications subscriptions on VMware Cloud services if <a href="proxies_installing.html#proxy-authentication-types">the proxy authenticates</a> to Operations for Applications with a VMware Cloud services OAuth app.</p> </td>
 <td></td>
 </tr>
 <tr>
 <td><strong>cspAPIToken</strong></td>
-<td>A valid VMware Cloud services token associated with an active user account. The user and the token must have the <strong>Proxies</strong> service role.
-<p><strong>Note:</strong> Applies only for Operations for Applications subscriptions on VMware Cloud services if <a href="proxies_installing.html#proxy-authentication-types">the proxy authenticates</a> to Operations for Applications with a VMware Cloud services token.</p>
-<p>Use either <strong>cspAPIToken</strong> or <strong>cspAppId</strong>, <strong>cspAppSecret</strong>, and <strong>cspOrgId</strong>.</p></td>
+<td>A valid VMware Cloud services API token associated with an active user account. The user and the token must have the <strong>Proxies</strong> service role.
+<p><strong>Note:</strong> Applies only to Operations for Applications subscriptions on VMware Cloud services if <a href="proxies_installing.html#proxy-authentication-types">the proxy authenticates</a> to Operations for Applications with a VMware Cloud services token.</p>
+</td>
 <td></td>
 </tr>
 <tr>
 <td markdown="span">**proxyname**</td>
-<td markdown="span">Name of the proxy running. The proxyname is not used to tag your data; rather, it's used to tag data internal to the proxy, such as JVM statistics, per-proxy point rates, and so on. Alphanumeric and periods are allowed. </td>
+<td markdown="span">Name of the proxy running. The proxyname is not used to tag your data. Rather, it's used to tag data internal to the proxy, such as JVM statistics, per-proxy point rates, and so on. Alphanumeric and periods are allowed. </td>
 <td>cust42Proxy</td>
 </tr>
 <tr>

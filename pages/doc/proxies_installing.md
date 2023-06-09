@@ -29,7 +29,7 @@ In most cases, a Wavefront proxy must be running in your installation before met
 ## Proxy Authentication Types
 
 {% include note.html content="Starting June 1, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html).<br/>
-- For VMware Cloud services subscriptions, starting with version 13.0, the Wavefront proxy supports authentication to Operations for Applications with a VMware Cloud services token or OAuth app.<br/>
+- For VMware Cloud services subscriptions, starting with version 13.0, the Wavefront proxy supports authentication to Operations for Applications with a VMware Cloud services API token or OAuth app.<br/>
 - For original Operations for Applications subscriptions, the Wavefront proxy 13.0 still supports authentication with Operations for Applications tokens. "%}
 
 * If your Operations for Applications service instance is onboarded to VMware Cloud services, the proxy requires a VMware Cloud services API token with the **Proxies** [service role](csp_users_roles.html#operations-for-applications-service-roles-built-in). There are two supported authentication types. You can use:
@@ -61,10 +61,10 @@ To install and run a proxy:
 
 1. Log in to your service instance and select **Browse** > **Proxies**.
 1. Click **Add New Proxy**.
-1. If your service instance is onboarded to VMware CLoud services, click the tab for the [proxy authentication type](#proxy-authentication-types) of your choice - **OAuth app** or **API token**.
+1. If your service instance is onboarded to VMware Cloud services, click the tab for the [proxy authentication type](#proxy-authentication-types) of your choice - **OAuth app** or **API token**.
 1. Click the tab for your operating system and follow the steps on screen.
 
-    {% include tip.html content="If your service instance isn't onboarded to VMware CLoud services, the latest API token of your user account is prepopulated in the proxy installation command but you can change it."%}
+    {% include tip.html content="If your service instance isn't onboarded to VMware Cloud services, the latest API token of your user account is prepopulated in the proxy installation command but you can change it."%}
 
 The proxy starts listening on port 2878. You can customize listener ports with the [proxy configuration file](proxies_configuring.html).
 
