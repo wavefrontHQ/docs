@@ -43,10 +43,10 @@ VMware Cloud services provides single sign-on (SSO) and identity access manageme
    1. The tenant name is missing, because it is shown in the VMware Cloud Services Console when you launch the service instance. In a multi-tenant environment, switching between tenants is done from the top-left drop-down menu on the menu bar.
    1. The **Self Service SAML** menu item is missing, because the enterprise federation setup is done from the VMware Cloud Services Console.
    1. The **Accounts** option is also no longer needed, because account management is done in the VMware Cloud Services Console.
-   1. The **Super Admin** menu item is changed to **Orphaned Objects**, because Super Admin users no longer can invite new Super Admin users, but they can still see and recover orphan dashboards and alerts.
+   1. The **Super Admin** menu item is replaced with **Orphaned Objects**, because Super Admin users can no longer invite new Super Admin users, but they can still see and recover orphaned objects, such as orphan dashboards and alerts.
    1. The **Sign Out** menu item is missing, because signing out is done from the User/Organization drop-down menu on the top-right of the menu bar.
 
-* The **Super Admin** page is changed to **Orphaned Objects**, because Super Admin users no longer can invite new Super Admin users, but they can still see and recover orphan dashboards and alerts.
+* The **Super Admin** page is replaced with **Orphaned Objects**, because Super Admin users no longer can invite new Super Admin users, but they can still see and recover orphaned objects, such as orphan dashboards and alerts.
 
     ![An image showing the differences in the add new proxy page.](images/new-vs-original-super-admin.png)
 
@@ -54,11 +54,11 @@ VMware Cloud services provides single sign-on (SSO) and identity access manageme
 
     ![An image showing the differences in the add new proxy page.](images/new-vs-original-proxy.png)
 
-* The options for adding default groups for new user and service accounts as well as for setting the default permissions for new user accounts are removed, because VMware Cloud services subscribers manage users and roles through the VMware Cloud Services Console. Users with the **Super Admin** service role still can set the default display settings and language preferences for new users from the **Organization Settings** page.
+* The options for adding default groups for new user and service accounts as well as for setting the default permissions for new user accounts are removed, because VMware Cloud services subscribers manage users and roles through the VMware Cloud Services Console. Users with the **Super Admin** service role can still set the default display settings and language preferences for new users on the **Organization Settings** page.
 
   ![An image showing that the options mentioned above are removed from the UI for new subscribers.](images/new-vs-original-new-accounts-defaults.png)
 
-* The option for granting service accounts with access to new dashboards and alerts is removed. You grant access to objects when you create a server to server app and define its scope in the VMware Cloud Services Console. Scopes provide a way to implement control over what areas in an Organization your client can access - specifically which role in an organization, and what services and the level of permissions.
+* The option for granting service accounts with access to new dashboards and alerts is removed. You grant access to objects when you create a server to server app and define its scope in the VMware Cloud Services Console. Scopes provide a way to implement control over what areas in an organization your client can access - specifically which role in an organization, and what services as well as the level of permissions.
 
   ![An image showing that the option to grant access to service accounts is removed from the UI for new subscribers.](images/new-vs-original-org-settings-security.png)
 
@@ -166,14 +166,14 @@ For details, see <a href="csp_user_management.html">Manage User Accounts</a>.</p
 <td>Generating API Tokens
 </td>
 <td>
-<strong>Who</strong>: All users.
+<p><strong>Who</strong>: All users.</p>
 <p><strong>Where</strong>: In the Cloud Services Console user interface.</p>
 <p><strong>How</strong>: Each user can generate VMware Cloud services API tokens for their user account. For access management, an API token must be assigned with roles from the list of roles that the user owns - organization roles, service roles, and custom roles.</p>
 <p>To access the Operations for Applications REST API, the VMware Cloud services API token must be assigned with an Operations for Applications service role or a custom role with an Operations for Applications permission.</p>
 <p>For details and instructions, see <a href="https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html">How do I generate API tokens</a> in the VMware Cloud services documentation.</p>
 </td>
 <td>
-<p><strong>Who</strong>:
+<p><strong>Who</strong>: Depends on whether the API token is associated with a user account or a service account.
 <ul><li>For API tokens associated with a user account, the corresponding user who must have the <strong>API Tokens</strong> permission.</li>
 <li>For API tokens associated with service accounts, the users with the <strong>Accounts</strong> permission.</li></ul></p>
 <p><strong>Where</strong>: In the Operations for Applications user interface.</p>
@@ -186,14 +186,16 @@ Each API token inherits the permissions of its associated user or service accoun
 <tr>
 <td>API Tokens Management</td>
 <td>
-<p><strong>Who</strong>: <ul><li>For API tokens associated with a user account, the corresponding user.</li>
+<p><strong>Who</strong>:
+<ul><li>For API tokens associated with a user account, the corresponding user.</li>
 <li>For all API tokens in the VMware Cloud organization if activated for Identity Governance and Administration (IGA), the users with the VMware Cloud <strong>Organization Owner</strong> role.</li></ul></p>
 <p><strong>Where</strong>: In the Cloud Services Console user interface.</p>
 <p><strong>How</strong>:<ul><li>All users can view and revoke their own tokens. For details, see <a href="https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-1BA71988-387C-42E1-8C98-EE2C1370826B.html">How do I manage my API tokens</a> in the VMware Cloud services documentation.</li>
 <li>Users with the VMware Cloud <strong>Organization Owner</strong> role can monitor the API tokens created in the organization and can set constraints for idle and maximum Time to live (TTL) for all newly created tokens. For details and instructions, see <a href="https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html">How do I manage API tokens in my Organization</a> in the VMware Cloud services documentation.</li></ul></p>
 </td>
 <td>
-<strong>Who</strong>:<ul><li>For API tokens associated with a user account, the corresponding user.</li>
+<strong>Who</strong>:
+<ul><li>For API tokens associated with a user account, the corresponding user.</li>
 <li>For all API tokens in the Operations for Applications environment, the users with the <strong>Accounts</strong> permission.</li></ul>
 <p><strong>Where</strong>: In the Operations for Applications user interface.</p>
 <p><strong>How</strong>:<ul><li>All users can view and revoke their own tokens. For details, see <a href="api_tokens.html#generate-and-manage-the-api-tokens-for-your-user-account">Generate and Manage the API Tokens for Your User Account</a>.</li>
@@ -203,9 +205,9 @@ Each API token inherits the permissions of its associated user or service accoun
 <tr>
 <td>Operations for Applications Organization Settings</td>
 <td>
-<p><strong>Who</strong>: Users with the <strong>Super Admin</strong> Operations for Applications service role in Super Admin mode.</p>
+<p><strong>Who</strong>: Users with the <strong>Super Admin</strong> Operations for Applications service role and Super Admin mode enabled.</p>
 <p><strong>Where</strong>: In the Operations for Applications user interface.</p>
-<p><strong>How</strong>: Set up the following settings:
+<p><strong>How</strong>: As a user with the <strong>Super Admin</strong> service role, you can:
 <ul>
 <li>Default display settings for new accounts, such as getting started progress and default dashboard display.</li>
 <li>Default query language preferences and optionally, allow users to write queries in PromQL. For details, see <a href="wavefront_prometheus.html#set-promql-organization-settings-administrator-only">Set PromQL Organization Settings (Administrator Only)</a>.</li>
@@ -216,7 +218,7 @@ Each API token inherits the permissions of its associated user or service accoun
 <td>
 <p><strong>Who</strong>: Users with the <strong>Accounts</strong> permission.</p>
 <p><strong>Where</strong>: In the Operations for Applications user interface.</p>
-<p><strong>How</strong>: Set up the following settings:
+<p><strong>How</strong>: As a user with the <strong>Accounts</strong> permission, you can:
 <ul>
 <li>Default display settings, such as getting started progress and default dashboard display.</li>
 <li>Default query language preferences and optionally, allow users to write queries in PromQL. For details, see <a href="wavefront_prometheus.html#set-promql-organization-settings-administrator-only">Set PromQL Organization Settings (Administrator Only)</a>.</li>
@@ -231,32 +233,43 @@ Each API token inherits the permissions of its associated user or service accoun
 <tr>
 <td>Wavefront Proxy Authentication
 </td>
-<td>
-The proxy authenticates to Operations for Applications with a VMware Cloud services API token that must have the <strong>Proxies</strong> service role. There are two supported authentication types:
+<td><p><strong>Who</strong>:<ul><li>For proxy installation, users with the <strong>Proxies</strong> Operations for Applications service role or a custom role with the <strong>Proxies</strong> permission.</li><li>For creating server to server OAuth apps, users with the VMware Cloud <strong>Organization Owner</strong> role or <strong>Developer</strong> additional.</li></ul></p>
+<p><strong>Where</strong>:<ul><li>For proxy installation, in the Operations for Applications user interface.</li><li>For generating an API token or creating a server to server OAuth app, in the VMware Cloud Services Console.</li></ul></p>
+<p><strong>How</strong>: As a user with the <strong>Proxies</strong> permission, you must configure the proxy to authenticate to Operations for Applications with a VMware Cloud services API token that have the <strong>Proxies</strong> service role. There are two supported authentication types:
 <ul><li>The proxy can use the credentials of a server to server <strong>OAuth app</strong> - ID and secret, together with the VMware Cloud organization ID. This way, the API token is directly issued to the proxy.</li>
 <li>The proxy can use the API token of an active user account.</li></ul>
-For details, see see <a href="proxies_installing.html#proxy-authentication-types">Proxy Authentication Types</a>.
+For details, see <a href="proxies_installing.html#proxy-authentication-types">Proxy Authentication Types</a>.</p>
 </td>
-<td>
-The proxy authenticates to Operations for Applications with an Operations for Applications API token that must have the <strong>Proxies</strong> permission. The API token can belong to an active user or service account.
-<p>When you install a proxy from the UI, the latest API token of your user account is prepopulated in the proxy installation command but you can change it. For details, see <a href="proxies_installing.html#install-a-proxy-from-the-ui">Install a Proxy from the UI</a>.</p>
+<td><p><strong>Who</strong>:Users with the <strong>Proxies</strong> permission.</p>
+<p><strong>Where</strong>: In the Operations for Applications user interface.</p>
+<p><strong>How</strong>: As a user with the <strong>Proxies</strong> permission, you must configure the proxy to authenticate to Operations for Applications with an Operations for Applications API token that have the <strong>Proxies</strong> permission. For details, see <a href="proxies_installing.html#install-a-proxy-from-the-ui">Install a Proxy from the UI</a>.</p>
 </td>
 </tr>
 <tr>
 <td>Accounts and Groups Ingestion Policies</td>
-<td><p>When you create an ingestion policy with the Accounts scope, you can assign user accounts and server to server apps.</p>
-<p>When you create an ingestion policy with the Groups scope, the groups that you can search for and enter are defined in VMware Cloud services.</p>
+<td><p><strong>Who</strong>: Users with the <strong>Ingestion Policies</strong> Operations for Applications service role or a custom role with the <strong>Ingestion Policies</strong> permission.</p>
+<p><strong>Where</strong>: In the Operations for Applications user interface.</p>
+<p><strong>How</strong>: As a user with the <strong>Ingestion Policies</strong> permission:<ul>
+<li>When you create an ingestion policy with the Accounts scope, you can assign user accounts and server to server apps.</li>
+<li>When you create an ingestion policy with the Groups scope, the groups that you can search for and enter are defined in VMware Cloud services.</li></ul></p>
 </td>
-<td><p>When you create an ingestion policy with the Accounts scope, you can assign user accounts and server accounts.</p>
-<p>When you create an ingestion policy with the Groups scope, the groups that you can search for and enter are defined in Operations for Applications.</p>
+<td><p><strong>Who</strong>: Users with the <strong>Ingestion Policies</strong> permission.</p>
+<p><strong>Where</strong>: In the Operations for Applications user interface.</p>
+<p><strong>How</strong>: As a user with the <strong>Ingestion Policies</strong> permission:<ul>
+<li>When you create an ingestion policy with the Accounts scope, you can assign user accounts and server accounts.</li>
+<li>When you create an ingestion policy with the Groups scope, the groups that you can search for and enter are defined in Operations for Applications.</li></ul></p>
 <p>For details, see <a href="ingestion_policies.html#step-1-specify-the-scope-and-pps-limit">Step 1: Specify the Scope and PPS Limit</a>.</p>
 </td>
 </tr>
 <tr>
 <td>Groups and Roles Metrics Security Rules</td>
-<td>When you create a metric security rule based on groups or roles, the groups and the roles that you can search for and enter are defined in VMware Cloud services. For details, see <a href="csp_metrics_security.html#create-one-or-more-rules">Create One or More Rules</a>.
+<td><p><strong>Who</strong>: Users with the <strong>Metrics</strong> Operations for Applications service role or a custom role with the <strong>Metrics</strong> permission.</p>
+<p><strong>Where</strong>: In the Operations for Applications user interface.</p>
+<p><strong>How</strong>: As a user with the <strong>Metrics</strong> permission, when you create a metric security rule based on groups or roles, the groups and the roles that you can search for and enter are defined in VMware Cloud services. For details, see <a href="csp_metrics_security.html#create-one-or-more-rules">Create One or More Rules</a>.</p>
 </td>
-<td>When you create a metric security rule based on group or role, the groups and the roles that you can search for and enter are defined in Operations for Applications. For details, see <a href="metrics_security.html#create-one-or-more-rules">Create One or More Rules</a>.
+<td><p><strong>Who</strong>: Users with the <strong>Metrics</strong> permission.</p>
+<p><strong>Where</strong>: In the Operations for Applications user interface.</p>
+<p><strong>How</strong>: As a user with the <strong>Metrics</strong> permission, when you create a metric security rule based on group or role, the groups and the roles that you can search for and enter are defined in Operations for Applications. For details, see <a href="metrics_security.html#create-one-or-more-rules">Create One or More Rules</a>.</p>
 </td>
 </tr>
 </tbody>
