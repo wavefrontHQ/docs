@@ -13,9 +13,7 @@ By default, all users in VMware Aria Operations for Applications (formerly known
   * You must have the **Alerts** permission to edit alerts. The [Alerts](permissions_overview.html) permission applies to all alerts **except** [ingestion policy](ingestion_policies.html) alerts.
     - Users with the **Alerts** permission can view, create, and modify alerts except ingestion policy alerts.
     - Users who don’t have the **Alerts** permissions can only view alerts, including ingestion policy alerts.
-    - Only Super Admin users can create and modify alerts associated with ingestion policies.
-
-    A user with the **Accounts** permission can assign the permission to you.
+    - Users with the **Ingestion Policies** permission can edit an ingestion policy alert only by editing the corresponding ingesting policy.
   *	If an individual alert is protected by [Access Control](access.html), you might not be able to edit or even view that alert.
     - To view an alert that is under access control, you must have **View** access for the alert.
     - To modify an alert that is under access control, you must have **View & Modify** access for this alert. You also need the **Alerts** permission.

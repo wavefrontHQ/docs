@@ -52,7 +52,6 @@ The VMware Cloud Services Console **Roles** page includes the following built-in
     <li>Can set the default preferences for all users of the service instance.</li>
     <li>Can restrict access for new dashboards and alerts.</li>
     <li>Can <a href="access.html#make-orphan-dashboards-or-alerts-visible">restore orphan dashboards and alerts</a>.</li>
-    <li>Can upgrade from trial version and purchase Operations for Applications.</li>
     <li>Can purchase more PPS.</li>
     </ul>
     <p><strong>Tip:</strong> Combine the <strong>Super Admin</strong> service role with the roles that you want the user to have when Super Admin mode is disabled. </p></td>
@@ -92,7 +91,7 @@ To delete a custom role:
 
 For efficient user management, you can create groups of users and assign roles to these groups. You can assign [service roles](#operations-for-applications-service-roles-built-in) and [custom roles](#create-edit-or-delete-a-custom-role) to groups.
 
-See [How do I work with groups](hhttps://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-0BD8A07B-C3C0-4220-8CD0-18FA070D3DAD.html) in the VMware Cloud services documentation.
+See [How do I work with groups](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-0BD8A07B-C3C0-4220-8CD0-18FA070D3DAD.html) in the VMware Cloud services documentation.
 
 ## Grant or Revoke a User's Role Explicitly
 

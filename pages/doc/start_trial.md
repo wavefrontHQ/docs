@@ -13,7 +13,7 @@ You can start a 30-day free trial of the Operations for Applications service fro
 
 ## Operations for Applications and VMware Cloud Services
 
-Starting June 1, 2023, VMware Aria Operations for Applications is a service in the VMware Cloud services platform. VMware Cloud services provides single sign-on (SSO) and identity access management (IAM) to your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications. See [Getting Started with Operations for Applications on VMware Cloud Services](csp_getting_started.html) for details.
+Starting June 26, 2023, VMware Aria Operations for Applications is a service in the VMware Cloud services platform. VMware Cloud services provides single sign-on (SSO) and identity access management (IAM) to your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications. See [Getting Started with Operations for Applications on VMware Cloud Services](csp_getting_started.html) for details.
 
 ## Start Your Free Trial
 
