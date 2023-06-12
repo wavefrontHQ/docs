@@ -18,7 +18,7 @@ Here’s how the signup works:
 2. A VMware Cloud **Organization Owner** or **Organization Administrator** grants you access to the organization's resources with an [organization role](csp_getting_started.html#what-is-a-vmware-cloud-organization-role).
 3. A VMware Cloud **Organization Owner** or **Organization Administrator** grants you access to the Operations for Applications service instance with an [Operations for Applications service or custom role](csp_users_roles.html). In a multi-tenancy environment, you can have a different service and custom roles for the different Operations for Applications service instances (tenants).
 4. After you’ve been added to an organization, you receive an email notification with information about the VMware Cloud organization to which you were added, your organization role, and your service or custom role. You can now [sign up](#sign-up-with-an-email-invitation) for the Operations for Applications service instance.
-5. From now on, you can log in to your service instance from the [VMware Cloud Services Console](#log-in-from-the-vmware-cloud-services-console) or [directly](#log-in-by-using-a-direct-url) by using the URL of your service instance.
+5. From now on, you can log in to your service instance from the [VMware Cloud Services Console](#log-in-from-the-vmware-cloud-services-console).
 
 ## Sign Up with an Email Invitation
 
@@ -66,19 +66,6 @@ You can log in to the VMware Cloud Services Console and launch your service inst
     </table>
 
 You are redirected to your Operations for Applications service instance and you're logged in with your VMware Cloud services account.
-
-## Log In by Using a Direct URL
-
-You can log in to your  Operations for Applications instance directly by using its URL. If you have access to multiple Operations for Applications service instances, you are logged in to your last visited tenant but you can switch to another tenant.
-
-1. In a Web browser, go to `https://<your_instance>.wavefront.com`.
-
-    You are redirected to the VMware Cloud Services Console to sign in.
-2. Authenticate yourself.
-    -  If your corporate domain is not federated with your VMware Cloud services organization, sign in with the email address and password associated with your VMware account.
-    - If your corporate domain is federated with your VMware Cloud services organization, sign in with your corporate credentials.
-
-    After the successful authentication, you are redirected back to your service instance and you're logged in with your VMware Cloud services account.
 
 <table>
 <tr>
