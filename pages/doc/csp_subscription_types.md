@@ -58,15 +58,6 @@ VMware Cloud services provides single sign-on (SSO) and identity access manageme
 
   ![An image showing that the options mentioned above are removed from the UI for new subscribers.](images/new-vs-original-new-accounts-defaults.png)
 
-* The option for granting service accounts with access to new dashboards and alerts is removed. You grant access to objects when you create a server to server app and define its scope in the VMware Cloud Services Console. Scopes provide a way to implement control over what areas in an organization your client can access - specifically which role in an organization, and what services as well as the level of permissions.
-
-  ![An image showing that the option to grant access to service accounts is removed from the UI for new subscribers.](images/new-vs-original-org-settings-security.png)
-
-  For information, see:
-  
-  * [Managing Access to Dashboards and Alerts](access.html)
-  * [Managing Access to Dashboards and Alerts in Operations for Applications on VMware Cloud Services](csp_access.html)
-
 
 ## Differences by Area
 
@@ -136,12 +127,15 @@ For details, see <a href="csp_user_management.html">Manage User Accounts</a>.</p
 </td>
 </tr>
 <tr>
-<td>Service Accounts and Server to Server Apps Management
+<td>Service Accounts Management
 </td>
 <td>
 <p><strong>Who</strong>: Users with the VMware Cloud <strong>Organization Owner</strong> role or the <strong>Developer</strong> additional role.</p>
 <p><strong>Where</strong>: In the VMware Cloud Services Console.</p>
-<p><strong>How</strong>: Server to server apps use OAuth credentials to retrieve API tokens for authentication. Server to server apps are assigned with organization and service roles. Server to server apps can be shared between multiple VMware Cloud organizations. For details, see <a href="csp_server_to_server_apps.html">Manage Server to Server Apps</a>.</p>
+<p><strong>How</strong>: To add a service account to your Operations for Applications service instance, you must create a server to server OAuth app and assign that app:
+<ol><li>An organization role for the VMware Cloud organization running the service.</li>
+<li>An Operations for Applications service role for your service instance or a custom role with an Operations for Applications permission.</li></ol>
+For details, see <a href="csp_server_to_server_apps.html">Manage Server to Server Apps</a>.</p>
 </td>
 <td>
 <p><strong>Who</strong>: Users with the <strong>Accounts</strong> permission.</p>
@@ -243,33 +237,6 @@ For details, see <a href="proxies_installing.html#proxy-authentication-types">Pr
 <td><p><strong>Who</strong>:Users with the <strong>Proxies</strong> permission.</p>
 <p><strong>Where</strong>: In the Operations for Applications user interface.</p>
 <p><strong>How</strong>: As a user with the <strong>Proxies</strong> permission, you must configure the proxy to authenticate to Operations for Applications with an Operations for Applications API token that have the <strong>Proxies</strong> permission. For details, see <a href="proxies_installing.html#install-a-proxy-from-the-ui">Install a Proxy from the UI</a>.</p>
-</td>
-</tr>
-<tr>
-<td>Accounts and Groups Ingestion Policies</td>
-<td><p><strong>Who</strong>: Users with the <strong>Ingestion Policies</strong> Operations for Applications service role or a custom role with the <strong>Ingestion Policies</strong> permission.</p>
-<p><strong>Where</strong>: In the Operations for Applications user interface.</p>
-<p><strong>How</strong>: As a user with the <strong>Ingestion Policies</strong> permission:<ul>
-<li>When you create an ingestion policy with the Accounts scope, you can assign user accounts and server to server apps.</li>
-<li>When you create an ingestion policy with the Groups scope, the groups that you can search for and enter are defined in VMware Cloud services.</li></ul></p>
-</td>
-<td><p><strong>Who</strong>: Users with the <strong>Ingestion Policies</strong> permission.</p>
-<p><strong>Where</strong>: In the Operations for Applications user interface.</p>
-<p><strong>How</strong>: As a user with the <strong>Ingestion Policies</strong> permission:<ul>
-<li>When you create an ingestion policy with the Accounts scope, you can assign user accounts and server accounts.</li>
-<li>When you create an ingestion policy with the Groups scope, the groups that you can search for and enter are defined in Operations for Applications.</li></ul></p>
-<p>For details, see <a href="ingestion_policies.html#step-1-specify-the-scope-and-pps-limit">Step 1: Specify the Scope and PPS Limit</a>.</p>
-</td>
-</tr>
-<tr>
-<td>Groups and Roles Metrics Security Rules</td>
-<td><p><strong>Who</strong>: Users with the <strong>Metrics</strong> Operations for Applications service role or a custom role with the <strong>Metrics</strong> permission.</p>
-<p><strong>Where</strong>: In the Operations for Applications user interface.</p>
-<p><strong>How</strong>: As a user with the <strong>Metrics</strong> permission, when you create a metric security rule based on groups or roles, the groups and the roles that you can search for and enter are defined in VMware Cloud services. For details, see <a href="csp_metrics_security.html#create-one-or-more-rules">Create One or More Rules</a>.</p>
-</td>
-<td><p><strong>Who</strong>: Users with the <strong>Metrics</strong> permission.</p>
-<p><strong>Where</strong>: In the Operations for Applications user interface.</p>
-<p><strong>How</strong>: As a user with the <strong>Metrics</strong> permission, when you create a metric security rule based on group or role, the groups and the roles that you can search for and enter are defined in Operations for Applications. For details, see <a href="metrics_security.html#create-one-or-more-rules">Create One or More Rules</a>.</p>
 </td>
 </tr>
 </tbody>
