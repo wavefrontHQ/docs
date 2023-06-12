@@ -38,7 +38,7 @@ Here's what you need to get started.
   
    * [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html)
    * [How do I manage API tokens in my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html)
-   * [Server to server app](csp_server_to_server_apps.html).
+   * [Manage server to server apps](csp_server_to_server_apps.html)
   
   If your Operations for Applications service is **not** onboarded to VMware Cloud services, the API token must be a [valid Operations for Applications API token](api_tokens.html) of a user account or a service account that has access to the Operations for Applications sources that you want to ingest in CloudHealth. 
 
