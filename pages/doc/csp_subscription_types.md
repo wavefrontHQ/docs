@@ -25,8 +25,8 @@ VMware Cloud services provides single sign-on (SSO) and identity access manageme
     1. Switch between tenants (service instances) in a multi-tenant Operations for Applications environment.
     1. See the developer tools.
     1. See notifications from VMware Cloud services.
-    1. Manage your user settings and switch between organizations.
-    1. Go to the VMware Cloud Services Console and switch between services.
+    1. Manage your VMware Cloud services account and switch to other organizations.
+    1. Go to the VMware Cloud Services Console and switch to other service subscriptions.
 
 * The **Accounts**, **SAML IdP Admin**, and **API token** permissions don't exist for Operations for Applications subscriptions that are onboarded to VMware Cloud services, because all of the authorization and authentication tasks requiring these permissions are done by using the VMware Cloud Services Console. For information about the basics for administering your Operations for Applications service running on the VMware Cloud services platform, see [Getting Started with Operations for Applications on VMware Cloud Services](csp_getting_started.html).
 
@@ -87,7 +87,7 @@ VMware Cloud services provides single sign-on (SSO) and identity access manageme
 <td>Roles and Permissions Management
 </td>
 <td>
-<strong>Who</strong>: Users with the VMware Cloud <strong>Organization Owner</strong> or <strong>Organization Administrator</strong> role.
+<p><strong>Who</strong>: Users with the VMware Cloud <strong>Organization Owner</strong> or <strong>Organization Administrator</strong> role.</p>
 <p><strong>Where</strong>: In the VMware Cloud Services Console.</p>
 <p><strong>How</strong>: Permissions can be assigned only to roles. Roles can be assigned to users, groups, API tokens, and server to server apps. There are built-in Operations for Applications service roles, which are not editable. Custom roles can be created and assigned with permissions for one or more services. For details, see:
 <ul>
@@ -180,19 +180,21 @@ For details, see <a href="csp_user_management.html">Manage User Accounts</a>.</p
 <p><strong>How</strong>:<ul>
 <li>A user with the <strong>API Tokens</strong> permission can generate Operations for Applications API tokens for their own user account.</li>
 <li>Users with the <strong>Accounts</strong> permission can generate Operations for Applications API tokens for service accounts.</li></ul>
-An API tokens inherits the permissions of its associated user or service account. For details, see <a href="api_tokens.html">Manage API Tokens</a>.</p>
+Each API token inherits the permissions of its associated user or service account. For details, see <a href="api_tokens.html">Manage API Tokens</a>.</p>
 </td>
 </tr>
 <tr>
 <td>API Tokens Management</td>
 <td>
-<strong>Who</strong>: Users with the VMware Cloud <strong>Organization Owner</strong> role in an Identity Governance and Administration (IGA) activated VMware Cloud organization.
+<p><strong>Who</strong>: <ul><li>For API tokens associated with a user account, the corresponding user.</li>
+<li>For all API tokens in the VMware Cloud organization if activated for Identity Governance and Administration (IGA), the users with the VMware Cloud <strong>Organization Owner</strong> role.</li></ul></p>
 <p><strong>Where</strong>: In the Cloud Services Console user interface.</p>
-<p><strong>How</strong>: You can monitor the API tokens created in your organization and set constraints for idle and maximum Time to live (TTL) for all newly created tokens. For details and instructions, see <a href="https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html">How do I manage API tokens in my Organization</a> in the VMware Cloud services documentation.</p>
+<p><strong>How</strong>:<ul><li>All users can view and revoke their own tokens. For details, see <a href="https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-1BA71988-387C-42E1-8C98-EE2C1370826B.html">How do I manage my API tokens</a> in the VMware Cloud services documentation.</li>
+<li>Users with the VMware Cloud <strong>Organization Owner</strong> role can monitor the API tokens created in the organization and can set constraints for idle and maximum Time to live (TTL) for all newly created tokens. For details and instructions, see <a href="https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html">How do I manage API tokens in my Organization</a> in the VMware Cloud services documentation.</li></ul></p>
 </td>
 <td>
 <strong>Who</strong>:<ul><li>For API tokens associated with a user account, the corresponding user.</li>
-<li>For all API tokens associated with all user and service accounts, the users with the <strong>Accounts</strong> permission.</li></ul>
+<li>For all API tokens in the Operations for Applications environment, the users with the <strong>Accounts</strong> permission.</li></ul>
 <p><strong>Where</strong>: In the Operations for Applications user interface.</p>
 <p><strong>How</strong>:<ul><li>All users can view and revoke their own tokens. For details, see <a href="api_tokens.html#generate-and-manage-the-api-tokens-for-your-user-account">Generate and Manage the API Tokens for Your User Account</a>.</li>
 <li>Users with the <strong>Accounts</strong> permission can view and revoke any API token in the environment. For details, see <a href="api_tokens.html#view-and-manage-the-api-tokens-in-your-organization">View and Manage the API Tokens in Your Organization</a>.</li></ul></p>
