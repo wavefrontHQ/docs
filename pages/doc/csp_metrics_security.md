@@ -197,7 +197,7 @@ You create a metrics security policy rule following these steps. See the annotat
      * If you want to specify multiple key=value pairs, select whether you want to combine them with `and` or `or` using the dropdown menu on the right.
   5. Specify the Access definition for the rule.
      1. Select **Allow** or **Block** from the menu.
-     2. Specify accounts, groups, or roles (service roles and custom roles).
+     2. Specify accounts, [groups](csp_users_roles.html#manage-user-groups), or [roles](csp_users_roles.html#manage-roles) (service roles and custom roles).
   3. Click **OK.**
 
 

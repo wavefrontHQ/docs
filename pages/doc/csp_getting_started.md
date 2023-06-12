@@ -5,18 +5,15 @@ sidebar: doc_sidebar
 permalink: csp_getting_started.html
 summary: Learn the basics for administering your service on the VMware Cloud services platform.
 ---
-Starting June 1, 2023, VMware Aria Operations for Applications becomes a service on the VMware Cloud services platform.
+Starting June 26, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform.
 
-<!--When your Operations for Applications service is onboarded to VMware Cloud services,--> 
 VMware Cloud services provides features to your Operations for Applications environment, such as:
 - Single sign-on (SSO) with VMware Cloud services accounts.
 - SAML 2.0 SSO identity federation with your enterprise identity provider.
 - Identity access management (IAM) with built-in and custom service roles.
-- Seamless integration with other services from your VMware Cloud services portfolio, such as VMWare Aria Operations for Logs and VMware Aria Operations Business Insights.
+- Seamless integration with other services from your VMware Cloud services portfolio, for example, VMWare Aria Operations for Logs.
 
-{% include note.html content="All **new** Operations for Applications service subscriptions are onboarded to VMware Cloud services. For information about original and new subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html)."%}
-
-<!--- We are in the process of incrementally onboarding the existing Operations for Applications instances to VMware Cloud services.-->
+{% include note.html content="All **new** Operations for Applications service subscriptions are onboarded to VMware Cloud services. All **original** subscriptions, that means existing ones, remain as is until they migrate to VMware Cloud services. We are in the process of incrementally migrating original subscriptions to VMware Cloud services. For information about original and VMware Cloud services subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html). "%}
 
 ## What's VMware Cloud Services Console?
 

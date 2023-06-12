@@ -28,9 +28,7 @@ When a Super Admin user [enables Super Admin mode](users_account_managing.html#e
 * Can [restore orphan dashboards and alerts](access.html#make-orphan-dashboards-or-alerts-visible).
 * Can invite other Super Admin users.
 * Can [sign out a user](user-accounts.html#sign-out-a-user).
-* Can upgrade from trial version and purchase Operations for Applications.
 * Can purchase more PPS.
-* Can create and manage [ingestion policies](ingestion_policies.html).
 
 To invite other Super Admin users:
 

@@ -13,7 +13,7 @@ You can [sign up for a free trial](start_trial.html) and try out our service. St
 
 After your free trial expires, you can [upgrade and purchase our service](upgrade_and_purchase.html). 
 
-Since our original subscriptions are outside of the VMware Cloud services platform, there are some differences in the experience for the [new subscribers and original subscribers](tobs_faq.html#what-are-the-differences-between-new-and-original-subscriptions).
+Since our original subscriptions are outside of the VMware Cloud services platform, until they migrate to VMware Cloud services, there are some differences in the experience for the [VMware Cloud services subscribers and original subscribers](subscriptions-differences.html).
 
 ## Intro Videos
 
