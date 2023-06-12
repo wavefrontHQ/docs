@@ -52,10 +52,10 @@ Before you can invoke the API using `curl` or from an API client, you must have 
 
 The API token that you need depends on your [subscription type](subscriptions-differences.html). 
 
-* User accounts in **new** Operations for Applications subscriptions, which are onboarded to VMware Cloud services, use **VMware Cloud services API tokens**. See [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) and [How do I manage API tokens in my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html) in the VMware Cloud services documentation.
+* User accounts in VMware Cloud services subscriptions, use **VMware Cloud services API tokens**. See [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) and [How do I manage API tokens in my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html) in the VMware Cloud services documentation.
 
     [Server to server apps](csp_server_to_server_apps.html) authenticate with OAuth 2.0 client credentials and API tokens are directly issued to the corresponding applications. 
-* User accounts and service accounts in **original** Operations for Applications subscriptions use **Operations for Applications API tokens**. See [Manage API Tokens](api_tokens.html).
+* User accounts and service accounts in original Operations for Applications subscriptions use **Operations for Applications API tokens**. See [Manage API Tokens](api_tokens.html).
 
 
 ## Invoking the API
@@ -94,8 +94,12 @@ The REST API supports the following objects corresponding to different categorie
 - **Access Policy** - Lets you allow or deny access to embedded charts. For information, see [Allow or Deny Access to Embedded Charts](ui_sharing.html#allow-or-deny-access-to-embedded-charts).
 - **Access** - Provides information on the access level of an entity. See [Notes on the Access Category](#access) below.
 - **Account (User and Service Account)** - Allows users with [**Accounts** permission](permissions_overview.html) to retrieve a list of all [accounts](users_roles.html), create, update, and delete accounts and manage permissions and groups associated with accounts.
+
+    {% include note.html content="Applies only to original subscriptions. See the [Operations for Applications subscription types](subscriptions-differences.html)."%}
 - **Alert** - Retrieve active, snoozed, in-maintenance, and invalid alerts. Users with [**Alerts** permission](permissions_overview.html) can create and update alerts.
 - **ApiToken** - Allows users with [**Accounts** permission](permissions_overview.html) to retrieve, create, and manage API tokens. Used primarily in conjunction with service accounts.
+
+    {% include note.html content="Applies only to original subscriptions. See the [Operations for Applications subscription types](subscriptions-differences.html)."%}
 - **Cloud Integration** - Retrieve cloud integration data types such as those available with the [AWS integration](integrations_aws_metrics.html). Users with [**Proxies** permission](permissions_overview.html) can add and remove cloud integration data types.
 - **Dashboard** - Retrieve data about dashboards, list dashboards, and return version history. Users with [**Dashboards** permission](permissions_overview.html) can save, create, delete, clone, undelete dashboards.
 - **Derived Metric** - Manage derived metrics.
@@ -110,12 +114,16 @@ The REST API supports the following objects corresponding to different categorie
 - **Proxy** - Retrieve information about Wavefront proxies. Users with [**Proxies** permission](permissions_overview.html) can add and remove Wavefront proxies.
 - **Query** - Perform queries.
 - **Role** - Retrieve information about a role and manage roles and role assignees.
+
+    {% include note.html content="Applies only to original subscriptions. See the [Operations for Applications subscription types](subscriptions-differences.html)."%}
 - **Saved Search** - Retrieve, add, and remove saved searches.
 - **Search** - Search agents, alerts, integrations, dashboards, external links, maintenance windows, sources, and webhook alert targets.
 - **Source** - Retrieve sources and tags associated with a source. Users with [**Source Tags** permission](permissions_overview.html) can add and remove source tags and set descriptions.
 - **Usage** - Retrieve information about usage associated with ingestion policies and manage policies.
 - **User** - Deprecated API. Use **Account (User and Service Account)** instead.
 - **UserGroup** - Allows users with [**Accounts** permission](permissions_overview.html) to retrieve a list of all groups, create, update, and delete groups, and manage the users and roles associated with a group.
+
+    {% include note.html content="Applies only to original subscriptions. See the [Operations for Applications subscription types](subscriptions-differences.html)."%}
 - **Webhook** - Retrieve webhooks. Users with [**Alerts** permission](permissions_overview.html) can create, update, and delete webhooks.
 
 <a name="access"></a>

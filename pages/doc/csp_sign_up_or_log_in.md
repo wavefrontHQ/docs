@@ -5,15 +5,13 @@ sidebar: doc_sidebar
 permalink: csp_sign_up_or_log_in.html
 summary: Learn how you can sign up and log in to your service instance if it's onboarded to VMware Cloud services.
 ---
-Starting June 1, 2023, VMware Aria Operations for Applications becomes a service on the VMware Cloud services platform.
+Starting June 26, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform.
 
 When your Operations for Applications instance is onboarded to VMware Cloud services, you use a single [VMware Cloud services account](csp_getting_started.html#what-is-a-vmware-cloud-services-account) to access your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications.
 
-{% include note.html content="All **new** Operations for Applications service subscriptions are onboarded to VMware Cloud services. For information about original and new subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html)."%}
+{% include note.html content="All **new** Operations for Applications service subscriptions are onboarded to VMware Cloud services. All **original** subscriptions, that means existing ones, remain as is until they migrate to VMware Cloud services. We are in the process of incrementally migrating original subscriptions to VMware Cloud services. For information about original and VMware Cloud services subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html). "%}
 
-<!--- We are in the process of incrementally onboarding the existing Operations for Applications instances to VMware Cloud services.-->
-
-Here’s how it works:
+Here’s how the signup works:
 1.	If you don't belong to the VMware Cloud organization in which the Operations for Applications service instance is running, you can be added to that organization in one the following ways:
 - A VMware Cloud **Organization Owner** or **Organization Administrator** adds you individually. See [How do I add users to my organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-47AA313E-9DAC-447C-B6C8-DF71ED45B0D5.html) in the VMware Cloud services documentation.
 - A VMware Cloud **Organization Owner** and **Enterprise Administrator** federate your corporate domain with VMware Cloud services. See [What is enterprise federation and how does it work](https://docs.vmware.com/en/VMware-Cloud-services/services/setting-up-enterprise-federation-cloud-services/GUID-76FAECB3-CFAA-461E-B9C9-2A49C39CD17F.html) in the VMware Cloud services documentation.
@@ -84,7 +82,7 @@ You can log in to your  Operations for Applications instance directly by using i
 
 <table>
 <tr>
-<td>If you belong to multiple tenants, from the gear icon on the toolbar, you can switch between tenants.</td>
+<td>If you belong to multiple tenants, from the drop-down menu in the top-left corner of the menu bar, you can switch between tenants.</td>
 <td><img src="/images/to_multi_tenancy.png" alt="Drop-down menu with several tenants."></td>
 </tr>
 </table>
