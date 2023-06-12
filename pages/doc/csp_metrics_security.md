@@ -34,7 +34,9 @@ Metrics security policy rules allows fine-grained support for limiting access to
 
 With a metrics security policy, you can block or allow access:
 * To metrics, optionally filtered by source or point tag
-* Based on groups, roles, and individual users.
+* Based on individual accounts (user accounts and service accounts), groups, and roles (service roles and custom roles).
+
+{% include note.html content="Service accounts in Operations for Applications correspond to server to server apps in VMware Cloud services." %}
 
 When an account attempts to access metrics, the backend looks at the rules in priority order. Higher priority rules overwrite lower priority rules.
 
@@ -197,7 +199,7 @@ You create a metrics security policy rule following these steps. See the annotat
      * If you want to specify multiple key=value pairs, select whether you want to combine them with `and` or `or` using the dropdown menu on the right.
   5. Specify the Access definition for the rule.
      1. Select **Allow** or **Block** from the menu.
-     2. Specify accounts, [groups](csp_users_roles.html#manage-user-groups), or [roles](csp_users_roles.html#manage-roles) (service roles and custom roles).
+     2. Specify accounts, groups, or roles.
   3. Click **OK.**
 
 

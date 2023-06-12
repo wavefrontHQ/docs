@@ -38,7 +38,7 @@ The policy scope can be accounts, groups, sources, namespaces, or point tags.
 
 ### Step 0: Start the Ingestion Policy Creation
 
-1. Log in to your service instance (`https://<your_instance>.wavefront.com`) as a user with the **Ingestion Policies** permission.
+1. Log in to your service instance as a user with the **Ingestion Policies** permission.
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Ingestion Policies**.
 3. Click **New Ingestion Policy**.
 
@@ -54,10 +54,13 @@ In the **Data** panel, specify the scope and, optionally, a PPS limit and click 
     </thead>
     <tr>
     <td><strong>Accounts</strong></td>
-    <td>Individual <a href="authorization-faq.html#what-are-user--service-accounts">user and service accounts</a>.</td></tr>
+    <td>Depends on your <a href="subscriptions-differences.html">subscription type</a>.<ul><li>If your Operations for Applications service is a VMware Cloud services subscription, individual <a href="csp_user_management.html">users</a> and <a href="csp_server_to_server_apps.html">sever to server apps</a>. Service accounts in Operations for Applications correspond to server to server apps in VMware Cloud services.</li>
+    <li>If your Operations for Applications service is an original subscription, individual <a href="authorization-faq.html#what-are-user--service-accounts">user and service accounts</a>.</li></ul></td></tr>
     <tr>
     <td><strong>Groups</strong></td>
-    <td><a href="users_roles.html#create-a-group">Groups</a> of user and service accounts.</td>
+    <td>Depends on your <a href="subscriptions-differences.html">subscription type</a>.<ul><li>If your Operations for Applications service is a VMware Cloud services subscription, <a href="csp_users_roles.html#manage-user-groups">groups</a> of VMware Cloud services users.</li>
+    <li>If your Operations for Applications service is an original subscription, <a href="users_roles.html#create-a-group">groups</a> of user and service accounts.</li></ul>
+    </td>
     </tr>
     <tr>
     <td><strong>Sources</strong></td>

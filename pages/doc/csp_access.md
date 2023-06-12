@@ -84,6 +84,11 @@ After the change, access to new dashboards and new alerts is initially limited t
 
 {% include note.html content="A change to the security setting applies only to dashboards and alerts created after the change. If you change the setting to **Object Creator**, only new dashboards and alerts have restricted access. If you later change the setting to **Everyone**, all dashboards and alerts that were created while the setting was **Object Creator** keep the restricted access." %}
 
+By default, service accounts (which correspond to server to server apps in VMware Cloud services) don't have browse permissions. However, you can also grant access for new dashboards and alerts to service accounts:
+
+1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Organization Settings**.
+2. Click the **Security** tab, select **Grant Modify Access To:  Everyone** and **Service Accounts**.
+
 ## Recovering an Inaccessible Dashboard or Alert
 
 If you can no longer access a dashboard or alert, it was either deleted (moved to trash), it was permanently deleted, or the access settings for you or a group you belong to were changed.

@@ -13,13 +13,14 @@ VMware Cloud services supports server to server apps that you can use to automat
 
 ## What Are Server to Server Apps?
 
-Server to server apps are used for automating management tasks.
+Server to server apps are used for automating management tasks. 
 
 * A server to server app uses **OAuth 2.0 client credentials** to authenticate. Access tokens are issued directly to the application.
 * A server to server app can be assigned with organization roles, service roles, and custom roles.
 
   {% include note.html content="You must explicitly grant each server to server app only the role with the permission required for the task that’s being automated (least required privilege). Doing so, you ensure that permissions for server to server app are always very limited." %}
 * A server to server app can be used in multiple organizations. The owner of a server to server app is the organization in which it was created.
+* A Server to server app in VMware Cloud services corresponds to a service account in Operations for Applications.
 
 ## How Server to Server Apps Work
 
