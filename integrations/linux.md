@@ -129,3 +129,4 @@ systemctl restart td-agent.service
 ```
 ### View the Linux Logs
 In the Logs Browser you can see your Linux logs. You can also search and filter the logs, and troubleshoot your issues.
+

@@ -82,22 +82,11 @@ Open the `conf/wavefront.conf` file in edit mode and update the following list o
    b. Enable the `wavefront` output plugin by adding below snippet:{% raw %}
       ```
       [[outputs.wavefront]]
-      ## Url for Wavefront Direct Ingestion or using HTTP with Wavefront Proxy
-      ## If using Wavefront Proxy, also specify port. example: http://proxyserver:2878
-      # url = "https://<CLUSTER>.wavefront.com"
-      #
-      ## Authentication Token for Wavefront. Only required if using Direct Ingestion
-      # token = "API_TOKEN"
-      #
-      ## DNS name of the wavefront proxy server. Do not use if url is specified
-      host = "WAVEFRONT_PROXY_ADDRESS"
-      #
-      ## Port that the Wavefront proxy server listens on. Do not use if url is specified
-      port = 2878
-      prefix = "bsd."
-      metric_separator = "."
-      source_override = ["hostname", "agent_host", "node_host"]
-      convert_paths = true
+        url = "WAVEFRONT_PROXY_HOSTNAME:2878"
+        prefix = "bsd."
+        metric_separator = "."
+        source_override = ["hostname", "agent_host", "node_host"]
+        convert_paths = true
       ```
 {% endraw %}
    c. Uncomment the `net` input plugin, if commented.{% raw %}
