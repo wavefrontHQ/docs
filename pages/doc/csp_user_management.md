@@ -12,7 +12,7 @@ VMware Cloud services provides identity access management for the users of your 
 
 ## Add a User to Your Service Instance
 
-- If you want to add a user who doesn't belong to your VMware Cloud organization, you must first add that user to your organization and assign them an [organization role](csp_getting_started.html#what-is-a-vmware-cloud-organization-role).  
+- If you want to add a user who doesn't belong to your VMware Cloud organization, you must first add that user to your organization and assign them an [organization role](csp_getting_started.html#whats-a-vmware-cloud-organization-role).  
 
     See [How do I add users to my organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-47AA313E-9DAC-447C-B6C8-DF71ED45B0D5.html) in the VMware Cloud services documentation.
 
