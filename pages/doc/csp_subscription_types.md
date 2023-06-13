@@ -23,7 +23,6 @@ VMware Cloud services provides single sign-on (SSO) and identity access manageme
 
   From the VMware Cloud services toolbar, you can:
     1. Switch between tenants (service instances) in a multi-tenant Operations for Applications environment.
-    1. See the developer tools.
     1. See notifications from VMware Cloud services.
     1. Manage your VMware Cloud services account and switch to other organizations.
     1. Go to the VMware Cloud Services Console and switch to other service subscriptions.
