@@ -8,7 +8,7 @@ summary: Learn how to manage your password and preferences.
 
 Starting June 26, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform.
 
-When your Operations for Applications instance is onboarded to VMware Cloud services, you use a single [VMware Cloud services account](csp_getting_started.html#what-is-a-vmware-cloud-services-account) to access your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications.
+When your Operations for Applications instance is onboarded to VMware Cloud services, you use a single [VMware Cloud services account](csp_getting_started.html#whats-a-vmware-cloud-services-account) to access your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications.
 
 {% include note.html content="All **new** Operations for Applications service subscriptions are onboarded to VMware Cloud services. For information about original and new subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html)."%}
 
@@ -73,7 +73,7 @@ If you hold the [**Super Admin** service role](csp_users_roles.html#operations-f
         <tr>
             <td width="70%">As a result:
             <ul>
-            <li>When the Super Admin mode is <strong>enabled</strong>, you have full administrative privileges for the Operations for Applications service. See the <a href="csp_getting_started.html#super-admin">Super Admin service role</a> for details.</li>
+            <li>When the Super Admin mode is <strong>enabled</strong>, you have full administrative privileges for the Operations for Applications service. See the <a href="csp_users_roles.html#operations-for-applications-service-roles-built-in">Super Admin service role</a> for details.</li>
             <li>When the Super Admin mode is <strong>disabled</strong>, you have only the permissions from your other roles if any.</li>
             </ul></td>
             <td width="30%"><img src="/images/super_admin_mode.png" alt="A screenshot of the drop-down menu with the Super Admin Mode toggle.">
