@@ -16,7 +16,7 @@ VMware publishes service operational status and maintenance schedules to the [VM
 <td width="60%">
 To see the status of your VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) service, you must get the alias name of your cluster.
 <ol>
-<li>Log in to your service instance (<code>https://&lt;your_instance&gt;.wavefront.com</code>) and click the gear icon on the toolbar.</li>
+<li>Log in to your service instance and click the gear icon on the toolbar.</li>
 <li>Under <strong>VMware Status Page</strong>, see your cluster alias name.</li>
 </ol>
 </td>

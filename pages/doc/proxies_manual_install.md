@@ -252,7 +252,7 @@ After you have started the proxy you just configured, you can verify its status 
 
 ### Testing From the UI
 To check your proxy from the UI:
-1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
+1. Log in to your service instance.
 2. From the toolbar, select **Browse > Proxies** to view a list of all proxies.
    If the list is long, enter the proxy name as defined in `proxyname=` in  `wavefront.conf` to locate the proxy by name.
 

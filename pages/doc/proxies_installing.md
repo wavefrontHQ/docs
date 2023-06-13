@@ -181,7 +181,7 @@ You can test that a proxy is receiving and sending data as follows:
 echo -e "test.metric 1 source=test_host\n" | nc <wavefront_proxy_address> 2878
    ```
    where `<wavefront_proxy_address>` is the address of your Wavefront proxy.
-1. Log in to service instance (`https://<your_instance>.wavefront.com`) and select **Browse > Metrics**.
+1. Log in to service instance and select **Browse > Metrics**.
 1. In the Metrics field, type `test.metric`.
 1. Click `test.metric` to display a chart of the metric.
 
@@ -263,7 +263,7 @@ On the [Proxies Browser](monitoring_proxies.html#get-started-wih-the-proxies-bro
 
 {% include note.html content="You cannot delete a proxy in **Active** status." %}
 
-1. Log in to your service instance (`https://<your_instance>.wavefront.com`) and select **Browse > Proxies**.
+1. Log in to your service instance and select **Browse > Proxies**.
 1. Select the check boxes for one or more proxies that you want to delete.
 1. Click **Delete** and confirm.
 1. In the top-right corner, from the drop-down menu, select **Deleted** and verify that the proxy was successfully deleted.
