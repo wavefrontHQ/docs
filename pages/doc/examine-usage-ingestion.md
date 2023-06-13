@@ -18,7 +18,7 @@ For performance monitoring of your Operations for Applications service, you can 
 
 You can navigate to the Usage Summary dashboard and get an overview of your ingestion and scan rates per [billing period](glossary.html#b). You can go up to 2 years back in time.
 
-1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
+1. Log in to your service instance.
 1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage Portal**.
 
     {% include tip.html content="If you are a Super Admin user and enabled Super Admin mode, the menu item is **Usage and Subscriptions**." %}

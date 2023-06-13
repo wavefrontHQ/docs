@@ -20,7 +20,7 @@ This <a href="https://vmwaretv.vmware.com/media/t/1_atlrv7sa" target="_blank">vi
 <iframe id="kmsembed-1_atlrv7sa" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_atlrv7sa/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="application map settings"></iframe>
 
 See the application map:
-1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
+1. Log in to your service instance.
 1. From the toolbar, select **Applications** > **Application Status** and click the Application Map icon ( <img src="images/tracing_appmap_appmap_view_icon.png"
 style="vertical-align:text-bottom;width:28px" alt="icon to click to get the application map view"/> )
 1. Optionally, click the link icon ( <img src="images/tracing_link_icon.png"
@@ -171,7 +171,7 @@ Let's walk through the following scenario to get a quick overview of the applica
 View the list of applications and services. You can see the Request, Error, and Duration (RED) metrics at a glance and sort the data.
 
 See the table view:
-1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
+1. Log in to your service instance.
 1. From the toolbar, select **Applications** > **Application Status** and click the Table View icon ( <img src="images/tracing_appmap_table_view_icon.png"
 style="vertical-align:text-bottom;width:28px" alt="icon to click to get the table view"/> )
 
@@ -350,7 +350,7 @@ Using the table view, you can:
 When you select an application, you get an overview of its services.
 
 See the grid view:
-1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
+1. Log in to your service instance.
 1. From the toolbar, select **Applications** > **Application Status** and click the Grid View icon ( <img src="images/tracing_appmap_grid_view_icon.png"
 style="vertical-align:text-bottom;width:28px" alt="icon to click to get the table view"/> )
 

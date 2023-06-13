@@ -17,7 +17,7 @@ summary: Learn how to add capacity to your current VMware Aria Operations for Ap
 
 ## How to Purchase Additional Capacity
 
-1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
+1. Log in to your service instance.
 1. If you are a Super Admin user in an original Operations for Applications subscription, [enable Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode).
 1. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Usage and Subscriptions**.
 1. Click the **Subscriptions** tab.

@@ -23,7 +23,7 @@ Let's look at how you can create a sampling policy and get familiar with the pol
 
 To create a sampling policy:
 
-1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
+1. Log in to your service instance.
 1. From the toolbar, select **Applications** > **Sampling Policies**.
 1. Click **Create Policy** and enter the details:
     <table style="width: 100%;">

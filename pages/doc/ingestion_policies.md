@@ -112,7 +112,7 @@ After you create an ingestion policy, if you need, for example, to increase the 
 
 {% include note.html content="You cannot change the policy scope. You can change only the assigned objects from that scope."%}
 
-1. Log in to your service instance (`https://<your_instance>.wavefront.com`) as a user with the **Ingestion Policies** permission.
+1. Log in to your service instance as a user with the **Ingestion Policies** permission.
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Ingestion Policies**.
 3. Click the ellipsis icon next to the policy that you want to edit and select **Edit**.
 4. Enter the necessary changes and click **Save**.
@@ -129,7 +129,7 @@ Every time a user with the **Ingestion Policies** permission edits an ingestion 
 <td width="70%">
 To access the version history of an ingestion policy:
 <ol>
-<li>Log in to your service instance (<code>https://&lt;your_instance&gt;.wavefront.com</code>).</li>
+<li>Log in to your service instance.</li>
 <li>From the gear icon on the toolbar, select <strong>Ingestion Policies</strong>.</li>
 <li>Click the ellipsis icon next to the target policy and select <strong>Versions</strong>.</li>
 </ol>
@@ -159,7 +159,7 @@ If you no longer need an ingestion policy, for example, after a reorganization i
 
 {% include note.html content="Deleting an ingestion policy cannot be undone. Deleting an ingestion policy with a PPS limit, also deletes its associated alert."%}
 
-1. Log in to your service instance (`https://<your_instance>.wavefront.com`) as a user with the **Ingestion Policies** permission.
+1. Log in to your service instance as a user with the **Ingestion Policies** permission.
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Ingestion Policies**.
 3. Click the ellipsis icon next to the policy that you want to delete, select **Delete**, and confirm.
 
@@ -167,7 +167,7 @@ If you no longer need an ingestion policy, for example, after a reorganization i
 
 All users can view the ingestion policies and examine the ingestion policy dashboards to understand their PPS usage over time.
 
-1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
+1. Log in to your service instance.
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Ingestion Policies**.
 
     The **Ingestion Policies** page shows all existing ingesting policies.

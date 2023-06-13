@@ -22,11 +22,11 @@ This <a href="https://vmwaretv.vmware.com/media/t/1_guro3vem" target="_blank">vi
 See the Traces Browser:
 
 * Option 1:
-  1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
+  1. Log in to your service instance.
   1. From the toolbar, select **Applications** > **Traces**.
 
 * Option 2:
-  1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
+  1. Log in to your service instance.
   1. Drill down to the Traces Browser from the Service Dashboard, application map, table view, or grid view.
 
 ![explore trace browser](images/tracing_traces_browser.png)
