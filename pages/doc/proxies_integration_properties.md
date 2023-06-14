@@ -88,4 +88,4 @@ When your service is **not** onboarded to VMware Cloud services, and you downloa
     .\wavefront-proxy-setup.exe /server=https://YOUR_CLUSTER.wavefront.com/api /token=<YOUR_API_TOKEN> /SILENT
     ```
 
-Here, `<YOUR_API_TOKEN>` is a valid Operations for Applications token associated with an active user or service account. 
+Here, `<YOUR_API_TOKEN>` is a valid [Operations for Applications token](api_tokens.html) associated with an active user or service account. 
