@@ -44,7 +44,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 3. Configure tcp_listener Input Plugin
 
 Configure the Telegraf tcp_listener input plugin to receive the Puppet Server metrics. Create a file called `puppet-server.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 [[inputs.tcp_listener]]
   service_address = ":2003"

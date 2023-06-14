@@ -41,7 +41,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 3. Enable the Jolokia2 Agent input plugin
 
 Create a file called `jolokia.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
    ```
     # Read JMX metrics through Jolokia2
     [[inputs.jolokia2_agent]]

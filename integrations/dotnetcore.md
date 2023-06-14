@@ -26,7 +26,7 @@ You can deploy the Wavefront Collector for Kubernetes and Wavefront proxy and us
 #### Expose the .NET Core Application Metrics Using Prometheus Nuget Package
 
 The below snippet shows the sample application instrumentation to expose the metrics in Promethues format.
-{% raw %}
+{% raw %}
 ```
 // Weather Forecast Sample Application
 using Prometheus;
@@ -67,7 +67,7 @@ See the [sample .NET Core project](https://github.com/wavefrontHQ/integrations/b
 
   1. Download the Wavefront Collector [ConfigMap file](https://raw.githubusercontent.com/wavefrontHQ/wavefront-operator-for-kubernetes/f0990bba35afafadf0cb85a700d5f2295889243a/deploy/kubernetes/scenarios/wavefront-collector-existing-configmap.yaml) and replace the `YOUR_CLUSTER_NAME` and `YOUR_WAVEFRONT_URL` with the values relevant for your environment.
 
-  2. Under `sources`, add the following snippet:{% raw %}
+  2. Under `sources`, add the following snippet:{% raw %}
   ```
         prometheus_sources:
         - url: 'http://<dotnet-core-service-IP:PORT>/metrics'
@@ -75,7 +75,7 @@ See the [sample .NET Core project](https://github.com/wavefrontHQ/integrations/b
   ```
 {% endraw %}
 
-  3. Deploy the updated Wavefront Collector ConfigMap:{% raw %}
+  3. Deploy the updated Wavefront Collector ConfigMap:{% raw %}
   ```
   kubectl apply -f wavefront-collector-existing-configmap.yaml
   ```
@@ -85,13 +85,13 @@ See the [sample .NET Core project](https://github.com/wavefrontHQ/integrations/b
 
   If you do not already have the Wavefront Collector for Kubernetes installed on your Kubernetes cluster, follow these instructions to add it to your cluster either by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install).
 
-  1. Edit the Wavefront Collector ConfigMap at runtime, and under `Prometheus Sources`, add the following configuration snippet.{% raw %}
+  1. Edit the Wavefront Collector ConfigMap at runtime, and under `Prometheus Sources`, add the following configuration snippet.{% raw %}
   ```
   kubectl edit configmap wavefront-collector-config -n wavefront
   ```
 {% endraw %}
 
-  .NET Core configuration:{% raw %}
+  .NET Core configuration:{% raw %}
   ```
         prometheus_sources:
         - url: 'http://<dotnet-core-service-IP:PORT>/metrics'

@@ -30,7 +30,7 @@ Add the Micrometer `io.micrometer`, and `org.slf4j` libraries as dependencies in
 
 #### POM.xml
 If you are using Maven, add the following:
-{% raw %}
+{% raw %}
 ```
 <dependency>
   <groupId>org.slf4j</groupId>
@@ -47,7 +47,7 @@ If you are using Maven, add the following:
 
 #### build.gradle
 If you are using Gradle, add the following:
-{% raw %}
+{% raw %}
 ```
 compile 'io.micrometer:micrometer-registry-wavefront:latest.release'
 ```
@@ -55,7 +55,7 @@ compile 'io.micrometer:micrometer-registry-wavefront:latest.release'
 
 ### Step 3. Wavefront Configurations
 
-#### Configuration Using the Wavefront Proxy{% raw %}
+#### Configuration Using the Wavefront Proxy{% raw %}
 ```
 WavefrontConfig config = new WavefrontConfig() {
     @Override
@@ -79,7 +79,7 @@ MeterRegistry registry = new WavefrontMeterRegistry(config, Clock.SYSTEM);
   1. For URI, use the format `proxy://HOST:PORT`.
   2. Accept the defaults for other fields.
 
-#### Configuration for Sending Data Directly to Wavefront{% raw %}
+#### Configuration for Sending Data Directly to Wavefront{% raw %}
 ```
 WavefrontConfig config = new WavefrontConfig() {
     @Override
@@ -117,7 +117,7 @@ The following code fragment creates a Wavefront registry that emits data every 1
 - Data that should appear with the source `app-1.company.com`
 - Reporter-level point tags named `dc` and `service`
 - A counter metric `micrometer.counter`
-{% raw %}
+{% raw %}
 ```
 import io.micrometer.core.instrument.Clock
 import io.micrometer.core.instrument.Counter;
@@ -198,7 +198,7 @@ public class SimpleWavefrontProxyTest extends Thread {
 #### JVM Metrics
 
 Micrometer provides several binders for monitoring the JVM.
-{% raw %}
+{% raw %}
 ```
 new ClassLoaderMetrics().bindTo(registry); (1)
 new JvmMemoryMetrics().bindTo(registry); (2)

@@ -42,14 +42,14 @@ The Wavefront AWS Lambda function wrappers use the following environment variabl
 ### Python Lambda Wrapper
 To report metrics from your Python Lambda functions, use the [Wavefront Python Lambda Wrapper](https://github.com/wavefrontHQ/wavefront-lambda-python).
 
-#### Install wavefront_lambda{% raw %}
+#### Install wavefront_lambda{% raw %}
 ```
 pip install wavefront_lambda
 ```
 {% endraw %}
 
 #### Usage
-Decorate your Python AWS Lambda function handler with `@wavefront_lambda.wrapper`:{% raw %}
+Decorate your Python AWS Lambda function handler with `@wavefront_lambda.wrapper`:{% raw %}
 ```
 import wavefront_lambda
 
@@ -62,14 +62,14 @@ def handler(event, context):
 ### Go Lambda Wrapper
 To report metrics from your Go Lambda functions, use the [Wavefront Go Lambda Wrapper](https://github.com/wavefrontHQ/wavefront-lambda-go).
 
-#### Install wavefront-lambda{% raw %}
+#### Install wavefront-lambda{% raw %}
 ```
 go get github.com/wavefronthq/wavefront-lambda-go
 ```
 {% endraw %}
 
 #### Usage
-Wrap your Go AWS Lambda function handler with `wflambda.Wrapper`:{% raw %}
+Wrap your Go AWS Lambda function handler with `wflambda.Wrapper`:{% raw %}
 ```
 package main
 
@@ -94,7 +94,7 @@ func main() {
 ### Node.js Lambda Wrapper
 To report metrics from your Node.js Lambda functions, use the [Wavefront Node.js Lambda Wrapper](https://github.com/wavefrontHQ/wavefront-lambda-nodejs).
 
-#### Install wavefront-lambda{% raw %}
+#### Install wavefront-lambda{% raw %}
 ```
 npm install wavefront-lambda
 ```
@@ -102,7 +102,7 @@ npm install wavefront-lambda
 
 #### Usage
 Wrap your Node.js AWS Lambda function handler with `wavefrontLambda.wrapper`:
-{% raw %}
+{% raw %}
 ```
 const wavefrontLambda = require('wavefront-lambda')
 const metrics = require('wavefrontmetrics');

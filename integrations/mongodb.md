@@ -30,7 +30,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2. Configure mongoDB Input Plugin
 
 1. Create a file called `mongodb.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
     ```
     # Read metrics from one or many mongodb servers
     [[inputs.mongodb]]

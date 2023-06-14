@@ -27,7 +27,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2. Enable the Varnish input plugin
 
 Create a file called `varnish.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
    ```
    # A plugin to collect stats from Varnish HTTP Cache
  [[inputs.varnish]]

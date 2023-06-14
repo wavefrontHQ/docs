@@ -46,7 +46,7 @@ If you already have the Kubernetes Metrics Collector installed by using the depr
 
 #### 1. Deploy Prometheus with Federation Configuration
 
-Step 1. Deploy the Prometheus server to the `istio-system` namespace.{% raw %}
+Step 1. Deploy the Prometheus server to the `istio-system` namespace.{% raw %}
 ```
 kubectl create -f https://raw.githubusercontent.com/wavefrontHQ/integrations/master/istio/prometheus.yaml
 ```
@@ -63,7 +63,7 @@ Step 1. Download the [existing collector ConfigMap](https://raw.githubuserconten
 
 Step 2. Update `YOUR_CLUSTER_NAME` with the name of your Kubernetes cluster and `YOUR_WAVEFRONT_URL` with the URL of your Operations for Applications instance.
 
-Step 3. Add the following snippet under `sources`:{% raw %}
+Step 3. Add the following snippet under `sources`:{% raw %}
 ```
       ##########################################################################
       # Static source to collect Istio metrics via federated Prometheus server
@@ -113,7 +113,7 @@ Step 3. Add the following snippet under `sources`:{% raw %}
 ```
 {% endraw %}
 
-Step 4. Add the following snippet under `discovery`, and save the `.yaml` file:{% raw %}
+Step 4. Add the following snippet under `discovery`, and save the `.yaml` file:{% raw %}
 ```
       annotation_excludes:
       - namespaces:
@@ -121,7 +121,7 @@ Step 4. Add the following snippet under `discovery`, and save the `.yaml` file:{
 ```
 {% endraw %}
 
-Step 5. Deploy the existing collector ConfigMap `.yaml` file.{% raw %}
+Step 5. Deploy the existing collector ConfigMap `.yaml` file.{% raw %}
 ```
 kubectl apply -f wavefront-collector-existing-configmap.yaml
 ```
@@ -129,13 +129,13 @@ kubectl apply -f wavefront-collector-existing-configmap.yaml
 
 ##### <a name="kubernetes-collector"></a><br> 2.2 Update the Kubernetes Metrics Collector ConfigMap
 
-Step 1. Edit the Kubernetes Metrics Collector ConfigMap at runtime and add the following snippet under `prometheus_sources`.{% raw %}
+Step 1. Edit the Kubernetes Metrics Collector ConfigMap at runtime and add the following snippet under `prometheus_sources`.{% raw %}
 ```
 kubectl edit configmap wavefront-collector-config -n wavefront
 ```
 {% endraw %}
 
-Istio config:{% raw %}
+Istio config:{% raw %}
 ```
       ##########################################################################
       # Static source to collect Istio metrics via federated Prometheus server

@@ -25,7 +25,7 @@ This integration is supported only on Windows.
 
 - If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, install a proxy.
 - If you are using **Microsoft SQL Server 13** configure the following [preprocessor rule](https://docs.wavefront.com/proxies_preprocessor_rules.html) for the Wavefront proxy.
-{% raw %}
+{% raw %}
 ```
 # rules for port 2878
 '2878':
@@ -79,7 +79,7 @@ If you've already installed Telegraf on one of your servers, you can skip to ste
 ### Step 3. Configure the Microsoft SQL Server Input Plugin
 
 Create an SQL user with the required permissions on every SQL Server from which you plan to collect metrics. Use the following script after connecting to your SQL Server.
-{% raw %}
+{% raw %}
 ```
 USE master;
 GO
@@ -94,7 +94,7 @@ GO
 {% endraw %}
 Edit the `telegraf.conf` file located in `Program Files\Telegraf\` and enter the following snippet:
 
-{% raw %}
+{% raw %}
 ```
 [[inputs.sqlserver]]
 # Specify instances to monitor with a list of connection strings.
@@ -117,7 +117,7 @@ name_prefix = "MSSQL2."
 ### Step 4. Restart Telegraf
 
 Use the `Windows Services Management Console` or execute the following from the command prompt:
-{% raw %}
+{% raw %}
 ```
 net stop telegraf
 net start telegraf

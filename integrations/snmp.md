@@ -26,7 +26,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2. Configure SNMP Input Plugin
 
 Create a file called `snmp.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 [[inputs.snmp]]
    agents = [ "your.snmp.agent:161" ]
@@ -38,14 +38,14 @@ Create a file called `snmp.conf` in `/etc/telegraf/telegraf.d` and enter the fol
 Refer to the [Telegraf documentation](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/snmp#config-parameters) for SNMPv3 configuration.
 
 To poll multiple SNMP agent instances from a single Telegraf agent, configure the `agents` parameter with the addresses of the SNMP agent instances:
-{% raw %}
+{% raw %}
 ```
 agents = ["your.snmp.agent1:161","your.snmp.agent2:161","your.snmp.agent3:161"]
 ```
 {% endraw %}
 
 To poll multiple SNMP metrics from a single Telegraf agent, you can configure additional `inputs.snmp.field` sections. For example:
-{% raw %}
+{% raw %}
 ```
    [[inputs.snmp.field]]
      name = "sysServices"

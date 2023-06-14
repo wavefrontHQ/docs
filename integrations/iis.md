@@ -19,7 +19,7 @@ This integration uses Windows performance counters specific to the IIS Telegraf 
 
 
 
-Supported IIS Version(s): IIS 6.0 & later{% raw %}
+Supported IIS Version(s): IIS 6.0 & later{% raw %}
 ```
 This integration is supported only on Windows.
 ```
@@ -36,7 +36,7 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
 ### Step 3: Configure the IIS Input Plugin
 
 Edit the `telegraf.conf` file located in `Program Files\Telegraf\` and enter the following snippet:
-{% raw %}
+{% raw %}
    ```
    [[inputs.win_perf_counters]]
      [[inputs.win_perf_counters.object]]
@@ -120,7 +120,7 @@ To see data in the **Avg Disk Latency** chart, make sure the following propertie
 * `IncludeTotal = true`.
 
 Example:
-{% raw %}
+{% raw %}
 ```
 [[inputs.win_perf_counters.object]]
 ObjectName = "LogicalDisk"
@@ -134,7 +134,7 @@ IncludeTotal = true
 ### Step 4: Restart the Telegraf service
 
 Use the `Windows Services Management Console` or execute the following from the command prompt:
-{% raw %}
+{% raw %}
    ```
    net stop telegraf
    net start telegraf

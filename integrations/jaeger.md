@@ -29,7 +29,7 @@ Jaeger [deployments](https://www.jaegertracing.io/docs/1.17/architecture/#compon
 #### Install and Configure the Wavefront Proxy for Jaeger via HTTP
 
 1. If you have not already done so, install a Wavefront proxy (version 6.0 or later).
-2. On the host that is running your Wavefront proxy, open the file `/etc/wavefront/wavefront-proxy/wavefront.conf` and add:{% raw %}
+2. On the host that is running your Wavefront proxy, open the file `/etc/wavefront/wavefront-proxy/wavefront.conf` and add:{% raw %}
    ```
    traceJaegerHttpListenerPorts=<enter-available-port>
    ```
@@ -40,7 +40,7 @@ Jaeger [deployments](https://www.jaegertracing.io/docs/1.17/architecture/#compon
 
 #### Configure the Jaeger Client to Send Data to the Wavefront Proxy
 
-Send data to the following endpoint:{% raw %}
+Send data to the following endpoint:{% raw %}
  ```
  http://<wf_proxy_hostname>:<wf_proxy_jaeger_port>/api/traces
  ```
@@ -57,7 +57,7 @@ You must configure the Jaeger client based on your application type. For example
 #### Install and Configure the Wavefront Proxy for Jaeger via GRPC
 
 1. If you have not already done so, install a Wavefront proxy (version 4.33 or later).
-2. On the host that is running your Wavefront proxy, open the file `/etc/wavefront/wavefront-proxy/wavefront.conf` and add:{% raw %}
+2. On the host that is running your Wavefront proxy, open the file `/etc/wavefront/wavefront-proxy/wavefront.conf` and add:{% raw %}
    ```
    traceJaegerGrpcListenerPorts=<enter-available-port>
    ```
@@ -70,7 +70,7 @@ You must configure the Jaeger client based on your application type. For example
 
 ##### Host based Jaeger Installation
 On your hosts running the Jaeger agent, configure the agent with the following property:
-{% raw %}
+{% raw %}
 ```
 --reporter.grpc.host-port=<wf_proxy_hostname>:<wf_proxy_jaeger_port>
 ```
@@ -78,7 +78,7 @@ On your hosts running the Jaeger agent, configure the agent with the following p
 Replace `<wf_proxy_hostname>` with the hostname of the Wavefront proxy and `<wf_proxy_jaeger_port>` with the port you entered above for `traceJaegerGrpcListenerPorts`.
 
 ##### Docker based Jaeger Installation
-When you run Jaeger agents using Docker, in the run command after the image name, add the following:{% raw %}
+When you run Jaeger agents using Docker, in the run command after the image name, add the following:{% raw %}
 ```
 --reporter.grpc.host-port=<wf_proxy_hostname>:<wf_proxy_jaeger_port>
 ```

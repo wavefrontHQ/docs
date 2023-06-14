@@ -28,12 +28,12 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2. Download the Script to Gather Hadoop MapReduce Metrics
 
 1. Download [mapreduce.py](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/hadoop/mapreduce.py) onto your Telegraf agent server.
-2. Test the script execution using this command:{% raw %}
+2. Test the script execution using this command:{% raw %}
     ```
     python mapreduce.py
     ```
 {% endraw %}
-    You should get a response similar to this:{% raw %}
+    You should get a response similar to this:{% raw %}
     ```
     usage: mapreduce.py [-h] [--username [USERNAME]] [--password [PASSWORD]] [server]
     mapreduce.py: error: server must be provided
@@ -44,7 +44,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 3. Configure Telegraf EXEC Input Plugin
 
 First create a file called `hadoop-mapreduce.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 [[inputs.exec]]
   commands = [ "python <script location> <RM web UI address>:8088"]
@@ -57,13 +57,13 @@ First create a file called `hadoop-mapreduce.conf` in `/etc/telegraf/telegraf.d`
 
 In the `commands` option, specify the location of the Python binary (if necessary), the location of the mapreduce.py script, and the address of the YARN ResourceManager web application (8088 is the default port).
 
-Example:{% raw %}
+Example:{% raw %}
 ```
 commands = [ "/usr/bin/python /home/telegraf/hadoop/mapreduce.py http://yarn1.foo.com:8088"]
 ```
 {% endraw %}
 
-To monitor multiple Yarn servers, add entries within `commands`:{% raw %}
+To monitor multiple Yarn servers, add entries within `commands`:{% raw %}
 ```
 commands = [
   "/usr/bin/python /home/telegraf/hadoop/mapreduce.py http://yarn1.foo.com:8088",

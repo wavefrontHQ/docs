@@ -59,7 +59,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2. Configure vSphere Input Plugin
 
 Create a file called `vsphere.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 [[inputs.vsphere]]
   ## List of vCenter URLs to be monitored. These three lines must be uncommented

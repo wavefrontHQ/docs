@@ -23,17 +23,17 @@ about the data source plugin features and limitations.
 
 ### Set Up the Wavefront Data Source Plugin
 
-1. Clone the Wavefront data source plugin's Github repository.{% raw %}
+1. Clone the Wavefront data source plugin's Github repository.{% raw %}
 ```
 git clone https://github.com/wavefrontHQ/grafana-wavefront-datasource.git
 ```
 {% endraw %}
-1. Create a `wavefront-datasource` folder in your Grafana plugins (your plugins folder may be different).{% raw %}
+1. Create a `wavefront-datasource` folder in your Grafana plugins (your plugins folder may be different).{% raw %}
 ```
 mkdir /var/lib/grafana/plugins/wavefront-datasource
 ```
 {% endraw %}
-1. Copy the plugin's `dist` folder into the newly created `wavefront-datasource` folder inside the `grafana/plugins` folder.{% raw %}
+1. Copy the plugin's `dist` folder into the newly created `wavefront-datasource` folder inside the `grafana/plugins` folder.{% raw %}
 ```
 cp -R grafana-wavefront-datasource/dist/* /var/lib/grafana/plugins/wavefront-datasource/
 ```

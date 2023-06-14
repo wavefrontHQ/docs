@@ -25,7 +25,7 @@ In addition to setting up the metrics flow, this integration also sets up a dash
 
 ### Installation
 
-1. Create a directory `avi_metrics` and download the file `metricscollection.py` and `configuration.yaml` into the directory.{% raw %}
+1. Create a directory `avi_metrics` and download the file `metricscollection.py` and `configuration.yaml` into the directory.{% raw %}
 ```
 mkdir avi_metrics
 cd avi_metrics
@@ -34,7 +34,7 @@ curl -o metricscollection.py https://raw.githubusercontent.com/avinetworks/devop
 {% endraw %}
 
 2. Create a file `configuration.yaml` and add the following configuration snippet.
-{% raw %}
+{% raw %}
 ```
 #----------Controllers to Poll Data From - REQUIRED ------------
 #---------------------------------------------------------------
@@ -99,7 +99,7 @@ controllers:
 
 #### Running the script locally
 
-1. Run the script to push metrics to the Wavefront endpoint.{% raw %}
+1. Run the script to push metrics to the Wavefront endpoint.{% raw %}
 ```
 python3 metricscollection.py
 ```
@@ -107,19 +107,19 @@ python3 metricscollection.py
 
 #### Run as a Container
 
-1. Download the Dockerfile into the `avi_metrics` directory.{% raw %}
+1. Download the Dockerfile into the `avi_metrics` directory.{% raw %}
 ```
 curl -o Dockerfile https://raw.githubusercontent.com/avinetworks/devops/master/monitoring/metrics%20collection/dockerfile
 ```
 {% endraw %}
 
-2. Build the container.{% raw %}
+2. Build the container.{% raw %}
 ```
 docker build -t metricscollection .
 ```
 {% endraw %}
 
-3. Start the container.{% raw %}
+3. Start the container.{% raw %}
 ```
 docker run -d --name metricscollection --restart always --log-opt max-size=1m -e "EN_CONFIGURATION=$(<configuration.yaml)"  metricscollection
 ```

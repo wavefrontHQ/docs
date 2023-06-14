@@ -27,7 +27,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2. Enable the HTTP input plugin
 
 Create a `marathon.conf` file in `/etc/telegraf/telegraf.d` and add the following snippet:
-{% raw %}
+{% raw %}
    ```
        [[inputs.http]]
        ## One or more URLs from which to read formatted metrics

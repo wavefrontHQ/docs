@@ -32,7 +32,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 
 
 Create a file called `couchdb.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 [[inputs.couchdb]]
 hosts = ["http://<serverip>:5984/_node/_local/_stats"]
@@ -40,7 +40,7 @@ hosts = ["http://<serverip>:5984/_node/_local/_stats"]
 {% endraw %}
 
 If the server is accessed with credentials, then enter the following snippet instead:
-{% raw %}
+{% raw %}
 ```
 [[inputs.couchdb]]
 hosts = ["http://<username>:<password>@<serverip>:5984/_node/_local/_stats"]

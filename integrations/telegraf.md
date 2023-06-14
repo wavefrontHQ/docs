@@ -39,7 +39,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 If you want to monitor the performance of the Telegraf agent, follow these steps:
 
 Create a `telegraf.conf` file in `/etc/telegraf/telegraf.d` and add the following snippet:
-{% raw %}
+{% raw %}
 ```
     # Collect internal Telegraf statistics
     [[inputs.internal]]

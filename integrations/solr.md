@@ -29,7 +29,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2. Enable the Solr input plugin
 
 Create a file called `solr.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
    ```
    [[inputs.solr]]
      ## specify a list of one or more Solr servers

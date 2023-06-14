@@ -41,7 +41,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 1. Enable Jolokia agent in Cassandra
 
     1. Modify /etc/default/cassandra
-{% raw %}
+{% raw %}
        ```
        echo "export JVM_EXTRA_OPTS=\"-javaagent:/usr/share/java/jolokia-jvm-1.7.1.jar=port=8778,host=localhost\"" | sudo tee -a /etc/default/cassandra
        ```
@@ -50,7 +50,7 @@ Log in to your Operations for Applications instance, navigate to the integration
     1. Alternatively, one can also enable the agent by modifying cassandra-env.sh
 
        Include the following line at the bottom of your cassandra-env.sh
-{% raw %}
+{% raw %}
        ```
        JVM_OPTS="$JVM_OPTS -javaagent:/usr/share/java/jolokia-jvm-1.7.1.jar=port=8778,host=localhost"
        ```
@@ -59,14 +59,14 @@ Log in to your Operations for Applications instance, navigate to the integration
   Here `jolokia-jvm-1.7.1.jar` is the latest version used for testing.
 
 1. Restart cassandra
-{% raw %}
+{% raw %}
    ```
    sudo service cassandra restart
    ```
 {% endraw %}
 
 1. Verify that you can access Jolokia on port 8778 by running:
-{% raw %}
+{% raw %}
    ```
    curl http://localhost:8778/jolokia/
    ```
@@ -76,7 +76,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 3. Configure Cassandra Input Plugin
 
 Create a file called `cassandra.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 # Cassandra
 [[inputs.jolokia2_agent]]
@@ -215,7 +215,7 @@ Step 1. Download the [existing collector ConfigMap](https://raw.githubuserconten
 
 Step 2. Update `YOUR_CLUSTER_NAME` with the name of your Kubernetes cluster and `YOUR_WAVEFRONT_URL` with the URL of your Operations for Applications instance.
 
-Step 3. Add the following snippet under `sources`, and save the `.yaml` file:{% raw %}
+Step 3. Add the following snippet under `sources`, and save the `.yaml` file:{% raw %}
 ```
       prometheus_sources:
       - url: 'http://<prometheus-service-name>.<namespace>.svc.cluster.local:9090/federate?match[]={__name__=~"(mcac|stargate|jvm).*"}'
@@ -236,7 +236,7 @@ Step 3. Add the following snippet under `sources`, and save the `.yaml` file:{% 
 
 **Note**: Update the `prometheus-service-name` and `namespace` params in the url as per your environment.
 
-Step 4. Deploy the existing collector ConfigMap `.yaml` file.{% raw %}
+Step 4. Deploy the existing collector ConfigMap `.yaml` file.{% raw %}
 ```
 kubectl apply -f wavefront-collector-existing-configmap.yaml
 ```
@@ -244,13 +244,13 @@ kubectl apply -f wavefront-collector-existing-configmap.yaml
 
 #### <a name="kubernetes-collector"></a><br> 2.2 Update the Kubernetes Metrics Collector ConfigMap
 
-Step 1. Edit the Kubernetes Metrics Collector ConfigMap at runtime, and add the following snippet under `sources`.{% raw %}
+Step 1. Edit the Kubernetes Metrics Collector ConfigMap at runtime, and add the following snippet under `sources`.{% raw %}
    ```
    kubectl edit configmap wavefront-collector-config -n wavefront
    ```
 {% endraw %}
 
-Cassandra Config:{% raw %}
+Cassandra Config:{% raw %}
    ```
       prometheus_sources:
       - url: 'http://<prometheus-service-name>.<namespace>.svc.cluster.local:9090/federate?match[]={__name__=~"(mcac|stargate|jvm).*"}'

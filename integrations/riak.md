@@ -31,7 +31,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2. Configure Riak KV Store Input Plugin
 
 Create a file called `riak.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 [[inputs.riak]]
   servers = ["http://<Host-IP>:8098"]
@@ -41,7 +41,7 @@ Create a file called `riak.conf` in `/etc/telegraf/telegraf.d` and enter the fol
 Where Host-IP is the value of the `listener.http.internal` property in `/etc/riak/riak.conf`.
 
 Configure global tags in the `telegraf.conf` file to group Riak nodes into clusters, as in the snippet below:
-{% raw %}
+{% raw %}
 ```
 [global_tags]
   #Setting environment tags like prod, dev, perf, and test

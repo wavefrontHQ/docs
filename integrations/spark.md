@@ -21,7 +21,7 @@ Apache Spark is an open-source cluster-computing framework. This integration exp
 ### Step 2. Configure Spark metrics
 
 1. Create or edit the `metrics.properties` file in the `conf` directory of your Spark installation.
-2. Enter the following snippet:{% raw %}
+2. Enter the following snippet:{% raw %}
     ```
     #Enable Graphite
     *.sink.graphite.class=org.apache.spark.metrics.sink.GraphiteSink

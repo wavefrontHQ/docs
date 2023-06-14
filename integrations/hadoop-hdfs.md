@@ -29,7 +29,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 
 1. Download the latest version of the Jolokia JVM-Agent from [here](https://jolokia.org/download.html).
 2. Deploy the `jolokia-jvm-*-agent.jar` to your HDFS nodes (name & data).
-3. Edit your `etc/hadoop/hadoop-env.sh` files and enter the following snippet:{% raw %}
+3. Edit your `etc/hadoop/hadoop-env.sh` files and enter the following snippet:{% raw %}
     ```
     JOLOKIAJAR="[JOLOKIA_JAR_INSTALL_PATH]/jolokia-jvm-*-agent.jar"
     export HDFS_NAMENODE_OPTS="-javaagent:${JOLOKIAJAR}=port=7777,host=localhost"
@@ -38,7 +38,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 {% endraw %}
 4. Verify the Jolokia agent installation on each node by accessing this URL: `http://<address>:<port>/jolokia/version`.
 
-The result looks similar to this:{% raw %}
+The result looks similar to this:{% raw %}
 ```
 {"request":{"type":"version"},"value":{"agent":"1.3.7","protocol":"7.2","config":{"maxCollectionSize":"0","agentId":"10.152.24.99-29844-172f5788-servlet","debug":"false","agentType":"servlet","serializeException":"false","detectorOptions":"{}","dispatcherClasses":"org.jolokia.jsr160.Jsr160RequestDispatcher","maxDepth":"15","discoveryEnabled":"false","canonicalNaming":"true","historyMaxEntries":"10","includeStackTrace":"true","maxObjects":"0","debugMaxEntries":"100"},"info":{"product":"tomcat","vendor":"Apache","version":"8.5.23"}},"timestamp":1509955465,"status":200}
 ```
@@ -47,7 +47,7 @@ The result looks similar to this:{% raw %}
 ### Step 3. Configure Telegraf Jolokia Input Plugin
 
 First create a file called `hadoop-hdfs.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 ################
 # NAMENODE     #
@@ -139,18 +139,18 @@ tag_prefix = "pool_"
 
 Then replace the `urls` value on the `NAMENODE` section with your NameNodes URLs specified on `HDFS_NAMENODE_OPTS`, and the `urls` value on the `DATANODE` section with your DataNodes URLs specified on `HDFS_DATANODE_OPTS`
 
-Format:{% raw %}
+Format:{% raw %}
 ```
 urls = ["http://<address>:<port>/<jolokia contex>"]
 ```
 {% endraw %}
-Example:{% raw %}
+Example:{% raw %}
 ```
 urls = ["http://10.152.24.99:7777/jolokia"]
 ```
 {% endraw %}
 
-To monitor multiple name or data nodes, add `urls` entries:{% raw %}
+To monitor multiple name or data nodes, add `urls` entries:{% raw %}
 ```
 urls = ["http://datanode.foo.com:7778/jolokia","http://datanode2.foo.com:7778/jolokia","http://datanode3.foo.com:7778/jolokia"]
 ```

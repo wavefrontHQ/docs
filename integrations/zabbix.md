@@ -22,12 +22,12 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
 
 ### Step 2. Install MySQL Connector Library Adapter
 
-- **CentOS**{% raw %}
+- **CentOS**{% raw %}
   ```
   sudo yum install mysql-connector-python
   ```
 {% endraw %}
-- **Ubuntu**{% raw %}
+- **Ubuntu**{% raw %}
   ```
   sudo pip3 install mysql-connector-python
   ```

@@ -34,7 +34,7 @@ Comment out the `source_override` property in the Wavefront output plugin.
 ### Step 3. Configure Couchbase Input Plugin
 
 Create a file called `couchbase.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 # Read per-node and per-bucket metrics from Couchbase
 [[inputs.couchbase]]
@@ -53,7 +53,7 @@ servers = ["http://<username>:<password>@<your.couchbase.server>:8091"]
 Replace `your.couchbase.server` with the IP of your Couchbase instance. Replace `username` and `password` with your instance's username and password.
 
 To monitor multiple Couchbase server instances, configure the `servers` parameter with address of your Couchbase servers.
-{% raw %}
+{% raw %}
 ```
  servers = ["http://<username>:<password>@<your.couchbase.sever1>:8091", "http://<username>:<password>@<your.couchbase.sever2>:8091"]
 ```

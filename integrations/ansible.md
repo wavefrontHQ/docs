@@ -11,14 +11,14 @@ Ansible is an open-source automation engine that automates software provisioning
 ## Wavefront Ansible Role Setup
 
 ### Step 1. Install Wavefront Ansible Role Using Ansible Galaxy
-{% raw %}
+{% raw %}
 ```
 ansible-galaxy install wavefrontHQ.wavefront-ansible
 ```
 {% endraw %}
 
 To install into your playbook `roles`, use `-p ROLES_PATH` or `--path=ROLES_PATH`:
-{% raw %}
+{% raw %}
 ```
 ansible-galaxy install wavefrontHQ.wavefront-ansible -p /your/project/root/roles
 ```
@@ -39,7 +39,7 @@ To resolve the above issue, make sure you use `ansible-galaxy` in Python 2.x. Fo
 ### Step 2. Create Basic Playbook
 
 Create a sample playbook (yml) file like the one shown below named `wavefront-ansible.yml`:
-{% raw %}
+{% raw %}
 ```
 ---
 - hosts: all
@@ -56,7 +56,7 @@ Create a sample playbook (yml) file like the one shown below named `wavefront-an
 1. Go to the folder containing the `wavefront-ansible.yml` file.
 1. To install Wavefront proxy (`wavefront-proxy`) on your local machine, run:
 
-    - RedHat/CentOS:{% raw %}
+    - RedHat/CentOS:{% raw %}
       ```
       ansible-playbook -i "`hostname`," --connection=local wavefront-ansible.yml \
       --extra-vars "wavefront_install_proxy=true wavefront_api_token=YOUR_API_TOKEN proxy_address=localhost \
@@ -65,7 +65,7 @@ Create a sample playbook (yml) file like the one shown below named `wavefront-an
       ```
 {% endraw %}
 
-    - Debian/Ubuntu:{% raw %}
+    - Debian/Ubuntu:{% raw %}
       ```
       ansible-playbook -i "`hostname`," --connection=local wavefront-ansible.yml \
       --extra-vars "wavefront_install_proxy=true wavefront_api_token=YOUR_API_TOKEN proxy_address=localhost \

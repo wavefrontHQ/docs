@@ -39,7 +39,7 @@ If you are using SLI Runner expose the Prometheus endpoint. The endpoint is alre
 
 - Use  **[kubernetes.yaml](https://github.com/wavefrontHQ/integrations/blob/master/concourse/slirunner/kubernetes.yaml)** and replace `CONCOURSE-URL` with the Concourse web URL to configure SLI Runner.
 - Use **[docker-compose.yml](https://github.com/wavefrontHQ/integrations/blob/master/concourse/slirunner/docker-compose.yml)** and replace below placeholders with their actual values to configure SLI Runner.
-{% raw %}
+{% raw %}
     ```
     CONCOURSE-URL       - Concourse Web URL
     CONCOURSE-USERNAME  - Concourse Username
@@ -49,7 +49,7 @@ If you are using SLI Runner expose the Prometheus endpoint. The endpoint is alre
 
 ### Step 4. Configure Telegraf
 Enable the Prometheus input plugin in Telegraf, as follows:
-{% raw %}
+{% raw %}
 ```
 [[inputs.prometheus]]
   urls = ["http://CONCOURSE_PROMETHEUS_IP:PORT/metrics",

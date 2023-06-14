@@ -26,7 +26,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 
 Create a `phpfpm.conf` file in `/etc/telegraf/telegraf.d` and add the following snippet:
 
-{% raw %}
+{% raw %}
 ```
    [[inputs.phpfpm]]
    #   ## Plugin can be configured using http mode as below:

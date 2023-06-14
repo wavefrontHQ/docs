@@ -34,7 +34,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2. Configure Redis Input Plugin
 
 Create a file called `redis.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 [[inputs.redis]]
   ## specify servers via a url matching:
@@ -49,7 +49,7 @@ Create a file called `redis.conf` in `/etc/telegraf/telegraf.d` and enter the fo
 ```
 {% endraw %}
 
-To monitor multiple Redis instances, configure the `servers` parameter with the addresses of the Redis instances:{% raw %}
+To monitor multiple Redis instances, configure the `servers` parameter with the addresses of the Redis instances:{% raw %}
 ```
   servers = ["tcp://your.redis.server1:6379","tcp://your.redis.server2:6379","tcp://your.redis.server2_slave:6379"]
 ```
@@ -79,7 +79,7 @@ If you do not already have the Kubernetes Metrics Collector installed in your Ku
 
     **Note**: The Kubernetes Metrics Collector scrapes all the pods that have Prometheus annotation enabled.
 
-2. Annotate the Redis pods so that they can be discovered by the Kubernetes Metrics Collector, if not annotated. Assuming that the `port` is `9121`, run:{% raw %}
+2. Annotate the Redis pods so that they can be discovered by the Kubernetes Metrics Collector, if not annotated. Assuming that the `port` is `9121`, run:{% raw %}
 ```
 kubectl annotate pods <pod-name> prometheus.io/scrape=true prometheus.io/port=9121 prometheus.io/path=/metrics
 ```

@@ -24,14 +24,14 @@ This integration uses the Wavefront REST API for ADM. ADM will invoke the API wh
 ### Azure Deployment Manager Health Check Configuration Setup
 1. Use the Metrics browser to identify the metric to use as a health metric. Click **Browse > Metrics** in your Wavefront instance to access the Metrics browser.
 
-2. Create a query that returns `1` or `0` using the health metric. Example:{% raw %}
+2. Create a query that returns `1` or `0` using the health metric. Example:{% raw %}
 ```
 	sum(ts(system.load1)) > 0
 ```
 {% endraw %}
 3. Encode the query using an encoder such as [dencoder](https://meyerweb.com/eric/tools/dencoder/). You'll use the encoded query below.
 
-4. In the JSON snippet below, fill in the values for `MaxElasticDuration`, `healthyStateDuration`, `encoded_query` and specify the name of your Wavefront cluster without the `.wavefront.com` extension. The JSON has pre-populated values for `authtoken`, `uri` for health monitor and `response code`.{% raw %}
+4. In the JSON snippet below, fill in the values for `MaxElasticDuration`, `healthyStateDuration`, `encoded_query` and specify the name of your Wavefront cluster without the `.wavefront.com` extension. The JSON has pre-populated values for `authtoken`, `uri` for health monitor and `response code`.{% raw %}
 ```
 	"properties": {  
 	   "stepType":"healthCheck",
@@ -69,7 +69,7 @@ This integration uses the Wavefront REST API for ADM. ADM will invoke the API wh
 
 ### Verification
 
-1. You can use the curl command to verify the output. For example:{% raw %}
+1. You can use the curl command to verify the output. For example:{% raw %}
 ```
 curl -X GET --header "Accept: application/json" --header "Authorization: YOUR_API_TOKEN" "https://adm.wavefront.com/api/v1/query?c=<cluster>&q=<encoded_query>"
 ```

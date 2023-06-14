@@ -36,7 +36,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2: Configure NVIDIA Input Plugin
 
 Create a file called `nvidia.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 [[inputs.nvidia_smi]]
   ## Typical locations for nvidia-smi are /usr/bin/nvidia-smi for Linux
@@ -54,14 +54,14 @@ Save the file and restart Telegraf as given below.
 
 ### Step 3. Restart Telegraf
 
-*Linux*:{% raw %}
+*Linux*:{% raw %}
 ```
 sudo service telegraf restart
 ```
 {% endraw %}
 
 *Windows*:
-{% raw %}
+{% raw %}
 ```
 net stop telegraf
 net start telegraf
@@ -88,7 +88,7 @@ If you do not already have the Kubernetes Metrics Collector installed in your Ku
 ### Reporting NVIDIA Metrics to Operations for Applications
 
 * Annotate the dcgm-exporter service to add the metrics scrape path and port.
-{% raw %}
+{% raw %}
 ```
 kubectl annotate service dcgm-exporter-XXXXX prometheus.io/scrape=true prometheus.io/port=9400 prometheus.io/path=/metrics
 ```

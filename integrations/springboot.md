@@ -31,7 +31,7 @@ Follow the steps given below to add the required dependencies to the `pom.xml` f
 
 **Note**: If you are using Gradle, see [Initialize and Configure Your Project](https://docs.wavefront.com/wavefront_springboot3.html#step-1-initialize-and-configure-your-project) and click the **Initialize an Existing Project** tab for more details.
 
-- Import the wavefront-spring-boot-bom Bill Of Materials (BOM). {% raw %}
+- Import the wavefront-spring-boot-bom Bill Of Materials (BOM). {% raw %}
     ```xml
     <dependencyManagement>
       <dependencies>
@@ -49,7 +49,7 @@ Follow the steps given below to add the required dependencies to the `pom.xml` f
   Replace `$releaseVersion` with the latest version mentioned in the [documentation](https://docs.wavefront.com/wavefront_springboot3.html#versionCompatibility).
 
 - Add the `wavefront-spring-boot-starter` to your project.
-{% raw %}
+{% raw %}
     ```xml
     <dependency>
       <groupId>com.wavefront</groupId>
@@ -58,7 +58,7 @@ Follow the steps given below to add the required dependencies to the `pom.xml` f
     ```
 {% endraw %}
 
-- If you want to send trace data using [Micrometer Tracing](https://micrometer.io/docs/tracing), add the following dependencies.{% raw %}
+- If you want to send trace data using [Micrometer Tracing](https://micrometer.io/docs/tracing), add the following dependencies.{% raw %}
     ```xml
     <dependency>
       <groupId>io.micrometer</groupId>

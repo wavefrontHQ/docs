@@ -37,14 +37,14 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2. Configure the Prometheus Input Plugin
 
 Create a file called `etcd.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 [[inputs.prometheus]]
   urls = ["http://<Host-IP>:2379/metrics"]
 ```
 {% endraw %}
 Configure global tags in the `telegraf.conf` file to group etcd nodes into clusters, as in the following snippet:
-{% raw %}
+{% raw %}
 ```
 [global_tags]
   #Setting environment tags like prod, dev, perf, and test
@@ -64,7 +64,7 @@ Run `sudo service telegraf restart` to restart your agent.
 
 Make sure that Bitnami etcd with `bitnami/etcd` is deployed on your cluster.
 
-You can use the following command to deploy Bitnami etcd:{% raw %}
+You can use the following command to deploy Bitnami etcd:{% raw %}
 ```
 helm repo add bitnami https://charts.bitnami.com/bitnami
 

@@ -33,7 +33,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 5. Start or restart your Tomcat server.
 6. Verify the Jolokia agent installation by accessing this URL: `http://<address>:<port>/jolokia/version`.
 
-The result looks similar to this:{% raw %}
+The result looks similar to this:{% raw %}
 ```
 {"request":{"type":"version"},"value":{"agent":"1.3.7","protocol":"7.2","config":{"maxCollectionSize":"0","agentId":"10.152.24.99-29844-172f5788-servlet","debug":"false","agentType":"servlet","serializeException":"false","detectorOptions":"{}","dispatcherClasses":"org.jolokia.jsr160.Jsr160RequestDispatcher","maxDepth":"15","discoveryEnabled":"false","canonicalNaming":"true","historyMaxEntries":"10","includeStackTrace":"true","maxObjects":"0","debugMaxEntries":"100"},"info":{"product":"tomcat","vendor":"Apache","version":"8.5.23"}},"timestamp":1509955465,"status":200}
 ```
@@ -42,7 +42,7 @@ The result looks similar to this:{% raw %}
 ### Step 3. Configure the Telegraf Jolokia Input Plugin
 
 First, create a file called `tomcat.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 [[inputs.jolokia2_agent]]
   # Prefix to attach to the measurement name
@@ -129,12 +129,12 @@ First, create a file called `tomcat.conf` in `/etc/telegraf/telegraf.d` and ente
 
 Then, replace the `urls` value with your Tomcat server URL. Specify your servers with URL matching.
 
-Format:{% raw %}
+Format:{% raw %}
 ```
 urls = ["http://<address>:<port>/<jolokia contex>"]
 ```
 {% endraw %}
-Example:{% raw %}
+Example:{% raw %}
 ```
 urls = ["http://10.152.24.99:8080/jolokia"]
 ```

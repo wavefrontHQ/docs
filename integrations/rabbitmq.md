@@ -36,7 +36,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 
 This integration requires the [RabbitMQ Management Plugin](https://www.rabbitmq.com/management.html) to be enabled on the RabbitMQ server.
 
-To enable the management plugin:{% raw %}
+To enable the management plugin:{% raw %}
 ```
 sudo rabbitmq-plugins enable rabbitmq_management
 ```
@@ -45,7 +45,7 @@ sudo rabbitmq-plugins enable rabbitmq_management
 ### Step 3. Configure RabbitMQ Input Plugin
 
 Create a file called `rabbitmq.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
  [[inputs.rabbitmq]]
   url = "http://your.rabbitmq.server:15672"
@@ -58,7 +58,7 @@ Modify the `url`, `username` and `password` properties appropriately.
 
 **Note:** The RabbitMQ Management API is accessed over port `15672` by default. Modify the port in the `url` if different.
 
-To monitor specific nodes, include the `nodes` property. For example:{% raw %}
+To monitor specific nodes, include the `nodes` property. For example:{% raw %}
 ```
   nodes = ["rabbit@node1", "rabbit@node2"]
 ```
@@ -93,17 +93,17 @@ If you already have the Kubernetes Metrics Collector installed by using the depr
 
 This integration requires the [RabbitMQ Management Plugin](https://www.rabbitmq.com/management.html), [RabbitMQ Prometheus Plugin](https://www.rabbitmq.com/prometheus.html) and [RabbitMQ Peer Discovery Plugin](https://www.rabbitmq.com/cluster-formation.html) to be enabled on the RabbitMQ server.
 
-To enable the management plugin:{% raw %}
+To enable the management plugin:{% raw %}
 ```
 rabbitmq-plugins enable rabbitmq_management
 ```
 {% endraw %}
-To enable the Prometheus plugin:{% raw %}
+To enable the Prometheus plugin:{% raw %}
 ```
 rabbitmq-plugins enable rabbitmq_prometheus
 ```
 {% endraw %}
-To enable the peer discovery plugin:{% raw %}
+To enable the peer discovery plugin:{% raw %}
 ```
 rabbitmq-plugins enable rabbitmq_peer_discovery_k8s
 ```
@@ -120,7 +120,7 @@ Step 1. Download the [existing collector ConfigMap](https://raw.githubuserconten
 
 Step 2. Update `YOUR_CLUSTER_NAME` with the name of your Kubernetes cluster and `YOUR_WAVEFRONT_URL` with the URL of your Operations for Applications instance.
 
-Step 3. Add the following snippet under `plugins`, and save the `.yaml` file:{% raw %}
+Step 3. Add the following snippet under `plugins`, and save the `.yaml` file:{% raw %}
 ```
         ## rabbitmq
       - name: rabbitmq
@@ -137,7 +137,7 @@ Step 3. Add the following snippet under `plugins`, and save the `.yaml` file:{% 
 ```
 {% endraw %}
 
-Step 4. Deploy the existing collector ConfigMap `.yaml` file.{% raw %}
+Step 4. Deploy the existing collector ConfigMap `.yaml` file.{% raw %}
 ```
 kubectl apply -f wavefront-collector-existing-configmap.yaml
 ```
@@ -145,13 +145,13 @@ kubectl apply -f wavefront-collector-existing-configmap.yaml
 
 ##### <a name="kubernetes-collector"></a><br> 2.2 Update the Kubernetes Metrics Collector ConfigMap
 
-Step 1. Edit the Kubernetes Metrics Collector ConfigMap at runtime using the following command:{% raw %}
+Step 1. Edit the Kubernetes Metrics Collector ConfigMap at runtime using the following command:{% raw %}
 ```
 kubectl edit configmap collector-config -n wavefront-collector
 ```
 {% endraw %}
 
-Step 2. Add the following snippet under `plugins`, save and exit to enable the Kubernetes Metrics Collector to discover the RabbitMQ instances and dynamically start collecting metrics:{% raw %}
+Step 2. Add the following snippet under `plugins`, save and exit to enable the Kubernetes Metrics Collector to discover the RabbitMQ instances and dynamically start collecting metrics:{% raw %}
 ```
       # rabbitmq
       - name: rabbitmq

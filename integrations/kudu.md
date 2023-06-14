@@ -32,12 +32,12 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2. Setup a Script to Extract Apache Kudu Metrics
 
 1. Download [kudu.py](https://github.com/wavefrontHQ/integrations/blob/master/kudu/kudu.py) onto each of your Kudu nodes.
-2. Ensure that the script can run with this command:{% raw %}
+2. Ensure that the script can run with this command:{% raw %}
    ```
    python kudu.py
    ```
 {% endraw %}
-   You should receive a response similar to the following:{% raw %}
+   You should receive a response similar to the following:{% raw %}
    ```
    usage: kudu.py [-h] [server [server ...]]
    kudu.py: error: Must specify at least one server address
@@ -47,7 +47,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 3. Configure the Telegraf Exec Input Plugin
 
 Create a file called `kudu.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
    ```
    [[inputs.exec]]
      commands = ["python <script location> <Kudu tablet server address>:8050 <Kudu master server address>:8051"]

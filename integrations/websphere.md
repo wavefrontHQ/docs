@@ -29,7 +29,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 1. Deploy the `wasmonitor.war` file on your WebSphere instance.
 1. Create a user on WebSphere, assign the Monitor role to that user, and map the application role `wavefront` to the user.
 1. Verify the installation and configuration by accessing this URL: `http://<address>:<port>/wasmonitor/version`.
-    The result looks similar to this:{% raw %}
+    The result looks similar to this:{% raw %}
     ```
     {"websphere.version": "8.5.5.12", "wasmonitor.version": "1.0"}
     ```
@@ -38,7 +38,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 3. Configure the Telegraf httpjson Input Plugin
 
 First, create a file called `websphere.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 [[inputs.httpjson]]
   servers = ["http://10.152.24.97:9080/wasmonitor/stats"]
@@ -52,12 +52,12 @@ First, create a file called `websphere.conf` in `/etc/telegraf/telegraf.d` and e
 
 Then, replace the `urls` value with your WebSphere server URL(s). Specify your servers with URL matching.
 
-Format:{% raw %}
+Format:{% raw %}
 ```
 urls = ["http://<address>:<port>/wasmonitor/stats"]
 ```
 {% endraw %}
-Example:{% raw %}
+Example:{% raw %}
 ```
 urls = ["http://10.152.24.99:8080/wasmonitor/stats"]
 ```

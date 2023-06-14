@@ -29,7 +29,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2. Enable the Twemproxy input plugin
 
 Create a `twemproxy.conf` file in `/etc/telegraf/telegraf.d` and add the following snippet:
-{% raw %}
+{% raw %}
    ```
     ## Read Twemproxy stats data
     [[inputs.twemproxy]]

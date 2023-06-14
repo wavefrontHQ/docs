@@ -27,7 +27,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2. Enable the Kong input plugin
 
 Create a file called `kong.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
    ```
    [[inputs.http]]
    ## One or more URLs from which to read formatted metrics

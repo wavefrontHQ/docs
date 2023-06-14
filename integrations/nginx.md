@@ -21,7 +21,7 @@ To see a list of the metrics for this integration, select the integration from <
 ### Step 1. Ensure the Status Stub Module is Enabled on NGINX
 
 On your NGINX servers, make sure the `ngx_http_stub_status_module` is enabled. In `/etc/nginx/nginx.conf` specify:
-{% raw %}
+{% raw %}
 ```
 ...
 http {
@@ -48,7 +48,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 3. Configure NGINX Input Plugin
 
 Create a `nginx.conf` file in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 [[inputs.nginx]]
   urls = ["http://<nginx_server>/basic_status"]
@@ -58,7 +58,7 @@ Create a `nginx.conf` file in `/etc/telegraf/telegraf.d` and enter the following
 You may need to update `http://<nginx_server>/basic_status` if you've configured the `ngx_http_stub_status_module` on a different path.
 
 You can poll multiple NGINX instances from a single Telegraf agent. Simply configure the `urls` parameter with the addresses of the NGINX instances:
-{% raw %}
+{% raw %}
 ```
 urls = ["http://nginx_server1/basic_status","http://nginx_server2/basic_status","http://nginx_server3/basic_status"]
 ```
@@ -69,7 +69,7 @@ urls = ["http://nginx_server1/basic_status","http://nginx_server2/basic_status",
 ### Step 4. Configure TAIL Input Plugin
 
 Create a `tail.conf` file in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 [[inputs.tail]]
    files = ["absolute_path_to_nginx_access_log"]

@@ -25,7 +25,7 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
 ### Step 3. Configure Telegraf
 
 Edit the `telegraf.conf` file located in `Program Files\Telegraf` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 [[inputs.win_services]]
   service_names = [
@@ -198,7 +198,7 @@ Edit the `telegraf.conf` file located in `Program Files\Telegraf` and enter the 
 {% endraw %}
 
 Add one of the following snippets to enable the `Transport Queues` performance counters:
-- For MSExchange Server 2010{% raw %}
+- For MSExchange Server 2010{% raw %}
 ```
    [[inputs.win_perf_counters.object]]
      ObjectName = "MSExchangeTransport Queues(_total)"
@@ -211,7 +211,7 @@ Add one of the following snippets to enable the `Transport Queues` performance c
      Measurement = "msexchange.transport"
 ```
 {% endraw %}
-- For MSExchange Servers 2013, 2016 and 2019:{% raw %}
+- For MSExchange Servers 2013, 2016 and 2019:{% raw %}
 ```
    [[inputs.win_perf_counters.object]]
      ObjectName = "MSExchangeTransport Queues"

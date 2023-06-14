@@ -34,7 +34,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2: Enable the Prometheus Input Plugin
 
 Create a file called `envoy.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
    ```
     # Read metrics exposed by Envoy Proxy
     [[inputs.prometheus]]
@@ -63,7 +63,7 @@ If you do not already have the Kubernetes Metrics Collector installed in your Ku
 
     **NOTE**: The Kubernetes Metrics Collector scrapes all the pods that have Prometheus annotation enabled.
 
-2. Annotate the Envoy pods so that they can be discovered by Kubernetes Metrics Collector. Assuming that the admin `port_value` in Envoy ConfigMap is `9901`, run:{% raw %}
+2. Annotate the Envoy pods so that they can be discovered by Kubernetes Metrics Collector. Assuming that the admin `port_value` in Envoy ConfigMap is `9901`, run:{% raw %}
 ```
 kubectl annotate pods <pod-name> prometheus.io/scrape=true prometheus.io/port=9901 prometheus.io/path=/stats/prometheus
 ```

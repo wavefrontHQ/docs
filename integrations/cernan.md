@@ -7,7 +7,7 @@ summary: Learn about the Cernan Integration.
 ## Cernan Integration
 
 Cernan is an open source telemetry and logging aggregation server. From the [Cernan wiki](https://github.com/postmates/cernan/wiki):
-{% raw %}
+{% raw %}
 ```
 Cernan exposes multiple interfaces for ingestion and can emit to multiple aggregation sources while doing in-flight manipulation of data. Cernan has minimal CPU and memory requirements and is intended to service bursty telemetry without load shedding. Cernan aims to be reliable and convenient to use, both for application engineers and operations staff.
 ```
@@ -33,7 +33,7 @@ In particular, make sure you are sending a test metric `foo.bar` to Cernan.  The
 metric value.
  
 After following these steps you should have Cernan running and are seeing sample output printed to your terminal that looks similar to below:
-{% raw %}
+{% raw %}
 ```
 Flushing metrics: 2017-01-30T17:49:29.782336+00:00  
   sums:  
@@ -58,13 +58,13 @@ This output is being printed by the console source which is configured in the ex
 ### Step 3. Configure the Wavefront Sink
 
  1. From your Cernan root directory, copy the `quickstart.toml` file into a new file called `quickstart-wavefront.toml`.
-{% raw %}
+{% raw %}
     ```
     $ cp examples/configs/quickstart.toml examples/configs/quickstart-wavefront.toml  
     ```
 {% endraw %}
     At this point, the entire `quickstart-wavefront.toml` should look like:
-{% raw %}
+{% raw %}
     ```
     flush-interval = 10  
       
@@ -85,7 +85,7 @@ This output is being printed by the console source which is configured in the ex
     Update the host and port to reflect your Wavefront proxy address.
  
  1. Run Cernan with the new config file:
-{% raw %}
+{% raw %}
     ```
     $ cargo run -- -vv --config examples/configs/quickstart-wavefront.toml 
     ```

@@ -29,7 +29,7 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
 1. Run `docker pull telegraf` to pull a Telegraf Docker container.
 2. Run `docker run --rm telegraf telegraf config > telegraf.conf` to create a configuration file on your host.
 3. In the `telegraf.conf` file disable the InfluxDB output plugin by commenting all the lines under `outputs.influxdb`.
-4. Configure the `outputs` section to communicate with your Wavefront proxy:{% raw %}
+4. Configure the `outputs` section to communicate with your Wavefront proxy:{% raw %}
    ```
    [[outputs.wavefront]]
       host = "WAVEFRONT_PROXY_HOSTNAME"
@@ -37,7 +37,7 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
    ```
 {% endraw %}
 5. In the agent configuration section configure `hostname`:
-{% raw %}
+{% raw %}
    ```
    [[agent]]
       hostname = "<hostname>"
@@ -45,7 +45,7 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
 {% endraw %}
 
 6. Add the snippet `name_prefix = "coreos."` to the following inputs:
-{% raw %}
+{% raw %}
    ```
    [[inputs.cpu]]
    [[inputs.disk]]
@@ -60,7 +60,7 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
 {% endraw %}
 
 7. Enable the Docker input plugin by adding the following snippet:
-{% raw %}
+{% raw %}
    ```
    [[inputs.docker]]
 
@@ -113,7 +113,7 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
 
 ### Step 3. Start the Telegraf Docker container
 
-Run the following command to start the Docker container: {% raw %}
+Run the following command to start the Docker container: {% raw %}
    ```
    docker run -d=true --rm -v /var/run/docker.sock:/var/run/docker.sock:ro -v /proc/:/host/proc/:ro -v /cgroup/:/host/sys/fs/cgroup:ro -v $PWD/telegraf.conf:/etc/telegraf/telegraf.conf:ro telegraf
    ```

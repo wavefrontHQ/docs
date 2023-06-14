@@ -18,7 +18,7 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
 
 ### Step 3. Configure Telegraf
 
-Edit the `telegraf.conf` file located in `Program Files\Telegraf` and enter the following snippet:{% raw %}
+Edit the `telegraf.conf` file located in `Program Files\Telegraf` and enter the following snippet:{% raw %}
 ```
 [[inputs.win_perf_counters]]
 

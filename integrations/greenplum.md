@@ -30,7 +30,7 @@ To monitor the query and system metrics in Wavefront, you must create the `gpper
 ### Step 3. Configure the PostgreSQL Input Plugin
 
 On the machine where Telegraf runs, create a file called `greenplum.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 [[inputs.postgresql_extensible]]
   name_prefix = "greenplum."

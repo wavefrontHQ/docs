@@ -39,7 +39,7 @@ Follow the instructions in [Log Data Metrics Integration](https://docs.wavefront
     - Install the plugin --`logstash-plugin install *wavefront*.gem`.
 
 
-2. Create a config file that specifies wavefront as the output plugin and specifies settings for other plugins. You can see some examples under Optional Configuration below.{% raw %}
+2. Create a config file that specifies wavefront as the output plugin and specifies settings for other plugins. You can see some examples under Optional Configuration below.{% raw %}
     ```
     output {
         wavefront {
@@ -48,7 +48,7 @@ Follow the instructions in [Log Data Metrics Integration](https://docs.wavefront
     }
     ```
 {% endraw %}
-    Optional Configuration{% raw %}
+    Optional Configuration{% raw %}
     ```
       port          Metric Port (Default - 2878)
       prefix        Metric Prefix (Default - "logstash")
@@ -57,7 +57,7 @@ Follow the instructions in [Log Data Metrics Integration](https://docs.wavefront
     ```
 {% endraw %}
 
-   You can send log events to Wavefront using the output plugin for Logstash. The events must have the following format:{% raw %}
+   You can send log events to Wavefront using the output plugin for Logstash. The events must have the following format:{% raw %}
     ```
     {
        "bytes" => {
@@ -72,14 +72,14 @@ Follow the instructions in [Log Data Metrics Integration](https://docs.wavefront
      }
     ```
 {% endraw %}
-    The Wavefront output plugin for Logstash generates the following metrics from the event and sends the metrics to Wavefront:{% raw %}
+    The Wavefront output plugin for Logstash generates the following metrics from the event and sends the metrics to Wavefront:{% raw %}
     ```
     logstash.bytes.count 200
     logstash.bytes.mean 42.2
     logstash.error.count 123
     ```
 {% endraw %}
-    You can send point tags for a metric to Wavefront using the Wavefront output plugin for Logstash. The event must have the following format:{% raw %}
+    You can send point tags for a metric to Wavefront using the Wavefront output plugin for Logstash. The event must have the following format:{% raw %}
     ```
     {
        "bytes.tagz.type=access.region=mumbai" => {
@@ -94,7 +94,7 @@ Follow the instructions in [Log Data Metrics Integration](https://docs.wavefront
      }
     ```
 {% endraw %}
-    Below metrics are the output of the above event:{% raw %}
+    Below metrics are the output of the above event:{% raw %}
     ```
     logstash.bytes.count 200 type=access region=mumbai
     logstash.bytes.mean 42.2 type=access region=mumbai
@@ -105,7 +105,7 @@ Follow the instructions in [Log Data Metrics Integration](https://docs.wavefront
     **Note:** In this example the Wavefront output plugin has dropped the `logstash.error.code` metric because the default `metrics` list only includes `count` and `mean`. To include the `code` metric, override the default `metrics` to `["count", "mean", "code"]` in the `wavefront` output plugin.
 
 
-3. Start logstash and specify the configuration file with the -f flag.{% raw %}
+3. Start logstash and specify the configuration file with the -f flag.{% raw %}
     ```
     bin/logstash -f <config-file>
     ```

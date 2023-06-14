@@ -26,7 +26,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2. Configure the Telegraf Jolokia Input Plugin
 
 First, create a file called `activemq.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 [[inputs.jolokia2_agent]]
 urls = ["http://localhost:8161/api/jolokia"]
@@ -88,14 +88,14 @@ tag_keys = ["brokerName"]
 
 Then, replace the `urls`,` username` and `password` values with your ActiveMQ server values. Specify your servers with URL matching.
 
-Format:{% raw %}
+Format:{% raw %}
 ```
 urls = ["http://<address>:<port>/api/jolokia"]
 username = [username]
 password = [password]
 ```
 {% endraw %}
-Example:{% raw %}
+Example:{% raw %}
 ```
 urls = ["http://localhost:8161/api/jolokia"]
 username = "admin"

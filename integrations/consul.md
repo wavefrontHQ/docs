@@ -29,7 +29,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2. Enable the Consul input plugin
 
 Create a file called `consul.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 # # Gather health check statuses from services registered in Consul
 [[inputs.consul]]

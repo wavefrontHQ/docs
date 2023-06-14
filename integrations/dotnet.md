@@ -34,7 +34,7 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
 ### Step 3: Configure the .NET Input Plugin
 
 Edit the `telegraf.conf` file located in `Program Files\Telegraf\` and enter the following snippet:
-{% raw %}
+{% raw %}
    ```
   [[inputs.win_perf_counters.object]]
     # .NET CLR Exceptions, in this case for IIS only
@@ -134,7 +134,7 @@ Edit the `telegraf.conf` file located in `Program Files\Telegraf\` and enter the
 ### Step 4: Restart the Telegraf service
 
 Use the `Windows Services Management Console` or execute the following from the command prompt:
-{% raw %}
+{% raw %}
    ```
    net stop telegraf
    net start telegraf

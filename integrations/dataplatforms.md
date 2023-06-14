@@ -49,14 +49,14 @@ See [Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/wavefron
 See [annotation based discovery](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/discovery.md#annotation-based-discovery) feature in Wavefront Collector for more information.
 
 - If you wish not to use the annotation based discovery feature in wavefront, edit the Wavefront Collector ConfigMap To add rules based discovery to wavefront, add the following snippet under discovery plugins. Once done, restart the wavefront collectors DaemonSet.
-{% raw %}
+{% raw %}
 ```console
 $ kubectl edit configmap wavefront-collector-config -n wavefront
 ```
 {% endraw %}
 
 Add the below config:
-{% raw %}
+{% raw %}
 ```yaml
       discovery:
         enable_runtime_plugins: true
@@ -118,7 +118,7 @@ Add the below config:
 {% endraw %}
 
 Below is the command to restart the DaemonSets
-{% raw %}
+{% raw %}
 ```console
 $ kubectl rollout restart daemonsets wavefront-collector -n wavefront
 ```

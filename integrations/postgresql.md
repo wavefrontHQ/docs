@@ -34,7 +34,7 @@ You can find the `postgresql.conf` file under a directory such as `/etc/postgres
 ### Step 3. Enable Extensions
 
 To monitor the database, on the machine where PostgreSQL runs, enable the following extensions.
-{% raw %}
+{% raw %}
 ```
 create extension pg_stat_statements;
 create extension pg_stat_kcache;
@@ -45,7 +45,7 @@ create extension pg_proctab;
 ### Step 4. Configure PostgreSQL Input Plugin
 
 On the machine where Telegraf runs, create a file called `postgresql.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 [[inputs.postgresql_extensible]]
   # specify address via a url matching:

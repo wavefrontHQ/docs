@@ -25,7 +25,7 @@ On your Nagios server:
 1. Install [Wavefront Core Python SDK](https://github.com/wavefrontHQ/wavefront-sdk-python): `pip install wavefront-sdk-python`
 
 2. Add these lines to your `nagios.cfg` file, and replace `[PATH_PERFDATA]` with the relevant absolute path:
-{% raw %}
+{% raw %}
    ```
    service_perfdata_file=[PATH_PERFDATA]/service-perfdata
    service_perfdata_file_template=DATATYPE::SERVICEPERFDATA\tTIMET::$TIMET$\tHOSTNAME::$HOSTNAME$\tSERVICEDESC::$SERVICEDESC$\tSERVICEPERFDATA::$SERVICEPERFDATA$\tSERVICECHECKCOMMAND::$SERVICECHECKCOMMAND$\tHOSTSTATE::$HOSTSTATE$\tHOSTSTATETYPE::$HOSTSTATETYPE$\tSERVICESTATE::$SERVICESTATE$\tSERVICESTATETYPE::$SERVICESTATETYPE$
@@ -46,7 +46,7 @@ On your Nagios server:
 
 
 3. Enable these properties in `nagios.cfg`
-{% raw %}
+{% raw %}
    ```
    process_performance_data=1
 
@@ -64,7 +64,7 @@ On your Nagios server:
 3. To test the script, type this command: `./nagios-metrics-wf.py`.
 
   You should get something like this:
-{% raw %}
+{% raw %}
   ```
   usage: nagios-metrics-wf.py [-h] [--service] [--test] [--wf_server SERVER]
                              [--wf_token TOKEN] [--wf_proxy_addr ADDR]
@@ -75,7 +75,7 @@ On your Nagios server:
 {% endraw %}
 
 4. Create a `wavefront.cfg` file in the `conf.d` directory and add these two commands (Refer the configuration sample below):
-{% raw %}
+{% raw %}
    ```
    define command {
        command_name  wavefront_perf_host
@@ -101,7 +101,7 @@ On your Nagios server:
 3. To test the script, type this command: `./nagios-events-wf.py`.
 
   You should get something like this:
-{% raw %}
+{% raw %}
   ```
   usage: nagios-events-wf.py [-h] [-S] [--type TYPE] [--host HOST]
                             [--service [SERVICE]] [--time TIME] [--msg MSG]
@@ -112,7 +112,7 @@ On your Nagios server:
 {% endraw %}
 
 4. Add these two commands to `wavefront.cfg` file (Refer the configuration sample below):
-{% raw %}
+{% raw %}
    ```
    define command {
        command_name nagios-to-wavefront-service
@@ -127,7 +127,7 @@ On your Nagios server:
 {% endraw %}
 
 5. Add the two new commands to the contact associated with your resources:
-{% raw %}
+{% raw %}
    ```
    define contact {
        ...
@@ -141,7 +141,7 @@ On your Nagios server:
 ### Configuration Sample
 
 Here's a complete `wavefront.cfg` configuration sample:
-{% raw %}
+{% raw %}
 ```
 # Wavefront contact definition for event notification commands
 define contact {

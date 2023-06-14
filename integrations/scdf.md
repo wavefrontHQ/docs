@@ -99,7 +99,7 @@ Setting up Spring Cloud Data Flow locally could be useful for testing and develo
   * For the `Kubernetes` platform add the properties to the `src/kubernetes/server/server-config.yaml` [configuration](https://dataflow.spring.io/docs/feature-guides/streams/monitoring/#kubernetes).
   
  3. For the `Local` platform follow the instructions in the Docker Compose Installation section below:
-{% raw %}
+{% raw %}
 ```yaml
 management:
   metrics:
@@ -121,7 +121,7 @@ Spring Cloud Data Flow provides a [Docker Compose Installation](https://dataflow
  3. When you stop seeing additional log messages on the command prompt, open the Spring Cloud Data Flow dashboard at http://localhost:9393/dashboard.
 
 Here is a quick start, single-line command:
-{% raw %}
+{% raw %}
 ```
 wget -O docker-compose.yml https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/master/src/docker-compose/docker-compose.yml
 wget -O docker-compose-wavefront.yml https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/master/src/docker-compose/docker-compose-wavefront.yml

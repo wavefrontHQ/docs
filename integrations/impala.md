@@ -33,7 +33,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2. Configure the Telegraf Input Plugins
 
 Create a file called `impala.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
    ```
    [[inputs.http]]
      urls = ["<IMPALA-SERVER-1:PORT>/metrics?json", "<IMPALA-SERVER-2:PORT>/metrics?json", "<IMPALA-SERVER-3:PORT>/metrics?json"]

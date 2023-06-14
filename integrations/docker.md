@@ -23,7 +23,7 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
 ### Step 2. Run the cAdvisor Container
 
 Run Operations for Applications's cAdvisor container on your Docker host:
-{% raw %}
+{% raw %}
 ```
 sudo docker run \
   --volume=/:/rootfs:ro \

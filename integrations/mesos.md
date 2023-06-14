@@ -29,7 +29,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2. Enable the Mesos input plugin
 
 Create a `mesos.conf` file in `/etc/telegraf/telegraf.d` and add the following snippet:
-{% raw %}
+{% raw %}
    ```
    # # Telegraf plugin for gathering metrics from N Mesos masters
     [[inputs.mesos]]

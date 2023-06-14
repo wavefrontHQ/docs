@@ -28,7 +28,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 
 Create a file called `rollbar.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
 
-{% raw %}
+{% raw %}
 ```
 # # A Webhooks Event collector
 [[inputs.webhooks]]

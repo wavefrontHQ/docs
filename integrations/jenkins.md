@@ -47,7 +47,7 @@ Set the access control list in Jenkins to allow a Prometheus user to read job me
 ### Step 4. Enable the Prometheus Input Plugin with Authentication
 
 Create a file called `jenkins.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
    ```
 [[inputs.prometheus]]
   ## Prefix to attach to the measurement name
@@ -73,7 +73,7 @@ Create a file called `jenkins.conf` in `/etc/telegraf/telegraf.d` and enter the 
 {% endraw %}
 Update `$JENKINS_URL` with the URL of the Jenkins server.
 
-A single Telegraf agent can poll multiple Jenkins servers for status information. Specify the addresses of the Jenkins server in the `urls` parameter in case of anonymous authentication to the Jenkins server:{% raw %}
+A single Telegraf agent can poll multiple Jenkins servers for status information. Specify the addresses of the Jenkins server in the `urls` parameter in case of anonymous authentication to the Jenkins server:{% raw %}
 ```
 urls = [
    "$JENKINS_URL_1/prometheus/",

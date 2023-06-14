@@ -27,7 +27,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2. Configure Telegraf Elasticsearch Input Plugin
 
 Create a file called `elasticsearch.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 [[inputs.elasticsearch]]
   ## Specify a list of one or more Elasticsearch server(s)
@@ -88,7 +88,7 @@ so set those booleans to `true` as well.
 
 ### Step 3. Configure Enum Processor Plugin
 
-Create a Enum Processor Plugin configuration file at `/etc/telegraf/telegraf.d/enum-processor.conf` and add the following snippet, which defines a mapping from metric tags or fields to numeric values.{% raw %}
+Create a Enum Processor Plugin configuration file at `/etc/telegraf/telegraf.d/enum-processor.conf` and add the following snippet, which defines a mapping from metric tags or fields to numeric values.{% raw %}
 ```
   ##########  PROCESSOR PLUGINS  ##########
 

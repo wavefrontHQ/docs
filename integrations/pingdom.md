@@ -42,7 +42,7 @@ Comment out the `source_override` property in the Wavefront output plugin.
 ### Step 5: Enable the Exec Input Plugin
 
 Create a file called `pingdom.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 ## Read metrics from Pingdom
 [[inputs.exec]]

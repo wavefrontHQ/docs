@@ -30,7 +30,7 @@ See [provider configuration](https://www.terraform.io/docs/configuration/provide
 
 Create a main.tf with the following configurations.
 
-{% raw %}
+{% raw %}
 ```
 provider "wavefront" {
   address = "https://YOUR_CLUSTER.wavefront.com"

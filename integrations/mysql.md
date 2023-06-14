@@ -27,7 +27,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2. Configure MySQL Input Plugin
 
 1. Create a file called `mysql.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
     ```
     # Read metrics from one or many mysql servers
     [[inputs.mysql]]
@@ -107,12 +107,12 @@ Log in to your Operations for Applications instance, navigate to the integration
 
 1. Replace the `servers` value with your MySQL server URL. Specify your servers with URL matching.
     
-    Format:{% raw %}
+    Format:{% raw %}
     ```
     servers = [username[:password]@][protocol[(address)]]/[?tls=[true|false|skip-verify]]
     ```
 {% endraw %}
-    Example:{% raw %}
+    Example:{% raw %}
     ```
     servers = ["user:password@tcp(your_mysql_server:3306)/"]
     ```

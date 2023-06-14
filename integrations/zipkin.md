@@ -19,7 +19,7 @@ Zipkin [deployments](https://zipkin.io/pages/architecture.html) consist of a Zip
 ### Install and Configure the Wavefront Proxy
 
 1. If you have not already done so, install a Wavefront proxy (version 4.35 or later). 
-2. On the host that is running the Wavefront proxy, open the file `/etc/wavefront/wavefront-proxy/wavefront.conf` and add:{% raw %}
+2. On the host that is running the Wavefront proxy, open the file `/etc/wavefront/wavefront-proxy/wavefront.conf` and add:{% raw %}
    ```
    traceZipkinListenerPorts=<enter-available-port>
    # Using the default Zipkin Collector port (9411) is recommended.

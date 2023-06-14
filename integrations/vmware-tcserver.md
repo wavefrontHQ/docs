@@ -44,7 +44,7 @@ There are two methods to install the template.
 ### Step 3. Apply a Tanzu Observability by Wavefront URL to the VMware tc Server instance.
 
 The template requires the following properties to be set:
-{% raw %}
+{% raw %}
 ```
 tanzu-observability.url - This is the URL either to a Wavefront proxy or to the Wavefront instance.
 tanzu-observability.token - This is the token used to authenticate to the Wavefront instance. If you use a Wavefront proxy, the token is not required.

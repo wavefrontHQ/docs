@@ -34,7 +34,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2. Configure Ceph Input Plugin
 
 Create a file called `ceph.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 # Collects performance metrics from the MON and OSD nodes in a Ceph storage cluster.
 [[inputs.ceph]]

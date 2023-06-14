@@ -25,7 +25,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2. Configure the StatsD Service Plugin
 
 1. Create a file called `statsd.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 [[inputs.statsd]]
   service_address = ":8125"
@@ -47,7 +47,7 @@ Run `sudo service telegraf restart` to restart your agent.
 ### Step 4. Send Test Metrics
  
 The easiest and quickest way to send test metrics to StatsD is to use `netcat`:
-{% raw %}
+{% raw %}
 ```shell
 $ echo "foo.bar.test1:+1|g" | nc -u localhost 8125
 ```
@@ -58,7 +58,7 @@ This command creates and increments a gauge named **foo.bar.test1**. After runni
 #### Set Point Tags on Metrics
  
 The Telegraf StatsD plugin has built-in support for point tags. Add any tags you want applied to the end of the metric name:
-{% raw %}
+{% raw %}
 ```shell
 $ echo "foo.bar.test2,tag1=val1:+1|g" | nc -u localhost 8125
 ```
@@ -69,7 +69,7 @@ This command creates and increment a gauge named **foo.bar.test2** with a tag na
 #### Override the Metric Source
  
 By default, Telegraf uses the hostname of the machine running StatsD as the source of the metric. If you have remote applications sending metrics into your StatsD service, you may want to override the source with the hostname of your application. To do this, pass the **hostname** point tag to StatsD with the name of the host running your application.
-{% raw %}
+{% raw %}
 ```shell
 $ echo "foo.bar.test3,hostname=mycustomsource:+1|g" | nc -u localhost 8125
 ```

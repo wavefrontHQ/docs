@@ -59,7 +59,7 @@ The Wavefront plugin for [Dropwizard Metrics](https://metrics.dropwizard.io) add
 ### Set up Maven
 
 Add the `wavefront-dropwizard-metrics-sdk-java` library as a dependency in your project:
-{% raw %}
+{% raw %}
 ```
 <dependencies>
     <dependency>
@@ -80,7 +80,7 @@ Follow these steps for sending metrics to a Wavefront proxy. See Option 2 for se
 If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network and reachable from your Java application, install a proxy. You configure the Wavefront proxy hostname and port (by default 2878) when you create the reporter.
 
 #### Step 2. Initialize the WavefrontClient and send data via Wavefront Proxy
-To create a reporter which will emit data to a Wavefront proxy every 5 seconds:{% raw %}
+To create a reporter which will emit data to a Wavefront proxy every 5 seconds:{% raw %}
 ```
 import com.codahale.metrics.Counter;
 import com.codahale.metrics.MetricRegistry;
@@ -119,7 +119,7 @@ try {
 {% endraw %}
 
 ### Option 2. Create a Wavefront Direct Reporter and Register Metrics
-To create a reporter which will emit data to a Wavefront service every 5 seconds:{% raw %}
+To create a reporter which will emit data to a Wavefront service every 5 seconds:{% raw %}
 ```
 import com.codahale.metrics.Counter;
 import com.codahale.metrics.MetricRegistry;
@@ -166,7 +166,7 @@ try {
 ### JVM Metrics
 
 To add default JVM metrics to the `MetricsRegistry`, call `.withJvmMetrics()` when you create the reporter. If you call `.withJvmMetrics()`, the following metrics are added to the registry:
-{% raw %}
+{% raw %}
 ```
 metricRegistry.register("jvm.uptime",
     (Gauge<Long>) () -> ManagementFactory.getRuntimeMXBean().getUptime());
@@ -204,7 +204,7 @@ Download the latest version of the Jolokia JVM-Agent JAR file `jolokia-jvm-x.x.x
 
 
 2. Verify that you can access the URL:
-{% raw %}
+{% raw %}
    ```
    curl http://<HOSTNAME>:<JOLOKIA_PORT>/jolokia/
    ```
@@ -215,7 +215,7 @@ Download the latest version of the Jolokia JVM-Agent JAR file `jolokia-jvm-x.x.x
 You can find a sample configuration of the Jolokia2 Agent input plugin for Java in the [Jolokia2 Agent Plugin GitHub repository](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/jolokia2_agent/examples/java.conf).
 
 Create a file called `java.conf` in the `/etc/telegraf/telegraf.d` directory and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 [[inputs.jolokia2_agent]]
 #   # default_tag_prefix      = ""
@@ -292,7 +292,7 @@ Create a file called `java.conf` in the `/etc/telegraf/telegraf.d` directory and
 
 For details, see [Jolokia2 Agent Plugin Configuration](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/jolokia2_agent#configuration) and [Jolokia Metric Configuration](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/jolokia2_agent#metric-configuration).
 
-In addition, you can configure several MBeans in the Telegraf configuration. For example:{% raw %}
+In addition, you can configure several MBeans in the Telegraf configuration. For example:{% raw %}
 ```
   [[inputs.jolokia2_agent.metric]]
     name     = "java_compilation"

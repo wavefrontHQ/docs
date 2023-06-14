@@ -44,7 +44,7 @@ Use the following instructions to start reporting metrics.
 
 Step 1. Download the [Prometheus yaml](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/istio/prometheus.yaml) file with the federation.
 
-Step 2. Deploy the Prometheus server to `istio-system` namesapce.{% raw %}
+Step 2. Deploy the Prometheus server to `istio-system` namesapce.{% raw %}
 ```
 kubectl create -f prometheus.yaml
 ```
@@ -53,12 +53,12 @@ kubectl create -f prometheus.yaml
 #### 2. Update the Wavefront Collector ConfigMap
 If you do not already have the Wavefront Collector for Kubernetes installed on your Kubernetes cluster, follow these instructions to add it to your cluster either by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install).
 
-Step 1. Edit the Wavefront Collector ConfigMap at runtime:{% raw %}
+Step 1. Edit the Wavefront Collector ConfigMap at runtime:{% raw %}
 ```
 kubectl edit configmap wavefront-collector-config -n wavefront
 ```
 {% endraw %}
-- Add the following snippet under `Prometheus Sources`:{% raw %}
+- Add the following snippet under `Prometheus Sources`:{% raw %}
 ```
         ##########################################################################
         # Static source to collect Istio metrics via a federated Prometheus server
@@ -110,7 +110,7 @@ kubectl edit configmap wavefront-collector-config -n wavefront
             - 'tsm.istio.agent.*'
 ```
 {% endraw %}
-- Add the following snippet for Wavefront Proxy metricDenyList under `sinks`:{% raw %}
+- Add the following snippet for Wavefront Proxy metricDenyList under `sinks`:{% raw %}
 ```
           metricDenyList:
           - 'istio.*'

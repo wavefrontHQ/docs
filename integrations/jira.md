@@ -37,14 +37,14 @@ The Jira API uses Basic Authorization, a Base64 encoded string, for the user and
 {% include webhooks_create.md %}
 1. In this case, URL would look like `<Jira URL>/rest/api/2/issue`.
 1. In the **Content Type** field, select **application/json**.
-1. Add following Custom Headers:{% raw %}
+1. Add following Custom Headers:{% raw %}
 ```
 Authorization - Basic {base64 encoded API Token from Step 2}
 Accept - application/json
 ```
 {% endraw %}
 1. Select **TEMPLATE** in **Alert Target POST Body Template**.
-1. The [template](https://docs.wavefront.com/alert_target_customizing.html) can be customized as below:{% raw %}
+1. The [template](https://docs.wavefront.com/alert_target_customizing.html) can be customized as below:{% raw %}
 ```
 {
 	"fields": {

@@ -26,7 +26,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2. Configure Telegraf HTTPJSON Input Plugin
 
 First create a file called `hadoop-yarn.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 [[inputs.httpjson]]
 name_prefix = "hadoop.yarn."
@@ -36,18 +36,18 @@ servers = ["http://localhost:8088/ws/v1/cluster/metrics"]
 
 Then, specify your Yarn server URL as the `servers` value. Specify your server(s) with URL matching.
 
-Format:{% raw %}
+Format:{% raw %}
 ```
 servers = ["http://<address>:<port>/ws/v1/cluster/metrics"]
 ```
 {% endraw %}
-Example:{% raw %}
+Example:{% raw %}
 ```
 servers = ["http://localhost:8088/ws/v1/cluster/metrics"]
 ```
 {% endraw %}
 
-To monitor multiple Yarn servers, add `servers` entries:{% raw %}
+To monitor multiple Yarn servers, add `servers` entries:{% raw %}
 ```
 servers = ["http://yarn1.foo.com:8088/ws/v1/cluster/metrics","http://yarn2.foo.com:8088/ws/v1/cluster/metrics"]
 ```

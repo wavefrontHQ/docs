@@ -36,7 +36,7 @@ Follow these steps for sending metrics to a Wavefront proxy. See Option 2 for se
 If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network and reachable from your Go application, install a proxy. You configure the Wavefront proxy hostname and port (by default 2878) when you invoke the reporter.
 
 #### Step 2. Create the Wavefront Proxy Reporter
-{% raw %}
+{% raw %}
 ```
 import (
   "net"
@@ -78,7 +78,7 @@ func main() {
 ### Option 2. Create a Wavefront Direct Reporter
 
 You can send metrics directly to a Wavefront service, discussed next. Option 1 above explains how to send metrics to a Wavefront proxy.
-{% raw %}
+{% raw %}
 ```
 import (
   "github.com/wavefronthq/wavefront-sdk-go/senders"
@@ -110,7 +110,7 @@ func main() {
 
 ### Adding Metric-level Tags
 
-You can add tags to individual metrics.{% raw %}
+You can add tags to individual metrics.{% raw %}
 ```
 import (
   "github.com/rcrowley/go-metrics"
@@ -134,7 +134,7 @@ func main() {
 
 ### Collecting Go Runtime Metrics
 You can enable the runtime metric flag in the reporter to collect Go runtime metrics:
-{% raw %}
+{% raw %}
 ```
 func main() {
   // set reporting.RuntimeMetric(true) when creating a reporter using the steps mentioned above
@@ -151,7 +151,7 @@ func main() {
 {% endraw %}
 
 ### Extended Example
-{% raw %}
+{% raw %}
 ```
 package main
 

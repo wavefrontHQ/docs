@@ -25,7 +25,7 @@ To see a list of the metrics for this integration, select the integration from <
 ### Step 1. Ensure the HTTP API Module is Enabled
 
 On each of your NGINX Plus hosts, make sure the `ngx_http_api_module` is enabled. In `/etc/nginx/nginx.conf` specify:
-{% raw %}
+{% raw %}
 ```
 ...
 http {
@@ -52,7 +52,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 3. Enable the NGINX Plus input plugin
 
 Create a file called `nginxplus.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
    ```
    # Read Nginx Plus full API information (ngx_http_api_module)
    [[inputs.nginx_plus_api]]
@@ -69,7 +69,7 @@ Create a file called `nginxplus.conf` in `/etc/telegraf/telegraf.d` and enter th
 You may need to update `http://localhost/api` if you've configured the `ngx_http_api_module` on a different path.
 
 A single Telegraf agent can poll multiple NGINX Plus instances for API information. Specify the addresses of the NGINX instances in the `urls` parameter:
-{% raw %}
+{% raw %}
 ```
 urls = ["http://server1/api","http://server2/api","http://server3/api"]
 ```

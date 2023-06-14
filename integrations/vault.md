@@ -30,7 +30,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2. Configure the statsd Input Plugin for getting Vault metrics
 
 Edit the telegraf.conf file located in the Telegraf install directory and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 # Statsd Server
 [[inputs.statsd]]
@@ -82,7 +82,7 @@ Edit the telegraf.conf file located in the Telegraf install directory and enter 
 
 ### Step 3. Restart Telegraf
 
-Run the below command to restart the Telegraf agent{% raw %}
+Run the below command to restart the Telegraf agent{% raw %}
 ```
 sudo service telegraf restart
 ```
@@ -92,7 +92,7 @@ sudo service telegraf restart
 
 Edit the Hashicorp Vault configuration file located in the Vault install directory and enter the following snippet:
 Replace <HOSTNAME> with the name of the host where the Telegraf instance is running.
-{% raw %}
+{% raw %}
 ```
 telemetry {
   dogstatsd_addr = "<HOSTNAME>:8125"

@@ -29,7 +29,7 @@ Here's a preview of some charts in Python Runtime dashboard:
 The Wavefront plugin for [PyFormance](https://github.com/omergertel/pyformance) adds [Wavefront reporters](https://github.com/wavefrontHQ/wavefront-pyformance) and an  abstraction that supports tagging at the reporter level. The reporters support sending metrics to Wavefront using the [Wavefront proxy](https://docs.wavefront.com/proxies.html) or using [direct ingestion](https://docs.wavefront.com/direct_ingestion.html).
 
 ### Install wavefront_pyformance
-{% raw %}
+{% raw %}
 ```
 pip install wavefront_pyformance
 ```
@@ -47,7 +47,7 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
 #### Step 2. Create the Wavefront Proxy Reporter and Register Metrics
 Tags passed to the proxy reporter are applied to every metric.
 
-{% raw %}
+{% raw %}
 ```
 from wavefront_pyformance import tagged_registry
 from wavefront_pyformance import wavefront_reporter
@@ -74,7 +74,7 @@ wf_proxy_reporter.report_now()
 You can send metrics directly to a Wavefront service, discussed next. Option 1 above explains how to send metrics to a Wavefront proxy.
 
 Tags passed to the direct reporter are applied to every metric.
-{% raw %}
+{% raw %}
 ```
 from wavefront_pyformance import tagged_registry
 from wavefront_pyformance import wavefront_reporter
@@ -99,7 +99,7 @@ wf_direct_reporter.report_now()
 
 ### Python Runtime Metrics
 To enable Python runtime metrics reporting, modify the reporter created above to set the `enable_runtime_metrics` flag to **True**:
-{% raw %}
+{% raw %}
 ```
 wf_proxy_reporter = wavefront_reporter.WavefrontProxyReporter(
     host=host, port=2878, registry=reg,

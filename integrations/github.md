@@ -28,7 +28,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 
 Create a `webhooks.conf` file in `/etc/telegraf/telegraf.d` and add the following snippet:
 
- {% raw %}
+ {% raw %}
 ```   
    #   ## A Webhooks Event collector
    [[inputs.webhooks]]

@@ -44,7 +44,7 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
 ### Step 3. Configure Telegraf
 
 Edit the `telegraf.conf` file located in `Program Files\Telegraf` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 [[inputs.win_services]]
   service_names = [
@@ -60,7 +60,7 @@ You can find the list of services using the Windows Service Management console.
 
 ### Step 4. Restart Telegraf
 
-After any changes restart your Telegraf agent service.{% raw %}
+After any changes restart your Telegraf agent service.{% raw %}
 ```
 net stop telegraf
 net start telegraf

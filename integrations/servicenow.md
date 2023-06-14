@@ -63,7 +63,7 @@ The ServiceNow API uses Basic Authorization, a Base64 encoded string, for the us
 1. Set the URL field to `https://YOUR_INSTANCE.service-now.com/api/now/table/incident` replacing YOUR_INSTANCE with the name of your instance in ServiceNow.
 1. Set Content Type to **application/json**.
 1. Create a new Custom Header with the name `Authorization` and the value `Basic <TOKEN>`, where <TOKEN> is the Base64 token that you copied and saved in Step 3.
-1. Copy and paste the following into the Body Template of the alert target.{% raw %}
+1. Copy and paste the following into the Body Template of the alert target.{% raw %}
     ```
     {{! https://docs.wavefront.com/alert_target_customizing.html }}
     {

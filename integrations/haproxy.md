@@ -23,7 +23,7 @@ To see a list of the metrics for this integration, select the integration from <
 If the stats page is already enabled, skip to Step 2.
 
 1. Include the following snippet in `haproxy.cfg`:
-{% raw %}
+{% raw %}
     ```
     listen stats
         bind 0.0.0.0:8181  #Listen on all IP's on port 8181
@@ -40,7 +40,7 @@ If the stats page is already enabled, skip to Step 2.
 {% endraw %}
 
     This enables HAProxy's statistics report page at:
-{% raw %}
+{% raw %}
     ```
     http://[your_haproxy_server]:8181/haproxy?stats
     ```
@@ -57,7 +57,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 3. Configure HAProxy Input Plugin
 
 Create a file called `haproxy.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 [[inputs.haproxy]]
   ## An array of address to gather stats about. Specify an ip on hostname
@@ -88,13 +88,13 @@ Create a file called `haproxy.conf` in `/etc/telegraf/telegraf.d` and enter the 
 {% endraw %}
 
 Replace the servers field with your HAProxy server address.
-{% raw %}
+{% raw %}
 ```
 servers = ["http://[username[:password]]@[your_haproxy_server]:8181/haproxy?stats"]
 ```
 {% endraw %}
 
-Or your socket location.{% raw %}
+Or your socket location.{% raw %}
 ```
 servers = ["socket:/run/haproxy/admin.sock"]
 ```

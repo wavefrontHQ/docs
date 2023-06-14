@@ -30,7 +30,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2: Enable the Prometheus Input Plugin
 
 Create a file called `gitlab.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
    ```
     #Read metrics exposed by GitLab
     [[inputs.prometheus]]

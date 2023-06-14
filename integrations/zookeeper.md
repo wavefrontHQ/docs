@@ -28,7 +28,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2. Enable the ZooKeeper input plugin
 
 Create a file called `zookeeper.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
    ```
 	# # Reads `mntr` stats from one or many zookeeper servers
 	[[inputs.zookeeper]]

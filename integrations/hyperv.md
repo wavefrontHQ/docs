@@ -31,7 +31,7 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
 ### Step 3. Configure the Hyper-V Input Plugin
 
 Edit the `telegraf.conf` file located in `Program Files\Telegraf\` and enter the following snippet:
-{% raw %}
+{% raw %}
    ```
    [[inputs.win_perf_counters.object]]
      ObjectName = "Hyper-V Virtual Machine Health Summary"
@@ -137,7 +137,7 @@ Edit the `telegraf.conf` file located in `Program Files\Telegraf\` and enter the
 ### Step 4. Restart Telegraf
 
 Restart Telegraf from the Windows Services Management Console or run the following commands from the command prompt:
-{% raw %}
+{% raw %}
    ```
    net stop telegraf
    net start telegraf

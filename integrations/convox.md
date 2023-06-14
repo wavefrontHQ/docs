@@ -38,7 +38,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 4: Enable the Exec Input Plugin
 
 Create a file called `convox.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
    ```
       # # Read metrics from convox 
       [[inputs.exec]]

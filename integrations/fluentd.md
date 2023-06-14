@@ -44,7 +44,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2: Ensure the monitor_agent plugin is configured on Fluentd
 
   In the Fluentd configuration file `/etc/td-agent/td-agent.conf`, ensure that the monitor_agent plugin is configured as in the example below:
-{% raw %}
+{% raw %}
   ```
   <source>
     @type monitor_agent
@@ -57,7 +57,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 3: Configure the Fluentd Input Plugin on Telegraf
 
   Create a `fluentd.conf` file in `/etc/telegraf/telegraf.d` and enter the Fluentd plugin configuration as in the following example snippet:
-{% raw %}
+{% raw %}
    ```
 # Read metrics exposed by fluentd monitor_agent plugin
 [[inputs.fluentd]]
@@ -88,7 +88,7 @@ This integration supports Fluentd deployment as daemonset using standard fluentd
 1. Make sure that Fluentd is deployed on your Kubernetes cluster. If not deployed already, you can deploy it by using the sample `.yaml` files as explained below.
 
 2. Add the following match clause in the existing `fluent.conf` file by using ConfigMaps and save the file. You can find the `fluent.conf` file under `/fluentd/etc/`.
-{% raw %}
+{% raw %}
 ```
 <match **>
   @type stdout
@@ -112,7 +112,7 @@ You can override another configuration file using the same ConfigMap, if needed.
 
 4. Annotate the Fluentd daemonset to add Prometheus `scrape`, `scheme`, `port`, and `path`.
 
-{% raw %}
+{% raw %}
 ```
 kubectl annotate pod <FLUENTD_POD_NAME> prometheus.io/scrape=true prometheus.io/scheme=http prometheus.io/port=24231 prometheus.io/path=/metrics
 ```

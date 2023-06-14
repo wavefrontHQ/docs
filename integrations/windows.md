@@ -25,7 +25,7 @@ Supported Version(s): Windows 8 and up
 ### Install the Wavefront Proxy
 
 1. Download [wavefront-proxy-setup.exe](https://s3-us-west-2.amazonaws.com/wavefront-cdn/windows/wavefront-proxy-setup.exe).
-2. In a `cmd.exe` shell, go to the directory you downloaded the installer to and run:
+2. In a command prompt, navigate to the directory in which you downloaded the installer.
 
    ```.\wavefront-proxy-setup.exe /server=https://YOUR_CLUSTER.wavefront.com/api /token=<YOUR_API_TOKEN> /SILENT```
 

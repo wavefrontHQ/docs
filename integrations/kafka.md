@@ -44,7 +44,7 @@ Jolokia is a JVM agent that exposes JMX data as JSON on an HTTP port (8778 by de
 2. Rename downloaded Jar file to `jolokia-agent.jar`.
 3. Save jolokia-agent.jar on your Kafka server in `/opt/kafka/libs` or any location accessible to Kafka.
 4. Configure Kafka to use Jolokia:
-    1. Add the following snippet to `kafka-server-start.sh`:{% raw %}
+    1. Add the following snippet to `kafka-server-start.sh`:{% raw %}
     ```
     export JMX_PORT=9999
     export RMI_HOSTNAME=KAFKA_SERVER_IP_ADDRESS
@@ -52,7 +52,7 @@ Jolokia is a JVM agent that exposes JMX data as JSON on an HTTP port (8778 by de
     ```
 {% endraw %}
     2. Restart the Kafka service.
-    3. Verify that you can access Jolokia on port 8778 by running:{% raw %}
+    3. Verify that you can access Jolokia on port 8778 by running:{% raw %}
     ```
     curl http://KAFKA_SERVER_IP_ADDRESS:8778/jolokia/version
     ```
@@ -62,7 +62,7 @@ Jolokia is a JVM agent that exposes JMX data as JSON on an HTTP port (8778 by de
 ### Step 3. Configure Jolokia Input Plugin
 
 Create a file called `jolokia-kafka.conf` in `/etc/telegraf/telegraf.d` and enter the following:
-{% raw %}
+{% raw %}
 ```
 ## Read JMX metrics through Jolokia
  [[inputs.jolokia2_agent]]
@@ -219,7 +219,7 @@ Run `sudo service telegraf restart` to restart your agent.
 
 Make sure that Bitnami Kafka with `bitnami/kafka-exporter` and `bitnami/jmx-exporter` are deployed on your cluster.
 
-You can use the following command to deploy Bitnami Kafka with kafka-exporter and jmx-exporter:{% raw %}
+You can use the following command to deploy Bitnami Kafka with kafka-exporter and jmx-exporter:{% raw %}
 ```
 helm repo add bitnami https://charts.bitnami.com/bitnami
 
@@ -241,7 +241,7 @@ If you do not already have the Kubernetes Metrics Collector installed in your Ku
 By default, both the JMX exporter and Kafka exporter services are annotated with Prometheus `scrape` and `port`.
 
 * Annotate the jmx-metrics service to add the `path` and prefix `kafkajmx.`.
-{% raw %}
+{% raw %}
 ```
 kubectl annotate service <KAFKA_CLUSTER_NAME>-jmx-metrics prometheus.io/path=/metrics prometheus.io/prefix=kafkajmx. --overwrite
 ```

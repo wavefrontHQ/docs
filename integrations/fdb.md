@@ -40,14 +40,14 @@ If you've already installed FoundationDB `Client and python API library` on your
 ### Step 3: Enable the Input Plugins
 
 Create a file called `fdb.conf` in `/etc/telegraf/telegraf.d` in the all the servers belongs to the FoundationDB cluster and
-enter the following snippet to set the cluster name:{% raw %}
+enter the following snippet to set the cluster name:{% raw %}
    ```
       [global_tags]
         cluster = <FoundationDB-Cluster-Name>
    ```
 {% endraw %}
 Enter the following snippet in one of the server where you have configured the FoundationDB metrics collector:
-{% raw %}
+{% raw %}
    ```
       # # Read metrics from fdb
       [[inputs.exec]]
@@ -65,7 +65,7 @@ Enter the following snippet in one of the server where you have configured the F
    ```
 {% endraw %}
 Enter the following snippet in all the servers belongs to the FoundationDB cluster to collect the host-specific metrics:
-{% raw %}
+{% raw %}
    ```
       # Get kernel statistics from /proc/stat
       [[inputs.kernel]]

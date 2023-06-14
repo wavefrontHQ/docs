@@ -26,13 +26,13 @@ The Wavefront plugin for [AppMetrics](https://www.app-metrics.io/) adds [Wavefro
 
 ### Install [NuGet package](https://www.nuget.org/packages/Wavefront.AppMetrics.SDK.CSharp/)
 
-Using `Package Manager Console`{% raw %}
+Using `Package Manager Console`{% raw %}
 ```
 PM> Install-Package Wavefront.AppMetrics.SDK.CSharp
 ```
 {% endraw %}
 
-Using `.NET CLI Console`{% raw %}
+Using `.NET CLI Console`{% raw %}
 ```
 > dotnet add package Wavefront.AppMetrics.SDK.CSharp
 ```
@@ -48,7 +48,7 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
 
 #### Step 2. Create a Wavefront Proxy Reporter and Register Metrics
 
-To create a reporter which will emit data to a Wavefront proxy every 5 seconds:{% raw %}
+To create a reporter which will emit data to a Wavefront proxy every 5 seconds:{% raw %}
 ```
 using System;
 using System.Collections.Generic;
@@ -103,7 +103,7 @@ scheduler.Start();
 You can send metrics directly to a Wavefront service, discussed next. Option 1 above explains how to send metrics to a Wavefront proxy.
 
 To create a reporter which will emit data to a Wavefront service every 5 seconds:
-{% raw %}
+{% raw %}
 ```
 using System;
 using System.Collections.Generic;

@@ -31,14 +31,14 @@ Log in to your Operations for Applications instance, navigate to the integration
 1. Download [runscope.py](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/runscope/runscope.py) onto your server.
 2. Add the execute permissions to the downloaded file, e.g. `chmod +x <runscope-metrics-collector>`
 3. Install `requests` python package: 'pip install requests`.
-4. Test the script using the command.{% raw %}
+4. Test the script using the command.{% raw %}
 ```
    python runscope.py -h
 ```
 {% endraw %}
 
    You should get a response similar to this:
-{% raw %}
+{% raw %}
 ```
    usage: runscope.py [-h] token
 
@@ -63,7 +63,7 @@ To get an access token that this integration's Python script can use to poll the
 ### Step 4: Enable the Exec Input Plugin
 
 Create a file called `runscope.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 ## Get Test Results from Runscope. 
 [[inputs.exec]]

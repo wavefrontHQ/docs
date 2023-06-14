@@ -13,7 +13,7 @@ This integration is a cookbook for installing and configuring Python, pip, Teleg
 ### Step 1. Download and extract the Chef cookbook
 
 On a Chef client that is set up to push to your Chef server, run the following commands:
-{% raw %}
+{% raw %}
 ```
 knife cookbook site download wavefront
 tar xvf wavefront-0.1.1.tar.gz
@@ -22,7 +22,7 @@ tar xvf wavefront-0.1.1.tar.gz
 
 ### Step 2. Modify attributes.rb to include your API key
 
-{% raw %}
+{% raw %}
 ```
 cd wavefront/attributes
 sed -i 's/<YOUR_API_KEY>/YOUR_API_TOKEN/g' wavefront/attributes/default.rb
@@ -30,7 +30,7 @@ sed -i 's/<YOUR_API_KEY>/YOUR_API_TOKEN/g' wavefront/attributes/default.rb
 {% endraw %}
 
 ### Step 3. Upload the Operations for Applications cookbook
-{% raw %}
+{% raw %}
 ```
 knife cookbook upload wavefront
 ```
@@ -39,14 +39,14 @@ knife cookbook upload wavefront
 ### Step 4. Add the cookbook to your client's run list
 
 This needs to be executed only once per client.
-{% raw %}
+{% raw %}
 ```
 knife node run_list add NODE_NAME wavefront
 ```
 {% endraw %}
 
 ### Step 5. Run the cookbook
-{% raw %}
+{% raw %}
 ```
 sudo chef-client
 ```

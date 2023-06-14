@@ -34,7 +34,7 @@ The Microsoft Team is now ready to receive webhook alerts. Note that you can cre
 1. Set Content Type to **application/json**.
 1. Customize the [alert_notification](https://docs.wavefront.com/alert_target_customizing.html).
 1. Give a meaningful description to your new alert target.
-1. Copy and paste the following into the **Body Template** box of the alert target.{% raw %}
+1. Copy and paste the following into the **Body Template** box of the alert target.{% raw %}
 ```
 {{#setDefaultIterationLimit}}500{{/setDefaultIterationLimit}}
 {{#setFailingLimit}}500{{/setFailingLimit}}

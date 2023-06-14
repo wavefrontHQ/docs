@@ -16,7 +16,7 @@ Metricproxy is an open source project from SignalFx that can aggregate metrics f
 
 ### Step 2. Configure Metricproxy
 
-Edit the metricproxy configuration file `/etc/sfdbconfig.conf` as below:{% raw %}
+Edit the metricproxy configuration file `/etc/sfdbconfig.conf` as below:{% raw %}
 ```
 {
     "ForwardTo": [

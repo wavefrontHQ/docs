@@ -27,7 +27,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 2. Configure Memcached Input Plugin
 
 Create a file called `memcached.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
+{% raw %}
 ```
 [[inputs.memcached]]
   servers = ["your.memcached.server:11211"]
@@ -35,7 +35,7 @@ Create a file called `memcached.conf` in `/etc/telegraf/telegraf.d` and enter th
 {% endraw %}
 
 You can poll multiple Memcached instances from a single Telegraf agent. Simply configure the `servers` parameter with the addresses of the Memcached instances:
-{% raw %}
+{% raw %}
 ```
 servers = ["your.memcached.server1:11211","your.memcached.server2:11211","your.memcached.server3:11211"]
 ```

@@ -28,7 +28,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 
 ### Step 2: Download the Script
 
-1. Install the Reporting server on Chef server using the below commands:{% raw %}
+1. Install the Reporting server on Chef server using the below commands:{% raw %}
    ```
    chef-server-ctl install opscode-reporting
    chef-server-ctl reconfigure
@@ -37,7 +37,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 {% endraw %}
 2. Download [chef-metrics-collector](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/chef/chef-metrics-collector) onto your Chef server, and place it in an accessible location, for example `/etc/telegraf/.chef`
 3. Keep the private key of the Chef user in a file in an accessible location, for example `/etc/telegraf/.chef/admin.pem`
-4. Create the file `knife.rb` on your Chef server with the following configuration settings for your environment, and place it in an accessible location, for example `/etc/telegraf/.chef`{% raw %}
+4. Create the file `knife.rb` on your Chef server with the following configuration settings for your environment, and place it in an accessible location, for example `/etc/telegraf/.chef`{% raw %}
    ```
    # Sample for chef_server_url is: "https://chef.wavefront.com/organizations/bu"
    chef_server_url          << Chef Server Url >>
@@ -53,12 +53,12 @@ Log in to your Operations for Applications instance, navigate to the integration
    log_location             STDOUT
    ```
 {% endraw %}
-5. Test the script execution using this command:{% raw %}
+5. Test the script execution using this command:{% raw %}
     ```
     sudo /opt/opscode/bin/knife exec -c /etc/telegraf/.chef/knife.rb /etc/telegraf/.chef/chef-metrics-collector
     ```
 {% endraw %}
-    You should get a response such as the following:{% raw %}
+    You should get a response such as the following:{% raw %}
     ```
     {
       "server.nodes_count": 2,
@@ -91,7 +91,7 @@ Log in to your Operations for Applications instance, navigate to the integration
 ### Step 3: Enable the Exec Input Plugin
 
 Create a `chef.conf` file in `/etc/telegraf/telegraf.d` and add configuration settings for the Exec plugin. Use the following snippet as a guide:
-{% raw %}
+{% raw %}
    ```
 # Read metrics exposed by chef
 [[inputs.exec]]
@@ -105,7 +105,7 @@ Create a `chef.conf` file in `/etc/telegraf/telegraf.d` and add configuration se
 ### Step 4: Enable the Nginx Input Plugin
 
 Create a `chef-nginx.conf` file in `/etc/telegraf/telegraf.d` and add configuration settings for the nginx plugin. Use the following snippet as a guide:
-{% raw %}
+{% raw %}
    ```
 [[inputs.nginx]]
   urls = ["http://localhost:9999/nginx_status"]

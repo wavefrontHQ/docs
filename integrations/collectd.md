@@ -27,7 +27,7 @@ There are many plugins available with collectd, including SNMP and various datab
  1. Edit the collectd configuration file `/etc/collectd/collectd.conf`.
  1. If the hostname command on this machine returns something very generic like localhost you can explicitly set the host that will appear within Wavefront for this machine by uncommenting the line #Hostname and replacing "localhost" with the desired hostname.
  1. Insert the following lines at the bottom of the file:
-{% raw %}
+{% raw %}
     ```conf
     LoadPlugin "write_graphite" 
       <Plugin write_graphite> 

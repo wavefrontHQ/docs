@@ -17,7 +17,7 @@ This is a custom integration. You can send your own metrics and create your own 
 This Node.js integration provides Wavefront reporters for the Node.js [metrics](https://github.com/mikejihbe/metrics) library. The [reporters](https://github.com/wavefrontHQ/nodejs-metrics-wavefront) support sending metrics to Wavefront using the [Wavefront proxy](https://docs.wavefront.com/proxies.html) or using [direct ingestion](https://docs.wavefront.com/direct_ingestion.html). You can assign point tags at both the reporter and metric levels.
 
 ### Install wavefrontmetrics
-{% raw %}
+{% raw %}
 ```
 npm install wavefrontmetrics
 ```
@@ -34,7 +34,7 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
 
 #### Step 2. Create the Wavefront Proxy Reporter
 Tags passed to the proxy reporter are applied to every metric.
-{% raw %}
+{% raw %}
 ```
 const metrics = require('wavefrontmetrics');
 const registry = new metrics.Registry();
@@ -50,7 +50,7 @@ proxyReporter.start(5000);
 You can send metrics directly to a Wavefront service, discussed next. Option 1 above explains how to send metrics to a Wavefront proxy.
 
 Tags passed to the direct reporter are applied to every metric.
-{% raw %}
+{% raw %}
 ```
 const metrics = require('wavefrontmetrics');
 const registry = new metrics.Registry();
@@ -64,7 +64,7 @@ directReporter.start(5000);
 ### Register Metrics with Metric-level Tags
 
 You can add tags to individual metrics. The tags are included by the Wavefront reporter at report time.
-{% raw %}
+{% raw %}
 ```
 const metrics = require('wavefrontmetrics');
 const registry = new metrics.Registry();
