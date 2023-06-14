@@ -7,6 +7,8 @@ permalink: authorization.html
 summary: Learn about authorization of groups and users.
 ---
 
+{% include note.html content="Starting June 26, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscriptions. For VMware Cloud services subscriptions, see [Authorization Model in Operations for Applications on VMware Cloud Services](csp_authorization.html)."%}
+
 VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports both role-based control that use global permissions and object-based access control for individual dashboards and alerts.
 
 Users with the **Accounts** permission can:

@@ -7,6 +7,8 @@ permalink: api_tokens.html
 summary: Learn how you can generate and manage API tokens in VMware Aria Operations for Applications (previously known as Tanzu Observability by Wavefront).
 ---
 
+{% include note.html content="Starting June 26, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For information about original and VMware Cloud services subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html)."%}
+
 Before you can invoke the [REST API](wavefront_api.html) using `curl` or from an API client, you must have an API token. An API token is a string of hexadecimal characters and dashes. For example:
 
 ```
