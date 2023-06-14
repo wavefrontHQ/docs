@@ -37,11 +37,11 @@ In addition to setting up the metrics flow, this integration also installs a das
    wget -O ./conf/preprocessor_rules.yaml https://raw.githubusercontent.com/wavefrontHQ/wavefront-proxy/master/pkg/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml.default --no-check-certificate
    ```
 {% endraw %}
-4. **Authentication Configuration** - You can select the authentication type - **OAuth App** or **API token**. This option is available **only** when your service is onboarded to the VMware Cloud Services platform. Otherwise, continue with the steps below. For the most recent instructions, see the steps on the **Setup** tab of the integration in the Operations for Applications user interface.
+4. **Authentication Configuration** - Select the authentication type - **OAuth App** or **API token**. This option is available **only** when your service is onboarded to VMware Cloud services. For the most recent instructions, see the steps on the **Setup** tab of the integration in the Operations for Applications user interface.
 Open the `conf/wavefront.conf` file in edit mode, update the following proxy properties, and save the file.{% raw %}
    ```
    server = https://YOUR_CLUSTER.wavefront.com/api/
-   Authentication Property = If your service is not onboarded to the VMware Cloud Services platform, provide a valid Operations for Applications API token. If your service is onboarded to the VMware Cloud Services platform, an App ID, App Secret, and Organization ID or a valid API token generated in the VMware Cloud Services Console.
+   Authentication Property = If your service is not onboarded to VMware Cloud services, provide a valid Operations for Applications API token. If your service is onboarded to VMware Cloud services, provide an App ID, App Secret, and Organization ID of a server to server app or a valid API token generated in the VMware Cloud Services Console.
    hostname = "HOSTNAME"
    graphitePorts = 2003
    graphiteFormat = 2

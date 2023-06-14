@@ -27,7 +27,7 @@ Supported Version(s): Windows 8 and up
 1. Download [wavefront-proxy-setup.exe](https://s3-us-west-2.amazonaws.com/wavefront-cdn/windows/wavefront-proxy-setup.exe).
 2. In a command prompt, navigate to the directory in which you downloaded the installer.
 
-   ```.\wavefront-proxy-setup.exe /server=https://YOUR_CLUSTER.wavefront.com/api /token=<YOUR_API_TOKEN> /SILENT```
+   The commands that you run and the authentication parameters that you provide, depend on whether your Operations for Applications service is onboarded to VMware Cloud services. For the most recent instructions, see the steps on the **Setup** tab in the Operations for Applications UI. For details on the commands, see [Commands for Installing the Proxy on a Windows Host](http://docs-sandbox-a.wavefront.com/authentication_properties.html#example-commands-for-installing-the-proxy-on-a-windows-host).
 
 3. The proxy is started automatically. Check `Program Files (x86)\Wavefront\wavefront.log` to verify the installation.
 4. You can manage the proxy service using the Windows Services Management Console.
