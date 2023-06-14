@@ -1,5 +1,5 @@
 ---
-title: Integrations Authentication Properties
+title: Proxy Authentication Properties
 keywords: 
 tags: 
 sidebar: doc_sidebar
@@ -64,7 +64,7 @@ When your service **is** onboarded to VMware Cloud services, after you download 
         .\wavefront-proxy-setup.exe /server=https://YOUR_CLUSTER.wavefront.com/api /cspAppId=<CSP_APP_ID> /cspAppSecret=<CSP_APP_SECRET> /cspOrgId=<CSP_ORG_ID> /SILENT
         ```
         
-        Here, `<CSP_APP_ID>` is an existing App ID, `<CSP_APP_SECRET>` is an existing App Secret, and `<CSP_ORG_ID>` is the Organization ID of a server to server app which has the **Proxies** service role assigned. 
+        Here, `<CSP_APP_ID>` is the app ID and `<CSP_APP_SECRET>` is the app secret of an existing server to server app which has the **Proxies** service role assigned and is added to the VMware Cloud organization running the service.  `<CSP_ORG_ID>` is the ID of the VMware Cloud organization running the service.
         
         If you don't have a server to server app already, you can create one in the VMware Cloud Services Console. For details, see [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html) in the VMware Cloud services documentation.
 
