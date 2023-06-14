@@ -39,6 +39,9 @@ Finally, instead of filtering, you can use grouping, for example, in conjunction
 
 ![time series organized by point tag](images/point_tags_group.png)
 
+
+{% include note.html content="Starting with the 2023-20.x release, grouping is case-sensitive. For example, if you ingest point tags such as `zone` and `ZONE`, when you use an aggregation function and apply grouping, we will consider `zone` and `ZONE` as separate tags. " %}
+
 ## Best Practices for Point Tags
 
 To avoid performance issues, follow best practices.

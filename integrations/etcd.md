@@ -8,9 +8,9 @@ summary: Learn about the etcd KV store Integration.
 
 etcd is a consistent, distributed key-value store that provides a reliable way to store data that needs to be accessed by a distributed system or cluster of machines.
 
-1. **etcd**: This explains the installation and configuration of Telegraf to send etcd KV Store performance metrics to Wavefront. Telegraf is a light-weight server process that can collect, process, aggregate and send metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+1. **etcd**: This explains the installation and configuration of Telegraf to send etcd KV Store performance metrics to Operations for Applications. Telegraf is a light-weight server process that can collect, process, aggregate and send metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
-2. **etcd on Kubernetes**: This explains the configuration of Wavefront Collector for Kubernetes to scrape etcd metrics using auto-discovery.
+2. **etcd on Kubernetes**: This explains the configuration of Kubernetes Metrics Collector to scrape etcd metrics using auto-discovery.
 
 In addition to setting up the metrics flow, this integration also installs dashboards:
 * etcd
@@ -72,14 +72,20 @@ helm install <etcd-clustername> bitnami/etcd --set metrics.enabled=true --namesp
 ```
 {% endraw %}
 
-Note: Few peers related metrics charts will show no data until etcd is deployed as a cluster.
+**Note**: Few peers-related metrics charts will show no data until etcd is deployed as a cluster.
 
-### Configure the Wavefront Collector for Kubernetes
+This integration uses:
+* The [Annotation Based Discovery](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/docs/collector/discovery.md#annotation-based-discovery) feature in Kubernetes Metrics Collector to monitor etcd on Kubernetes.
 
-You can configure the Wavefront Collector for Kubernetes to scrape etcd metrics by using annotation based discovery.
+* The [Kubernetes Metrics Collector](https://github.com/wavefrontHQ/observability-for-kubernetes) to collect the metrics from the annotated etcd service and send the metrics to Operations for Applications, so that you can monitor your clusters and workloads in Kubernetes.
 
-If you do not have the Wavefront Collector for Kubernetes installed on your Kubernetes cluster, follow these instructions to add it to your cluster by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install).You can check the status of Wavefront Collector and Proxy if you are already monitoring the Kubernetes cluster on the Setup tab of the Kubernetes integration.
+You can deploy the Kubernetes Metrics Collector by using either the [Observability for Kubernetes Operator](https://github.com/wavefrontHQ/observability-for-kubernetes) (recommended deployment) or by using the [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or [manual installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install) (deprecated deployment).
 
+If you do not already have the Kubernetes Metrics Collector installed in your Kubernetes cluster, follow the add Kubernetes instructions and add it to your cluster.
+
+### Reporting etcd Metrics to Operations for Applications
+
+You can configure the Kubernetes Metrics Collector to scrape etcd metrics by using annotation based discovery. The etcd pods annotation will be enabled, by default.
 
 
 
