@@ -41,7 +41,7 @@ The API token will give read-only access to VMware Aria Operations (SaaS) and en
 
 ### Set Up the VMware Aria Operations (SaaS) Integration
 
-1. Log in to your Operations for Applications cluster: `https://<example>.wavefront.com`.
+1. Log in to your Operations for Applications instance.
 1. Click **Integrations** on the toolbar. 
 1. In the VMware section, click the **VMware Aria Operations (SaaS)** tile.
 1. Click **Add Integration**.

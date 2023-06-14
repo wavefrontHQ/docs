@@ -79,7 +79,7 @@ We've streamlined the getting started process so it involves a few simple steps 
     2. In the **Telegraf Agent Config** section, specify the Foundation name.<br/><br/>
      See [Ops Manager: Install, Configure, and Deploy the Nozzle](#step-2-ops-manager-install-configure-and-deploy-the-nozzle) and [Tanzu Application Service to Tanzu Observability FAQs](#tanzu-application-service-to-tanzu-observability-faqs)
      After you complete nozzle deployment, metrics are flowing from Tanzu Application Service to the Wavefront proxy and from there to your Wavefront instance. See [Data Flow](#architecture-and-data-flow) below.
-3. Log in to your Wavefront instance (for example, `https://example.wavefront.com`) and confirm that metrics are flowing:
+3. Log in to your Wavefront instance and confirm that metrics are flowing:
    1. Click **Integrations** in the toolbar, search for Tanzu Application Service, and select the integration.
    2. Click the **Metrics** tab and confirm metrics are flowing.
 4. With the integration selected, click the **Dashboards** tab.
@@ -173,7 +173,7 @@ Ensure that your environment meet requirements on the Ops Manager side and on th
   <!-- Margarita - check whether the above is still true-->
 * **Tanzu Observability by Wavefront Requirements**
   To set up the Tanzu Application Service integration on your Operations for Applications instance, you must have:
-  * Access to a Operations for Applications instance with a URL like `https://example.wavefront.com`.
+  * Access to a Operations for Applications instance.
   * At a minimum, **Integrations** permission on that Operations for Applications instance.
   * This version of the Tanzu Observability by Wavefront nozzle is compatible with Wavefront proxy version 10.14 and later.
 
@@ -340,7 +340,7 @@ In Ops Manager, click the Tanzu Observability by Wavefront tile. With **Settings
 
 ### Step 3: Check That Metrics are Flowing and Examine Your Data
 
-Log in to your Wavefront instance (for example, `https://example.wavefront.com`) and confirm that metrics are flowing:
+Log in to your Wavefront instance and confirm that metrics are flowing:
 1. Click **Integrations** in the toolbar, search for Tanzu Application Service, and select the integration.
 2. Click the **Metrics** tab and confirm metrics are flowing.
 
