@@ -7,6 +7,8 @@ permalink: csp_users_roles.html
 summary: Manage Operations for Applications permissions with roles.
 ---
 
+{% include note.html content="Starting June 26, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Manage Roles, Groups, and Permissions](users_roles.html)."%}
+
 VMware Cloud services supports roles to manage authorization in your services on the platform, including VMware Aria Operations for Applications.
 
 From the VMware Cloud Services Console, users with the VMware Cloud **Organization Owner** or **Organization Administrator** role can:
