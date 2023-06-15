@@ -35,7 +35,7 @@ Watch these videos to listen to our co-founder Clement Pang introduce distribute
 
 OpenTracing is deprecated. ([OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/) have merged to form [OpenTelemetry](https://opentelemetry.io/).) To send trace data to Operations for Applications, use OpenTelemetry.
 
-If your application uses an OpenTelemetry SDK, you can configure the application to send trace data [Directly to the Wavefront proxy](opentelemetry_overview.html#directly-send-data-using-the-wavefront-proxy---recommended)
+If your application uses an OpenTelemetry SDK, you can configure the application to send trace data [Directly to the Wavefront proxy](opentelemetry_overview.html#send-data)
 ![A data flow diagram that shows how the data flows from your application to the proxy, and then to Operations for Applications](images/opentelemetry_proxy_tracing.png)
 
 ## Visualize Distributed Tracing Data
