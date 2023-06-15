@@ -7,6 +7,8 @@ permalink: wavefront-authentication.html
 summary: Learn about the authentication for user and service accounts.
 ---
 
+{% include note.html content="Starting June 26, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Authentication Model in Operations for Applications on VMware Cloud Services](csp_authentication.html)."%}
+
 VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports these authentication options:
 * **Direct authentication**: With direct authentication, users authentication with user name and password and service accounts authenticate with a token.
 * **Authentication through an SSO identity provider**: You can choose from supported self-service SAML SSO provider or request and multi-tenant SSO support.

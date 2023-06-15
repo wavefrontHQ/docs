@@ -6,13 +6,9 @@ permalink: csp_users_account_managing.html
 summary: Learn how to manage your password and preferences.
 ---
 
-Starting June 26, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform.
+{% include note.html content="Starting June 26, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Customize Your Account](users_account_managing.html)."%}
 
 When your Operations for Applications instance is onboarded to VMware Cloud services, you use a single [VMware Cloud services account](csp_getting_started.html#whats-a-vmware-cloud-services-account) to access your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications.
-
-{% include note.html content="All **new** Operations for Applications service subscriptions are onboarded to VMware Cloud services. For information about original and new subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html)."%}
-
-<!--- We are in the process of incrementally onboarding the existing Operations for Applications instances to VMware Cloud services.-->
 
 ## Manage Your Password
 

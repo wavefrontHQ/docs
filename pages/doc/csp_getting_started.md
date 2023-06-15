@@ -7,13 +7,13 @@ summary: Learn the basics for administering your service on the VMware Cloud ser
 ---
 Starting June 26, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform.
 
+{% include note.html content="All **new** Operations for Applications service subscriptions are onboarded to VMware Cloud services. All **original** subscriptions, that means existing ones, remain as is until they migrate to VMware Cloud services. We are in the process of incrementally migrating original subscriptions to VMware Cloud services. For information about original and VMware Cloud services subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html). "%}
+
 VMware Cloud services provides features to your Operations for Applications environment, such as:
 - Single sign-on (SSO) with VMware Cloud services accounts.
 - SAML 2.0 SSO identity federation with your enterprise identity provider.
 - Identity access management (IAM) with built-in and custom service roles.
 - Seamless integration with other services from your VMware Cloud services portfolio, for example, VMWare Aria Operations for Logs.
-
-{% include note.html content="All **new** Operations for Applications service subscriptions are onboarded to VMware Cloud services. All **original** subscriptions, that means existing ones, remain as is until they migrate to VMware Cloud services. We are in the process of incrementally migrating original subscriptions to VMware Cloud services. For information about original and VMware Cloud services subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html). "%}
 
 ## What's VMware Cloud Services Console?
 
@@ -84,6 +84,8 @@ While the service roles are built-in and not editable, as a VMware Cloud **Organ
 
 If you want to use an application for automating management tasks in your service, for example, in Operations for Applications, your application requires direct access to your service, without user authorization.
 
-For that purpose, VMware Cloud services supports server to server apps, which are based on OAuth 2.0 *client credentials* grant type. Configure your application to pass the OAuth 2.0 client credentials to the Operations for Applications REST API, and access tokens are issued directly to your application.
+For that purpose, VMware Cloud services supports server to server apps, which are based on OAuth 2.0 *client credentials* grant type. You can configure your application to pass the OAuth 2.0 client credentials (id and secret) to the Operations for Applications REST API. This way, the API tokens are issued directly to your application.
 
 See [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html) in the VMware Cloud services documentation.
+
+{% include important.html content="In Operations for Applications, sever to server apps correspond to **service accounts**. For example, when you configure [the access control security settings](csp_access.html#change-the-access-control-security-setting), [ingestion polices](ingestion_policies.html#step-1-specify-the-scope-and-pps-limit), or [metrics security rules](csp_metrics_security.html), the server to server apps that are assigned with Operations for Applications service roles or custom roles with Operations for Applications permissions are represented as service accounts."%}

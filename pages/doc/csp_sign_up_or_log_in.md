@@ -7,9 +7,9 @@ summary: Learn how you can sign up and log in to your service instance if it's o
 ---
 Starting June 26, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform.
 
-When your Operations for Applications instance is onboarded to VMware Cloud services, you use a single [VMware Cloud services account](csp_getting_started.html#whats-a-vmware-cloud-services-account) to access your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications.
-
 {% include note.html content="All **new** Operations for Applications service subscriptions are onboarded to VMware Cloud services. All **original** subscriptions, that means existing ones, remain as is until they migrate to VMware Cloud services. We are in the process of incrementally migrating original subscriptions to VMware Cloud services. For information about original and VMware Cloud services subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html). "%}
+
+When your Operations for Applications instance is onboarded to VMware Cloud services, you use a single [VMware Cloud services account](csp_getting_started.html#whats-a-vmware-cloud-services-account) to access your entire VMware Cloud services portfolio across hybrid and native public clouds, including Operations for Applications.
 
 Here’s how the signup works:
 1.	If you don't belong to the VMware Cloud organization in which the Operations for Applications service instance is running, you can be added to that organization in one the following ways:
