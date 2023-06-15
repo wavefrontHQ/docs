@@ -53,7 +53,7 @@ If you build an application or tool that manages proxies or ingests data, then t
 
 
     ```
-   curl 'https://<your_instance>/api/v2/cloudintegration' -H      'Authorization: Bearer <server_app_api_token>'
+   curl 'https://<your_instance>/api/v2/cloudintegration' -H 'Authorization: Bearer <server_app_api_token>'
    ```
    
    Here, `<your_instance>` is the name of your Operations for Applications service instance, and `<server_app_api_token>` is the API token for the app.
@@ -91,7 +91,7 @@ If you want to use a [**service account**](service-accounts.html) to make the RE
 5. If you use `curl`, and want to get information about all cloud integrations in your environment, run:
   
    ```
-   curl 'https://<your_instance>/api/v2/cloudintegration' -H      'Authorization: Bearer <service_account_api_token>'
+   curl 'https://<your_instance>/api/v2/cloudintegration' -H 'Authorization: Bearer <service_account_api_token>'
    ```
    
    Here, `<your_instance>` is the name of your Operations for Applications service instance, and `<service_account_api_token>` is the API token for the service account.
