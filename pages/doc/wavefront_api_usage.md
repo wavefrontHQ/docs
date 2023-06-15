@@ -36,7 +36,7 @@ If you want to use your own [**user account**](user-accounts.html) to make the R
 3. Exchange the organization-scoped API token for a user access token and save it to a secure place.
 
    1. Navigate to the [VMware Cloud Services API](https://console.cloud.vmware.com/csp/gateway/authn/api/swagger-ui.html).
-   2. Performs an `POST/am/api/auth/api-tokens/authorize` request and click **Try it out**.
+   2. Perform the `POST/am/api/auth/api-tokens/authorize` request and click **Try it out**.
    3. Provide the value of the API token that you have generated in the VMware Cloud Services Console, and click the **Execute**.
    
       Copy the value of the `"access_token"` from the response body.
