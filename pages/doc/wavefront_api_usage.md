@@ -32,10 +32,19 @@ If you want to use your own [**user account**](user-accounts.html) to make the R
 3. Copy and save the newly generated token in a secure place.
 
    {% include note.html content="For security reasons once the API token is generated and you click **Continue**, only the token name is exposed in the UI. This means that you will no longer be able to reuse the token by copying the credentials from this page. If you lose the information about a token, you must either regenerate it or use a new one."%}
+
+3. Exchange the organization-scoped API token for a user access token and save it to a secure place.
+
+   1. Navigate to the [VMware Cloud Services API](https://console.cloud.vmware.com/csp/gateway/authn/api/swagger-ui.html).
+   2. Expand the `POST/am/api/auth/api-tokens/authorize` request and click **Try it out**.
+   3. In the **API token** text box, provide the value of the API token that you have generated in the VMware Cloud Services Console, and click the **Execute**.
+   
+   Copy the the value of the `"access_token"` from the response body.
+
 4. If you use `curl`, and want to get information about all cloud integrations in your environment, run:
 
     ```
-   curl 'https://<your_instance>/api/v2/cloudintegration' -H 'Authorization: Bearer <your_api_token>'
+   curl 'https://<your_instance>/api/v2/cloudintegration' -H 'Authorization: Bearer <your_user_access_token>'
     ```
    
    Here, `<your_instance>` is the name of your Operations for Applications service instance, and `<your_api_token>` is the API token for your user account.
@@ -50,13 +59,19 @@ If you build an application or tool that manages proxies or ingests data, then t
 3. Obtain the OAuth 2.0 client credentials of the server to server app.
 4. Add the app to your organization.
 5. Configure your tool to pass the OAuth 2.0 client credentials to the REST API.
+6. Exchange the app secret for an access token and save it to a secure place.
 
+   1. Navigate to the [VMware Cloud Services API](https://console.cloud.vmware.com/csp/gateway/authn/api/swagger-ui.html).
+   2. Expand the `POST/am/api/auth/api-tokens/authorize` request and click **Try it out**.
+   3. In the **API token** text box, provide the value of the API token that you have generated in the VMware Cloud Services Console, and click the **Execute**.
+   
+   Copy the the value of the `"access_token"` from the response body.
 
     ```
-   curl 'https://<your_instance>/api/v2/cloudintegration' -H 'Authorization: Bearer <server_app_api_token>'
+   curl 'https://<your_instance>/api/v2/cloudintegration' -H 'Authorization: Bearer <server_app_access_api_token>'
    ```
-   
-   Here, `<your_instance>` is the name of your Operations for Applications service instance, and `<server_app_api_token>` is the API token for the app.
+   [Margarita] - CHECK THE PROCEDURE
+   Here, `<your_instance>` is the name of your Operations for Applications service instance, and `<server_app_access_token>` is the API token for the server to server app.
 
 See [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html) in the VMware Cloud services documentation.
 

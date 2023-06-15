@@ -168,9 +168,7 @@ Ensure that your environment meet requirements on the Ops Manager side and on th
 * **Ops Manager Requirements**
   VMware Tanzu Observability by Wavefront nozzle has the following requirements:
   * Read-only access to the Doppler Firehose and Cloud Controller.
-  * Access to an Operations for Applications instance and an API token. The API token that you provide and how it is generated depends on whether your Operations for Applications service is onboarded to VMware Cloud services. Service Account API token or server to server app API token is recommended. See [Managing API tokens](wavefront_api.html#managing-api-tokens) is recommended. 
-
-  <!-- Margarita - check whether the above is still true-->
+  * Access to an Operations for Applications instance and an API token. The API token that you provide and how it is generated depends on whether your Operations for Applications service is onboarded to VMware Cloud services. Service Account API token or server to server app credentials is the recommended approach. See [Managing API tokens](wavefront_api.html#managing-api-tokens).
 * **Tanzu Observability by Wavefront Requirements**
   To set up the Tanzu Application Service integration on your Operations for Applications instance, you must have:
   * Access to a Operations for Applications instance.

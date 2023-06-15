@@ -34,7 +34,7 @@ Here's what you need to get started.
 * You need access to a product cluster (`https://<example>.wavefront.com`) that monitors the data source you're interested in.
 * A valid API token to let CloudHealth access our API. 
 
-  If your Operations for Applications service **is** onboarded to VMware Cloud services, provide a valid VMware Cloud services API token of a user account or a server to server app that has access to the Operations for Applications sources that you want to ingest in CloudHealth. For details, see:
+  If your Operations for Applications service **is** onboarded to VMware Cloud services, provide a valid VMware Cloud services API token of a user account or the credentials of a server to server app that has access to the Operations for Applications sources that you want to ingest in CloudHealth. For details, see:
   
    * [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html)
    * [How do I manage API tokens in my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html)
@@ -44,6 +44,9 @@ Here's what you need to get started.
 
   {% include tip.html content="Creating a server to server app or a service account is often the right approach." %}
 
+<!--The API token must be a [valid Operations for Applications API token](api_tokens.html) of a user account or a service account that has access to the Operations for Applications sources that you want to ingest in CloudHealth. 
+
+{% include tip.html content="Creating a server to server app or a service account is often the right approach." %}-->
 
 ## Create a VMware Aria Operations for Applications (Wavefront) Account in CloudHealth
 
