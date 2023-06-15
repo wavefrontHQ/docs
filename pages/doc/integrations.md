@@ -11,6 +11,8 @@ Integrations are one easy way to get data from external systems into VMware Aria
 
 We update our [integrations release notes](integrations_new_changed.html) frequently.
 
+Starting June 26, 2023, Operations for Applications is a service on the VMware Cloud services platform. After this date, all **new** Operations for Applications subscriptions are onboarded to the [VMware Cloud services platform](https://console.cloud.vmware.com/). All **original** subscriptions, that means existing ones, remain as is until they migrate to VMware Cloud services. We are in the process of incrementally migrating original subscriptions to VMware Cloud services. 
+
 ## Watch a Video
 
 In this video, Jason talks about the different integrations we have, and how you can use them to get your data into the product. You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_j454pr6u" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
@@ -21,11 +23,19 @@ In this video, Jason talks about the different integrations we have, and how you
 
 ## Try an Integration!
 
-Sign up for a trial version to try our integrations. Detailed setup steps for each integration are in the product.
+Sign up for a trial version to try our integrations. Detailed setup steps for each integration are in the product UI. When the integration setup requires an Operation for Applications API token, the setup instructions might vary depending on whether your service is onboarded to VMware Cloud services or not. For details, see [Subscription Types](subscriptions-differences.html).
+
+* If your Operations for Applications service **is** onboarded to VMware Cloud services, generate the API token in the VMware Cloud Services Console or use server to server app credentials. It is recommended that you use a server to server app. For more information, see:
+
+    * [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) 
+    * [How do I manage API tokens in my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html)
+    * [Manage server to server apps](csp_server_to_server_apps.html)
+
+* If your Operations for Applications service is **not** onboarded to VMware Cloud services, generate the API token in the Operations for Applications UI. It is recommended that you use a service account API token. For more information, see [Manage API tokens](api_tokens.html).
 
 Here's a sample of what you see when you select one of our integrations:
 * The **Overview** tab explains how the integration works and what's included, often a sample dashboard with commonly used charts.
-* The **Setup** tab has instructions for configuring the integration.
+* The **Setup** tab has the most recent instructions for configuring the integration.
 * The **Metrics** and **Dashboard** tabs are preconfigured to show your metrics after you've set up the integration. You can [clone and customize our dashboards](integrations.html#cloning-and-customizing-dashboards).
 * The **Alerts** tab is an optional one. It contains a list of preconfigured integration alerts.
 
