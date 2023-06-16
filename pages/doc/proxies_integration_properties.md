@@ -61,7 +61,7 @@ When your service **is** onboarded to VMware Cloud services, after you download 
     * **OAuth App** authentication: 
     
         ```
-        .\wavefront-proxy-setup.exe /server=https://YOUR_CLUSTER.wavefront.com/api /cspAppId=<CSP_APP_ID> /cspAppSecret=<CSP_APP_SECRET> /cspOrgId=<CSP_ORG_ID> /SILENT
+        .\wavefront-proxy-setup.exe --server https://YOUR_CLUSTER.wavefront.com/api --cspAppId <CSP_APP_ID> --cspAppSecret <CSP_APP_SECRET> --cspOrgId <CSP_ORG_ID> /SILENT
         ```
         
         Here, `<CSP_APP_ID>` is the app ID and `<CSP_APP_SECRET>` is the app secret of an existing server to server app which has the **Proxies** service role assigned and is added to the VMware Cloud organization running the service.  `<CSP_ORG_ID>` is the ID of the VMware Cloud organization running the service.
@@ -71,7 +71,7 @@ When your service **is** onboarded to VMware Cloud services, after you download 
     * **API Token** authentication:
 
         ```
-        .\\wavefront-proxy-setup.exe /server=https://YOUR_CLUSTER.wavefront.com/api /cspAPIToken=<CSP_API_TOKEN> /SILENT
+        .\wavefront-proxy-setup.exe --server https://YOUR_CLUSTER.wavefront.com/api --cspAPIToken <CSP_API_TOKEN> /SILENT
         ```
 
         Here, `<CSP_API_TOKEN>` is a valid [VMware Cloud services API token](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) associated with an active user account.
@@ -85,7 +85,9 @@ When your service is **not** onboarded to VMware Cloud services, and you downloa
 3. Run the following command:
 
     ```
-    .\wavefront-proxy-setup.exe /server=https://YOUR_CLUSTER.wavefront.com/api /token=<YOUR_API_TOKEN> /SILENT
+    .\wavefront-proxy-setup.exe --server https://YOUR_CLUSTER.wavefront.com/api --token <YOUR_API_TOKEN> /SILENT
     ```
 
 Here, `<YOUR_API_TOKEN>` is a valid [Operations for Applications token](api_tokens.html) associated with an active user or service account. 
+
+## Example: Prometheus
