@@ -46,21 +46,17 @@ The [VMware Developer website](https://developer.vmware.com/samples?categories=S
 
 <a id="generating-an-api-token"></a>
 
-## Managing API Tokens
 
-Before you can invoke the API using `curl` or from an API client, you must have an API token.
+## Invoking the REST API
 
-The API token that you need depends on your [subscription type](subscriptions-differences.html). 
+You can invoke the API using `curl` or from an API client. In either case, you must use a token.
 
-* User accounts in VMware Cloud services subscriptions, use **VMware Cloud services API tokens**. See [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) and [How do I manage API tokens in my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html) in the VMware Cloud services documentation.
+The token that you need depends on your [subscription type](subscriptions-differences.html). 
 
-    [Server to server apps](csp_server_to_server_apps.html) authenticate with OAuth 2.0 client credentials and API tokens are directly issued to the corresponding applications. 
-* User accounts and service accounts in original Operations for Applications subscriptions use **Operations for Applications API tokens**. See [Manage API Tokens](api_tokens.html).
+* For VMware Cloud services subscriptions, invoking the Operations for Application REST API requires a VMware Cloud services access token.
+* For original subscriptions, invoking the Operations for Application REST API requires an Operations for Application API token.
 
-
-## Invoking the API
-
-You can invoke the API using `curl` or from an API client. In either case, you must use an API token. See [Use the Operations for Applications REST API](using_wavefront_api.html) for details and examples.
+See [Use the Operations for Applications REST API](using_wavefront_api.html) for details and examples.
 
 ## Generate an API Client Using Swagger
 

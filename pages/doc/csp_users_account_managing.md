@@ -82,7 +82,7 @@ If you hold the [**Super Admin** service role](csp_users_roles.html#operations-f
 
 Operations for Applications allows users to interact with the service instance using the [REST API](wavefront_api.html).
 
-Before you can invoke the Operations for Applications API using `curl` or from an API client, you must have a VMware Cloud services API token with the relevant organization and service access. 
+Before you can invoke the Operations for Applications API using `curl` or from an API client, you must have a VMware Cloud services access token with the relevant organization and service access. To retrieve an access token, you must first generate an API token.
 
 {% include note.html content="You generate VMware Cloud services API tokens only for your user account. You can grant a token all or a portion of your organization, service, and custom roles."%}
 

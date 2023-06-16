@@ -9,26 +9,30 @@ summary: Learn how to use the REST API outside of the in-product API documentati
 
 The [REST API](wavefront_api.html) enables you to interact with the VMware Aria Operations for Applications service (formerly known as Tanzu Observability by Wavefront) by using standard REST API tools. You can use the REST API to automate commonly executed operations, for example, to tag sources automatically.
 
-When you make REST API calls outside the REST API documentation UI, you must use an API token to authenticate.
+When you make REST API calls outside the REST API documentation UI, you must use a token to authenticate. The token that you need depends on your [subscription type](subscriptions-differences.html).
 
-* User accounts in **new** Operations for Applications subscriptions, which are onboarded to VMware Cloud services, use VMware Cloud services API tokens. See [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) and [How do I manage API tokens in my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html) in the VMware Cloud services documentation.
+* For VMware Cloud services subscriptions, invoking the Operations for Application REST API requires a VMware Cloud services access token.
 
-  [Server to server apps](csp_server_to_server_apps.html) authenticate with OAuth 2.0 client credentials and API tokens are directly issued to the corresponding applications.
+   - User accounts use VMware Cloud services API tokens to retrieve access tokens. See [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) in the VMware Cloud services documentation.
 
-* User accounts and service accounts in **original** Operations for Applications subscriptions use Operations for Applications API tokens. See [Managing API Tokens](wavefront_api.html#managing-api-tokens). 
+   - Server to server apps, which correspond to service accounts in Operations for Applications, use OAuth 2.0 client credentials (ID and secret) to retrieve access tokens. See [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html) in the VMware Cloud services documentation.
+
+* For original subscriptions, invoking the Operations for Application REST API requires an Operations for Application API token.
+
+   An API token can be associated with a user account or service account See [Manage API Tokens](api_tokens.html). 
 
 
-{% include note.html content="If you want to use the `curl` examples from the REST API UI to run them remotely, you must replace the CSRF token with an API token. You must use:  `-H 'Authorization: Bearer <your_api_token>` in your API calls."%}
+{% include note.html content="If you want to use the `curl` examples from the REST API UI to run them remotely, you must replace the CSRF token with your target token. You must use:  `-H 'Authorization: Bearer <your_token>` in your API calls."%}
 
 
 ## Onboarded Subscriptions
 
 ### Make API Calls by Using a User Account
 
-If you want to use your own [**user account**](user-accounts.html) to make the REST API calls, use VMware Cloud services API token associated with your user account:
+If you want to use your own [**user account**](user-accounts.html) to make the REST API calls, use a VMware Cloud services API token associated with your user account:
 
 1. Log in to the VMware Cloud Services Console.
-2. Click your username, select **My Account** and on  to your account to and on the **API Tokens** tab, [generate a new token](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html).
+2. Click your username, select **My Account** and, on the **API Tokens** tab, [generate a new token](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html).
 3. Copy and save the newly generated token in a secure place.
 
    {% include note.html content="For security reasons once the API token is generated and you click **Continue**, only the token name is exposed in the UI. This means that you will no longer be able to reuse the token by copying the credentials from this page. If you lose the information about a token, you must either regenerate it or use a new one."%}
@@ -58,7 +62,7 @@ If you build an application or tool that manages proxies or ingests data, then t
 3. Obtain the OAuth 2.0 client credentials of the server to server app.
 4. Add the app to your organization.
 5. Configure your tool to pass the OAuth 2.0 client credentials to the REST API.
-6. Exchange the app secret for an access token and save it to a secure place.
+6. Exchange the app ID and secret for an access token and save it to a secure place.
 
    1. Navigate to the [VMware Cloud Services API](https://console.cloud.vmware.com/csp/gateway/authn/api/swagger-ui.html).
    2. Perform the `POST/am/api/auth/authorize` API call with the values of the client ID and client secret of your server to server app as username and password.
