@@ -36,8 +36,7 @@ If you want to use your own [**user account**](user-accounts.html) to make the R
 3. Exchange the organization-scoped API token for a user access token and save it to a secure place.
 
    1. Navigate to the [VMware Cloud Services API](https://console.cloud.vmware.com/csp/gateway/authn/api/swagger-ui.html).
-   2. Perform the `POST/am/api/auth/api-tokens/authorize` request and click **Try it out**.
-   3. Provide the value of the API token that you have generated in the VMware Cloud Services Console, and click the **Execute**.
+   2. Perform the `POST/am/api/auth/api-tokens/authorize` request with the value of the API token that you have generated in the VMware Cloud Services Console.
    
       Copy the value of the `"access_token"` from the response body.
 
@@ -62,7 +61,7 @@ If you build an application or tool that manages proxies or ingests data, then t
 6. Exchange the app secret for an access token and save it to a secure place.
 
    1. Navigate to the [VMware Cloud Services API](https://console.cloud.vmware.com/csp/gateway/authn/api/swagger-ui.html).
-   2. Perform the `POST/am/api/auth/authorize` API call with the values of the client ID and client secret of your server to server app.
+   2. Perform the `POST/am/api/auth/authorize` API call with the values of the client ID and client secret of your server to server app as username and password.
    3. Copy the value of the `"access_token"` from the response body.
 
 7. If you use curl, and want to get information about all cloud integrations in your environment, run:
