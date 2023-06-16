@@ -9,7 +9,7 @@ summary: Learn how to use the REST API outside of the in-product API documentati
 
 The [REST API](wavefront_api.html) enables you to interact with the VMware Aria Operations for Applications service (formerly known as Tanzu Observability by Wavefront) by using standard REST API tools. You can use the REST API to automate commonly executed operations, for example, to tag sources automatically.
 
-When you make REST API calls outside the REST API documentation UI, you must use a token to authenticate.
+When you make REST API calls outside the REST API documentation UI, you must use a token to authenticate. The token that you need depends on your [subscription type](subscriptions-differences.html).
 
 * For VMware Cloud services subscriptions, invoking the Operations for Application REST API requires a VMware Cloud services access token.
 
