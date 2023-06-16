@@ -30,10 +30,10 @@ In most cases, a Wavefront proxy must be running in your installation before met
 
 {% include note.html content="Starting June 26, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html).<br/>
 - For VMware Cloud services subscriptions, starting with version 13.0, the Wavefront proxy supports authentication to Operations for Applications with a VMware Cloud services API token or OAuth app.<br/>
-- For original Operations for Applications subscriptions, the Wavefront proxy 13.0 still supports authentication with Operations for Applications tokens. "%}
+- For original Operations for Applications subscriptions, the Wavefront proxy 13.0 still supports authentication with Operations for Applications API tokens. "%}
 
-* If your Operations for Applications service instance is onboarded to VMware Cloud services, the proxy requires a VMware Cloud services API token with the **Proxies** [service role](csp_users_roles.html#operations-for-applications-service-roles-built-in). There are two supported authentication types. You can use:
-    *	A server to server **OAuth app**, so that the proxy retrieves the VMware Cloud services API token by using the OAuth credentials of the server to server app.
+* If your Operations for Applications service instance is onboarded to VMware Cloud services, the proxy requires a VMware Cloud services access token with the **Proxies** [service role](csp_users_roles.html#operations-for-applications-service-roles-built-in). There are two options for the proxy to retrieve the access token. You can use:
+    *	The credentials (ID and secret) of a server to server **OAuth app**.
 
         Before you add a proxy with an OAuth app, you must retrieve the credentials (ID and secret) of a server to server app that is assigned with the **Proxies** service role and added to the VMware Cloud organization running the service. See [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html?hWord=N4IgpgHiBcIMpgE4DckAIAuB7NBnJqiaAhgA6kgC+QA).
 
