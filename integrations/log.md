@@ -21,11 +21,11 @@ See [Get Started with Logs (Beta)](https://docs.wavefront.com/logging_overview.h
 
 If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, install a proxy and configure it to ingest logs.
 
-Follow the instructions in [Install a Wavefront Proxy](https://docs.wavefront.com/logging_send_logs.html#install-a-wavefront-proxy).
+Follow the instructions in [Install the Wavefront Proxy](https://docs.wavefront.com/logging_send_logs.html#install-the-wavefront-proxy).
 
 ### Step 2. Configure Your Log Shipper to Send Data to the Wavefront Proxy
 
-Follow the instructions in [Configure the Log Shipper](https://docs.wavefront.com/logging_send_logs.html#configure-the-log-shipper).
+Follow the instructions in [Configure a Log Shipper](https://docs.wavefront.com/logging_send_logs.html#option-2-configure-a-log-shipper).
 
 
 
