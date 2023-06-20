@@ -19,21 +19,25 @@ The [Collector](https://github.com/wavefrontHQ/observability-for-kubernetes) is 
 
 Yes, deploy the Collector on each of your Kubernetes clusters.
 
-## How Can I Filter Metric Data?
+## How Can I Filter Data?
 
-You can filter metrics data during installation or later using proxy preprocessor rules.
+You can filter data by configuring the [Observability for Kubernetes Operator](https://github.com/wavefrontHQ/observability-for-kubernetes) with data collection filters or by configuring Wavefront proxy preprocessor rules.
 
-### Filter During Installation
+### Data Collection Filters
 
-During the [Helm installation](https://github.com/wavefrontHQ/helm/tree/master/wavefront), you can pass in a `values.yaml` as a parameter.
+The [Observability for Kubernetes Operator](https://github.com/wavefrontHQ/observability-for-kubernetes) can be configured with data collection filters to:
 
-Using `values.yaml` you can:
-* [Filter out generated labels](https://github.com/wavefrontHQ/helm/blob/0bbf6a0e46e6e884c0b3c44b9c7d51f4b9392b20/wavefront/values.yaml#L105)
-* [Create a filter to apply toward all metrics collected by the collector](https://github.com/wavefrontHQ/helm/blob/0bbf6a0e46e6e884c0b3c44b9c7d51f4b9392b20/wavefront/values.yaml#L86)
+* Define a list of metrics that will be reported.
+* Define a list of metrics that will be dropped.
+* Define a list of tags that are guaranteed to not be removed as part of limiting the point tags to the 20 tag limit.
 
-### Filter Using Proxy
+See the [filtering scenario](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/deploy/scenarios/wavefront-collector-filtering.yaml) for an example of how to define data collection filters using the [Observability for Kubernetes Operator](https://github.com/wavefrontHQ/observability-for-kubernetes).
 
-Filter using a Wavefront [proxy preprocessor rule](proxies_preprocessor_rules.html). You can use point filtering/altering rules and span filtering/altering rules. The proxy deals with data coming from Kubernetes exactly the same way as with data from other data sources. 
+### Wavefront Proxy Preprocessor Rules
+
+Filter using a Wavefront [proxy preprocessor rule](proxies_preprocessor_rules.html). You can use point filtering/altering rules and span filtering/altering rules. The proxy deals with data coming from Kubernetes exactly the same way as with data from other data sources.
+
+See the [proxy preprocessor rules scenario](https://github.com/wavefrontHQ/observability-for-kubernetes/blob/main/deploy/scenarios/wavefront-proxy-preprocessor-rules.yaml) for an example of how to configure the Wavefront proxy preprocessor rules using the [Observability for Kubernetes Operator](https://github.com/wavefrontHQ/observability-for-kubernetes).
 
 ## How Do I Monitor Prometheus Metric Endpoints?
 

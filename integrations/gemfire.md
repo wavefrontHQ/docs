@@ -9,17 +9,17 @@ summary: Learn about the VMware GemFire® Integration.
 
 The VMware GemFire integration allows you to monitor many GemFire clusters running in Kubernetes, as well as GemFire clusters running in a user-provided infrastructure.
 
-1. **VMware GemFire for Kubernetes**
+1. **VMWare GemFire for Kubernetes**
 
-If you already have the Wavefront proxy and the Kubernetes Metrics Collector installed in your Kubernetes cluster, you will see the GemFire for Kubernetes metrics flowing into Operations for Applications. Otherwise, use the setup instructions.
+If you already have the Wavefront proxy and the Wavefront Collector installed in your Kubernetes cluster, you will see the GemFire for Kubernetes metrics flowing into Wavefront. Otherwise, use the setup instructions.
 
 2. **VMware GemFire (Standalone)**
 
-To scrape GemFire metrics and send them to Operations for Applications, you must set up some user-managed applications.
+To scrape GemFire metrics and send them to Wavefront, you must set up some user-managed applications.
 
 3. **VMware GemFire for Tanzu Application Service**
 
-To emit GemFire metrics to Operations for Applications, you must make sure that the Tanzu Observability by Wavefront nozzle is installed on the same Tanzu Application Service foundation.
+To emit GemFire metrics to Wavefront, you must make sure that the Tanzu Observability by Wavefront nozzle is installed on the same Tanzu Application Service foundation.
 
 ## Sample Dashboards
 
@@ -34,11 +34,12 @@ In addition to setting up the metrics flow, this integration also installs dashb
 
 ### VMware GemFire for Kubernetes Setup
 
-You can deploy the Kubernetes Metrics Collector by using either the [Observability for Kubernetes Operator](https://github.com/wavefrontHQ/observability-for-kubernetes#readme) (recommended deployment) or by using the [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or [manual installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install) (deprecated deployment).
+If you do not already have the Wavefront Collector for Kubernetes installed on your Kubernetes cluster, please follow these [instructions](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) to add it to your cluster.
+For more details about the Wavefront Collector, see [Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes).
 
-If you do not already have the Kubernetes Metrics Collector installed in your Kubernetes cluster, follow the [add Kubernetes](extdata/add/kubernetes) instructions and add it to your cluster.
+If you do not have the Wavefront Collector for Kubernetes installed on your Kubernetes cluster, follow these instructions to add it to your cluster by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install).
 
-Once installed, the Kubernetes Metrics Collector will start collecting your GemFire for Kubernetes metrics and will push them through the Wavefront proxy to your Operations for Applications environment specified upon installation.
+Once installed, the Wavefront Collector will start collecting your GemFire for Kubernetes metrics and will push them through the Wavefront proxy to your Wavefront environment specified upon installation.
 
 Within about a minute you will be able to use the dashboard on the Dashboards tab above and see our default metrics sent from any GemFire clusters created in that Kubernetes cluster.
 
