@@ -8,7 +8,7 @@ summary: Learn how you can customize logs settings from the Organization Setting
 
 Users with access to the logs settings can map metrics tags to logs tags, traces tags to logs tags, and customize the time window you see on a chart or Traces Browser when you drill into logs from a chart and trace.
 
-{% include note.html content="Starting June 26, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html).<br/>
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html).<br/>
 - For VMware Cloud services subscriptions, only users with the **Super Admin**  service role in Super Admin mode can customize the logs settings.<br/>
 - For original Operations for Applications subscriptions, users with the **Accounts** permission can customize the logs settings."%}
 

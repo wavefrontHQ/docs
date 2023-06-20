@@ -7,7 +7,7 @@ permalink: user-accounts.html
 summary: Create and manage user accounts.
 ---
 
-{% include note.html content="Starting June 26, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Manage Users of Operations for Applications on VMware Cloud Services](csp_user_management.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Manage Users of Operations for Applications on VMware Cloud Services](csp_user_management.html)."%}
 
 VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports:
 * User accounts, discussed here, which authenticate with a username and password.

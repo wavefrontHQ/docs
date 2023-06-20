@@ -5,7 +5,7 @@ sidebar: doc_sidebar
 permalink: csp_getting_started.html
 summary: Learn the basics for administering your service on the VMware Cloud services platform.
 ---
-Starting June 26, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform.
+Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform.
 
 {% include note.html content="All **new** Operations for Applications service subscriptions are onboarded to VMware Cloud services. All **original** subscriptions, that means existing ones, remain as is until they migrate to VMware Cloud services. We are in the process of incrementally migrating original subscriptions to VMware Cloud services. For information about original and VMware Cloud services subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html). "%}
 

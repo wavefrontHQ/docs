@@ -28,7 +28,7 @@ In most cases, a Wavefront proxy must be running in your installation before met
 
 ## Proxy Authentication Types
 
-{% include note.html content="Starting June 26, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html).<br/>
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html).<br/>
 - For VMware Cloud services subscriptions, starting with version 13.0, the Wavefront proxy supports authentication to Operations for Applications with a VMware Cloud services API token or OAuth app.<br/>
 - For original Operations for Applications subscriptions, the Wavefront proxy 13.0 still supports authentication with Operations for Applications API tokens. "%}
 

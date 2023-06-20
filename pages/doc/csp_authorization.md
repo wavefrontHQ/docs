@@ -7,7 +7,7 @@ permalink: csp_authorization.html
 summary: Learn about authorization of groups, users, and sever to server apps to access VMware Aria Operations for Applications on VMware Cloud services.
 ---
 
-{% include note.html content="Starting June 26, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Authorization Model](authorization.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Authorization Model](authorization.html)."%}
 
 VMware Cloud services supports role-based access control for the services on its platform, including Operations for Applications. In addition, Operations for Applications supports object-based access control for individual dashboards and alerts as well as metrics security policy.
 

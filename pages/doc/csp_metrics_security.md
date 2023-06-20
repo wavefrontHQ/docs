@@ -7,7 +7,7 @@ permalink: csp_metrics_security.html
 summary: Use metrics security to control access to time series, histograms, and delta counters.
 ---
 
-{% include note.html content="Starting June 26, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Metrics Security Policy Rules](metrics_security.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Metrics Security Policy Rules](metrics_security.html)."%}
 
 In a large enterprise, certain data is confidential. VMware Aria Operations for Applications allows you to limit who can see or modify data in several ways.
 * **Permissions** are **global** settings.

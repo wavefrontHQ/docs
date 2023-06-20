@@ -279,7 +279,7 @@ INFO [AbstractReportableEntityHandler:reject] [<port>] blocked input: [WF-300 Ca
   ```
 * Explanation: The proxy cannot connect using the token provided.
   
-  {% include important.html content="Starting June 26, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The [proxy authentication](proxies_installing.html#proxy-authentication-types) to Operations for Applications differs for VMware Cloud services subscriptions and original subscriptions."%}
+  {% include important.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The [proxy authentication](proxies_installing.html#proxy-authentication-types) to Operations for Applications differs for VMware Cloud services subscriptions and original subscriptions."%}
 
   <table>
   <tbody>

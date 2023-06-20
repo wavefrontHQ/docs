@@ -7,7 +7,7 @@ permalink: purchase_additional_capacity.html
 summary: Learn how to add capacity to your current VMware Aria Operations for Applications subscription.
 ---
 
-{% include note.html content="Starting June 26, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html).<br/>
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html).<br/>
 - For VMware Cloud services subscriptions, users with the VMware Cloud **Organization Owner** role can request more PPS capacity to be added to your active Operations for Applications subscription.<br/>
 - For original Operations for Applications subscriptions, **Super Admin** users with Super Admin mode enabled can request more PPS capacity to be added to your active Operations for Applications subscription. "%}
 
