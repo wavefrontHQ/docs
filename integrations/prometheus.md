@@ -18,7 +18,7 @@ To see a list of the metrics for this integration, select the integration from <
 
 
 
-[[CSPAuthMethodSelector section-header="true"]]
+
 
 The Wavefront Prometheus integration has different use cases.
 
@@ -104,7 +104,7 @@ To collect metrics from Prometheus running in a Kubernetes cluster, follow these
 The Wavefront proxy can be installed outside of Kubernetes as given above or as a pod within your Kubernetes cluster.
 
 To deploy the Wavefront proxy as a pod:
-[[deployWavefrontProxyAsAPod]]
+Download and save the [`wavefront.yaml`](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes/master/wavefront-proxy/wavefront.yaml) file to your system. Edit the file and set the authentication properties. After you edit and save the file, to deploy the proxy, run `kubectl create -f wavefront.yaml`.
 
 The `wavefront-proxy` pod and service should now be running on your cluster.
 

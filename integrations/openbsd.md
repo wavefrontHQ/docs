@@ -37,11 +37,11 @@ In addition to setting up the metrics flow, this integration also installs a das
    curl -o ./conf/preprocessor_rules.yaml https://raw.githubusercontent.com/wavefrontHQ/wavefront-proxy/master/pkg/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml.default
    ```
 {% endraw %}
-4. [[CSPAuthMethodSelector]]
+4. 
 Open the `conf/wavefront.conf` file in edit mode and add the following proxy properties:{% raw %}
    ```
    server = https://YOUR_CLUSTER.wavefront.com/api/
-   [[CSPAuthCreds user-token-prefix="token"]]
+   token = YOUR_API_TOKEN
    hostname = "HOSTNAME"
    graphitePorts = 2003
    graphiteFormat = 2

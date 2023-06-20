@@ -21,7 +21,7 @@ This integration uses various Telegraf input plugins. You can install the Wavefr
 
 Supported Version(s): MacOS Catalina (10.15) or later
 
-[[CSPAuthMethodSelector section-header="true"]]
+
 
 ### Install Automatically
 
@@ -44,7 +44,7 @@ To run the Wavefront proxy on a host:
 1. Edit the file `/usr/local/etc/wavefront/wavefront-proxy/wavefront.conf` and configure the following properties:{% raw %}
    ```
    server=https://YOUR_CLUSTER.wavefront.com/api/
-   [[CSPAuthCreds user-token-prefix="token"]]
+   token = YOUR_API_TOKEN
    ```
 {% endraw %}
 1. Run `brew services restart wfproxy`.
