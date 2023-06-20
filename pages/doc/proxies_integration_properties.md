@@ -64,7 +64,7 @@ When your service **is** onboarded to VMware Cloud services, after you download 
         .\wavefront-proxy-setup.exe --server https://YOUR_CLUSTER.wavefront.com/api --cspAppId <CSP_APP_ID> --cspAppSecret <CSP_APP_SECRET> --cspOrgId <CSP_ORG_ID> /SILENT
         ```
         
-        Here, `<CSP_APP_ID>` is the app ID and `<CSP_APP_SECRET>` is the app secret of an existing server to server app which has the **Proxies** service role assigned and is added to the VMware Cloud organization running the service.  `<CSP_ORG_ID>` is the ID of the VMware Cloud organization running the service.
+        Here, `<CSP_APP_ID>` is the app client ID and `<CSP_APP_SECRET>` is the app client secret of an existing server to server app which has the **Proxies** service role assigned and is added to the VMware Cloud organization running the service.  `<CSP_ORG_ID>` is the ID of the VMware Cloud organization running the service.
         
         If you don't have a server to server app already, you can create one in the VMware Cloud Services Console. For details, see [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html) in the VMware Cloud services documentation.
 
@@ -88,7 +88,7 @@ When your service is **not** onboarded to VMware Cloud services, and you downloa
     .\wavefront-proxy-setup.exe --server https://YOUR_CLUSTER.wavefront.com/api --token <YOUR_API_TOKEN> /SILENT
     ```
 
-Here, `<YOUR_API_TOKEN>` is a valid [Operations for Applications token](api_tokens.html) associated with an active user or service account. 
+    Here, `<YOUR_API_TOKEN>` is a valid [Operations for Applications token](api_tokens.html) associated with an active user or service account. 
 
 ## Example: Prometheus Configuration
 
@@ -100,23 +100,31 @@ When your service **is** onboarded to VMware Cloud services, depending on the au
 
 *  **OAuth App** authentication: 
    
-   Edit the `wavefront.yam`l file and set `WAVEFRONT_URL` to `https://<your_cluster>.wavefront.com/api/`. 
+   1. In your Operations for Applications instance, click **Integrations** on the toolbar, search for Prometheus, and click the **Prometheus** integration tile.
+   2. On the **Setup** tab, under **Configure the Authentication**, select **OAuth App** for authentication type.
+   3. Scroll down to **Use-Case 2: Making Data in Prometheus Available in Wavefront**, **Kubernetes based Prometheus Server**.
+   4. Create a `wavefront.yaml` file on your system.
+   5. Copy the configuration displayed under **Step 1**.
+   2. Edit the `wavefront.yaml` file and provide your existing server to server app credentials and organization ID. 
    
-   You should also provide your existing server to server app credentials and organization ID. The app must have the **Proxies** service role assigned and must be added to the VMware Cloud organization running the service.
+      The app must have the **Proxies** service role assigned and must be added to the VMware Cloud organization running the service.
    
-   * `<CSP_APP_ID>` -- server to server app ID
-   * `<CSP_APP_SECRET>` -- server to server app secret 
-   * `<CSP_ORG_ID>` -- the ID of the VMware Cloud organization running the service
-   
-   If you don't have a server to server app already, you can create one in the VMware Cloud Services Console. For details, see [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html) in the VMware Cloud services documentation.
+      * `<CSP_APP_ID>` -- server to server app client ID
+      * `<CSP_APP_SECRET>` -- server to server app client secret 
+      * `<CSP_ORG_ID>` -- the ID of the VMware Cloud organization running the service
+    
+     If you don't have a server to server app already, you can create one in the VMware Cloud Services Console. For details, see [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html) in the VMware Cloud services documentation.
 
 * **API Token** authentication:
 
-  Edit the `wavefront.yam`l file and set `WAVEFRONT_URL` to `https://<your_cluster>.wavefront.com/api/`. 
-  
-  You should also provide your `<CSP_API_TOKEN>`, which must be a valid [VMware Cloud services API token](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) associated with an active user account.
+   1. In your Operations for Applications instance, click **Integrations** on the toolbar, search for Prometheus, and click the **Prometheus** integration tile.
+   2. On the **Setup** tab, select **API Token** for authentication type.
+   3. Scroll down to **Use-Case 2: Making Data in Prometheus Available in Wavefront**, **Kubernetes based Prometheus Server**.
+   4. Create a `wavefront.yaml` file on your system.
+   5. Copy the configuration displayed under **Step 1**.
+   6. Edit the `wavefront.yaml` file and provide your `<CSP_API_TOKEN>`, which must be a valid [VMware Cloud services API token](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) associated with an active user account.
   
   
 ### Original Subscriptions
 
-When your service is **not** onboarded to VMware Cloud services, edit the `wavefront.yam`l file and set `WAVEFRONT_URL` to `https://<your_cluster>.wavefront.com/api/` and `WAVEFRONT_TOKEN` to `YOUR_API_TOKEN`. See [Managing Operations for Applications tokens](api_tokens.html) for details.
+When your service is **not** onboarded to VMware Cloud services, download and save the [`wavefront.yaml`](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes/master/wavefront-proxy/wavefront.yaml) file and set `WAVEFRONT_URL` to `https://<your_cluster>.wavefront.com/api/` and `WAVEFRONT_TOKEN` to `YOUR_API_TOKEN`. See [Managing Operations for Applications tokens](api_tokens.html) for details.
