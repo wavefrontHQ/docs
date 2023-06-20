@@ -20,19 +20,6 @@ You can run a proxy in a Docker container by running one of the following comman
 
 Example: Run the Wavefront proxy in a container with a limit of 2 GB of memory:
 
-* For original subscriptions:
-
-    ```
-    docker run -d \
-    -e WAVEFRONT_URL=https://<myinstance>.wavefront.com/api \
-    -e WAVEFRONT_TOKEN=<YOUR-API-TOKEN> \
-    -e WAVEFRONT_PROXY_ARGS='--<arg1> <value1> --<arg2> <value2>' \
-    -e JAVA_HEAP_USAGE="1650m"\
-    -m 2g \
-    -p 2878:2878 \
-    wavefronthq/proxy:latest
-    ```
-
 * For VMware Cloud services subscriptions and proxy authentication with a server to server OAuth app:
 
     ```
@@ -54,6 +41,19 @@ Example: Run the Wavefront proxy in a container with a limit of 2 GB of memory:
     docker run -d \
     -e WAVEFRONT_URL=https://<myinstance>.wavefront.com/api \
     -e CSP_API_TOKEN <CSP_API_TOKEN> \
+    -e WAVEFRONT_PROXY_ARGS='--<arg1> <value1> --<arg2> <value2>' \
+    -e JAVA_HEAP_USAGE="1650m"\
+    -m 2g \
+    -p 2878:2878 \
+    wavefronthq/proxy:latest
+    ```
+
+* For original subscriptions:
+
+    ```
+    docker run -d \
+    -e WAVEFRONT_URL=https://<myinstance>.wavefront.com/api \
+    -e WAVEFRONT_TOKEN=<YOUR-API-TOKEN> \
     -e WAVEFRONT_PROXY_ARGS='--<arg1> <value1> --<arg2> <value2>' \
     -e JAVA_HEAP_USAGE="1650m"\
     -m 2g \
@@ -63,18 +63,6 @@ Example: Run the Wavefront proxy in a container with a limit of 2 GB of memory:
 
 Example: Run the proxy with preprocessor rules by using the WAVEFRONT_PROXY_ARGS. Specify the volume to use:
 
-* For original subscriptions:
-
-    ```
-    docker run \
-    -e WAVEFRONT_URL=https://<myinstance>.wavefront.com/api \
-    -e WAVEFRONT_TOKEN=<YOUR-API-TOKEN> \
-    -e WAVEFRONT_PROXY_ARGS='--preprocessorConfigFile /etc/wavefront/wavefront-proxy/preprocessor_rules.yaml' \
-    -v </path/to/file>/preprocessor_rules.yaml:/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml:ro \
-    -p 2878:2878 \
-    wavefronthq/proxy:latest
-    ```
-
 * For VMware Cloud services subscriptions and proxy authentication with a server to server OAuth app:
 
     ```
@@ -100,7 +88,18 @@ Example: Run the proxy with preprocessor rules by using the WAVEFRONT_PROXY_ARGS
     -p 2878:2878 \
     wavefronthq/proxy:latest
     ```
+* For original subscriptions:
 
+    ```
+    docker run \
+    -e WAVEFRONT_URL=https://<myinstance>.wavefront.com/api \
+    -e WAVEFRONT_TOKEN=<YOUR-API-TOKEN> \
+    -e WAVEFRONT_PROXY_ARGS='--preprocessorConfigFile /etc/wavefront/wavefront-proxy/preprocessor_rules.yaml' \
+    -v </path/to/file>/preprocessor_rules.yaml:/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml:ro \
+    -p 2878:2878 \
+    wavefronthq/proxy:latest
+    ```
+    
 **Harbor:**
 
 * For original subscriptions:

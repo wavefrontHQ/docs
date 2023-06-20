@@ -291,10 +291,10 @@ INFO [AbstractReportableEntityHandler:reject] [<port>] blocked input: [WF-300 Ca
   </thead>
   <tr>
   <td><ul>
-  <li>If the proxy uses the <strong>OAuth app</strong> authentication type, the corresponding server to server app might have been deleted or might have not the <strong>Proxies</strong> service role. </li>
-  <li>If the proxy uses the <strong>API token</strong> authentication type, the token might have been deleted or expired, or might have not the <strong>Proxies</strong> service role. The user account associated with the token might have been removed.</li>
+  <li>If the proxy uses the <strong>OAuth app</strong> authentication type, the corresponding server to server app might have been deleted or might have not the <strong>Proxies</strong> service role.</li>
+  <li>If the proxy uses the <strong>API token</strong> authentication type, the API token might have been deleted or expired, or might have not the <strong>Proxies</strong> service role. The user account associated with the token might have been removed.</li>
   </ul></td>
-  <td>The token or the account associated with the token might have been deleted or might not have the <strong>Proxies</strong> permissions.</td>
+  <td>The API token or the account associated with the API token might have been deleted or might not have the <strong>Proxies</strong> permissions.</td>
   </tr>
   </tbody>
   </table>
@@ -311,9 +311,9 @@ INFO [AbstractReportableEntityHandler:reject] [<port>] blocked input: [WF-300 Ca
   </thead>
   <tr>
   <td><ul>
-  <li>Validate that the user token or the OAuth app credentials that the proxy is using are correct and active.</li>
+  <li>Validate that the API token or the OAuth app credentials that the proxy is using are correct and active.</li>
   <li>Validate that the user account associated with the token or the corresponding server to server app is active.</li>
-  <li>Ensure that the user token or the corresponding server to server app has the <strong>Proxies</strong> service role.</li></ul></td>
+  <li>Ensure that the API token or the corresponding server to server app has the <strong>Proxies</strong> service role.</li></ul></td>
   <td><ul>
   <li>Validate that the token used by the proxy is correct and active.</li>
   <li>Validate that the user or server account associated with the token is active.</li>
