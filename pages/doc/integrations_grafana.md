@@ -15,10 +15,10 @@ When you set up VMware Aria Operations for Applications as a data source in Graf
 
 To set up VMware Aria Operations for Applications as a PromQL data source in Grafana, you must provide an API Token. 
 
-   * If your Operations for Applications service **is** onboarded to VMware Cloud services, provide a valid VMware Cloud services API token of a user that can run queries. See [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) and [How do I manage API tokens in my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html) in the VMware Cloud services documentation. You can also use the credentials of a [server to server app](csp_server_to_server_apps.html) that can run queries.
+  <!-- * If your Operations for Applications service **is** onboarded to VMware Cloud services, provide a valid VMware Cloud services API token of a user that can run queries. See [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) and [How do I manage API tokens in my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html) in the VMware Cloud services documentation. You can also use the credentials of a [server to server app](csp_server_to_server_apps.html) that can run queries.
    * If your Operations for Applications service is **not** onboarded to VMware Cloud services, the API token must be a [valid Operations for Applications API token](api_tokens.html) of a user account or a service account that can run queries. 
 
-
+-->
 1. Log in to your Grafana instance.
 
 2. In the Navigation bar on the left, click **Configuration**. 
