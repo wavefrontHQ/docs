@@ -21,7 +21,7 @@ This integration uses various Telegraf input plugins. You can install the Wavefr
 
 Supported Version(s): MacOS Catalina (10.15) or later
 
-**Authentication Configuration** - Select the authentication type - **OAuth App** or **API token**. This option is available **only** when your service is onboarded to VMware Cloud services. For the most recent instructions, see the steps on the **Setup** tab of the integration in the Operations for Applications user interface.
+
 
 ### Install Automatically
 
@@ -41,10 +41,10 @@ To run the Wavefront proxy on a host:
 
 1. Run `brew install wfproxy`.  
    **Note:** You may be prompted to install Xcode and Java.
-1. Edit the file `/usr/local/etc/wavefront/wavefront-proxy/wavefront.conf` and configure the following properties:{% raw %}
+1. Edit the file `/usr/local/etc/wavefront/wavefront-proxy/wavefront.conf` and configure the following properties:{% raw %}
    ```
    server=https://YOUR_CLUSTER.wavefront.com/api/
-   Authentication Property = If your service is not onboarded to VMware Cloud services, provide a valid Operations for Applications API token. If your service is onboarded to VMware Cloud services, provide an App ID, App Secret, and Organization ID of a server to server app or a valid API token generated in the VMware Cloud Services Console.
+   token = YOUR_API_TOKEN
    ```
 {% endraw %}
 1. Run `brew services restart wfproxy`.
@@ -59,7 +59,7 @@ To run the Wavefront proxy on a host:
 To run the Telegraf agent on a host:
 
 1. Run `brew install telegraf`.
-1. Create a file called `10-wavefront.conf` in `/usr/local/etc/telegraf.d` and enter the following, configuring the `host` property:{% raw %}
+1. Create a file called `10-wavefront.conf` in `/usr/local/etc/telegraf.d` and enter the following, configuring the `host` property:{% raw %}
    ```
    [[outputs.wavefront]]
       host = "WAVEFRONT_PROXY_ADDRESS"
@@ -70,7 +70,7 @@ To run the Telegraf agent on a host:
    ```
 {% endraw %}
    where WAVEFRONT_PROXY_ADDRESS is the IP address or hostname where your Wavefront proxy has been installed.
-1. Edit the `telegraf.conf` file in `/usr/local/etc/` and enter the snippet `name_prefix = "mac."` to the following inputs:{% raw %}
+1. Edit the `telegraf.conf` file in `/usr/local/etc/` and enter the snippet `name_prefix = "mac."` to the following inputs:{% raw %}
    ```
    [[inputs.cpu]]
    [[inputs.disk]]
@@ -94,7 +94,7 @@ Once installed, to upgrade the Wavefront Proxy and Telegeraf to the latest versi
 
 ### Uninstall the Wavefront Proxy and Telegraf Agent
 
-To uninstall the Wavefront proxy and Telegraf agent, run:{% raw %}
+To uninstall the Wavefront proxy and Telegraf agent, run:{% raw %}
 ```
 bash -c "$(curl -s https://raw.githubusercontent.com/wavefrontHQ/homebrew-wavefront/master/sh/uninstall.sh)"
 ```

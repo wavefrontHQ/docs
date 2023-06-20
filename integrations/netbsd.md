@@ -18,18 +18,18 @@ In addition to setting up the metrics flow, this integration also installs a das
 
 ### Step 1: Install and Configure the Wavefront Proxy Manually
 
-1. Create a directory `wavefront-proxy` and change the directory:{% raw %}
+1. Create a directory `wavefront-proxy` and change the directory:{% raw %}
    ```
    mkdir wavefront-proxy
    cd wavefront-proxy
    ```
 {% endraw %}
-2. Download the [Wavefront proxy jar](https://wavefront-cdn.s3-us-west-2.amazonaws.com/bsd/proxy-uber.jar):{% raw %}
+2. Download the [Wavefront proxy jar](https://wavefront-cdn.s3-us-west-2.amazonaws.com/bsd/proxy-uber.jar):{% raw %}
    ```
    wget -O proxy-uber.jar https://wavefront-cdn.s3-us-west-2.amazonaws.com/bsd/proxy-uber.jar --no-check-certificate
    ```
 {% endraw %}
-3. Create a directory `conf` and download the `wavefront.conf`, `log4j2.xml` and `preprocessor_rules.yaml` files into the `conf` directory:{% raw %}
+3. Create a directory `conf` and download the `wavefront.conf`, `log4j2.xml` and `preprocessor_rules.yaml` files into the `conf` directory:{% raw %}
    ```
    mkdir conf
    wget -O ./conf/wavefront.conf https://wavefront-cdn.s3-us-west-2.amazonaws.com/bsd/wavefront.conf --no-check-certificate
@@ -37,11 +37,11 @@ In addition to setting up the metrics flow, this integration also installs a das
    wget -O ./conf/preprocessor_rules.yaml https://raw.githubusercontent.com/wavefrontHQ/wavefront-proxy/master/pkg/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml.default --no-check-certificate
    ```
 {% endraw %}
-4. **Authentication Configuration** - Select the authentication type - **OAuth App** or **API token**. This option is available **only** when your service is onboarded to VMware Cloud services. For the most recent instructions, see the steps on the **Setup** tab of the integration in the Operations for Applications user interface.
-Open the `conf/wavefront.conf` file in edit mode, update the following proxy properties, and save the file.{% raw %}
+4. 
+Open the `conf/wavefront.conf` file in edit mode, update the following proxy properties, and save the file.{% raw %}
    ```
    server = https://YOUR_CLUSTER.wavefront.com/api/
-   Authentication Property = If your service is not onboarded to VMware Cloud services, provide a valid Operations for Applications API token. If your service is onboarded to VMware Cloud services, provide an App ID, App Secret, and Organization ID of a server to server app or a valid API token generated in the VMware Cloud Services Console.
+   token = YOUR_API_TOKEN
    hostname = "HOSTNAME"
    graphitePorts = 2003
    graphiteFormat = 2
@@ -49,7 +49,7 @@ Open the `conf/wavefront.conf` file in edit mode, update the following proxy pro
 
    ```
 {% endraw %}
-5. Start the Wavefront proxy service:{% raw %}
+5. Start the Wavefront proxy service:{% raw %}
    ```
    java -XX:OnOutOfMemoryError="kill -1 %p" \
    -Dlog4j.configurationFile=./conf/log4j2.xml -Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager \
@@ -60,7 +60,7 @@ Open the `conf/wavefront.conf` file in edit mode, update the following proxy pro
 {% endraw %}
    **NOTE:**
    * If Java is not installed, run the command `pkg_add openjdk8` to install Java and set the path.
-   * If the proxy fails to start with an `Error requesting exclusive access to the buffer lock file`, execute the below command and start the proxy (Step 5){% raw %}
+   * If the proxy fails to start with an `Error requesting exclusive access to the buffer lock file`, execute the below command and start the proxy (Step 5){% raw %}
       ```
       mkdir -p /var/spool/wavefront-proxy
       ```
@@ -69,12 +69,12 @@ Open the `conf/wavefront.conf` file in edit mode, update the following proxy pro
 
 ### Step 2: Install and Configure the Collectd Daemon Manually
 
-1. Install the Collectd package:{% raw %}
+1. Install the Collectd package:{% raw %}
    ```
    pkg_add -v collectd
    ```
 {% endraw %}
-3. Open the `/usr/pkg/etc/collectd.conf` file for edit, add the following information and save the file.{% raw %}
+3. Open the `/usr/pkg/etc/collectd.conf` file for edit, add the following information and save the file.{% raw %}
    ```
    # Global settings for the daemon.
    Hostname    "HOSTNAME"
@@ -168,7 +168,7 @@ Open the `conf/wavefront.conf` file in edit mode, update the following proxy pro
    ```
 {% endraw %}
 
-4. Start the Collectd daemon by running the following command:{% raw %}
+4. Start the Collectd daemon by running the following command:{% raw %}
    ```
    cp /usr/pkg/share/examples/rc.d/collectd /etc/rc.d/collectd
    service collectd onestart
