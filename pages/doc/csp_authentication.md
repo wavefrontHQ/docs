@@ -7,7 +7,7 @@ permalink: csp_authentication.html
 summary: Learn how to enable multi-tenant authentication.
 ---
 
-{% include note.html content="Starting June 26, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Authentication Model](wavefront-authentication.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Authentication Model](wavefront-authentication.html)."%}
 
 VMware Cloud services provides a central single sign-on (SSO) to all of your services running on the platform, including VMware Aria Operations for Applications. Users authenticate with VMware Cloud services accounts. Server-to-server apps, which correspond to service accounts in Operations for Applications, authenticate with OAuth 2.0 client credentials and VMware Cloud services API tokens are issued directly to them.
 

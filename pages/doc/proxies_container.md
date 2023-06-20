@@ -12,7 +12,7 @@ VMware Aria Operations for Applications (formerly known as Tanzu Observability b
 
 You can run a proxy in a Docker container by running one of the following commands:
 
-{% include note.html content="Starting June 26, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The [proxy authentication](proxies_installing.html#proxy-authentication-types) to Operations for Applications differs for VMware Cloud services subscriptions and original subscriptions. For details, see [Subscription Types](subscriptions-differences.html).<br/>
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The [proxy authentication](proxies_installing.html#proxy-authentication-types) to Operations for Applications differs for VMware Cloud services subscriptions and original subscriptions. For details, see [Subscription Types](subscriptions-differences.html).<br/>
 - For VMware Cloud services subscriptions, starting with version 13.0, the Wavefront proxy supports authentication to Operations for Applications with a VMware Cloud services API token or OAuth app.<br/>
 - For original Operations for Applications subscriptions, the Wavefront proxy 13.0 still supports authentication with Operations for Applications tokens. "%}
 

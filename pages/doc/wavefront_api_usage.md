@@ -46,10 +46,10 @@ If you want to use [your own user account](csp_users_account_managing.html) to m
 4. If you use `curl`, and want to get information about all cloud integrations in your environment, run:
 
     ```
-   curl 'https://<your_instance>/api/v2/cloudintegration' -H 'Authorization: Bearer <your_user_access_token>'
+   curl 'https://<your_instance>/api/v2/cloudintegration' -H 'Authorization: Bearer <access_token>'
     ```
    
-   Here, `<your_instance>` is the name of your Operations for Applications service instance, and `<your_user_access_token>` is the access token for your user account.
+   Here, `<your_instance>` is the name of your Operations for Applications service instance, and `<access_token>` is the access token for your user account.
 
 
 ### Make API Calls by Using a Server to Server App
@@ -73,9 +73,9 @@ If you want to use a [**server to server app**](csp_server_to_server_apps.html) 
 1. If you use `curl`, and want to get information about all cloud integrations in your environment, run:
 
       ```
-      curl 'https://<your_instance>/api/v2/cloudintegration' -H 'Authorization: Bearer <server_app_access_api_token>'
+      curl 'https://<your_instance>/api/v2/cloudintegration' -H 'Authorization: Bearer <access_token>'
       ```
-      Here, `<your_instance>` is the name of your Operations for Applications service instance, and `<server_app_access_token>` is the access token for the server to server app.
+      Here, `<your_instance>` is the name of your Operations for Applications service instance, and `<access_token>` is the access token for the server to server app.
 
   For more information, see [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html) in the VMware Cloud services documentation.
 

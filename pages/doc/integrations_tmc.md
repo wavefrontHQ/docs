@@ -18,7 +18,7 @@ You can set up seamless authentication from Tanzu Mission Control to VMware Aria
 
 ## Generate an API Token for Tanzu Mission Control
 
-Starting June 26th, Operations for Applications becomes a service on the VMware Cloud services platform. 
+<!--Starting July 3, Operations for Applications becomes a service on the VMware Cloud services platform. 
 
 * If your Operations for Applications service **is** onboarded to VMware Cloud services, generate the API token in the VMware Cloud Services Console or use server to server app credentials. It is recommended that you use a server to server app. For more information, see:
 
@@ -28,6 +28,7 @@ Starting June 26th, Operations for Applications becomes a service on the VMware 
 
 * If your Operations for Applications service is **not** onboarded to VMware Cloud services, use the procedure below to create a service account API token and use it with Tanzu Mission Control.
 
+-->
 
 1. Log in to your service instance as a user with the **Accounts** permission.
 2. Click the gear icon <i class="fa fa-cog"/> in the top right of the toolbar, select **Accounts**, and provide your password again when prompted.

@@ -22,7 +22,7 @@ VMware Aria Operations for Applications (previously known as Tanzu Observability
 
 ## Set PromQL Organization Settings (Administrator Only)
 
-{% include note.html content="Starting June 26, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html).<br/>
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html).<br/>
 - For VMware Cloud services subscriptions, only users with the **Super Admin**  service role in Super Admin mode can enable the PromQL support.<br/>
 - For original Operations for Applications subscriptions, users with the **Accounts** permission can enable the PromQL support."%}
 

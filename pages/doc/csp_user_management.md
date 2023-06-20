@@ -6,7 +6,7 @@ permalink: csp_user_management.html
 summary: Add and manage users of VMware Aria Operations for Applications on VMware Cloud services.
 ---
 
-{% include note.html content="Starting June 26, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Manage User Accounts](user-accounts.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Manage User Accounts](user-accounts.html)."%}
 
 VMware Cloud services provides identity access management for the users of your services, including Operations for Applications. 
 

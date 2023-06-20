@@ -7,7 +7,7 @@ permalink: csp_access.html
 summary: Control access to individual dashboards and alerts.
 ---
 
-{% include note.html content="Starting June 26, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Managing Access to Dashboards and Alerts](access.html)."%}
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Managing Access to Dashboards and Alerts](access.html)."%}
 
 VMware Cloud services supports the roles and groups authorization paradigm for managing global permissions in VMware Aria Operations for Applications. For example, a user with the **Dashboards** service role can manage *all* dashboards in Operations for Applications. This paradigm is sufficient for many of our customers.
 
