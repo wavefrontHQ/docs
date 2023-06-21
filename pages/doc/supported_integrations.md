@@ -19,6 +19,11 @@ The following integrations are working as expected no matter whether your Operat
 
 * [Google Cloud Platform](gcp.html)
 * [Amazon Web Services](aws.html)
+* [Microsoft Azure](azure.html)
+* [AppDynamics](appdynamics.html)
+* [Dynatrace](dynatrace.html)
+* [New Relic](newrelic.html)
+* [VMware Aria Operations Integration](integrations_vrops.html)
 
 ### Notification Integrations
 
@@ -47,13 +52,11 @@ The following integrations are working as expected no matter whether your Operat
 * [Webhooks](webhooks.html)
 * [Graphite](graphite.html)
 * [Operations for Applications Usage Integration](wavefront_monitoring.html)
-* [VMware Aria Operations Integration](integrations_vrops.html)
+
 
 ## Integrations Supported for Onboarded Subscriptions
 
-A lot of our integrations use a Wavefront proxy to send the data to the Operations for Applications service or the configuration steps require the usage of a token. 
-
-When your Operations for Applications service is **onboarded** to the VMware Cloud services platform you have two choices:
+For best performance, it is recommended to install the Wavefront proxy. The Wavefront proxy ingests metrics and forwards them to Operations for Applications in a secure, fast, and reliable manner. Many of our integrations require the usage of a token for the proxy authentication. When your Operations for Applications service is **onboarded** to the VMware Cloud services platform you have two choices for the proxy authentication:
 
    * Use OAuth App authentication (recommended):
 
