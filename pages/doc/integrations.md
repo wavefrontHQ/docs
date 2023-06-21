@@ -25,11 +25,11 @@ In this video, Jason talks about the different integrations we have, and how you
 
 Sign up for a trial version to try our integrations. Detailed setup steps for each integration are in the product UI. 
 
-When the integration setup requires an Operation for Applications API token, the setup instructions of some integrations (such as all integrations for Linux distributions, Windows host integration, MacOS integration, Prometheus, and so on) might vary depending on whether your service is onboarded to VMware Cloud services or not. For details, see [Subscription Types](subscriptions-differences.html). For the latest and most recent instructions on how to set up an integration, see the steps on the **Setup** tab of the integration that you're interested in.
+When the integration setup requires a token for the proxy authentication, the setup instructions of some integrations (such as all integrations for Linux distributions, Windows host integration, MacOS integration, Prometheus, and so on) vary depending on whether your service is onboarded to VMware Cloud services or not. For details, see [Integrations Supported for Onboarded Subscriptions](integrations_onboarded_subscriptions.html). For the latest and most recent instructions on how to set up an integration, see the steps on the **Setup** tab of the integration that you're interested in.
 
 * If your Operations for Applications service **is** onboarded to VMware Cloud services, you have two choices:
 
-   * Use OAuth App authentication:
+   * Use OAuth App authentication (recommended):
 
      You must use the credentials (client ID and client secret) of an existing server to server app which has the **Proxies** service role assigned and is added to the VMware Cloud organization running the service. You must also provide the ID of the VMware Cloud organization running the service.
 
@@ -38,7 +38,7 @@ When the integration setup requires an Operation for Applications API token, the
 
    * Use API Token authentication:
 
-     The API token must be generated in the VMware Cloud Services Console and must be associated with an active user account that has the **Proxies** service role assigned. For more information, see [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html)  and [How do I manage API tokens in my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html).
+     The API token must be generated in the VMware Cloud Services Console by an active user account. It also must have the **Proxies** service role assigned. For more information, see [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html).
    
 
 * If your Operations for Applications service is **not** onboarded to VMware Cloud services, generate the API token in the Operations for Applications UI. It is recommended that you use a service account API token. For more information, see [Manage API tokens](api_tokens.html).
