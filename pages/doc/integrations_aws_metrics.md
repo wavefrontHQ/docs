@@ -181,7 +181,10 @@ You can ingest CloudWatch logs to Operations for Applications. You can use Cloud
 
 #### Install the Wavefront Proxy
 
-The Wavefront proxy is required to send logs from your systems to Operations for Applications. If you have not already done so, install a [Wavefront proxy (version 13.0 or later)](proxies_installing.html) in your AWS environment.
+The Wavefront proxy is required to send logs from your systems to Operations for Applications. If you have not already done so, install a [Wavefront proxy](proxies_installing.html) in your AWS environment. 
+
+* If your Operations for Applications service **is** onboarded to VMware Cloud services, install Wavefront proxy version 13.0 or later.
+* If your Operations for Applications service is **not** onboarded to VMware Cloud services, install Wavefront proxy version 12.2 or later.
 
 {% include note.html content="For optimal performance, install a standalone proxy cluster that receives only logs payload. Typically two proxy instances behind a load balancer are sufficient." %}
 

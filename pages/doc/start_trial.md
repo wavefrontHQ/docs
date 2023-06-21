@@ -51,4 +51,4 @@ Starting July 3, 2023, VMware Aria Operations for Applications is a service in t
    
    You are redirected to the Operations for Applications GUI. You are logged with your VMware account.
    
-   Initially, you have only the [**Viewer** Operations for Applications service role](csp_users_roles.html#manage-roles) but, as a VMware Cloud **Organization Owner**, you can change your roles. Also, you can add users to your service. See [Manage User Accounts](csp_user_management.html) for details.
+   Initially, you have only the [**Viewer** Operations for Applications service role](csp_users_roles.html#manage-roles) but, as a VMware Cloud **Organization Owner**, you can change your roles. You can also add users to your service. See [Manage User Accounts](csp_user_management.html) for details.
