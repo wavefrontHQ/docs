@@ -257,5 +257,13 @@ In both ways, the access token is directly issued to the proxy. For details, see
 <p><strong>How</strong>: As a user with the <strong>Proxies</strong> permission, you must configure the proxy to authenticate to Operations for Applications with an Operations for Applications API token that have the <strong>Proxies</strong> permission. For details, see <a href="proxies_installing.html#install-a-proxy-from-the-ui">Install a Proxy from the UI</a>.</p>
 </td>
 </tr>
+<tr>
+<td>Integrations
+</td>
+<td>Initially, not all integrations are supported. We gradually add support for all of our integrations. For the list of integrations that we currently support for VMware Cloud services subscriptions, see <a href="integrations_onboarded_subscriptions.html">Integrations Supported for Onboarded Subscriptions</a>.
+</td>
+<td>All integrations are still supported. See the <a href="label_integrations%20list.html">List of Integrations</a>.
+</td>
+</tr>
 </tbody>
 </table>
