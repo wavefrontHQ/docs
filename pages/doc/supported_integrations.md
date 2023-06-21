@@ -355,11 +355,70 @@ Here's the list of the integrations that are updated as of today (July 3, 2023).
 </tr>  
 <tr>
 <td markdown="span">IBM WebSphere Application Server</td>
-<td markdown="span">[IBM WebSphere Application Server](websphere.html)</td>
+<td markdown="span">[IBM WebSphere Application Server Integration](websphere.html)</td>
 </tr> 
 <tr>
 <td markdown="span">ZooKeeper</td>
-<td markdown="span">[ZooKeeper](zookeeper.html)</td>
+<td markdown="span">[ZooKeeper Integration](zookeeper.html)</td>
 </tr> 	
-</tbody>
+<tr>
+<td markdown="span">Active Directory</td>
+<td markdown="span">[Active Directory Integration](activedirectory.html)</td>
+</tr> 
+<tr>
+<td markdown="span">Ceran</td>
+<td markdown="span">[Cernan Integration](cernan.html)</td>
+</tr> 		
+<tr>
+<td markdown="span">Docker with cAdvisor</td>
+<td markdown="span">[Docker with cAdvisor Integration](docker.html)</td>
+</tr>
+<tr>
+<td markdown="span">.NET</td>
+<td markdown="span">[.NET Integration](dotnet.html)</td>
+</tr> 		
+<tr>
+<td markdown="span">Filebeat Log Data</td>
+<td markdown="span">[Filebeat Log Data Integration](filebeat.html)</td>
+</tr>
+<tr>
+<td markdown="span">Microsoft Hyper-V</td>
+<td markdown="span">[Microsoft Hyper-V Integration](hyperv.html)</td>
+</tr> 	
+<tr>
+<td markdown="span">IIS</td>
+<td markdown="span">[IIS Integration](iis.html)</td>
+</tr>
+<tr>
+<td markdown="span">Microsoft Exchange</td>
+<td markdown="span">[Microsoft Exchange Integration](msexchange.html)</td>
+</tr>
+<tr>
+<td markdown="span">OpenTSDB</td>
+<td markdown="span">[OpenTSDB Integration](opentsdb.html)</td>
+</tr>
+<tr>
+<td markdown="span">SharePoint </td>
+<td markdown="span">[SharePoint  Integration](sharepoint.html)</td>
+</tr>
+<tr>
+<td markdown="span">Splunk</td>
+<td markdown="span">[Splunk Integration](splunk.html)</td>
+</tr> 
+<tr>
+<td markdown="span">Microsoft SQL Server</td>
+<td markdown="span">[Microsoft SQL Server Integration](sqlserver.html)</td>
+</tr> 
+<tr>
+<td markdown="span">Windows Performance Counters</td>
+<td markdown="span">[Windows Performance Counters Integration](winperf.html)</td>
+</tr> 
+<tr>
+<td markdown="span">Windows Service</td>
+<td markdown="span">[Windows Service Integration](winserv.html)</td>
+</tr>
+<tr>
+<td markdown="span">Zabbix </td>
+<td markdown="span">[Zabbix  Integration](zabbix.html)</td>
+</tr></tbody>
 </table>
