@@ -28,7 +28,7 @@ Invoking the REST API of an Operations for Applications subscription on VMware C
 
 ### Make API Calls by Using a User Account
 
-If you want to use [your own user account](csp_users_account_managing.html) to make REST API calls, generate a VMware Cloud services API token associated with your user account and exchange it to an access token.
+If you want to use [your own user account](csp_users_account_managing.html) to make REST API calls, generate a VMware Cloud services API token associated with your user account and exchange it for an access token.
 
 1. Log in to the VMware Cloud Services Console.
 1. Click your username, select **My Account** and, on the **API Tokens** tab, [generate a new token](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html).
@@ -54,7 +54,7 @@ If you want to use [your own user account](csp_users_account_managing.html) to m
 
 ### Make API Calls by Using a Server to Server App
 
-If you want to use a [**server to server app**](csp_server_to_server_apps.html) to make the REST API calls, obtain the OAuth credentials (ID and secret) associated with the server to server app and exchange them to an access token.
+If you want to use a [**server to server app**](csp_server_to_server_apps.html) to make the REST API calls, obtain the OAuth credentials (ID and secret) associated with the server to server app and exchange them for an access token.
 
 1. Create a server to server app in VMware Cloud services.
 1. Assign one or more roles to the server to server app to grant it the Operations for Applications access it needs.

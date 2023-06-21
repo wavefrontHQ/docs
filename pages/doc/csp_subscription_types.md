@@ -127,7 +127,7 @@ For details, see <a href="csp_user_management.html">Manage User Accounts</a>.</p
 </td>
 </tr>
 <tr>
-<td>Service Accounts and Sever to Server Apps Management
+<td>Service Accounts and Server to Server Apps Management
 </td>
 <td>
 <strong>Who</strong>: Users with the VMware Cloud <strong>Organization Owner</strong> role or the <strong>Developer</strong> additional role.

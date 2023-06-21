@@ -4,7 +4,7 @@ keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: csp_authorization.html
-summary: Learn about authorization of groups, users, and sever to server apps to access VMware Aria Operations for Applications on VMware Cloud services.
+summary: Learn about authorization of groups, users, and server to server apps to access VMware Aria Operations for Applications on VMware Cloud services.
 ---
 
 {% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for VMware Cloud services subscriptions. For **original** subscriptions, see [Authorization Model](authorization.html)."%}

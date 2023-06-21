@@ -54,7 +54,7 @@ In the **Data** panel, specify the scope and, optionally, a PPS limit and click 
     </thead>
     <tr>
     <td><strong>Accounts</strong></td>
-    <td>Depends on your <a href="subscriptions-differences.html">subscription type</a>.<ul><li>If your Operations for Applications service is a VMware Cloud services subscription, individual <a href="csp_user_management.html">users</a> and <a href="csp_server_to_server_apps.html">sever to server apps</a>. Service accounts in Operations for Applications correspond to server to server apps in VMware Cloud services.</li>
+    <td>Depends on your <a href="subscriptions-differences.html">subscription type</a>.<ul><li>If your Operations for Applications service is a VMware Cloud services subscription, individual <a href="csp_user_management.html">users</a> and <a href="csp_server_to_server_apps.html">server to server apps</a>. Service accounts in Operations for Applications correspond to server to server apps in VMware Cloud services.</li>
     <li>If your Operations for Applications service is an original subscription, individual <a href="authorization-faq.html#what-are-user--service-accounts">user and service accounts</a>.</li></ul></td></tr>
     <tr>
     <td><strong>Groups</strong></td>
