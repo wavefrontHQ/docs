@@ -23,7 +23,7 @@ The following integrations are working as expected no matter whether your Operat
 * [AppDynamics](appdynamics.html)
 * [Dynatrace](dynatrace.html)
 * [New Relic](newrelic.html)
-* [VMware Aria Operations Integration](integrations_vrops.html)
+* [VMware Aria Operations](integrations_vrops.html)
 
 ### Notification Integrations
 
