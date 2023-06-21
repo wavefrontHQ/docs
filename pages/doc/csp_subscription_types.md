@@ -27,8 +27,6 @@ VMware Cloud services provides single sign-on (SSO) and identity access manageme
     1. Manage your VMware Cloud services account and switch to other organizations.
     1. Go to the VMware Cloud Services Console and switch to other service subscriptions.
 
-* The **Accounts**, **SAML IdP Admin**, and **API token** permissions don't exist for Operations for Applications subscriptions that are onboarded to VMware Cloud services, because all of the authorization and authentication tasks requiring these permissions are done by using the VMware Cloud Services Console by users with the VMware Cloud **Organization Owner** and **Organization Administrator** roles. For information about the basics for administering your Operations for Applications service running on the VMware Cloud services platform, see [Getting Started with Operations for Applications on VMware Cloud Services](csp_getting_started.html).
-
 * When viewing their own user account settings in the Operations for Applications UI, VMware Cloud services subscribers do not have the **Groups, Roles & Permissions** and the **API Access** tabs (1) and can no longer change their password from the Operations for Applications UI (2), because this is done from the VMware Cloud Services Console.
 
   ![An image showing that the tabs mentioned above and the change password link are removed from the UI for new subscribers.](images/new-vs-original.png)
@@ -42,7 +40,7 @@ VMware Cloud services provides single sign-on (SSO) and identity access manageme
    1. The tenant name is missing, because it is shown in the VMware Cloud Services Console when you launch the service instance. In a multi-tenant environment, the current tenant is shown on the top-left of the menu bar and you can click it to switch between tenants.
    1. The **Self Service SAML** menu item is missing, because the enterprise federation setup is done from the VMware Cloud Services Console.
    1. The **Accounts** option is also no longer needed, because account management is done in the VMware Cloud Services Console.
-   1. The **Super Admin** menu item is replaced with **Orphaned Objects**, because Super Admin users can no longer invite new Super Admin users, but they can still see and recover orphaned objects, such as orphan dashboards and alerts.
+   1. The **Super Admin** menu item is replaced with **Orphaned Objects**, because Super Admin users can no longer invite new Super Admin users, but they can still see and recover orphaned objects, such as orphan dashboards and alerts. See the following bullet point.
    1. The **Sign Out** menu item is missing, because signing out is done from the User/Organization drop-down menu on the top-right of the menu bar.
 
 * The **Super Admin** page is replaced with **Orphaned Objects**, because Super Admin users no longer can invite new Super Admin users, but they can still see and recover orphaned objects, such as orphan dashboards and alerts.
@@ -74,16 +72,20 @@ VMware Cloud services provides single sign-on (SSO) and identity access manageme
 </td>
 </tr>
 <tr>
+<td>Permissions
+</td>
+<td>The <strong>Accounts</strong>, <strong>SAML IdP Admin</strong>, and <strong>API token</strong> permissions don't exist, because all of the authorization and authentication tasks requiring these permissions are done in the VMware Cloud Services Console. See the <a href="csp_users_roles.html">Operations for Applications Permissions in VMware Cloud Services</a>.
+</td>
+<td>The <strong>Accounts</strong>, <strong>SAML IdP Admin</strong>, and <strong>API token</strong> permissions exist, because all of the authorization and authentication tasks requiring these permissions are done in the Operations for Applications IU. See the <a href="permissions_overview.html">Permissions Reference</a>.
+</td>
+</tr>
+<tr>
 <td>Roles and Permissions Management
 </td>
 <td>
 <strong>Who</strong>: Users with the VMware Cloud <strong>Organization Owner</strong> or <strong>Organization Administrator</strong> role.
 <p><strong>Where</strong>: In the VMware Cloud Services Console.</p>
-<p><strong>How</strong>: Permissions can be assigned only to roles. Roles can be assigned to users, groups, API tokens, and server to server apps. There are built-in Operations for Applications service roles, which are not editable. Custom roles can be created and assigned with permissions for one or more services. For details, see:
-<ul>
-<li><a href="csp_users_roles.html#manage-roles">Manage Roles</a></li>
-<li><a href="csp_users_roles.html">Operations for Applications Permissions in VMware Cloud Services</a></li>
-</ul></p>
+<p><strong>How</strong>: Permissions can be assigned only to roles. Roles can be assigned to users, groups, API tokens, and server to server apps. There are built-in Operations for Applications service roles, which are not editable. Custom roles can be created and assigned with permissions for one or more services. For details, see <a href="csp_users_roles.html#manage-roles">Manage Roles</a>.</p>
 </td>
 <td><strong>Who</strong>: Users with the <strong>Accounts</strong> permission.
 <p><strong>Where</strong>: In the Operations for Applications user interface.</p>
@@ -91,7 +93,6 @@ VMware Cloud services provides single sign-on (SSO) and identity access manageme
 <ul>
 <li><a href="users_roles.html#create-a-role">Create a Role</a></li>
 <li><a href="users_roles.html#grant-or-revoke-account-permissions-explicitly">Grant or Revoke Account Permissions</a></li>
-<li><a href="permissions_overview.html">Permissions Reference</a></li>
 </ul>
 </td>
 </tr>
