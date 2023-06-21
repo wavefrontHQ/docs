@@ -121,10 +121,6 @@ entries:
           url: /privacy.html
           output: web
 
-        - title: Security
-          url: /wavefront_security.html
-          output: web
-
     - title: Glossary
       url: /glossary.html
       output: web

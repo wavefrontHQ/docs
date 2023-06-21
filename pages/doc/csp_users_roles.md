@@ -88,6 +88,10 @@ To delete a custom role:
 1. On the VMware Cloud Services Console **Roles** page, select one or more custom roles and click **Remove Roles**.
 1. Click **Remove** to confirm.
 
+### Assign Default Roles for a Federated Domain
+
+For a [federated domain](csp_authentication.html#federated-domain-authentication), users with the **Organization Owner** role can configure a policy with default VMware Cloud organization and service roles for all users in the federated domain. For details, see [How do I assign default roles in my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-2307F55C-FB5C-4EE0-A2DE-43011509A9A1.html) in the VMware Cloud services documentation.
+
 ## Manage User Groups
 
 For efficient user management, you can create groups of users and assign roles to these groups. You can assign [service roles](#operations-for-applications-service-roles-built-in) and [custom roles](#create-edit-or-delete-a-custom-role) to groups.

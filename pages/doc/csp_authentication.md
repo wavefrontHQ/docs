@@ -23,9 +23,11 @@ By default, to register with VMware Cloud services, you must create a VMware ID 
 
 ## Federated Domain Authentication
 
-As an **Organization Owner**, you can initiate an enterprise domain federation and invite an **Enterprise Administrator**. See [Setting Up Enterprise Federation with VMware Cloud Services Guide](https://docs.vmware.com/en/VMware-Cloud-services/services/setting-up-enterprise-federation-cloud-services/GUID-76FAECB3-CFAA-461E-B9C9-2A49C39CD17F.html) in the VMware Cloud services documentation.
+As a user with the VMware Cloud **Organization Owner** role, you can initiate an enterprise domain federation and invite an **Enterprise Administrator**. See [Setting Up Enterprise Federation with VMware Cloud Services Guide](https://docs.vmware.com/en/VMware-Cloud-services/services/setting-up-enterprise-federation-cloud-services/GUID-76FAECB3-CFAA-461E-B9C9-2A49C39CD17F.html) in the VMware Cloud services documentation.
 
 The users in a federated domain don't need to create a VMware ID unless they need to access billing information in the VMware Cloud organization.
+
+After you federated your enterprise domain, as a user with the VMware Cloud **Organization Owner** role, you can activate Identity Governance and Administration (IGA) and unlock additional identity and access management features, such as assigning default service roles for the users in the federated domain. For details see [What is Identity Governance and Administration and how does it work with VMware Cloud Services](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E6661280-A88A-4E26-9008-4C1620641FA1.html) and [How do I assign default roles in my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-2307F55C-FB5C-4EE0-A2DE-43011509A9A1.html) in the VMware Cloud services documentation.
 
 ## Multi-Tenant SSO
 
