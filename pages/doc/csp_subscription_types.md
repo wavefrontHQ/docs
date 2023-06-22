@@ -260,7 +260,7 @@ In both ways, the access token is directly issued to the proxy. For details, see
 <tr>
 <td>Integrations
 </td>
-<td>Initially, not all integrations are supported. We gradually add support for all of our integrations. For the list of integrations that we currently support for VMware Cloud services subscriptions, see <a href="integrations_onboarded_subscriptions.html">Integrations Supported for Onboarded Subscriptions</a>.
+<td>You still can see, but cannot configure some of our integrations. For the list of integrations that we support when your Operations for Applications service is onboarded to VMware Cloud services, see <a href="integrations_onboarded_subscriptions.html">Integrations Supported for Onboarded Subscriptions</a>.
 </td>
 <td>All integrations are still supported. See the <a href="label_integrations%20list.html">List of Integrations</a>.
 </td>
