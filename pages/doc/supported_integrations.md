@@ -57,7 +57,7 @@ The following integrations are working as expected no matter whether your Operat
 
 ## Integrations Supported for Onboarded Subscriptions
 
-For best performance, it is recommended to install the Wavefront proxy. The Wavefront proxy ingests metrics and forwards them to Operations for Applications in a secure, fast, and reliable manner. Many of our integrations require the usage of a token for the proxy authentication. When your Operations for Applications service is **onboarded** to the VMware Cloud services platform you have two choices for the proxy authentication:
+For best performance, when you configure most of our integrations it is recommended to use the Wavefront proxy. The Wavefront proxy ingests metrics and forwards them to Operations for Applications in a secure, fast, and reliable manner. When your Operations for Applications service **is onboarded** to the VMware Cloud services platform you have two choices for the proxy authentication:
 
    * Use OAuth App authentication (recommended):
 

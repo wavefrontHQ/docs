@@ -6,6 +6,9 @@ permalink: label_integrations%20list.html
 sidebar: doc_sidebar
 folder: labels
 ---
+
+<p>If your Operations for Applications service is onboarded to VMware Cloud services, you still can see, but cannot configure some of our integrations. For the list of integrations that we support when your Operations for Applications service is onboarded to VMware Cloud services, see <a href="integrations_onboarded_subscriptions.html">Integrations Supported for Onboarded Subscriptions</a>.</p>
+
 <p>Here's how to learn about the VMware Aria Operations for Applications integrations:</p>
 
 
@@ -59,6 +62,7 @@ folder: labels
         </div>
     </div>
 </div>
+
 
 <!---
 <div class="row">
