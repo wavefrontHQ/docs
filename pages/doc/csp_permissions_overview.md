@@ -48,7 +48,7 @@ VMware Cloud services allows users with the VMware Cloud **Organization Owner** 
     </tr>
     <tr>
       <th>Batch Query Priority</th>
-      <td>If this permission is granted to you and you run a query, the query engine treats that query as if it was wrapped in the <a href="trace_sampling_policies.html">bestEffort() function</a>.</td>
+      <td>Queries executed by accounts with this permission are treated at a lower priority level, as if wrapped in the <a href="ts_bestEffort.html">bestEffort() function</a>.</td>
     </tr>
     <tr>
       <th>Chart Embedding</th>
