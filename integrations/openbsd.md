@@ -37,7 +37,8 @@ In addition to setting up the metrics flow, this integration also installs a das
    curl -o ./conf/preprocessor_rules.yaml https://raw.githubusercontent.com/wavefrontHQ/wavefront-proxy/master/pkg/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml.default
    ```
 {% endraw %}
-4. Open the `conf/wavefront.conf` file for edit, add the following proxy properties:{% raw %}
+4. 
+Open the `conf/wavefront.conf` file in edit mode and add the following proxy properties:{% raw %}
    ```
    server = https://YOUR_CLUSTER.wavefront.com/api/
    token = YOUR_API_TOKEN

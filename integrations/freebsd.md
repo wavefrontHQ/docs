@@ -29,7 +29,7 @@ In addition to setting up the metrics flow, this integration also installs a das
    curl -o proxy-uber.jar https://wavefront-cdn.s3-us-west-2.amazonaws.com/bsd/proxy-uber.jar
    ```
 {% endraw %}
-3. Create a directory `conf` and download the `wavefront.conf`, `log4j2.xml` and `preprocessor_rules.yaml` files into the `conf` directory:{% raw %}
+3. Create a directory named `conf` and download the `wavefront.conf`, `log4j2.xml` and `preprocessor_rules.yaml` files in the `conf` directory:{% raw %}
    ```
    mkdir conf
    curl -o ./conf/wavefront.conf https://wavefront-cdn.s3-us-west-2.amazonaws.com/bsd/wavefront.conf
@@ -37,7 +37,8 @@ In addition to setting up the metrics flow, this integration also installs a das
    curl -o ./conf/preprocessor_rules.yaml https://raw.githubusercontent.com/wavefrontHQ/wavefront-proxy/master/pkg/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml.default
    ```
 {% endraw %}
-4. Open the `conf/wavefront.conf` file for edit, update the following proxy properties:{% raw %}
+4. 
+Open the `conf/wavefront.conf` file in edit mode and update the following list of properties:{% raw %}
    ```
    server = https://YOUR_CLUSTER.wavefront.com/api/
    token = YOUR_API_TOKEN
@@ -81,22 +82,11 @@ In addition to setting up the metrics flow, this integration also installs a das
    b. Enable the `wavefront` output plugin by adding below snippet:{% raw %}
       ```
       [[outputs.wavefront]]
-      ## Url for Wavefront Direct Ingestion or using HTTP with Wavefront Proxy
-      ## If using Wavefront Proxy, also specify port. example: http://proxyserver:2878
-      # url = "https://<CLUSTER>.wavefront.com"
-      #
-      ## Authentication Token for Wavefront. Only required if using Direct Ingestion
-      # token = "API_TOKEN"
-      #
-      ## DNS name of the wavefront proxy server. Do not use if url is specified
-      host = "WAVEFRONT_PROXY_ADDRESS"
-      #
-      ## Port that the Wavefront proxy server listens on. Do not use if url is specified
-      port = 2878
-      prefix = "bsd."
-      metric_separator = "."
-      source_override = ["hostname", "agent_host", "node_host"]
-      convert_paths = true
+        url = "WAVEFRONT_PROXY_HOSTNAME:2878"
+        prefix = "bsd."
+        metric_separator = "."
+        source_override = ["hostname", "agent_host", "node_host"]
+        convert_paths = true
       ```
 {% endraw %}
    c. Uncomment the `net` input plugin, if commented.{% raw %}

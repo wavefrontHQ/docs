@@ -21,6 +21,8 @@ This integration uses various Telegraf input plugins. You can install the Wavefr
 
 Supported Version(s): MacOS Catalina (10.15) or later
 
+
+
 ### Install Automatically
 
 Log in to your Operations for Applications instance, navigate to the integration, and follow the instructions on the **Setup** tab to install Telegraf and the Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
@@ -39,10 +41,10 @@ To run the Wavefront proxy on a host:
 
 1. Run `brew install wfproxy`.  
    **Note:** You may be prompted to install Xcode and Java.
-1. Edit the file `/usr/local/etc/wavefront/wavefront-proxy/wavefront.conf` and configure the `server` and `token` properties:{% raw %}
+1. Edit the file `/usr/local/etc/wavefront/wavefront-proxy/wavefront.conf` and configure the following properties:{% raw %}
    ```
    server=https://YOUR_CLUSTER.wavefront.com/api/
-   token=YOUR_API_TOKEN
+   token = YOUR_API_TOKEN
    ```
 {% endraw %}
 1. Run `brew services restart wfproxy`.
