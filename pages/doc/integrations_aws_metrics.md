@@ -177,7 +177,7 @@ As part of CloudWatch we collect metrics that let you check if throttling is hap
   
 ### Setup for Ingesting AWS CloudWatch Logs (Beta)
 
-You can ingest CloudWatch logs to Operations for Applications. You can use CloudWatch to detect anomalous behavior in your environments, set alarms, visualize logs and metrics side by side, take automated actions, troubleshoot issues, and discover insights to keep applications running smoothly. To understand more about CloudWatch, see the Amazon CloudWatch documentation.
+You can ingest CloudWatch logs to Operations for Applications. You can use CloudWatch to detect anomalous behavior in your environments, set alarms, visualize logs and metrics side by side, take automated actions, troubleshoot issues, and discover insights to keep applications running smoothly. To understand more about CloudWatch, see the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html).
 
 #### Install the Wavefront Proxy
 
