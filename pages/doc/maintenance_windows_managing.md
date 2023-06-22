@@ -101,7 +101,7 @@ Specify one or more of the following:
 
 ![set maintenance window scope](/images/maint_window_2.png)
 
-{% include note.html content="Maintenance windows that are refined by point tags, sources, or source tags *do not* apply to alerts in NO DATA state." %}
+{% include note.html content="Maintenance windows that are refined by point tags, sources, or source tags **do not** apply to alerts that are in NO DATA state due to invalid sources." %}
 
 #### Step 3 (Optional): Specify Alternate Alert Targets
 
