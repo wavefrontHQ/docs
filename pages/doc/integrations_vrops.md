@@ -1,10 +1,10 @@
 ---
-title: VMware Aria Operations Integration Overview
+title: VMware Aria Operations (SaaS) Integration Overview
 keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_vrops.html
-summary: Understand the setup and the VMware Aria Operations integration v1 limitations and caveats.
+summary: Understand the setup and the VMware Aria Operations (SaaS)integration v1 limitations and caveats.
 ---
 [VMware Aria Operations (SaaS)](https://www.vmware.com/products/aria-operations.html) (formerly vRealize Operations Cloud) delivers intelligent operations management with application-to-storage visibility across physical, virtual, and cloud infrastructures. Using policy-based automation, operations teams automate key processes and improve the IT efficiency.
 
