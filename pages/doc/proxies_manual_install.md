@@ -22,6 +22,8 @@ Follow these steps to install a proxy on a host with full network access (incomi
 
 - **Networking:** [Test connectivity](proxies_manual_install.html#testing-proxy-host-connectivity) between the target proxy host and your Operations for Applications service.
 
+   {% include important.html content="If your service subscription is onboarded to VMware Cloud services, you must also test connectivity between the target proxy host and the VMware Cloud Services Console (`https://console.cloud.vmware.com/`). For details about original and VMware Cloud services subscriptions, see [Subscription Types](subscriptions-differences.html)."%}
+
 - **JRE:** The Wavefront proxy is a Java jar file and requires a JRE - for example, openjdk11. See the requirements in the [Wavefront Proxy README file](https://github.com/wavefrontHQ/wavefront-proxy#requirements).
 
     {% include note.html content="Starting with Wavefront proxy 11.1, the proxy installation packages don't include JRE. Before you can install the proxy `.rpm` or `.deb` file, you must have the JRE in the execution path." %}
@@ -144,6 +146,8 @@ In some cases, you might need to run the proxy on a host with limited network ac
 ### Prerequisites
 
 - **Networking:** The minimum requirement is an outbound HTTPS connection to your Operations for Applications service, so the proxy can send metrics to the service. For metrics, by default the proxy uses port 2878. You can change this port and you can configure [separate proxy ports](proxies_configuring.html#configuration-properties) for histograms and traces.
+
+   {% include important.html content="If your service subscription is onboarded to VMware Cloud services, an outbound HTTPS connection to the VMware Cloud Services Console (`https://console.cloud.vmware.com/`) also must be allowed. For details about original and VMware Cloud services subscriptions, see [Subscription Types](subscriptions-differences.html)."%}
 
   You can use an [HTTP proxy](#configure-wavefront-proxy-with-an-httphttps-proxy) for the connection.
 
