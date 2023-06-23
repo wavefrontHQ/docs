@@ -9,6 +9,8 @@ folder: labels
 
 <p>If your Operations for Applications service is onboarded to VMware Cloud services, you still can see, but cannot configure some of our integrations. For the list of integrations that we support when your Operations for Applications service is onboarded to VMware Cloud services, see <a href="integrations_onboarded_subscriptions.html">Integrations Supported for Onboarded Subscriptions</a>.</p>
 
+<p>The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps on a certain integration doc page, navigate to the Operations for Applications GUI, search for the integration that you want to set up and click its tile. The detailed instructions for setting up and configuring the integration are on the <strong>Setup</strong> tab.</p>
+
 <p>Here's how to learn about the VMware Aria Operations for Applications integrations:</p>
 
 
