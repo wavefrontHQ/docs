@@ -4,6 +4,13 @@ tags: [integrations list]
 permalink: zookeeper.html
 summary: Learn about the ZooKeeper Integration.
 ---
+
+This page provides an overview of what you can do with the ZooKeeper integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the ZooKeeper integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **ZooKeeper** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## ZooKeeper Integration
 
 ZooKeeper is a centralized service for maintaining configuration information, providing distributed synchronization and providing group services.
@@ -13,40 +20,6 @@ In addition to setting up the metrics flow, this integration also installs a das
 
 {% include image.md src="images/zookeeper.png" width="80" %}
 
-
-To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
-## ZooKeeper Setup
-
-
-
-### Step 1. Install the Telegraf Agent
-
-This integration uses the ZooKeeper input plugin for Telegraf to extract metrics from ZooKeeper.
-
-Log in to your Operations for Applications instance, navigate to the integration, and follow the instructions on the **Setup** tab to install Telegraf and the Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
-
-### Step 2. Enable the ZooKeeper input plugin
-
-Create a file called `zookeeper.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
-   ```
-	# # Reads `mntr` stats from one or many zookeeper servers
-	[[inputs.zookeeper]]
-	#   ## An array of addresses to gather stats about. Specify an IP or hostname
-	#   ## with port e.g. localhost:2181, 10.0.0.1:2181, etc.
-	#
-	#   ## If no servers are specified, then localhost is used as the host.
-	#   ## However, don't leave the server blank as the metric generated will 
-	#   ## contain an invalid value for the `server` point tag and be blocked by the Wavefront proxy.
-	#   ## If no port is specified, 2181 is used
-	  servers = ["<server>:<client port>"]
-	  fielddrop = ["version"]
-   ```
-{% endraw %}
-
-### Step 3. Restart Telegraf
-
-Run `sudo service telegraf restart` to restart your Telegraf agent.
 
 
 

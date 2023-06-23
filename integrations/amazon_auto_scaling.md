@@ -4,6 +4,13 @@ tags: [integrations list]
 permalink: amazon_auto_scaling.html
 summary: Learn about the AWS Auto Scaling Integration.
 ---
+
+This page provides an overview of what you can do with the AWS Auto Scaling integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the AWS Auto Scaling integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **AWS Auto Scaling** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## Amazon Web Services Integration
 
 The Amazon Web Services integration is full-featured implementation offering pre-defined dashboards and alert conditions and is fully configurable.
@@ -87,6 +94,7 @@ You can see the information about the metrics and dimensions which are published
 
 
 
+
 ## Amazon Web Services Integrations
 
 
@@ -128,7 +136,6 @@ The Wavefront proxy is required to send logs from your systems to Operations for
 #### View the AWS CloudWatch Logs
 
 View logs in the [**Logs Browser**](https://docs.wavefront.com/logging_log_browser.html). It takes a few minutes for the CloudWatch logs to show up.
-
 
 
 

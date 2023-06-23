@@ -4,6 +4,13 @@ tags: [integrations list]
 permalink: vsphere_tanzu.html
 summary: Learn about the vSphere with Tanzu Integration.
 ---
+
+This page provides an overview of what you can do with the vSphere with Tanzu integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the vSphere with Tanzu integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **vSphere with Tanzu** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## Kubernetes Integration
 
 Operations for Applications provides a comprehensive solution for monitoring Kubernetes. This integration uses the [Observability for Kubernetes Operator](https://github.com/wavefrontHQ/observability-for-kubernetes) to collect detailed metrics from Kubernetes clusters.
@@ -40,6 +47,7 @@ Here's a preview of the Kubernetes Summary dashboard:
 Here's a preview of the Kubernetes Pods dashboard:
 
 {% include image.md src="images/db_kubernetes_pods.png" width="80" %}
+
 
 ## Kubernetes Clusters Integrations
 
@@ -262,7 +270,6 @@ The `kube-state-metrics` service starts running on your cluster. Our Kubernetes 
 
 * [Kubernetes Overview](https://docs.wavefront.com/wavefront_kubernetes.html)
 * [Kubernetes Troubleshooting](https://docs.wavefront.com/kubernetes_troubleshooting.html)
-
 
 
 ## Metrics

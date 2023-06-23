@@ -4,6 +4,13 @@ tags: [integrations list]
 permalink: telegraf.html
 summary: Learn about the Telegraf Integration.
 ---
+
+This page provides an overview of what you can do with the Telegraf integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the Telegraf integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **Telegraf** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## Telegraf Integration
 
 Telegraf is a light-weight server process capable of collecting, processing, and aggregating metrics. This integration describes how to install and configure Telegraf to send metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
@@ -14,46 +21,6 @@ In addition to setting up the metrics flow of the system and the applications, t
 
 {% include image.md src="images/telegraf_dashboard.png" width="80" %}
 
-
-To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
-## Telegraf Setup
-
-
-
-You can choose automatic installation or manual installation and configuration.
-
-### Install Wavefront Proxy and Telegraf Agent Automatically
-
-Log in to your Operations for Applications instance, navigate to the integration, and follow the instructions on the **Setup** tab to install Telegraf and the Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
-
-### Install and Configure Wavefront Proxy and Telegraf Agent Manually
-
-*Linux*: Follow the steps under [linux/setup]({% link integrations/linux.md %}).
-
-*Mac*: Follow the steps under [mac/setup]({% link integrations/mac.md %}).
-
-*Windows*: Follow the steps under [windows/setup]({% link integrations/windows.md %}).
-
-### Insights into Telegraf Performance (Optional)
-
-If you want to monitor the performance of the Telegraf agent, follow these steps:
-
-Create a `telegraf.conf` file in `/etc/telegraf/telegraf.d` and add the following snippet:
-{% raw %}
-```
-    # Collect internal Telegraf statistics
-    [[inputs.internal]]
-      ## If true, collect Telegraf memory stats.
-        collect_memstats = true
-
-        name_prefix = "telegraf."
-```
-{% endraw %}
-**Note:** The Telegraf dashboard shows `NO DATA` if this plugin is not enabled.
-
-### Restart Telegraf
-
-{% include telegraf_restart.md %}
 
 
 ## Metrics

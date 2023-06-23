@@ -4,44 +4,16 @@ tags: [integrations list]
 permalink: metricproxy.html
 summary: Learn about the Metricproxy Integration.
 ---
+
+This page provides an overview of what you can do with the Metricproxy integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the Metricproxy integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **Metricproxy** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## Metricproxy Integration
 
 Metricproxy is an open source project from SignalFx that can aggregate metrics from multiple sources like Graphite (carbon), collectd, or SignalFx, and send them to servers using the carbon, collectd or SignalFx protocols. This integration describes how to configure Metricproxy to accept the time series data and send them to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
-## Metricproxy Setup
-[Metricproxy](https://github.com/signalfx/metricproxy) can be configured to accept metrics in Graphite (carbon), collectd, or SignalFx format, and send them to the Wavefront proxy.
 
-### Step 1. Configure Wavefront Proxy to Listen for Graphite Data
-
-{% include proxy_graphite_config.md %}
-
-### Step 2. Configure Metricproxy
-
-Edit the metricproxy configuration file `/etc/sfdbconfig.conf` as below:{% raw %}
-```
-{
-    "ForwardTo": [
-        {
-            "Name": "<wavefront proxy name>",
-            "type": "carbon",
-            "host": "<wavefront proxy IP or Host Name>",
-            "port": 2003
-        }
-    ],
-    "ListenFrom": [
-        {
-            "ListenAddr": "0.0.0.0:12003",
-            "Type": "carbon"
-        }
-    ],
-    "LocalDebugServer": "0.0.0.0:6009",
-    "LogDir": "-"
-}
-```
-{% endraw %}
-See the [sfdbconfig.conf example](https://github.com/signalfx/metricproxy/blob/master/exampleSfdbproxy.conf) for more options.
-
-### Step 3. Restart Metricproxy
-
-Run `/etc/init.d/metricproxy restart`.
 
 

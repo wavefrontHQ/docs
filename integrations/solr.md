@@ -4,6 +4,13 @@ tags: [integrations list]
 permalink: solr.html
 summary: Learn about the Apache Solr Integration.
 ---
+
+This page provides an overview of what you can do with the Apache Solr integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the Apache Solr integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **Apache Solr** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## Apache Solr Integration
 
 Apache Solr is a highly scalable and reliable search engine optimized to search large volumes of text-centric data.
@@ -14,35 +21,6 @@ In addition to setting up the metrics flow, this integration also installs a das
 
 {% include image.md src="images/solr.png" width="80" %}
 
-
-To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
-## Apache Solr Setup
-
-
-
-### Step 1. Install the Telegraf Agent
-
-This integration uses the Solr input plugin for Telegraf to extract metrics from Solr.
-
-Log in to your Operations for Applications instance, navigate to the integration, and follow the instructions on the **Setup** tab to install Telegraf and the Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
-
-### Step 2. Enable the Solr input plugin
-
-Create a file called `solr.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
-   ```
-   [[inputs.solr]]
-     ## specify a list of one or more Solr servers
-     servers = ["http://localhost:8983"]
-     ##
-     ## specify a list of one or more Solr cores (default - all)
-     # cores = ["main"]
-
-   ```
-{% endraw %}
-### Step 3. Restart Telegraf
-
-Run `sudo service telegraf restart` to restart your Telegraf agent.
 
 
 

@@ -4,6 +4,13 @@ tags: [integrations list]
 permalink: pagerduty.html
 summary: Learn about the PagerDuty Integration.
 ---
+
+This page provides an overview of what you can do with the PagerDuty integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the PagerDuty integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **PagerDuty** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## PagerDuty Integration
 
 PagerDuty is a popular incident management platform. This integration configures PageDuty API keys or email addresses as targets of Operations for Applications alert notifications.
@@ -24,28 +31,6 @@ In this scenario, choosing a PagerDuty API integration key target means that a s
 
 If want to use a PagerDuty email target, consider the **Open a new incident only if an open incident does not already exist** option carefully. If you select this option and the PagerDuty email target is used in multiple Operations for Applications alerts, you run the risk of having multiple Operations for Applications alerts tied to a single incident in PagerDuty.
 
-## PagerDuty Setup
-
-
-
-### Step 1. Retrieve Your PagerDuty API Integration Key or Email Address
-
-1. Log in to your PagerDuty account.
-1. Click the **Services** tab, and choose the service you want to retrieve the key or email address.
-{% include image.md width="50" src="images/pagerduty_keys.png" %}
-1. On the Integrations tab, expand the integration to view the **API** or **Email** link.
-{% include image.md width="50" src="images/pagerduty_services.png" %}
-1. Copy the API integration key or email address.
-
-### Step 2. Add the PagerDuty Integration to an Operations for Applications Alert
-
-Edit the alert and set the alert target.
-
-{% include alerts.md %}
-1. Configure the target with a PagerDuty API integration key or email address:
-   - PagerDuty API integration key - Paste the API integration key into the Targets field and press Enter.
-   - PagerDuty email address - Paste the email address into the Targets field and press Enter.
-1. Click **Save**.
 
 
 

@@ -4,6 +4,13 @@ tags: [integrations list]
 permalink: opsgenie.html
 summary: Learn about the OpsGenie Integration.
 ---
+
+This page provides an overview of what you can do with the OpsGenie integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the OpsGenie integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **OpsGenie** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## OpsGenie Integration
 
 OpsGenie is a popular incident management platform. You can use Operations for Applications alerts to trigger OpsGenie incidents of different severities (info, smoke, warn, severe). Operations for Applications can also let OpsGenie know when an alert has stopped firing to mark the incident as resolved within the OpsGenie timeline.
@@ -12,31 +19,6 @@ You can use Webhooks to integrate Operations for Applications alerts with OpsGen
 
 {% include image.md width="80" src="images/opsgenie_alert.png" %}
 
-## OpsGenie Setup
-
-
-
-### Step 1. Add Operations for Applications Integration in OpsGenie
-
-1. Log in to your OpsGenie account.
-2. Go to the [OpsGenie Operations for Applications Integration](https://app.opsgenie.com/integration#/add/Wavefront) page.
-3. In the Teams field, specify the person to receive the Operations for Applications alert notification.
-4. Copy the Webhook URL.
-5. Click **Save Integration**.
-
-### Step 2. Create an OpsGenie Alert Target in Operations for Applications
-
-{% include webhooks_create.md %}
-1. In the **Content Type** field, select **application/json**.
-1. Select **Body Template > TEMPLATE > Generic Webhook**.
-1. Customize the template. See the [Operations for Applications documentation](https://docs.wavefront.com/alert_target_customizing.html) for details.
-1. Click **Save**. The alert target is added to the Alert Targets page.
-1. In the **Name** column, note the ID of the alert target under the alert target description.
-
-### Step 3. Add the OpsGenie Alert Target to an Alert
-
-{% include alerts.md %}
-{% include webhooks_select.md %}
 
 
 
