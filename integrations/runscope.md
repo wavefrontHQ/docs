@@ -8,7 +8,8 @@ summary: Learn about the Runscope Integration.
 
 Runscope is a cloud-based API monitoring service that monitors performance and availability of API's. Runscope detects API transaction failures and exceptions and triggers alerts based on flexible criteria. You can use Runscope with your applications without having to write any code.
 
-This integration uses a Python script and the Telegraf Exec plugin to get the data from Runscope. You install and configure Telegraf to send Runscope test results into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+This integration uses a Python script and the Telegraf Exec plugin to get the data from Runscope. You install and configure Telegraf to send Runscope test results into Operations for Applications. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here's a preview of some charts in the Runscope dashboard.
 
@@ -47,13 +48,13 @@ Log in to your Operations for Applications instance, navigate to the integration
 ```
 {% endraw %}
  
-### Step 3: Create an Application for Wavefront In Runscope
+### Step 3: Create an Application for Operations for Applications In Runscope
 
-To get an access token that this integration's Python script can use to poll the Runscape APIs, you have to create an application for Wavefront in Runscope
+To get an access token that this integration's Python script can use to poll the Runscape APIs, you must create an application for Operations for Applications in Runscope.
 
 1. Log in to Runscope service.
 2. Go to [https://www.runscope.com/applications/create](https://www.runscope.com/applications/create) and create an application by providing following details: 
-     * **Name**: `[[Application Name]]`
+     * **Name**: `Operations for Applications`
      * **Website URL**: `https://YOUR_CLUSTER.wavefront.com`
      * **Callback URL**: `https://YOUR_CLUSTER.wavefront.com`
 3. Click **Create Application**.
