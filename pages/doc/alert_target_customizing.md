@@ -1064,10 +1064,16 @@ See **Example: Setting and Testing Iteration Limits** below for an example.
 </td>
 </tr>
 <tr>
-<td markdown="span">`setFailingLimit`</td>
-<td markdown="span">Sets the limit for the number of items returned by `failingAlertSeries`, `failingHosts`, `failingHostsToSourceTags`, and `failingSeries`.
+<td markdown="span">`setFilterByKVsLimit`</td>
+<td markdown="span">Sets the limit for the number of items returned by `filterByKVs`.
 </td>
 </tr>
+<tr>
+<td markdown="span">`setRecoveredLimit`</td>
+<td markdown="span">Sets the limit for the number of items returned by `recoveredAlertSeries`, `recoveredHosts`, and `recoveredSeries`.
+</td>
+</tr>
+
 <tr>
 <td markdown="span">`setInMaintenanceLimit`</td>
 <td markdown="span">Sets the limit for the number of items returned by `inMaintenanceAlertSeries`, `inMaintenanceHosts`, and `inMaintenanceSeries`.
