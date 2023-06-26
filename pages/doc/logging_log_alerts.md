@@ -8,7 +8,7 @@ summary: Learn how you can create, snooze and delete a log alert.
 
 {% include important.html content="Logs (Beta) is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
-You can create alert for your logs data and get an email notifications when the alert conditions are met.
+You can create alerts for your logs data and get an email notifications when the alert conditions are met.
 
 
 ## Create an Alert
@@ -73,7 +73,7 @@ Enter a name for the query and filter the logs data you want to create the alert
     </table> 
 
 ### Step 2: Define the Alert Conditions
-Define the alert condition. You can configure the alert to be fired in real time, or you can configure the alert to fire when the alert conditions are met for selected time range.
+Define the alert condition. You can configure the alert to be fired in real time, or you can configure the alert to fire when the alert conditions are met for the selected time range.
 
 * Fire real time alerts:  
     1. Click the drop down for **Trigger Condition** and select **Real Time**.
@@ -100,7 +100,7 @@ Define the alert condition. You can configure the alert to be fired in real time
                         Count of Events  
                     </td>
                     <td>
-                        The alert is fired if  the number of logs you get are greater than or less than the alert threshold you define.  
+                        The alert is fired when the number of logs for the selected time window are greater than or less than the alert threshold you define.  
                     </td>
                 </tr>
                 <tr>
@@ -108,7 +108,7 @@ Define the alert condition. You can configure the alert to be fired in real time
                         Unique count
                     </td>
                     <td>
-                        The alert is fired if  the number of logs that are unique from each other are greater than or less than the alert threshold you define.          
+                        The alert is fired when the number of logs that are unique from each other for the selected time window are greater than or less than the alert threshold you define.          
                     </td>
                 </tr>
                 <tr>
@@ -124,7 +124,7 @@ Define the alert condition. You can configure the alert to be fired in real time
                            Maximum
                     </td>
                     <td>
-                        The alert is fired if the maximum number of logs for the selected time window is greater than or less than the alert threshold you define.       
+                        The alert is fired when the maximum number of logs for the selected time window is greater than or less than the alert threshold you define.       
                     </td>
                 </tr>
                 <tr>
