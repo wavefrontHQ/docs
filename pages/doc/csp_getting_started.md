@@ -14,6 +14,9 @@ VMware Cloud services provides features to your Operations for Applications envi
 - SAML 2.0 SSO identity federation with your enterprise identity provider.
 - Identity access management (IAM) with built-in and custom service roles.
 - Seamless integration with other services from your VMware Cloud services portfolio, for example, VMWare Aria Operations for Logs.
+- Billing and Subscriptions
+
+See the [Advantages of VMware Cloud Services Subscriptions Over Original Subscriptions](subscriptions-differences.html#advantages-of-vmware-cloud-services-subscriptions-over-original-subscriptions).
 
 ## What's VMware Cloud Services Console?
 

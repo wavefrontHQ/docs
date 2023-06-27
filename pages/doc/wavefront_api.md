@@ -19,12 +19,13 @@ The current version of the REST API is v2. You can access the API at `<your_inst
 
 {% include note.html content="Our REST API is not the same as the `/api` endpoint that you specify for the Wavefront proxy."%}
 
+{% include important.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. For VMware Cloud services subscriptions, the authentication and authorization APIs are part of the VMware Cloud services REST API. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html)."%}
 
-## API Documentation (Product Instance)
+## API Documentation (Service Instance)
 
-Each product instance includes Swagger-generated documentation for the REST API. In our blog post [Did You Know that Our API Docs Are Alive](https://tanzu.vmware.com/content/vmware-aria-operations-for-applications-blog/did-you-know-that-our-api-docs-are-alive) we explain how you can experiment with our API directly from this in-product documentation.
+Each Operations for Applications service instance includes Swagger-generated documentation for the REST API. In our blog post [Did You Know that Our API Docs Are Alive](https://tanzu.vmware.com/content/vmware-aria-operations-for-applications-blog/did-you-know-that-our-api-docs-are-alive) we explain how you can experiment with our API directly from this in-product documentation.
 
-To access the REST API documentation :
+To access the Operations for Applications REST API documentation:
 
 1. Log in to your product instance.
 2. Display the doc from the UI or using a URL:
@@ -34,20 +35,23 @@ To access the REST API documentation :
 
 ![REST API in a product instance](/images/rest_api.png)
 
+{% include important.html content="For VMware Cloud services subscriptions, to access the VMware Cloud services API documentation, go to [https://console.cloud.vmware.com/csp/gateway/portal/#/api-docs](https://console.cloud.vmware.com/csp/gateway/portal/#/api-docs)."%}
+
 ## API Documentation (VMware Developer)
 
-If you don't have access to a product instance, you can have a look at our API doc [on the VMware Developer website](https://developer.vmware.com/apis/714/).
+If you don't have access to a service instance, you can have a look at our [Operations for Applications API doc](https://developer.vmware.com/apis/714/) on the VMware Developer website.
 
-We include an overview and a Swagger-generated API Reference. We update the reference with each release.
+We include an overview and a Swagger-generated API Reference. We update the reference on a regular basis.
 
 ![REST API in VMware Developer](/images/vmware_code_api.png)
+
+{% include important.html content="For VMware Cloud services subscriptions, you can have a look at the [VMware Cloud services API doc](https://developer.vmware.com/apis/csp/csp-iam/latest/) on the VMware Developer website."%}
 
 The [VMware Developer website](https://developer.vmware.com/samples?categories=Sample&tags=wavefront) also includes some samples, for example, for getting data into Operations for Applications. We're providing these samples as is - some are from our team, others will come from the community.
 
 <a id="generating-an-api-token"></a>
 
-
-## Invoking the REST API
+## Invoking the Operations for Applications REST API
 
 You can invoke the API using `curl` or from an API client. In either case, you must use a token.
 
@@ -83,7 +87,7 @@ Here's an example for generating a Java client:
 
 `swagger-codegen generate -i https://mydomain.wavefront.com/api/v2/swagger.json -c swagger-config.json -l java`
 
-## REST API Categories
+## Operations for Applications REST API Categories
 
 The REST API supports the following objects corresponding to different categories of management tasks:
 
