@@ -466,11 +466,11 @@ Starting with the 2023.25 release, users can use iterators to extract informatio
 
 **Example: Accessing Filter-by and Group-by Information in a Generic Webhook Alert Target Template**
 
-The portion of the Generic Webhook alert target template shows the filter-by keys and group-by keys from the alert condition.
+The portion of the Generic Webhook alert target template shows the filter-by keys and group-by keys extracted from the alert condition.
 
 {% raw %}
 ```
-"filterByKVs": [
+  "filterByKVs": [
     {{#trimTrailingComma}}
       {{#filterByKVs}}
         {
