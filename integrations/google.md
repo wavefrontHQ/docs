@@ -9,6 +9,8 @@ summary: Learn about the Google Integration.
 Wavefront supports authentication via SAML including Google SSO.
 ## Google SSO Setup
 
+**Note**: This integration is not applicable if your Operations for Applications service is onboarded to VMware Cloud services. If your service is onboarded to VMware Cloud services, you can [set up enterprise federation for your corporate domain](https://docs.vmware.com/en/VMware-Cloud-services/services/setting-up-enterprise-federation-cloud-services/GUID-76FAECB3-CFAA-461E-B9C9-2A49C39CD17F.html).
+
 After setting up the Google SSO integration, users can authenticate to Wavefront through Google SSO instead of using a password.  New users who did not exist in Wavefront are auto-created on the Wavefront side when they authenticate for the first time.
 
 
