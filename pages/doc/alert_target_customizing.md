@@ -434,6 +434,57 @@ The names of the iterators follow this convention: <code>&lt;seriesCategory&gt;&
 </ul>
 {{site.data.alerts.end}}
 
+## Extract Information About the Filter-by and Group-by Keys 
+
+Starting with the 2023.25 release, users can extract information about the filter-by and group-by keys. The portion of the Generic Webhook alert target template shows the filter-by keys and group-by keys from the alert condition.
+
+```
+"filterByKVs": [
+    {{#trimTrailingComma}}
+      {{#filterByKVs}}
+        {
+          "key": "{{{key}}}",
+          "predicate": "{{{predicate}}}",
+          "value": "{{{value}}}"
+        },
+      {{/filterByKVs}}
+    {{/trimTrailingComma}}
+  ],
+  "groupByKeys": [
+    {{#trimTrailingComma}}
+      {{#groupByKeys}}
+        "{{#jsonEscape}}{{{.}}}{{/jsonEscape}}",
+      {{/groupByKeys}}
+    {{/trimTrailingComma}}
+  ],
+
+```
+
+<table>
+<colgroup>
+<col width="20%"/>
+<col width="80%"/>
+</colgroup>
+<thead>
+<tr><th>Iterator</th><th>Definition</th></tr>
+</thead>
+<tbody>
+<tr>
+<td><code>filterByKVs</code></td>
+<td>Iterator that returns the key, predicate, and value of each filter-by key in the alert condition:
+<ul><li>key - A key used in the filter by expression.</li>
+<li>predicate - Can be <code>=</code>, <code>!=</code>, and <code>?=</code></li>
+<li>value - The value used in the filter-by expression.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>groupByKeys</code></td>
+<td>Iterator that returns all the group by keys from the alert condition.</td>
+</tr>
+</tbody>
+</table>
+
 ## Information About Alert Resolution Help
 
 Starting with release 2022.05, users can include information about the alert resolution such as a runbook. We support several variables for extracting or setting those fields.
