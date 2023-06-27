@@ -38,7 +38,7 @@ The VMware Cloud Services Console **Roles** page lists all service roles and cus
 ### Operations for Applications Service Roles (Built-in)
 
 The VMware Cloud Services Console **Roles** page includes the following built-in Operations for Applications service roles:
-- A corresponding service role for each [permission](csp_permissions_overview.html#operations-for-applications-permissions).
+- A corresponding service role for each [permission](csp_permissions_overview.html#operations-for-applications-permissions) - **Alerts**, **Applications**, **Batch Query Priority**, **Charts Embedding**, **Dashboards**, **Derived Metrics**, **Direct Data Ingestion**, **Events**, **External Links**, **Ingestion Policies**, **Integrations**, **Logs**, **Metrics**, **Proxies**, and **Sources**.
 - Two special service roles - one that grants full administrative access to the service, and another one that grants read-only access to the service:
 
   <table>
@@ -73,7 +73,7 @@ Custom roles let you combine service permissions of your choice, for example, [O
 To create a custom role:
 
 1. On the VMware Cloud Services Console **Roles** page, click **Add Role**.
-1. On the **Add permissions** tab, in the left panel, expand the service.
+1. On the **Add permissions** tab, in the left panel, expand **VMware Aria Operations for Applications**.
 1. In the panel on the right, select the permissions that you want to assign to the role, and click **Continue**.
 1. On the **Role information** tab, enter a meaningful role name and description, and click **Continue**.
 1. On the **Review added permission** tab, verify your selections and click **Save**.

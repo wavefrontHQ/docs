@@ -51,7 +51,7 @@ VMware Cloud services allows users with the VMware Cloud **Organization Owner** 
       <td>Queries executed by accounts with this permission are treated at a lower priority level, as if wrapped in the <a href="ts_bestEffort.html">bestEffort() function</a>.</td>
     </tr>
     <tr>
-      <th>Chart Embedding</th>
+      <th>Charts Embedding</th>
       <td><a href="ui_sharing.html#embed-a-chart-in-other-uis">Generate HTML snippets of charts</a> in Operations for Applications and embed a corresponding interactive chart outside of Operations for Applications. Embedded chart URLs are associated with a specific user account. If a user embeds a chart and later that user’s account is removed, the embedded chart no longer works.</td>
     </tr>
     <tr>
@@ -97,7 +97,7 @@ VMware Cloud services allows users with the VMware Cloud **Organization Owner** 
       <td>View, create, and manage <a href="proxies_installing.html">proxies</a> and set up external <a href="label_integrations%20list.html">integrations</a> with AWS and other cloud services.</td>
     </tr>
     <tr>
-      <th>Source Tags</th>
+      <th>Sources</th>
       <td>Manage <a href="sources_managing.html">sources</a> and source tags. If you don’t have this permission, source tags will be rejected with a 403 error.</td>
     </tr>
   </table>
