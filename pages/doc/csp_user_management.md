@@ -12,27 +12,47 @@ VMware Cloud services provides identity access management for the users of your 
 
 {% include note.html content="To manage user access to the services in your VMware Cloud organization, you must hold the VMware Cloud **Organization Owner** or **Organization Administrator** role. See [What organization roles are available in VMware Cloud Services](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-C11D3AAC-267C-4F16-A0E3-3EDF286EBE53.html) in the VMware Cloud services documentation."%}
 
-## Add a User to Your Service Instance
+## Add Users to Your Service Instance
 
-- If you want to add a user who doesn't belong to your VMware Cloud organization, you must first add that user to your organization and assign them an [organization role](csp_getting_started.html#whats-a-vmware-cloud-organization-role).  
+To add a user to your service instance, you must assign that user:
 
-    See [How do I add users to my organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-47AA313E-9DAC-447C-B6C8-DF71ED45B0D5.html) in the VMware Cloud services documentation.
+1. An [organization role](csp_getting_started.html#whats-a-vmware-cloud-organization-role) for the VMware Cloud organization running the service instance.
 
-- If you want to add a user who belongs to your VMware Cloud organization, you must assign that user an [Operations for Applications service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) or a [custom role](csp_users_roles.html#create-edit-or-delete-a-custom-role) with an [Operations for Applications permission](csp_permissions_overview.html#operations-for-applications-permissions). You have these options:
+1. An [Operations for Applications service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) or a [custom role](csp_users_roles.html#create-edit-or-delete-a-custom-role) with an [Operations for Applications permission](csp_permissions_overview.html#operations-for-applications-permissions).
 
-    - Add the user to a group that is assigned with an Operations for Applications service role or a custom role with an Operations for Applications permission. See [How do I work with groups](hhttps://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-0BD8A07B-C3C0-4220-8CD0-18FA070D3DAD.html) in the VMware Cloud services documentation.
+    {% include important.html content="Make sure that you assign the [**Super Admin** service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) to at least one user of your Operations for Applications service instance. There are some Super Admin tasks that no one else can perform."%}
 
-    - Edit the user's roles and add an Operations for Applications service role or a custom role with an Operations for Applications permission. See [How do I change user roles](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-A70DBFDC-86FD-4C84-8753-0E55C8C98F8E.html) in the VMware Cloud services documentation.
+    {% include important.html content="In a multi-tenant Operations for Applications environment, service roles are assigned per service instance (tenant), while custom roles are assigned for **all** service instances (tenants)."%}
 
-{% include important.html content="In a multi-tenant Operations for Applications environment, service roles are assigned per service instance (tenant), while custom roles are assigned for **all** service instances (tenants)."%}
+You can assign users with these roles in the following ways:
 
-The newly added user receives an invitation email with an account activation link to [sign up](sign_up_or_log_in.html#sign-up-with-an-email-invitation) to the service instance.
+### Adding Users to Your Organization
 
-{% include important.html content="Make sure that you assign the [**Super Admin** service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) to at least one user of your Operations for Applications service instance. There are some Super Admin tasks that no one else can perform."%}
+When you are adding an individual user or a list of users to the VMware Cloud organization running the service instance, you can assign that users organization, service, and custom roles.
+
+For details, see [How do I add users to my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-47AA313E-9DAC-447C-B6C8-DF71ED45B0D5.html).
+
+The newly added users receive an invitation email with an account activation link to [sign up](csp_sign_up_or_log_in.html) to the service instance. The invitations you send are valid for seven days. You can view the status of the invitation on the **Identity and Access Management** > **Pending Invitations** page.
+
+### Creating or Editing a Group
+
+When you are creating or editing a group in the VMware Cloud organization running the service instance, you can add a list of users as members of the group and you can assign organization, service, and custom roles to the group.
+
+You can add users who already belong to the VMware Cloud organization as well as new users who don't belong to the VMware Cloud organization yet. You can add users from your federated domain as well as users that are outside your federated domain.
+
+For details, see [How do I work with groups](hhttps://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-0BD8A07B-C3C0-4220-8CD0-18FA070D3DAD.html) in the VMware Cloud services documentation.
+
+The newly added users receive an invitation email with an account activation link to [sign up](csp_sign_up_or_log_in.html) to the service instance. The invitations you send are valid for seven days. You can view the status of the invitation on the **Identity and Access Management** > **Pending Invitations** page.
+
+### Editing a User's Roles
+
+If a user already belongs to the VMware Cloud organization running the service instance, you can edit the user's roles to assign that user with Operations for Applications service or custom roles.
+
+For details, see [How do I change user roles](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-A70DBFDC-86FD-4C84-8753-0E55C8C98F8E.html) in the VMware Cloud services documentation.
 
 ## Remove a User
 
-- To remove a user from your service instance, you must remove their [Operations for Applications service roles](csp_users_roles.html#operations-for-applications-service-roles-built-in) and the [custom roles](csp_users_roles.html#create-edit-or-delete-a-custom-role) with Operations for Applications permissions.
+- To remove a user from your service instance, you must remove their [Operations for Applications service roles](csp_users_roles.html#operations-for-applications-service-roles-built-in) and the [custom roles](csp_users_roles.html#create-edit-or-delete-a-custom-role) with [Operations for Applications permissions](csp_permissions_overview.html#operations-for-applications-permissions).
     - If the roles are individually assigned to the user, edit the user's roles. See [How do I change user roles](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-A70DBFDC-86FD-4C84-8753-0E55C8C98F8E.html) in the VMware Cloud services documentation.
     - If the roles are inherited from a group, edit the group and remove that user from the list of members. See [How do I work with groups](hhttps://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-0BD8A07B-C3C0-4220-8CD0-18FA070D3DAD.html) in the VMware Cloud services documentation.
 

@@ -11,9 +11,9 @@ summary: Create and manage service accounts.
 
 VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports service accounts that can be used to automate management of objects such as dashboards, alerts, etc. A service account can't perform the **UI operations** that all user accounts can [perform by default](user-accounts.html#what-can-a-new-user-do). There's no limit on the number of service accounts that you can create in your organization. 
 
-{% include note.html content="Service accounts have no permissions by default. As an administrator, you must explicitly grant each service account only the permission required for the task that’s being automated (least required privilege). Doing so, you ensure that permissions for service accounts are always very limited. Service accounts do not have the view permissions that user accounts have by default. A service account must have **permissions** to perform tasks. To run queries, a service account must have **Metrics** permission. To manage dashboards and alerts, the service account might need both permissions and [access](access.html)." %}
+{% include note.html content="Service accounts have no permissions by default. As a user with the **Account** permission, you must explicitly grant each service account only the permission required for the task that’s being automated (least required privilege). Doing so, you ensure that permissions for service accounts are always very limited. Service accounts do not have the view permissions that user accounts have by default. A service account must have **permissions** to perform tasks. To run queries, a service account must have **Metrics** permission. To manage dashboards and alerts, the service account might need both permissions and [access](access.html)." %}
 
-With the 2021-42.x release all existing service accounts are moved to a separate predefined **Service Accounts** group and no longer belong to the **Everyone** group. New service accounts that you create are automatically added to the **Service Accounts** group. You can also set additional groups for new service accounts.
+Each service account that you create is automatically added to the **Service Accounts** group. You can also set additional groups for new service accounts.
 
 ## What Are Service Accounts?
 
