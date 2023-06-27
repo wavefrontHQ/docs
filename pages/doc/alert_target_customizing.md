@@ -499,7 +499,6 @@ Here is a sample alert filter-by and group-by keys output generated with the pre
 
 {% raw %}
 ```
-Output:
 
   "filterByKVs": [
     {
