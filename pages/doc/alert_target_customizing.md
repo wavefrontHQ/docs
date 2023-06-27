@@ -436,29 +436,8 @@ The names of the iterators follow this convention: <code>&lt;seriesCategory&gt;&
 
 ## Extract Information About the Filter-by and Group-by Keys 
 
-Starting with the 2023.25 release, users can extract information about the filter-by and group-by keys. The portion of the Generic Webhook alert target template shows the filter-by keys and group-by keys from the alert condition.
+Starting with the 2023.25 release, users can use iterators to extract information about the filter-by and group-by keys. 
 
-```
-"filterByKVs": [
-    {{#trimTrailingComma}}
-      {{#filterByKVs}}
-        {
-          "key": "{{{key}}}",
-          "predicate": "{{{predicate}}}",
-          "value": "{{{value}}}"
-        },
-      {{/filterByKVs}}
-    {{/trimTrailingComma}}
-  ],
-  "groupByKeys": [
-    {{#trimTrailingComma}}
-      {{#groupByKeys}}
-        "{{#jsonEscape}}{{{.}}}{{/jsonEscape}}",
-      {{/groupByKeys}}
-    {{/trimTrailingComma}}
-  ],
-
-```
 
 <table>
 <colgroup>
@@ -484,6 +463,67 @@ Starting with the 2023.25 release, users can extract information about the filte
 </tr>
 </tbody>
 </table>
+
+**Example: Accessing Filter-by and Group-by Information in a Generic Webhook Alert Target Template**
+
+The portion of the Generic Webhook alert target template shows the filter-by keys and group-by keys from the alert condition.
+
+{% raw %}
+```
+"filterByKVs": [
+    {{#trimTrailingComma}}
+      {{#filterByKVs}}
+        {
+          "key": "{{{key}}}",
+          "predicate": "{{{predicate}}}",
+          "value": "{{{value}}}"
+        },
+      {{/filterByKVs}}
+    {{/trimTrailingComma}}
+  ],
+  "groupByKeys": [
+    {{#trimTrailingComma}}
+      {{#groupByKeys}}
+        "{{#jsonEscape}}{{{.}}}{{/jsonEscape}}",
+      {{/groupByKeys}}
+    {{/trimTrailingComma}}
+  ],
+
+```
+{% endraw %}
+
+
+**Example: Alert Filter-by and Group-by Keys in Output from the Sample Template**
+
+Here is a sample alert filter-by and group-by keys output generated with the preceding template: 
+
+{% raw %}
+```
+Output:
+
+  "filterByKVs": [
+    {
+      "key": "env",
+      "predicate": "!=",
+      "value": "dev"
+    },
+    {
+      "key": "source",
+      "predicate": "=",
+      "value": "app-5"
+    },
+    {
+      "key": "source",
+      "predicate": "=",
+      "value": "app-6"
+    }
+  ],
+  "groupByKeys": [
+    "az",
+    "env"
+  ],
+  ```
+{% endraw %}
 
 ## Information About Alert Resolution Help
 
