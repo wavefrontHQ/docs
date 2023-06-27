@@ -25,9 +25,9 @@ Example: Run the Wavefront proxy in a container with a limit of 2 GB of memory:
     ```
     docker run -d \
     -e WAVEFRONT_URL=https://<myinstance>.wavefront.com/api \
-    -e CSP_APP_ID <CSP_APP_ID> \
-    -e CSP_APP_SECRET <CSP_APP_SECRET> \
-    -e CSP_ORG_ID <CSP_ORG_ID> \
+    -e CSP_APP_ID=<CSP_APP_ID> \
+    -e CSP_APP_SECRET=<CSP_APP_SECRET> \
+    -e CSP_ORG_ID=<CSP_ORG_ID> \
     -e WAVEFRONT_PROXY_ARGS='--<arg1> <value1> --<arg2> <value2>' \
     -e JAVA_HEAP_USAGE="1650m"\
     -m 2g \
@@ -40,7 +40,7 @@ Example: Run the Wavefront proxy in a container with a limit of 2 GB of memory:
     ```
     docker run -d \
     -e WAVEFRONT_URL=https://<myinstance>.wavefront.com/api \
-    -e CSP_API_TOKEN <CSP_API_TOKEN> \
+    -e CSP_API_TOKEN=<CSP_API_TOKEN> \
     -e WAVEFRONT_PROXY_ARGS='--<arg1> <value1> --<arg2> <value2>' \
     -e JAVA_HEAP_USAGE="1650m"\
     -m 2g \
@@ -68,9 +68,9 @@ Example: Run the proxy with preprocessor rules by using the WAVEFRONT_PROXY_ARGS
     ```
     docker run \
     -e WAVEFRONT_URL=https://<myinstance>.wavefront.com/api \
-    -e CSP_APP_ID <CSP_APP_ID> \
-    -e CSP_APP_SECRET <CSP_APP_SECRET> \
-    -e CSP_ORG_ID <CSP_ORG_ID> \
+    -e CSP_APP_ID=<CSP_APP_ID> \
+    -e CSP_APP_SECRET=<CSP_APP_SECRET> \
+    -e CSP_ORG_ID=<CSP_ORG_ID> \
     -e WAVEFRONT_PROXY_ARGS='--preprocessorConfigFile /etc/wavefront/wavefront-proxy/preprocessor_rules.yaml' \
     -v </path/to/file>/preprocessor_rules.yaml:/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml:ro \
     -p 2878:2878 \
@@ -82,7 +82,7 @@ Example: Run the proxy with preprocessor rules by using the WAVEFRONT_PROXY_ARGS
     ```
     docker run \
     -e WAVEFRONT_URL=https://<myinstance>.wavefront.com/api \
-    -e CSP_API_TOKEN <CSP_API_TOKEN> \
+    -e CSP_API_TOKEN=<CSP_API_TOKEN> \
     -e WAVEFRONT_PROXY_ARGS='--preprocessorConfigFile /etc/wavefront/wavefront-proxy/preprocessor_rules.yaml' \
     -v </path/to/file>/preprocessor_rules.yaml:/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml:ro \
     -p 2878:2878 \
@@ -102,24 +102,14 @@ Example: Run the proxy with preprocessor rules by using the WAVEFRONT_PROXY_ARGS
     
 **Harbor:**
 
-* For original subscriptions:
-
-    ```
-    docker run -d\
-    -e WAVEFRONT_URL=https://<myinstance>.wavefront.com/api/ \
-    -e WAVEFRONT_TOKEN=<YOUR_API_TOKEN>
-    -e WAVEFRONT_PROXY_ARGS=''--<arg1> <value1> --<arg2> <value2>''\
-    -p 2878:2878 projects.registry.vmware.com/tanzu_observability/proxy:latest
-    ```
-
 * For VMware Cloud services subscriptions and proxy authentication with a server to server OAuth app:
 
     ```
     docker run -d\
     -e WAVEFRONT_URL=https://<myinstance>.wavefront.com/api/ \
-    -e CSP_APP_ID <CSP_APP_ID> \
-    -e CSP_APP_SECRET <CSP_APP_SECRET> \
-    -e CSP_ORG_ID <CSP_ORG_ID> \
+    -e CSP_APP_ID=<CSP_APP_ID> \
+    -e CSP_APP_SECRET=<CSP_APP_SECRET> \
+    -e CSP_ORG_ID=<CSP_ORG_ID> \
     -e WAVEFRONT_PROXY_ARGS=''--<arg1> <value1> --<arg2> <value2>''\
     -p 2878:2878 projects.registry.vmware.com/tanzu_observability/proxy:latest
     ```
@@ -129,7 +119,16 @@ Example: Run the proxy with preprocessor rules by using the WAVEFRONT_PROXY_ARGS
     ```
     docker run -d\
     -e WAVEFRONT_URL=https://<myinstance>.wavefront.com/api/ \
-    -e CSP_API_TOKEN <CSP_API_TOKEN> \
+    -e CSP_API_TOKEN=<CSP_API_TOKEN> \
+    -e WAVEFRONT_PROXY_ARGS=''--<arg1> <value1> --<arg2> <value2>''\
+    -p 2878:2878 projects.registry.vmware.com/tanzu_observability/proxy:latest
+    ```
+* For original subscriptions:
+
+    ```
+    docker run -d\
+    -e WAVEFRONT_URL=https://<myinstance>.wavefront.com/api/ \
+    -e WAVEFRONT_TOKEN=<YOUR_API_TOKEN>
     -e WAVEFRONT_PROXY_ARGS=''--<arg1> <value1> --<arg2> <value2>''\
     -p 2878:2878 projects.registry.vmware.com/tanzu_observability/proxy:latest
     ```
@@ -141,9 +140,10 @@ Options:
 <tr>
 <td width="20%"><strong>Authentication</strong></td>
 <td width="80%">Depends on your <a href="subscriptions-differences.html">subscription type</a> and <a href="proxies_installing.html#proxy-authentication-types">proxy authentication type</a>.
-<ul><li>For original subscriptions, WAVEFRONT_TOKEN is the Operations for Applications API token.</li>
+<ul>
 <li>For VMware Cloud services subscriptions and proxy authentication with a server to server OAuth app, CSP_APP_ID and CSP_APP_SECRET are the server to server app credentials (ID and secret), and CSP_ORG_ID is the ID of the VMware Cloud organization.</li>
-<li>For VMware Cloud services subscriptions and proxy authentication with an API token, CSP_API_TOKEN is the VMware Cloud services token.</li></ul>
+<li>For VMware Cloud services subscriptions and proxy authentication with an API token, CSP_API_TOKEN is the VMware Cloud services token.</li>
+<li>For original subscriptions, WAVEFRONT_TOKEN is the Operations for Applications API token.</li></ul>
 </td>
 </tr>
 <tr>
