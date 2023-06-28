@@ -341,7 +341,7 @@ Response codes from webhooks alert target calls are exposed as metrics:
 The response codes indicate if a webhook call was successful and if the webhook generated a notification. You can query these metrics to  determine if any webhooks are generating a problem response code. The metrics have the point tag `name = <webhook_name>` so you can determine all the response codes for a particular webhook alert target:
 
 ```
-ts(~alert.webhooks.*.*, name=<webhook_name>)
+cs(~alert.webhooks.*.*, name=<webhook_name>)
 ```
 
 If the response code of the webhook is anything other than 2xx, we create an event with the name `<webhook_id>.<webhook_name>.<response_code>`.
