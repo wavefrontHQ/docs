@@ -30,7 +30,7 @@ Users with the [**Super Admin** service role](csp_users_roles.html#operations-fo
 
 VMware Cloud services allows users with the VMware Cloud **Organization Owner** and **Organization Administrator** roles to perform access control for object management based on Operations for Applications permissions. 
 - Permissions can be assigned to roles only, and roles can be assigned to users, user groups, and server to server apps.
-- For each permission, there is a corresponding built-in [Operations for Applications service role](ccsp_users_roles.html#operations-for-applications-service-roles-built-in) with only that permission assigned.
+- For each permission, there is a corresponding built-in [Operations for Applications service role](csp_users_roles.html#operations-for-applications-service-roles-built-in) with only that permission assigned.
 - Permissions can be assigned to [custom roles](csp_users_roles.html#create-edit-or-delete-a-custom-role).
 
 <table>

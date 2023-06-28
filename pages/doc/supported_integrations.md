@@ -342,8 +342,8 @@ Here's the list of the integrations that are updated as of today (July 3, 2023).
 <td markdown="span">[Runscope Integration](runscope.html)</td>
 </tr>	
 <tr>
-<td markdown="span">Twempproxy</td>
-<td markdown="span">[Twempproxy Integration](twempproxy.html)</td>
+<td markdown="span">Twemproxy</td>
+<td markdown="span">[Twempproxy Integration](twemproxy.html)</td>
 </tr>	    
 <tr>
 <td markdown="span">Varnish Cache</td>
