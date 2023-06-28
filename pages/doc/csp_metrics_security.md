@@ -36,7 +36,7 @@ Metrics security policy rules allows fine-grained support for limiting access to
 
 With a metrics security policy, you can block or allow access:
 * To metrics, optionally filtered by source or point tag
-* Based on individual accounts (user accounts and service accounts), groups, and roles (service roles and custom roles).
+* Based on individual accounts ([user accounts](csp_user_management.html) and [service accounts](csp_server_to_server_apps.html)) or [groups](csp_users_roles.html#manage-user-groups).
 
 {% include note.html content="Service accounts in Operations for Applications correspond to server to server apps in VMware Cloud services." %}
 
@@ -181,7 +181,7 @@ Before you create rules, plan your strategy.
 * **Metrics Dimensions** allow you to determine what to block or allow.
   - Specify one or more metric prefixes. You can specify an exact match (e.g. `requests` or `request.`) or a wildcard match (e.g. `*.cpu.loadavg.*`, `cpu.*`).
   - Specify a combination of metric sources or point tags to narrow down the metrics. For example, you can block visibility into production environments for some developers, or you can block some development environments metrics for contractors.
-* **Access** allows you to allow or block access for a combination of accounts, groups, or roles.
+* **Access** allows you to allow or block access for a combination of accounts (user accounts and service accounts) or groups.
 
 See the Examples further below.
 
@@ -201,7 +201,7 @@ You create a metrics security policy rule following these steps. See the annotat
      * If you want to specify multiple key=value pairs, select whether you want to combine them with `and` or `or` using the dropdown menu on the right.
   5. Specify the Access definition for the rule.
      1. Select **Allow** or **Block** from the menu.
-     2. Specify accounts, groups, or roles.
+     2. Specify accounts or groups.
   3. Click **OK.**
 
 
@@ -263,19 +263,6 @@ The image above shows how to restricts access for users in the group `Contractor
 
 
 {% include note.html content="Because the first rule (**Contractors can access dev environment metrics**) uses only point tags/sources as metrics dimensions, the users in the Contractors group will not see metrics in the Metrics Browser and when they create queries, autocomplete will not work for them."%}
-
-### Example: Restrict Access for a Custom Role
-
-This example restricts access for a specific user when the restrict rule is applied to a custom role. The metrics security rules take into account both direct and indirect roles.
-
-![Screenshot of a policy rule restricting access for a single user](images/metrics-security-policy-retail.png)
-
-The image above shows how to restrict access for a user with the role `Operator`. The user cannot access any metrics.
-
-By applying the above security policy:
-
-* When a user who is in the `retail` group runs a query for metrics tagged with the `env=retail` point tag, access is granted.
-* A user who is assigned with the `Operator` role (either directly or indirectly, coming from a group) cannot access any metrics at all, because Rule 2 (**Block all data**) is applied.
 
 ### Example: Restrict Access to All Except Specific Metrics
 

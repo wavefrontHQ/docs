@@ -1,5 +1,5 @@
 ---
-title: Manage Server to Server Apps
+title: Manage Server to Server Apps (Service Accounts)
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
@@ -22,7 +22,7 @@ Server to server apps are used for automating management tasks.
 
   {% include note.html content="You must explicitly grant each server to server app only the role with the permission required for the task that’s being automated (least required privilege). Doing so, you ensure that permissions for server to server app are always very limited." %}
 * A server to server app can be used in multiple organizations. The owner of a server to server app is the organization in which it was created.
-* A Server to server app in VMware Cloud services corresponds to a service account in Operations for Applications.
+* A server to server app in VMware Cloud services corresponds to a service account in Operations for Applications.
 
 ## How Server to Server Apps Work
 
