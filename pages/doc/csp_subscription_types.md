@@ -287,11 +287,18 @@ In both ways, the access token is directly issued to the proxy. For details, see
 </td>
 <td><strong>Who</strong>: Users with the <strong>Metrics</strong> Operations for Applications service role or a custom role with the <strong>Metrics</strong> permission.
 <p><strong>Where</strong>: In the Operations for Applications user interface.</p>
-<p><strong>How</strong>: Privileged users can block or allow access to metrics for individual accounts (<a href="csp_user_management.html">user accounts</a> and <a href="csp_server_to_server_apps.html">service accounts</a>) or <a href="csp_users_roles.html#manage-user-groups">groups</a>. For details, see <a href="csp_metrics_security.html">Metrics Security Policy Rules</a>.</p>
+<p><strong>How</strong>: Privileged users can block or allow access to metrics for:
+<ul><li>Accounts (<a href="csp_user_management.html">user accounts</a> and <a href="csp_server_to_server_apps.html">service accounts</a>)</li>
+<li><a href="csp_users_roles.html#manage-user-groups">Groups</a></li></ul>
+For details, see <a href="csp_metrics_security.html">Metrics Security Policy Rules</a>.</p>
 </td>
 <td><strong>Who</strong>: Users with the <strong>Metrics</strong> permission.
 <p><strong>Where</strong>: In the Operations for Applications user interface.</p>
-<p><strong>How</strong>: Privileged users can block or allow access to metrics for individual accounts (<a href="user-accounts.html">user accounts</a> and <a href="service-accounts.html">service accounts</a>), <a href="users_roles.html#create-a-group">groups</a>, or <a href="users_roles.html#create-a-role">roles</a>. For details, see <a href="metrics_security.html">Metrics Security Policy Rules</a>.</p>
+<p><strong>How</strong>: Privileged users can block or allow access to metrics for:
+<ul><li>Accounts (<a href="user-accounts.html">user accounts</a> and <a href="service-accounts.html">service accounts</a>)</li>
+<li><a href="users_roles.html#create-a-group">Groups</a></li>
+<li><a href="users_roles.html#create-a-role">Roles</a></li></ul>.
+For details, see <a href="metrics_security.html">Metrics Security Policy Rules</a>.</p>
 </td>
 </tr>
 <tr>
