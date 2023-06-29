@@ -31,7 +31,7 @@ Watch these videos to get you started. The videos use the v1 UI, but the basic w
 </tr>
 <tr>
 <td width="70%"><strong><font color="#0091DA" size="3">Intro to Wavefront Query Language</font></strong><br><br>
-<iframe id="kmsembed-1_kgacc2jb" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_kgacc2jb/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Query Language Advanced Functions"></iframe></td>
+<iframe id="kmsembed-1_kgacc2jb" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_f22x68bt/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Query Language Advanced Functions"></iframe></td>
 <td width="30%"><br><br>
 <p>Wavefront Query Language allows you to shape the data you see in your dashboards. The example uses the advanced functions if() at() and corr() to find a problem behavior of a switch in other switches and prevent future problems.</p>
 <p>You can also watch the video <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_brmdewqc/1_f22x68bt" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
