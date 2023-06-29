@@ -4,6 +4,13 @@ tags: [integrations list]
 permalink: kong.html
 summary: Learn about the Kong Integration.
 ---
+
+This page provides an overview of what you can do with the Kong integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the Kong integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **Kong** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## Kong Integration
 
 Kong is an open-source Microservice API gateway.
@@ -12,35 +19,6 @@ This integration installs and configures Telegraf to send Kong metrics into Wave
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here's the Summary section of the dashboard.
 {% include image.md src="images/kong_dashboard-1.png" width="80" %}
 
-
-To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
-## Kong Setup
-
-
-
-### Step 1. Install the Telegraf Agent
-
-This integration uses the http input plugin for Telegraf to extract metrics from Kong.
-
-Log in to your Operations for Applications instance, navigate to the integration, and follow the instructions on the **Setup** tab to install Telegraf and the Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
-
-### Step 2. Enable the Kong input plugin
-
-Create a file called `kong.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
-   ```
-   [[inputs.http]]
-   ## One or more URLs from which to read formatted metrics
-   urls = [
-   "http://<serverip>:8001/status"
-   ]
-   data_format ="json"
-   name_prefix = "kong."
-```
-{% endraw %}
-### Step 3. Restart Telegraf
-
-Run `sudo service telegraf restart` to restart your Telegraf agent.
 
 
 

@@ -4,6 +4,13 @@ tags: [integrations list]
 permalink: istio.html
 summary: Learn about the Istio Integration.
 ---
+
+This page provides an overview of what you can do with the Istio integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the Istio integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **Istio** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## Istio Integration
 
 Istio is an open platform-independent service mesh that provides traffic management, policy enforcement, and telemetry collection.
@@ -20,184 +27,6 @@ This integration also installs the dashboards. Here's a preview of the Istio Dat
 {% include image.md src="images/istio_dashboard.png" width="80" %}
 {% include image.md src="images/istio_control_plane_dashboard.png" width="80" %}
 
-## Istio Setup
-
-
-
-**Supported Versions:**
-* Istio: 1.14.0 or later.
-* Kubernetes Metrics Collector: v1.13.0 or later.
-* Prometheus: v2.21.0 or later
-
-This integration uses:
-* The [Prometheus](https://istio.io/latest/docs/ops/integrations/prometheus/) server to scrape metrics from Istio and federate them.
-
-* The **Kubernetes Metrics Collector** to collect the federated metrics from a Prometheus server and send the metrics to Operations for Applications, so that you can monitor your clusters and workloads in Kubernetes.
-
-You can deploy the Kubernetes Metrics Collector by using either the [Observability for Kubernetes Operator](https://github.com/wavefrontHQ/observability-for-kubernetes) (recommended deployment) or by using the [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or [manual installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install) (deprecated deployment).
-
-If you do not already have the Kubernetes Metrics Collector installed in your Kubernetes cluster, follow the add Kubernetes instructions and add it to your cluster. Then proceed with the steps below, except step `2.2`.
-
-If you already have the Kubernetes Metrics Collector installed by using the deprecated Helm or manual deployment, you can choose to proceed with one of the options below:
-  - Uninstall the deprecated Kubernetes Metrics Collector, then install the Observability for Kubernetes Operator and proceed with the steps below, except step `2.2`.
-  - Continue using the deprecated Helm or manual deployment. In such a case, proceed with the steps below, except step `2.1`.
-
-### Reporting Istio Metrics to Operations for Applications
-
-#### 1. Deploy Prometheus with Federation Configuration
-
-Step 1. Deploy the Prometheus server to the `istio-system` namespace.{% raw %}
-```
-kubectl create -f https://raw.githubusercontent.com/wavefrontHQ/integrations/master/istio/prometheus.yaml
-```
-{% endraw %}
-
-#### 2. Update the Collector ConfigMap
-
-* To update the Observability for Kubernetes Operator, follow the steps under [Update the Observability for Kubernetes Operator ConfigMap](#kubernetes-operator).
-* To update the Kubernetes Metrics Collector installed using Helm or manual installation, follow the steps under [Update the Kubernetes Metrics Collector ConfigMap](#kubernetes-collector).
-
-##### <a name="kubernetes-operator"></a><br> 2.1 Update the Observability for Kubernetes Operator ConfigMap
-
-Step 1. Download the [existing collector ConfigMap](https://raw.githubusercontent.com/wavefrontHQ/observability-for-kubernetes/main/deploy/scenarios/wavefront-collector-existing-configmap.yaml) `.yaml` file, and open in edit mode.
-
-Step 2. Update `YOUR_CLUSTER_NAME` with the name of your Kubernetes cluster and `YOUR_WAVEFRONT_URL` with the URL of your Operations for Applications instance.
-
-Step 3. Add the following snippet under `sources`:{% raw %}
-```
-      ##########################################################################
-      # Static source to collect Istio metrics via federated Prometheus server
-      ##########################################################################
-      prometheus_sources:
-      - url: 'http://prometheus.istio-system.svc.cluster.local:9090/federate?match[]={job=~"federate|kubernetes-pods"}'
-        httpConfig:
-          bearer_token_file: '/var/run/secrets/kubernetes.io/serviceaccount/token'
-          tls_config:
-            ca_file: '/var/run/secrets/kubernetes.io/serviceaccount/ca.crt'
-            insecure_skip_verify: true
-
-        filters:
-          metricTagDenyList:
-            destination_principal:
-            - '*'
-
-          metricAllowList:
-          - 'istio.requests.*'
-          - 'istio.request.*'   # mandatory for OOTB dashboards
-          - 'istio.response.*'
-          - 'istio.tcp.*'       # mandatory for OOTB dashboards
-          - 'go.goroutines.value'
-          - 'go.memstats.alloc.bytes.value'
-          - 'go.memstats.heap.alloc.bytes.value'
-          - 'go.memstats.heap.inuse.bytes.value'
-          - 'go.memstats.heap.sys.bytes.value'
-          - 'go.memstats.stack.inuse.bytes.value'
-          - 'istio.build.value' # mandatory for OOTB dashboards
-          - 'pilot.conflict.*.listener.*'
-          - 'pilot.proxy.convergence.time.bucket.value'
-          - 'pilot.services.value'
-          - 'pilot.total.xds.internal.errors.value'
-          - 'pilot.total.xds.rejects.value'
-          - 'pilot.virt.services.value'
-          - 'pilot.xds.*.reject.value'
-          - 'pilot.xds.push.context.errors.value'
-          - 'pilot.xds.pushes.value'
-          - 'pilot.xds.write.timeout.value'
-          - 'pilot.xds.value'
-          - 'process.cpu.seconds.total.value'
-          - 'process.resident.memory.bytes.value'
-          - 'process.virtual.memory.bytes.value'
-          - 'citadel.server.*'
-          - 'galley.validation.*'
-          - 'sidecar.*'
-```
-{% endraw %}
-
-Step 4. Add the following snippet under `discovery`, and save the `.yaml` file:{% raw %}
-```
-      annotation_excludes:
-      - namespaces:
-        - istio-system
-```
-{% endraw %}
-
-Step 5. Deploy the existing collector ConfigMap `.yaml` file.{% raw %}
-```
-kubectl apply -f wavefront-collector-existing-configmap.yaml
-```
-{% endraw %}
-
-##### <a name="kubernetes-collector"></a><br> 2.2 Update the Kubernetes Metrics Collector ConfigMap
-
-Step 1. Edit the Kubernetes Metrics Collector ConfigMap at runtime and add the following snippet under `prometheus_sources`.{% raw %}
-```
-kubectl edit configmap wavefront-collector-config -n wavefront
-```
-{% endraw %}
-
-Istio config:{% raw %}
-```
-      ##########################################################################
-      # Static source to collect Istio metrics via federated Prometheus server
-      ##########################################################################
-      prometheus_sources:
-      - url: 'http://prometheus.istio-system.svc.cluster.local:9090/federate?match[]={job=~"federate|kubernetes-pods"}'
-        httpConfig:
-          bearer_token_file: '/var/run/secrets/kubernetes.io/serviceaccount/token'
-          tls_config:
-            ca_file: '/var/run/secrets/kubernetes.io/serviceaccount/ca.crt'
-            insecure_skip_verify: true
-
-        filters:
-          metricTagDenyList:
-            destination_principal:
-            - '*'
-
-          metricAllowList:
-          - 'istio.requests.*'
-          - 'istio.request.*'   # mandatory for OOTB dashboards
-          - 'istio.response.*'
-          - 'istio.tcp.*'       # mandatory for OOTB dashboards
-          - 'go.goroutines.value'
-          - 'go.memstats.alloc.bytes.value'
-          - 'go.memstats.heap.alloc.bytes.value'
-          - 'go.memstats.heap.inuse.bytes.value'
-          - 'go.memstats.heap.sys.bytes.value'
-          - 'go.memstats.stack.inuse.bytes.value'
-          - 'istio.build.value' # mandatory for OOTB dashboards
-          - 'pilot.conflict.*.listener.*'
-          - 'pilot.proxy.convergence.time.bucket.value'
-          - 'pilot.services.value'
-          - 'pilot.total.xds.internal.errors.value'
-          - 'pilot.total.xds.rejects.value'
-          - 'pilot.virt.services.value'
-          - 'pilot.xds.*.reject.value'
-          - 'pilot.xds.push.context.errors.value'
-          - 'pilot.xds.pushes.value'
-          - 'pilot.xds.write.timeout.value'
-          - 'pilot.xds.value'
-          - 'process.cpu.seconds.total.value'
-          - 'process.resident.memory.bytes.value'
-          - 'process.virtual.memory.bytes.value'
-          - 'citadel.server.*'
-          - 'galley.validation.*'
-          - 'sidecar.*'
-```
-{% endraw %}
-
-**Note**: When Istio is configured as a multi-cluster service, you must deploy Prometheus and the Kubernetes Metrics Collector on each cluster. Follow the steps above for each cluster in your environment.
-
-### Reporting Istio Traces to Operations for Applications
-
-The following instructions are for reporting traces. To report metrics, use the Istio metrics setup instructions above.
-
-#### Step 1. Set Up the Wavefront Proxy
-
-Follow these [steps](https://github.com/wavefrontHQ/wavefront-kubernetes#wavefront-proxy-required) to deploy a Wavefront proxy. As part of the process, uncomment the lines to enable Zipkin/Istio traces. Use a proxy version 12.0 or later.
-
-#### Step 2. Set Up Istio to Send Traces to Wavefront Proxy
-
-Follow these [steps](https://github.com/wavefrontHQ/wavefront-kubernetes/tree/master/istio) to allow Istio to redirect its traces to the Wavefront proxy.
 
 
 ## Metrics

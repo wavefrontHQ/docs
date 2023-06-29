@@ -4,6 +4,13 @@ tags: [integrations list]
 permalink: gcp_kubernetes_engine.html
 summary: Learn about the Google Kubernetes Engine Integration.
 ---
+
+This page provides an overview of what you can do with the Google Kubernetes Engine integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the Google Kubernetes Engine integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **Google Kubernetes Engine** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## Google Cloud Platform Integration
 
 The Google Cloud Platform integration is full-featured native integration offering agentless data ingestion of GCP metric
@@ -48,6 +55,7 @@ The Google Cloud Platform integration dashboard contains predefined alert condit
 
 To create the alert, click the **Create Alert** link under the query and configure the [alert properties](https://docs.wavefront.com/alerts_manage.html) (notification targets, condition checking frequency, etc.).
 
+
 ## Google Cloud Platform Integration
 
 
@@ -58,7 +66,7 @@ Adding a Google Cloud Platform (GCP) integration requires establishing a trust r
 
 The overall process involves the following:
 
-* Creating a service account
+* Creating a service account in Google Cloud
 * Giving that account viewer privileges 
 * Downloading a JSON private key
 
@@ -102,7 +110,6 @@ To register a Google Cloud Platform integration:
    If you select to enable the **Pricing & Billing** information, you must also provide an API key.
 
 8. Click **Register**.
-
 
 
 

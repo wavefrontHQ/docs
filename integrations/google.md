@@ -4,46 +4,16 @@ tags: [integrations list]
 permalink: google.html
 summary: Learn about the Google Integration.
 ---
+
+This page provides an overview of what you can do with the Google integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the Google integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **Google** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## Google SSO Integration
 
 Wavefront supports authentication via SAML including Google SSO.
-## Google SSO Setup
-
-**Note**: This integration is not applicable if your Operations for Applications service is onboarded to VMware Cloud services. If your service is onboarded to VMware Cloud services, you can [set up enterprise federation for your corporate domain](https://docs.vmware.com/en/VMware-Cloud-services/services/setting-up-enterprise-federation-cloud-services/GUID-76FAECB3-CFAA-461E-B9C9-2A49C39CD17F.html).
-
-After setting up the Google SSO integration, users can authenticate to Wavefront through Google SSO instead of using a password.  New users who did not exist in Wavefront are auto-created on the Wavefront side when they authenticate for the first time.
-
-
-### Step 1. Create the SAML Application
-
-1. In Google, create a SAML App for Wavefront within Google IDP (settings described below, following the instructions in [Set up your own SAML app](https://support.google.com/a/answer/6087519?hl=enhttp://)).
-{% include image.md src="images/integrations_sso_google.png" width="50" %}
-
-Here are the service provider details settings that you need:    
-- **Application Name**: Wavefront
-- **Description**: Optional
-- **ACS URL\*** : https://YOUR_CLUSTER.wavefront.com:443/api/saml/login
-- **Entity ID\***:  https://YOUR_CLUSTER.wavefront.com:443
-- **Start URL**: leave blank
-- **Signed Response**: Unchecked
-- **Name ID**: Basic Information, Primary Email
-- **Name ID Format**: UNSPECIFIED
-
-You do not need the optional Attribute Mapping.
-
-      
-### Step 2. Send the Identity Provider Metadata to Wavefront and Complete the Setup
-
-
-1. Log in to your Wavefront instance as a user with `SAML IdP Admin` permissions.
-1. From the gear icon in the top right corner, select **Self Service SAML**.
-1. From the **Identity Provider** drop-down menu, select **G-Suite**.
-1. Paste the downloaded metadata from **Step 1** into the **Configure Connection** text box.
-1. To validate the metadata, click **Test**. The **G-Suite** login page opens in a new browser window.
-1. Log in to **G-Suite**.
-1. After the login is successful, click the **Save** button.
-
-   **Note:** The **Save** button is disabled until you've completed a test successfully.
 
 
 

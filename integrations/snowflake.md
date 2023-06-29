@@ -4,6 +4,13 @@ tags: [integrations list]
 permalink: snowflake.html
 summary: Learn about the Snowflake Integration.
 ---
+
+This page provides an overview of what you can do with the Snowflake integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the Snowflake integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **Snowflake** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## Snowflake
 
 Snowflake is a full-featured native integration that offers agentless data ingestion of Snowflake usage metric data as well as a predefined dashboard.
@@ -12,6 +19,7 @@ In addition to setting up the metrics flow, this integration also installs a das
 Here's a preview of the dashboard:
 
 {% include image.md src="images/snowflake-dashboard.png" width="80" %}
+
 
 
 ### Add a Snowflake Integration
@@ -50,7 +58,6 @@ After you generate the private and the public keys and create a user with the co
       <code>^snowflake.database-usage-storage-usage-history.*$</code>
 5. (Optional) Change the **Service Refresh Rate**. The default is `60` minutes.
 6. Click **Register**.
-
 
 
 
