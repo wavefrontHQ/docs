@@ -18,7 +18,7 @@ PagerDuty is a popular incident management platform. This integration configures
 Operations for Applications recommends using the PagerDuty API integration key instead of the PagerDuty email integration, but the choice between the two targets should be dependent upon how you want incidents to be created in PagerDuty based on your Operations for Applications alerts. When a PagerDuty API integration key is used in an Operations for Applications alert, all alert changes (firing, updated, resolved) are tied to a single incident in PagerDuty. When a PagerDuty email address is used in an Operations for Applications alert, the number of incidents created in PagerDuty can change significantly based on the email management configurations.
 
 Consider the following scenario:
-{% raw %}
+{% raw %}
 ```
 12:01pm - Alert: High Latency fires for source=app-1
 12:05pm - Alert Updates: High Latency fires for source=app-5 and source=app-7 (app-1 is still being affected)

@@ -37,7 +37,7 @@ The Wavefront proxy is required to send logs from your systems into Tanzu Observ
 Install Fluentd to send logs data to Wavefront proxy.
 
 * See the [prerequisites](https://docs.fluentd.org/installation/before-install) for installing Fluentd.
-{% raw %}
+{% raw %}
 * To install the stable distribution package of Fluentd, called ```td-agent```, use one the following cURL commands, depending on the Linux distribution that you use:
     
    ```
@@ -49,13 +49,13 @@ Install Fluentd to send logs data to Wavefront proxy.
    curl -L https://toolbelt.treasuredata.com//sh/install-debian-bullseye-td-agent4.sh | sh
 
    # Redhat/CentOS 7/8
-   curl -L https://toolbelt.treasuredata.com/sh/install-redhat-td-agent4.sh | sh{% raw %}
+   curl -L https://toolbelt.treasuredata.com/sh/install-redhat-td-agent4.sh | sh{% raw %}
    ```
 
   The command automatically installs Fluentd and starts the daemon. To make sure that everything is running as expected, run the following command:
    ```
 {% endraw %}
-    systemctl status td-agent.service{% raw %}
+    systemctl status td-agent.service{% raw %}
    ```
    If you use a different Linux distribution, see the [Fluentd installation](https://docs.fluentd.org/v/0.12/quickstart/installation) documentation.
 
@@ -66,7 +66,7 @@ Use the following example to configure the input and output sources for Fluentd 
 1. Open the Fluentd configuration file:
    ```
 {% endraw %}
-   sudo vi /etc/td-agent/td-agent.conf{% raw %}
+   sudo vi /etc/td-agent/td-agent.conf{% raw %}
    ```
 
 2. Define syslog as the input source for Fluentd:
@@ -82,7 +82,7 @@ Use the following example to configure the input and output sources for Fluentd 
       format none
       path_key tailed_path
       tag linux.syslog
-   </source>{% raw %}
+   </source>{% raw %}
    ```
 
 3. Define the Wavefront proxy as a “match” (the Fluentd term for an output destination):
@@ -113,7 +113,7 @@ Use the following example to configure the input and output sources for Fluentd 
          flush_interval 10s
        </buffer>
      </store>
-   </match>{% raw %}
+   </match>{% raw %}
    ```
 
    Replace WAVEFRONT_PROXY_ADDRESS with the address of your Wavefront proxy.
