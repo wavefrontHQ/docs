@@ -193,3 +193,9 @@ Once the log alert is successfully created, you are redirected back to the Log A
 ## Snooze a Log Alert
 
 ## Delete a Log
+
+## Log Alert FAQs
+
+### What are the log alert limits?
+
+Operations for Applications uses VMware Aira Operations for logs. See the limitations listed on the [Operations for logs documentation (scroll to Limits)](https://developer.vmware.com/apis/vmware-aria-operations-for-logs/latest/) when creating and managing log alerts.
