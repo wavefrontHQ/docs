@@ -66,7 +66,7 @@ Adding a Google Cloud Platform (GCP) integration requires establishing a trust r
 
 The overall process involves the following:
 
-* Creating a service account
+* Creating a service account in Google Cloud
 * Giving that account viewer privileges 
 * Downloading a JSON private key
 

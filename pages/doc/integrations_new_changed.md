@@ -17,7 +17,7 @@ For details about the two subscription types and how they differ, see [Subscript
 
 If your Operations for Applications service is onboarded to VMware Cloud services, you still can see, but cannot configure some of our integrations. For the list of integrations that we support when your Operations for Applications service is onboarded to VMware Cloud services, see [Integrations Supported for Onboarded Subscriptions](integrations_onboarded_subscriptions.html).
 
-{% include note.html content= "Currently, if your service is onboarded to VMware Cloud services, direct ingestion by using the Wavefront Output Plugin for Telegraf is not supported. For best performance, use a Wavefront proxy. " %}
+{% include note.html content= "Currently, if your service **is onboarded** to VMware Cloud services, direct ingestion by using the Wavefront Output Plugin for Telegraf is not supported. For best performance, use a Wavefront proxy. " %}
 
 ## May 2023
 
