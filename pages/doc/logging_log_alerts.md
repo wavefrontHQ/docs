@@ -12,7 +12,7 @@ You can create alerts for your logs data and get an email notifications when the
 
 ## Log Alerts Browser
 
-You can create and manage the log alerts you created on the Log Alerts Browser.
+You can create a log alert and manage the log alerts you created on the Log Alerts Browser.
 
 ![An annotated screenshot of the log alert browser.](images/logging_log_alerts_borwser.png)
 
@@ -189,3 +189,7 @@ Once the log alert is successfully created, you are redirected back to the Log A
 
 ## Edit a Log Alert
 
+
+## Snooze a Log Alert
+
+## Delete a Log
