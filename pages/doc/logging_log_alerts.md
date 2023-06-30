@@ -10,6 +10,11 @@ summary: Learn how you can create, snooze and delete a log alert.
 
 You can create alerts for your logs data and get an email notifications when the alert conditions are met.
 
+## Log Alerts Browser
+
+You can create and manage the log alerts you created on the Log Alerts Browser.
+
+![An annotated screenshot of the log alert browser.](images/logging_log_alerts_borwser.png)
 
 ## Create an Alert
 
@@ -180,8 +185,7 @@ After you customize the message, click **Next** to name and activate the log ale
 
 {% include note.html content="If the name you gave the query in step 1 already exists, you see an error. To activate the log alert, you need to go to step 1 and enter a new name." %}
 
-## Manage Alerts
+Once the log alert is successfully created, you are redirected back to the Log Alerts Browser page. You can search for your alert and see the status and firing details of the alert.
 
-Once the log alert is successfully created, you are taken the Log Alerts Browser. The logs Alerts Browser lists all the alerts you created.
+## Edit a Log Alert
 
-<TO BE ADDED>
