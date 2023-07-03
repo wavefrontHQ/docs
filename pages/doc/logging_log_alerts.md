@@ -179,8 +179,8 @@ After you customize the message, click **Next** to name and activate the log ale
 
 ### Step 5: Name and Activate the Logs Alert
 
-1. Enter an **Alert name**.
-1. Optionally, add a **Description** of the log alert you created. This field supports Markdown. Click **Preview** to preview the Markdown output.
+1. Enter the **Alert name**.
+1. Optionally, add a **Description** to your log alert. This field supports Markdown. Click **Preview** to preview the Markdown output.
 1. Click **Activate** to create the alert.
 
 {% include note.html content="If the name you gave the query in step 1 already exists, you see an error. To activate the log alert, you need to go to step 1 and enter a new name." %}
