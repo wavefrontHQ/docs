@@ -35,8 +35,8 @@ In most cases, a Wavefront proxy must be running in your environment before metr
 
 ## Proxy Authentication Types
 
-* If your Operations for Applications service instance is onboarded to VMware Cloud services, the proxy requires a VMware Cloud services access token with the **Proxies** [service role](csp_users_roles.html#operations-for-applications-service-roles-built-in). There are two options for the proxy to retrieve an access token. You can configure the proxy with:
-    *	The credentials (ID and secret) of a server to server **OAuth app** and the ID of the VMware Cloud organization running the service.
+* If your Operations for Applications service instance **is** onboarded to VMware Cloud services, the proxy requires a VMware Cloud services access token with the **Proxies** [service role](csp_users_roles.html#operations-for-applications-service-roles-built-in). There are two options for the proxy to retrieve an access token. You can configure the proxy with:
+    *	The credentials (ID and secret) of a VMware Cloud services server to server **OAuth app** and the ID of the VMware Cloud organization running the service.
 
         Before you add a proxy with an OAuth app, you must retrieve the credentials (ID and secret) of a server to server app that is assigned with the **Proxies** service role and added to the VMware Cloud organization running the service. See [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html?hWord=N4IgpgHiBcIMpgE4DckAIAuB7NBnJqiaAhgA6kgC+QA).
 
@@ -44,13 +44,13 @@ In most cases, a Wavefront proxy must be running in your environment before metr
 
         {% include note.html content="When the access token expires, depending on the token TTL configuration of the server to server app, the proxy automatically retrieves a new access token."%}
 
-    *	An **API token** that belongs to your user account.
+    *	A VMware Cloud services **API token** that belongs to your user account.
 
         Before you add a proxy with an API token, you must have a VMware Cloud services API token that belongs to the VMware Cloud organization running the service and that is assigned with the **Proxies** service role. See [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html).
 
         {% include important.html content="You might need to regenerate and reconfigure the API token periodically depending on its TTL configuration."%}
 
-* If your Operations for Applications service instance isn't onboarded to VMware Cloud services, the proxy requires an Operations for Applications API token.
+* If your Operations for Applications service instance **isn't** onboarded to VMware Cloud services, the proxy requires an Operations for Applications **API token**.
 
     Before you add a proxy, you must have an API token associated with your user account or a service account with the **Proxies** permission. See [Manage API Tokens](api_tokens.html) for details.
 
