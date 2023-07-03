@@ -171,7 +171,7 @@ Ensure that your environment meet requirements on the Ops Manager side and on th
   * Access to an Operations for Applications instance and an API token. <!--The API token that you provide and how it is generated depends on whether your Operations for Applications service is onboarded to VMware Cloud services. Service Account API token or server to server app credentials is the recommended approach. See [Managing API tokens](wavefront_api.html#managing-api-tokens).-->
 * **Tanzu Observability by Wavefront Requirements**
   To set up the Tanzu Application Service integration on your Operations for Applications instance, you must have:
-  * Access to a Operations for Applications instance.
+  * Access to an Operations for Applications instance.
   * At a minimum, **Integrations** permission on that Operations for Applications instance.
   * This version of the Tanzu Observability by Wavefront nozzle is compatible with Wavefront proxy version 10.14 and later.
 
