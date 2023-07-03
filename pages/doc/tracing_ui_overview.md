@@ -20,7 +20,7 @@ This <a href="https://vmwaretv.vmware.com/media/t/1_atlrv7sa" target="_blank">vi
 <iframe id="kmsembed-1_atlrv7sa" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_atlrv7sa/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="application map settings"></iframe>
 
 See the application map:
-1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
+1. Log in to your service instance.
 1. From the toolbar, select **Applications** > **Application Status** and click the Application Map icon ( <img src="images/tracing_appmap_appmap_view_icon.png"
 style="vertical-align:text-bottom;width:28px" alt="icon to click to get the application map view"/> )
 1. Optionally, click the link icon ( <img src="images/tracing_link_icon.png"
@@ -59,7 +59,7 @@ Let's walk through the following scenario to get a quick overview of the applica
           Duration: Update the legend to highlight the data based on the duration. Select <b>Duration</b> from the dropdown menu and customize the values. The values need to be in ascending order and in milliseconds.
         </li>
         <li>
-          Apdex: Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only <a href="authorization-faq.html#who-is-the-super-admin-user">Super Admin users</a> or users with the <a href="permissions_overview.html"><strong>Applications</strong> permission</a> can configure the threshold (T).
+          Apdex: Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only Super Admin users and users with the <a href="permissions_overview.html"><strong>Applications</strong> permission</a> can configure the threshold (T).
         </li>
       </ul>
     </td>
@@ -171,7 +171,7 @@ Let's walk through the following scenario to get a quick overview of the applica
 View the list of applications and services. You can see the Request, Error, and Duration (RED) metrics at a glance and sort the data.
 
 See the table view:
-1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
+1. Log in to your service instance.
 1. From the toolbar, select **Applications** > **Application Status** and click the Table View icon ( <img src="images/tracing_appmap_table_view_icon.png"
 style="vertical-align:text-bottom;width:28px" alt="icon to click to get the table view"/> )
 
@@ -208,7 +208,7 @@ Using the table view, you can:
         Apdex Threshold
       </td>
       <td markdown="span">
-        The threshold Apdex threshold of the service. The default threshold value is set to 100ms, and only a [Super Admin user](authorization-faq.html#who-is-the-super-admin-user) or users with the [**Applications** permission](permissions_overview.html) can configure the threshold (T).
+        The threshold Apdex threshold of the service. The default threshold value is set to 100ms, and only Super Admin users and users with the [**Applications** permission](permissions_overview.html) can configure the threshold (T).
       </td>
     </tr>
     <tr>
@@ -309,7 +309,7 @@ Using the table view, you can:
     <tr>
       <td markdown="span">
         **Apdex** <br/>
-        Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only a [Super Admin user](authorization-faq.html#who-is-the-super-admin-user) or users with the [**Applications** permission](permissions_overview.html) can configure the threshold (T).
+        Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only Super Admin users and users with the [**Applications** permission](permissions_overview.html) can configure the threshold (T).
       </td>
       <td markdown ="span">
         ![The image shows the setting and the legend setting with apdex selected from the drop down.](images/apdex_score_legend_colors.png)
@@ -350,7 +350,7 @@ Using the table view, you can:
 When you select an application, you get an overview of its services.
 
 See the grid view:
-1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
+1. Log in to your service instance.
 1. From the toolbar, select **Applications** > **Application Status** and click the Grid View icon ( <img src="images/tracing_appmap_grid_view_icon.png"
 style="vertical-align:text-bottom;width:28px" alt="icon to click to get the table view"/> )
 
@@ -392,7 +392,7 @@ On the page for a particular application, you can:
       <tr>
         <td markdown="span">
           **Apdex** <br/>
-          Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only [Super Admin users](authorization-faq.html#who-is-the-super-admin-user) can configure the threshold (T).
+          Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only Super Admin users and users with the [**Applications** permission](permissions_overview.html) can configure the threshold (T).
         </td>
         <td markdown ="span">
           ![The image shows the setting and the legend setting with apdex selected from the drop down.](images/apdex_score_legend_colors.png)

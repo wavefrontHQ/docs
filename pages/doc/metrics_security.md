@@ -7,6 +7,8 @@ permalink: metrics_security.html
 summary: Use metrics security to control access to time series, histograms, and delta counters.
 ---
 
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Metrics Security Policy Rules in Operations for Applications on VMware Cloud Services](csp_metrics_security.html)."%}
+
 In a large enterprise, certain data is confidential. VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) allows you to limit who can see or modify data in several ways.
 * **Permissions** are **global** settings.
   - Some permissions limit who can modify objects (e.g. proxies or events). For example, users with **Dashboards** permission can modify all dashboards.

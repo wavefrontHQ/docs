@@ -6,6 +6,9 @@ sidebar: doc_sidebar
 permalink: access.html
 summary: Control access to individual dashboards and alerts.
 ---
+
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Managing Access to Dashboards and Alerts in Operations for Applications on VMware Cloud Services](csp_access.html)."%}
+
 VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports the roles, permissions, and groups authorization paradigm for managing global permissions. For example, a user with **Dashboards** permission can manage *all* dashboards. This paradigm is sufficient for many of our customers.
 
 Super Admins or users with the **Accounts** permission who need finer-grained control can manage access on a per-object basis. We currently support access control for dashboards and alerts.

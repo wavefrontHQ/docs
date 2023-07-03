@@ -217,7 +217,7 @@ After you've enabled agent metrics collection, you can examine Telegraf statisti
 <td width="40%">
 In the GUI, find the integration.
 <ol>
-<li>Log in to your service instance (<code>https://&lt;your_instance&gt;.wavefront.com</code>). </li>
+<li>Log in to your service instance. </li>
 <li>Select <strong>Integrations</strong>.</li>
 <li>Search for Telegraf and select that integration.</li>
 </ol></td>

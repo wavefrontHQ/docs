@@ -8,9 +8,9 @@ summary: Get data from Amazon Web Services or a Windows host.
 ---
 
 In this tutorial, you'll learn how to:
-1. Log in to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
-2. Send data from applications and services that run on your AWS account.
-3. Visualize data with preconfigured dashboards and charts.
+1. Send data from applications and services that run on your AWS account.
+2. Visualize data with preconfigured dashboards and charts.
+3. Set up and use a system alert.
 
 It's an easy setup. You don't have to install anything or make changes to your application code.
 
@@ -26,19 +26,7 @@ It's an easy setup. You don't have to install anything or make changes to your a
 </table>
 
 
-## Task 1: Log In to Your Product Instance
-
-If you've never logged in to your company's product instance, follow these steps. Go to Task 2 otherwise.
-
-1. Check your email! When your administrator grants you with access to the product, you receive a welcome email.
-2. Click the link in the email.
-  * In some environments, you set up your password and you're done.
-  * If your administrator has configured Single Sign-On (SSO), you're redirected to your company's SSO environment. When you complete the authentication steps, you're redirected to your instance.
-3. Going forward, you can log in using the `https://<my_instance>.wavefront.com` URL. The instance name is in the invitation email.
-
-{% include tip.html content="If your company isn't currently a VMware Aria Operations for Applications customer, [sign up for a free trial](https://tanzu.vmware.com/observability)." %}
-
-## Task 2: Set Up the Integration
+## Task 1: Set Up the Integration
 
 In this task, we'll set up a data ingestion pipeline with AWS.
 
@@ -134,7 +122,7 @@ Once the instance is launched, you'll see the data after a few minutes.
 * [Set up and manage the AWS Integration by Using the API](integrations_aws_overview_API.html).
 * See the [List of our integrations](label_integrations%20list.html).
 
-## Task 3: Explore Data with Out-of-the-Box Dashboards
+## Task 2: Explore Data with Out-of-the-Box Dashboards
 
 With data flowing, you can start exploring dashboards and charts:
 
@@ -164,7 +152,7 @@ Our service includes system dashboards for the AWS integration that help you ana
 
 This [90-second video](https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gunwcmwm/uiConfId/49694343/pbc/252649793/st/0) gives a great overview of how to interact with dashboards and charts.
 
-## Task 4: Set Up and Use an Out-of-the-Box Alert
+## Task 3: Set Up and Use an Out-of-the-Box Alert
 
 Many integrations have preconfigured alerts for common use cases. All you have to do is:
 * Clone the alert.
@@ -223,7 +211,9 @@ When the threshold is exceeded, you'll receive an email that includes a link to 
 
 ## Video: Set Up Data Ingestion from a Windows Host
 
-Watch the following video to learn how to ingest Windows host metrics.
+Watch the following video to learn how to ingest Windows host metrics. 
+
+The instructions in this video work if your Operations for Applications instance is **not** onboarded to VMware Cloud services.
 <p>
 <iframe id="kmsembed-1_0bbze8os" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_0bbze8os/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Setting up a Windows integration"></iframe>
 </p>

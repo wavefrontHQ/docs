@@ -23,17 +23,13 @@ If you want to monitor Tanzu Mission Control with Wavefront, you have two option
 
 To get started, you set up the integration from Tanzu Mission Control to VMware Aria Operations for Applications:
 
-### Step 1: In Your Product Cluster, Generate an API Token
+### Step 1: Generate an API Token
 
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="50%">In your product cluster, <a href="integrations_tmc.html#generate-a-service-account-api-token-for-tanzu-mission-control">Generate a Service Account API Token for Tanzu Mission Control</a>.
-</td>
-<td width="50%"><img src="/images/tmc_service_account_create.png" alt="Create service account dialog with name and description filled in."></td>
-</tr>
-</tbody>
-</table>
+<!--* If your Operations for Applications service **is** onboarded to VMware Cloud services, see [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) and [How do I manage API tokens in my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html) in the VMware Cloud services documentation. You can also use the credentials of a [server to server app](csp_server_to_server_apps.html).
+* If your Operations for Applications service is **not** onboarded to VMware Cloud services, generate the API token in the Operations for Applications UI. See [Managing API tokens](api_tokens.html).
+-->
+
+In your product cluster, [Generate a Service Account API Token for Tanzu Mission Control](integrations_tmc.html#generate-a-service-account-api-token-for-tanzu-mission-control).
 
 ### Step 2: In Tanzu Mission Control, Set Up the Integration
 
@@ -52,7 +48,7 @@ To get started, you set up the integration from Tanzu Mission Control to VMware 
 <ul>
 <li><strong>Credential Name</strong>. Name that starts and ends with a letter and contains only lowercase letters, numbers, and hyphens. Best practice is to include the name of the product instance in the credential name. Do NOT use the name of the service account. </li>
 <li><strong>Tanzu Observability URL</strong>. The URL of your product cluster, for example, <code>https://demo.wavefront.com</code></li>
-<li><strong>Tanzu Observability API Token</strong>. The API token that you generated inside your product instance. </li>
+<li><strong>Tanzu Observability API Token</strong>. The API token that you generated in Step 1. </li>
 </ul> </td>
 <td width="50%"><img src="/images/tmc_create_credential_page.png" alt="Create Tanzu Observability page with 3 fields filled in"></td>
 </tr>
@@ -151,7 +147,7 @@ Failures might be caused by several issues including the following:
 * Image cannot be pulled
 * Pod crash due to internal access logic error
 * General issue on the Tanzu Mission Control side
-* Issue with credential, for example, the API token might have been revoked on the VMware Aria Operations for Applications side.
+* Issue with credential, for example, the API token might have been revoked.
 
 **Remediation**
 

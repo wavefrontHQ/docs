@@ -13,6 +13,19 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
 * For **Observability for Kubernetes**, go to the [release notes for Observability for Kubernetes GitHub repository](https://github.com/wavefrontHQ/observability-for-kubernetes/releases).
 
+## Announcement
+
+Starting July 3, 2023, VMware Aria Operations for Applications is a service on the [VMware Cloud services platform](https://console.cloud.vmware.com/). After this date, we support two types of subscriptions: Operations for Applications subscriptions **onboarded** to the VMware Cloud services platform and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until they migrate to VMware Cloud services. We are in the process of incrementally migrating original subscriptions to VMware Cloud services.
+
+For information about the two subscription types and how they differ, see [Subscription Types](subscriptions-differences.html).
+ 
+{% include note.html content="We will support both original and onboarded subscriptions until all original subscriptions are migrated to VMware Cloud services."%}
+
+## 2023-25.x Release Notes
+
+* **Wavefront Proxy Release**: We’ve just released [Wavefront proxy 13](https://github.com/wavefrontHQ/wavefront-proxy/releases), which supports sending data to Operations for Applications subscriptions **onboarded** to VMware Cloud Services by using a VMware Cloud services access token.
+* **New Fields in the Generic Webhook Alert Template**: We added two new fields to the Generic Webhook notification template which allow you to extract information about the filter-by and group-by keys. For information and examples, see [Extract Information About the Filter-by and Group-by Keys](alert_target_customizing.html#extract-information-about-the-filter-by-and-group-by-keys).
+
 ## 2023-20.x Release Notes
 
 **The Group By Parameter Is Case-Sensitive**: With this release, when you apply the `group by` parameter to aggregation function queries, the grouping is case-sensitive. For more information and details, see [Aggregation Functions](query_language_reference.html#aggregation-functions) and [Tags Overview](tags_overview.html#tags-basics).

@@ -7,6 +7,8 @@ permalink: wavefront_administer.html
 summary: Understand what you can do if you have administrative privileges.
 ---
 
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For information about VMware Cloud services subscriptions and original subscriptions and how they differ, see [Subscription Types](subscriptions-differences.html)."%}
+
 In VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront), Super Admin users and users with the **Accounts** permission can perform a variety of tasks, such as:
 
 * Manage the authorization and access to the Operations for Applications environment.
@@ -41,7 +43,3 @@ You can use the Operations for Applications Usage integration dashboards to moni
 * In addition, you can create your own dashboards, charts, and alerts by using the internal metrics to investigate the problem.
 
 You can also [examine the overall usage](examine_usage.html) and monitor how data is used by specific accounts, groups, sources, metric namespaces, or point tags, based on [ingestion policies](ingestion_policies.html).
-
-## Purchase Operations for Applications Capacity
-
-As a Super Admin user, you can [upgrade](upgrade_and_purchase.html) your Operations for Applications instance from a trial version to a billable subscription. You can also [add more PPS](purchase_additional_capacity.html) to your active subscription.
