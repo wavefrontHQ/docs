@@ -17,6 +17,7 @@ Runscope is a cloud-based API monitoring service that monitors performance and a
 
 This integration uses a Python script and the Telegraf Exec plugin to get the data from Runscope. You install and configure Telegraf to send Runscope test results into Operations for Applications. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
+
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here's a preview of some charts in the Runscope dashboard.
 
 {% include image.md src="images/runscope-dashboard.png" width="80" %}
