@@ -255,7 +255,7 @@ The following example passes the `telegraf.conf` file and any files (such as `10
 ```
 Errors with the container with WAVEFRONT_PROXY_ARGS will be logged as the container starts.
 
-* WAVEFRONT_TOKEN and WAVEFRONT_URL are required parameters for the container to start
+* WAVEFRONT_URL together with WAVEFRONT_TOKEN or CSP_APP_ID, CSP_APP_SECRET, and CSP_ORG_ID or CSP_API_TOKEN are required parameters for the container to start.
 
 ## Configure a Containerized Wavefront Proxy with an HTTPS Proxy
 
@@ -273,13 +273,30 @@ To add the CA certificates of the HTTPS proxy to the Wavefront proxy that runs i
 1. Place all PEM files in one directory.
 2. Mount that directory as volume `/tmp/ca` on the Docker deployment
 
-For example, you can run a command like the following for testing (see the Docker documentation for the command in production environments):
-```
-docker run -it -e WAVEFRONT_URL=xxxxxxx -e WAVEFRONT_TOKEN=xxxxxx -p 2878:2878 -v /Users/user42/wavefront/ca_certs_test/to_docker:/tmp/ca proxy
-```
+Example: Run a command like the following for testing (see the Docker documentation for the command in production environments):
 
+* For VMware Cloud services subscriptions and proxy authentication with a server to server OAuth app:
+
+    ```
+    docker run -it -e WAVEFRONT_URL=xxxxxxx -e CSP_APP_ID=xxxxxx CSP_APP_SECRET=xxxxxx CSP_ORG_ID=xxxxxx -p 2878:2878 -v /Users/user42/wavefront/ca_certs_test/to_docker:/tmp/ca proxy
+    ```
+
+* For VMware Cloud services subscriptions and proxy authentication with an API token:
+
+    ```
+    docker run -it -e WAVEFRONT_URL=xxxxxxx -e CSP_API_TOKEN=xxxxxx -p 2878:2878 -v /Users/user42/wavefront/ca_certs_test/to_docker:/tmp/ca proxy
+    ```
+
+* For original subscriptions:
+
+    ```
+    docker run -it -e WAVEFRONT_URL=xxxxxxx -e WAVEFRONT_TOKEN=xxxxxx -p 2878:2878 -v /Users/user42/wavefront/ca_certs_test/to_docker:/tmp/ca proxy
+    ```
 
 You must specify:
 * WAVEFRONT_URL: The URL of your Operations for Applications service (e.g., https://example.wavefront.com)
-* WAVEFRONT_TOKEN: The [Operations for Applications token](wavefront_api.html#managing-api-tokens). Creating a service account and using a service account token usually makes sense.
+* Authentication parameters for your [subscription type](subscriptions-differences.html) and authentication type:
+    * CSP_APP_ID, CSP_APP_SECRET, and CSP_ORG_ID: VMware Cloud services server to [server OAuth app](csp_server_to_server_apps.html) credentials (ID and secret), and the VMware Cloud organization ID.
+    * CSP_API_TOKEN: The [VMware Cloud services API token](csp_users_account_managing.html#generate-an-api-token).
+    * WAVEFRONT_TOKEN: The [Operations for Applications API token](api_tokens.html). Creating a service account and using a service account token usually makes sense.
 * The port that the proxy is using; 2878 by default.

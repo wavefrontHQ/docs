@@ -26,7 +26,7 @@ Watch [this video](https://vmwaretv.vmware.com/media/t/1_5wfjti3m) for some back
 ### To Prepare for Direct Ingestion
 
 1. Identify the URL of your Operations for Applications service. This is the URL you use when you log in, typically something like `https://<your_instance>.wavefront.com`.
-2. [Obtain an API token](wavefront_api.html#managing-api-tokens).
+2. [Obtain an API token](api_tokens.html).
 
 
 ### To Prepare for Using a Wavefront Proxy

@@ -60,7 +60,7 @@ As a [Super Admin user](authorization-faq.html#who-is-the-super-admin-user), you
 POST https://<your_instance>.wavefront.com/api/logout/{identifier}
 ```
 
-You must specify the `{identifier}`, which is the email address of the user that you want to log out. If you are not logged in to your service instance, when you run the POST request, you must also provide a valid [API token](wavefront_api.html#managing-api-tokens).
+You must specify the `{identifier}`, which is the email address of the user that you want to log out. If you are not logged in to your service instance, when you run the POST request, you must also provide a valid [API token](api_tokens.html#generate-and-manage-the-api-tokens-for-your-user-account).
 
 ## What Can a New User Do?
 
