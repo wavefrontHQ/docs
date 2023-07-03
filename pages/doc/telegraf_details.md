@@ -293,12 +293,7 @@ Follow these steps:
   * See the [Proxy Release Notes on Github](https://github.com/wavefrontHQ/wavefront-proxy/releases) for recent new features.
 
 2. Upgrade the Telegraf agent by downloading the binaries through https://portal.influxdata.com/downloads/. Installation packages for Linux are also available at https://packagecloud.io/wavefront/telegraf.
-   For configuration details, see these links:
-
-   * **Windows**: [Telegraf Configuration Windows](windows.html#install-the-telegraf-agent)
-   * **Linux**: [Telegraf Configuration Linux](linux.html#install-and-configure-wavefront-proxy-and-telegraf-agent-manually)
-   * **MacOS**: [Telegraf Configuration Mac](mac.html#install-configure-and-restart-the-telegraf-agent)
-
+   
 
 ## See Also
 

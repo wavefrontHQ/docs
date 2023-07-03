@@ -228,8 +228,8 @@ In Ops Manager, click the Tanzu Observability by Wavefront tile. With **Settings
    <td width="50%"><strong>Step 2.</strong> Click <strong>Wavefront Proxy Config</strong> and specify:
    <ol><li>The URL of your Operations for Applications instance, for example, <code>https://example.wavefront.com</code>.</li>
    <li>A valid API token. 
-   The API token that you specify depends on whether your Operations for Applications service is onboarded to VMware Cloud services.
-   See <a href="wavefront_api.html#managing-api-tokens">Managing API Tokens</a>.</li>
+   <!--The API token that you specify depends on whether your Operations for Applications service is onboarded to VMware Cloud services.
+   See <a href="wavefront_api.html#managing-api-tokens">Managing API Tokens</a>.--></li>
    <li>User-friendly name for the proxy. </li>
    <li>Click <strong>Save</strong> or click <strong>Custom</strong> (see the next step).
    The nozzle ignores these configuration properties because they're already defined in the setup steps:
