@@ -23,9 +23,9 @@ If your Operations for Applications service is onboarded to VMware Cloud service
 
 We made improvements to the following integrations in May 2023:
 
-* Istio - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. See [Istio Setup](istio.html#istio-setup) for details.
-* Envoy Proxy - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. See [Envoy Proxy on Kubernetes](envoy.html#envoy-proxy-on-kubernetes) for details.
-* RabbitMQ - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. See [RabbitMQ on Kubernetes](rabbitmq.html#rabbitmq-on-kubernetes) for details.
+* Istio - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* Envoy Proxy - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* RabbitMQ - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
 * Tanzu Application Service -- Made updates to the **TAS: Nozzle Troubleshooting** and the **TAS: Workload Monitoring** dashboards, as well as to the **TAS UAA Latency is Elevated** alert.
   * Updated the latency queries because now we emit latency as a histogram.
   * Updated the **TAS: Nozzle Troubleshooting** dashboard to show points used by histograms.
@@ -87,7 +87,7 @@ We made improvements to the following integrations in January 2023:
 
 * Amazon Web Services -- You can now ingest and monitor AWS Lambda cold start metrics. For information about how to do this, see [Ingesting AWS Lambda Cold Start Metrics into VMware Aria Operations for Applications](integrations_aws_lambda.html#ingesting-aws-lambda-cold-start-metrics-into-vmware-aria-operations-for-applications).
 
-* ServiceNow -- We updated the instructions on how to set up the integration to reflect the latest UI changes. See more in the [ServiceNow Setup](servicenow.html#servicenow-setup) instructions.
+* ServiceNow -- We updated the instructions on how to set up the integration to reflect the latest UI changes.
 
 * Microsoft SQL Server -- Updated the charts in the **SQL Server Metrics** dashboard to use the instance variables.
 
