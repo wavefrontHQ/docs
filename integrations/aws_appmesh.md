@@ -4,6 +4,13 @@ tags: [integrations list]
 permalink: aws_appmesh.html
 summary: Learn about the AWS App Mesh Integration.
 ---
+
+This page provides an overview of what you can do with the AWS App Mesh integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the AWS App Mesh integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **AWS App Mesh** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## AWS App Mesh Integration
 
 AWS App Mesh is a service mesh that allows you to monitor and control communications across microservices applications on AWS.
@@ -19,41 +26,6 @@ This integration also installs a dashboard. Here's a preview of the AWS App Mesh
 {% include image.md src="images/appmesh_2.png" width="80" %}
 {% include image.md src="images/appmesh_3.png" width="80" %}
 
-## Reporting AWS App Mesh Metrics to Operations for Applications
-
-
-
-This integration uses the [Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/wavefront-kubernetes-collector) to send metrics. The collector can send metrics to Operations for Applications using either the [Wavefront proxy](https://docs.wavefront.com/proxies.html) or [direct ingestion](https://docs.wavefront.com/direct_ingestion.html).
-
-The following instructions are for reporting metrics. To report traces, use the AWS App Mesh tracing setup instructions below.
-
-### Step 1. Set up Wavefront Proxy
-Follow these [steps](https://github.com/wavefrontHQ/wavefront-kubernetes#wavefront-proxy-required) to deploy a Wavefront proxy. If you plan on sending metrics directly to the Operations for Applications service, this step is not required. If you plan to send traces, use the proxy set up instructions in the tracing section below.
-
-
-### Step 2. Deploy and Configure the Wavefront Collector for Kubernetes
-
-You can deploy the collector using `kubectl`. To send metrics to Operations for Applications, set up the collector with Auto Discovery.
-
-Refer to the collector [documentation] for configuration details and installation instructions.
-
-Also, Refer to the Auto Discovery [documentation] to set up collector with Auto Discovery.
-
-A sample deployment to deploy the collector with discovery rules can be found [here](https://github.com/wavefrontHQ/wavefront-kubernetes/tree/master/aws-appmesh#deploy-wavefront-kubernetes-collector-with-auto-discovery-rules).
-
-
-## Reporting AWS App Mesh Traces to Operations for Applications
-The following instructions are for reporting traces. To report metrics, use the AWS App Mesh metrics setup instructions above.
-
-### Step 1. Set up Wavefront Proxy
-Follow these [steps](https://github.com/wavefrontHQ/wavefront-kubernetes#wavefront-proxy-required) to deploy a Wavefront proxy. As part of the process, uncomment the appropriate lines to enable Zipkin/Istio traces. Use a proxy version 4.35 or later.
-
-### Step 2. Set up Envoy to Send Zipkin Format Traces to Wavefront Proxy
-
-* Follow the Envoy [documentation](https://www.envoyproxy.io/docs/envoy/latest/start/sandboxes/zipkin_tracing#install-sandboxes-zipkin-tracing) to set up Envoy proxy to collect and report Zipkin traces to a Zipkin cluster.
-* Modify the Zipkin cluster to point to the Wavefront proxy.
-
-Look at the sample deployment [here](https://github.com/wavefrontHQ/wavefront-kubernetes/tree/master/aws-appmesh/deploy/tracing-config.yaml).
 
 
 

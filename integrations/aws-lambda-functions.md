@@ -4,6 +4,13 @@ tags: [integrations list]
 permalink: aws-lambda-functions.html
 summary: Learn about the AWS Lambda Functions Integration.
 ---
+
+This page provides an overview of what you can do with the AWS Lambda Functions integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the AWS Lambda Functions integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **AWS Lambda Functions** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 # AWS Lambda Functions Integration
 
 In a Function-as-a-Service (FaaS) environment, also called a serverless environment, code runs in response to events. AWS Lambda is one implementation of this paradigm: After you define a Lambda function, the AWS Lambda service will run it in response to events. Because Lambda functions are stateless, AWS Lambda can run as many copies of the function as needed, rapidly scaling up or scaling down in response to incoming events.
@@ -28,90 +35,6 @@ In addition to setting up the metrics, this integration also installs a dashboar
 {% include image.md src="images/dashboard_1.png" width="80" %}
 {% include image.md src="images/dashboard_2.png" width="80" %}
 
-## AWS Lambda Functions Setup
-
-Operations for Applications provides Lambda function wrappers, which allow you to send custom metrics from your Lambda functions and collect standard Lambda metrics for Python, Go and Node.js.
-
-### Configure Wavefront Lambda Wrapper
-The Wavefront AWS Lambda function wrappers use the following environment variables:
-
-- **WAVEFRONT_URL**: `https://YOUR_CLUSTER.wavefront.com`
-- **WAVEFRONT_API_TOKEN**: `YOUR_API_TOKEN API token with Direct Data Ingestion permission).
-- **REPORT_STANDARD_METRICS**: Optional. Set to False to omit reporting standard Lambda metrics.
-
-### Python Lambda Wrapper
-To report metrics from your Python Lambda functions, use the [Wavefront Python Lambda Wrapper](https://github.com/wavefrontHQ/wavefront-lambda-python).
-
-#### Install wavefront_lambda{% raw %}
-```
-pip install wavefront_lambda
-```
-{% endraw %}
-
-#### Usage
-Decorate your Python AWS Lambda function handler with `@wavefront_lambda.wrapper`:{% raw %}
-```
-import wavefront_lambda
-
-@wavefront_lambda.wrapper
-def handler(event, context):
-    # your code
-```
-{% endraw %}
-
-### Go Lambda Wrapper
-To report metrics from your Go Lambda functions, use the [Wavefront Go Lambda Wrapper](https://github.com/wavefrontHQ/wavefront-lambda-go).
-
-#### Install wavefront-lambda{% raw %}
-```
-go get github.com/wavefronthq/wavefront-lambda-go
-```
-{% endraw %}
-
-#### Usage
-Wrap your Go AWS Lambda function handler with `wflambda.Wrapper`:{% raw %}
-```
-package main
-
-import (
-	"github.com/aws/aws-lambda-go/lambda"
-	"github.com/rcrowley/go-metrics"
-	"github.com/wavefronthq/go-metrics-wavefront"
-	"github.com/wavefronthq/wavefront-lambda-go"
-)
-
-func HandleLambdaRequest() {
-	// your code
-}
-
-func main() {
-	// Wrap your Lambda function handler with wflambda.Wrapper
-	lambda.Start(wflambda.Wrapper(HandleLambdaRequest))
-}
-```
-{% endraw %}
-
-### Node.js Lambda Wrapper
-To report metrics from your Node.js Lambda functions, use the [Wavefront Node.js Lambda Wrapper](https://github.com/wavefrontHQ/wavefront-lambda-nodejs).
-
-#### Install wavefront-lambda{% raw %}
-```
-npm install wavefront-lambda
-```
-{% endraw %}
-
-#### Usage
-Wrap your Node.js AWS Lambda function handler with `wavefrontLambda.wrapper`:
-{% raw %}
-```
-const wavefrontLambda = require('wavefront-lambda')
-const metrics = require('wavefrontmetrics');
-
-exports.myHandler = wavefrontLambda.wrapper( function(event, context, callback) {
-                //your code
-});
-```
-{% endraw %}
 
 
 

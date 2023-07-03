@@ -70,7 +70,7 @@ Follow these steps:
 	 You must check whether the **Name** and the **Value** custom authorization headers are configured properly. 
 	 
 	 * The **Name** text box should be set as `Authorization`.
-	 * The **Value** text box should contain the [BigPanda Bearer Token](bigpanda.html#step-1-create-a-bigpanda-appkey-and-bearer-token).
+	 * The **Value** text box should contain the BigPanda Bearer Token.
 
 	    Do not copy the content of the **Value** text box directly to a new target. Copying this value directly might add up spaces or characters and result in errors.
   

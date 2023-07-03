@@ -16,7 +16,7 @@ The default, read-only dashboard for a service lets you explore that service, ho
 See the Service Dashboard:
 
 * Option 1:
-  1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
+  1. Log in to your service instance.
   1. From the toolbar, click **Applications** > **Service Dashboard**.
 
 * Option 2:

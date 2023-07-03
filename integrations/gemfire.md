@@ -5,6 +5,13 @@ permalink: gemfire.html
 summary: Learn about the VMware GemFire® Integration.
 ---
 
+This page provides an overview of what you can do with the VMware GemFire® integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the VMware GemFire® integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **VMware GemFire®** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
+
 ## VMware GemFire Integration
 
 The VMware GemFire integration allows you to monitor many GemFire clusters running in Kubernetes, as well as GemFire clusters running in a user-provided infrastructure.
@@ -27,30 +34,6 @@ In addition to setting up the metrics flow, this integration also installs dashb
 
 {% include image.md src="images/gemfire-dashboard.png" width="80" %}
 
-## Use the instructions on this page for monitoring:
-
-1. VMware GemFire for Kubernetes
-2. VMware GemFire
-
-### VMware GemFire for Kubernetes Setup
-
-You can deploy the Kubernetes Metrics Collector by using either the [Observability for Kubernetes Operator](https://github.com/wavefrontHQ/observability-for-kubernetes#readme) (recommended deployment) or by using the [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or [manual installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install) (deprecated deployment).
-
-If you do not already have the Kubernetes Metrics Collector installed in your Kubernetes cluster, follow the [add Kubernetes](extdata/add/kubernetes) instructions and add it to your cluster.
-
-Once installed, the Kubernetes Metrics Collector will start collecting your GemFire for Kubernetes metrics and will push them through the Wavefront proxy to your Operations for Applications environment specified upon installation.
-
-Within about a minute you will be able to use the dashboard on the Dashboards tab above and see our default metrics sent from any GemFire clusters created in that Kubernetes cluster.
-
-### VMware GemFire Setup
-Supported versions: GemFire 9.10.8 and later.
-
-To set up GemFire metrics flow, use the [setup instructions](https://gemfire.docs.pivotal.io/910/gemfire/tools_modules/tanzu-observability.html) in the VMware GemFire Documentation.
-
-### VMware GemFire for Tanzu Application Service Setup
-The [Tanzu Observability by Wavefront nozzle](https://network.pivotal.io/products/wavefront-nozzle/) tile must be installed on the same Tanzu Application Service (TAS) foundation as GemFire for Tanzu Application Service. 
-
-Follow instructions to [install and configure](https://docs.pivotal.io/wavefront-nozzle/3-x/installing.html#install) Tanzu Observability by Wavefront nozzle. Once configured, the metrics become visible within about a minute on the GemFire for VMs dashboard.
 
 
 

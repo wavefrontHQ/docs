@@ -15,7 +15,7 @@ You can measure the performance of a service using Request, Error, and Duration 
 
 When you send your applications trace data to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront), the application data is detected as first-class citizens using the traces, and the Apdex score is calculated using the threshold value (T) you define. Use [`apdex()`](hs_apdex_function.html) to query the Apdex score of a service, view the results in charts, and create alerts.
 
-The default threshold value (T) is set to 100ms, and only a [Super Admin user](authorization-faq.html#who-is-the-super-admin-user) or users with the [**Applications** permission](permissions_overview.html) can configure the threshold (T).
+The default threshold value (T) is set to 100ms, and only Super Admin users and users with the [**Applications** permission](permissions_overview.html) can configure the threshold (T).
 
 ### Apdex Score
 

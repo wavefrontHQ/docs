@@ -85,7 +85,7 @@ For information about external IDs and how they are used in AWS, see [How to Use
 1. Enter the account information:
    - **Account ID** - The identifier of the account to which you want to grant access. 
      To get the account ID:
-      1. Navigate to your service instance (`https://<your_instance>.wavefront.com`).
+      1. Navigate to your service instance.
       2. Click **Integrations** on the toolbar and click the **Amazon Web Services** integration tile. 
       3. Click the **Setup** tab and click the **How to get Role ARN** link.
       4. Copy the **Account ID** displayed in the instructions.
@@ -206,7 +206,7 @@ You can set up an AWS integration, enable and disable it, and delete it. After y
 
 To set up an AWS integration, you must have a [Role ARN](#give-read-only-access-to-your-amazon-account-and-get-the-role-arn) handy. 
 
-1. Log in to your service instance (`https://<your_instance>.wavefront.com`) and click **Integrations** on the toolbar.
+1. Log in to your service instance and click **Integrations** on the toolbar.
 1. In the **Featured** section, click the **Amazon Web Services** tile.
 1. Click the **Setup** tab, and click **Add Integration**.   
 1. Configure the integration properties:

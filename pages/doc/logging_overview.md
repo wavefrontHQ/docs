@@ -106,7 +106,6 @@ Each log has required attributes, standard attributes, and custom tags. We token
         </li>
        </ul>
     <p>See <a href="logging_send_logs.html#limits-for-logs">Limits for Logs</a> for details.</p>
-    {%include important.html content="Currently, the **level** and **exception** tag key names are unsupported."%}
     </td>
   </tr>
 </table>

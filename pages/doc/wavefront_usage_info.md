@@ -97,7 +97,7 @@ Billing for Operations for Applications is based primarily on the ingestion rate
 ### Examine Ingestion with the Namespace Usage Explorer Dashboard
 
 The **Operations for Applications Namespace Usage Explorer** dashboard can help you pinpoint where data are coming from.
-1. Log in to your service instance (`https://<your_instance>.wavefront.com`).
+1. Log in to your service instance.
 2. Click **Integrations** from the toolbar, and click the **Operations for Applications Usage** integration.
 3. On the **Dashboards** tab, click the **Operations for Applications Namespace Usage Explorer** dashboard.
 

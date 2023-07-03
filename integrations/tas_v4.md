@@ -4,6 +4,13 @@ tags: [integrations list]
 permalink: tas_v4.html
 summary: Learn about the VMware Tanzu Application Service Integration.
 ---
+
+This page provides an overview of what you can do with the VMware Tanzu Application Service integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the VMware Tanzu Application Service integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **VMware Tanzu Application Service** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## Tanzu Application Service Integration
 
 Tanzu Application Service is a popular platform for building cloud-native applications.
@@ -38,6 +45,7 @@ The Tanzu Observability Nozzle for TAS has three major components.
 
 
 
+
 {% include image.md src="images/screen-3.png" width="80" %}
 
 ### Step 1: Download the Tanzu Obervability Nozzle Tile
@@ -65,7 +73,6 @@ To confirm, click the **Metrics** tab.
 ### Step 4: Explore TAS Metrics with the System Dashboards
 
 Examine your foundation data with the out-of-the-box dashboards on the **Dashboards** tab.
-
 
 ## Tanzu Application Service Metrics Overview
 

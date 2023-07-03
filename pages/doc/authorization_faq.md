@@ -7,6 +7,8 @@ permalink: authorization-faq.html
 summary: Before you start managing users, groups, roles, and access, here are some FAQs.
 ---
 
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscriptions. For VMware Cloud services subscriptions, see [Authorization Model in Operations for Applications on VMware Cloud Services](csp_authorization.html)."%}
+
 ### What Are User & Service Accounts?
 
 VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports two account types:
@@ -28,9 +30,7 @@ When a Super Admin user [enables Super Admin mode](users_account_managing.html#e
 * Can [restore orphan dashboards and alerts](access.html#make-orphan-dashboards-or-alerts-visible).
 * Can invite other Super Admin users.
 * Can [sign out a user](user-accounts.html#sign-out-a-user).
-* Can upgrade from trial version and purchase Operations for Applications.
 * Can purchase more PPS.
-* Can create and manage [ingestion policies](ingestion_policies.html).
 
 To invite other Super Admin users:
 

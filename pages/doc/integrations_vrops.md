@@ -1,10 +1,10 @@
 ---
-title: VMware Aria Operations Integration Overview
+title: VMware Aria Operations (SaaS) Integration Overview
 keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_vrops.html
-summary: Understand the setup and the VMware Aria Operations integration v1 limitations and caveats.
+summary: Understand the setup and the VMware Aria Operations (SaaS)integration v1 limitations and caveats.
 ---
 [VMware Aria Operations (SaaS)](https://www.vmware.com/products/aria-operations.html) (formerly vRealize Operations Cloud) delivers intelligent operations management with application-to-storage visibility across physical, virtual, and cloud infrastructures. Using policy-based automation, operations teams automate key processes and improve the IT efficiency.
 
@@ -41,7 +41,7 @@ The API token will give read-only access to VMware Aria Operations (SaaS) and en
 
 ### Set Up the VMware Aria Operations (SaaS) Integration
 
-1. Log in to your Operations for Applications cluster: `https://<example>.wavefront.com`.
+1. Log in to your Operations for Applications instance.
 1. Click **Integrations** on the toolbar. 
 1. In the VMware section, click the **VMware Aria Operations (SaaS)** tile.
 1. Click **Add Integration**.

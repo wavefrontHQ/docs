@@ -7,6 +7,8 @@ permalink: users_roles.html
 summary: Manage global permissions with roles.
 ---
 
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscriptions. For VMware Cloud services subscriptions, see [Manage Roles and Groups in VMware Cloud Services](csp_users_roles.html)."%}
+
 VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports roles to fine-tune authorization in the Wavefront environment.
 
 Users with the **Accounts** permission can:

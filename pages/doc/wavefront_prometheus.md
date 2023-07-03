@@ -8,7 +8,7 @@ summary: Run PromQL queries in the Query Editor
 
 VMware Aria Operations for Applications (previously known as Tanzu Observability by Wavefront) supports both PromQL and Wavefront Query Language (WQL) queries. The Query Editor includes admin-level organization settings for enabling PromQL and a query line GUI that includes a translation option.
 
-* Users with the **Accounts** permission and Super Admin users have control over user defaults:
+* Users with the **Accounts** permission and **Super Admin** users have control over user defaults:
   - On the **Organization Settings** page (New User Defaults) they can enable users to write queries in PromQL.
   - If queries in PromQL are enabled, they can also set other options.
 * Users can then type PromQL or WQL queries into the Query Editor.
@@ -22,7 +22,10 @@ VMware Aria Operations for Applications (previously known as Tanzu Observability
 
 ## Set PromQL Organization Settings (Administrator Only)
 
-Users with **Accounts**  permission can navigate to the **Organization Settings** and enable the PromQL support.
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html).<br/>
+- For VMware Cloud services subscriptions, only users with the **Super Admin**  service role in Super Admin mode can enable the PromQL support.<br/>
+- For original Operations for Applications subscriptions, users with the **Accounts** permission can enable the PromQL support."%}
+
 * If **PromQL Support** is *not enabled*, other users cannot use PromQL or change PromQL user preferences.
 * If **PromQL Support** is *enabled*, administrators can set additional New User Default query settings, and other users can override those settings.
 
@@ -43,7 +46,7 @@ To set PromQL settings for your organization:
 
 If an administrator has enabled PromQL support (discussed above), each user can control some aspects of PromQL.
 
-{% include note.html content="If you can only choose between Query Editor and Chart Builder, then PromQL is not supported on your Wavefront instance. Contact a site administrator with **Accounts** permission." %}
+{% include note.html content="If you can only choose between Query Editor and Chart Builder, then PromQL is not supported on your Operations for Applications instance." %}
 
 1. From the gear icon, select your username.
 2. Under **Query Settings**, select:

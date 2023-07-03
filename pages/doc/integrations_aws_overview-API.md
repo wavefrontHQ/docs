@@ -23,7 +23,7 @@ For more information, see [Giving Access to Your AWS Account](integrations_aws_o
 
 ### Create an External ID
 
-1. Log in to your product cluster. For example, `https://<example>.wavefront.com`.
+1. Log in to your product cluster.
 1. Click the gear icon in the top right and select **API Documentation**.
 1. Expand the **Cloud Integration** category.
 1. To create a new cloud integration, click the `POST /api/v2/cloudintegration/awsExternalId` request.
@@ -72,7 +72,7 @@ For more information, see [Giving Access to Your AWS Account](integrations_aws_o
 You can add an AWS integration by using the REST API documentation UI.
 
 
-1. Log in to your product cluster. For example, `https://<example>.wavefront.com`.
+1. Log in to your product cluster.
 1. Click the gear icon in the top right and select **API Documentation**.
 1. Expand the **Cloud Integration** category.
 1. To create a new cloud integration, click the `POST /api/v2/cloudintegration` request.
