@@ -141,9 +141,9 @@ Options:
 <td width="20%"><strong>Authentication</strong></td>
 <td width="80%">Depends on your <a href="subscriptions-differences.html">subscription type</a> and <a href="proxies_installing.html#proxy-authentication-types">proxy authentication type</a>.
 <ul>
-<li>For VMware Cloud services subscriptions and proxy authentication with a server to server OAuth app, CSP_APP_ID and CSP_APP_SECRET are the server to server app credentials (ID and secret), and CSP_ORG_ID is the ID of the VMware Cloud organization.</li>
-<li>For VMware Cloud services subscriptions and proxy authentication with an API token, CSP_API_TOKEN is the VMware Cloud services token.</li>
-<li>For original subscriptions, WAVEFRONT_TOKEN is the Operations for Applications API token.</li></ul>
+<li>For VMware Cloud services subscriptions and proxy authentication with a server to server OAuth app, CSP_APP_ID and CSP_APP_SECRET are the server to server app credentials (ID and secret). The server to server app must be assigned with the <strong>Proxies</strong> service role and must be added to the VMware Cloud organization running the Operations for Applications service instance. CSP_ORG_ID is the ID of the VMware Cloud organization.</li>
+<li>For VMware Cloud services subscriptions and proxy authentication with an API token, CSP_API_TOKEN is the VMware Cloud services API token. The API token and its associated user account must be assigned with the <strong>Proxies</strong> service role.</li>
+<li>For original subscriptions, WAVEFRONT_TOKEN is the Operations for Applications API token. The user account or service account associated with the API token must be assigned with the <strong>Proxies</strong> permission.</li></ul>
 </td>
 </tr>
 <tr>
@@ -296,7 +296,7 @@ Example: Run a command like the following for testing (see the Docker documentat
 You must specify:
 * WAVEFRONT_URL: The URL of your Operations for Applications service (e.g., https://example.wavefront.com)
 * Authentication parameters for your [subscription type](subscriptions-differences.html) and authentication type:
-    * CSP_APP_ID, CSP_APP_SECRET, and CSP_ORG_ID: VMware Cloud services server to [server OAuth app](csp_server_to_server_apps.html) credentials (ID and secret), and the VMware Cloud organization ID.
-    * CSP_API_TOKEN: The [VMware Cloud services API token](csp_users_account_managing.html#generate-an-api-token).
-    * WAVEFRONT_TOKEN: The [Operations for Applications API token](api_tokens.html). Creating a service account and using a service account token usually makes sense.
+    * For VMware Cloud services subscriptions and authentication with a [server to server OAuth app](csp_server_to_server_apps.html), CSP_APP_ID and CSP_APP_SECRET are the server to server app credentials (ID and secret). The server to server app must be assigned with the **Proxies** service role and must be added to the VMware Cloud organization running the Operations for Applications service instance. CSP_ORG_ID is the ID of the VMware Cloud organization.
+    * For VMware Cloud services subscriptions and authentication with an [API token](csp_users_account_managing.html#generate-an-api-token), CSP_API_TOKEN is the VMware Cloud services API token. The API token and its associated user account must be assigned with the **Proxies** service role.
+    * For original subscriptions, WAVEFRONT_TOKEN is the [Operations for Applications API token](api_tokens.html). The user account or service account associated with the API token must be assigned with the **Proxies** permission.
 * The port that the proxy is using; 2878 by default.
