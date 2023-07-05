@@ -19,6 +19,23 @@ If your Operations for Applications service is onboarded to VMware Cloud service
 
 {% include note.html content= "Currently, if your service **is onboarded** to VMware Cloud services, direct ingestion by using the Wavefront Output Plugin for Telegraf is not supported. For best performance, use a Wavefront proxy. " %}
 
+## July 2023
+
+We made improvements to the following integrations in July 2023:
+
+* Amazon Web Services - You can now select to ingest Amazon Web Services Usage metrics. To do so, when you register or edit your CloudWatch integration, in the **Products** section, select **Custom** and select the **AWS Usage** check box.
+* Kafka - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* Redis - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* etcd - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* Cassandra - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* NVIDIA - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
+* VMware GemFire - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. Also updated some of the dashboard queries to a new format.
+* Uptime - Updated the integration with the new Uptime logo.
+* Windows Host - The setup steps now use a URL parameter in the Wavefront proxy configuration.
+* Operations for Applications Usage - Fixed issues in the predefined dashboards.
+* Terraform Provider - Fixed a discrepancy in the Terraform `resource_alert` provider resulting in erroneous Terraform change plan.
+
+
 ## May 2023
 
 We made improvements to the following integrations in May 2023:
