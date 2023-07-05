@@ -2,9 +2,9 @@
 title: Proxy Authentication Properties
 keywords: 
 tags: 
-publish: false
 sidebar: doc_sidebar
 permalink: authentication_properties.html
+published: false
 summary: Learn more about the authentication properties that you must provide when you install the Wavefront proxy.
 ---
 
@@ -15,7 +15,7 @@ Before you can install a Wavefront proxy, you have to find the values for your e
 * If your VMware Aria Operations for Applications service **is** onboarded to VMware Cloud services, you either need server to server OAuth app credentials or a valid VMware Cloud services API token.
 
 {% include note.html content="To find how to set up an integration, click **Integrations** on the toolbar, navigate to the integration you are interested in and click it's tile. On the **Setup** tab of the integration, you will find the most recent instructions." %}
-
+  
 ## Authentication Properties
 
 <table style="width: 100%;">
