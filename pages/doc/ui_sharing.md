@@ -101,7 +101,7 @@ You can embed an interactive chart in another product or on a Website. You must 
 
 ### Allow or Deny Access to Embedded Charts
 
-You can apply access policies and deny or allow access to the embedded charts by using our REST API. The `Access Policy` controls which IP addresses can access the embedded charts and doesn't affect any other URLs or other functionality. Learn more about the [categories in the REST API](wavefront_api.html#rest-api-categories).
+You can apply access policies and deny or allow access to the embedded charts by using our REST API. The `Access Policy` controls which IP addresses can access the embedded charts and doesn't affect any other URLs or other functionality. Learn more about the [categories in the REST API](wavefront_api.html#operations-for-applications-rest-api-categories).
 
 When you apply an access policy rule, take in mind the following:
 

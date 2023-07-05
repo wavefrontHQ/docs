@@ -45,7 +45,7 @@ When the integration setup requires a token for the proxy authentication, the se
 
 Here's a sample of what you see when you select one of our integrations:
 * The **Overview** tab explains how the integration works and what's included, often a sample dashboard with commonly used charts.
-* The **Setup** tab has the most recent instructions for configuring the integration.
+* The **Setup** tab has the instructions for configuring the integration.
 * The **Metrics** and **Dashboard** tabs are preconfigured to show your metrics after you've set up the integration. You can [clone and customize our dashboards](integrations.html#cloning-and-customizing-dashboards).
 * The **Alerts** tab is an optional one. It contains a list of preconfigured integration alerts.
 

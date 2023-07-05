@@ -313,7 +313,7 @@ INFO [AbstractReportableEntityHandler:reject] [<port>] blocked input: [WF-300 Ca
   <td><ul>
   <li>Validate that the API token or the OAuth app credentials that the proxy is using are correct and active.</li>
   <li>Validate that the user account associated with the token or the corresponding server to server app is active.</li>
-  <li>Ensure that the API token or the corresponding server to server app has the <strong>Proxies</strong> service role.</li></ul></td>
+  <li>Ensure that the corresponding server to server app, or the API token and the associated user account have the <strong>Proxies</strong> service role.</li></ul></td>
   <td><ul>
   <li>Validate that the token used by the proxy is correct and active.</li>
   <li>Validate that the user or server account associated with the token is active.</li>

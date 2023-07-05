@@ -343,7 +343,7 @@ Here's the list of the integrations that are updated as of today (July 3, 2023).
 </tr>	
 <tr>
 <td markdown="span">Twemproxy</td>
-<td markdown="span">[Twempproxy Integration](twemproxy.html)</td>
+<td markdown="span">[Twemproxy Integration](twemproxy.html)</td>
 </tr>	    
 <tr>
 <td markdown="span">Varnish Cache</td>
@@ -370,7 +370,7 @@ Here's the list of the integrations that are updated as of today (July 3, 2023).
 <td markdown="span">[Active Directory Integration](activedirectory.html)</td>
 </tr> 
 <tr>
-<td markdown="span">Ceran</td>
+<td markdown="span">Cernan</td>
 <td markdown="span">[Cernan Integration](cernan.html)</td>
 </tr> 		
 <tr>
