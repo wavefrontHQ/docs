@@ -122,6 +122,8 @@ If logs exceed the maximum character limit for a message, tag, or value, the Wav
 
 {% include note.html content="To increase the limits, ask your administrator to reach out to [technical support](https://docs.wavefront.com/wavefront_support_feedback.html#support)." %}
 
+{% include important.html content= "If you are on the VMware Cloud Services Subscription, these limits do not apply to you. For more detail on the subscriptions, see [Announcements](wavefront_release_notes.html#announcement)."%}
+
 <table style="width: 100;">
   <tr>
     <th width="20%">
@@ -151,6 +153,7 @@ If logs exceed the maximum character limit for a message, tag, or value, the Wav
     </td>
   </tr>
 </table>
+
 
 <!--- Repeat from logging_overview. There are links below already. I recommend we cut this.
 ## Map the Traces and Metrics to Logs
