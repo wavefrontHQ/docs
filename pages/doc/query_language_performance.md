@@ -31,7 +31,7 @@ The Wavefront Query Language (WQL) lets you retrieve and display the data that h
 
 ## Video: Optimize Dashboard Performance
 
-Watch this video to learn how to optimize dashboard and query performance.
+Watch this video to learn how to optimize dashboard and query performance. Note that this video was created in 2021 and some of the information in it might have changed. It also uses the 2021 version of the UI.
 
 <p>
 <iframe id="kmsembed-1_ynnxe6tn" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_ynnxe6tn/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0"></iframe>

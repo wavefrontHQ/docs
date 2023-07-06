@@ -15,7 +15,7 @@ As part of troubleshooting an application, you need an overview of the services 
 
 The application map gives you an overview of how the applications and services are linked, lets you focus on a specific service, view Request, Error, and Duration (RED) metrics for each service, and the tracing traffic in the application. You can also drill down to the Service Dashboard and Tracing Browser.
 
-This <a href="https://vmwaretv.vmware.com/media/t/1_atlrv7sa" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights the application map features and settings:
+This <a href="https://vmwaretv.vmware.com/media/t/1_atlrv7sa" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights the application map features and settings. Note that this video was created in 2020 and some of the information in it might have changed. It also uses the 2020 version of the UI.
 
 <iframe id="kmsembed-1_atlrv7sa" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_atlrv7sa/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="application map settings"></iframe>
 

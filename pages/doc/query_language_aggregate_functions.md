@@ -13,7 +13,7 @@ You can combine points from multiple time series using an [**aggregation functio
 * Raw aggregation functions (e.g. `rawsum()`, `rawavg()`) do **not** interpolate the underlying series before aggregation.
 * [Moving window functions](query_language_windows_trends.html) (e.g. `msum()`, `mavg()` and `mmax()` aggregate series horizontally across a chart by time. They take each individual series and aggregate its own prior behavior across the timeWindow. For example, you can get the maximum value for each series in the specified time window.
 
-In the following video, Clement Pang explains how interpolation works:
+In the following video, Clement Pang explains how interpolation works. Note that this video was created in 2018 and some of the information in it might have changed. 
 
 <p><iframe id="kmsembed-1_afml14zm" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_afml14zm/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Time Series and Interpolation"></iframe>
 </p>

@@ -13,7 +13,8 @@ This page explain how to send histogram distributions. After the data is availab
 
 ## Getting Started
 
-Watch this video for an introduction to histograms:
+Watch this video for an introduction to histograms. Note that this video was created in 2018 and some of the information in it might have changed. 
+
 <p>
 <iframe id="kmsembed-1_cqtj7fe3" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_cqtj7fe3/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Histograms"></iframe>
 </p>

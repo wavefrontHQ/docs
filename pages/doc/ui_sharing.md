@@ -16,11 +16,12 @@ You can
 
 ## Video: Sharing Content
 
-This short <a href="https://vmwaretv.vmware.com/media/t/1_0esjgu8b" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> shows how you can share content by using some of the methods described below.
+This short <a href="https://vmwaretv.vmware.com/media/t/1_0esjgu8b" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> shows how you can share content by using some of the methods described below. Note that this video was created in 2021 and some of the information in it might have changed. It also uses the 2021 version of the UI.
 
 <p>
 <iframe id="kmsembed-1_0esjgu8b" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_0esjgu8b/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Sharing search results, dashboards and charts using short URLs."></iframe>
 </p>
+
 
 ## Share a Link with a Share Icon
 
