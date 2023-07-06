@@ -16,7 +16,7 @@ This page uses the v2 UI, which allows you to examine your data with [chart buil
 
 ## Videos
 
-Watch these videos to get you started. The videos use the v1 UI, but the basic workflow remains the same in the v2 UI.
+Watch these videos to get you started. The videos were created between 2017 and 2021 and some of the information in them might have changed. They also use the v1 UI, but the basic workflow remains the same in the v2 UI. 
 
 <table style="width: 100%;">
 <tbody>

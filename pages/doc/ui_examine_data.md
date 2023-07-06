@@ -12,14 +12,13 @@ With dashboards and charts, all VMware Aria Operations for Applications (formerl
 
 ## Video
 
-All users can customize their dashboards to drill down into data. Learn how to find a section, filter using variables or filters, set the time for the dashboard, and share the dashboard with others. You need Dashboards permissions to save your changes.
+All users can customize their dashboards to drill down into data. Learn how to find a section, filter using variables or filters, set the time for the dashboard, and share the dashboard with others. You need the **Dashboards** permission to save your changes. Note that this video was created in 2020 and some of the information in it might have changed. It also uses the 2020 version of the UI.
 
-You can also watch the video <a href="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gunwcmwm/uiConfId/49694343/pbc/252649793/st/0" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+You can also watch the video <a href="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gunwcmwm/uiConfId/49694343/pbc/252649793/st/0" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>. 
 
 <p>
 <iframe id="kmsembed-1_gunwcmwm" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gunwcmwm/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0"></iframe>
 </p>
-
 
 ## Get Started: Dashboard Browser
 
@@ -67,7 +66,7 @@ You can customize what you see, open charts, and more.
 
 ## Set the Time Window
 
-This <a href="https://vmwaretv.vmware.com/media/t/1_zew0muhn" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights how you can select, sync, and reset time windows so you can analyze and compare your data.
+This <a href="https://vmwaretv.vmware.com/media/t/1_zew0muhn" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights how you can select, sync, and reset time windows so you can analyze and compare your data. Note that this video was created in 2021 and some of the information in it might have changed. It also uses the 2021 version of the UI.
 
 <p>
 <iframe id="kmsembed-1_zew0muhn" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_zew0muhn/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="time window customization video"></iframe>
@@ -291,7 +290,7 @@ You can move the time window into the future. However, unless you are using one 
 </table>
 
 
-Here's a <a href="https://vmwaretv.vmware.com/media/t/1_zew0muhn" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> that illustrates chart time windows.
+Here's a <a href="https://vmwaretv.vmware.com/media/t/1_zew0muhn" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> that illustrates chart time windows. Note that this video was created in 2021 and some of the information in it might have changed. It also uses the 2021 version of the UI.
 <p>
 <iframe id="kmsembed-1_zew0muhn" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_zew0muhn/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Time Windows on Dashboards and Charts"></iframe>
 </p>

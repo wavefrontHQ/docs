@@ -17,7 +17,9 @@ Users with the [**Super Admin** service role](csp_users_roles.html#operations-fo
 
 {% include tip.html content="In addition to access control, Operations for Applications also support [metrics security policy rules](csp_metrics_security.html) which allow fine-grained control over which users can see which metrics." %}
 
-This video shows how to limit access for a dashboard, how to give access (share) that dashboard, and how to set the security setting. You can manage access for alerts the same way. The video uses the 2020 version of the UI.
+This video shows how to limit access for a dashboard, how to give access (share) that dashboard, and how to set the security setting. You can manage access for alerts the same way. 
+
+Note that this video was created in 2020 and some of the information in it might have changed. It also uses the 2020 version of the UI.
 
 <p><iframe id="kmsembed-1_lckq6foe" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_lckq6foe/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Object-Based Access Control"></iframe></p>
 

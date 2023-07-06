@@ -38,7 +38,7 @@ VMware Aria Operations for Applications (formerly known as Tanzu Observability b
 
 ## Videos
 
-Watch these videos to get started:
+Watch these videos to get started. Note that the videos were created in 2022 and some of the information in them might have changed. They also use the 2022 version of the UI.
 
 <table style="width: 100%;">
 <tbody>

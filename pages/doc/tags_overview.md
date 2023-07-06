@@ -9,7 +9,7 @@ In VMware Aria Operations for Applications (formerly known as Tanzu Observabilit
 
 ## Videos
 
-Watch these videos to get started:
+Watch these videos to get started. Note that these videos were created in 2018 and 2021 and some of the information in them might have changed. 
 
 <table style="width: 100%;">
 <tbody>

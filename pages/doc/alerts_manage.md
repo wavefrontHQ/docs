@@ -15,7 +15,7 @@ If you are using the **Terraform Provider**, update to [version 3.0.1](https://r
 
 ## Create Alert Video
 
-Users with the **Alerts** permission follow a step-by-step process to create an alert. Watch this 90 second video.
+Users with the **Alerts** permission follow a step-by-step process to create an alert. Watch this 90 second video. Note that this video was created in 2021 and some of the information in it might have changed. It also uses the 2021 version of the UI.
 
 <p>
 <iframe id="kmsembed-1_e655iog1" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_e655iog1/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" alt="creating alerts with step-by-step process"></iframe>

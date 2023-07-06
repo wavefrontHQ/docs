@@ -10,7 +10,7 @@ VMware Aria Operations for Applications (formerly known as Tanzu Observability b
 
 ## Video
 
-In the following lightboard video, Clement Pang explains how cardinality works and why it's important to pay attention to your data shape. You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_824wsz3p" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+In the following lightboard video, Clement Pang explains how cardinality works and why it's important to pay attention to your data shape. You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_824wsz3p" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>. Note that this video was created in 2020 and some of the information in it might have changed. 
 
 
 <p>
