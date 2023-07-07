@@ -19,7 +19,7 @@ The WQL `join()` function is modeled after the SQL JOIN operation, which correla
 {% include note.html content="Using `join()` for an inner join is an explicit way to perform series matching between two groups of time series. As an shortcut for certain simple use cases, you can use an operator that performs [implicit series matching](query_language_series_matching.html)." %}
 
 
-Watch Pierre talk about WQL joins and how they're used.
+Watch Pierre talk about WQL joins and how they're used. Note that this video was created in 2019 and some of the information in it might have changed. It also uses the 2019 version of the UI.
 
 <p>
 <iframe id="kmsembed-1_82m4iwhv" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_82m4iwhv/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="The join() Function"></iframe>

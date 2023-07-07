@@ -113,7 +113,9 @@ In addition, tight integrations with Spring Boot, Kubernetes, and Tanzu Mission 
 
 <table style="width: 100%;">
 <tbody>
-<tr><td width="50%">Use our easy to set up integration to collect real-time metrics from all layers of a Kubernetes environment (clusters, nodes, pods, containers and the Kubernetes control plane). You can visualize the metrics in a rich set of predefined dashboards. </td>
+<tr><td width="50%">Use our easy to set up integration to collect real-time metrics from all layers of a Kubernetes environment (clusters, nodes, pods, containers and the Kubernetes control plane). You can visualize the metrics in a rich set of predefined dashboards. 
+<p>Note that this video was created in 2020 and some the information in it might have changed.</p>
+</td>
 <td width="50%">
 <iframe id="kmsembed-1_rpculupf" width="400" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_rpculupf/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability and Kubernetes"></iframe>
  </td>
@@ -142,6 +144,8 @@ You can use VMware Aria Operations for Applications with time-series (metric) da
 * **App Monitoring with Distributed Tracing:** For traces, we support Jaeger and Zipkin or any applications that are instrumented with the OpenTracing library. You can also send custom traces using one of our SDKs. Our [Application Map](tracing_ui_overview.html) GUI supports easy exploration of trace data, RED metrics, etc.
 
 ### Video: Getting Data In
+
+Note that this video was created in 2018 and some the information in it might have changed.
 
 <p>
 <iframe id="kmsembed-1_nc4kmszz" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_nc4kmszz/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="Getting Data Into the Service"></iframe>
