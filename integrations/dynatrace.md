@@ -15,8 +15,6 @@ This page provides an overview of what you can do with the Dynatrace integration
 
 Dynatrace is an AI-powered, full-stack, automated performance management solution. This integration collects the metrics from a Dynatrace SaaS environment and sends them to Wavefront.
 
-## Dynatrace Integration
-
 
 
 ### Add a Dynatrace Integration
