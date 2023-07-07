@@ -141,7 +141,7 @@ If you see blocked logs, you can get more details about them in the metrics brow
               `logAnnotationValueTooLong`
             </td>
             <td markdown="span">
-              You see the following metrics if the value you sent is too long or if too many tags were sent. For more details, [limits for logs](logging_send_logs.html#limits-for-logs).
+              You see the following metrics if the log value you sent or the number of log tags you sent exceeds the maximum limit. For more details, see [limits for logs](logging_send_logs.html#limits-for-logs).
             </td>
           </tr>
         </tbody>
