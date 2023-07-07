@@ -76,8 +76,6 @@ You can see the information about the metrics on the [Azure metrics](https://doc
 - [Azure Virtual Machine Scale Set](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesets)
 
 
-## Microsoft Azure Integrations
-
 
 
 ### Add a Microsoft Azure Cloud Integration
