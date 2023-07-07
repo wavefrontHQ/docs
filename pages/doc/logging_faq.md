@@ -91,12 +91,64 @@ The Wavefront proxy drops the logs that exceed the [maximum character limit](log
     - In the **Blocked Logs per Second** chart, you can see how many logs were blocked.
     - In the **Proxy Backlog Size (Bytes)** chart, non-zero values indicate that the proxy is having issues delivering data.
 
+If you see blocked logs, you can get more details about them in the metrics browser (see the next section).
+
 ### Search for Metrics on the Metrics Browser
 
 1. Select **Browse** > **Metrics**.
-1. In the [Metrics Browser](metrics_managing.html), search for metrics with the `~proxy.log.` namespace. The results you see can be `logSourceMissing`, `logSourceTooLong`, `logMessageTooLong`, `tooManyLogTags`, `logAnnotationKeyTooLong`, `logAnnotationKeyBadChars`, `logAnnotationValueEmpty`, and `logAnnotationValueTooLong`
-  
-    {% include note.html content="If you see `~proxy.log.*TooLong` or `~proxy.log.tooManyLogTags` metrics, check the [limits for logs](logging_send_logs.html#limits-for-logs). If you want to increase the logs limit, contact [technical support](wavefront_support_feedback.html#support)." %}
+1. In the [Metrics Browser](metrics_managing.html), search for metrics with the `~proxy.log.` namespace. The results you see can be:
+    <table style="width: 100%;">
+      <thead>
+        <tr>
+          <th width="30%">
+            Metric Name
+          </th>
+          <th width="70%">
+            Description
+          </th>
+        </tr>
+      </thead>
+        <tbody>
+          <tr>
+            <td markdown="span">
+              `logSourceMissing`
+            </td>
+            <td markdown="span">
+              The source tag is missing for the logs you send. For more details on the log tags, see [Log Attributes](logging_overview.html#log-attributes).
+            </td>
+          </tr>
+          <tr>
+            <td markdown="span">
+              `logAnnotationKeyBadChars`
+            </td>
+            <td markdown="span">
+            </td>
+          </tr>
+          <tr>
+            <td markdown="span">
+              `logAnnotationValueEmpty`
+            </td>
+            <td markdown="span">
+              A value for one or more of the annotations in the log message was either blank or empty.
+            </td>
+          </tr>
+          <tr>
+            <td markdown="span">
+              `logSourceTooLong` <br/>
+              `logMessageTooLong`<br/>
+              `tooManyLogTags`<br/>
+              `logAnnotationKeyTooLong`<br/>
+              `logAnnotationValueTooLong`
+            </td>
+            <td markdown="span">
+              You see the following metrics if the value you sent is too long or if too many tags were sent. For more details, [limits for logs](logging_send_logs.html#limits-for-logs).
+            </td>
+          </tr>
+        </tbody>
+    </table>
+
+Example: 
+![A screenshot of the metrics you see when you search for ~proxy.log.](images/logging_blocked_logs_metrics.png)
 
 ### Search for Logs on the Logs Browser
 

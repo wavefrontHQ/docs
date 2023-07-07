@@ -106,6 +106,7 @@ Each log has required attributes, standard attributes, and custom tags. We token
         </li>
        </ul>
     <p>See <a href="logging_send_logs.html#limits-for-logs">Limits for Logs</a> for details.</p>
+    {% include important.html content= "If you are on the VMware Cloud Services Subscription, these limits do not apply to you. For more detail on the subscriptions, see [Announcements](wavefront_release_notes.html#announcement)."%}
     </td>
   </tr>
 </table>
