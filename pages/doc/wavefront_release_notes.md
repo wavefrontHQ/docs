@@ -21,6 +21,17 @@ For information about the two subscription types and how they differ, see [Subsc
  
 {% include note.html content="We will support both original and onboarded subscriptions until all original subscriptions are migrated to VMware Cloud services."%}
 
+## 2023-27.x Release Notes
+
+### Original and Onboarded Subscriptions
+
+**Monitor Google Cloud Run**: You can monitor Google Cloud Run metrics. See the [Integrations Release Notes](integrations_new_changed.html) for details.
+
+### Original Subscriptions Only
+
+**Service Accounts Improvement**: With this release, service accounts can create and modify ingestion policies. Simply make sure that you grant the **Ingestion Policies** permission to the [service account](service-accounts.html) that you want to use.
+
+
 ## 2023-25.x Release Notes
 
 * **Wavefront Proxy Release**: We’ve just released [Wavefront proxy 13](https://github.com/wavefrontHQ/wavefront-proxy/releases), which supports sending data to Operations for Applications subscriptions **onboarded** to VMware Cloud Services by using a VMware Cloud services access token.
