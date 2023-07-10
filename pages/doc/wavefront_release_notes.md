@@ -15,7 +15,12 @@ This page lists new and updated features for the VMware Aria Operations for Appl
 
 ## Announcement
 
-Starting July 3, 2023, VMware Aria Operations for Applications is a service on the [VMware Cloud services platform](https://console.cloud.vmware.com/). After this date, we support two types of subscriptions: Operations for Applications subscriptions **onboarded** to the VMware Cloud services platform and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until they migrate to VMware Cloud services. We are in the process of incrementally migrating original subscriptions to VMware Cloud services.
+Starting July 3, 2023, VMware Aria Operations for Applications is a service on the [VMware Cloud services platform](https://console.cloud.vmware.com/). After this date, we support two types of subscriptions: 
+
+* **Onboarded Subscriptions**: Operations for Applications subscriptions that are onboarded to the VMware Cloud services platform. 
+* **Original Subscriptions**: Existing subscriptions which remain as is until they migrate to VMware Cloud services. 
+   
+   We are in the process of incrementally migrating original subscriptions to VMware Cloud services.
 
 For information about the two subscription types and how they differ, see [Subscription Types](subscriptions-differences.html).
  
@@ -29,8 +34,7 @@ For information about the two subscription types and how they differ, see [Subsc
 
 ### Original Subscriptions Only
 
-**Service Accounts Improvement**: With this release, service accounts can create and modify ingestion policies. Simply make sure that you grant the **Ingestion Policies** permission to the [service account](service-accounts.html) that you want to use.
-
+**Service Accounts Improvement**: With this release, [service accounts](service-accounts.html) can create and modify ingestion policies when they have the **Ingestion Policies** permission. 
 
 ## 2023-25.x Release Notes
 
