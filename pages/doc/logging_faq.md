@@ -77,7 +77,7 @@ If you are using Fluentd, you can specify the `application` and `service` in the
 
 The Wavefront proxy drops the logs that exceed the [maximum character limit](logging_send_logs.html#limits-for-logs) for a message, tag, and value. Use the methods listed below to track the incoming log data and the number of logs blocked by the proxy:
 
-### See the Data on the Predefined Logs Stats Charts
+### Step 1: See the Data on the Predefined Logs Stats Charts
 
 1. Select **Dashboards** > **All Dashboards**.
 1. Search for **Operations for Applications Service and Proxy Data** in the search bar, and click the dashboard.
@@ -93,7 +93,7 @@ The Wavefront proxy drops the logs that exceed the [maximum character limit](log
 
 If you see blocked logs, you can get more details about them in the metrics browser (see the next section).
 
-### Search for Metrics on the Metrics Browser
+### Step 2: Search for Metrics on the Metrics Browser
 
 1. Select **Browse** > **Metrics**.
 1. In the [Metrics Browser](metrics_managing.html), search for metrics with the `~proxy.log.` namespace. The results you see can be:
@@ -108,57 +108,60 @@ If you see blocked logs, you can get more details about them in the metrics brow
           </th>
         </tr>
       </thead>
-        <tbody>
-          <tr>
-            <td markdown="span">
-              `logSourceMissing`
-            </td>
-            <td markdown="span">
-              The source tag is missing for the logs you send. For more details on the log tags, see [Log Attributes](logging_overview.html#log-attributes).
-            </td>
-          </tr>
-          <tr>
-            <td markdown="span">
-              `logAnnotationKeyBadChars`
-            </td>
-            <td markdown="span">
-            </td>
-          </tr>
-          <tr>
-            <td markdown="span">
-              `logAnnotationValueEmpty`
-            </td>
-            <td markdown="span">
-              A value for one or more of the annotations in the log message was either blank or empty.
-            </td>
-          </tr>
-          <tr>
-            <td markdown="span">
-              `logSourceTooLong` <br/>
-              `logMessageTooLong`<br/>
-              `tooManyLogTags`<br/>
-              `logAnnotationKeyTooLong`<br/>
-              `logAnnotationValueTooLong`
-            </td>
-            <td markdown="span">
-              You see the following metrics if the log value you sent or the number of log tags you sent exceeds the maximum limit. For more details, see [limits for logs](logging_send_logs.html#limits-for-logs).
-            </td>
-          </tr>
-        </tbody>
+      <tbody>
+        <tr>
+          <td markdown="span">
+            `logAnnotationKeyBadChars`
+          </td>
+          <td>
+            If the log tag key does not meet the following guidelines the logs are blocked:<br/>
+            <ul>
+              <li>
+                The log tag key must only have alphanumeric or underscore characters.
+                {% include note.html content="Alphanumeric refers to A through Z (uppercase letters), a through z (lowercase letters), and 0 through 9 (numbers)." %}
+              </li>
+              <li>
+                The tag key name also should not start with a digit and should not start or finish with an underscore.
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td markdown="span">
+            `logAnnotationValueEmpty`
+          </td>
+          <td markdown="span">
+            A value for one or more of the annotations in the log message was either blank or empty.
+          </td>
+        </tr>
+        <tr>
+          <td markdown="span">
+            `logSourceTooLong` <br/>
+            `logMessageTooLong`<br/>
+            `tooManyLogTags`<br/>
+            `logAnnotationKeyTooLong`<br/>
+            `logAnnotationValueTooLong`
+          </td>
+          <td markdown="span">
+            You see the following metrics if the log value you sent or the number of log tags you sent exceeds the maximum limit. For more details, see [limits for logs](logging_send_logs.html#limits-for-logs).
+          </td>
+        </tr>
+      </tbody>
     </table>
 
 Example: 
 ![A screenshot of the metrics you see when you search for ~proxy.log.](images/logging_blocked_logs_metrics.png)
 
-### Search for Logs on the Logs Browser
+### Step 3: Search the Proxy Logs
 
-In the [Logs Browser](logging_log_browser.html), search for logs containing the following message:
+Go to your proxy logs and search for logs containing the following message:
 
 ```
 INFO  [AbstractReportableEntityHandler:reject] [2878] blocked input:
 ```
 
 You can see why the log was rejected and the log message.
+
 
 ## Why Do I See a `pattern not match` Error in the Fluentd Logs?
 

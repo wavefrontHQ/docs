@@ -152,6 +152,23 @@ If logs exceed the maximum character limit for a message, tag, or value, the Wav
       100 tags per log
     </td>
   </tr>
+  <tr>
+    <td markdown="span">
+      Log tag key
+    </td>
+    <td>
+      The characters allowed for a log tag key:
+      <ul>
+        <li>
+          The log tag key must only have alphanumeric or underscore characters.
+          {% include note.html content="Alphanumeric refers to A through Z (uppercase letters), a through z (lowercase letters), and 0 through 9 (numbers)." %}
+        </li>
+        <li>
+          The tag key name also should not start with a digit and should not start or finish with an underscore.
+        </li>
+      </ul>
+    </td>
+  </tr>
 </table>
 
 
