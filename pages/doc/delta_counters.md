@@ -13,7 +13,7 @@ VMware Aria Operations for Applications (formerly known as Tanzu Observability b
 
 ## Video
 
-Learn the difference between cumulative counters and delta counters and see how to manage delta counters from the UI.
+Learn the difference between cumulative counters and delta counters and see how to manage delta counters from the UI. Note that this video was created in 2020 and some of the information in it might have changed. It also uses the 2020 version of the UI.
 
 <p>
 <iframe id="kmsembed-1_khsugqea" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_khsugqea/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="delta counters video, part animation, part screen capture"></iframe>

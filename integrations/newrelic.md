@@ -21,8 +21,6 @@ This integration can be configured to pull all application metrics from New Reli
 Metrics that originate from New Relic are prefixed with `newrelic.apps.` in Operations for Applications. After you set up the integration, you can browse the available metrics in the metrics browser.
 
 
-## New Relic Integration
-
 
 
 ### Adding New Relic Integration

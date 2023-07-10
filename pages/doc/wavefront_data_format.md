@@ -104,7 +104,7 @@ The string "host" is a reserved word. If you specify a point tag host=&lt;tagVal
 
 ### Video: Point Tags and Source Tags
 
-Watch the following video for an introduction to point tags and source tags:
+Watch the following video for an introduction to point tags and source tags. Note that this video was created in 2018 and some of the information in it might have changed.
 
 <p>
 <iframe id="kmsembed-1_3igakxnb" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_3igakxnb/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="Tagging Data"></iframe>

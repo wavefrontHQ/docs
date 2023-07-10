@@ -311,7 +311,7 @@ Query Builder works well for many use cases, but sometimes Query Editor is your 
 
 ### Example
 
-The video given below shows you how to get the trace details from the beachshirts application where the spans match the following:
+The video below (created in 2020) shows you how to get the trace details from the beachshirts application where the spans match the following:
 - Spans where the shopping service is the parent span of the inventory service.
 - Spans where the inventory service directly follow after the shopping service.
 

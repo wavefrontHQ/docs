@@ -9,7 +9,7 @@ summary: Learn about SDKs that enable applications to report metrics, histograms
 
 Operations for Applications supports a suite of open source SDKs that developers can use to instrument applications for observability. The instrumented application collects and sends metrics, histograms, and/or trace data to Operations for Applications for storage and visualization. The SDKs are available for most popular programming languages, and are available in GitHub.
 
-Watch this video to listen to our co-founder Clement Pang talk about how Operations for Applications expands application monitoring with its observability SDKs:
+Watch this video to listen to our co-founder Clement Pang talk about how Operations for Applications expands application monitoring with its observability SDKs. Note that this video was created in 2019 and some of the information in it might have changed.
 
 <p>
 <iframe id="kmsembed-1_obf0o1tx" width="700" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_obf0o1tx/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="The Future of App Monitoring"></iframe>

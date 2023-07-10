@@ -15,8 +15,6 @@ This page provides an overview of what you can do with the VMware Aria Operation
 
 The VMware Aria Operations (SaaS) integration is a full-featured native integration, that offers agentless data ingestion of VMware Aria Operations (SaaS) metric data, as well as predefined dashboards.
 
-## VMware Aria Operations (SaaS) Integration
-
 
 
 ### Add a VMware Aria Operations (SaaS) Integration

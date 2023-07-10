@@ -18,13 +18,12 @@ VMware Aria Operations for Applications (formerly known as Tanzu Observability b
 
 ## Video
 
-Users with Dashboards permissions can create a new dashboard with one or multiple charts from metrics, a chart type, or an integration. You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_gqelhfur" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+Users with the **Dashboards** permission can create a new dashboard with one or multiple charts from metrics, a chart type, or an integration. You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_gqelhfur" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>. Note that this video was created in 2020 and some of the information in it might have changed. It also uses the 2020 version of the UI.
 
 
 <p>
 <iframe id="kmsembed-1_gqelhfur" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gqelhfur/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="creating dashboards video"></iframe>
 </p>
-
 
 ## Create a Dashboard
 
@@ -484,7 +483,7 @@ After you've saved these changes:
 
 ### Video: Optimize Dashboard Performance
 
-Watch this video to learn how to optimize dashboard and query performance.
+Watch this video to learn how to optimize dashboard and query performance. Note that this video was created in 2021 and some of the information in it might have changed. It also uses the 2021 version of the UI.
 
 <p>
 <iframe id="kmsembed-1_ynnxe6tn" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_ynnxe6tn/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0"></iframe>

@@ -95,8 +95,6 @@ You can see the information about the metrics and dimensions which are published
 
 
 
-## Amazon Web Services Integrations
-
 
 
 ### Add an Amazon Cloud Integration
