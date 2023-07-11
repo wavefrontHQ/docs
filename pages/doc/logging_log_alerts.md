@@ -10,6 +10,8 @@ summary: Learn how you can create, snooze and delete a log alert.
 
 You can create alerts for your logs data and get email notifications when the alert conditions are met.
 
+{% include note.html content="You need the **Alerts** permission to create and manage log-alerts." %}
+
 ## Log Alerts Browser
 
 Use the Log Alerts Browser to create and manage your log alerts.
@@ -21,7 +23,7 @@ Use the Log Alerts Browser to create and manage your log alerts.
 Follow these steps to create a log alert:
 
 ### Step 0: Go to the Alert Browser
-1.	Log in to your product instance as a user with the **Logs** permission.
+1.	Log in to your product instance as a user with the **Alerts** permission.
 2.	On the toolbar, click **Alerting** > **All Alerts**.
 3.	Click the **Create Log Alert** button.
 
@@ -199,132 +201,32 @@ After you customize the message, click **Next** to name and activate the log ale
 
 Once the log alert is successfully created, you are redirected back to the Log Alerts Browser page. You can search for your alert and see the status and firing details of the alert.
 
+## See Log Alerts that Fired
+
+Follow these steps to see up to five log alerts that fired in the last thirty days.
+
+1. On the toolbar, click **Alerting** > **All Alerts**.
+1. Click the **Log Alerts** tab.
+1. In the Log Alerts Browser search for the alert you want to edit.
+    You can search for the alert by name, status, severity, or a saved search.
+1. Click the alert name, or click the ellipsis icon next to the log alert and select **Edit**.
+1. Click **Show Firings** at any time to see when the alert fired and fine-tune the behavior based on that information. If you don't see any data that's because the alert did not fire in the last 30 days.
+    ![screenshot of alert firing timeline you see when you click Show Firings.](images/logging_log_alerts_show_firings.png)
+
 ## Edit a Log Alert
 {% include important.html content="**THIS SECTION IS WORK IN PROGRESS!!!**" %}
 
-Users with the **Log Alerts** permission can change an alert at any time. The options are similar to what you see when you create an alert, but you can quickly focus on the things that you want to change.
+Users with the **Alerts** permission can change a log alert at any time. The options are similar to what you see when you create a log alert, but you can quickly focus on the things you want to change.
 
-### Start the Alert Edit
-
-<table style="width: 100%;">
-    <tbody>
-        <tr>
-            <td width="40%">
-                <ol>
-                    <li>
-                        Click <strong>Logs &gt; Log Alerts</strong> from the toolbar to display the Log Alerts Browser. 
-                    </li>
-                    <li>
-                        Click the alert name, or click the ellipsis icon next to the log alert and select <strong>Edit</strong>. <br><br>You can search for the alert by name, status, severity, or a saved search.
-                    </li>
-                </ol>
-            </td>
-            <td width="60%" markdown="span">
-                ![screenshot ellipsis menu to the left of alert in alerts browser](images/logging_log_alert_edit_ellipsis.png) 
-            </td>
-        </tr>
-        <tr>
-            <td width="40%">
-                <ol>
-                    <li>
-                        Make changes (see next section).
-                    </li>
-                    <li>
-                        Click <strong>Show Firings</strong> at any time to see when the alert fired and fine-tune the behavior based on that information. If you don't see any data that's because the alert did not fire in the last 30 days.
-                    </li>
-                </ol>
-            </td>
-            <td width="60%" markdown="span">
-                ![screenshot of alert firing timeline you see when you click Show Firings.](images/logging_log_alerts_show_firings.png)
-            </td>
-        </tr>
-    </tbody>
-</table>
+1. On the toolbar, click **Alerting** > **All Alerts**.
+1. Click the **Log Alerts** tab.
+1. In the Log Alerts Browser, search for the alert you want to edit.
+    You can search for the alert by name, status, severity, or a saved search.
+1. Click the alert name, or click the ellipsis icon next to the log alert and select **Edit**.
+1. Click on the section you want to make changes.
+1. Once all the changes are made, click **Save** in the top right to save your changes.
 
 {% include warning.html content="If you navigate away from the page or close the browser tab without saving, your changes are lost!"%}
-
-
-
-### Change the Log Alert Properties
-
-{% include important.html content="**THIS SECTION IS WORK IN PROGRESS!!!**" %}
-
-You can change the alert properties when you edit the alert.
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="55%">
-<strong>Alert Name and Tags</strong><br><br>
-In this section:
-<ul>
-<li>Change the alert name.</li>
-<li>Click the X on any tag to remove it from the alert.</li>
-<li>Click <strong>+Tag</strong> to add a tag to the alert. </li>
-</ul>
-</td>
-<td width="45%" markdown="span">![screenshot ellipsis menu to the left of alert in alerts browser](images/alert_name_tags.png) </td></tr>
-<tr>
-<td>
-<strong>Data</strong><br><br>
-In this section:
-<ul>
-<li>Change the data to alert on.</li>
-<li>Edit the existing alert query. For example, add filters to fine-tune the query. See <a href="query_language_getting_started.html">Query Language Quickstart</a> for background and a video or <a href="query_language_reference.html">Query Reference</a> if you're an advanced user.</li>
-<li>Fine-tune the alert image. See the <a href="ui_chart_reference.html">Chart Reference</a> for details.</li>
-</ul>
-</td>
-<td markdown="span">![screenshot of data section showing a single query](images/alert_edit_data.png) </td></tr>
-<tr>
-<td>
-<strong>Conditions</strong><br><br>
-In this section, you can fine-tune the alert condition and test the condition.
-<ul>
-<li>Change the alert threshold or thresholds and severity. </li>
-<li>Change the <strong>Trigger Window</strong> and <strong>Resolve Window</strong> values. </li>
-<li>Change the <strong>Checking Frequency</strong> and <strong>Evaluation Strategy</strong> values. </li>
-</ul>
-See <a href="alerts_manage.html#step-2-specify-thresholds-and-severities">Specify Thresholds and Severities</a> for details on each option.
-</td>
-<td markdown="span">![Screenshot of a few Conditions options. Details are under Create Alert.](images/edit_alert_conditions.png) </td></tr>
-<tr>
-<td>
-<strong>Recipients</strong><br><br>
-In this section, you can view, change, or add recipients of alert notifications.
-<ul>
-<li>Specify one or more recipient for each severity.</li>
-<li>You can specify an email address, PagerDuty key, or alert target that has already been created. </li>
-<li>Notifications for each severity are sent to the recipients of that severity and higher. </li>
-<li>As a result, you cannot specify a recipient for multiple severities. Most likely, the recipient already receives the notification because, for example, when an alert notification is sent at the SEVERE level, it also goes to all recipients at lower levels.</li>
-</ul>
-</td>
-<td markdown="span">![Screenshot of Recipients section with 1 email and 1 alert target included](images/edit_alert_recipients.png) </td></tr>
-<tr>
-<td>
-<strong>Content</strong><br><br>
-In this section, you can add runbook URLs and specify other information that can help with alert resolution.
-<ul>
-<li>The Runbook URL can point to internal information.</li>
-<li>Start typing to select from dashboards in your environment. You can set environment variables for the dashboard with the <strong>Pass</strong> option. See <a href="#how-do-i-pass-values-to-triage-dashboards">How Do I Pass Values to Triage Dashboards</a>.</li>
-<li>Specify other information you want included in the notification in the <strong>Additional Information</strong> section.</li>
-</ul>
-</td>
-<td markdown="span">![Screenshot of Recipients section with 1 email and 1 alert target included](images/edit_alert_content.png) </td></tr>
-</tbody>
-</table>
-
-### Save Your Changes
-
-Click **Save** in the top right to save your changes.
-
-{% include warning.html content="If you navigate away from the page or close the browser tab without saving, your changes are lost!"%}
-
-
-
-
-
-
-
 
 ## Snooze a Log Alert
 
