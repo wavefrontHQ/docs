@@ -172,7 +172,7 @@ You can configure the alert to fire in real-time, or you can configure the alert
             </tbody>
          </table>
 
-1. Click **Next**.
+    1. Click **Next**.
 
 ### Step 3: Add a Recipient to the Alert
 
