@@ -31,7 +31,8 @@ Follow these steps to create a log alert:
 
 Use the filters to query the logs data:
 
-1. Enter a unique name for the query and filter the logs data for which you want to create the alert. There are two types of query filters:
+1. Enter a unique name for the query.
+1. Filter the logs data for which you want to create the alert. There are two types of query filters:
     * Use a word or phrase in the log message:
         1. Next to **Text Contains**, click **Search Logs for Text Containing**.
         1. Enter the text, and press Enter. 
