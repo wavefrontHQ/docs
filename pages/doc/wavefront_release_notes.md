@@ -30,7 +30,7 @@ For information about the two subscription types and how they differ, see [Subsc
 
 ### Original and Onboarded Subscriptions
 
-**Monitor Google Cloud Run**: You can monitor Google Cloud Run metrics. See the [Integrations Release Notes](integrations_new_changed.html) for details.
+**Monitor Google Cloud Run**: You can monitor Google Cloud Run metrics. See the [Integrations Release Notes](integrations_new_changed.html#july-2023) for details.
 
 ### Original Subscriptions Only
 
