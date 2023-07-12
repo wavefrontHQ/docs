@@ -8,7 +8,12 @@ summary: Learn how you can create, snooze and delete a log alert.
 
 {% include important.html content="Logs (Beta) is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
+You can create alerts for your logs data and see when the alert fired.
+
+<!-- Add this after email notification and remove the line above
+
 You can create alerts for your logs data and get email notifications when the alert conditions are met.
+-->
 
 {% include note.html content="You need the **Alerts** permission to create and manage log-alerts." %}
 
@@ -25,7 +30,7 @@ Follow these steps to create a log alert:
 ### Step 0: Go to the Alert Browser
 1.	Log in to your product instance as a user with the **Alerts** permission.
 2.	On the toolbar, click **Alerting** > **All Alerts**.
-3.	Click the **Create Log Alert** button.
+3.	Click **Create Log Alert**.
 
 ### Step 1: Filter the data
 
@@ -36,12 +41,12 @@ Use the filters to query the logs data:
     * Use a word or phrase in the log message:
         1. Next to **Text Contains**, click **Search Logs for Text Containing**.
         1. Enter the text, and press Enter. 
-        1. To add more filters like this, click the + icon next to the filter.
-    * Use tags: Click **Add**, select the option you want to filter the data on, and select the tags.
-        1. Next to **Filters**, click **Add**
+        1. To add more filters like this, click the **+** icon next to the filter.
+    * Use tags: 
+        1. Next to **Filters**, click **Add**.
         1. Select the **Filter by Operator**.
-        1. Click the **Choose Filter** drop-down menu, select the tag key.
-        1. To add more filters like this, click the + icon next to the filter.
+        1. Click the **Choose Filter** drop-down menu, select the tag key, and select the tag value.
+        1. To add more filters like this, click the **+** icon next to the filter.
 
         <table style="width: 100%;">
             <thead>
@@ -63,16 +68,16 @@ Use the filters to query the logs data:
                         You can use the following filter operators to get the log data and create the alert.
                         <ul>
                             <li>
-                                Contains
+                                Contains: You get the logs that include the tag values you define.
                             </li>
                             <li>
-                                Does not contain
+                                Does not contain: You get the logs that don't include the tag values you define.
                             </li>
                             <li>
-                                Starts with
+                                Starts with: You get the logs that have tag values that start with the tag value you selected.
                             </li>
                             <li>
-                                Does not start with
+                                Does not start with: You get the logs that have tag values that don't start with the tag value you selected.
                             </li>
                         </ul>
                     </td>
@@ -82,7 +87,7 @@ Use the filters to query the logs data:
                         <b> Tags </b>
                     </td>
                     <td markdown="span">
-                        Select a tag key from the drop-down list.
+                        Select a tag key and the corresponding tag values from the drop-down list.
                         The tags you see here are the log attributes you send. See [Log Attributes](logging_overview.html#log-attributes) for details.
                                 
                     </td>
@@ -94,7 +99,7 @@ Use the filters to query the logs data:
     * **All**: The logs alert you create fires only when all the filters in the query are met.
     * **Any**: The log alert fires if a filter in the query is met.
 
-1. Click **Next** to add the alert conditions.
+1. Click **Next**.
 
 ### Step 2: Define the Alert Conditions
 You can configure the alert to fire in real-time, or you can configure the alert to fire when the alert conditions are met for the selected time window.
@@ -176,12 +181,63 @@ You can configure the alert to fire in real-time, or you can configure the alert
 
 ### Step 3: Add a Recipient to the Alert
 
+Email and Webhook notifications are coming soon to Log Alerts!
+
+{% include note.html content="Currently, you won't get an email when your log alert fires. To see the details of a log alert or when it fired during the last 30 days, go to the Log Alerts Browser, click the log alert, and click Show Firings." %}
+
+
+<!-- Add after this is added back it the UI
+
 1. Click **+ email**, and enter the email addresses of the users who need to receive notifications when the alert fires.
 1. Click **Next**.
+
+-->
 
 ### Step 4: (Optional) Customize the Alert Firing Message
 
 You can customize the alert firing message and add information to help users understand why the alert fired.
+
+<table style="width: 100%;">
+            <thead>
+                <tr>
+                    <th width="20%">
+                        Settings
+                    </th>
+                    <th width="80%">
+                        Description
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <b> Recommendations </b>   
+                    </td>
+                    <td markdown="span">
+                         In the **Recommendations** text box, add additional information that is useful to the alert recipient. This field supports Markdown. You can click **Preview** to preview the Markdown output.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b> Message Includes </b>
+                    </td>
+                    <td markdown="span">
+                        Use the options in the **Message Includes** section to customize the logs data sent in the message. 
+                        Customize the logs data sent in the message using **Message to include**.
+                            * To include all the logs data that was filtered using the query in the message, select **All logs**. 
+                            * To send specific logs data, select **Custom Fields**. Select how you want view the logs data (in the JSON or table format), and select the log attributes you want to send with the message using the drop-down menu.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b> Notification Metadata </b>   
+                    </td>
+                    <td markdown="span">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
 
 * In the **Recommendations** text box, add additional information that is useful to the alert recipient. This field supports Markdown. You can click **Preview** to preview the Markdown output.
 * Use the options in the **Message Includes** section to customize the logs data sent in the message. 
@@ -211,13 +267,16 @@ Follow these steps to see up to five log alerts that fired in the last thirty da
 1. In the Log Alerts Browser search for the alert you want to edit.
     You can search for the alert by name, status, severity, or a saved search.
 1. Click the alert name, or click the ellipsis icon next to the log alert and select **Edit**.
-1. Click **Show Firings** at any time to see when the alert fired and fine-tune the behavior based on that information. If you don't see any data that's because the alert did not fire in the last 30 days.
-    ![screenshot of alert firing timeline you see when you click Show Firings.](images/logging_log_alerts_show_firings.png)
+1. Click **Show Firings** at any time to see when the alert fired and fine-tune the behavior based on that information. 
+    ![a screenshot highlighting the show alert firing button](images/logging_log_alerts_show_firings.png)
+    
+You see up to five log alerts that fired in the last thirty days. Don't see any data? That is because the log alert did not fire in the last thirty days.   
+Example:
+![screenshot of alert firing timeline you see when you click Show Firings.](images/logging_log_alerts_hide_alert_firings.png)
 
 ## Edit a Log Alert
-{% include important.html content="**THIS SECTION IS WORK IN PROGRESS!!!**" %}
 
-Users with the **Alerts** permission can change a log alert at any time. The options are similar to what you see when you create a log alert, but you can quickly focus on the things you want to change.
+Users with the **Alerts** permission can update a log alert at any time. The options are similar to what you see when you create a log alert, but you can quickly focus on the things you want to change.
 
 1. On the toolbar, click **Alerting** > **All Alerts**.
 1. Click the **Log Alerts** tab.
@@ -229,9 +288,31 @@ Users with the **Alerts** permission can change a log alert at any time. The opt
 
 {% include warning.html content="If you navigate away from the page or close the browser tab without saving, your changes are lost!"%}
 
-## Snooze a Log Alert
+## Snooze and Unsnooze a Log Alert
+
+### Snooze an Alert
+If you are running tests and don't want a log alert to fire, follow these steps to pause the log alert from firing for a specified time window:
+
+1. Select the check box next to the alert. You can select more than one log alert.
+1. Click **Snooze**, and select how long you want to snooze the alert.
+![a screenshot that shows the snooze drop down times.](images/logging_log_alert_snooze.png)
+
+### Unsnooze an Alert
+
+Follow these steps once you are done with your testing, and you want a log alert to fire if the conditions in the log alert is met.
+
+1. Filter the log alerts you snoozed using the **Snoozed** **Status**.
+1. Select the check box next to the alert. You can select more than one log alert.
+1. Click **Unsnooze**, and the log alerts will move to the **checking** state.
+![a screenshot that shows the unsnooze button.](images/logging_log_alert_unsnooze.png)
 
 ## Delete a Log Alert
+
+Follow these steps to delete a log alert you no longer need:
+
+1. Select the check box next to the alert. You can select more than one log alert.
+1. Click **Delete**. Once deleted you don't see the log alert on the Log Alert Browser.
+![a screenshot that shows the delete button.](images/logging_log_alert_delete.png)
 
 ## Log Alert FAQs
 
