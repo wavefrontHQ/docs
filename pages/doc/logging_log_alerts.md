@@ -293,7 +293,7 @@ Users with the **Alerts** permission can update a log alert at any time. The opt
 ### Snooze a Log Alert
 If you are running tests and don't want a log alert to fire, follow these steps to pause the log alert from firing for a specified time window:
 
-1. Select the check box next to the alert. You can select more than one log alert.
+1. Select the check box next to the log alert. You can select more than one log alert.
 1. Click **Snooze**, and select how long you want to snooze the alert.
 ![a screenshot that shows the snooze drop down times.](images/logging_log_alert_snooze.png)
 
@@ -302,7 +302,7 @@ If you are running tests and don't want a log alert to fire, follow these steps 
 Follow these steps once you are done with your testing, and you want a log alert to fire if the conditions in the log alert is met.
 
 1. Filter the log alerts you snoozed using the **Snoozed** **Status**.
-1. Select the check box next to the alert. You can select more than one log alert.
+1. Select the check box next to the log alert. You can select more than one log alert.
 1. Click **Unsnooze**, and the log alerts will move to the **checking** state.
 ![a screenshot that shows the unsnooze button.](images/logging_log_alert_unsnooze.png)
 
@@ -310,7 +310,7 @@ Follow these steps once you are done with your testing, and you want a log alert
 
 Follow these steps to delete a log alert you no longer need:
 
-1. Select the check box next to the alert. You can select more than one log alert.
+1. Select the check box next to the log alert. You can select more than one log alert.
 1. Click **Delete**. Once deleted you don't see the log alert on the Log Alert Browser.
 ![a screenshot that shows the delete button.](images/logging_log_alert_delete.png)
 
