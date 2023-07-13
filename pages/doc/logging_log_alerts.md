@@ -221,11 +221,17 @@ You can customize the alert firing message and add information to help users und
                     <td>
                         <b> Message Includes </b>
                     </td>
-                    <td markdown="span">
-                        Use the options in the **Message Includes** section to customize the logs data sent in the message. 
-                        Customize the logs data sent in the message using **Message to include**.
-                            * To include all the logs data that was filtered using the query in the message, select **All logs**. 
-                            * To send specific logs data, select **Custom Fields**. Select how you want view the logs data (in the JSON or table format), and select the log attributes you want to send with the message using the drop-down menu.
+                    <td>
+                        Use the options in the <b>Message Includes</b> section to customize the logs data sent in the message. 
+                        Customize the logs data sent in the message using <b>Message to include</b>.
+                        <ul>
+                            <li>
+                                To include all the logs data that was filtered using the query in the message, select <b>All logs</b>. 
+                            </li>
+                            <li>
+                                To send specific logs data, select <b>Custom Fields</b>. Select how you want view the logs data (in the JSON or table format), and select the log attributes you want to send with the message using the drop-down menu.
+                            </li>
+                        </ul>
                     </td>
                 </tr>
                 <tr>
@@ -233,20 +239,13 @@ You can customize the alert firing message and add information to help users und
                         <b> Notification Metadata </b>   
                     </td>
                     <td markdown="span">
+                        Add **Notification Metadata** as **key**, **value** pairs to send additional information in the log alert firing message.
                     </td>
                 </tr>
             </tbody>
         </table>
 
-
-* In the **Recommendations** text box, add additional information that is useful to the alert recipient. This field supports Markdown. You can click **Preview** to preview the Markdown output.
-* Use the options in the **Message Includes** section to customize the logs data sent in the message. 
-Customize the logs data sent in the message using **Message to include**.
-    * To include all the logs data that was filtered using the query in the message, select **All logs**. 
-    * To send specific logs data, select **Custom Fields**. Select how you want view the logs data (in the JSON or table format), and select the log attributes you want to send with the message using the drop-down menu.
-* Add **Notification Metadata** as **key**, **value** pairs to send additional information in the log alert firing message. 
-
-After you customize the message, click **Next** to name and activate the log alert.
+After you customize the message, click **Next**.
 
 ### Step 5: Name and Activate the Logs Alert
 
