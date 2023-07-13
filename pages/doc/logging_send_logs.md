@@ -1,5 +1,5 @@
 ---
-title: Send Logs (Beta)
+title: Send Logs
 keywords: data, logs
 tags: [getting started, logs]
 sidebar: doc_sidebar
@@ -7,7 +7,7 @@ permalink: logging_send_logs.html
 summary: Learn about sending logs to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
 ---
 
-{% include important.html content="Logs (Beta) is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
+{% include important.html content="The Logs feature is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
 You can send logs to the Wavefront proxy from your log shipper or directly from your application. The Wavefront proxy sends the log data to our service.
 
@@ -63,10 +63,10 @@ To install and configure a new proxy:
 
 You can monitor your Kubernetes clusters or Linux hosts using our built-in integrations and send logs to our system.
 
-* [Linux host integration](linux.html): Install the Wavefront proxy and configure the log shipper.
+* [Linux host integration](linux.html#linux-logs-setup): Install the Wavefront proxy and configure the log shipper.
 * [Kubernetes integration](kubernetes.html#kubernetes-quick-install-using-the-kubernetes-operator): Enable logs while you set up the integration, generate the script, and run it on your Kubernetes cluster. 
-  {% include note.html content="Logs (Beta) is not supported when you use OpenShift." %}
-* [AWS CloudWatch integration](integrations_aws_metrics.html#setup-for-ingesting-aws-cloudwatch-logs-beta): If you have already configured the [AWS CloudWatch integration](integrations_aws_metrics.html#cloudwatch-integration-details), you can create an AWS lambda function to send logs to our service.
+  {% include note.html content="Logs is not supported when you use OpenShift." %}
+* [AWS CloudWatch integration](ntegrations_aws_metrics.html#setup-for-ingesting-aws-cloudwatch-logs): If you have already configured the [AWS CloudWatch integration](integrations_aws_metrics.html#cloudwatch-integration-details), you can create an AWS lambda function to send logs to our service.
 
 ## Option 2: Configure a Log Shipper
 

@@ -1,5 +1,5 @@
 ---
-title: Logs Troubleshooting (Beta)
+title: Logs Troubleshooting
 keywords: logs
 tags: [getting started, logs]
 sidebar: doc_sidebar
@@ -7,7 +7,7 @@ permalink: logging_faq.html
 summary: Learn how to customize your logging experience and find answers for frequently asked questions.
 ---
 
-{% include important.html content="Logs (Beta) is enabled only for selected customers. If you'd like to participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
+{% include important.html content="The Logs feature is enabled only for selected customers. If you'd like to participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
 ## My Logging Solution Doesn't Use the Default Attributes
 
@@ -36,7 +36,7 @@ You can use the [proxy configuration properties](logging_proxy_configurations.ht
 
 ## Why Don't I See Logs When I Drill Down From a Chart?
 
-If you right-click on a chart and select **Logs (Beta)**, you're directed to the Logs Browser. If you don't see data on the Logs Browser, here are some things to explore:
+If you right-click on a chart and select **Logs**, you're directed to the Logs Browser. If you don't see data on the Logs Browser, here are some things to explore:
 * If your chart has data from more than one source and you didn't select the target source, the Logs Browser cannot show the logs because this feature shows logs from only one source. To see the data corresponding to the chart query but focused on one source, select a source in the Logs Browser and click **Search**.
 * If you have not tagged your log data using the corresponding source value when you sent the logs from your log shipper, you might see no search results in the Logs Browser. See [What’s a Log?](logging_overview.html#whats-a-log) for details on the log syntax.
 

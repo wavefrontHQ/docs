@@ -1,5 +1,5 @@
 ---
-title: Drill into Logs (Beta)
+title: Drill into Logs
 tags: [logs]
 sidebar: doc_sidebar
 permalink: logging_drill_into_logs.html
@@ -26,7 +26,7 @@ If you have the **Logs** permission, you can drill into logs from charts, for ex
 To drill into the related logs from a chart:
 
 1. Position your pointer over the metric for the source of concern, on the location of the anomaly.
-1. Right-click that point on the chart and select **Logs (Beta)**.
+1. Right-click that point on the chart and select **Logs**.
 
 ![A screenshot of a chart with the right-click menu that includes the Logs option.](images/logging_charts_to_logs.png)
 In this example, you right-click the metric chart for source `db-5` at `01:25 PM`.
@@ -84,7 +84,7 @@ To drill into the related logs of a firing alert:
     
    Click the eye icons of the related logs filters that you want to hide from the logs search query. To unhide a filter, you must click the eye-hide icon. You cannot remove or hide the `time range` filter.
   
-1. In the **Alert Log Summary** panel, click **Go to Logs (Beta)**.
+1. In the **Alert Log Summary** panel, click **Go to Logs**.
     The Logs Browser opens in a new tab with the configurations from the **Related Logs** panel:
     
     * The search time window corresponds to the `time range` value.
@@ -112,17 +112,17 @@ If you notice that a service on the application map, table view, or grid view of
 * **From the Map View**
   1. Select the time window of interest.
   1. Click the service on the application map.
-  1. Select **View Logs (Beta)**.
+  1. Select **View Logs**.
   ![A screenshot of a the UI once you click on a service with the view logs link highlighted.](images/logging_app_map_to_logs.png)
 * **From the Table View**
   1. Select the time window of interest.
   1. Click the ellipsis for the service.
-  1. Select **View Logs (Beta)**.
+  1. Select **View Logs**.
   ![A screenshot of a the UI once you click vertical ellipsis on the table view](images/logging_table_view_to_logs.png)
 * **From the Grid View**
   1. Select the time window of interest.
   1. In a service tile, click **Actions**.
-  1. Select **View Logs (Beta)**.
+  1. Select **View Logs**.
   ![A screenshot of a the UI once you click vertical ellipsis on the grid view](images/logging_grid_view_to_logs.png)
 
 The Logs Browser opens in a new tab with the following configurations:
@@ -141,7 +141,7 @@ To see the logs for a trace:
 1. Click the trace that you want to examine.
 1. In the Trace Details section, click the service on which you want to focus.
 1. Expand the **IDs** section.
-1. Click **Search Logs (Beta)**.
+1. Click **Search Logs**.
 ![screenshot of the traces browser with the search logs highlighted](images/logging_traces_browser.png)
 
 The Logs Browser opens in a new tab with the following configurations:
