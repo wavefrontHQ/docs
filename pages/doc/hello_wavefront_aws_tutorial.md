@@ -44,7 +44,7 @@ You'll see **Account ID** and **External ID** under **How to get Role ARN**. You
 
 ![The AWS setup page after clicking How to get Role ARN link and the AWS UI Method tab selected.](images/hello_tutorial_aws_integration_UI-setup.png)
 
-### Step 2: Create a Wavefront Read-Only Role in Your AWS Account
+### Step 2: Create a Read-Only Role in Your AWS Account
 
 {{site.data.alerts.note}}
 <p>For this step, you must log in to your AWS account. Create a new AWS account if you don’t have one.</p>
@@ -58,13 +58,13 @@ Follow these steps:
 1. Create a trusted entity:
     1. Click the **AWS Account** tile and select the **Another AWS account** radio button.
     1. Enter the **Account ID**: Copy the **Account ID** value shown in the AWS integration setup instructions and paste it here.
-        ![A diagram that shows where the account ID is on the Wavefront integration and an arrow pointing how to copy and paste in the AWS U.](images/hello_tutorial_aws_account_ID.png)
+        ![A diagram that shows where the account ID is in the integration and an arrow pointing how to copy and paste in the AWS U.](images/hello_tutorial_aws_account_ID.png)
     1. Select the **Require external ID** check box.
         ![A screenshot of the external ID option selected.](images/hello_tutorial_aws_external_ID_selected.png)
     1. Enter the **External ID**. 
     
        Copy the **External ID** value shown in the AWS integration setup instructions and paste it here.
-        ![A diagram that shows where the external ID is on the Wavefront integration and an arrow pointing how to copy and paste in the AWS UI.](images/hello_tutorial_aws_external_ID.png)
+        ![A diagram that shows where the external ID is in the integration and an arrow pointing how to copy and paste in the AWS UI.](images/hello_tutorial_aws_external_ID.png)
     1. Click **Next**.
 1. Set Permissions:
     1. Search for the **ReadOnlyAccess** permission and select it.

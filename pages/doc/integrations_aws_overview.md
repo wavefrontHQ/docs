@@ -92,7 +92,7 @@ For information about external IDs and how they are used in AWS, see [How to Use
 
 To get the account ID and the external ID, do the following:
 
-1. Log in to your Wavefront cluster.
+1. Log in to your service instance.
 2. Click **Integrations** on the toolbar and click the **Amazon Web Services** integration tile. 
 3. Click the **Set Up Integration** button.
 4. Select which services you want to set up and click **Next**.
@@ -119,7 +119,7 @@ To get the account ID and the external ID, do the following:
    <thead><tr><th width="35%">Option</th><th width="65%">Description</th></tr></thead>
    <tr>
    <td><strong>Account ID</strong></td>
-   <td>The identifier of the Wavefront account to which you want to grant access.</td>
+   <td>The identifier of the account to which you want to grant access.</td>
    </tr>
    <tr>
    <td><strong>Require external ID</strong></td>
@@ -151,8 +151,8 @@ By using this method, the process for getting the account ID and the external ID
 
 **Task 1: Create a role in AWS**
 
-1. Log in to your Wavefront cluster and click **Integrations** on the toolbar.
-1. In the Featured section, click the **Amazon Web Services** tile.
+1. Log in to your service instance and click **Integrations** on the toolbar.
+1. In the **Featured** section, click the **Amazon Web Services** tile.
 1. Click the **Set Up Integration** button.
 1. Select which services you want to set up and click **Next**.
    * **CloudWatch & Metrics+**
@@ -490,7 +490,7 @@ Once metrics start flowing, you can view them on the **Metrics** tab.
 
 You can drill down into the folder for a specific service and click a metric to navigate to a chart that displays that set of data. 
 
-![Screenshot of the AWS metrics once the data starts to flow to Wavefront.](images/hello_tutorial_aws_metrics.png)
+![Screenshot of the AWS metrics once the data starts to flow to Operations for Applications.](images/hello_tutorial_aws_metrics.png)
 
 For example:
 
