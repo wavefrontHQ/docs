@@ -7,7 +7,7 @@ permalink: glossary.html
 summary: Learn how we use technical terms.
 ---
 
-This Tanzu Observability by Wavefront glossary defines technical terms that are commonly used in the documentation or in the product. Click the links or search this documentation for details. 
+This VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) glossary defines technical terms that are commonly used in the documentation or in the product. Click the links or search this documentation for details. 
 
 <table style="width: 100%;">
 <tbody>
@@ -62,8 +62,8 @@ This Tanzu Observability by Wavefront glossary defines technical terms that are 
 <td markdown="span">Billing period</td>
 <td>Each billing period starts each month on the day of your contract start date and ends on the same day of the next month. At the end of each billing period, we calculate your P95 (95th percentile) PPS usage for the billing period. See the <a href="examine_usage.html">Usage Summary dashboard</a> for details.
 <ul>
-<li>If you have a billable contract, we compare your P95 PPS usage for the billing period with your contract commitment. If there's an overage, you will be charged for the number of PPS above your commitment.</li>
-<li>If you have a burndown contract, we extract your P95 PPS usage for each billing period from your burndown commitment and calculate your remaining balance till the end of the contract period.</li></ul></td>
+<li>If you have a billable commit contract, we compare your P95 PPS usage for the billing period with your committed rate. If there's an overage, you will be charged for the number of PPS above your committed rate.</li>
+<li>If you have a burndown commit contract, we extract your P95 PPS usage for each billing period from your burndown commitment and calculate your remaining balance till the end of the contract period.</li></ul></td>
 </tr>
 <tr>
 <td><strong><big>C</big></strong></td>
@@ -117,7 +117,7 @@ This Tanzu Observability by Wavefront glossary defines technical terms that are 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Direct ingestion**](direct_ingestion.html)</td>
-<td>The direct data ingestion mechanism supports sending data directly to the Wavefront service instead of a Wavefront proxy. While the Wavefront proxy has many benefits, direct data ingestion can be the best approach for some use cases.</td>
+<td>The direct data ingestion mechanism supports sending data directly to the service instead of a Wavefront proxy. While the Wavefront proxy has many benefits, direct data ingestion can be the best approach for some use cases.</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
@@ -157,7 +157,7 @@ This Tanzu Observability by Wavefront glossary defines technical terms that are 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Histogram (distribution)**](proxies_histograms.html)</td>
-<td>A Wavefront histogram is a series of distributions that the Wavefront service has computed from the data points of a time series. Each distribution summarizes the points in a particular time interval (minute, hour, or day) by organizing their values into bins (value ranges). You can send histograms to a histogram proxy port or directly to the Wavefront service. </td>
+<td>A histogram is a series of distributions that the service has computed from the data points of a time series. Each distribution summarizes the points in a particular time interval (minute, hour, or day) by organizing their values into bins (value ranges). You can send histograms to a histogram proxy port or directly to the service. </td>
 </tr>
 <tr>
 <td><strong><big>I</big></strong></td>
@@ -200,7 +200,7 @@ This Tanzu Observability by Wavefront glossary defines technical terms that are 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Object tag**](tags_overview.html#manage-object-tags)</td>
-<td>Object tags help you filter your display. You apply an object tag to Wavefront UI objects such as dashboards. You can later find and display groups of objects based on their object tag. </td>
+<td>Object tags help you filter your display. You apply an object tag to Operations for Applications UI objects such as dashboards. You can later find and display groups of objects based on their object tag. </td>
 </tr>
 <tr>
 <td>&nbsp;</td>
@@ -227,12 +227,12 @@ You can manage authorization with user-level permissions or user and group-level
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">**PPS**</td>
-<td markdown="span">Points per Second. Telemetry data points per second ingested by the Wavefront service. All customers are billed based on their PPS. We support dashboards and tools to [Find Actionable Usage Information](wavefront_usage_info.html).  </td>
+<td markdown="span">Points per Second. Telemetry data points per second ingested by the service. All customers are billed based on their PPS. We support dashboards and tools to [Find Actionable Usage Information](wavefront_usage_info.html).  </td>
 </tr>
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Proxy**](proxies.html)</td>
-<td markdown="span">A Wavefront proxy ingests metrics and forwards them to the Wavefront service in a secure, fast, and reliable manner. Using a Wavefront proxy has several benefits, but you can also send data to the Wavefront service using direct ingestion. </td>
+<td markdown="span">A Wavefront proxy ingests metrics and forwards them to the product service in a secure, fast, and reliable manner. Using a Wavefront proxy has several benefits, but you can also send data to our service using direct ingestion. </td>
 </tr>
 <tr>
 <td><strong><big>Q</big></strong></td>
@@ -260,7 +260,7 @@ You can manage authorization with user-level permissions or user and group-level
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Sampling**](trace_data_sampling.html)</td>
-<td>Sampling is a technique for limiting the volume of trace data that is actually sent to the Wavefront service for storage and visualization. A sampling strategy is a policy for deciding which traces to send. </td>
+<td>Sampling is a technique for limiting the volume of trace data that is actually sent to our service for storage and visualization. A sampling strategy is a policy for deciding which traces to send. </td>
 </tr>
 <tr>
 <td>&nbsp;</td>
@@ -334,8 +334,8 @@ You can manage authorization with user-level permissions or user and group-level
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">Wavefront service</td>
-<td>The Wavefront service runs the metrics collection engine. It can receive telemetry data from a Wavefront proxy or through direct ingestion. </td>
+<td markdown="span">VMware Aria Operations for Applications service</td>
+<td>The service runs the metrics collection engine. It can receive telemetry data from a Wavefront proxy or through direct ingestion. </td>
 </tr>
 
 </tbody>

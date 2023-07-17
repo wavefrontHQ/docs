@@ -7,14 +7,14 @@ permalink: tracing_traces_browser.html
 summary: Explore traces and spans from the Traces Browser
 ---
 
-The Traces Browser that is part of Tanzu Observability by Wavefront lets you explore the context and the details of your application's traces.
+The Traces Browser in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) lets you explore the context and the details of your application's traces.
 
 ## Video
 
-This <a href="https://vmwaretv.vmware.com/media/t/1_guro3vem" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights the Traces Browser features and settings:
+This <a href="https://vmwaretv.vmware.com/media/t/1_guro3vem" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights the Traces Browser features and settings. Note that this video was created in 2019 and some of the information in it might have changed. It also uses the 2019 version of the UI.
 
 <p>
-<iframe id="kmsembed-1_guro3vem" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_guro3vem/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Highlights the Wavefront traces browser features."></iframe>
+<iframe id="kmsembed-1_guro3vem" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_guro3vem/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="Highlights the Operations for Applications traces browser features."></iframe>
 </p>
 
 ## Explore the Traces Browser
@@ -22,11 +22,11 @@ This <a href="https://vmwaretv.vmware.com/media/t/1_guro3vem" target="_blank">vi
 See the Traces Browser:
 
 * Option 1:
-  1. In your web browser, go to your Wavefront instance and log in.
+  1. Log in to your service instance.
   1. From the toolbar, select **Applications** > **Traces**.
 
 * Option 2:
-  1. In your web browser, go to your Wavefront instance and log in.
+  1. Log in to your service instance.
   1. Drill down to the Traces Browser from the Service Dashboard, application map, table view, or grid view.
 
 ![explore trace browser](images/tracing_traces_browser.png)
@@ -78,78 +78,7 @@ You can use the trace list to:
 * Click a trace to view its context in the [service map panel](#investigate-the-service-map-for-a-trace) and its details in the [trace details panel](#examine-trace-details).
 * View a trace's percentile indicator to see how the trace's duration compares to the durations of the other listed traces -- and potentially find outliers.
 
-
-## Save and Manage Searches
-
-Because narrowing down a search in the Traces Browser can be time consuming, you can
-* Save a search. Saved searches are available to all members of your organization.
-* Access and delete your saved searches
-* Access saved searches from everyone in your organization.
-
-### Save a Search
-
-After you've performed a search on the Application Status page, you can save your search.
-
-<table style="width: 100%;">
-  <tr>
-    <td width="50%">
-      <ol>
-        <li>
-          Put in the search parameters, such as applications or services, add filters, and click <strong>Search</strong>.
-        </li>
-        <li>
-          Click the bookmark icon, specify a name for your search, and click <strong>Save</strong>.
-        </li>
-      </ol>
-    </td>
-    <td markdown="span" width="50%">
-      ![Bookmark icon brings up save search dialog](/images/save_a_search_button.png)
-    </td>
-  </tr>
-</table>
-
-### Access or Delete Saved Searches
-
-The Lists button gives you access to your own saved searches and to saved searches from others in your organization.
-
-<table style="width: 100%;">
-  <tr>
-    <td width="50%">
-    1. Click the <strong>Lists</strong> button to the left of the query.
-    </td>
-    <td markdown="span" width="50%">
-      ![List button](/images/saved_searches_list_button.png)
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-    2. In the dialog that appears:
-    <ul><li>Click <strong>My Recent Searches</strong> for a list of your recent searches. </li>
-    <li>Click <strong>My Saved Searches</strong> for a complete list of your searches. </li>
-    <li>Click <strong>All Saved Searches</strong> for a list of searches in your organization.  </li>
-    </ul>
-    <p>3. Click a saved search to select it.</p>
-    </td>
-    <td markdown="span" width="50%">
-      ![List button](/images/saved_searches_list.png)
-    </td>
-  </tr>
-
-  <tr>
-    <td width="50%">
-    4. To delete a saved search from your list:
-    <ol><li>Select the list.</li>
-    <li>Click <strong>Manage</strong></li>
-    <li>Select <strong>Delete</strong> from the ellipsis icon to the left of that saved search.</li>
-    <li>Click <strong>Delete</strong> and confirm.</li>
-    </ol>
-    </td>
-    <td markdown="span" width="50%">
-      ![Elipsis icon and delete option](/images/delete_saved_search.png)
-    </td>
-  </tr>
-</table>
-
+<!--{% include saved_searches.md %}-->
 
 ## Investigate the Service Map for a Trace
 
@@ -184,7 +113,7 @@ In the trace details panel, you can:
 
 In the trace details panel, you can view details about a particular span in the trace. If that span came from another service, you can navigate to the dashboard for that service.
 
-{% include note.html content="The Wavefront service can only retrieve up to 1000 spans for a given trace, and you only see up to 1000 spans when you drill down into spans. Therefore, as a best practice and for optimal performance, configure your application to have less than 1000 spans in a trace."%}
+{% include note.html content="The Operations for Applications service can only retrieve up to 1000 spans for a given trace, and you only see up to 1000 spans when you drill down into spans. Therefore, as a best practice and for optimal performance, configure your application to have less than 1000 spans in a trace."%}
 
 ![trace span details](images/tracing_span_details_with_logs.png)
 

@@ -17,7 +17,7 @@ Fills in gaps in the time series described by `tsExpression`, by inserting data 
 
 {% include important.html content="If you don't specify a `timeWindow`, we apply the default value for every second and fill gaps up to 28 days. Performance of queries and dashboards can deteriorate." %}
 
-{% include important.html content="Despite its apparent simplicity, the `default()` function is one of the most misunderstood functions in WQL (Wavefront Query Language). See the **Caveats** section below for recommendations." %}
+{% include important.html content="Despite its apparent simplicity, the `default()` function is one of the most misunderstood functions in Wavefront Query Language (WQL). See the **Caveats** section below for recommendations." %}
 
 
 
@@ -30,7 +30,7 @@ Fills in gaps in the time series described by `tsExpression`, by inserting data 
 </thead>
 <tr>
 <td markdown="span">[timeWindow](query_language_reference.html#common-parameters)</td>
-<td>Maximum amount of time to fill with inserted data points. If you omit this parameter, gaps with duration of up to the <a href="metrics_managing.html#obsolete-metrics">metrics obsolescence period</a> (by default, 4 weeks) are completely filled.
+<td>Maximum amount of time to fill with inserted data points. If you omit this parameter, gaps with duration of up to the <a href="metrics_managing.html#obsolete-metrics">metrics obsolescence period</a> are completely filled.
 <br>You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.</td></tr>
 <tr>
 <td>delayTime</td>
@@ -113,7 +113,7 @@ For example, consider the following query:
 
 `align(1m, default(0, ts("filehandles.used"))) / align(1m, default(0, ts("filehandles.total"))) * 100 > 60. `
 
-Assume your environment has about 350 active time series at any moment, but within the last 4 weeks (the [metrics obsolescence period](metrics_managing.html#obsolete-metrics) if the default configuration is not changed), ~7200 unique time series were active.
+Assume your environment has about 350 active time series at any moment, but within the last 2 weeks (the [metrics obsolescence period](metrics_managing.html#obsolete-metrics) if the default configuration is not changed), ~7200 unique time series were active.
 
 In this case, `default()` is not needed at all - `filehandles.used` and `filehandles.total` always report together. The following query is more than 20x faster:
 

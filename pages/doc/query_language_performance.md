@@ -4,10 +4,10 @@ keywords: query language
 tags: [query language, performance]
 sidebar: doc_sidebar
 permalink: query_language_performance.html
-summary: Tricks for improving Wavefront Query Language performance.
+summary: Tricks for improving the query language performance.
 ---
 
-The Wavefront Query Language lets you retrieve and display the data that has been ingested into Tanzu Observability by Wavefront and create alerts that use this data.
+The Wavefront Query Language (WQL) lets you retrieve and display the data that has been ingested into VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) and create alerts that use this data.
 
 <table style="width: 100%;">
 <tbody>
@@ -31,7 +31,7 @@ The Wavefront Query Language lets you retrieve and display the data that has bee
 
 ## Video: Optimize Dashboard Performance
 
-Watch this video to learn how to optimize dashboard and query performance.
+Watch this video to learn how to optimize dashboard and query performance. Note that this video was created in 2021 and some of the information in it might have changed. It also uses the 2021 version of the UI.
 
 <p>
 <iframe id="kmsembed-1_ynnxe6tn" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_ynnxe6tn/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0"></iframe>
@@ -82,13 +82,13 @@ To see the performance statistics for a particular query of a chart or alert:
 
 ## Use Performance Improvement Suggestions
 
-If the query uses certain functions in ways that often cause performance degradation, Tanzu Observability shows actionable suggestions for improving the query performance. The suggestions also include links to documentation and videos for details.
+If the query uses certain functions in ways that often cause performance degradation, Operations for Applications shows actionable suggestions for improving the query performance. The suggestions also include links to documentation and videos for details.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="40%">
-A dot symbol on the lightbulb icon for a query indicates that Tanzu Observability has suggestions for improving the query performance.</td>
+A dot symbol on the lightbulb icon for a query indicates that there are suggestions for improving the query performance.</td>
 <td width="60%"><img src="/images/lightbulb_w_dot.png" alt="screenshot highlighting the lightbulb icon with the dot"></td>
 </tr>
 <tr>
@@ -105,6 +105,78 @@ To see and, optionally, apply the performance improvement suggestions for a quer
 </tr>
 </tbody>
 </table>
+
+## Use the Query Analyzer
+
+Sometimes, when you expect to see certain data in Operations for Applications, it doesn’t show up for some reason. By default, in such cases, charts display a **No Data** message (unless you have [overridden this setting and have set up charts to show another message](ui_charts.html#override-the-no-data-message-on-a-chart)). When you see **No Data** on a chart, you can use the Query Analyzer to analyze your queries and subqueries. The Query Analyzer helps you identify potential issues, so that you can easily [troubleshoot missing data](missing_data_troubleshooting.html), and also shows performance statistics for the queries and subqueries that result in **No Data**.
+
+{% include tip.html content="If you use variables in your queries, in the Query Analyzer the variables are replaced by their actual (static) values. See the example below."%}
+
+For example, if the query that you want to analyze is <code>max(${latency})</code>, where the `latency` variable is <code>ts(requests.latency, source="app-1*" or source="app2*", env="dev")</code>, in the Query Analyzer, the query that you'll see will be: <code>max(ts(requests.latency, source="app-1*" or source="app2*", env="dev"))</code>.
+
+### Analyze a Query
+
+To use the Query Analyzer and analyze a query and its subqueries:
+
+1. Click the name of the chart to open it in Edit mode.
+1. If you have more queries, locate the query that you want to analyze.
+1. Click the ellipsis icon next to the query and select **Query Analyzer**.
+   A new browser tab with the Query Analyzer opens. 
+1. Click **Analyze**.
+
+The subquery that causes the **No Data** issue is highlighted. 
+
+- **Example 1**: The subquery contains a typo.
+
+  ![A screenshot of the query analyzer, where the second subquery is highlighted, because it contains a typo](images/query-analyzer-tab.png)
+
+- **Example 2**: No data is present in Operations for Applications.
+
+  ![A screenshot of the query analyzer, where the query is highlighted, because no such data is present in the system](images/query-analyzer-tab-1.png)
+
+  As you can see from the screenshot above, the Query Analyzer also shows performance statistics at a subquery level for the specific time window: 
+
+  - **Cardinality**: Number of unique time series. 
+  - **Points Scanned**: Number of data points that were queried to show the chart on the screen. 
+  - **Duration**: Time between query start and return of result.
+
+- **Example 3**: The query contains more subqueries that result in **No Data**.
+
+  ![A screenshot of the query analyzer, where two subqueries are highlighted, because they contain typos](images/query-analyzer-incorrect-subqueries.png)
+  
+  If a query contains more than one subquery that results in **No Data**, when you analyze the query, the first subquery causing the issue is highlighted and the result for it is displayed under **Detected Issues**. The other subqueries resulting in **No Data** are marked with a dotted underline. To expand the result for another subquery, simply click a result under **Detected Issues** and the subquery will be highlighted.
+
+### Change the Time Window
+
+By default, the time window used in the Query Analyzer is the time window that you have set for the chart. If you change the time window, the performance statistics update accordingly.
+
+For example, if by default, the time window for the chart is set to one week, the results from the analysis might look like this:  
+
+![A screenshot of the query analyzer, where the query is highlighted, because no such data is present in the system and the default time window is 1 week.](images/query-analyzer-tab-1.png)
+
+**To change the time window**:
+
+1. In the Query Analyzer, click the time picker.
+2. Select the new time settings, for example, last 2 hours.
+3. Click **Analyze**.
+
+The performance statistics change as shown in the screenshot below.
+
+![A screenshot of the query analyzer, where the query is highlighted, because no such data is present in the system and the default time window is 2 hours.](images/query-analyzer-tab-2.png)
+
+
+### Share a Link
+
+In addition to investigating and fixing the issues by yourself, you can also share a link to the Query Analyzer with the same problematic query with others from your team. 
+
+**To share a link to the Query Analyzer:**
+
+1. On the Query Analyzer browser tab, click the share icon in the top right.
+1. In the **Share Query Analyzer** window, click **Copy link**.
+
+   ![A screenshot of the Share Query Analyzer window with the Copy link button selected.](images/share-query-analyzer.png)
+
+1. Send the link to your colleagues who might be interested in examining the results.
 
 ## Use Filters to Look at the Right Data
 
@@ -159,9 +231,9 @@ In certain cases, the query engine [performs prealignment](query_language_align_
 
 ### Use Raw Aggregation Functions
 
-Instead of using align(), you can avoid the overhead of interpolation with a raw aggregation function. [Aggregating Time Series](query_language_aggregate_functions.html) has details and a video.
-* Standard aggregation functions (e.g. sum(), avg(), or max()) first interpolate the points of the underlying set of series, and then apply the aggregation function to the interpolated series. These functions aggregate multiple series down, usually to a single series.
-* Raw aggregation functions (e.g. rawsum(), rawavg()) do not interpolate the underlying series before aggregation.
+Instead of using `align()`, you can avoid the overhead of interpolation with a raw aggregation function. [Aggregating Time Series](query_language_aggregate_functions.html) has details and a video.
+* Standard aggregation functions (e.g. `sum()`, `avg()`, or `max()`) first interpolate the points of the underlying set of series, and then apply the aggregation function to the interpolated series. These functions aggregate multiple series down, usually to a single series.
+* Raw aggregation functions (e.g. `rawsum()`, `rawavg()`) do not interpolate the underlying series before aggregation.
 
 Example:
 
@@ -186,11 +258,12 @@ If you are looking at a 30-minute window, <strong>1vw</strong> is one view-windo
 
 ## Use Wildcard Characters with Care
 
-WQL supports the asterisk (*) as a wildcard character.  [Wildcards](query_language_reference.html#partial-regex-wildcards-aliases-and-variables) in queries can result in many time series on a chart, which can be confusing and affect performance. If using a wildcard character make sense for your use case, use delimiters, and don't use a wildcard at the beginning of a query.
+WQL supports the asterisk (*) as a wildcard character.  [Wildcards](query_language_reference.html#partial-regex-wildcards-aliases-and-variables) in queries can result in many time series on a chart, which can be confusing and affect performance. If using a wildcard character makes sense for your use case, use delimiters, and don't use a wildcard at the beginning of a query. Wildcards in source and metric names result in a very large search space and affect performance. For example, if you include a wildcard character in a source name, the system scans all of your sources first.
 
 - **Faster**: `ts(‘abc.*.xyz’)` -- Using delimiters around wildcards.
 - **Slower**: `ts(“abc*xyz”)` -- Not using a period as a delimiter.
 - **Slower**: `ts("*abc.xyz")` -- Wildcard character at the beginning of a query.
+
 
 ## Learn More!
 

@@ -7,13 +7,15 @@ permalink: integrations.html
 summary: Learn how to customize a built-in integration and how to set up a custom integration.
 ---
 
-Integrations are one easy way to get data from external systems into Tanzu Observability by Wavefront. Use one of the [built-in integrations](label_integrations%20list.html) and customize it as needed.
+Integrations are one easy way to get data from external systems into VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront). Use one of the [built-in integrations](label_integrations%20list.html) and customize it as needed.
 
-We update our [integrations release notes](integrations_new_changed.html) on a monthly basis.
+We update our [integrations release notes](integrations_new_changed.html) frequently.
+
+Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: Operations for Applications subscriptions **onboarded** to the [VMware Cloud services platform](https://console.cloud.vmware.com/) and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until they migrate to VMware Cloud services. For information about the subscription types and how they differ, see [Subscription Types](subscriptions-differences.html).  
 
 ## Watch a Video
 
-In this video, Jason talks about the different integrations we have, and how you can use them to get your data into Tanzu Observability. You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_j454pr6u" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+In this video, Jason talks about the different integrations we have, and how you can use them to get your data into the product. You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_j454pr6u" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>. Note that this video was created in 2017 and some of the information in it might have changed. It also uses the 2017 version of the UI.
 
 <p>
 <iframe id="kmsembed-1_j454pr6u" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_j454pr6u/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="intro to integrations"></iframe>
@@ -21,11 +23,29 @@ In this video, Jason talks about the different integrations we have, and how you
 
 ## Try an Integration!
 
-Sign up for a trial version to try our integrations. Detailed setup steps for each integration are in the product.
+Sign up for a trial version to try our integrations. Detailed setup steps for each integration are in the product UI. 
+
+When the integration setup requires a token for the proxy authentication, the setup instructions of some integrations (such as all integrations for Linux distributions, Windows host integration, MacOS integration, Prometheus, and so on) vary depending on whether your service is onboarded to VMware Cloud services or not. For details, see [Integrations Supported for Onboarded Subscriptions](integrations_onboarded_subscriptions.html). For the latest and most recent instructions on how to set up an integration, see the steps on the **Setup** tab of the integration that you're interested in.
+
+* If your Operations for Applications service **is** onboarded to VMware Cloud services, you have two choices:
+
+   * Use OAuth App authentication (recommended):
+
+     You must use the credentials (client ID and client secret) of an existing server to server app which has the **Proxies** service role assigned and is added to the VMware Cloud organization running the service. You must also provide the ID of the VMware Cloud organization running the service.
+
+      If you don’t have a server to server app already, you can create one in the VMware Cloud Services Console. For details, see [How to use OAuth 2.0 for server to server apps](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-327AE12A-85DB-474B-89B2-86651DF91C77.html) in the VMware Cloud services documentation.
+
+
+   * Use API Token authentication:
+
+     The API token must be generated in the VMware Cloud Services Console by an active user account. It also must have the **Proxies** service role assigned. For more information, see [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html).
+   
+
+* If your Operations for Applications service is **not** onboarded to VMware Cloud services, generate the API token in the Operations for Applications UI. It is recommended that you use a service account API token. For more information, see [Manage API tokens](api_tokens.html).
 
 Here's a sample of what you see when you select one of our integrations:
 * The **Overview** tab explains how the integration works and what's included, often a sample dashboard with commonly used charts.
-* The **Setup** tab has instructions for configuring the integration.
+* The **Setup** tab has the instructions for configuring the integration.
 * The **Metrics** and **Dashboard** tabs are preconfigured to show your metrics after you've set up the integration. You can [clone and customize our dashboards](integrations.html#cloning-and-customizing-dashboards).
 * The **Alerts** tab is an optional one. It contains a list of preconfigured integration alerts.
 
@@ -38,7 +58,7 @@ Here's a screenshot that shows the different tabs of the Apache Solr integration
 
 ## Built-In and Custom Integrations
 
-Tanzu Observability lets you set up many integrations directly from the product. For other integrations, we give step-by-step instructions -- or you can send your data in other ways, for example, using the Telegraf output plug-in.
+VMware Aria Operations for Applications lets you set up many integrations directly from the product. For other integrations, we give step-by-step instructions -- or you can send your data in other ways, for example, using the Telegraf output plug-in.
 
 - **Built-in integrations** provide assisted installation and configuration. Many integrations also install a dashboard for you. Access the integration by clicking **Integrations** on the toolbar and clicking the **Setup** tab.
 
@@ -74,7 +94,7 @@ This table provides links to the documentation pages for many of the custom and 
 
 Our customers have started to make open-source integrations available on GitHub.
 
-Our first external integration sends AlertSite monitoring results to Tanzu Observability and is available at [https://github.com/secureworks/AlertSite2Wavefront](https://github.com/secureworks/AlertSite2Wavefront).
+Our first external integration sends AlertSite monitoring results to VMware Aria Operations for Applications and is available at [https://github.com/secureworks/AlertSite2Wavefront](https://github.com/secureworks/AlertSite2Wavefront).
 
 We're excited about this contribution and hope to see more soon!
 
@@ -108,10 +128,30 @@ You can install and uninstall the system integration dashboards.
 ## Cloning and Customizing Dashboards
 
 You cannot modify the system dashboards. Instead, you must clone the dashboards.
-1. Click the ellipsis icon in the top right corner of the dashboard.
-2. Select **Clone**.
-3. Provide a URL string that's just the name (e.g., `mydashboard` or `dashboard-name-clone`) and not the URL (e.g., `http://mydashboard`).
-4. Customize the clone to suit your needs.
+1. Open an integration dashboard:
+   1. Click **Integrations** on the toolbar.
+   1. Click an integration tile.
+   1. Click the **Dashboards** tab.
+   1. Click the dashboard that you want to clone and edit.
+2. Click the ellipsis icon in the top right corner of the dashboard.
+3. Select **Clone**.
+4. Provide a URL string that's just the name (e.g., `mydashboard` or `dashboard-name-clone`) and not the URL (e.g., `http://mydashboard`).
+5. Customize the clone to suit your needs.
+
+<!--Add this as step 4 when we have the custom prefix feature is rolled out to more customers
+
+(Optional) Provide a custom metric prefix.
+  
+   The metric prefix will be applied to all the charts in the cloned dashboard. It can contain:
+   
+   * Uppercase and lowercase letters
+   * Numbers
+   * Full stop (.)
+   * Hyphen (-)
+   * Underscore (_)
+   
+   Note that the custom metric prefix cannot end with a hyphen or underscore.
+-->
 
 ## Installing and Uninstalling Integration Alerts
 
@@ -144,6 +184,8 @@ Clone the alert before making any customizations so that you don't lose your cha
 **To clone an integration alert:**
 
 1. Click **Integrations** on the toolbar.
+1. Click an integration tile.
+1. Click the **Alerts** tab.
 1. Click **Edit** next to the alert that you want to clone.
    The alert opens in Edit mode.
 1. Click the **Clone** button in the top right corner of the alert.
@@ -151,6 +193,9 @@ Clone the alert before making any customizations so that you don't lose your cha
    ![Example screenshot that shows the clone button](images/alerts-clone.png)
    
 1. Enter a name of the new alert and click **Clone**.
+
+   The new alert opens in edit mode.
+1. Customize the clone to suit your needs and click **Save**.
 
 After you clone an alert, snooze the original system integration alert to avoid running a duplicate version of the alert. For more information about editing alerts, see [Manage Alerts](alerts_manage.html).
 
@@ -190,7 +235,7 @@ When you hover over an integration, the integration border in the UI changes and
 ## More Info
 
 * Don't see the integration you are looking for? Have a look at [Set Up Data Ingestion](wavefront_data_ingestion.html) and at [Data Format](wavefront_data_format.html).
-* On our [Tanzu Observability](https://tanzu.vmware.com/observability) pages we have several blog posts with use cases and background info:
+* On our [VMware Aria Operations for Applications](https://tanzu.vmware.com/observability) pages we have several blog posts with use cases and background info:
   - [Google Cloud Monitoring Using Wavefront Metrics-Driven Analytics](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/google-cloud-monitoring-using-wavefront-metrics-driven-analytics)
   - [Monitor MongoDB Metrics for Better Scaling and Optimized Database Performance](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitor-mongodb-metrics-for-better-scaling-and-optimized-database-performance)
   - [Monitoring Apache HTTP Server with Wavefront Metrics-Driven Analytics](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitoring-apache-http-server-with-wavefront-metrics-driven-analytics)

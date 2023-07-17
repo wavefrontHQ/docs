@@ -6,11 +6,11 @@ sidebar: doc_sidebar
 permalink: wavefront_data_ingestion.html
 summary: Learn how to set up the data ingestion pipeline.
 ---
-How you get your data into Tanzu Observability by Wavefront depends on your use case, but you have many options. You can use one of the supported integrations, or you can instrument your application and send data directly.
+How you get your data into VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) depends on your use case, but you have many options. You can use one of the supported integrations, or you can instrument your application and send data directly.
 
-Watch this video to listen to Wavefront co-founder Clement Pang talk about data ingestion:
+Watch this video to listen to the Wavefront co-founder Clement Pang's talk about data ingestion. Note that this video was created in 2018 and some of the information in it might have changed.
 
-<p><iframe id="kmsembed-1_nc4kmszz" width="700" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_nc4kmszz/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="Getting Data Into Wavefront"></iframe>
+<p><iframe id="kmsembed-1_nc4kmszz" width="700" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_nc4kmszz/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="How to Ingest Data"></iframe>
 </p>
 
 ## The Big Picture
@@ -25,15 +25,15 @@ The data flow is like this:
 1. The metrics originate with your infrastructure or application. They could come from Telegraf, or a cloud service, or you might collect metrics with a custom metrics pipeline.
 2. You set up the data ingestion pipeline:
     * For cloud services, you use one of the Cloud integrations -- you don't have to install or set up a Wavefront proxy.
-    * To monitor hosts, infrastructure, or applications, set up an integration. The integration Setup tab has instructions for getting the data flowing. For many integrations, you set up Telegraf to collect the metrics and create a Wavefront proxy (or select an existing proxy). The proxy forwards metrics from many sources to the Wavefront service.
-    * If no built-in integration for your data source exists, you can set up one of the collector integrations (such as a Telegraf integration) or you can stream your data to the Wavefront proxy. The proxy accepts metrics in OpenTSB, Grafana, and [Wavefront data format](wavefront_data_format.html).
-    * Another option is direct ingestion. In that case, you send data directly to the Wavefront service. Most customers and our SRE team prefer using a proxy -- there are [many benefits](proxies.html#proxy-benefits).
+    * To monitor hosts, infrastructure, or applications, set up an integration. The integration Setup tab has instructions for getting the data flowing. For many integrations, you set up Telegraf to collect the metrics and create a Wavefront proxy (or select an existing proxy). The proxy forwards metrics from many sources to the Operations for Applications service.
+    * If no built-in integration for your data source exists, you can set up one of the collector integrations (such as a Telegraf integration) or you can stream your data to the Wavefront proxy. The proxy accepts metrics in OpenTSB, Grafana, and [Operations for Applications data format](wavefront_data_format.html).
+    * Another option is direct ingestion. In that case, you send data directly to the Operations for Applications service. Most customers and our SRE team prefer using a proxy -- there are [many benefits](proxies.html#proxy-benefits).
 
-![data into wavefront](images/data_into_wavefront_with_ingestion.png)
+![data into Operations for Applications](images/data_into_wavefront_with_ingestion.png)
 
 ## Step 1: Understand Your Use Case
 
-Tanzu Observability by Wavefront can help you get insight into the telemetry at all levels of your application stack. Here are the levels, and the associated use cases -- for details on each use case see Step 2.
+Operations for Applications can help you get insight into the telemetry at all levels of your application stack. Here are the levels, and the associated use cases -- for details on each use case see Step 2.
 
 <table style="width: 100%;">
 <tbody>
@@ -60,7 +60,7 @@ The simplest path for any use case is to use a [pre-built integration](label_int
 
 ### Get Metrics from a Cloud Provider
 
-Cloud integrations use a different setup process than other integrations. You log in to the cloud service, and give the Wavefront service read access to the metrics that you're interested in. There's no need to install or set up a Wavefront proxy.
+Cloud integrations use a different setup process than other integrations. You log in to the cloud service, and give the Operations for Applications service read access to the metrics that you're interested in. There's no need to install or set up a Wavefront proxy.
 
 We support integrations for the most popular cloud services. This doc set has customization information for example, for [AWS Metrics Integration](integrations_aws_metrics.html), [AWS ECS Integration](integrations_aws_ecs.html), [AWS Lambda Functions](integrations_aws_lambda.html), and [Pivotal Container Service](integrations_pks.html).
 
@@ -76,7 +76,7 @@ For use cases that center around infrastructure data like CPU, memory, or databa
 3. If no built-in integration exists, set up a collector agent such as Telegraf or collectd to collect your metrics.
     We support integrations for many custom collector agents. The collector agent can send your data to the Wavefront proxy.
 
-    Some collector agents, such as Telegraf, include an output plug-in for Wavefront. You add a configuration file to Telegraf that specifies which data you want to get from which host, and select the proxy to send the data to.
+    Some collector agents, such as Telegraf, include an output plug-in for Operations for Applications. You add a configuration file to Telegraf that specifies which data you want to get from which host, and select the proxy to send the data to.
 
     ![data flow](images/wavefront_data_flow.png)
 
@@ -87,7 +87,7 @@ For use cases that center around infrastructure data like CPU, memory, or databa
 
 ### Instrument your Code
 
-For use cases that involve metrics from proprietary applications, you can instrument your code. Use one of our instrumentation libraries for popular programming languages. For example, you can create a Java Wavefront reporter object to use DropWizard metrics.
+For use cases that involve metrics from proprietary applications, you can instrument your code. Use one of our instrumentation libraries for popular programming languages. For example, you can create a Java reporter object to use DropWizard metrics.
 
 1. Click **Integrations** and search for **Application Integration** to display the available application instrumentation integrations.
 2. Choose the integration that best suits your use case.
@@ -97,7 +97,7 @@ For use cases that involve metrics from proprietary applications, you can instru
 
 If your company already has a **custom metrics pipeline**, follow these steps:
 
-1. Convert your data into one of the [supported data formats](proxies.html#supported-data-formats). You can send data in [Wavefront data format](wavefront_data_format.html), Graphite data format, and OpenTSDB data format.
+1. Convert your data into one of the [supported data formats](proxies.html#supported-data-formats). You can send data in [Operations for Applications data format](wavefront_data_format.html), Graphite data format, and OpenTSDB data format.
 2. Set up a Wavefront proxy. If you have a proxy installed in your environment, consider using that - or you can install a new proxy. See [Installing and Managing Proxies](proxies_installing.html)
 2. Send the metrics you're interested in to the Wavefront proxy at port 2878. In production environments, customers use 2 proxies behind a load balancer. Otherwise, 1 proxy is usually enough.
 
@@ -129,7 +129,7 @@ Alerts and special features such as anomaly detection, histograms, and distribut
 
 ## Learn More!
 
-* Watch the videos in the [Get Started with Tanzu Observability](https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_zcafsh0j/uiConfId/47611883) playlist on VMware TV.
+* Watch the videos in the [Get Started](https://vmwaretv.vmware.com/embedplaylist/secure/embed/v2/1/playlistId/1_zcafsh0j/uiConfId/47611883) playlist on VMware TV.
 * Learn more about [histogram](proxies_histograms.html) or [distributed tracing](tracing_basics.html) capabilities.
 * Have a look at some details about [Wavefront proxies](proxies.html)
 

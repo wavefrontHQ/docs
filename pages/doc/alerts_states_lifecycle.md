@@ -6,12 +6,11 @@ permalink: alerts_states_lifecycle.html
 summary: Learn about alert conditions and states, when alerts fire, and how alerts resolve.
 ---
 
-Here's a video to get you started:
+Here's a video to get you started with the alerts lifecycle in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront). Note that this video was created in 2017 and some of the information in it might have changed. It also uses the 2017 version of the UI.
 
 <p>
 <iframe id="kmsembed-1_gors5bq5" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gors5bq5/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *"  frameborder="0" title="Alert States and Lifecycle"></iframe>
 </p>
-
 
 ## What's the Alert Lifecycle?
 
@@ -33,10 +32,10 @@ Let's look at an example:
 |SMOKE  | 4000  |
 
 This multi-threshold alert notifies targets like this:
-1. Tanzu Observability by Wavefront monitors the alert condition.
+1. Operations for Applications monitors the alert condition.
 2. If at least one of the threshold values is met for the specified amount of time, for example, if `cpu.loadavg.1m` is greater than 6000, the alert fires.
 3. Notifications are always sent to all alert targets that match the condition, for example, that are equal to or below the severity that triggers the alert. For example, if `cpu.loadavg.1m` is greater than 6000 for 5 minutes, alert targets for SEVERE, WARN, and SMOKE are notified because the condition is satisfied for all. If the value of `cpu.loadavg.1m` satisfies the WARN but not the SEVERE condition, then only alert targets in WARN and SMOKE will be notified.
-4. We continue checking the alert condition at the specified interval (1 minute by default). If the alert condition for a higher level is no longer met, but lower-level conditions are still met, then the higher-level alert target gets an Alert Resolved notification, and each lower-level alert target gets an Alert Updated notification.
+4. We continue checking the alert condition at the specified interval (5 minutes by default). If the alert condition for a higher level is no longer met, but lower-level conditions are still met, then the higher-level alert target gets an Alert Resolved notification, and each lower-level alert target gets an Alert Updated notification.
 
 ![alert multi concept](images/alert_multi_concept.png)
 
@@ -44,7 +43,7 @@ This multi-threshold alert notifies targets like this:
 
 Single-threshold alerts notify all targets at the same time when the alert changes state:
 
-1. Tanzu Observability monitors the alert condition. When the condition is met for the specified amount of time, the alert fires.
+1. Operations for Applications monitors the alert condition. When the condition is met for the specified amount of time, the alert fires.
 2. When the alert fires, we send alert notifications to the alert target(s) specified for the alert, using the severity that's prespecified for the alert.
 3. When the alert resolves or is snoozed, we send additional notification to the alert target(s).
 
@@ -59,8 +58,8 @@ An alert can be in one of the following states, shown in the Alerts Browser and 
 </thead>
 <tr>
 <td><strong>CHECKING</strong></td>
-<td>Tanzu Observability checks whether the <strong>Condition</strong> is met for the amount of time specified by the <strong>Trigger Window</strong> property.<br/> <br/>
-If an alert is in the FIRING state, it cannot be in the CHECKING state at the same time but Tanzu Observability checks firing alerts to determine if firing conditions are still met. A FIRING alert resolves and transitions back to CHECKING when the condition does not evaluate to <strong>true</strong> in the time window, or when the time window contains no data.</td></tr>
+<td>Operations for Applications checks whether the <strong>Condition</strong> is met for the amount of time specified by the <strong>Trigger Window</strong> property.<br/> <br/>
+If an alert is in the FIRING state, it cannot be in the CHECKING state at the same time but Operations for Applications checks firing alerts to determine if firing conditions are still met. A FIRING alert resolves and transitions back to CHECKING when the condition does not evaluate to <strong>true</strong> in the time window, or when the time window contains no data.</td></tr>
 <tr>
 <td><strong>FIRING</strong></td>
 <td>The alert meets the <strong>Condition</strong> for the amount of time specified by the <strong>Trigger Window</strong> property. An alert transitions to FIRING when the condition has at least one true value and no false values during a fixed time window.</td>
@@ -91,9 +90,9 @@ You can set up an alert that triggers if the alert is in a NO DATA state for a s
 
 ## When Are Alerts Checked?
 
-The data associated with an alert are checked to determine whether the alert should fire or not. The default checking frequency is 1 minute: the conditional expression associated with the alert is evaluated once a minute. You can change this interval by setting the **Checking Frequency** advanced property.
+The data associated with an alert are checked to determine whether the alert should fire or not. The default checking frequency is 5 minutes. You can change this interval by setting the **Checking Frequency** advanced property.
 
-The exact time of the check for a particular alert is not fixed and can vary slightly within the minute. For example, it’s possible that a check for a specific alert occurs at 1:01:17pm and the next check occurs at 1:02:13pm.
+The exact time of the check for a particular alert is not fixed and can vary slightly within the minute. For example, it’s possible that a check for a specific alert occurs at 1:01:17pm and the next check occurs at 1:06:13pm.
 
 ### Data Granularity for Alert Checking
 
@@ -107,6 +106,8 @@ The data granularity for alert checking is 1 minute. The alert checking process:
 If the expression returns a single data value per minute, the summarization values and the returned values are the same.
 
 {% include note.html content="To use a different summarization strategy, use the [`align()`](ts_align.html) function, with parameters specifying a 1-minute time window and your preferred summarization method, in your alert condition. See **Example 2** below." %}
+
+The examples given below assumes that the alert checking frequency is set to 1 minute.
 
 **Example 1**
 
@@ -202,7 +203,7 @@ By default, the **Resolve Window** is the same length as the **Trigger Window**.
 
 Suppose you define an alert with the following properties:
 * The alert condition is `ts(metric.name) > 0`, where `metric.name` reports once a minute. (The summarization values are therefore the same as the reported values.)
-* The **Checking Frequency** interval is 1 minute (the default).
+* The **Checking Frequency** interval is 1 minute (the default value is 5 minutes).
 * **Trigger Window** = 5 minutes.
 * **Resolve Window** = 10 minutes.
 

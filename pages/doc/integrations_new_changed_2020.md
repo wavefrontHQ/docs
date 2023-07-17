@@ -4,9 +4,9 @@ keywords: integrations
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_new_changed_2020.html
-summary: New and changed Wavefront integrations released in 2019-2020
+summary: New and changed integrations released in 2019-2020
 ---
-Wavefront continuously adds new integrations to the existing set, and improves available integrations.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) continuously adds new integrations to the existing set, and improves available integrations.
 
 This document lists new and changed integrations for 2019 and 2020.
 * We have a separate document for [Integrations Release Notes](integrations_new_changed.html).
@@ -26,10 +26,10 @@ Made improvements to the following integrations in October 2020 - December 2020:
 * Spring Cloud Data Flow -- New preconfigured dashboard to monitor Native Kafka client
 * Kubernetes -- New setup UI
 * Slack -- URL unfurler
-* Wavefront Usage new dashboards:
-  - **Wavefront Ingestion Policy Explorer** In environments where [ingestion policies](ingestion_policies.html) have been configured, shows usage for each user and ingestion policy.
-  - **Committed Rate and Monthly Usage (PPS P95)** dashboard shows Wavefront monthly usage against commited rate.
-  - **Wavefront Namespace Usage Explorer**: Tracks the number of metrics received for the first 3 levels of your metric namespace.
+* Operations for Applications Usage new dashboards:
+  - **Operations for Applications Ingestion Policy Explorer** In environments where [ingestion policies](ingestion_policies.html) have been configured, shows usage for each user and ingestion policy.
+  - **Committed Rate and Monthly Usage (PPS P95)** dashboard shows Operations for Applications monthly usage against committed rate.
+  - **Operations for Applications Namespace Usage Explorer**: Tracks the number of metrics received for the first 3 levels of your metric namespace.
 * Google Cloud Platform (GCP) -- Fixed dashboard queries in Google Kubernetes Engine (GKE) dashboard
 * Azure Storage -- Preconfigured dashboard now supports monitoring of the Classic storage type
 
@@ -61,7 +61,7 @@ Made improvements to the following integrations in October 2019 - October 2020:
 * Logstash integration
 * Tanzu Kubernetes Grid Integrated Edition (formerly PKS) -- Now includes an **Alerts** tab with predefined alerts
 * Kubernetes integration guided user experience:
-  - Provides streamlined instructions based on where you install the Wavefront Collector for Kubernetes
+  - Provides streamlined instructions based on where you install the Kubernetes Metrics Collector
   - Verifies you've configured the Kubernetes integration correctly during setup
   - Shows the list of your Kubernetes clusters and their statuses in the integrations setup page
 
@@ -69,7 +69,7 @@ Made improvements to the following integrations in October 2019 - October 2020:
 
 Made significant improvements to the dashboards of the following integrations:
 
-* Wavefront Tutorial dashboards (upgrade for V2 UI)
+* Operations for Applications Tutorial dashboards (upgrade for V2 UI)
 * Pivotal Cloud Foundry dashboards
 * Kubernetes dashboard
 * vSphere dashboards
@@ -81,7 +81,7 @@ The following authentication integrations have been revised to support self-serv
 * VMware Workspace ONE Access
 * PingOne
 
-Many integrations now include information about the metrics that Wavefront collects even when metrics are not flowing. The information is available from the integration's  **Metrics** tab and from the documentation that's generated from the integration.
+Many integrations now include information about the metrics that we collect even when metrics are not flowing. The information is available from the integration's  **Metrics** tab and from the documentation that's generated from the integration.
 
 Here's an example of what you see for the Amazon CloudFront integration:
 
@@ -116,8 +116,8 @@ We added the following integrations in January - March 2019:
 
 We made made improvements to the following integrations in January - March 2019
 
-* Kubernetes integration: Added dashboard for monitoring Wavefront Collector for Kubernetes
+* Kubernetes integration: Added dashboard for monitoring Kubernetes Metrics Collector
 * Amazon RDS integration: Dashboard filtering improvements
-* Azure SQL Database integration: Dashboard improvments
+* Azure SQL Database integration: Dashboard improvements
 * vSphere integration: Dashboard improvements
 * Nagios integration: Enhancements to event collection

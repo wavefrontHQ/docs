@@ -7,20 +7,20 @@ permalink: tracing_view_offline_traces.html
 summary: Download traces and view them later using offline traces.
 ---
 
-You can export traces from the Tanzu Observability by Wavefront GUI. You can save traces locally as JSON files, and view them later using the **Offline Traces**.
+You can export traces from VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront). You can save traces locally as JSON files and view them later using the **Offline Traces**.
 
 ## Export Traces
 
 Follow the steps to export traces via the traces browser or the Wavefront API:
 * Export the traces via the [Traces Browser](tracing_traces_browser.html) and save the JSON file.
 * Export traces via the API.
-  * Use the Wavefront Swagger UI. See [API Documentation (Wavefront Instance)](wavefront_api.html#api-documentation-wavefront-instance) for details on navigating to the Wavefront Swagger UI.
+  * Use the Operations for Applications Swagger UI. See [API Documentation (Product Instance)](wavefront_api.html#api-documentation-service-instance) for details on navigating to the Swagger UI.
     <br/>Example:
-    ![UI image showing where the API is on the Wavefront Swagger UI.](images/tracing_import_tracing_swagger_UI.png)
+    ![UI image showing where the API is on the Swagger UI.](images/tracing_import_tracing_swagger_UI.png)
   * Use a `curl` command that has the `/api/v2/chart/api` URL.
     <br/>Example:
     ```
-    curl -X GET --header "Accept: application/json" --header "Authorization: Bearer <Wavefront_Token>" "https://<Tenant_Name>.wavefront.com/api/v2/chart/api?q=limit(100%2C%20traces(spans(%22beachshirts.shopping.*%22)))&s=1601894248&g=d&view=METRIC&sorted=false&cached=true&useRawQK=false"
+    curl -X GET --header "Accept: application/json" --header "Authorization: Bearer <API_Token>" "https://<Tenant_Name>.wavefront.com/api/v2/chart/api?q=limit(100%2C%20traces(spans(%22beachshirts.shopping.*%22)))&s=1601894248&g=d&view=METRIC&sorted=false&cached=true&useRawQK=false"
      ```
 
 ## View Traces

@@ -1,15 +1,15 @@
 ---
-title: Tanzu Observability by Wavefront SDKs
+title: Operations for Applications SDKs
 keywords: getting started
 tags: [getting started]
 sidebar: doc_sidebar
 permalink: wavefront_sdks.html
-summary: Learn about Tanzu Observability SDKs that enable applications to report metrics, histograms, and trace data.
+summary: Learn about SDKs that enable applications to report metrics, histograms, and trace data to VMware Aria Operations for Applications (previously known as Tanzu Observability by Wavefront).
 ---
 
-Tanzu Observability by Wavefront supports a suite of open source SDKs that developers can use to instrument applications for observability. The instrumented application collects and sends metrics, histograms, and/or trace data to Tanzu Observability for storage and visualization. The SDKs are available for most popular programming languages, and are available in GitHub.
+Operations for Applications supports a suite of open source SDKs that developers can use to instrument applications for observability. The instrumented application collects and sends metrics, histograms, and/or trace data to Operations for Applications for storage and visualization. The SDKs are available for most popular programming languages, and are available in GitHub.
 
-Watch this video to listen to our co-founder Clement Pang talk about how Tanzu Observability by Wavefront expands application monitoring with its observability SDKs:
+Watch this video to listen to our co-founder Clement Pang talk about how Operations for Applications expands application monitoring with its observability SDKs. Note that this video was created in 2019 and some of the information in it might have changed.
 
 <p>
 <iframe id="kmsembed-1_obf0o1tx" width="700" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_obf0o1tx/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="The Future of App Monitoring"></iframe>
@@ -17,7 +17,7 @@ Watch this video to listen to our co-founder Clement Pang talk about how Tanzu O
 
 ## What Do You Want to Collect?
 
-Tanzu Observability SDKs let you instrument your application to collect and send different kinds of observability data.
+Operations for Applications SDKs let you instrument your application to collect and send different kinds of observability data.
 
 <!--- Writer note: If you add any languages to this table, add links in the corresponding sections below. --->
 
@@ -31,27 +31,6 @@ Tanzu Observability SDKs let you instrument your application to collect and send
 <tr><th>SDK Type</th><th>SDK Description </th><th>Supported Languages</th></tr>
 </thead>
 <tbody>
-
-<tr>
-<td markdown="span">[OpenTracing SDK](#sdks-for-collecting-trace-data)</td>
-<td align="justify">Implements the OpenTracing specification. Lets you define, collect, and report custom trace data from any part of your application code. <br>Automatically derives RED metrics from the reported spans. </td>
-<td>
-  <ul>
-    <li>
-      <b>Java</b>: <a href ="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java">OpenTracing SDK</a> <b>|</b> <a href ="https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java">Tracing Agent</a>
-    </li>
-    <li>
-      <b>Python</b>: <a href ="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-python">OpenTracing SDK</a>
-    </li>
-    <li>
-      <b>Go</b>: <a href ="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-go">OpenTracing SDK</a>
-    </li>
-    <li>
-      <b>.Net/C#</b>: <a href ="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp">OpenTracing SDK</a>
-    </li>
-  </ul>
-</td>
-</tr>
 
 <tr>
 <td markdown="span">[Metrics SDK](#sdks-for-collecting-metrics-and-histograms)</td>
@@ -76,7 +55,7 @@ Tanzu Observability SDKs let you instrument your application to collect and send
 
 <tr>
 <td markdown="span">[Sender SDK](#sdks-for-sending-raw-data)  </td>
-<td align="justify">Lets you send raw values to Tanzu Observability by Wavefront for storage as metrics, histograms, or traces, e.g., to import CSV data.
+<td align="justify">Lets you send raw values to Operations for Applications for storage as metrics, histograms, or traces, e.g., to import CSV data.
 </td>
 <td>
 <ul>
@@ -101,71 +80,6 @@ Tanzu Observability SDKs let you instrument your application to collect and send
 
 </tbody>
 </table>
-
-## SDKs For Collecting Trace Data
-
-We provide SDKs that implement the [OpenTracing](https://www.opentracing.io) specification for creating, sampling, and reporting spans and traces. You use these SDKs to instrument critical areas in your code to send custom trace data:
-* You can use a Wavefront OpenTracing SDK alone, to instrument an entire application.
-* You can use a Wavefront OpenTracing SDK along with a framework SDK, to instrument any functions that are not handled by the instrumented framework.
-
-
-We provide OpenTracing SDKs for:
-<div class="row">
- <div class="col-md-2 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-body">
-            <a href="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java">
-            <img src="/images/icons_svg_java.png" alt="Java logo">
-            </a>
-         </div>
-     </div>
- </div>
- <div class="col-md-2 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-body">
-            <a href="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-python">
-            <img src="/images/icons_svg_phython.png" alt="Python">
-            </a>
-         </div>
-     </div>
- </div>
- <div class="col-md-2 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-body">
-            <a href="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-go">
-            <img src="/images/icons_svg_go.png" alt="Go">
-            </a>
-         </div>
-     </div>
- </div>
- <div class="col-md-2 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-body">
-            <a href="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp">
-            <img src="/images/icons_svg_.net.png" alt="Net">
-            </a>
-         </div>
-     </div>
- </div>
- <div class="col-md-2 col-sm-6">
-        <div class="panel panel-default text-center">
-            <div class="panel-body">
-               <a href="https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java">
-               <img src="/images/icons_svg_java_tracing_agent.png" alt="Java tracing agent">
-               </a>
-            </div>
-        </div>
-    </div>
-  </div>
-
-  {% include tip.html content="If you need application observability, but don't want to instrument code for your Java microservices, use the [Wavefront Java Tracing Agent](https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java). For more information, see [this blog post on the Wavefront Java Tracing Agent](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/wavefront-introduces-java-tracing-agent-delivering-out-of-the-box-application-observability)." %}
-
-A Wavefront OpenTracing SDK derives [RED metrics](trace_data_details.html#red-metrics) from the spans that are sent from the instrumented application. These RED metrics show the request Rate, Errors, and Duration that are obtained from the reported spans. These out-of-the-box metrics are derived from your spans automatically, with no additional configuration or instrumentation on your part. You can view the RED metrics for each service's operations in [predefined charts](tracing_basics.html#visualize-distributed-tracing-data).
-
-Sample use cases:
-* Suppose your application is already instrumented with a 3rd party distributed tracing system. If that 3rd party system is OpenTracing-compliant, you can replace it with the Wavefront OpenTracing SDK in the same language.
-
-* Suppose you have a microservice with a critical backend operation that writes to a proprietary database. Even though you've used a framework-specific SDK to instrument the RESTful APIs of the microservice, you'd like to see if anything is holding up the database write operation. You can use an OpenTracing SDK to instrument the operation so that it adds spans to the microservice's traces.
 
 ## SDKs For Collecting Metrics and Histograms
 
@@ -232,7 +146,7 @@ Sample use case:
 
 ## SDKs for Sending Raw Data
 
-Some SDKs enable you to send raw values to Tanzu Observability for ingestion as metrics, histograms, or trace data. You normally use these "sender" SDKs indirectly when you use other SDKs that depend on them. However, you might use a sender SDK directly, for example, to create a utility that obtains existing values from a data store or CSV file, and sends those values to Tanzu Observability.
+Some SDKs enable you to send raw values to Operations for Applications for ingestion as metrics, histograms, or trace data. You normally use these "sender" SDKs indirectly when you use other SDKs that depend on them. However, you might use a sender SDK directly, for example, to create a utility that obtains existing values from a data store or CSV file, and sends those values to Operations for Applications.
 
 We provide sender SDKs for:
 
@@ -284,11 +198,14 @@ We provide sender SDKs for:
  </div>
 </div>
 
-{% include note.html content="If you want to instrument your tracing application using a Sender SDK, you won’t see span-level RED metrics by default. See [Instrument Your Application with Wavefront Sender SDKs](tracing_instrumenting_frameworks.html#instrument-your-application-with-wavefront-sender-sdks) to configure your application to send span-level RED metrics using a custom tracing port." %}
+{% include note.html content="If you want to instrument your tracing application using a Sender SDK, you won’t see span-level RED metrics by default. See [Instrument Your Application with Sender SDKs](tracing_instrumenting_frameworks.html#instrument-your-application-with-sender-sdks) to configure your application to send span-level RED metrics using a custom tracing port." %}
 
-A sender SDK is built into each of the other observability SDKs to enable applications to communicate with Tanzu Observability in one of two ways:
-* Send data directly to Tanzu Observability ([direct ingestion](direct_ingestion.html)). This technique gets you up and running with minimal preparation, but is best suited for small-scale uses.
-* Send data to a [Wavefront proxy](proxies_installing.html), which then forwards the data to Tanzu Observability. This technique is recommended for large-scale deployments, because the proxy provides resilience to internet outages, control over data queuing and filtering, and more.
+A sender SDK is built into each of the other observability SDKs to enable applications to communicate with Operations for Applications in one of two ways:
+* Send data directly to Operations for Applications ([direct ingestion](direct_ingestion.html)). This technique gets you up and running with minimal preparation, but is best suited for proof of concept and small-scale uses.
+
+  {% include note.html content= "Currently, if your service is onboarded to VMware Cloud services, direct ingestion by using SDK is not supported. For best performance, use a Wavefront proxy. " %} 
+
+* Send data to a [Wavefront proxy](proxies_installing.html), which then forwards the data to Operations for Applications. This technique is recommended for large-scale deployments, because the proxy provides resilience to internet outages, control over data queuing and filtering, and more.
 
 
 <!---

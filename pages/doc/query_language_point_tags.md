@@ -13,21 +13,21 @@ Point tags are key-value pairs (strings) that are associated with a point. Point
 
 ## Point Tag Basics
 
-Point tags offer a powerful way of labeling data so that you can slice and dice it in almost any way you can imagine. For example, you can use point tags to label a point's datacenter, version, etc., and can then group by datacenter or version.
+Point tags offer a powerful way of labeling data so that you can slice and dice it in almost any way you can imagine. For example, you can use point tags to label a point's data center, version, etc., and can then group by data center or version.
 
 Many of our cloud integrations generate point tags automatically to help you filter metrics. You add point tags explicitly using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html).
 
 
 ### Point Tag Maximum
 
-Tanzu Observability by Wavefront supports up 20 point tags per time series. A larger number of point tags does not improve the user experience and can lead to performance problems.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront)  supports up 20 point tags per time series. A larger number of point tags does not improve the user experience and can lead to performance problems.
 
 {% include note.html content="If the number of point tags exceeds 20, then we drop the metrics that have those point tags." %}
 
 
 ### Point Tag Example
 
-Our ~sample metrics, included in each Wavefront instance, have two point tags, `env` and `az`. Each point tag has two values, and you can filter to show one or the other set of time series. Below, the time series with `env=dev` are shown in shades of blue, and the time series with `env=production` are shown in shades of green.
+Our `~sample` metrics, included in each product instance, have two point tags, `env` and `az`. Each point tag has two values, and you can filter to show one or the other set of time series. Below, the time series with `env=dev` are shown in shades of blue, and the time series with `env=production` are shown in shades of green.
 
 ![time series organized by point tag](images/point_tags_simple.png)
 
@@ -38,6 +38,9 @@ You can filter further, either by specifying another point tag or by combining a
 Finally, instead of filtering, you can use grouping, for example, in conjunction with an aggregation function. The sample data are a bit unusual because all time series with `env=production` are also tagged with `az=us-west2`. In an actual data set, we would expect 4 lines as a result of this query, two that sum for each environment and two that sum for each availability zone.
 
 ![time series organized by point tag](images/point_tags_group.png)
+
+
+{% include note.html content="Starting with the 2023-20.x release, grouping is case-sensitive. For example, if you ingest point tags such as `zone` and `ZONE`, when you use an aggregation function and apply grouping, we will consider `zone` and `ZONE` as separate tags. " %}
 
 ## Best Practices for Point Tags
 

@@ -6,7 +6,10 @@ sidebar: doc_sidebar
 permalink: access.html
 summary: Control access to individual dashboards and alerts.
 ---
-Tanzu Observability by Wavefront supports the roles, permissions, and groups authorization paradigm for managing global permissions. For example, a user with **Dashboards** permission can manage *all* dashboards. This paradigm is sufficient for many of our customers.
+
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Managing Access to Dashboards and Alerts in Operations for Applications on VMware Cloud Services](csp_access.html)."%}
+
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports the roles, permissions, and groups authorization paradigm for managing global permissions. For example, a user with **Dashboards** permission can manage *all* dashboards. This paradigm is sufficient for many of our customers.
 
 Super Admins or users with the **Accounts** permission who need finer-grained control can manage access on a per-object basis. We currently support access control for dashboards and alerts.
 
@@ -14,16 +17,16 @@ Super Admins or users with the **Accounts** permission who need finer-grained co
 
 {% include tip.html content="In addition to access control, we also support [metrics security policy rules](metrics_security.html) which allow fine-grained control over which users can see which metrics." %}
 
-This video shows how to limit access for a dashboard, how to give access (share) that dashboard, and how to set the Security organization setting. You can manage access for alerts the same way. The video uses the 2020 version of the UI.
+This video shows how to limit access for a dashboard, how to give access (share) that dashboard, and how to set the Security organization setting. You can manage access for alerts the same way. Note that this video was created in 2020, and some of the information in it might have changed. It also uses the 2020 version of the UI.
 
-<p><iframe id="kmsembed-1_lckq6foe" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_lckq6foe/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability: Object-Based Access Control"></iframe></p>
+<p><iframe id="kmsembed-1_lckq6foe" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_lckq6foe/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Object-Based Access Control"></iframe></p>
 
 {% include note.html content="After the Access organization setting is set to Object Creator in an environment, only the creator of a new object and the Super Admin can view and modify new objects initially. Those users can give access to the object with other groups or users." %}
 
 
 ## How Access Control Works
 
-Tanzu Observability supports granting and revoking access to dashboards and alerts.
+Operations for Applications supports granting and revoking access to dashboards and alerts.
 * By default, all users can view all dashboards and alerts.
 * Users with **Dashboards** permission can:
   - Restrict or grant access to individual dashboards from the Dashboard browser.
@@ -108,7 +111,7 @@ An orphan dashboard results if:
 * Only one user had access to a dashboard or an alert, and that user was deleted.
 
 To restore an orphan dashboard or alert:
-1. Log in as a Super Admin user.
+1. Log in as a Super Admin user and [enable Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode).
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **Super Admin**.
 2. Select the orphaned dashboard or alert and share it with other users or groups.
 
@@ -116,9 +119,9 @@ To restore an orphan dashboard or alert:
 
 ### Recover a Permanently Deleted Dashboard
 
-A permanently deleted dashboard does not show in the trash and becomes inaccessible to all users, including the Super Admin. As a Super Admin, you can try to restore the dashboard by using the Wavefront API.
+A permanently deleted dashboard does not show in the trash and becomes inaccessible to all users, including the Super Admin. As a Super Admin, you can try to restore the dashboard by using the REST API.
 
-1. Log in as a Super Admin user.
+1. Log in as a Super Admin user and [enable Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode).
 2. From the gear icon <i class="fa fa-cog"/> on the toolbar, select **API Documentation**.
 3. Expand the **Dashboard** category and click the `GET api/v2/dashboard/{id}/history/{version}` request.
 4. Enter the dashboard name as the `"id"` parameter.

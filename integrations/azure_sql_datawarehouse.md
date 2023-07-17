@@ -2,8 +2,15 @@
 title: Microsoft Azure SQL Datawarehouse Integration
 tags: [integrations list]
 permalink: azure_sql_datawarehouse.html
-summary: Learn about the Wavefront Microsoft Azure SQL Datawarehouse Integration.
+summary: Learn about the Microsoft Azure SQL Datawarehouse Integration.
 ---
+
+This page provides an overview of what you can do with the Microsoft Azure SQL Datawarehouse integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the Microsoft Azure SQL Datawarehouse integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **Microsoft Azure SQL Datawarehouse** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## Microsoft Azure Integration
 
 The Microsoft Azure integration enables monitoring Azure with Wavefront and offers pre-defined dashboards and alert conditions.
@@ -68,16 +75,15 @@ You can see the information about the metrics on the [Azure metrics](https://doc
 - [Azure Virtual Machine](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachines)
 - [Azure Virtual Machine Scale Set](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesets)
 
-## Microsoft Azure Integrations
 
 
 
 ### Add a Microsoft Azure Cloud Integration
 
-Adding a Microsoft Azure cloud integration requires establishing a trust relationship between Azure and Tanzu Observability by Wavefront. The overall process involves the following:
+Adding a Microsoft Azure cloud integration requires establishing a trust relationship between Azure and VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront). The overall process involves the following:
 
 * Getting a Directory ID
-* Creating an Azure Active Directory application that represents Tanzu Observability inside Azure and getting the Application ID.
+* Creating an Azure Active Directory application that represents Operations for Applications inside Azure and getting the Application ID.
 * Creating a secret key and getting the Application secret.
 
 To register a Microsoft Azure Cloud Integration:
@@ -90,11 +96,23 @@ To register a Microsoft Azure Cloud Integration:
 5. (Optional) Enter the category names to fetch.
 6. (Optional) In the **Metric Allow List** text box, you can add metrics to an allow list by entering a regular expression. 
    For example, <code>^azure.(compute|dbforpostgresql).*$</code>.
+
+   <strong>Note:</strong> Metric names consist of the actual metric name and a suffix (starting with a dot (".")). The suffix represents an aggregation type. In the regular expression, you must use the actual metric names without the aggregation types, such as: <code>count</code>, <code>average</code>, <code>minimum</code>, <code>maximum</code>, <code>sum</code>, and so on.
+
+   For example, the metric names for the metric <code>azure.compute.vm.percentage.cpu</code> are:
+
+   * <code>azure.compute.vm.percentage.cpu.average</code>
+   * <code>azure.compute.vm.percentage.cpu.maximum</code>
+   * <code>azure.compute.vm.percentage.cpu.minimum</code>
+   * <code>azure.compute.vm.percentage.cpu.count</code>
+   * <code>azure.compute.vm.percentage.cpu</code> (corresponds to <code>azure.compute.vm.percentage.cpu.total</code>)
+
+   Here, the actual metric name is <code>azure.compute.vm.percentage.cpu</code>, while <code>average</code>, <code>maximum</code>, <code>minimum</code>, and <code>count</code> are the aggregation types. When you create the regular expression, you must use only <code>azure.compute.vm.percentage.cpu</code>. For example, <code>^azure.compute.vm.percentage.cpu$</code>.
+
 7. (Optional) Enter the resource group names to fetch.
 8. Select whether you want to fetch logs. 
    If you decide that you want to fetch activity logs, you can also specify the log categories to fetch, e.g. Administrative, Service health, Alert, and so on.
 9. Click **Register**.
-
 
 
 

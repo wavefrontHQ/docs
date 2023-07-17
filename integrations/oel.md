@@ -2,8 +2,15 @@
 title: Oracle Linux Host Integration
 tags: [integrations list]
 permalink: oel.html
-summary: Learn about the Wavefront Oracle Linux Host Integration.
+summary: Learn about the Oracle Linux Host Integration.
 ---
+
+This page provides an overview of what you can do with the Oracle Linux Host integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the Oracle Linux Host integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **Oracle Linux Host** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## Linux Host Integration
 
 Monitoring Linux hosts is easy with Wavefront. This integration installs and configures Telegraf to send host metrics
@@ -13,16 +20,6 @@ In addition to setting up the metrics flow, this integration also installs a das
 
 {% include image.md src="images/linux_db.png" width="80" %}
 
-
-To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
-## Linux Host Setup
-
-This integration uses various Telegraf input plugins and offers several setup options
-
-* Use a proxy already running in your environment (preferred) or create a new proxy. 
-* Install the Wavefront proxy and Telegraf agent on the same host or on separate hosts.
-
-{% include telegraf.md %}
 
 ## Linux Logs Setup (Beta)
 

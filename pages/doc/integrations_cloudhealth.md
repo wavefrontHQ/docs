@@ -4,18 +4,18 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_cloudhealth.html
-summary: Learn how to send Tanzu Observability by Wavefront data to CloudHealth.
+summary: Learn how to send VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) data to CloudHealth.
 ---
 
 The CloudHealth platform helps your team manage resource utilization and costs across multiple cloud environments. CloudHealth provides spending summary reports for each cost center, which helps you drive financial accountability and find ways to lower your cloud spend.  You can create custom policies that automate daily cloud operations, support faster decision making, and reduce risk. CloudHealth also, reports on vulnerabilities so you can proactively monitor, detect, and remediate risks in real-time.
 
-This page explains how to send date that are ingested into Tanzu Observability by Wavefront to CloudHealth. From CloudHealth, you can then examine those data and learn how to use your cloud resources more efficiently:
+This page explains how to send date that are ingested into VMware Aria Operations for Applications to CloudHealth. From CloudHealth, you can then examine those data and learn how to use your cloud resources more efficiently:
 
 ![Diagram shows data from Wavefront that goes to CloudHealth.](images/integration_cloudhleath_intro.png)
 
-## Benefits of the Wavefront Integration in CloudHealth
+## Benefits of the VMware Aria Operations for Applications Integration in CloudHealth
 
-CloudHealth ingests the usage and performance data that Tanzu Observability by Wavefront gathers to help you in the following ways:
+CloudHealth ingests the usage and performance data that VMware Aria Operations for Applications gathers to help you in the following ways:
 * Understand how your cloud assets are being allocated and utilized through usage reports.
 * Categorize assets into Perspectives inside CloudHealth.
 * Make rightsizing decisions for EC2 Instances and Azure Virtual Machines.
@@ -27,15 +27,29 @@ Here's what you need to get started.
 
 **CloudHealth**
 * You must have a CloudHealth account. If you don't have one, [request a demo from the CloudHealth team](https://go.cloudhealthtech.com/demo-request.html?ref=nav).
-* You need Administrator permission in CloudHealth to add a Wavefront account to CloudHealth.
+* You need Administrator permission in CloudHealth to add a VMware Aria Operations for Applications (Wavefront) account to CloudHealth.
 
-**Tanzu Observability by Wavefront**
-* You need access to a Wavefront cluster that monitors the data source you're interested in.
-* [Generate a Wavefront API token](users_account_managing.html#generate-an-api-token) to let CloudHealth access the Wavefront API.
-  {% include note.html content="A Wavefront API token is tied to a Wavefront account. Ensure that the account whose API token you select has access to the Tanzu Observability by Wavefront Sources that you want to ingest in CloudHealth. Creating a service account is often the right approach." %}
+**VMware Aria Operations for Applications**
 
+* You need access to a product cluster (`https://<example>.wavefront.com`) that monitors the data source you're interested in.
+* A valid API token to let CloudHealth access our API. 
 
-## Create a Wavefront Account in CloudHealth
+ <!-- If your Operations for Applications service **is** onboarded to VMware Cloud services, provide a valid VMware Cloud services API token of a user account or the credentials of a server to server app that has access to the Operations for Applications sources that you want to ingest in CloudHealth. For details, see:
+  
+   * [How do I generate API tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html)
+   * [How do I manage API tokens in my Organization](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-3A9C29E0-460B-4586-B51A-084443A960D0.html)
+   * [Manage server to server apps](csp_server_to_server_apps.html)
+  
+  If your Operations for Applications service is **not** onboarded to VMware Cloud services, the API token must be a [valid Operations for Applications API token](api_tokens.html) of a user account or a service account that has access to the Operations for Applications sources that you want to ingest in CloudHealth. 
+
+  {% include tip.html content="Creating a server to server app or a service account is often the right approach." %}
+-->
+
+The API token must be a [valid Operations for Applications API token](api_tokens.html) of a user account or a service account that has access to the Operations for Applications sources that you want to ingest in CloudHealth. 
+
+{% include tip.html content="Creating a service account is often the right approach." %}
+
+## Create a VMware Aria Operations for Applications (Wavefront) Account in CloudHealth
 
 Follow these steps to create a Wavefront account in CloudHealth:
 
@@ -44,14 +58,14 @@ Follow these steps to create a Wavefront account in CloudHealth:
 1. Select **Accounts** > **Setup** > **Wavefront**.
 1. Click **New Account** and configure the integration:
   ![Screenshot of the configuration screen in the CloudHealth UI.](images/integration_cloudhealth_wavefront_setup.png)
-    1. Enter ab account name.
-    1. Retrieve the Wavefront API token (see Prerequisites) and paste it in the **API Token** field.
-    1. If you are using a metric prefix in Tanzu Observability by Wavefront, enter its value in the **Metric Prefix** field.
+    1. Enter an account name.
+    1. Retrieve the VMware Aria Operations for Applications API token (see Prerequisites) and paste it in the **API Token** field.
+    1. If you are using a metric prefix in VMware Aria Operations for Applications, enter its value in the **Metric Prefix** field.
     1. To import tags from a legacy Servers account, enable **Import Tags**. 
        CloudHealth then actively collects tags, and you will see an additional field to accept the tags that you want to import into CloudHealth.
 1. Click **Save Account**.
 
-CloudHealth begins collecting Wavefront Sources within 15 minutes of account setup, and continues collecting these Sources every 15 min. CloudHealth fetches up to one day's worth of time-series data from the date when you add the Wavefront account.
+CloudHealth begins collecting VMware Aria Operations for Applications Sources within 15 minutes of account setup, and continues collecting these Sources every 15 min. CloudHealth fetches up to one day's worth of time-series data from the date when you add the Wavefront account.
 
 ## Data Gathered by CloudHealth
 

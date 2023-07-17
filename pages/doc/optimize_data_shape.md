@@ -6,19 +6,19 @@ sidebar: doc_sidebar
 permalink: optimize_data_shape.html
 summary: Learn how to optimize your data in high-cardinality environments.
 ---
-Data shape refers to how each component of a time series is designed and formatted. Your environment's data shapes are important regardless of how you use Tanzu Observability by Wavefront and where you are in your work with the platform.
+Data shape refers to how each component of a time series is designed and formatted. Your data shapes in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) are important regardless of how you use the service and where you are in your work with the platform.
 
-* **New users** who plan on sending data into Wavefront need to understand the most efficient ways of sending data in.
+* **New users** who plan on sending data into Operations for Applications need to understand the most efficient ways of sending data in.
 * **Existing users** who explore data in dashboards and chart can investigate data shape and use that information to optimize data exploration. If they see that the data shape is not optimal, they might even request changes to how data are ingested.
 
 
 In this doc page, we:
 * Discuss how **all users** can examine data that are already being ingested.
-* Look at best practices for **users who send data to Wavefront** so they can use the optimal data shape and cardinality, and, as a result, optimize performance.
+* Look at best practices for **users who send data to Operations for Applications** so they can use the optimal data shape and cardinality, and, as a result, optimize performance.
 
 ## Video
 
-In the following video Wavefront co-founder Clement Pang explains cardinality and data shape. You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_824wsz3p" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+In the following video, Wavefront co-founder Clement Pang explains cardinality and data shape. You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_824wsz3p" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>. Note that this video was created in 2020 and some of the information in it might have changed. 
 
 <p>
 <iframe id="kmsembed-1_824wsz3p" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_824wsz3p/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="creating dashboards video"></iframe>
@@ -26,7 +26,7 @@ In the following video Wavefront co-founder Clement Pang explains cardinality an
 
 ## Examine Ingested Data: Lag, Backfill, and Metric Type
 
-If data are already flowing into Wavefront, some aspects of how data are being ingested can significantly change what you see in your chart and whether your alerts work correctly. You can often fix problems using missing data function or using the correct metric type.
+If data are already flowing into Operations for Applications, some aspects of how data are being ingested can significantly change what you see in your chart and whether your alerts work correctly. You can often fix problems using missing data function or using the correct metric type.
 
 Ask yourself these questions:
 
@@ -57,7 +57,7 @@ The reporting window is easy to see in your Point Plot with 10-minute time windo
 * Hover over each point to determine the time and the associated gap between the metrics.
 * Look at the metric without advanced functions applied to the query (if possible) For example, if your query is `align(5m, sum(ts("my.metric")))`, use just `ts("my.metric")`.
 
-In most use cases and by default, Wavefront expects that a metric comes in each minute -- your *reporting interval* is 60 seconds. In the point plot, the points are 1 minute apart. In some cases metrics are separated by more than a minute and the 10 min live view of point plot reflects that.
+In most use cases and by default, Operations for Applications expects that a metric comes in each minute -- your *reporting interval* is 60 seconds. In the point plot, the points are 1 minute apart. In some cases metrics are separated by more than a minute and the 10 min live view of point plot reflects that.
 
 Here are the common reporting interval scenarios:
 
@@ -103,19 +103,19 @@ After considering the reporting interval and any potential delays in the metrics
 
   With counter metrics, it is often useful to use functions such as `rate()`, `ratediff()` or `mdiff()` because those functions calculate the change over time.
 
-* **Delta Counter**: Delta counters are different from traditional counters. The delta counter value represents the change in value over time. In Wavefront, delta counters bin to a minute timestamp and write operations to the same bin are treated as deltas. Delta counters are helpful for calculating bursts of events because collisions can result if a traditional gauge or counter metrics tries to represent something that changes so rapidly.
+* **Delta Counter**: Delta counters are different from traditional counters. The delta counter value represents the change in value over time. In Operations for Applications, delta counters bin to a minute timestamp and write operations to the same bin are treated as deltas. Delta counters are helpful for calculating bursts of events because collisions can result if a traditional gauge or counter metrics tries to represent something that changes so rapidly.
 
   See [Cumulative Counters and Delta Counters](delta_counters.html) for background
 
 
 ## Fine-Tune How Data Are Ingested
 
-If you're responsible for sending data into Wavefront, you can significantly improve performance and get the results you need by following the best practices in this section.
+If you're responsible for sending data into Operations for Applications, you can significantly improve performance and get the results you need by following the best practices in this section.
 
 
 ### Step 1: Ensure You Send Time Series Data
 
-Wavefront supports time series data. Time series track behavior over time. Each data point is a measurement at a particular point in time. We can connect and graph data points because they measure the same behavior at different moments in time. For example, you can measure the CPU load for one data source over time and can then graph those data to show increase, decrease, etc.
+Operations for Applications supports time series data. Time series track behavior over time. Each data point is a measurement at a particular point in time. We can connect and graph data points because they measure the same behavior at different moments in time. For example, you can measure the CPU load for one data source over time and can then graph those data to show increase, decrease, etc.
 
 Check if your data is time series data. If your data is tracking very unique behavior and the metric/source combination is unique for each data point, it's difficult to graph that time series.
 
@@ -139,16 +139,16 @@ Fewer time series means faster data retrieval, so reducing the number of series 
 
 ### Step 3: Be Smart about Data Point Components
 
-The Wavefront service uses several indexes for retrieving data.
+Operations for Applications uses several indexes for retrieving data.
 
 * One index uses the metric name and source name combination.
 * Another index allows retrieval of data based on the point tag key and values combination.
 
-If you are smart about data shaping to optimize how the Wavefront service uses these indexes so that the query engine can return results faster. See [Ask How Data Will Be Queried and Optimize](#step-5-ask-how-data-will-be-queried-and-optimize).
+If you are smart about data shaping to optimize how Operations for Applications uses these indexes so that the query engine can return results faster. See [Ask How Data Will Be Queried and Optimize](#step-5-ask-how-data-will-be-queried-and-optimize).
 
-Wavefront identifies data points that measure the same behavior by looking at the **components of each data point** (metric name, source name, and point tag name/value). The unique combination of these components describes what a time series is.
+Operations for Applications identifies data points that measure the same behavior by looking at the **components of each data point** (metric name, source name, and point tag name/value). The unique combination of these components describes what a time series is.
 
-For example, Wavefront sees that the CPU load for source-1 is different from the CPU load for source-2 and shows 2 time series in the chart. Wavefront can also access point tags to display different Kubernetes pods as different time series or to show different time series for different availability zones. See [Fine Tune Queries with Point Tags](query_language_point_tags.html) to understand how point tags work.
+For example, Operations for Applications sees that the CPU load for source-1 is different from the CPU load for source-2 and shows 2 time series in the chart. Operations for Applications can also access point tags to display different Kubernetes pods as different time series or to show different time series for different availability zones. See [Fine Tune Queries with Point Tags](query_language_point_tags.html) to understand how point tags work.
 
 ### Step 4:  Investigate Lags, Backfills, and Metric Type
 

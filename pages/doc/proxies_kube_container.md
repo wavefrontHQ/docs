@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: proxies_kube_container.html
 summary: Run a Wavefront proxy in a Kubernetes container and customize it.
 ---
-Tanzu Observability by Wavefront supports setting up the Wavefront proxy to run [in a Kubernetes container](kubernetes.html#kubernetes-manual-install). However, you cannot rely on a single `wavefront.conf` file. Instead, a ConfigMap file governs deployment.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports setting up the Wavefront proxy to run [in a Kubernetes container](kubernetes.html#kubernetes-manual-install). However, you cannot rely on a single `wavefront.conf` file. Instead, a ConfigMap file governs deployment.
 
 1. Create a custom ConfigMap file that contains the custom setup, for example preprocessing rules, for your proxy configuration. This doc page creates a `00_proxy-preprocessor-config.yaml` file.
 2. Edit `wavefront.yaml` so it points to the ConfigMap file.
@@ -16,7 +16,7 @@ Tanzu Observability by Wavefront supports setting up the Wavefront proxy to run 
 
 This section illustrates how to use a custom ConfigMap to block traffic for some metrics via preprocessor rules. You can use the same approach to, for example, have the Wavefront proxy use an HTTPS proxy.
 
-In this section, we first create a custom ConfigMap (`00_proxy-preprocessor-config.yaml`) that includes preprocessor rules to block metrics. Then we customize the `wavefront.yaml` so it points to our Wavefront instance, includes the token, and points to the ConfigMap file.
+In this section, we first create a custom ConfigMap (`00_proxy-preprocessor-config.yaml`) that includes preprocessor rules to block metrics. Then we customize the `wavefront.yaml` so it points to our Operations for Applications service instance, includes the proxy authentication, and points to the ConfigMap file.
 
 **1.** Create a file called `00_proxy-preprocessor-config.yaml` with content like the following. This sample file includes some examples of preprocessor rules that block certain metrics.
 
@@ -49,10 +49,10 @@ data:
                 value: "127.0.0."
 ```
 
-**2.** Update your `wavefront.yaml` (your deployment yaml for Wavefront proxy). See [Step 1: Deploy a Wavefront Proxy in Kubernetes](kubernetes.html#step-1-deploy-a-wavefront-proxy-in-kubernetes).
+**2.** Update your `wavefront.yaml` (your deployment `yaml` for Wavefront proxy).
 
 ```yaml
-# Need to change YOUR_CLUSTER and YOUR_API_TOKEN accordingly
+# Change <your_instance> and the values for the proxy authentication parameters depending on your subscription type.
 
 apiVersion: apps/v1
 # Kubernetes versions after 1.9.0 should use apps/v1
@@ -81,9 +81,21 @@ spec:
         imagePullPolicy: Always
         env:
         - name: WAVEFRONT_URL
-          value: <https://<cluster_name>.wavefront.com/api/
-        - name: WAVEFRONT_TOKEN
-          value: <wavefront_token_goes here>
+          value: <https://<your_instance>.wavefront.com/api/
+        # Uncomment the lines for your subscription type and proxy authentication type.
+        # For VMware Cloud services subscriptions and proxy authentication with a server to server OAuth app, uncomment the below lines:
+        #- name: CSP_APP_ID
+        #  value: <CSP_APP_ID>
+        #- name: CSP_APP_SECRET
+        #  value: <CSP_APP_SECRET>
+        #- name: CSP_ORG_ID
+        #  value: <CSP_ORG_ID>
+        # For VMware Cloud services subscriptions and proxy authentication with an API token, uncomment the below lines:
+        #- name: CSP_API_TOKEN
+        #  value: <CSP_API_TOKEN>
+        # For original subscriptions:
+        #- name: WAVEFRONT_TOKEN
+        #  value: <YOUR-API-TOKEN>
         # Uncomment the below lines to consume Zipkin/Istio traces
         #- name: WAVEFRONT_PROXY_ARGS
         #  value: --traceZipkinListenerPorts 9411

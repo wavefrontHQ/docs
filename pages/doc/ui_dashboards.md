@@ -6,7 +6,7 @@ permalink: ui_dashboards.html
 summary: Create dashboards, add charts, customize dashboard layout, and troubleshoot dashboards.
 ---
 
-Tanzu Observability by Wavefront includes many out-of-the box dashboards, and supports creation and fine-grained customization of dashboards. You organize the information about your environment and fine-tune what users see. For example:
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) includes many out-of-the box dashboards, and supports creation and fine-grained customization of dashboards. You organize the information about your environment and fine-tune what users see. For example:
 <ul>
 <li>Organize charts into sections.</li>
 <li>Perform global operations such as setting the dashboard time window.</li>
@@ -18,13 +18,12 @@ Tanzu Observability by Wavefront includes many out-of-the box dashboards, and su
 
 ## Video
 
-Users with Dashboards permissions can create a new dashboard with one or multiple charts from metrics, a chart type, or an integration. You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_gqelhfur" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+Users with the **Dashboards** permission can create a new dashboard with one or multiple charts from metrics, a chart type, or an integration. You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_gqelhfur" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>. Note that this video was created in 2020 and some of the information in it might have changed. It also uses the 2020 version of the UI.
 
 
 <p>
 <iframe id="kmsembed-1_gqelhfur" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gqelhfur/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="creating dashboards video"></iframe>
 </p>
-
 
 ## Create a Dashboard
 
@@ -82,7 +81,7 @@ You can create a dashboard by specifying an integration dashboard as a template.
 
 ### Create a Dashboard from a Tracing Template
 
-The Wavefront service dashboard includes a set of charts to monitor the trace data sent by each service in your application. You can use the service dashboard as a template to create your dashboard and then customize the charts for your environment.
+Our service dashboard includes a set of charts to monitor the trace data sent by each service in your application. You can use the service dashboard as a template to create your dashboard and then customize the charts for your environment.
 
 {% include note.html content="To view data in these charts, your applications need to send trace data to the Wavefront service. See [Instrument Your Applications](tracing_instrumenting_frameworks.html) for details." %}
 
@@ -108,7 +107,7 @@ The Wavefront service dashboard includes a set of charts to monitor the trace da
 </table>
 
 **Take a look at the cool actions you can do using these charts:**
-* [Explore the Default Service Dashboard](tracing_service_dashboard.html) and navigate to the Tracing UI from the Service Dashboard
+* [Explore the Default Service Dashboard](tracing_service_dashboard.html) and navigate to the Tracing UI from the Service Dashboard.
 * To delete or edit a chart, see [Clone, Delete, or Edit a Chart](#clone-delete-or-edit-a-chart).
 
 ### Create a Dashboard by Importing Sections from Other Dashboards
@@ -319,7 +318,8 @@ For each dashboard, you can customize display preferences and settings.
 <li>Select <strong>Edit</strong>. </li>
 <li>Click <strong>Settings</strong>.</li>
 <li>Make selections in the dialog:
-<ol><li>Set the default time window. You can later override the time window. <br />Time window settings on a dashboard level apply to all charts for which you have selected to use the <strong>Default to dashboard time window</strong> option. If you have set a fixed time window on a chart, the time window on that specific chart won’t be affected. </li>
+<ol><li>Set the default time window. You can later override the time window. 
+    <br />If you click <strong>Set current time window as the default</strong> you automatically apply the time window changes that you have currently made to the dashboard.<br /><strong>Note</strong>: Time window settings on a dashboard level apply to all charts for which you have selected to use the <strong>Default to dashboard time window</strong> option. If you have set a fixed time window on a chart, the time window on that specific chart won’t be affected. </li>
 <li>Deselect the <strong>Show Variable Bar by Default</strong> check box to hide the variables for the dashboard. Users can still show the variables bar using the <img src="/images/show_hide_variable_icon.png"
 style="vertical-align:text-bottom;width:25px" alt="show or hide variable icon" /> icon.  </li>
 <li>Select whether you want to turn off live refresh for dynamic variables.</li>
@@ -338,7 +338,10 @@ See <a href="charts_events_displaying.html#specify-an-events-query-for-a-dashboa
 </li>
 <li>Click <strong>Accept</strong>, and click <strong>Save</strong>. </li>
 </ol></td>
-<td width="50%"><img src="/images/v2_dashboard_prefs.png" alt="Set the dashboard preferences"></td>
+<td width="50%"><img src="/images/v2_dashboard_prefs.png" alt="Set the dashboard preferences">
+<p></p>
+<img src="/images/v2_dashboard_prefs-2.png" alt="A screenshot of the dashboard general settings window.">
+</td>
 </tr>
 </tbody>
 </table>
@@ -346,7 +349,7 @@ See <a href="charts_events_displaying.html#specify-an-events-query-for-a-dashboa
 
 ## Edit the Dashboard JSON
 
-Most users create and edit dashboards by using the GUI or automate the process with the Wavefront REST API. But at times, it's convenient to edit the dashboard JSON directly from the UI and see results immediately.
+Most users create and edit dashboards by using the GUI or automate the process with the REST API. But at times, it's convenient to edit the dashboard JSON directly from the UI and see results immediately.
 
 {% include warning.html content="Editing the dashboard JSON might have unintended consequences. Use the JSON editor only if you have some experience with JSON. " %}
 
@@ -480,20 +483,20 @@ After you've saved these changes:
 
 ### Video: Optimize Dashboard Performance
 
-Watch this video to learn how to optimize dashboard and query performance.
+Watch this video to learn how to optimize dashboard and query performance. Note that this video was created in 2021 and some of the information in it might have changed. It also uses the 2021 version of the UI.
 
 <p>
 <iframe id="kmsembed-1_ynnxe6tn" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_ynnxe6tn/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0"></iframe>
 </p>
 
 
-The Wavefront service can ingest and process very large amounts of data. Here's what you can do to ensure performance is optimal.
+Our service can ingest and process very large amounts of data. Here's what you can do to ensure performance is optimal.
 
 ### Watch for Cardinality Issues
 
 Ensure your data shape works well. Ingest only time series you need -- and then look only at those data you’re interested in.
 
-* See [Cardinality and Wavefront](cardinality.html) for some background and a video.
+* See [High Cardinality Data](cardinality.html) for some background and a video.
 * See [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html) for an in-depth discussion with examples.
 
 ### Optimize Query Performance
@@ -559,7 +562,7 @@ Over time, as more and more dashboards are created, there will be dashboards tha
 * Use the Dashboard Browser to sort the dashboards in ascending order by the number of views over the last day, week, or month. This puts the fewest viewed dashboards at the top of the list.
 ![Dashboard browser with Sort menu](images/dashboards_unused.png)
 
-* Use the Wavefront API and UI to check for dashboards that have not been viewed over a time window of your choice, including more than 4 weeks (a month).
+* Use the REST API and UI to check for dashboards that have not been viewed over a time window of your choice, including more than 4 weeks (a month).
     1. Get the IDs of all dashboards.
         1. From the gear icon on the toolbar, select **API Documentation**.
         2. Expand the **Dashboard** category and click the `GET api/v2/dashboard` request.

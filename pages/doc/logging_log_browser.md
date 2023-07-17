@@ -7,7 +7,7 @@ permalink: logging_log_browser.html
 summary: Learn how to filter and explore logs in the Logs Browser.
 ---
 
-{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative or [technical support](wavefront_support_feedback.html#support)."%}
+{% include important.html content="Logs (Beta) is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
 If you notice anomalies on your metrics charts or see that a service on the application map has large latency value, use the Logs Browser to troubleshoot your issues.
 
@@ -19,8 +19,8 @@ The Logs Browser supports in-depth exploration of your logs. As a user with the 
 
 To use the Logs Browser:
 
-1. Configure your application and the log shipper to [send logs to Tanzu Observability](logging_send_logs.html).
-1. In a web browser, log in to your Wavefront instance as user with the **Logs** permission.
+1. Configure your application and the log shipper to [send logs](logging_send_logs.html).
+1. In a web browser, log in to your product instance as user with the **Logs** permission.
 1. On the toolbar, click **Logs (Beta)**.
 
 On the Logs Browser, you can filter and examine logs for a selected period.
@@ -328,7 +328,7 @@ Let's look at an example:
 1. Hover over the area above the right side of the logs chart, click the plus (+) icon to zoom in further as needed and, if auto-search is off, click **Search**.
     ![a screenshot with the zoom in options highlighted with a red box](images/logging_histogram_zoom_in_in.png)
     
-1. To group the logs in the logs chart by the values of a particular tag key, from the **Groups** drop-down menu, select the grouping tag key.
+1. To group the logs in the logs chart by the values of a particular tag key, from the **Charts** drop-down menu, select the grouping tag key.
     The legend explains which color maps to which value of the grouping tag key.
     ![a screenshot with the zoom in options highlighted with a red box](images/logging_histogram_grouped.png)
     
@@ -372,10 +372,7 @@ To disable scroll auto-load:
 ## Learn More!
 
 * [Get started with logs](logging_overview.html).
-* [Send logs to Tanzu Observability](logging_send_logs.html).
+* [Send logs](logging_send_logs.html).
 * Learn about the [proxy configurations and proxy preprocessor rules for logs](logging_proxy_configurations.html).
 * See [Logs troubleshooting](logging_faq.html).
 
-<!---
-[Try out the demo app tutorial on GitHub](https://github.com/wavefrontHQ/demo-app) to send logs to Tanzu Observability.
---->

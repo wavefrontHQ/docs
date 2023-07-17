@@ -2,8 +2,15 @@
 title: Snowflake Integration
 tags: [integrations list]
 permalink: snowflake.html
-summary: Learn about the Wavefront Snowflake Integration.
+summary: Learn about the Snowflake Integration.
 ---
+
+This page provides an overview of what you can do with the Snowflake integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the Snowflake integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **Snowflake** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## Snowflake
 
 Snowflake is a full-featured native integration that offers agentless data ingestion of Snowflake usage metric data as well as a predefined dashboard.
@@ -14,17 +21,20 @@ Here's a preview of the dashboard:
 {% include image.md src="images/snowflake-dashboard.png" width="80" %}
 
 
+
 ### Add a Snowflake Integration
 
 Use the Snowflake integration to monitor a Snowflake database and the ACCOUNT_USAGE schema. 
 
-To register a new Snowflake instance and start monitoring the Snowflake usage, you must give Tanzu Observability by Wavefront access to your Snowflake account. The overall process involves steps which you can perform by following the instructions in your Wavefront cluster UI:
+To register a new Snowflake instance and start monitoring the Snowflake usage, you must give VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) access to your Snowflake account. The overall process involves:
 
-* Generate a private and a public key. 
+* Generating a private and a public key. 
   Snowflake supports key-pair authentication for enhanced authentication security. 
-* Create a custom role that will monitor the Snowflake usage, for example `WAVEFRONT`.
-* Grant the role with the `usage` and `monitor` privileges on the warehouse.
-* Assign the role to a new or an already existing user who has the public key assigned.
+* Creating a custom role that will monitor the Snowflake usage, for example `MYROLE`.
+* Granting the role with the `usage` and `monitor` privileges on the warehouse.
+* Assigning the role to a new or an already existing user who has the public key assigned.
+
+You can follow the steps provided in our GUI.
 
 After you generate the private and the public keys and create a user with the correct permissions, to register your Snowflake integration, follow these steps:
 
@@ -48,7 +58,6 @@ After you generate the private and the public keys and create a user with the co
       <code>^snowflake.database-usage-storage-usage-history.*$</code>
 5. (Optional) Change the **Service Refresh Rate**. The default is `60` minutes.
 6. Click **Register**.
-
 
 
 

@@ -7,9 +7,9 @@ permalink: alert_target_customizing.html
 summary: Learn how to customize alert notifications by modifying alert target templates.
 ---
 
-An alert target provides a template that specifies how Tanzu Observability by Wavefront extracts information from the alert, and how to assemble the notification from the alert information.
+An alert target provides a template that specifies how VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) extracts information from the alert, and how to assemble the notification from the alert information.
 
-You can customize the predefined template for the alert target type by making and saving changes. The template uses [Mustache syntax](https://mustache.github.io/) to combine literal text with Wavefront-defined _variables_ and _functions_ to produce the structures to be sent to the receiving messaging platform.
+You can customize the predefined template for the alert target type by making and saving changes. The template uses [Mustache syntax](https://mustache.github.io/) to combine literal text with _variables_ and _functions_ to produce the structures to be sent to the receiving messaging platform.
 
 {% include note.html content="For general information about setting up custom alert targets, see [Creating and Managing Custom Alert Targets](webhooks_alert_notification.html)." %}
 
@@ -48,7 +48,7 @@ Here's what happens:
 2. The alert template:
    * Identifies the information you want to extract from the alert
    * Embeds that information in a formatted structure appropriate for the target's messaging platform.
-3. Tanzu Observability sends the formatted information to the target.
+3. Operations for Applications sends the formatted information to the target.
 4. The messaging platform interprets the structure and displays it as a readable notification.
 
 For example:
@@ -64,7 +64,7 @@ We provide a predefined template for each type of custom alert target. You can 
 
 You can [inspect](#display-and-edit-predefined-templates) a predefined template to see:
 
-* The Wavefront-defined [variables](#template-variables) and [functions](#template-functions) that extract information from the alert.
+* The [variables](#template-variables) and [functions](#template-functions) that extract information from the alert.
 
 * The structural elements in which the extracted information is embedded. These are JSON attributes, HTML elements, or plain text, depending on the  messaging platform to which notifications will be sent.
 
@@ -74,7 +74,7 @@ The predefined Slack and VictorOps templates contain JSON attributes defined by 
 
 ### Template Variables
 
-We define template variables for accessing [information about the alert](#obtain-information-about-the-alert) and about [the time series tested by the alert](#obtain-information-about-the-alerts-time-series). When the alert triggers a notification, Tanzu Observability replaces the variables in the template with strings that represent the requested values. 
+We define template variables for accessing [information about the alert](#obtain-information-about-the-alert) and about [the time series tested by the alert](#obtain-information-about-the-alerts-time-series). When the alert triggers a notification, Operations for Applications replaces the variables in the template with strings that represent the requested values. 
 
 We support property and iterator variables, which are used differently.
 
@@ -376,7 +376,7 @@ Here is sample alert target output generated with the preceding template:
 
 Notice that, in a template entry such as {% raw %} `"alertId": "{{{alertId}}}"`{% endraw %}, everything except the variable is literal text that is passed through as output. So, for example:
 *  `"alertId": " " `  is literal text that produces a sample JSON attribute called `"alertId"`.
-* {% raw %}`{{{alertId}}}`{% endraw %} invokes the Wavefront-defined variable `alertId`, which expands to `1460761882996` in our example.
+* {% raw %}`{{{alertId}}}`{% endraw %} invokes the variable `alertId`, which expands to `1460761882996` in our example.
 
 
 ## Obtain Information About the Alert's Time Series
@@ -433,6 +433,96 @@ The names of the iterators follow this convention: <code>&lt;seriesCategory&gt;&
   </li>
 </ul>
 {{site.data.alerts.end}}
+
+## Extract Information About the Filter-by and Group-by Keys 
+
+Starting with the 2023.25 release, users can use iterators to extract information about the filter-by and group-by keys. 
+
+
+<table>
+<colgroup>
+<col width="20%"/>
+<col width="80%"/>
+</colgroup>
+<thead>
+<tr><th>Iterator</th><th>Definition</th></tr>
+</thead>
+<tbody>
+<tr>
+<td><code>filterByKVs</code></td>
+<td>Iterator that returns the key, predicate, and value of each filter-by key in the alert condition:
+<ul><li>key - A key used in the filter by expression.</li>
+<li>predicate - Can be <code>=</code>, <code>!=</code>, and <code>?=</code></li>
+<li>value - The value used in the filter-by expression.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>groupByKeys</code></td>
+<td>Iterator that returns all the group by keys from the alert condition.</td>
+</tr>
+</tbody>
+</table>
+
+**Example: Accessing Filter-by and Group-by Information in a Generic Webhook Alert Target Template**
+
+The portion of the Generic Webhook alert target template shows the filter-by keys and group-by keys extracted from the alert condition.
+
+{% raw %}
+```
+  "filterByKVs": [
+    {{#trimTrailingComma}}
+      {{#filterByKVs}}
+        {
+          "key": "{{{key}}}",
+          "predicate": "{{{predicate}}}",
+          "value": "{{{value}}}"
+        },
+      {{/filterByKVs}}
+    {{/trimTrailingComma}}
+  ],
+  "groupByKeys": [
+    {{#trimTrailingComma}}
+      {{#groupByKeys}}
+        "{{#jsonEscape}}{{{.}}}{{/jsonEscape}}",
+      {{/groupByKeys}}
+    {{/trimTrailingComma}}
+  ],
+
+```
+{% endraw %}
+
+
+**Example: Alert Filter-by and Group-by Keys in Output from the Sample Template**
+
+Here is a sample alert filter-by and group-by keys output generated with the preceding template: 
+
+{% raw %}
+```
+
+  "filterByKVs": [
+    {
+      "key": "env",
+      "predicate": "!=",
+      "value": "dev"
+    },
+    {
+      "key": "source",
+      "predicate": "=",
+      "value": "app-5"
+    },
+    {
+      "key": "source",
+      "predicate": "=",
+      "value": "app-6"
+    }
+  ],
+  "groupByKeys": [
+    "az",
+    "env"
+  ],
+  ```
+{% endraw %}
 
 ## Information About Alert Resolution Help
 
@@ -1041,7 +1131,7 @@ The `failingLimit` property applies to all iterators in the `failing` category: 
 
 See **Example: Setting and Testing Iteration Limits** below for an example.
 
-{% include note.html content="If the application that is being integrated requires the full list of items (e.g., `failingHosts`) you can retrieve the `alertId` from the notification and use the Wavefront REST API to get the full list of items." %}
+{% include note.html content="If the application that is being integrated requires the full list of items (e.g., `failingHosts`), you can retrieve the `alertId` from the notification and use the REST API to get the full list of items." %}
 
 
 <table>
@@ -1064,10 +1154,16 @@ See **Example: Setting and Testing Iteration Limits** below for an example.
 </td>
 </tr>
 <tr>
-<td markdown="span">`setFailingLimit`</td>
-<td markdown="span">Sets the limit for the number of items returned by `failingAlertSeries`, `failingHosts`, `failingHostsToSourceTags`, and `failingSeries`.
+<td markdown="span">`setFilterByKVsLimit`</td>
+<td markdown="span">Sets the limit for the number of items returned by `filterByKVs`.
 </td>
 </tr>
+<tr>
+<td markdown="span">`setRecoveredLimit`</td>
+<td markdown="span">Sets the limit for the number of items returned by `recoveredAlertSeries`, `recoveredHosts`, and `recoveredSeries`.
+</td>
+</tr>
+
 <tr>
 <td markdown="span">`setInMaintenanceLimit`</td>
 <td markdown="span">Sets the limit for the number of items returned by `inMaintenanceAlertSeries`, `inMaintenanceHosts`, and `inMaintenanceSeries`.

@@ -7,7 +7,7 @@ permalink: query_language_getting_started.html
 summary: Watch some videos, run a query, apply filters and functions, and more.
 ---
 
-Tanzu Observability by Wavefront includes the Wavefront Query Language (WQL), which lets you retrieve and display data that has been ingested.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) includes the Wavefront Query Language (WQL), which lets you retrieve and display data that has been ingested.
 * **Time series data** The query language is particularly well suited to time series data because it accommodates the periodicity, potential irregularity, and streaming nature of that data type.
 * **Histograms** The query language includes functions for [manipulating histograms](query_language_reference.html#histogram-functions).
 * **Traces and spans** Use the [tracing UI](tracing_traces_browser.html) to query traces and spans.
@@ -16,7 +16,7 @@ This page uses the v2 UI, which allows you to examine your data with [chart buil
 
 ## Videos
 
-Watch these videos to get you started. The videos use the v1 UI, but the basic workflow remains the same in the v2 UI.
+Watch these videos to get you started. The videos were created between 2017 and 2021 and some of the information in them might have changed. They also use the v1 UI, but the basic workflow remains the same in the v2 UI. 
 
 <table style="width: 100%;">
 <tbody>
@@ -31,7 +31,7 @@ Watch these videos to get you started. The videos use the v1 UI, but the basic w
 </tr>
 <tr>
 <td width="70%"><strong><font color="#0091DA" size="3">Intro to Wavefront Query Language</font></strong><br><br>
-<iframe id="kmsembed-1_kgacc2jb" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_kgacc2jb/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Query Language Advanced Functions"></iframe></td>
+<iframe id="kmsembed-1_kgacc2jb" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_f22x68bt/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Query Language Advanced Functions"></iframe></td>
 <td width="30%"><br><br>
 <p>Wavefront Query Language allows you to shape the data you see in your dashboards. The example uses the advanced functions if() at() and corr() to find a problem behavior of a switch in other switches and prevent future problems.</p>
 <p>You can also watch the video <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_brmdewqc/1_f22x68bt" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
@@ -42,7 +42,7 @@ Watch these videos to get you started. The videos use the v1 UI, but the basic w
 <iframe id="kmsembed-1_kgacc2jb" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_kgacc2jb/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Query Language Advanced Functions"></iframe>
 </td>
 <td><br><br>
-<p>Jason starts by looking at the Wavefront data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. <p>You can also watch the video <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_brmdewqc/1_kgacc2jb" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p></p>
+<p>Jason starts by looking at the data format. Then he adds a query to a chart that has only the required metric name. To narrow down the result, he uses a source filter with a wildcard and a point tag filter. <p>You can also watch the video <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_brmdewqc/1_kgacc2jb" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p></p>
 </td>
 </tr>
 </tbody>
@@ -80,14 +80,14 @@ Here's how the same query looks in the Query Editor.
 
 ## Step 1: Retrieve a Metric
 
-The Chart Builder UI makes it easy to show any metric that's currently flowing into your Wavefront instance. Follow these steps to explore the sample data, included with each Wavefront instance.
+The Chart Builder UI makes it easy to show any metric that's currently flowing into your product instance. Follow these steps to explore the sample data, included with each product instance.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="50%">
 <ol>
-<li>Log in to your Wavefront instance, which has a URL &lt;my_instance&gt;.wavefront.com. </li>
+<li>Log in to your product instance, which has a URL &lt;my_instance&gt;.wavefront.com. </li>
 <li>Select <strong>Dashboards > New Chart</strong>.</li>
 <li>In the Chart Builder, select the metric ~sample.cpu.loadavg.1m. Autocomplete helps with the selection. </li></ol>
 </td>
@@ -303,10 +303,10 @@ Charts for metrics also support the following types of queries:
 
 ### Docs, Learning Dashboards, and More!
 
-Our documentation includes tutorials, reference, and guides on the query language. In addition, your Wavefront instance includes an **Interactice Query Language Explorer** dashboard.
+Our documentation includes tutorials, reference, and guides on the query language. In addition, your product instance includes an **Interactive Query Language Explorer** dashboard.
 
 - **[Chart builder](chart_builder.html)** can help you come up to speed quickly while using the product.
-- If you're logged in to your Wavefront instance, click **Integrations** on the toolbar and find the **Tutorial** or the **Tour Pro** integration. The Tutorial includes an **Interactive Query Language Explorer** dashboard that shows examples for most functions.
+- If you're logged in to your product instance, click **Integrations** on the toolbar and find the **Tutorial** or the **Tour Pro** integration. The Tutorial includes an **Interactive Query Language Explorer** dashboard that shows examples for most functions.
 - [Wavefront Query Language Reference](query_language_reference.html) lists each function and gives query language syntax element. Each function name is a link to a reference page for the function.
 - For in-depth discussions and examples, we have a **[reference page](label_query%20language.html)** for each function and some [Query Language Recipes](query_language_recipes.html).
 

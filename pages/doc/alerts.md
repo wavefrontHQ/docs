@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: alerts.html
 summary: Learn how alerts work, examine, and organize them.
 ---
-Tanzu Observability by Wavefront supports smart alerts that dynamically filter noise and capture true anomalies.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports smart alerts that dynamically filter noise and capture true anomalies.
 * When the alert condition is met, an alert notifies one or more **alert targets**, which receive the alert notification(s).
 * The **alert notification** includes an image and a link to see the alert in context.
 * Look all alerts in the **Alert Browser** or examine a single firing alert in the **Alert Viewer**.
@@ -24,9 +24,9 @@ This section starts with a video and explores the anatomy of an alert. Go to one
 
 ### How Alerts Work Video
 
-In this video, Clement explains how a single-threshold alert works:
+In this video, Clement explains how a single-threshold alert works. Note that this video was created in 2018 and some of the information in it might have changed. 
 
-<p><iframe id="kmsembed-1_jdy1nak1" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_jdy1nak1/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Alerting with Tanzu Observability (Lightboard Video)"></iframe>
+<p><iframe id="kmsembed-1_jdy1nak1" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_jdy1nak1/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="How Alerts Work (Lightboard Video)"></iframe>
 </p>
 
 ### Anatomy of an Alert
@@ -60,7 +60,7 @@ To understand the alert evaluation process, review [Alert States and Lifecycles]
 
 Some commonly misunderstood concepts include:
 
-* **Alert checking frequency**: Alerts are checked approximately once per minute
+* **Alert checking frequency**: Default is 5 minutes. You can adjust this property from the **Additional Settings** in the **Conditions** section of the alert.
 
 * **Alert time window being reviewed**: Default is 5 minutes. You can change the time window with the **Trigger Window** and **Resolve Window** properties.
 
@@ -75,9 +75,9 @@ Some commonly misunderstood concepts include:
 
 ### How Often Are Alerts Evaluated?
 
-The minimum and default **Checking Frequency** interval is 1 minute. You can adjust this property from the **Additional Settings** in the **Conditions** section of the alert.
+The default **Checking Frequency** interval is 5 minutes. You can adjust this property from the **Additional Settings** in the **Conditions** section of the alert.
 
-  * If your alert condition query runs for more than a minute, consider increasing the checking frequency interval. For example, if the query runs for 2-4 minutes, set the **Checking Frequency** interval to 5 minutes.
+  * If your alert condition query runs for more than a minute, consider increasing the checking frequency interval. For example, if the query runs for 4-6 minutes, set the **Checking Frequency** interval to 7 minutes.
   * If your data points are coming much less frequently than once a minute, consider increasing the checking frequency interval. For example, if the query metrics report every 10 minutes, set the **Checking Frequency** interval to 10 minutes.
   * If an alert condition uses larger moving time windows or aligns to a large interval, you can check less frequently. For example, an alert that compares a `mavg(6h, ...)` to `mavg(48h, ...)` can be safely checked once an hour or even less.
   * If an alert is non-critical, you can check only as often as needed.
@@ -156,12 +156,11 @@ When an alert fires, we analyze the point tags that are most likely to be relate
 
 ### Alert Viewer Video
 
-In this video, Pierre gives a 2-minute tour of Alert Viewer:
+In this video, Pierre gives a 2-minute tour of Alert Viewer. Note that this video was created in 2019 and some of the information in it might have changed. It also uses the 2019 version of the UI.
 
 <p>
 <iframe id="kmsembed-1_qdr0dtwr" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_qdr0dtwr/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="intro to alert viewer"></iframe>
 </p>
-
 
 ## Alerts Browser Tutorial
 
@@ -316,9 +315,13 @@ When you have many and complex tag paths, you can search them by parent. For exa
 
 To make copies of an existing alert, then change the copy, you can clone an alert.
 
-1. To display the Alerts Browser, from the toolbar, select **Alerting > All Alerts**.
+1. From the toolbar, select **Alerting > All Alerts**.
 2. Click the ellipsis icon next to the alert.
-3. Select **Clone**, make changes when prompted, and click **Save**.
+3. Select **Clone**, provide a new name for the alert and click **Clone**.
+    
+    The new alert opens in edit mode.
+
+4. Customize the clone to suit your needs and click **Save**.
 
 ## Alert Events
 

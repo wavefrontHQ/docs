@@ -7,12 +7,11 @@ permalink: metrics_managing.html
 summary: Understand metrics structure and how to explore metrics in the Metrics Browser
 ---
 
-Tanzu Observability by Wavefront provides observability for several different [metric types](metric_types.html) including time series metrics, delta counters, histograms, and traces/spans. This page looks at the anatomy of a time series metric and shows you how to explore it in the Metrics Browser.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) provides observability for several different [metric types](metric_types.html) including time series metrics, delta counters, histograms, and traces/spans. This page looks at the anatomy of a time series metric and shows you how to explore it in the Metrics Browser.
 
 ## Videos
 
-The following videos get you started:
-
+The following videos get you started. Note that these videos were created in 2020 and some of the information in them might have changed. They also use the 2020 version of the UI.
 
 
 <table style="width: 100%;">
@@ -30,21 +29,21 @@ The following videos get you started:
 <td><strong><font color="#0091DA" size="3">About Cardinality</font></strong><br><br/>
 <iframe id="kmsembed-1_824wsz3p" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_824wsz3p/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0"></iframe>
 </td>
-<td><br><p>Wavefront chief architect and co-founder Clement Pang explains why the concept of cardinality is so important for observability, what high cardinality means, and why we deal so well with high cardinality input. You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_824wsz3p" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> </td>
+<td><br><p>Wavefront co-founder Clement Pang explains why the concept of cardinality is so important for observability, what high cardinality means, and why we deal so well with high cardinality input. You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_824wsz3p" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p> </td>
 </tr>
 </tbody>
 </table>
 
 
 You can also watch the following videos to learn more about working with metrics:
-* [Tagging your Data with Wavefront](https://vmwaretv.vmware.com/media/t/1_3igakxnb)
+* [Tagging your Data](https://vmwaretv.vmware.com/media/t/1_3igakxnb)
 * [Time Series and Interpolation](https://vmwaretv.vmware.com/media/t/1_afml14zm)
-* [Getting Data Into Wavefront](https://vmwaretv.vmware.com/media/t/1_nc4kmszz)
-* [Delta Counters in Wavefront](https://vmwaretv.vmware.com/media/t/1_khsugqea)
+* [How to Ingest Data](https://vmwaretv.vmware.com/media/t/1_nc4kmszz)
+* [Delta Counters](https://vmwaretv.vmware.com/media/t/1_khsugqea)
 
 ## Time Series Metric Structure
 
-A Wavefront time series has, at a minimum, the metric name, value/timestamp, and source. In many cases, the metric is ingested with additional information represented as tags.
+A time series has, at a minimum, the metric name, value/timestamp, and source. In many cases, the metric is ingested with additional information represented as tags.
 
 ### Simple Time Series
 
@@ -64,7 +63,7 @@ Here's a screenshot of the time series that is shown in the diagram above in a c
 
 ### Time Series with Tags
 
-In most cases, the time series includes one or more tags to allow a more fine-grained analysis. The  `~sample` data you can find on each Wavefront instance, include point tags for environment and availability zone.
+In most cases, the time series includes one or more tags to allow a more fine-grained analysis. The `~sample` data you can find on each service instance include point tags for environment and availability zone.
 
 ![metric, value, timestamp, source, point tag](images/metric_anatomy_with_tag.png)
 
@@ -88,9 +87,9 @@ When you add filters for `env` and `az`, the information makes sense.
 
 ## Obsolete Metrics
 
-If a metric stops sending data points for a certain period (obsolescence period), it becomes *obsolete*.
+If a metric stops sending data points for a certain period of time (obsolescence period), it becomes **obsolete**. 
 
-{% include note.html content="By default, the obsolescence period for metrics and sources is 4 weeks. You can see your current configuration by looking into the Advanced settings of any [chart](ui_charts.html#include-metrics-that-stopped-reporting) or [dashboard](ui_dashboards.html#set-dashboard-display-preferences-and-settings). To change this configuration, contact [Technical Support](wavefront_support_feedback.html)."%}
+{% include note.html content="The obsolescence period for metrics and sources (by default 2 weeks) might vary because it depends on the configuration of your cluster. You can see your current configuration by looking into the Advanced settings of any [chart](ui_charts.html#include-metrics-that-stopped-reporting) or [dashboard](ui_dashboards.html#set-dashboard-display-preferences-and-settings). To change this configuration, contact [Technical Support](wavefront_support_feedback.html)."%}
 
 In the Metrics browser and Query Editor, obsolete metrics are no longer shown in the autocomplete drop-down lists.
 
@@ -178,4 +177,4 @@ The selected metrics and metric prefixes appear again as long as they are not ob
 ## Learn More!
 
 * [Optimizing the Data Shape to Improve Performance](optimize_data_shape.html)
-* See the KB article [Migrating Objects or Data Between Environments](https://help.wavefront.com/hc/en-us/articles/360053164791-Migrating-Objects-or-Data-Between-Tanzu-Observability-Environments) if your company has several Wavefront instances.
+* See the KB article [Migrating Objects or Data Between Operations for Applications Environments](https://help.wavefront.com/hc/en-us/articles/360053164791-Migrating-Objects-or-Data-Between-Tanzu-Observability-Environments) if your company has several service instances.

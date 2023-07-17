@@ -4,154 +4,64 @@ keywords:
 tags:
 sidebar: doc_sidebar
 permalink: wavefront_release_notes.html
-summary: Announcements and new and updated features in Tanzu Observability by Wavefront.
+summary: Announcements and new and updated features in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
 ---
 
-This page lists new and updated features for the Tanzu Observability by Wavefront service.
+This page lists new and updated features for the VMware Aria Operations for Applications service.
 
 * For **Wavefront Proxy**, your go-to place is the [Wavefront proxy GitHub page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc.
 * For the latest changes and releases of our **Integrations**, see the [Integrations Release Notes](integrations_new_changed.html).
-* For **Observability for Kubernetes**, go to the [release notes for Wavefront Collector for Kubernetes GitHub repository](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/releases).
+* For **Observability for Kubernetes**, go to the [release notes for Observability for Kubernetes GitHub repository](https://github.com/wavefrontHQ/observability-for-kubernetes/releases).
 
-## 2022-49.x Release Notes
+## Announcement
 
-* **Charts Improvement**: You can now [create an event from within a new chart](events.html#creating-a-user-event) and then save the chart to a dashboard.
-* **Logs (Beta) Improvements**:
-  - We've just released [Wavefront proxy 12.1](https://github.com/wavefrontHQ/wavefront-proxy/releases), which supports ingesting logs as line-delimited JSON objects (JSON lines), and you can now [configure](logging_send_logs.html#configure-the-log-shipper) Fluent Bit as a log shipper.
-  - You can now customize the logs details table to [change the number of lines per row](logging_log_browser.html#change-the-number-of-lines-per-row).
+Starting July 3, 2023, VMware Aria Operations for Applications is a service on the [VMware Cloud services platform](https://console.cloud.vmware.com/). After this date, we support two types of subscriptions: 
 
-## 2022-48.x Release Notes
+* **Onboarded Subscriptions**: Operations for Applications subscriptions that are onboarded to the VMware Cloud services platform. 
+* **Original Subscriptions**: Existing subscriptions which remain as is until they migrate to VMware Cloud services. 
+   
+   We are in the process of incrementally migrating original subscriptions to VMware Cloud services.
 
-* **New Kubernetes Integration Setup UI Experience**: With this release, we introduce new setup UI for the Kubernetes integration. See the [Integration Release Notes](integrations_new_changed.html#december-2022) for details.
+For information about the two subscription types and how they differ, see [Subscription Types](subscriptions-differences.html).
+ 
+{% include note.html content="We will support both original and onboarded subscriptions until all original subscriptions are migrated to VMware Cloud services."%}
 
-  
-* **Usage Portal Improvements**: We made the following improvements to the [ingestion policies](ingestion_policies.html) and [overall usage](examine_usage.html) monitoring:
+## 2023-27.x Release Notes
 
-    <table>
-      <tbody>
-        <tr>
-          <td width="40%">
-            <strong>New Ingestion Policy Scopes</strong>:<p>
-            We added sources, namespaces, and point tags as scope options for ingestion policies. As a Super Admin user, when you create an ingestion policy, you can now select the scope from one of these options:
-            <ul>
-            <li>Accounts</li>
-            <li>Groups</li>
-            <li>Sources</li>
-            <li>Namespaces</li>
-            <li>Point tags</li>
-            </ul></p>
-          </td>
-          <td width="60%">
-            <img src="/images/IP_sources_namespaces_tags.png" alt="In addition to Accounts and Groups, the Scope options include Sources, Namespace, and Point tags.">
-          </td>
-        </tr>
-        <tr>
-          <td width="40%">
-            <strong>New Ingestion Policy Version History</strong>:<p>
-            As a Super Admin user, when you edit an ingestion policy, you now create a version of that policy. As a Super Admin user, to see the changes that have been made to an ingestion policy over time:
-            <ol>
-            <li>From the gear icon on the toolbar, select <strong>Usage and Subscriptions</strong> and click the <strong>Ingestion Policies</strong> tab.</li>
-            <li>Click the ellipsis icon next to the policy and select <strong>Versions</strong>.</li>
-            </ol></p>
-          </td>
-          <td width="60%">
-            <img src="/images/IP_versions.png" alt="The ingestion policy versions. ">
-          </td>
-        </tr>
-        <tr>
-          <td width="40%">
-            <strong>New View Permissions Model</strong>:<p>
-            All users now have read-only access to the <strong>Usage Summary</strong> dashboard and the ingestion policies. If you are not a Super Admin user:
-            <ol>
-            <li>From the gear icon on the toolbar, select <strong>Usage Portal</strong>.</li>
-            <li>On the <strong>Usage Summary</strong> tab, you can examine the dashboard for the overall PPS usage over time.</li>
-            <li>On the <strong>Ingestion Policies</strong> tab, click the name of a policy and examine the policy PPS usage since the policy was created.</li>
-            </ol>
-            Only Super Admin users can create, edit, and delete ingestion policies and the associated alerts.</p>
-          </td>
-          <td width="60%">
-            <img src="/images/IP_view_permission.png" alt="The ingestion policy versions. ">
-          </td>
-        </tr>
-        <tr>
-          <td width="40%">
-            <strong>Sorting Ingestion Policies by Current Usage</strong>:<p>
-            You can now sort the ingestion policies by PPS usage within the last 1 hour.</p>
-          </td>
-          <td width="60%">
-            <img src="/images/IP_usage_sort.png" alt="The ingestion policy versions. ">
-          </td>
-        </tr>
-        <tr>
-          <td width="40%">
-            <strong>Downloading Usage Portal Dashboards</strong>:<p>
-            All users can now export the <strong>Usage Summary</strong> dashboard and the ingestion policy dashboards in PDF format.</p>
-          </td>
-          <td width="60%">
-            <img src="/images/IP_dashboard_export.png" alt="The ingestion policy versions. ">
-          </td>
-        </tr>
-        </tbody>
-    </table>
-    
-    {% include important.html content="Ingestion policies **do not** support metrics from external services. You **CANNOT** use ingestion policies to monitor PPS usage for services such as the Amazon Web Services, Google Cloud Platform, Microsoft Azure, Snowflake, VMware vRealize Operations Cloud, New Relic, Datadog, and AppDynamics integrations."%}
+### Original and Onboarded Subscriptions
 
-* **Logs (Beta)**:
+**Monitor Google Cloud Run**: You can monitor Google Cloud Run metrics. See the [Integrations Release Notes](integrations_new_changed.html#july-2023) for details.
 
-  {% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. If you'd like to participate, contact your Tanzu Observability account representative or [technical support](wavefront_support_feedback.html#support)."%}
+### Original Subscriptions Only
 
-  - Improved the search time window when you [drill down](logging_overview.html#traces-browser) from the Traces browser into the related logs. By default, the search time window now starts 5 seconds before the trace and ends 5 seconds after the trace, but it's customizable.
-  - Added an autocomplete functionality to the search bar, so that you can quickly enter log filters by using the keyboard.
-        
-* **Obsolescence Period for Metrics and Sources**: The period of inactivity, after which metrics and sources become *obsolete*, is now customizable. By default, the obsolescence period for metrics and sources is 4 weeks. See [Obsolete Metrics](metrics_managing.html#obsolete-metrics) and [Obsolete Sources](sources_managing.html#step-1-find-a-source) for details.
+**Service Accounts Improvement**: With this release, [service accounts](service-accounts.html) can create and modify ingestion policies when they have the **Ingestion Policies** permission. 
 
-* **Delta Counters**: We no longer ingest the legacy delta counters as cumulative counter metrics. The original delta counters implementation has reached End of Life on March 31, 2021. See [here](wavefront_obsolescence_policy.html#delta-counters) for details.
+## 2023-25.x Release Notes
 
-* **Integrations**: We had an integrations release in November! We added the Tanzu Service Mesh integration and made a lot of improvements to a number of integrations. 
+* **Wavefront Proxy Release**: We’ve just released [Wavefront proxy 13](https://github.com/wavefrontHQ/wavefront-proxy/releases), which supports sending data to Operations for Applications subscriptions **onboarded** to VMware Cloud Services by using a VMware Cloud services access token.
+* **New Fields in the Generic Webhook Alert Template**: We added two new fields to the Generic Webhook notification template which allow you to extract information about the filter-by and group-by keys. For information and examples, see [Extract Information About the Filter-by and Group-by Keys](alert_target_customizing.html#extract-information-about-the-filter-by-and-group-by-keys).
 
-## 2022-44.x Release Notes
+## 2023-20.x Release Notes
 
-* The **Query Suggestions** for charts and alerts are now actionable. To apply a suggestion and improve the query performance, click a suggestion and your query updates accordingly. See [Use Performance Improvement Suggestions](query_language_performance.html#use-performance-improvement-suggestions) for details.
+**The Group By Parameter Is Case-Sensitive**: With this release, when you apply the `group by` parameter to aggregation function queries, the grouping is case-sensitive. For more information and details, see [Aggregation Functions](query_language_reference.html#aggregation-functions) and [Tags Overview](tags_overview.html#tags-basics).
 
-    ![screenshot of a query and the Suggestions panel with clickable values](images/Query_suggestions_RNs.png)
-* We made major improvements to our help docs to fix some issues and include more help pages.
+## 2023-18.x Release Notes
 
-## 2022-42.x Release Notes
+* **Upcoming Metrics Obsolescence Period Changes**: Within the next releases we will change the [metrics obsolescence period](https://docs.wavefront.com/metrics_managing.html#obsolete-metrics) from **28 days** to **14 days**. This change will further improve your query performance. Here's what you have to do: 
+  * If you are querying for a time series that has not reported points within the last **14 days**, you must select to [Include Obsolete Metrics](https://docs.wavefront.com/metrics_managing.html#obsolete-metrics) for your [charts](https://docs.wavefront.com/ui_charts.html#include-metrics-that-stopped-reporting) or [dashboards](https://docs.wavefront.com/ui_dashboards.html#set-dashboard-display-preferences-and-settings). 
+  * If the data you are querying for does have data points within the last **14 days**, you do not need to do anything.
 
-With this release, we launch the Initial Availability of our **Logs (Beta)** feature.
+  If you have any questions or concerns, please do not hesitate to [contact us](mailto:support@wavefront.com).
 
-{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. If you'd like to participate, contact your Tanzu Observability account representative or [technical support](wavefront_support_feedback.html#support)."%}
-
-![The UI of the Logs Browser](images/logs_RNs.png)
-
-If the logs feature is enabled on your account:
-* You can start [sending logs](logging_send_logs.html) and correlate them with traces and metrics for unified observability and root cause analysis.
-* If you have the [**Logs** permission](permissions_overview.html), you can start using the [Logs Browser](logging_log_browser.html) to examine the ingested logs and find the root cause of critical issues. Click **Logs (Beta)** on the toolbar or drill into logs from charts, alerts, and traces. See [Get Started with Logs (Beta)](logging_overview.html) for details.
-* You can use the **Linux Host** and **Wavefront Usage** integrations that we improved for logs. See the [Integrations Release Notes](integrations_new_changed.html#october-2022) for details.
-
-## 2022-41.x Release Notes
-
-* **Accessibility Improvements**: With this release we have made a lot of accessibility-related fixes. For example:
-  
-	* Added meaningful texts for screen readers to all of our pages and UI elements, such as buttons, form fields, data tables and their structure elements, and so on.
-	* Fixed color coding and contrast.
-	* Forms and form fields now contain instructions and all required fields are marked as such. In addition, we’ve made fixes to the error messages and their color coding and associated them with the appropriate form fields.
-	* We’ve added alternative texts for all images used in the UI.
-	* When you navigate to a page in the UI, we’ve added the appropriate name on the browser page as well. For example, when you create a new chart, on the browser you’ll see New Chart &#124; Tanzu Observability.
-
-* **Dashboard Performance Improvements**: Previously, by default, the **Show Events** option was enabled to show the events from charts. This could increase the total query time of a dashboard. With this release, when you create a dashboard, by default the **Show Events** option is set to **None**. You can change this setting based on your needs. See [Control Event Overlays](charts_events_displaying.html#control-event-overlays) for details and screenshots.
-
-* **Wavefront Top**: We have released the 1.2 version of the [wftop utility](https://github.com/wavefrontHQ/wftop) that has fixes for multiple CVE issues.
-
-* **Wavefront Proxy**: We’ve just released Wavefront Proxy 12. For details on the changes, see the [Wavefront proxy GitHub page](https://github.com/wavefrontHQ/wavefront-proxy/releases).
-
-* **Integrations**: We had an integrations release in October! We made a lot of bug fixes and improvements to a number of integrations, including the Wavefront Usage integration. See the [Integration Release Notes](integrations_new_changed.html#october-2022) for details.
+* **Alert Checking Frequency**: When you create an alert, the default alert checking frequency is now set to 5 minutes. If you want to change the default value, define the **Checking Frequency** when you create or edit the alert. For more information on the checking frequency, see [How Are Alerts Evaluated](alerts.html#how-are-alerts-evaluated).
 
 
 
 
 ## Past Release Notes
-
+- [2023-13.x Release Notes](2023-13.x_release_notes.html)
+- [2023-06.x Release Notes](2023-06.x_release_notes.html)
+- [2022-49.x Release Notes](2022-49.x_release_notes.html)
 - [2022-39.x Release Notes](2022-39.x_release_notes.html)
 - [2022-29.x Release Notes](2022-29.x_release_notes.html)
 - [2022-20.x Release Notes](2022-20.x_release_notes.html)

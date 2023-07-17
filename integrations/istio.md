@@ -2,8 +2,15 @@
 title: Istio Integration
 tags: [integrations list]
 permalink: istio.html
-summary: Learn about the Wavefront Istio Integration.
+summary: Learn about the Istio Integration.
 ---
+
+This page provides an overview of what you can do with the Istio integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the Istio integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **Istio** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## Istio Integration
 
 Istio is an open platform-independent service mesh that provides traffic management, policy enforcement, and telemetry collection.
@@ -11,110 +18,14 @@ Istio Control Plane itself, is a modern, cloud-native application. The Istio com
 
 Click the **Setup** tab for instructions on:
 
-* Setting up your environment to send Istio **metrics** to Wavefront.
-* Setting up your environment to send Istio **traces** to Wavefront.
+* Setting up your environment to send Istio **metrics** to Operations for Applications.
+* Setting up your environment to send Istio **traces** to Operations for Applications.
 
-This integration uses `Prometheus` to scrape Istio mesh metrics and federate them. It uses `Wavefront Collector for Kubernetes` to forward these metrics to Wavefront.
+This integration uses `Prometheus` to scrape Istio mesh metrics and federate them, and the `Kubernetes Metrics Collector` to collect the federated metrics from Prometheus server and forward them to Operations for Applications.
 This integration also installs the dashboards. Here's a preview of the Istio Data Plane and Control Plane dashboards:
 
 {% include image.md src="images/istio_dashboard.png" width="80" %}
 {% include image.md src="images/istio_control_plane_dashboard.png" width="80" %}
-
-## Istio Setup
-
-
-
-  **Supported Versions:**
-  * Istio: 1.8.0 or later.
-  * Wavefront Collector for Kubernetes: v1.2.0 or later.
-  * Prometheus: v2.21.0 or later
-
-This integration uses
-* [Prometheus](https://istio.io/latest/docs/ops/integrations/prometheus/) server to scrape metrics from Istio and federate them.
-
-* [Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes) to collect the federated metrics from Prometheus server and to send metrics to Wavefront. The collector can send data to Wavefront using the [proxy](https://docs.wavefront.com/proxies.html) or [direct ingestion](https://docs.wavefront.com/direct_ingestion.html). The instructions below assume Istio is deployed in a Kubernetes environment.
-
-### Reporting Istio Metrics to Wavefront
-
-#### 1. Deploy the Prometheus with Federation Configuration
-
-Step 1. Download the [Prometheus yaml](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/istio/prometheus.yaml) with the federation.
-
-Step 2. Deploy the Prometheus server to `istio-system` namesapce.{% raw %}
-```
-kubectl create -f prometheus.yaml
-```
-{% endraw %}
-
-#### 2. Update the Wavefront Collector ConfigMap
-If you do not already have the Wavefront Collector for Kubernetes installed on your Kubernetes cluster, please follow these instructions to add it to your cluster either via [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or [Manual Install](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install).
-
-Step 1. Edit the Wavefront Collector ConfigMap at runtime, and add the following snippet under `Prometheus Sources`.{% raw %}
-   ```
-   kubectl edit configmap wavefront-collector-config -n wavefront
-   ```
-{% endraw %}
-
-Istio config:{% raw %}
-   ```
-      ##########################################################################
-      # Static source to collect Istio metrics via federated Prometheus server
-      ##########################################################################
-      prometheus_sources:
-      - url: 'http://prometheus.istio-system.svc.cluster.local:9090/federate?match[]={job=~"federate|kubernetes-pods"}'
-        httpConfig:
-          bearer_token_file: '/var/run/secrets/kubernetes.io/serviceaccount/token'
-          tls_config:
-            ca_file: '/var/run/secrets/kubernetes.io/serviceaccount/ca.crt'
-            insecure_skip_verify: true
-
-        filters:
-          metricTagDenyList:
-            destination_principal:
-            - '*'
-
-          metricAllowList:
-          - 'istio.requests.*'
-          - 'istio.request.*'   # mandatory for OOTB dashboards
-          - 'istio.response.*'
-          - 'istio.tcp.*'       # mandatory for OOTB dashboards
-          - 'go.goroutines.value'
-          - 'go.memstats.alloc.bytes.value'
-          - 'go.memstats.heap.alloc.bytes.value'
-          - 'go.memstats.heap.inuse.bytes.value'
-          - 'go.memstats.heap.sys.bytes.value'
-          - 'go.memstats.stack.inuse.bytes.value'
-          - 'istio.build.value' # mandatory for OOTB dashboards
-          - 'pilot.conflict.*.listener.*'
-          - 'pilot.proxy.convergence.time.bucket.value'
-          - 'pilot.services.value'
-          - 'pilot.total.xds.internal.errors.value'
-          - 'pilot.total.xds.rejects.value'
-          - 'pilot.virt.services.value'
-          - 'pilot.xds.*.reject.value'
-          - 'pilot.xds.push.context.errors.value'
-          - 'pilot.xds.pushes.value'
-          - 'pilot.xds.write.timeout.value'
-          - 'pilot.xds.value'
-          - 'process.cpu.seconds.total.value'
-          - 'process.resident.memory.bytes.value'
-          - 'process.virtual.memory.bytes.value'
-          - 'citadel.server.*'
-          - 'galley.validation.*'
-          - 'sidecar.*'
-   ```
-{% endraw %}
-**Note**: When the Istio is configured as a multi-cluster service, you must deploy Prometheus and Wavefront Collector on each cluster. Follow the steps above.
-
-### Reporting Istio Traces to Wavefront
-The following instructions are for reporting traces. To report metrics, use the Istio metrics setup instructions above.
-
-#### Step 1. Set up Wavefront Proxy
-Follow these [steps](https://github.com/wavefrontHQ/wavefront-kubernetes#wavefront-proxy-required) to deploy a Wavefront proxy. As part of the process, uncomment the lines to enable Zipkin/Istio traces. Use a proxy version 4.35 or later.
-
-#### Step 2. Set up Istio to Send Traces to Wavefront Proxy
-
-Follow these [steps](https://github.com/wavefrontHQ/wavefront-kubernetes/tree/master/istio) to allow Istio to redirect its traces to the Wavefront proxy.
 
 
 

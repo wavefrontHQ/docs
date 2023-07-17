@@ -4,7 +4,7 @@ keywords: query language reference
 tags: [reference page]
 sidebar: doc_sidebar
 permalink: ts_cumulativeHisto.html
-summary: Reference to the cumulativeHisto() function. Convert Prometheus cumulative histograms to Wavefront  histograms.
+summary: Reference to the cumulativeHisto() function. Convert Prometheus cumulative histograms to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) histograms.
 ---
 ## Summary
 ```
@@ -12,7 +12,7 @@ cumulativeHisto([<timeWindow>,] [<bucketName>,] <tsExpression>
    [,metrics|sources|sourceTags|pointTags|<pointTagKey>] )
 ```
 
-Converts a cumulative histogram coming from Prometheus, Telegraf, or other source to an ordinary histogram in Wavefront histogram format. Users can then manipulate the histogram with [Wavefront histogram query functions](query_language_reference.html#histogram-functions).
+Converts a cumulative histogram coming from Prometheus, Telegraf, or other source to an ordinary histogram in Operations for Applications histogram format. Users can then manipulate the histogram with [Operations for Applications histogram query functions](query_language_reference.html#histogram-functions).
 
 {% include note.html content ="Always use the `_bucket` metric. The `_count` and `_sum` metrics won't return results. "%}
 
@@ -34,7 +34,7 @@ Converts a cumulative histogram coming from Prometheus, Telegraf, or other sourc
 <td>Cumulative histogram that we'll convert to an ordinary histogram.  </td></tr>
 <tr>
 <td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
-<td>Optional 'group by' parameter for organizing the time series into subgroups and then returning each histogram subgroup.
+<td>Optional <code>group by</code> parameter for organizing the time series into subgroups and then returning each histogram subgroup.
 Use one or more parameters to group by metric names, source names, source tag names, point tag names, values for a particular point tag key, or any combination of these items. Specify point tag keys by name.</td>
 </tr>
 </tbody>
@@ -51,15 +51,15 @@ When a chart displays the result of this function, it shows the median by defaul
 
 ### Ordinary and Cumulative Histograms
 
-Wavefront histogram distributions are ordinary histograms. In contrast, some other tools, such as Prometheus and Telegraf, use cumulative histograms.
+Operations for Applications histogram distributions are ordinary histograms. In contrast, some other tools, such as Prometheus and Telegraf, use cumulative histograms.
 
 ![histogram types](images/histogram_types.png)
 
 (image credit: Wikipedia)
 
-If your data source emits cumulative histograms, you can use this function to visualize your histogram data in Tanzu Observability by Wavefront dashboards and charts.
+If your data source emits cumulative histograms, you can use this function to visualize your histogram data in Operations for Applications dashboards and charts.
 
-### How to Map Prometheus Queries to Wavefront Queries
+### How to Map Prometheus Queries to Operations for Applications Queries
 
 When you use Prometheus, you run queries like this:
 ```
@@ -68,7 +68,7 @@ histogram_quantile(0.90, sum(rate(req_latency_bucket[5m])) by (le))
 
 This query displays the 90th quantile of a cumulative histogram that corresponds to the `req_latency_bucket` metric. The `le` parameter means less than or equal.
 
-The corresponding Wavefront query looks like this:
+The corresponding Operations for Applications query looks like this:
 ```
 percentile(90, cumulativeHisto(sum(rate(ts(req_latency_bucket)), le)))
 ```
@@ -77,9 +77,12 @@ Here, we are creating a T-digest and adding sampling points based on the range a
 
 ### Grouping
 
-Similar to aggregation functions for metrics, `cumulativeHisto()` returns a single distribution per specified time window.  To get separate distributions for groups that share common characteristics, you can include a 'group by' parameter, as for many ts() queries. For example, use `cumulativeHisto(1m, <expression>, sources)` to group by sources.
+Similar to aggregation functions for metrics, `cumulativeHisto()` returns a single distribution per specified time window. To get separate distributions for groups that share common characteristics, you can include a `group by` parameter, as for many ts() queries. For example, use `cumulativeHisto(1m, <expression>, sources)` to group by sources.
 
 The function returns a separate series of results for each group.
+
+{% include note.html content="Starting with the 2023-20.x release, grouping is case-sensitive. For example, if you ingest point tags such as `zone` and `ZONE`, when you use an aggregation function and apply grouping, we consider `zone` and `ZONE` as separate tags. " %}
+
 
 ### Interpolation
 
@@ -133,10 +136,10 @@ Then we use the `cumulativeHisto()` function to return the cumulative histogram 
 
 ## See Also
 
-* The [cumulativePercentile function doc page](ts_cumulativePercentile.html) that explains how to calculate the cumulative percentile without the need to convert the cumulative Prometheus histogram to a Wavefront ordinary histogram.
-* The [Integrating Prometheus with Wavefront for Easy Scaling and Failover](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/integrating-prometheus-with-wavefront-for-easy-scaling-and-failover) blog post discusses the [Prometheus integration](prometheus.html) in some detail.
-* The [How to Make Prometheus Monitoring Enterprise Ready](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/how-to-make-prometheus-monitoring-enterprise-ready) blog post explores how using Prometheus for metrics collection and Wavefront for data storage and visualization can give you the best of both worlds.
-* Our [histogram doc page](proxies_histograms.html) gives background information about Wavefront histograms.
+* The [cumulativePercentile function doc page](ts_cumulativePercentile.html) that explains how to calculate the cumulative percentile without the need to convert the cumulative Prometheus histogram to an Operations for Applications ordinary histogram.
+* [This blog post](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/integrating-prometheus-with-wavefront-for-easy-scaling-and-failover) discusses the [Prometheus integration](prometheus.html) in some detail.
+* The [How to Make Prometheus Monitoring Enterprise Ready](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/how-to-make-prometheus-monitoring-enterprise-ready) blog post explores how using Prometheus for metrics collection and Operations for Applications for data storage and visualization can give you the best of both worlds.
+* Our [histogram doc page](proxies_histograms.html) gives background information about Operations for Applications histograms.
 
 
 ## Caveats

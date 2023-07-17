@@ -1,25 +1,27 @@
 ---
-title: VMware vRealize Operations Cloud Integration
+title: VMware Aria Operations (SaaS) Integration
 tags: [integrations list]
 permalink: vrops.html
-summary: Learn about the Wavefront VMware vRealize Operations Cloud Integration.
+summary: Learn about the VMware Aria Operations (SaaS) Integration.
 ---
-# VMware vRealize Operations Cloud Integration
 
-The vRealize Operations Cloud integration is a full-featured native integration, that offers agentless data ingestion of vRealize Operations Cloud metric data, as well as predefined dashboards.
+This page provides an overview of what you can do with the VMware Aria Operations (SaaS) integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the VMware Aria Operations (SaaS) integration are on the **Setup** tab of the integration.
 
-In addition to setting up the metrics flow, this integration also installs a dashboard.
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **VMware Aria Operations (SaaS)** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
 
-{% include image.md src="images/vrops-dashboard.png" width="80" %}
-## VMware vRealize Operations Cloud Integration
+# VMware Aria Operations (SaaS) Integration
+
+The VMware Aria Operations (SaaS) integration is a full-featured native integration, that offers agentless data ingestion of VMware Aria Operations (SaaS) metric data, as well as predefined dashboards.
 
 
 
-### Add a vRealize Operations Cloud Integration
+### Add a VMware Aria Operations (SaaS) Integration
 
-The VMware vRealize Operations Cloud integration is a full-featured native integration, that offers agentless data ingestion of vRealize Operations Cloud metric data, as well as a predefined dashboard.
+The VMware Aria Operations (SaaS) integration is a full-featured native integration, that offers agentless data ingestion of VMware Aria Operations metric data, as well as a predefined dashboard.
 
-To register a new vRealize Operations Cloud instance, you must get a VMware Cloud Services Console API token. 
+To register a new VMware Aria Operations instance, you must get a VMware Cloud Services Console API token. 
 
 1. In the **Name** text box, enter a meaningful name.
 2. In the **API Token** text box, provide the VMware Cloud Services Console API token.
@@ -29,11 +31,10 @@ To register a new vRealize Operations Cloud instance, you must get a VMware Clou
    * To fetch only health metrics, enter: <code>^vrops.vmware.(datastore|clustercomputeresource).health.*$</code>
    * To fetch only cost and health metrics, enter <code>^vrops.vmware.(datastore|clustercomputeresource).(cost|health).*$</code>
 5. (Optional) Change the **Service Refresh Rate**. The default is `5` minutes.
-6. Provide the vRealize Operations Cloud endpoint URL and click **Register**.
+6. Provide the VMware Aria Operations endpoint URL and click **Register**.
 
 **Read More**<br/>
-  [vRealize Operations Cloud Integration Overview](https://docs.wavefront.com/integrations_vrops.html)
-
+  [VMware Aria Operations (SaaS) Integration Overview](https://docs.wavefront.com/integrations_vrops.html)
 
 
 

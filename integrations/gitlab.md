@@ -2,8 +2,15 @@
 title: GitLab Integration
 tags: [integrations list]
 permalink: gitlab.html
-summary: Learn about the Wavefront GitLab Integration.
+summary: Learn about the GitLab Integration.
 ---
+
+This page provides an overview of what you can do with the GitLab integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the GitLab integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **GitLab** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## GitLab Integration
 
 GitLab is a web-based Git-repository manager providing wiki, issue-tracking and CI/CD pipeline features. This integration installs and configures Telegraf to send GitLab metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
@@ -14,36 +21,6 @@ In addition to setting up the metrics flow, this integration also installs a das
 {% include image.md src="images/gitlab_dashboard_2.png" width="80" %}
 {% include image.md src="images/gitlab_dashboard_3.png" width="80" %}
 {% include image.md src="images/gitlab_dashboard_4.png" width="80" %}
-
-
-To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
-## GitLab Setup
-
-This integration uses Telegraf Prometheus input plugin to fetch the metrics from GitLab and push them to Wavefront. If you've already installed Telegraf on your server, you can skip to Step 2.
-
-
-
-### Step 1: Install the Telegraf Agent
-
-Log in to your Wavefront instance and follow the instructions in the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
-
-### Step 2: Enable the Prometheus Input Plugin
-
-Create a file called `gitlab.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
-   ```
-    #Read metrics exposed by GitLab
-    [[inputs.prometheus]]
-      name_prefix = "gitlab."
-      urls = ["http://localhost:9090/metrics"]
-   ```
-{% endraw %}
-
-### Step 3: Restart Telegraf
-
-Run `sudo service telegraf restart` to restart your Telegraf agent.
-  
-
 
 
 

@@ -7,7 +7,9 @@ permalink: user-accounts.html
 summary: Create and manage user accounts.
 ---
 
-Tanzu Observability by Wavefront supports:
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscribers. For VMware Cloud services subscriptions, see [Manage Users of Operations for Applications on VMware Cloud Services](csp_user_management.html)."%}
+
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports:
 * User accounts, discussed here, which authenticate with a username and password.
 * [Service accounts](service-accounts.html), which authenticate with a token.
 
@@ -52,13 +54,13 @@ Users with **Accounts** permissions can manage accounts.
 
 ## Sign Out a User
 
-As a [super admin user](authorization-faq.html#who-is-the-super-admin-user), you can sign out other users by using the Wavefront REST API. To sign out a user while you are logged in as a Super Admin user, simply run a POST request with the `logout` API call. For example:
+As a [Super Admin user](authorization-faq.html#who-is-the-super-admin-user), you can sign out other users by using the REST API. To sign out a user while you [enabled Super Admin mode](users_account_managing.html#enable-or-disable-super-admin-mode), simply run a POST request with the `logout` API call. For example:
 
 ```
 POST https://<your_instance>.wavefront.com/api/logout/{identifier}
 ```
 
-You must specify the `{identifier}`, which is the email address of the user that you want to log out. If you are not logged in to your Wavefront instance, when you run the POST request, you must also provide a valid [API token](wavefront_api.html#managing-api-tokens).
+You must specify the `{identifier}`, which is the email address of the user that you want to log out. If you are not logged in to your service instance, when you run the POST request, you must also provide a valid [API token](api_tokens.html#generate-and-manage-the-api-tokens-for-your-user-account).
 
 ## What Can a New User Do?
 

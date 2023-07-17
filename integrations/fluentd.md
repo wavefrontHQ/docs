@@ -2,8 +2,15 @@
 title: Fluentd Integration
 tags: [integrations list]
 permalink: fluentd.html
-summary: Learn about the Wavefront Fluentd Integration.
+summary: Learn about the Fluentd Integration.
 ---
+
+This page provides an overview of what you can do with the Fluentd integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the Fluentd integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **Fluentd** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## Fluentd Integration
 
 Fluentd is an open source data collector for a unified logging layer. By setting up this integration, you can send Fluentd metrics into Tanzu Observability by Wavefront.
@@ -18,119 +25,6 @@ In addition to setting up the metrics flow, this integration also installs dashb
 Here's a section of a dashboard displaying Fluentd metrics:
 {% include image.md src="images/fluentd_dashboard.png" width="80" %}
 
-
-To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
-## Fluentd Setup
-
-
-
-Use the instructions on this page for monitoring:
-  * Fluentd - Standalone
-  * Fluentd on Kubernetes
-
-## Fluentd
-
-  This integration uses the Fluentd input plugin for Telegraf to get the metrics from Fluentd. If you've already installed Telegraf on your servers, you can skip to Step 2.
-
-**NOTE**: Make sure that Telegraf is of version `1.23.0` or later.
-  
-
-
-
-### Step 1: Install the Telegraf Agent
-
-Log in to your Wavefront instance and follow the instructions in the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
-
-### Step 2: Ensure the monitor_agent plugin is configured on Fluentd
-
-  In the Fluentd configuration file `/etc/td-agent/td-agent.conf`, ensure that the monitor_agent plugin is configured as in the example below:
-{% raw %}
-  ```
-  <source>
-    @type monitor_agent
-    bind 0.0.0.0
-    port 24220
-  </source>
-  ```
-{% endraw %}
-
-### Step 3: Configure the Fluentd Input Plugin on Telegraf
-
-  Create a `fluentd.conf` file in `/etc/telegraf/telegraf.d` and enter the Fluentd plugin configuration as in the following example snippet:
-{% raw %}
-   ```
-# Read metrics exposed by fluentd monitor_agent plugin
-[[inputs.fluentd]]
-  ## This plugin reads information exposed by fluentd (using /api/plugins.json endpoint).
-  ##
-  ## Endpoint:
-  ## - only one URI is allowed
-  ## - https is not supported
-  endpoint = "http://example.com:24220/api/plugins.json"
-
-  ## Define which plugins have to be excluded (based on "type" field - e.g. monitor_agent)
-  exclude = [
-          "monitor_agent",
-          "dummy"
-  ]
-   ```
-{% endraw %}
-### Step 4: Restart Telegraf
-
-  Run `sudo service telegraf restart` to restart your Telegraf agent.
-
-## Fluentd on Kubernetes
-
-This integration supports Fluentd deployment as daemonset using standard fluentd-docker images with Prometheus plugin configuration as mentioned below.
-
-
-
-1. Make sure that Fluentd is deployed on your Kubernetes cluster. If not deployed already, you can deploy it by using the sample `.yaml` files as explained below.
-
-2. Add the following match clause in the existing `fluent.conf` file by using ConfigMaps and save the file. You can find the `fluent.conf` file under `/fluentd/etc/`.
-{% raw %}
-```
-<match **>
-  @type stdout
-  @id out_prometheus
-  <buffer>
-    flush_thread_count 8
-    flush_interval 5s
-    chunk_limit_size 2M
-    queue_limit_length 32
-    retry_max_interval 30
-    retry_forever true
-  </buffer>
-</match>
-```
-{% endraw %}
-
-You can override another configuration file using the same ConfigMap, if needed. See the sample [fluentd-config-map.yaml](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/fluentd/fluentd-config-map.yaml) file. 
-
-3. Mount the same `.conf` files present in the `/fluentd/etc/` directory by using volume mount in your Fluentd deployment `.yaml`.
- For more information, see the sample [fluentd-daemonset.yaml](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/fluentd/fluentd-daemonset.yaml) file.
-
-4. Annotate the Fluentd daemonset to add Prometheus `scrape`, `scheme`, `port`, and `path`.
-
-{% raw %}
-```
-kubectl annotate pod <FLUENTD_POD_NAME> prometheus.io/scrape=true prometheus.io/scheme=http prometheus.io/port=24231 prometheus.io/path=/metrics
-```
-{% endraw %}
-
-For more information, see the following sample `.yaml` files:
-   * [fluentd-config-map.yaml](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/fluentd/fluentd-config-map.yaml)
-   * [fluentd-rbac.yaml](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/fluentd/fluentd-rbac.yaml)
-   * [fluentd-daemonset.yaml](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/fluentd/fluentd-daemonset.yaml)
-
-
-### Configure the Wavefront Collector for Kubernetes
-
-You can configure the Wavefront Collector for Kubernetes to scrape Fluentd metrics exposed to Prometheus by using annotation based discovery. To collect the Fluentd metrics automatically, configure the Wavefront Collector for Kubernetes to use auto-discovery.
-
-If you do not have the Wavefront Collector for Kubernetes installed on your Kubernetes cluster, follow the instructions to add it to your cluster by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install). You can check the status of Wavefront Collector and Proxy if you are already monitoring the Kubernetes cluster on the `Setup` tab of the Kubernetes integration.
-
-**NOTE**: Make sure that auto discovery `enableDiscovery: true` and annotation based discovery `discovery.disable_annotation_discovery: false` are enabled in the Wavefront Collector. They should be enabled by default.
 
 
 

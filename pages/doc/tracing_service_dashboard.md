@@ -7,7 +7,7 @@ permalink: tracing_service_dashboard.html
 summary: Identify potential hot spots of a service.
 ---
 
-Use the Service Dashboard to identify potential hot spots, and then drill down to the Traces Browser.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) includes the Service Dashboard, which you can use to identify potential hot spots of a service, and then drill down to the Traces Browser.
 
 ## Explore the Default Service Dashboard
 
@@ -16,7 +16,7 @@ The default, read-only dashboard for a service lets you explore that service, ho
 See the Service Dashboard:
 
 * Option 1:
-  1. In your web browser, go to your Wavefront instance and log in.
+  1. Log in to your service instance.
   1. From the toolbar, click **Applications** > **Service Dashboard**.
 
 * Option 2:
@@ -43,7 +43,7 @@ style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link
   * Select a region of the histogram chart and click **Search Traces** to view the traces for the selected duration.
   * Click a bar on a TopK chart.
   * Click the vertical ellipsis in the top right of any chart, click **Traces**, and click a service.
-    {% include note.html content="If you don’t see **Traces**, check whether your metrics include `application` and `service point` tags.<br/><br/> These tags are defined when you instrument your application for tracing via [Application tags](trace_data_details.html#application-tags). If your application is already sending this data to the Wavefront service via the Wavefront proxy, you can add point tags using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html#addtag-and-addtagifnotexists)." %}
+    {% include note.html content="If you don’t see **Traces**, check whether your metrics include `application` and `service point` tags.<br/><br/> These tags are defined when you instrument your application for tracing via [Application tags](trace_data_details.html#application-tags). If your application is already sending this data to the Operations for Applications service via the Wavefront proxy, you can add point tags using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html#addtag-and-addtagifnotexists)." %}
 
 ## Custom Service Dashboard
 
@@ -90,49 +90,5 @@ View queries used in the charts of the default Service Dashboard and save these 
     <td markdown="span" width="55%">
       ![Save the chart to a dashboard](/images/tracing_save_charts_to_dashboard.png)
     </td>
-  </tr>
-</table>
-
-## Troubleshooting
-
-**Don't see RED metrics or see incorrect RED metrics on your charts?**
-
-Starting with [release 2020-26.x](2020.26.x_release_notes.html), the **span.kind** filter is introduced to the default Service Dashboard. As a result, if the spans from your OpenTracing application don't have the `span.kind` point tag, the RED metrics you see on the default Service Dashboard will be incorrect, or you will not see RED metrics on your charts.
-
-The OpenTracing SDK and Wavefront proxy versions listed below add the `span.kind` tag to the spans. Use the recommended versions to see accurate data on the default Service Dashboard.
-
-{% include note.html content="If you are using [Wavefront Sender SDKs](tracing_instrumenting_frameworks.html#instrument-your-application-with-wavefront-sender-sdks) and sending data via the Wavefront proxy, make sure to update to the latest proxy version."%}
-
-<table style="width: 80%;">
-
-  <thead>
-  <tr>
-    <th width="50%">SDK or Proxy</th>
-    <th width="30%">Version</th>
-  </tr>
-  </thead>
-  <tr>
-    <td markdown="span">[Wavefront proxy](proxies_installing.html)</td>
-    <td>7.0 or later</td>
-  </tr>
-  <tr>
-    <td markdown="span">[Java OpenTracing SDK](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java)</td>
-    <td>v2.1.1 or later</td>
-  </tr>
-  <tr>
-    <td markdown="span">[Go OpenTracing SDK](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-go)</td>
-    <td>v0.9.0 or later</td>
-  </tr>
-  <tr>
-    <td markdown="span">[Python OpenTracing SDK](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-python)</td>
-    <td>v2.0.0 or later</td>
-  </tr>
-  <tr>
-    <td markdown="span">[C# OpenTracing SDK](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp)</td>
-    <td>v2.0.0 or later</td>
-  </tr>
-  <tr>
-    <td markdown="span">[Java Tracing Agent](https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java)</td>
-    <td>v1.2.0 or later</td>
   </tr>
 </table>

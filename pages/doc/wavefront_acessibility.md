@@ -6,7 +6,7 @@ permalink: wavefront_keyboard_shortcuts.html
 summary: Use the keyboard shortcuts to navigate through pages and menus.
 ---
 
-Tanzu Observability by Wavefront is committed to continuous improvement of product accessibility. We recently addressed accessibility issues and included level-A accessibility fixes for keyboard navigation and colorblind support. We also addressed several level-AA accessibility issues. Here are some highlights:
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) is committed to continuous improvement of product accessibility. We recently addressed accessibility issues and included level-A accessibility fixes for keyboard navigation and colorblind support. We also addressed several level-AA accessibility issues. Here are some highlights:
 
 * Keyboard shortcuts allow you to navigate through pages and menus without using a mouse.
 * Color contrast supports colorblind accessibility. We continuously check our UI elements and change color as needed.

@@ -4,13 +4,13 @@ keywords: data, distributed tracing, jaeger, zipkin, spans
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: tracing_faq.html
-summary: FAQ for distributed tracing with Tanzu Observability by Wavefront
+summary: FAQ for distributed tracing with VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront)
 ---
-This page has some special tips to help you instrument your applications and send trace data to  Tanzu Observability by Wavefront.
+This page has some special tips to help you instrument your applications and send trace data to Operations for Applications.
 
 ## How do I send custom span level RED metrics?
 
-For details on how to send span-level RED metrics using a custom tracing port, see [Instrument Your Application with Wavefront Sender SDKs](tracing_instrumenting_frameworks.html#instrument-your-application-with-wavefront-sender-sdks).
+For details on how to send span-level RED metrics using a custom tracing port, see [Instrument Your Application with Sender SDKs](tracing_instrumenting_frameworks.html#instrument-your-application-with-sender-sdks).
 
 ## How do I filter RED metrics using custom span tags?
 
@@ -36,13 +36,13 @@ To override the default application name when using [zipkin-js](https://github.c
     ```
   {% include note.html content="Only one application can send traces to a proxy because there’s only one application name per proxy. "%}
 
-## How do I emit spans in the Wavefront format?
+## How do I emit spans in Operations for Applications format?
 
-If you are not using a [Wavefront SDK](wavefront_sdks.html), OpenTracing library, or OpenTelemetry library, you can still send spans to the Wavefront service using the Wavefront proxy.
+If you are not using an [Operations for Applications SDK](wavefront_sdks.html), OpenTracing library, or OpenTelemetry library, you can still send spans to Operations for Applications using the Wavefront proxy.
 
-Send spans to the Wavefront proxy's `customTracingListenerPorts` port in the Wavefront spans format. Open the [`<wavefront_config_path>`](proxies_configuring.html#paths)`/wavefront.conf` file, and update or add the `customTracingListenerPorts` property.
+Send spans to the Wavefront proxy's `customTracingListenerPorts` port in the Operations for Applications spans format. Open the [`<wavefront_config_path>`](proxies_configuring.html#paths)`/wavefront.conf` file, and update or add the `customTracingListenerPorts` property.
 
-Given below is an example of the Wavefront span format:
+Given below is an example of the Operations for Applications span format:
 ```
 wavefrontSender.sendSpan("getAllUsers", System.currentTimeMillis(), 343, "localhost",
       UUID.fromString("7b3bf470-9456-11e8-9eb6-529269fb1459"),
@@ -60,7 +60,7 @@ wavefrontSender.sendSpan("getAllUsers", System.currentTimeMillis(), 343, "localh
 You might not see search results:
 <ul>
   <li markdown="span">
-    If you search for a trace after 7 days because the Wavefront service retains trace data only for 7 days.
+    If you search for a trace after 7 days because Operations for Applications retains trace data only for 7 days.
   </li>
   <li>
     If you search for a trace after 1 hour because you have enabled <a href="trace_data_sampling.html">intelligent sampling</a> for traces.

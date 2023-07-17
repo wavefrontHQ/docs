@@ -7,19 +7,19 @@ permalink: integrations_bigpanda_troubleshooting.html
 summary: Investigate, troubleshoot, and remediate issues with BigPanda Webhook targets.
 ---
 
-BigPanda is an algorithmic event and alert management platform. This integration allows you to create BigPanda tickets from triggered alerts in Tanzu Observability by Wavefront. Tanzu Observability and BigPanda both support webhooks, so you can configure an incoming webhook in BigPanda and an outgoing webhook in Tanzu Observability to pass notifications from Tanzu Observability alerts into BigPanda. 
+BigPanda is an algorithmic event and alert management platform. This integration allows you to create BigPanda tickets from triggered alerts in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront). VMware Aria Operations for Applications and BigPanda both support webhooks, so you can configure an incoming webhook in BigPanda and an outgoing webhook in VMware Aria Operations for Applications to pass notifications from VMware Aria Operations for Applications alerts into BigPanda. 
 
 ## BigPanda Integration Configuration 
 
-Typically, alert targets are configured to use webhooks. A common use case is when Tanzu Observability is configured to have BigPanda alert targets, by using the webhook feature.
+Typically, alert targets are configured to use webhooks. A common use case is when VMware Aria Operations for Applications is configured to have BigPanda alert targets, by using the webhook feature.
 
 For information about setting up the BigPanda integration, see [BigPanda setup](bigpanda.html).
 
 ## Problems
 
-In some cases, Tanzu Observability functions properly and alerts fire. Issues that you might observe:
+In some cases, VMware Aria Operations for Applications functions properly and alerts fire. Issues that you might observe:
 
-* The BigPanda integration doesn’t receive Tanzu Observability by Wavefront alert payloads.
+* The BigPanda integration doesn’t receive VMware Aria Operations for Applications alert payloads.
 * BigPanda notifications appear as if they’ve been snoozed, and outages are not properly alerted upon.
 	
 This is a problem, because you might have dependencies and workflows outside that rely on those  notifications.
@@ -70,7 +70,7 @@ Follow these steps:
 	 You must check whether the **Name** and the **Value** custom authorization headers are configured properly. 
 	 
 	 * The **Name** text box should be set as `Authorization`.
-	 * The **Value** text box should contain the [BigPanda Bearer Token](bigpanda.html#step-1-create-a-bigpanda-appkey-and-bearer-token).
+	 * The **Value** text box should contain the BigPanda Bearer Token.
 
 	    Do not copy the content of the **Value** text box directly to a new target. Copying this value directly might add up spaces or characters and result in errors.
   
@@ -83,4 +83,4 @@ Follow these steps:
     The event description might indicate what could have gone wrong. 
    
 
-If the above steps and recommendations don't help and the issue persists, please consider contacting BigPanda to validate if they are receiving the payload and whether it hasn't been suppressed by their team, or [engage the Tanzu Observability Support team](wavefront_support_feedback.html).
+If the above steps and recommendations don't help and the issue persists, please consider contacting BigPanda to validate if they are receiving the payload and whether it hasn't been suppressed by their team, or [engage our Support team](wavefront_support_feedback.html).

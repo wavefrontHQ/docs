@@ -4,10 +4,12 @@ keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: permissions_overview.html
-summary: Learn about the permissions in Tanzu Observability by Wavefront.
+summary: Learn about the permissions in the service.
 ---
 
-Permissions allow administrators to control access to the feature sets in Tanzu Observability by Wavefront. Users with the **Accounts** permission can manage permissions for groups and users.
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. The content in this chapter is valid for **original** subscriptions. For VMware Cloud services subscriptions, see [Operations for Applications permissions in VMware Cloud services](csp_permissions_overview.html)."%}
+
+Permissions allow access control for the feature sets in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront). [Super Admin users](authorization-faq.html#who-is-the-super-admin-user) and users with the **Accounts** permission can manage permissions for groups and accounts.
 
 {% include note.html content="Every user can [perform certain tasks](user-accounts.html#what-can-a-new-user-do). However, you must have the appropriate permission to manage objects. If you do not have permission, UI menu selections and buttons required to perform management tasks are not visible." %}
 
@@ -26,7 +28,7 @@ The following list gives an overview of permissions. To learn more, click the li
 - **[Alerts](alerts.html)** 
 
     Users with the **Alerts** permission can create, edit, and delete alerts as well as maintenance windows, manage alert tags and view alert history, and create, edit, and delete alert targets. 
-    {% include note.html content="The **Alerts** permission does **not** apply to alerts associated with [ingestion policies](ingestion_policies.html#permissions). Also, if the **Security** organization setting is set to Object Creator, **View** access or **View & Modify** access to new alerts has to be granted explicitly." %}
+    {% include note.html content="If the **Security** organization setting is set to Object Creator, **View** access or **View & Modify** access to new alerts has to be granted explicitly." %}
     
 - **[Applications](tracing_apdex.html)** 
 
@@ -34,11 +36,11 @@ The following list gives an overview of permissions. To learn more, click the li
     
 - **Batch Query Priority** 
 
-    When an account with the **Batch Query Priority** permission runs queries, Tanzu Observability treats every query executed by that account as if it was wrapped in the [`bestEffort()` function](ts_bestEffort.html).
+    When an account with the **Batch Query Priority** permission runs queries, Operations for Applications treats every query executed by that account as if it was wrapped in the [`bestEffort()` function](ts_bestEffort.html).
     
 - **[Chart Embedding](ui_sharing.html#embed-a-chart-in-other-uis)**  
     
-    Users with the **Chart Embedding** permission can generate HTML snippets of charts in Tanzu Observability and embed a corresponding interactive chart outside of Tanzu Observability. Embedded chart URLs are associated with a specific user account. If a user embeds a chart and later that user's account is removed, the embedded chart no longer works.
+    Users with the **Chart Embedding** permission can generate HTML snippets of charts in Operations for Applications and embed a corresponding interactive chart outside of Operations for Applications. Embedded chart URLs are associated with a specific user account. If a user embeds a chart and later that user's account is removed, the embedded chart no longer works.
     
 - **[Dashboards](ui_dashboards.html)** 
 
@@ -52,7 +54,7 @@ The following list gives an overview of permissions. To learn more, click the li
      
 - **[Direct Data Ingestion](direct_ingestion.html)**
     
-    An account with the **Direct Data Ingestion** permission can directly ingest metrics using the Wavefront API or one of the Wavefront SDKs, bypassing the proxy. Grant this permission only to users who have a deep understanding of APIs and the Tanzu Observability ingestion path.
+    An account with the **Direct Data Ingestion** permission can directly ingest metrics using the REST API or one of the SDKs, bypassing the proxy. Grant this permission only to users who have a deep understanding of APIs and the Operations for Applications ingestion path.
     
 - **[Events](events.html)** 
 
@@ -61,6 +63,10 @@ The following list gives an overview of permissions. To learn more, click the li
 - **[External Links](external_links_managing.html)** 
 
     Users with the **External Links** permission can create, update, and delete external links.
+
+- **[Ingestion Policies](ingestion_policies.html)**
+    
+    Users with the **Ingestion Policies** permission can create, edit, and delete ingestion policies.
     
 - **[Integrations](integrations.html)**
 
@@ -68,7 +74,7 @@ The following list gives an overview of permissions. To learn more, click the li
     
 - **[Logs](logging_overview.html)** (Beta)
     
-    {% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative."%}
+    {% include important.html content="Logs (Beta) is enabled only for selected customers. To participate, contact your Operations for Applications account representative."%}
 
     Users with the **Logs** permission can view the Logs Browser and drill into logs from charts, alerts, and traces.
         

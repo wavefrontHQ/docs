@@ -2,8 +2,15 @@
 title: Google Cloud Router Integration
 tags: [integrations list]
 permalink: gcp_cloud_router.html
-summary: Learn about the Wavefront Google Cloud Router Integration.
+summary: Learn about the Google Cloud Router Integration.
 ---
+
+This page provides an overview of what you can do with the Google Cloud Router integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the Google Cloud Router integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **Google Cloud Router** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## Google Cloud Platform Integration
 
 The Google Cloud Platform integration is full-featured native integration offering agentless data ingestion of GCP metric
@@ -11,15 +18,15 @@ data, as well as pre-defined dashboards and alert conditions for certain GCP ser
 
 ### Metrics Configuration
 
-Wavefront ingests Google Cloud Platform metrics using the v3 Stackdriver Monitoring APIs. For details on the metrics, see the
+Operations for Applications ingests Google Cloud Platform metrics using the v3 Stackdriver Monitoring APIs. For details on the metrics, see the
 [metrics documentation](https://cloud.google.com/monitoring/api/metrics).
 
-Metrics originating from Google Cloud Platform are prefixed with `gcp.` within Wavefront. Once the integration has
+Metrics originating from Google Cloud Platform are prefixed with `gcp.` within Operations for Applications. Once the integration has
 been set up, you can browse the available GCP metrics in the metrics browser.
 
 ### Dashboards
 
-<p>Wavefront provides Google Cloud Platform dashboards for the following services:</p>
+<p>Operations for Applications provides Google Cloud Platform dashboards for the following services:</p>
 
 - Google App Engine
 - Google BigQuery
@@ -48,17 +55,16 @@ The Google Cloud Platform integration dashboard contains predefined alert condit
 
 To create the alert, click the **Create Alert** link under the query and configure the [alert properties](https://docs.wavefront.com/alerts_manage.html) (notification targets, condition checking frequency, etc.).
 
-## Google Cloud Platform Integration
 
 
 
 ### Add a GCP Integration
 
-Adding a Google Cloud Platform (GCP) integration requires establishing a trust relationship between GCP and Tanzu Observability by Wavefront. Minimum required permissions you need depend on the services that you are using. See [Google Cloud Platform Overview and Permissions](http://docs.wavefront.com/integrations_gcp_overview.html) for details.
+Adding a Google Cloud Platform (GCP) integration requires establishing a trust relationship between GCP and VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront). Minimum required permissions you need depend on the services that you are using. See [Google Cloud Platform Overview and Permissions](http://docs.wavefront.com/integrations_gcp_overview.html) for details.
 
 The overall process involves the following:
 
-* Creating a service account
+* Creating a service account in Google Cloud
 * Giving that account viewer privileges 
 * Downloading a JSON private key
 
@@ -72,6 +78,27 @@ To register a Google Cloud Platform integration:
     
     For example, to monitor all the CPU metrics coming from the Compute Engine, enter <code>^gcp.compute.instance.cpu.*$</code>.
     
+   <strong>Note:</strong> Metric names consist of the actual metric name and a suffix (starting with an underscore ("_") or a dot (".")). The suffix represents an aggregation type. In the regular expression, you must use the actual metric names without the aggregation types, such as: <code>count</code>, <code>rate</code>, <code>min</code>, <code>max</code>, <code>sumOfSquaredDeviation</code>, <code>mean</code>, and so on.
+
+   For example, for the Google Cloud Pub/Sub Engine, we collect a number of metrics, and some of them contain a suffix:
+
+   Push request latencies metrics:
+
+    * <code>gcp.pubsub.subscription.push_request_latencies.bucket</code>
+    * <code>gcp.pubsub.subscription.push_request_latencies.count</code>
+    * <code>gcp.pubsub.subscription.push_request_latencies.mean</code>
+    * <code>gcp.pubsub.subscription.push_request_latencies.sumOfSquaredDeviation</code>
+   
+   Here, the actual metric name is <code>gcp.pubsub.subscription.push_request_latencies</code>, while <code>bucket</code>, <code>count</code>, <code>mean</code>, and <code>sumOfSquaredDeviation</code> are the aggregation types. When you create the regular expression, you must use only <code>gcp.pubsub.subscription.push_request_latencies</code>. For example, <code>^gcp.pubsub.subscription.push_request_latencies$</code>.
+
+
+   Cumulative count of messages acknowledged by Acknowledge requests, grouped by delivery type:
+   
+    * <code>gcp.pubsub.subscription.ack_message_count_count</code>
+    * <code>gcp.pubsub.subscription.ack_message_count_rate</code>
+
+   Here, the actual metric name is <code>gcp.pubsub.subscription.ack_message_count</code>, while <code>_count</code> and <code>_rate</code> are the aggregation types. When you create the regular expression, you must use only <code>gcp.pubsub.subscription.ack_message_count</code>. For example, <code>^gcp.pubsub.subscription.ack_message_count$</code>.
+
 5. (Optional) In the **Additional Metric Prefixes** text box, enter a comma separated list of additional metrics prefixes. 
    The metrics names that start with these prefixes will be imported in addition to what you have selected as categories.
 6. (Optional) Change the **Service Refresh Rate**. The default is `5` minutes.
@@ -81,7 +108,6 @@ To register a Google Cloud Platform integration:
    If you select to enable the **Pricing & Billing** information, you must also provide an API key.
 
 8. Click **Register**.
-
 
 
 

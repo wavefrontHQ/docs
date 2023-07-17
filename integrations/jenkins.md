@@ -2,8 +2,15 @@
 title: Jenkins Integration
 tags: [integrations list]
 permalink: jenkins.html
-summary: Learn about the Wavefront Jenkins Integration.
+summary: Learn about the Jenkins Integration.
 ---
+
+This page provides an overview of what you can do with the Jenkins integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the Jenkins integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **Jenkins** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## Jenkins Integration
 
 Jenkins is an open source automation server written in Java. It helps automate the software development process, supports continuous integration, and facilitates continuous delivery.
@@ -16,75 +23,6 @@ In addition to setting up the metrics flow, this integration also installs a das
 {% include image.md src="images/dashboard2.png" width="80" %}
 
 
-To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
-## Jenkins Setup
-
-
-
-### Step 1. Install the Telegraf Agent
-
-This integration uses the Prometheus input plugin for Telegraf to extract metrics from Jenkins. If you've already installed Telegraf on your server(s), you can skip to Step 2.
-
-Log in to your Wavefront instance and follow the instructions in the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
-
-### Step 2. Install the Prometheus Plugin
-Jenkins metrics can be collected using the Jenkins Prometheus Plugin. Install the plugin like this:
-
-1. Log in to your Jenkins environment as an administrator and select **Manage Jenkins > Manage Plugins**.
-2. Click the **Available** tab and search for **Prometheus**.
-3. Select the `Prometheus` plugin and install using standard instructions.
-
-For details, see the Jenkins [Managing Plugins](https://jenkins.io/doc/book/managing/plugins/) docs.
-
-### Step 3. Set the Permission for a User
-Set the access control list in Jenkins to allow a Prometheus user to read job metrics as it's scraping clients.
-
-1. In Jenkins, click **Manage Jenkins** and click the **Configure System** link.
-2. Select the **Enable authentication for Prometheus endpoint** check box.
-
-**Note**: The configured user must have access to a Prometheus endpoint.
-
-### Step 4. Enable the Prometheus Input Plugin with Authentication
-
-Create a file called `jenkins.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
-   ```
-[[inputs.prometheus]]
-  ## Prefix to attach to the measurement name
-  name_prefix = "jenkins_"
-
-  ## A Jenkins server URL to scrape metrics from.
-  urls = ["$JENKINS_URL/prometheus/"]
-  ## If the Jenkins prometheus endpoint is user authenticated, provide the username and password.
-  # username = ""
-  # password = ""
-
-  ## Specify timeout duration for slower clients (default is 3s)
-  # response_timeout = "3s"
-
-  ## Optional TLS Config
-  # tls_ca = /path/to/cafile
-  # tls_cert = /path/to/certfile
-  # tls_key = /path/to/keyfile
-  ## Use TLS but skip chain & host verification
-  # insecure_skip_verify = false
-
-   ```
-{% endraw %}
-Update `$JENKINS_URL` with the URL of the Jenkins server.
-
-A single Telegraf agent can poll multiple Jenkins servers for status information. Specify the addresses of the Jenkins server in the `urls` parameter in case of anonymous authentication to the Jenkins server:{% raw %}
-```
-urls = [
-   "$JENKINS_URL_1/prometheus/",
-   "$JENKINS_URL_2/prometheus/",
-   "$JENKINS_URL_3/prometheus/"
-]
-```
-{% endraw %}
-### Step 5. Restart Telegraf
-
-Run `sudo service telegraf restart` to restart your Telegraf agent.
 
 
 ## Metrics

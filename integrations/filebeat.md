@@ -2,29 +2,18 @@
 title: Filebeat Log Data Integration
 tags: [integrations list]
 permalink: filebeat.html
-summary: Learn about the Wavefront Filebeat Log Data Integration.
+summary: Learn about the Filebeat Log Data Integration.
 ---
-# Filebeat Integration
 
-Usually the best way to send metrics to a monitoring system is to use a metrics library. However, sometimes you have a legacy system, or a system that is difficult to modify, and you want to garner metrics from Filebeat logs. 
+This page provides an overview of what you can do with the Filebeat Log Data integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the Filebeat Log Data integration are on the **Setup** tab of the integration.
 
-Wavefront supports sending log data to your Wavefront proxy with Filebeat. This method is supported in Wavefront proxy 4.4 and higher. Once your data arrives at the proxy, the proxy converts your Filebeat log data to metrics by parsing log lines with grok patterns (regular expressions) that you specify in a proxy configuration file.
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **Filebeat Log Data** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
 
+## Filebeat Integration
 
-
-## Filebeat Log Data Setup
-
-
-
-### Step 1. Set up Wavefront Proxy
-
-If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, install a proxy.
-
-
-### Step 2. Configure the Wavefront Proxy to Ingest Log Data and Set up Data Flow
-
-Follow the instructions in [Log Data Metrics Integration](https://docs.wavefront.com/integrations_log_data.html) for configuring the grok patterns to extract metrics from log data and sending data using Filebeat.
-
+The Filebeat integration is a metricized logs solution, which lets you extract metrics from Filebeat logs. Once your Filebeat log data arrives at the proxy, the proxy converts it to metrics by parsing log lines with grok patterns (regular expressions) that you specify in the proxy configuration file. When log metrics start flowing, you can create queries to visualize the data and create alerts.
 
 
 

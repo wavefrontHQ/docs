@@ -6,10 +6,10 @@ sidebar: doc_sidebar
 permalink: sources_managing.html
 summary: Learn about sources and how to manage them.
 ---
-In Tanzu Observability by Wavefront, a **source** is a unique application, host, container, or instance that emits metrics. The source is explicitly set in the `source` field of a [Wavefront data format](wavefront_data_format.html) metric. For AWS integrations, the source is extracted from [AWS Cloud Watch service properties or dimensions](integrations_aws_metrics.html#aws_sources).
+In VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront), a **source** is a unique application, host, container, or instance that emits metrics. The source is explicitly set in the `source` field of an [Operations for Applications data format](wavefront_data_format.html) metric. For AWS integrations, the source is extracted from [AWS Cloud Watch service properties or dimensions](integrations_aws_metrics.html#aws_sources).
 
 * To view and manage sources, select **Browse > Sources**.
-* To filter and group in charts, use the Wavefront query language. You can filter by source and [filter and group by source tags](tags_overview.html#source-tags).
+* To filter and group in charts, use the Wavefront Query Language. You can filter by source and [filter and group by source tags](tags_overview.html#source-tags).
 
 {% include shared/permissions.html entity="sources" entitymgmt="Source Tag" %}
 
@@ -29,8 +29,8 @@ When you select **Browse > Sources** the Sources browser offers many options to 
 <td width="50%">
 Filter sources by status.
 <ul>
-<li><strong>Obsolete</strong>&mdash;Sources that didn't emit metrics for a certain period (obsolescence period). (Maps to <code>~status.error</code>.)
-{% include note.html content="By default, the obsolescence period for metrics and sources is 4 weeks. You can see your current configuration by looking into the Advanced settings of any [chart](ui_charts.html#include-metrics-that-stopped-reporting) or [dashboard](ui_dashboards.html#set-dashboard-display-preferences-and-settings). To change this configuration, contact [Technical Support](wavefront_support_feedback.html)." %}</li>
+<li><strong>Obsolete</strong>&mdash;Sources that didn't emit metrics for a certain period of time (obsolescence period). (Maps to <code>~status.error</code>.)
+{% include note.html content="The obsolescence period (by default 2 weeks) might vary, because it depends on the configuration of your cluster. You can see your current configuration by looking into the Advanced settings of any [chart](ui_charts.html#include-metrics-that-stopped-reporting) or [dashboard](ui_dashboards.html#set-dashboard-display-preferences-and-settings). To change this configuration, contact [Technical Support](wavefront_support_feedback.html)." %}</li>
 <li><strong>Recent Metrics</strong>&mdash;Sources with metrics received in the last 2 days. (Maps to <code>~status.new</code> and <code>~status.ok</code>.)</li>
 <li><strong>Metrics Stopped</strong>&mdash;Sources with no metrics received in the last 2 days. (Maps to <code>~status.stopped</code>.)</li>
 </ul> </td>
@@ -39,7 +39,7 @@ Filter sources by status.
 <tr>
 <td width="50%">
 <p>Filter sources by tag. In most environments, administrators add source tags. You can <a href="tags_overview.html#source-tags">add source tags</a> from the UI or programmatically.</p>
-<p>In the screenshot on the right, we've fitered by the tag wavefront.aws.billing and selected Recent Metrics (which shows as <strong>ok</strong> in the search bar).</p></td>
+<p>In the screenshot on the right, we've filtered by the tag wavefront.aws.billing and selected Recent Metrics (which shows as <strong>ok</strong> in the search bar).</p></td>
 <td width="50%"><img src="/images/sources_tag_paths.png" alt="multiple tags for selection"></td>
 </tr>
 </tbody>
@@ -52,13 +52,13 @@ When you select a source in the Sources browser, you can examinine it in more de
 
 ![Sources exploration page with 2 sources selected in left panel and charts created. Also highlighting point rate chart and Alerts Fired chart](/images/sources_exploration.png)
 
-## Hide and Unhide Sources
+## Hide and Show Sources
 
 With more and more companies using dynamic services such as AWS, it's typical to have sources constantly being spun up and shut down.
 * In the Sources browser, all sources are included unless you explicitly exclude Obsolete sources.
-* In the Metrics browser and Query Editor, obsolete sources are no longer shown in the autocomplete dropdown. You can also manually hide sources by using the UI or API.
+* In the Metrics browser and Query Editor, obsolete sources are no longer shown in the autocomplete drop-down menu. You can also manually hide sources by using the UI or API.
 
-{% include note.html content="While hidden sources are removed from the autocomplete dropdown, you can still use these sources in `ts()` queries when data values are present." %}
+{% include note.html content="While hidden sources are removed from the autocomplete drop-down menu, you can still use these sources in `ts()` queries when data values are present." %}
 
 <table style="width: 100%;">
 <tbody>

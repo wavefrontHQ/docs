@@ -1,9 +1,16 @@
 ---
-title: Spring Cloud Data Flow Integration
+title: VMware Spring Cloud Data Flow for Kubernetes Integration
 tags: [integrations list]
 permalink: scdf.html
-summary: Learn about the Wavefront Spring Cloud Data Flow Integration.
+summary: Learn about the VMware Spring Cloud Data Flow for Kubernetes Integration.
 ---
+
+This page provides an overview of what you can do with the VMware Spring Cloud Data Flow for Kubernetes integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the VMware Spring Cloud Data Flow for Kubernetes integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **VMware Spring Cloud Data Flow for Kubernetes** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## Spring Cloud Data Flow Integration
 
 Wavefront provides a comprehensive solution for monitoring [Spring Cloud Data Flow (SCDF)](https://dataflow.spring.io/). 
@@ -82,68 +89,6 @@ Here's a preview of the Spring Cloud Data Flow Task applications dashboard:
 
 {% include image.md src="images/scdf_tasks.png" width="80" %}
 
-## Setup
-
-The `General Installation Instruction` section below shows how to enable the Wavefront Integration for Spring Cloud Data Flow.
-
-The **Docker Compose Installation** section below shows how to quickly install the Spring Cloud Data Flow with Wavefront Integration on your local machine.
-Setting up Spring Cloud Data Flow locally could be useful for testing and development.
-
-### General Installation Instructions
-
- 1. Follow the general [SCDF installation instructions](https://dataflow.spring.io/docs/installation/) for setting up Data Flow on the selected platform (e.g. Local, Kubernetes or Cloud Foundry).
-
- 2. Set the configuration properties given below. You have several options: 
-  * Add the properties to your `Spring Cloud Data Flow` server configuration.
-  * For the `Cloud Foundry` platform, set the properties inside the [SPRING_APPLICATION_JSON](https://dataflow.spring.io/docs/installation/cloudfoundry/cf-cli/#configuration-for-wavefront) environment variable.
-  * For the `Kubernetes` platform add the properties to the `src/kubernetes/server/server-config.yaml` [configuration](https://dataflow.spring.io/docs/feature-guides/streams/monitoring/#kubernetes).
-  
- 3. For the `Local` platform follow the instructions in the Docker Compose Installation section below:
-{% raw %}
-```yaml
-management:
-  metrics:
-    export:
-      wavefront:
-        enabled: true
-        api-token: YOUR_API_TOKEN
-        uri: https://YOUR_CLUSTER.wavefront.com
-        source: scdf-docker-compose
-```
-{% endraw %}
-
-### Docker Compose Installation
-
-Spring Cloud Data Flow provides a [Docker Compose Installation](https://dataflow.spring.io/docs/installation/local/docker/) to let you quickly install Spring Cloud Data Flow, Skipper, MySQL and Apache Kafka on your local machine and to [configure Wavefront monitoring](https://dataflow.spring.io/docs/installation/local/docker-customize/#wavefront).
-
- 1. Download the [docker-compose.yml](https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/master/src/docker-compose/docker-compose.yml) and [docker-compose-wavefront.yml](https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/master/src/docker-compose/docker-compose-wavefront.yml) files.
- 2. Follow the [Data Flow with Wavefront metrics collection](https://dataflow.spring.io/docs/installation/local/docker-customize/#wavefront) installation instructions.
- 3. When you stop seeing additional log messages on the command prompt, open the Spring Cloud Data Flow dashboard at http://localhost:9393/dashboard.
-
-Here is a quick start, single-line command:
-{% raw %}
-```
-wget -O docker-compose.yml https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/master/src/docker-compose/docker-compose.yml
-wget -O docker-compose-wavefront.yml https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/master/src/docker-compose/docker-compose-wavefront.yml
-
-export DATAFLOW_VERSION=2.7.1 \
-export SKIPPER_VERSION=2.6.1 \
-export WAVEFRONT_KEY=YOUR_API_TOKEN \
-export WAVEFRONT_URI=https://YOUR_CLUSTER.wavefront.com \
-export WAVEFRONT_SOURCE=scdf-docker-compose \
-docker-compose -f ./docker-compose.yml -f ./docker-compose-wavefront.yml up
-```
-{% endraw %}
-
-**Note**: The Kafka Stream dashboard requires Spring Boot 2.3.4 (or newer) streaming applications.
-
-Use the following environment variables to configure the Wavefront endpoint, before you start the `docker-compose`:
-
-| Variable name      | Default value                | Description                                                                                  |
-| ------------------ | ---------------------------- | -------------------------------------------------------------------------------------------- |
-| `WAVEFRONT_KEY`    | YOUR_API_TOKEN                 | Wavefront user API Key                                                                       |
-| `WAVEFRONT_URI`    | https://YOUR_CLUSTER.wavefront.com     | Wavefront entry point URI                                                                    |
-| `WAVEFRONT_SOURCE` | scdf-docker-compose          | Unique identifier for Wavefront to know the metrics are coming from this Data Flow installation |
 
 
 ## Spring Cloud Data Flow Metrics

@@ -1,127 +1,70 @@
 ---
-title: Wavefront REST API
+title: REST API
 keywords: getting started
 tags: [getting started]
 sidebar: doc_sidebar
 permalink: wavefront_api.html
-summary: Learn about the REST API for managing Tanzu Observability by Wavefront.
+summary: Learn about the REST API for managing VMware Aria Operations for Applications (previously known as Tanzu Observability by Wavefront).
 ---
 
-The Wavefront REST API enables you to write scripts to perform management tasks, such as defining alerts and creating events. You can use the REST API to perform any task that is supported by the Tanzu Observability GUI. The REST API is based on Swagger, so you can generate the API client of your choice (including a CLI client).
+The REST API enables you to write scripts to perform management tasks, such as defining alerts and creating events. You can use the REST API to perform any task that is supported by the Operations for Applications  GUI. The REST API is based on Swagger, so you can generate the API client of your choice (including a CLI client).
 
 
 
 ## REST API Overview
 
-All interactions between the UI and your Wavefront instance occur through the Wavefront API. You can perform those actions using REST - or you can create an API client using Swagger, discussed below.
+All interactions between the UI and your product instance occur through the API. You can perform those actions using REST - or you can create an API client using Swagger, discussed below.
 
 The current version of the REST API is v2. You can access the API at `<your_instance>/api/v2`. The v1 API (`<your_instance>/api/`) was deprecated in 2017 and is no longer supported.
 
-{% include note.html content="The Wavefront REST API is not the same as the `/api` endpoint that you specify for the Wavefront proxy."%}
+{% include note.html content="Our REST API is not the same as the `/api` endpoint that you specify for the Wavefront proxy."%}
 
+{% include important.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. For VMware Cloud services subscriptions, the authentication and authorization APIs are part of the VMware Cloud services REST API. For information about VMware Cloud services subscriptions and original subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html)."%}
 
-## API Documentation (Wavefront Instance)
+## API Documentation (Service Instance)
 
-Each Wavefront instance includes Swagger-generated documentation for the REST API. In our blog post [Did You Know that Our API Docs Are Alive](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/did-you-know-that-our-api-docs-are-alive) we explain how you can experiment with our API directly from this in-product documentation.
+Each Operations for Applications service instance includes Swagger-generated documentation for the REST API. In our blog post [Did You Know that Our API Docs Are Alive](https://tanzu.vmware.com/content/vmware-aria-operations-for-applications-blog/did-you-know-that-our-api-docs-are-alive) we explain how you can experiment with our API directly from this in-product documentation.
 
-To access the REST API documentation :
+To access the Operations for Applications REST API documentation:
 
-1. Log in to your Wavefront instance.
+1. Log in to your product instance.
 2. Display the doc from the UI or using a URL:
   * In the UI, click the gear icon <i class="fa fa-cog"/> at the top right of the toolbar and select **API Documentation**.
   * Type `https://<your_instance>.com/api-docs/ui/`
 
 
-![REST API in a Wavefront instance](/images/rest_api.png)
+![REST API in a product instance](/images/rest_api.png)
 
-## API Documentation (VMware code)
+{% include important.html content="For VMware Cloud services subscriptions, to access the VMware Cloud services API documentation, go to [https://console.cloud.vmware.com/csp/gateway/portal/#/api-docs](https://console.cloud.vmware.com/csp/gateway/portal/#/api-docs)."%}
 
-If you don't have access to a Wavefront instance, you can have a look at our API doc [on the VMware code site](https://code.vmware.com/apis/714/wavefront-rest).
+## API Documentation (VMware Developer)
 
-We include an overview and a Swagger-generated API Reference. We update the reference with each release.
+If you don't have access to a service instance, you can have a look at our [Operations for Applications API doc](https://developer.vmware.com/apis/714/) on the VMware Developer website.
 
-![REST API in VMware code](/images/vmware_code_api.png)
+We include an overview and a Swagger-generated API Reference. We update the reference on a regular basis.
 
-The [VMware code website](https://code.vmware.com/samples?categories=Sample&tags=wavefront) also includes some samples, for example, for getting data into Tanzu Observability. We're providing these samples as is - some are from our team, others will come from the community.
+![REST API in VMware Developer](/images/vmware_code_api.png)
+
+{% include important.html content="For VMware Cloud services subscriptions, you can have a look at the [VMware Cloud services API doc](https://developer.vmware.com/apis/csp/csp-iam/latest/) on the VMware Developer website."%}
+
+The [VMware Developer website](https://developer.vmware.com/samples?categories=Sample&tags=wavefront) also includes some samples, for example, for getting data into Operations for Applications. We're providing these samples as is - some are from our team, others will come from the community.
 
 <a id="generating-an-api-token"></a>
-## Managing API Tokens
 
-Before you can invoke the Wavefront API using `curl` or from an API client, you must have an API token.
+## Invoking the Operations for Applications REST API
 
-An API token is a string of hexadecimal characters and dashes. For example:
+You can invoke the API using `curl` or from an API client. In either case, you must use a token.
 
-```
-a411c16b-3cf7-4f03-bf11-8ca05aab898d
-```
-Tanzu Observability by Wavefront allows [user accounts](user-accounts.html) and [service accounts](service-accounts.html) to use the [Wavefront REST API](wavefront_api.html).
+The token that you need depends on your [subscription type](subscriptions-differences.html). 
 
-{% include tip.html content="You generate API tokens for your user account explicitly. For service accounts, a user with the **Accounts** permission can generate tokens from the **Service Accounts** page." %}
+* For VMware Cloud services subscriptions, invoking the Operations for Application REST API requires a VMware Cloud services access token.
+* For original subscriptions, invoking the Operations for Application REST API requires an Operations for Application API token.
 
-### Generate and Manage the API Tokens for Your User Account
-
-{% include note.html content="All users can use and manage their existing API tokens. You must have the [API Tokens permission](permissions_overview.html) to generate new API tokens for your user account." %}
-
-
-1. Log in to your Wavefront instance.
-2. Click the gear icon <i class="fa fa-cog"/>  at the top right of the toolbar and select your user name.
-2. On the **API Access** tab, click **Generate**.
-
-    You can have up to 20 tokens at any given time. If you want to generate a new token but already have 20 tokens, then you must revoke one of the existing tokens.
-3. To revoke a token, click the **Revoke** button for the token.
-
-    If you run a script that uses a revoked token, the script returns an authorization error.
-4. To add a name or rename an API token, click the **Edit** icon for the token, enter the name, and press Enter.
-
-![Generate API Token](/images/generate_token.png)
-
-
-{% include warning.html content="Do not share your API token with anyone. The token provides full access to the API. Accounts that have the token can authenticate without a username/password."%}
-
-### Generate and Manage the API Tokens for a Service Account
-
-As a user with the **Accounts** permission, you can generate API tokens for [service accounts](service-accounts.html) upon creation or at a later stage. To generate an API token for an existing **service account**:
-
-1. Log in to your Wavefront instance as a user with the **Accounts** permission.
-2. Click the gear icon <i class="fa fa-cog"/> at the top right of the toolbar and select **Accounts**.
-3. On the **Service Accounts** tab, click the ellipsis icon next to the service account for which you want to generate an API token, and select **Edit**.
-4. To generate a new token, in the Tokens section, click **Generate**.
-
-    You can have up to 20 tokens per service account at any given time. If you want to generate a new token but already have 20 tokens, then you must revoke one of the existing tokens.
-5. To revoke a token, click the **Revoke** button for the token.
-
-    Revoking a token cannot be undone.
-5. To rename an API token, click the **Edit** icon for the token, enter the name, and press Enter.
-6. Select the appropriate permissions for the service account and click **Update**.
-
-### View and Manage the API Tokens in Your Organization
-
-As a user with the **Accounts** permission, you can view and revoke the API token of any user or service account in your organization.
-
-1. Log in to your Wavefront instance as a user with the **Accounts** permission.
-2. Click the gear icon <i class="fa fa-cog"/>  at the top right of the toolbar and select **Accounts**.
-3. Click the **API Tokens** tab.
-
-  You see the API tokens for all user and service accounts in a paginated table format.
-
-![The API Tokens page shows the tokens table, the search field above the table, and the preconfigured filters and the saved searches in the left panel](/images/API_tokens.png)
-
-{% include important.html content="Revoking a token cannot be undone. Any script that uses a revoked token returns an authorization error." %}
-
-On the API Tokens page, you can:
-- Sort the API tokens table by column.
-- Search and, optionally, save and share your search.
-- Filter the API tokens by account type, usage, particular accounts, or your saved search.
-- Revoke an API token from the vertical ellipsis icon for the token.
-
-
-## Invoking the API
-
-You can invoke the Wavefront API using `curl` or from an API client. In either case, you must use an API token. See [Use the Wavefront REST API](using_wavefront_api.html) for details and examples.
+See [Use the Operations for Applications REST API](using_wavefront_api.html) for details and examples.
 
 ## Generate an API Client Using Swagger
 
-Because we expose the Wavefront REST API via Swagger, you can generate a working implementation of the API for the programming language or CLI you want to use.
+Because we expose the REST API via Swagger, you can generate a working implementation of the API for the programming language or CLI you want to use.
 
 {% include note.html content="Using the default Swagger configuration settings might result in errors. Create your own configuration file instead."%}
 
@@ -144,15 +87,19 @@ Here's an example for generating a Java client:
 
 `swagger-codegen generate -i https://mydomain.wavefront.com/api/v2/swagger.json -c swagger-config.json -l java`
 
-## Wavefront REST API Categories
+## Operations for Applications REST API Categories
 
 The REST API supports the following objects corresponding to different categories of management tasks:
 
 - **Access Policy** - Lets you allow or deny access to embedded charts. For information, see [Allow or Deny Access to Embedded Charts](ui_sharing.html#allow-or-deny-access-to-embedded-charts).
 - **Access** - Provides information on the access level of an entity. See [Notes on the Access Category](#access) below.
 - **Account (User and Service Account)** - Allows users with [**Accounts** permission](permissions_overview.html) to retrieve a list of all [accounts](users_roles.html), create, update, and delete accounts and manage permissions and groups associated with accounts.
+
+    {% include note.html content="Applies only to original subscriptions. See the [Operations for Applications subscription types](subscriptions-differences.html)."%}
 - **Alert** - Retrieve active, snoozed, in-maintenance, and invalid alerts. Users with [**Alerts** permission](permissions_overview.html) can create and update alerts.
 - **ApiToken** - Allows users with [**Accounts** permission](permissions_overview.html) to retrieve, create, and manage API tokens. Used primarily in conjunction with service accounts.
+
+    {% include note.html content="Applies only to original subscriptions. See the [Operations for Applications subscription types](subscriptions-differences.html)."%}
 - **Cloud Integration** - Retrieve cloud integration data types such as those available with the [AWS integration](integrations_aws_metrics.html). Users with [**Proxies** permission](permissions_overview.html) can add and remove cloud integration data types.
 - **Dashboard** - Retrieve data about dashboards, list dashboards, and return version history. Users with [**Dashboards** permission](permissions_overview.html) can save, create, delete, clone, undelete dashboards.
 - **Derived Metric** - Manage derived metrics.
@@ -167,12 +114,16 @@ The REST API supports the following objects corresponding to different categorie
 - **Proxy** - Retrieve information about Wavefront proxies. Users with [**Proxies** permission](permissions_overview.html) can add and remove Wavefront proxies.
 - **Query** - Perform queries.
 - **Role** - Retrieve information about a role and manage roles and role assignees.
+
+    {% include note.html content="Applies only to original subscriptions. See the [Operations for Applications subscription types](subscriptions-differences.html)."%}
 - **Saved Search** - Retrieve, add, and remove saved searches.
 - **Search** - Search agents, alerts, integrations, dashboards, external links, maintenance windows, sources, and webhook alert targets.
 - **Source** - Retrieve sources and tags associated with a source. Users with [**Source Tags** permission](permissions_overview.html) can add and remove source tags and set descriptions.
 - **Usage** - Retrieve information about usage associated with ingestion policies and manage policies.
 - **User** - Deprecated API. Use **Account (User and Service Account)** instead.
 - **UserGroup** - Allows users with [**Accounts** permission](permissions_overview.html) to retrieve a list of all groups, create, update, and delete groups, and manage the users and roles associated with a group.
+
+    {% include note.html content="Applies only to original subscriptions. See the [Operations for Applications subscription types](subscriptions-differences.html)."%}
 - **Webhook** - Retrieve webhooks. Users with [**Alerts** permission](permissions_overview.html) can create, update, and delete webhooks.
 
 <a name="access"></a>
@@ -182,7 +133,7 @@ The `/api/access/{entity}` endpoint provides information on how often an entity 
 
 {% include important.html content="In order to use this API, users must have both the Direct Data Ingestion and Metrics [permissions](permissions_overview.html)."%}
 
-{% include note.html content="Tanzu Observability by Wavefront uses a bloom filter to determine the access pattern. As a result, even if data access returns true, there’s a very low probability that data actually hasn't been accessed. If data access returns false, it is guaranteed that the data has not been accessed.
+{% include note.html content="VMware Aria Operations for Applications uses a bloom filter to determine the access pattern. As a result, even if data access returns true, there’s a very low probability that data actually hasn't been accessed. If data access returns false, it is guaranteed that the data has not been accessed.
 "%}
 
 This GET endpoint has the following parameters:
@@ -198,7 +149,7 @@ This GET endpoint has the following parameters:
 <tr>
 <td>hostPrefix</td>
 <td>Prefix of the host name, e.g. you can use test-2a-app67 if the whole host name is test-2a-app67-id-12345 <br>
-<strong>Warning:</strong>hostPrefix must be somewhat specific. There's a limit on how many hosts Tanzu Observability scans.</td></tr>
+<strong>Warning:</strong>hostPrefix must be somewhat specific. There's a limit on how many hosts VMware Aria Operations for Applications scans.</td></tr>
 <tr>
 <td>usageThresholdDays</td>
 <td>How many days to look back. 7 days by default.</td></tr>

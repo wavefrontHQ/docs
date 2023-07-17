@@ -7,29 +7,30 @@ permalink: videos_tracing.html
 published: false
 summary: Learn about our tracing implementation and watch a demo.
 ---
-Wavefront supports distributed tracing with third-party apps such as Jaeger or you can instrument your app with one of the Wavefront SDKs. Watch these videos for more information.
+We support distributed tracing with third-party apps such as Jaeger or you can instrument your app with one of the VMware Aria Operations for Applications (Wavefront) SDKs. Watch these videos for more information.
 
+Note that in most of the videos we still refer to VMware Aria Operations for Applications as Tanzu Observability or Wavefront.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td><strong><font color="#0091DA" size="3">Distributed Tracing in Wavefront</font></strong><br><br/>
+<td><strong><font color="#0091DA" size="3">Distributed Tracing</font></strong><br><br/>
 <iframe id="kmsembed-1_41gxt426" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_41gxt426/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability: Distributed Tracing 1"></iframe></td>
 <td><br>
-<p>Clement first explains how you can visualize traces collected with Jaeger and Zipkin with the Wavefront UI. He then uses the example of monitoring a ride sharing app where a single trace includes apps on the user’s phone, the driver’s phone, etc. You can visualize the different components with the Wavefront tracing UI - and also use our UI to drill down on potential problems.  </p>
+<p>Clement first explains how you can visualize traces collected with Jaeger and Zipkin with the GUI. He then uses the example of monitoring a ride sharing app where a single trace includes apps on the user’s phone, the driver’s phone, etc. You can visualize the different components with our tracing UI - and also use it to drill down in potential problems.  </p>
 </td>
 </tr>
 <tr>
 <td><strong><font color="#0091DA" size="3">Distributed Tracing Updates</font></strong><br><br/>
 <iframe id="kmsembed-1_1g01mwj2" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_1g01mwj2/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="Distributed Tracing 2"></iframe></td>
 <td><br>
-<p>Clement discusses some of the improvements to distributed tracing as of early 2020. This includes more ingestions options, intelligent sampling, and root cause analysis (Beta).</p>
+<p>Clement discusses some of the improvements to distributed tracing as of early 2020. This includes more ingestion options, intelligent sampling, and root cause analysis (Beta).</p>
 </td>
 </tr>
 <tr>
 <td width="50%"><strong><font color="#0091DA" size="3">The Future of App Monitoring</font></strong><br><br/>
 <iframe id="kmsembed-1_obf0o1tx" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_obf0o1tx/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="The Future of App Monitoring"></iframe></td>
-<td width="50%"><br><p>Clement first discusses how you can monitor metrics, histograms, and traces with Wavefront. He uses an example of monitoring microservices by traversing multiple languages and transport layers that use different <a href="https://github.com/wavefrontHQ"> Wavefront open-source SDKs</a>.
+<td width="50%"><br><p>Clement first discusses how you can monitor metrics, histograms, and traces. He uses an example of monitoring microservices by traversing multiple languages and transport layers that use different <a href="https://github.com/wavefrontHQ">Wavefront open-source SDKs</a>.
 </p> </td>
 </tr>
 <tr>

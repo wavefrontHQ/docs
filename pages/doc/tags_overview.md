@@ -5,17 +5,17 @@ sidebar: doc_sidebar
 permalink: tags_overview.html
 summary: Learn how to use tags to focus and speed up queries display and to unclutter the UI.
 ---
-Tanzu Observability by Wavefront supports tags for adding application-specific metadata to objects such alerts, dashboards, events, sources, and metrics.
+In VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports tags for adding application-specific metadata to objects such alerts, dashboards, events, sources, and metrics.
 
 ## Videos
 
-Watch these videos to get started:
+Watch these videos to get started. Note that these videos were created in 2018 and 2021 and some of the information in them might have changed. 
 
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td><strong><font color="#0091DA" size="3">Tagging Your Data with Wavefront </font></strong><br><br/>
-<iframe id="kmsembed-1_3igakxnb" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_3igakxnb/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tanzu Observability: Tagging Data"></iframe>
+<td><strong><font color="#0091DA" size="3">Tagging Data </font></strong><br><br/>
+<iframe id="kmsembed-1_3igakxnb" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_3igakxnb/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Tagging Data"></iframe>
 </td>
 <td><br>
 <p>Understand how tagging can help you get the results that you need. By default, data include the metric name and the source. Cloud integrations include additional dimensions such as the AWS region, as point tags. You can add point tags to any data source from the UI or the API. Source tags are different. They allow you to group machines, for example, into db machines and web machines. You can then customize your queries to pull out just the data you need. You can also watch the video <a href="https://vmwaretv.vmware.com/media/t/1_3igakxnb" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a> </p>
@@ -46,7 +46,7 @@ You use tags in several ways:
 * **Object tags** -- Limit the number of objects (e.g. dashboards) and metrics. For example, you might  display only dashboards with a certain tag.
 * **[Span tags](trace_data_details.html#span-tags)** -- Tags that are associated with a span. Certain span tags are required for a span to be valid. In addition, you can instrument an application with custom span tags.
 
-You can use tags to filter alerts, dashboards, events, and sources from the Wavefront UI or with the REST API.
+You can use tags to filter alerts, dashboards, events, and sources from the Operations for Applications UI or with the REST API.
 
 ### How to Use Different Tag Types
 
@@ -94,15 +94,19 @@ You can use tags to filter alerts, dashboards, events, and sources from the Wave
 </tbody>
 </table>
 
+
 ### Supported Characters
 
 Tag keys can contain alphanumeric (a-z, A-Z, 0-9), dash (-), underscore (_), dot (.), and forward slash (/) characters. The space character is not supported.
 
-When you construct a Wavefront query, you can use a colon (:) in a tag key, only if the tag key is in quotes. For example: `ts(<metricName>,"t:m"=tag-with-colon)`.
+When you construct a query, you can use a colon (:) in a tag key, only if the tag key is in quotes. For example: `ts(<metricName>,"t:m"=tag-with-colon)`.
+
+{% include tip.html content="With the 2023-20.x release, the `group by` parameter becomes case-sensitive. If you ingest point tags such as `zone` and `ZONE`, when you use an aggregation function and apply grouping, we will consider `zone` and `ZONE` as separate point tags. To support backward compatibility, in your queries you can use: `sourcetags` and `sourceTags`, `hosttags` and `hostTags`, `pointtags` and `pointTags`." %}
+
 
 ### Tags in the UI
 
-In the Wavefront UI:
+In the Operations for Applications UI:
 * Tags display when you hover your mouse over a line, point, etc. in a chart.
 * Tags display as gray labeled icons ![tag](images/tag.png#inline) in the filter bar and below each object in the browser for that object (e.g. dashboard or alerts browse).
 * Tags on the left of the object browser allow you to filter your display.
@@ -123,8 +127,8 @@ All tag types support the ability to organize tags in a hierarchy. The hierarchy
 
 In dashboards, internal tags start with a tilde, for example, `~welcome.`, `~integration.`, and `~system.`. To improve readability, tags retain case for display but they are treated as case-insensitive for searching, sorting, etc.
 
-In the UI you operate on tag paths by selecting a component at a specific node in the hierarchy.  For example:
-* Select all Wavefront dashboards by clicking **wavefront**
+In the UI you operate on tag paths by selecting a component at a specific node in the hierarchy. For example:
+* Select all Operations for Applications dashboards by clicking **wavefront**.
 * Select only tutorial dashboards by expanding the **wavefront** node and then selecting **tutorial**.
 
 In queries, you achieve the same effect by specifying a tag path with trailing wildcards `".*"`. For example, enter `alertTagPath.*` to match alerts named `alertTagPath.tpc1`, `alertTagPath.tpc1.tpc11`, and so on.
@@ -140,6 +144,8 @@ You use point tags to add extra dimensions to your data, and can then focus your
 
 * [Fine Tune Queries with Point Tags](query_language_point_tags.html) explains how to use point tags.
 * [Pairing Up Matching Series](query_language_series_matching.html) discusses how implicit series matching lets you operate on pairs of time series that have corresponding sources and point tags.
+
+{% include note.html content="Starting with the 2023-20.x release, grouping is case-sensitive. For example, if you ingest point tags such as `zone` and `ZONE`, when you use an aggregation function and apply grouping, we will consider `zone` and `ZONE` as separate tags. " %}
 
 <a name="entity_tags"></a>
 
@@ -178,11 +184,11 @@ To filter by a tag, click a tag icon. You can click the icon in the filter bar o
 
 ## Source Tags
 
-A metric in Wavefront Data Format includes a source name. If source names change frequently or if you want to filter sources, a source tag can help. Source tags are just strings--in contrast, point tags are key-value pairs.
+A metric in Operations for Applications Data Format includes a source name. If source names change frequently or if you want to filter sources, a source tag can help. Source tags are just strings--in contrast, point tags are key-value pairs.
 
 You can add source tags from the UI or API, or you can inject source tags and source descriptions directly at the proxy.
 
-{% include note.html content="You must have **Source Tags** permission to manage sources and source tags. If you don't have **Source Tags** permission, the Wavefront service rejects source tags with a 403 error." %}
+{% include note.html content="You must have **Source Tags** permission to manage sources and source tags. If you don't have **Source Tags** permission, Operations for Applications rejects source tags with a 403 error." %}
 
 ### Why Source Tags?
 
@@ -192,24 +198,24 @@ Your use case determines how to use source tags:
   - Use a source tag hierarchy, that is, have source tags dot-delimited, for example `env.cluster.role.role1`.
   In that case, your query might include `... and tag=env.cluster.role.*`
   - Use source tags as intersection sets, that is, use multiple tags (e.g. `env`, `cluster`, `role`, etc).
-  In that case, your query might include`... and tag=env and tag=cluster`.
+  In that case, your query might include `... and tag=env and tag=cluster`.
 
 
 ### Add Source Tags from the UI
 
 To add a source tag from the UI:
-1. Click **Browse>Sources**.
-2. Select one or more sources and click **+Tag** or click the **+** icon below the source. You can add an existing source tag or create a new source tag.
+1. From the toolbar, click **Browse > Sources**.
+2. Select one or more sources and click **Tag** or click the **+** icon below the source. You can add an existing source tag or create a new source tag.
 
 ### Add Source Tags from the API
 
-You can add source tags using the [Wavefront REST API](wavefront_api.html).  The API supports getting and setting source tag values.
+You can add source tags using the [REST API](wavefront_api.html).  The API supports getting and setting source tag values.
 
-For details about the APIs, click the gear icon in your Wavefront instance and select **API Documentation**.
+For details about the APIs, click the gear icon in your service instance UI and select **API Documentation**.
 
 ### Group by Source Tag in Queries
 
-Aggreggation functions include a group by parameter that allows you to group the results. The syntax is the following (here we use `sum` as an example):
+Aggregation functions include a group by parameter that allows you to group the results. The syntax is the following (here we use `sum` as an example):
 
 ```
 sum(<tsExpression>
@@ -225,13 +231,14 @@ sum(ts(dataingester.report-points AND source="dev-2b-*"), pointTags)
 When you want to group by source tag, however, you have to include the source tag name in the query, as shown in this example:
 
 ```
-sum(ts(dataingester.report-points, source="dev-2b-*" and tag=mySourceTag), sourcetags)
+sum(ts(dataingester.report-points, source="dev-2b-*" and tag=mySourceTag), sourceTags)
 ```
 
+{% include note.html content="Starting with the 2023-20.x release, grouping is case sensitive. " %}
 
 ### Manage SourceTag and SourceDescription Properties at the Proxy
 
-You can send metrics directly to the Wavefront proxy, and you can add source tags and source descriptions using the `SourceTag` and `SourceDescription` properties. Proxy 4.24 and later supports these properties. Starting with proxy 5.0, each property works with `add`, `save`, and `delete`.
+You can send metrics directly to the Wavefront proxy, and you can add source tags and source descriptions using the `SourceTag` and `SourceDescription` properties. Each property works with `add`, `save`, and `delete`.
 
 You send these properties to the same listening port as regular metrics. The port defaults to 2878, and you can change it with the `pushListenerPorts` setting in the [proxy configuration file](proxies_configuring.html#configuration-properties).
 
@@ -284,6 +291,6 @@ The syntax is the same for both the SourceTag and the SourceDescription property
 
 ## Learn More!
 
-* See [Data Naming](wavefront_data_format.html#wavefront-data-format-best-practices) for examples of tags and tag naming.
+* See [Data Naming](wavefront_data_format.html#operations-for-applications-data-format-best-practices) for examples of tags and tag naming.
 
 * Read the blog post [Skyline Resolves Production Incidents Faster with Alert-Based Health Dashboards](https://tanzu.vmware.com/content/blog/skyline-resolves-production-incidents-faster-with-alert-based-health-dashboards) for a discussion of a real-world example that uses alert tags.

@@ -1,5 +1,5 @@
 ---
-title: Monitor Tanzu Application Service with Tanzu Observability by Wavefront
+title: Monitor Tanzu Application Service
 keywords:
 tags: [integrations]
 sidebar: doc_sidebar
@@ -9,7 +9,7 @@ summary: Set up the Tanzu Observability tile and monitor your environment.
 
 [VMware Tanzu Application Service](https://docs.pivotal.io/application-service/2-12/concepts/overview.html), previously known as Pivotal Cloud Foundry, is a popular platform for building cloud-native applications.
 
-Tanzu Observability by Wavefront (Wavefront) is a cloud-hosted service for full-featured observability. When you Tanzu Application Service to send data to the Wavefront proxy, you can take advantage of preconfigured dashboards, clone and customize dashboards, and more.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) is a cloud-hosted service for full-featured observability. When you Tanzu Application Service to send data to the Wavefront proxy, you can take advantage of preconfigured dashboards, clone and customize dashboards, and more.
 
 {% include important.html content="This document is for the Tanzu Application Service nozzle version 4.0 and later. Earlier versions are [documented here](https://docs.pivotal.io/wavefront-nozzle/3-x/). " %}
 
@@ -38,22 +38,22 @@ Tanzu Observability by Wavefront (Wavefront) is a cloud-hosted service for full-
 
 ## Videos
 
-Watch these videos to get started:
+Watch these videos to get started. Note that the videos were created in 2022 and some of the information in them might have changed. They also use the 2022 version of the UI.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td><strong><font color="#0091DA" size="3">TAS Monitoring and Alerting with Tanzu Observability</font></strong><br>
+<td><strong><font color="#0091DA" size="3">TAS Monitoring and Alerting</font></strong><br>
 <br>
 <iframe id="kmsembed-1_cjv5gbqy" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_cjv5gbqy/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="TAS Monitoring and Alerting with Tanzu Observability"></iframe>
 </td>
 <td><br><br>
-<p>This 60-second video gives an overview of the architecture, installation process, and benefits of the Tanzu Observability integration for Tanzu Application Service. </p>
-<p>You can also watch the video in the Tanzu Observability Integrations playlist <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_jycyrkuw/" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
+<p>This 60-second video gives an overview of the architecture, installation process, and benefits of the integration for Tanzu Application Service. </p>
+<p>You can also watch the video in this playlist <a href="https://vmwaretv.vmware.com/playlist/dedicated/252649793/1_jycyrkuw/" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.</p>
 </td>
 </tr>
 <tr>
-<td><strong><font color="#0091DA" size="3">Integrating TAS with Tanzu Observability: How to Get Started</font></strong><br>
+<td><strong><font color="#0091DA" size="3">Integrating TAS: How to Get Started</font></strong><br>
 <br>
 <iframe id="kmsembed-1_sl2d1g42" width="500" height="285" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_sl2d1g42/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Integrating TAS with Tanzu Observability: How to Get Started"></iframe>
 </td>
@@ -73,12 +73,13 @@ We've streamlined the getting started process so it involves a few simple steps 
 
 1. Download the Tanzu Observability by Wavefront nozzle file from the [Tanzu Network](https://network.pivotal.io/)
 2. In Tanzu Ops Manager, install, configure, and deploy the nozzle. At a minimum:
-    1. In the **Wavefront Proxy Config** section, specify the Wavefront instance and API token (shown in the Wavefront instance in the integration's **Setup** tab) and a user-friendly host name.
+    1. In the **Wavefront Proxy Config** section, specify the Operations for Applications instance, an API token, and a user-friendly host name. <!--The API token that you provide and how it is generated depends on whether your Operations for Applications service is onboarded to VMware Cloud services. For details on API tokens, see [Managing API Tokens](wavefront_api.html#managing-api-tokens).-->
+
    ![OpsMan Proxy Config tab with the 3 required items highlighted](images/tas_to_proxy_config.png)
     2. In the **Telegraf Agent Config** section, specify the Foundation name.<br/><br/>
      See [Ops Manager: Install, Configure, and Deploy the Nozzle](#step-2-ops-manager-install-configure-and-deploy-the-nozzle) and [Tanzu Application Service to Tanzu Observability FAQs](#tanzu-application-service-to-tanzu-observability-faqs)
      After you complete nozzle deployment, metrics are flowing from Tanzu Application Service to the Wavefront proxy and from there to your Wavefront instance. See [Data Flow](#architecture-and-data-flow) below.
-3. Log in to your Wavefront instance (for example, `https://example.wavefront.com`) and confirm that metrics are flowing:
+3. Log in to your Wavefront instance and confirm that metrics are flowing:
    1. Click **Integrations** in the toolbar, search for Tanzu Application Service, and select the integration.
    2. Click the **Metrics** tab and confirm metrics are flowing.
 4. With the integration selected, click the **Dashboards** tab.
@@ -166,12 +167,12 @@ You can specify custom elements as follows:
 Ensure that your environment meet requirements on the Ops Manager side and on the Tanzu Observability side.
 * **Ops Manager Requirements**
   VMware Tanzu Observability by Wavefront nozzle has the following requirements:
-  *	Read-only access to the Doppler Firehose and Cloud Controller.
-  * Access to a Wavefront instance and an API token. [Service Account API token](wavefront_api.html#generating-an-api-token) is recommended.
+  * Read-only access to the Doppler Firehose and Cloud Controller.
+  * Access to an Operations for Applications instance and an API token. <!--The API token that you provide and how it is generated depends on whether your Operations for Applications service is onboarded to VMware Cloud services. Service Account API token or server to server app credentials is the recommended approach. See [Managing API tokens](wavefront_api.html#managing-api-tokens).-->
 * **Tanzu Observability by Wavefront Requirements**
-  To set up the Tanzu Application Service integration on you Wavefront instance, you must have:
-  * Access to a Wavefront instance with a URL like `https://example.wavefront.com`.
-  * At a minimum, **Integrations** permission on that Wavefront instance.
+  To set up the Tanzu Application Service integration on your Operations for Applications instance, you must have:
+  * Access to an Operations for Applications instance.
+  * At a minimum, **Integrations** permission on that Operations for Applications instance.
   * This version of the Tanzu Observability by Wavefront nozzle is compatible with Wavefront proxy version 10.14 and later.
 
 See [Tanzu Observability and TAS Troubleshooting](tas_to_troubleshooting.html) for more.
@@ -183,7 +184,7 @@ This section explains each step in the flow in detail.
 ### Prerequisites
 
 * You must have a Tanzu Network account to configure the Tanzu Observability Nozzle in Ops Manager.
-* You must have login credentials for a Wavefront instance to configure the integration.
+* You must have login credentials for an Operations for Applications instance to configure the integration.
 * Ensure that the root certificate for Ops Manager is included in data coming from Tanzu Application Service. See the [No Data Flowing and Certificate Error](tas_to_troubleshooting.html#symptom-no-data-flowing-in-and-certificate-error) troubleshooting section.
 
 
@@ -225,8 +226,10 @@ In Ops Manager, click the Tanzu Observability by Wavefront tile. With **Settings
    </tr>
    <tr>
    <td width="50%"><strong>Step 2.</strong> Click <strong>Wavefront Proxy Config</strong> and specify:
-   <ol><li>The URL of your Wavefront instance, for example, <code>https://example.wavefront.com</code>.</li>
-   <li>A Wavefront API token. See <a href="wavefront_api.html#generating-an-api-token">Generating an API Token</a>.</li>
+   <ol><li>The URL of your Operations for Applications instance, for example, <code>https://example.wavefront.com</code>.</li>
+   <li>A valid API token. 
+   <!--The API token that you specify depends on whether your Operations for Applications service is onboarded to VMware Cloud services.
+   See <a href="wavefront_api.html#managing-api-tokens">Managing API Tokens</a>.--></li>
    <li>User-friendly name for the proxy. </li>
    <li>Click <strong>Save</strong> or click <strong>Custom</strong> (see the next step).
    The nozzle ignores these configuration properties because they're already defined in the setup steps:
@@ -335,7 +338,7 @@ In Ops Manager, click the Tanzu Observability by Wavefront tile. With **Settings
 
 ### Step 3: Check That Metrics are Flowing and Examine Your Data
 
-Log in to your Wavefront instance (for example, `https://example.wavefront.com`) and confirm that metrics are flowing:
+Log in to your Wavefront instance and confirm that metrics are flowing:
 1. Click **Integrations** in the toolbar, search for Tanzu Application Service, and select the integration.
 2. Click the **Metrics** tab and confirm metrics are flowing.
 
@@ -345,6 +348,68 @@ Log in to your Wavefront instance (for example, `https://example.wavefront.com`)
 2. Select from the set of predefined dashboards, which are modeled on the corresponding Healthwatch dashboards but have additional options. For example, you can examine multiple foundations from one dashboard.
 3. Explore one or two dashboards. [Examine Data with Dashboards and Charts](ui_examine_data.html) has an overview and includes a video.
 4. As appropriate, clone any of the existing dashboards to add charts, modify queries, and more. See [Create, Customize, and Optimize Dashboards](ui_dashboards.html) and [Create and Customize Charts](ui_charts.html).
+
+### Step 5 (Optional): Use the Service Broker to Send Custom Application Metrics to the Wavefront Proxy
+
+1. In Ops Manager, in the **Wavefront Proxy Config** panel, select the **Enable Service Broker Bindings** check box.
+2. To provision a Wavefront proxy service instance, run the command:
+
+   ```
+   cf create-service wavefront-proxy standard SERVICE_INSTANCE_NAME
+   ```
+
+3. To bind apps to the service instance, run the command:
+
+   ```
+   cf bind-service APP_NAME SERVICE_INSTANCE_NAME
+   ```
+
+4. If you already have an existing app and want to update its service instance reference from the v3 broker,
+   first unbind it with this command:
+   ```
+   cf unbind-service APP_NAME SERVICE_INSTANCE_NAME
+   ```
+
+Note: For information about how apps can send metrics to the Wavefront proxy, see the [cloud-foundry-sampleapp](https://github.com/wavefrontHQ/cloud-foundry-sampleapp).
+
+### Step 6 (Optional): Connect Multiple Proxy Instances to an IAAS Load Balancer
+
+#### Set Up the Load Balancer in Your IAAS
+
+If you use multiple Wavefront VMs, you will want to use your IAAS of choice to set up a load balancer. BOSH DNS does not provide load balancing, so increasing the VM count will result in one VM taking all the requests.
+
+In-depth instructions on configuring load balancers in different IAASes is beyond the scope of this documentation. You can see a detailed example across two sections of the TAS for VMs documentation:
+
+1. Initial setup of load balancers is required for
+   [AWS](https://docs.pivotal.io/ops-manager/3-0/aws/prepare-env-manual.html) and
+   [GCP](https://docs.pivotal.io/ops-manager/3-0/gcp/prepare-env-manual.html#loadbalancer),
+   but not for Azure.
+2. After the initial setup, you can use
+   [this](https://docs.pivotal.io/application-service/3-0/operating/configure-lb.html)
+   document for finalizing the configuration of the load balancers in all IAAS.
+
+Replace the example names for the load balancers from the documentation with names that suit a Wavefront proxy.
+You can ignore the portions of these docs that contain information about interactions with Ops Manager, because we will talk about that in the next section.
+- For GCP, record the backend service name of your load balancer.
+- For AWS, record the actual Elastic Load Balancer name.
+- For Azure, record the Azure Load Balancer name.
+
+#### Configure the Tile to Use the Load Balancer for the Wavefront Proxy
+1. Click the **Resource Configuration** tab for the tas2to tile in your Ops Manager configuration.
+2. In the left column, click **Wavefront Proxy Configuration**.
+3. Enter `http:${load_balancer_name}`,
+   where `load_balancer_name` is the load balancer or backend service name from the initial setup.
+4. Apply the changes to the tile and wait until the process completes.
+
+#### Configure the Tile's Telegraf Instance to Send Traffic to the Load Balancer
+By default, the Telegraf instance inside the tile will still use BOSH DNS. If you want the Telegraf requests to the Wavefront proxy to go through the load balancer, you must configure this.
+
+1. Click the **Telegraf Agent Config** tab for the tile.
+2. Under **Advanced Options**, click **Yes**.
+3. In the **Custom Proxy URL** and **Custom Proxy Port** fields,
+   enter the URL and port number for your load balancer.
+4. Apply the changes to the tile.
+
 
 ## Learn More!
 

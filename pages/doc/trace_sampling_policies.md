@@ -7,7 +7,7 @@ permalink: trace_sampling_policies.html
 summary: Learn control trace data sampling with sampling policies.
 ---
 
-Tanzu Observability by Wavefront uses [intelligent sampling](trace_data_sampling.html) to reduce the volume of ingested traces. The goal of intelligent sampling is to retain traces that are likely to be informative. But sometimes intelligent sampling discards traces that you want to keep. You can create a sampling policy to fine-tune intelligent sampling and indicate that you want to keep certain spans.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) uses [intelligent sampling](trace_data_sampling.html) to reduce the volume of ingested traces. The goal of intelligent sampling is to retain traces that are likely to be informative. But sometimes intelligent sampling discards traces that you want to keep. You can create a sampling policy to fine-tune intelligent sampling and indicate that you want to keep certain spans.
 Creating a sampling policy affects your costs as you store more data.
 
 You can create a sampling policy, edit, delete, restore, deactivate, and see the version history of the policy you created:
@@ -19,11 +19,11 @@ Let's look at how you can create a sampling policy and get familiar with the pol
 
 ## Create a Sampling Policy
 
-{% include note.html content="Only a [Super Admin user](authorization-faq.html#who-is-the-super-admin-user) or users with [Applications permissions](permissions_overview.html) can create sampling policies." %}
+{% include note.html content="Only Super Admin users and users with the [Applications permissions](permissions_overview.html) can create sampling policies." %}
 
 To create a sampling policy:
 
-1. In your web browser, go to your Wavefront instance and log in.
+1. Log in to your service instance.
 1. From the toolbar, select **Applications** > **Sampling Policies**.
 1. Click **Create Policy** and enter the details:
     <table style="width: 100%;">
@@ -91,7 +91,7 @@ Now, you see the policy you created listed under sampling policies.
 
 When you [create a sampling policy](trace_sampling_policies.html), you need to define a policy expression that specifies the spans you want to keep. This expression needs to be in the YAML format.
 
-Let's look at a policy expression that asks the Wavefront service to store traces if the application name is beachshirts.
+Let's look at a policy expression that asks the Operations for Applications service to store traces if the application name is beachshirts.
 ![](images/trace_sampling_expression.png)
 
 <table style="width: 100%;">

@@ -4,9 +4,9 @@ keywords: query language
 tags: [query language]
 sidebar: doc_sidebar
 permalink: query_language_tricks.html
-summary: Solve your Wavefront Query Language problems with these pages
+summary: Solve your query language problems with these pages
 ---
-This page includes some tips and tricks for using Wavefront Query Language, and points to additional information to help you drill down.
+This page includes some tips and tricks for using Wavefront Query Language (WQL), and points to additional information to help you drill down.
 
 
 
@@ -29,7 +29,7 @@ Learn about frequently used functions:
 * [Metadata (Label Manipulation) Functions](query_language_metadata_functions.html)
 
 Tips and Tricks from the Pros
-* [Using Moving and Tumbing Windows to Highlight Trends](query_language_windows_trends.html)
+* [Using Moving and Tumbling Windows to Highlight Trends](query_language_windows_trends.html)
 * [Detecting Anomalies With Statistical Functions](query_language_statistical_functions_anomalies.html)
 
 
@@ -44,14 +44,14 @@ To understand potential problems and to become a power user of WQL, the followin
 
 ## Use AND, OR, and NOT Operators
 
-Wavefront provides the following boolean operators for use in query expressions:
+You can use the following Boolean operators in query expressions:
 * AND, and
 * OR, or
 * NOT, not
 
 ### Combining Operators
 
-You can use combination of AND, OR and NOT operators in query line.
+You can use a combination of AND, OR and NOT operators in query line.
 
 For example:
 

@@ -8,7 +8,7 @@ summary: Proxy files, logs, and configuration properties
 ---
 
 
-Even without additional customization the Wavefront proxy ingests metrics and forwards them to the Wavefront service in a secure, fast, and reliable manner. If needed, you can customize your proxy.
+Even without additional customization, the Wavefront proxy ingests metrics and forwards them to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) in a secure, fast, and reliable manner. If needed, you can customize your proxy.
 
 * **[Proxy configuration properties](#configuration-properties)** allow you to change how the proxy processes your data. For example, you can change ports or perform other advanced installation management.
 
@@ -41,13 +41,13 @@ By default, proxy files are installed in the following locations.
 
 ## Data Buffering
 
-If the Wavefront proxy is unable to post received data to the Wavefront servers, it buffers the data to disk across a number of buffer files, and then tries to resend the points once the connection to the Wavefront servers is available again. If this buffering occurs, you'll see lines like this in `wavefront.log`:
+If the Wavefront proxy is unable to post received data to the Operations for Applications servers, it buffers the data to disk across a number of buffer files, and then tries to resend the points once the connection to the Operations for Applications servers is available again. If this buffering occurs, you'll see lines like this in `wavefront.log`:
 
 ```
 2013-11-18 18:02:35,061 WARN  [com.wavefront.daemon.QueuedSshDaemonService] current retry queue sizes: [1/0/0/0]
 ```
 
-By default, there are 4 threads (and 4 buffer files) waiting to retry points once the connections are up; this line shows how many blocks of points have been stored by each thread (in this case, the first thread has 1 block of queued points, while the second, third, and fourth threads all have 0 blocks). These lines are only printed when there are points in the queue; you'll never see a line with all 0's in the queue sizes. Once the connection to the Wavefront servers has been established, and all the threads have sent the past data to us, you'll see a single line like this in `wavefront.log`:
+By default, there are 4 threads (and 4 buffer files) waiting to retry points once the connections are up; this line shows how many blocks of points have been stored by each thread (in this case, the first thread has 1 block of queued points, while the second, third, and fourth threads all have 0 blocks). These lines are only printed when there are points in the queue; you'll never see a line with all 0's in the queue sizes. Once the connection to the Operations for Applications servers has been established, and all the threads have sent the past data to us, you'll see a single line like this in `wavefront.log`:
 
 ```
 2013-11-18 18:59:46,665 WARN [com.wavefront.daemon.QueuedSshDaemonService] retry queue has been cleared
@@ -124,10 +124,12 @@ You can log all the raw blocked data separately or log different entities into t
     </table>
 
 <a id="proxy-configuration-properties"></a>
+
 ## Configuration Properties
 
 This section gives details on the proxy configuration properties. All properties are also listed, in the [wavefront.conf.default file](https://github.com/wavefrontHQ/wavefront-proxy/blob/master/pkg/etc/wavefront/wavefront-proxy/wavefront.conf.default) on GitHub.
 
+{% include note.html content="For Wavefront proxies 12.2 and later, you can use the Proxies Browser to [examine the configuration properties](monitoring_proxies.html#examine-the-proxy-configuration-properties)." %}
 
 ### General Configuration Properties
 
@@ -217,10 +219,17 @@ Ex: <code>12878</code></td>
 </tr>
 <tr>
 <td>deltaCountersAggregationIntervalSeconds</td>
-<td>Interval between flushing aggregating delta counters to a Wavefront service. Use this property in conjunction with <code>deltaCountersAggregationListenerPorts</code> to send points to the port(s) in batches, thereby limiting the number of points per second. <br/>Default: <code>30</code> </td>
+<td>Interval between flushing aggregating delta counters to the Operations for Applications service. Use this property in conjunction with <code>deltaCountersAggregationListenerPorts</code> to send points to the port(s) in batches, thereby limiting the number of points per second. <br/>Default: <code>30</code> </td>
 <td>Number of seconds.<br/>
 Ex: <code>45</code></td>
 <td>6.0</td>
+</tr>
+<tr>
+<td>ephemeral</td>
+<td>If set to<code>false</code>, you must also set the <code>idFile</code> parameter.<br/>Default: <code>true</code> </td>
+<td>Boolean.<br/>
+Ex: <code>false</code></td>
+<td></td>
 </tr>
 <tr>
 <td>fileBeatPort</td>
@@ -231,7 +240,7 @@ Ex: <code>5044</code> </td>
 </tr>
 <tr>
 <td>flushThreads</td>
-<td>Number of threads that flush data to the server. Setting this value too high results in sending batches that are too small to the Wavefront service and wasting connections. Values between <code>6</code> and <code>16</code> are a good starting point. This setting is per listening port. <br/>Default: The number of available processors (min 4).</td>
+<td>Number of threads that flush data to the server. Setting this value too high results in sending batches that are too small to the Operations for Applications service and wasting connections. Values between <code>6</code> and <code>16</code> are a good starting point. This setting is per listening port. <br/>Default: The number of available processors (min 4).</td>
 <td>Positive integer.<br/>
 Ex: <code>16</code></td>
 <td>3.14</td>
@@ -260,14 +269,14 @@ Ex: <code>2003,2004</code> </td>
 </tr>
 <tr>
 <td>gzipCompression</td>
-<td>If set to <code>true</code>, metric traffic from the proxy to the Wavefront endpoint is gzip-compressed. <br/> Default: <code>true</code></td>
+<td>If set to <code>true</code>, metric traffic from the proxy to the Operations for Applications endpoint is gzip-compressed. <br/> Default: <code>true</code></td>
 <td>Boolean.<br/>
 Ex: <code>true</code></td>
 <td>&nbsp;</td>
 </tr>
 <tr>
 <td>gzipCompressionLevel</td>
-<td>Sets the gzip compression level if <code>gzipCompression</code> is enabled. Higher compression levels slightly reduces the volume of traffic between the proxy and the Wavefront service, but uses more CPU.  <br/> Default: <code>4</code></td>
+<td>Sets the gzip compression level if <code>gzipCompression</code> is enabled. Higher compression levels slightly reduces the volume of traffic between the proxy and the Operations for Applications service, but uses more CPU.  <br/> Default: <code>4</code></td>
 <td>A value from <code>1</code> to <code>9</code>.<br/>
 Ex: <code>4</code></td>
 <td>6.0</td>
@@ -364,7 +373,7 @@ Default:<code><i><a href="proxies_configuring.html#proxy-file-paths">&lt;wf_conf
 </tr>
 <tr>
 <td>prefix</td>
-<td>String to prepend before every metric name. For example, if you set prefix to <code>production</code>, a metric that is sent to the proxy as <code>cpu.loadavg.1m</code> is sent from the proxy to the Wavefront service as <code>production.cpu.loadavg.1m</code>.<br/>Default: none</td>
+<td>String to prepend before every metric name. For example, if you set prefix to <code>production</code>, a metric that is sent to the proxy as <code>cpu.loadavg.1m</code> is sent from the proxy to the Operations for Applications service as <code>production.cpu.loadavg.1m</code>.<br/>Default: none</td>
 <td>A lowercase alphanumeric string, with periods separating segments. You do not need to include a trailing period.
 <div>Ex: <code>production</code></div>
 <div>Ex: <code>production.nyc.dc1</code></div>
@@ -392,7 +401,7 @@ Default:<code><i><a href="proxies_configuring.html#proxy-file-paths">&lt;wf_conf
 </tr>
 <tr>
 <td>proxyHost</td>
-<td>HTTP proxy host to be used in configurations when direct HTTP connections to Wavefront instances are not possible. Must be used with <code>proxyPort</code>.</td>
+<td>HTTP proxy host to be used in configurations when direct HTTP connections to Operations for Applications instances are not possible. Must be used with <code>proxyPort</code>.</td>
 <td>A string.
 <div>Ex: <code>proxy.local</code></div></td>
 <td>3.23</td>
@@ -413,7 +422,7 @@ Default:<code><i><a href="proxies_configuring.html#proxy-file-paths">&lt;wf_conf
 </tr>
 <tr>
 <td>proxyPort</td>
-<td>HTTP proxy port to be used in configurations when direct HTTP connections to Wavefront instances are not possible. Must be used with <code>proxyHost</code>.</td>
+<td>HTTP proxy port to be used in configurations when direct HTTP connections to Operations for Applications instances are not possible. Must be used with <code>proxyHost</code>.</td>
 <td>A port number.
 <div>Ex: <code>8080</code> </div></td>
 <td>3.23</td>
@@ -443,42 +452,42 @@ Default:<code><i><a href="proxies_configuring.html#proxy-file-paths">&lt;wf_conf
 </tr>
 <tr>
 <td>pushFlushMaxPoints</td>
-<td>Maximum number of points to send to the Wavefront service during each flush. <br/>Default: <code>40000</code></td>
+<td>Maximum number of points to send to the Operations for Applications service during each flush. <br/>Default: <code>40000</code></td>
 <td>Positive integer.
 <div>Ex: <code>40000</code> </div></td>
 <td>&nbsp;</td>
 </tr>
 <tr>
 <td>pushFlushMaxHistograms</td>
-<td>Maximum number of histograms to send to the Wavefront service during each flush. <br/>Default: <code>10000</code></td>
+<td>Maximum number of histograms to send to the Operations for Applications service during each flush. <br/>Default: <code>10000</code></td>
 <td>Positive integer.
 <div>Ex: <code>10000</code> </div></td>
 <td>6.0</td>
 </tr>
 <tr>
 <td>pushFlushMaxSpans</td>
-<td>Maximum number of spans to send to the Wavefront service during each flush. <br/>Default: <code>5000</code></td>
+<td>Maximum number of spans to send to the Operations for Applications service during each flush. <br/>Default: <code>5000</code></td>
 <td>Positive integer.
 <div>Ex: <code>5000</code> </div></td>
 <td>6.0</td>
 </tr>
 <tr>
 <td>pushFlushMaxSpanLogs</td>
-<td>Maximum number of span logs to send to the Wavefront service during each flush. <br/>Default: <code>1000</code></td>
+<td>Maximum number of span logs to send to the Operations for Applications service during each flush. <br/>Default: <code>1000</code></td>
 <td>Positive integer.
 <div>Ex: <code>1000</code> </div></td>
 <td>6.0</td>
 </tr>
 <tr>
 <td>pushListenerHttpBufferSize</td>
-<td>Maximum allowed request size (in bytes) for incoming HTTP requests on Wavefront, OpenTSDB, or Graphite ports. <br/>Default: <code>16777216</code> (16MB).
+<td>Maximum allowed request size (in bytes) for incoming HTTP requests on Operations for Applications, OpenTSDB, or Graphite ports. <br/>Default: <code>16777216</code> (16MB).
 </td>
 <td>Ex: <code>8388608</code></td>
 <td>4.31</td>
 </tr>
 <tr>
 <td>pushListenerMaxReceivedLength</td>
-<td>Maximum line length for received points in plaintext format on Wavefront, OpenTSDB, or Graphite ports. <br/>Default: 32KB</td>
+<td>Maximum line length for received points in plaintext format on Operations for Applications, OpenTSDB, or Graphite ports. <br/>Default: 32KB</td>
 <td>Positive integer.
 <div>Ex: <code>4096</code> </div></td>
 <td>4.31</td>
@@ -544,7 +553,7 @@ Default:<code><i><a href="proxies_configuring.html#proxy-file-paths">&lt;wf_conf
 </tr>
 <tr>
 <td>pushRelayListenerPorts</td>
-<td>Ports to receive the data sent to the relay. In environments where direct outbound connections to the Wavefront instance is not possible, you can use another Wavefront proxy that has outbound access to act as a relay and forward all the data received on that endpoint (from direct data ingestion clients and/or other proxies) to a Wavefront instance. <br/>Default: none</td>
+<td>Ports to receive the data sent to the relay. In environments where direct outbound connections to the Operations for Applications instance are not possible, you can use another Wavefront proxy that has outbound access to act as a relay and forward all the data received on that endpoint (from direct data ingestion clients and/or other proxies) to your Operations for Applications instance. <br/>Default: none</td>
 <td>Comma-separated list of available port numbers. Can be a single port.<br/>
 Ex: <code>2978</code><br/>
 Ex: <code>2978,2979</code></td>
@@ -559,7 +568,7 @@ Ex: <code>2978,2979</code></td>
 </tr>
 <tr>
 <td>pushValidationLevel</td>
-<td>Level of validation to perform on incoming data before sending the data to the Wavefront service. If <code>NO_VALIDATION</code>, all data is sent forward. If <code>NUMERIC_ONLY</code>, data is checked to make sure that it is numerical and dropped locally if it is not.</td>
+<td>Level of validation to perform on incoming data before sending the data to the Operations for Applications service. If <code>NO_VALIDATION</code>, all data is sent forward. If <code>NUMERIC_ONLY</code>, data is checked to make sure that it is numerical and dropped locally if it is not.</td>
 <td><code>NUMERIC_ONLY</code> or <code>NO_VALIDATION</code>
 <div>Ex: <code>NUMERIC_ONLY</code> </div></td>
 <td>&nbsp;</td>
@@ -596,7 +605,7 @@ Ex: <code>2978,2979</code></td>
 </tr>
 <tr>
 <td>server</td>
-<td>The API URL of the Wavefront instance in the format https://&lt;wf_instance&gt;.wavefront.com/api/.</td>
+<td>The API URL of the Operations for Applications instance in the format https://&lt;your_instance&gt;.wavefront.com/api/.</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 </tr>
@@ -703,7 +712,7 @@ Sets the headroom multiplier for traffic shaping when there's backlog.
 
 Because the proxy is running in your local network by default, communication **to** the proxy is un-authenticated. If you want to authenticate inbound traffic to the proxy, use the settings in this section.
 
-The Wavefront proxy must authenticate outbound traffic to the Wavefront service. See [Authenticate Incoming HTTP Requests at the Proxy](proxies_configuring.html#authenticate-incoming-http-requests-at-the-proxy) for step-by-step instructions.
+The Wavefront proxy must authenticate outbound traffic to the Operations for Applications service. See [Authenticate Incoming HTTP Requests at the Proxy](proxies_configuring.html#authenticate-incoming-http-requests-at-the-proxy) for step-by-step instructions.
 
 <table style="width: 100%;">
 <tbody>
@@ -827,14 +836,14 @@ Ex: <code>token1234abcd</code>
 <tr>
 <a name="traceJaegerHttpListenerPorts"></a>
 <td>traceJaegerHttpListenerPorts</td>
-<td markdown="span">TCP ports to receive Jaeger Thrift formatted data via HTTP. The data is then sent to the Wavefront service in [Wavefront span format](trace_data_details.html#wavefront-span-format).
+<td markdown="span">TCP ports to receive Jaeger Thrift formatted data via HTTP. The data is then sent to the Operations for Applications service in [Operations for Applications span format](trace_data_details.html#operations-for-applications-span-format).
 <br/> Default: none
 <br/> Version: Since 6.0</td>
 <td>Comma-separated list of available port numbers. Can be a single port.</td>
 </tr>
 <tr>
 <td>traceJaegerListenerPorts</td>
-<td>TCP ports to receive Jaeger Thrift formatted data via TChannel. The data is then sent to Wavefront service in <a href="trace_data_details.html#wavefront-span-format">Wavefront span format</a>. <br/> Default: none
+<td>TCP ports to receive Jaeger Thrift formatted data via TChannel. The data is then sent to the Operations for Applications service in <a href="trace_data_details.html#operations-for-applications-span-format">Operations for Applications span format</a>. <br/> Default: none
 {% include warning.html content="<br/>Sending data via TChannel has been deprecated in Jaeger 1.16. Therefore, we recommend using <code>traceJaegerHttpListenerPorts</code> to receive Jaeger Thrift formatted data via HTTP." %}
 </td>
 <td>Comma-separated list of available port numbers. Can be a single port.</td>
@@ -849,7 +858,7 @@ Ex: <code>token1234abcd</code>
 </tr>
 <tr>
 <td>customTracingListenerPorts</td>
-<td>TCP ports to receive spans and derive RED metrics from the <a href="wavefront_sdks.html#sdks-for-sending-raw-data">SDKs that send raw data to the Wavefront service</a>.
+<td>TCP ports to receive spans and derive RED metrics from the <a href="wavefront_sdks.html#sdks-for-sending-raw-data">SDKs that send raw data to the Operations for Applications service</a>.
 <br/> Default: None.
 <br/> Version: Since 6.0
 {% include note.html content="<br/>The application name and service name tags are required to generate RED metrics. If these tags are not sent with your span, the application name defaults to <code>wfProxy</code>, and the service name defaults to <code>defaultService</code>."%}
@@ -865,20 +874,20 @@ Ex: <code>token1234abcd</code>
 <div>Ex: <code>1048576</code></div></td></tr>
 <tr>
 <td>traceListenerPorts</td>
-<td markdown="span">TCP ports that listen to incoming [spans](tracing_basics.html) from the Wavefront SDKs that [collect trace data](wavefront_sdks.html#sdks-for-collecting-trace-data), [collect metrics and histograms](wavefront_sdks.html#sdks-for-collecting-metrics-and-histograms), and [SDKs for sending raw data](wavefront_sdks.html#sdks-for-sending-raw-data). <br/> Default: none</td>
+<td markdown="span">TCP ports that listen to incoming [spans](tracing_basics.html) from the Operations for Applications SDKs that [collect metrics and histograms](wavefront_sdks.html#sdks-for-collecting-metrics-and-histograms), and [SDKs for sending raw data](wavefront_sdks.html#sdks-for-sending-raw-data). <br/> Default: none</td>
 <td>Comma-separated list of available port numbers. Can be a single port.
 <div>Ex: <code>2878</code></div>
 <div>Ex: <code>2878,2879</code></div></td>
 </tr>
 <tr>
 <td>traceSamplingDuration</td>
-<td markdown="span">Minimum duration of the tracing spans that can be sent to the Wavefront service for [trace data sampling](trace_data_sampling.html). <br/> Default: <code>0</code> (send all generated spans). </td>
+<td markdown="span">Minimum duration of the tracing spans that can be sent to the Operations for Applications service for [trace data sampling](trace_data_sampling.html). <br/> Default: <code>0</code> (send all generated spans). </td>
 <td>Number of milliseconds.
 <div>Ex: <code>45</code></div> </td>
 </tr>
 <tr>
 <td>traceSamplingRate</td>
-<td markdown="span">Percentage of all generated spans to send to the Wavefront service for [trace data sampling](trace_data_sampling.html). <br/> Default: `1.0` (send all generated spans). </td>
+<td markdown="span">Percentage of all generated spans to send to the Operations for Applications service for [trace data sampling](trace_data_sampling.html). <br/> Default: `1.0` (send all generated spans). </td>
 <td>Number from 0.0 to 1.0.
 <div>Ex: <code>.1</code></div></td>
 </tr>
@@ -932,7 +941,7 @@ Ex: <code>token1234abcd</code>
 
 ### Histogram Configuration Properties
 
-Tanzu Observability by Wavefront supports additional histogram configuration properties, shown in the following table. The **requirements** on the state directory and the effect of the two `persist` properties listed at the bottom of the table.
+Operations for Applications supports additional histogram configuration properties, shown in the following table. The **requirements** on the state directory and the effect of the two `persist` properties listed at the bottom of the table.
 
 <table class="width:100%;">
 <colgroup>
@@ -951,7 +960,7 @@ Tanzu Observability by Wavefront supports additional histogram configuration pro
 </tr>
 <tr>
 <td>histogramAccumulatorFlushInterval</td>
-<td>Interval in milliseconds to check for histograms to be sent to a Wavefront service according to their <code>histogramMinuteFlushSecs</code> settings. <br/>Default: <code>1000</code></td>
+<td>Interval in milliseconds to check for histograms to be sent to a Operations for Applications service according to their <code>histogramMinuteFlushSecs</code> settings. <br/>Default: <code>1000</code></td>
 <td>Positive integer.</td>
 </tr>
 <tr>
@@ -992,7 +1001,7 @@ Tanzu Observability by Wavefront supports additional histogram configuration pro
 </tr>
 <tr>
 <td>histogramDayFlushSecs</td>
-<td>Time-to-live, in seconds, for a day granularity accumulation on the proxy (before the intermediary is sent to the Wavefront service). <br/>Default: <code>18000</code> (5 hours).
+<td>Time-to-live, in seconds, for a day granularity accumulation on the proxy (before the intermediary is sent to the Operations for Applications service). <br/>Default: <code>18000</code> (5 hours).
 </td>
 <td>Positive integer.</td>
 </tr>
@@ -1033,7 +1042,7 @@ Tanzu Observability by Wavefront supports additional histogram configuration pro
 </tr>
 <tr>
 <td>histogramDistFlushSecs</td>
-<td>Number of seconds to keep a new distribution bin open for new samples, before the intermediary is sent to the Wavefront service. <br/>Default: <code>70</code></td>
+<td>Number of seconds to keep a new distribution bin open for new samples, before the intermediary is sent to the Operations for Applications service. <br/>Default: <code>70</code></td>
 <td>Positive integer.</td>
 </tr>
 <tr>
@@ -1089,7 +1098,7 @@ Tanzu Observability by Wavefront supports additional histogram configuration pro
 </tr>
 <tr>
 <td>histogramHourFlushSecs</td>
-<td>Time-to-live, in seconds, for an hour granularity accumulation on the proxy (before the intermediary is sent to the  Wavefront service). <br/>Default: <code>4200</code></td>
+<td>Time-to-live, in seconds, for an hour granularity accumulation on the proxy (before the intermediary is sent to the Operations for Applications service). <br/>Default: <code>4200</code></td>
 <td>Positive integer.</td>
 </tr>
 <tr>
@@ -1141,7 +1150,7 @@ Tanzu Observability by Wavefront supports additional histogram configuration pro
 </tr>
 <tr>
 <td>histogramMinuteFlushSecs</td>
-<td>Time-to-live, in seconds, for a minute granularity accumulation on the proxy (before the intermediary is sent to the Wavefront service). <br/>Default: <code>70</code></td>
+<td>Time-to-live, in seconds, for a minute granularity accumulation on the proxy (before the intermediary is sent to the Operations for Applications service). <br/>Default: <code>70</code></td>
 <td>Positive integer.</td>
 </tr>
 <tr>
@@ -1166,7 +1175,7 @@ Tanzu Observability by Wavefront supports additional histogram configuration pro
 </tr>
 <tr>
 <td>histogramStateDirectory</td>
-<td>Directory for persistent proxy state, must be writable. Before being flushed to the Wavefront service, histogram data is persisted on the filesystem where the Wavefront proxy runs. If the files are corrupted or the files in the directory can't be accessed, the proxy reports the problem in its log and fails back to using in-memory structures. In this mode, samples can be lost if the proxy terminates without draining its queues. <br/>Default: <code>/var/spool/wavefront-proxy</code>.
+<td>Directory for persistent proxy state, must be writable. Before being flushed to the Operations for Applications service, histogram data is persisted on the filesystem where the Wavefront proxy runs. If the files are corrupted or the files in the directory can't be accessed, the proxy reports the problem in its log and fails back to using in-memory structures. In this mode, samples can be lost if the proxy terminates without draining its queues. <br/>Default: <code>/var/spool/wavefront-proxy</code>.
 </td>
 <td>A valid path on the local file system. {% include note.html content="A high PPS requires that the machine that the proxy is on has an appropriate amount of IOPS. We recommend about 1K IOPS with at least 8GB RAM on the machine that the proxy writes histogram data to. Recommended machine type: m4.xlarge." %}</td>
 </tr>
@@ -1197,7 +1206,7 @@ Ex: <code>40</code></td>
 </tr>
 <tr>
 <td>pushRelayHistogramAggregatorFlushSecs</td>
-<td>Since 6.0. Interval in milliseconds to check for histograms that have accumulated at the relay ports before sending data to the Wavefront service. Only applicable if the <code>pushRelayHistogramAggregator</code> is set to <code>true</code>. <br/> Default: <code>70</code></td>
+<td>Since 6.0. Interval in milliseconds to check for histograms that have accumulated at the relay ports before sending data to the Operations for Applications service. Only applicable if the <code>pushRelayHistogramAggregator</code> is set to <code>true</code>. <br/> Default: <code>70</code></td>
 <td>Number of milliseconds.<br/> Ex: <code>80</code></td>
 </tr>
 </tbody>

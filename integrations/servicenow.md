@@ -2,91 +2,19 @@
 title: ServiceNow Integration
 tags: [integrations list]
 permalink: servicenow.html
-summary: Learn about the Wavefront ServiceNow Integration.
+summary: Learn about the ServiceNow Integration.
 ---
+
+This page provides an overview of what you can do with the ServiceNow integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the ServiceNow integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **ServiceNow** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## ServiceNow Incident Integration
 
-ServiceNow is a popular IT services management platform. You can create Wavefront alert targets that surface alerts as ServiceNow incidents of different priorities (High, Moderate, Low, Planning).
+ServiceNow is a popular IT services management platform. You can create Operations for Applications alert targets that surface alerts as ServiceNow incidents of different priorities (High, Moderate, Low, Planning).
 Incidents can also optionally be assigned to groups or categorized.
-## ServiceNow Setup
-
-
-
-### Step 1. Create a Wavefront alert user in ServiceNow
-
-Wavefront will use the ServiceNow user to create incidents.  The user will be identified as the caller for each incident.
-This user will be used by Wavefront to create incidents in ServiceNow and will also be identified as the Caller for each incident. 
-1. In ServiceNow, go to **System Security > Users** and click **New**.
-1. Specify a User Id, for example `wavefront` and a First Name, for example 'Wavefront Alerts'
-1. Assign the user a password.
-1. Do not check the **Password needs reset** checkbox.
-1. Check the **Internal Integration User** checkbox.
-1. Click **Submit** to create the new user.
-{% include image.md src="images/servicenow_create_user.png" %}
-
-
-### Step 2. Copy and save the new user's sys_id
-
-Copy and save the user's sys_id so you can make the user the caller for incidents that are created.
-1. In ServiceNow go to **System Security > Users**.
-1. Search for the user created in step 1.
-1. Right click on the User Id and select **Copy sys_id** from the pulldown menu.
-1. Paste the sys_id into a text file or scratch pad.
-{% include image.md src="images/servicenow_copy_user_sys_id.png" %}
-
-
-
-### Step 3. Generate and save a basic authorization string
-
-The ServiceNow API uses Basic Authorization, a Base64 encoded string, for the user and password. You will use this string in the Authorization header for the API call that creates incidents in ServiceNow. There are several ways to generate this string, this guide uses a public website.
-1. Go to [https://www.base64encode.org](https://www.base64encode.org).
-1. Type in the user and password created in step 1 in this format: `user:password`.
-1. Click the **Encode** button.
-1. Copy the resulting Base64 encoded string.
-1. Paste the Base64 encoded string into a text file or scratch pad to save it for later.
-{% include image.md src="images/base64_encode.png" %}
-
-
-### Step 4. Create a ServiceNow Alert Target
-
-1. In Wavefront, create an Alert Target.
-1. Give the Alert Target a meaningful name and description.
-1. In Triggers, check the **Alert Firing**, **Alert Status Updated**, and **Alert has No Data** options.
-1. Set Type to **Webhook**.
-1. Set the URL field to `https://YOUR_INSTANCE.service-now.com/api/now/table/incident` replacing YOUR_INSTANCE with the name of your instance in ServiceNow.
-1. Set Content Type to **application/json**.
-1. Create a new Custom Header with the name `Authorization` and the value `Basic <TOKEN>`, where <TOKEN> is the Base64 token that you copied and saved in Step 3.
-1. Copy and paste the following into the Body Template of the alert target.{% raw %}
-    ```
-    {{! https://docs.wavefront.com/alert_target_customizing.html }}
-    {
-      "short_description":"{{#jsonEscape}}{{{name}}}{{/jsonEscape}}",
-      "description":"Series: {{#trimTrailingComma}}{{#jsonEscape}}{{#newlyFailingSeries}}{{{.}}}, {{/newlyFailingSeries}}{{/jsonEscape}}{{/trimTrailingComma}}\nSources: {{#trimTrailingComma}}{{#jsonEscape}}{{#newlyFailingHosts}}{{{.}}}, {{/newlyFailingHosts}}{{/jsonEscape}}{{/trimTrailingComma}}\n\n{{{url}}}\n\n{{#jsonEscape}}{{{additionalInformation}}}{{/jsonEscape}}",
-      "state":"1",
-      "impact":"{{#severityInfo}}3{{/severityInfo}}{{#severitySmoke}}3{{/severitySmoke}}{{#severityWarn}}2{{/severityWarn}}{{#severitySevere}}2{{/severitySevere}}",
-      "urgency":"{{#severityInfo}}3{{/severityInfo}}{{#severitySmoke}}2{{/severitySmoke}}{{#severityWarn}}2{{/severityWarn}}{{#severitySevere}}1{{/severitySevere}}",
-
-      {{! caller_id is the reference to any Security User in ServiceNow that will be used as the Caller for the incident record }}
-      "caller_id":"",
-
-      {{! The following parameters are popular optional fields used in ServiceNow }}
-      {{! assignment_group is the reference to any Security group in ServiceNow }}
-      "assignment_group":"",
-      {{! category is any valid cateogry string that can be used for incidents }}
-      "category":""
-    }
-    ```
-{% endraw %}
-1. In the Body Template, find the `caller_id` property and set its value to the `sys_id` that you copied in Step 2.
-1. Customize other aspects of the [template](https://docs.wavefront.com/alert_target_customizing.html) as desired.
-{% include image.md width="90" src="images/servicenow_alert_target.png" %}
-1. Click **Save**
-
-
-### Step 5. Add the ServiceNow alert target to a Wavefront alert
-
-{% include alerts.md %}
-{% include webhooks_select.md %}
 
 
 

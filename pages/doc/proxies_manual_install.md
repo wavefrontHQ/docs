@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: proxies_manual_install.html
 summary: Learn how to manually install a Wavefront proxy and Telegraf agent.
 ---
-Most Tanzu Observability by Wavefront customers use an automated proxy install:
+Most VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) customers use an automated proxy install:
 * Option 1: Install the Wavefront proxy and the Telegraf agent when the set up an integration.
 * Option 2: Perform a [scripted installation](proxies_installing.html#scripted-proxy-installation) of the Wavefront proxy and Telegraf agent.
 
@@ -20,7 +20,9 @@ Follow these steps to install a proxy on a host with full network access (incomi
 
 ### Prerequisites
 
-- **Networking:** [Test connectivity](proxies_manual_install.html#testing-proxy-host-connectivity) between the target proxy host and your Wavefront service.
+- **Networking:** [Test connectivity](proxies_manual_install.html#testing-proxy-host-connectivity) between the target proxy host and your Operations for Applications service.
+
+   {% include important.html content="For VMware Cloud services subscriptions, to retrieve a VMware Cloud services access token, the Wavefront proxy calls the VMware Cloud services API. For that reason, you must also test connectivity between the target proxy host and the VMware Cloud services platform (`https://console.cloud.vmware.com/`). For details about original and VMware Cloud services subscriptions, see [Subscription Types](subscriptions-differences.html)."%}
 
 - **JRE:** The Wavefront proxy is a Java jar file and requires a JRE - for example, openjdk11. See the requirements in the [Wavefront Proxy README file](https://github.com/wavefrontHQ/wavefront-proxy#requirements).
 
@@ -37,7 +39,7 @@ If your system accepts incoming traffic, you can download the proxy file as foll
 
 Before you can customize the proxy configuration, you have to find the values for your environment. You need the following information to customize the settings.
 
-{% include note.html content="To find the values for server and token, you can click **Integrations** on the toolbar, click the **Linux Host** tile, and click the **Setup** Tab."%}
+{% include note.html content="To find the values for the **server** and **token** parameters, you can click **Integrations** on the toolbar, click the **Linux Host** tile, and click the **Setup** tab." %}
 
 <table style="width: 100%;">
 <tbody>
@@ -46,23 +48,36 @@ Before you can customize the proxy configuration, you have to find the values fo
 </thead>
 <tr>
 <td markdown="span">**server**</td>
-<td>URL of the Wavefront instance you log in to.  </td>
+<td>URL of your Operations for Applications service instance.  </td>
 <td>https://try.wavefront.com/api/ </td>
 </tr>
 <tr>
-<td markdown="span">**token**</td>
-<td markdown="span">API token. See **Note** above.</td>
-<td>xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx </td>
+<td><strong>token</strong></td>
+<td>A valid Operations for Applications token associated with an active user or service account. The account must have the <strong>Proxies</strong> permission.<p><strong>Note:</strong> Applies only to original Operations for Applications subscriptions that are not onboarded to VMware Cloud services, i.e. when <a href="proxies_installing.html#proxy-authentication-types">the proxy authenticates</a> to Operations for Applications with an Operations for Applications API token.</p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><strong>cspAppId</strong></p><p><strong>cspAppSecret</strong></p><p><strong>cspOrgId </strong></p></td>
+<td>Server to server OAuth app credentials - ID and secret (<strong>cspAppId</strong> and <strong>cspAppSecret</strong>), and the VMware Cloud organization ID (<strong>cspOrgId</strong>) running the Operations for Applications service instance. The server to server app must have the <strong>Proxies</strong> service role and must belong to the VMware Cloud organization running the Operations for Applications service instance. 
+<p><strong>Note:</strong> Applies only to Operations for Applications subscriptions on VMware Cloud services if <a href="proxies_installing.html#proxy-authentication-types">the proxy authenticates</a> to Operations for Applications with a VMware Cloud services OAuth app.</p> </td>
+<td></td>
+</tr>
+<tr>
+<td><strong>cspAPIToken</strong></td>
+<td>A valid VMware Cloud services API token associated with an active user account. The user and the token must have the <strong>Proxies</strong> service role.
+<p><strong>Note:</strong> Applies only to Operations for Applications subscriptions on VMware Cloud services if <a href="proxies_installing.html#proxy-authentication-types">the proxy authenticates</a> to Operations for Applications with a VMware Cloud services token.</p>
+</td>
+<td></td>
 </tr>
 <tr>
 <td markdown="span">**proxyname**</td>
-<td markdown="span">Name of the proxy running. The proxyname is not used to tag your data; rather, it's used to tag data internal to the proxy, such as JVM statistics, per-proxy point rates, and so on. Alphanumeric and periods are allowed. </td>
-<td>cust42ProxyHost</td>
+<td markdown="span">Name of the proxy running. The proxyname is not used to tag your data. Rather, it's used to tag data internal to the proxy, such as JVM statistics, per-proxy point rates, and so on. Alphanumeric and periods are allowed. </td>
+<td>cust42Proxy</td>
 </tr>
 <tr>
 <td markdown="span">**enable graphite**</td>
 <td markdown="span">Whether to enable the Graphite format. See the [Graphite integration](graphite.html) for details on Graphite configuration.  </td>
-<td>cust42ProxyHost</td>
+<td></td>
 </tr>
 <tr>
 <td markdown="span">**tlsPorts**</td>
@@ -87,7 +102,7 @@ You can make configuration changes by editing the config file or by running a sc
 
 If you want to edit the configuration file manually:
 
-1. Find, uncomment and modify the configuration:
+1. Find, uncomment and modify the configuration, for example:
    <table>
    <tbody>
    <thead>
@@ -130,7 +145,9 @@ In some cases, you might need to run the proxy on a host with limited network ac
 
 ### Prerequisites
 
-- **Networking:** The minimum requirement is an outbound HTTPS connection to the Wavefront service, so the proxy can send metrics to the Wavefront service. For metrics, by default the proxy uses port 2878. You can change this port and you can configure [separate proxy ports](proxies_configuring.html#configuration-properties) for histograms and traces.
+- **Networking:** The minimum requirement is an outbound HTTPS connection to your Operations for Applications service, so the proxy can send metrics to the service. For metrics, by default the proxy uses port 2878. You can change this port and you can configure [separate proxy ports](proxies_configuring.html#configuration-properties) for histograms and traces.
+
+   {% include important.html content="For VMware Cloud services subscriptions, to retrieve a VMware Cloud services access token, the Wavefront proxy calls the VMware Cloud services API. For that reason, your environment must also allow an outbound HTTPS connection to the VMware Cloud services platform (`https://console.cloud.vmware.com/`). For details about original and VMware Cloud services subscriptions, see [Subscription Types](subscriptions-differences.html)."%}
 
   You can use an [HTTP proxy](#configure-wavefront-proxy-with-an-httphttps-proxy) for the connection.
 
@@ -142,7 +159,7 @@ In some cases, you might need to run the proxy on a host with limited network ac
 
 Installation and configuration is similar to environments with full network access but might require additional work.
 
-1. Make sure all prerequisites are met, including an open outgoing HTTPS connection to the Wavefront service and JRE.
+1. Make sure all prerequisites are met, including an open outgoing HTTPS connection to your Operations for Applications service and JRE.
 2. Install the .rpm or .deb file.
 3. Update the settings, either by editing the configuration file or by running the autoconf script, as explained above.
 4. You may need to update the Wavefront proxy control file  `/etc/init.d/wavefront.proxy` to the following settings:
@@ -159,7 +176,7 @@ Installation and configuration is similar to environments with full network acce
 
 ## Proxy Custom Install with Incoming TLS/SSL
 
-By default Wavefront proxy can accept incoming TCP and HTTP requests on the port specified by `pushListenerPorts`. You can also configure the proxy to accept only connections with a certificate and key.
+By default, the Wavefront proxy can accept incoming TCP and HTTP requests on the port specified by `pushListenerPorts`. You can also configure the proxy to accept only connections with a certificate and key.
 
 In that case:
 1. Specify that you want to open the port with the `pushListenerPorts` config parameter.
@@ -188,10 +205,11 @@ The following parameters support TLS/SS. You can specify those parameters in the
 
 ## Testing Proxy Host Connectivity
 
-You can test connectivity from the proxy host to the Wavefront instance using curl.
+You can test connectivity from the proxy host to your service instance using curl.
 
 Run this test before installing the proxy, and again after installing and configuring the proxy.
 
+For example:
 1. Find the values for server and token:
    1. Click **Integrations** on the toolbar.
    2. Select **Linux Host** and click the **Setup** tab.
@@ -234,33 +252,34 @@ Here is an example of the expected return when you use the `-v` parameter (witho
 
 ## Testing Your Installation
 
-After you have started the proxy you just configured, you can verify its status from the UI or with curl commands.
+After you have started the proxy you just configured, you can verify its status from the UI or with `curl` commands.
 
 ### Testing From the UI
 To check your proxy from the UI:
-1. Log in to your Wavefront instance from a browser.
+1. Log in to your service instance.
 2. From the toolbar, select **Browse > Proxies** to view a list of all proxies.
-   If the list is long, type the proxy name as defined in `proxyname=` in  `wavefront.conf` to located the proxy by name.
+   If the list is long, enter the proxy name as defined in `proxyname=` in  `wavefront.conf` to locate the proxy by name.
 
 ### Testing Using curl
 
-You can test your proxy using `curl`. Documentation for the following curl commands can be found directly on your Wavefront instance at `https://<your-server.wavefront.com>/api-docs/ui/#!/Proxy/getAllProxy`.
+You can test your proxy using `curl`. Documentation for the following `curl` commands can be found directly on your service instance at `https://<your_instance>.wavefront.com>/api-docs/ui/#!/Proxy/getAllProxy`.
 
-You can run the commands [directly from the API documentation](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/did-you-know-that-our-api-docs-are-alive). This is less error prone than copy/paste of the token.
+You can run the commands [directly from the API documentation](https://tanzu.vmware.com/content/vmware-aria-operations-for-applications-blog/did-you-know-that-our-api-docs-are-alive). This is less error prone than copy/paste of the token.
 
-For this task, you first you get the list of proxies for your Wavefront service, then you display information for just the proxy you installed.
+For this task, you first get the list of proxies for your Operations for Applications service, then you display information for just the proxy you installed.
 
-Step 1: Get the list of proxies for your Wavefront instance:
+Step 1: Get the list of proxies for your service instance:
 ```
-curl -X GET --header "Accept: application/json" --header "Authorization: Bearer xxxxxxxxx-<your api token>-xxxxxxxxxxxx" "https://<yourserver.wavefront.com/api/v2/proxy?offset=0&limit=100"
+curl -X GET --header "Accept: application/json" --header "Authorization: Bearer xxxxxxxxx-<your api token>-xxxxxxxxxxxx" "https://<your_instance>.wavefront.com/api/v2/proxy?offset=0&limit=100"
 ```
 
 This command returns a JSON formated list of all proxies.
+
 Step 2: Get the proxy ID. You can search the output using the proxy name configured in `wavefront.conf`, or find the proxy ID in the UI.
 
 Step 3: Return information for only this proxy:
 ```
-curl -X GET --header "Accept: application/json" --header "Authorization: Bearer xxxxxxxxx-<your api token>-xxxxxxxxxxxx" "https://<yourserver>.wavefront.com/api/v2/proxy/443e5771-67c8-40fc-a0e2-674675d1e0a6"
+curl -X GET --header "Accept: application/json" --header "Authorization: Bearer xxxxxxxxx-<your api token>-xxxxxxxxxxxx" "https://<your_instance>.wavefront.com/api/v2/proxy/443e5771-67c8-40fc-a0e2-674675d1e0a6"
 ```
 
 Sample output for single proxy:
@@ -296,9 +315,9 @@ Sample output for single proxy:
 
 ## Configure Wavefront Proxy with an HTTP/HTTPS Proxy
 
-The Wavefront proxy initiates an HTTPS connection to the Wavefront service. The connection is made over the default HTTPS port 443.
+The Wavefront proxy initiates an HTTPS connection to your Operations for Applications service. The connection is made over the default HTTPS port 443.
 
-Instead of sending traffic directly, you can send traffic from the Wavefront proxy to an HTTP or HTTPS proxy, which forwards to the Wavefront service. You set the connection parameters in the `wavefront.conf` file (`/etc/wavefront/wavefront-proxy/wavefront.conf` by default). See
+Instead of sending traffic directly, you can send traffic from the Wavefront proxy to an HTTP or HTTPS proxy, which forwards to the Operations for Applications service. You set the connection parameters in the `wavefront.conf` file (`/etc/wavefront/wavefront-proxy/wavefront.conf` by default). See
 * [the sample conf file on Github](https://github.com/wavefrontHQ/wavefront-proxy/blob/master/pkg/etc/wavefront/wavefront-proxy/wavefront.conf.default)
 * Some detail on [configuration options](proxies_configuring.html).
 
@@ -310,7 +329,7 @@ Instead of sending traffic directly, you can send traffic from the Wavefront pro
 By default, the HTTP/HTTPS proxy section is commented out. Uncomment the section in `wavefront.conf` if you want to use an HTTP/HTTPS proxy, and specify the following information:
 
 ```
-## The following settings are used to connect to a Wavefront instance through a HTTP proxy:
+## The following settings are used to connect to an Operations for Applications service instance through a HTTP proxy:
 #proxyHost=<location of the HTTP/HTTPS proxy>
 #proxyPort=<port for connecting with the HTTP/HTTPS proxy. Default is 8080>
 ## Optional: if http/https proxy supports username/password authentication
@@ -390,14 +409,14 @@ Sometimes, the output from one Wavefront proxy needs to be sent to another Wavef
 
 Common use cases include:
 
-* **Restrictions on outbound connections**: In environments where no direct outbound connections to the Wavefront service are possible, you can use a Wavefront proxy that has outbound access to act as a relay and forward data received on its endpoint to the Wavefront service.
-* **Log data filtering**: If you use a proxy to parse log data, you might need to perform filtering or tagging with proxy preprocessor rules. One proxy in a chain can have the job of altering or dropping certain strings before data is sent to the Wavefront service.
+* **Restrictions on outbound connections**: In environments where no direct outbound connections to Operations for Applications are possible, you can use a Wavefront proxy that has outbound access to act as a relay and forward data received on its endpoint to the Operations for Applications service.
+* **Log data filtering**: If you use a proxy to parse log data, you might need to perform filtering or tagging with proxy preprocessor rules. One proxy in a chain can have the job of altering or dropping certain strings before data is sent to Operations for Applications.
 * **Preprocessor rule consolidation**: Proxy chaining can consolidate preprocessing rules to a central proxy. For example, proxies running in containers on a Kubernetes cluster could relay metrics to the chained proxy which has all required defined preprocessor rules.
 
 
 ### Set Up the Configuration Files for Chaining
 
-Let's set up proxy chaining. Proxy A sends data to the relay proxy (Proxy B). Proxy B then sends data to the Wavefront service. Follow these steps:
+Let's set up proxy chaining. Proxy A sends data to the relay proxy (Proxy B). Proxy B then sends data to the Operations for Applications service. Follow these steps:
 
 1. On the proxy which will act as the relay (Proxy B) open the proxy configuration file (`wavefront.conf`) for edit. See [Proxy File Paths](proxies_configuring.html#proxy-file-paths) for the default location.
 2. Uncomment  the `pushRelayListenerPorts`  line so the proxy will listen for any relay messages.
@@ -410,11 +429,11 @@ Let's set up proxy chaining. Proxy A sends data to the relay proxy (Proxy B). Pr
 
 4. Change the server address to the address of relay (Proxy B). Here's an example:
 ```
-  # The server should be either the primary Wavefront cloud server, or your custom VPC address.
-  # This will be provided to you by Wavefront.
+  # The server should be either the primary Operations for Applications cloud server, or your custom VPC address.
+  # This will be provided to you by the Operations for Applications team.
   server=http://192.168.xxx.xxx:2978/api/
 ```
-  The authentication token that is specified in the `wavefront.conf` of the relay proxy (Proxy B) will be used to send the metrics to the Wavefront instances. An authentication token for Proxy A is not needed.
+  The authentication token that is specified in the `wavefront.conf` of the relay proxy (Proxy B) will be used to send the metrics to the Operations for Applications instances. An authentication token for Proxy A is not needed.
 
 5. After making the changes, restart both proxies and examine the `wavefront.log` file from the relay proxy (Proxy B). Look for points that are delivered on the relay listener port, as in the following example:
 

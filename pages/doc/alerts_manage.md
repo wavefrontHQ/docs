@@ -7,7 +7,7 @@ permalink: alerts_manage.html
 summary: Learn how to create and manage alerts.
 ---
 
-All users can [examine alerts and drill down to find the problem](alerts.html). Administrators can create and manage alerts.
+All users in VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) can [examine alerts and drill down to find the problem](alerts.html).
 
 {% include note.html content="You need the [**Alerts**](permissions_overview.html) permission to create and manage alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
@@ -15,7 +15,7 @@ If you are using the **Terraform Provider**, update to [version 3.0.1](https://r
 
 ## Create Alert Video
 
-Users with the **Alerts** permission follow a step-by-step process to create an alert. Watch this 90 second video.
+Users with the **Alerts** permission follow a step-by-step process to create an alert. Watch this 90 second video. Note that this video was created in 2021 and some of the information in it might have changed. It also uses the 2021 version of the UI.
 
 <p>
 <iframe id="kmsembed-1_e655iog1" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_e655iog1/uiConfId/49694343/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" alt="creating alerts with step-by-step process"></iframe>
@@ -77,7 +77,7 @@ To start alert creation, do one of the following:
 </tbody>
 </table>
 
-{% include tip.html content="Click the lighbulb icon to the right of the query for statistics and suggestions for the alert query. See [Use Statistics and Suggestions](query_language_performance.html#use-statistics-and-suggestions)." %}
+{% include tip.html content="Click the lighbulb icon to the right of the query for statistics and suggestions for the alert query. See [Use Statistics and Suggestions](query_language_performance.html#view-query-statistics)." %}
 
 ### Step 1b: Customize the Chart (Optional)
 
@@ -126,10 +126,10 @@ The <strong>Resolve Window</strong> is the length of time (in minutes) during wh
 <tr>
 <td>4. For special cases, click <strong>Additional Settings</strong> to also specify the following settings. The default is often best.
 <ul>
-<li><strong>Checking Frequency</strong>: Number of minutes between checks whether the condition is true. Minimum and default is 1. When an alert is in the <a href="alerts_states_lifecycle.html">INVALID</a> state, the alert is checked approximately every 15 minutes, and not with the specified checking frequency. </li>
-<li><strong>Evaluation Strategy</strong>: Allows you to select <strong>Real-time Alerting</strong>. By default, Tanzu Observability by Wavefront ignores values for the last 1 minute to account for delays. This default evaluation strategy prevents spurious firings because many data sources are updated only at certain points in time. If you select this check box, the alerting engine considers values in the last 1 minute (the alert is evaluated strictly on the ingested data). See <a href="alerts_delayed_data.html">Limiting the Effects of Data Delays</a> for some background. </li>
+<li><strong>Checking Frequency</strong>: Number of minutes between checks whether the condition is true. The default value is 5 minutes. When an alert is in the <a href="alerts_states_lifecycle.html">INVALID</a> state, the alert is checked approximately every 15 minutes, and not with the specified checking frequency. </li>
+<li><strong>Evaluation Strategy</strong>: Allows you to select <strong>Real-time Alerting</strong>. By default, Operations for Applications ignores values for the last 1 minute to account for delays. This default evaluation strategy prevents spurious firings because many data sources are updated only at certain points in time. If you select this check box, the alerting engine considers values in the last 1 minute (the alert is evaluated strictly on the ingested data). See <a href="alerts_delayed_data.html">Limiting the Effects of Data Delays</a> for some background. </li>
 </ul></td>
-<td><img src="images/condition_options_2.png" alt="Condition options discussed in left column"></td>
+<td><img src="images/advanced_condition_options.png" alt="Condition options discussed in left column"></td>
 </tr>
 </tbody>
 </table>
@@ -168,7 +168,7 @@ If you already have information that helps recipients find the causes for the al
       <strong>Runbook: </strong>A URL to a wiki page, or another document that helps alert recipients resolve the alert.
     </li>
     <li>
-      <strong>Triage Dashboard(s): </strong>Start typing to select from dashboards on your Wavefront instance that have useful information and pass in information. See <a href="#how-do-i-pass-values-to-triage-dashboards">How Can I Pass a Value to a Triage Dashboard</a>.
+      <strong>Triage Dashboard(s): </strong>Start typing to select from dashboards on your Operations for Applications instance that have useful information and pass in information. See <a href="#how-do-i-pass-values-to-triage-dashboards">How Can I Pass a Value to a Triage Dashboard</a>.
     </li>
     <li>
       <strong>Additional Information: </strong>Any other information that is useful to the alert recipient. This field supports Markdown. Click <strong>Preview</strong> to preview the Markdown output.
@@ -315,7 +315,7 @@ Users with the **Alerts** permission can change an alert at any time. The option
 <td width="40%">
 <ol>
 <li>Click <strong>Alerting &gt; All Alerts</strong> from the toolbar to display the Alerts Browser. </li>
-<li>Click the alert name, or click the ellipsis icon next to the alert and select <strong>Edit</strong>. <br><br>You can search for the alert by name, status, alert tag, etc. See <a href="wavefront_searching.html">Searching Wavefront</a>.</li>
+<li>Click the alert name, or click the ellipsis icon next to the alert and select <strong>Edit</strong>. <br><br>You can search for the alert by name, status, alert tag, etc. See <a href="wavefront_searching.html">Performing Searches</a>.</li>
 </ol>
 </td>
 <td width="60%" markdown="span">![screenshot ellipsis menu to the left of alert in alerts browser](images/edit_alert.png) </td></tr>
@@ -468,4 +468,4 @@ Each time you save an alert, you create an alert version. Up to 100 versions are
 * The [Alerts Browser Tutorial](alerts.html#alerts-browser-tutorial) explains how you can examine and manage all alerts in your environment.
 * Use ACLs to limit or share access to an [individual alert](access.html#changing-access-for-individual-dashboards-or-alerts).
 
-* See the KB article [Migrating Objects or Data Between Environments](https://help.wavefront.com/hc/en-us/articles/360053164791-Migrating-Objects-or-Data-Between-Tanzu-Observability-Environments) if your company has several Wavefront instances.
+* See the KB article [Migrating Objects or Data Between Environments](https://help.wavefront.com/hc/en-us/articles/360053164791-Migrating-Objects-or-Data-Between-Tanzu-Observability-Environments) if your company has several Operations for Applications service instances.

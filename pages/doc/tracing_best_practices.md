@@ -4,10 +4,10 @@ keywords: data, distributed tracing
 tags: [tracing, best practice]
 sidebar: doc_sidebar
 permalink: tracing_best_practices.html
-summary: Best practices for collecting and sending trace data to Tanzu Observability by Wavefront.
+summary: Best practices for collecting and sending trace data to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
 ---
 
-The best practices on this page help you get optimal results from instrumenting your application for tracing with Tanzu Observability by Wavefront.
+The best practices on this page help you get optimal results from instrumenting your application for tracing with Operations for Applications.
 
 ## Planning for Tracing
 
@@ -15,7 +15,7 @@ The best practices on this page help you get optimal results from instrumenting 
    -**Traces** represent end-to-end requests across services and consist of spans.
    -**Spans** represent calls to individual operations.
 
-   See [Tracing Basics](tracing_basics.html) for basic tracing concepts, and see [https://opentracing.io](https://opentracing.io/) for details.
+   See [Tracing Basics](tracing_basics.html) for basic tracing concepts, and see [https://opentelemetry.io/docs/](https://opentelemetry.io/docs/) for details.
 
 2. Examine your application to answer these questions:
 * Which services belong to your application? Which ones participate in the most critical requests?
@@ -26,15 +26,13 @@ The best practices on this page help you get optimal results from instrumenting 
 
    * If you have already instrumented your application with a 3rd party distributed tracing system such as Jaeger or Zipkin, set up an [**integration**](tracing_integrations.html).
 
-   * **Instrument** each service with the [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data) in the service's language.
-
-   * Use **consistent instrumentation**, either Wavefront SDKs or a 3rd party tracing system for all services that participate in the same trace. Otherwise, spans cannot link to each other across service boundaries. You can intermix different Wavefront SDKs in different programming languages.
+   * Use **consistent instrumentation**, either Operations for Applications SDKs or a 3rd party tracing system for all services that participate in the same trace. Otherwise, spans cannot link to each other across service boundaries. You can intermix different Operations for Applications SDKs in different programming languages.
 
 ## Best Practices for Sending Trace Data Through a Wavefront Proxy
 
-For reliable performance, use a Wavefront proxy to send trace data to the Wavefront service. A proxy is required with the Jaeger and Zipkin integrations. [Direct ingestion](direct_ingestion.html#proxy-or-direct-ingestion) might seem like an easy way to get results quickly, but the buffering and queuing that the proxy performs is especially useful with trace data.
+For reliable performance, use a Wavefront proxy to send trace data to your Operations for Applications service. A proxy is required with the Jaeger and Zipkin integrations. [Direct ingestion](direct_ingestion.html#proxy-or-direct-ingestion) might seem like an easy way to get results quickly, but the buffering and queuing that the proxy performs is especially useful with trace data.
 
-### Best Practices for Wavefront Observability SDKs
+### Best Practices for Operations for Applications SDKs
 
 1. [Install and configure the Wavefront proxy](tracing_instrumenting_frameworks.html#to-prepare-for-using-a-wavefront-proxy) with listener ports for metrics, histograms, and trace data. All three types of data are necessary for displaying RED metrics derived from spans.
 
@@ -55,13 +53,13 @@ For reliable performance, use a Wavefront proxy to send trace data to the Wavefr
   WavefrontSender wavefrontSender = wavefrontClientFactory.getClient();
 ```
 
-{% include tip.html content="Complete setup steps are in the README file for your Wavefront SDK on GitHub." %}
+{% include tip.html content="Complete setup steps are in the README file for your Operations for Applications SDK on GitHub." %}
 
 ### Best Practices for Jaeger and Zipkin
 
 If you're using a [Jaeger](jaeger.html) or [Zipkin](zipkin.html) integration, follow the setup steps to configure the Wavefront proxy with a special port for the integration.
 
-{% include note.html content="Log in to your Wavefront instance to configure the integration to automate the setup. The steps in this doc set only give an overview. " %}
+{% include note.html content="Log in to your service instance to configure the integration to automate the setup. The steps in this doc set only give an overview. " %}
 
 The integration instantiates and configures an internal Wavefront sender for you.
 
@@ -97,22 +95,18 @@ Think of your instrumented application as a hierarchic inventory of constructs. 
 </tbody>
 </table>
 
-The Wavefront service uses these names as span tag values, as filters for traces, as components in RED metric names, and as qualifiers for operation names, for example, `beachshirts.delivery.dispatch`.
+Operations for Applications uses these names as span tag values, as filters for traces, as components in RED metric names, and as qualifiers for operation names, for example, `beachshirts.delivery.dispatch`.
 
 ### Guidelines for Choosing Application Construct Names
 
 * Choose a string name for each construct. Names at the same level must be unique.
-  - **Example:** Specify only one application named `beachshirts` in a Wavefront instance, and only one service named `delivery` in a given application.
+  - **Example:** Specify only one application named `beachshirts` in an Operations for Applications instance, and only one service named `delivery` in a given application.
   {% include important.html content="Duplicate application, service, or component names might result in incorrect RED metrics. " %}
 * Choose logical names that clearly map to your applications and services. Logical names might be simpler, more readable versions of code identifiers.
 
-### Best Practices for Wavefront Observability SDKs
+### Best Practices for Operations for Applications SDKs
 
-* Set up an [Application tags object](trace_data_details.html#application-tags) in each service to define logical names for the application constructs.
-  - Specify the logical application and service names that apply to the service. Optionally include logical cluster and shard names, if you want to use the physical topology to filter your data.
-  - Define a custom tag called `component` if you are using the Wavefront OpenTracing SDK. <br>
-
-    {% include tip.html content="Other Wavefront tracing SDKs automatically define `component` for you. " %}
+* Set up an [Application tags object](trace_data_details.html#application-tags) in each service to define logical names for the application constructs. Specify the logical application and service names that apply to the service. Optionally, if you want to use the physical topology to filter your data, include logical cluster and shard names.
 
    **Java example:** Instantiate `ApplicationTags` for the `delivery` service
 
@@ -135,23 +129,23 @@ The Wavefront service uses these names as span tag values, as filters for traces
       build();
 ```
 
-{% include tip.html content="Complete setup steps are in the README file for your Wavefront SDK on GitHub. " %}
+{% include tip.html content="Complete setup steps are in the README file for your Operations for Applications SDK on GitHub. " %}
 
 
 ### Best Practices for 3rd Party Tracing Systems
 
-Tanzu Observability by Wavefront automatically assigns standard application names, service names, and component names, based on the tags that are set for your 3rd party distributed tracing system.
+Operations for Applications automatically assigns standard application names, service names, and component names, based on the tags that are set for your 3rd party distributed tracing system.
 
 ## Source Names Best Practices
 
-A source is a host, container, Kubernetes pod, instance, or any other unique origination point for application code that is sending a span to the Wavefront service.
+A source is a host, container, Kubernetes pod, instance, or any other unique origination point for application code that is sending a span to Operations for Applications.
 
-You must choose unique names for the sources that send spans. The Wavefront service uses source names to filter traces and to define RED metrics.
+You must choose unique names for the sources that send spans. Operations for Applications uses source names to filter traces and to define RED metrics.
 
 
 ### Guidelines for Choosing Source Names
 
-* Choose a unique string name for every source that will send spans to the Wavefront service.
+* Choose a unique string name for every source that will send spans to Operations for Applications.
   - For example, use a machine's IP address or a descriptive logical name.
   - If you use a machine's host name (the default), make sure all machines have unique host names. Use logical names to distinguish machines with the same host names in different data centers.
 
@@ -160,11 +154,11 @@ You must choose unique names for the sources that send spans. The Wavefront serv
 * See also the guidelines for choosing [source names for metric data and histograms](wavefront_data_format.html#source-names-best-practices).
 
 
-### Best Practices for Wavefront Observability SDKs
+### Best Practices for Operations for Applications SDKs
 
 * Set up a [WavefrontSpanReporter object](trace_data_details.html#wavefronttracer-and-wavefrontspanreporter) to define a source name:
   - Specify the source name explicitly, or leave it unspecified to automatically use the host name. Make sure the host name is unique.
-  - If your Wavefront SDK defines additional reporters, specify the same source name in each one. All reporter objects for a particular service must specify the same source.
+  - If your Operations for Applications SDK defines additional reporters, specify the same source name in each one. All reporter objects for a particular service must specify the same source.
 
    **Java example:** Build a `WavefrontSpanReporter` that reports from a source called `wavefront-tracing-example`.
 
@@ -177,7 +171,7 @@ You must choose unique names for the sources that send spans. The Wavefront serv
     build(wavefrontSender);
 ```
 
-{% include tip.html content="Complete setup steps are in the README file for your Wavefront SDK on GitHub." %}
+{% include tip.html content="Complete setup steps are in the README file for your Operations for Applications SDK on GitHub." %}
 
 
 ## Span Names Best Practices
@@ -208,7 +202,7 @@ If you are using Jaeger, verify that the number of generated span names will res
 
 You can define custom span tags to let you query and filter for particular subsets of trace data.
 
-[Indexing](trace_data_details.html#indexed-and-unindexed-span-tags) optimizes the speed of querying and filtering with tags. By default, the Wavefront service indexes all point tags and certain built-in span tags. Indexing for custom span tags is available on request.
+[Indexing](trace_data_details.html#indexed-and-unindexed-span-tags) optimizes the speed of querying and filtering with tags. By default, Operations for Applications indexes all point tags and certain built-in span tags. Indexing for custom span tags is available on request.
 
 ### Guidelines for Defining Custom Span Tags
 
@@ -217,8 +211,6 @@ You can define custom span tags to let you query and filter for particular subse
 * Do not have more than 100 values assigned to a span tag. Keep the cardinality of custom span tags low.
 
 * [Contact technical support](wavefront_support_feedback.html) to request indexing for those span tags. Indexing is available only for low-cardinality custom span tags.
-
-* If you are using a Wavefront OpenTracing SDK, define a span tag called `component`. The Wavefront service uses the `component`, `application`, and `service` tags to populate the Application Services page and each service-specific page.
 
 ## Instrumentation Best Practices
 
@@ -230,7 +222,7 @@ The goal of instrumentation is to instrument enough methods to produce traces th
 2. **Go deep:** Produce traces that contain a deep, meaningful hierarchy of spans.
   * Identify the classes and methods that implement significant operations within each service, and instrument those methods.
 
-### Best Practices for Wavefront Observability SDKs
+### Best Practices for Operations for Applications SDKs
 
 * Limit the number of spans in a trace to < 1000.
 
@@ -254,12 +246,10 @@ A large-scale web application can produce a high volume of traces. Consider limi
 
 ## Using Tracing with Spring Boot
 
-Assume that you want to write Spring Boot code and instrument for OpenTracing. You want to ensure OpenTracing creates spans that work across multiple microservices.  Here's what you need to know:
-* If you're using Spring Cloud Sleuth, **everything has to be a bean**. For example, if you're using RestTemplates, those have to be beans.
-* You can create a `RestTemplate` bean yourself, or you can inject via `RestTemplateBuilder`.
-
-If you use a messaging or HTTP client (not a bean), Sleuth won't get you the spans across services.
-
+Assume that you are using Spring Boot 2 with Sleuth or Spring Boot 3 with Micrometer Tracing, and you are using a `RestTemplate` to send and receive messages between microservices:
+* Everything has to be a bean. All `RestTemplate` usage must come from a bean for distributed tracing to work.
+* You can create a `RestTemplate` bean yourself or inject it via the `RestTemplateBuilder`.
+* If you invoke a Remote Procedure Call (RPC) or messaging service without using a bean, Sleuth, and Micrometer Tracing won't work. 
 
 ### Example: Works for Spans Across Services
 

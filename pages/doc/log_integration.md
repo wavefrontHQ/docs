@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: log_integration.html
 summary: Learn how to manage and view external logs.
 ---
-The Tanzu Observability by Wavefront log integration lets you drill down from time series that is displayed in a chart to a log entry in a logging system such as Scalyr, ELK, or Splunk.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) log integration lets you drill down from time series that is displayed in a chart to a log entry in a logging system such as Scalyr, ELK, or Splunk.
 
 Suppose while analyzing metrics data you find an anomaly such as an unexpected drop in transaction rate. You want to look at corresponding log entries. Set up the Log Integration and you
 * Look at the problem in a chart
@@ -160,7 +160,7 @@ Users with **External Links** permission can create and modify log integration.
           </pre>
           </li>
 
-          <li>The following external link URL template displays an event on the Events page when you click the event in a chart. Replace <code>&lt;my_instance&gt;</code> with the name of your Wavefront instance.
+          <li>The following external link URL template displays an event on the Events page when you click the event in a chart. Replace <code>&lt;my_instance&gt;</code> with the name of your product instance.
           <pre>
     https://&lt;my_instance&gt;.wavefront.com/events?search=%7B%22searchTerms%22%3A%5B%7B%22type%22%3A%22freetext%22%2C%22value%22%3A%22&lcub;&lcub;alertId}}%22%7D%5D%2C%22sortOrder%22%3A%22ascending%22%2C%22sortField%22%3Anull%2C%22pageNum%22%3A1%2C%22cursor%22%3A%22%22%2C%22direction%22%3A%22forward%22%2C%22timeRange%22%3A%7B%22start%22%3A&lcub;&lcub;startEpochMillis}}%2C%22quickTime%22%3Anull%2C%22end%22%3A&lcub;&lcub;endEpochMillis}}%7D%7D&tagPathTree=%7B%7D
           </pre>

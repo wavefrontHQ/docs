@@ -4,20 +4,20 @@ keywords: data
 tags: [data, proxies]
 sidebar: doc_sidebar
 permalink: wavefront_data_format.html
-summary: Wavefront data format syntax and parameters.
+summary: Learn about the data format syntax and parameters.
 ---
-Tanzu Observability by Wavefront supports the same native data format with Wavefront proxies and with direct ingestion. This page is a reference to the data format and includes best practices.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) supports the same native data format with Wavefront proxies and with direct ingestion. This page is a reference to the data format and includes best practices.
 
 ## Metrics
 
 
 ### Supported Data Formats for Metrics
 
-[Direct ingestion](direct_ingestion.html) supports only the Wavefront data format.
+[Direct ingestion](direct_ingestion.html) supports only the Operations for Applications data format.
 
 [Wavefront proxies](proxies.html) support:
 
-- Wavefront data format
+- Operations for Applications data format
 - [Graphite data format (plaintext and  pickle)](https://graphite.readthedocs.io/en/latest/feeding-carbon.html)
 - [OpenTSDB data format (Telnet interface and HTTP API (JSON))](http://opentsdb.net/docs/build/html/user_guide/writing/)
 
@@ -31,7 +31,7 @@ Here's the data format for metrics.
 Fields must be space separated and each line must be terminated with the newline character (\\n or ASCII hex 0A). See the **Data Format Fields** table below for details about each parameter.
 
 
-### Wavefront Data Format Fields
+### Operations for Applications Data Format Fields
 
 <table>
 <colgroup>
@@ -71,7 +71,7 @@ Maximum length for metricName is 256.
 <td>timestamp</td>
 <td>No</td>
 <td>Timestamp of the metric.</td>
-<td>Number that reflects the epoch seconds of the metric (e.g. 1382754475). When this field is omitted, the timestamp is set to the current time at the Wavefront proxy when the metric arrives. Note that even if the timestamp at the proxy is in milliseconds, the Wavefront service backend converts to seconds.</td>
+<td>Number that reflects the epoch seconds of the metric (e.g. 1382754475). When this field is omitted, the timestamp is set to the current time at the Wavefront proxy when the metric arrives. Note that even if the timestamp at the proxy is in milliseconds, the Operations for Applications backend converts to seconds.</td>
 </tr>
 <tr>
 <td>source</td>
@@ -104,10 +104,10 @@ The string "host" is a reserved word. If you specify a point tag host=&lt;tagVal
 
 ### Video: Point Tags and Source Tags
 
-Watch the following video for an introduction to point tags and source tags:
+Watch the following video for an introduction to point tags and source tags. Note that this video was created in 2018 and some of the information in it might have changed.
 
 <p>
-<iframe id="kmsembed-1_3igakxnb" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_3igakxnb/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="Tanzu Observability: Tagging Data"></iframe>
+<iframe id="kmsembed-1_3igakxnb" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_3igakxnb/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade"  frameborder="0" title="Tagging Data"></iframe>
 </p>
 
 
@@ -149,18 +149,18 @@ Most of our discussion of the histogram and span data formats is on the pages li
 
 ### Span Data Format Syntax
 
-[The span format](trace_data_details.html#wavefront-span-format) supports several predefined span tags.
+[The span format](trace_data_details.html#operations-for-applications-span-format) supports several predefined span tags.
 
 ```
 <operationName> source=<source> <spanTags> <start_milliseconds> <duration_milliseconds>
 ```
 
-## Wavefront Data Format Best Practices
+## Operations for Applications Data Format Best Practices
 
 Follow best practices for improved query execution speed and meaningful results.
 
 * Make the metrics the most stable part of your data:
-  - Do not include source names in the metric name. The Wavefront service captures sources separately.
+  - Do not include source names in the metric name. Operations for Applications captures sources separately.
   - Do not include data or timestamps in the metric name. Each point has an associated timestamp.
 * Aim for a metric hierarchy:
   - Partition the top level of the metric hierarchy by including at least one dot.
@@ -179,7 +179,7 @@ Metric names should reflect a class of comparable data across different sources 
 
 ### Source Names Best Practices
 
-The Wavefront service assumes that source names are unique. Source names should reflect a unique source that is emitting metrics. For example, consider prefixing the source names with the datacenter name or making source names unique in other ways.
+Operations for Applications assumes that source names are unique. Source names should reflect a unique source that is emitting metrics. For example, consider prefixing the source names with the datacenter name or making source names unique in other ways.
 
 For example, if you have the same machine name in different data centers, and don't separate the two machines when sending data, you can get confusing query results. Time series might oscillate between different values seemingly randomly, or you might see unexpected averaging of points between multiple sources.
 
@@ -188,7 +188,7 @@ When it's not clear which name to use as the source name, use the most unique va
 ### Point Tag Names Best Practices
 
 Point tags represent conceptual attributes tied to a data point and change frequently (< 1 month), perhaps going back and forth over several values at any given time.  Here are some use cases for point tags:
-- A back-end service handles requests from two different client pools and you want to view the back-end request data for one of those clients.
+- A backend service handles requests from two different client pools and you want to view the back-end request data for one of those clients.
 - You send data with the source name of the virtual machine, but also want to record what physical server that VM was running on. The VM shifts from one physical server to another every few days.
 - You run two instances of the same application on the same source and want to differentiate the metrics for the two instances.
 See [Point Tags in Queries](query_language_point_tags.html).

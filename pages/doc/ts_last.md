@@ -40,7 +40,7 @@ See **Caveats** below for some limitations to this function.
 The `last()` function allows you to assign the last known reported data point value to a gap of missing data. When you add `last()` to a  `tsExpression`, a solid straight line with the value of the last reported data point will be drawn in place of gaps of missing data.
 
 
-By default, `last()` applies the last reported data value to gaps of missing data with duration of up to the [metrics obsolescence period](metrics_managing.html#obsolete-metrics) (by default, 4 weeks). If you’d like this window to be smaller, you can use the `timeWindow` parameter. If you use `last()` with a function that uses interpolation, we apply `last()` to the last 15% of a chart window.
+By default, `last()` applies the last reported data value to gaps of missing data with duration of up to the [metrics obsolescence period](metrics_managing.html#obsolete-metrics). If you’d like this window to be smaller, you can use the `timeWindow` parameter. If you use `last()` with a function that uses interpolation, we apply `last()` to the last 15% of a chart window.
 
 ## Examples
 
@@ -59,7 +59,7 @@ Then we replace the missing data with the first good value after the gap using `
 ## Caveats
 
 The function returns results only if:
-* the specified timeWindow is less than the [metrics obsolescence period](metrics_managing.html#obsolete-metrics) (by default, 4 weeks)
+* the specified timeWindow is less than the [metrics obsolescence period](metrics_managing.html#obsolete-metrics)
 * the time window the function looks at is less than the [metrics obsolescence period](metrics_managing.html#obsolete-metrics)
 
 For example, if you specify `last(1vw, ts(my_query)`, and if your view window is greater than 4w (the [metrics obsolescence period](metrics_managing.html#obsolete-metrics) if the default configuration is not changed), the query fails with an error.

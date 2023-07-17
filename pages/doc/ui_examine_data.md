@@ -6,26 +6,25 @@ permalink: ui_examine_data.html
 summary: Examine data with dashboards and charts
 ---
 
-With dashboards and charts, all Tanzu Observability by Wavefront users can examine data. By default, everyone can explore: set dashboard time window, zoom in and out, and perform other customizations.
+With dashboards and charts, all VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) users can examine data. By default, everyone can explore: set dashboard time window, zoom in and out, and perform other customizations.
 
 {% include note.html content="All users can view and explore charts. You must have the [**Dashboards** permission](permissions_overview.html) to make permanent changes, such as saving a chart to a dashboard." %}
 
 ## Video
 
-All users can customize their dashboards to drill down into data. Learn how to find a section, filter using variables or filters, set the time for the dashboard, and share the dashboard with others. You need Dashboards permissions to save your changes.
+All users can customize their dashboards to drill down into data. Learn how to find a section, filter using variables or filters, set the time for the dashboard, and share the dashboard with others. You need the **Dashboards** permission to save your changes. Note that this video was created in 2020 and some of the information in it might have changed. It also uses the 2020 version of the UI.
 
-You can also watch the video <a href="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gunwcmwm/uiConfId/49694343/pbc/252649793/st/0" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>.
+You can also watch the video <a href="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gunwcmwm/uiConfId/49694343/pbc/252649793/st/0" target="_blank">here <img src="/images/video_camera.png" alt="video camera icon"/></a>. 
 
 <p>
 <iframe id="kmsembed-1_gunwcmwm" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_gunwcmwm/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0"></iframe>
 </p>
 
-
 ## Get Started: Dashboard Browser
 
 From the Dashboard Browser, you can find dashboards by using filters and tags. You can make a dashboard a favorite with the star icon. Users with **Dashboard** permissions can also look at versions, grand and remove access, clone dashboards, move a dashboard to the trash, or access a deleted dashboard for up to 30 days.
 
-1. Log in to your Wavefront instance.
+1. Log in to your product instance.
 2. Select **Dashboards > All Dashboards**
 3. In the Dashboard Browser:
     * Use the search bar at the top to find a dashboard.
@@ -67,7 +66,7 @@ You can customize what you see, open charts, and more.
 
 ## Set the Time Window
 
-This <a href="https://vmwaretv.vmware.com/media/t/1_zew0muhn" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights how you can select, sync, and reset time windows so you can analyze and compare your data.
+This <a href="https://vmwaretv.vmware.com/media/t/1_zew0muhn" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights how you can select, sync, and reset time windows so you can analyze and compare your data. Note that this video was created in 2021 and some of the information in it might have changed. It also uses the 2021 version of the UI.
 
 <p>
 <iframe id="kmsembed-1_zew0muhn" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_zew0muhn/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="time window customization video"></iframe>
@@ -80,41 +79,60 @@ By default, dashboards:
 
 You can select a larger or smaller time window or view past data instead of real-time data with the time bar controls.
 
-{% include note.html content="When you change the time window, the [chart resolution](ui_charts.html#chart-resolution) and the refresh rate change as well. For example, if you select a 10-minute time window, the charts in the dashboard refresh every second. Time window settings on a dashboard level apply to all charts for which you have selected the **Default to dashboard time window** option. If you have set a fixed time window on a chart, the time window on that specific chart won't be affected." %}
+{% include note.html content="Time window settings on a dashboard level apply to all charts for which you have selected the **Default to dashboard time window** option. If you have set a fixed time window on a chart, the time window on that specific chart won't be affected." %}
 
-**To change the dashboard time window:**
 
-- Click the **Live** button to turn on (green) live data and see up-to-date data on the charts.
+The time window determines how often the charts in a dashboard refresh.
+* Charts with a time window of 5-10 minutes reload every second. 
+* A logs table chart with a 5-10 minute time window reloads every 30 seconds.
+* Charts with a larger time window (e.g. 4 hours or 1 day) reload every 30 second.
+
+{% include note.html content="Do not run charts with a 5-10 minute time window for a long time to avoid performance problems." %}
+
+{% include tip.html content="Live dashboards and charts display data on days in the future as black points. This might happen, for example, if you select **1 week** under **Live**.  " %}
+
+### Temporarily Change the Dashboard Time Window 
+
+To change the dashboard time window while you're investigating the data on the charts and without saving your changes, you can turn on or off live data:
+
+- Click the **Live** button to turn on (green) live data and see the most recent data on the charts.
 - Click the **Live** button again to turn off live data and to look at past data.
 
-Regardless of selection, you can click the time window selector for a fine-grained time selection window. 
+Regardless of the selection, you can also click the **Time window picker** for a fine-grained time selection window. You can select from a list of **preset times** or you can set a **custom time window**. 
 
-You can select from a set of **preset times** or set a **custom time**. 
-
-**To set a custom time:**
 
 1. Click the **Time window picker**.
-2. In the **Time window settings** window, click the **Custom Times** tab.
-3. Select the start date and time and the end date and time.
-4. Click **Apply**.
+2. In the **Time window settings** window specify the settings that you want.
+    * Select an option from the preset times.
+    * Click **Custom Time Window**, select the start and the end dates and times, and click **Apply**.
 
-You can see the changes applied to the dashboard. 
+The changes apply to the charts in the dashboard until you close the dashboard. 
 
-**To see the dashboard time window settings**:
+### Permanently Change the Dashboard Time Window 
+
+To set the time window settings of a chart and save them, you can:
+
+1. Open the dashboard in edit mode.
+2. From the **Time window picker** select the new time window. 
+3. To apply your changes, click **Save**.
+
+You can also set the time window from the **Dashboard General Settings** window. See [change the dashboard display preferences and settings](ui_dashboards.html#set-dashboard-display-preferences-and-settings).
+
+### See the Current Dashboard Time Window
 
 1. Click the **Time window picker**.
-2. In the **Time window settings** window you can see the time window settings:
+2. In the **Time window settings** window, you can see the time window settings:
 
     <table style="width: 100%;">
     <tbody>
     <tr>
-    <td width="40%">If the settings are set from the list of preset times, you'll see the time window highlighted on the <strong>Preset Times</strong> tab.
+    <td width="40%">If the settings are selected from the list of preset times, you'll see the time window highlighted.
     </td>
     <td width="60%"><img src="/images/preset_time_window.png" alt="Preset time window settings.">
     </td>
     </tr>
     <tr>
-    <td width="40%">If the settings are custom time window settings, you'll see them on the <strong>Custom Times</strong> tab.
+    <td width="40%">If the settings are custom time window settings, you'll see them when you click <strong>Custom Time Window</strong>.
     </td>
     <td width="60%"><img src="/images/custom_time_window.png" alt="Custom time window settings.">
     </td>
@@ -124,17 +142,7 @@ You can see the changes applied to the dashboard.
 
 
 
-The time window determines how often the charts in a dashboard refresh.
-* Charts with a time window of 5-10 minutes reload every second.
-* Charts with a larger time window (e.g. 4 hours or 1 day) reload every 30 second.
-
-{% include note.html content="Do not run charts with a 5-10 minute time window for a long time to avoid performance problems." %}
-
-
-
-{% include tip.html content="Live dashboards and charts display data on days in the future as black points. This might happen, for example, if you select **1 week** under **Live**.  " %}
-
-## Use the Jump To Menu to Find a Section
+## Navigate to a Section in the Dashboard
 Most dashboards have several sections. They're easy to access from the **Jump To** menu.
 
 <table style="width: 100%;">
@@ -282,7 +290,7 @@ You can move the time window into the future. However, unless you are using one 
 </table>
 
 
-Here's a <a href="https://vmwaretv.vmware.com/media/t/1_zew0muhn" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> that illustrates chart time windows.
+Here's a <a href="https://vmwaretv.vmware.com/media/t/1_zew0muhn" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> that illustrates chart time windows. Note that this video was created in 2021 and some of the information in it might have changed. It also uses the 2021 version of the UI.
 <p>
 <iframe id="kmsembed-1_zew0muhn" width="700" height="400" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_zew0muhn/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" title="Time Windows on Dashboards and Charts"></iframe>
 </p>
@@ -290,7 +298,7 @@ Here's a <a href="https://vmwaretv.vmware.com/media/t/1_zew0muhn" target="_blank
 ## Display Events on Charts
 
 The charts in your dashboard can display [events](events.html).
-* The Wavefront service generates system events, for example, when an alert changes state.
+* The service generates system events, for example, when an alert changes state.
 * In addition, users with **Events** permission might have added user events.
 
 All users can select which events are displayed for all charts.

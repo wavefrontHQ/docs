@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: ui_chart_reference.html
 summary: Chart types and configuration options for each chart type.
 ---
-Tanzu Observability by Wavefront provides charts viewing and examining your data. You can <a href="ui_examine_data.html">interact directly with charts in real time</a> -- zoom in, zoom out, change the time window, and so on.
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) provides charts viewing and examining your data. You can <a href="ui_examine_data.html">interact directly with charts in real time</a> -- zoom in, zoom out, change the time window, and so on.
 
 Users with dashboard permission can customize many aspects of the chart and save their changes. This page is a detailed reference to the tabs in the different chart types. We repeat tab reference for each chart type.
 
@@ -17,7 +17,7 @@ Users with dashboard permission can customize many aspects of the chart and save
 
 ## Data Tab (All Charts)
 
-For each chart (with the exception of a Markdown chart) you specify one or more queries.
+For each chart (with the exception of a Markdown and Logs Table chart) you specify one or more queries.
 
 When you click **Data**, you can:
 * View queries for the chart and add lines.
@@ -28,7 +28,7 @@ When you click **Data**, you can:
 
 ## Line Plot Chart
 
-![line plot](images/line_plot_v2.png)
+![A screenshot of the line plot chart.](images/line_plot_v2.png)
 
 Line plots are well suited both for single time series and multiple time series. You can customize many aspects of your line plots.
 
@@ -196,14 +196,15 @@ Chart description which shows up as hover text when users move the mouse over th
 <td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
+<td>Override No Data Message</td>
+<td>You can customize the <strong>No Data</strong> message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
+</td>
+</tr>
+<tr>
 <td>Chart Time Window</td>
 <td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
 </tr>
-<tr>
-<td>Override NO Data Message</td>
-<td>You can customize the NO Data message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
-</td>
-</tr>
+
 </tbody>
 </table>
 
@@ -245,7 +246,7 @@ Chart description which shows up as hover text when users move the mouse over th
 
 ## Point Plot Chart
 
-![point plot](images/point_plot_v2.png)
+![A screenshot of the point plot chart.](images/point_plot_v2.png)
 
 A **point plot** chart displays point buckets *without* any interpolation. Like a line chart, the X-axis represents the amount of time in your time window, and the Y-axis represents the value associated with the data during that time window.
 
@@ -397,13 +398,13 @@ Chart description which shows up as hover text when users move the mouse over th
 <td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
-<td>Chart Time Window</td>
-<td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart and you edit the dashboard time window, the time settings of the chart will not be affected.</td>
+<td>Override No Data Message</td>
+<td>You can customize the <strong>No Data</strong> message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
+</td>
 </tr>
 <tr>
-<td>Override NO Data Message</td>
-<td>You can customize the NO Data message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
-</td>
+<td>Chart Time Window</td>
+<td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart and you edit the dashboard time window, the time settings of the chart will not be affected.</td>
 </tr>
 </tbody>
 </table>
@@ -416,7 +417,7 @@ Chart description which shows up as hover text when users move the mouse over th
 
 ## Stacked Area Chart
 
-![stacked area](images/stacked_area_v2.png)
+![A screenshot of the stacked area chart.](images/stacked_area_v2.png)
 
 A **stacked area** chart is similar to a line chart, but each line is filled in as a solid block with blocks stacked on top of each other.
 
@@ -589,14 +590,15 @@ Chart description which shows up as hover text when users move the mouse over th
 <td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
+<td>Override No Data Message</td>
+<td>You can customize the <strong>No Data</strong> message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
+</td>
+</tr>
+<tr>
 <td>Chart Time Window</td>
 <td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
 </tr>
-<tr>
-<td>Override NO Data Message</td>
-<td>You can customize the NO Data message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
-</td>
-</tr>
+
 </tbody>
 </table>
 
@@ -608,7 +610,7 @@ Chart description which shows up as hover text when users move the mouse over th
 
 ## Stacked Column Chart
 
-![stacked column](images/stacked_column.png)
+![A screenshot of the stacked column chart.](images/stacked_column.png)
 
 A **stacked column** chart resembles a bar chart and lets you view your data in columns.
 
@@ -762,14 +764,15 @@ Chart description which shows up as hover text when users move the mouse over th
 <td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
+<td>Override No Data Message</td>
+<td>You can customize the <strong>No Data</strong> message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
+</td>
+</tr>
+<tr>
 <td>Chart Time Window</td>
 <td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
 </tr>
-<tr>
-<td>Override NO Data Message</td>
-<td>You can customize the NO Data message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
-</td>
-</tr>
+
 </tbody>
 </table>
 
@@ -781,7 +784,7 @@ Chart description which shows up as hover text when users move the mouse over th
 
 ## Table Chart
 
-![table chart](images/table_chart_v2.png)
+![A screenshot of the table chart.](images/table_chart_v2.png)
 
 A **table** chart allows fine-grained customization in the Format tab but doesn't support changes to the legend.
 
@@ -818,11 +821,11 @@ A **table** chart allows fine-grained customization in the Format tab but doesn'
 
 The Axis tab of a table chart allows you to limit which values show up in the chart. Consider this example table, which users have to scroll:
 
-![table chart no min](images/table_chart_no_min.png)
+![A screenshot of the table chart no min](images/table_chart_no_min.png)
 
 You can specify a minimum of 200 milliseconds to show only values of interest:
 
-![table chart no min](images/table_chart_with_min.png)
+![A screenshot of the table chart with min](images/table_chart_with_min.png)
 
 
 <table>
@@ -921,14 +924,15 @@ Chart description which shows up as hover text when users move the mouse over th
 <td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
+<td>Override No Data Message</td>
+<td>You can customize the <strong>No Data</strong> message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
+</td>
+</tr>
+<tr>
 <td>Chart Time Window</td>
 <td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
 </tr>
-<tr>
-<td>Override NO Data Message</td>
-<td>You can customize the NO Data message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
-</td>
-</tr>
+
 </tbody>
 </table>
 
@@ -1062,7 +1066,7 @@ Allows you to turn off or turn on the single line color gradient.
 <td>Color to Value Mapping</td>
 <td>Allows you to specify a set of values and map them to colors. For example, this mapping shows yellow for values under 10, green for values between 10 and 20, etc. Click any color to customize it.
 <br/>
-<img src="images/color_to_value_v2.png" alt="color_to_value">
+<img src="images/color_to_value_v2.png" alt="Example of the color to value mapping">
 </td>
 </tr>
 <tr>
@@ -1117,20 +1121,21 @@ Chart description which shows up as hover text when users move the mouse over th
 <td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
+<td>Override No Data Message</td>
+<td>You can customize the <strong>No Data</strong> message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
+</td>
+</tr>
+<tr>
 <td>Chart Time Window</td>
 <td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
 </tr>
-<tr>
-<td>Override NO Data Message</td>
-<td>You can customize the NO Data message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
-</td>
-</tr>
+
 </tbody>
 </table>
 
 ## Topk Chart
 
-![topk chart](images/topk.png)
+![A screenshot of the topk chart](images/topk.png)
 
 A **topk** chart shows the most critical time series (8 by default) as horizontal bars. You can
 * Add a color mapping to highlight values
@@ -1228,27 +1233,29 @@ Chart description which shows up as hover text when users move the mouse over th
 <td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
+<td>Override No Data Message</td>
+<td>You can customize the <strong>No Data</strong> message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
+</td>
+</tr>
+<tr>
 <td>Chart Time Window</td>
 <td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
 </tr>
-<tr>
-<td>Override NO Data Message</td>
-<td>You can customize the NO Data message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
-</td>
-</tr>
+
 </tbody>
 </table>
 
 
 ## Node Map Chart
 
-![node map chart](images/node_map.png)
+![A screenshot of the node map chart](images/node_map.png)
 
 A **node map** chart shows colored 3-D cubes ordered from highest to lowest. Node maps show data based on source values.
 * By default, the node map displays the highest value on the top left to catch the user's eye.
 * When a user clicks a node, a small popup of the corresponding metric for that source results. You might have to modify the query to ensure that the query returns a source. In some cases, it's necessary to use `aliasSource()` to get the desired results.
-* Use [color mapping](ui_charts_faq.html#how-do-i-set-up-color-mapping) to determine colors for higher values. The node map uses shading to show transitions. In the example above, values below 0.3 are shown as green, values lower than 0.8 are shown as a shade of yellow.
-* Set the group and the metric to display in the top right or in the **Node Map Defaults** tab in the chart editor. When a group is selected, only the top 12 results are displayed.
+* Use [color mapping](ui_charts_faq.html#how-do-i-set-up-color-mapping) to determine colors for higher values. The node map uses shading to show transitions. In the example above, values below 0.1 are shown in yellow, values below 0.2 are shown as green, values between 0.2 and 0.4 are shown as a shade of brown.
+* Set the group and the metric to display in the top right or on the **Node Map Defaults** tab in the chart editor. 
+* Set the maximum number of node groups to display on the **Node Map Defaults** tab. The highest number is 35.
 * Specify a drilldown link to direct users to a different dashboard if they click on the dashboard.
 
 When you refresh a node map page, a short animation folds out the chart content.
@@ -1266,6 +1273,11 @@ The color mapping tab lets you define which set of values maps to which colors. 
 <thead>
 <tr><th width="20%">Option</th><th width="80%">Description</th></tr>
 </thead>
+<tr>
+<td>Max Node Group Count</td>
+<td>Specifies the maximum number of node groups to display. You can select 10, 15, 20, 25, 30, or 35 node groups to display on the chart. The default is 10. In the example above, the maximum number of node groups is set to 15 and 11 groups are displayed.
+</td>
+</tr>
 <tr>
 <td>Default Group by</td>
 <td>Specifies grouping.
@@ -1325,13 +1337,13 @@ Chart description which shows up as hover text when users move the mouse over th
 <td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
-<td>Chart Time Window</td>
-<td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
-<tr>
-<td>Override NO Data Message</td>
-<td>You can customize the NO Data message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
+<td>Override No Data Message</td>
+<td>You can customize the <strong>No Data</strong> message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
 </td>
 </tr>
+<tr>
+<td>Chart Time Window</td>
+<td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
 </tr>
 </tbody>
 </table>
@@ -1339,10 +1351,10 @@ Chart description which shows up as hover text when users move the mouse over th
 
 ## Histogram Chart
 
-![histogram](images/histogram_chart_v2.png)
+![A screenshot of the histogram chart](images/histogram_chart_v2.png)
 
 Histogram charts have two main uses:
-* Visualize actual [histograms](proxies_histograms.html). Wavefront histograms let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure – particularly those gathered across many distributed sources.
+* Visualize actual [histograms](proxies_histograms.html). Our histograms let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure – particularly those gathered across many distributed sources.
 * Display a histogram visualization of a time series. That makes it possible, for example, to easily see query results above a certain percentile.
 
 You can zoom in to the histogram as needed by selecting a region.
@@ -1438,14 +1450,15 @@ The Axis tab lets you change the Y axis, and both the X axis dimensions and unit
 <td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
+<td>Override No Data Message</td>
+<td>You can customize the <strong>No Data</strong> message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
+</td>
+</tr>
+<tr>
 <td>Chart Time Window</td>
 <td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
 </tr>
-<tr>
-<td>Override NO Data Message</td>
-<td>You can customize the NO Data message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
-</td>
-</tr>
+
 </tbody>
 </table>
 
@@ -1457,7 +1470,7 @@ The Axis tab lets you change the Y axis, and both the X axis dimensions and unit
 
 ## Heat Map Chart
 
-![heat map](images/heat_map.png)
+![A screenshot of the heat map chart.](images/heat_map.png)
 
 Heat map charts add another dimension to the information about histograms that you see in a histogram chart.
 * The X axis shows time (same as a line plot)
@@ -1540,15 +1553,17 @@ The Axis tab lets you change the Y axis, and both the X axis and Y axis dimensio
 <td>Include Obsolete Metrics</td>
 <td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
+
+<tr>
+<td>Override No Data Message</td>
+<td>You can customize the <strong>No Data</strong> message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
+</td>
+</tr>
 <tr>
 <td>Chart Time Window</td>
 <td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
 </tr>
-<tr>
-<td>Override NO Data Message</td>
-<td>You can customize the NO Data message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
-</td>
-</tr>
+
 </tbody>
 </table>
 
@@ -1560,7 +1575,7 @@ The Axis tab lets you change the Y axis, and both the X axis and Y axis dimensio
 
 ## Gauge Chart
 
-![gauge](images/gauge.png)
+![A screenshot of the gauge chart](images/gauge.png)
 
 A gauge chart displays a single value, in a default color. You can optionally add color mapping. If you do, the  which displays in an outer ring. By default, color mapping uses 0-100, but you can define a minimum and maximum.
 
@@ -1642,14 +1657,15 @@ Chart description which shows up as hover text when users move the mouse over th
 <td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
+<td>Override No Data Message</td>
+<td>You can customize the <strong>No Data</strong> message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
+</td>
+</tr>
+<tr>
 <td>Chart Time Window</td>
 <td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
 </tr>
-<tr>
-<td>Override NO Data Message</td>
-<td>You can customize the NO Data message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
-</td>
-</tr>
+
 </tbody>
 </table>
 
@@ -1663,7 +1679,7 @@ Chart description which shows up as hover text when users move the mouse over th
 
 ## Pie and Donut Chart
 
-![pie](images/pie_chart.png)
+![Pie and donut charts showing the same data.](images/pie_chart.png)
 
 A pie chart shows the relative size of your data as pie slices. You can show either a pie chart or a donut chart. You can customize the width of the donut ring (by percentage) and, the percentile shown for the number, and more.
 
@@ -1687,6 +1703,38 @@ The collage above shows both a pie chart and a donut chart for the same data.
 <td>Summarization</td>
 <td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the query engine to aggregate raw data points into displayable values.<p>
 Consider the following example. The horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". If you choose <strong>Median</strong>, the query engine aggregates the raw data values reported in each 30-second interval and displays the median value as the data point for that bucket.</p></td>
+</tr>
+<tr>
+<td>Display Value</td>
+  <td>
+    Select a value you want to display on the chart. You see the values as a percentage. 
+    <p markdown="span">For example, if the query you use gets the CPU usage of all the applications, and you select **Sum**, you can see how the CPU usage of an application compares to all the other applications for a given time window.
+    </p>
+    <ul>
+      <li markdown="span">
+        **Current**: Display the current value for the **Summarization** option you selected as a percentage. 
+      </li>
+      <li markdown="span">
+        **Mean**: Display the mean of the raw data values as a percentage.
+      </li>
+      <li markdown="span">
+        **Median**: Displays the median of the raw data values in each bucket as a percentage.
+      </li>
+      <li markdown="span">
+        **Sum**: Displays the sum of the raw data values in each bucket as a percentage.
+      </li>
+      <li markdown="span">
+        **Min**: Displays the minimum raw data value in each bucket as a percentage.
+      </li>
+      <li markdown="span">
+        **Max**: Displays the maximum raw data value in each bucket as a percentage.
+      </li>
+      <li markdown="span">
+        **Count**: Displays the number of raw data values in each bucket as a percentage.
+      </li>
+    </ul>
+  
+  </td>
 </tr>
 <tr>
 <td>Show Percentage</td>
@@ -1717,24 +1765,6 @@ Controls the legend displayed for the chart.
 When you look at the chart, you can also control the legend with these keyboard shortcuts:
 * **Shift+P** -- Pin the legend.
 * **Shift** -- Show detailed units in the legend.
-
-
-<a id="pie_drilldown_link_tab">
-<p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
-
-The **[Drilldown Link](ui_charts_faq.html#how-do-drilldown-links-work)** tab allows you to specify a target dashboard that displays when a user clicks on the chart. You can optionally customize the target dashboard. For example, you can specify a constant `us-west-2` to be used as a variable.
-
-<p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="60%">
-Chart description which shows up as hover text when users move the mouse over the chart name.</td>
-<td width="40%"><img src="/images/description_hover_text.png" alt="description of chart"/></td>
-</tr>
-</tbody>
-</table>
 
 <table>
 <tbody>
@@ -1771,6 +1801,22 @@ Chart description which shows up as hover text when users move the mouse over th
 </td>
 </tr>
 <tr>
+  <td>
+    Show Source Name
+  </td>
+  <td>
+    Add or remove the source name data from the fixed legend.
+  </td>
+</tr>
+<tr>
+  <td>
+    Show Metric Name
+  </td>
+  <td>
+    Add or remove the metrics name data from the fixed legend.
+  </td>
+</tr>
+<tr>
 <td>Point Tag Display Options </td>
 <td>Offers these options:
 <ul><li>
@@ -1784,6 +1830,25 @@ Chart description which shows up as hover text when users move the mouse over th
 </tbody>
 </table>
 
+
+<a id="pie_drilldown_link_tab">
+<p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
+
+The **[Drilldown Link](ui_charts_faq.html#how-do-drilldown-links-work)** tab allows you to specify a target dashboard that displays when a user clicks on the chart. You can optionally customize the target dashboard. For example, you can specify a constant `us-west-2` to be used as a variable.
+
+<p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+Chart description which shows up as hover text when users move the mouse over the chart name.</td>
+<td width="40%"><img src="/images/description_hover_text.png" alt="description of chart"/></td>
+</tr>
+</tbody>
+</table>
+
+
 <p><span style="font-size: large; font-weight: 600">Advanced Tab</span></p>
 <table>
 <tbody>
@@ -1795,13 +1860,13 @@ Chart description which shows up as hover text when users move the mouse over th
 <td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
 </tr>
 <tr>
-<td>Chart Time Window</td>
-<td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
+<td>Override No Data Message</td>
+<td>You can customize the <strong>No Data</strong> message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
+</td>
 </tr>
 <tr>
-<td>Override NO Data Message</td>
-<td>You can customize the NO Data message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
-</td>
+<td>Chart Time Window</td>
+<td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
 </tr>
 </tbody>
 </table>
@@ -1814,4 +1879,191 @@ Chart description which shows up as hover text when users move the mouse over th
   <tbody>
   <tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
   </tbody>
+</table>
+
+## Logs Table
+
+![logs table chart](images/logs_table_chart.png)
+
+The logs chart lists the logs sent to the service. Use one or more filters to filter the logs, and save the chart to see the data you want. If you want to customize the query data once the chart is saved and drill into logs, use the [Logs Browser](logging_log_browser.html).
+
+
+<a id="logs_table_format_tab">
+<p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+  <td>
+    Sort by Timestamp
+  </td>
+  <td markdown="span">
+    By default, you see the latest logs on the top of the table (**Descending**). If you want to see the oldest logs, select **Ascending**.
+  </td>
+</tr>
+<tr>
+  <td>
+    Number of Message Lines
+  </td>
+  <td>
+    Select the number of log lines you want to see in the Message column to get a better preview of the log message.
+  </td>
+</tr>
+<tr>
+  <td>
+    Columns to Show in Table
+  </td>
+  <td markdown="span">
+    Each log has required attributes, standard attributes, and custom tags. We tokenize the values of these attributes and tags so that you can filter and search logs. For more details, see [Log Attributes](logging_overview.html#log-attributes). Select the tags you want to see the values in a new column.
+  </td>
+</tr>
+</tbody>
+</table>
+
+<a id="logs_table_description_tab">
+<p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+Chart description which shows up as hover text when users move the mouse over the chart name.</td>
+<td width="40%"><img src="/images/logging_logs_table_chart_description.png" alt="description of chart"/></td>
+</tr>
+</tbody>
+</table>
+
+
+<table style="width: 100%;">
+  <tbody>
+  <tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+  </tbody>
+</table>
+
+## Geo Map Chart
+
+![A screenshot of the Geo Map chart](images/geo-map-chart.png)
+
+You can use the Geo Map chart to visualize your ingested data by location. Currently, the Geo Map chart allows you to visualize data ingested by a cloud provider, such as Amazon Web Services, Microsoft Azure, Google Cloud Platform, and so on. The location information is based on the cloud provider regions that are sent as metric tags, such as **Region** or **Zone**.
+
+To view the information by location, on the **Map View** tab, from the **Tag Keys** drop-down menu, you must always select a tag key, for example **Region**.
+
+When you hover over a pin on the chart or click it, you see a pop-up with the query value for the respective zone. You can edit the pop-up and add text with more information that is important to you.
+
+To add primary and secondary texts:
+
+<table>
+<tbody>
+<tr>
+<td width="40%">
+<ol>
+<li>Click a pin on the chart.</li>
+<li>Click the edit icon in the right corner of the pop-up. </li>
+<li>Enter the primary text and, optionally, the secondary text.</li>
+<li>Select the check boxes next to the text you want displayed in the pop-up and click <strong>Save</strong>.</li>
+</ol>
+</td>
+<td width="60%"><img src="/images/geo-map-chart-popover.png" alt="A pop-up in the geo map chart."/></td>
+</tr>
+</tbody>
+</table>
+
+<a id="geo_map_format_tab">
+<p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>Summarization</td>
+<td>The <a href="ui_charts_faq.html#what-does-the-summarization-option-do">summarization option</a> is used by the query engine to aggregate raw data points into displayable values.</td>
+</tr>
+
+<tr>
+<td>Color to Value Mapping</td>
+<td>Allows you to specify a set of values and map them to colors. For example, this mapping shows yellow for values under 10, green for values between 10 and 20, etc. Click any color to customize it.
+<br/>
+<img src="images/color_to_value_v2.png" alt="Example of the color to value mapping">
+</td>
+</tr>
+
+
+</tbody>
+</table>
+
+<a id="geo_map_map_view_tab">
+<p><span style="font-size: large; font-weight: 600">Map View Tab</span></p>
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>Default Metric</td>
+<td>Allows you to switch between the queries in your chart. <p>You can also use the <strong>Metric</strong> drop-down menu displayed in the top right corner of the chart.</p></td>
+</tr>
+<tr>
+<td>View set box</td>
+<td>Allows you to select a region and zoom into it.
+<ul><li><strong>APAC</strong> - zooms into the Asia and Pacific region.</li>
+<li><strong>EMEA</strong> - zooms into the Europe, Middle East, and Africa region.</li>
+<li><strong>NA</strong> - zooms into the North America region.</li>
+<li><strong>SA</strong> - zooms into the South America region.</li>
+<li><strong>All Continents</strong> - shows all continents.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Tag Keys</td>
+<td>
+Allows you to select and add tag keys to the map chart. You must always select a tag key, such as <strong>Region</strong>.
+</td>
+</tr>
+</tbody>
+</table>
+
+<a id="geo_map_drilldown_link_tab">
+<p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
+Allows you to specify a target dashboard that displays when a user clicks on the chart. You can optionally pass in a dashboard variable or a constant. For example, you can specify a constant us-west-2 to be used as a variable in the target dashboard. See [How Do Drilldown Links Work](ui_charts_faq.html#how-do-drilldown-links-work) for details.
+
+<a id="geo_map_description_tab">
+<p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+Chart description which shows up as hover text when users move the mouse over the chart name.</td>
+<td width="40%"><img src="/images/description_hover_text.png" alt="description of chart"/></td>
+</tr>
+</tbody>
+</table>
+
+<a id="geo_map_advanced_tab">
+<p><span style="font-size: large; font-weight: 600">Advanced Tab</span></p>
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>Include Obsolete Metrics</td>
+<td>Select this check box to display <a href="metrics_managing.html#obsolete-metrics">obsolete metrics</a>. Selecting this option is useful if you are looking at old data; however, performance is slower when this option is turned on.</td>
+</tr>
+<tr>
+<td>Override No Data Message</td>
+<td>You can customize the <strong>No Data</strong> message on a chart when there is no data in the current time window and there's no error in your query. Optionally, you can select to display the link to <a href="missing_data_troubleshooting.html">Troubleshooting Missing Data</a>.
+</td>
+</tr>
+<tr>
+<td>Chart Time Window</td>
+<td>You can set the time window on a chart to be defined on a dashboard level, or you can set a fixed time window on a chart. When you set a fixed time window on a chart, when you edit the dashboard time window, the time settings of the chart will not be affected.</td>
+</tr>
+
+</tbody>
 </table>

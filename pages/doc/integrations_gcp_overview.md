@@ -7,12 +7,12 @@ permalink: integrations_gcp_overview.html
 summary: Minimum permissions for Google Cloud Platform.
 ---
 
-When you set up a Google Cloud Platform integration, you have to give the Wavefront service permissions to access the data you want to visualize and analyze.
+When you set up a Google Cloud Platform integration, you have to give the VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) service permissions to access the data you want to visualize and analyze.
 
 
 ## Access Options
 
-Data flows from GCP to Tanzu Observability only if the account has the required access. You have several options, discussed in detail below
+Data flows from GCP to VMware Aria Operations for Applications only if the account has the required access. You have several options, discussed in detail below
 
 <table style="width: 100%;">
 <colgroup>
@@ -22,7 +22,7 @@ Data flows from GCP to Tanzu Observability only if the account has the required 
 <tbody>
 <tr>
 <td>Assign predefined roles</td>
-<td markdown="span">In most cases, it makes sense to give the Wavefront account a small set of predefined roles.</td></tr>
+<td markdown="span">In most cases, it makes sense to give the Aria Operations for Applications account a small set of predefined roles.</td></tr>
 <tr>
 <td markdown="span">Create IAM policy to specify limited access</td>
 <td markdown="span">Explicitly specify the access settings in a custom IAM policy.</td>

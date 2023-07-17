@@ -6,7 +6,7 @@ permalink: logging_proxy_configurations.html
 summary: Proxy configuration properties and preprocessor rules for logging.
 ---
 
-{% include important.html content="Tanzu Observability Logs (Beta) is enabled only for selected customers. To participate, contact your Tanzu Observability account representative or [technical support](wavefront_support_feedback.html#support)."%}
+{% include important.html content="Logs (Beta) is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
 Proxy configuration properties let you customize proxy behavior. Proxy preprocessor rules let you block, allow, or replace parts of the incoming traffic. This doc page is a reference to properties specific to this logging Beta. See [Advanced Proxy Configuration](proxies_configuring.html) and [Proxy Preprocessor Rules](proxies_preprocessor_rules.html) for the properties and rule options for other kind of data.
 
@@ -65,6 +65,24 @@ We've added the following configuration properties for logs to the already exist
 <td> Comma separated list of tags. Can be a single tag.
 <br/>Example: groceries, payment</td>
 </tr>
+<tr>
+<a name="customExceptionTags"></a>
+<td>customExceptionTags</td>
+<td markdown="span">Comma separated list of log tag keys that are treated as the exception if the logging solution doesn't send a tag named `exception`. 
+<br/> Default: exception, error_name
+<br/> Version: Since 11.3</td>
+<td> Comma separated list of tags. Can be a single tag.
+<br/>Example: warn, error</td>
+</tr>
+<tr>
+<a name="customLevelTags"></a>
+<td>customLevelTags</td>
+<td markdown="span">Comma separated list of log tag keys that are treated as the log level if the logging solution doesn't send a tag named `level`.
+<br/> Default: level, log_level
+<br/> Version: Since 11.3</td>
+<td> Comma separated list of tags. Can be a single tag.
+<br/>Example: log_level</td>
+</tr>
 </tbody>
 </table>
 
@@ -79,16 +97,6 @@ We've added the following configuration properties for logs to the already exist
 <th width="30%">Format /Example </th>
 </tr>
 </thead>
-<!---not clear this needs to be doc'ed
-<tr>
-<a name="pushFlushMaxLogs"></a>
-<td>pushFlushMaxLogs</td>
-<td markdown="span">Maximum number of logs in a single flush in MB.
-<br/> Default: 4.
-<br/> Version: Since 11.3</td>
-<td> A number from 1-5.</td>
-</tr>
---->
 <tbody>
 <tr>
 <a name="pushRateLimitLogs"></a>
@@ -107,6 +115,15 @@ We've added the following configuration properties for logs to the already exist
 <br/> Version: Since 11.3</td>
 <td> Number of milliseconds.
 <br/>Example: 2000</td>
+</tr>
+<tr>
+<a name="pushFlushMaxLogs"></a>
+<td>pushFlushMaxLogs</td>
+<td markdown="span"> The maximum size of the log payload that is sent to the server in a single flush. The value needs to be in Bytes. If the log exceeds the value mentioned here, the log is not sent to the server.
+<br/> Default: 4194304 (4 MB)
+<br/> Version: Since 12.0</td>
+<td> A value between 1048576 and 5242880 (1 MB and 5 MB).
+<br/>Example: 3145728</td>
 </tr>
 <tr>
 <a name="flushThreadsLogs"></a>
@@ -145,9 +162,45 @@ We've added the following configuration properties for logs to the already exist
 </tbody>
 </table>
 
+### Properties for VMware Cloud Services Subscriptions
+
+{% include note.html content="Starting July 3, 2023, VMware Aria Operations for Applications is a service on the VMware Cloud services platform. After this date, we support two types of subscriptions: Operations for Applications subscriptions **onboarded** to the VMware Cloud services platform and **original** subscriptions. Original subscriptions are the existing ones and they remain as is until they migrate to VMware Cloud services. The content in this section is valid for **onboarded** subscribers. For information about original and new subscriptions and the differences between them, see [Subscription Types](subscriptions-differences.html)." %}
+
+VMware Cloud services provides access to both VMware Aria Operations for Logs and VMware Aria Operations for Applications. Therefore, to send logs data and see the data on the Operations for Applications Logs Browser, you must configure the proxy with the Operations for Logs URL and token. 
+
+
+<table style="width: 100%;">
+  <thead>
+    <tr>
+      <th width="30%">Property</th>
+      <th width="70%">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <a name="logServerIngestionURL"></a>
+      <td>
+        logServerIngestionURL
+      </td>
+      <td markdown="span">
+        The URL you use to send data to Operations for Logs.
+      </td>
+    </tr>
+    <tr>
+      <a name="logServerIngestionToken"></a>
+      <td>
+        logServerIngestionToken
+      </td>
+      <td markdown="span">
+        The authorization token that was given by Operations for Logs.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 ## Proxy Preprocessor Rules for Logs
 
-The Wavefront proxy includes a preprocessor that applies rules before the log data is sent to Tanzu Observability. Logs store data in tags, that are key-value pairs. The rules listed below, update the log tag value.
+The Wavefront proxy includes a preprocessor that applies rules before the log data is sent to our service. Logs store data in tags, that are key-value pairs. The rules listed below, update the log tag value.
 For details on how to configure the rules, see [Rule Configuration File](proxies_preprocessor_rules.html#rule-configuration-file).
 
 ### logReplaceRegex
@@ -347,7 +400,7 @@ Removes a log tag that matches a regex string.
 <font size="3"><strong>Examples</strong></font>
 
 ```yaml
-# drops the datecenter tag if the value matches az4, az5, az6.
+# drops the datacenter tag if the value matches az4, az5, az6.
  - rule          : test-logDropTag
    action        : logDropTag
    key           : datacenter
@@ -641,10 +694,7 @@ Points must match the `allow` list to be accepted. Multiple `allow` rules are al
 ## Learn More!
 
 * [Get started with logs](logging_overview.html).
-* [Send logs to Tanzu Observability](logging_send_logs.html).
+* [Send logs](logging_send_logs.html).
 * [View and browse logs](logging_log_browser.html).
 * See [Logs troubleshooting](logging_faq.html).
 
-<!---RK>>Only added this link to Send Logs. 
-[Try out the demo app tutorial on GitHub](https://github.com/wavefrontHQ/demo-app) to send logs to Tanzu Observability.
---->

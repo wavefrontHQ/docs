@@ -4,10 +4,10 @@ keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: tracing_ui_overview.html
-summary: Overview of services and applications that send data to Tanzu Observability by Wavefront.
+summary: Overview of services and applications that send data to VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront).
 ---
 
-As part of troubleshooting an application, you need an overview of the services and applications that send data to Tanzu Observability by Wavefront. Use our application map to understand the health of each service, and troubleshoot when your applications or services run into issues. You can see the overall health of each application using the application map, table view, and grid view.
+As part of troubleshooting an application, you need an overview of the services and applications that send data to Operations for Applications. Use our application map to understand the health of each service, and troubleshoot when your applications or services run into issues. You can see the overall health of each application using the application map, table view, and grid view.
 
 <a name="app_map"></a>
 
@@ -15,16 +15,16 @@ As part of troubleshooting an application, you need an overview of the services 
 
 The application map gives you an overview of how the applications and services are linked, lets you focus on a specific service, view Request, Error, and Duration (RED) metrics for each service, and the tracing traffic in the application. You can also drill down to the Service Dashboard and Tracing Browser.
 
-This <a href="https://vmwaretv.vmware.com/media/t/1_atlrv7sa" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights the application map features and settings:
+This <a href="https://vmwaretv.vmware.com/media/t/1_atlrv7sa" target="_blank">video<img src="/images/video_camera.png" alt="video camera icon"/></a> highlights the application map features and settings. Note that this video was created in 2020 and some of the information in it might have changed. It also uses the 2020 version of the UI.
 
 <iframe id="kmsembed-1_atlrv7sa" width="608" height="402" src="https://vmwaretv.vmware.com/embed/secure/iframe/entryId/1_atlrv7sa/uiConfId/49694343/pbc/252649793/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" frameborder="0" alt="application map settings"></iframe>
 
 See the application map:
-1. In your web browser, go to your Wavefront instance and log in.
+1. Log in to your service instance.
 1. From the toolbar, select **Applications** > **Application Status** and click the Application Map icon ( <img src="images/tracing_appmap_appmap_view_icon.png"
 style="vertical-align:text-bottom;width:28px" alt="icon to click to get the application map view"/> )
-1. Optionally, use <img src="images/tracing_link_icon.png"
-style="vertical-align:text-bottom;width:20px" alt="icon to click to get the link"/> to get a link and share what you’re seeing right now (NON-LIVE display) with other users.
+1. Optionally, click the link icon ( <img src="images/tracing_link_icon.png"
+style="vertical-align:text-bottom;width:20px" alt="icon to click to get the link"/> ) to copy the URL and share what you’re seeing right now (NON-LIVE display) with other users.
 
 Let's walk through the following scenario to get a quick overview of the application map.
 
@@ -59,7 +59,7 @@ Let's walk through the following scenario to get a quick overview of the applica
           Duration: Update the legend to highlight the data based on the duration. Select <b>Duration</b> from the dropdown menu and customize the values. The values need to be in ascending order and in milliseconds.
         </li>
         <li>
-          Apdex: Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only <a href="authorization-faq.html#who-is-the-super-admin-user">Super Admin users</a> or users with the <a href="permissions_overview.html"><strong>Applications</strong> permission</a> can configure the threshold (T).
+          Apdex: Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only Super Admin users and users with the <a href="permissions_overview.html"><strong>Applications</strong> permission</a> can configure the threshold (T).
         </li>
       </ul>
     </td>
@@ -127,7 +127,7 @@ Let's walk through the following scenario to get a quick overview of the applica
             <li>If an alert you created is firing, you see a red dot with a number on the service. The number indicates how many alerts are firing for a specific service. To see the alerts, click <b>view alerts</b>.</li>
             <li>Click <b>Configure</b> to <a href="tracing_apdex.html">configure the apdex settings</a>. You see this setting only if you are a Super Admin user or a user with the <strong>Applications</strong> permission.</li>
           </ul>
-          <li> See the components used by the service. The styling service uses the OpenTracing, Java, Dropwizard, and Jersey components.</li>
+          <li> See the components used by the service. The styling service uses the Java, Dropwizard, and Jersey components.</li>
         </ul>
       </td>
     <td><img src="/images/tracing_application_map_service.png" alt="Popup when you click on a service"/></td>
@@ -171,11 +171,11 @@ Let's walk through the following scenario to get a quick overview of the applica
 View the list of applications and services. You can see the Request, Error, and Duration (RED) metrics at a glance and sort the data.
 
 See the table view:
-1. In your web browser, go to your Wavefront instance and log in.
+1. Log in to your service instance.
 1. From the toolbar, select **Applications** > **Application Status** and click the Table View icon ( <img src="images/tracing_appmap_table_view_icon.png"
 style="vertical-align:text-bottom;width:28px" alt="icon to click to get the table view"/> )
 
-![the image shows the table view of all the applications that send data to Wavefront. It has helpers to show you what to do with each UI section. For example, how to filter applications or services, change the table settings or the legend settings, and how to change back to the application map view or the grid view](images/tracing_table_view.png)
+![the image shows the table view of all the applications that send data to Operations for Applications. It has helpers to show you what to do with each UI section. For example, how to filter applications or services, change the table settings or the legend settings, and how to change back to the application map view or the grid view](images/tracing_table_view.png)
 
 Using the table view, you can:
 * Examine the applications and services, or search for a particular application or service by applying filters.
@@ -208,7 +208,7 @@ Using the table view, you can:
         Apdex Threshold
       </td>
       <td markdown="span">
-        The threshold Apdex threshold of the service. The default threshold value is set to 100ms, and only a [Super Admin user](authorization-faq.html#who-is-the-super-admin-user) or users with the [**Applications** permission](permissions_overview.html) can configure the threshold (T).
+        The threshold Apdex threshold of the service. The default threshold value is set to 100ms, and only Super Admin users and users with the [**Applications** permission](permissions_overview.html) can configure the threshold (T).
       </td>
     </tr>
     <tr>
@@ -278,7 +278,7 @@ Using the table view, you can:
         Component
       </td>
       <td>
-        See the components used by the service. For example, the beachshirts application's styling service uses the OpenTracing, Java, Dropwizard, and Jersey components.
+        See the components used by the service. For example, the beachshirts application's styling service uses the Java, Dropwizard, and Jersey components.
       </td>
     </tr>
   </table>
@@ -309,7 +309,7 @@ Using the table view, you can:
     <tr>
       <td markdown="span">
         **Apdex** <br/>
-        Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only a [Super Admin user](authorization-faq.html#who-is-the-super-admin-user) or users with the [**Applications** permission](permissions_overview.html) can configure the threshold (T).
+        Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only Super Admin users and users with the [**Applications** permission](permissions_overview.html) can configure the threshold (T).
       </td>
       <td markdown ="span">
         ![The image shows the setting and the legend setting with apdex selected from the drop down.](images/apdex_score_legend_colors.png)
@@ -350,7 +350,7 @@ Using the table view, you can:
 When you select an application, you get an overview of its services.
 
 See the grid view:
-1. In your web browser, go to your Wavefront instance and log in.
+1. Log in to your service instance.
 1. From the toolbar, select **Applications** > **Application Status** and click the Grid View icon ( <img src="images/tracing_appmap_grid_view_icon.png"
 style="vertical-align:text-bottom;width:28px" alt="icon to click to get the table view"/> )
 
@@ -392,7 +392,7 @@ On the page for a particular application, you can:
       <tr>
         <td markdown="span">
           **Apdex** <br/>
-          Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only [Super Admin users](authorization-faq.html#who-is-the-super-admin-user) can configure the threshold (T).
+          Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only Super Admin users and users with the [**Applications** permission](permissions_overview.html) can configure the threshold (T).
         </td>
         <td markdown ="span">
           ![The image shows the setting and the legend setting with apdex selected from the drop down.](images/apdex_score_legend_colors.png)
@@ -466,3 +466,5 @@ Create an alert from the application status page:
   ![Create an alert from the table view page.](images/tracing_creating_an_alert_app_map.png)--->
 
 Once the alert is created, click **Alerting > All Alerts** and search for the alert you created .
+
+<!-- {% include saved_searches.md %} -->

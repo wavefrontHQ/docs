@@ -6,7 +6,7 @@ permalink: ui_charts.html
 summary: Create charts, add and manage queries, and customize the chart.
 ---
 
-Tanzu Observability by Wavefront provides many different types of charts for examining data, creating alerts, and more! For example:
+VMware Aria Operations for Applications (formerly known as Tanzu Observability by Wavefront) provides many different types of charts for examining data, creating alerts, and more! For example:
 <ul>
 <li>Create a chart and fine-tune the data it displays using filters and functions.</li>
 <li>Customize your charts.</li>
@@ -285,7 +285,7 @@ The same chart with the millisecond values in the hundred thousands displays as 
 
 ## Chart Resolution
 
-The Wavefront service accepts and stores data at up to 1 second resolution. Charts display that granularity only for small time windows on high-resolution displays. In most cases, data points are aggregated into time buckets and the buckets are mapped to display points based on the selected [summarization option](ui_charts_faq.html#what-does-the-summarization-option-do).
+Our service accepts and stores data at up to 1 second resolution. Charts display that granularity only for small time windows on high-resolution displays. In most cases, data points are aggregated into time buckets and the buckets are mapped to display points based on the selected [summarization option](ui_charts_faq.html#what-does-the-summarization-option-do).
 
 **Chart resolution** is the bucket time interval. It displays in the **Horizontal Scale** field in the lower-left corner of a chart.
 

@@ -1,12 +1,20 @@
 ---
-title: "List of Wavefront Integrations"
+title: "List of Integrations"
 tagName: integrations list
 search: exclude
 permalink: label_integrations%20list.html
 sidebar: doc_sidebar
 folder: labels
 ---
-<p>Here's how to learn about Wavefront integrations:</p>
+
+<p>If your Operations for Applications service is onboarded to VMware Cloud services, you still can see, but cannot configure some of our integrations. For the list of integrations that we support when your Operations for Applications service is onboarded to VMware Cloud services, see <a href="integrations_onboarded_subscriptions.html">Integrations Supported for Onboarded Subscriptions</a>.</p>
+
+<p>The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps on a certain integration doc page: </p>
+<ol><li>Navigate to the Operations for Applications GUI and click <strong>Integrations</strong> on the toolbar. </li>
+<li>Search for the integration that you want to set up and click its tile. </li>
+<li>The detailed instructions for setting up and configuring the integration are on the <strong>Setup</strong> tab.</li>
+</ol>
+<p>Here's how to learn about the VMware Aria Operations for Applications integrations:</p>
 
 
 <div class="row">
@@ -15,7 +23,7 @@ folder: labels
             <div class="panel-body quick-links-panel">
                 <img src="/images/basics.png" alt="icon"/>
                 <div class="quick-links-panel-title">Basics</div>
-                <p>Learn about different types of integration, and watch a video that explains the basics.</p>
+                <p>Learn about different types of integrations, and watch a video that explains the basics.</p>
             </div>
             <div class="panel-footer quick-links-panel-footer">
                 <a href="integrations.html">START HERE</a>
@@ -27,7 +35,7 @@ folder: labels
             <div class="panel-body quick-links-panel">
                 <img src="/images/whats_new.png" alt="icon"/>
                 <div class="quick-links-panel-title">What's New?</div>
-                <p>List of new and changed integrations, updated every month.</p>
+                <p>List of new and changed integrations, updated with each release.</p>
             </div>
             <div class="panel-footer quick-links-panel-footer">
                 <a href="integrations_new_changed.html">START HERE</a>
@@ -39,7 +47,7 @@ folder: labels
             <div class="panel-body quick-links-panel">
                 <img src="/images/customize.png" alt="icon"/>
                 <div class="quick-links-panel-title">Customize</div>
-                <p>Details on customizing the AWS, TAS, and vRealize integrations.</p>
+                <p>Details on setting up and customizing some of our key integrations.</p>
             </div>
             <div class="panel-footer quick-links-panel-footer">
                 <a href="integrations_aws_overview.html">START HERE</a>
@@ -59,6 +67,7 @@ folder: labels
         </div>
     </div>
 </div>
+
 
 <!---
 <div class="row">

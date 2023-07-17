@@ -2,13 +2,20 @@
 title: NVIDIA Integration
 tags: [integrations list]
 permalink: nvidia.html
-summary: Learn about the Wavefront NVIDIA Integration.
+summary: Learn about the NVIDIA Integration.
 ---
+
+This page provides an overview of what you can do with the NVIDIA integration. The documentation pages only for a limited number of integrations contain the setup steps and instructions. If you do not see the setup steps here, navigate to the Operations for Applications GUI. The detailed instructions for setting up and configuring all integrations, including the NVIDIA integration are on the **Setup** tab of the integration.
+
+1. Log in to your Operations for Applications instance. 
+2. Click **Integrations** on the toolbar, search for and click the **NVIDIA** tile. 
+3. Click the **Setup** tab and you will see the most recent and up-to-date instructions.
+
 ## NVIDIA Integration
 
 1. **NVIDIA**: This integration allows you to monitor your NVDIA GPU cluster. It uses the Telegraf NVIDIA plugin to pull the **GPU name**, **fan speed**, **memory usage**, **temperature**, and **UUID**.
 
-2. **NVIDIA on Kubernetes**: This explains the configuration of the Wavefront Collector for Kubernetes to scrape NVIDIA metrics using NVIDIA Data Center GPU Manager (DCGM) tool.
+2. **NVIDIA on Kubernetes**: This explains the configuration of the Kubernetes Metrics Collector to scrape NVIDIA metrics using NVIDIA Data Center GPU Manager (DCGM) tool.
 
 In addition to setting up the metrics flow, this integration also installs dashboards:
 * NVIDIA
@@ -17,84 +24,6 @@ In addition to setting up the metrics flow, this integration also installs dashb
 {% include image.md src="images/nvidia-dashboard-preview.png" width="80" %}
 
 
-To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
-## NVIDIA Setup
-
-This integration uses Telegraf to fetch the metrics from the NVIDIA System Management Interface (nvidia-smi) and send them to the Wavefront service.
-
-Use the instructions on this page for monitoring:
-  * NVIDIA - Standalone
-  * NVIDIA on Kubernetes
-
-### Step 1: Install the Telegraf Agent
-
-This integration uses the nvidia-smi input plugin for Telegraf. If you've already installed Telegraf on one of your servers, you can skip to Step 2.
-
-Log in to your Wavefront instance and follow the instructions in the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](https://tanzu.vmware.com/observability-trial){:target="_blank" rel="noopenner noreferrer"} to check it out!
-
-
-### Step 2: Configure NVIDIA Input Plugin
-
-Create a file called `nvidia.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-{% raw %}
-```
-[[inputs.nvidia_smi]]
-  ## Typical locations for nvidia-smi are /usr/bin/nvidia-smi for Linux
-  ## and C:\Program Files\NVIDIA Corporation\NVSMI\nvidia-smi.exe
-  ## for windows
-  bin_path = "/usr/bin/nvidia-smi"
-
-  timeout = "1s"
-```
-{% endraw %}
-**Note:** On Windows, `telegraf.conf` file is located at `C:\Program Files\Telegraf\telegraf.conf`.
-
-Save the file and restart Telegraf as given below.
-
-
-### Step 3. Restart Telegraf
-
-*Linux*:{% raw %}
-```
-sudo service telegraf restart
-```
-{% endraw %}
-
-*Windows*:
-{% raw %}
-```
-net stop telegraf
-net start telegraf
-```
-{% endraw %}
-
-
-## NVIDIA on Kubernetes
-
-This explains the configuration of Wavefront Collector for Kubernetes to scrape NVIDIA metrics using NVIDIA Data Center GPU Manager (DCGM) tool.
-
-
-* Use [DCGM exporter](https://docs.nvidia.com/datacenter/cloud-native/gpu-telemetry/dcgm-exporter.html) to get the NVDIA metrics in Prometheus.
-* Deploy a `dcgmproftester` pod to create [profiling metrics](https://developer.nvidia.com/blog/monitoring-gpus-in-kubernetes-with-dcgm). 
-
-
-#### Configure the Wavefront Collector for Kubernetes
-You can configure the Wavefront Collector for Kubernetes to scrape NVIDIA metrics from Prometheus by using the below configuration.
-
-If you do not already have the Wavefront Collector for Kubernetes installed, follow these instructions to add it to your cluster either by using [Helm](https://docs.wavefront.com/kubernetes.html#kubernetes-quick-install-using-helm) or performing [Manual Installation](https://docs.wavefront.com/kubernetes.html#kubernetes-manual-install).
-{% raw %}
-```
-      ## Add this configuration under discovery plugin section
-      - name: nvidia
-        type: prometheus
-        selectors:
-          images:
-            - '*dcgm-exporter*'
-        port: 9400
-        path: /metrics
-        scheme: http
-```
-{% endraw %}
 
 
 
