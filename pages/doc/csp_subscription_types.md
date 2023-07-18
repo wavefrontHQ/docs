@@ -80,7 +80,7 @@ VMware Cloud services provides single sign-on (SSO) and identity access manageme
 
   ![An image showing that the options mentioned above are removed from the UI for new subscribers.](images/new-vs-original-new-accounts-defaults.png)
 
-* The option for creating a metrics security rule for roles is removed, because VMware Cloud services subscribers can block or allow access to certain metrics only based on accounts and groups.
+* The option for creating a metrics security policy rule based on roles is removed, because VMware Cloud services subscribers can block or allow access to certain metrics only based on accounts (user accounts and service accounts) and groups.
 
   ![An image showing that the Roles option is removed from the UI for new subscribers.](images/new-vs-original-metricspolicy.png)
 
