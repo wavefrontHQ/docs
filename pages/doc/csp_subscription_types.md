@@ -80,6 +80,10 @@ VMware Cloud services provides single sign-on (SSO) and identity access manageme
 
   ![An image showing that the options mentioned above are removed from the UI for new subscribers.](images/new-vs-original-new-accounts-defaults.png)
 
+* The option for creating a metrics security rule for roles is removed, because VMware Cloud services subscribers can block or allow access to certain metrics only based on accounts and groups.
+
+  ![An image showing that the Roles option is removed from the UI for new subscribers.](images/new-vs-original-metricspolicy.png)
+
 
 ## Differences by Area
 
@@ -297,7 +301,7 @@ For details, see <a href="csp_metrics_security.html">Metrics Security Policy Rul
 <p><strong>How</strong>: Privileged users can block or allow access to metrics for:
 <ul><li>Accounts (<a href="user-accounts.html">user accounts</a> and <a href="service-accounts.html">service accounts</a>)</li>
 <li><a href="users_roles.html#create-a-group">Groups</a></li>
-<li><a href="users_roles.html#create-a-role">Roles</a></li></ul>.
+<li><a href="users_roles.html#create-a-role">Roles</a></li></ul>
 For details, see <a href="metrics_security.html">Metrics Security Policy Rules</a>.</p>
 </td>
 </tr>
