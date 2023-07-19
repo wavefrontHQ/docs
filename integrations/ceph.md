@@ -13,10 +13,10 @@ This page provides an overview of what you can do with the Ceph integration. The
 
 ## Ceph Integration
 
-Ceph is a software-defined storage platform that unifies the storage of block, object, and file data into a distributed computer cluster. By setting up this integration, you can send Ceph metrics into Wavefront.
+Ceph is a software-defined storage platform that unifies the storage of block, object, and file data into a distributed computer cluster. By setting up this integration, you can send Ceph metrics into Operations for Applications.
 
-1. **Ceph**: This integration installs and configures Telegraf to send Ceph storage cluster metrics to Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
-2. **Ceph on Kubernetes**: This explains the configuration of Wavefront Collector for Kubernetes to scrape Ceph metrics using auto-discovery and annotation based discovery.
+1. **Ceph**: This integration installs and configures Telegraf to send Ceph storage cluster metrics to Operations for Applications. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+2. **Ceph on Kubernetes**: This explains the configuration of Kubernetes Metrics Collector to scrape Ceph metrics using auto-discovery and annotation based discovery.
 
 In addition to setting up the metrics flow, this integration also installs dashboards:
 * Ceph
