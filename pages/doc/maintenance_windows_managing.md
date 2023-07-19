@@ -58,6 +58,8 @@ You can:
 
 To view and manage maintenance windows, select **Alerting > Maintenance Windows**.
 
+<!--Uncomment for 2023-30.x
+
 ![An annotated screenshot of the Maintenance Windows browser page with what an you do on this page. The information is in the bullet list below.](images/maint_window_browser.png)
 
 On the **Maintenance Windows** browser page, you can:
@@ -71,6 +73,7 @@ On the **Maintenance Windows** browser page, you can:
 * Show the details for a specific maintenance window by clicking the arrow next to the check box of the window.
 * Edit, extend, close, or delete a single maintenance window by clicking the ellipsis icon and selecting the respective option from the menu.
 * Select the check boxes of multiple maintenance windows, extend. close or delete them by clicking the **Delete** button.
+-->
 
 <div markdown="span" class="alert alert-info" role="alert">While every user can view maintenance windows, you must have the [**Alerts** permission](permissions_overview.html) to [manage](maintenance_windows_managing.html) maintenance windows. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
