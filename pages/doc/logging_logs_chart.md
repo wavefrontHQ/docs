@@ -20,7 +20,7 @@ If you have the **Logs** and **Dashboards** permissions, in the [Chart Builder](
 <tr>
   <td width="40%">
   <p>1. Select <strong>Dashboards</strong> > <strong>Create Chart</strong> on the toolbar.</p>
-  <p>2. From the <strong>Data</strong> drop-down menu, select <strong>Logs (Beta)</strong>.</p>
+  <p>2. From the <strong>Data</strong> drop-down menu, select <strong>Logs</strong>.</p>
   </td>
   <td width="60%">
     <img src="images/logs_histogram_data.png" alt="The Data drop-down menu."/>
@@ -72,7 +72,7 @@ Follow these steps:
 
 1. Select **Dashboards** > **Create Chart** on the toolbar.
 1. Select the **Logs Table** chart type.
-1. From the **Data** drop-down menu, select **Logs (Beta)** and add the filters that you want.
+1. From the **Data** drop-down menu, select **Logs** and add the filters that you want.
     {% include note.html content="The count function is disabled when you select the logs table chart because you don’t need to group your logs in the table view." %}
 1. Click the **Format** tab to customize the data displayed on the chart.
     <table>
@@ -116,8 +116,8 @@ Once the chart is in a dashboard, you can:
 
 ![An annotated screenshot of the logs table chart. The annotations are listed as bullets below.](images/logging_logs_chart_features.png)
 * Search for keywords or phrases. You only get results for the data in the logs chart table.
-* You only see the first 50 logs. To see more logs, click the ellipsis icon in the top-right corner of the chart and select **Logs (Beta)**.
-* If you want to drill into a specific log, right-click the row on the table, and click **Logs (Beta)**. The tags on the log you selected carry over to the Logs Browser as filters, and you see all the logs with the same filters.
+* You only see the first 50 logs. To see more logs, click the ellipsis icon in the top-right corner of the chart and select **Logs**.
+* If you want to drill into a specific log, right-click the row on the table, and click **Logs**. The tags on the log you selected carry over to the Logs Browser as filters, and you see all the logs with the same filters.
 * If you want to see a specific log message while you troubleshoot and examine the other charts in the dashboard:
   * Press **Shift** + **p** to pin the log message to the chart. 
   * To close the logs detail pop-up, click the **x** in the top right corner.

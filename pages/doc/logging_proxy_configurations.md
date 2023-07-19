@@ -1,14 +1,14 @@
 ---
-title: Logs Proxy Configurations and Preprocessor Rules (Beta)
+title: Logs Proxy Configurations and Preprocessor Rules
 tags: [getting started, logs]
 sidebar: doc_sidebar
 permalink: logging_proxy_configurations.html
 summary: Proxy configuration properties and preprocessor rules for logging.
 ---
 
-{% include important.html content="Logs (Beta) is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
+{% include important.html content="The Logs feature is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
-Proxy configuration properties let you customize proxy behavior. Proxy preprocessor rules let you block, allow, or replace parts of the incoming traffic. This doc page is a reference to properties specific to this logging Beta. See [Advanced Proxy Configuration](proxies_configuring.html) and [Proxy Preprocessor Rules](proxies_preprocessor_rules.html) for the properties and rule options for other kind of data.
+Proxy configuration properties let you customize proxy behavior. Proxy preprocessor rules let you block, allow, or replace parts of the incoming traffic. This doc page is a reference to properties specific to the Logs feature. See [Advanced Proxy Configuration](proxies_configuring.html) and [Proxy Preprocessor Rules](proxies_preprocessor_rules.html) for the properties and rule options for other kind of data.
 
 ## Proxy Configuration Properties for Logs
 

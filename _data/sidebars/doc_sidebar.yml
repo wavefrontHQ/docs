@@ -791,7 +791,7 @@ entries:
       url: /tracing_faq.html
       output: web
 
-  - title: Logs (Beta)
+  - title: Logs
     output: web
     folderitems:
 

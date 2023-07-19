@@ -1,5 +1,5 @@
 ---
-title: Find and Examine Logs in the Logs Browser (Beta)
+title: Find and Examine Logs in the Logs Browser
 keywords: data, logs
 tags: [logs]
 sidebar: doc_sidebar
@@ -7,7 +7,7 @@ permalink: logging_log_browser.html
 summary: Learn how to filter and explore logs in the Logs Browser.
 ---
 
-{% include important.html content="Logs (Beta) is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
+{% include important.html content="The Logs feature is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
 If you notice anomalies on your metrics charts or see that a service on the application map has large latency value, use the Logs Browser to troubleshoot your issues.
 
