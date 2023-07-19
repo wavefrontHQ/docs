@@ -13,12 +13,12 @@ This page provides an overview of what you can do with the Log Data integration.
 
 ## Log Data Integration
 
-Operations for Applications supports two solutions for sending log data to a Wavefront proxy:
+Tanzu Observability by Wavefront supports two solutions for sending log data to a Wavefront proxy:
 
-* **Logs**: A logging analytics solution, which lets you send logs using a log shipper, such as Fluentd that sends logs as JSON arrays over HTTP, or Fluent Bit that sends logs as JSON lines over HTTP. When your logs start flowing, the users with the **Logs** permission can:
+* **Logs (Beta)**: A logging analytics solution, which lets you send logs using a log shipper, such as Fluentd that sends logs as JSON arrays over HTTP, or Fluent Bit that sends logs as JSON lines over HTTP. When your logs start flowing, the users with the **Logs** permission can:
     * View and explore logs on the Logs Browser.
     * Drill into related logs from charts, alerts, application maps, and traces.
-See [Get Started with Logs](https://docs.wavefront.com/logging_overview.html) for details.
+See [Get Started with Logs (Beta)](https://docs.wavefront.com/logging_overview.html) for details.
 * **Log Data Metrics Integration**: A metricized logs solution, which lets you extract metrics from logs. You can send log data using the Filebeat integration or TCP. Once your log data arrives at the proxy, the proxy converts it to metrics by parsing log lines with grok patterns (regular expressions) that you specify in the proxy configuration file. When log metrics start flowing, you can create queries to visualize the data and create alerts. See [Log Data Metrics Integration](https://docs.wavefront.com/integrations_log_data.html) for details.
 
 

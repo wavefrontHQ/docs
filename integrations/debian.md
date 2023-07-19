@@ -21,7 +21,7 @@ In addition to setting up the metrics flow, this integration also installs a das
 {% include image.md src="images/linux_db.png" width="80" %}
 
 
-## Linux Logs Setup
+## Linux Logs Setup (Beta)
 
 This integration uses Fluentd input plugins and offers several setup options. For Fluentd installation prerequisites, see the [Fluentd Requirements](https://docs.fluentd.org/installation/before-install).
 
