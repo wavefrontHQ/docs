@@ -16,7 +16,7 @@ folder: labels
             <div class="panel-body quick-links-panel">
                 <img src="/images/Launch.png" alt="icon"/>
                 <div class="quick-links-panel-title">Quickstart</div>
-                <p>Our most polular videos. Watch co-founder Clement Pang explain important concepts.</p>
+                <p>Our most popular videos. Watch co-founder Clement Pang explain important concepts.</p>
             </div>
             <div class="panel-footer quick-links-panel-footer">
                 <a href="videos_quickstart.html">START HERE</a>

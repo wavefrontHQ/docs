@@ -19,7 +19,7 @@ In VMware Aria Operations for Applications (formerly known as Tanzu Observabilit
 
 ## Distributed Tracing Videos
 
-Watch these videos to listen to our co-founder Clement Pang introduce distributed tracing, and give updates including improved ingestion options and intelligent sampling:
+Watch these videos to listen to our co-founder Clement Pang introduce distributed tracing, and give updates including improved ingestion options and intelligent sampling. Note that these videos were created in 2019 and 2020 and some of the information in them might have changed.
 
 {% include note.html content="You need either the [**Proxies** permission](permissions_overview.html) or [**Direct Data Ingestion** permission](permissions_overview.html) to send trace data from your application to the Wavefront proxy or the Operations for Applications service." %}
 
