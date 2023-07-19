@@ -19,9 +19,9 @@ You can create alerts for your logs data and get email notifications when the al
 
 ## Log Alerts Browser
 
-Use the Log Alerts Browser to create and manage your log alerts.
+Use the Alerts Browser to create and manage your log alerts. To see the log alerts you created, click the **Log Alerts** tab.
 
-![An annotated screenshot of the log alert browser.](images/logging_log_alerts_borwser.png)
+![An annotated screenshot of the log alerts on the Alerts Browser.](images/logging_log_alerts_browser.png)
 
 ## Create a Log Alert
 
@@ -30,7 +30,7 @@ Follow these steps to create a log alert:
 ### Step 0: Go to the Alert Browser
 1.	Log in to your product instance as a user with the **Alerts** permission.
 2.	On the toolbar, click **Alerting** > **All Alerts**.
-3.	Click **Create Log Alert**.
+3.	Click **Create Logs Alert**.
 
 ### Step 1: Filter the data
 
@@ -100,6 +100,14 @@ Use the filters to query the logs data:
     * **Any**: The log alert fires if a filter in the query is met.
 
 1. Click **Next**.
+
+Example:
+
+You get the logs that have any of the following data:
+* If the access_token_length value is 4600.
+* If the access_token_length value does not start with 1278.
+
+![A screenshot of the query that is described in this example.](images/logging_log_alert_filter_the_data.png)
 
 ### Step 2: Define the Alert Conditions
 You can configure the alert to fire in real-time, or you can configure the alert to fire when the alert conditions are met for the selected time window.
@@ -179,6 +187,13 @@ You can configure the alert to fire in real-time, or you can configure the alert
 
     1. Click **Next**.
 
+Example:
+The alert fires if the alert conditions you set are true for 5 minutes:
+* Critical state if the no of logs are great than 4.
+* Info state if the number of logs are greater than 1.
+
+![A screenshot of the alert conditions explained above](images/logging_log_laerts_alert_condtion.png)
+
 ### Step 3: Add a Recipient to the Alert
 
 Email and Webhook notifications are coming soon to Log Alerts!
@@ -255,15 +270,17 @@ After you customize the message, click **Next**.
 
 {% include note.html content="If the name you gave the query in step 1 already exists, you see an error. To activate the log alert, you need to go to step 1 and enter a new name." %}
 
-Once the log alert is successfully created, you are redirected back to the Log Alerts Browser page. You can search for your alert and see the status and firing details of the alert.
+Example:
+![A screenshot of the section to name and adda  description to the alert.](images/logging_log_laert_name_the_alert.png)
+
+Once the log alert is successfully created, you are redirected back to the Alerts Browser page. To see the log alerts you created, click the **Log Alerts** tab, search for your alert, and see the status and firing details of the alert.
 
 ## See Log Alerts that Fired
 
 Follow these steps to see up to five log alerts that fired in the last thirty days.
 
-1. On the toolbar, click **Alerting** > **All Alerts**.
-1. Click the **Log Alerts** tab.
-1. In the Log Alerts Browser search for the alert you want to edit.
+1. On the Alerts Browser, click the **Log Alerts** tab.
+1. Search for the alert you want to edit.
     You can search for the alert by name, status, severity, or a saved search.
 1. Click the alert name, or click the ellipsis icon next to the log alert and select **Edit**.
 1. Click **Show Firings** at any time to see when the alert fired and fine-tune the behavior based on that information. 
@@ -277,9 +294,8 @@ Example:
 
 Users with the **Alerts** permission can update a log alert at any time. The options are similar to what you see when you create a log alert, but you can quickly focus on the things you want to change.
 
-1. On the toolbar, click **Alerting** > **All Alerts**.
-1. Click the **Log Alerts** tab.
-1. In the Log Alerts Browser, search for the alert you want to edit.
+1. On the Alerts Browser, click the **Log Alerts** tab.Click the **Log Alerts** tab.
+1. Search for the alert you want to edit.
     You can search for the alert by name, status, severity, or a saved search.
 1. Click the alert name, or click the ellipsis icon next to the log alert and select **Edit**.
 1. Click on the section you want to make changes.
@@ -292,6 +308,7 @@ Users with the **Alerts** permission can update a log alert at any time. The opt
 ### Snooze a Log Alert
 If you are running tests and don't want a log alert to fire, follow these steps to pause the log alert from firing for a specified time window:
 
+1. On the Alerts Browser, click the **Log Alerts** tab. 
 1. Select the check box next to the log alert. You can select more than one log alert.
 1. Click **Snooze**, and select how long you want to snooze the alert.
 ![a screenshot that shows the snooze drop down times.](images/logging_log_alert_snooze.png)
@@ -300,6 +317,7 @@ If you are running tests and don't want a log alert to fire, follow these steps 
 
 Follow these steps once you are done with your testing, and you want a log alert to fire if the conditions in the log alert is met.
 
+1. On the Alerts Browser, click the **Log Alerts** tab.
 1. Filter the log alerts you snoozed using the **Snoozed** **Status**.
 1. Select the check box next to the log alert. You can select more than one log alert.
 1. Click **Unsnooze**, and the log alerts will move to the **checking** state.
@@ -309,8 +327,9 @@ Follow these steps once you are done with your testing, and you want a log alert
 
 Follow these steps to delete a log alert you no longer need:
 
+1. On the Alerts Browser, click the **Log Alerts** tab.
 1. Select the check box next to the log alert. You can select more than one log alert.
-1. Click **Delete**. Once deleted you don't see the log alert on the Log Alert Browser.
+1. Click **Delete**. Once deleted you don't see the log alert.
 ![a screenshot that shows the delete button.](images/logging_log_alert_delete.png)
 
 ## Log Alert FAQs
