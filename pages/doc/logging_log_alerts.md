@@ -1,12 +1,12 @@
 ---
-title: Manage Alerts for Logs (Beta)
+title: Manage Alerts for Logs
 tags: [logs]
 sidebar: doc_sidebar
 permalink: logging_alerts.html
 summary: Learn how you can create, snooze and delete a log alert.
 ---
 
-{% include important.html content="Logs (Beta) is enabled only for selected customers. To participate, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
+{% include important.html content="Our service retains logs for 30 days during the Logs free trial or retains logs for 7 days when on the freemium subscription! To retain logs for a longer period, contact your account representative or [technical support](wavefront_support_feedback.html#support)."%}
 
 You can create alerts for your logs data and see when the alert fired.
 
@@ -317,4 +317,4 @@ Follow these steps to delete a log alert you no longer need:
 
 ### What are the log alert limits?
 
-Operations for Applications uses VMware Aira Operations for logs. See the limitations listed on the [Operations for logs documentation (scroll to Limits)](https://developer.vmware.com/apis/vmware-aria-operations-for-logs/latest/) when creating and managing log alerts.
+Operations for Applications uses VMware Aria Operations for logs. See the limitations listed on the [Operations for logs documentation (scroll to Limits)](https://developer.vmware.com/apis/vmware-aria-operations-for-logs/latest/) when creating and managing log alerts.
