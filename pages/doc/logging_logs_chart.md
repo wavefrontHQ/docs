@@ -129,5 +129,4 @@ Once the chart is in a dashboard, you can:
 
 * [Send logs](logging_send_logs.html).
 * [View and browse logs](logging_log_browser.html).
-* Learn how you can troubleshoot faster by [drilling into the Log Browser](logging_drill_into_logs.html) from charts, alerts, application map, and the Traces Browser.
 * See [Logs troubleshooting](logging_faq.html).

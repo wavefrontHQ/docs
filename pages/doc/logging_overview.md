@@ -139,7 +139,7 @@ You can send your logs using a log shipper, such as Fluentd that sends logs as J
 When logs start flowing into our service, as a user with the **Logs** permission, you can:
 * Go to the [Logs Browser](logging_log_browser.html) directly to view and explore logs.
 * You can [create a logs chart](logging_logs_chart.html) on a dashboard so you can troubleshoot faster.
-* [Drill into the Logs Browser](logging_drill_into_logs.html) from charts, alerts, application map, and the Traces Browser.
+* Drill into the Logs Browser from charts, alerts, application map, and the Traces Browser.
 * [Customize log settings](logging_logs_settings.html)
   * If your metrics, logs, and traces have different tags, you can map the metrics and traces tags to the log tags.
   * Customize the time window on a chart or Traces Browser when drilling into logs from a chart and trace.
