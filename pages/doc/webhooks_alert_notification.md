@@ -345,3 +345,5 @@ cs(~alert.webhooks.*.*, name=<webhook_name>)
 ```
 
 If the response code of the webhook is anything other than 2xx, we create an event with the name `<webhook_id>.<webhook_name>.<response_code>`.
+
+{% include note.html content="With the 2023-30.x release, you can also use `cs(~alert.webhooks.*)` in alerts. " %}
