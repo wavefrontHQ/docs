@@ -26,7 +26,7 @@ For more information, see [Giving Access to Your AWS Account](integrations_aws_o
 1. Log in to your product cluster.
 1. Click the gear icon in the top right and select **API Documentation**.
 1. Expand the **Cloud Integration** category.
-1. To create an external ID integration, click the `POST /api/v2/cloudintegration/awsExternalId` request.
+1. To create an external ID, click the `POST /api/v2/cloudintegration/awsExternalId` request.
 1. Click **Execute**.
 1. Copy the external ID from the response body of the request.
 
