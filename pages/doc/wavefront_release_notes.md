@@ -26,6 +26,27 @@ For information about the two subscription types and how they differ, see [Subsc
  
 {% include note.html content="We will support both original and onboarded subscriptions until all original subscriptions are migrated to VMware Cloud services."%}
 
+## 2023-30.x Release Notes
+
+### Original and Onboarded Subscriptions
+
+* **Maintenance Window Browser Page Improvements**: The [**Maintenance Window** browser page](maintenance_windows_managing.html#maintenance-windows) is now improved and allows you to:
+
+    * Hide and show details for all maintenance window or for a specific maintenance window.
+    * Sort the maintenance windows by name, state, start or end time, and so on.
+    * Apply various filters, hide and show the filters listed on the left.
+
+* **New Field in the Generic Webhook Alert Template**: We added a new field to the Generic Webhook notification template which allow you to set the limit for the number of items returned by `contributingKVs`. 
+
+* **Support for Alerting on ~alert.webhooks**: With this release, you can alert on `cs(~alert.webhooks.*)`. See [Query Responses of Webhook Alert Targets](webhooks_alert_notification.html#query-responses-of-webhook-alert-targets) for details.
+
+## 2023-29.x Release Notes
+
+### Original and Onboarded Subscriptions
+
+ **Google Cloud Platform Integration Improvements**: You can now select to ingest histogram metrics as well as filter these metrics by their Google Cloud Platform grouping function. See the [Integrations Release Notes](integrations_new_changed.html#july-2023) for details.
+
+
 ## 2023-27.x Release Notes
 
 ### Original and Onboarded Subscriptions
