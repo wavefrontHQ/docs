@@ -61,7 +61,7 @@ If you know your data, you can pick a suitable metric to get the best results fo
 
 **Question:** Might this metric become [obsolete](metrics_managing.html#obsolete-metrics) because it doesn't report values (e.g., no failures)?
 
-We consider a metric obsolete after it hasn't reported any values for a certain period of time (by default 4 weeks). The [obsolescence period](metrics_managing.html#obsolete-metrics) might vary because it is a configurable setting. You can see your current configuration by looking into the Advanced settings of any [chart](ui_charts.html#include-metrics-that-stopped-reporting) or [dashboard](ui_dashboards.html#set-dashboard-display-preferences-and-settings). To change this configuration, contact [Technical Support](wavefront_support_feedback.html).
+We consider a metric obsolete after it hasn't reported any values for a certain period of time (by default 2 weeks). The [obsolescence period](metrics_managing.html#obsolete-metrics) might vary because it is a configurable setting. You can see your current configuration by looking into the Advanced settings of any [chart](ui_charts.html#include-metrics-that-stopped-reporting) or [dashboard](ui_dashboards.html#set-dashboard-display-preferences-and-settings). To change this configuration, contact [Technical Support](wavefront_support_feedback.html).
 
 For example, if your obsolescence period is 2 weeks and you monitor `http.failures`, the metric becomes obsolete if no failures occurred for 2 weeks. To avoid this, you can monitor `http.failures.count` or wrap `count` around the `http.failures` metric, so that the metric is cumulative and does not become obsolete.
 
