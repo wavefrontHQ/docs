@@ -15,9 +15,9 @@ This page provides an overview of what you can do with the VMware Tanzu Service 
 
 Tanzu Service Mesh provides advanced, end-to-end connectivity, security, and insights for modern applications across application end-users, microservices, APIs, and data. It enables compliance with Service Level Objectives (SLOs) and data protection and privacy regulations.
 
-Click the **Setup** tab for instructions on setting up your environment to send Tanzu Service Mesh **metrics** to Wavefront.
+Click the **Setup** tab for instructions on setting up your environment to send Tanzu Service Mesh **metrics** to Operations for Applications.
 
-This integration uses `Prometheus` to scrape Istio mesh metrics and federate them. It uses the Wavefront Collector for Kubernetes to forward these metrics to Wavefront.
+This integration uses `Prometheus` to scrape Istio mesh metrics and federate them. It uses the Kubernetes Metrics Collector to forward these metrics to Operations for Applications.
 This integration also installs dashboards. Here's a preview of the Tanzu Service Mesh Data Plane and Control Plane dashboards:
 
 {% include image.md src="images/tsm_dataplane_db.png" width="80" %}
