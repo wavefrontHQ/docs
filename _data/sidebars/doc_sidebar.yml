@@ -821,12 +821,8 @@ entries:
               url: /logging_logs_chart.html
               output: web
 
-            - title: Drill into Logs
-              url: /logging_drill_into_logs.html
-              output: web
-
       - title: Manage Log Alerts
-        url: /logging_alerts.html
+        url: /logging_log_alerts.html
         output: web
       
       - title: Customize Logs Settings

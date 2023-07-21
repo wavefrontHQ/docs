@@ -2,7 +2,7 @@
 title: Manage Alerts for Logs
 tags: [logs]
 sidebar: doc_sidebar
-permalink: logging_alerts.html
+permalink: logging_log_alerts.html
 summary: Learn how you can create, snooze and delete a log alert.
 ---
 
@@ -15,7 +15,16 @@ You can create alerts for your logs data and see when the alert fired.
 You can create alerts for your logs data and get email notifications when the alert conditions are met.
 -->
 
-{% include note.html content="You need the **Alerts** permission to create and manage log-alerts." %}
+{{site.data.alerts.note}}
+<ul>
+    <li>
+        You need the <b>Logs</b> permission to view the log alerts.
+    </li>
+    <li>
+        You need the <b>Alerts</b> and <b>Logs</b> permission to create and manage log alerts.
+    </li>
+</ul>
+{{site.data.alerts.end}}
 
 ## Log Alerts Browser
 

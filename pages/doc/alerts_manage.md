@@ -58,7 +58,18 @@ To start alert creation, do one of the following:
 </tbody>
 </table>
 
-{% include note.html content="Do you see Log LaerIf you have the **Logs** permission, you see the **Logs Alert** tab and you can see the logs alerts that were created. If you have the **Logs** and **Alerts** permission, you can create and manage log alerts. For details, see [Manage Alerts for Logs](logging_alerts.html)." %}
+{{site.data.alerts.note}}
+<p>Do you see metrics alerts and logs alerts?</p>
+You can create logs alerts using the logs data that you sent. For detail, see <a href="logging_log_alerts.html">Manage Alerts for Logs</a>.
+<ul>
+    <li>
+        You need the <b>Logs</b> permission to view the log alerts.
+    </li>
+    <li>
+        You need the <b>Alerts</b> and <b>Logs</b> permission to create and manage log alerts.
+    </li>
+</ul>
+{{site.data.alerts.end}}
 
 
 ### Step 1a: Specify the Data to Watch and Alert On

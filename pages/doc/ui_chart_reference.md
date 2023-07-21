@@ -1914,6 +1914,15 @@ The logs chart lists the logs sent to the service. Use one or more filters to fi
 </tr>
 <tr>
   <td>
+    Scroll to Autoload Logs
+  </td>
+  <td markdown="span">
+    You can decide how you want to load the results in the logs table.
+    By default, scroll auto-load is enabled and logs load as you scroll through the logs table. If scroll auto-load is disabled, to load the next set of results, you must click **Load More Results**.
+  </td>
+</tr>
+<tr>
+  <td>
     Columns to Show in Table
   </td>
   <td markdown="span">
@@ -1942,6 +1951,7 @@ Chart description which shows up as hover text when users move the mouse over th
   <tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
   </tbody>
 </table>
+
 
 ## Geo Map Chart
 
