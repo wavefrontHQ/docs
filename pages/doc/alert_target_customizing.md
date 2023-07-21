@@ -1018,7 +1018,7 @@ The preceding template might yield the following message:
 
 ## List All Sources and Point Tags of an Aggregation Alert's Time Series
 
-Starting with the 2023.30 release, you can use the `contributingKVs` iterator to visit each point tag (shown as a `<key>=<value>` pair) of a failed alert whose condition uses a single top-level aggregation function. For example, the condition of the failed alert can be `sum(ts(~sample.cpu.usage.percentage)) > 1`.
+Starting with the 2023.30 release, you can use the `contributingKVs` iterator to visit each point tag (shown as a `<key>=<value>` pair) of a failed alert whose condition uses a single top-level [aggregation function](query_language_aggregate_functions.html). For example, the condition of the failed alert can be `sum(ts(~sample.cpu.usage.percentage)) > 1`.
 
 {% include note.html content="The listed keys are *contributing* to the alert failure, but they are not definitely *failing*." %}
 
