@@ -73,11 +73,11 @@ For best performance, when you configure most of our integrations it is recommen
 
 We're in the process of incrementally updating our integrations so that you can use them when your Operations for Applications service **is** onboarded to VMware Cloud services. 
 
-Here's the list of the integrations that are updated as of today (July 3, 2023). This list will grow with each release. If you urgently need an integration to become available and configurable for your onboarded service, please contact us at: `tanzu_saas_ops@vmware.com`.
+Here's the list of the integrations that are updated as with the 2023-30.x release. This list grows with each release. If you urgently need an integration to become available and configurable for your onboarded service, please contact us at: `tanzu_saas_ops@vmware.com`.
 
 <table style="width: 100%;">
 <thead>
-<tr><th width="25%">Integration</th><th width="30%">Link to Doc Page</th><th width="30%">Comments</th></tr>
+<tr><th width="50%">Integration</th><th width="50%">Link to Doc Page</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -179,11 +179,11 @@ Here's the list of the integrations that are updated as of today (July 3, 2023).
 <tr>
 <td markdown="span">Cassandra</td>
 <td markdown="span">[Cassandra Integration](cassandra.html)</td>
-<td markdown="span">Currently, Cassandra on K8s is not supported.</td></tr>
+</tr>
 <tr>
 <td markdown="span">Ceph</td>
 <td markdown="span">[Ceph Integration](ceph.html)</td>
-<td markdown="span">Currently, Ceph on K8s is not supported.</td></tr>
+</tr>
 <tr>
 <td markdown="span">Chef</td>
 <td markdown="span">[Chef Integration](chef.html)</td></tr>
@@ -208,12 +208,10 @@ Here's the list of the integrations that are updated as of today (July 3, 2023).
 <tr>
 <td markdown="span">Envoy Proxy</td>
 <td markdown="span">[Envoy Proxy Integration](envoy.html)</td>
-<td markdown="span">Currently, Envoy Proxy on K8s is not supported.</td>
 </tr>	
 <tr>
 <td markdown="span">etcd KV store</td>
 <td markdown="span">[etcd KV store Integration](etcd.html)</td>
-<td markdown="span">Currently, etcd on K8s is not supported.</td>
 </tr>	
 <tr>
 <td markdown="span">FoundationDB</td>
@@ -222,7 +220,6 @@ Here's the list of the integrations that are updated as of today (July 3, 2023).
 <tr>
 <td markdown="span">Fluentd</td>
 <td markdown="span">[Fluentd Integration](fluentd.html)</td>
-<td markdown="span">Currently, Fluentd on K8s is not supported.</td>
 </tr>
 <tr>
 <td markdown="span">Github</td>
@@ -259,7 +256,6 @@ Here's the list of the integrations that are updated as of today (July 3, 2023).
 <tr>
 <td markdown="span">Kafka</td>
 <td markdown="span">[Kafka Integration](kafka.html)</td>
-<td markdown="span">Currently, Kafka on K8s is not supported.</td>
 </tr>		
 <tr>
 <td markdown="span">Kong</td>
@@ -296,7 +292,7 @@ Here's the list of the integrations that are updated as of today (July 3, 2023).
 <tr>
 <td markdown="span">NVIDIA </td>
 <td markdown="span">[NVIDIA Integration](nvidia.html)</td>
-<td markdown="span">Currently, NVIDIA on K8s is not supported.</td></tr>	
+</tr>	
 <tr>
 <td markdown="span">Oracle RDBMS</td>
 <td markdown="span">[Oracle RDBMS Integration](oracle.html)</td>
@@ -324,11 +320,11 @@ Here's the list of the integrations that are updated as of today (July 3, 2023).
 <tr>
 <td markdown="span">RabbitMQ</td>
 <td markdown="span">[RabbitMQ Integration](rabbitmq.html)</td>
-<td markdown="span">Currently, RabbitMQ on K8s is not supported.</td></tr>  
+</tr>  
 <tr>
 <td markdown="span">Redis</td>
 <td markdown="span">[Redis Integration](redis.html)</td>
-<td markdown="span">Currently, Redis on K8s is not supported.</td></tr>
+</tr>
 <tr>
 <td markdown="span">Riak KV Store</td>
 <td markdown="span">[Riak KV Store Integration](redis.html)</td>

@@ -19,12 +19,22 @@ If your Operations for Applications service is onboarded to VMware Cloud service
 
 {% include note.html content= "Currently, if your service **is onboarded** to VMware Cloud services, direct ingestion by using the Wavefront Output Plugin for Telegraf is not supported. For best performance, use a Wavefront proxy. " %}
 
+## August 2023
+
+We made improvements to the following integrations in August 2023:
+
+* Kubernetes:
+  * We added support for Kubernetes setup when your Operations for Applications service **is onboarded** to VMware Cloud services.
+  * We now support a number of integrations on Kubernetes. The list includes: Cassandra, Ceph, Envoy Proxy, etcd, Fluentd, Kafka, NVIDIA, Rabbit MQ, and Redis.  
+
+  For the latest list of integrations, see [Integrations Supported for Onboarded Subscriptions](integrations_onboarded_subscriptions.html).
+
 ## July 2023
 
 We made improvements to the following integrations in July 2023:
 
 * Google Cloud Platform:
-  * You can select to ingest Google Cloud Platform histogram metrics and filter these metrics by their Google Cloud Platform grouping functions such as **Count**, **Mean**, and **Standard Deviation**. To do so, when you register or edit your Google Cloud Platform integration, enable **Histogram** metrics ingestion, select **Custom** and select to ingest certain histogram metrics based on the listed Google Cloud Platform grouping functions. When you select a grouping function, only the histogram metrics with the respective grouping function will be ingested. If you deselect all check boxes, all histogram metrics will be ingested.
+  * You can select to ingest Google Cloud Platform histogram metrics and filter these metrics by their Google Cloud Platform grouping functions such as **Count**, **Mean**, and **Standard Deviation**. To do so, when you register or edit your Google Cloud Platform integration, ena, ble **Histogram** metrics ingestion, select **Custom** and select to ingest certain histogram metrics based on the listed Google Cloud Platform grouping functions. When you select a grouping function, only the histogram metrics with the respective grouping function will be ingested. If you deselect all check boxes, all histogram metrics will be ingested.
   * You can now select to ingest Google Cloud Run metrics. To do so, when you register or edit your Google Cloud Platform integration, in the **Categories to fetch** section, select **Custom** and select the **Cloud Run** check box.
 * Amazon Web Services - You can now select to ingest Amazon Web Services Usage metrics. To do so, when you register or edit your CloudWatch integration, in the **Products** section, select **Custom** and select the **AWS Usage** check box.
 * Kafka - Updated the setup steps and instructions. You can now set up the integration and the Kubernetes Metrics Collector by using the Observability for Kubernetes Operator. 
