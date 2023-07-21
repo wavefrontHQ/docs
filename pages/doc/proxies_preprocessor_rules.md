@@ -1349,7 +1349,7 @@ Available action subtypes are `truncate`, `truncateWithEllipsis`, and `drop`.
 ```
 
 
-## Log Filtering Rules
+## Logs Filtering Rules
 
 You can send logs to the Wavefront proxy from your log shipper or directly from your application. The Wavefront proxy sends the log data to our service.
 
