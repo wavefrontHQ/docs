@@ -196,12 +196,42 @@ VMware Aria Operations for Applications automatically disables integrations that
 
    In the **Response Body** section, you can see the list of all configured cloud services integrations. For example:
 
-    
+       ```
+      {
+        "forceSave": false,
+        "name": "GCP",
+        "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
+        "inTrash": false,
+        "creatorId": "user-account-email-address",
+        "updaterId": "user-account-email-address",
+        "service": "GCP",
+        "disabled": false,
+        "lastReceivedDataPointMs": 1689932143491,
+        "lastMetricCount": 158,
+        "gcp": {
+            "metricFilterRegex": "^gcp.(compute|container|pubsub).*$",
+            "projectId": "my_project_id",
+            "gcpJsonKey": "{\"project_id\": \"my_project_id\"}",
+            "disableHistogramToMetricConversion": false,
+            "disableDeltaCounts": false,
+            "categoriesToFetch": [
+              "APPENGINE"
+              ]
+          },
+        "lastProcessorId": "34ac679f-ace0-42a5-8371-6fa534f4123e",
+        "lastProcessingTimestamp": 1689932265098,
+        "createdEpochMillis": 1541180421550,
+        "updatedEpochMillis": 1632396329324,
+        "serviceRefreshRateInMins": 5,
+        "deleted": false
+      },
+
+   ```
 1. Copy the value of the `"id"` parameter of the cloud integration that you want to enable or disable.
 1. To enable the integration, run the `POST /api/v2/cloudintegration/{id}/enable` request with the ID of the integration that you copied.
 1. To disable the integration, run the `POST /api/v2/cloudintegration/{id}/disable` request with the ID of the integration that you copied.
 
-## Delete and Recover a Deleted AWS Integration
+## Delete and Recover a Deleted GCP Integration
 
 To delete a cloud service integration that you no longer want to use, you need the integration ID. If you decide to move the integration to the recycle bin, you can recover it at a later stage.
 
@@ -211,42 +241,37 @@ To delete a cloud service integration that you no longer want to use, you need t
    In the **Response Body** section, you can see the list of all configured cloud services integrations. For example:
 
     ```
-    {
-     "forceSave": false,
-     "name": "AWS",
-     "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-     "service": "CLOUDWATCH",
-     "lastReceivedDataPointMs": 1634038298092,
-     "lastMetricCount": 210,
-     "cloudWatch": {
-       "namespaces": [
-         "AWS/DynamoDB"
-       ],
-       "metricFilterRegex": "",
-       "baseCredentials": {
-         "roleArn": "arn:aws:iam::<accountid>:role/<rolename>"
-       },
-       "pointTagFilterRegex": "",
-       "instanceSelectionTags": {},
-       "volumeSelectionTags": {}
-     },
-     "disabled": false,
-     "lastProcessorId": "3198d07c-210c-4670-9bd0-eb407d2a71dc",
-     "lastProcessingTimestamp": 1634038421682,
-     "createdEpochMillis": 1620216033503,
-     "updatedEpochMillis": 1622707203597,
-     "serviceRefreshRateInMins": 5,
-     "deleted": false,
-     "inTrash": false,
-     "lastErrorEvent": {
-       ...
-       ...
-
-     "creatorId": "user-account-email-address",
-     "updaterId": "user-account-email-address"
-   },
+      {
+        "forceSave": false,
+        "name": "GCP",
+        "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
+        "inTrash": false,
+        "creatorId": "user-account-email-address",
+        "updaterId": "user-account-email-address",
+        "service": "GCP",
+        "disabled": false,
+        "lastReceivedDataPointMs": 1689932143491,
+        "lastMetricCount": 158,
+        "gcp": {
+            "metricFilterRegex": "^gcp.(compute|container|pubsub).*$",
+            "projectId": "my_project_id",
+            "gcpJsonKey": "{\"project_id\": \"my_project_id\"}",
+            "disableHistogramToMetricConversion": false,
+            "disableDeltaCounts": false,
+            "categoriesToFetch": [
+              "APPENGINE"
+              ]
+          },
+        "lastProcessorId": "34ac679f-ace0-42a5-8371-6fa534f4123e",
+        "lastProcessingTimestamp": 1689932265098,
+        "createdEpochMillis": 1541180421550,
+        "updatedEpochMillis": 1632396329324,
+        "serviceRefreshRateInMins": 5,
+        "deleted": false
+      },
 
    ```
+
 1. Copy the value of the `"id"` parameter of the integration that you want to delete.
 1. To delete the integration, click the `DELETE /api/v2/cloudintegration/{id}` request.
    1. Under **Parameters**, in the **id** text box enter the integration ID that you copied.
