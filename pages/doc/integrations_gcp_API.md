@@ -1,5 +1,5 @@
 ---
-title: Set Up and Manage an AWS Integration Through the API
+title: Set Up and Manage a GCP Integration Through the API
 keywords:
 tags: [integrations, best practices]
 sidebar: doc_sidebar
@@ -18,6 +18,22 @@ When you set up a Google Cloud Platform integration, you have to give the VMware
 
 For information, see [Google Cloud Platform Overview and Permissions](integrations_gcp_overview.html).
 
+## Create a GCP Service Account Retrieve a GCP JSON Key
+
+1. Navigate to your [GCP dashboard page](https://console.cloud.google.com/home/dashboard).
+2. Click **IAM & Admin**.
+3. Select **Service Accounts**, and click the **Create Service Account** button on top.
+4. On the **Service account details** page, enter a service account name. 
+    For example, `my-integration`.
+5. Click the **Create and Continue** button.
+6. On the **Grant this service account access to project** page, in the **Select a role** drop-down menu, scroll down and select **Project > Viewer** to give read access.
+7. Click the **Continue** button and on the next page click **Done**. created in Step 2, and click it.
+8. On the Service accounts page, click the name of the service account that you just created. 
+   In this example, click **my-integration**.
+9. Click the **Keys** tab and from the **Add Key** drop-down menu, select **Create new key**.
+10. Select **JSON** as the Key type and click **Create**.
+11. Save the private key as a `.json` file and open it.
+
 
 ## Set Up a GCP Integration
 
@@ -28,84 +44,44 @@ You can add a GCP integration by using the REST API documentation UI.
 1. Click the gear icon in the top right and select **API Documentation**.
 1. Expand the **Cloud Integration** category.
 1. To create a new cloud integration, click the `POST /api/v2/cloudintegration` request.
-1. To add an integration, in the **Edit Value** text box enter one of the following examples for each AWS integration.
+1. To add an integration, in the **Edit Value** text box enter the following example.
 
-   You can add one integration at a time. You cannot use a single API request to register all AWS services together.
-
-   * CloudWatch integration:
 
      ```
-{
-  "name":"CloudWatch integration",
-  "service":"CLOUDWATCH",
-  "cloudWatch":{
-    "baseCredentials":{
-      "roleArn":"arn:aws:iam::<accountid>:role/<rolename>",
-      "externalId":"string"
-    },
-    "metricFilterRegex":"^aws.(sqs|ec2|ebs|elb).*$",
-    "pointTagFilterRegex":"(region|name)"
-  },
-  "serviceRefreshRateInMins":5
-}
-     ```
+    "gcp": {
+        "metricFilterRegex": "^gcp.(compute|container|pubsub).*$",
+        "projectId": "project_id",
+        "gcpJsonKey": "private_key",
+        "disableHistogramToMetricConversion": true,
+        "disableDeltaCounts": true,
+        "categoriesToFetch": [],
+        "customMetricPrefix": [
+          "custom.googleapis.com/"
+        ],
+        "disableHistogram": true,
+        "histogramGroupingFunction": [
+          "COUNT, MEAN, SUMOFSQUAREDDEVIATION"
+        ]
+      },
+   
+    ```
 
-   * AWS Metrics+ integration:
-
-     ```
-{
-  "name":"AWSMetric+ integration",
-  "service":"ec2",
-  "ec2":{
-    "baseCredentials":{
-      "roleArn":"arn:aws:iam::<accountid>:role/<rolename>",
-     "externalId": "string"
-    },
-    "metricFilterRegex":"^aws.(sqs|ec2|ebs|elb).*$",
-    "pointTagFilterRegex":"(region|name)"
-  },
-  "serviceRefreshRateInMins":5
-}
-     ```
-
-    * CloudTrail integration:
-
-      ```
-{
-  "name":"CloudTrail integration",
-  "service":"cloudTrail",
-   "region":"string",
-   "prefix": "string",
-   "bucketName":"string"
-  "cloudTrail":{
-    "baseCredentials":{
-      "roleArn":"arn:aws:iam::<accountid>:role/<rolename>",
-     "externalId":"string"
-    },
-    "filterRule":"string"
-}
-      ```
-
-   In these examples, the `roleArn` value is the [Role ARN from your Amazon account](integrations_aws_overview_API.html#provide-read-only-access-to-your-amazon-account-and-get-the-role-arn), and the `externalId` value is the external ID that you have provided while you created the role. If you don’t provide an external ID, the request will time out.
+  In this examples, replace `project_id` with the value of the `project_id` in your JSON file, and `private_key` with the value of the `private key` from the JSON file.
 
 1. Click **Execute**.
 
-## Update an AWS Integration
+## Update a GCP Integration
 
-You can update an AWS integration through the API. You do not need the external ID value to update an existing AWS integration.
+You can update a GCP integration through the API.
 
-In this example, we update an existing CloudWatch integration to retrieve the service metrics for 10 more services in addition to DynamoDB:
+In this example, we update an existing GCP integration to retrieve the service metrics for six more services in addition to App Engine:
 
-* EBS
-* ApiGateway
-* EC2
-* ELB
-* ElastiCache
-* ApplicationELB
-* SES
-* NATGateway
-* AutoScaling
-* RDS
+* Apigee
+* Cloud Functions
+* Cloud Run
+* CLoud SQL
+* Kubernetes
+* Pubsub
 
 We also add the metrics for these services to a metric allow list by using a regular expression and change the service refresh rate from `5` to `10` minutes.
 
@@ -113,59 +89,53 @@ We also add the metrics for these services to a metric allow list by using a reg
 1. In the REST API documentation UI, click the `GET/api/v2/cloudintegration` request.
 1. Click **Execute**.
 
-   In the **Response Body** section, under `namespaces` you can see the list of all configured cloud services integrations. For example:
+   In the **Response Body** section, you can see the list of all configured cloud services integrations. For example:
 
     ```
-    {
-     "forceSave": false,
-     "name": "AWS",
-     "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-     "service": "CLOUDWATCH",
-     "lastReceivedDataPointMs": 1634038298092,
-     "lastMetricCount": 210,
-     "cloudWatch": {
-       "namespaces": [
-         "AWS/DynamoDB"
-       ],
-       "metricFilterRegex": "",
-       "baseCredentials": {
-         "roleArn": "arn:aws:iam::<accountid>:role/<rolename>"
-       },
-       "pointTagFilterRegex": "",
-       "instanceSelectionTags": {},
-       "volumeSelectionTags": {}
-     },
-     "disabled": false,
-     "lastProcessorId": "3198d07c-210c-4670-9bd0-eb407d2a71dc",
-     "lastProcessingTimestamp": 1634038421682,
-     "createdEpochMillis": 1620216033503,
-     "updatedEpochMillis": 1622707203597,
-     "serviceRefreshRateInMins": 5,
-     "deleted": false,
-     "inTrash": false,
-     "lastErrorEvent": {
-       ...
-       ...
-
-     "creatorId": "user-account-email-address",
-     "updaterId": "user-account-email-address"
-   },
+      {
+        "forceSave": false,
+        "name": "GCP",
+        "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
+        "inTrash": false,
+        "creatorId": "user-account-email-address",
+        "updaterId": "user-account-email-address",
+        "service": "GCP",
+        "disabled": false,
+        "lastReceivedDataPointMs": 1689932143491,
+        "lastMetricCount": 158,
+        "gcp": {
+            "metricFilterRegex": "^gcp.(compute|container|pubsub).*$",
+            "projectId": "my_project_id",
+            "gcpJsonKey": "{\"project_id\": \"my_project_id\"}",
+            "disableHistogramToMetricConversion": false,
+            "disableDeltaCounts": false,
+            "categoriesToFetch": [
+              "APPENGINE"
+              ]
+          },
+        "lastProcessorId": "34ac679f-ace0-42a5-8371-6fa534f4123e",
+        "lastProcessingTimestamp": 1689932265098,
+        "createdEpochMillis": 1541180421550,
+        "updatedEpochMillis": 1632396329324,
+        "serviceRefreshRateInMins": 5,
+        "deleted": false
+      },
 
    ```
 
-   In this example, you can see that the CloudWatch integration retrieves only DynamoDB metrics and that the service refresh rate is 5 minutes.
+   In this example, you can see that the GCP integration retrieves only App Engine metrics and that the service refresh rate is 5 minutes.
 
 1. Copy the value of the `"id"` parameter of the integration that you want to update.
 1. Copy the content of the response in a text file.
 1. Edit the copied response body.
 
-   1. To update the list of services, under `"namespaces"`, add the list of services:
+   1. To update the list of services, under `"categoriesToFetch"`, add the list of services:
 
-      ![Updated list of services.](images/aws-api-update-services.png)
+      ![Updated list of services.](images/gcp-api-update-services.png)
 
    1. To add the regular expression, under the list of services, add the following `"metricFilterRegex"` value:
 
-      ![Regular expression to allow the metrics flow from the updated list of services.](images/aws-api-update-regex.png)
+      ![Regular expression to allow the metrics flow from the updated list of services.](images/gcp-api-update-regex.png)
 
    1. To change the service refresh rate to 10 minutes, update the `"serviceRefreshRateInMins"` value:
 
@@ -173,59 +143,51 @@ We also add the metrics for these services to a metric allow list by using a reg
 
    The updated response body will look like that:
 
-   ```
-{
-  "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-  "name":"AWS",
-  "service":"CLOUDWATCH",
-  "cloudWatch":{
-    "namespaces": [
-      "AWS/DynamoDB"
-      "AWS/EBS",
-      "AWS/ApiGateway",
-      "AWS/EC2",
-      "AWS/ELB",
-      "AWS/ElastiCache",
-      "AWS/ApplicationELB",
-      "AWS/SES",
-      "AWS/NATGateway",
-      "AWS/AutoScaling",
-      "AWS/RDS"
-    ],
-    "metricFilterRegex":^(aws.(ecs|ses|instance|autoscaling|sqs|sns|reservedInstance|ebs|route53.health|ec2.status|ec2.cpuutilization|ec2.network|ec2.autoscaling|autoscaling|elb|dynamodb|kinesis|firehose|s3|applicationelb|networkelb|lambda|rds|elasticache|applicationelb|natgateway).*),
-    "pointTagFilterRegex": "",
-    "baseCredentials":{
-      "roleArn":"arn:aws:iam::<accountid>:role/<rolename>"
-    },
-    "instanceSelectionTags": {},
-    "volumeSelectionTags": {}
-    }
-    },
-    "disabled": false,
-    "lastProcessorId": "3198d07c-210c-4670-9bd0-eb407d2a71dc",
-    "lastProcessingTimestamp": 1634038421682,
-    "createdEpochMillis": 1620216033503,
-    "updatedEpochMillis": 1622707203597,
-    "serviceRefreshRateInMins": 10,
-    "deleted": false,
-    "inTrash": false,
-    "lastErrorEvent": {
-      ...
-      ...
-
-    "creatorId": "user-account-email-address",
-    "updaterId": "user-account-email-address"
-  },
+    ```
+      {
+        "forceSave": false,
+        "name": "GCP",
+        "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
+        "inTrash": false,
+        "creatorId": "user-account-email-address",
+        "updaterId": "user-account-email-address",
+        "service": "GCP",
+        "disabled": false,
+        "lastReceivedDataPointMs": 1689932143491,
+        "lastMetricCount": 158,
+        "gcp": {
+            "metricFilterRegex": "^gcp.(appengine|apigee|cloudfunctions|cloudrun|cloudsql|kubernetes|pubsub).*$",
+            "projectId": "my_project_id",
+            "gcpJsonKey": "{\"project_id\": \"my_project_id\"}",
+            "disableHistogramToMetricConversion": false,
+            "disableDeltaCounts": false,
+            "categoriesToFetch": [
+                    "APPENGINE",
+                    "Apigee",
+                    "Cloud Functions",
+                    "Cloud Run",
+                    "Cloud SQL",
+                    "Kubernetes",
+                    "Pubsub"
+                    ]
+          },
+        "lastProcessorId": "34ac679f-ace0-42a5-8371-6fa534f4123e",
+        "lastProcessingTimestamp": 1689932265098,
+        "createdEpochMillis": 1541180421550,
+        "updatedEpochMillis": 1632396329324,
+        "serviceRefreshRateInMins": 10,
+        "deleted": false
+      },
 
    ```
-
+   
 1. In the REST API documentation UI, click the `PUT /api/v2/cloudintegration/{id}` request.
 1. Under **Parameters**, in the **id** text box enter the ID of the integration that you copied.
-1. In **Edit Value** text box enter the edited response body with the new services.
+1. In **Edit Value** text box enter the edited response body with the updated categories to fetch, the regex and the service refresh rate.
 1. Click **Execute**.
 1. Verify that the response returns `200` status code to indicate that the update was successful.
 
-## Enable and Disable an AWS Integration
+## Enable and Disable a GCP Integration
 
 VMware Aria Operations for Applications automatically disables integrations that are experiencing errors due to invalid credentials. To enable an integration after the credential has been corrected or to manually disable an integration, you need the integration ID.
 
@@ -234,43 +196,7 @@ VMware Aria Operations for Applications automatically disables integrations that
 
    In the **Response Body** section, you can see the list of all configured cloud services integrations. For example:
 
-    ```
-    {
-     "forceSave": false,
-     "name": "AWS",
-     "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-     "service": "CLOUDWATCH",
-     "lastReceivedDataPointMs": 1634038298092,
-     "lastMetricCount": 210,
-     "cloudWatch": {
-       "namespaces": [
-         "AWS/DynamoDB"
-       ],
-       "metricFilterRegex": "",
-       "baseCredentials": {
-         "roleArn": "arn:aws:iam::<accountid>:role/<rolename>"
-       },
-       "pointTagFilterRegex": "",
-       "instanceSelectionTags": {},
-       "volumeSelectionTags": {}
-     },
-     "disabled": false,
-     "lastProcessorId": "3198d07c-210c-4670-9bd0-eb407d2a71dc",
-     "lastProcessingTimestamp": 1634038421682,
-     "createdEpochMillis": 1620216033503,
-     "updatedEpochMillis": 1622707203597,
-     "serviceRefreshRateInMins": 5,
-     "deleted": false,
-     "inTrash": false,
-     "lastErrorEvent": {
-       ...
-       ...
-
-     "creatorId": "user-account-email-address",
-     "updaterId": "user-account-email-address"
-   },
-
-   ```
+    
 1. Copy the value of the `"id"` parameter of the cloud integration that you want to enable or disable.
 1. To enable the integration, run the `POST /api/v2/cloudintegration/{id}/enable` request with the ID of the integration that you copied.
 1. To disable the integration, run the `POST /api/v2/cloudintegration/{id}/disable` request with the ID of the integration that you copied.
