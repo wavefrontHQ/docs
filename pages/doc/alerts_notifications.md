@@ -101,6 +101,40 @@ If you want to exclude chart images:
 * Remove the corresponding variable from the templates for custom HTML email or Slack targets.
 * You cannot remove chart images for custom PagerDuty alert targets.
 
+### Related Logs in Notifications
+
+When you create or edit an alert, in the **Related Logs** panel, you can add multiple tag filters. This way, you can prepare the logs search query, which runs when the alert fires.
+
+![The Related Logs panel with a drop-down menu for selecting include and exclude tag filters.](images/logs_alert_create.png)
+
+To drill into the related logs of a firing alert:
+
+1. Go to the Alert Viewer for the alert. You have these options:
+
+    * Click the link in the alert notification.
+    * In the [Alerts Browser](alerts.html#alerts-browser-tutorial), locate the firing alert and click **View firing details**.
+  
+1. Click **Show Logs Summary**.
+    * In the **Alert Log Summary** panel, the `time range` filter is populated with the trigger window during which the alert condition was met and the alert transitioned to a firing state.
+    * The chart shows you the logs for the specific time grouped by the log level, such as, debug, trace, error, server, info, and warn.
+    * You also get to see the list of exceptions that were fired when the alert was fired. Click an exception to go to the Logs Browser and examine the logs that have the exception you selected.
+
+    ![A screenshot of the alert log summary panel of a firing alert.](images/logs_view_log_summary_from_alert.png)
+
+1. Optionally, in the **Alert Log Summary** panel, adjust the filters for the logs search query.
+
+    1. Click **Configure log search**.
+    1. Add and remove filters from the **Related Logs** section, and save the alert.
+    
+   Click the eye icons of the related logs filters that you want to hide from the logs search query. To unhide a filter, you must click the eye-hide icon. You cannot remove or hide the `time range` filter.
+  
+1. In the **Alert Log Summary** panel, click **Go to Logs**.
+    The Logs Browser opens in a new tab with the configurations from the **Related Logs** panel:
+    
+    * The search time window corresponds to the `time range` value.
+    * The search query contains the unhidden filters (with the eye icons).
+      ![The search query and the selected time window in the Logs Browser.](images/logs_drill_alert_search.png)
+
 ## PagerDuty Notifications
 
 If you use the out-of-the-box PagerDuty alert target, and you resolve the incident in PagerDuty while the alert is still firing in Operations for Applications, two scenarios are possible:
@@ -131,3 +165,5 @@ When you select **Create Alert** and **Edit Alert** you can select a **Secure Me
   - A notification that some metrics are hidden due to metrics security policies is shown on the chart.
 
 ![alert email screenshot without metrics image](images/alert_email_protected.png)
+
+
