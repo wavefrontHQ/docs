@@ -40,6 +40,10 @@ For information about the two subscription types and how they differ, see [Subsc
 
 * **Support for Alerting on ~alert.webhooks**: With this release, you can alert on `cs(~alert.webhooks.*)`. See [Query Responses of Webhook Alert Targets](webhooks_alert_notification.html#query-responses-of-webhook-alert-targets) for details.
 
+### Onboarded Subscriptions Only
+
+**Support for Kubernetes Integration Setup**: We added support for setting up the Kubernetes integration when your Operations for Applications service is onboarded to VMware Cloud services. See the [Integrations ReleaseNotes](integrations_new_changed.html#august-2023) for details.
+
 ## 2023-29.x Release Notes
 
 ### Original and Onboarded Subscriptions

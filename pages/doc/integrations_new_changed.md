@@ -19,6 +19,16 @@ If your Operations for Applications service is onboarded to VMware Cloud service
 
 {% include note.html content= "Currently, if your service **is onboarded** to VMware Cloud services, direct ingestion by using the Wavefront Output Plugin for Telegraf is not supported. For best performance, use a Wavefront proxy. " %}
 
+## August 2023
+
+We made improvements to the following integrations in August 2023:
+
+* Kubernetes:
+  * We added support for Kubernetes setup when your Operations for Applications service **is onboarded** to VMware Cloud services.
+  * We now support a number of integrations on Kubernetes. The list includes: Cassandra, Ceph, Envoy Proxy, etcd, Fluentd, Kafka, NVIDIA, Rabbit MQ, and Redis.  
+
+  For the latest list of integrations, see [Integrations Supported for Onboarded Subscriptions](integrations_onboarded_subscriptions.html).
+
 ## July 2023
 
 We made improvements to the following integrations in July 2023:
