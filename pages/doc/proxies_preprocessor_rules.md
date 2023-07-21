@@ -1347,6 +1347,14 @@ Available action subtypes are `truncate`, `truncateWithEllipsis`, and `drop`.
     actionSubtype : truncateWithEllipsis
     maxLength     : "128"
 ```
+
+
+## Log Filtering Rules
+
+You can send logs to the Wavefront proxy from your log shipper or directly from your application. The Wavefront proxy sends the log data to our service.
+
+The Wavefront proxy includes a preprocessor that applies rules before the log data is sent to our service. Logs store data in tags, that are key-value pairs. To learn more, see [Proxy Preprocessor Rules for Logs](logging_proxy_configurations.html#proxy-preprocessor-rules-for-logs).
+
 ## Next Steps
 To apply the Wavefront proxy preprocessor rules when certain conditions are met, [add preprocessor rule conditions](proxies_preprocessor_rule_conditions.html)
 

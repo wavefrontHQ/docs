@@ -201,7 +201,10 @@ VMware Cloud services provides access to both VMware Aria Operations for Logs an
 ## Proxy Preprocessor Rules for Logs
 
 The Wavefront proxy includes a preprocessor that applies rules before the log data is sent to our service. Logs store data in tags, that are key-value pairs. The rules listed below, update the log tag value.
-For details on how to configure the rules, see [Rule Configuration File](proxies_preprocessor_rules.html#rule-configuration-file).
+
+{% include note.html content="For details on how to configure the rules, see [Rule Configuration File](proxies_preprocessor_rules.html#rule-configuration-file)." %}
+
+
 
 ### logReplaceRegex
 

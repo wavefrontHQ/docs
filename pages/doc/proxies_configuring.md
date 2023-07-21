@@ -54,7 +54,7 @@ By default, there are 4 threads (and 4 buffer files) waiting to retry points onc
 ```
 {% include note.html content="**Proxy 9.0 and later**:<br/> If you don't want to buffer the data on a file-based storage and if you have an AWS Simple Queue Service (SQS), you can add an SQS for the proxy so that the data is sent to the SQS instead of buffering the data to the local on-disk when there is a data outage or when proxies are backing up. To send data to an AWS SQS, configure the [`sqsBuffer`](#sqsBuffer), [`sqsQueueNameTemplate`](#sqsQueueNameTemplate), [`sqsQueueIdentifier`](#sqsQueueIdentifier), and [`sqsQueueRegion`](#sqsQueueRegion) properties in the `wavefront.conf` file." %}
 
-## Logging
+## Proxy Log Files
 
 The Wavefront proxy supports two log files: proxy log and blocked point log.
 
@@ -1218,6 +1218,17 @@ Ex: <code>40</code></td>
 </tbody>
 </table>
 
+### Logs Configuration Properties
+
+You can send logs to the Wavefront proxy from your log shipper or directly from your application. The Wavefront proxy sends the log data to our service.
+
+If your logs don’t use the attributes that our logging solution expects, or if you want to customize proxy behavior otherwise, you can use proxy configuration properties to do that. For more details, see [Proxy Configuration Properties for Logs](logging_proxy_configurations.html#proxy-configuration-properties-for-logs).
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="proxies_configuring.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ## Authenticate Incoming HTTP Requests at the Proxy
 
