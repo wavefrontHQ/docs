@@ -207,7 +207,7 @@ The alert fires if the alert conditions you set are true for 5 minutes:
 
 Email and Webhook notifications are coming soon to Log Alerts!
 
-{% include note.html content="Currently, you won't get an email when your log alert fires. To see the details of a log alert or when it fired during the last 30 days, go to the Log Alerts Browser, click the log alert, and click Show Firings." %}
+{% include note.html content="Currently, you won't get an email when your logs alert fires. To see the details of a logs alert or when it fired during the last 30 days, click Alerting > All Alerts, open the Logs Alert tab, click the logs alert, and click Show Firings." %}
 
 
 <!-- Add after this is added back it the UI
