@@ -48,25 +48,26 @@ You can add a GCP integration by using the REST API documentation UI.
 
 
      ```
-    "gcp": {
-        "metricFilterRegex": "^gcp.(compute|container|pubsub).*$",
-        "projectId": "project_id",
-        "gcpJsonKey": "private_key",
-        "disableHistogramToMetricConversion": true,
-        "disableDeltaCounts": true,
-        "categoriesToFetch": [],
-        "customMetricPrefix": [
-          "custom.googleapis.com/"
-        ],
-        "disableHistogram": true,
-        "histogramGroupingFunction": [
-          "COUNT, MEAN, SUMOFSQUAREDDEVIATION"
-        ]
-      },
-   
+      {
+        "name": "integration-name",
+        "service": "GCP",
+        "gcp": {
+          "metricFilterRegex": "",
+          "gcpJsonKey": "private_key",
+          "projectId": "project_id",
+          "categoriesToFetch": [],
+          "customMetricPrefix": [],
+          "disableHistogram": false,
+          "disableHistogramToMetricConversion": true,
+          "histogramGroupingFunction": [],
+          "disableDeltaCounts": true
+        },
+        "serviceRefreshRateInMins": 5
+      }
+        
     ```
 
-      In this example, replace `project_id` with the value of the `project_id` in your JSON file, and `private_key` with the value of the `private key` from the JSON file.
+      In this example, replace `private_key` with the value of the `private key` from the JSON file and `project_id` with the value of the `project_id` in your JSON file.
 
 1. Click **Execute**.
 
@@ -74,16 +75,14 @@ You can add a GCP integration by using the REST API documentation UI.
 
 You can update a GCP integration through the API.
 
-In this example, we update an existing GCP integration to retrieve the metrics for six more categories in addition to App Engine:
+In this example, we update an existing GCP integration to retrieve the metrics for the following list of categories:
 
 * Apigee
+* App Engine
 * Cloud Functions
 * Cloud Run
-* CLoud SQL
-* Kubernetes
-* Pubsub
 
-We also add the metrics for these services to a metric allow list by using a regular expression and change the service refresh rate from `5` to `10` minutes.
+We also change the service refresh rate from `5` to `10` minutes.
 
 
 1. In the REST API documentation UI, click the `GET/api/v2/cloudintegration` request.
@@ -93,8 +92,7 @@ We also add the metrics for these services to a metric allow list by using a reg
 
     ```
       {
-        "forceSave": false,
-        "name": "GCP",
+        "name": "integration-name",
         "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
         "inTrash": false,
         "creatorId": "user-account-email-address",
@@ -133,10 +131,6 @@ We also add the metrics for these services to a metric allow list by using a reg
 
       ![Updated list of services.](images/gcp-api-update-services.png)
 
-   1. To add the regular expression, under the list of services, add the following `"metricFilterRegex"` value:
-
-      ![Regular expression to allow the metrics flow from the updated list of services.](images/gcp-api-update-regex.png)
-
    1. To change the service refresh rate to 10 minutes, update the `"serviceRefreshRateInMins"` value:
 
       ![Updated service refresh rate from 5 to 10 minutes.](images/aws-api-update-refresh-rate.png)
@@ -145,41 +139,30 @@ We also add the metrics for these services to a metric allow list by using a reg
 
     ```
       {
-        "forceSave": false,
-        "name": "GCP",
-        "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-        "inTrash": false,
-        "creatorId": "user-account-email-address",
-        "updaterId": "user-account-email-address",
+        "name": "my_integration_name",
         "service": "GCP",
-        "disabled": false,
-        "lastReceivedDataPointMs": 1689932143491,
-        "lastMetricCount": 158,
         "gcp": {
-            "metricFilterRegex": "^gcp.(appengine|apigee|cloudfunctions|cloudrun|cloudsql|kubernetes|pubsub).*$",
-            "projectId": "my_project_id",
-            "gcpJsonKey": "{\"project_id\": \"my_project_id\"}",
-            "disableHistogramToMetricConversion": false,
-            "disableDeltaCounts": false,
-            "categoriesToFetch": [
-                    "APPENGINE",
-                    "Apigee",
-                    "Cloud Functions",
-                    "Cloud Run",
-                    "Cloud SQL",
-                    "Kubernetes",
-                    "Pubsub"
-                    ]
-          },
-        "lastProcessorId": "34ac679f-ace0-42a5-8371-6fa534f4123e",
-        "lastProcessingTimestamp": 1689932265098,
-        "createdEpochMillis": 1541180421550,
-        "updatedEpochMillis": 1632396329324,
-        "serviceRefreshRateInMins": 10,
-        "deleted": false
-      },
+          "metricFilterRegex": "",
+          "gcpJsonKey": "{\"project_id\": \"my_project_id\"}",
+          "categoriesToFetch": [
+            "APIGEE",
+            "APPENGINE",
+            "CLOUDFUNCTIONS",
+            "RUN"
+          ],
+          "customMetricPrefix": [],
+          "disableHistogram": false,
+          "disableHistogramToMetricConversion": true,
+          "histogramGroupingFunction": [],
+          "disableDeltaCounts": true,
+          "projectId": "project_id"
+        },
+        "serviceRefreshRateInMins": "10"
+      }
 
    ```
+
+   {% include note.html content="The values that we pass as `categoriesToFetch` are not the same as displayed in the Operations for Applications UI." %}
    
 1. In the REST API documentation UI, click the `PUT /api/v2/cloudintegration/{id}` request.
 1. Under **Parameters**, in the **id** text box enter the ID of the integration that you copied.
@@ -198,7 +181,6 @@ VMware Aria Operations for Applications automatically disables integrations that
 
       ```
       {
-        "forceSave": false,
         "name": "GCP",
         "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
         "inTrash": false,
@@ -242,7 +224,6 @@ To delete a cloud service integration that you no longer want to use, you need t
 
     ```
       {
-        "forceSave": false,
         "name": "GCP",
         "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
         "inTrash": false,
