@@ -66,7 +66,7 @@ You can add a GCP integration by using the REST API documentation UI.
    
     ```
 
-  In this examples, replace `project_id` with the value of the `project_id` in your JSON file, and `private_key` with the value of the `private key` from the JSON file.
+      In this example, replace `project_id` with the value of the `project_id` in your JSON file, and `private_key` with the value of the `private key` from the JSON file.
 
 1. Click **Execute**.
 
@@ -74,7 +74,7 @@ You can add a GCP integration by using the REST API documentation UI.
 
 You can update a GCP integration through the API.
 
-In this example, we update an existing GCP integration to retrieve the service metrics for six more services in addition to App Engine:
+In this example, we update an existing GCP integration to retrieve the metrics for six more categories in addition to App Engine:
 
 * Apigee
 * Cloud Functions
@@ -196,7 +196,7 @@ VMware Aria Operations for Applications automatically disables integrations that
 
    In the **Response Body** section, you can see the list of all configured cloud services integrations. For example:
 
-       ```
+      ```
       {
         "forceSave": false,
         "name": "GCP",
@@ -226,7 +226,7 @@ VMware Aria Operations for Applications automatically disables integrations that
         "deleted": false
       },
 
-   ```
+      ```
 1. Copy the value of the `"id"` parameter of the cloud integration that you want to enable or disable.
 1. To enable the integration, run the `POST /api/v2/cloudintegration/{id}/enable` request with the ID of the integration that you copied.
 1. To disable the integration, run the `POST /api/v2/cloudintegration/{id}/disable` request with the ID of the integration that you copied.
