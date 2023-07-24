@@ -187,7 +187,7 @@ You can configure the alert to fire in real-time, or you can configure the alert
                         Sum
                     </td>
                     <td>
-                        The alert fires when the sum of the logs that includes the tag you selected is greater than or less than the alert threshold you define.              
+                        The alert fires when the sum of the logs that includes the tag you selected is greater than or less than the alert threshold you define.             
                     </td>
                 </tr>
                     
