@@ -1018,9 +1018,9 @@ The preceding template might yield the following message:
 
 ## List All Sources and Point Tags of an Aggregation Alert's Time Series
 
-Starting with the 2023.30 release, you can use the `contributingKVs` iterator to visit each point tag (shown as a `<key>=<value>` pair) of a failed alert whose condition uses a single top-level [aggregation function](query_language_aggregate_functions.html). For example, the condition of the failed alert can be `sum(ts(~sample.cpu.usage.percentage)) > 1`.
+Starting with the 2023.30 release, you can use the `contributingKVs` iterator to visit each source and point tag (shown as a `<key>=<value>` pair) of a failed alert whose condition uses a single top-level [aggregation function](query_language_aggregate_functions.html). For example, the condition of the failed alert can be `sum(ts(~sample.cpu.usage.percentage)) > 1`.
 
-{% include note.html content="The listed keys are *contributing* to the alert failure, but they are not definitely *failing*." %}
+{% include note.html content="The listed keys are **contributing** to the alert failure, but they are not definitely **failing**." %}
 
 {% include important.html content="This feature is disabled by default. To enable this feature for your service instance, contact your account representative or [technical support](wavefront_support_feedback.html#support)." %}
 
@@ -1035,8 +1035,8 @@ Starting with the 2023.30 release, you can use the `contributingKVs` iterator to
 <tbody>
 <tr>
 <td markdown="span">`contributingKVs`</td>
-<td>This iterator is populated only when there is <strong>no data</strong> in the <a href="#alert-series-iterators"><code>failingAlertSeries</code> iterator</a>. This happens when the alert condition uses a single top-level aggregation function.
-<p>This iterator returns the keys and values of each point tag used in the alert's time series generating the aggregation. The sources and point tags listed might or might not be a part of the actual failing time series. The aggregation can contain thousands of keys but the display is limited to 100 which is <a href="#limit-list-sizes">configurable</a>.</p>
+<td>This iterator is populated only when there is <strong>no data</strong> in the <a href="#alert-series-iterators"><code>failingAlertSeries</code> iterator</a>. This happens when the alert condition uses a single top-level <a href="query_language_aggregate_functions.html">aggregation function</a>.
+<p>This iterator returns the keys and values of each source and point tag used in the alert's time series generating the aggregation. The sources and point tags listed might or might not be a part of the actual failing time series. The aggregation can contain thousands of keys but the display is limited to 100 which is <a href="#limit-list-sizes">configurable</a>.</p>
 </td>
 </tr>
 </tbody>
@@ -1044,7 +1044,7 @@ Starting with the 2023.30 release, you can use the `contributingKVs` iterator to
 
 **Example: Accessing All Sources and Point Tags in a Generic Webhook Alert Target Template**
 
-This portion of the Generic Webhook alert target template shows the iterator that return the keys and values of the time series used in a failed alert whose condition uses a single top-level aggregation function:
+This portion of the Generic Webhook alert target template shows the iterator that returns the keys and values of the time series used in a failed alert whose condition uses a single top-level aggregation function:
 
 {% raw %}
 ```handlebars
@@ -1064,7 +1064,7 @@ This portion of the Generic Webhook alert target template shows the iterator tha
 ```
 {% endraw %}
 
-**Example: All Sources and Point Tags in Output from The Sample Template**
+**Example: All Sources and Point Tags in Output from the Sample Template**
 
 Here is a sample keys and values output generated with the preceding template:
 
