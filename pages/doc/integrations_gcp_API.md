@@ -167,7 +167,7 @@ We also change the service refresh rate from `5` to `10` minutes.
    
 1. In the REST API documentation UI, click the `PUT /api/v2/cloudintegration/{id}` request.
 1. Under **Parameters**, in the **id** text box enter the ID of the integration that you copied.
-1. In **Edit Value** text box enter the edited response body with the updated categories to fetch, the regex and the service refresh rate.
+1. In **Edit Value** text box enter the edited response body with the updated categories to fetch and the service refresh rate.
 1. Click **Execute**.
 1. Verify that the response returns `200` status code to indicate that the update was successful.
 
