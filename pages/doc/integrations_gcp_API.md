@@ -139,7 +139,7 @@ We also change the service refresh rate from `5` to `10` minutes.
 
     ```
       {
-        "name": "my_integration_name",
+        "name": "integration-name",
         "service": "GCP",
         "gcp": {
           "metricFilterRegex": "",
@@ -181,7 +181,7 @@ VMware Aria Operations for Applications automatically disables integrations that
 
       ```
       {
-        "name": "GCP",
+        "name": "integration-name",
         "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
         "inTrash": false,
         "creatorId": "user-account-email-address",
@@ -224,7 +224,7 @@ To delete a cloud service integration that you no longer want to use, you need t
 
     ```
       {
-        "name": "GCP",
+        "name": "integration-name",
         "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
         "inTrash": false,
         "creatorId": "user-account-email-address",
