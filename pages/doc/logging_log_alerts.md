@@ -155,7 +155,7 @@ You can configure the alert to fire in real-time, or you can configure the alert
                         Unique count
                     </td>
                     <td>
-                        The alert fires when the the number of logs with the tag you selected is greater than or less than the alert threshold you define.          
+                        The alert fires when the the number of logs that includes the tag you selected is greater than or less than the alert threshold you define.          
                     </td>
                 </tr>
                 <tr>
@@ -163,7 +163,7 @@ You can configure the alert to fire in real-time, or you can configure the alert
                         Average
                     </td>
                     <td>
-                       The alert fires when the average number of logs with the tag you selected is greater than or less than the alert threshold you define.             
+                       The alert fires when the average number of logs that includes the tag you selected is greater than or less than the alert threshold you define.             
                     </td>
                 </tr>
                 <tr>
@@ -171,7 +171,7 @@ You can configure the alert to fire in real-time, or you can configure the alert
                            Maximum
                     </td>
                     <td>
-                        The alert fires when the maximum number of logs with the tag you selected is greater than or less than the alert threshold you define.       
+                        The alert fires when the maximum number of logs that includes the tag you selected is greater than or less than the alert threshold you define.       
                     </td>
                 </tr>
                 <tr>
@@ -179,7 +179,7 @@ You can configure the alert to fire in real-time, or you can configure the alert
                         Minimum
                     </td>
                     <td>
-                         The alert fires when the minimum number of logs with the tag you selected is greater than or less than the alert threshold you define.          
+                         The alert fires when the minimum number of logs that includes the tag you selected is greater than or less than the alert threshold you define.          
                     </td>
                 </tr>
                 <tr>
@@ -187,7 +187,7 @@ You can configure the alert to fire in real-time, or you can configure the alert
                         Sum
                     </td>
                     <td>
-                        The alert fires when the sum of logs for the selected time window is greater than or less than the alert threshold you define.              
+                        The alert fires when the sum of the logs that includes the tag you selected is greater than or less than the alert threshold you define.              
                     </td>
                 </tr>
                     
