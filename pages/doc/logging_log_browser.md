@@ -207,12 +207,11 @@ You can add search filters from the predefined filters in the left panel and fro
   <tr>
     <td>
       <p>To add a tag filter from a predefined filter:
-      <ol><li>Select the target tag key.
-      <ul><li>To add a <code>source</code> tag filter, click the <strong>Source</strong> filter in the left panel.
-      <p>The filter lists the <code>source</code> values for the selected time window and the current search query. For each <code>source</code> value, the list shows the number of logs matching that value.</p></li>
-      <li>To add any other tag filter, click the <strong>All Tags</strong> filter in the left panel and expand the target tag key.
-      <p>The filter lists all tag keys from the beginning of the logs ingestion and all tag values for the selected time window and the current search query. For each tag value, the list shows the number of logs matching that value.</p></li></ul>
-      </li>
+      <ol>
+        <li>Select the target tag key.
+          <p>Select a tag that is listed under <strong>All Tags</strong> in the left panel and expand the target tag key.</p>
+          <p>The filter lists all tag keys from the beginning of the logs ingestion and all tag values for the selected time window and the current search query. For each tag value, the list shows the number of logs matching that value.</p>
+        </li>
       <li>Select the target tag value and the filter type.
       <ul>
       <li>To add an include tag filter, select the equal (=) sign for the target tag value.</li>
@@ -221,7 +220,6 @@ You can add search filters from the predefined filters in the left panel and fro
       </ol></p>
     </td>
     <td>
-      <p><img src="images/logs_source_filter.png"/></p>
       <p><img src="images/logs_tag_filter.png"/></p>
     </td>
   </tr>
