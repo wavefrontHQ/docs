@@ -67,9 +67,10 @@ You can add a GCP integration by using the REST API documentation UI.
         
     ```
 
-      In this example, replace `private_key` with the value of the `private key` from the JSON file and `project_id` with the value of the `project_id` in your JSON file.
+    In this example, replace `private_key` with the value of the `private key` from the JSON file and `project_id` with the value of the `project_id` in your JSON file.
 
 1. Click **Execute**.
+
 
 ## Update a GCP Integration
 
@@ -88,40 +89,40 @@ We also change the service refresh rate from `5` to `10` minutes.
 1. In the REST API documentation UI, click the `GET/api/v2/cloudintegration` request.
 1. Click **Execute**.
 
-   In the **Response Body** section, you can see the list of all configured cloud services integrations. For example:
+   In the **Response Body** section, you can see the list of all configured cloud services integrations. For example, for a GCP integration you see:
 
     ```
       {
+        "forceSave": false,
         "name": "integration-name",
         "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
+        "service": "GCP",
+        "disabled": false,
         "inTrash": false,
         "creatorId": "user-account-email-address",
         "updaterId": "user-account-email-address",
-        "service": "GCP",
-        "disabled": false,
-        "lastReceivedDataPointMs": 1689932143491,
-        "lastMetricCount": 158,
+        "lastReceivedDataPointMs": 1690204240391,
         "gcp": {
-            "metricFilterRegex": "^gcp.(compute|container|pubsub).*$",
-            "projectId": "my_project_id",
-            "gcpJsonKey": "{\"project_id\": \"my_project_id\"}",
-            "disableHistogramToMetricConversion": false,
-            "disableDeltaCounts": false,
-            "categoriesToFetch": [
-              "APPENGINE"
-              ]
-          },
-        "lastProcessorId": "34ac679f-ace0-42a5-8371-6fa534f4123e",
-        "lastProcessingTimestamp": 1689932265098,
-        "createdEpochMillis": 1541180421550,
-        "updatedEpochMillis": 1632396329324,
+          "projectId": "my-project-id",
+          "gcpJsonKey": "{\"project_id\": \"my-project-id\"}",
+          "disableHistogramToMetricConversion": true,
+          "disableDeltaCounts": true,
+          "categoriesToFetch": [],
+          "customMetricPrefix": [],
+          "disableHistogram": false,
+          "histogramGroupingFunction": [],
+          "metricFilterRegex": ""
+        },
+        "lastProcessorId": "c09797d7-f2c9-4253-8fcb-77fbad50a97c",
+        "lastProcessingTimestamp": 1690204240721,
+        "createdEpochMillis": 1690204240387,
+        "updatedEpochMillis": 1690204240387,
         "serviceRefreshRateInMins": 5,
         "deleted": false
-      },
+      }
+    ```
 
-   ```
-
-   In this example, you can see that the GCP integration retrieves only App Engine metrics and that the service refresh rate is 5 minutes.
+   In this example, you can see that there are no categories listed under `"categoriesToFetch"` and the service refresh rate is 5 minutes.
 
 1. Copy the value of the `"id"` parameter of the integration that you want to update.
 1. Copy the content of the response in a text file.
@@ -177,38 +178,44 @@ VMware Aria Operations for Applications automatically disables integrations that
 1. In the REST API documentation UI, click the `GET/api/v2/cloudintegration` request.
 1. Click **Execute**.
 
-   In the **Response Body** section, you can see the list of all configured cloud services integrations. For example:
+   In the **Response Body** section, you can see the list of all configured cloud services integrations. For example, for a GCP integration you see:
 
-      ```
+    ```
       {
+        "forceSave": false,
         "name": "integration-name",
         "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
+        "service": "GCP",
+        "disabled": false,
         "inTrash": false,
         "creatorId": "user-account-email-address",
         "updaterId": "user-account-email-address",
-        "service": "GCP",
-        "disabled": false,
-        "lastReceivedDataPointMs": 1689932143491,
-        "lastMetricCount": 158,
+        "lastReceivedDataPointMs": 1690204240391,
         "gcp": {
-            "metricFilterRegex": "^gcp.(compute|container|pubsub).*$",
-            "projectId": "my_project_id",
-            "gcpJsonKey": "{\"project_id\": \"my_project_id\"}",
-            "disableHistogramToMetricConversion": false,
-            "disableDeltaCounts": false,
-            "categoriesToFetch": [
-              "APPENGINE"
-              ]
-          },
-        "lastProcessorId": "34ac679f-ace0-42a5-8371-6fa534f4123e",
-        "lastProcessingTimestamp": 1689932265098,
-        "createdEpochMillis": 1541180421550,
-        "updatedEpochMillis": 1632396329324,
-        "serviceRefreshRateInMins": 5,
+          "projectId": "my-project-id",
+          "gcpJsonKey": "{\"project_id\": \"my-project-id\"}",
+          "disableHistogramToMetricConversion": true,
+          "disableDeltaCounts": true,
+          "categoriesToFetch": [
+            "APIGEE",
+            "APPENGINE",
+            "CLOUDFUNCTIONS",
+            "RUN"
+          ],
+          "customMetricPrefix": [],
+          "disableHistogram": false,
+          "histogramGroupingFunction": [],
+          "metricFilterRegex": ""
+        },
+        "lastProcessorId": "c09797d7-f2c9-4253-8fcb-77fbad50a97c",
+        "lastProcessingTimestamp": 1690204240721,
+        "createdEpochMillis": 1690204240387,
+        "updatedEpochMillis": 1690204240387,
+        "serviceRefreshRateInMins": 10,
         "deleted": false
-      },
+      }
+    ```
 
-      ```
 1. Copy the value of the `"id"` parameter of the cloud integration that you want to enable or disable.
 1. To enable the integration, run the `POST /api/v2/cloudintegration/{id}/enable` request with the ID of the integration that you copied.
 1. To disable the integration, run the `POST /api/v2/cloudintegration/{id}/disable` request with the ID of the integration that you copied.
@@ -220,38 +227,43 @@ To delete a cloud service integration that you no longer want to use, you need t
 1. In the REST API documentation UI, click the `GET/api/v2/cloudintegration` request.
 1. Click **Execute**.
 
-   In the **Response Body** section, you can see the list of all configured cloud services integrations. For example:
+   In the **Response Body** section, you can see the list of all configured cloud services integrations. For example, for a GCP integration you see:
 
     ```
       {
+        "forceSave": false,
         "name": "integration-name",
         "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
+        "service": "GCP",
+        "disabled": false,
         "inTrash": false,
         "creatorId": "user-account-email-address",
         "updaterId": "user-account-email-address",
-        "service": "GCP",
-        "disabled": false,
-        "lastReceivedDataPointMs": 1689932143491,
-        "lastMetricCount": 158,
+        "lastReceivedDataPointMs": 1690204240391,
         "gcp": {
-            "metricFilterRegex": "^gcp.(compute|container|pubsub).*$",
-            "projectId": "my_project_id",
-            "gcpJsonKey": "{\"project_id\": \"my_project_id\"}",
-            "disableHistogramToMetricConversion": false,
-            "disableDeltaCounts": false,
-            "categoriesToFetch": [
-              "APPENGINE"
-              ]
-          },
-        "lastProcessorId": "34ac679f-ace0-42a5-8371-6fa534f4123e",
-        "lastProcessingTimestamp": 1689932265098,
-        "createdEpochMillis": 1541180421550,
-        "updatedEpochMillis": 1632396329324,
-        "serviceRefreshRateInMins": 5,
+          "projectId": "my-project-id",
+          "gcpJsonKey": "{\"project_id\": \"my-project-id\"}",
+          "disableHistogramToMetricConversion": true,
+          "disableDeltaCounts": true,
+          "categoriesToFetch": [
+            "APIGEE",
+            "APPENGINE",
+            "CLOUDFUNCTIONS",
+            "RUN"
+          ],
+          "customMetricPrefix": [],
+          "disableHistogram": false,
+          "histogramGroupingFunction": [],
+          "metricFilterRegex": ""
+        },
+        "lastProcessorId": "c09797d7-f2c9-4253-8fcb-77fbad50a97c",
+        "lastProcessingTimestamp": 1690204240721,
+        "createdEpochMillis": 1690204240387,
+        "updatedEpochMillis": 1690204240387,
+        "serviceRefreshRateInMins": 10,
         "deleted": false
-      },
-
-   ```
+      }
+    ```
 
 1. Copy the value of the `"id"` parameter of the integration that you want to delete.
 1. To delete the integration, click the `DELETE /api/v2/cloudintegration/{id}` request.
