@@ -36,7 +36,9 @@ For information about the two subscription types and how they differ, see [Subsc
     * Sort the maintenance windows by name, state, start or end time, and so on.
     * Apply various filters, hide and show the filters listed on the left.
 
-* **New Field in the Generic Webhook Alert Template**: We added a new field to the Generic Webhook notification template which allow you to set the limit for the number of items returned by `contributingKVs`. 
+* **New Field in the Generic Webhook Alert Template**: We added the [`contributingKVs` iterator](alert_target_customizing.html#list-all-sources-and-point-tags-of-an-aggregation-alerts-time-series) which returns the keys and values of each source and point tag used in the time series of a failed alert whose condition uses a single top-level aggregation function.
+
+  {% include important.html content="This feature is disabled by default. To enable this feature for your service instance, contact your account representative or [technical support](wavefront_support_feedback.html#support)." %}
 
 * **Support for Alerting on ~alert.webhooks**: With this release, you can alert on `cs(~alert.webhooks.*)`. See [Query Responses of Webhook Alert Targets](webhooks_alert_notification.html#query-responses-of-webhook-alert-targets) for details.
 
