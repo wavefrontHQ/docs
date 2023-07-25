@@ -76,7 +76,7 @@ You can add a GCP integration by using the REST API documentation UI.
 
 You can update a GCP integration through the API.
 
-In this example, we update an existing GCP integration to retrieve the metrics for the following list of categories:
+In this example, we update an existing GCP integration to retrieve the metrics **only** for the following list of categories:
 
 * Apigee
 * App Engine
