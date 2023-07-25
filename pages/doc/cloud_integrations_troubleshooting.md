@@ -105,6 +105,7 @@ The following precheck steps use SnowSQL.
     }
     
     ```
+    
 ## Troubleshooting Other Integrations
 
 * [Troubleshooting Kubernetes](kubernetes_troubleshooting.html).
