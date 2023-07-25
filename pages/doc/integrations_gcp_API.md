@@ -128,9 +128,11 @@ We also change the service refresh rate from `5` to `10` minutes.
 1. Copy the content of the response in a text file.
 1. Edit the copied response body.
 
-   1. To update the list of services, under `"categoriesToFetch"`, add the list of services:
+   1. To update the list of services, under `"categoriesToFetch"`, add Apigee, App Engine, Cloud Functions, and Cloud Run:
 
       ![Updated list of services.](images/gcp-api-update-services.png)
+
+       {% include note.html content="The values that we pass as `categoriesToFetch` are not the same as the ones displayed in the Operations for Applications UI." %}
 
    1. To change the service refresh rate to 10 minutes, update the `"serviceRefreshRateInMins"` value:
 
@@ -163,11 +165,11 @@ We also change the service refresh rate from `5` to `10` minutes.
 
    ```
 
-   {% include note.html content="The values that we pass as `categoriesToFetch` are not the same as displayed in the Operations for Applications UI." %}
+   {% include note.html content="The values that we pass as `categoriesToFetch` are not the same as the ones displayed in the Operations for Applications UI." %}
    
 1. In the REST API documentation UI, click the `PUT /api/v2/cloudintegration/{id}` request.
-1. Under **Parameters**, in the **id** text box enter the ID of the integration that you copied.
-1. In **Edit Value** text box enter the edited response body with the updated categories to fetch and the service refresh rate.
+1. Under **Parameters**, in the **id** text box enter the ID of the integration that you want to update.
+1. In **Edit Value** text box enter the edited response body with the updated categories to fetch and the new service refresh rate.
 1. Click **Execute**.
 1. Verify that the response returns `200` status code to indicate that the update was successful.
 
@@ -217,8 +219,8 @@ VMware Aria Operations for Applications automatically disables integrations that
     ```
 
 1. Copy the value of the `"id"` parameter of the cloud integration that you want to enable or disable.
-1. To enable the integration, run the `POST /api/v2/cloudintegration/{id}/enable` request with the ID of the integration that you copied.
-1. To disable the integration, run the `POST /api/v2/cloudintegration/{id}/disable` request with the ID of the integration that you copied.
+1. To enable the integration, run the `POST /api/v2/cloudintegration/{id}/enable` request with the ID of the integration that you want to enable.
+1. To disable the integration, run the `POST /api/v2/cloudintegration/{id}/disable` request with the ID of the integration that you want to disable.
 
 ## Delete and Recover a Deleted GCP Integration
 
@@ -267,13 +269,13 @@ To delete a cloud service integration that you no longer want to use, you need t
 
 1. Copy the value of the `"id"` parameter of the integration that you want to delete.
 1. To delete the integration, click the `DELETE /api/v2/cloudintegration/{id}` request.
-   1. Under **Parameters**, in the **id** text box enter the integration ID that you copied.
+   1. Under **Parameters**, in the **id** text box enter the ID of the integration that you want to delete.
    1. From the **skipTrash** drop-down menu select whether you want to keep the deleted integration in the recycle bin.
 
       * Select **false**, to move the integration to the recycle bin, so that you can recover it at a later stage.
       * Select **true**, to delete the integration forever. You won't be able to recover it.
 
    1. Click **Execute**.
-1. To recover an integration from the recycle bin, i.e., an integration that was not permanently deleted, in the REST API documentation UI, click the `POST /api/v2/cloudintegration/{id}/undelete` request.
+1. To recover an integration from the recycle bin, i.e., an integration that **was not** permanently deleted, in the REST API documentation UI, click the `POST /api/v2/cloudintegration/{id}/undelete` request.
    1. Under **Parameters**, in the **id** text box enter the ID of the integration that you want to recover.
    1. Click **Execute**.
