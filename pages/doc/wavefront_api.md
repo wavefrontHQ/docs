@@ -100,7 +100,7 @@ The REST API supports the following objects corresponding to different categorie
 - **ApiToken** - Allows users with [**Accounts** permission](permissions_overview.html) to retrieve, create, and manage API tokens. Used primarily in conjunction with service accounts.
 
     {% include note.html content="Applies only to original subscriptions. See the [Operations for Applications subscription types](subscriptions-differences.html)."%}
-- **Cloud Integration** - Retrieve cloud integration data types such as those available with the [AWS integration](integrations_aws_metrics.html). Users with [**Proxies** permission](permissions_overview.html) can add and remove cloud integration data types.
+- **Cloud Integration** - Retrieve cloud integration data types such as those available with the [AWS integration](integrations_aws_metrics.html), [Google Cloud Platform Integration](gcp.html), [Google Cloud Billing Integration](gcp_billing.html), [New Relic Integration](newrelic.html), [AppDynamics Integration](appdynamics.html), [Dynatrace Integration](dynatrace.html), [Microsoft Azure Integration](azure.html), [VMware Aria Operations (SaaS) Integration](vrops.html), and the [Snowflake Integration](snowflake.html). Users with [**Proxies** permission](permissions_overview.html) can add and remove cloud integration data types.
 - **Dashboard** - Retrieve data about dashboards, list dashboards, and return version history. Users with [**Dashboards** permission](permissions_overview.html) can save, create, delete, clone, undelete dashboards.
 - **Derived Metric** - Manage derived metrics.
 - **Direct Ingestion** - Perform [direct ingestion](direct_ingestion.html) instead of using a proxy.
