@@ -147,7 +147,7 @@ To get the account ID and the external ID, do the following:
 <a name="CLI"></a> 
 <p><span style="font-size: medium; font-weight: 800">CLI Method</span></p>
 
-By using this method, the process for getting the account ID and the external ID as well as the creation of a role in AWS is automated.
+By using this method, the process for getting the account ID and the external ID, as well as the creation of a role in AWS is automated.
 
 **Task 1: Create a role in AWS**
 
@@ -180,7 +180,7 @@ By using this method, the process for getting the account ID and the external ID
       
 ### Giving Limited Access
 
-Instead of giving global read-only access, you can give Tanzu Observability more limited access. To do this, when you create a role in AWS, instead of providing **ReadOnlyAccess**, you can either create a policy with the required permissions and assign it to the role, or select an existing policy.
+Instead of giving global read-only access, you can give Operations for Applications more limited access. To do this, when you create a role in AWS, instead of providing **ReadOnlyAccess**, you can either create a policy with the required permissions and assign it to the role, or select an existing policy.
 
 <a name="policy"></a>
 
@@ -392,7 +392,7 @@ If you want to configure allow lists and service refresh rate for the CloudWatch
 
 After you set up the AWS integration with a [Role ARN](#give-read-only-access-to-your-amazon-account-and-get-the-role-arn), you can additionally register more Amazon Web services.
 
-1. In your service instance (`https://<your_instance>.wavefront.com`), click **Integrations** on the toolbar.
+1. In your service instance, click **Integrations** on the toolbar.
 1. In the **Featured** section, click the **Amazon Web Services** tile.
 1. On the **Overview** tab, click the ellipsis icon next to an instance, click **Add**, and select an option.
    * To register an AWS Metrics+ service, select **AWS Metrics+** and configure the following integration properties:
@@ -425,9 +425,9 @@ After you set up the AWS integration with a [Role ARN](#give-read-only-access-to
 
 ### Enable and Disable AWS Integrations
 
-We automatically disable integrations that are experiencing errors due to invalid credentials. To enable an integration after the credential has been corrected or to manually disable an integration:
+We automatically disable integrations that are experiencing errors due to invalid credentials. To enable an integration after the credentials have been corrected or to manually disable an integration:
 
-1. In your product instance, click **Integrations** on the toolbar.
+1. In your service instance, click **Integrations** on the toolbar.
 1. In the **Featured** section, click the **Amazon Web Services** tile.
 1. On the **Overview** tab search for the instance that you want to enable or disable.
 1. In the row that contains the integration that you want to enable or disable, click the ellipsis icon, and select an option.
@@ -482,6 +482,27 @@ In addition, you can also delete a single service within an integration instance
 
 1. In the row that contains the integration service that you want to delete, click the ellipsis icon, and select **Delete** > **[Service Name]**.
 1. Confirm the deletion.
+
+## Viewing PPS Consumption
+
+You can monitor the PPS consumption per AWS integration instance and service. The PPS consumption for each service in an integration instance is calculated by using the `mavg()` over one hour.
+
+1. In your product instance, click **Integrations** on the toolbar.
+1. In the **Featured** section, click the **Amazon Web Services** tile.
+1. On the **Overview** tab, in the **PPS Consumption** column, you see the PPS consumption for each registered integration instance.
+1. To see the PPS consumption per service, click the PPS number for the instance you're interested in.
+
+   The menu that appears shows the services within the integration instance, the PPS consumption for each service, and when the data was fetched for the last time.
+
+   ![Annotated screenshot of the Overview tab of an AWS integration with the information above.](images/aws-pps-metrics.png)
+
+1. To see more details and the chart with the current data, click the service you're interested in.
+
+   Note that if a service is disabled, the service link will be inactive. 
+
+   You'll see the chart showing the current data (by default, for the last 2 hours).
+
+   ![Screenshot of the chart showing the consumption for a service.](images/aws-pps-consumption-chart.png)
 
 
 ## Viewing AWS Metrics
