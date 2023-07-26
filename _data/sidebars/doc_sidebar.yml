@@ -498,6 +498,14 @@ entries:
             url: /integrations_aws_key_age.html
             output: web
 
+          - title: GCP Overview and Permissions
+            url: /integrations_gcp_overview.html
+            output: web
+          
+          - title: GCP Integration API Setup
+            url: /integrations_gcp_api.html
+            output: web
+
           - title: VMware TKGi Integration
             url: /integrations_tkgi.html
             output: web
