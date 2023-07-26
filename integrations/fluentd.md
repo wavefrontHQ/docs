@@ -13,10 +13,10 @@ This page provides an overview of what you can do with the Fluentd integration. 
 
 ## Fluentd Integration
 
-Fluentd is an open source data collector for a unified logging layer. By setting up this integration, you can send Fluentd metrics into Tanzu Observability by Wavefront.
+Fluentd is an open source data collector for a unified logging layer. By setting up this integration, you can send Fluentd metrics into Operations for Applications.
 
-1. **Fluentd**: This integration installs and configures Telegraf to send Fluentd metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
-2. **Fluentd on Kubernetes**: This explains the configuration of Wavefront Collector for Kubernetes to scrape Fluentd metrics using auto-discovery and annotation based discovery.
+1. **Fluentd**: This integration installs and configures Telegraf to send Fluentd metrics into Operations for Applications. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront Proxy](https://docs.wavefront.com/proxies.html).
+2. **Fluentd on Kubernetes**: This explains the configuration of Kubernetes Metrics Collector to scrape Fluentd metrics using auto-discovery and annotation based discovery.
 
 In addition to setting up the metrics flow, this integration also installs dashboards:
 * Fluentd

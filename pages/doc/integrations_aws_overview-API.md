@@ -26,7 +26,7 @@ For more information, see [Giving Access to Your AWS Account](integrations_aws_o
 1. Log in to your service instance.
 1. Click the gear icon in the top right and select **API Documentation**.
 1. Expand the **Cloud Integration** category.
-1. To create a new cloud integration, click the `POST /api/v2/cloudintegration/awsExternalId` request.
+1. To create an external ID, click the `POST /api/v2/cloudintegration/awsExternalId` request.
 1. Click **Execute**.
 1. Copy the external ID from the response body of the request.
 
@@ -53,7 +53,7 @@ You can add an AWS integration by using the REST API documentation UI.
 1. Log in to your service instance.
 1. Click the gear icon in the top right and select **API Documentation**.
 1. Expand the **Cloud Integration** category.
-1. To create a new cloud integration, click the `POST /api/v2/cloudintegration` request.
+1. To add a new cloud integration, click the `POST /api/v2/cloudintegration` request.
 1. To add an integration, in the **Edit Value** text box enter one of the following examples for each AWS integration.
 
    You can add one integration at a time. You cannot use a single API request to register all AWS services together.
@@ -200,53 +200,53 @@ We also add the metrics for these services to a metric allow list by using a reg
    The updated response body will look like that:
 
    ```
-{
-  "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-  "name":"AWS",
-  "service":"CLOUDWATCH",
-  "cloudWatch":{
-    "namespaces": [
-      "AWS/DynamoDB"
-      "AWS/EBS",
-      "AWS/ApiGateway",
-      "AWS/EC2",
-      "AWS/ELB",
-      "AWS/ElastiCache",
-      "AWS/ApplicationELB",
-      "AWS/SES",
-      "AWS/NATGateway",
-      "AWS/AutoScaling",
-      "AWS/RDS"
-    ],
-    "metricFilterRegex":^(aws.(ecs|ses|instance|autoscaling|sqs|sns|reservedInstance|ebs|route53.health|ec2.status|ec2.cpuutilization|ec2.network|ec2.autoscaling|autoscaling|elb|dynamodb|kinesis|firehose|s3|applicationelb|networkelb|lambda|rds|elasticache|applicationelb|natgateway).*),
-    "pointTagFilterRegex": "",
-    "baseCredentials":{
-      "roleArn":"arn:aws:iam::<accountid>:role/<rolename>"
-    },
-    "instanceSelectionTags": {},
-    "volumeSelectionTags": {}
-    }
-    },
-    "disabled": false,
-    "lastProcessorId": "3198d07c-210c-4670-9bd0-eb407d2a71dc",
-    "lastProcessingTimestamp": 1634038421682,
-    "createdEpochMillis": 1620216033503,
-    "updatedEpochMillis": 1622707203597,
-    "serviceRefreshRateInMins": 10,
-    "deleted": false,
-    "inTrash": false,
-    "lastErrorEvent": {
-      ...
-      ...
+    {
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
+      "name":"AWS",
+      "service":"CLOUDWATCH",
+      "cloudWatch":{
+        "namespaces": [
+          "AWS/DynamoDB"
+          "AWS/EBS",
+          "AWS/ApiGateway",
+          "AWS/EC2",
+          "AWS/ELB",
+          "AWS/ElastiCache",
+          "AWS/ApplicationELB",
+          "AWS/SES",
+          "AWS/NATGateway",
+          "AWS/AutoScaling",
+          "AWS/RDS"
+        ],
+        "metricFilterRegex":^(aws.(ecs|ses|instance|autoscaling|sqs|sns|reservedInstance|ebs|route53.health|ec2.status|ec2.cpuutilization|ec2.network|ec2.autoscaling|autoscaling|elb|dynamodb|kinesis|firehose|s3|applicationelb|networkelb|lambda|rds|elasticache|applicationelb|natgateway).*),
+        "pointTagFilterRegex": "",
+        "baseCredentials":{
+          "roleArn":"arn:aws:iam::<accountid>:role/<rolename>"
+        },
+        "instanceSelectionTags": {},
+        "volumeSelectionTags": {}
+        }
+        },
+        "disabled": false,
+        "lastProcessorId": "3198d07c-210c-4670-9bd0-eb407d2a71dc",
+        "lastProcessingTimestamp": 1634038421682,
+        "createdEpochMillis": 1620216033503,
+        "updatedEpochMillis": 1622707203597,
+        "serviceRefreshRateInMins": 10,
+        "deleted": false,
+        "inTrash": false,
+        "lastErrorEvent": {
+          ...
+          ...
 
-    "creatorId": "user-account-email-address",
-    "updaterId": "user-account-email-address"
-  },
+        "creatorId": "user-account-email-address",
+        "updaterId": "user-account-email-address"
+      },
 
    ```
 
 1. In the REST API documentation UI, click the `PUT /api/v2/cloudintegration/{id}` request.
-1. Under **Parameters**, in the **id** text box enter the ID of the integration that you copied.
+1. Under **Parameters**, in the **id** text box enter the ID of the integration that you want to update.
 1. In **Edit Value** text box enter the edited response body with the new services.
 1. Click **Execute**.
 1. Verify that the response returns `200` status code to indicate that the update was successful.
@@ -258,7 +258,7 @@ VMware Aria Operations for Applications automatically disables integrations that
 1. In the REST API documentation UI, click the `GET/api/v2/cloudintegration` request.
 1. Click **Execute**.
 
-   In the **Response Body** section, you can see the list of all configured cloud services integrations. For example:
+   In the **Response Body** section, you can see the list of all configured cloud services integrations. For example for an AWS integration you see:
 
     ```
     {
@@ -298,8 +298,8 @@ VMware Aria Operations for Applications automatically disables integrations that
 
    ```
 1. Copy the value of the `"id"` parameter of the cloud integration that you want to enable or disable.
-1. To enable the integration, run the `POST /api/v2/cloudintegration/{id}/enable` request with the ID of the integration that you copied.
-1. To disable the integration, run the `POST /api/v2/cloudintegration/{id}/disable` request with the ID of the integration that you copied.
+1. To enable the integration, run the `POST /api/v2/cloudintegration/{id}/enable` request with the ID of the integration that you want to enable.
+1. To disable the integration, run the `POST /api/v2/cloudintegration/{id}/disable` request with the ID of the integration that you want to disable.
 
 ## Delete and Recover a Deleted AWS Integration
 
@@ -349,7 +349,7 @@ To delete a cloud service integration that you no longer want to use, you need t
    ```
 1. Copy the value of the `"id"` parameter of the integration that you want to delete.
 1. To delete the integration, click the `DELETE /api/v2/cloudintegration/{id}` request.
-   1. Under **Parameters**, in the **id** text box enter the integration ID that you copied.
+   1. Under **Parameters**, in the **id** text box enter the ID of the integration that you want to delete.
    1. From the **skipTrash** drop-down menu select whether you want to keep the deleted integration in the recycle bin.
 
       * Select **false**, to move the integration to the recycle bin, so that you can recover it at a later stage.
